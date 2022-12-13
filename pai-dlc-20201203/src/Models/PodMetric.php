@@ -14,6 +14,8 @@ class PodMetric extends Model
     public $metrics;
 
     /**
+     * @example dlc-20210329110128-746bf7cl47pr8-worker-0
+     *
      * @var string
      */
     public $podId;

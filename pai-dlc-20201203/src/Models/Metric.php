@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class Metric extends Model
 {
     /**
+     * @example 1616987726587
+     *
      * @var int
      */
     public $time;
 
     /**
+     * @example 23.45
+     *
      * @var float
      */
     public $value;

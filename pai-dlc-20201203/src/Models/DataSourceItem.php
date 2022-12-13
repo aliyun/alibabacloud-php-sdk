@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class DataSourceItem extends Model
 {
     /**
+     * @example data-20210114104214-vf9lowjt3pso
+     *
      * @var string
      */
     public $dataSourceId;
 
     /**
+     * @example nas
+     *
      * @var string
      */
     public $dataSourceType;
 
     /**
+     * @example data source of dlc examples
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example nas-data
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example oss-cn-beijing-internal.aliyuncs.com
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @example 1ca404****
+     *
      * @var string
      */
     public $fileSystemId;
 
     /**
+     * @example 2021-01-12T14:35:00Z
+     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
+     * @example 2021-01-12T14:36:00Z
+     *
      * @var string
      */
     public $gmtModifyTime;
 
     /**
+     * @example /root/data/
+     *
      * @var string
      */
     public $mountPath;
 
     /**
+     * @example {"key": "value"}
+     *
      * @var string
      */
     public $options;
 
     /**
+     * @example oss://mybucket/path/to/dir
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example 123456789
+     *
      * @var string
      */
     public $userId;

@@ -14,11 +14,15 @@ class GetJobEventsResponseBody extends Model
     public $events;
 
     /**
+     * @example dlc-20210126170216-******
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 78F6FCE2-278F-4C4A-A6B7-DD8ECEA9C456
+     *
      * @var int
      */
     public $requestId;

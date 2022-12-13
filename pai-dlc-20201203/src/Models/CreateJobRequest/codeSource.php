@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class codeSource extends Model
 {
     /**
+     * @example master
+     *
      * @var string
      */
     public $branch;
 
     /**
+     * @example code-20210111103721-xxxxxxx
+     *
      * @var string
      */
     public $codeSourceId;
 
     /**
+     * @example 44da109b5******
+     *
      * @var string
      */
     public $commit;
 
     /**
+     * @example /root/data
+     *
      * @var string
      */
     public $mountPath;

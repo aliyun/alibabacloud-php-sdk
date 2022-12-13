@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DebuggerJob extends Model
 {
     /**
+     * @example dlc20210126170216-mtl37ge7gkvdz
+     *
      * @var string
      */
     public $debuggerJobId;
 
     /**
+     * @example dlc debugger test
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example 2932
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example 2021-01-12T14:35:00Z
+     *
      * @var string
      */
     public $gmtCreateTime;
@@ -59,21 +67,29 @@ class DebuggerJob extends Model
     public $gmtSucceedTime;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 12344556
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example workspace01
+     *
      * @var string
      */
     public $workspaceId;
 
     /**
+     * @example public
+     *
      * @var string
      */
     public $workspaceName;

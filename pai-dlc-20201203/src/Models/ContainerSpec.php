@@ -24,11 +24,15 @@ class ContainerSpec extends Model
     public $env;
 
     /**
+     * @example registry.cn-hangzhou.aliyuncs.com/pai-dlc/curl:v1.0.0
+     *
      * @var string
      */
     public $image;
 
     /**
+     * @example data-init
+     *
      * @var string
      */
     public $name;
@@ -39,6 +43,8 @@ class ContainerSpec extends Model
     public $resources;
 
     /**
+     * @example /root
+     *
      * @var string
      */
     public $workingDir;

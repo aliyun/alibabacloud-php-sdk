@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DebuggerResult extends Model
 {
     /**
+     * @example {\"description\":\"这是一个新的pytorchjob模板\"}
+     *
      * @var string
      */
     public $debuggerConfigContent;
 
     /**
+     * @example { "ProfileReport": { "Name": "CPUBottleneck","Triggered": 10,"Violations": 2,"Details": "{}"}, "LowCPU": { "Name": "CPUBottleneck","Triggered": 10,"Violations": 2,"Details": "{}"}}
+     *
      * @var string
      */
     public $debuggerJobIssues;
 
     /**
+     * @example {"Running": 1, "Failed": 1, "Succeeded": 2}
+     *
      * @var string
      */
     public $debuggerJobStatus;
 
     /**
+     * @example http://xxx.com/debug/report/download/new_xxxx.html
+     *
      * @var string
      */
     public $debuggerReportURL;
 
     /**
+     * @example dlc debugger test
+     *
      * @var string
      */
     public $jobDisplayName;
 
     /**
+     * @example dlc-20210126170216-mtl37ge7gkvdz
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 12344556
+     *
      * @var string
      */
     public $jobUserId;

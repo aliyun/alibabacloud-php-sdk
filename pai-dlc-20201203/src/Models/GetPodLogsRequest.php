@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetPodLogsRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $downloadToFile;
 
     /**
+     * @example 2020-11-08T17:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $maxLines;
@@ -29,6 +35,8 @@ class GetPodLogsRequest extends Model
     public $podUid;
 
     /**
+     * @example 2020-11-08T16:00:00Z
+     *
      * @var string
      */
     public $startTime;

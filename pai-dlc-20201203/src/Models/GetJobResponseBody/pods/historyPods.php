@@ -9,41 +9,63 @@ use AlibabaCloud\Tea\Model;
 class historyPods extends Model
 {
     /**
+     * @example 2021-01-12T14:36:01Z
+     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
+     * @example 2021-01-12T14:36:01Z
+     *
      * @var string
      */
     public $gmtFinishTime;
 
     /**
+     * @example 2021-01-12T14:36:01Z
+     *
      * @var string
      */
     public $gmtStartTime;
 
     /**
+     * @description Pod Ip
+     *
+     * @example 10.0.1.3
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description Pod Id
+     *
+     * @example Worker
+     *
      * @var string
      */
     public $podId;
 
     /**
+     * @description Pod UId
+     *
+     * @example fe846462-af2c-4521-bd6f-96787a57591d
+     *
      * @var string
      */
     public $podUid;
 
     /**
+     * @example Failed
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example Worker
+     *
      * @var string
      */
     public $type;

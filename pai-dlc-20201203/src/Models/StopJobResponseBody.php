@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class StopJobResponseBody extends Model
 {
     /**
+     * @example dlc-20210126170216-xxxxxxx
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 473469C7-AA6F-4DC5-B3DB-xxxxxx
+     *
      * @var string
      */
     public $requestId;

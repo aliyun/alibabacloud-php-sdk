@@ -14,16 +14,22 @@ class JobElasticSpec extends Model
     public $AIMasterType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableElasticTraining;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $maxParallelism;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $minParallelism;

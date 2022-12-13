@@ -19,34 +19,30 @@ class Quota extends Model
     public $clusterName;
 
     /**
-     * @var bool
+     * @var QuotaConfig
      */
-    public $enableTideResource;
+    public $quotaConfig;
 
     /**
-     * @var bool
-     */
-    public $isExclusiveQuota;
-
-    /**
+     * @example quotamtl37ge7gkvdz
+     *
      * @var string
      */
     public $quotaId;
 
     /**
+     * @example dlc-quota
+     *
      * @var string
      */
     public $quotaName;
 
     /**
+     * @example asiquota
+     *
      * @var string
      */
     public $quotaType;
-
-    /**
-     * @var string
-     */
-    public $resourceLevel;
 
     /**
      * @var QuotaDetail
@@ -68,18 +64,16 @@ class Quota extends Model
      */
     public $usedTideQuota;
     protected $_name = [
-        'clusterId'          => 'ClusterId',
-        'clusterName'        => 'ClusterName',
-        'enableTideResource' => 'EnableTideResource',
-        'isExclusiveQuota'   => 'IsExclusiveQuota',
-        'quotaId'            => 'QuotaId',
-        'quotaName'          => 'QuotaName',
-        'quotaType'          => 'QuotaType',
-        'resourceLevel'      => 'ResourceLevel',
-        'totalQuota'         => 'TotalQuota',
-        'totalTideQuota'     => 'TotalTideQuota',
-        'usedQuota'          => 'UsedQuota',
-        'usedTideQuota'      => 'UsedTideQuota',
+        'clusterId'      => 'ClusterId',
+        'clusterName'    => 'ClusterName',
+        'quotaConfig'    => 'QuotaConfig',
+        'quotaId'        => 'QuotaId',
+        'quotaName'      => 'QuotaName',
+        'quotaType'      => 'QuotaType',
+        'totalQuota'     => 'TotalQuota',
+        'totalTideQuota' => 'TotalTideQuota',
+        'usedQuota'      => 'UsedQuota',
+        'usedTideQuota'  => 'UsedTideQuota',
     ];
 
     public function validate()
@@ -95,11 +89,8 @@ class Quota extends Model
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
-        if (null !== $this->enableTideResource) {
-            $res['EnableTideResource'] = $this->enableTideResource;
-        }
-        if (null !== $this->isExclusiveQuota) {
-            $res['IsExclusiveQuota'] = $this->isExclusiveQuota;
+        if (null !== $this->quotaConfig) {
+            $res['QuotaConfig'] = null !== $this->quotaConfig ? $this->quotaConfig->toMap() : null;
         }
         if (null !== $this->quotaId) {
             $res['QuotaId'] = $this->quotaId;
@@ -109,9 +100,6 @@ class Quota extends Model
         }
         if (null !== $this->quotaType) {
             $res['QuotaType'] = $this->quotaType;
-        }
-        if (null !== $this->resourceLevel) {
-            $res['ResourceLevel'] = $this->resourceLevel;
         }
         if (null !== $this->totalQuota) {
             $res['TotalQuota'] = null !== $this->totalQuota ? $this->totalQuota->toMap() : null;
@@ -143,11 +131,8 @@ class Quota extends Model
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
-        if (isset($map['EnableTideResource'])) {
-            $model->enableTideResource = $map['EnableTideResource'];
-        }
-        if (isset($map['IsExclusiveQuota'])) {
-            $model->isExclusiveQuota = $map['IsExclusiveQuota'];
+        if (isset($map['QuotaConfig'])) {
+            $model->quotaConfig = QuotaConfig::fromMap($map['QuotaConfig']);
         }
         if (isset($map['QuotaId'])) {
             $model->quotaId = $map['QuotaId'];
@@ -157,9 +142,6 @@ class Quota extends Model
         }
         if (isset($map['QuotaType'])) {
             $model->quotaType = $map['QuotaType'];
-        }
-        if (isset($map['ResourceLevel'])) {
-            $model->resourceLevel = $map['ResourceLevel'];
         }
         if (isset($map['TotalQuota'])) {
             $model->totalQuota = QuotaDetail::fromMap($map['TotalQuota']);

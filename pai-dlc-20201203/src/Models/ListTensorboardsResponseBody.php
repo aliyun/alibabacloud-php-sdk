@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTensorboardsResponseBody extends Model
 {
     /**
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
@@ -19,6 +21,8 @@ class ListTensorboardsResponseBody extends Model
     public $tensorboards;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteTensorboardRequest extends Model
 {
     /**
+     * @example 46099
+     *
      * @var string
      */
     public $workspaceId;

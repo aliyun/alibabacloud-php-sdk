@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartTensorboardRequest extends Model
 {
     /**
+     * @example 380
+     *
      * @var string
      */
     public $workspaceId;

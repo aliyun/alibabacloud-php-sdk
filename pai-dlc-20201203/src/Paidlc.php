@@ -133,19 +133,6 @@ class Paidlc extends OpenApiClient
 
     /**
      * @param CreateJobRequest $request
-     *
-     * @return CreateJobResponse
-     */
-    public function createJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->createJobWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param CreateJobRequest $request
      * @param string[]         $headers
      * @param RuntimeOptions   $runtime
      *
@@ -194,6 +181,9 @@ class Paidlc extends OpenApiClient
         if (!Utils::isUnset($request->settings)) {
             $body['Settings'] = $request->settings;
         }
+        if (!Utils::isUnset($request->successPolicy)) {
+            $body['SuccessPolicy'] = $request->successPolicy;
+        }
         if (!Utils::isUnset($request->thirdpartyLibDir)) {
             $body['ThirdpartyLibDir'] = $request->thirdpartyLibDir;
         }
@@ -229,16 +219,16 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param CreateTensorboardRequest $request
+     * @param CreateJobRequest $request
      *
-     * @return CreateTensorboardResponse
+     * @return CreateJobResponse
      */
-    public function createTensorboard($request)
+    public function createJob($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createTensorboardWithOptions($request, $headers, $runtime);
+        return $this->createJobWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -311,6 +301,46 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @param CreateTensorboardRequest $request
+     *
+     * @return CreateTensorboardResponse
+     */
+    public function createTensorboard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTensorboardWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $JobId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteJobResponse
+     */
+    public function deleteJobWithOptions($JobId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteJob',
+            'version'     => '2020-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string $JobId
      *
      * @return DeleteJobResponse
@@ -324,23 +354,29 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param string         $JobId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                   $TensorboardId
+     * @param DeleteTensorboardRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return DeleteJobResponse
+     * @return DeleteTensorboardResponse
      */
-    public function deleteJobWithOptions($JobId, $headers, $runtime)
+    public function deleteTensorboardWithOptions($TensorboardId, $request, $headers, $runtime)
     {
-        $JobId = OpenApiUtilClient::getEncodeParam($JobId);
-        $req   = new OpenApiRequest([
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteJob',
+            'action'      => 'DeleteTensorboard',
             'version'     => '2020-12-03',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/jobs/' . $JobId . '',
+            'pathname'    => '/api/v1/tensorboards/' . OpenApiUtilClient::getEncodeParam($TensorboardId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -348,7 +384,7 @@ class Paidlc extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteTensorboardResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -366,38 +402,30 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param string                   $TensorboardId
-     * @param DeleteTensorboardRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param string         $JobId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteTensorboardResponse
+     * @return GetJobResponse
      */
-    public function deleteTensorboardWithOptions($TensorboardId, $request, $headers, $runtime)
+    public function getJobWithOptions($JobId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $TensorboardId = OpenApiUtilClient::getEncodeParam($TensorboardId);
-        $query         = [];
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
-        }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTensorboard',
+            'action'      => 'GetJob',
             'version'     => '2020-12-03',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/tensorboards/' . $TensorboardId . '',
-            'method'      => 'DELETE',
+            'pathname'    => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '',
+            'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
 
-        return DeleteTensorboardResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -414,48 +442,6 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param string         $JobId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetJobResponse
-     */
-    public function getJobWithOptions($JobId, $headers, $runtime)
-    {
-        $JobId = OpenApiUtilClient::getEncodeParam($JobId);
-        $req   = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'GetJob',
-            'version'     => '2020-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/jobs/' . $JobId . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetJobResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param string              $JobId
-     * @param GetJobEventsRequest $request
-     *
-     * @return GetJobEventsResponse
-     */
-    public function getJobEvents($JobId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getJobEventsWithOptions($JobId, $request, $headers, $runtime);
-    }
-
-    /**
      * @param string              $JobId
      * @param GetJobEventsRequest $request
      * @param string[]            $headers
@@ -466,7 +452,6 @@ class Paidlc extends OpenApiClient
     public function getJobEventsWithOptions($JobId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $JobId = OpenApiUtilClient::getEncodeParam($JobId);
         $query = [];
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
@@ -485,7 +470,7 @@ class Paidlc extends OpenApiClient
             'action'      => 'GetJobEvents',
             'version'     => '2020-12-03',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/jobs/' . $JobId . '/events',
+            'pathname'    => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '/events',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -497,17 +482,17 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param string               $JobId
-     * @param GetJobMetricsRequest $request
+     * @param string              $JobId
+     * @param GetJobEventsRequest $request
      *
-     * @return GetJobMetricsResponse
+     * @return GetJobEventsResponse
      */
-    public function getJobMetrics($JobId, $request)
+    public function getJobEvents($JobId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getJobMetricsWithOptions($JobId, $request, $headers, $runtime);
+        return $this->getJobEventsWithOptions($JobId, $request, $headers, $runtime);
     }
 
     /**
@@ -521,7 +506,6 @@ class Paidlc extends OpenApiClient
     public function getJobMetricsWithOptions($JobId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $JobId = OpenApiUtilClient::getEncodeParam($JobId);
         $query = [];
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
@@ -546,7 +530,7 @@ class Paidlc extends OpenApiClient
             'action'      => 'GetJobMetrics',
             'version'     => '2020-12-03',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/jobs/' . $JobId . '/metrics',
+            'pathname'    => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '/metrics',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -558,18 +542,17 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param string              $JobId
-     * @param string              $PodId
-     * @param GetPodEventsRequest $request
+     * @param string               $JobId
+     * @param GetJobMetricsRequest $request
      *
-     * @return GetPodEventsResponse
+     * @return GetJobMetricsResponse
      */
-    public function getPodEvents($JobId, $PodId, $request)
+    public function getJobMetrics($JobId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getPodEventsWithOptions($JobId, $PodId, $request, $headers, $runtime);
+        return $this->getJobMetricsWithOptions($JobId, $request, $headers, $runtime);
     }
 
     /**
@@ -584,8 +567,6 @@ class Paidlc extends OpenApiClient
     public function getPodEventsWithOptions($JobId, $PodId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $JobId = OpenApiUtilClient::getEncodeParam($JobId);
-        $PodId = OpenApiUtilClient::getEncodeParam($PodId);
         $query = [];
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
@@ -607,7 +588,7 @@ class Paidlc extends OpenApiClient
             'action'      => 'GetPodEvents',
             'version'     => '2020-12-03',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/jobs/' . $JobId . '/pods/' . $PodId . '/events',
+            'pathname'    => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '/pods/' . OpenApiUtilClient::getEncodeParam($PodId) . '/events',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -619,18 +600,18 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param string            $JobId
-     * @param string            $PodId
-     * @param GetPodLogsRequest $request
+     * @param string              $JobId
+     * @param string              $PodId
+     * @param GetPodEventsRequest $request
      *
-     * @return GetPodLogsResponse
+     * @return GetPodEventsResponse
      */
-    public function getPodLogs($JobId, $PodId, $request)
+    public function getPodEvents($JobId, $PodId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getPodLogsWithOptions($JobId, $PodId, $request, $headers, $runtime);
+        return $this->getPodEventsWithOptions($JobId, $PodId, $request, $headers, $runtime);
     }
 
     /**
@@ -645,8 +626,6 @@ class Paidlc extends OpenApiClient
     public function getPodLogsWithOptions($JobId, $PodId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $JobId = OpenApiUtilClient::getEncodeParam($JobId);
-        $PodId = OpenApiUtilClient::getEncodeParam($PodId);
         $query = [];
         if (!Utils::isUnset($request->downloadToFile)) {
             $query['DownloadToFile'] = $request->downloadToFile;
@@ -671,7 +650,7 @@ class Paidlc extends OpenApiClient
             'action'      => 'GetPodLogs',
             'version'     => '2020-12-03',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/jobs/' . $JobId . '/pods/' . $PodId . '/logs',
+            'pathname'    => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '/pods/' . OpenApiUtilClient::getEncodeParam($PodId) . '/logs',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -683,17 +662,18 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param string                $TensorboardId
-     * @param GetTensorboardRequest $request
+     * @param string            $JobId
+     * @param string            $PodId
+     * @param GetPodLogsRequest $request
      *
-     * @return GetTensorboardResponse
+     * @return GetPodLogsResponse
      */
-    public function getTensorboard($TensorboardId, $request)
+    public function getPodLogs($JobId, $PodId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getTensorboardWithOptions($TensorboardId, $request, $headers, $runtime);
+        return $this->getPodLogsWithOptions($JobId, $PodId, $request, $headers, $runtime);
     }
 
     /**
@@ -707,8 +687,7 @@ class Paidlc extends OpenApiClient
     public function getTensorboardWithOptions($TensorboardId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $TensorboardId = OpenApiUtilClient::getEncodeParam($TensorboardId);
-        $query         = [];
+        $query = [];
         if (!Utils::isUnset($request->jodId)) {
             $query['JodId'] = $request->jodId;
         }
@@ -723,7 +702,7 @@ class Paidlc extends OpenApiClient
             'action'      => 'GetTensorboard',
             'version'     => '2020-12-03',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/tensorboards/' . $TensorboardId . '',
+            'pathname'    => '/api/v1/tensorboards/' . OpenApiUtilClient::getEncodeParam($TensorboardId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -735,16 +714,17 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param ListEcsSpecsRequest $request
+     * @param string                $TensorboardId
+     * @param GetTensorboardRequest $request
      *
-     * @return ListEcsSpecsResponse
+     * @return GetTensorboardResponse
      */
-    public function listEcsSpecs($request)
+    public function getTensorboard($TensorboardId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listEcsSpecsWithOptions($request, $headers, $runtime);
+        return $this->getTensorboardWithOptions($TensorboardId, $request, $headers, $runtime);
     }
 
     /**
@@ -793,16 +773,16 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param ListJobsRequest $request
+     * @param ListEcsSpecsRequest $request
      *
-     * @return ListJobsResponse
+     * @return ListEcsSpecsResponse
      */
-    public function listJobs($request)
+    public function listEcsSpecs($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listJobsWithOptions($request, $headers, $runtime);
+        return $this->listEcsSpecsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -835,6 +815,9 @@ class Paidlc extends OpenApiClient
         }
         if (!Utils::isUnset($request->fromAllWorkspaces)) {
             $query['FromAllWorkspaces'] = $request->fromAllWorkspaces;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
         }
         if (!Utils::isUnset($request->jobType)) {
             $query['JobType'] = $request->jobType;
@@ -892,16 +875,16 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param ListTensorboardsRequest $request
+     * @param ListJobsRequest $request
      *
-     * @return ListTensorboardsResponse
+     * @return ListJobsResponse
      */
-    public function listTensorboards($request)
+    public function listJobs($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listTensorboardsWithOptions($request, $headers, $runtime);
+        return $this->listJobsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -977,6 +960,53 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @param ListTensorboardsRequest $request
+     *
+     * @return ListTensorboardsResponse
+     */
+    public function listTensorboards($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTensorboardsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                  $TensorboardId
+     * @param StartTensorboardRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return StartTensorboardResponse
+     */
+    public function startTensorboardWithOptions($TensorboardId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartTensorboard',
+            'version'     => '2020-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/tensorboards/' . OpenApiUtilClient::getEncodeParam($TensorboardId) . '/start',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartTensorboardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string                  $TensorboardId
      * @param StartTensorboardRequest $request
      *
@@ -991,38 +1021,30 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param string                  $TensorboardId
-     * @param StartTensorboardRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param string         $JobId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return StartTensorboardResponse
+     * @return StopJobResponse
      */
-    public function startTensorboardWithOptions($TensorboardId, $request, $headers, $runtime)
+    public function stopJobWithOptions($JobId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $TensorboardId = OpenApiUtilClient::getEncodeParam($TensorboardId);
-        $query         = [];
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
-        }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartTensorboard',
+            'action'      => 'StopJob',
             'version'     => '2020-12-03',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/tensorboards/' . $TensorboardId . '/start',
-            'method'      => 'PUT',
+            'pathname'    => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '/stop',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
 
-        return StartTensorboardResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1039,31 +1061,37 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param string         $JobId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                 $TensorboardId
+     * @param StopTensorboardRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
-     * @return StopJobResponse
+     * @return StopTensorboardResponse
      */
-    public function stopJobWithOptions($JobId, $headers, $runtime)
+    public function stopTensorboardWithOptions($TensorboardId, $request, $headers, $runtime)
     {
-        $JobId = OpenApiUtilClient::getEncodeParam($JobId);
-        $req   = new OpenApiRequest([
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopJob',
+            'action'      => 'StopTensorboard',
             'version'     => '2020-12-03',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/jobs/' . $JobId . '/stop',
-            'method'      => 'POST',
+            'pathname'    => '/api/v1/tensorboards/' . OpenApiUtilClient::getEncodeParam($TensorboardId) . '/stop',
+            'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
 
-        return StopJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopTensorboardResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1081,30 +1109,29 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param string                 $TensorboardId
-     * @param StopTensorboardRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param string           $JobId
+     * @param UpdateJobRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
      *
-     * @return StopTensorboardResponse
+     * @return UpdateJobResponse
      */
-    public function stopTensorboardWithOptions($TensorboardId, $request, $headers, $runtime)
+    public function updateJobWithOptions($JobId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $TensorboardId = OpenApiUtilClient::getEncodeParam($TensorboardId);
-        $query         = [];
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+        $body = [];
+        if (!Utils::isUnset($request->priority)) {
+            $body['Priority'] = $request->priority;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StopTensorboard',
+            'action'      => 'UpdateJob',
             'version'     => '2020-12-03',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/tensorboards/' . $TensorboardId . '/stop',
+            'pathname'    => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1112,7 +1139,7 @@ class Paidlc extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return StopTensorboardResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1130,55 +1157,6 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param string           $JobId
-     * @param UpdateJobRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
-     *
-     * @return UpdateJobResponse
-     */
-    public function updateJobWithOptions($JobId, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $JobId = OpenApiUtilClient::getEncodeParam($JobId);
-        $body  = [];
-        if (!Utils::isUnset($request->priority)) {
-            $body['Priority'] = $request->priority;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateJob',
-            'version'     => '2020-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/jobs/' . $JobId . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateJobResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param string                   $TensorboardId
-     * @param UpdateTensorboardRequest $request
-     *
-     * @return UpdateTensorboardResponse
-     */
-    public function updateTensorboard($TensorboardId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->updateTensorboardWithOptions($TensorboardId, $request, $headers, $runtime);
-    }
-
-    /**
      * @param string                   $TensorboardId
      * @param UpdateTensorboardRequest $request
      * @param string[]                 $headers
@@ -1189,8 +1167,7 @@ class Paidlc extends OpenApiClient
     public function updateTensorboardWithOptions($TensorboardId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $TensorboardId = OpenApiUtilClient::getEncodeParam($TensorboardId);
-        $query         = [];
+        $query = [];
         if (!Utils::isUnset($request->maxRunningTimeMinutes)) {
             $query['MaxRunningTimeMinutes'] = $request->maxRunningTimeMinutes;
         }
@@ -1205,7 +1182,7 @@ class Paidlc extends OpenApiClient
             'action'      => 'UpdateTensorboard',
             'version'     => '2020-12-03',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/tensorboards/' . $TensorboardId . '',
+            'pathname'    => '/api/v1/tensorboards/' . OpenApiUtilClient::getEncodeParam($TensorboardId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1214,5 +1191,19 @@ class Paidlc extends OpenApiClient
         ]);
 
         return UpdateTensorboardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                   $TensorboardId
+     * @param UpdateTensorboardRequest $request
+     *
+     * @return UpdateTensorboardResponse
+     */
+    public function updateTensorboard($TensorboardId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateTensorboardWithOptions($TensorboardId, $request, $headers, $runtime);
     }
 }

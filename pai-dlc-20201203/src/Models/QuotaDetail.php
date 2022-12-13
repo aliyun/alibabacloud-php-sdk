@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QuotaDetail extends Model
 {
     /**
+     * @example 2
+     *
      * @var string
      */
     public $CPU;
 
     /**
+     * @example 5
+     *
      * @var string
      */
     public $GPU;
@@ -24,16 +28,22 @@ class QuotaDetail extends Model
     public $GPUDetails;
 
     /**
+     * @example Tesla-V100
+     *
      * @var string
      */
     public $GPUType;
 
     /**
+     * @example nvidia.com/gpu
+     *
      * @var string
      */
     public $GPUTypeFullName;
 
     /**
+     * @example 10Gi
+     *
      * @var string
      */
     public $memory;

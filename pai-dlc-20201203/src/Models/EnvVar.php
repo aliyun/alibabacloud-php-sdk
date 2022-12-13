@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class EnvVar extends Model
 {
     /**
+     * @example ENABLE_DEBUG
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $value;

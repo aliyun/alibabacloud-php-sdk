@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateTensorboardRequest extends Model
 {
     /**
+     * @example MaxRunningTimeMinutes
+     *
      * @var int
      */
     public $maxRunningTimeMinutes;
 
     /**
+     * @example 380
+     *
      * @var string
      */
     public $workspaceId;

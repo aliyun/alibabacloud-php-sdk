@@ -21,16 +21,22 @@ class JobItem extends Model
     public $dataSources;
 
     /**
+     * @example tf-mnist-test
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example 3602
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enabledDebugger;
@@ -41,41 +47,57 @@ class JobItem extends Model
     public $envs;
 
     /**
+     * @example 2021-01-12T14:35:01Z
+     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
+     * @example 2021-01-12T14:35:01Z
+     *
      * @var string
      */
     public $gmtFailedTime;
 
     /**
+     * @example 2021-01-12T15:36:08Z
+     *
      * @var string
      */
     public $gmtFinishTime;
 
     /**
+     * @example 2021-01-12T14:35:01Z
+     *
      * @var string
      */
     public $gmtRunningTime;
 
     /**
+     * @example 2021-01-12T14:35:01Z
+     *
      * @var string
      */
     public $gmtStoppedTime;
 
     /**
+     * @example 2021-01-12T14:35:01Z
+     *
      * @var string
      */
     public $gmtSubmittedTime;
 
     /**
+     * @example 2021-01-12T14:35:01Z
+     *
      * @var string
      */
     public $gmtSuccessedTime;
 
     /**
+     * @example dlc-20210126170216-mtl37ge7gkvdz
+     *
      * @var string
      */
     public $jobId;
@@ -86,36 +108,50 @@ class JobItem extends Model
     public $jobSpecs;
 
     /**
+     * @example TFJob
+     *
      * @var string
      */
     public $jobType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example JobStoppedByUser
+     *
      * @var string
      */
     public $reasonCode;
 
     /**
+     * @example Job is stopped by user.
+     *
      * @var string
      */
     public $reasonMessage;
 
     /**
+     * @example dlc-quota
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example L0
+     *
      * @var string
      */
     public $resourceLevel;
 
     /**
+     * @example my_resource_group
+     *
      * @var string
      */
     public $resourceName;
@@ -126,11 +162,15 @@ class JobItem extends Model
     public $settings;
 
     /**
+     * @example Stopped
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example /root/code/
+     *
      * @var string
      */
     public $thirdpartyLibDir;
@@ -141,21 +181,29 @@ class JobItem extends Model
     public $thirdpartyLibs;
 
     /**
+     * @example python /root/code/mnist.py
+     *
      * @var string
      */
     public $userCommand;
 
     /**
+     * @example 123456789
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example 268
+     *
      * @var string
      */
     public $workspaceId;
 
     /**
+     * @example dlc-workspace
+     *
      * @var string
      */
     public $workspaceName;

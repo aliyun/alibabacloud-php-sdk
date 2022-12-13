@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class EcsSpec extends Model
 {
     /**
+     * @example GPU
+     *
      * @var string
      */
     public $acceleratorType;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $gpu;
 
     /**
+     * @example NVIDIA v100
+     *
      * @var string
      */
     public $gpuType;
 
     /**
+     * @example ecs.gn6e-c12g1.3xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isAvailable;
 
     /**
+     * @example 92
+     *
      * @var int
      */
     public $memory;

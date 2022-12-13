@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class JobSpec extends Model
 {
     /**
+     * @example ecs.c6.large
+     *
      * @var string
      */
     public $ecsSpec;
@@ -19,11 +21,15 @@ class JobSpec extends Model
     public $extraPodSpec;
 
     /**
+     * @example registry.cn-hangzhou.aliyuncs.com/pai-dlc/tensorflow-training:1.12.2PAI-cpu-py27-ubuntu16.04
+     *
      * @var string
      */
     public $image;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $podCount;
@@ -34,11 +40,15 @@ class JobSpec extends Model
     public $resourceConfig;
 
     /**
+     * @example Worker
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $useSpotInstance;

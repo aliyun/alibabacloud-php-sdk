@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class Workspace extends Model
 {
     /**
+     * @example ken
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @example 2021-01-12T14:36:01Z
+     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
+     * @example 2021-01-12T14:36:01Z
+     *
      * @var string
      */
     public $gmtModifyTime;
@@ -44,11 +50,15 @@ class Workspace extends Model
     public $workspaceAdmins;
 
     /**
+     * @example ws-20210126170216-mtl37ge7gkvdz
+     *
      * @var string
      */
     public $workspaceId;
 
     /**
+     * @example dlc-workspace
+     *
      * @var string
      */
     public $workspaceName;

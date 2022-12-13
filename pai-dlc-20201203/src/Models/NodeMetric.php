@@ -14,6 +14,8 @@ class NodeMetric extends Model
     public $metrics;
 
     /**
+     * @example asi_xxx
+     *
      * @var string
      */
     public $nodeName;

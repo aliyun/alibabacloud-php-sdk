@@ -9,71 +9,99 @@ use AlibabaCloud\Tea\Model;
 class Tensorboard extends Model
 {
     /**
+     * @example datasource-test
+     *
      * @var string
      */
     public $dataSourceId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example 1234567
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example 2021-01-12T14:35:00Z
+     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
+     * @example 2021-01-12T14:36:00Z
+     *
      * @var string
      */
     public $gmtModifyTime;
 
     /**
+     * @example dlc-20210114104214-vf9lowjt3pso
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example Delete by user
+     *
      * @var string
      */
     public $reasonCode;
 
     /**
+     * @example Tensorboard is deleted
+     *
      * @var string
      */
     public $reasonMessage;
 
     /**
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example /root/data
+     *
      * @var string
      */
     public $summaryPath;
 
     /**
+     * @example tensorboard-xxx
+     *
      * @var string
      */
     public $tensorboardId;
 
     /**
+     * @example http://xxxxxx
+     *
      * @var string
      */
     public $tensorboardUrl;
 
     /**
+     * @example lycxxxxx
+     *
      * @var string
      */
     public $userId;

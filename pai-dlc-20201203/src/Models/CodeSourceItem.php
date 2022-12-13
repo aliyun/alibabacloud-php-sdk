@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CodeSourceItem extends Model
 {
     /**
+     * @example master
+     *
      * @var string
      */
     public $codeBranch;
 
     /**
+     * @example 44da1*******
+     *
      * @var string
      */
     public $codeCommit;
 
     /**
+     * @example https://code.aliyun.com/pai-dlc/examples.git
+     *
      * @var string
      */
     public $codeRepo;
@@ -29,36 +35,50 @@ class CodeSourceItem extends Model
     public $codeRepoAccessToken;
 
     /**
+     * @example user
+     *
      * @var string
      */
     public $codeRepoUserName;
 
     /**
+     * @example code-20210111103721-85qz*****
+     *
      * @var string
      */
     public $codeSourceId;
 
     /**
+     * @example code source of dlc examples
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example MyCodeSourceName1
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example 2021-01-18T12:52:15Z
+     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
+     * @example 2021-01-18T12:52:15Z
+     *
      * @var string
      */
     public $gmtModifyTime;
 
     /**
+     * @example 115**********
+     *
      * @var string
      */
     public $userId;

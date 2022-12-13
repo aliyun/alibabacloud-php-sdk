@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class Resources extends Model
 {
     /**
+     * @example 10
+     *
      * @var string
      */
     public $CPU;
 
     /**
+     * @example 8
+     *
      * @var string
      */
     public $GPU;
 
     /**
+     * @example 1024（单位GB）
+     *
      * @var string
      */
     public $memory;

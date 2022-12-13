@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DebuggerJobIssue extends Model
 {
     /**
+     * @example {"Name": "CPUBottleneck",  "Triggered": 10, "Violations": 2,  "Details": "{}"}
+     *
      * @var string
      */
     public $debuggerJobIssue;
 
     /**
+     * @example 2021-01-12T14:35:00Z
+     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
+     * @example de-826ca1bcfba30
+     *
      * @var string
      */
     public $jobDebuggerIssueId;
 
     /**
+     * @example dlc-20210126170216-mtl37ge7gkvdz
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 1002300
+     *
      * @var string
      */
     public $reasonCode;
 
     /**
+     * @example GPU利用率低
+     *
      * @var string
      */
     public $reasonMessage;
 
     /**
+     * @example ProfileReport
+     *
      * @var string
      */
     public $ruleName;

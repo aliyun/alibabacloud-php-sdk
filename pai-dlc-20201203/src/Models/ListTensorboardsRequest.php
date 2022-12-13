@@ -9,71 +9,103 @@ use AlibabaCloud\Tea\Model;
 class ListTensorboardsRequest extends Model
 {
     /**
+     * @example TestTensorboard
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example 2020-11-09T14:45:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description JobId
+     *
+     * @example dlc-xxx
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example desc
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example GmtCreateTime
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example dlc-xxxxxx
+     *
      * @var string
      */
     public $sourceId;
 
     /**
+     * @example job
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @example 2020-11-08T16:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description TensorboardId
+     *
+     * @example tensorboard-xxx
+     *
      * @var string
      */
     public $tensorboardId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $verbose;
 
     /**
+     * @example 380
+     *
      * @var string
      */
     public $workspaceId;

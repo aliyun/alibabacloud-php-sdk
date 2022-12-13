@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetPodEventsRequest extends Model
 {
     /**
+     * @example 2020-11-09T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $maxEventsNum;
 
     /**
+     * @example dlc-20210126170216-*****-chief-0
+     *
      * @var string
      */
     public $podUid;
 
     /**
+     * @example 2020-11-08T16:00:00Z
+     *
      * @var string
      */
     public $startTime;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetJobMetricsRequest extends Model
 {
     /**
+     * @example 2020-11-09T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example GpuMemoryUsage
+     *
      * @var string
      */
     public $metricType;
 
     /**
+     * @example 2020-11-08T16:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 5m
+     *
      * @var string
      */
     public $timeStep;
 
     /**
+     * @example eyXXXX-XXXX.XXXXX
+     *
      * @var string
      */
     public $token;

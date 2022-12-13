@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListJobsRequest extends Model
 {
     /**
+     * @example 166924
+     *
      * @var string
      */
     public $businessUserId;
 
     /**
+     * @example SilkFlow
+     *
      * @var string
      */
     public $caller;
 
     /**
+     * @example tf-mnist-test
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example 2020-11-09T14:45:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -36,49 +44,74 @@ class ListJobsRequest extends Model
     /**
      * @var string
      */
+    public $jobId;
+
+    /**
+     * @example TFJob
+     *
+     * @var string
+     */
     public $jobType;
 
     /**
+     * @example desc
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example pid-123456
+     *
      * @var string
      */
     public $pipelineId;
 
     /**
+     * @example dlc-quota
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $showOwn;
 
     /**
+     * @example GmtCreateTime
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example 2020-11-08T16:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
@@ -89,6 +122,8 @@ class ListJobsRequest extends Model
     public $tags;
 
     /**
+     * @example 380
+     *
      * @var string
      */
     public $workspaceId;
@@ -98,6 +133,7 @@ class ListJobsRequest extends Model
         'displayName'       => 'DisplayName',
         'endTime'           => 'EndTime',
         'fromAllWorkspaces' => 'FromAllWorkspaces',
+        'jobId'             => 'JobId',
         'jobType'           => 'JobType',
         'order'             => 'Order',
         'pageNumber'        => 'PageNumber',
@@ -133,6 +169,9 @@ class ListJobsRequest extends Model
         }
         if (null !== $this->fromAllWorkspaces) {
             $res['FromAllWorkspaces'] = $this->fromAllWorkspaces;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
@@ -196,6 +235,9 @@ class ListJobsRequest extends Model
         }
         if (isset($map['FromAllWorkspaces'])) {
             $model->fromAllWorkspaces = $map['FromAllWorkspaces'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];

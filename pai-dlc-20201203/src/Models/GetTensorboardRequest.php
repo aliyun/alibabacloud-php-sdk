@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetTensorboardRequest extends Model
 {
     /**
+     * @description JodId
+     *
+     * @example dlc-xxxxxxxx
+     *
      * @var string
      */
     public $jodId;
 
     /**
+     * @example 46099
+     *
      * @var string
      */
     public $workspaceId;

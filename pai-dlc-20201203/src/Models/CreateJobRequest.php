@@ -22,11 +22,15 @@ class CreateJobRequest extends Model
     public $dataSources;
 
     /**
+     * @example “”
+     *
      * @var string
      */
     public $debuggerConfigContent;
 
     /**
+     * @example tf-mnist-test
+     *
      * @var string
      */
     public $displayName;
@@ -42,6 +46,8 @@ class CreateJobRequest extends Model
     public $envs;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $jobMaxRunningTimeMinutes;
@@ -52,21 +58,29 @@ class CreateJobRequest extends Model
     public $jobSpecs;
 
     /**
+     * @example TFJob
+     *
      * @var string
      */
     public $jobType;
 
     /**
+     * @example key1=value1,key2=value2
+     *
      * @var string
      */
     public $options;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example rs-xxx
+     *
      * @var string
      */
     public $resourceId;
@@ -79,6 +93,13 @@ class CreateJobRequest extends Model
     /**
      * @var string
      */
+    public $successPolicy;
+
+    /**
+     * @example /root/code/
+     *
+     * @var string
+     */
     public $thirdpartyLibDir;
 
     /**
@@ -87,6 +108,8 @@ class CreateJobRequest extends Model
     public $thirdpartyLibs;
 
     /**
+     * @example python /root/code/mnist.py
+     *
      * @var string
      */
     public $userCommand;
@@ -97,6 +120,8 @@ class CreateJobRequest extends Model
     public $userVpc;
 
     /**
+     * @example ws-20210126170216-xxxxxxx
+     *
      * @var string
      */
     public $workspaceId;
@@ -114,6 +139,7 @@ class CreateJobRequest extends Model
         'priority'                 => 'Priority',
         'resourceId'               => 'ResourceId',
         'settings'                 => 'Settings',
+        'successPolicy'            => 'SuccessPolicy',
         'thirdpartyLibDir'         => 'ThirdpartyLibDir',
         'thirdpartyLibs'           => 'ThirdpartyLibs',
         'userCommand'              => 'UserCommand',
@@ -178,6 +204,9 @@ class CreateJobRequest extends Model
         }
         if (null !== $this->settings) {
             $res['Settings'] = null !== $this->settings ? $this->settings->toMap() : null;
+        }
+        if (null !== $this->successPolicy) {
+            $res['SuccessPolicy'] = $this->successPolicy;
         }
         if (null !== $this->thirdpartyLibDir) {
             $res['ThirdpartyLibDir'] = $this->thirdpartyLibDir;
@@ -256,6 +285,9 @@ class CreateJobRequest extends Model
         }
         if (isset($map['Settings'])) {
             $model->settings = JobSettings::fromMap($map['Settings']);
+        }
+        if (isset($map['SuccessPolicy'])) {
+            $model->successPolicy = $map['SuccessPolicy'];
         }
         if (isset($map['ThirdpartyLibDir'])) {
             $model->thirdpartyLibDir = $map['ThirdpartyLibDir'];

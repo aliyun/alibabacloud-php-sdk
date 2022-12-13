@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateTensorboardResponseBody extends Model
 {
     /**
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Tensorboad Id
+     *
+     * @example tensorboard-20210114104214-xxxxxxxx
+     *
      * @var string
      */
     public $tensorboardId;

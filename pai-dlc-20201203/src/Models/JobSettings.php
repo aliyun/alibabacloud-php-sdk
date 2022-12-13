@@ -9,36 +9,57 @@ use AlibabaCloud\Tea\Model;
 class JobSettings extends Model
 {
     /**
+     * @example 166924
+     *
      * @var string
      */
     public $businessUserId;
 
     /**
+     * @example SilkFlow
+     *
      * @var string
      */
     public $caller;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableErrorMonitoringInAIMaster;
 
     /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $enableOssAppend;
+
+    /**
+     * @example true
+     *
      * @var bool
      */
     public $enableRDMA;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableTideResource;
 
     /**
+     * @example --enable-log-hang-detection true
+     *
      * @var string
      */
     public $errorMonitoringArgs;
 
     /**
+     * @example pid-123456
+     *
      * @var string
      */
     public $pipelineId;
@@ -51,6 +72,7 @@ class JobSettings extends Model
         'businessUserId'                  => 'BusinessUserId',
         'caller'                          => 'Caller',
         'enableErrorMonitoringInAIMaster' => 'EnableErrorMonitoringInAIMaster',
+        'enableOssAppend'                 => 'EnableOssAppend',
         'enableRDMA'                      => 'EnableRDMA',
         'enableTideResource'              => 'EnableTideResource',
         'errorMonitoringArgs'             => 'ErrorMonitoringArgs',
@@ -73,6 +95,9 @@ class JobSettings extends Model
         }
         if (null !== $this->enableErrorMonitoringInAIMaster) {
             $res['EnableErrorMonitoringInAIMaster'] = $this->enableErrorMonitoringInAIMaster;
+        }
+        if (null !== $this->enableOssAppend) {
+            $res['EnableOssAppend'] = $this->enableOssAppend;
         }
         if (null !== $this->enableRDMA) {
             $res['EnableRDMA'] = $this->enableRDMA;
@@ -109,6 +134,9 @@ class JobSettings extends Model
         }
         if (isset($map['EnableErrorMonitoringInAIMaster'])) {
             $model->enableErrorMonitoringInAIMaster = $map['EnableErrorMonitoringInAIMaster'];
+        }
+        if (isset($map['EnableOssAppend'])) {
+            $model->enableOssAppend = $map['EnableOssAppend'];
         }
         if (isset($map['EnableRDMA'])) {
             $model->enableRDMA = $map['EnableRDMA'];

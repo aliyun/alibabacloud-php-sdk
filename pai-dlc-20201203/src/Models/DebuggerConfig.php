@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DebuggerConfig extends Model
 {
     /**
+     * @example {\"description\":\"这是一个新的pytorchjob模板\"}
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example dc-vf9lowjt3pso
+     *
      * @var string
      */
     public $debuggerConfigId;
 
     /**
+     * @example 这是一个Pytorch的基础配置模板
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example Pytorch Experiment Config
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example 2021-01-12T14:35:00Z
+     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
+     * @example 2021-01-12T14:36:00Z
+     *
      * @var string
      */
     public $gmtModifyTime;

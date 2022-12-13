@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class pods extends Model
 {
     /**
+     * @example 2021-01-12T14:36:01Z
+     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
+     * @example 2021-01-12T15:36:05Z
+     *
      * @var string
      */
     public $gmtFinishTime;
 
     /**
+     * @example 2021-01-12T14:36:01Z
+     *
      * @var string
      */
     public $gmtStartTime;
@@ -30,26 +36,38 @@ class pods extends Model
     public $historyPods;
 
     /**
+     * @example 10.0.1.2
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @example Worker
+     *
      * @var string
      */
     public $podId;
 
     /**
+     * @description Pod UId
+     *
+     * @example fe846462-af2c-4521-bd6f-96787a57591d
+     *
      * @var string
      */
     public $podUid;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example Worker
+     *
      * @var string
      */
     public $type;

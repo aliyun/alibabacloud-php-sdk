@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ResourceConfig extends Model
 {
     /**
+     * @example 10
+     *
      * @var string
      */
     public $CPU;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $GPU;
 
     /**
+     * @example Tesla-V100-16G
+     *
      * @var string
      */
     public $GPUType;
 
     /**
+     * @example 10Gi
+     *
      * @var string
      */
     public $memory;
 
     /**
+     * @example 5Gi
+     *
      * @var string
      */
     public $sharedMemory;

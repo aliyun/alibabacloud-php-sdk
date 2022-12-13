@@ -14,11 +14,15 @@ class GPUDetail extends Model
     public $GPU;
 
     /**
+     * @example Tesla-V100-32G
+     *
      * @var string
      */
     public $GPUType;
 
     /**
+     * @example nvidia.com/gpu-tesla-v100-sxm2-16gb
+     *
      * @var string
      */
     public $GPUTypeFullName;

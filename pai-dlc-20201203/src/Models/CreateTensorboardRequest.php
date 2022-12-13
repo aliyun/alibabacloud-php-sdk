@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateTensorboardRequest extends Model
 {
     /**
+     * @example d-xxxxxxxx
+     *
      * @var string
      */
     public $dataSourceId;
 
     /**
+     * @example oss
+     *
      * @var string
      */
     public $dataSourceType;
@@ -24,51 +28,71 @@ class CreateTensorboardRequest extends Model
     public $dataSources;
 
     /**
+     * @example tensorboard
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example dlc-20210126170216-mtl37ge7gkvdz
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 240
+     *
      * @var int
      */
     public $maxRunningTimeMinutes;
 
     /**
+     * @example {"mountpath":"/root/data/"}
+     *
      * @var string
      */
     public $options;
 
     /**
+     * @example dlc-xxxxxx
+     *
      * @var string
      */
     public $sourceId;
 
     /**
+     * @example job
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @example /root/data/
+     *
      * @var string
      */
     public $summaryPath;
 
     /**
+     * @example /summary/
+     *
      * @var string
      */
     public $summaryRelativePath;
 
     /**
+     * @example oss://.oss-cn-shanghai-finance-1.aliyuncs.com/
+     *
      * @var string
      */
     public $uri;
 
     /**
+     * @example 123***
+     *
      * @var string
      */
     public $workspaceId;

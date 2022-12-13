@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class dataSources extends Model
 {
     /**
+     * @example data-20210114104214-vf9lowjt3pso
+     *
      * @var string
      */
     public $dataSourceId;
 
     /**
+     * @example /mnt/data
+     *
      * @var string
      */
     public $mountPath;

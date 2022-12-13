@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ImageItem extends Model
 {
     /**
+     * @example gpu
+     *
      * @var string
      */
     public $acceleratorType;
 
     /**
+     * @example ken
+     *
      * @var string
      */
     public $authorId;
 
     /**
+     * @example PyTorchJob
+     *
      * @var string
      */
     public $framework;
 
     /**
+     * @example Community
+     *
      * @var string
      */
     public $imageProviderType;
 
     /**
+     * @example tensorflow-training:2.3-cpu-py36-ubuntu18.04
+     *
      * @var string
      */
     public $imageTag;
 
     /**
+     * @example registry.cn-beijing.aliyuncs.com/pai-dlc/tensorflow-training:2.3-cpu-py36-ubuntu18.04
+     *
      * @var string
      */
     public $imageUrl;
 
     /**
+     * @example registry-vpc.cn-beijing.aliyuncs.com/pai-dlc/tensorflow-training:2.3-cpu-py36-ubuntu18.04
+     *
      * @var string
      */
     public $imageUrlVpc;

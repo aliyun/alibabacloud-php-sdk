@@ -14,21 +14,29 @@ class GetPodEventsResponseBody extends Model
     public $events;
 
     /**
+     * @example dlc-20210126170216-*****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example dlc-20210126170216-*****-chief-0
+     *
      * @var string
      */
     public $podId;
 
     /**
+     * @example 94a7cc7c-0033-48b5-85bd-71c63592c268
+     *
      * @var string
      */
     public $podUid;
 
     /**
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;

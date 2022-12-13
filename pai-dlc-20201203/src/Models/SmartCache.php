@@ -9,81 +9,113 @@ use AlibabaCloud\Tea\Model;
 class SmartCache extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $cacheWorkerNum;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $cacheWorkerSize;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example oss-cn-beijing-internal.aliyuncs.com
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @example 1ca404****
+     *
      * @var string
      */
     public $fileSystemId;
 
     /**
+     * @example 2021-01-12T14:36:01Z
+     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
+     * @example 2021-01-12T23:36:01Z
+     *
      * @var string
      */
     public $gmtModifyTime;
 
     /**
+     * @example /root/data/
+     *
      * @var string
      */
     public $mountPath;
 
     /**
+     * @example {"num_threads": 32}
+     *
      * @var string
      */
     public $options;
 
     /**
+     * @example oss://buc/path/to/dir
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example smartcache-20210114104214-vf9lowjt3pso
+     *
      * @var string
      */
     public $smartCacheId;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example oss
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 189xxx
+     *
      * @var string
      */
     public $userId;

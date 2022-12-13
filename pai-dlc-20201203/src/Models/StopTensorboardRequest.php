@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StopTensorboardRequest extends Model
 {
     /**
+     * @example 380
+     *
      * @var string
      */
     public $workspaceId;
