@@ -9,34 +9,38 @@ use AlibabaCloud\Tea\Model;
 class scopeObjectList extends Model
 {
     /**
-     * @description id主键
+     * @example 10
      *
      * @var int
      */
     public $id;
 
     /**
-     * @description 订阅范围类型 0 全部 1服务 2 流转规则
+     * @var int
+     */
+    public $isValid;
+
+    /**
+     * @example SERVICE
      *
      * @var string
      */
     public $scope;
 
     /**
-     * @description 订阅范围对象名称
-     *
      * @var string
      */
     public $scopeObject;
 
     /**
-     * @description 订阅范围对象关联表主键id
+     * @example 10
      *
      * @var int
      */
     public $scopeObjectId;
     protected $_name = [
         'id'            => 'id',
+        'isValid'       => 'isValid',
         'scope'         => 'scope',
         'scopeObject'   => 'scopeObject',
         'scopeObjectId' => 'scopeObjectId',
@@ -51,6 +55,9 @@ class scopeObjectList extends Model
         $res = [];
         if (null !== $this->id) {
             $res['id'] = $this->id;
+        }
+        if (null !== $this->isValid) {
+            $res['isValid'] = $this->isValid;
         }
         if (null !== $this->scope) {
             $res['scope'] = $this->scope;
@@ -75,6 +82,9 @@ class scopeObjectList extends Model
         $model = new self();
         if (isset($map['id'])) {
             $model->id = $map['id'];
+        }
+        if (isset($map['isValid'])) {
+            $model->isValid = $map['isValid'];
         }
         if (isset($map['scope'])) {
             $model->scope = $map['scope'];

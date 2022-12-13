@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceRequest extends Model
 {
     /**
-     * @description 幂等号
+     * @example C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 服务描述
+     * @example 服务描述
      *
      * @var string
      */
     public $serviceDescription;
 
     /**
-     * @description 服务名称
+     * @example 服务名称
      *
      * @var string
      */

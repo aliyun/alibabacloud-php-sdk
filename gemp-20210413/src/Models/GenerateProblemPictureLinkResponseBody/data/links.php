@@ -11,12 +11,14 @@ class links extends Model
     /**
      * @description oss key
      *
+     * @example problem/xxxxxxxxxx-484d-4242-b9cf-xxxxxxxxxx
+     *
      * @var string
      */
     public $key;
 
     /**
-     * @description 图片链接
+     * @example http://xxxx-xxxx-bucket.oss-cn-xxxx.aliyuncs.com/pxxxx/38xxxxd-4789-4242-b9cfxxxxxxxxc6?Expires=1xxxxxxxxxx7&OSSAccessKeyId=xxxxxxxxxxxxxx7&Signature=xxxxxxxxxxxxxxxxxxxxxx
      *
      * @var string
      */

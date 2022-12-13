@@ -9,63 +9,72 @@ use AlibabaCloud\Tea\Model;
 class ListAlertsRequest extends Model
 {
     /**
-     * @description 报警等级 P1 P2 P3 P4
+     * @example P1
      *
      * @var string
      */
     public $alertLevel;
 
     /**
-     * @description 报警名称
+     * @example 报警
      *
      * @var string
      */
     public $alertName;
 
     /**
-     * @description 报警来源
+     * @example 流转规则A
      *
      * @var string
      */
     public $alertSourceName;
 
     /**
-     * @description 结束时间
+     * @description 2020-09-10 21:00:00
+     *
+     * @example 2020-10-01 23:59:59
      *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 当前页
+     * @var string
+     */
+    public $monitorSourceId;
+
+    /**
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 页大小
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 服务id
+     * @example 1
      *
      * @var int
      */
     public $relatedServiceId;
 
     /**
-     * @description 流转规则名字
+     * @example zabbix
      *
      * @var string
      */
     public $ruleName;
 
     /**
-     * @description 开始时间
+     * @description 2020-09-10 13:00:00
+     *
+     * @example 2020-10-01 00:00:00
      *
      * @var string
      */
@@ -75,6 +84,7 @@ class ListAlertsRequest extends Model
         'alertName'        => 'alertName',
         'alertSourceName'  => 'alertSourceName',
         'endTime'          => 'endTime',
+        'monitorSourceId'  => 'monitorSourceId',
         'pageNumber'       => 'pageNumber',
         'pageSize'         => 'pageSize',
         'relatedServiceId' => 'relatedServiceId',
@@ -100,6 +110,9 @@ class ListAlertsRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
+        }
+        if (null !== $this->monitorSourceId) {
+            $res['monitorSourceId'] = $this->monitorSourceId;
         }
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
@@ -139,6 +152,9 @@ class ListAlertsRequest extends Model
         }
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
+        }
+        if (isset($map['monitorSourceId'])) {
+            $model->monitorSourceId = $map['monitorSourceId'];
         }
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];

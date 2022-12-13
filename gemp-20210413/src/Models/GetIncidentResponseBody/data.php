@@ -9,177 +9,216 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 分派的用户ID
+     * @var int
+     */
+    public $assignToWhoIsValid;
+
+    /**
+     * @example 12312
      *
      * @var int
      */
     public $assignUserId;
 
     /**
-     * @description 分派的用户姓名 (用户表获取)
+     * @example 小明
      *
      * @var string
      */
     public $assignUserName;
 
     /**
-     * @description 分派的用户手机号
+     * @example 1390000****
      *
      * @var string
      */
     public $assignUserPhone;
 
     /**
-     * @description 创建时间
+     * @example 2020-01-10 00:00:00
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 持续时间
+     * @var int
+     */
+    public $defaultAssignToWho;
+
+    /**
+     * @var int
+     */
+    public $defaultAssignToWhoIsValid;
+
+    /**
+     * @var string
+     */
+    public $defaultAssignToWhoName;
+
+    /**
+     * @example 3000000
      *
      * @var int
      */
     public $durationTime;
 
     /**
-     * @description HIGH	影响等级 高：HIGH 低 LOW
+     * @example LOW
      *
      * @var string
      */
     public $effect;
 
     /**
-     * @description 事件描述
+     * @example 事件描述
      *
      * @var string
      */
     public $incidentDescription;
 
     /**
-     * @description 事件Id
+     * @example 3213
      *
      * @var int
      */
     public $incidentId;
 
     /**
-     * @description 事件级别 P1 P2 P3 P4
+     * @example P4
      *
      * @var string
      */
     public $incidentLevel;
 
     /**
-     * @description 事件编号
+     * @example I3443831000000016247759753663894
      *
      * @var string
      */
     public $incidentNumber;
 
     /**
-     * @description 事件状态 ASSIGNED已分派 RESPONDED已响应  FINISHED已完结
+     * @example FINISHE
      *
      * @var string
      */
     public $incidentStatus;
 
     /**
-     * @description 事件标题
+     * @example 事件标题
      *
      * @var string
      */
     public $incidentTitle;
 
     /**
-     * @description 事件来源 是：手动 否：自动
+     * @example true
      *
      * @var bool
      */
     public $isManual;
 
     /**
-     * @description 是否升级 是 否
+     * @example true
      *
      * @var bool
      */
     public $isUpgrade;
 
     /**
-     * @description 通知渠道
+     * @example 1 短信  2  邮件  3  电话  4 企微群 5 钉钉群 6飞书 7 群通知 8 slack
      *
      * @var string[]
      */
     public $notifyChannels;
 
     /**
-     * @description 故障Id
+     * @example 232113
      *
      * @var int
      */
     public $problemId;
 
     /**
-     * @description 故障编号
+     * @example 3332113231453321
      *
      * @var string
      */
     public $problemNumber;
 
     /**
-     * @description 关联服务描述
+     * @var int
+     */
+    public $relRouteRuleDeleteType;
+
+    /**
+     * @var int
+     */
+    public $relServiceDeleteType;
+
+    /**
+     * @var int
+     */
+    public $relServiceGroupIsValid;
+
+    /**
+     * @example 关联服务描述
      *
      * @var string
      */
     public $relatedServiceDescription;
 
     /**
-     * @description 关联服服务id
+     * @example 13000
      *
      * @var int
      */
     public $relatedServiceGroupId;
 
     /**
-     * @description 关联服务组名称
+     * @example 服务组A
      *
      * @var string
      */
     public $relatedServiceGroupName;
 
     /**
-     * @description 关联服务ID
+     * @example 312312
      *
      * @var int
      */
     public $relatedServiceId;
 
     /**
-     * @description 关联服务名称
+     * @example 服务A
      *
      * @var string
      */
     public $relatedServiceName;
 
     /**
-     * @description 流转规则ID
+     * @example 3123
      *
      * @var int
      */
     public $routeRuleId;
 
     /**
-     * @description 流转规则名称
+     * @example 流转规则A
      *
      * @var string
      */
     public $routeRuleName;
     protected $_name = [
+        'assignToWhoIsValid'        => 'assignToWhoIsValid',
         'assignUserId'              => 'assignUserId',
         'assignUserName'            => 'assignUserName',
         'assignUserPhone'           => 'assignUserPhone',
         'createTime'                => 'createTime',
+        'defaultAssignToWho'        => 'defaultAssignToWho',
+        'defaultAssignToWhoIsValid' => 'defaultAssignToWhoIsValid',
+        'defaultAssignToWhoName'    => 'defaultAssignToWhoName',
         'durationTime'              => 'durationTime',
         'effect'                    => 'effect',
         'incidentDescription'       => 'incidentDescription',
@@ -193,6 +232,9 @@ class data extends Model
         'notifyChannels'            => 'notifyChannels',
         'problemId'                 => 'problemId',
         'problemNumber'             => 'problemNumber',
+        'relRouteRuleDeleteType'    => 'relRouteRuleDeleteType',
+        'relServiceDeleteType'      => 'relServiceDeleteType',
+        'relServiceGroupIsValid'    => 'relServiceGroupIsValid',
         'relatedServiceDescription' => 'relatedServiceDescription',
         'relatedServiceGroupId'     => 'relatedServiceGroupId',
         'relatedServiceGroupName'   => 'relatedServiceGroupName',
@@ -209,6 +251,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->assignToWhoIsValid) {
+            $res['assignToWhoIsValid'] = $this->assignToWhoIsValid;
+        }
         if (null !== $this->assignUserId) {
             $res['assignUserId'] = $this->assignUserId;
         }
@@ -220,6 +265,15 @@ class data extends Model
         }
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
+        }
+        if (null !== $this->defaultAssignToWho) {
+            $res['defaultAssignToWho'] = $this->defaultAssignToWho;
+        }
+        if (null !== $this->defaultAssignToWhoIsValid) {
+            $res['defaultAssignToWhoIsValid'] = $this->defaultAssignToWhoIsValid;
+        }
+        if (null !== $this->defaultAssignToWhoName) {
+            $res['defaultAssignToWhoName'] = $this->defaultAssignToWhoName;
         }
         if (null !== $this->durationTime) {
             $res['durationTime'] = $this->durationTime;
@@ -260,6 +314,15 @@ class data extends Model
         if (null !== $this->problemNumber) {
             $res['problemNumber'] = $this->problemNumber;
         }
+        if (null !== $this->relRouteRuleDeleteType) {
+            $res['relRouteRuleDeleteType'] = $this->relRouteRuleDeleteType;
+        }
+        if (null !== $this->relServiceDeleteType) {
+            $res['relServiceDeleteType'] = $this->relServiceDeleteType;
+        }
+        if (null !== $this->relServiceGroupIsValid) {
+            $res['relServiceGroupIsValid'] = $this->relServiceGroupIsValid;
+        }
         if (null !== $this->relatedServiceDescription) {
             $res['relatedServiceDescription'] = $this->relatedServiceDescription;
         }
@@ -293,6 +356,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['assignToWhoIsValid'])) {
+            $model->assignToWhoIsValid = $map['assignToWhoIsValid'];
+        }
         if (isset($map['assignUserId'])) {
             $model->assignUserId = $map['assignUserId'];
         }
@@ -304,6 +370,15 @@ class data extends Model
         }
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
+        }
+        if (isset($map['defaultAssignToWho'])) {
+            $model->defaultAssignToWho = $map['defaultAssignToWho'];
+        }
+        if (isset($map['defaultAssignToWhoIsValid'])) {
+            $model->defaultAssignToWhoIsValid = $map['defaultAssignToWhoIsValid'];
+        }
+        if (isset($map['defaultAssignToWhoName'])) {
+            $model->defaultAssignToWhoName = $map['defaultAssignToWhoName'];
         }
         if (isset($map['durationTime'])) {
             $model->durationTime = $map['durationTime'];
@@ -345,6 +420,15 @@ class data extends Model
         }
         if (isset($map['problemNumber'])) {
             $model->problemNumber = $map['problemNumber'];
+        }
+        if (isset($map['relRouteRuleDeleteType'])) {
+            $model->relRouteRuleDeleteType = $map['relRouteRuleDeleteType'];
+        }
+        if (isset($map['relServiceDeleteType'])) {
+            $model->relServiceDeleteType = $map['relServiceDeleteType'];
+        }
+        if (isset($map['relServiceGroupIsValid'])) {
+            $model->relServiceGroupIsValid = $map['relServiceGroupIsValid'];
         }
         if (isset($map['relatedServiceDescription'])) {
             $model->relatedServiceDescription = $map['relatedServiceDescription'];

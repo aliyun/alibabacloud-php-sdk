@@ -19,6 +19,8 @@ class GeneratePictureUploadSignResponseBody extends Model
     /**
      * @description Id of the request
      *
+     * @example e2d4306a-bf4d-4345-9ae6-158223c85dbd
+     *
      * @var string
      */
     public $requestId;

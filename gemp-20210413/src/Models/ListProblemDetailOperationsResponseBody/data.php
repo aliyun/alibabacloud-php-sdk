@@ -9,49 +9,49 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 升级 PROBLEM_UPGRADE 撤销 PROBLEM_REVOKE 恢复 PROBLEM_RESTORE 复盘 PROBLEM_IN_REVIEW 完结 PROBLEM_REOPENED 取消 PROBLEM_CANCEL 更新故障通告 PROBLEM_UPDATE_NOTIFY 添加故障小计 PROBLEM_ADD_SUBTOTAL 更新故障 PROBLEM_UPDATE
+     * @example PROBLEM_CANCEL
      *
      * @var string
      */
     public $action;
 
     /**
-     * @description 创建时间
+     * @example 2021-01-23 00:00:00
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 描述
+     * @example 描述
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description 服务
+     * @example 服务A
      *
      * @var string
      */
     public $relatedServiceName;
 
     /**
-     * @description 备注
+     * @example 备注
      *
      * @var string
      */
     public $remark;
 
     /**
-     * @description 快照数据
+     * @example {“userName”:"小明"}
      *
      * @var string
      */
     public $snapshotData;
 
     /**
-     * @description 动态标题
+     * @example 动态标题
      *
      * @var string
      */

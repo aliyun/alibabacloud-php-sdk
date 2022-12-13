@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DataValue extends Model
 {
     /**
+     * @example SMS
+     *
      * @var string
      */
     public $code;
@@ -19,42 +21,38 @@ class DataValue extends Model
     public $description;
 
     /**
-     * @description 配置描述
-     *
      * @var string
      */
     public $configDescription;
 
     /**
-     * @description 配置code
+     * @example PROBLEM_REASON_DISASTER
      *
      * @var string
      */
     public $configCode;
 
     /**
-     * @description 配置父code
+     * @example PROBLEM_REASON
      *
      * @var string
      */
     public $parentCode;
 
     /**
-     * @description key (用于前后端值传递)
+     * @example 2
      *
      * @var string
      */
     public $configKey;
 
     /**
-     * @description value (用于前端展示)
-     *
      * @var string
      */
     public $configValue;
 
     /**
-     * @description 是否必选
+     * @example true
      *
      * @var bool
      */

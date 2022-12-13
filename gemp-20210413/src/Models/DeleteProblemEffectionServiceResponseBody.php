@@ -11,6 +11,8 @@ class DeleteProblemEffectionServiceResponseBody extends Model
     /**
      * @description Id of the request
      *
+     * @example e0b6735e-1a04-4d6b-a625-d2350612492c
+     *
      * @var string
      */
     public $requestId;

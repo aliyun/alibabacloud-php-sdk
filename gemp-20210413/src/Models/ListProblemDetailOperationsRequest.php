@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class ListProblemDetailOperationsRequest extends Model
 {
     /**
-     * @description 幂等校验
+     * @example FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 时间排序
+     * @example desc,asc
      *
      * @var string
      */
     public $createTimeSort;
 
     /**
-     * @description 页
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 行
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 故障id
+     * @example 1
      *
      * @var int
      */

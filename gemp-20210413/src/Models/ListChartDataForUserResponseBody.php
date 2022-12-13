@@ -19,6 +19,8 @@ class ListChartDataForUserResponseBody extends Model
     /**
      * @description Id of the request
      *
+     * @example 1231212
+     *
      * @var string
      */
     public $requestId;

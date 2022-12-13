@@ -9,98 +9,98 @@ use AlibabaCloud\Tea\Model;
 class topFiveIncidents extends Model
 {
     /**
-     * @description 分派人id
+     * @example 43
      *
      * @var string
      */
     public $assignUserId;
 
     /**
-     * @description 分派人
+     * @example 张老三
      *
      * @var string
      */
     public $assignUserName;
 
     /**
-     * @description 触发时间
+     * @example 2021-09-09 09:09:09
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 持续时间
+     * @example 6787678767
      *
      * @var int
      */
     public $durationTime;
 
     /**
-     * @description 触发原因
+     * @example 2
      *
      * @var int
      */
     public $finishReason;
 
     /**
-     * @description 触发原因描述
+     * @example xxxx原因
      *
      * @var string
      */
     public $finishReasonDescription;
 
     /**
-     * @description 解决方案描述
+     * @example xxx方案
      *
      * @var string
      */
     public $finishSolutionDescription;
 
     /**
-     * @description 解决方案
+     * @example 5
      *
      * @var int
      */
     public $incidentFinishSolution;
 
     /**
-     * @description 事件id
+     * @example 32
      *
      * @var int
      */
     public $incidentId;
 
     /**
-     * @description 事件编号
+     * @example I34324
      *
      * @var string
      */
     public $incidentNumber;
 
     /**
-     * @description 事件标题
+     * @example xxx事件
      *
      * @var string
      */
     public $incidentTitle;
 
     /**
-     * @description 流转规则id
+     * @example 4343
      *
      * @var int
      */
     public $relatedRouteRuleId;
 
     /**
-     * @description 流转规则名称
+     * @example xxx
      *
      * @var string
      */
     public $relatedRouteRuleName;
 
     /**
-     * @description 相似度
+     * @example 1992.21
      *
      * @var string
      */

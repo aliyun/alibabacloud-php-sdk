@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateUserRequest extends Model
 {
     /**
+     * @example c26f36de-1ec8-496a-a828-880676c5ef81
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example 5678@qq.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 188898989892
+     *
      * @var string
      */
     public $phone;
 
     /**
+     * @example 4787654378343
+     *
      * @var int
      */
     public $ramId;

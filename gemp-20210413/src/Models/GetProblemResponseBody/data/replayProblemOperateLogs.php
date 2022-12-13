@@ -9,37 +9,43 @@ use AlibabaCloud\Tea\Model;
 class replayProblemOperateLogs extends Model
 {
     /**
-     * @description 动作名称
+     * @example 复盘故障
      *
      * @var string
      */
     public $actionName;
 
     /**
-     * @description 操作时间
+     * @example 2020-08-08 15:39:39
      *
      * @var string
      */
     public $actionTime;
 
     /**
-     * @description 操作人
+     * @example 周宇凡
      *
      * @var string
      */
     public $operator;
 
     /**
-     * @description 用户id
+     * @example 2323
      *
      * @var int
      */
     public $userId;
+
+    /**
+     * @var int
+     */
+    public $userIsValid;
     protected $_name = [
-        'actionName' => 'actionName',
-        'actionTime' => 'actionTime',
-        'operator'   => 'operator',
-        'userId'     => 'userId',
+        'actionName'  => 'actionName',
+        'actionTime'  => 'actionTime',
+        'operator'    => 'operator',
+        'userId'      => 'userId',
+        'userIsValid' => 'userIsValid',
     ];
 
     public function validate()
@@ -60,6 +66,9 @@ class replayProblemOperateLogs extends Model
         }
         if (null !== $this->userId) {
             $res['userId'] = $this->userId;
+        }
+        if (null !== $this->userIsValid) {
+            $res['userIsValid'] = $this->userIsValid;
         }
 
         return $res;
@@ -84,6 +93,9 @@ class replayProblemOperateLogs extends Model
         }
         if (isset($map['userId'])) {
             $model->userId = $map['userId'];
+        }
+        if (isset($map['userIsValid'])) {
+            $model->userIsValid = $map['userIsValid'];
         }
 
         return $model;

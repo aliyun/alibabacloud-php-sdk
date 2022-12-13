@@ -9,69 +9,75 @@ use AlibabaCloud\Tea\Model;
 class ListSubscriptionsRequest extends Model
 {
     /**
-     * @description 幂等参数
+     * @example 601FA6A2-AC5C-4B59-BE11-378FTOKENA11
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 通知对象名
+     * @var bool
+     */
+    public $notFilterScopeObjectDeleted;
+
+    /**
+     * @example test
      *
      * @var string
      */
     public $notifyObject;
 
     /**
-     * @description 通知对象类型notifyWhoType:0服务组 1个人
+     * @example SERVICE
      *
      * @var string
      */
     public $notifyObjectType;
 
     /**
-     * @description 第几页
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 一页几条
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 订阅范围类型 0全部1服务2流转规则
+     * @example SERVICE
      *
      * @var string
      */
     public $scope;
 
     /**
-     * @description 订阅范围对象名称
+     * @example TestName
      *
      * @var string
      */
     public $scopeObject;
 
     /**
-     * @description 通知订阅名
+     * @example newTitle
      *
      * @var string
      */
     public $subscriptionTitle;
     protected $_name = [
-        'clientToken'       => 'clientToken',
-        'notifyObject'      => 'notifyObject',
-        'notifyObjectType'  => 'notifyObjectType',
-        'pageNumber'        => 'pageNumber',
-        'pageSize'          => 'pageSize',
-        'scope'             => 'scope',
-        'scopeObject'       => 'scopeObject',
-        'subscriptionTitle' => 'subscriptionTitle',
+        'clientToken'                 => 'clientToken',
+        'notFilterScopeObjectDeleted' => 'notFilterScopeObjectDeleted',
+        'notifyObject'                => 'notifyObject',
+        'notifyObjectType'            => 'notifyObjectType',
+        'pageNumber'                  => 'pageNumber',
+        'pageSize'                    => 'pageSize',
+        'scope'                       => 'scope',
+        'scopeObject'                 => 'scopeObject',
+        'subscriptionTitle'           => 'subscriptionTitle',
     ];
 
     public function validate()
@@ -83,6 +89,9 @@ class ListSubscriptionsRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->notFilterScopeObjectDeleted) {
+            $res['notFilterScopeObjectDeleted'] = $this->notFilterScopeObjectDeleted;
         }
         if (null !== $this->notifyObject) {
             $res['notifyObject'] = $this->notifyObject;
@@ -119,6 +128,9 @@ class ListSubscriptionsRequest extends Model
         $model = new self();
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['notFilterScopeObjectDeleted'])) {
+            $model->notFilterScopeObjectDeleted = $map['notFilterScopeObjectDeleted'];
         }
         if (isset($map['notifyObject'])) {
             $model->notifyObject = $map['notifyObject'];

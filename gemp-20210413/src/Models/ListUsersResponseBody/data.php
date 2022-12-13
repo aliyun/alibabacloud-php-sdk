@@ -9,71 +9,79 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 账户类型
+     * @example SUB
      *
      * @var int
      */
     public $accountType;
 
     /**
-     * @description 移动应用账户
+     * @example 23456tre
      *
      * @var string
      */
     public $appAccount;
 
     /**
-     * @description 邮箱
+     * @example 2345****@qq.com
      *
      * @var string
      */
     public $email;
 
     /**
-     * @description 是否可编辑
+     * @example true
      *
      * @var int
      */
     public $isEditableUser;
 
     /**
-     * @description 是否关联
+     * @var int
+     */
+    public $isOperation;
+
+    /**
+     * @var int
+     */
+    public $isRam;
+
+    /**
+     * @example RELATED关联  NOT_RELATED 未关联
      *
      * @var string
      */
     public $isRelated;
 
     /**
-     * @description 手机
+     * @example 1390000****
      *
      * @var string
      */
     public $phone;
 
     /**
-     * @description 子账号ramId
+     * @example 53624523
      *
      * @var int
      */
     public $ramId;
 
     /**
-     * @description 移动应用协同渠道
+     * @example DINGDING
      *
      * @var string
      */
     public $synergyChannel;
 
     /**
-     * @description 用户id
+     * @example 1234
      *
      * @var int
      */
     public $userId;
 
     /**
-     * @description 用户名
-     *
      * @var string
      */
     public $username;
@@ -82,6 +90,8 @@ class data extends Model
         'appAccount'     => 'appAccount',
         'email'          => 'email',
         'isEditableUser' => 'isEditableUser',
+        'isOperation'    => 'isOperation',
+        'isRam'          => 'isRam',
         'isRelated'      => 'isRelated',
         'phone'          => 'phone',
         'ramId'          => 'ramId',
@@ -108,6 +118,12 @@ class data extends Model
         }
         if (null !== $this->isEditableUser) {
             $res['isEditableUser'] = $this->isEditableUser;
+        }
+        if (null !== $this->isOperation) {
+            $res['isOperation'] = $this->isOperation;
+        }
+        if (null !== $this->isRam) {
+            $res['isRam'] = $this->isRam;
         }
         if (null !== $this->isRelated) {
             $res['isRelated'] = $this->isRelated;
@@ -150,6 +166,12 @@ class data extends Model
         }
         if (isset($map['isEditableUser'])) {
             $model->isEditableUser = $map['isEditableUser'];
+        }
+        if (isset($map['isOperation'])) {
+            $model->isOperation = $map['isOperation'];
+        }
+        if (isset($map['isRam'])) {
+            $model->isRam = $map['isRam'];
         }
         if (isset($map['isRelated'])) {
             $model->isRelated = $map['isRelated'];

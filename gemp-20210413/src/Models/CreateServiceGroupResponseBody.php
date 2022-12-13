@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceGroupResponseBody extends Model
 {
     /**
-     * @description 服务组ID
+     * @example 1
      *
      * @var data
      */
@@ -18,6 +18,8 @@ class CreateServiceGroupResponseBody extends Model
 
     /**
      * @description Id of the request
+     *
+     * @example C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var string
      */

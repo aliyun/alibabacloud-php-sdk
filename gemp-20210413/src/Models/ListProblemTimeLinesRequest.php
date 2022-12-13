@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListProblemTimeLinesRequest extends Model
 {
     /**
-     * @description clientToken
+     * @example C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 故障ID
+     * @example 10002010
      *
      * @var int
      */

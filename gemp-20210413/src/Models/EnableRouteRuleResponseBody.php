@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class EnableRouteRuleResponseBody extends Model
 {
     /**
+     * @example null
+     *
      * @var int
      */
     public $data;
 
     /**
-     * @description 请求ID
+     * @example C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var string
      */

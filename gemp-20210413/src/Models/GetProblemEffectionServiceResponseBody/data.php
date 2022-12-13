@@ -9,49 +9,47 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 影响描述
+     * @example ew
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description 影响服务id
+     * @example 6442430
      *
      * @var int
      */
     public $effectionServiceId;
 
     /**
-     * @description 影响等级
+     * @example P2
      *
      * @var int
      */
     public $level;
 
     /**
-     * @description 图片链接
-     *
      * @var string[]
      */
     public $picUrl;
 
     /**
-     * @description 服务id
+     * @example 170000000
      *
      * @var int
      */
     public $serviceId;
 
     /**
-     * @description 服务名称
+     * @example 哈哈
      *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description 影响状态 0 未恢复 1已恢复
+     * @example UN_RECOVERED
      *
      * @var int
      */

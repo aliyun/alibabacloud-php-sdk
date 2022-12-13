@@ -11,29 +11,25 @@ use AlibabaCloud\Tea\Model;
 class strategies extends Model
 {
     /**
-     * @description 故障等级
+     * @example SMS,WEIXIN_GROUP
      *
      * @var string
      */
     public $channels;
 
     /**
-     * @description 影响程度
-     *
      * @var conditions[]
      */
     public $conditions;
 
     /**
-     * @description id
+     * @example 10
      *
      * @var string
      */
     public $id;
 
     /**
-     * @description 分时段通知渠道
-     *
      * @var periodChannel
      */
     public $periodChannel;

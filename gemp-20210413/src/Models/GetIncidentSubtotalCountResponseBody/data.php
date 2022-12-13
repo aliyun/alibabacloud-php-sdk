@@ -11,12 +11,16 @@ class data extends Model
     /**
      * @description id of the request
      *
+     * @example 24343424234
+     *
      * @var string
      */
     public $requestId;
 
     /**
      * @description map
+     *
+     * @example {12:12}
      *
      * @var mixed[]
      */

@@ -10,42 +10,40 @@ use AlibabaCloud\Tea\Model;
 class dailySimilarIncidents extends Model
 {
     /**
-     * @description 数量
+     * @example 0
      *
      * @var int
      */
     public $commitment;
 
     /**
-     * @description 日期
+     * @example 2021-03-07
      *
      * @var string
      */
     public $date;
 
     /**
-     * @description 星期几
+     * @example 1
      *
      * @var int
      */
     public $day;
 
     /**
-     * @description 月份
+     * @example 2
      *
      * @var int
      */
     public $month;
 
     /**
-     * @description 相似事件列表
-     *
      * @var similarIncidents[]
      */
     public $similarIncidents;
 
     /**
-     * @description 周
+     * @example 1
      *
      * @var string
      */

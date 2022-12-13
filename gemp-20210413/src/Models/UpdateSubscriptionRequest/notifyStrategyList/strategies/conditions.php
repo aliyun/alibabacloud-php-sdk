@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class conditions extends Model
 {
     /**
-     * @description 事件动作
+     * @example INCIDENT_TRIGGER
      *
      * @var string
      */
     public $action;
 
     /**
-     * @description 影响程度
+     * @example HIGH
      *
      * @var string
      */
     public $effection;
 
     /**
-     * @description 等级
+     * @example P1
      *
      * @var string
      */
     public $level;
 
     /**
-     * @description 故障通知类型
+     * @example PROBLEM_NOTIFY
      *
      * @var string
      */

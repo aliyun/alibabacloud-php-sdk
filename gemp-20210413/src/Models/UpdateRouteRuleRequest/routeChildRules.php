@@ -10,45 +10,49 @@ use AlibabaCloud\Tea\Model;
 class routeChildRules extends Model
 {
     /**
-     * @description 子条件计算关系
+     * @example 1
      *
      * @var int
      */
     public $childConditionRelation;
 
     /**
-     * @description 子规则ID 不填表示新增
+     * @example 1
      *
      * @var int
      */
     public $childRouteRuleId;
 
     /**
-     * @description 条件
-     *
      * @var conditions[]
      */
     public $conditions;
 
     /**
-     * @description true  删除子规则  false编辑子规则
+     * @example false
      *
      * @var bool
      */
     public $isValidChildRule;
 
     /**
-     * @description 监控源ID
+     * @example 1
      *
      * @var int
      */
     public $monitorSourceId;
+
+    /**
+     * @var string
+     */
+    public $problemLevel;
     protected $_name = [
         'childConditionRelation' => 'childConditionRelation',
         'childRouteRuleId'       => 'childRouteRuleId',
         'conditions'             => 'conditions',
         'isValidChildRule'       => 'isValidChildRule',
         'monitorSourceId'        => 'monitorSourceId',
+        'problemLevel'           => 'problemLevel',
     ];
 
     public function validate()
@@ -78,6 +82,9 @@ class routeChildRules extends Model
         }
         if (null !== $this->monitorSourceId) {
             $res['monitorSourceId'] = $this->monitorSourceId;
+        }
+        if (null !== $this->problemLevel) {
+            $res['problemLevel'] = $this->problemLevel;
         }
 
         return $res;
@@ -111,6 +118,9 @@ class routeChildRules extends Model
         }
         if (isset($map['monitorSourceId'])) {
             $model->monitorSourceId = $map['monitorSourceId'];
+        }
+        if (isset($map['problemLevel'])) {
+            $model->problemLevel = $map['problemLevel'];
         }
 
         return $model;

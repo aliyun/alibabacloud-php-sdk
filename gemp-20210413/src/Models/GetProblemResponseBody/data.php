@@ -17,112 +17,109 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 已取消故障操作日志
-     *
      * @var cancelProblemOperateLogs[]
      */
     public $cancelProblemOperateLogs;
 
     /**
-     * @description 取消原因
+     * @example 取消理由
      *
      * @var int
      */
     public $cancelReason;
 
     /**
-     * @description 取消原因描述
+     * @example 理由
      *
      * @var string
      */
     public $cancelReasonDescription;
 
     /**
-     * @description 应急协同组
-     *
      * @var coordinationGroups[]
      */
     public $coordinationGroups;
 
     /**
-     * @description 创建时间
+     * @example 2010-03-09 15:53:45
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 发现时间
+     * @example 2010-03-09 15:53:45
      *
      * @var string
      */
     public $discoverTime;
 
     /**
-     * @description 持续时间
+     * @example 300000
      *
      * @var int
      */
     public $durationTime;
 
     /**
-     * @description 影响服务
-     *
      * @var effectionServices[]
      */
     public $effectionServices;
 
     /**
-     * @description 舆情反馈
+     * @example feedback
      *
      * @var string
      */
     public $feedback;
 
     /**
-     * @description 处理中故障操作日志
-     *
      * @var handingProblemOperateLogs[]
      */
     public $handingProblemOperateLogs;
 
     /**
-     * @description 事件id
+     * @example 130000032
      *
      * @var int
      */
     public $incidentId;
 
     /**
-     * @description 事件编号
+     * @example I3443835000012016260833157948165
      *
      * @var string
      */
     public $incidentNumber;
 
     /**
-     * @description 主要处理人
+     * @example 王宇
      *
      * @var int
      */
     public $mainHandler;
 
     /**
-     * @description 主要处理人ID
+     * @example 2000
      *
      * @var int
      */
     public $mainHandlerId;
 
     /**
-     * @description 主要处理人手机号
+     * @var int
+     */
+    public $mainHandlerIsValid;
+
+    /**
+     * @example 1308987****
      *
      * @var string
      */
     public $mainHandlerPhone;
 
     /**
-     * @description 初步原因
+     * @example 原因
      *
      * @var string
      */
@@ -131,97 +128,98 @@ class data extends Model
     /**
      * @description ID
      *
+     * @example 1
+     *
      * @var int
      */
     public $problemId;
 
     /**
-     * @description 故障等级 P1 P2 P3 P4
+     * @example P1
      *
      * @var int
      */
     public $problemLevel;
 
     /**
-     * @description 故障名称
+     * @example 故障
      *
      * @var string
      */
     public $problemName;
 
     /**
-     * @description 故障编号
+     * @example P34438300010030116260833538987481
      *
      * @var string
      */
     public $problemNumber;
 
     /**
-     * @description 故障状态  HANDLING    处理中 RECOVERED  已恢复  REPLAYING   复盘中  REPLAYED     已复盘 CANCEL        已取消
+     * @example HANDLING
      *
      * @var int
      */
     public $problemStatus;
 
     /**
-     * @description 进展摘要
+     * @example 摘要
      *
      * @var string
      */
     public $progressSummary;
 
     /**
-     * @description 进展摘要富文本id
+     * @example 1231231
      *
      * @var int
      */
     public $progressSummaryRichTextId;
 
     /**
-     * @description 恢复时间
+     * @example 2010-03-09 15:53:45
      *
      * @var string
      */
     public $recoveryTime;
 
     /**
-     * @description 关联服务ID
+     * @example 1
      *
      * @var int
      */
     public $relatedServiceId;
 
     /**
-     * @description 已复盘故障操作日志
-     *
      * @var replayProblemOperateLogs[]
      */
     public $replayProblemOperateLogs;
 
     /**
-     * @description 复盘中故障操作日志
-     *
      * @var replayingProblemOperateLogs[]
      */
     public $replayingProblemOperateLogs;
 
     /**
-     * @description 已恢复故障操作日志
-     *
      * @var restoredProblemOperateLogs[]
      */
     public $restoredProblemOperateLogs;
 
     /**
-     * @description 关联服务 名称
+     * @description serviceDeleteType
+     *
+     * @var int
+     */
+    public $serviceDeleteType;
+
+    /**
+     * @example 服务
      *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description 故障操作时间线
-     *
      * @var timelines[]
      */
     public $timelines;
@@ -240,6 +238,7 @@ class data extends Model
         'incidentNumber'              => 'incidentNumber',
         'mainHandler'                 => 'mainHandler',
         'mainHandlerId'               => 'mainHandlerId',
+        'mainHandlerIsValid'          => 'mainHandlerIsValid',
         'mainHandlerPhone'            => 'mainHandlerPhone',
         'preliminaryReason'           => 'preliminaryReason',
         'problemId'                   => 'problemId',
@@ -254,6 +253,7 @@ class data extends Model
         'replayProblemOperateLogs'    => 'replayProblemOperateLogs',
         'replayingProblemOperateLogs' => 'replayingProblemOperateLogs',
         'restoredProblemOperateLogs'  => 'restoredProblemOperateLogs',
+        'serviceDeleteType'           => 'serviceDeleteType',
         'serviceName'                 => 'serviceName',
         'timelines'                   => 'timelines',
     ];
@@ -331,6 +331,9 @@ class data extends Model
         if (null !== $this->mainHandlerId) {
             $res['mainHandlerId'] = $this->mainHandlerId;
         }
+        if (null !== $this->mainHandlerIsValid) {
+            $res['mainHandlerIsValid'] = $this->mainHandlerIsValid;
+        }
         if (null !== $this->mainHandlerPhone) {
             $res['mainHandlerPhone'] = $this->mainHandlerPhone;
         }
@@ -390,6 +393,9 @@ class data extends Model
                     $res['restoredProblemOperateLogs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->serviceDeleteType) {
+            $res['serviceDeleteType'] = $this->serviceDeleteType;
         }
         if (null !== $this->serviceName) {
             $res['serviceName'] = $this->serviceName;
@@ -481,6 +487,9 @@ class data extends Model
         if (isset($map['mainHandlerId'])) {
             $model->mainHandlerId = $map['mainHandlerId'];
         }
+        if (isset($map['mainHandlerIsValid'])) {
+            $model->mainHandlerIsValid = $map['mainHandlerIsValid'];
+        }
         if (isset($map['mainHandlerPhone'])) {
             $model->mainHandlerPhone = $map['mainHandlerPhone'];
         }
@@ -540,6 +549,9 @@ class data extends Model
                     $model->restoredProblemOperateLogs[$n++] = null !== $item ? restoredProblemOperateLogs::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['serviceDeleteType'])) {
+            $model->serviceDeleteType = $map['serviceDeleteType'];
         }
         if (isset($map['serviceName'])) {
             $model->serviceName = $map['serviceName'];

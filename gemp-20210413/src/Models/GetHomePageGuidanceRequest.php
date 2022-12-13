@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetHomePageGuidanceRequest extends Model
 {
     /**
-     * @description 幂等号
+     * @example xxxxxx
      *
      * @var string
      */

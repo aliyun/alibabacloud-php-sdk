@@ -17,6 +17,8 @@ class ListSourceEventsResponseBody extends Model
     /**
      * @description firstRowKey
      *
+     * @example 9223370412331485032-1344383-9967-1-08be8b08ef30441390072f3bfba71c94
+     *
      * @var string
      */
     public $firstRowKey;
@@ -24,33 +26,35 @@ class ListSourceEventsResponseBody extends Model
     /**
      * @description lastRowKey
      *
+     * @example 9223370412331485036-1344383-9967-1-8d729a1b176f493ca3be643b391d5ced
+     *
      * @var string
      */
     public $lastRowKey;
 
     /**
-     * @description 当前页
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 页大小
+     * @example 20
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 请求ID
+     * @example C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 总条数
+     * @example 100
      *
      * @var int
      */

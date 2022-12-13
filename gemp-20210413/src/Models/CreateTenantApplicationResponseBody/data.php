@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 开通url
+     * @example http://xxxx
      *
      * @var string
      */
     public $openUrl;
 
     /**
-     * @description 开通进度状态
+     * @example OPENED 已开通 OPENING 开通中
      *
      * @var string
      */

@@ -9,35 +9,33 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 字段
-     *
      * @var string[]
      */
     public $fields;
 
     /**
-     * @description 监控源ID
+     * @example 1000
      *
      * @var int
      */
     public $monitorSourceId;
 
     /**
-     * @description 监控报警源名字
+     * @example zabbix
      *
      * @var string
      */
     public $monitorSourceName;
 
     /**
-     * @description 模板内容
+     * @example ""
      *
      * @var string
      */
     public $templateContent;
 
     /**
-     * @description 消息模版ID
+     * @example 1000
      *
      * @var int
      */

@@ -12,77 +12,71 @@ use AlibabaCloud\Tea\Model;
 class UpdateSubscriptionRequest extends Model
 {
     /**
-     * @description 结束时间
+     * @example 2022-05-09 10:10:23
      *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 订阅时效
+     * @example LONG_TERM
      *
      * @var string
      */
     public $expiredType;
 
     /**
-     * @description 通知对象列表
-     *
      * @var notifyObjectList[]
      */
     public $notifyObjectList;
 
     /**
-     * @description 通知对象类型
+     * @example USER
      *
      * @var string
      */
     public $notifyObjectType;
 
     /**
-     * @description 通知策略列表
-     *
      * @var notifyStrategyList[]
      */
     public $notifyStrategyList;
 
     /**
-     * @description 时间段字符串
+     * @example 1个月
      *
      * @var string
      */
     public $period;
 
     /**
-     * @description 订阅范围类型
+     * @example SERVICE
      *
      * @var string
      */
     public $scope;
 
     /**
-     * @description 订阅范围列表
-     *
      * @var scopeObjectList[]
      */
     public $scopeObjectList;
 
     /**
-     * @description 开始时间
+     * @example 2021-04-04 10:10:11
      *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description 主键
+     * @example 80002020
      *
      * @var int
      */
     public $subscriptionId;
 
     /**
-     * @description 通知订阅名称
+     * @example newSubs244
      *
      * @var string
      */

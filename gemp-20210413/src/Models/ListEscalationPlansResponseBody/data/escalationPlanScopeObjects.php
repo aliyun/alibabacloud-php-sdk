@@ -9,29 +9,35 @@ use AlibabaCloud\Tea\Model;
 class escalationPlanScopeObjects extends Model
 {
     /**
-     * @description 范围对象类型
+     * @example SERVICE
      *
      * @var string
      */
     public $scope;
 
     /**
-     * @description 范围对象id（服务id）
+     * @var int
+     */
+    public $scopeObjectDeletedType;
+
+    /**
+     * @example 23
      *
      * @var int
      */
     public $scopeObjectId;
 
     /**
-     * @description 范围对象名称
+     * @example 某服务1
      *
      * @var string
      */
     public $scopeObjectName;
     protected $_name = [
-        'scope'           => 'scope',
-        'scopeObjectId'   => 'scopeObjectId',
-        'scopeObjectName' => 'scopeObjectName',
+        'scope'                  => 'scope',
+        'scopeObjectDeletedType' => 'scopeObjectDeletedType',
+        'scopeObjectId'          => 'scopeObjectId',
+        'scopeObjectName'        => 'scopeObjectName',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class escalationPlanScopeObjects extends Model
         $res = [];
         if (null !== $this->scope) {
             $res['scope'] = $this->scope;
+        }
+        if (null !== $this->scopeObjectDeletedType) {
+            $res['scopeObjectDeletedType'] = $this->scopeObjectDeletedType;
         }
         if (null !== $this->scopeObjectId) {
             $res['scopeObjectId'] = $this->scopeObjectId;
@@ -64,6 +73,9 @@ class escalationPlanScopeObjects extends Model
         $model = new self();
         if (isset($map['scope'])) {
             $model->scope = $map['scope'];
+        }
+        if (isset($map['scopeObjectDeletedType'])) {
+            $model->scopeObjectDeletedType = $map['scopeObjectDeletedType'];
         }
         if (isset($map['scopeObjectId'])) {
             $model->scopeObjectId = $map['scopeObjectId'];

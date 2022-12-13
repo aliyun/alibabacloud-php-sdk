@@ -10,14 +10,12 @@ use AlibabaCloud\Tea\Model;
 class GetRouteRuleResponseBody extends Model
 {
     /**
-     * @description 规则详情
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description 请求ID
+     * @example 6B9347ED-FD93-42B4-B9A4-7282962F5D6A
      *
      * @var string
      */

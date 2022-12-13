@@ -10,12 +10,16 @@ use AlibabaCloud\Tea\Model;
 class ListProblemSubtotalsResponseBody extends Model
 {
     /**
+     * @description data
+     *
      * @var data[]
      */
     public $data;
 
     /**
      * @description Id of the request
+     *
+     * @example 4361a0e1-6747-4834-96ce-0S4840fd3812
      *
      * @var string
      */

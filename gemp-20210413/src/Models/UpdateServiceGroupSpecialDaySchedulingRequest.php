@@ -10,28 +10,26 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceGroupSpecialDaySchedulingRequest extends Model
 {
     /**
-     * @description 幂等号
+     * @example C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 排班日期
+     * @example 2021-08-19
      *
      * @var string
      */
     public $schedulingDate;
 
     /**
-     * @description 特殊排班信息
-     *
      * @var schedulingSpecialDays[]
      */
     public $schedulingSpecialDays;
 
     /**
-     * @description 服务组ID
+     * @example 6666
      *
      * @var int
      */

@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class files extends Model
 {
     /**
-     * @description 文件名称
+     * @example 文件A
      *
      * @var string
      */
     public $fileName;
 
     /**
-     * @description 文件大小
+     * @example 100
      *
      * @var int
      */
     public $fileSize;
 
     /**
-     * @description 文件类型
+     * @example JPG
      *
      * @var string
      */
@@ -31,6 +31,8 @@ class files extends Model
 
     /**
      * @description oss key
+     *
+     * @example problem/25a2316c-b08d-41a5-9f41-b3185d529277
      *
      * @var string
      */

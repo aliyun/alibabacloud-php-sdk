@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListDataReportForUserResponseBody extends Model
 {
     /**
-     * @description 个人统计数据
-     *
      * @var data[]
      */
     public $data;
@@ -19,12 +17,14 @@ class ListDataReportForUserResponseBody extends Model
     /**
      * @description Id of the request
      *
+     * @example xxxx
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 总条数
+     * @example 100
      *
      * @var int
      */

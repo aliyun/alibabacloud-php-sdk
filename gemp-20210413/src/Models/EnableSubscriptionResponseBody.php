@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class EnableSubscriptionResponseBody extends Model
 {
     /**
+     * @description requestId
+     *
+     * @example c26f36de-1ec8-496a-a828-880676c5ef81
+     *
      * @var string
      */
     public $requestId;

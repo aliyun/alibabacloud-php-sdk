@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 告警内容
+     * @example {}
      *
      * @var string
      */
     public $eventJson;
 
     /**
-     * @description 告警上报时间
+     * @example 2020-01-01 18:30:00
      *
      * @var string
      */
     public $eventTime;
 
     /**
-     * @description 监控源ID
+     * @example 1000
      *
      * @var bool
      */
     public $monitorSourceId;
 
     /**
-     * @description 监控源名称
+     * @example zabbix
      *
      * @var string
      */

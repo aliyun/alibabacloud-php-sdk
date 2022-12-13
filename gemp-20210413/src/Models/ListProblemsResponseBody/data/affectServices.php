@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class affectServices extends Model
 {
     /**
-     * @description 服务描述
+     * @example 服务描述
      *
      * @var string
      */
     public $serviceDescription;
 
     /**
-     * @description 影响服务ID
+     * @example 100
      *
      * @var int
      */
     public $serviceId;
 
     /**
-     * @description 服务名字
+     * @example 冲上云霄
      *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description 修改时间
+     * @example 2020-09-08 15:59:59
      *
      * @var string
      */

@@ -10,19 +10,21 @@ use AlibabaCloud\Tea\Model;
 class ListSubscriptionsResponseBody extends Model
 {
     /**
+     * @description data
+     *
      * @var data[]
      */
     public $data;
 
     /**
-     * @description 分页参数
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页参数
+     * @example 10
      *
      * @var int
      */
@@ -31,12 +33,14 @@ class ListSubscriptionsResponseBody extends Model
     /**
      * @description id of the request
      *
+     * @example 10REQUES-AC5C-4B59-BE11-378F117A6A88
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 分页参数
+     * @example 100
      *
      * @var int
      */

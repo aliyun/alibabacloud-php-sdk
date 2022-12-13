@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class FinishProblemRequest extends Model
 {
     /**
-     * @description 幂等校验
+     * @example 6338F42D-ED0B-442C-932C-657300AFB4BB
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 故障Id
+     * @example 3123
      *
      * @var int
      */

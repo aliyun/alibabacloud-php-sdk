@@ -15,158 +15,170 @@ class data extends Model
     public $affectServices;
 
     /**
-     * @description 取消时间
+     * @example 2020-09-08 15:59:59
      *
      * @var string
      */
     public $cancelTime;
 
     /**
-     * @description 创建时间
+     * @example 2020-09-08 15:59:59
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 发现时间
+     * @example 2020-09-08 15:59:59
      *
      * @var string
      */
     public $discoverTime;
 
     /**
-     * @description 完结时间
+     * @example 2020-09-08 15:59:59
      *
      * @var string
      */
     public $finishTime;
 
     /**
-     * @description 事件ID
+     * @example 10000
      *
      * @var int
      */
     public $incidentId;
 
     /**
-     * @description 是否手动
+     * @example true
      *
      * @var bool
      */
     public $isManual;
 
     /**
-     * @description 是否升级
+     * @example true
      *
      * @var bool
      */
     public $isUpgrade;
 
     /**
-     * @description 主要处理人ID
+     * @example 100
      *
      * @var int
      */
     public $mainHandlerId;
 
     /**
-     * @description 主要处理人名称
+     * @var int
+     */
+    public $mainHandlerIsValid;
+
+    /**
+     * @example 王宇
      *
      * @var string
      */
     public $mainHandlerName;
 
     /**
-     * @description 故障id
+     * @example 1
      *
      * @var int
      */
     public $problemId;
 
     /**
-     * @description 故障等级 1=P1 2=P2 3=P3 4=P4
+     * @example P1
      *
      * @var string
      */
     public $problemLevel;
 
     /**
-     * @description 故障名称
+     * @example 故障
      *
      * @var string
      */
     public $problemName;
 
     /**
-     * @description 故障编号
+     * @example P34438300000001116258132229577472
      *
      * @var string
      */
     public $problemNumber;
 
     /**
-     * @description 故障状态  HANDLING    处理中 RECOVERED  已恢复  REPLAYING   复盘中  REPLAYED     已复盘 CANCEL        已取消
+     * @example HANDLING
      *
      * @var string
      */
     public $problemStatus;
 
     /**
-     * @description 恢复时间
+     * @example 2020-09-08 15:59:59
      *
      * @var string
      */
     public $recoveryTime;
 
     /**
-     * @description 关联服务ID
+     * @example 1
      *
      * @var string
      */
     public $relatedServiceId;
 
     /**
-     * @description 复盘时间
+     * @example 2020-09-08 15:59:59
      *
      * @var string
      */
     public $replayTime;
 
     /**
-     * @description 关联服务名称
+     * @var int
+     */
+    public $serviceDeletedType;
+
+    /**
+     * @example 服务1
      *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description 修改时间
+     * @example 2020-09-08 15:59:59
      *
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'affectServices'   => 'affectServices',
-        'cancelTime'       => 'cancelTime',
-        'createTime'       => 'createTime',
-        'discoverTime'     => 'discoverTime',
-        'finishTime'       => 'finishTime',
-        'incidentId'       => 'incidentId',
-        'isManual'         => 'isManual',
-        'isUpgrade'        => 'isUpgrade',
-        'mainHandlerId'    => 'mainHandlerId',
-        'mainHandlerName'  => 'mainHandlerName',
-        'problemId'        => 'problemId',
-        'problemLevel'     => 'problemLevel',
-        'problemName'      => 'problemName',
-        'problemNumber'    => 'problemNumber',
-        'problemStatus'    => 'problemStatus',
-        'recoveryTime'     => 'recoveryTime',
-        'relatedServiceId' => 'relatedServiceId',
-        'replayTime'       => 'replayTime',
-        'serviceName'      => 'serviceName',
-        'updateTime'       => 'updateTime',
+        'affectServices'     => 'affectServices',
+        'cancelTime'         => 'cancelTime',
+        'createTime'         => 'createTime',
+        'discoverTime'       => 'discoverTime',
+        'finishTime'         => 'finishTime',
+        'incidentId'         => 'incidentId',
+        'isManual'           => 'isManual',
+        'isUpgrade'          => 'isUpgrade',
+        'mainHandlerId'      => 'mainHandlerId',
+        'mainHandlerIsValid' => 'mainHandlerIsValid',
+        'mainHandlerName'    => 'mainHandlerName',
+        'problemId'          => 'problemId',
+        'problemLevel'       => 'problemLevel',
+        'problemName'        => 'problemName',
+        'problemNumber'      => 'problemNumber',
+        'problemStatus'      => 'problemStatus',
+        'recoveryTime'       => 'recoveryTime',
+        'relatedServiceId'   => 'relatedServiceId',
+        'replayTime'         => 'replayTime',
+        'serviceDeletedType' => 'serviceDeletedType',
+        'serviceName'        => 'serviceName',
+        'updateTime'         => 'updateTime',
     ];
 
     public function validate()
@@ -209,6 +221,9 @@ class data extends Model
         if (null !== $this->mainHandlerId) {
             $res['mainHandlerId'] = $this->mainHandlerId;
         }
+        if (null !== $this->mainHandlerIsValid) {
+            $res['mainHandlerIsValid'] = $this->mainHandlerIsValid;
+        }
         if (null !== $this->mainHandlerName) {
             $res['mainHandlerName'] = $this->mainHandlerName;
         }
@@ -235,6 +250,9 @@ class data extends Model
         }
         if (null !== $this->replayTime) {
             $res['replayTime'] = $this->replayTime;
+        }
+        if (null !== $this->serviceDeletedType) {
+            $res['serviceDeletedType'] = $this->serviceDeletedType;
         }
         if (null !== $this->serviceName) {
             $res['serviceName'] = $this->serviceName;
@@ -287,6 +305,9 @@ class data extends Model
         if (isset($map['mainHandlerId'])) {
             $model->mainHandlerId = $map['mainHandlerId'];
         }
+        if (isset($map['mainHandlerIsValid'])) {
+            $model->mainHandlerIsValid = $map['mainHandlerIsValid'];
+        }
         if (isset($map['mainHandlerName'])) {
             $model->mainHandlerName = $map['mainHandlerName'];
         }
@@ -313,6 +334,9 @@ class data extends Model
         }
         if (isset($map['replayTime'])) {
             $model->replayTime = $map['replayTime'];
+        }
+        if (isset($map['serviceDeletedType'])) {
+            $model->serviceDeletedType = $map['serviceDeletedType'];
         }
         if (isset($map['serviceName'])) {
             $model->serviceName = $map['serviceName'];

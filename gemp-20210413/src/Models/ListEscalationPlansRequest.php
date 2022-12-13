@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class ListEscalationPlansRequest extends Model
 {
     /**
-     * @description clientToken
+     * @example A5A1FEAE-9C47-011C-9C73-A376BC2REQUEST
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 升级计划名
+     * @example xxx
      *
      * @var string
      */
     public $escalationPlanName;
 
     /**
-     * @description pageNumber
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description pageSize
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 服务名称
+     * @example ssxx
      *
      * @var string
      */

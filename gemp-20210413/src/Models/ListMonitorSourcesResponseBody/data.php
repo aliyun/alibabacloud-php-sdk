@@ -14,11 +14,15 @@ class data extends Model
     public $fieldKeys;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $monitorSourceId;
 
     /**
+     * @example Zabbix
+     *
      * @var string
      */
     public $monitorSourceName;

@@ -12,12 +12,16 @@ class data extends Model
     /**
      * @description accessKeyId
      *
+     * @example LTAI1tEoRVPw8GMy1iLRCno7
+     *
      * @var string
      */
     public $accessKeyId;
 
     /**
      * @description oss bucket name
+     *
+     * @example gam-objects-bucket
      *
      * @var string
      */
@@ -33,6 +37,8 @@ class data extends Model
     /**
      * @description policy
      *
+     * @example eyJleHBpcmF0aW9uIjoiMjAyMS0wNy0xM1QwNDowOTo0NS4yODJaIiwiY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMTA0ODU3NjAwXSxbInN0YXJ0cy13aXRoIiwiJGtleSIsInByb2JsZW0iXV19
+     *
      * @var string
      */
     public $policy;
@@ -40,12 +46,16 @@ class data extends Model
     /**
      * @description signature
      *
+     * @example SHqvIkwUNQd8Hervklir2K8U+ts=
+     *
      * @var string
      */
     public $signature;
 
     /**
      * @description url
+     *
+     * @example https://gam-objects-bucket.oss-cn-shanghai.aliyuncs.com
      *
      * @var string
      */

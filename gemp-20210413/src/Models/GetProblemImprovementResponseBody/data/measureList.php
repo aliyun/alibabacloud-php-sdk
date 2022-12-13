@@ -9,101 +9,109 @@ use AlibabaCloud\Tea\Model;
 class measureList extends Model
 {
     /**
-     * @description 验收标准
-     *
      * @var string
      */
     public $checkStandard;
 
     /**
-     * @description 验收人id
+     * @example 12
      *
      * @var int
      */
     public $checkUserId;
 
     /**
-     * @description 验收人名称
-     *
+     * @var int
+     */
+    public $checkUserIsValid;
+
+    /**
      * @var string
      */
     public $checkUserName;
 
     /**
-     * @description 措施内容
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description 负责人id
+     * @example 212
      *
      * @var int
      */
     public $directorId;
 
     /**
-     * @description 负责人名称
-     *
+     * @var int
+     */
+    public $directorIsValid;
+
+    /**
      * @var string
      */
     public $directorName;
 
     /**
-     * @description 改进措施id 用于删除或更新
+     * @example 12312
      *
      * @var int
      */
     public $measureId;
 
     /**
-     * @description 计划完成时间
+     * @example 2021-05-01 00:00:00
      *
      * @var string
      */
     public $planFinishTime;
 
     /**
-     * @description 跟踪人id
+     * @example 3121
      *
      * @var int
      */
     public $stalkerId;
 
     /**
-     * @description 跟踪人名称
-     *
+     * @var int
+     */
+    public $stalkerIsValid;
+
+    /**
      * @var string
      */
     public $stalkerName;
 
     /**
-     * @description UNIMPROVED	状态 IMPROVED 改进 2 未改进UNIMPROVED
+     * @example UNIMPROVED
      *
      * @var string
      */
     public $status;
 
     /**
-     * @description 措施类型
+     * @example 2
      *
      * @var int
      */
     public $type;
     protected $_name = [
-        'checkStandard'  => 'checkStandard',
-        'checkUserId'    => 'checkUserId',
-        'checkUserName'  => 'checkUserName',
-        'content'        => 'content',
-        'directorId'     => 'directorId',
-        'directorName'   => 'directorName',
-        'measureId'      => 'measureId',
-        'planFinishTime' => 'planFinishTime',
-        'stalkerId'      => 'stalkerId',
-        'stalkerName'    => 'stalkerName',
-        'status'         => 'status',
-        'type'           => 'type',
+        'checkStandard'    => 'checkStandard',
+        'checkUserId'      => 'checkUserId',
+        'checkUserIsValid' => 'checkUserIsValid',
+        'checkUserName'    => 'checkUserName',
+        'content'          => 'content',
+        'directorId'       => 'directorId',
+        'directorIsValid'  => 'directorIsValid',
+        'directorName'     => 'directorName',
+        'measureId'        => 'measureId',
+        'planFinishTime'   => 'planFinishTime',
+        'stalkerId'        => 'stalkerId',
+        'stalkerIsValid'   => 'stalkerIsValid',
+        'stalkerName'      => 'stalkerName',
+        'status'           => 'status',
+        'type'             => 'type',
     ];
 
     public function validate()
@@ -119,6 +127,9 @@ class measureList extends Model
         if (null !== $this->checkUserId) {
             $res['checkUserId'] = $this->checkUserId;
         }
+        if (null !== $this->checkUserIsValid) {
+            $res['checkUserIsValid'] = $this->checkUserIsValid;
+        }
         if (null !== $this->checkUserName) {
             $res['checkUserName'] = $this->checkUserName;
         }
@@ -127,6 +138,9 @@ class measureList extends Model
         }
         if (null !== $this->directorId) {
             $res['directorId'] = $this->directorId;
+        }
+        if (null !== $this->directorIsValid) {
+            $res['directorIsValid'] = $this->directorIsValid;
         }
         if (null !== $this->directorName) {
             $res['directorName'] = $this->directorName;
@@ -139,6 +153,9 @@ class measureList extends Model
         }
         if (null !== $this->stalkerId) {
             $res['stalkerId'] = $this->stalkerId;
+        }
+        if (null !== $this->stalkerIsValid) {
+            $res['stalkerIsValid'] = $this->stalkerIsValid;
         }
         if (null !== $this->stalkerName) {
             $res['stalkerName'] = $this->stalkerName;
@@ -167,6 +184,9 @@ class measureList extends Model
         if (isset($map['checkUserId'])) {
             $model->checkUserId = $map['checkUserId'];
         }
+        if (isset($map['checkUserIsValid'])) {
+            $model->checkUserIsValid = $map['checkUserIsValid'];
+        }
         if (isset($map['checkUserName'])) {
             $model->checkUserName = $map['checkUserName'];
         }
@@ -175,6 +195,9 @@ class measureList extends Model
         }
         if (isset($map['directorId'])) {
             $model->directorId = $map['directorId'];
+        }
+        if (isset($map['directorIsValid'])) {
+            $model->directorIsValid = $map['directorIsValid'];
         }
         if (isset($map['directorName'])) {
             $model->directorName = $map['directorName'];
@@ -187,6 +210,9 @@ class measureList extends Model
         }
         if (isset($map['stalkerId'])) {
             $model->stalkerId = $map['stalkerId'];
+        }
+        if (isset($map['stalkerIsValid'])) {
+            $model->stalkerIsValid = $map['stalkerIsValid'];
         }
         if (isset($map['stalkerName'])) {
             $model->stalkerName = $map['stalkerName'];

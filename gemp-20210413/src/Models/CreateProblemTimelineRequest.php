@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class CreateProblemTimelineRequest extends Model
 {
     /**
-     * @description clientToken
+     * @example 601FA6A2-AC5C-4B59-BE11-378FTOKENA11
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 节点内容
+     * @example test123
      *
      * @var string
      */
     public $content;
 
     /**
-     * @description 关键节点 码表:PROBLEM_KEY_NODE (逗号分隔)
+     * @example NodeTest
      *
      * @var string
      */
     public $keyNode;
 
     /**
-     * @description 故障id
+     * @example 102
      *
      * @var int
      */
     public $problemId;
 
     /**
-     * @description 发生时间
+     * @example 2021-06-06 12:11:22
      *
      * @var string
      */

@@ -11,6 +11,8 @@ class UpdateServiceGroupSpecialDaySchedulingResponseBody extends Model
     /**
      * @description Id of the request
      *
+     * @example xxxxxxxx
+     *
      * @var string
      */
     public $requestId;

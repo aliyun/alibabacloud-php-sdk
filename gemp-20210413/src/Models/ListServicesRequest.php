@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ListServicesRequest extends Model
 {
     /**
-     * @description 幂等号
+     * @example C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 当前页
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 页大小
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 服务名称
+     * @example 冲上云霄
      *
      * @var string
      */

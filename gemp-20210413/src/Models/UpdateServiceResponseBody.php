@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceResponseBody extends Model
 {
     /**
+     * @example null
+     *
      * @var int
      */
     public $data;
 
     /**
      * @description Id of the request
+     *
+     * @example C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var string
      */

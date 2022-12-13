@@ -10,27 +10,37 @@ use AlibabaCloud\Tea\Model;
 class ListIncidentTimelinesResponseBody extends Model
 {
     /**
+     * @description data
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description requestId
+     *
+     * @example FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 总数
+     * @example 132
      *
      * @var int
      */

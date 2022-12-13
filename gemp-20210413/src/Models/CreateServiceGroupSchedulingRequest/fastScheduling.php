@@ -10,28 +10,26 @@ use AlibabaCloud\Tea\Model;
 class fastScheduling extends Model
 {
     /**
-     * @description 值班方案 dutyPlan FAST_CHOICE 快速选择   CUSTOM  自定义
+     * @example FAST_CHOICE
      *
      * @var string
      */
     public $dutyPlan;
 
     /**
-     * @description 快速轮班用户
-     *
      * @var schedulingUsers[]
      */
     public $schedulingUsers;
 
     /**
-     * @description 每人排班时长
+     * @example 12
      *
      * @var int
      */
     public $singleDuration;
 
     /**
-     * @description 每人排班时常单位 HOUR 小时 DAY  天
+     * @example DAY
      *
      * @var string
      */

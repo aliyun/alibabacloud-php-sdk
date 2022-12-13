@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description CUSTOMER:主账号，SUB:子账号
+     * @example SUB
      *
      * @var string
      */
     public $accountType;
 
     /**
-     * @description 创建时间
+     * @example 2021-09-09 09:09:09
      *
      * @var string
      */
@@ -26,26 +26,28 @@ class data extends Model
     /**
      * @description email
      *
+     * @example 5678***@qq.com
+     *
      * @var string
      */
     public $email;
 
     /**
-     * @description 是否可编辑
+     * @example true
      *
      * @var bool
      */
     public $isEditableUser;
 
     /**
-     * @description 是否关联
+     * @example RELATE
      *
      * @var string
      */
     public $isRelated;
 
     /**
-     * @description 用户手机号
+     * @example 1390000****
      *
      * @var string
      */
@@ -54,27 +56,25 @@ class data extends Model
     /**
      * @description ramId
      *
+     * @example 1344383
+     *
      * @var string
      */
     public $ramId;
 
     /**
-     * @description 所属服务组
-     *
      * @var serviceGroups[]
      */
     public $serviceGroups;
 
     /**
-     * @description 用户ID
+     * @example 63
      *
      * @var int
      */
     public $userId;
 
     /**
-     * @description 用户昵称
-     *
      * @var string
      */
     public $username;

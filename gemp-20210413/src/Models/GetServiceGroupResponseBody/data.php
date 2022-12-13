@@ -10,63 +10,61 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 创建时间
+     * @example 2020-08-08 10:00:00
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description ENABLE 启用 DISABLE 禁用
+     * @example ENABLE
      *
      * @var string
      */
     public $enableWebhook;
 
     /**
-     * @description 服务组描述
+     * @example 服务描述
      *
      * @var string
      */
     public $serviceGroupDescription;
 
     /**
-     * @description 服务组ID
+     * @example 1000
      *
      * @var int
      */
     public $serviceGroupId;
 
     /**
-     * @description 服务组名称
+     * @example 冲上云霄
      *
      * @var string
      */
     public $serviceGroupName;
 
     /**
-     * @description 修改时间
+     * @example 2020-05-03 15:39:39
      *
      * @var string
      */
     public $updateTime;
 
     /**
-     * @description 用户ID
-     *
      * @var users[]
      */
     public $users;
 
     /**
-     * @description webhook 跳转地址
+     * @example wwwwwww
      *
      * @var string
      */
     public $webhookLink;
 
     /**
-     * @description WEIXIN_GROUP 微信 DING_GROUP 钉钉 FEISHU_GROUP飞书
+     * @example WEIXIN_GROUP
      *
      * @var string
      */

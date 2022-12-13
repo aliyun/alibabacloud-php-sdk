@@ -19,6 +19,8 @@ class GetSimilarIncidentStatisticsResponseBody extends Model
     /**
      * @description id of the request
      *
+     * @example 7C56D225-7C34-40BB-9624-C8BA449260E6
+     *
      * @var string
      */
     public $requestId;

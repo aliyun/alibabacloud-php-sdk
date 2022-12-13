@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateProblemTimelineResponseBody extends Model
 {
     /**
-     * @description Object
+     * @description data
      *
      * @var data
      */
@@ -18,6 +18,8 @@ class CreateProblemTimelineResponseBody extends Model
 
     /**
      * @description id of the request
+     *
+     * @example 10REQUES-AC5C-4B59-BE11-378F117A6A88
      *
      * @var string
      */

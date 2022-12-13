@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetIncidentStatisticsResponseBody extends Model
 {
     /**
+     * @description data
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description requestId
+     *
+     * @example FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+     *
      * @var string
      */
     public $requestId;

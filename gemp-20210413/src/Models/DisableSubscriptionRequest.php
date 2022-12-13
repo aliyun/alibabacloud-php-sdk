@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DisableSubscriptionRequest extends Model
 {
     /**
+     * @example 89
+     *
      * @var int
      */
     public $subscriptionId;

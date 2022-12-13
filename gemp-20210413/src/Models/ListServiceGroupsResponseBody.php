@@ -10,21 +10,19 @@ use AlibabaCloud\Tea\Model;
 class ListServiceGroupsResponseBody extends Model
 {
     /**
-     * @description 服务组列表
-     *
      * @var data[]
      */
     public $data;
 
     /**
-     * @description 当前页
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页大小
+     * @example 10
      *
      * @var int
      */
@@ -33,12 +31,14 @@ class ListServiceGroupsResponseBody extends Model
     /**
      * @description Id of the request
      *
+     * @example sssss
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 总条数
+     * @example 100
      *
      * @var int
      */

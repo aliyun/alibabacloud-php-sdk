@@ -11,12 +11,16 @@ class links extends Model
     /**
      * @description oss key
      *
+     * @example problem/38b2a36d-484d-4242-b9cf-d243e53a82c6
+     *
      * @var string
      */
     public $key;
 
     /**
      * @description url
+     *
+     * @example http://gam-objects-bucket.oss-cn-shanghai.aliyuncs.com/problem/38b2a36d-484d-4242-b9cf-d243e53a82c6?Expires=1625662477&OSSAccessKeyId=LTAI5tEoRVPw8GMy1iLRCno7&Signature=1NFnt%2BnudD%2F%2BHVc31b6v5%2FFxoqg%3D
      *
      * @var string
      */

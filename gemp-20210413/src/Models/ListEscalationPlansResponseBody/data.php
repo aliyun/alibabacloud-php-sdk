@@ -10,35 +10,33 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 升级计划id
+     * @example 43
      *
      * @var int
      */
     public $escalationPlanId;
 
     /**
-     * @description 升级计划名称
+     * @example 升级计划2345
      *
      * @var string
      */
     public $escalationPlanName;
 
     /**
-     * @description 升级计划范围对象
-     *
      * @var escalationPlanScopeObjects[]
      */
     public $escalationPlanScopeObjects;
 
     /**
-     * @description 修改时间
+     * @example 2021-09-09 09:09:09
      *
      * @var string
      */
     public $modifyTime;
 
     /**
-     * @description 启用ENABLE 禁用DISABLE
+     * @example ENABLE
      *
      * @var string
      */

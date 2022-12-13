@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListSourceEventsForMonitorSourceRequest extends Model
 {
     /**
-     * @description 监控源ID
+     * @example 1000
      *
      * @var int
      */

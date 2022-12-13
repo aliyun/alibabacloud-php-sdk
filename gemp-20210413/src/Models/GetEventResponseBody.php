@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetEventResponseBody extends Model
 {
     /**
-     * @description 告警
-     *
      * @var data
      */
     public $data;
 
     /**
      * @description Id of the request
+     *
+     * @example XXXXXXXXXXXX
      *
      * @var string
      */

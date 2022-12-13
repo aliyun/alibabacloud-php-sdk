@@ -11,19 +11,21 @@ class DeleteProblemEffectionServiceRequest extends Model
     /**
      * @description clientToken
      *
+     * @example e0b6735e-1a04-4d6b-a625-d2350612492c
+     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 影响服务ID
+     * @example 567
      *
      * @var int
      */
     public $effectionServiceId;
 
     /**
-     * @description 故障id
+     * @example 876
      *
      * @var int
      */

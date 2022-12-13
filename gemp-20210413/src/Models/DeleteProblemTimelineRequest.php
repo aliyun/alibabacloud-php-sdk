@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DeleteProblemTimelineRequest extends Model
 {
     /**
-     * @description clientToken
+     * @example 601FA6A2-AC5C-4B59-BE11-378FTOKENA11
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 故障id
+     * @example 102
      *
      * @var int
      */
     public $problemId;
 
     /**
-     * @description ID
+     * @example 11
      *
      * @var int
      */

@@ -11,70 +11,66 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 时效结束时间
+     * @example 2022-05-09 10:10:10
      *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 有效期类型 0 长期 1短期
+     * @example LONG_TERM
      *
      * @var string
      */
     public $expiredType;
 
     /**
-     * @description 通知对象列表
-     *
      * @var notifyObjectList[]
      */
     public $notifyObjectList;
 
     /**
-     * @description 0服务组 1个人
+     * @example USER
      *
      * @var int
      */
     public $notifyObjectType;
 
     /**
-     * @description 0 全部 1服务 2 流转规则
+     * @example SERVICE
      *
      * @var int
      */
     public $scope;
 
     /**
-     * @description 订阅范围列表
-     *
      * @var scopeObjectList[]
      */
     public $scopeObjectList;
 
     /**
-     * @description 时效开始时间
+     * @example 2020-05-09 10:10:10
      *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description ENABLE 启用 DISABLE禁用
+     * @example ENABLE
      *
      * @var string
      */
     public $status;
 
     /**
-     * @description 订阅id
+     * @example 10
      *
      * @var int
      */
     public $subscriptionId;
 
     /**
-     * @description 通知订阅名称
+     * @example test
      *
      * @var string
      */

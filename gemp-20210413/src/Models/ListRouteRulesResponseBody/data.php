@@ -9,141 +9,153 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 事件分派对象ID（服务组ID 或用户ID）
+     * @example 10
      *
      * @var int
      */
     public $assignObjectId;
 
     /**
-     * @description 事件分派对象类型 SERVICEGROUP 服务组  USER 单个用户
+     * @example SERVICEGROUP
      *
      * @var string
      */
     public $assignObjectType;
 
     /**
-     * @description 创建时间
+     * @example 2020-03-05 15:53:55
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 影响程度 LOW-一般 HIGH-严重
+     * @example LOW
      *
      * @var string
      */
     public $effection;
 
     /**
-     * @description 是否启用  DISABLE禁用. ENABLE 启用
+     * @example DISABLE
      *
      * @var string
      */
     public $enableStatus;
 
     /**
-     * @description 事件级别 P1 P2 P3 P4
+     * @example P1
      *
      * @var string
      */
     public $incidentLevel;
 
     /**
-     * @description 命中次数
+     * @var int
+     */
+    public $isValid;
+
+    /**
+     * @example 10
      *
      * @var int
      */
     public $matchCount;
 
     /**
-     * @description 监控源名称
+     * @example zabbix
      *
      * @var string
      */
     public $monitorSourceNames;
 
     /**
-     * @description 关联服务ID
+     * @var int
+     */
+    public $relServiceDeleteType;
+
+    /**
+     * @example 1
      *
      * @var int
      */
     public $relatedServiceId;
 
     /**
-     * @description 服务名称
+     * @example 关联服务名字
      *
      * @var string
      */
     public $relatedServiceName;
 
     /**
-     * @description 规则ID
+     * @example 10000
      *
      * @var int
      */
     public $routeRuleId;
 
     /**
-     * @description 路由类型：INCIDENT 触发事件 ALERT 仅触发报警
+     * @example INCIDENT
      *
      * @var string
      */
     public $routeType;
 
     /**
-     * @description 规则名称
+     * @example 规则名字
      *
      * @var string
      */
     public $ruleName;
 
     /**
-     * @description 租户ID
+     * @example 1344383
      *
      * @var int
      */
     public $tenantRamId;
 
     /**
-     * @description 时间窗口
+     * @example 时间窗口
      *
      * @var int
      */
     public $timeWindow;
 
     /**
-     * @description 时间窗口单位 MINUTE 分钟  SECOND 秒
+     * @example MINUTE
      *
      * @var int
      */
     public $timeWindowUnit;
 
     /**
-     * @description 修改时间
+     * @example 2020-03-05 15:53:55
      *
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'assignObjectId'     => 'assignObjectId',
-        'assignObjectType'   => 'assignObjectType',
-        'createTime'         => 'createTime',
-        'effection'          => 'effection',
-        'enableStatus'       => 'enableStatus',
-        'incidentLevel'      => 'incidentLevel',
-        'matchCount'         => 'matchCount',
-        'monitorSourceNames' => 'monitorSourceNames',
-        'relatedServiceId'   => 'relatedServiceId',
-        'relatedServiceName' => 'relatedServiceName',
-        'routeRuleId'        => 'routeRuleId',
-        'routeType'          => 'routeType',
-        'ruleName'           => 'ruleName',
-        'tenantRamId'        => 'tenantRamId',
-        'timeWindow'         => 'timeWindow',
-        'timeWindowUnit'     => 'timeWindowUnit',
-        'updateTime'         => 'updateTime',
+        'assignObjectId'       => 'assignObjectId',
+        'assignObjectType'     => 'assignObjectType',
+        'createTime'           => 'createTime',
+        'effection'            => 'effection',
+        'enableStatus'         => 'enableStatus',
+        'incidentLevel'        => 'incidentLevel',
+        'isValid'              => 'isValid',
+        'matchCount'           => 'matchCount',
+        'monitorSourceNames'   => 'monitorSourceNames',
+        'relServiceDeleteType' => 'relServiceDeleteType',
+        'relatedServiceId'     => 'relatedServiceId',
+        'relatedServiceName'   => 'relatedServiceName',
+        'routeRuleId'          => 'routeRuleId',
+        'routeType'            => 'routeType',
+        'ruleName'             => 'ruleName',
+        'tenantRamId'          => 'tenantRamId',
+        'timeWindow'           => 'timeWindow',
+        'timeWindowUnit'       => 'timeWindowUnit',
+        'updateTime'           => 'updateTime',
     ];
 
     public function validate()
@@ -171,11 +183,17 @@ class data extends Model
         if (null !== $this->incidentLevel) {
             $res['incidentLevel'] = $this->incidentLevel;
         }
+        if (null !== $this->isValid) {
+            $res['isValid'] = $this->isValid;
+        }
         if (null !== $this->matchCount) {
             $res['matchCount'] = $this->matchCount;
         }
         if (null !== $this->monitorSourceNames) {
             $res['monitorSourceNames'] = $this->monitorSourceNames;
+        }
+        if (null !== $this->relServiceDeleteType) {
+            $res['relServiceDeleteType'] = $this->relServiceDeleteType;
         }
         if (null !== $this->relatedServiceId) {
             $res['relatedServiceId'] = $this->relatedServiceId;
@@ -234,11 +252,17 @@ class data extends Model
         if (isset($map['incidentLevel'])) {
             $model->incidentLevel = $map['incidentLevel'];
         }
+        if (isset($map['isValid'])) {
+            $model->isValid = $map['isValid'];
+        }
         if (isset($map['matchCount'])) {
             $model->matchCount = $map['matchCount'];
         }
         if (isset($map['monitorSourceNames'])) {
             $model->monitorSourceNames = $map['monitorSourceNames'];
+        }
+        if (isset($map['relServiceDeleteType'])) {
+            $model->relServiceDeleteType = $map['relServiceDeleteType'];
         }
         if (isset($map['relatedServiceId'])) {
             $model->relatedServiceId = $map['relatedServiceId'];

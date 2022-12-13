@@ -9,19 +9,23 @@ use AlibabaCloud\Tea\Model;
 class ListChartDataForServiceGroupRequest extends Model
 {
     /**
+     * @description clientToken
+     *
+     * @example 23es23s32xas23
+     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 结束时间
+     * @example 2021-10-09
      *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 开始时间
+     * @example 2021-09-09
      *
      * @var string
      */

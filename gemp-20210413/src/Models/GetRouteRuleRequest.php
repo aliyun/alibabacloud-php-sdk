@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class GetRouteRuleRequest extends Model
 {
     /**
-     * @description 幂等号
+     * @example C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 规则ID
+     * @example 1
      *
      * @var int
      */

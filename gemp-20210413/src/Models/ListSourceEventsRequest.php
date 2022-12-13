@@ -9,63 +9,67 @@ use AlibabaCloud\Tea\Model;
 class ListSourceEventsRequest extends Model
 {
     /**
-     * @description 幂等号
+     * @example C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 结束时间
+     * @description 2020-09-18 13:00:00
+     *
+     * @example 2020-10-01 23:59:59
      *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 报警或者事件ID
+     * @example 1
      *
      * @var int
      */
     public $instanceId;
 
     /**
-     * @description INCIDENT 事件、ALERT 报警、PROBLEM 故障
+     * @example INCIDENT
      *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description 当前页
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 页大小
+     * @example 20
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description startRowKey 用来查询下一页的数据
+     * @example 9223370410626682599-1344383-78954515-1-0a6e01a1701447fd9ef18b079edd2c6d
      *
      * @var string
      */
     public $startRowKey;
 
     /**
-     * @description 开始时间
+     * @description 2020-09-10 13:00:00
+     *
+     * @example 2020-10-01 00:00:00
      *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description stopRowKey 用来查询上一页的数据
+     * @example 9223370410626682599-1344383-78954515-1-0a6e01a1701447fd9ef18b079edd2c6d
      *
      * @var string
      */

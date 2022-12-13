@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class mail extends Model
 {
     /**
-     * @description 数量
+     * @example 123
      *
      * @var int
      */

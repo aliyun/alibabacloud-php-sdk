@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class monitorSourceTemplates extends Model
 {
     /**
-     * @description 监控源ID
+     * @example 111
      *
      * @var int
      */
     public $monitorSourceId;
 
     /**
-     * @description 监控源名字
+     * @example zabbix
      *
      * @var string
      */
     public $monitorSourceName;
 
     /**
-     * @description 模板内容
+     * @example xx
      *
      * @var string
      */
     public $templateContent;
 
     /**
-     * @description 消息模版ID
+     * @example 111
      *
      * @var int
      */

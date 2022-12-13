@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class escalationPlanConditions extends Model
 {
     /**
-     * @description 影响等级
+     * @example LOW
      *
      * @var string
      */
     public $effection;
 
     /**
-     * @description 事件等级
+     * @example P1
      *
      * @var string
      */

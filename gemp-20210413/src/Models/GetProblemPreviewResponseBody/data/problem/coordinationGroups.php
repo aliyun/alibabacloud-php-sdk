@@ -9,22 +9,18 @@ use AlibabaCloud\Tea\Model;
 class coordinationGroups extends Model
 {
     /**
-     * @description 服务组Maison
-     *
      * @var string
      */
     public $serviceGroupDescription;
 
     /**
-     * @description 服务Id
+     * @example 1231
      *
      * @var int
      */
     public $serviceGroupId;
 
     /**
-     * @description 服务组名称
-     *
      * @var string
      */
     public $serviceGroupName;

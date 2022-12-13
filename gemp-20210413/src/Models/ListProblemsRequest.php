@@ -9,98 +9,98 @@ use AlibabaCloud\Tea\Model;
 class ListProblemsRequest extends Model
 {
     /**
-     * @description 影响服务ID
+     * @example 1
      *
      * @var int
      */
     public $affectServiceId;
 
     /**
-     * @description 幂等号
+     * @example C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 发现结束时间
+     * @example 2020-03-05 15:50:59
      *
      * @var string
      */
     public $discoveryEndTime;
 
     /**
-     * @description 发现开始时间
+     * @example 2020-03-05 15:50:59
      *
      * @var string
      */
     public $discoveryStartTime;
 
     /**
-     * @description 主要处理人
+     * @example 1
      *
      * @var int
      */
     public $mainHandlerId;
 
     /**
-     * @description 当前页
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 页大小
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 故障等级 1=P1 2=P2 3=P3 4=P4
+     * @example P2
      *
      * @var string
      */
     public $problemLevel;
 
     /**
-     * @description 故障状态  HANDLING   处理中 RECOVERED 已恢复  REPLAYING   复盘中  REPLAYED     已复盘 CANCEL        已取消
+     * @example HANDLING
      *
      * @var string
      */
     public $problemStatus;
 
     /**
-     * @description RESPONSIBLE 我负责的       PARTICIPATED 我参与的  ALL 全部
+     * @example RESPONSIBLE
      *
      * @var string
      */
     public $queryType;
 
     /**
-     * @description 复盘负责人
+     * @example 1
      *
      * @var int
      */
     public $repeaterId;
 
     /**
-     * @description 恢复结束时间
+     * @example 2020-03-05 15:50:59
      *
      * @var string
      */
     public $restoreEndTime;
 
     /**
-     * @description 恢复开始时间
+     * @example 2020-03-05 15:50:59
      *
      * @var string
      */
     public $restoreStartTime;
 
     /**
-     * @description 应急协同组
+     * @example 1
      *
      * @var int
      */

@@ -13,41 +13,39 @@ class UpdateEscalationPlanRequest extends Model
     /**
      * @description clientToken
      *
+     * @example 6b404f14-77d1-4b53-a1a1-30a58bbcfc57
+     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 升级计划描述
+     * @example xxxx
      *
      * @var string
      */
     public $escalationPlanDescription;
 
     /**
-     * @description 升级计划id
+     * @example 433
      *
      * @var int
      */
     public $escalationPlanId;
 
     /**
-     * @description 升级计划名称
+     * @example xxx
      *
      * @var string
      */
     public $escalationPlanName;
 
     /**
-     * @description 升级计划规则
-     *
      * @var escalationPlanRules[]
      */
     public $escalationPlanRules;
 
     /**
-     * @description 关联范围列表（服务）
-     *
      * @var escalationPlanScopeObjects[]
      */
     public $escalationPlanScopeObjects;

@@ -9,21 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateProblemSubtotalRequest extends Model
 {
     /**
-     * @description 幂等校验token
+     * @example 4361a0e1-6747-4834-96ce-0c4840fd3814
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 小计文本
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 故障Id
+     * @example 1231
      *
      * @var int
      */

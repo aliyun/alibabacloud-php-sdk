@@ -12,36 +12,30 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 快速排班
-     *
      * @var fastScheduling
      */
     public $fastScheduling;
 
     /**
-     * @description 精细排班
-     *
      * @var fineScheduling
      */
     public $fineScheduling;
 
     /**
-     * @description 排班方式 FAST 快速排班 FINE 精细排班
+     * @example FINE
      *
      * @var string
      */
     public $schedulingWay;
 
     /**
-     * @description 服务组ID
+     * @example 99999
      *
      * @var int
      */
     public $serviceGroupId;
 
     /**
-     * @description 已经排班
-     *
      * @var users[]
      */
     public $users;

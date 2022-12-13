@@ -9,33 +9,39 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 服务描述
+     * @var int
+     */
+    public $isValid;
+
+    /**
+     * @example 服务描述
      *
      * @var string
      */
     public $serviceDescription;
 
     /**
-     * @description 服务ID
+     * @example 1
      *
      * @var int
      */
     public $serviceId;
 
     /**
-     * @description 服务名字
+     * @example 冲上云霄
      *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description 修改时间
+     * @example 2020-09-08 14:30:30
      *
      * @var string
      */
     public $updateTime;
     protected $_name = [
+        'isValid'            => 'isValid',
         'serviceDescription' => 'serviceDescription',
         'serviceId'          => 'serviceId',
         'serviceName'        => 'serviceName',
@@ -49,6 +55,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->isValid) {
+            $res['isValid'] = $this->isValid;
+        }
         if (null !== $this->serviceDescription) {
             $res['serviceDescription'] = $this->serviceDescription;
         }
@@ -73,6 +82,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['isValid'])) {
+            $model->isValid = $map['isValid'];
+        }
         if (isset($map['serviceDescription'])) {
             $model->serviceDescription = $map['serviceDescription'];
         }

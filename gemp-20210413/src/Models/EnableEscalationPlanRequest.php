@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class EnableEscalationPlanRequest extends Model
 {
     /**
-     * @description clientToken
+     * @example A5A1FEAE-9C47-011C-9C73-A376BC2REQUEST
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 升级计划ID
+     * @example 234534
      *
      * @var int
      */

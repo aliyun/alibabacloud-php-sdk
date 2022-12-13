@@ -9,15 +9,13 @@ use AlibabaCloud\Tea\Model;
 class effectionServices extends Model
 {
     /**
-     * @description 影响服务Id
+     * @example 1231
      *
      * @var int
      */
     public $serviceId;
 
     /**
-     * @description 影响服务名称
-     *
      * @var string
      */
     public $serviceName;

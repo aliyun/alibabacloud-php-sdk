@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class periodChannel extends Model
 {
     /**
-     * @description 非工作时段
+     * @example SMS,PHONE
      *
      * @var string
      */
     public $nonWorkday;
 
     /**
-     * @description 工作时段
+     * @example SMS,PHONE
      *
      * @var string
      */

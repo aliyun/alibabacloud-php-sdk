@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class sms extends Model
 {
     /**
-     * @description 数量
+     * @example 12
      *
      * @var int
      */

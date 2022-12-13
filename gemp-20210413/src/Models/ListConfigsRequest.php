@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListConfigsRequest extends Model
 {
     /**
-     * @description 幂等校验token
+     * @example FD200FAE-E98F-496E-BFE6-CDE61E59A2E9
      *
      * @var string
      */

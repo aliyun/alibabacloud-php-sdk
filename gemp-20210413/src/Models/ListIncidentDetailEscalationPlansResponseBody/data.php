@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\GEMP\V20210413\Models\ListIncidentDetailEscalationPlansResponseBody;
 
+use AlibabaCloud\SDK\GEMP\V20210413\Models\ListIncidentDetailEscalationPlansResponseBody\data\convergenceEscalationPlan;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListIncidentDetailEscalationPlansResponseBody\data\nuAcknowledgeEscalationPlan;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListIncidentDetailEscalationPlansResponseBody\data\unFinishEscalationPlan;
 use AlibabaCloud\Tea\Model;
@@ -11,33 +12,35 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 升级策略ID
+     * @var convergenceEscalationPlan[]
+     */
+    public $convergenceEscalationPlan;
+
+    /**
+     * @example 312123
      *
      * @var int
      */
     public $escalationPlanId;
 
     /**
-     * @description 升级策略名称
+     * @example 升级策略A
      *
      * @var string
      */
     public $escalationPlanName;
 
     /**
-     * @description 未响应升级策略
-     *
      * @var nuAcknowledgeEscalationPlan[]
      */
     public $nuAcknowledgeEscalationPlan;
 
     /**
-     * @description 未完结升级策略规则列表
-     *
      * @var unFinishEscalationPlan[]
      */
     public $unFinishEscalationPlan;
     protected $_name = [
+        'convergenceEscalationPlan'   => 'convergenceEscalationPlan',
         'escalationPlanId'            => 'escalationPlanId',
         'escalationPlanName'          => 'escalationPlanName',
         'nuAcknowledgeEscalationPlan' => 'nuAcknowledgeEscalationPlan',
@@ -51,6 +54,15 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->convergenceEscalationPlan) {
+            $res['convergenceEscalationPlan'] = [];
+            if (null !== $this->convergenceEscalationPlan && \is_array($this->convergenceEscalationPlan)) {
+                $n = 0;
+                foreach ($this->convergenceEscalationPlan as $item) {
+                    $res['convergenceEscalationPlan'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->escalationPlanId) {
             $res['escalationPlanId'] = $this->escalationPlanId;
         }
@@ -87,6 +99,15 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['convergenceEscalationPlan'])) {
+            if (!empty($map['convergenceEscalationPlan'])) {
+                $model->convergenceEscalationPlan = [];
+                $n                                = 0;
+                foreach ($map['convergenceEscalationPlan'] as $item) {
+                    $model->convergenceEscalationPlan[$n++] = null !== $item ? convergenceEscalationPlan::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['escalationPlanId'])) {
             $model->escalationPlanId = $map['escalationPlanId'];
         }

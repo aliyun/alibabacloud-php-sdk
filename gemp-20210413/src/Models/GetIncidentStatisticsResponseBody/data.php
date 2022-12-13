@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 所有 完结
+     * @example 113
      *
      * @var int
      */
     public $allFinish;
 
     /**
-     * @description 所有 待响应
+     * @example 12
      *
      * @var int
      */
     public $allResponse;
 
     /**
-     * @description 我的 完结
+     * @example 11
      *
      * @var int
      */
     public $myFinish;
 
     /**
-     * @description 我的 待响应
+     * @example 1
      *
      * @var int
      */

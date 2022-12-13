@@ -9,41 +9,47 @@ use AlibabaCloud\Tea\Model;
 class users extends Model
 {
     /**
-     * @description 邮箱
+     * @example wy930***@163.com
      *
      * @var string
      */
     public $email;
 
     /**
-     * @description 手机号
+     * @var int
+     */
+    public $isRelated;
+
+    /**
+     * @example 1390000****
      *
      * @var string
      */
     public $phone;
 
     /**
-     * @description 服务组ID
+     * @example 1
      *
      * @var int
      */
     public $serviceGroupId;
 
     /**
-     * @description 用户ID
+     * @example 10
      *
      * @var int
      */
     public $userId;
 
     /**
-     * @description 用户名字
+     * @example jack
      *
      * @var string
      */
     public $userName;
     protected $_name = [
         'email'          => 'email',
+        'isRelated'      => 'isRelated',
         'phone'          => 'phone',
         'serviceGroupId' => 'serviceGroupId',
         'userId'         => 'userId',
@@ -59,6 +65,9 @@ class users extends Model
         $res = [];
         if (null !== $this->email) {
             $res['email'] = $this->email;
+        }
+        if (null !== $this->isRelated) {
+            $res['isRelated'] = $this->isRelated;
         }
         if (null !== $this->phone) {
             $res['phone'] = $this->phone;
@@ -86,6 +95,9 @@ class users extends Model
         $model = new self();
         if (isset($map['email'])) {
             $model->email = $map['email'];
+        }
+        if (isset($map['isRelated'])) {
+            $model->isRelated = $map['isRelated'];
         }
         if (isset($map['phone'])) {
             $model->phone = $map['phone'];

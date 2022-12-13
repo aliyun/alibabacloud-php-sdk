@@ -9,56 +9,56 @@ use AlibabaCloud\Tea\Model;
 class ListServiceGroupsRequest extends Model
 {
     /**
-     * @description 幂等号
+     * @example C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 是否已经排班
+     * @example false
      *
      * @var bool
      */
     public $isScheduled;
 
     /**
-     * @description 是否根据排班状态排序
+     * @example false
      *
      * @var bool
      */
     public $orderByScheduleStatus;
 
     /**
-     * @description 当前页
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 页大小
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 搜索名称
+     * @example 王宇
      *
      * @var string
      */
     public $queryName;
 
     /**
-     * @description 搜索类型。USER用户 SERVICEGROUP服务组
+     * @example USER
      *
      * @var string
      */
     public $queryType;
 
     /**
-     * @description 用户ID
+     * @example 100000
      *
      * @var int
      */

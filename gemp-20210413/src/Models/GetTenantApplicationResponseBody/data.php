@@ -9,37 +9,43 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 业务id
+     * @example 7356
      *
      * @var string
      */
     public $bizId;
 
     /**
-     * @description 云钉协同渠道
+     * @example DINGDING
      *
      * @var string
      */
     public $channel;
 
     /**
-     * @description 企业id
+     * @example ding81913c*
      *
      * @var string
      */
     public $corporationId;
 
     /**
-     * @description 进度
+     * @var string
+     */
+    public $originalCorpId;
+
+    /**
+     * @example NOT_OPEN
      *
      * @var string
      */
     public $progress;
     protected $_name = [
-        'bizId'         => 'bizId',
-        'channel'       => 'channel',
-        'corporationId' => 'corporationId',
-        'progress'      => 'progress',
+        'bizId'          => 'bizId',
+        'channel'        => 'channel',
+        'corporationId'  => 'corporationId',
+        'originalCorpId' => 'originalCorpId',
+        'progress'       => 'progress',
     ];
 
     public function validate()
@@ -57,6 +63,9 @@ class data extends Model
         }
         if (null !== $this->corporationId) {
             $res['corporationId'] = $this->corporationId;
+        }
+        if (null !== $this->originalCorpId) {
+            $res['originalCorpId'] = $this->originalCorpId;
         }
         if (null !== $this->progress) {
             $res['progress'] = $this->progress;
@@ -81,6 +90,9 @@ class data extends Model
         }
         if (isset($map['corporationId'])) {
             $model->corporationId = $map['corporationId'];
+        }
+        if (isset($map['originalCorpId'])) {
+            $model->originalCorpId = $map['originalCorpId'];
         }
         if (isset($map['progress'])) {
             $model->progress = $map['progress'];

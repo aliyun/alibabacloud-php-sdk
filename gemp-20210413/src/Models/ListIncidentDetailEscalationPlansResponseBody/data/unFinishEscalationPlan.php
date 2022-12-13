@@ -11,49 +11,43 @@ use AlibabaCloud\Tea\Model;
 class unFinishEscalationPlan extends Model
 {
     /**
-     * @description 升级策略类型 UN_ACKNOWLEDGE
+     * @example UN_FINISH
      *
      * @var string
      */
     public $escalationPlanType;
 
     /**
-     * @description 分配渠道
-     *
      * @var string[]
      */
     public $noticeChannels;
 
     /**
-     * @description 用户信息
-     *
      * @var noticeObjectList[]
      */
     public $noticeObjectList;
 
     /**
-     * @description 延迟时间
+     * @example 10
      *
      * @var int
      */
     public $noticeTime;
 
     /**
-     * @description 消息群
-     *
      * @var serviceGroupList[]
      */
     public $serviceGroupList;
 
     /**
-     * @description 开始时间
+     * @example 1629872386027
      *
      * @var int
      */
     public $startTime;
 
     /**
-     * @description 规则触发状态
+     * @example UPGRADE
      *
      * @var string
      */

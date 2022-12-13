@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class conditions extends Model
 {
     /**
-     * @description 条件可以
+     * @example alarmName
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description 操作符
+     * @example contain
      *
      * @var string
      */
     public $operationSymbol;
 
     /**
-     * @description 匹配值
+     * @example Zabbix server
      *
      * @var string
      */

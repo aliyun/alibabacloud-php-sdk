@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class scopeObjectList extends Model
 {
     /**
-     * @description 订阅范围对象id
+     * @example 1
      *
      * @var int
      */

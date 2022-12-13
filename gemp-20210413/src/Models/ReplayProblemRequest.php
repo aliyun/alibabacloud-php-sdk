@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ReplayProblemRequest extends Model
 {
     /**
-     * @description 幂等校验token
+     * @example 4361a0e1-6747-4834-96ce-0c4840fd3212
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 故障ID
+     * @example 123
      *
      * @var int
      */
     public $problemId;
 
     /**
-     * @description 复盘负责人ID
+     * @example 3123
      *
      * @var int
      */

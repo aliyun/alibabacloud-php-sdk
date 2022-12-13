@@ -11,12 +11,14 @@ class DisableRouteRuleResponseBody extends Model
     /**
      * @description C4BE3837-1A13-413B-A225-2C88188E8A43
      *
+     * @example null
+     *
      * @var int
      */
     public $data;
 
     /**
-     * @description 请求ID
+     * @example C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var string
      */

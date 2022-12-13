@@ -10,42 +10,40 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 邮箱
+     * @example 12121****@163.com
      *
      * @var string
      */
     public $email;
 
     /**
-     * @description 手机号
+     * @example 1390000****
      *
      * @var string
      */
     public $phone;
 
     /**
-     * @description RAM子账号ID
+     * @example 321
      *
      * @var int
      */
     public $ramId;
 
     /**
-     * @description 人员所属服务组
-     *
      * @var serviceGroups[]
      */
     public $serviceGroups;
 
     /**
-     * @description 用户ID
+     * @example 321
      *
      * @var int
      */
     public $userId;
 
     /**
-     * @description 用户昵称
+     * @example 小明
      *
      * @var string
      */

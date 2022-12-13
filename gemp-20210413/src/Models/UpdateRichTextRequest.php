@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UpdateRichTextRequest extends Model
 {
     /**
-     * @description 资源id
+     * @example 123123
      *
      * @var int
      */
     public $instanceId;
 
     /**
-     * @description 资源类型
+     * @example INCIDENT 事件 ALERT告警 PROBLEM故障
      *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description 文本内容
+     * @example 这是一个富文本
      *
      * @var string
      */
     public $richText;
 
     /**
-     * @description 富文本id
+     * @example 123112313
      *
      * @var int
      */

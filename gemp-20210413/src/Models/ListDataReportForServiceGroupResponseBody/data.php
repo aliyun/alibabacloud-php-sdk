@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 升级事件数量
+     * @example 100
      *
      * @var int
      */
     public $escalationIncidentCount;
 
     /**
-     * @description 事件完结数
+     * @example 111
      *
      * @var int
      */
     public $finishIncidentCount;
 
     /**
-     * @description 完结率
+     * @example 19%
      *
      * @var string
      */
     public $finishProportion;
 
     /**
-     * @description 事件数量
+     * @example 1
      *
      * @var int
      */
@@ -39,6 +39,8 @@ class data extends Model
     /**
      * @description MRRA
      *
+     * @example 3分19秒
+     *
      * @var int
      */
     public $meanTimeToAcknowledge;
@@ -46,33 +48,35 @@ class data extends Model
     /**
      * @description MTTR
      *
+     * @example 3分19秒
+     *
      * @var int
      */
     public $meanTimeToRepair;
 
     /**
-     * @description 服务组ID
+     * @example 100
      *
      * @var int
      */
     public $serviceGroupId;
 
     /**
-     * @description 服务组名字
+     * @example 服务组
      *
      * @var string
      */
     public $serviceGroupName;
 
     /**
-     * @description 未响应升级事件数量
+     * @example 200
      *
      * @var int
      */
     public $unAcknowledgedEscalationIncidentCount;
 
     /**
-     * @description 未完成升级事件数量
+     * @example 200
      *
      * @var int
      */

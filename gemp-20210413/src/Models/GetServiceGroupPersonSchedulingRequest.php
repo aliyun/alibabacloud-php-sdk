@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class GetServiceGroupPersonSchedulingRequest extends Model
 {
     /**
-     * @description 幂等号
+     * @example C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 排班结束时间
+     * @example 2020-09-31 00:00:00
      *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 服务组ID
+     * @example 77777
      *
      * @var int
      */
     public $serviceGroupId;
 
     /**
-     * @description 排班开始时间
+     * @example 2020-09-01 00:00:00
      *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description 用户ID
+     * @example 66666
      *
      * @var int
      */

@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 收敛率
+     * @example 90.90%
      *
      * @var string
      */
     public $convergenceRate;
 
     /**
-     * @description 最大持续时长
+     * @example 10920312312312
      *
      * @var int
      */
     public $maxSustainTime;
 
     /**
-     * @description 是否跨天
+     * @example true
      *
      * @var bool
      */
     public $skipDay;
 
     /**
-     * @description 按监控源分组统计数据
+     * @example {             "Grafana": [                 {                     "evenTime": "2021-11-15 14:29:59",                     "eventCount": 4,                     "monitorSourceName": "Grafana",                     "monitorSourceCounts": null,                     "sustainTime": 15646                 },                 {                     "evenTime": "2021-11-15 14:30:36",                     "eventCount": 7,                     "monitorSourceName": "Grafana",                     "monitorSourceCounts": null,                     "sustainTime": 52638                 }             ]         }
      *
      * @var mixed[]
      */
     public $sourceEventsStatMap;
 
     /**
-     * @description 时间单位
+     * @example 1000
      *
      * @var string
      */

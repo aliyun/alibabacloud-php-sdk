@@ -9,123 +9,155 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 分派的用户ID
+     * @var int
+     */
+    public $assignToWhoIsValid;
+
+    /**
+     * @description 代表创建时间的资源属性字段
+     *
+     * @example 21312
      *
      * @var int
      */
     public $assignUserId;
 
     /**
-     * @description 分派的用户姓名
+     * @description 代表资源一级ID的资源属性字段
      *
      * @var string
      */
     public $assignUserName;
 
     /**
-     * @description 分派人手机号
+     * @example 1390000****
      *
      * @var string
      */
     public $assignUserPhone;
 
     /**
-     * @description 创建时间
+     * @description 事件级别
+     *
+     * @example 2020-10-1 00:00:00
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 影响等级 高：HIGH 低 LOW
+     * @description 时间指派人ID
+     *
+     * @example HIGH
      *
      * @var string
      */
     public $effect;
 
     /**
+     * @description 修改时间
+     *
+     * @example 12321
+     *
      * @var int
      */
     public $incidentId;
 
     /**
-     * @description 事件级别 P1 P2 P3 P4
+     * @description 影响程度
+     *
+     * @example P4
      *
      * @var string
      */
     public $incidentLevel;
 
     /**
-     * @description 事件编号
+     * @example I3000021
      *
      * @var string
      */
     public $incidentNumber;
 
     /**
-     * @description 事件状态 0已分派 1已响应 2已完结
+     * @description 关联流转规则ID
+     *
+     * @example RESPONDED
      *
      * @var string
      */
     public $incidentStatus;
 
     /**
-     * @description 事件标题
+     * @description 事件内容
      *
      * @var string
      */
     public $incidentTitle;
 
     /**
-     * @description 事件来源 是=手动 否=自动
+     * @example true
      *
      * @var bool
      */
     public $isManual;
 
     /**
-     * @description 关联服务ID
+     * @var int
+     */
+    public $relRouteRuleDeleteType;
+
+    /**
+     * @var int
+     */
+    public $relServiceDeleteType;
+
+    /**
+     * @description 事件状态
+     *
+     * @example 213123
      *
      * @var int
      */
     public $relatedServiceId;
 
     /**
-     * @description 关联服务名称
-     *
      * @var string
      */
     public $relatedServiceName;
 
     /**
-     * @description 流转规则ID
+     * @description 关联的服务ID
+     *
+     * @example 123
      *
      * @var int
      */
     public $routeRuleId;
 
     /**
-     * @description 流转规则
-     *
      * @var string
      */
     public $routeRuleName;
     protected $_name = [
-        'assignUserId'       => 'assignUserId',
-        'assignUserName'     => 'assignUserName',
-        'assignUserPhone'    => 'assignUserPhone',
-        'createTime'         => 'createTime',
-        'effect'             => 'effect',
-        'incidentId'         => 'incidentId',
-        'incidentLevel'      => 'incidentLevel',
-        'incidentNumber'     => 'incidentNumber',
-        'incidentStatus'     => 'incidentStatus',
-        'incidentTitle'      => 'incidentTitle',
-        'isManual'           => 'isManual',
-        'relatedServiceId'   => 'relatedServiceId',
-        'relatedServiceName' => 'relatedServiceName',
-        'routeRuleId'        => 'routeRuleId',
-        'routeRuleName'      => 'routeRuleName',
+        'assignToWhoIsValid'     => 'assignToWhoIsValid',
+        'assignUserId'           => 'assignUserId',
+        'assignUserName'         => 'assignUserName',
+        'assignUserPhone'        => 'assignUserPhone',
+        'createTime'             => 'createTime',
+        'effect'                 => 'effect',
+        'incidentId'             => 'incidentId',
+        'incidentLevel'          => 'incidentLevel',
+        'incidentNumber'         => 'incidentNumber',
+        'incidentStatus'         => 'incidentStatus',
+        'incidentTitle'          => 'incidentTitle',
+        'isManual'               => 'isManual',
+        'relRouteRuleDeleteType' => 'relRouteRuleDeleteType',
+        'relServiceDeleteType'   => 'relServiceDeleteType',
+        'relatedServiceId'       => 'relatedServiceId',
+        'relatedServiceName'     => 'relatedServiceName',
+        'routeRuleId'            => 'routeRuleId',
+        'routeRuleName'          => 'routeRuleName',
     ];
 
     public function validate()
@@ -135,6 +167,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->assignToWhoIsValid) {
+            $res['assignToWhoIsValid'] = $this->assignToWhoIsValid;
+        }
         if (null !== $this->assignUserId) {
             $res['assignUserId'] = $this->assignUserId;
         }
@@ -168,6 +203,12 @@ class data extends Model
         if (null !== $this->isManual) {
             $res['isManual'] = $this->isManual;
         }
+        if (null !== $this->relRouteRuleDeleteType) {
+            $res['relRouteRuleDeleteType'] = $this->relRouteRuleDeleteType;
+        }
+        if (null !== $this->relServiceDeleteType) {
+            $res['relServiceDeleteType'] = $this->relServiceDeleteType;
+        }
         if (null !== $this->relatedServiceId) {
             $res['relatedServiceId'] = $this->relatedServiceId;
         }
@@ -192,6 +233,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['assignToWhoIsValid'])) {
+            $model->assignToWhoIsValid = $map['assignToWhoIsValid'];
+        }
         if (isset($map['assignUserId'])) {
             $model->assignUserId = $map['assignUserId'];
         }
@@ -224,6 +268,12 @@ class data extends Model
         }
         if (isset($map['isManual'])) {
             $model->isManual = $map['isManual'];
+        }
+        if (isset($map['relRouteRuleDeleteType'])) {
+            $model->relRouteRuleDeleteType = $map['relRouteRuleDeleteType'];
+        }
+        if (isset($map['relServiceDeleteType'])) {
+            $model->relServiceDeleteType = $map['relServiceDeleteType'];
         }
         if (isset($map['relatedServiceId'])) {
             $model->relatedServiceId = $map['relatedServiceId'];

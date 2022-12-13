@@ -9,56 +9,56 @@ use AlibabaCloud\Tea\Model;
 class schedulingFineShifts extends Model
 {
     /**
-     * @description 循环次序
+     * @example 1
      *
      * @var int
      */
     public $cycleOrder;
 
     /**
-     * @description 排班结束时间
+     * @example 2020-10-13
      *
      * @var string
      */
     public $schedulingEndTime;
 
     /**
-     * @description 排班顺序
+     * @example 1
      *
      * @var int
      */
     public $schedulingOrder;
 
     /**
-     * @description 排班开始时间
+     * @example 2020-08-13
      *
      * @var string
      */
     public $schedulingStartTime;
 
     /**
-     * @description 排班用户ID
+     * @example 1111
      *
      * @var int
      */
     public $schedulingUserId;
 
     /**
-     * @description 排班用户名字
+     * @example 刘德华
      *
      * @var string
      */
     public $schedulingUserName;
 
     /**
-     * @description 班次名称
+     * @example 早班
      *
      * @var string
      */
     public $shiftName;
 
     /**
-     * @description 是否跨天
+     * @example false
      *
      * @var bool
      */

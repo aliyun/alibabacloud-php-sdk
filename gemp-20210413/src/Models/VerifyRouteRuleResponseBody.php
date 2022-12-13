@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class VerifyRouteRuleResponseBody extends Model
 {
     /**
-     * @description 验证结果
-     *
      * @var data
      */
     public $data;
 
     /**
      * @description Id of the request
+     *
+     * @example xxxxxx
      *
      * @var string
      */

@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class GenerateProblemPictureUploadSignRequest extends Model
 {
     /**
-     * @description 文件名
+     * @example test
      *
      * @var string
      */
     public $fileName;
 
     /**
-     * @description 文件大小KB
+     * @example 1000
      *
      * @var int
      */
     public $fileSize;
 
     /**
-     * @description 文件类型
+     * @example png
      *
      * @var string
      */
     public $fileType;
 
     /**
-     * @description 故障id
+     * @example 67876
      *
      * @var int
      */

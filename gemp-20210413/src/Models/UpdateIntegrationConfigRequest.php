@@ -9,20 +9,24 @@ use AlibabaCloud\Tea\Model;
 class UpdateIntegrationConfigRequest extends Model
 {
     /**
-     * @description 集成秘钥
+     * @description accessKey
+     *
+     * @example 601FA6A2-AC5C-4B59-BE11-378F887A6A11
      *
      * @var string
      */
     public $accessKey;
 
     /**
-     * @description 幂等id
+     * @example 601FA6A2-AC5C-4B59-BE11-378F987A6A98
      *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example 103
+     *
      * @var int
      */
     public $integrationConfigId;

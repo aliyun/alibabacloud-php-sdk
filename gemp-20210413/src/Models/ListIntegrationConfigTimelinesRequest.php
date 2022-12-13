@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ListIntegrationConfigTimelinesRequest extends Model
 {
     /**
-     * @description 幂等参数
+     * @example 601FA6A2-AC5C-4B59-BE11-378F887A6A11
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 集成配置id
+     * @example 101
      *
      * @var int
      */
     public $integrationConfigId;
 
     /**
-     * @description 分页参数
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页参数
+     * @example 10
      *
      * @var int
      */

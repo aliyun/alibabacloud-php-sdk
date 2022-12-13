@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class noticeObjectList extends Model
 {
     /**
-     * @description 通知对象id
+     * @example 234
      *
      * @var int
      */
     public $noticeObjectId;
 
     /**
-     * @description 通知对象名称
+     * @example 张老三
      *
      * @var string
      */

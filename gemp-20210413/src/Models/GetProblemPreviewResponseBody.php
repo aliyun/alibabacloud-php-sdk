@@ -10,12 +10,16 @@ use AlibabaCloud\Tea\Model;
 class GetProblemPreviewResponseBody extends Model
 {
     /**
+     * @description data
+     *
      * @var data
      */
     public $data;
 
     /**
      * @description requestId
+     *
+     * @example 4361a0e1-6747-4834-96ce-0c2840fd3812
      *
      * @var string
      */

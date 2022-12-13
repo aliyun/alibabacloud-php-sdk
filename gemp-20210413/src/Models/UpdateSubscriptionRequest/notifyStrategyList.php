@@ -10,15 +10,13 @@ use AlibabaCloud\Tea\Model;
 class notifyStrategyList extends Model
 {
     /**
-     * @description 订阅实例类型，事件、报警、故障
+     * @example INCIDENT
      *
      * @var int
      */
     public $instanceType;
 
     /**
-     * @description 通知策略
-     *
      * @var strategies[]
      */
     public $strategies;

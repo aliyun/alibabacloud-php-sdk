@@ -12,77 +12,71 @@ use AlibabaCloud\Tea\Model;
 class CreateSubscriptionRequest extends Model
 {
     /**
-     * @description 幂等参数
+     * @example 601FA6A2-AC5C-4B59-BE11-378FTOKENA11
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 结束时间
+     * @example 2021-11-03 10:10:10
      *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 订阅时效
+     * @example LONG_TERM
      *
      * @var int
      */
     public $expiredType;
 
     /**
-     * @description 通知对象列表
-     *
      * @var notifyObjectList[]
      */
     public $notifyObjectList;
 
     /**
-     * @description 通知对象类型
+     * @example USER
      *
      * @var int
      */
     public $notifyObjectType;
 
     /**
-     * @description 通知策略列表
-     *
      * @var notifyStrategyList[]
      */
     public $notifyStrategyList;
 
     /**
-     * @description 时间段
+     * @example 1个月
      *
      * @var string
      */
     public $period;
 
     /**
-     * @description 订阅范围类型
+     * @example SERVICE
      *
      * @var int
      */
     public $scope;
 
     /**
-     * @description 订阅范围列表
-     *
      * @var scopeObjectList[]
      */
     public $scopeObjectList;
 
     /**
-     * @description 开始时间
+     * @example 2021-02-03 10:10:10
      *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description 通知订阅名称
+     * @example testSubscription
      *
      * @var string
      */

@@ -11,54 +11,56 @@ class ListUsersRequest extends Model
     /**
      * @description clientToken
      *
+     * @example c26f36de-1ec8-496a-a828-880676c5ef81
+     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 分页参数
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页参数
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 人员手机号
+     * @example 1887879****
      *
      * @var string
      */
     public $phone;
 
     /**
-     * @description ramID
+     * @example 1344383
      *
      * @var string
      */
     public $ramId;
 
     /**
-     * @description USER_LIST列表 ALL_USERS下拉
+     * @example USER_LIST
      *
      * @var int
      */
     public $scene;
 
     /**
-     * @description 移动应用协同渠道
+     * @example DINGDING
      *
      * @var string
      */
     public $synergyChannel;
 
     /**
-     * @description 人员名称
+     * @example 张三
      *
      * @var string
      */

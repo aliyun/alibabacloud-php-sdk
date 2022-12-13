@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class DeleteServiceGroupUserRequest extends Model
 {
     /**
-     * @description 幂等号
+     * @example xxxxxx
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 新的用户
+     * @example 88888
      *
      * @var int
      */
     public $newUserId;
 
     /**
-     * @description 老的用户ID
+     * @example 777777
      *
      * @var int
      */
     public $oldUserId;
 
     /**
-     * @description 删除服务组成员
+     * @example true
      *
      * @var bool
      */
     public $removeUser;
 
     /**
-     * @description 服务组ID
+     * @example 66666
      *
      * @var int
      */

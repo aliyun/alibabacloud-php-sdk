@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListSourceEventsForMonitorSourceResponseBody extends Model
 {
     /**
-     * @description 告警列表
-     *
      * @var data[]
      */
     public $data;
 
     /**
      * @description Id of the request
+     *
+     * @example xxxxxx
      *
      * @var string
      */

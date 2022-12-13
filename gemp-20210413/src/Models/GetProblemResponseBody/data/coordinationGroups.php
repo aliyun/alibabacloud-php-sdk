@@ -9,19 +9,25 @@ use AlibabaCloud\Tea\Model;
 class coordinationGroups extends Model
 {
     /**
-     * @description 服务组ID
+     * @var int
+     */
+    public $isValid;
+
+    /**
+     * @example 1
      *
      * @var int
      */
     public $serviceGroupId;
 
     /**
-     * @description 服务组名字
+     * @example 清扫大队
      *
      * @var string
      */
     public $serviceGroupName;
     protected $_name = [
+        'isValid'          => 'isValid',
         'serviceGroupId'   => 'serviceGroupId',
         'serviceGroupName' => 'serviceGroupName',
     ];
@@ -33,6 +39,9 @@ class coordinationGroups extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->isValid) {
+            $res['isValid'] = $this->isValid;
+        }
         if (null !== $this->serviceGroupId) {
             $res['serviceGroupId'] = $this->serviceGroupId;
         }
@@ -51,6 +60,9 @@ class coordinationGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['isValid'])) {
+            $model->isValid = $map['isValid'];
+        }
         if (isset($map['serviceGroupId'])) {
             $model->serviceGroupId = $map['serviceGroupId'];
         }

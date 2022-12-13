@@ -16,7 +16,7 @@ class GeneratePictureLinkRequest extends Model
     public $keys;
 
     /**
-     * @description 故障id
+     * @example 50002020
      *
      * @var int
      */

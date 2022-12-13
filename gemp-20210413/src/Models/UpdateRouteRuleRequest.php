@@ -10,125 +10,139 @@ use AlibabaCloud\Tea\Model;
 class UpdateRouteRuleRequest extends Model
 {
     /**
-     * @description 事件分派对象ID（服务组ID 或用户ID）
+     * @example 1
      *
      * @var int
      */
     public $assignObjectId;
 
     /**
-     * @description 事件分派对象类型 SERVICEGROUP服务组  USER 单个用户
+     * @example SERVICEGROUP
      *
      * @var string
      */
     public $assignObjectType;
 
     /**
-     * @description AND
+     * @example AND
      *
      * @var string
      */
     public $childRuleRelation;
 
     /**
-     * @description 幂等号
+     * @example C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 影响程度 LOW-一般 HIGH-严重
+     * @var string[]
+     */
+    public $coverageProblemLevels;
+
+    /**
+     * @example LOW
      *
      * @var string
      */
     public $effection;
 
     /**
-     * @description 事件级别 1-P1 2-P2 3-P3 4-P4
+     * @example P1
      *
      * @var string
      */
     public $incidentLevel;
 
     /**
-     * @description 命中次数
+     * @example 10
      *
      * @var int
      */
     public $matchCount;
 
     /**
-     * @description 通知渠道    SMS 短信  EMAIL  邮件  PHONE  电话  WEIXIN_GROUP 企微群 DING_GROUP 钉钉群
-     *
      * @var string[]
      */
     public $notifyChannels;
 
     /**
-     * @description 关联服务ID
+     * @var int[]
+     */
+    public $problemEffectionServices;
+
+    /**
+     * @var ProblemLevelGroupValue[]
+     */
+    public $problemLevelGroup;
+
+    /**
+     * @example 1
      *
      * @var int
      */
     public $relatedServiceId;
 
     /**
-     * @description 子规则
-     *
      * @var routeChildRules[]
      */
     public $routeChildRules;
 
     /**
-     * @description 规则ID
+     * @example 1
      *
      * @var int
      */
     public $routeRuleId;
 
     /**
-     * @description 路由类型：INCIDENT 触发事件 ALERT 仅触发报警
+     * @example ALERT
      *
      * @var string
      */
     public $routeType;
 
     /**
-     * @description 规则名称
+     * @example 规则1
      *
      * @var string
      */
     public $ruleName;
 
     /**
-     * @description 时间窗口
+     * @example 10
      *
      * @var int
      */
     public $timeWindow;
 
     /**
-     * @description 时间窗口单位 MINUTE 分钟  SECOND 秒
+     * @example MINUTE
      *
      * @var string
      */
     public $timeWindowUnit;
     protected $_name = [
-        'assignObjectId'    => 'assignObjectId',
-        'assignObjectType'  => 'assignObjectType',
-        'childRuleRelation' => 'childRuleRelation',
-        'clientToken'       => 'clientToken',
-        'effection'         => 'effection',
-        'incidentLevel'     => 'incidentLevel',
-        'matchCount'        => 'matchCount',
-        'notifyChannels'    => 'notifyChannels',
-        'relatedServiceId'  => 'relatedServiceId',
-        'routeChildRules'   => 'routeChildRules',
-        'routeRuleId'       => 'routeRuleId',
-        'routeType'         => 'routeType',
-        'ruleName'          => 'ruleName',
-        'timeWindow'        => 'timeWindow',
-        'timeWindowUnit'    => 'timeWindowUnit',
+        'assignObjectId'           => 'assignObjectId',
+        'assignObjectType'         => 'assignObjectType',
+        'childRuleRelation'        => 'childRuleRelation',
+        'clientToken'              => 'clientToken',
+        'coverageProblemLevels'    => 'coverageProblemLevels',
+        'effection'                => 'effection',
+        'incidentLevel'            => 'incidentLevel',
+        'matchCount'               => 'matchCount',
+        'notifyChannels'           => 'notifyChannels',
+        'problemEffectionServices' => 'problemEffectionServices',
+        'problemLevelGroup'        => 'problemLevelGroup',
+        'relatedServiceId'         => 'relatedServiceId',
+        'routeChildRules'          => 'routeChildRules',
+        'routeRuleId'              => 'routeRuleId',
+        'routeType'                => 'routeType',
+        'ruleName'                 => 'ruleName',
+        'timeWindow'               => 'timeWindow',
+        'timeWindowUnit'           => 'timeWindowUnit',
     ];
 
     public function validate()
@@ -150,6 +164,9 @@ class UpdateRouteRuleRequest extends Model
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
         }
+        if (null !== $this->coverageProblemLevels) {
+            $res['coverageProblemLevels'] = $this->coverageProblemLevels;
+        }
         if (null !== $this->effection) {
             $res['effection'] = $this->effection;
         }
@@ -161,6 +178,17 @@ class UpdateRouteRuleRequest extends Model
         }
         if (null !== $this->notifyChannels) {
             $res['notifyChannels'] = $this->notifyChannels;
+        }
+        if (null !== $this->problemEffectionServices) {
+            $res['problemEffectionServices'] = $this->problemEffectionServices;
+        }
+        if (null !== $this->problemLevelGroup) {
+            $res['problemLevelGroup'] = [];
+            if (null !== $this->problemLevelGroup && \is_array($this->problemLevelGroup)) {
+                foreach ($this->problemLevelGroup as $key => $val) {
+                    $res['problemLevelGroup'][$key] = null !== $val ? $val->toMap() : $val;
+                }
+            }
         }
         if (null !== $this->relatedServiceId) {
             $res['relatedServiceId'] = $this->relatedServiceId;
@@ -213,6 +241,11 @@ class UpdateRouteRuleRequest extends Model
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }
+        if (isset($map['coverageProblemLevels'])) {
+            if (!empty($map['coverageProblemLevels'])) {
+                $model->coverageProblemLevels = $map['coverageProblemLevels'];
+            }
+        }
         if (isset($map['effection'])) {
             $model->effection = $map['effection'];
         }
@@ -226,6 +259,14 @@ class UpdateRouteRuleRequest extends Model
             if (!empty($map['notifyChannels'])) {
                 $model->notifyChannels = $map['notifyChannels'];
             }
+        }
+        if (isset($map['problemEffectionServices'])) {
+            if (!empty($map['problemEffectionServices'])) {
+                $model->problemEffectionServices = $map['problemEffectionServices'];
+            }
+        }
+        if (isset($map['problemLevelGroup'])) {
+            $model->problemLevelGroup = $map['problemLevelGroup'];
         }
         if (isset($map['relatedServiceId'])) {
             $model->relatedServiceId = $map['relatedServiceId'];

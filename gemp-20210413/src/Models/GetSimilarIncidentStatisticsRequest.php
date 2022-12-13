@@ -9,42 +9,40 @@ use AlibabaCloud\Tea\Model;
 class GetSimilarIncidentStatisticsRequest extends Model
 {
     /**
-     * @description 幂等标识
+     * @example 7C56D225-7C34-40BB-9624-C8BA449260E6
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 触发时间
+     * @example 2021-09-09 09:09:09
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 事件告警内容
-     *
      * @var string[]
      */
     public $events;
 
     /**
-     * @description 事件id
+     * @example 32
      *
      * @var int
      */
     public $incidentId;
 
     /**
-     * @description 事件标题
+     * @example xxx事件
      *
      * @var string
      */
     public $incidentTitle;
 
     /**
-     * @description 关联服务id
+     * @example 23
      *
      * @var int
      */

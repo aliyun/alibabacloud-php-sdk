@@ -8,6 +8,7 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\AddProblemServiceGroupRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\AddProblemServiceGroupResponse;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\BillingStatisticsResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\CancelProblemRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\CancelProblemResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\CheckWebhookRequest;
@@ -68,6 +69,7 @@ use AlibabaCloud\SDK\GEMP\V20210413\Models\DeleteRouteRuleRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\DeleteRouteRuleResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\DeleteServiceGroupRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\DeleteServiceGroupResponse;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\DeleteServiceGroupSchedulingResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\DeleteServiceGroupUserRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\DeleteServiceGroupUserResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\DeleteServiceRequest;
@@ -156,12 +158,16 @@ use AlibabaCloud\SDK\GEMP\V20210413\Models\GetSubscriptionRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetSubscriptionResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetTenantApplicationRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetTenantApplicationResponse;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\GetTenantStatusRequest;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\GetTenantStatusResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetUserGuideStatusRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetUserGuideStatusResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetUserRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetUserResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListAlertsRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListAlertsResponse;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\ListByMonitorSourceIdRequest;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\ListByMonitorSourceIdResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListChartDataForServiceGroupRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListChartDataForServiceGroupResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListChartDataForUserRequest;
@@ -174,6 +180,8 @@ use AlibabaCloud\SDK\GEMP\V20210413\Models\ListDataReportForUserRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListDataReportForUserResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListDictionariesRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListDictionariesResponse;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\ListEscalationPlansByNoticeObjectRequest;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\ListEscalationPlansByNoticeObjectResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListEscalationPlanServicesRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListEscalationPlanServicesResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListEscalationPlansRequest;
@@ -204,10 +212,14 @@ use AlibabaCloud\SDK\GEMP\V20210413\Models\ListProblemSubtotalsRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListProblemSubtotalsResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListProblemTimeLinesRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListProblemTimeLinesResponse;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\ListRouteRulesByAssignWhoIdRequest;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\ListRouteRulesByAssignWhoIdResponse;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\ListRouteRulesByServiceResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListRouteRulesRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListRouteRulesResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListServiceGroupMonitorSourceTemplatesRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListServiceGroupMonitorSourceTemplatesResponse;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\ListServiceGroupsByUserIdResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListServiceGroupsRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListServiceGroupsResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListServicesRequest;
@@ -230,6 +242,8 @@ use AlibabaCloud\SDK\GEMP\V20210413\Models\RecoverProblemRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\RecoverProblemResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\RefreshIntegrationConfigKeyRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\RefreshIntegrationConfigKeyResponse;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\RemoveIntegrationConfigRequest;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\RemoveIntegrationConfigResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\RemoveProblemServiceGroupRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\RemoveProblemServiceGroupResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ReplayProblemRequest;
@@ -238,6 +252,7 @@ use AlibabaCloud\SDK\GEMP\V20210413\Models\RespondIncidentRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\RespondIncidentResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\RevokeProblemRecoveryRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\RevokeProblemRecoveryResponse;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\UnbindUserResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\UpdateEscalationPlanRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\UpdateEscalationPlanResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\UpdateIncidentRequest;
@@ -317,19 +332,6 @@ class GEMP extends OpenApiClient
 
     /**
      * @param AddProblemServiceGroupRequest $request
-     *
-     * @return AddProblemServiceGroupResponse
-     */
-    public function addProblemServiceGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->addProblemServiceGroupWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param AddProblemServiceGroupRequest $request
      * @param string[]                      $headers
      * @param RuntimeOptions                $runtime
      *
@@ -365,16 +367,53 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CancelProblemRequest $request
+     * @param AddProblemServiceGroupRequest $request
      *
-     * @return CancelProblemResponse
+     * @return AddProblemServiceGroupResponse
      */
-    public function cancelProblem($request)
+    public function addProblemServiceGroup($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->cancelProblemWithOptions($request, $headers, $runtime);
+        return $this->addProblemServiceGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return BillingStatisticsResponse
+     */
+    public function billingStatisticsWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'BillingStatistics',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/charging/details',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return BillingStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return BillingStatisticsResponse
+     */
+    public function billingStatistics()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->billingStatisticsWithOptions($headers, $runtime);
     }
 
     /**
@@ -423,16 +462,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CheckWebhookRequest $request
+     * @param CancelProblemRequest $request
      *
-     * @return CheckWebhookResponse
+     * @return CancelProblemResponse
      */
-    public function checkWebhook($request)
+    public function cancelProblem($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->checkWebhookWithOptions($request, $headers, $runtime);
+        return $this->cancelProblemWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -475,16 +514,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ConfirmIntegrationConfigRequest $request
+     * @param CheckWebhookRequest $request
      *
-     * @return ConfirmIntegrationConfigResponse
+     * @return CheckWebhookResponse
      */
-    public function confirmIntegrationConfig($request)
+    public function checkWebhook($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->confirmIntegrationConfigWithOptions($request, $headers, $runtime);
+        return $this->checkWebhookWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -524,16 +563,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateEscalationPlanRequest $request
+     * @param ConfirmIntegrationConfigRequest $request
      *
-     * @return CreateEscalationPlanResponse
+     * @return ConfirmIntegrationConfigResponse
      */
-    public function createEscalationPlan($request)
+    public function confirmIntegrationConfig($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createEscalationPlanWithOptions($request, $headers, $runtime);
+        return $this->confirmIntegrationConfigWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -582,16 +621,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateIncidentRequest $request
+     * @param CreateEscalationPlanRequest $request
      *
-     * @return CreateIncidentResponse
+     * @return CreateEscalationPlanResponse
      */
-    public function createIncident($request)
+    public function createEscalationPlan($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createIncidentWithOptions($request, $headers, $runtime);
+        return $this->createEscalationPlanWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -652,16 +691,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateIncidentSubtotalRequest $request
+     * @param CreateIncidentRequest $request
      *
-     * @return CreateIncidentSubtotalResponse
+     * @return CreateIncidentResponse
      */
-    public function createIncidentSubtotal($request)
+    public function createIncident($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createIncidentSubtotalWithOptions($request, $headers, $runtime);
+        return $this->createIncidentWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -704,16 +743,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateIntegrationConfigRequest $request
+     * @param CreateIncidentSubtotalRequest $request
      *
-     * @return CreateIntegrationConfigResponse
+     * @return CreateIncidentSubtotalResponse
      */
-    public function createIntegrationConfig($request)
+    public function createIncidentSubtotal($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createIntegrationConfigWithOptions($request, $headers, $runtime);
+        return $this->createIncidentSubtotalWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -753,16 +792,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateProblemRequest $request
+     * @param CreateIntegrationConfigRequest $request
      *
-     * @return CreateProblemResponse
+     * @return CreateIntegrationConfigResponse
      */
-    public function createProblem($request)
+    public function createIntegrationConfig($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createProblemWithOptions($request, $headers, $runtime);
+        return $this->createIntegrationConfigWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -841,16 +880,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateProblemEffectionServiceRequest $request
+     * @param CreateProblemRequest $request
      *
-     * @return CreateProblemEffectionServiceResponse
+     * @return CreateProblemResponse
      */
-    public function createProblemEffectionService($request)
+    public function createProblem($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createProblemEffectionServiceWithOptions($request, $headers, $runtime);
+        return $this->createProblemWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -905,16 +944,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateProblemMeasureRequest $request
+     * @param CreateProblemEffectionServiceRequest $request
      *
-     * @return CreateProblemMeasureResponse
+     * @return CreateProblemEffectionServiceResponse
      */
-    public function createProblemMeasure($request)
+    public function createProblemEffectionService($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createProblemMeasureWithOptions($request, $headers, $runtime);
+        return $this->createProblemEffectionServiceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -978,16 +1017,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateProblemSubtotalRequest $request
+     * @param CreateProblemMeasureRequest $request
      *
-     * @return CreateProblemSubtotalResponse
+     * @return CreateProblemMeasureResponse
      */
-    public function createProblemSubtotal($request)
+    public function createProblemMeasure($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createProblemSubtotalWithOptions($request, $headers, $runtime);
+        return $this->createProblemMeasureWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1030,16 +1069,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateProblemTimelineRequest $request
+     * @param CreateProblemSubtotalRequest $request
      *
-     * @return CreateProblemTimelineResponse
+     * @return CreateProblemSubtotalResponse
      */
-    public function createProblemTimeline($request)
+    public function createProblemSubtotal($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createProblemTimelineWithOptions($request, $headers, $runtime);
+        return $this->createProblemSubtotalWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1088,16 +1127,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateProblemTimelinesRequest $request
+     * @param CreateProblemTimelineRequest $request
      *
-     * @return CreateProblemTimelinesResponse
+     * @return CreateProblemTimelineResponse
      */
-    public function createProblemTimelines($request)
+    public function createProblemTimeline($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createProblemTimelinesWithOptions($request, $headers, $runtime);
+        return $this->createProblemTimelineWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1140,16 +1179,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateRichTextRequest $request
+     * @param CreateProblemTimelinesRequest $request
      *
-     * @return CreateRichTextResponse
+     * @return CreateProblemTimelinesResponse
      */
-    public function createRichText($request)
+    public function createProblemTimelines($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createRichTextWithOptions($request, $headers, $runtime);
+        return $this->createProblemTimelinesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1192,16 +1231,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateRouteRuleRequest $request
+     * @param CreateRichTextRequest $request
      *
-     * @return CreateRouteRuleResponse
+     * @return CreateRichTextResponse
      */
-    public function createRouteRule($request)
+    public function createRichText($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createRouteRuleWithOptions($request, $headers, $runtime);
+        return $this->createRichTextWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1227,6 +1266,9 @@ class GEMP extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $body['clientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->coverageProblemLevels)) {
+            $body['coverageProblemLevels'] = $request->coverageProblemLevels;
+        }
         if (!Utils::isUnset($request->effection)) {
             $body['effection'] = $request->effection;
         }
@@ -1241,6 +1283,12 @@ class GEMP extends OpenApiClient
         }
         if (!Utils::isUnset($request->notifyChannels)) {
             $body['notifyChannels'] = $request->notifyChannels;
+        }
+        if (!Utils::isUnset($request->problemEffectionServices)) {
+            $body['problemEffectionServices'] = $request->problemEffectionServices;
+        }
+        if (!Utils::isUnset($request->problemLevelGroup)) {
+            $body['problemLevelGroup'] = $request->problemLevelGroup;
         }
         if (!Utils::isUnset($request->relatedServiceId)) {
             $body['relatedServiceId'] = $request->relatedServiceId;
@@ -1280,16 +1328,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceRequest $request
+     * @param CreateRouteRuleRequest $request
      *
-     * @return CreateServiceResponse
+     * @return CreateRouteRuleResponse
      */
-    public function createService($request)
+    public function createRouteRule($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createServiceWithOptions($request, $headers, $runtime);
+        return $this->createRouteRuleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1332,16 +1380,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceGroupRequest $request
+     * @param CreateServiceRequest $request
      *
-     * @return CreateServiceGroupResponse
+     * @return CreateServiceResponse
      */
-    public function createServiceGroup($request)
+    public function createService($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createServiceGroupWithOptions($request, $headers, $runtime);
+        return $this->createServiceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1399,16 +1447,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceGroupSchedulingRequest $request
+     * @param CreateServiceGroupRequest $request
      *
-     * @return CreateServiceGroupSchedulingResponse
+     * @return CreateServiceGroupResponse
      */
-    public function createServiceGroupScheduling($request)
+    public function createServiceGroup($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createServiceGroupSchedulingWithOptions($request, $headers, $runtime);
+        return $this->createServiceGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1457,16 +1505,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateSubscriptionRequest $request
+     * @param CreateServiceGroupSchedulingRequest $request
      *
-     * @return CreateSubscriptionResponse
+     * @return CreateServiceGroupSchedulingResponse
      */
-    public function createSubscription($request)
+    public function createServiceGroupScheduling($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createSubscriptionWithOptions($request, $headers, $runtime);
+        return $this->createServiceGroupSchedulingWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1533,16 +1581,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateTenantApplicationRequest $request
+     * @param CreateSubscriptionRequest $request
      *
-     * @return CreateTenantApplicationResponse
+     * @return CreateSubscriptionResponse
      */
-    public function createTenantApplication($request)
+    public function createSubscription($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createTenantApplicationWithOptions($request, $headers, $runtime);
+        return $this->createSubscriptionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1582,16 +1630,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateUserRequest $request
+     * @param CreateTenantApplicationRequest $request
      *
-     * @return CreateUserResponse
+     * @return CreateTenantApplicationResponse
      */
-    public function createUser($request)
+    public function createTenantApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createUserWithOptions($request, $headers, $runtime);
+        return $this->createTenantApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1640,16 +1688,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteEscalationPlanRequest $request
+     * @param CreateUserRequest $request
      *
-     * @return DeleteEscalationPlanResponse
+     * @return CreateUserResponse
      */
-    public function deleteEscalationPlan($request)
+    public function createUser($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteEscalationPlanWithOptions($request, $headers, $runtime);
+        return $this->createUserWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1689,16 +1737,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteIncidentRequest $request
+     * @param DeleteEscalationPlanRequest $request
      *
-     * @return DeleteIncidentResponse
+     * @return DeleteEscalationPlanResponse
      */
-    public function deleteIncident($request)
+    public function deleteEscalationPlan($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteIncidentWithOptions($request, $headers, $runtime);
+        return $this->deleteEscalationPlanWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1738,16 +1786,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteIntegrationConfigRequest $request
+     * @param DeleteIncidentRequest $request
      *
-     * @return DeleteIntegrationConfigResponse
+     * @return DeleteIncidentResponse
      */
-    public function deleteIntegrationConfig($request)
+    public function deleteIncident($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteIntegrationConfigWithOptions($request, $headers, $runtime);
+        return $this->deleteIncidentWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1787,16 +1835,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteProblemRequest $request
+     * @param DeleteIntegrationConfigRequest $request
      *
-     * @return DeleteProblemResponse
+     * @return DeleteIntegrationConfigResponse
      */
-    public function deleteProblem($request)
+    public function deleteIntegrationConfig($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteProblemWithOptions($request, $headers, $runtime);
+        return $this->deleteIntegrationConfigWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1836,16 +1884,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteProblemEffectionServiceRequest $request
+     * @param DeleteProblemRequest $request
      *
-     * @return DeleteProblemEffectionServiceResponse
+     * @return DeleteProblemResponse
      */
-    public function deleteProblemEffectionService($request)
+    public function deleteProblem($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteProblemEffectionServiceWithOptions($request, $headers, $runtime);
+        return $this->deleteProblemWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1888,16 +1936,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteProblemMeasureRequest $request
+     * @param DeleteProblemEffectionServiceRequest $request
      *
-     * @return DeleteProblemMeasureResponse
+     * @return DeleteProblemEffectionServiceResponse
      */
-    public function deleteProblemMeasure($request)
+    public function deleteProblemEffectionService($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteProblemMeasureWithOptions($request, $headers, $runtime);
+        return $this->deleteProblemEffectionServiceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1940,16 +1988,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteProblemTimelineRequest $request
+     * @param DeleteProblemMeasureRequest $request
      *
-     * @return DeleteProblemTimelineResponse
+     * @return DeleteProblemMeasureResponse
      */
-    public function deleteProblemTimeline($request)
+    public function deleteProblemMeasure($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteProblemTimelineWithOptions($request, $headers, $runtime);
+        return $this->deleteProblemMeasureWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1992,16 +2040,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteRouteRuleRequest $request
+     * @param DeleteProblemTimelineRequest $request
      *
-     * @return DeleteRouteRuleResponse
+     * @return DeleteProblemTimelineResponse
      */
-    public function deleteRouteRule($request)
+    public function deleteProblemTimeline($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteRouteRuleWithOptions($request, $headers, $runtime);
+        return $this->deleteProblemTimelineWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2041,16 +2089,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteServiceRequest $request
+     * @param DeleteRouteRuleRequest $request
      *
-     * @return DeleteServiceResponse
+     * @return DeleteRouteRuleResponse
      */
-    public function deleteService($request)
+    public function deleteRouteRule($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteServiceWithOptions($request, $headers, $runtime);
+        return $this->deleteRouteRuleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2090,16 +2138,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteServiceGroupRequest $request
+     * @param DeleteServiceRequest $request
      *
-     * @return DeleteServiceGroupResponse
+     * @return DeleteServiceResponse
      */
-    public function deleteServiceGroup($request)
+    public function deleteService($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteServiceGroupWithOptions($request, $headers, $runtime);
+        return $this->deleteServiceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2139,16 +2187,53 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteServiceGroupUserRequest $request
+     * @param DeleteServiceGroupRequest $request
      *
-     * @return DeleteServiceGroupUserResponse
+     * @return DeleteServiceGroupResponse
      */
-    public function deleteServiceGroupUser($request)
+    public function deleteServiceGroup($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteServiceGroupUserWithOptions($request, $headers, $runtime);
+        return $this->deleteServiceGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteServiceGroupSchedulingResponse
+     */
+    public function deleteServiceGroupSchedulingWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteServiceGroupScheduling',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/services/group/scheduling/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteServiceGroupSchedulingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return DeleteServiceGroupSchedulingResponse
+     */
+    public function deleteServiceGroupScheduling()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteServiceGroupSchedulingWithOptions($headers, $runtime);
     }
 
     /**
@@ -2197,16 +2282,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteSubscriptionRequest $request
+     * @param DeleteServiceGroupUserRequest $request
      *
-     * @return DeleteSubscriptionResponse
+     * @return DeleteServiceGroupUserResponse
      */
-    public function deleteSubscription($request)
+    public function deleteServiceGroupUser($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteSubscriptionWithOptions($request, $headers, $runtime);
+        return $this->deleteServiceGroupUserWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2243,16 +2328,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserRequest $request
+     * @param DeleteSubscriptionRequest $request
      *
-     * @return DeleteUserResponse
+     * @return DeleteSubscriptionResponse
      */
-    public function deleteUser($request)
+    public function deleteSubscription($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteUserWithOptions($request, $headers, $runtime);
+        return $this->deleteSubscriptionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2292,16 +2377,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeliverIncidentRequest $request
+     * @param DeleteUserRequest $request
      *
-     * @return DeliverIncidentResponse
+     * @return DeleteUserResponse
      */
-    public function deliverIncident($request)
+    public function deleteUser($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deliverIncidentWithOptions($request, $headers, $runtime);
+        return $this->deleteUserWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2344,16 +2429,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DisableEscalationPlanRequest $request
+     * @param DeliverIncidentRequest $request
      *
-     * @return DisableEscalationPlanResponse
+     * @return DeliverIncidentResponse
      */
-    public function disableEscalationPlan($request)
+    public function deliverIncident($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->disableEscalationPlanWithOptions($request, $headers, $runtime);
+        return $this->deliverIncidentWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2393,16 +2478,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DisableIntegrationConfigRequest $request
+     * @param DisableEscalationPlanRequest $request
      *
-     * @return DisableIntegrationConfigResponse
+     * @return DisableEscalationPlanResponse
      */
-    public function disableIntegrationConfig($request)
+    public function disableEscalationPlan($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->disableIntegrationConfigWithOptions($request, $headers, $runtime);
+        return $this->disableEscalationPlanWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2442,16 +2527,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DisableRouteRuleRequest $request
+     * @param DisableIntegrationConfigRequest $request
      *
-     * @return DisableRouteRuleResponse
+     * @return DisableIntegrationConfigResponse
      */
-    public function disableRouteRule($request)
+    public function disableIntegrationConfig($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->disableRouteRuleWithOptions($request, $headers, $runtime);
+        return $this->disableIntegrationConfigWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2491,16 +2576,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DisableServiceGroupWebhookRequest $request
+     * @param DisableRouteRuleRequest $request
      *
-     * @return DisableServiceGroupWebhookResponse
+     * @return DisableRouteRuleResponse
      */
-    public function disableServiceGroupWebhook($request)
+    public function disableRouteRule($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->disableServiceGroupWebhookWithOptions($request, $headers, $runtime);
+        return $this->disableRouteRuleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2540,16 +2625,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DisableSubscriptionRequest $request
+     * @param DisableServiceGroupWebhookRequest $request
      *
-     * @return DisableSubscriptionResponse
+     * @return DisableServiceGroupWebhookResponse
      */
-    public function disableSubscription($request)
+    public function disableServiceGroupWebhook($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->disableSubscriptionWithOptions($request, $headers, $runtime);
+        return $this->disableServiceGroupWebhookWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2586,16 +2671,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param EnableEscalationPlanRequest $request
+     * @param DisableSubscriptionRequest $request
      *
-     * @return EnableEscalationPlanResponse
+     * @return DisableSubscriptionResponse
      */
-    public function enableEscalationPlan($request)
+    public function disableSubscription($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->enableEscalationPlanWithOptions($request, $headers, $runtime);
+        return $this->disableSubscriptionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2635,16 +2720,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param EnableIntegrationConfigRequest $request
+     * @param EnableEscalationPlanRequest $request
      *
-     * @return EnableIntegrationConfigResponse
+     * @return EnableEscalationPlanResponse
      */
-    public function enableIntegrationConfig($request)
+    public function enableEscalationPlan($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->enableIntegrationConfigWithOptions($request, $headers, $runtime);
+        return $this->enableEscalationPlanWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2684,16 +2769,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param EnableRouteRuleRequest $request
+     * @param EnableIntegrationConfigRequest $request
      *
-     * @return EnableRouteRuleResponse
+     * @return EnableIntegrationConfigResponse
      */
-    public function enableRouteRule($request)
+    public function enableIntegrationConfig($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->enableRouteRuleWithOptions($request, $headers, $runtime);
+        return $this->enableIntegrationConfigWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2733,16 +2818,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param EnableServiceGroupWebhookRequest $request
+     * @param EnableRouteRuleRequest $request
      *
-     * @return EnableServiceGroupWebhookResponse
+     * @return EnableRouteRuleResponse
      */
-    public function enableServiceGroupWebhook($request)
+    public function enableRouteRule($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->enableServiceGroupWebhookWithOptions($request, $headers, $runtime);
+        return $this->enableRouteRuleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2782,16 +2867,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param EnableSubscriptionRequest $request
+     * @param EnableServiceGroupWebhookRequest $request
      *
-     * @return EnableSubscriptionResponse
+     * @return EnableServiceGroupWebhookResponse
      */
-    public function enableSubscription($request)
+    public function enableServiceGroupWebhook($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->enableSubscriptionWithOptions($request, $headers, $runtime);
+        return $this->enableServiceGroupWebhookWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2828,16 +2913,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param FinishIncidentRequest $request
+     * @param EnableSubscriptionRequest $request
      *
-     * @return FinishIncidentResponse
+     * @return EnableSubscriptionResponse
      */
-    public function finishIncident($request)
+    public function enableSubscription($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->finishIncidentWithOptions($request, $headers, $runtime);
+        return $this->enableSubscriptionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2889,16 +2974,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param FinishProblemRequest $request
+     * @param FinishIncidentRequest $request
      *
-     * @return FinishProblemResponse
+     * @return FinishIncidentResponse
      */
-    public function finishProblem($request)
+    public function finishIncident($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->finishProblemWithOptions($request, $headers, $runtime);
+        return $this->finishIncidentWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2938,16 +3023,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GeneratePictureLinkRequest $request
+     * @param FinishProblemRequest $request
      *
-     * @return GeneratePictureLinkResponse
+     * @return FinishProblemResponse
      */
-    public function generatePictureLink($request)
+    public function finishProblem($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->generatePictureLinkWithOptions($request, $headers, $runtime);
+        return $this->finishProblemWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2987,16 +3072,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GeneratePictureUploadSignRequest $request
+     * @param GeneratePictureLinkRequest $request
      *
-     * @return GeneratePictureUploadSignResponse
+     * @return GeneratePictureLinkResponse
      */
-    public function generatePictureUploadSign($request)
+    public function generatePictureLink($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->generatePictureUploadSignWithOptions($request, $headers, $runtime);
+        return $this->generatePictureLinkWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3039,16 +3124,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GenerateProblemPictureLinkRequest $request
+     * @param GeneratePictureUploadSignRequest $request
      *
-     * @return GenerateProblemPictureLinkResponse
+     * @return GeneratePictureUploadSignResponse
      */
-    public function generateProblemPictureLink($request)
+    public function generatePictureUploadSign($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->generateProblemPictureLinkWithOptions($request, $headers, $runtime);
+        return $this->generatePictureUploadSignWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3088,16 +3173,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GenerateProblemPictureUploadSignRequest $request
+     * @param GenerateProblemPictureLinkRequest $request
      *
-     * @return GenerateProblemPictureUploadSignResponse
+     * @return GenerateProblemPictureLinkResponse
      */
-    public function generateProblemPictureUploadSign($request)
+    public function generateProblemPictureLink($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->generateProblemPictureUploadSignWithOptions($request, $headers, $runtime);
+        return $this->generateProblemPictureLinkWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3143,16 +3228,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetEscalationPlanRequest $request
+     * @param GenerateProblemPictureUploadSignRequest $request
      *
-     * @return GetEscalationPlanResponse
+     * @return GenerateProblemPictureUploadSignResponse
      */
-    public function getEscalationPlan($request)
+    public function generateProblemPictureUploadSign($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getEscalationPlanWithOptions($request, $headers, $runtime);
+        return $this->generateProblemPictureUploadSignWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3192,16 +3277,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetEventRequest $request
+     * @param GetEscalationPlanRequest $request
      *
-     * @return GetEventResponse
+     * @return GetEscalationPlanResponse
      */
-    public function getEvent($request)
+    public function getEscalationPlan($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getEventWithOptions($request, $headers, $runtime);
+        return $this->getEscalationPlanWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3238,16 +3323,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetHomePageGuidanceRequest $request
+     * @param GetEventRequest $request
      *
-     * @return GetHomePageGuidanceResponse
+     * @return GetEventResponse
      */
-    public function getHomePageGuidance($request)
+    public function getEvent($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getHomePageGuidanceWithOptions($request, $headers, $runtime);
+        return $this->getEventWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3284,16 +3369,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetIncidentRequest $request
+     * @param GetHomePageGuidanceRequest $request
      *
-     * @return GetIncidentResponse
+     * @return GetHomePageGuidanceResponse
      */
-    public function getIncident($request)
+    public function getHomePageGuidance($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getIncidentWithOptions($request, $headers, $runtime);
+        return $this->getHomePageGuidanceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3333,16 +3418,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetIncidentStatisticsRequest $request
+     * @param GetIncidentRequest $request
      *
-     * @return GetIncidentStatisticsResponse
+     * @return GetIncidentResponse
      */
-    public function getIncidentStatistics($request)
+    public function getIncident($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getIncidentStatisticsWithOptions($request, $headers, $runtime);
+        return $this->getIncidentWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3379,16 +3464,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetIncidentSubtotalCountRequest $request
+     * @param GetIncidentStatisticsRequest $request
      *
-     * @return GetIncidentSubtotalCountResponse
+     * @return GetIncidentStatisticsResponse
      */
-    public function getIncidentSubtotalCount($request)
+    public function getIncidentStatistics($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getIncidentSubtotalCountWithOptions($request, $headers, $runtime);
+        return $this->getIncidentStatisticsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3428,16 +3513,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetIntegrationConfigRequest $request
+     * @param GetIncidentSubtotalCountRequest $request
      *
-     * @return GetIntegrationConfigResponse
+     * @return GetIncidentSubtotalCountResponse
      */
-    public function getIntegrationConfig($request)
+    public function getIncidentSubtotalCount($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getIntegrationConfigWithOptions($request, $headers, $runtime);
+        return $this->getIncidentSubtotalCountWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3477,16 +3562,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetProblemRequest $request
+     * @param GetIntegrationConfigRequest $request
      *
-     * @return GetProblemResponse
+     * @return GetIntegrationConfigResponse
      */
-    public function getProblem($request)
+    public function getIntegrationConfig($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getProblemWithOptions($request, $headers, $runtime);
+        return $this->getIntegrationConfigWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3526,16 +3611,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetProblemEffectionServiceRequest $request
+     * @param GetProblemRequest $request
      *
-     * @return GetProblemEffectionServiceResponse
+     * @return GetProblemResponse
      */
-    public function getProblemEffectionService($request)
+    public function getProblem($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getProblemEffectionServiceWithOptions($request, $headers, $runtime);
+        return $this->getProblemWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3578,16 +3663,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetProblemImprovementRequest $request
+     * @param GetProblemEffectionServiceRequest $request
      *
-     * @return GetProblemImprovementResponse
+     * @return GetProblemEffectionServiceResponse
      */
-    public function getProblemImprovement($request)
+    public function getProblemEffectionService($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getProblemImprovementWithOptions($request, $headers, $runtime);
+        return $this->getProblemEffectionServiceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3627,16 +3712,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetProblemPreviewRequest $request
+     * @param GetProblemImprovementRequest $request
      *
-     * @return GetProblemPreviewResponse
+     * @return GetProblemImprovementResponse
      */
-    public function getProblemPreview($request)
+    public function getProblemImprovement($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getProblemPreviewWithOptions($request, $headers, $runtime);
+        return $this->getProblemImprovementWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3694,16 +3779,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetResourceStatisticsRequest $request
+     * @param GetProblemPreviewRequest $request
      *
-     * @return GetResourceStatisticsResponse
+     * @return GetProblemPreviewResponse
      */
-    public function getResourceStatistics($request)
+    public function getProblemPreview($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getResourceStatisticsWithOptions($request, $headers, $runtime);
+        return $this->getProblemPreviewWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3740,16 +3825,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetRichTextRequest $request
+     * @param GetResourceStatisticsRequest $request
      *
-     * @return GetRichTextResponse
+     * @return GetResourceStatisticsResponse
      */
-    public function getRichText($request)
+    public function getResourceStatistics($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getRichTextWithOptions($request, $headers, $runtime);
+        return $this->getResourceStatisticsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3792,16 +3877,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetRouteRuleRequest $request
+     * @param GetRichTextRequest $request
      *
-     * @return GetRouteRuleResponse
+     * @return GetRichTextResponse
      */
-    public function getRouteRule($request)
+    public function getRichText($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getRouteRuleWithOptions($request, $headers, $runtime);
+        return $this->getRichTextWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3841,16 +3926,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetServiceRequest $request
+     * @param GetRouteRuleRequest $request
      *
-     * @return GetServiceResponse
+     * @return GetRouteRuleResponse
      */
-    public function getService($request)
+    public function getRouteRule($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getServiceWithOptions($request, $headers, $runtime);
+        return $this->getRouteRuleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3890,16 +3975,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetServiceGroupRequest $request
+     * @param GetServiceRequest $request
      *
-     * @return GetServiceGroupResponse
+     * @return GetServiceResponse
      */
-    public function getServiceGroup($request)
+    public function getService($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getServiceGroupWithOptions($request, $headers, $runtime);
+        return $this->getServiceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3939,16 +4024,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetServiceGroupPersonSchedulingRequest $request
+     * @param GetServiceGroupRequest $request
      *
-     * @return GetServiceGroupPersonSchedulingResponse
+     * @return GetServiceGroupResponse
      */
-    public function getServiceGroupPersonScheduling($request)
+    public function getServiceGroup($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getServiceGroupPersonSchedulingWithOptions($request, $headers, $runtime);
+        return $this->getServiceGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3997,16 +4082,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetServiceGroupSchedulingRequest $request
+     * @param GetServiceGroupPersonSchedulingRequest $request
      *
-     * @return GetServiceGroupSchedulingResponse
+     * @return GetServiceGroupPersonSchedulingResponse
      */
-    public function getServiceGroupScheduling($request)
+    public function getServiceGroupPersonScheduling($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getServiceGroupSchedulingWithOptions($request, $headers, $runtime);
+        return $this->getServiceGroupPersonSchedulingWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4046,16 +4131,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetServiceGroupSchedulingPreviewRequest $request
+     * @param GetServiceGroupSchedulingRequest $request
      *
-     * @return GetServiceGroupSchedulingPreviewResponse
+     * @return GetServiceGroupSchedulingResponse
      */
-    public function getServiceGroupSchedulingPreview($request)
+    public function getServiceGroupScheduling($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getServiceGroupSchedulingPreviewWithOptions($request, $headers, $runtime);
+        return $this->getServiceGroupSchedulingWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4110,16 +4195,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetServiceGroupSpecialPersonSchedulingRequest $request
+     * @param GetServiceGroupSchedulingPreviewRequest $request
      *
-     * @return GetServiceGroupSpecialPersonSchedulingResponse
+     * @return GetServiceGroupSchedulingPreviewResponse
      */
-    public function getServiceGroupSpecialPersonScheduling($request)
+    public function getServiceGroupSchedulingPreview($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getServiceGroupSpecialPersonSchedulingWithOptions($request, $headers, $runtime);
+        return $this->getServiceGroupSchedulingPreviewWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4162,16 +4247,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetSimilarIncidentStatisticsRequest $request
+     * @param GetServiceGroupSpecialPersonSchedulingRequest $request
      *
-     * @return GetSimilarIncidentStatisticsResponse
+     * @return GetServiceGroupSpecialPersonSchedulingResponse
      */
-    public function getSimilarIncidentStatistics($request)
+    public function getServiceGroupSpecialPersonScheduling($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getSimilarIncidentStatisticsWithOptions($request, $headers, $runtime);
+        return $this->getServiceGroupSpecialPersonSchedulingWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4223,16 +4308,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetSubscriptionRequest $request
+     * @param GetSimilarIncidentStatisticsRequest $request
      *
-     * @return GetSubscriptionResponse
+     * @return GetSimilarIncidentStatisticsResponse
      */
-    public function getSubscription($request)
+    public function getSimilarIncidentStatistics($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getSubscriptionWithOptions($request, $headers, $runtime);
+        return $this->getSimilarIncidentStatisticsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4246,6 +4331,9 @@ class GEMP extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->notFilterScopeObjectDeleted)) {
+            $body['notFilterScopeObjectDeleted'] = $request->notFilterScopeObjectDeleted;
+        }
         if (!Utils::isUnset($request->subscriptionId)) {
             $body['subscriptionId'] = $request->subscriptionId;
         }
@@ -4269,16 +4357,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetTenantApplicationRequest $request
+     * @param GetSubscriptionRequest $request
      *
-     * @return GetTenantApplicationResponse
+     * @return GetSubscriptionResponse
      */
-    public function getTenantApplication($request)
+    public function getSubscription($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getTenantApplicationWithOptions($request, $headers, $runtime);
+        return $this->getSubscriptionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4315,16 +4403,62 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetUserRequest $request
+     * @param GetTenantApplicationRequest $request
      *
-     * @return GetUserResponse
+     * @return GetTenantApplicationResponse
      */
-    public function getUser($request)
+    public function getTenantApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getUserWithOptions($request, $headers, $runtime);
+        return $this->getTenantApplicationWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetTenantStatusRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetTenantStatusResponse
+     */
+    public function getTenantStatusWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->tenantRamId)) {
+            $body['tenantRamId'] = $request->tenantRamId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTenantStatus',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/tenant/getTenantStatus',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTenantStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTenantStatusRequest $request
+     *
+     * @return GetTenantStatusResponse
+     */
+    public function getTenantStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTenantStatusWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4364,16 +4498,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetUserGuideStatusRequest $request
+     * @param GetUserRequest $request
      *
-     * @return GetUserGuideStatusResponse
+     * @return GetUserResponse
      */
-    public function getUserGuideStatus($request)
+    public function getUser($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getUserGuideStatusWithOptions($request, $headers, $runtime);
+        return $this->getUserWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4410,16 +4544,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListAlertsRequest $request
+     * @param GetUserGuideStatusRequest $request
      *
-     * @return ListAlertsResponse
+     * @return GetUserGuideStatusResponse
      */
-    public function listAlerts($request)
+    public function getUserGuideStatus($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listAlertsWithOptions($request, $headers, $runtime);
+        return $this->getUserGuideStatusWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4444,6 +4578,9 @@ class GEMP extends OpenApiClient
         }
         if (!Utils::isUnset($request->endTime)) {
             $body['endTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->monitorSourceId)) {
+            $body['monitorSourceId'] = $request->monitorSourceId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $body['pageNumber'] = $request->pageNumber;
@@ -4480,16 +4617,62 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListChartDataForServiceGroupRequest $request
+     * @param ListAlertsRequest $request
      *
-     * @return ListChartDataForServiceGroupResponse
+     * @return ListAlertsResponse
      */
-    public function listChartDataForServiceGroup($request)
+    public function listAlerts($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listChartDataForServiceGroupWithOptions($request, $headers, $runtime);
+        return $this->listAlertsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListByMonitorSourceIdRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListByMonitorSourceIdResponse
+     */
+    public function listByMonitorSourceIdWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->monitorSourceId)) {
+            $body['monitorSourceId'] = $request->monitorSourceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListByMonitorSourceId',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/routeRule/listByMonitorSourceId',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListByMonitorSourceIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListByMonitorSourceIdRequest $request
+     *
+     * @return ListByMonitorSourceIdResponse
+     */
+    public function listByMonitorSourceId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listByMonitorSourceIdWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4532,16 +4715,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListChartDataForUserRequest $request
+     * @param ListChartDataForServiceGroupRequest $request
      *
-     * @return ListChartDataForUserResponse
+     * @return ListChartDataForServiceGroupResponse
      */
-    public function listChartDataForUser($request)
+    public function listChartDataForServiceGroup($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listChartDataForUserWithOptions($request, $headers, $runtime);
+        return $this->listChartDataForServiceGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4584,16 +4767,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListConfigsRequest $request
+     * @param ListChartDataForUserRequest $request
      *
-     * @return ListConfigsResponse
+     * @return ListChartDataForUserResponse
      */
-    public function listConfigs($request)
+    public function listChartDataForUser($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listConfigsWithOptions($request, $headers, $runtime);
+        return $this->listChartDataForUserWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4630,16 +4813,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListDataReportForServiceGroupRequest $request
+     * @param ListConfigsRequest $request
      *
-     * @return ListDataReportForServiceGroupResponse
+     * @return ListConfigsResponse
      */
-    public function listDataReportForServiceGroup($request)
+    public function listConfigs($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listDataReportForServiceGroupWithOptions($request, $headers, $runtime);
+        return $this->listConfigsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4682,16 +4865,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListDataReportForUserRequest $request
+     * @param ListDataReportForServiceGroupRequest $request
      *
-     * @return ListDataReportForUserResponse
+     * @return ListDataReportForServiceGroupResponse
      */
-    public function listDataReportForUser($request)
+    public function listDataReportForServiceGroup($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listDataReportForUserWithOptions($request, $headers, $runtime);
+        return $this->listDataReportForServiceGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4737,16 +4920,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListDictionariesRequest $request
+     * @param ListDataReportForUserRequest $request
      *
-     * @return ListDictionariesResponse
+     * @return ListDataReportForUserResponse
      */
-    public function listDictionaries($request)
+    public function listDataReportForUser($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listDictionariesWithOptions($request, $headers, $runtime);
+        return $this->listDataReportForUserWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4783,16 +4966,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListEscalationPlanServicesRequest $request
+     * @param ListDictionariesRequest $request
      *
-     * @return ListEscalationPlanServicesResponse
+     * @return ListDictionariesResponse
      */
-    public function listEscalationPlanServices($request)
+    public function listDictionaries($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listEscalationPlanServicesWithOptions($request, $headers, $runtime);
+        return $this->listDictionariesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4829,16 +5012,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListEscalationPlansRequest $request
+     * @param ListEscalationPlanServicesRequest $request
      *
-     * @return ListEscalationPlansResponse
+     * @return ListEscalationPlanServicesResponse
      */
-    public function listEscalationPlans($request)
+    public function listEscalationPlanServices($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listEscalationPlansWithOptions($request, $headers, $runtime);
+        return $this->listEscalationPlanServicesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4887,16 +5070,65 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListIncidentDetailEscalationPlansRequest $request
+     * @param ListEscalationPlansRequest $request
      *
-     * @return ListIncidentDetailEscalationPlansResponse
+     * @return ListEscalationPlansResponse
      */
-    public function listIncidentDetailEscalationPlans($request)
+    public function listEscalationPlans($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listIncidentDetailEscalationPlansWithOptions($request, $headers, $runtime);
+        return $this->listEscalationPlansWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListEscalationPlansByNoticeObjectRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ListEscalationPlansByNoticeObjectResponse
+     */
+    public function listEscalationPlansByNoticeObjectWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->noticeObjectId)) {
+            $body['noticeObjectId'] = $request->noticeObjectId;
+        }
+        if (!Utils::isUnset($request->noticeObjectType)) {
+            $body['noticeObjectType'] = $request->noticeObjectType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEscalationPlansByNoticeObject',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/escalationPlan/listByNoticeObject',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEscalationPlansByNoticeObjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListEscalationPlansByNoticeObjectRequest $request
+     *
+     * @return ListEscalationPlansByNoticeObjectResponse
+     */
+    public function listEscalationPlansByNoticeObject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listEscalationPlansByNoticeObjectWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4936,16 +5168,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListIncidentDetailTimelinesRequest $request
+     * @param ListIncidentDetailEscalationPlansRequest $request
      *
-     * @return ListIncidentDetailTimelinesResponse
+     * @return ListIncidentDetailEscalationPlansResponse
      */
-    public function listIncidentDetailTimelines($request)
+    public function listIncidentDetailEscalationPlans($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listIncidentDetailTimelinesWithOptions($request, $headers, $runtime);
+        return $this->listIncidentDetailEscalationPlansWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4961,6 +5193,9 @@ class GEMP extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
             $body['clientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->idSort)) {
+            $body['idSort'] = $request->idSort;
         }
         if (!Utils::isUnset($request->incidentId)) {
             $body['incidentId'] = $request->incidentId;
@@ -4991,16 +5226,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListIncidentSubtotalsRequest $request
+     * @param ListIncidentDetailTimelinesRequest $request
      *
-     * @return ListIncidentSubtotalsResponse
+     * @return ListIncidentDetailTimelinesResponse
      */
-    public function listIncidentSubtotals($request)
+    public function listIncidentDetailTimelines($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listIncidentSubtotalsWithOptions($request, $headers, $runtime);
+        return $this->listIncidentDetailTimelinesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5040,16 +5275,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListIncidentTimelinesRequest $request
+     * @param ListIncidentSubtotalsRequest $request
      *
-     * @return ListIncidentTimelinesResponse
+     * @return ListIncidentSubtotalsResponse
      */
-    public function listIncidentTimelines($request)
+    public function listIncidentSubtotals($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listIncidentTimelinesWithOptions($request, $headers, $runtime);
+        return $this->listIncidentSubtotalsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5092,16 +5327,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListIncidentsRequest $request
+     * @param ListIncidentTimelinesRequest $request
      *
-     * @return ListIncidentsResponse
+     * @return ListIncidentTimelinesResponse
      */
-    public function listIncidents($request)
+    public function listIncidentTimelines($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listIncidentsWithOptions($request, $headers, $runtime);
+        return $this->listIncidentTimelinesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5168,16 +5403,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListIntegrationConfigTimelinesRequest $request
+     * @param ListIncidentsRequest $request
      *
-     * @return ListIntegrationConfigTimelinesResponse
+     * @return ListIncidentsResponse
      */
-    public function listIntegrationConfigTimelines($request)
+    public function listIncidents($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listIntegrationConfigTimelinesWithOptions($request, $headers, $runtime);
+        return $this->listIncidentsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5223,16 +5458,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListIntegrationConfigsRequest $request
+     * @param ListIntegrationConfigTimelinesRequest $request
      *
-     * @return ListIntegrationConfigsResponse
+     * @return ListIntegrationConfigTimelinesResponse
      */
-    public function listIntegrationConfigs($request)
+    public function listIntegrationConfigTimelines($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listIntegrationConfigsWithOptions($request, $headers, $runtime);
+        return $this->listIntegrationConfigTimelinesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5272,16 +5507,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListMonitorSourcesRequest $request
+     * @param ListIntegrationConfigsRequest $request
      *
-     * @return ListMonitorSourcesResponse
+     * @return ListIntegrationConfigsResponse
      */
-    public function listMonitorSources($request)
+    public function listIntegrationConfigs($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listMonitorSourcesWithOptions($request, $headers, $runtime);
+        return $this->listIntegrationConfigsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5318,16 +5553,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListProblemDetailOperationsRequest $request
+     * @param ListMonitorSourcesRequest $request
      *
-     * @return ListProblemDetailOperationsResponse
+     * @return ListMonitorSourcesResponse
      */
-    public function listProblemDetailOperations($request)
+    public function listMonitorSources($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listProblemDetailOperationsWithOptions($request, $headers, $runtime);
+        return $this->listMonitorSourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5376,16 +5611,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListProblemOperationsRequest $request
+     * @param ListProblemDetailOperationsRequest $request
      *
-     * @return ListProblemOperationsResponse
+     * @return ListProblemDetailOperationsResponse
      */
-    public function listProblemOperations($request)
+    public function listProblemDetailOperations($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listProblemOperationsWithOptions($request, $headers, $runtime);
+        return $this->listProblemDetailOperationsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5428,16 +5663,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListProblemSubtotalsRequest $request
+     * @param ListProblemOperationsRequest $request
      *
-     * @return ListProblemSubtotalsResponse
+     * @return ListProblemOperationsResponse
      */
-    public function listProblemSubtotals($request)
+    public function listProblemOperations($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listProblemSubtotalsWithOptions($request, $headers, $runtime);
+        return $this->listProblemOperationsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5477,16 +5712,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListProblemTimeLinesRequest $request
+     * @param ListProblemSubtotalsRequest $request
      *
-     * @return ListProblemTimeLinesResponse
+     * @return ListProblemSubtotalsResponse
      */
-    public function listProblemTimeLines($request)
+    public function listProblemSubtotals($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listProblemTimeLinesWithOptions($request, $headers, $runtime);
+        return $this->listProblemSubtotalsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5526,16 +5761,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListProblemsRequest $request
+     * @param ListProblemTimeLinesRequest $request
      *
-     * @return ListProblemsResponse
+     * @return ListProblemTimeLinesResponse
      */
-    public function listProblems($request)
+    public function listProblemTimeLines($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listProblemsWithOptions($request, $headers, $runtime);
+        return $this->listProblemTimeLinesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5611,16 +5846,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListRouteRulesRequest $request
+     * @param ListProblemsRequest $request
      *
-     * @return ListRouteRulesResponse
+     * @return ListProblemsResponse
      */
-    public function listRouteRules($request)
+    public function listProblems($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listRouteRulesWithOptions($request, $headers, $runtime);
+        return $this->listProblemsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5636,6 +5871,9 @@ class GEMP extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
             $body['clientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->notFilterRouteRuleDeleted)) {
+            $body['notFilterRouteRuleDeleted'] = $request->notFilterRouteRuleDeleted;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $body['pageNumber'] = $request->pageNumber;
@@ -5672,16 +5910,102 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListServiceGroupMonitorSourceTemplatesRequest $request
+     * @param ListRouteRulesRequest $request
      *
-     * @return ListServiceGroupMonitorSourceTemplatesResponse
+     * @return ListRouteRulesResponse
      */
-    public function listServiceGroupMonitorSourceTemplates($request)
+    public function listRouteRules($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listServiceGroupMonitorSourceTemplatesWithOptions($request, $headers, $runtime);
+        return $this->listRouteRulesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListRouteRulesByAssignWhoIdRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListRouteRulesByAssignWhoIdResponse
+     */
+    public function listRouteRulesByAssignWhoIdWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->assignWhoId)) {
+            $body['assignWhoId'] = $request->assignWhoId;
+        }
+        if (!Utils::isUnset($request->assignWhoType)) {
+            $body['assignWhoType'] = $request->assignWhoType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRouteRulesByAssignWhoId',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/routeRule/listByAssignWhoId',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRouteRulesByAssignWhoIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListRouteRulesByAssignWhoIdRequest $request
+     *
+     * @return ListRouteRulesByAssignWhoIdResponse
+     */
+    public function listRouteRulesByAssignWhoId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listRouteRulesByAssignWhoIdWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListRouteRulesByServiceResponse
+     */
+    public function listRouteRulesByServiceWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListRouteRulesByService',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/routeRule/listByService',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRouteRulesByServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return ListRouteRulesByServiceResponse
+     */
+    public function listRouteRulesByService()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listRouteRulesByServiceWithOptions($headers, $runtime);
     }
 
     /**
@@ -5724,16 +6048,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListServiceGroupsRequest $request
+     * @param ListServiceGroupMonitorSourceTemplatesRequest $request
      *
-     * @return ListServiceGroupsResponse
+     * @return ListServiceGroupMonitorSourceTemplatesResponse
      */
-    public function listServiceGroups($request)
+    public function listServiceGroupMonitorSourceTemplates($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listServiceGroupsWithOptions($request, $headers, $runtime);
+        return $this->listServiceGroupMonitorSourceTemplatesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5791,16 +6115,53 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListServicesRequest $request
+     * @param ListServiceGroupsRequest $request
      *
-     * @return ListServicesResponse
+     * @return ListServiceGroupsResponse
      */
-    public function listServices($request)
+    public function listServiceGroups($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listServicesWithOptions($request, $headers, $runtime);
+        return $this->listServiceGroupsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListServiceGroupsByUserIdResponse
+     */
+    public function listServiceGroupsByUserIdWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListServiceGroupsByUserId',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/services/group/listByUserId',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListServiceGroupsByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return ListServiceGroupsByUserIdResponse
+     */
+    public function listServiceGroupsByUserId()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listServiceGroupsByUserIdWithOptions($headers, $runtime);
     }
 
     /**
@@ -5846,16 +6207,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListSourceEventsRequest $request
+     * @param ListServicesRequest $request
      *
-     * @return ListSourceEventsResponse
+     * @return ListServicesResponse
      */
-    public function listSourceEvents($request)
+    public function listServices($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listSourceEventsWithOptions($request, $headers, $runtime);
+        return $this->listServicesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5916,16 +6277,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListSourceEventsForMonitorSourceRequest $request
+     * @param ListSourceEventsRequest $request
      *
-     * @return ListSourceEventsForMonitorSourceResponse
+     * @return ListSourceEventsResponse
      */
-    public function listSourceEventsForMonitorSource($request)
+    public function listSourceEvents($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listSourceEventsForMonitorSourceWithOptions($request, $headers, $runtime);
+        return $this->listSourceEventsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5962,16 +6323,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListSubscriptionServiceGroupsRequest $request
+     * @param ListSourceEventsForMonitorSourceRequest $request
      *
-     * @return ListSubscriptionServiceGroupsResponse
+     * @return ListSourceEventsForMonitorSourceResponse
      */
-    public function listSubscriptionServiceGroups($request)
+    public function listSourceEventsForMonitorSource($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listSubscriptionServiceGroupsWithOptions($request, $headers, $runtime);
+        return $this->listSourceEventsForMonitorSourceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6011,16 +6372,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListSubscriptionsRequest $request
+     * @param ListSubscriptionServiceGroupsRequest $request
      *
-     * @return ListSubscriptionsResponse
+     * @return ListSubscriptionServiceGroupsResponse
      */
-    public function listSubscriptions($request)
+    public function listSubscriptionServiceGroups($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listSubscriptionsWithOptions($request, $headers, $runtime);
+        return $this->listSubscriptionServiceGroupsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6036,6 +6397,9 @@ class GEMP extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
             $body['clientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->notFilterScopeObjectDeleted)) {
+            $body['notFilterScopeObjectDeleted'] = $request->notFilterScopeObjectDeleted;
         }
         if (!Utils::isUnset($request->notifyObject)) {
             $body['notifyObject'] = $request->notifyObject;
@@ -6078,16 +6442,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListTrendForSourceEventRequest $request
+     * @param ListSubscriptionsRequest $request
      *
-     * @return ListTrendForSourceEventResponse
+     * @return ListSubscriptionsResponse
      */
-    public function listTrendForSourceEvent($request)
+    public function listSubscriptions($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listTrendForSourceEventWithOptions($request, $headers, $runtime);
+        return $this->listSubscriptionsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6139,16 +6503,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListUserSerivceGroupsRequest $request
+     * @param ListTrendForSourceEventRequest $request
      *
-     * @return ListUserSerivceGroupsResponse
+     * @return ListTrendForSourceEventResponse
      */
-    public function listUserSerivceGroups($request)
+    public function listTrendForSourceEvent($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listUserSerivceGroupsWithOptions($request, $headers, $runtime);
+        return $this->listTrendForSourceEventWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6188,16 +6552,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListUsersRequest $request
+     * @param ListUserSerivceGroupsRequest $request
      *
-     * @return ListUsersResponse
+     * @return ListUserSerivceGroupsResponse
      */
-    public function listUsers($request)
+    public function listUserSerivceGroups($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listUsersWithOptions($request, $headers, $runtime);
+        return $this->listUserSerivceGroupsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6255,16 +6619,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param RecoverProblemRequest $request
+     * @param ListUsersRequest $request
      *
-     * @return RecoverProblemResponse
+     * @return ListUsersResponse
      */
-    public function recoverProblem($request)
+    public function listUsers($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->recoverProblemWithOptions($request, $headers, $runtime);
+        return $this->listUsersWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6307,16 +6671,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param RefreshIntegrationConfigKeyRequest $request
+     * @param RecoverProblemRequest $request
      *
-     * @return RefreshIntegrationConfigKeyResponse
+     * @return RecoverProblemResponse
      */
-    public function refreshIntegrationConfigKey($request)
+    public function recoverProblem($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->refreshIntegrationConfigKeyWithOptions($request, $headers, $runtime);
+        return $this->recoverProblemWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6356,16 +6720,65 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param RemoveProblemServiceGroupRequest $request
+     * @param RefreshIntegrationConfigKeyRequest $request
      *
-     * @return RemoveProblemServiceGroupResponse
+     * @return RefreshIntegrationConfigKeyResponse
      */
-    public function removeProblemServiceGroup($request)
+    public function refreshIntegrationConfigKey($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->removeProblemServiceGroupWithOptions($request, $headers, $runtime);
+        return $this->refreshIntegrationConfigKeyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param RemoveIntegrationConfigRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RemoveIntegrationConfigResponse
+     */
+    public function removeIntegrationConfigWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['clientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->integrationConfigId)) {
+            $body['integrationConfigId'] = $request->integrationConfigId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveIntegrationConfig',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/integrationConfig/remove',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveIntegrationConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemoveIntegrationConfigRequest $request
+     *
+     * @return RemoveIntegrationConfigResponse
+     */
+    public function removeIntegrationConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->removeIntegrationConfigWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6405,16 +6818,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ReplayProblemRequest $request
+     * @param RemoveProblemServiceGroupRequest $request
      *
-     * @return ReplayProblemResponse
+     * @return RemoveProblemServiceGroupResponse
      */
-    public function replayProblem($request)
+    public function removeProblemServiceGroup($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->replayProblemWithOptions($request, $headers, $runtime);
+        return $this->removeProblemServiceGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6457,16 +6870,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param RespondIncidentRequest $request
+     * @param ReplayProblemRequest $request
      *
-     * @return RespondIncidentResponse
+     * @return ReplayProblemResponse
      */
-    public function respondIncident($request)
+    public function replayProblem($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->respondIncidentWithOptions($request, $headers, $runtime);
+        return $this->replayProblemWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6506,16 +6919,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param RevokeProblemRecoveryRequest $request
+     * @param RespondIncidentRequest $request
      *
-     * @return RevokeProblemRecoveryResponse
+     * @return RespondIncidentResponse
      */
-    public function revokeProblemRecovery($request)
+    public function respondIncident($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->revokeProblemRecoveryWithOptions($request, $headers, $runtime);
+        return $this->respondIncidentWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6558,16 +6971,53 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateEscalationPlanRequest $request
+     * @param RevokeProblemRecoveryRequest $request
      *
-     * @return UpdateEscalationPlanResponse
+     * @return RevokeProblemRecoveryResponse
      */
-    public function updateEscalationPlan($request)
+    public function revokeProblemRecovery($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateEscalationPlanWithOptions($request, $headers, $runtime);
+        return $this->revokeProblemRecoveryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return UnbindUserResponse
+     */
+    public function unbindUserWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindUser',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/user/unbind',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnbindUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return UnbindUserResponse
+     */
+    public function unbindUser()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->unbindUserWithOptions($headers, $runtime);
     }
 
     /**
@@ -6619,16 +7069,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateIncidentRequest $request
+     * @param UpdateEscalationPlanRequest $request
      *
-     * @return UpdateIncidentResponse
+     * @return UpdateEscalationPlanResponse
      */
-    public function updateIncident($request)
+    public function updateEscalationPlan($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateIncidentWithOptions($request, $headers, $runtime);
+        return $this->updateEscalationPlanWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6677,16 +7127,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateIntegrationConfigRequest $request
+     * @param UpdateIncidentRequest $request
      *
-     * @return UpdateIntegrationConfigResponse
+     * @return UpdateIncidentResponse
      */
-    public function updateIntegrationConfig($request)
+    public function updateIncident($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateIntegrationConfigWithOptions($request, $headers, $runtime);
+        return $this->updateIncidentWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6729,16 +7179,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateProblemRequest $request
+     * @param UpdateIntegrationConfigRequest $request
      *
-     * @return UpdateProblemResponse
+     * @return UpdateIntegrationConfigResponse
      */
-    public function updateProblem($request)
+    public function updateIntegrationConfig($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateProblemWithOptions($request, $headers, $runtime);
+        return $this->updateIntegrationConfigWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6802,16 +7252,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateProblemEffectionServiceRequest $request
+     * @param UpdateProblemRequest $request
      *
-     * @return UpdateProblemEffectionServiceResponse
+     * @return UpdateProblemResponse
      */
-    public function updateProblemEffectionService($request)
+    public function updateProblem($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateProblemEffectionServiceWithOptions($request, $headers, $runtime);
+        return $this->updateProblemWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6869,16 +7319,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateProblemImprovementRequest $request
+     * @param UpdateProblemEffectionServiceRequest $request
      *
-     * @return UpdateProblemImprovementResponse
+     * @return UpdateProblemEffectionServiceResponse
      */
-    public function updateProblemImprovement($request)
+    public function updateProblemEffectionService($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateProblemImprovementWithOptions($request, $headers, $runtime);
+        return $this->updateProblemEffectionServiceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6894,6 +7344,9 @@ class GEMP extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
             $body['clientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->customProblemReason)) {
+            $body['customProblemReason'] = $request->customProblemReason;
         }
         if (!Utils::isUnset($request->discoverSource)) {
             $body['discoverSource'] = $request->discoverSource;
@@ -6957,16 +7410,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateProblemMeasureRequest $request
+     * @param UpdateProblemImprovementRequest $request
      *
-     * @return UpdateProblemMeasureResponse
+     * @return UpdateProblemImprovementResponse
      */
-    public function updateProblemMeasure($request)
+    public function updateProblemImprovement($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateProblemMeasureWithOptions($request, $headers, $runtime);
+        return $this->updateProblemImprovementWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7033,16 +7486,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateProblemNoticeRequest $request
+     * @param UpdateProblemMeasureRequest $request
      *
-     * @return UpdateProblemNoticeResponse
+     * @return UpdateProblemMeasureResponse
      */
-    public function updateProblemNotice($request)
+    public function updateProblemMeasure($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateProblemNoticeWithOptions($request, $headers, $runtime);
+        return $this->updateProblemMeasureWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7085,16 +7538,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateProblemTimelineRequest $request
+     * @param UpdateProblemNoticeRequest $request
      *
-     * @return UpdateProblemTimelineResponse
+     * @return UpdateProblemNoticeResponse
      */
-    public function updateProblemTimeline($request)
+    public function updateProblemNotice($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateProblemTimelineWithOptions($request, $headers, $runtime);
+        return $this->updateProblemNoticeWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7146,16 +7599,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateRichTextRequest $request
+     * @param UpdateProblemTimelineRequest $request
      *
-     * @return UpdateRichTextResponse
+     * @return UpdateProblemTimelineResponse
      */
-    public function updateRichText($request)
+    public function updateProblemTimeline($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateRichTextWithOptions($request, $headers, $runtime);
+        return $this->updateProblemTimelineWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7201,16 +7654,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateRouteRuleRequest $request
+     * @param UpdateRichTextRequest $request
      *
-     * @return UpdateRouteRuleResponse
+     * @return UpdateRichTextResponse
      */
-    public function updateRouteRule($request)
+    public function updateRichText($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateRouteRuleWithOptions($request, $headers, $runtime);
+        return $this->updateRichTextWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7236,6 +7689,9 @@ class GEMP extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $body['clientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->coverageProblemLevels)) {
+            $body['coverageProblemLevels'] = $request->coverageProblemLevels;
+        }
         if (!Utils::isUnset($request->effection)) {
             $body['effection'] = $request->effection;
         }
@@ -7247,6 +7703,12 @@ class GEMP extends OpenApiClient
         }
         if (!Utils::isUnset($request->notifyChannels)) {
             $body['notifyChannels'] = $request->notifyChannels;
+        }
+        if (!Utils::isUnset($request->problemEffectionServices)) {
+            $body['problemEffectionServices'] = $request->problemEffectionServices;
+        }
+        if (!Utils::isUnset($request->problemLevelGroup)) {
+            $body['problemLevelGroup'] = $request->problemLevelGroup;
         }
         if (!Utils::isUnset($request->relatedServiceId)) {
             $body['relatedServiceId'] = $request->relatedServiceId;
@@ -7289,16 +7751,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateServiceRequest $request
+     * @param UpdateRouteRuleRequest $request
      *
-     * @return UpdateServiceResponse
+     * @return UpdateRouteRuleResponse
      */
-    public function updateService($request)
+    public function updateRouteRule($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateServiceWithOptions($request, $headers, $runtime);
+        return $this->updateRouteRuleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7344,16 +7806,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateServiceGroupRequest $request
+     * @param UpdateServiceRequest $request
      *
-     * @return UpdateServiceGroupResponse
+     * @return UpdateServiceResponse
      */
-    public function updateServiceGroup($request)
+    public function updateService($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateServiceGroupWithOptions($request, $headers, $runtime);
+        return $this->updateServiceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7414,16 +7876,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateServiceGroupSchedulingRequest $request
+     * @param UpdateServiceGroupRequest $request
      *
-     * @return UpdateServiceGroupSchedulingResponse
+     * @return UpdateServiceGroupResponse
      */
-    public function updateServiceGroupScheduling($request)
+    public function updateServiceGroup($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateServiceGroupSchedulingWithOptions($request, $headers, $runtime);
+        return $this->updateServiceGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7472,16 +7934,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateServiceGroupSpecialDaySchedulingRequest $request
+     * @param UpdateServiceGroupSchedulingRequest $request
      *
-     * @return UpdateServiceGroupSpecialDaySchedulingResponse
+     * @return UpdateServiceGroupSchedulingResponse
      */
-    public function updateServiceGroupSpecialDayScheduling($request)
+    public function updateServiceGroupScheduling($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateServiceGroupSpecialDaySchedulingWithOptions($request, $headers, $runtime);
+        return $this->updateServiceGroupSchedulingWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7527,16 +7989,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateSubscriptionRequest $request
+     * @param UpdateServiceGroupSpecialDaySchedulingRequest $request
      *
-     * @return UpdateSubscriptionResponse
+     * @return UpdateServiceGroupSpecialDaySchedulingResponse
      */
-    public function updateSubscription($request)
+    public function updateServiceGroupSpecialDayScheduling($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateSubscriptionWithOptions($request, $headers, $runtime);
+        return $this->updateServiceGroupSpecialDaySchedulingWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7603,16 +8065,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserRequest $request
+     * @param UpdateSubscriptionRequest $request
      *
-     * @return UpdateUserResponse
+     * @return UpdateSubscriptionResponse
      */
-    public function updateUser($request)
+    public function updateSubscription($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateUserWithOptions($request, $headers, $runtime);
+        return $this->updateSubscriptionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7664,16 +8126,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserGuideStatusRequest $request
+     * @param UpdateUserRequest $request
      *
-     * @return UpdateUserGuideStatusResponse
+     * @return UpdateUserResponse
      */
-    public function updateUserGuideStatus($request)
+    public function updateUser($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateUserGuideStatusWithOptions($request, $headers, $runtime);
+        return $this->updateUserWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7713,16 +8175,16 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param VerifyRouteRuleRequest $request
+     * @param UpdateUserGuideStatusRequest $request
      *
-     * @return VerifyRouteRuleResponse
+     * @return UpdateUserGuideStatusResponse
      */
-    public function verifyRouteRule($request)
+    public function updateUserGuideStatus($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->verifyRouteRuleWithOptions($request, $headers, $runtime);
+        return $this->updateUserGuideStatusWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7759,5 +8221,18 @@ class GEMP extends OpenApiClient
         ]);
 
         return VerifyRouteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VerifyRouteRuleRequest $request
+     *
+     * @return VerifyRouteRuleResponse
+     */
+    public function verifyRouteRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->verifyRouteRuleWithOptions($request, $headers, $runtime);
     }
 }

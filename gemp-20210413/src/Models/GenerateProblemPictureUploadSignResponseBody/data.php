@@ -11,12 +11,16 @@ class data extends Model
     /**
      * @description ossaccessKeyId
      *
+     * @example XXXXXXXH8GMy1iLRCno7
+     *
      * @var string
      */
     public $accessKeyId;
 
     /**
      * @description oss bucket name
+     *
+     * @example xxxx-xxxx-xxxx
      *
      * @var string
      */
@@ -25,12 +29,16 @@ class data extends Model
     /**
      * @description oss key
      *
+     * @example problem/xxxxxxxxxxxxxxxx1-b3185d529277
+     *
      * @var string
      */
     public $key;
 
     /**
      * @description policy
+     *
+     * @example eyJleHBpcmF0a0p0IjoiMjAyMS0wNy0xM1QwNDowOTo0NS4yODJaIiwiY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMTA0ODU3NjAwXSxbInN0YXJ0cy13aXRoIiwiJGtleSIsInByb2JsZW0iXV19
      *
      * @var string
      */
@@ -39,12 +47,16 @@ class data extends Model
     /**
      * @description signature
      *
+     * @example SHqvIkwUNQd0o0rvklir2K8U+ts=
+     *
      * @var string
      */
     public $signature;
 
     /**
      * @description url
+     *
+     * @example https://xxx-xxx-bucket.oss-cn-shanghai.aliyuncs.com
      *
      * @var string
      */

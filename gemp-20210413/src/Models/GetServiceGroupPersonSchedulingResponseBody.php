@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class GetServiceGroupPersonSchedulingResponseBody extends Model
 {
     /**
-     * @description 排班日历
-     *
      * @var mixed[]
      */
     public $data;
 
     /**
      * @description Id of the request
+     *
+     * @example xxxxx
      *
      * @var string
      */

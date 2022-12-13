@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DeleteServiceRequest extends Model
 {
     /**
-     * @description 幂等号
+     * @example C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 服务ID
+     * @example 10002000
      *
      * @var int
      */

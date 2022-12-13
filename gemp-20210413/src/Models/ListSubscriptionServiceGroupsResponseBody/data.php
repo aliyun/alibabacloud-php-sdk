@@ -9,22 +9,18 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 服务组描述
-     *
      * @var string
      */
     public $serviceGroupDescription;
 
     /**
-     * @description 主键
+     * @example 123113
      *
      * @var int
      */
     public $serviceId;
 
     /**
-     * @description 服务组名称
-     *
      * @var string
      */
     public $serviceName;

@@ -10,56 +10,54 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceGroupRequest extends Model
 {
     /**
-     * @description 幂等号
+     * @example C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description ENABLE 启用 DISABLE 禁用
+     * @example ENABLE
      *
      * @var string
      */
     public $enableWebhook;
 
     /**
-     * @description 监控源消息模版
-     *
      * @var monitorSourceTemplates[]
      */
     public $monitorSourceTemplates;
 
     /**
-     * @description 服务描述
+     * @example 服务描述
      *
      * @var string
      */
     public $serviceGroupDescription;
 
     /**
-     * @description 服务小组名称
+     * @example 冲上云霄
      *
      * @var string
      */
     public $serviceGroupName;
 
     /**
-     * @description 小组人员用户ID
-     *
      * @var int[]
      */
     public $userIds;
 
     /**
-     * @description webhookLink
+     * @description webhooklink
+     *
+     * @example WWWWWWW
      *
      * @var string
      */
     public $webhookLink;
 
     /**
-     * @description WEIXIN_GROUP微信 DING_GROUP钉钉 FEISHU_GROUP飞书
+     * @example WEIXIN_GROUP
      *
      * @var string
      */

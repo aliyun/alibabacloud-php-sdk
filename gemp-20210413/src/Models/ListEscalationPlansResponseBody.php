@@ -17,14 +17,14 @@ class ListEscalationPlansResponseBody extends Model
     public $data;
 
     /**
-     * @description 分页参数
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页参数
+     * @example 10
      *
      * @var int
      */
@@ -33,12 +33,14 @@ class ListEscalationPlansResponseBody extends Model
     /**
      * @description Id of the request
      *
+     * @example A5A1FEAE-9C47-011C-9C73-A376BC2REQUEST
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 总条数
+     * @example 878
      *
      * @var int
      */

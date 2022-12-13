@@ -10,60 +10,63 @@ use AlibabaCloud\Tea\Model;
 class eventRouteChildRules extends Model
 {
     /**
-     * @description 子条件计算关系，0-与，1-或
+     * @example 1
      *
      * @var int
      */
     public $childConditionRelation;
 
     /**
-     * @description 子规则ID
+     * @example 1000
      *
      * @var int
      */
     public $childRouteRuleId;
 
     /**
-     * @description 条件
-     *
      * @var conditions[]
      */
     public $conditions;
 
     /**
-     * @description 是否有效得规则true有效 false无效
+     * @example false
      *
      * @var bool
      */
     public $isValidChildRule;
 
     /**
-     * @description 集成配置ID
+     * @example 1
      *
      * @var int
      */
     public $monitorIntegrationConfigId;
 
     /**
-     * @description 监控源ID
+     * @example 1
      *
      * @var int
      */
     public $monitorSourceId;
 
     /**
-     * @description 监控源名称
+     * @example zabbix
      *
      * @var string
      */
     public $monitorSourceName;
 
     /**
-     * @description 规则ID
+     * @example 1800
      *
      * @var int
      */
     public $parentRuleId;
+
+    /**
+     * @var string
+     */
+    public $problemLevel;
     protected $_name = [
         'childConditionRelation'     => 'childConditionRelation',
         'childRouteRuleId'           => 'childRouteRuleId',
@@ -73,6 +76,7 @@ class eventRouteChildRules extends Model
         'monitorSourceId'            => 'monitorSourceId',
         'monitorSourceName'          => 'monitorSourceName',
         'parentRuleId'               => 'parentRuleId',
+        'problemLevel'               => 'problemLevel',
     ];
 
     public function validate()
@@ -111,6 +115,9 @@ class eventRouteChildRules extends Model
         }
         if (null !== $this->parentRuleId) {
             $res['parentRuleId'] = $this->parentRuleId;
+        }
+        if (null !== $this->problemLevel) {
+            $res['problemLevel'] = $this->problemLevel;
         }
 
         return $res;
@@ -153,6 +160,9 @@ class eventRouteChildRules extends Model
         }
         if (isset($map['parentRuleId'])) {
             $model->parentRuleId = $map['parentRuleId'];
+        }
+        if (isset($map['problemLevel'])) {
+            $model->problemLevel = $map['problemLevel'];
         }
 
         return $model;

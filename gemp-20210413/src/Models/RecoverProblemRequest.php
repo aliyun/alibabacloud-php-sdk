@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class RecoverProblemRequest extends Model
 {
     /**
-     * @description 故障ID
+     * @example 123
      *
      * @var int
      */
     public $problemId;
 
     /**
-     * @description 通告类型 PROBLEM_NOTIFY：故障通告 PROBLEM_UPDATE：故障更新 PROBLEM_UPGRADE：故障升级 PROBLEM_DEGRADE：故障降级 PROBLEM_RECOVER：故障恢复 PROBLEM_REISSUE： 故障补发 PROBLEM_CANCEL：故障取消
+     * @example PROBLEM_UPDATE
      *
      * @var string
      */
     public $problemNotifyType;
 
     /**
-     * @description 恢复时间
+     * @example 2020-02-01 00:00:00
      *
      * @var string
      */

@@ -9,63 +9,59 @@ use AlibabaCloud\Tea\Model;
 class CreateIncidentRequest extends Model
 {
     /**
-     * @description 分派的用户ID
+     * @example 12312
      *
      * @var int
      */
     public $assignUserId;
 
     /**
-     * @description 通知渠道     SMS 短信   EMAIL 邮件   PHONE  电话  WEIXIN_GROUP企微群 DING_GROUP 钉钉群
-     *
      * @var string[]
      */
     public $channels;
 
     /**
-     * @description 幂等UUID
+     * @example 2b63cdef-7ac3-4892-a76d-0f3389ef729f
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 影响等级 高：HIGH 低 LOW
+     * @example LOW
      *
      * @var string
      */
     public $effect;
 
     /**
-     * @description 事件描述
-     *
      * @var string
      */
     public $incidentDescription;
 
     /**
-     * @description P1	事件级别 P1 P2 P3 P4
+     * @example P1
      *
      * @var string
      */
     public $incidentLevel;
 
     /**
-     * @description 事件标题
-     *
      * @var string
      */
     public $incidentTitle;
 
     /**
-     * @description 关联服务ID
+     * @example 12312
      *
      * @var int
      */
     public $relatedServiceId;
 
     /**
-     * @description 服务组Id
+     * @description 12000
+     *
+     * @example 12312
      *
      * @var int
      */

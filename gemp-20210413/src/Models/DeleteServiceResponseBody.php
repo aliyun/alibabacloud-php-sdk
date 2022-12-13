@@ -11,6 +11,8 @@ class DeleteServiceResponseBody extends Model
     /**
      * @description Id of the request
      *
+     * @example C4BE3837-1A13-413B-A225-2C88188E8A43
+     *
      * @var string
      */
     public $requestId;

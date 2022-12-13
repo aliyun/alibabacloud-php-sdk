@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListIncidentTimelinesRequest extends Model
 {
     /**
-     * @description 幂等校验Id
+     * @example FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 页
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 行
+     * @example 10
      *
      * @var int
      */

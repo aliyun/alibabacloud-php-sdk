@@ -11,21 +11,21 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 7天内相似事件数量
+     * @example 8
      *
      * @var int
      */
     public $countInSevenDays;
 
     /**
-     * @description 6月内相似事件数量
+     * @example 43
      *
      * @var int
      */
     public $countInSixMonths;
 
     /**
-     * @description 根据日期分类
+     * @example {}
      *
      * @var dailySimilarIncidents[]
      */
@@ -33,6 +33,8 @@ class data extends Model
 
     /**
      * @description id of the request
+     *
+     * @example uyihg6789
      *
      * @var string
      */

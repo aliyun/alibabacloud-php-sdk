@@ -4,163 +4,182 @@
 
 namespace AlibabaCloud\SDK\GEMP\V20210413\Models\GetRouteRuleResponseBody;
 
+use AlibabaCloud\SDK\GEMP\V20210413\Models\DataProblemLevelGroupValue;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetRouteRuleResponseBody\data\eventRouteChildRules;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description 事件分派对象ID（服务组ID 或用户ID）
+     * @example 1000
      *
      * @var int
      */
     public $assignObjectId;
 
     /**
-     * @description 通知对象名称
+     * @example 刘德华
      *
      * @var string
      */
     public $assignObjectName;
 
     /**
-     * @description 事件分派对象类型 SERVICEGROUP 服务组  USER 单个用户
+     * @example SERVICEGROUP
      *
      * @var string
      */
     public $assignObjectType;
 
     /**
-     * @description 子规则关系，0与，1或
+     * @example AND、OR
      *
      * @var string
      */
     public $childRuleRelation;
 
     /**
-     * @description 创建时间
+     * @var string[]
+     */
+    public $coverageProblemLevels;
+
+    /**
+     * @example 2020-09-08 15:30:30
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 影响程度  LOW一般  HIGH-严重
+     * @example LOW
      *
      * @var string
      */
     public $effection;
 
     /**
-     * @description 是否启用  DISABLE禁用 ENABLE 启用
+     * @example DISABLE
      *
      * @var string
      */
     public $enableStatus;
 
     /**
-     * @description 子规则
-     *
      * @var eventRouteChildRules[]
      */
     public $eventRouteChildRules;
 
     /**
-     * @description 事件级别 P1 P2 P3 P4
+     * @example P1
      *
      * @var string
      */
     public $incidentLevel;
 
     /**
-     * @description 命中次数
+     * @example 3
      *
      * @var int
      */
     public $matchCount;
 
     /**
-     * @description 通知渠道名称
-     *
      * @var string[]
      */
     public $notifyChannelNames;
 
     /**
-     * @description 通知渠道
-     *
      * @var string[]
      */
     public $notifyChannels;
 
     /**
-     * @description 关联服务ID
+     * @var int[]
+     */
+    public $problemEffectionServices;
+
+    /**
+     * @var DataProblemLevelGroupValue[]
+     */
+    public $problemLevelGroup;
+
+    /**
+     * @var int
+     */
+    public $relServiceDeleteType;
+
+    /**
+     * @example 1000
      *
      * @var int
      */
     public $relatedServiceId;
 
     /**
-     * @description 关联服务名称
+     * @example 冲上云霄
      *
      * @var string
      */
     public $relatedServiceName;
 
     /**
-     * @description 规则ID
+     * @example 180000000
      *
      * @var int
      */
     public $routeRuleId;
 
     /**
-     * @description 路由类型：INCIDENT 触发事件 ALERT 仅触发报警
+     * @example INCIDENT
      *
      * @var string
      */
     public $routeType;
 
     /**
-     * @description 流转规则名字
+     * @example 规则1
      *
      * @var string
      */
     public $ruleName;
 
     /**
-     * @description 时间窗口
+     * @example 3
      *
      * @var int
      */
     public $timeWindow;
 
     /**
-     * @description 修改时间
+     * @example 2020-09-08 15:30:30
      *
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'assignObjectId'       => 'assignObjectId',
-        'assignObjectName'     => 'assignObjectName',
-        'assignObjectType'     => 'assignObjectType',
-        'childRuleRelation'    => 'childRuleRelation',
-        'createTime'           => 'createTime',
-        'effection'            => 'effection',
-        'enableStatus'         => 'enableStatus',
-        'eventRouteChildRules' => 'eventRouteChildRules',
-        'incidentLevel'        => 'incidentLevel',
-        'matchCount'           => 'matchCount',
-        'notifyChannelNames'   => 'notifyChannelNames',
-        'notifyChannels'       => 'notifyChannels',
-        'relatedServiceId'     => 'relatedServiceId',
-        'relatedServiceName'   => 'relatedServiceName',
-        'routeRuleId'          => 'routeRuleId',
-        'routeType'            => 'routeType',
-        'ruleName'             => 'ruleName',
-        'timeWindow'           => 'timeWindow',
-        'updateTime'           => 'updateTime',
+        'assignObjectId'           => 'assignObjectId',
+        'assignObjectName'         => 'assignObjectName',
+        'assignObjectType'         => 'assignObjectType',
+        'childRuleRelation'        => 'childRuleRelation',
+        'coverageProblemLevels'    => 'coverageProblemLevels',
+        'createTime'               => 'createTime',
+        'effection'                => 'effection',
+        'enableStatus'             => 'enableStatus',
+        'eventRouteChildRules'     => 'eventRouteChildRules',
+        'incidentLevel'            => 'incidentLevel',
+        'matchCount'               => 'matchCount',
+        'notifyChannelNames'       => 'notifyChannelNames',
+        'notifyChannels'           => 'notifyChannels',
+        'problemEffectionServices' => 'problemEffectionServices',
+        'problemLevelGroup'        => 'problemLevelGroup',
+        'relServiceDeleteType'     => 'relServiceDeleteType',
+        'relatedServiceId'         => 'relatedServiceId',
+        'relatedServiceName'       => 'relatedServiceName',
+        'routeRuleId'              => 'routeRuleId',
+        'routeType'                => 'routeType',
+        'ruleName'                 => 'ruleName',
+        'timeWindow'               => 'timeWindow',
+        'updateTime'               => 'updateTime',
     ];
 
     public function validate()
@@ -181,6 +200,9 @@ class data extends Model
         }
         if (null !== $this->childRuleRelation) {
             $res['childRuleRelation'] = $this->childRuleRelation;
+        }
+        if (null !== $this->coverageProblemLevels) {
+            $res['coverageProblemLevels'] = $this->coverageProblemLevels;
         }
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
@@ -211,6 +233,20 @@ class data extends Model
         }
         if (null !== $this->notifyChannels) {
             $res['notifyChannels'] = $this->notifyChannels;
+        }
+        if (null !== $this->problemEffectionServices) {
+            $res['problemEffectionServices'] = $this->problemEffectionServices;
+        }
+        if (null !== $this->problemLevelGroup) {
+            $res['problemLevelGroup'] = [];
+            if (null !== $this->problemLevelGroup && \is_array($this->problemLevelGroup)) {
+                foreach ($this->problemLevelGroup as $key => $val) {
+                    $res['problemLevelGroup'][$key] = null !== $val ? $val->toMap() : $val;
+                }
+            }
+        }
+        if (null !== $this->relServiceDeleteType) {
+            $res['relServiceDeleteType'] = $this->relServiceDeleteType;
         }
         if (null !== $this->relatedServiceId) {
             $res['relatedServiceId'] = $this->relatedServiceId;
@@ -257,6 +293,11 @@ class data extends Model
         if (isset($map['childRuleRelation'])) {
             $model->childRuleRelation = $map['childRuleRelation'];
         }
+        if (isset($map['coverageProblemLevels'])) {
+            if (!empty($map['coverageProblemLevels'])) {
+                $model->coverageProblemLevels = $map['coverageProblemLevels'];
+            }
+        }
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
@@ -290,6 +331,17 @@ class data extends Model
             if (!empty($map['notifyChannels'])) {
                 $model->notifyChannels = $map['notifyChannels'];
             }
+        }
+        if (isset($map['problemEffectionServices'])) {
+            if (!empty($map['problemEffectionServices'])) {
+                $model->problemEffectionServices = $map['problemEffectionServices'];
+            }
+        }
+        if (isset($map['problemLevelGroup'])) {
+            $model->problemLevelGroup = $map['problemLevelGroup'];
+        }
+        if (isset($map['relServiceDeleteType'])) {
+            $model->relServiceDeleteType = $map['relServiceDeleteType'];
         }
         if (isset($map['relatedServiceId'])) {
             $model->relatedServiceId = $map['relatedServiceId'];

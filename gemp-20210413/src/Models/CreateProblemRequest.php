@@ -9,106 +9,102 @@ use AlibabaCloud\Tea\Model;
 class CreateProblemRequest extends Model
 {
     /**
-     * @description 影响服务列表
-     *
      * @var int[]
      */
     public $affectServiceIds;
 
     /**
-     * @description 幂等校验Id
+     * @example E789D869-DB13-4913-BAA8-A1F56F94B94D
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 发现时间 (XXXX-XX-XX 00:00:00)
+     * @example 2020-10-02 00:00:00
      *
      * @var string
      */
     public $discoverTime;
 
     /**
-     * @description 事件id
+     * @example 123221
      *
      * @var int
      */
     public $incidentId;
 
     /**
-     * @description 主要处理人
+     * @example 32121
      *
      * @var int
      */
     public $mainHandlerId;
 
     /**
-     * @description 初步原因
+     * @example 初步原因
      *
      * @var string
      */
     public $preliminaryReason;
 
     /**
-     * @description 故障等级 1=P1 2=P2 3=P3 4=P4
+     * @example P2
      *
      * @var string
      */
     public $problemLevel;
 
     /**
-     * @description 故障名称
+     * @example 故障A
      *
      * @var string
      */
     public $problemName;
 
     /**
-     * @description 通告类型
+     * @example PROBLEM_NOTIFY
      *
      * @var string
      */
     public $problemNotifyType;
 
     /**
-     * @description 故障状态  HANDLING 处理中 RECOVERED 已恢复  REPLAYING 复盘中  REPLAYED 已复盘 CANCEL 已取消
+     * @example HANDLING
      *
      * @var string
      */
     public $problemStatus;
 
     /**
-     * @description 进展摘要
+     * @example 进展摘要
      *
      * @var string
      */
     public $progressSummary;
 
     /**
-     * @description 进展摘要富文本id
+     * @example 343
      *
      * @var int
      */
     public $progressSummaryRichTextId;
 
     /**
-     * @description 恢复时间
+     * @example 2020-10-02 00:00:00
      *
      * @var string
      */
     public $recoveryTime;
 
     /**
-     * @description 所属服务
+     * @example 123122
      *
      * @var int
      */
     public $relatedServiceId;
 
     /**
-     * @description 应急协同组
-     *
      * @var int[]
      */
     public $serviceGroupIds;

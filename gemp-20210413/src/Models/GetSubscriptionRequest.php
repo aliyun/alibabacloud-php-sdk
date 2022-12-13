@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetSubscriptionRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $notFilterScopeObjectDeleted;
+
+    /**
+     * @example 10
+     *
      * @var int
      */
     public $subscriptionId;
     protected $_name = [
-        'subscriptionId' => 'subscriptionId',
+        'notFilterScopeObjectDeleted' => 'notFilterScopeObjectDeleted',
+        'subscriptionId'              => 'subscriptionId',
     ];
 
     public function validate()
@@ -23,6 +31,9 @@ class GetSubscriptionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->notFilterScopeObjectDeleted) {
+            $res['notFilterScopeObjectDeleted'] = $this->notFilterScopeObjectDeleted;
+        }
         if (null !== $this->subscriptionId) {
             $res['subscriptionId'] = $this->subscriptionId;
         }
@@ -38,6 +49,9 @@ class GetSubscriptionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['notFilterScopeObjectDeleted'])) {
+            $model->notFilterScopeObjectDeleted = $map['notFilterScopeObjectDeleted'];
+        }
         if (isset($map['subscriptionId'])) {
             $model->subscriptionId = $map['subscriptionId'];
         }

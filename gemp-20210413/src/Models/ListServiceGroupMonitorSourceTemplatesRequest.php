@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListServiceGroupMonitorSourceTemplatesRequest extends Model
 {
     /**
-     * @description 幂等号
+     * @example xxxx
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 请求ID
+     * @example xxxxx
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 服务组ID
+     * @example 1000
      *
      * @var int
      */

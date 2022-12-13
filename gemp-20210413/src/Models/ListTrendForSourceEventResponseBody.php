@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListTrendForSourceEventResponseBody extends Model
 {
     /**
-     * @description 统计列表
-     *
      * @var data[]
      */
     public $data;
 
     /**
      * @description Id of the request
+     *
+     * @example xxxxx
      *
      * @var string
      */

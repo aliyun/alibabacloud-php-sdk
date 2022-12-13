@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 通知订阅配置状态
+     * @example true
      *
      * @var bool
      */
     public $notifySubscriptionStatus;
 
     /**
-     * @description 服务组配置状态
+     * @example true
      *
      * @var bool
      */
     public $serviceGroupStatus;
 
     /**
-     * @description 服务配置状态
+     * @example true
      *
      * @var bool
      */
     public $serviceStatus;
 
     /**
-     * @description 用户配置状态
+     * @example true
      *
      * @var bool
      */

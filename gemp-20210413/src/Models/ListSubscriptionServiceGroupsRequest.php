@@ -9,15 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListSubscriptionServiceGroupsRequest extends Model
 {
     /**
-     * @description 幂等校验token
+     * @example 89f51d2e-5527-4f6c-a6c6-4411b5496e9f
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 服务列表
-     *
      * @var int[]
      */
     public $serviceIds;

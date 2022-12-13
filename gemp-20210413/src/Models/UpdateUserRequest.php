@@ -9,43 +9,41 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserRequest extends Model
 {
     /**
-     * @description 幂等号
+     * @example c26f36de-1ec8-496a-a828-880676c5ef81
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 邮件
+     * @example 78799****@qq.com
      *
      * @var string
      */
     public $email;
 
     /**
-     * @description 手机号
+     * @example 18887878****
      *
      * @var string
      */
     public $phone;
 
     /**
-     * @description 用户ramId
+     * @example 2243564
      *
      * @var int
      */
     public $ramId;
 
     /**
-     * @description 用户ID
+     * @example 111
      *
      * @var int
      */
     public $userId;
 
     /**
-     * @description 用户名
-     *
      * @var string
      */
     public $username;

@@ -11,6 +11,8 @@ class FinishProblemResponseBody extends Model
     /**
      * @description Id of the request
      *
+     * @example 6338F42D-ED0B-442C-932C-657300AFB4BB
+     *
      * @var string
      */
     public $requestId;

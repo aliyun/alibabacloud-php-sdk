@@ -10,12 +10,16 @@ use AlibabaCloud\Tea\Model;
 class CreateSubscriptionResponseBody extends Model
 {
     /**
+     * @description data
+     *
      * @var data
      */
     public $data;
 
     /**
      * @description request id
+     *
+     * @example 10REQUES-AC5C-4B59-BE11-378F117A6A88
      *
      * @var string
      */

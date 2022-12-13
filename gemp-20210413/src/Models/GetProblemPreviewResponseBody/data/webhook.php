@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class webhook extends Model
 {
     /**
-     * @description 数量
+     * @example 32
      *
      * @var int
      */

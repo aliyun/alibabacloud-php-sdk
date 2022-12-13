@@ -9,70 +9,70 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 根据影响等级时间等级分组统计数量
+     * @example {"P1HIGH":32}
      *
      * @var mixed[]
      */
     public $effectionLevel;
 
     /**
-     * @description 升级事件数
+     * @example 43
      *
      * @var int
      */
     public $escalationIncidentCount;
 
     /**
-     * @description 时间总数
+     * @example 32
      *
      * @var int
      */
     public $incidentCount;
 
     /**
-     * @description 当日平均响应时间单位秒
+     * @example 323
      *
      * @var int
      */
     public $meanTimeToAcknowledge;
 
     /**
-     * @description 当日平均完结时间单位秒
+     * @example 4343
      *
      * @var int
      */
     public $meanTimeToRepair;
 
     /**
-     * @description 时间
+     * @example 2021-09-09
      *
      * @var string
      */
     public $time;
 
     /**
-     * @description 总平均响应时间
+     * @example 3334
      *
      * @var int
      */
     public $totalMeanTimeToAcknowledge;
 
     /**
-     * @description 总平均完结时间
+     * @example 4343
      *
      * @var int
      */
     public $totalMeanTimeToRepair;
 
     /**
-     * @description 未响应升级事件数
+     * @example 23
      *
      * @var int
      */
     public $unAcknowledgedEscalationIncidentCount;
 
     /**
-     * @description 未完结升级事件数
+     * @example 23
      *
      * @var int
      */

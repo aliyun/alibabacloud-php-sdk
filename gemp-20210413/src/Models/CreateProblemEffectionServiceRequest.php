@@ -11,47 +11,47 @@ class CreateProblemEffectionServiceRequest extends Model
     /**
      * @description clientToken
      *
+     * @example e0b6735e-1a04-4d6b-a625-d2350612492c
+     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 影响描述
+     * @example erdwcdc
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description 影响等级
+     * @example P2
      *
      * @var string
      */
     public $level;
 
     /**
-     * @description 图片地址
-     *
      * @var string[]
      */
     public $pictureUrl;
 
     /**
-     * @description 故障id
+     * @example 150000000
      *
      * @var int
      */
     public $problemId;
 
     /**
-     * @description 影响服务id
+     * @example 170000000
      *
      * @var int
      */
     public $serviceId;
 
     /**
-     * @description 影响状态 0 未恢复 1已恢复
+     * @example UN_RECOVERED
      *
      * @var string
      */

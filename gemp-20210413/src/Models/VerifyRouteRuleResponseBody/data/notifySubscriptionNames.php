@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class notifySubscriptionNames extends Model
 {
     /**
-     * @description 订阅ID
+     * @example 111111
      *
      * @var int
      */
     public $subscriptionId;
 
     /**
-     * @description 订阅名称
+     * @example 订阅名称
      *
      * @var string
      */

@@ -10,21 +10,19 @@ use AlibabaCloud\Tea\Model;
 class GeneratePictureUploadSignRequest extends Model
 {
     /**
-     * @description 文件
-     *
      * @var files[]
      */
     public $files;
 
     /**
-     * @description 资源id
+     * @example 123123
      *
      * @var int
      */
     public $instanceId;
 
     /**
-     * @description 资源类型
+     * @example INCIDENT 事件 ALERT告警 PROBLEM故障
      *
      * @var string
      */

@@ -9,42 +9,42 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 集成配置id
+     * @example 1023
      *
      * @var int
      */
     public $integrationConfigId;
 
     /**
-     * @description 是否已接受报警
+     * @example false
      *
      * @var bool
      */
     public $isReceivedEvent;
 
     /**
-     * @description 监控源id
+     * @example 87
      *
      * @var int
      */
     public $monitorSourceId;
 
     /**
-     * @description 监控源名城
+     * @example Zabbix
      *
      * @var string
      */
     public $monitorSourceName;
 
     /**
-     * @description 监控源简称
+     * @example Zabbix
      *
      * @var string
      */
     public $monitorSourceShortName;
 
     /**
-     * @description 集成配置状态
+     * @example NOT_INTEGRATED
      *
      * @var string
      */

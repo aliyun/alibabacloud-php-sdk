@@ -9,36 +9,32 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 创建时间
+     * @example 2021-06-23 00:00:00
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 操作人Id
+     * @example 12312
      *
      * @var int
      */
     public $createUserId;
 
     /**
-     * @description 操作人
-     *
      * @var string
      */
     public $createUserName;
 
     /**
-     * @description 操作人手机号
+     * @example 130****1111
      *
      * @var string
      */
     public $createUserPhone;
 
     /**
-     * @description 描述
-     *
      * @var string
      */
     public $description;

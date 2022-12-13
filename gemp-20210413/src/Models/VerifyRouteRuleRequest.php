@@ -10,15 +10,13 @@ use AlibabaCloud\Tea\Model;
 class VerifyRouteRuleRequest extends Model
 {
     /**
-     * @description 规则id
+     * @example 1111
      *
      * @var int
      */
     public $routeRuleId;
 
     /**
-     * @description 测试告警
-     *
      * @var testSourceEvents[]
      */
     public $testSourceEvents;

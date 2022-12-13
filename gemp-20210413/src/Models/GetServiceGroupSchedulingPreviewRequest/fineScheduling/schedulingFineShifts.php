@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class schedulingFineShifts extends Model
 {
     /**
-     * @description 排班结束时间
+     * @example 2020-10-13
      *
      * @var string
      */
     public $schedulingEndTime;
 
     /**
-     * @description 排班顺序
+     * @example 1
      *
      * @var int
      */
     public $schedulingOrder;
 
     /**
-     * @description 排班开始时间
+     * @example 2020-08-13
      *
      * @var string
      */
     public $schedulingStartTime;
 
     /**
-     * @description 班次名称
+     * @example 早班
      *
      * @var string
      */

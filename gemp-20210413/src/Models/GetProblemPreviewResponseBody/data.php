@@ -14,55 +14,43 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 降级后数据
-     *
      * @var string
      */
     public $deAfterData;
 
     /**
-     * @description 降级前数据
-     *
      * @var string
      */
     public $deBeforeData;
 
     /**
-     * @description 邮箱
-     *
      * @var mail
      */
     public $mail;
 
     /**
+     * @description object
+     *
      * @var problem
      */
     public $problem;
 
     /**
-     * @description 短信
-     *
      * @var sms
      */
     public $sms;
 
     /**
-     * @description 升级后数据
-     *
      * @var string
      */
     public $upAfterData;
 
     /**
-     * @description 升级前数据
-     *
      * @var string
      */
     public $upBeforeData;
 
     /**
-     * @description 语音
-     *
      * @var voice
      */
     public $voice;

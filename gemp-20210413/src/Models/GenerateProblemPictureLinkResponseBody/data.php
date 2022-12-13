@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 图片链接列表
-     *
      * @var links[]
      */
     public $links;

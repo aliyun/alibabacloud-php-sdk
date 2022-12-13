@@ -10,165 +10,169 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 发现来源 码表:PROBLEM_DISCOVER_SOURCE
+     * @var string
+     */
+    public $customProblemReason;
+
+    /**
+     * @example 1
      *
      * @var string
      */
     public $discoverSource;
 
     /**
-     * @description 故障责任部门
+     * @example 12312
      *
      * @var string
      */
     public $dutyDepartmentId;
 
     /**
-     * @description 故障责任部门名称
-     *
      * @var string
      */
     public $dutyDepartmentName;
 
     /**
-     * @description 故障责任人id
+     * @example 231
      *
      * @var int
      */
     public $dutyUserId;
 
     /**
-     * @description 故障责任人名称
-     *
+     * @var int
+     */
+    public $dutyUserIsValid;
+
+    /**
      * @var string
      */
     public $dutyUserName;
 
     /**
-     * @description 故障责任人手机号
+     * @example 13098898****
      *
      * @var string
      */
     public $dutyUserPhone;
 
     /**
-     * @description 注入方式 码表:PROBLEM_INJECTION_MODE
+     * @example 3
      *
      * @var string
      */
     public $injectionMode;
 
     /**
-     * @description 是否手动
+     * @example true
      *
      * @var bool
      */
     public $isManual;
 
     /**
-     * @description 改进措施列表
-     *
      * @var measureList[]
      */
     public $measureList;
 
     /**
-     * @description 监控源
+     * @example Zabbix
      *
      * @var string
      */
     public $monitorSourceName;
 
     /**
-     * @description 故障ID
+     * @example 231231
      *
      * @var string
      */
     public $problemId;
 
     /**
-     * @description 故障原因
-     *
      * @var string
      */
     public $problemReason;
 
     /**
-     * @description 最近活动 码表:PROBLEM_RECENT_ACTIVITY
+     * @example 2
      *
      * @var string
      */
     public $recentActivity;
 
     /**
-     * @description 恢复方式  码表:PROBLEM_RECOVERY_MODE
+     * @example 2
      *
      * @var string
      */
     public $recoveryMode;
 
     /**
-     * @description 关联变更
-     *
      * @var string
      */
     public $relationChanges;
 
     /**
-     * @description 备注
-     *
      * @var string
      */
     public $remark;
 
     /**
-     * @description 复盘负责人id
+     * @example 23123
      *
      * @var int
      */
     public $replayDutyUserId;
 
     /**
-     * @description 复盘负责人名称
-     *
+     * @var int
+     */
+    public $replayDutyUserIsValid;
+
+    /**
      * @var string
      */
     public $replayDutyUserName;
 
     /**
-     * @description 复盘负责人手机号
+     * @example 1308787****
      *
      * @var string
      */
     public $replayDutyUserPhone;
 
     /**
-     * @description 用户上报 码表:PROBLEM_USER_REPORT
+     * @example 1
      *
      * @var int
      */
     public $userReport;
     protected $_name = [
-        'discoverSource'      => 'discoverSource',
-        'dutyDepartmentId'    => 'dutyDepartmentId',
-        'dutyDepartmentName'  => 'dutyDepartmentName',
-        'dutyUserId'          => 'dutyUserId',
-        'dutyUserName'        => 'dutyUserName',
-        'dutyUserPhone'       => 'dutyUserPhone',
-        'injectionMode'       => 'injectionMode',
-        'isManual'            => 'isManual',
-        'measureList'         => 'measureList',
-        'monitorSourceName'   => 'monitorSourceName',
-        'problemId'           => 'problemId',
-        'problemReason'       => 'problemReason',
-        'recentActivity'      => 'recentActivity',
-        'recoveryMode'        => 'recoveryMode',
-        'relationChanges'     => 'relationChanges',
-        'remark'              => 'remark',
-        'replayDutyUserId'    => 'replayDutyUserId',
-        'replayDutyUserName'  => 'replayDutyUserName',
-        'replayDutyUserPhone' => 'replayDutyUserPhone',
-        'userReport'          => 'userReport',
+        'customProblemReason'   => 'customProblemReason',
+        'discoverSource'        => 'discoverSource',
+        'dutyDepartmentId'      => 'dutyDepartmentId',
+        'dutyDepartmentName'    => 'dutyDepartmentName',
+        'dutyUserId'            => 'dutyUserId',
+        'dutyUserIsValid'       => 'dutyUserIsValid',
+        'dutyUserName'          => 'dutyUserName',
+        'dutyUserPhone'         => 'dutyUserPhone',
+        'injectionMode'         => 'injectionMode',
+        'isManual'              => 'isManual',
+        'measureList'           => 'measureList',
+        'monitorSourceName'     => 'monitorSourceName',
+        'problemId'             => 'problemId',
+        'problemReason'         => 'problemReason',
+        'recentActivity'        => 'recentActivity',
+        'recoveryMode'          => 'recoveryMode',
+        'relationChanges'       => 'relationChanges',
+        'remark'                => 'remark',
+        'replayDutyUserId'      => 'replayDutyUserId',
+        'replayDutyUserIsValid' => 'replayDutyUserIsValid',
+        'replayDutyUserName'    => 'replayDutyUserName',
+        'replayDutyUserPhone'   => 'replayDutyUserPhone',
+        'userReport'            => 'userReport',
     ];
 
     public function validate()
@@ -178,6 +182,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->customProblemReason) {
+            $res['customProblemReason'] = $this->customProblemReason;
+        }
         if (null !== $this->discoverSource) {
             $res['discoverSource'] = $this->discoverSource;
         }
@@ -189,6 +196,9 @@ class data extends Model
         }
         if (null !== $this->dutyUserId) {
             $res['dutyUserId'] = $this->dutyUserId;
+        }
+        if (null !== $this->dutyUserIsValid) {
+            $res['dutyUserIsValid'] = $this->dutyUserIsValid;
         }
         if (null !== $this->dutyUserName) {
             $res['dutyUserName'] = $this->dutyUserName;
@@ -235,6 +245,9 @@ class data extends Model
         if (null !== $this->replayDutyUserId) {
             $res['replayDutyUserId'] = $this->replayDutyUserId;
         }
+        if (null !== $this->replayDutyUserIsValid) {
+            $res['replayDutyUserIsValid'] = $this->replayDutyUserIsValid;
+        }
         if (null !== $this->replayDutyUserName) {
             $res['replayDutyUserName'] = $this->replayDutyUserName;
         }
@@ -256,6 +269,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['customProblemReason'])) {
+            $model->customProblemReason = $map['customProblemReason'];
+        }
         if (isset($map['discoverSource'])) {
             $model->discoverSource = $map['discoverSource'];
         }
@@ -267,6 +283,9 @@ class data extends Model
         }
         if (isset($map['dutyUserId'])) {
             $model->dutyUserId = $map['dutyUserId'];
+        }
+        if (isset($map['dutyUserIsValid'])) {
+            $model->dutyUserIsValid = $map['dutyUserIsValid'];
         }
         if (isset($map['dutyUserName'])) {
             $model->dutyUserName = $map['dutyUserName'];
@@ -312,6 +331,9 @@ class data extends Model
         }
         if (isset($map['replayDutyUserId'])) {
             $model->replayDutyUserId = $map['replayDutyUserId'];
+        }
+        if (isset($map['replayDutyUserIsValid'])) {
+            $model->replayDutyUserIsValid = $map['replayDutyUserIsValid'];
         }
         if (isset($map['replayDutyUserName'])) {
             $model->replayDutyUserName = $map['replayDutyUserName'];

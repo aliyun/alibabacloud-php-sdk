@@ -11,35 +11,33 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceGroupSchedulingRequest extends Model
 {
     /**
-     * @description 幂等号
+     * @example C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 快速排班
+     * @example HOUR
      *
      * @var fastScheduling
      */
     public $fastScheduling;
 
     /**
-     * @description 精细排班
-     *
      * @var fineScheduling
      */
     public $fineScheduling;
 
     /**
-     * @description 排班方式 FAST 快速排班 FINE 精细排班
+     * @example FAST
      *
      * @var string
      */
     public $schedulingWay;
 
     /**
-     * @description 服务组ID
+     * @example 1000
      *
      * @var int
      */

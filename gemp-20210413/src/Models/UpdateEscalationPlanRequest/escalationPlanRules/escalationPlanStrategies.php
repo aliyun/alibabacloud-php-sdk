@@ -9,36 +9,30 @@ use AlibabaCloud\Tea\Model;
 class escalationPlanStrategies extends Model
 {
     /**
-     * @description 是否支持群通知
+     * @example true
      *
      * @var bool
      */
     public $enableWebhook;
 
     /**
-     * @description 通知渠道
-     *
      * @var string[]
      */
     public $noticeChannels;
 
     /**
-     * @description 通知对象id
-     *
      * @var int[]
      */
     public $noticeObjects;
 
     /**
-     * @description 通知时间
+     * @example 30
      *
      * @var int
      */
     public $noticeTime;
 
     /**
-     * @description 服务组id
-     *
      * @var int[]
      */
     public $serviceGroupIds;

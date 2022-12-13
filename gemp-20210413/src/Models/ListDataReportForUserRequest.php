@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ListDataReportForUserRequest extends Model
 {
     /**
-     * @description 结束时间
+     * @example 2021-09-30
      *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 当前页
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 页大小
+     * @example 100
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 开始时间
+     * @example 2021-09-01
      *
      * @var string
      */

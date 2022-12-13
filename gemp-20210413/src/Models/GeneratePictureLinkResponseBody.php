@@ -10,12 +10,16 @@ use AlibabaCloud\Tea\Model;
 class GeneratePictureLinkResponseBody extends Model
 {
     /**
+     * @description data
+     *
      * @var data
      */
     public $data;
 
     /**
      * @description Id of the request
+     *
+     * @example xxxxxx
      *
      * @var string
      */

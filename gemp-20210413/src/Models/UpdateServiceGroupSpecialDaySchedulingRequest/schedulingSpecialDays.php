@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class schedulingSpecialDays extends Model
 {
     /**
-     * @description 排班结束时间
+     * @example 2021-08-19 12:00:00
      *
      * @var string
      */
     public $schedulingEndTime;
 
     /**
-     * @description 班次顺序
+     * @example 1
      *
      * @var int
      */
     public $schedulingOrder;
 
     /**
-     * @description 排班开始时间
+     * @example 2021-08-19 08:00:00
      *
      * @var string
      */
     public $schedulingStartTime;
 
     /**
-     * @description 排班用户ID
+     * @example 64
      *
      * @var int
      */

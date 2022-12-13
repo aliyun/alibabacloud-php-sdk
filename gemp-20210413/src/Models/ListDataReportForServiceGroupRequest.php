@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListDataReportForServiceGroupRequest extends Model
 {
     /**
-     * @description 结束时间
+     * @example 2021-09-30
      *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 服务组名称
+     * @example A服务组
      *
      * @var string
      */
     public $serviceGroupName;
 
     /**
-     * @description 开始时间
+     * @example 2021-09-09
      *
      * @var string
      */

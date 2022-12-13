@@ -9,15 +9,13 @@ use AlibabaCloud\Tea\Model;
 class RemoveProblemServiceGroupRequest extends Model
 {
     /**
-     * @description 故障ID
+     * @example 13123
      *
      * @var int
      */
     public $problemId;
 
     /**
-     * @description 应急协同组
-     *
      * @var int[]
      */
     public $serviceGroupIds;

@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class escalationPlans extends Model
 {
     /**
-     * @description 升级计划ID
+     * @example 111111
      *
      * @var int
      */
     public $escalationPlanId;
 
     /**
-     * @description 升级计划名称
+     * @example 升级计划1
      *
      * @var string
      */

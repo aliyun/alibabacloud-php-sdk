@@ -9,42 +9,42 @@ use AlibabaCloud\Tea\Model;
 class ListTrendForSourceEventRequest extends Model
 {
     /**
-     * @description 结束时间
+     * @example 2020-10-10 23:59:59
      *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 报警ID
+     * @example 1000
      *
      * @var int
      */
     public $instanceId;
 
     /**
-     * @description 类型
+     * @example INCIDENT
      *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description 请求ID
+     * @example xxxx
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 开始时间
+     * @example 2020-10-10 00:00:00
      *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description 时间单位毫秒
+     * @example 1000
      *
      * @var int
      */

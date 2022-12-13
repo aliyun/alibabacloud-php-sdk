@@ -9,34 +9,40 @@ use AlibabaCloud\Tea\Model;
 class notifyObjectList extends Model
 {
     /**
-     * @description id主键
+     * @example 10
      *
      * @var int
      */
     public $id;
 
     /**
-     * @description 通知对象名
+     * @var int
+     */
+    public $isValid;
+
+    /**
+     * @example 张珊
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 关联主键id
+     * @example 10
      *
      * @var int
      */
     public $notifyObjectId;
 
     /**
-     * @description 通知对象类型0服务组 1个人
+     * @example USER
      *
      * @var int
      */
     public $notifyObjectType;
     protected $_name = [
         'id'               => 'id',
+        'isValid'          => 'isValid',
         'name'             => 'name',
         'notifyObjectId'   => 'notifyObjectId',
         'notifyObjectType' => 'notifyObjectType',
@@ -51,6 +57,9 @@ class notifyObjectList extends Model
         $res = [];
         if (null !== $this->id) {
             $res['id'] = $this->id;
+        }
+        if (null !== $this->isValid) {
+            $res['isValid'] = $this->isValid;
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
@@ -75,6 +84,9 @@ class notifyObjectList extends Model
         $model = new self();
         if (isset($map['id'])) {
             $model->id = $map['id'];
+        }
+        if (isset($map['isValid'])) {
+            $model->isValid = $map['isValid'];
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];

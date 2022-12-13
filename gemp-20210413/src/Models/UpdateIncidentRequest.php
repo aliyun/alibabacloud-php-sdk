@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class UpdateIncidentRequest extends Model
 {
     /**
-     * @description 幂等校验Id
+     * @example FD200FAE-E98F-496E-BFE6-4CE61E59A123
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 影响程度
+     * @example LOW
      *
      * @var string
      */
     public $effect;
 
     /**
-     * @description 事件Id
+     * @example 12312
      *
      * @var int
      */
     public $incidentId;
 
     /**
-     * @description 级别
+     * @example P1
      *
      * @var string
      */
     public $incidentLevel;
 
     /**
-     * @description 事件标题
+     * @example 事件标题
      *
      * @var string
      */

@@ -11,6 +11,8 @@ class DeleteServiceGroupUserResponseBody extends Model
     /**
      * @description Id of the request
      *
+     * @example xxxxxx
+     *
      * @var string
      */
     public $requestId;

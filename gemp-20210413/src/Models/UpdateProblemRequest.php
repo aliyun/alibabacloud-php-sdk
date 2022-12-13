@@ -9,71 +9,61 @@ use AlibabaCloud\Tea\Model;
 class UpdateProblemRequest extends Model
 {
     /**
-     * @description 舆情反馈
-     *
      * @var string
      */
     public $feedback;
 
     /**
-     * @description 故障等级
+     * @example P1
      *
      * @var string
      */
     public $level;
 
     /**
-     * @description 主要处理人
+     * @example 678
      *
      * @var int
      */
     public $mainHandlerId;
 
     /**
-     * @description 初步原因
-     *
      * @var string
      */
     public $preliminaryReason;
 
     /**
-     * @description 故障ID
+     * @example 213432
      *
      * @var int
      */
     public $problemId;
 
     /**
-     * @description 故障名
-     *
      * @var string
      */
     public $problemName;
 
     /**
-     * @description 进展摘要
-     *
      * @var string
      */
     public $progressSummary;
 
     /**
-     * @description 进展摘要富文本id
+     * @example 23232
      *
      * @var int
      */
     public $progressSummaryRichTextId;
 
     /**
-     * @description 所属服务
+     * @example 123
      *
      * @var int
      */
     public $relatedServiceId;
 
     /**
-     * @description 应急协同组
-     *
      * @var int[]
      */
     public $serviceGroupIds;

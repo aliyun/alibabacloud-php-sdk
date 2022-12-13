@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class schedulingUsers extends Model
 {
     /**
-     * @description 排班顺序
+     * @example 1
      *
      * @var int
      */
     public $schedulingOrder;
 
     /**
-     * @description 轮班用户ID
+     * @example 66666
      *
      * @var int
      */
     public $schedulingUserId;
 
     /**
-     * @description 轮班用户名字
+     * @example 张杰
      *
      * @var string
      */

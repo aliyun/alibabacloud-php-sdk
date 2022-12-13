@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class users extends Model
 {
     /**
-     * @description 手机号
+     * @example 1390000****
      *
      * @var string
      */
     public $phone;
 
     /**
-     * @description 服务组ID
+     * @example 1
      *
      * @var int
      */
     public $serviceGroupId;
 
     /**
-     * @description 用户ID
+     * @example 10
      *
      * @var int
      */
     public $userId;
 
     /**
-     * @description 用户名字
+     * @example jack
      *
      * @var string
      */

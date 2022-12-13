@@ -15,14 +15,14 @@ class ListProblemsResponseBody extends Model
     public $data;
 
     /**
-     * @description 当前页
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 页大小
+     * @example 10
      *
      * @var int
      */
@@ -31,12 +31,14 @@ class ListProblemsResponseBody extends Model
     /**
      * @description Id of the request
      *
+     * @example C4BE3837-1A13-413B-A225-2C88188E8A43
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 总条数
+     * @example 100
      *
      * @var int
      */

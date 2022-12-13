@@ -10,12 +10,16 @@ use AlibabaCloud\Tea\Model;
 class GenerateProblemPictureUploadSignResponseBody extends Model
 {
     /**
+     * @description data
+     *
      * @var data
      */
     public $data;
 
     /**
      * @description requestId
+     *
+     * @example e2d4306a-bf4d-4345-9ae6-158223c85dbd
      *
      * @var string
      */

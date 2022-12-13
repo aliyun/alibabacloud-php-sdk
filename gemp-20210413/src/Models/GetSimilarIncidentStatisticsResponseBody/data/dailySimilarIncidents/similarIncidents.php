@@ -9,98 +9,98 @@ use AlibabaCloud\Tea\Model;
 class similarIncidents extends Model
 {
     /**
-     * @description 分派人id
+     * @example 433
      *
      * @var int
      */
     public $assignUserId;
 
     /**
-     * @description 分派人
+     * @example 张老三
      *
      * @var string
      */
     public $assignUserName;
 
     /**
-     * @description 触发时间
+     * @example 2021-09-09 09:09:09
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 持续时间
+     * @example 6789765678
      *
      * @var int
      */
     public $durationTime;
 
     /**
-     * @description 触发原因
+     * @example 1
      *
      * @var int
      */
     public $finishReason;
 
     /**
-     * @description 触发原因描述
+     * @example xx原因
      *
      * @var string
      */
     public $finishReasonDescription;
 
     /**
-     * @description 解决方案描述
+     * @example xxx方案
      *
      * @var string
      */
     public $finishSolutionDescription;
 
     /**
-     * @description 解决方案
+     * @example 5
      *
      * @var int
      */
     public $incidentFinishSolution;
 
     /**
-     * @description 事件id
+     * @example 5435
      *
      * @var int
      */
     public $incidentId;
 
     /**
-     * @description 事件编号
+     * @example I234432
      *
      * @var string
      */
     public $incidentNumber;
 
     /**
-     * @description 事件名称
+     * @example 线性代数发多少
      *
      * @var string
      */
     public $incidentTitle;
 
     /**
-     * @description 流转规则id
+     * @example 334
      *
      * @var int
      */
     public $relatedRouteRuleId;
 
     /**
-     * @description 流转规则名称
+     * @example xxx规则
      *
      * @var string
      */
     public $relatedRouteRuleName;
 
     /**
-     * @description 相似度
+     * @example 1003.567
      *
      * @var string
      */

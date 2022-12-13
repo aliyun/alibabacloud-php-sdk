@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 故障事件线id
+     * @example 102
      *
      * @var int
      */

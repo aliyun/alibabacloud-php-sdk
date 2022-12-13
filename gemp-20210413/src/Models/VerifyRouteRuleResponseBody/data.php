@@ -11,42 +11,34 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 升级策略名称
-     *
      * @var escalationPlans[]
      */
     public $escalationPlans;
 
     /**
-     * @description 验证是否成功
+     * @example true
      *
      * @var bool
      */
     public $isValidRule;
 
     /**
-     * @description 验证失败监控源ID
-     *
      * @var int[]
      */
     public $monitorSourceIds;
 
     /**
-     * @description 订阅名称
-     *
      * @var notifySubscriptionNames[]
      */
     public $notifySubscriptionNames;
 
     /**
-     * @description 流转规则验证失败的原因
-     *
      * @var string[]
      */
     public $routeRuleFailReason;
 
     /**
-     * @description 事件或者报警
+     * @example INCIDENT、ALERT
      *
      * @var string
      */

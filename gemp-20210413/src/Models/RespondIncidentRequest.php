@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class RespondIncidentRequest extends Model
 {
     /**
-     * @description 幂等校验Id
+     * @example FD200FAE-E98F-496E-BFE6-4CE61E59A221
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 事件ID数组
+     * @description 影响程度
      *
      * @var int[]
      */

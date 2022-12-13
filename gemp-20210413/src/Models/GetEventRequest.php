@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetEventRequest extends Model
 {
     /**
-     * @description 监控源ID不能为空
+     * @example 1
      *
      * @var int
      */

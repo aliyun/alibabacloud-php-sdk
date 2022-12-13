@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class GetUserRequest extends Model
 {
     /**
-     * @description 幂等号
+     * @example c26f36de-1ec8-496a-a828-880676c5ef81
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 用户ID
+     * @example 63
      *
      * @var int
      */

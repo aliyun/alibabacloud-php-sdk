@@ -11,49 +11,45 @@ use AlibabaCloud\Tea\Model;
 class GetServiceGroupSchedulingPreviewRequest extends Model
 {
     /**
-     * @description 幂等号
+     * @example C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 排班结束时间
+     * @example 2021-09-01 00:00:00
      *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 快速排班
-     *
      * @var fastScheduling
      */
     public $fastScheduling;
 
     /**
-     * @description 精细排
-     *
      * @var fineScheduling
      */
     public $fineScheduling;
 
     /**
-     * @description 排班方式 FAST 快速排班 FINE 精细排班
+     * @example FAST
      *
      * @var string
      */
     public $schedulingWay;
 
     /**
-     * @description 服务组ID
+     * @example 55555
      *
      * @var int
      */
     public $serviceGroupId;
 
     /**
-     * @description 排班开始时间
+     * @example 2021-11-01 00:00:00
      *
      * @var string
      */

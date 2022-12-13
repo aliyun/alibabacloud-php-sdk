@@ -11,12 +11,16 @@ class escalationPlanConditions extends Model
     /**
      * @description LOW HIGH
      *
+     * @example LOW
+     *
      * @var string
      */
     public $effection;
 
     /**
      * @description P1 P2 P3 P4
+     *
+     * @example P1
      *
      * @var string
      */

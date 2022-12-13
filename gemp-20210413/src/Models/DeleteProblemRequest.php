@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DeleteProblemRequest extends Model
 {
     /**
-     * @description 幂等校验
+     * @example 4361a0e1-6747-4834-96ce-0c4840fd3812
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 故障Id
+     * @example 1231
      *
      * @var int
      */

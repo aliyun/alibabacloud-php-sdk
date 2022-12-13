@@ -9,43 +9,41 @@ use AlibabaCloud\Tea\Model;
 class FinishIncidentRequest extends Model
 {
     /**
-     * @description 幂等校验Id
+     * @example FD200FAE-E98F-496E-BFE6-4CE61E59A2DC
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 完结原因
+     * @example 1
      *
      * @var int
      */
     public $incidentFinishReason;
 
     /**
-     * @description 原因描述
+     * @example 原因描述
      *
      * @var string
      */
     public $incidentFinishReasonDescription;
 
     /**
-     * @description 解决方案
+     * @example 3
      *
      * @var int
      */
     public $incidentFinishSolution;
 
     /**
-     * @description 解决方案描述
+     * @example 解决方案描述
      *
      * @var string
      */
     public $incidentFinishSolutionDescription;
 
     /**
-     * @description 事件ID数组
-     *
      * @var int[]
      */
     public $incidentIds;

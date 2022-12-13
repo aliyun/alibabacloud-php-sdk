@@ -10,57 +10,55 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 内容
+     * @example 内容
      *
      * @var string
      */
     public $content;
 
     /**
-     * @description 创建时间
+     * @example 2020-08-08 15:38:38
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 是否是关键字 true是 false不是 默认 false
+     * @example true
      *
      * @var bool
      */
     public $isKey;
 
     /**
-     * @description 关键节点 码表:PROBLEM_KEY_NODE (逗号分隔)
+     * @example PROBLEM_INJECTION,PROBLEM_HAPPEN
      *
      * @var string
      */
     public $keyNode;
 
     /**
-     * @description 时间线id
+     * @example 10000
      *
      * @var int
      */
     public $problemTimelineId;
 
     /**
-     * @description 展示时间
+     * @example 2020-08-08 15:38:38
      *
      * @var string
      */
     public $time;
 
     /**
-     * @description 修改时间
+     * @example 2020-08-08 15:38:38
      *
      * @var string
      */
     public $updateTime;
 
     /**
-     * @description 内容中的用户信息
-     *
      * @var usersInContent[]
      */
     public $usersInContent;

@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DeliverIncidentRequest extends Model
 {
     /**
-     * @description 转交用户ID
+     * @example 212321
      *
      * @var int
      */
     public $assignUserId;
 
     /**
-     * @description 幂等校验id
+     * @example FD200FAE-E98F-496E-BFE6-4CE61CS9A221
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 事件ID
+     * @example 1223212
      *
      * @var int
      */

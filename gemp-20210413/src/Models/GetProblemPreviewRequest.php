@@ -9,57 +9,53 @@ use AlibabaCloud\Tea\Model;
 class GetProblemPreviewRequest extends Model
 {
     /**
-     * @description 幂等校验token
+     * @example 4361a0e1-6747-4834-96ce-0c4840f13812
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 影响服务
-     *
      * @var int[]
      */
     public $effectServiceIds;
 
     /**
-     * @description 事件Id
+     * @example 213123
      *
      * @var int
      */
     public $incidentId;
 
     /**
-     * @description 故障id
+     * @example 12312
      *
      * @var int
      */
     public $problemId;
 
     /**
-     * @description 故障等级
+     * @example P2
      *
      * @var string
      */
     public $problemLevel;
 
     /**
-     * @description 通告类型
+     * @example PROBLEM_NOTIFY
      *
      * @var string
      */
     public $problemNotifyType;
 
     /**
-     * @description 所属服务
+     * @example 21312
      *
      * @var int
      */
     public $relatedServiceId;
 
     /**
-     * @description 应急协同组
-     *
      * @var int[]
      */
     public $serviceGroupIds;

@@ -9,42 +9,42 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 排班日期
+     * @example 2021-08-17
      *
      * @var string
      */
     public $schedulingDate;
 
     /**
-     * @description 排班结束时间
+     * @example 2021-08-17  12:00:00
      *
      * @var string
      */
     public $schedulingEndTime;
 
     /**
-     * @description 排班开始时间
+     * @example 2021-08-17  00:00:00
      *
      * @var string
      */
     public $schedulingStartTime;
 
     /**
-     * @description 排班用户ID
+     * @example 111111
      *
      * @var int
      */
     public $schedulingUserId;
 
     /**
-     * @description 服务组id
+     * @example 8888
      *
      * @var int
      */
     public $serviceGroupId;
 
     /**
-     * @description 服务组名字
+     * @example 刘德华
      *
      * @var string
      */

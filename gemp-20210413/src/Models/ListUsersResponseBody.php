@@ -17,14 +17,14 @@ class ListUsersResponseBody extends Model
     public $data;
 
     /**
-     * @description 分页
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页
+     * @example 10
      *
      * @var int
      */
@@ -33,12 +33,14 @@ class ListUsersResponseBody extends Model
     /**
      * @description id of the request
      *
+     * @example c26f36de-1ec8-496a-a828-880676c5ef81
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 总条数
+     * @example 100
      *
      * @var int
      */

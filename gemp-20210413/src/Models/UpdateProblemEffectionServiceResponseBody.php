@@ -11,6 +11,8 @@ class UpdateProblemEffectionServiceResponseBody extends Model
     /**
      * @description requestId
      *
+     * @example ffbf594-e093-46ad-bdcd-df4d7097125a
+     *
      * @var string
      */
     public $requestId;

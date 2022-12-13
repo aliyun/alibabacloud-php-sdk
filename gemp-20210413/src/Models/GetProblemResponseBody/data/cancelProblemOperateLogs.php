@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class cancelProblemOperateLogs extends Model
 {
     /**
-     * @description 动作名称
+     * @example 取消故障
      *
      * @var string
      */
     public $actionName;
 
     /**
-     * @description 操作时间
+     * @example 2020-09-08 15:38:38
      *
      * @var string
      */
     public $actionTime;
 
     /**
-     * @description 操作人
+     * @example 王宇
      *
      * @var string
      */
     public $operator;
 
     /**
-     * @description 用户ID
+     * @example 66666
      *
      * @var int
      */

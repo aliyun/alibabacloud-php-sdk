@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class conditions extends Model
 {
     /**
-     * @description 字段名称
+     * @example payload.summary
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description 操作符号：notContain 不包含；contain 包含；equals 等于；notEquals 不等于；
+     * @example equals
      *
      * @var string
      */
     public $operationSymbol;
 
     /**
-     * @description 字段值
+     * @example 123
      *
      * @var string
      */

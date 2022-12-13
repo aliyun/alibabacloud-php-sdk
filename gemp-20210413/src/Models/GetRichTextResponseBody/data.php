@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 资源id
+     * @example 123123
      *
      * @var int
      */
     public $instanceId;
 
     /**
-     * @description 资源类型
+     * @example 0 事件 1告警 2 故障
      *
      * @var int
      */
     public $instanceType;
 
     /**
-     * @description 富文本内容
+     * @example 这是一个富文本
      *
      * @var string
      */

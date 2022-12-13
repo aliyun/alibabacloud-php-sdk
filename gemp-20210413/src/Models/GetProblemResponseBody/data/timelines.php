@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class timelines extends Model
 {
     /**
-     * @description 关键节点 码表:PROBLEM_KEY_NODE (逗号分隔)
+     * @example 1,2,3,4,5,7,6,8,9,10
      *
      * @var string
      */

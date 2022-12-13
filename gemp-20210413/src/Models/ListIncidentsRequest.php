@@ -9,77 +9,77 @@ use AlibabaCloud\Tea\Model;
 class ListIncidentsRequest extends Model
 {
     /**
-     * @description 幂等校验id
+     * @example FD200FAE-E98F-496E-BFE6-4CE61E59A2E1
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 创建结束时间
+     * @example 2021-11-10 00:00:00
      *
      * @var string
      */
     public $createEndTime;
 
     /**
-     * @description 创建开始时间
+     * @example 2021-11-01 00:00:00
      *
      * @var string
      */
     public $createStartTime;
 
     /**
-     * @description 影响等级 高：HIGH 低 LOW
+     * @example LOW
      *
      * @var string
      */
     public $effect;
 
     /**
-     * @description 事件级别 P1 P2 P3 P4
+     * @example P1
      *
      * @var string
      */
     public $incidentLevel;
 
     /**
-     * @description 事件状态 ASSIGNED已分派 RESPONDED已响应  FINISHED已完结
+     * @example ASSIGNED
      *
      * @var string
      */
     public $incidentStatus;
 
     /**
-     * @description 是否自己 1是 0不是
+     * @example true
      *
      * @var int
      */
     public $me;
 
     /**
-     * @description 页
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 行
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 关联服务ID
+     * @example 12312
      *
      * @var int
      */
     public $relationServiceId;
 
     /**
-     * @description 流转规则名字
+     * @example sa
      *
      * @var string
      */

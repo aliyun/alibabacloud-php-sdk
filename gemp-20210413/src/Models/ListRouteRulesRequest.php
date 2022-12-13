@@ -9,53 +9,59 @@ use AlibabaCloud\Tea\Model;
 class ListRouteRulesRequest extends Model
 {
     /**
-     * @description 幂等号
+     * @example C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 第几页
+     * @var bool
+     */
+    public $notFilterRouteRuleDeleted;
+
+    /**
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 页的大小
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 路由类型：0触发事件 1仅触发报警 r
+     * @example 0
      *
      * @var int
      */
     public $routeType;
 
     /**
-     * @description 规则名称
+     * @example 规则名字
      *
      * @var int[]
      */
     public $ruleName;
 
     /**
-     * @description 服务名称
+     * @example 冲上云霄
      *
      * @var int[]
      */
     public $serviceName;
     protected $_name = [
-        'clientToken' => 'clientToken',
-        'pageNumber'  => 'pageNumber',
-        'pageSize'    => 'pageSize',
-        'routeType'   => 'routeType',
-        'ruleName'    => 'ruleName',
-        'serviceName' => 'serviceName',
+        'clientToken'               => 'clientToken',
+        'notFilterRouteRuleDeleted' => 'notFilterRouteRuleDeleted',
+        'pageNumber'                => 'pageNumber',
+        'pageSize'                  => 'pageSize',
+        'routeType'                 => 'routeType',
+        'ruleName'                  => 'ruleName',
+        'serviceName'               => 'serviceName',
     ];
 
     public function validate()
@@ -67,6 +73,9 @@ class ListRouteRulesRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->notFilterRouteRuleDeleted) {
+            $res['notFilterRouteRuleDeleted'] = $this->notFilterRouteRuleDeleted;
         }
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
@@ -97,6 +106,9 @@ class ListRouteRulesRequest extends Model
         $model = new self();
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['notFilterRouteRuleDeleted'])) {
+            $model->notFilterRouteRuleDeleted = $map['notFilterRouteRuleDeleted'];
         }
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];

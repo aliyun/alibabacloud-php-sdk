@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class strategies extends Model
 {
     /**
-     * @description 通知策略条件
-     *
      * @var conditions[]
      */
     public $conditions;

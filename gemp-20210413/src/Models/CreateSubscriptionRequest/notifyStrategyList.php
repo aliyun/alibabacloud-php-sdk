@@ -11,29 +11,25 @@ use AlibabaCloud\Tea\Model;
 class notifyStrategyList extends Model
 {
     /**
-     * @description 渠道，多个逗号分隔
+     * @example SMS,PHONE
      *
      * @var string
      */
     public $channels;
 
     /**
-     * @description 订阅实例类型，事件、报警、故障
+     * @example INCIDENT
      *
      * @var int
      */
     public $instanceType;
 
     /**
-     * @description 分时段渠道
-     *
      * @var periodChannel
      */
     public $periodChannel;
 
     /**
-     * @description 条件。json格式，包含多个条件，比如级别、影响程度 kv格式
-     *
      * @var strategies[]
      */
     public $strategies;

@@ -9,93 +9,111 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 报警ID
+     * @example 20000
      *
      * @var int
      */
     public $alertId;
 
     /**
-     * @description 告警优先级  1，2，3，4  对应 p1,p2,p3,p4
+     * @example P1
      *
      * @var string
      */
     public $alertLevel;
 
     /**
-     * @description 报警编号
+     * @example A123123123
      *
      * @var string
      */
     public $alertNumber;
 
     /**
-     * @description 报警源
+     * @example zabbix
      *
      * @var string
      */
     public $alertSourceName;
 
     /**
-     * @description 创建时间
+     * @example 2020-03-05 15:53:55
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 第一次告警上报时间
+     * @example 2021-09-08 18:30:00
      *
      * @var string
      */
     public $firstEventTime;
 
     /**
-     * @description 关联服务名称
+     * @var string
+     */
+    public $monitorSourceName;
+
+    /**
+     * @var int
+     */
+    public $relServiceDeleteType;
+
+    /**
+     * @example 服务A
      *
      * @var string
      */
     public $relatedServiceName;
 
     /**
-     * @description 关联流转规则ID
+     * @var int
+     */
+    public $routeRuleDeleteType;
+
+    /**
+     * @example 10000
      *
      * @var int
      */
     public $routeRuleId;
 
     /**
-     * @description 流转规则名字
+     * @example 流转规则
      *
      * @var string
      */
     public $routeRuleName;
 
     /**
-     * @description 收敛量
+     * @example 10
      *
      * @var int
      */
     public $sourceEventCount;
 
     /**
-     * @description 报警标题
+     * @example 报警
      *
      * @var string
      */
     public $title;
     protected $_name = [
-        'alertId'            => 'alertId',
-        'alertLevel'         => 'alertLevel',
-        'alertNumber'        => 'alertNumber',
-        'alertSourceName'    => 'alertSourceName',
-        'createTime'         => 'createTime',
-        'firstEventTime'     => 'firstEventTime',
-        'relatedServiceName' => 'relatedServiceName',
-        'routeRuleId'        => 'routeRuleId',
-        'routeRuleName'      => 'routeRuleName',
-        'sourceEventCount'   => 'sourceEventCount',
-        'title'              => 'title',
+        'alertId'              => 'alertId',
+        'alertLevel'           => 'alertLevel',
+        'alertNumber'          => 'alertNumber',
+        'alertSourceName'      => 'alertSourceName',
+        'createTime'           => 'createTime',
+        'firstEventTime'       => 'firstEventTime',
+        'monitorSourceName'    => 'monitorSourceName',
+        'relServiceDeleteType' => 'relServiceDeleteType',
+        'relatedServiceName'   => 'relatedServiceName',
+        'routeRuleDeleteType'  => 'routeRuleDeleteType',
+        'routeRuleId'          => 'routeRuleId',
+        'routeRuleName'        => 'routeRuleName',
+        'sourceEventCount'     => 'sourceEventCount',
+        'title'                => 'title',
     ];
 
     public function validate()
@@ -123,8 +141,17 @@ class data extends Model
         if (null !== $this->firstEventTime) {
             $res['firstEventTime'] = $this->firstEventTime;
         }
+        if (null !== $this->monitorSourceName) {
+            $res['monitorSourceName'] = $this->monitorSourceName;
+        }
+        if (null !== $this->relServiceDeleteType) {
+            $res['relServiceDeleteType'] = $this->relServiceDeleteType;
+        }
         if (null !== $this->relatedServiceName) {
             $res['relatedServiceName'] = $this->relatedServiceName;
+        }
+        if (null !== $this->routeRuleDeleteType) {
+            $res['routeRuleDeleteType'] = $this->routeRuleDeleteType;
         }
         if (null !== $this->routeRuleId) {
             $res['routeRuleId'] = $this->routeRuleId;
@@ -168,8 +195,17 @@ class data extends Model
         if (isset($map['firstEventTime'])) {
             $model->firstEventTime = $map['firstEventTime'];
         }
+        if (isset($map['monitorSourceName'])) {
+            $model->monitorSourceName = $map['monitorSourceName'];
+        }
+        if (isset($map['relServiceDeleteType'])) {
+            $model->relServiceDeleteType = $map['relServiceDeleteType'];
+        }
         if (isset($map['relatedServiceName'])) {
             $model->relatedServiceName = $map['relatedServiceName'];
+        }
+        if (isset($map['routeRuleDeleteType'])) {
+            $model->routeRuleDeleteType = $map['routeRuleDeleteType'];
         }
         if (isset($map['routeRuleId'])) {
             $model->routeRuleId = $map['routeRuleId'];

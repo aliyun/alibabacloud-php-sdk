@@ -9,19 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetRichTextRequest extends Model
 {
     /**
-     * @description 资源类型
+     * @example INCIDENT 事件 ALERT告警 PROBLEM故障
      *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @example INCIDENT
+     *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description 资源id
+     * @example 12221才
      *
      * @var int
      */

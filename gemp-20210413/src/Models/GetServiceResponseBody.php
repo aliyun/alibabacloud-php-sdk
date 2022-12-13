@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetServiceResponseBody extends Model
 {
     /**
-     * @description 服务详情
-     *
      * @var data
      */
     public $data;
 
     /**
      * @description Id of the request
+     *
+     * @example C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var string
      */

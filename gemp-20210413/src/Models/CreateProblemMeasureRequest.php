@@ -9,70 +9,70 @@ use AlibabaCloud\Tea\Model;
 class CreateProblemMeasureRequest extends Model
 {
     /**
-     * @description 验收标准
+     * @example 标准
      *
      * @var string
      */
     public $checkStandard;
 
     /**
-     * @description 验收人id
+     * @example 123
      *
      * @var int
      */
     public $checkUserId;
 
     /**
-     * @description 幂等校验token
+     * @example 4361a0e1-6747-4834-96ce-0c4840fd3812
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 措施内容
+     * @example 措施内容
      *
      * @var string
      */
     public $content;
 
     /**
-     * @description 负责人id
+     * @example 123
      *
      * @var int
      */
     public $directorId;
 
     /**
-     * @description 计划完成时间
+     * @example 2020-01-23 00:00:00
      *
      * @var string
      */
     public $planFinishTime;
 
     /**
-     * @description 故障Id
+     * @example 23
      *
      * @var int
      */
     public $problemId;
 
     /**
-     * @description 跟踪人id
+     * @example 123
      *
      * @var int
      */
     public $stalkerId;
 
     /**
-     * @description 状态 IMPROVED 改进 2 未改进UNIMPROVED
+     * @example IMPROVED
      *
      * @var string
      */
     public $status;
 
     /**
-     * @description 措施类型
+     * @example 1
      *
      * @var int
      */

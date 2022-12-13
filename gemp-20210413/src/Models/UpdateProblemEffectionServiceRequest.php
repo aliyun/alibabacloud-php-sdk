@@ -11,54 +11,54 @@ class UpdateProblemEffectionServiceRequest extends Model
     /**
      * @description clientToken
      *
+     * @example c26f36de-1ec8-496a-a828-880676c5ef81
+     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 影响描述
+     * @example 乐嘉国际大厦
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description 影响服务id
+     * @example 103
      *
      * @var int
      */
     public $effectionServiceId;
 
     /**
-     * @description 影响等级
+     * @example P1
      *
      * @var string
      */
     public $level;
 
     /**
-     * @description 图片地址
-     *
      * @var string[]
      */
     public $picUrl;
 
     /**
-     * @description 故障id
+     * @example 190000000
      *
      * @var int
      */
     public $problemId;
 
     /**
-     * @description 关联服务id
+     * @example 33
      *
      * @var int
      */
     public $serviceId;
 
     /**
-     * @description 影响状态 UN_RECOVERED 未恢复 RECOVERED已恢复
+     * @example UN_RECOVERED
      *
      * @var string
      */

@@ -10,63 +10,59 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceGroupRequest extends Model
 {
     /**
-     * @description 幂等号
+     * @example C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description ENABLE 启用 DISABLE 禁用
+     * @example ENABLE
      *
      * @var string
      */
     public $enableWebhook;
 
     /**
-     * @description 监控源模版列表
-     *
      * @var monitorSourceTemplates[]
      */
     public $monitorSourceTemplates;
 
     /**
-     * @description 服务描述
+     * @example 飞车
      *
      * @var string
      */
     public $serviceGroupDescription;
 
     /**
-     * @description 服务组ID
+     * @example 1
      *
      * @var int
      */
     public $serviceGroupId;
 
     /**
-     * @description 服务组名字
+     * @example 冲上云霄
      *
      * @var string
      */
     public $serviceGroupName;
 
     /**
-     * @description 用户ID列表修改后的
-     *
      * @var int[]
      */
     public $userIds;
 
     /**
-     * @description webhook跳转地址
+     * @example wwwwwww
      *
      * @var string
      */
     public $webhookLink;
 
     /**
-     * @description WEIXIN_GROUP微信DING_GROUP钉钉FEISHU_GROUP飞书
+     * @example WEIXINGROUP
      *
      * @var string
      */

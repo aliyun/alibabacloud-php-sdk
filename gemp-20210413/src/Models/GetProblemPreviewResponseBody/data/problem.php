@@ -11,127 +11,113 @@ use AlibabaCloud\Tea\Model;
 class problem extends Model
 {
     /**
-     * @description 应急协同组
-     *
      * @var coordinationGroups[]
      */
     public $coordinationGroups;
 
     /**
-     * @description 创建时间
+     * @example 2021-02-21 00:00:00
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 发现时间
+     * @example 2021-02-21 00:00:00
      *
      * @var string
      */
     public $discoverTime;
 
     /**
-     * @description 影响服务
-     *
      * @var effectionServices[]
      */
     public $effectionServices;
 
     /**
-     * @description 是否手动
+     * @example true
      *
      * @var bool
      */
     public $isManual;
 
     /**
-     * @description 是否升级
+     * @example true
      *
      * @var bool
      */
     public $isUpgrade;
 
     /**
-     * @description 主要处理人Id
+     * @example 231
      *
      * @var string
      */
     public $mainHandlerId;
 
     /**
-     * @description 主要处理人
-     *
      * @var string
      */
     public $mainHandlerName;
 
     /**
-     * @description 初步原因
-     *
      * @var string
      */
     public $preliminaryReason;
 
     /**
-     * @description 故障Id
+     * @example 123123
      *
      * @var int
      */
     public $problemId;
 
     /**
-     * @description 故障等级 1=P1 2=P2 3=P3 4=P4
+     * @example P2
      *
      * @var string
      */
     public $problemLevel;
 
     /**
-     * @description 故障名称
-     *
      * @var string
      */
     public $problemName;
 
     /**
-     * @description 故障状态 1 处理中 2已恢复 3复盘中 4已复盘 5已取消
+     * @example HANDLING
      *
      * @var string
      */
     public $problemStatus;
 
     /**
-     * @description 进展摘要
-     *
      * @var string
      */
     public $progressSummary;
 
     /**
-     * @description 富文本id
+     * @example 12312
      *
      * @var int
      */
     public $progressSummaryRichTextId;
 
     /**
-     * @description 恢复时间
+     * @example 2021-02-21 00:00:00
      *
      * @var string
      */
     public $recoveryTime;
 
     /**
-     * @description 关联服务ID
+     * @example 213123
      *
      * @var int
      */
     public $relatedServiceId;
 
     /**
-     * @description 关联服务 名称
-     *
      * @var string
      */
     public $serviceName;

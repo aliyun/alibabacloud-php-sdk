@@ -9,34 +9,40 @@ use AlibabaCloud\Tea\Model;
 class ListIncidentDetailTimelinesRequest extends Model
 {
     /**
-     * @description 幂等校验
+     * @example FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 事件ID
+     * @var string
+     */
+    public $idSort;
+
+    /**
+     * @example 123
      *
      * @var int
      */
     public $incidentId;
 
     /**
-     * @description 页
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 行
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'clientToken' => 'clientToken',
+        'idSort'      => 'idSort',
         'incidentId'  => 'incidentId',
         'pageNumber'  => 'pageNumber',
         'pageSize'    => 'pageSize',
@@ -51,6 +57,9 @@ class ListIncidentDetailTimelinesRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->idSort) {
+            $res['idSort'] = $this->idSort;
         }
         if (null !== $this->incidentId) {
             $res['incidentId'] = $this->incidentId;
@@ -75,6 +84,9 @@ class ListIncidentDetailTimelinesRequest extends Model
         $model = new self();
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['idSort'])) {
+            $model->idSort = $map['idSort'];
         }
         if (isset($map['incidentId'])) {
             $model->incidentId = $map['incidentId'];

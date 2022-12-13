@@ -9,125 +9,123 @@ use AlibabaCloud\Tea\Model;
 class UpdateProblemImprovementRequest extends Model
 {
     /**
-     * @description 幂等校验token
+     * @example 4361a0e1-6747-4834-96ce-0c4840fd3813
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 发现来源 码表:PROBLEM_DISCOVER_SOURCE
+     * @var string
+     */
+    public $customProblemReason;
+
+    /**
+     * @example 1
      *
      * @var int
      */
     public $discoverSource;
 
     /**
-     * @description 故障责任部门ID
+     * @example 123123
      *
      * @var int
      */
     public $dutyDepartmentId;
 
     /**
-     * @description 故障责任部门
-     *
      * @var string
      */
     public $dutyDepartmentName;
 
     /**
-     * @description 故障责任人id
+     * @example 1231
      *
      * @var int
      */
     public $dutyUserId;
 
     /**
-     * @description 注入方式 码表:PROBLEM_INJECTION_MODE
+     * @example 1
      *
      * @var string
      */
     public $injectionMode;
 
     /**
-     * @description 监控源
+     * @example Zabbix
      *
      * @var string
      */
     public $monitorSourceName;
 
     /**
-     * @description 故障ID
+     * @example 12312
      *
      * @var int
      */
     public $problemId;
 
     /**
-     * @description 故障原因
-     *
      * @var string
      */
     public $problemReason;
 
     /**
-     * @description 最近活动 码表:PROBLEM_RECENT_ACTIVITY
+     * @example 2
      *
      * @var string
      */
     public $recentActivity;
 
     /**
-     * @description 恢复方式  码表:PROBLEM_RECOVERY_MODE
+     * @example 2
      *
      * @var string
      */
     public $recoveryMode;
 
     /**
-     * @description 关联变更
-     *
      * @var string
      */
     public $relationChanges;
 
     /**
-     * @description 备注
-     *
      * @var string
      */
     public $remark;
 
     /**
-     * @description 复盘负责人id
+     * @example 1213
      *
      * @var int
      */
     public $replayDutyUserId;
 
     /**
-     * @description 用户上报 码表:PROBLEM_USER_REPORT
+     * @example 10
      *
      * @var int
      */
     public $userReport;
     protected $_name = [
-        'clientToken'        => 'clientToken',
-        'discoverSource'     => 'discoverSource',
-        'dutyDepartmentId'   => 'dutyDepartmentId',
-        'dutyDepartmentName' => 'dutyDepartmentName',
-        'dutyUserId'         => 'dutyUserId',
-        'injectionMode'      => 'injectionMode',
-        'monitorSourceName'  => 'monitorSourceName',
-        'problemId'          => 'problemId',
-        'problemReason'      => 'problemReason',
-        'recentActivity'     => 'recentActivity',
-        'recoveryMode'       => 'recoveryMode',
-        'relationChanges'    => 'relationChanges',
-        'remark'             => 'remark',
-        'replayDutyUserId'   => 'replayDutyUserId',
-        'userReport'         => 'userReport',
+        'clientToken'         => 'clientToken',
+        'customProblemReason' => 'customProblemReason',
+        'discoverSource'      => 'discoverSource',
+        'dutyDepartmentId'    => 'dutyDepartmentId',
+        'dutyDepartmentName'  => 'dutyDepartmentName',
+        'dutyUserId'          => 'dutyUserId',
+        'injectionMode'       => 'injectionMode',
+        'monitorSourceName'   => 'monitorSourceName',
+        'problemId'           => 'problemId',
+        'problemReason'       => 'problemReason',
+        'recentActivity'      => 'recentActivity',
+        'recoveryMode'        => 'recoveryMode',
+        'relationChanges'     => 'relationChanges',
+        'remark'              => 'remark',
+        'replayDutyUserId'    => 'replayDutyUserId',
+        'userReport'          => 'userReport',
     ];
 
     public function validate()
@@ -139,6 +137,9 @@ class UpdateProblemImprovementRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->customProblemReason) {
+            $res['customProblemReason'] = $this->customProblemReason;
         }
         if (null !== $this->discoverSource) {
             $res['discoverSource'] = $this->discoverSource;
@@ -196,6 +197,9 @@ class UpdateProblemImprovementRequest extends Model
         $model = new self();
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['customProblemReason'])) {
+            $model->customProblemReason = $map['customProblemReason'];
         }
         if (isset($map['discoverSource'])) {
             $model->discoverSource = $map['discoverSource'];

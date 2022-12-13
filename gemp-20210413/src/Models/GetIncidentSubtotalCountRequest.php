@@ -9,15 +9,13 @@ use AlibabaCloud\Tea\Model;
 class GetIncidentSubtotalCountRequest extends Model
 {
     /**
-     * @description 幂等标识
+     * @example 7C56D225-7C34-40BB-9624-C8BA449260E6
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 事件id列表
-     *
      * @var int[]
      */
     public $incidentIds;

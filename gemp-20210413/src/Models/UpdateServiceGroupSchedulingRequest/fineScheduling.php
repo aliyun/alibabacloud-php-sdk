@@ -11,42 +11,38 @@ use AlibabaCloud\Tea\Model;
 class fineScheduling extends Model
 {
     /**
-     * @description 精细排班ID
+     * @example 1
      *
      * @var int
      */
     public $id;
 
     /**
-     * @description 循环周期
+     * @example 1
      *
      * @var int
      */
     public $period;
 
     /**
-     * @description 循环周期单位 HOUR 小时 DAY 天
+     * @example DAY
      *
      * @var string
      */
     public $periodUnit;
 
     /**
-     * @description 精细排班班次人员信息
-     *
      * @var schedulingFineShifts[]
      */
     public $schedulingFineShifts;
 
     /**
-     * @description 精细排班模版
-     *
      * @var schedulingTemplateFineShifts[]
      */
     public $schedulingTemplateFineShifts;
 
     /**
-     * @description 班次类型 MORNING_NIGHT 早晚班 MORNING_NOON_NIGHT 早中晚班 CUSTOM 自定义
+     * @example MORNING_NIGHT
      *
      * @var string
      */

@@ -9,35 +9,40 @@ use AlibabaCloud\Tea\Model;
 class effectionServices extends Model
 {
     /**
-     * @description 影响描述
+     * @example 描述
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description 影响等级 P1 . P2 P3 P4
+     * @example P1
      *
      * @var int
      */
     public $effectionLevel;
 
     /**
-     * @description 服务ID
+     * @example 1
      *
      * @var int
      */
     public $effectionServiceId;
 
     /**
-     * @description 影响服务状态  RECOVERED 已经恢复 ,UN_RECOVERED 未恢复
+     * @example RESTORED
      *
      * @var int
      */
     public $effectionStatus;
 
     /**
-     * @description 服务名称
+     * @var int
+     */
+    public $serviceDeleteType;
+
+    /**
+     * @example 购物车
      *
      * @var string
      */
@@ -47,6 +52,7 @@ class effectionServices extends Model
         'effectionLevel'     => 'effectionLevel',
         'effectionServiceId' => 'effectionServiceId',
         'effectionStatus'    => 'effectionStatus',
+        'serviceDeleteType'  => 'serviceDeleteType',
         'serviceName'        => 'serviceName',
     ];
 
@@ -68,6 +74,9 @@ class effectionServices extends Model
         }
         if (null !== $this->effectionStatus) {
             $res['effectionStatus'] = $this->effectionStatus;
+        }
+        if (null !== $this->serviceDeleteType) {
+            $res['serviceDeleteType'] = $this->serviceDeleteType;
         }
         if (null !== $this->serviceName) {
             $res['serviceName'] = $this->serviceName;
@@ -95,6 +104,9 @@ class effectionServices extends Model
         }
         if (isset($map['effectionStatus'])) {
             $model->effectionStatus = $map['effectionStatus'];
+        }
+        if (isset($map['serviceDeleteType'])) {
+            $model->serviceDeleteType = $map['serviceDeleteType'];
         }
         if (isset($map['serviceName'])) {
             $model->serviceName = $map['serviceName'];

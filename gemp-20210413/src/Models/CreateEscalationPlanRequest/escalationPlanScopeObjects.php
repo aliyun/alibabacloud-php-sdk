@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class escalationPlanScopeObjects extends Model
 {
     /**
-     * @description 范围对象类型
+     * @example SERVICE
      *
      * @var string
      */
     public $scope;
 
     /**
-     * @description 范围对象id
+     * @example 23433
      *
      * @var int
      */

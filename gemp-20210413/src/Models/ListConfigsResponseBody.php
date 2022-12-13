@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListConfigsResponseBody extends Model
 {
     /**
+     * @description data
+     *
      * @var DataValue[][]
      */
     public $data;
 
     /**
      * @description requestId
+     *
+     * @example uuid
      *
      * @var string
      */
