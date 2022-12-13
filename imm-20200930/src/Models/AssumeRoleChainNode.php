@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AssumeRoleChainNode extends Model
 {
     /**
+     * @example 1023210024677934
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @example test-role
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example user
+     *
      * @var string
      */
     public $type;

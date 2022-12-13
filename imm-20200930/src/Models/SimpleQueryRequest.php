@@ -45,6 +45,8 @@ class SimpleQueryRequest extends Model
     public $query;
 
     /**
+     * @example ASC / DESC
+     *
      * @var string
      */
     public $sort;

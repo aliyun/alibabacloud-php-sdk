@@ -24,6 +24,8 @@ class DetectImageBodiesShrinkRequest extends Model
     public $sensitivity;
 
     /**
+     * @example 源文件路径
+     *
      * @var string
      */
     public $sourceURI;

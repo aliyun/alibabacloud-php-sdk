@@ -34,6 +34,8 @@ class QueryFigureClustersShrinkRequest extends Model
     public $nextToken;
 
     /**
+     * @example asc
+     *
      * @var string
      */
     public $order;
@@ -44,6 +46,8 @@ class QueryFigureClustersShrinkRequest extends Model
     public $projectName;
 
     /**
+     * @example ImageCount
+     *
      * @var string
      */
     public $sort;

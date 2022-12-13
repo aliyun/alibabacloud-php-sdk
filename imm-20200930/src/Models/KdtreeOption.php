@@ -14,6 +14,8 @@ class KdtreeOption extends Model
     public $compressionLevel;
 
     /**
+     * @example draco
+     *
      * @var string
      */
     public $libraryName;

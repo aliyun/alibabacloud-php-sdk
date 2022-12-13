@@ -14,11 +14,15 @@ class ListTasksShrinkRequest extends Model
     public $endTimeRangeShrink;
 
     /**
+     * @example 最大结果数量
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example 翻页标记
+     *
      * @var string
      */
     public $nextToken;

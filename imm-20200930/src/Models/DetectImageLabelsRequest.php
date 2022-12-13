@@ -19,11 +19,15 @@ class DetectImageLabelsRequest extends Model
     public $projectName;
 
     /**
+     * @example 源文件路径
+     *
      * @var string
      */
     public $sourceURI;
 
     /**
+     * @example 阈值
+     *
      * @var float
      */
     public $threshold;

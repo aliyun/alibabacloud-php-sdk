@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class WebofficeWatermark extends Model
 {
     /**
+     * @example rgba(192, 192, 192, 0.6)
+     *
      * @var string
      */
     public $fillStyle;
 
     /**
+     * @example bold 20px Serif
+     *
      * @var string
      */
     public $font;

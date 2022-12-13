@@ -26,18 +26,30 @@ class FuzzyQueryRequest extends Model
     /**
      * @var string
      */
+    public $order;
+
+    /**
+     * @var string
+     */
     public $projectName;
 
     /**
      * @var string
      */
     public $query;
+
+    /**
+     * @var string
+     */
+    public $sort;
     protected $_name = [
         'datasetName' => 'DatasetName',
         'maxResults'  => 'MaxResults',
         'nextToken'   => 'NextToken',
+        'order'       => 'Order',
         'projectName' => 'ProjectName',
         'query'       => 'Query',
+        'sort'        => 'Sort',
     ];
 
     public function validate()
@@ -56,11 +68,17 @@ class FuzzyQueryRequest extends Model
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+        if (null !== $this->order) {
+            $res['Order'] = $this->order;
+        }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
         if (null !== $this->query) {
             $res['Query'] = $this->query;
+        }
+        if (null !== $this->sort) {
+            $res['Sort'] = $this->sort;
         }
 
         return $res;
@@ -83,11 +101,17 @@ class FuzzyQueryRequest extends Model
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+        if (isset($map['Order'])) {
+            $model->order = $map['Order'];
+        }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
+        }
+        if (isset($map['Sort'])) {
+            $model->sort = $map['Sort'];
         }
 
         return $model;

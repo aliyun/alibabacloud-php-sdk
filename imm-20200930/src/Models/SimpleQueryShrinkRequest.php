@@ -44,6 +44,8 @@ class SimpleQueryShrinkRequest extends Model
     public $queryShrink;
 
     /**
+     * @example ASC / DESC
+     *
      * @var string
      */
     public $sort;

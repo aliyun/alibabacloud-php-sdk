@@ -14,6 +14,8 @@ class CreateVideoLabelClassificationTaskRequest extends Model
     public $credentialConfig;
 
     /**
+     * @example MNS 通知的 Topic 名称
+     *
      * @var string
      */
     public $notifyTopicName;
@@ -24,6 +26,8 @@ class CreateVideoLabelClassificationTaskRequest extends Model
     public $projectName;
 
     /**
+     * @example 源文件路径
+     *
      * @var string
      */
     public $sourceURI;
@@ -34,6 +38,8 @@ class CreateVideoLabelClassificationTaskRequest extends Model
     public $tags;
 
     /**
+     * @example 用户自定义信息
+     *
      * @var string
      */
     public $userData;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class OctreeOption extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $doVoxelGridDownDownSampling;
 
     /**
+     * @example pcl
+     *
      * @var string
      */
     public $libraryName;
 
     /**
+     * @example 0.01
+     *
      * @var float
      */
     public $octreeResolution;
 
     /**
+     * @example 0.01
+     *
      * @var float
      */
     public $pointResolution;

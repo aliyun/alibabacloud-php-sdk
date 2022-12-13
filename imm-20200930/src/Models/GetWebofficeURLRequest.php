@@ -64,6 +64,8 @@ class GetWebofficeURLRequest extends Model
     public $referer;
 
     /**
+     * @example oss://imm-test/test.pptx
+     *
      * @var string
      */
     public $sourceURI;

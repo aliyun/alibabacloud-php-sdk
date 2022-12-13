@@ -14,11 +14,15 @@ class GetTaskRequest extends Model
     public $projectName;
 
     /**
+     * @example 任务唯一Id
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example 任务类型
+     *
      * @var string
      */
     public $taskType;

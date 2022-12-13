@@ -24,6 +24,8 @@ class DetectImageCroppingShrinkRequest extends Model
     public $projectName;
 
     /**
+     * @example 源文件路径
+     *
      * @var string
      */
     public $sourceURI;

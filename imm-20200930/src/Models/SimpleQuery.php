@@ -14,6 +14,8 @@ class SimpleQuery extends Model
     public $field;
 
     /**
+     * @example eq / gt / gte / lt / lte / match / prefix / and / or / not
+     *
      * @var string
      */
     public $operation;

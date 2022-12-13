@@ -39,6 +39,8 @@ class CreateOfficeConversionTaskRequest extends Model
     public $holdLineFeed;
 
     /**
+     * @example 96
+     *
      * @var int
      */
     public $imageDPI;
@@ -69,6 +71,8 @@ class CreateOfficeConversionTaskRequest extends Model
     public $notifyTopicName;
 
     /**
+     * @example 1,3-5,7
+     *
      * @var string
      */
     public $pages;
@@ -79,6 +83,8 @@ class CreateOfficeConversionTaskRequest extends Model
     public $paperHorizontal;
 
     /**
+     * @example A4
+     *
      * @var string
      */
     public $paperSize;
@@ -89,6 +95,8 @@ class CreateOfficeConversionTaskRequest extends Model
     public $password;
 
     /**
+     * @example test-project
+     *
      * @var string
      */
     public $projectName;
@@ -119,11 +127,15 @@ class CreateOfficeConversionTaskRequest extends Model
     public $showComments;
 
     /**
+     * @example docx
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @example oss://imm-test/test.pptx
+     *
      * @var string
      */
     public $sourceURI;
@@ -139,16 +151,22 @@ class CreateOfficeConversionTaskRequest extends Model
     public $tags;
 
     /**
+     * @example png
+     *
      * @var string
      */
     public $targetType;
 
     /**
+     * @example oss://{bucket}/{dirname}/{barename}.{autoext}
+     *
      * @var string
      */
     public $targetURI;
 
     /**
+     * @example oss://imm-test/test.pptx
+     *
      * @var string
      */
     public $targetURIPrefix;

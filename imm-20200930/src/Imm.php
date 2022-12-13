@@ -991,10 +991,14 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateDetectVideoLabelsTaskRequest $tmpReq
-     * @param RuntimeOptions                     $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return CreateDetectVideoLabelsTaskResponse
+     * @param CreateDetectVideoLabelsTaskRequest $tmpReq  CreateDetectVideoLabelsTaskRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDetectVideoLabelsTaskResponse CreateDetectVideoLabelsTaskResponse
      */
     public function createDetectVideoLabelsTaskWithOptions($tmpReq, $runtime)
     {
@@ -1045,9 +1049,13 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateDetectVideoLabelsTaskRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return CreateDetectVideoLabelsTaskResponse
+     * @param CreateDetectVideoLabelsTaskRequest $request CreateDetectVideoLabelsTaskRequest
+     *
+     * @return CreateDetectVideoLabelsTaskResponse CreateDetectVideoLabelsTaskResponse
      */
     public function createDetectVideoLabelsTask($request)
     {
@@ -2927,11 +2935,17 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->nextToken)) {
             $query['NextToken'] = $request->nextToken;
         }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
         }
         if (!Utils::isUnset($request->query)) {
             $query['Query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3062,10 +3076,14 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetDetectVideoLabelsResultRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetDetectVideoLabelsResultResponse
+     * @param GetDetectVideoLabelsResultRequest $request GetDetectVideoLabelsResultRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDetectVideoLabelsResultResponse GetDetectVideoLabelsResultResponse
      */
     public function getDetectVideoLabelsResultWithOptions($request, $runtime)
     {
@@ -3099,9 +3117,13 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetDetectVideoLabelsResultRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetDetectVideoLabelsResultResponse
+     * @param GetDetectVideoLabelsResultRequest $request GetDetectVideoLabelsResultRequest
+     *
+     * @return GetDetectVideoLabelsResultResponse GetDetectVideoLabelsResultResponse
      */
     public function getDetectVideoLabelsResult($request)
     {

@@ -14,11 +14,15 @@ class ListTasksRequest extends Model
     public $endTimeRange;
 
     /**
+     * @example 最大结果数量
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example 翻页标记
+     *
      * @var string
      */
     public $nextToken;

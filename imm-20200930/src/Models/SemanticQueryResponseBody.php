@@ -4,16 +4,10 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\SDK\Imm\V20200930\Models\SemanticQueryResponseBody\aggregations;
 use AlibabaCloud\Tea\Model;
 
 class SemanticQueryResponseBody extends Model
 {
-    /**
-     * @var aggregations[]
-     */
-    public $aggregations;
-
     /**
      * @var File[]
      */
@@ -29,10 +23,9 @@ class SemanticQueryResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'aggregations' => 'Aggregations',
-        'files'        => 'Files',
-        'nextToken'    => 'NextToken',
-        'requestId'    => 'RequestId',
+        'files'     => 'Files',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -42,15 +35,6 @@ class SemanticQueryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->aggregations) {
-            $res['Aggregations'] = [];
-            if (null !== $this->aggregations && \is_array($this->aggregations)) {
-                $n = 0;
-                foreach ($this->aggregations as $item) {
-                    $res['Aggregations'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->files) {
             $res['Files'] = [];
             if (null !== $this->files && \is_array($this->files)) {
@@ -78,15 +62,6 @@ class SemanticQueryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Aggregations'])) {
-            if (!empty($map['Aggregations'])) {
-                $model->aggregations = [];
-                $n                   = 0;
-                foreach ($map['Aggregations'] as $item) {
-                    $model->aggregations[$n++] = null !== $item ? aggregations::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['Files'])) {
             if (!empty($map['Files'])) {
                 $model->files = [];
