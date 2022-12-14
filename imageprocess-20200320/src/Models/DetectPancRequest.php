@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DetectPancRequest extends Model
 {
     /**
+     * @example HTTP_FILES
+     *
      * @var string
      */
     public $dataSourceType;

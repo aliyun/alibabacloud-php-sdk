@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class referenceList extends Model
 {
     /**
+     * @example https://medclients-sh.oss-cn-shanghai.aliyuncs.com/demo/registration/ref/33_P18.4.1.dcm
+     *
      * @var string
      */
     public $referenceURL;

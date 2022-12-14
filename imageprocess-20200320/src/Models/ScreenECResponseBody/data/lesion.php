@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class lesion extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $benignVolume;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $ecVolume;
 
     /**
+     * @example 26814
+     *
      * @var string
      */
     public $esoVolume;
 
     /**
+     * @example http://vibktprfx-prod-prod-aic-med-cn-shanghai.oss-cn-shanghai.aliyuncs.com/screen-pdac/2022-05-25_14%3A33%3A30/4CA2BF25-BCDB-9C6C-B14C-EB41E8266588.nii.gz?Expires=1653462210&OSSAccessKeyId=LTAI4FoLmvQ9urWXgSR****&Signature=8t%2FknUrQyyyCU2p7QhMC%2BXBCR****
+     *
      * @var string
      */
     public $mask;

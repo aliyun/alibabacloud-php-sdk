@@ -15,6 +15,8 @@ class ClassifyFNFResponseBody extends Model
     public $data;
 
     /**
+     * @example 4AE1D335-B269-4540-B069-416329F3DCD0
+     *
      * @var string
      */
     public $requestId;

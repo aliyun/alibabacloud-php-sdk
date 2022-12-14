@@ -15,6 +15,8 @@ class TranslateMedResponseBody extends Model
     public $data;
 
     /**
+     * @example 5C0DA144-3497-4551-97F2-49E1F053B16D
+     *
      * @var string
      */
     public $requestId;

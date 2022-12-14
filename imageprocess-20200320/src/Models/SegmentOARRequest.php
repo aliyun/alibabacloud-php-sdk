@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class SegmentOARRequest extends Model
 {
     /**
+     * @example CHEST
+     *
      * @var string
      */
     public $bodyPart;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $contrast;
 
     /**
+     * @example NIFTI
+     *
      * @var string
      */
     public $dataFormat;
@@ -30,6 +36,8 @@ class SegmentOARRequest extends Model
     public $maskList;
 
     /**
+     * @example 7ff51bfe-e73d-11ea-827d-506b4b3f3cf6
+     *
      * @var string
      */
     public $orgId;

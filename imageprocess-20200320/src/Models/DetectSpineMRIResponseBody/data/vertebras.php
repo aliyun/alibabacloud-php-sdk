@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class vertebras extends Model
 {
     /**
+     * @example v2
+     *
      * @var string
      */
     public $disease;
 
     /**
+     * @example L5
+     *
      * @var string
      */
     public $identification;

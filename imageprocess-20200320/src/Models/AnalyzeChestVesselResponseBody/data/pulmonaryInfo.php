@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class pulmonaryInfo extends Model
 {
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $area;
@@ -19,26 +21,36 @@ class pulmonaryInfo extends Model
     public $coordinates;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $labelValue;
 
     /**
+     * @example 928
+     *
      * @var float
      */
     public $maxArea;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxAreaIndex;
 
     /**
+     * @example 42
+     *
      * @var float
      */
     public $maxDiameter;
 
     /**
+     * @example 2439
+     *
      * @var float
      */
     public $nearestAortaArea;

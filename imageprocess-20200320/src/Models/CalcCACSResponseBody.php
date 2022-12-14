@@ -20,6 +20,8 @@ class CalcCACSResponseBody extends Model
     public $message;
 
     /**
+     * @example 6797D285-9290-4FBB-9742-AA1E286EF3B9
+     *
      * @var string
      */
     public $requestId;

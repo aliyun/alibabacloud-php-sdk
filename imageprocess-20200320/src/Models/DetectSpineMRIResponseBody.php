@@ -15,6 +15,8 @@ class DetectSpineMRIResponseBody extends Model
     public $data;
 
     /**
+     * @example 3bddad65-c0d8-4758-86cf-9136c20a11f3
+     *
      * @var string
      */
     public $requestId;

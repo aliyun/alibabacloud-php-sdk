@@ -21,30 +21,46 @@ class detections extends Model
     /**
      * @var string
      */
+    public $fracSOPInstanceUID;
+
+    /**
+     * @example 1
+     *
+     * @var string
+     */
     public $fractureCategory;
 
     /**
+     * @example 0.7916666666666667
+     *
      * @var float
      */
     public $fractureConfidence;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $fractureId;
 
     /**
+     * @example L4
+     *
      * @var string
      */
     public $fractureLocation;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $fractureSegment;
     protected $_name = [
         'coordinateImage'    => 'CoordinateImage',
         'coordinates'        => 'Coordinates',
+        'fracSOPInstanceUID' => 'FracSOPInstanceUID',
         'fractureCategory'   => 'FractureCategory',
         'fractureConfidence' => 'FractureConfidence',
         'fractureId'         => 'FractureId',
@@ -64,6 +80,9 @@ class detections extends Model
         }
         if (null !== $this->coordinates) {
             $res['Coordinates'] = $this->coordinates;
+        }
+        if (null !== $this->fracSOPInstanceUID) {
+            $res['FracSOPInstanceUID'] = $this->fracSOPInstanceUID;
         }
         if (null !== $this->fractureCategory) {
             $res['FractureCategory'] = $this->fractureCategory;
@@ -101,6 +120,9 @@ class detections extends Model
             if (!empty($map['Coordinates'])) {
                 $model->coordinates = $map['Coordinates'];
             }
+        }
+        if (isset($map['FracSOPInstanceUID'])) {
+            $model->fracSOPInstanceUID = $map['FracSOPInstanceUID'];
         }
         if (isset($map['FractureCategory'])) {
             $model->fractureCategory = $map['FractureCategory'];

@@ -20,6 +20,8 @@ class ScreenECResponseBody extends Model
     public $message;
 
     /**
+     * @example 9B65AC8E-311A-1ED1-BBE6-6AA6D35D31A6
+     *
      * @var string
      */
     public $requestId;

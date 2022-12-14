@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example text
+     *
      * @var string
      */
     public $answerType;
@@ -24,6 +26,8 @@ class data extends Model
     public $question;
 
     /**
+     * @example age
+     *
      * @var string
      */
     public $questionType;
@@ -34,6 +38,8 @@ class data extends Model
     public $reports;
 
     /**
+     * @example d1f6a6c2444f4c01adfadd413938e5c7
+     *
      * @var string
      */
     public $sessionId;

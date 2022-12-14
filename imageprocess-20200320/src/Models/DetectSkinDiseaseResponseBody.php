@@ -15,6 +15,8 @@ class DetectSkinDiseaseResponseBody extends Model
     public $data;
 
     /**
+     * @example DE9ABC80-4DD4-4F1B-B95C-D0E438B8FE56
+     *
      * @var string
      */
     public $requestId;

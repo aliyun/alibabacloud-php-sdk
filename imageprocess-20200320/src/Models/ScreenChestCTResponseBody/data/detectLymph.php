@@ -15,6 +15,8 @@ class detectLymph extends Model
     public $lesions;
 
     /**
+     * @example 1.2.568.200036.9116.2.6.1.44063.1805049129.1357480934.650139
+     *
      * @var string
      */
     public $seriesInstanceUID;

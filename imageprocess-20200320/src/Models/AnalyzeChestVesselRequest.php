@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class AnalyzeChestVesselRequest extends Model
 {
     /**
+     * @example NIFTI
+     *
      * @var string
      */
     public $dataFormat;
 
     /**
+     * @example HTTP_NII
+     *
      * @var string
      */
     public $dataSourceType;
 
     /**
+     * @example 7ff51bfe-e73d-11ea-827d-506b4b3f3cf6
+     *
      * @var string
      */
     public $orgId;
@@ -30,6 +36,8 @@ class AnalyzeChestVesselRequest extends Model
     public $orgName;
 
     /**
+     * @description 1
+     *
      * @var URLList[]
      */
     public $URLList;

@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DetectSpineMRIRequest extends Model
 {
     /**
+     * @example DICOM
+     *
      * @var string
      */
     public $dataFormat;
 
     /**
+     * @example 0001
+     *
      * @var string
      */
     public $orgId;
 
     /**
+     * @example weiyi
+     *
      * @var string
      */
     public $orgName;

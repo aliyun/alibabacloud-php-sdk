@@ -10,26 +10,36 @@ use GuzzleHttp\Psr7\Stream;
 class DetectKneeKeypointXRayAdvanceRequest extends Model
 {
     /**
+     * @example png
+     *
      * @var string
      */
     public $dataFormat;
 
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/xuhan/8%E6%9C%88%E4%BB%BD%E5%8C%BB%E7%96%97/sample_png_1.png
+     *
      * @var Stream
      */
     public $imageUrlObject;
 
     /**
+     * @example 0001
+     *
      * @var string
      */
     public $orgId;
 
     /**
+     * @example weiyi
+     *
      * @var string
      */
     public $orgName;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $tracerId;

@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\dat
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\detectPdac;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\detectRibFracture;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\lungNodule;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\screenEc;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -46,6 +47,8 @@ class data extends Model
     public $detectRibFracture;
 
     /**
+     * @example Failed to execute [cacs,covid]
+     *
      * @var string
      */
     public $errorMessage;
@@ -56,11 +59,20 @@ class data extends Model
     public $lungNodule;
 
     /**
+     * @example https://medclients-sh.oss-cn-shanghai.aliyuncs.com/demo/coronacases_org_001/1.2.112.92121.1.1689.19.2.2020040219072764787101585825****.dcm
+     *
      * @var mixed[]
      */
     public $nestedUrlList;
 
     /**
+     * @var screenEc
+     */
+    public $screenEc;
+
+    /**
+     * @example https://medclients-sh.oss-cn-shanghai.aliyuncs.com/demo/coronacases_org_001/1.2.112.92121.1.1689.19.2.2020040219072764787101585825****.dcm
+     *
      * @var mixed[]
      */
     public $URLList;
@@ -74,6 +86,7 @@ class data extends Model
         'errorMessage'       => 'ErrorMessage',
         'lungNodule'         => 'LungNodule',
         'nestedUrlList'      => 'NestedUrlList',
+        'screenEc'           => 'ScreenEc',
         'URLList'            => 'URLList',
     ];
 
@@ -110,6 +123,9 @@ class data extends Model
         }
         if (null !== $this->nestedUrlList) {
             $res['NestedUrlList'] = $this->nestedUrlList;
+        }
+        if (null !== $this->screenEc) {
+            $res['ScreenEc'] = null !== $this->screenEc ? $this->screenEc->toMap() : null;
         }
         if (null !== $this->URLList) {
             $res['URLList'] = $this->URLList;
@@ -152,6 +168,9 @@ class data extends Model
         }
         if (isset($map['NestedUrlList'])) {
             $model->nestedUrlList = $map['NestedUrlList'];
+        }
+        if (isset($map['ScreenEc'])) {
+            $model->screenEc = screenEc::fromMap($map['ScreenEc']);
         }
         if (isset($map['URLList'])) {
             $model->URLList = $map['URLList'];

@@ -20,6 +20,8 @@ class fractures extends Model
     public $tag;
 
     /**
+     * @example 0.5692939758300781
+     *
      * @var float
      */
     public $value;

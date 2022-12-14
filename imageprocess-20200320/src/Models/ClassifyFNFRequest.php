@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ClassifyFNFRequest extends Model
 {
     /**
+     * @example jpg
+     *
      * @var string
      */
     public $dataFormat;
 
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/xuhan/8%E6%9C%88%E4%BB%BD%E5%8C%BB%E7%96%97/sample_jpg_1.jpg
+     *
      * @var string
      */
     public $imageUrl;
 
     /**
+     * @example 0001
+     *
      * @var string
      */
     public $orgId;
 
     /**
+     * @example weiyi
+     *
      * @var string
      */
     public $orgName;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $tracerId;

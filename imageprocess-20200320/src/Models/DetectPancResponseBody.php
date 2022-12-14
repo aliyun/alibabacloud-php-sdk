@@ -15,6 +15,8 @@ class DetectPancResponseBody extends Model
     public $data;
 
     /**
+     * @example CA1C672A-4F85-1CD9-893D-3434C924C4B2
+     *
      * @var string
      */
     public $requestId;

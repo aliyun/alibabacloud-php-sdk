@@ -15,11 +15,15 @@ class ScreenChestCTResponseBody extends Model
     public $data;
 
     /**
+     * @example imageUrl download failed
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 528B54D4-3AAB-47CF-B6CE-0C2A2FB4C7C2
+     *
      * @var string
      */
     public $requestId;

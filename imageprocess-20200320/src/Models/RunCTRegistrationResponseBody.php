@@ -20,6 +20,8 @@ class RunCTRegistrationResponseBody extends Model
     public $message;
 
     /**
+     * @example EB3ACFE6-EA75-49E1-83C0-953580F74D88
+     *
      * @var string
      */
     public $requestId;

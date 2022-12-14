@@ -15,6 +15,8 @@ class DetectKneeXRayResponseBody extends Model
     public $data;
 
     /**
+     * @example 8388FAAE-275C-468F-B962-649E2C04E25B
+     *
      * @var string
      */
     public $requestId;

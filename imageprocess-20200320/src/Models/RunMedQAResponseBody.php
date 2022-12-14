@@ -15,6 +15,8 @@ class RunMedQAResponseBody extends Model
     public $data;
 
     /**
+     * @example BFF7EEC3-F6B5-4387-AC1D-BB095A1A02E4
+     *
      * @var string
      */
     public $requestId;

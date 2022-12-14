@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DetectSkinDiseaseRequest extends Model
 {
     /**
+     * @example 0001
+     *
      * @var string
      */
     public $orgId;
 
     /**
+     * @example demo
+     *
      * @var string
      */
     public $orgName;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageprocess/DetectSkinDisease/DetectSkinDisease1.png
+     *
      * @var string
      */
     public $url;

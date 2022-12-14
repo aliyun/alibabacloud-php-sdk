@@ -20,6 +20,8 @@ class AnalyzeChestVesselResponseBody extends Model
     public $message;
 
     /**
+     * @example B87D013B-F25F-47DC-ABE1-440F4837AFD2
+     *
      * @var string
      */
     public $requestId;

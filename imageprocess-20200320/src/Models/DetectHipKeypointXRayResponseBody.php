@@ -15,6 +15,8 @@ class DetectHipKeypointXRayResponseBody extends Model
     public $data;
 
     /**
+     * @example 03B463B1-F306-41B5-8CD3-C65801570057
+     *
      * @var string
      */
     public $requestId;

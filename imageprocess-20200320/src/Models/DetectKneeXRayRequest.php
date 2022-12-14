@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DetectKneeXRayRequest extends Model
 {
     /**
+     * @example DICOM
+     *
      * @var string
      */
     public $dataFormat;
 
     /**
+     * @example 0001
+     *
      * @var string
      */
     public $orgId;
 
     /**
+     * @example weiyi
+     *
      * @var string
      */
     public $orgName;
 
     /**
+     * @example https://medclients-sh.oss-cn-shanghai.aliyuncs.com/demo/X-ray/sample.dcm
+     *
      * @var string
      */
     public $url;

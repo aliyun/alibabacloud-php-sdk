@@ -14,6 +14,8 @@ class FeedbackSessionRequest extends Model
     public $feedback;
 
     /**
+     * @example 69675e9ddaea4b1ca8b9ddbafd02edc2
+     *
      * @var string
      */
     public $sessionId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example Neonatal jaundice question how to treat
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @example 11
+     *
      * @var int
      */
     public $words;

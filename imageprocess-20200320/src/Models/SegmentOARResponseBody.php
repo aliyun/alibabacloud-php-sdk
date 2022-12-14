@@ -20,6 +20,8 @@ class SegmentOARResponseBody extends Model
     public $message;
 
     /**
+     * @example 57784EDF-7322-1559-89C2-26A08570B26B
+     *
      * @var string
      */
     public $requestId;

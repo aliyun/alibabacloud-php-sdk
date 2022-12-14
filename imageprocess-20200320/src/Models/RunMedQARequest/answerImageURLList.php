@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class answerImageURLList extends Model
 {
     /**
+     * @example https://viapi-oss.oss-cn-shanghai.aliyuncs.com/doc/imageprocess/roseola.jpeg
+     *
      * @var string
      */
     public $answerImageURL;

@@ -15,6 +15,8 @@ class DetectLymphResponseBody extends Model
     public $data;
 
     /**
+     * @example 59598577-13C6-12A2-8CBF-A4DA4C9280A1
+     *
      * @var string
      */
     public $requestId;

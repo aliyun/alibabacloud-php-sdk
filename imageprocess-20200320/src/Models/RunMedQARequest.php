@@ -32,21 +32,29 @@ class RunMedQARequest extends Model
     public $department;
 
     /**
+     * @example 0001
+     *
      * @var string
      */
     public $orgId;
 
     /**
+     * @example weiyi
+     *
      * @var string
      */
     public $orgName;
 
     /**
+     * @example chiefComplaint
+     *
      * @var string
      */
     public $questionType;
 
     /**
+     * @example d1f6a6c2444f4c01adfadd413938e5c7
+     *
      * @var string
      */
     public $sessionId;

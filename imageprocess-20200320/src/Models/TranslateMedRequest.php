@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TranslateMedRequest extends Model
 {
     /**
+     * @example zh_CN
+     *
      * @var string
      */
     public $fromLanguage;
@@ -19,6 +21,8 @@ class TranslateMedRequest extends Model
     public $text;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $toLanguage;

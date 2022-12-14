@@ -9,71 +9,99 @@ use AlibabaCloud\Tea\Model;
 class elements extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example 0.7012705768508907
+     *
      * @var float
      */
     public $confidence;
 
     /**
+     * @example 9.730626493692398
+     *
      * @var float
      */
     public $diameter;
 
     /**
+     * @example 308.9676976455463
+     *
      * @var float
      */
     public $imageX;
 
     /**
+     * @example 198.3552282631497
+     *
      * @var float
      */
     public $imageY;
 
     /**
+     * @example 198.3552282631497
+     *
      * @var float
      */
     public $imageZ;
 
     /**
+     * @example up
+     *
      * @var string
      */
     public $lobe;
 
     /**
+     * @example left
+     *
      * @var string
      */
     public $lung;
 
     /**
+     * @example 261.37589112119247
+     *
      * @var float
      */
     public $meanValue;
 
     /**
+     * @example 1.3.6.1.4.1.14519.5.2.1.6279.6001.261151233960269013402330853013
+     *
      * @var string
      */
     public $SOPInstanceUID;
 
     /**
+     * @example 10959.220491175074
+     *
      * @var float
      */
     public $volume;
 
     /**
+     * @example 51.24291240631416
+     *
      * @var float
      */
     public $x;
 
     /**
+     * @example -32.23147700784307
+     *
      * @var float
      */
     public $y;
 
     /**
+     * @example -46.81608170781766
+     *
      * @var float
      */
     public $z;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class discs extends Model
 {
     /**
+     * @example v1
+     *
      * @var string
      */
     public $disease;
 
     /**
+     * @example L5-S1
+     *
      * @var string
      */
     public $identification;

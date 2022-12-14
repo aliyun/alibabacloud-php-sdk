@@ -15,6 +15,8 @@ class series extends Model
     public $elements;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $origin;
@@ -25,11 +27,15 @@ class series extends Model
     public $report;
 
     /**
+     * @example 1.3.6.1.4.1.14519.5.2.1.6279.6001.179049373636438705059720603192
+     *
      * @var string
      */
     public $seriesInstanceUid;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $spacing;

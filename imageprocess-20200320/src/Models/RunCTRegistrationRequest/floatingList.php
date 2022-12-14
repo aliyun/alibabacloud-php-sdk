@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class floatingList extends Model
 {
     /**
+     * @example https://medclients-sh.oss-cn-shanghai.aliyuncs.com/demo/registration/flt/34_P18.4.1.dcm
+     *
      * @var string
      */
     public $floatingURL;

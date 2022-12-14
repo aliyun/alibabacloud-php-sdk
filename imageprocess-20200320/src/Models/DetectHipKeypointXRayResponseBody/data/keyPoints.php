@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class keyPoints extends Model
 {
     /**
+     * @description 1
+     *
      * @var int[]
      */
     public $coordinates;
@@ -20,6 +22,8 @@ class keyPoints extends Model
     public $tag;
 
     /**
+     * @example 0.05762995779514313
+     *
      * @var float
      */
     public $value;

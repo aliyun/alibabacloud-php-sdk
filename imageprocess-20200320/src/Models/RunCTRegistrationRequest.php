@@ -11,11 +11,17 @@ use AlibabaCloud\Tea\Model;
 class RunCTRegistrationRequest extends Model
 {
     /**
+     * @description DICOM。
+     *
+     * @example DICOM
+     *
      * @var string
      */
     public $dataFormat;
 
     /**
+     * @example HTTP_FILES
+     *
      * @var string
      */
     public $dataSourceType;
@@ -26,6 +32,8 @@ class RunCTRegistrationRequest extends Model
     public $floatingList;
 
     /**
+     * @example 7ff51bfe-e73d-11ea-827d-506b4b3f3cf6
+     *
      * @var string
      */
     public $orgId;

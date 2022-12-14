@@ -20,6 +20,8 @@ class DetectLungNoduleResponseBody extends Model
     public $message;
 
     /**
+     * @example 9889ef5b-b973-4dd0-9f26-3b9cc489c436
+     *
      * @var string
      */
     public $requestId;

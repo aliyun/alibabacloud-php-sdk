@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class answerImageDataList extends Model
 {
     /**
-     * @var int[]
+     * @example iVBORw0KGgoAAAANSUhEUgAAAoAAAAHJCAIAAACaEB9NAAEAAElEQVR4nNT9Wb****
+     *
+     * @var string
      */
     public $answerImageData;
     protected $_name = [

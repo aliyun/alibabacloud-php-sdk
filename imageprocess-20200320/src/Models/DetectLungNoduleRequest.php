@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DetectLungNoduleRequest extends Model
 {
     /**
+     * @example DICOM
+     *
      * @var string
      */
     public $dataFormat;
 
     /**
+     * @example 0001
+     *
      * @var string
      */
     public $orgId;
 
     /**
+     * @example weiyi
+     *
      * @var string
      */
     public $orgName;
 
     /**
+     * @example 0.60
+     *
      * @var float
      */
     public $threshold;
 
     /**
+     * @description 1
+     *
      * @var URLList[]
      */
     public $URLList;
