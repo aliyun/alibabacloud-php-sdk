@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AssessCompositionRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/AssessComposition/AssessComposition1.jpg
+     *
      * @var string
      */
     public $imageURL;

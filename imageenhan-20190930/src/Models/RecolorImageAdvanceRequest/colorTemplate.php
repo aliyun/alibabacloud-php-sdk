@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class colorTemplate extends Model
 {
     /**
+     * @example 056A6B
+     *
      * @var string
      */
     public $color;

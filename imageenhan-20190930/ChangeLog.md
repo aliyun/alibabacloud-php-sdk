@@ -1,3 +1,6 @@
+2022-12-14 Version: 1.0.7
+- Update MakeSuperResolutionImage.
+
 2022-12-09 Version: 1.0.6
 - Update MakeSuperResolutionImage.
 

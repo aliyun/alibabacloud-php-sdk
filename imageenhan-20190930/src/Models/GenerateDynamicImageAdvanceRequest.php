@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class GenerateDynamicImageAdvanceRequest extends Model
 {
     /**
+     * @example 11
+     *
      * @var string
      */
     public $operation;
 
     /**
+     * @example https://vigen-invi.oss-cn-shanghai.aliyuncs.com/temp/xl/dynamicPhoto/viapi_test_images/xxxx.jpg
+     *
      * @var Stream
      */
     public $urlObject;

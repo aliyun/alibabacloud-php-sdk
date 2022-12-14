@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class ErasePersonAdvanceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/ErasePerson/ErasePerson1.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/ErasePerson/ErasePerson6.jpg
+     *
      * @var Stream
      */
     public $userMaskObject;

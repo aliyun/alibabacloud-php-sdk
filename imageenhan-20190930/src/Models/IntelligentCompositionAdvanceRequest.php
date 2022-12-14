@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class IntelligentCompositionAdvanceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/IntelligentComposition/IntelligentComposition3.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $numBoxes;

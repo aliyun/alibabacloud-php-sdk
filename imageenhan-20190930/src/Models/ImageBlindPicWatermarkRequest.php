@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ImageBlindPicWatermarkRequest extends Model
 {
     /**
+     * @example encode_pic
+     *
      * @var string
      */
     public $functionType;
 
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/xxxxx.jpg
+     *
      * @var string
      */
     public $logoURL;
 
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/xxxxx.jpg
+     *
      * @var string
      */
     public $originImageURL;
 
     /**
+     * @example jpg
+     *
      * @var string
      */
     public $outputFileType;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $qualityFactor;
 
     /**
+     * @example https://viapi-doc.oss-cn-shanghai.aliyuncs.com/imageenhan/xxxxx.jpg
+     *
      * @var string
      */
     public $watermarkImageURL;

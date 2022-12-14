@@ -10,31 +10,43 @@ use AlibabaCloud\Tea\Model;
 class RecolorHDImageRequest extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $colorCount;
 
     /**
+     * @description 1
+     *
      * @var colorTemplate[]
      */
     public $colorTemplate;
 
     /**
+     * @example 0.4
+     *
      * @var string
      */
     public $degree;
 
     /**
+     * @example REF_PIC
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/RecolorHDImage/RecolorHDImage-REF_PIC6.jpg
+     *
      * @var string
      */
     public $refUrl;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/RecolorHDImage/RecolorHDImage-auto1.jpg
+     *
      * @var string
      */
     public $url;

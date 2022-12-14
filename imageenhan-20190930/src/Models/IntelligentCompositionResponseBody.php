@@ -15,6 +15,8 @@ class IntelligentCompositionResponseBody extends Model
     public $data;
 
     /**
+     * @example C1D52018-D67A-46AD-9AAA-031750A6E770
+     *
      * @var string
      */
     public $requestId;

@@ -15,6 +15,8 @@ class RemoveImageWatermarkResponseBody extends Model
     public $data;
 
     /**
+     * @example 885070A7-E721-4062-99A0-80C0EBBF9406
+     *
      * @var string
      */
     public $requestId;

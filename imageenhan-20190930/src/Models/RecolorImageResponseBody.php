@@ -15,6 +15,8 @@ class RecolorImageResponseBody extends Model
     public $data;
 
     /**
+     * @example 3A9BFC5E-3F7C-4D9A-9445-908C6D14AB5B
+     *
      * @var string
      */
     public $requestId;

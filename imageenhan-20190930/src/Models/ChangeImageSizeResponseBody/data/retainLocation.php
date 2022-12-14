@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class retainLocation extends Model
 {
     /**
+     * @example 224
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 298
+     *
      * @var int
      */
     public $width;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $x;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $y;

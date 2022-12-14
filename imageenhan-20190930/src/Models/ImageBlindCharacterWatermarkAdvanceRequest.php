@@ -10,21 +10,29 @@ use GuzzleHttp\Psr7\Stream;
 class ImageBlindCharacterWatermarkAdvanceRequest extends Model
 {
     /**
+     * @example encode_text
+     *
      * @var string
      */
     public $functionType;
 
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/xxxxx.jpg
+     *
      * @var Stream
      */
     public $originImageURLObject;
 
     /**
+     * @example jpg
+     *
      * @var string
      */
     public $outputFileType;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $qualityFactor;
@@ -35,6 +43,8 @@ class ImageBlindCharacterWatermarkAdvanceRequest extends Model
     public $text;
 
     /**
+     * @example https://viapi-doc.oss-cn-shanghai.aliyuncs.com/imageenhan/xxxxx.jpg
+     *
      * @var Stream
      */
     public $watermarkImageURLObject;

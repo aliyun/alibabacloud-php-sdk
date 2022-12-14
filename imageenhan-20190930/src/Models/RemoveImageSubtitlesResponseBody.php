@@ -15,6 +15,8 @@ class RemoveImageSubtitlesResponseBody extends Model
     public $data;
 
     /**
+     * @example 939B2103-EE28-4F2D-9773-9A37AD00E5B7
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAsyncJobResultRequest extends Model
 {
     /**
+     * @example 11A898F7-29D7-4AB3-B639-8BBDE671BBD5
+     *
      * @var string
      */
     public $jobId;

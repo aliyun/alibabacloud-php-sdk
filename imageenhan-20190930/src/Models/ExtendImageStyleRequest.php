@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ExtendImageStyleRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/ExtendImageStyle/ExtendImageStyle1.jpg
+     *
      * @var string
      */
     public $majorUrl;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/ExtendImageStyle/ExtendImageStyle6.jpg
+     *
      * @var string
      */
     public $styleUrl;

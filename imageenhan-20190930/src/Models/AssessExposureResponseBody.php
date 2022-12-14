@@ -15,6 +15,8 @@ class AssessExposureResponseBody extends Model
     public $data;
 
     /**
+     * @example 4EF3C65B-C3CC-425B-AFB3-2FE6B98C578B
+     *
      * @var string
      */
     public $requestId;

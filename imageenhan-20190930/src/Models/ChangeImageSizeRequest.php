@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ChangeImageSizeRequest extends Model
 {
     /**
+     * @example 600
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/ChangeImageSize/ChangeImageSize5.jpg
+     *
      * @var string
      */
     public $url;
 
     /**
+     * @example 800
+     *
      * @var int
      */
     public $width;

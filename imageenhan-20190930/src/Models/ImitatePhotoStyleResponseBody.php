@@ -15,6 +15,8 @@ class ImitatePhotoStyleResponseBody extends Model
     public $data;
 
     /**
+     * @example A880432B-6D9A-4EF4-B7B7-863F38A930D9
+     *
      * @var string
      */
     public $requestId;

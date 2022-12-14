@@ -15,6 +15,8 @@ class AssessCompositionResponseBody extends Model
     public $data;
 
     /**
+     * @example CCAD9435-AEDB-49E4-BCCC-99B65ECC6693
+     *
      * @var string
      */
     public $requestId;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class elements extends Model
 {
     /**
+     * @example 981
+     *
      * @var int
      */
     public $maxX;
 
     /**
+     * @example 672
+     *
      * @var int
      */
     public $maxY;
 
     /**
+     * @example 43
+     *
      * @var int
      */
     public $minX;
 
     /**
+     * @example 96
+     *
      * @var int
      */
     public $minY;
 
     /**
+     * @example 3.6567564
+     *
      * @var float
      */
     public $score;

@@ -15,6 +15,8 @@ class AssessSharpnessResponseBody extends Model
     public $data;
 
     /**
+     * @example C0B594A1-383E-4F97-A740-0D51CF8E37D2
+     *
      * @var string
      */
     public $requestId;

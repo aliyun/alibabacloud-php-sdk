@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 4.2551436
+     *
      * @var float
      */
     public $score;

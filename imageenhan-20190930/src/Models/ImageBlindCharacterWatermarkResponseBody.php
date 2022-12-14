@@ -15,6 +15,8 @@ class ImageBlindCharacterWatermarkResponseBody extends Model
     public $data;
 
     /**
+     * @example 2457E1ED-9C76-4386-B9A2-7E41B7D6E849
+     *
      * @var string
      */
     public $requestId;

@@ -15,6 +15,8 @@ class ChangeImageSizeResponseBody extends Model
     public $data;
 
     /**
+     * @example 2833446F-A431-40EB-A502-6EC9DFEEEEB0
+     *
      * @var string
      */
     public $requestId;

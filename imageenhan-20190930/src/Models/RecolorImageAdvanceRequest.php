@@ -11,26 +11,36 @@ use GuzzleHttp\Psr7\Stream;
 class RecolorImageAdvanceRequest extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $colorCount;
 
     /**
+     * @description 1
+     *
      * @var colorTemplate[]
      */
     public $colorTemplate;
 
     /**
+     * @example TEMPLATE
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/RecolorImage/RecolorImage-REF_PIC7.jpg
+     *
      * @var Stream
      */
     public $refUrlObject;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/RecolorImage/RecolorImage-REF_PIC1.jpg
+     *
      * @var Stream
      */
     public $urlObject;

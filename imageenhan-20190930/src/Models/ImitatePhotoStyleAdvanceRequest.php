@@ -10,17 +10,21 @@ use GuzzleHttp\Psr7\Stream;
 class ImitatePhotoStyleAdvanceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/ImitatePhotoStyle/ImitatePhotoStyle1.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;
 
     /**
-     * @var string
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/ImitatePhotoStyle/ImitatePhotoStyle7.jpg
+     *
+     * @var Stream
      */
-    public $styleUrl;
+    public $styleUrlObject;
     protected $_name = [
         'imageURLObject' => 'ImageURL',
-        'styleUrl'       => 'StyleUrl',
+        'styleUrlObject' => 'StyleUrl',
     ];
 
     public function validate()
@@ -33,8 +37,8 @@ class ImitatePhotoStyleAdvanceRequest extends Model
         if (null !== $this->imageURLObject) {
             $res['ImageURL'] = $this->imageURLObject;
         }
-        if (null !== $this->styleUrl) {
-            $res['StyleUrl'] = $this->styleUrl;
+        if (null !== $this->styleUrlObject) {
+            $res['StyleUrl'] = $this->styleUrlObject;
         }
 
         return $res;
@@ -52,7 +56,7 @@ class ImitatePhotoStyleAdvanceRequest extends Model
             $model->imageURLObject = $map['ImageURL'];
         }
         if (isset($map['StyleUrl'])) {
-            $model->styleUrl = $map['StyleUrl'];
+            $model->styleUrlObject = $map['StyleUrl'];
         }
 
         return $model;

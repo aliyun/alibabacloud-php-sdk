@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class EnhanceImageColorRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/EnhanceImageColor/EnhanceImageColor1.jpg
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example LogC
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @example png
+     *
      * @var string
      */
     public $outputFormat;

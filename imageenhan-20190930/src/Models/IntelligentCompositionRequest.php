@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class IntelligentCompositionRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/IntelligentComposition/IntelligentComposition3.jpg
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $numBoxes;

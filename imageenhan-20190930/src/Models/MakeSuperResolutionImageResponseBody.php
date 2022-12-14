@@ -15,6 +15,8 @@ class MakeSuperResolutionImageResponseBody extends Model
     public $data;
 
     /**
+     * @example 47DD87F1-D077-499A-8D96-C82F006A6839
+     *
      * @var string
      */
     public $requestId;

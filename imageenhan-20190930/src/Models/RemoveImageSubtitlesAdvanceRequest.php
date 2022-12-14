@@ -10,26 +10,36 @@ use GuzzleHttp\Psr7\Stream;
 class RemoveImageSubtitlesAdvanceRequest extends Model
 {
     /**
+     * @example 0.25
+     *
      * @var float
      */
     public $BH;
 
     /**
+     * @example 1
+     *
      * @var float
      */
     public $BW;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $BX;
 
     /**
+     * @example 0.75
+     *
      * @var float
      */
     public $BY;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/RemoveImageSubtitles/RemoveImageSubtitles1.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;

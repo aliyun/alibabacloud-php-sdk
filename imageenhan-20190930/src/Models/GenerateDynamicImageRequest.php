@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GenerateDynamicImageRequest extends Model
 {
     /**
+     * @example 11
+     *
      * @var string
      */
     public $operation;
 
     /**
+     * @example https://vigen-invi.oss-cn-shanghai.aliyuncs.com/temp/xl/dynamicPhoto/viapi_test_images/xxxx.jpg
+     *
      * @var string
      */
     public $url;

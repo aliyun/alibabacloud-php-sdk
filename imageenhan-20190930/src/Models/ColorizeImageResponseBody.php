@@ -15,6 +15,8 @@ class ColorizeImageResponseBody extends Model
     public $data;
 
     /**
+     * @example 124A4B09-68EF-4178-B98D-319089D4268B
+     *
      * @var string
      */
     public $requestId;

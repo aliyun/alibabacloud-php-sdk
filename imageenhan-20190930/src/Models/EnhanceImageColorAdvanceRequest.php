@@ -10,16 +10,22 @@ use GuzzleHttp\Psr7\Stream;
 class EnhanceImageColorAdvanceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/EnhanceImageColor/EnhanceImageColor1.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;
 
     /**
+     * @example LogC
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @example png
+     *
      * @var string
      */
     public $outputFormat;

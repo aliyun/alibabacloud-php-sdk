@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class MakeSuperResolutionImageRequest extends Model
 {
     /**
+     * @example base
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @example png
+     *
      * @var string
      */
     public $outputFormat;
 
     /**
+     * @example 95
+     *
      * @var int
      */
     public $outputQuality;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $upscaleFactor;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/MakeSuperResolutionImage/MakeSuperResolutionImage5.png
+     *
      * @var string
      */
     public $url;

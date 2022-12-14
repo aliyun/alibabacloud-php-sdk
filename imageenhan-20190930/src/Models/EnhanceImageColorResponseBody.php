@@ -15,6 +15,8 @@ class EnhanceImageColorResponseBody extends Model
     public $data;
 
     /**
+     * @example 2F306ABD-5BC3-4FA0-89CF-0DED5B3654EB
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ErasePersonRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/ErasePerson/ErasePerson1.jpg
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/ErasePerson/ErasePerson6.jpg
+     *
      * @var string
      */
     public $userMask;

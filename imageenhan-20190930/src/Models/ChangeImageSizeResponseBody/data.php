@@ -15,6 +15,8 @@ class data extends Model
     public $retainLocation;
 
     /**
+     * @example http://ivpd-cn-shanghai.oss-cn-shanghai.aliyuncs.com/upload/result_filter/2019-11-21/invi_filter_015743271470661000112_NVKmET.png?Expires=1574586347&OSSAccessKeyId=LTAI4FeJ8qKkYn6SrHhQ****&Signature=QqRAiqvyXsVlZ77M8yFc5QKJDE****
+     *
      * @var string
      */
     public $url;

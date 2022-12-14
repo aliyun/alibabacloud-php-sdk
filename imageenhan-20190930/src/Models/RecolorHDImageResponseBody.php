@@ -20,6 +20,8 @@ class RecolorHDImageResponseBody extends Model
     public $message;
 
     /**
+     * @example 9364CEB1-1C39-489F-B6DB-6E65577429F1
+     *
      * @var string
      */
     public $requestId;

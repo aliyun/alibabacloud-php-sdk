@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AssessSharpnessRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/AssessSharpness/AssessSharpness1.jpg
+     *
      * @var string
      */
     public $imageURL;

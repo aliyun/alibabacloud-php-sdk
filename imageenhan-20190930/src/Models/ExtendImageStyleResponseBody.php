@@ -15,6 +15,8 @@ class ExtendImageStyleResponseBody extends Model
     public $data;
 
     /**
+     * @example F1ABC965-2612-4680-9DE3-B5C77434B9B7
+     *
      * @var string
      */
     public $requestId;

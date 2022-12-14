@@ -15,6 +15,8 @@ class ErasePersonResponseBody extends Model
     public $data;
 
     /**
+     * @example 2FEDA495-9A5D-48B5-8922-98A4FE01D381
+     *
      * @var string
      */
     public $requestId;

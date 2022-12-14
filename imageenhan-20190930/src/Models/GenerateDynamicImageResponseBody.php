@@ -15,6 +15,8 @@ class GenerateDynamicImageResponseBody extends Model
     public $data;
 
     /**
+     * @example 3C047FB7-AE01-42CF-948F-D57F224620ED
+     *
      * @var string
      */
     public $requestId;

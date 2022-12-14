@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class AssessSharpnessAdvanceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/AssessSharpness/AssessSharpness1.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;
