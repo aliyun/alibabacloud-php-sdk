@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class BatchAddFacesRequest extends Model
 {
     /**
+     * @example default
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @example U1
+     *
      * @var string
      */
     public $entityId;
@@ -25,16 +29,22 @@ class BatchAddFacesRequest extends Model
     public $faces;
 
     /**
+     * @example 50.0
+     *
      * @var float
      */
     public $qualityScoreThreshold;
 
     /**
+     * @example 50.0
+     *
      * @var float
      */
     public $similarityScoreThresholdBetweenEntity;
 
     /**
+     * @example 50.0
+     *
      * @var float
      */
     public $similarityScoreThresholdInEntity;

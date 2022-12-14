@@ -21,16 +21,22 @@ class data extends Model
     public $boxes;
 
     /**
+     * @example 584
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $personNumber;
 
     /**
+     * @example 264
+     *
      * @var int
      */
     public $width;

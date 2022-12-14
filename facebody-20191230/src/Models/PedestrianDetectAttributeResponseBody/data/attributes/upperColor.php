@@ -14,6 +14,8 @@ class upperColor extends Model
     public $name;
 
     /**
+     * @example 0.97796273231506348
+     *
      * @var float
      */
     public $score;

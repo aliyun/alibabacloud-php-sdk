@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ExtractFingerPrintRequest extends Model
 {
     /**
+     * @example iVBORw0KGgoAAAANSUhEUgAAASUAA****
+     *
      * @var string
      */
     public $imageData;
 
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/xuhan/ExtractFingerPrint.png
+     *
      * @var string
      */
     public $imageURL;

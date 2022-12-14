@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddFaceImageTemplateRequest extends Model
 {
     /**
+     * @example https://invi-label.oss-cn-shanghai.aliyuncs.com/label/temp/faceswap/img_facefusion/template/sucai1.jpg
+     *
      * @var string
      */
     public $imageURL;

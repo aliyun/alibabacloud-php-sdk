@@ -10,21 +10,29 @@ use GuzzleHttp\Psr7\Stream;
 class DetectIPCPedestrianAdvanceRequest extends Model
 {
     /**
+     * @example 288
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 3AAQSkZJRgABAQAAAQABA******
+     *
      * @var string
      */
     public $imageData;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/cc/RecognizeHandGesture1.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;
 
     /**
+     * @example 512
+     *
      * @var int
      */
     public $width;

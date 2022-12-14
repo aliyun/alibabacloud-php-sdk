@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class MonitorExaminationAdvanceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/MonitorExamination/1MonitorExamination1.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;

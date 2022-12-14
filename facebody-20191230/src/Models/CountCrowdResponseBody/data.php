@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example http://vibktprfx-prod-prod-aic-iv-cn-shanghai.oss-cn-shanghai.aliyuncs.com/crowd-counting%2F54ef06866834412984754eec9e84b3****
+     *
      * @var string
      */
     public $hotMap;
 
     /**
+     * @example 460
+     *
      * @var int
      */
     public $peopleNumber;

@@ -21,6 +21,8 @@ class personInfo extends Model
     public $earPhone;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $personNumber;

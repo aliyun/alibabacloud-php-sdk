@@ -10,21 +10,29 @@ use GuzzleHttp\Psr7\Stream;
 class FaceMakeupAdvanceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/FaceMakeup/FaceMakeup8.png
+     *
      * @var Stream
      */
     public $imageURLObject;
 
     /**
+     * @example whole
+     *
      * @var string
      */
     public $makeupType;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example 1
+     *
      * @var float
      */
     public $strength;

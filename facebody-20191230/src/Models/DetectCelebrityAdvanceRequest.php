@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class DetectCelebrityAdvanceRequest extends Model
 {
     /**
+     * @example https://viapi-oss.oss-cn-shanghai.aliyuncs.com/doc/facebody/xxx.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;

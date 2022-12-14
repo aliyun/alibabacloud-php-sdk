@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class line extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $x1;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $x2;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $y1;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $y2;

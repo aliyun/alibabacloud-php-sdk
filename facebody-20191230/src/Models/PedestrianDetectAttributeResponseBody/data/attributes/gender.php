@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class gender extends Model
 {
     /**
+     * @example female
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 0.97989875078201294
+     *
      * @var float
      */
     public $score;

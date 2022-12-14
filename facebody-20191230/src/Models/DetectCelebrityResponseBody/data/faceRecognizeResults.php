@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class faceRecognizeResults extends Model
 {
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $faceBoxes;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DetectFaceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/DetectFace/DetectFace1.png
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $landmark;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $maxFaceNumber;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $pose;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $quality;

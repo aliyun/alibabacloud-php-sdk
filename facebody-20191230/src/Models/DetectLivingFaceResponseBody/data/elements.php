@@ -15,6 +15,8 @@ class elements extends Model
     public $faceNumber;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/DetectLivingFace/DetectLivingFace4.jpg
+     *
      * @var string
      */
     public $imageURL;
@@ -25,6 +27,8 @@ class elements extends Model
     public $results;
 
     /**
+     * @example img1owc8WGskNm78OEAPJTZal-1****
+     *
      * @var string
      */
     public $taskId;

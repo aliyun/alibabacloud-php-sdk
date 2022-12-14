@@ -15,6 +15,8 @@ class CountCrowdResponseBody extends Model
     public $data;
 
     /**
+     * @example 11B52F13-59C3-4785-B6A3-45A1DA9FF2AA
+     *
      * @var string
      */
     public $requestId;

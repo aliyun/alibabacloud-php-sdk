@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class boxes extends Model
 {
     /**
+     * @example 584
+     *
      * @var float
      */
     public $bottomRightX;
 
     /**
+     * @example 218
+     *
      * @var float
      */
     public $bottomRightY;
 
     /**
+     * @example 0.88381063938140869
+     *
      * @var float
      */
     public $score;
 
     /**
+     * @example 36
+     *
      * @var float
      */
     public $topLeftX;
 
     /**
+     * @example 27
+     *
      * @var float
      */
     public $topLeftY;

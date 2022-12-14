@@ -15,6 +15,10 @@ class DetectIPCPedestrianResponseBody extends Model
     public $data;
 
     /**
+     * @description requestId
+     *
+     * @example CF398695-6D23-4C93-9E5F-***
+     *
      * @var string
      */
     public $requestId;

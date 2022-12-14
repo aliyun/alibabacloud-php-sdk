@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dbList extends Model
 {
     /**
+     * @example default
+     *
      * @var string
      */
     public $name;

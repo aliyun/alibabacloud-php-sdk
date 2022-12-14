@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class EnhanceFaceAdvanceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/EnhanceFace/EnhanceFace1.png
+     *
      * @var Stream
      */
     public $imageURLObject;

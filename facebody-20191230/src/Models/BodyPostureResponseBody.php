@@ -15,6 +15,8 @@ class BodyPostureResponseBody extends Model
     public $data;
 
     /**
+     * @example B854094B-9231-4A54-89AB-C377CB0D237D
+     *
      * @var string
      */
     public $requestId;

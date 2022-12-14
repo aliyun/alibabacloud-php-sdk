@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class elements extends Model
 {
     /**
+     * @example 0.84644949436187744
+     *
      * @var float
      */
     public $faceConfidence;
 
     /**
+     * @example 0.72464925050735474
+     *
      * @var float
      */
     public $liveConfidence;

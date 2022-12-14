@@ -15,6 +15,8 @@ class RecognizeExpressionResponseBody extends Model
     public $data;
 
     /**
+     * @example E1C4C576-1799-4079-A934-15BC406A54EF
+     *
      * @var string
      */
     public $requestId;

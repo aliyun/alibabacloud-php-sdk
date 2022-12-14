@@ -16,6 +16,8 @@ class results extends Model
     public $frames;
 
     /**
+     * @example liveness
+     *
      * @var string
      */
     public $label;
@@ -26,6 +28,8 @@ class results extends Model
     public $messageTips;
 
     /**
+     * @example 76.22
+     *
      * @var float
      */
     public $rate;
@@ -36,6 +40,8 @@ class results extends Model
     public $rect;
 
     /**
+     * @example review
+     *
      * @var string
      */
     public $suggestion;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FaceFilterRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/FaceFilter/FaceFilter9.png
+     *
      * @var string
      */
     public $imageURL;
@@ -19,6 +21,8 @@ class FaceFilterRequest extends Model
     public $resourceType;
 
     /**
+     * @example 0.8
+     *
      * @var float
      */
     public $strength;

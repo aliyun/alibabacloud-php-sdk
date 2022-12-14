@@ -15,6 +15,8 @@ class MergeImageFaceResponseBody extends Model
     public $data;
 
     /**
+     * @example 8473A5E5-488E-4612-800E-F95B42381570
+     *
      * @var string
      */
     public $requestId;

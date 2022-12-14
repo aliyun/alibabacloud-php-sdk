@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example http://algo-app-taobao-mm-cn-shanghai-prod.oss-cn-shanghai.aliyuncs.com/pixelai-portrait-shape/2020_03_24/7cb93b25ac5cbbb4_facetidy.jpg?Expires=1585280344&OSSAccessKeyId=LTAI4FoLmvQ9urWXgSRp****&Signature=RIPIlTZ2GNmdLyACGWz6wUzJxN****
+     *
      * @var string
      */
     public $imageURL;

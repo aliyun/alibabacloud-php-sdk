@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class upperWear extends Model
 {
     /**
+     * @example ShortSleeve
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 0.89291918277740479
+     *
      * @var float
      */
     public $score;

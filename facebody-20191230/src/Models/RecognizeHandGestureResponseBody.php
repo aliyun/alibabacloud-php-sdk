@@ -15,6 +15,8 @@ class RecognizeHandGestureResponseBody extends Model
     public $data;
 
     /**
+     * @example 99AC4489-693D-4DF1-8BB7-7451DD71A16E
+     *
      * @var string
      */
     public $requestId;

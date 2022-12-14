@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListFaceDbsRequest extends Model
 {
     /**
+     * @example 50
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $offset;

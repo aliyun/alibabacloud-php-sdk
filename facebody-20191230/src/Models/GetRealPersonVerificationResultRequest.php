@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetRealPersonVerificationResultRequest extends Model
 {
     /**
+     * @example cwek23dw24geor89230hf2rw
+     *
      * @var string
      */
     public $verificationToken;

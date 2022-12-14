@@ -15,6 +15,8 @@ class MonitorExaminationResponseBody extends Model
     public $data;
 
     /**
+     * @example D0F6EB94-73B6-4CB8-B266-22D2F221C475
+     *
      * @var string
      */
     public $requestId;

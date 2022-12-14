@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class keyPoints extends Model
 {
     /**
+     * @example thumb
+     *
      * @var string
      */
     public $label;

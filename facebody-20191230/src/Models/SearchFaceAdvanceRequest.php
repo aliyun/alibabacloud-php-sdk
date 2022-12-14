@@ -10,31 +10,43 @@ use GuzzleHttp\Psr7\Stream;
 class SearchFaceAdvanceRequest extends Model
 {
     /**
+     * @example default
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @example test1,test2,test3
+     *
      * @var string
      */
     public $dbNames;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/SearchFace/SearchFace1.png
+     *
      * @var Stream
      */
     public $imageUrlObject;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $maxFaceNum;
 
     /**
+     * @example 50.0
+     *
      * @var float
      */
     public $qualityScoreThreshold;

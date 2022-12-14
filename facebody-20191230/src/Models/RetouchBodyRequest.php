@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RetouchBodyRequest extends Model
 {
     /**
+     * @example https://viapi-oss.oss-cn-shanghai.aliyuncs.com/doc/facebody/photo-1562956335-14faa1a9aeeb.jpeg
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example 1.0
+     *
      * @var float
      */
     public $lengthenDegree;
 
     /**
+     * @example 1.0
+     *
      * @var float
      */
     public $slimDegree;

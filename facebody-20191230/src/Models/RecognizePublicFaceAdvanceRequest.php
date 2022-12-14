@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class RecognizePublicFaceAdvanceRequest extends Model
 {
     /**
+     * @description 1
+     *
      * @var task[]
      */
     public $task;

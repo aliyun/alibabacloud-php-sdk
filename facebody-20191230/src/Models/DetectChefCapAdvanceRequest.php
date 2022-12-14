@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class DetectChefCapAdvanceRequest extends Model
 {
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/xuhan/facebody/DetectChefCap/ChefCap1.png
+     *
      * @var Stream
      */
     public $imageURLObject;

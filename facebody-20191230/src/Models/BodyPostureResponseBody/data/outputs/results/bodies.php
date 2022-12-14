@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class bodies extends Model
 {
     /**
+     * @example 0.91309475898742676
+     *
      * @var float
      */
     public $confident;
 
     /**
+     * @example nose
+     *
      * @var string
      */
     public $label;

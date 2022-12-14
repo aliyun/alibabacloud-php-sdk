@@ -15,6 +15,8 @@ class RetouchBodyResponseBody extends Model
     public $data;
 
     /**
+     * @example C0AFBD40-C705-52EB-90F5-37FA2FA62880
+     *
      * @var string
      */
     public $requestId;

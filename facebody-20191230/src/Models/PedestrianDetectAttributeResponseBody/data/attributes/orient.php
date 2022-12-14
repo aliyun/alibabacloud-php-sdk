@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class orient extends Model
 {
     /**
+     * @example Front
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 0.97838658094406128
+     *
      * @var float
      */
     public $score;

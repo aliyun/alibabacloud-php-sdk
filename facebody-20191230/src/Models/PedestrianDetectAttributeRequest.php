@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PedestrianDetectAttributeRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/PedestrianDetectAttribute/PedestrianDetectAttribute1.jpg
+     *
      * @var string
      */
     public $imageURL;

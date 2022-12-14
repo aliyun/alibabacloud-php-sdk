@@ -15,6 +15,8 @@ class DetectPedestrianResponseBody extends Model
     public $data;
 
     /**
+     * @example 45DBA494-6250-42C4-80D1-7CF19BDD2CB1
+     *
      * @var string
      */
     public $requestId;

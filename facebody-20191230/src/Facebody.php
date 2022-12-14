@@ -2208,7 +2208,7 @@ class Facebody extends OpenApiClient
         $detectLivingFaceReq = new DetectLivingFaceRequest([]);
         OpenApiUtilClient::convert($request, $detectLivingFaceReq);
         if (!Utils::isUnset($request->tasks)) {
-            $i = 0;
+            $i0 = 0;
             foreach ($request->tasks as $item0) {
                 if (!Utils::isUnset($item0->imageURLObject)) {
                     $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
@@ -2233,15 +2233,14 @@ class Facebody extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp           = @$detectLivingFaceReq->tasks[${$i}];
+                    $tmp           = @$detectLivingFaceReq->tasks[$i0];
                     $tmp->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
-                    $i             = $i + 1;
+                    $i0            = $i0 + 1;
                 }
             }
         }
-        $detectLivingFaceResp = $this->detectLivingFaceWithOptions($detectLivingFaceReq, $runtime);
 
-        return $detectLivingFaceResp;
+        return $this->detectLivingFaceWithOptions($detectLivingFaceReq, $runtime);
     }
 
     /**
@@ -4753,7 +4752,7 @@ class Facebody extends OpenApiClient
         $recognizeActionReq = new RecognizeActionRequest([]);
         OpenApiUtilClient::convert($request, $recognizeActionReq);
         if (!Utils::isUnset($request->URLList)) {
-            $i = 0;
+            $i0 = 0;
             foreach ($request->URLList as $item0) {
                 if (!Utils::isUnset($item0->URLObject)) {
                     $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
@@ -4778,15 +4777,39 @@ class Facebody extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp      = @$recognizeActionReq->URLList[${$i}];
+                    $tmp      = @$recognizeActionReq->URLList[$i0];
                     $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
-                    $i        = $i + 1;
+                    $i0       = $i0 + 1;
                 }
             }
         }
-        $recognizeActionResp = $this->recognizeActionWithOptions($recognizeActionReq, $runtime);
+        if (!Utils::isUnset($request->videoUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->body->objectKey,
+                'content'     => $request->videoUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $recognizeActionReq->videoUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
 
-        return $recognizeActionResp;
+        return $this->recognizeActionWithOptions($recognizeActionReq, $runtime);
     }
 
     /**
@@ -5278,7 +5301,7 @@ class Facebody extends OpenApiClient
         $recognizePublicFaceReq = new RecognizePublicFaceRequest([]);
         OpenApiUtilClient::convert($request, $recognizePublicFaceReq);
         if (!Utils::isUnset($request->task)) {
-            $i = 0;
+            $i0 = 0;
             foreach ($request->task as $item0) {
                 if (!Utils::isUnset($item0->imageURLObject)) {
                     $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
@@ -5303,15 +5326,14 @@ class Facebody extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp           = @$recognizePublicFaceReq->task[${$i}];
+                    $tmp           = @$recognizePublicFaceReq->task[$i0];
                     $tmp->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
-                    $i             = $i + 1;
+                    $i0            = $i0 + 1;
                 }
             }
         }
-        $recognizePublicFaceResp = $this->recognizePublicFaceWithOptions($recognizePublicFaceReq, $runtime);
 
-        return $recognizePublicFaceResp;
+        return $this->recognizePublicFaceWithOptions($recognizePublicFaceReq, $runtime);
     }
 
     /**

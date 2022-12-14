@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFaceDbResponseBody extends Model
 {
     /**
+     * @example 818D24A6-E368-46B3-99C5-3CF36D98CCA3
+     *
      * @var string
      */
     public $requestId;

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 0.28805577754974365
+     *
      * @var float
      */
     public $chatScore;
@@ -26,6 +28,8 @@ class data extends Model
     public $personInfo;
 
     /**
+     * @example 0.5
+     *
      * @var float
      */
     public $threshold;

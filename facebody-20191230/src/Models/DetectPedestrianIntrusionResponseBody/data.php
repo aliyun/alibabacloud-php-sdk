@@ -15,11 +15,15 @@ class data extends Model
     public $elements;
 
     /**
+     * @example 599
+     *
      * @var int
      */
     public $imageHeight;
 
     /**
+     * @example 899
+     *
      * @var int
      */
     public $imageWidth;

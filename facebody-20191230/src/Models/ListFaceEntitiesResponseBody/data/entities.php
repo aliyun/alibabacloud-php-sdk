@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class entities extends Model
 {
     /**
+     * @example 1589203871832
+     *
      * @var int
      */
     public $createdAt;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @example 222
+     *
      * @var string
      */
     public $entityId;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $faceCount;
@@ -34,6 +42,8 @@ class entities extends Model
     public $labels;
 
     /**
+     * @example 1589203871832
+     *
      * @var int
      */
     public $updatedAt;

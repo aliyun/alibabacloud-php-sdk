@@ -15,6 +15,8 @@ class SearchFaceResponseBody extends Model
     public $data;
 
     /**
+     * @example 4159e64a-0fe8-436c-a8de-ee531555db3c
+     *
      * @var string
      */
     public $requestId;

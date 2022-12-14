@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class faceRectangle extends Model
 {
     /**
+     * @example 174
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 196
+     *
      * @var int
      */
     public $left;
 
     /**
+     * @example 41
+     *
      * @var int
      */
     public $top;
 
     /**
+     * @example 121
+     *
      * @var int
      */
     public $width;

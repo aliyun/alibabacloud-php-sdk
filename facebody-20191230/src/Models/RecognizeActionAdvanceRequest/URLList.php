@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class URLList extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/RecognizeAction/1RecognizeAction1.png
+     *
      * @var Stream
      */
     public $URLObject;
 
     /**
+     * @example /9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgQ****
+     *
      * @var string
      */
     public $imageData;

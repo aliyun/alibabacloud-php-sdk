@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class elements extends Model
 {
     /**
+     * @example https://viapi-oss.oss-cn-shanghai.aliyuncs.com/doc/facebody/xxx.jpg
+     *
      * @var string
      */
     public $imageURL;
@@ -20,6 +22,8 @@ class elements extends Model
     public $results;
 
     /**
+     * @example img3dhYqt1e4wO77Wnf2y@t@E-1tYAEt
+     *
      * @var string
      */
     public $taskId;

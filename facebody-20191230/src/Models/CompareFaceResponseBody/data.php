@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 89.88594055175781
+     *
      * @var float
      */
     public $confidence;
 
     /**
+     * @example imageB quality score less threshold
+     *
      * @var string
      */
     public $messageTips;
 
     /**
+     * @example 97.26718139648438
+     *
      * @var float
      */
     public $qualityScoreA;
 
     /**
+     * @example 96.01641845703125
+     *
      * @var float
      */
     public $qualityScoreB;
 
     /**
+     * @description 1
+     *
      * @var int[]
      */
     public $rectAList;
 
     /**
+     * @description 1
+     *
      * @var int[]
      */
     public $rectBList;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $thresholds;

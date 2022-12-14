@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class RecognizeActionRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $type;
@@ -20,11 +22,15 @@ class RecognizeActionRequest extends Model
     public $URLList;
 
     /**
+     * @example iVBORw0KGgoAAAANSUhEUgAAAoAAAAHJCAIAAACaEB9NAAEAAElEQVR4nNT9Wb****
+     *
      * @var string
      */
     public $videoData;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/RecognizeAction/RecognizeAction-video1.mp4
+     *
      * @var string
      */
     public $videoUrl;

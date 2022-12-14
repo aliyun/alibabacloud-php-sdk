@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class FaceTidyupRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/FaceTidyup/FaceTidyup5.png
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $shapeType;
 
     /**
+     * @example 1
+     *
      * @var float
      */
     public $strength;

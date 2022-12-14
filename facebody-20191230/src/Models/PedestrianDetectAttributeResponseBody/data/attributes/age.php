@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class age extends Model
 {
     /**
+     * @example Age18-60
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 0.99590516090393066
+     *
      * @var float
      */
     public $score;

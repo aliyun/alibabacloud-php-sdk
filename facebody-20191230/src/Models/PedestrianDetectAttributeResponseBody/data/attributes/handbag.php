@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class handbag extends Model
 {
     /**
+     * @example Yes
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 0.55011671781539917
+     *
      * @var float
      */
     public $score;

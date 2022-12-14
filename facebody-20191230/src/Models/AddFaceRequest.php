@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddFaceRequest extends Model
 {
     /**
+     * @example default
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @example U1
+     *
      * @var string
      */
     public $entityId;
@@ -24,21 +28,29 @@ class AddFaceRequest extends Model
     public $extraData;
 
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test/imgsearch/demo/1.png
+     *
      * @var string
      */
     public $imageUrl;
 
     /**
+     * @example 50.0
+     *
      * @var float
      */
     public $qualityScoreThreshold;
 
     /**
+     * @example 50.0
+     *
      * @var float
      */
     public $similarityScoreThresholdBetweenEntity;
 
     /**
+     * @example 50.0
+     *
      * @var float
      */
     public $similarityScoreThresholdInEntity;

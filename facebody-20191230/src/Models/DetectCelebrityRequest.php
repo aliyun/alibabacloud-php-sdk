@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DetectCelebrityRequest extends Model
 {
     /**
+     * @example https://viapi-oss.oss-cn-shanghai.aliyuncs.com/doc/facebody/xxx.jpg
+     *
      * @var string
      */
     public $imageURL;

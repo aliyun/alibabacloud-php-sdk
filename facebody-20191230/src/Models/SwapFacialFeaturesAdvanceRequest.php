@@ -10,26 +10,36 @@ use GuzzleHttp\Psr7\Stream;
 class SwapFacialFeaturesAdvanceRequest extends Model
 {
     /**
+     * @example chin
+     *
      * @var string
      */
     public $editPart;
 
     /**
+     * @example 9j/4AAQSkZJRgABAQAAAQABAAD/2****
+     *
      * @var int[]
      */
     public $sourceImageData;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/SwapFacialFeatures/SwapFacialFeatures1.png
+     *
      * @var Stream
      */
     public $sourceImageURLObject;
 
     /**
+     * @example 9j/4AAQSkZJRgABAQAAAQABAAD/3****
+     *
      * @var int[]
      */
     public $targetImageData;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/SwapFacialFeatures/SwapFacialFeatures6.png
+     *
      * @var Stream
      */
     public $targetImageURLObject;

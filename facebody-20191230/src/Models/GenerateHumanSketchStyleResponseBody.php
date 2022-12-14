@@ -15,6 +15,8 @@ class GenerateHumanSketchStyleResponseBody extends Model
     public $data;
 
     /**
+     * @example E499788C-22DA-4F0E-B9C0-0E9D30A25716
+     *
      * @var string
      */
     public $requestId;

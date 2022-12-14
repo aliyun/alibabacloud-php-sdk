@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GenerateHumanSketchStyleRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/GenerateHumanSketchStyle/GenerateHumanSketchStyle7.png
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example head
+     *
      * @var string
      */
     public $returnType;

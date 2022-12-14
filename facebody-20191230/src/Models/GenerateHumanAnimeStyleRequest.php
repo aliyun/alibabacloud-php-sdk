@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GenerateHumanAnimeStyleRequest extends Model
 {
     /**
+     * @example anime
+     *
      * @var string
      */
     public $algoType;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/GenerateHumanAnimeStyle/GenerateHumanAnimeStyle8.png
+     *
      * @var string
      */
     public $imageURL;

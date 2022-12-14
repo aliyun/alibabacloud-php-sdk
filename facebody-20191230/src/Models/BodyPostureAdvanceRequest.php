@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class BodyPostureAdvanceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/BodyPosture/BodyPosture4.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddFaceEntityRequest extends Model
 {
     /**
+     * @example default
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @example mm2
+     *
      * @var string
      */
     public $entityId;

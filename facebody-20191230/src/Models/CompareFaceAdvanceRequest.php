@@ -10,26 +10,36 @@ use GuzzleHttp\Psr7\Stream;
 class CompareFaceAdvanceRequest extends Model
 {
     /**
+     * @example /9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgK****
+     *
      * @var string
      */
     public $imageDataA;
 
     /**
+     * @example /9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgQ****
+     *
      * @var string
      */
     public $imageDataB;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/CompareFace/CompareFace-right1.png
+     *
      * @var Stream
      */
     public $imageURLAObject;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/CompareFace/CompareFace-left1.png
+     *
      * @var Stream
      */
     public $imageURLBObject;
 
     /**
+     * @example 97
+     *
      * @var float
      */
     public $qualityScoreThreshold;

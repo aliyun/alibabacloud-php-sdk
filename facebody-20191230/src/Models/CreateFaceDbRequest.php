@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFaceDbRequest extends Model
 {
     /**
+     * @example default
+     *
      * @var string
      */
     public $name;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class faceItems extends Model
 {
     /**
+     * @example 36.820168
+     *
      * @var float
      */
     public $confidence;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @example U1
+     *
      * @var string
      */
     public $entityId;
@@ -29,11 +35,15 @@ class faceItems extends Model
     public $extraData;
 
     /**
+     * @example 001
+     *
      * @var string
      */
     public $faceId;
 
     /**
+     * @example 0.892133
+     *
      * @var float
      */
     public $score;

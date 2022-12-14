@@ -15,6 +15,8 @@ class RecognizeActionResponseBody extends Model
     public $data;
 
     /**
+     * @example E9C40AF5-A7F8-49D5-8A0C-B21F15A07F17
+     *
      * @var string
      */
     public $requestId;

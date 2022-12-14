@@ -15,6 +15,8 @@ class HandPostureResponseBody extends Model
     public $data;
 
     /**
+     * @example 99CE0601-FA61-4A41-BBF0-72D3E1FF5139
+     *
      * @var string
      */
     public $requestId;

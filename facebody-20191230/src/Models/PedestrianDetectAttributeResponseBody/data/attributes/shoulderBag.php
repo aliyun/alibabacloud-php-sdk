@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class shoulderBag extends Model
 {
     /**
+     * @example No
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 0.91198787838220596
+     *
      * @var float
      */
     public $score;

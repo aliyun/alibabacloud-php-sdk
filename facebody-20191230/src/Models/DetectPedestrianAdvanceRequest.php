@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class DetectPedestrianAdvanceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/DetectPedestrian/DetectPedestrian8.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;

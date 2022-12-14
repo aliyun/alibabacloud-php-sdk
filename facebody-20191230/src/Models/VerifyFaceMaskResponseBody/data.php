@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 13.484533309936523
+     *
      * @var float
      */
     public $confidence;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $mask;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $maskRef;

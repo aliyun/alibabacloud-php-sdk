@@ -15,6 +15,8 @@ class DetectBodyCountResponseBody extends Model
     public $data;
 
     /**
+     * @example 1C709078-8886-4C91-AEDE-4E04EED0A689
+     *
      * @var string
      */
     public $requestId;

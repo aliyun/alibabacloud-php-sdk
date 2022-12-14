@@ -6,10 +6,13 @@ namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
 use AlibabaCloud\SDK\Facebody\V20191230\Models\RecognizeActionAdvanceRequest\URLList;
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class RecognizeActionAdvanceRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $type;
@@ -20,19 +23,23 @@ class RecognizeActionAdvanceRequest extends Model
     public $URLList;
 
     /**
+     * @example iVBORw0KGgoAAAANSUhEUgAAAoAAAAHJCAIAAACaEB9NAAEAAElEQVR4nNT9Wb****
+     *
      * @var string
      */
     public $videoData;
 
     /**
-     * @var string
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/RecognizeAction/RecognizeAction-video1.mp4
+     *
+     * @var Stream
      */
-    public $videoUrl;
+    public $videoUrlObject;
     protected $_name = [
-        'type'      => 'Type',
-        'URLList'   => 'URLList',
-        'videoData' => 'VideoData',
-        'videoUrl'  => 'VideoUrl',
+        'type'           => 'Type',
+        'URLList'        => 'URLList',
+        'videoData'      => 'VideoData',
+        'videoUrlObject' => 'VideoUrl',
     ];
 
     public function validate()
@@ -57,8 +64,8 @@ class RecognizeActionAdvanceRequest extends Model
         if (null !== $this->videoData) {
             $res['VideoData'] = $this->videoData;
         }
-        if (null !== $this->videoUrl) {
-            $res['VideoUrl'] = $this->videoUrl;
+        if (null !== $this->videoUrlObject) {
+            $res['VideoUrl'] = $this->videoUrlObject;
         }
 
         return $res;
@@ -88,7 +95,7 @@ class RecognizeActionAdvanceRequest extends Model
             $model->videoData = $map['VideoData'];
         }
         if (isset($map['VideoUrl'])) {
-            $model->videoUrl = $map['VideoUrl'];
+            $model->videoUrlObject = $map['VideoUrl'];
         }
 
         return $model;

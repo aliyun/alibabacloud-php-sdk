@@ -15,6 +15,8 @@ class DetectCelebrityResponseBody extends Model
     public $data;
 
     /**
+     * @example 4E92C0D4-BB0F-4F25-AD13-E87D02FAA205
+     *
      * @var string
      */
     public $requestId;

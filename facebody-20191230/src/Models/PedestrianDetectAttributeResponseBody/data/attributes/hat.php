@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class hat extends Model
 {
     /**
+     * @example No
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 0.98272394016385078
+     *
      * @var float
      */
     public $score;

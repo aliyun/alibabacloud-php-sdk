@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 9fca3791c158a479ead9f2ba65ab3XXX
+     *
      * @var string
      */
     public $verificationToken;

@@ -15,6 +15,8 @@ class SwapFacialFeaturesResponseBody extends Model
     public $data;
 
     /**
+     * @example BA10D392-99D2-458A-AD11-260F9EF5F67D
+     *
      * @var string
      */
     public $requestId;

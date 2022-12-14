@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class metaObject extends Model
 {
     /**
+     * @example 500
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 500
+     *
      * @var int
      */
     public $width;

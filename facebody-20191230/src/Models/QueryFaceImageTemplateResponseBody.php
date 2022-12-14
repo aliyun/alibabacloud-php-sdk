@@ -15,6 +15,8 @@ class QueryFaceImageTemplateResponseBody extends Model
     public $data;
 
     /**
+     * @example 7C29675C-751F-4D2F-86FB-2BD8D69AC860
+     *
      * @var string
      */
     public $requestId;

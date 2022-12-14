@@ -15,11 +15,15 @@ class data extends Model
     public $entities;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $token;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $totalCount;

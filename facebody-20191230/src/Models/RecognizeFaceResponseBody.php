@@ -15,6 +15,8 @@ class RecognizeFaceResponseBody extends Model
     public $data;
 
     /**
+     * @example 8251C88E-8273-4DBF-94FB-A6BCB268CEA2
+     *
      * @var string
      */
     public $requestId;

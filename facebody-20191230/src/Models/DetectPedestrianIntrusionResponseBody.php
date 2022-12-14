@@ -15,6 +15,8 @@ class DetectPedestrianIntrusionResponseBody extends Model
     public $data;
 
     /**
+     * @example AA2539F7-D139-458C-A9BA-3321318D6BC4
+     *
      * @var string
      */
     public $requestId;

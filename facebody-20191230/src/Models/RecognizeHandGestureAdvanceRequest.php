@@ -10,16 +10,22 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeHandGestureAdvanceRequest extends Model
 {
     /**
+     * @example gesture_app
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example gesture_recognition
+     *
      * @var string
      */
     public $gestureType;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/cc/RecognizeHandGesture1.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;

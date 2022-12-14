@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class qualities extends Model
 {
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $blurList;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $fnfList;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $glassList;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $illuList;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $maskList;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $noiseList;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $poseList;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $scoreList;

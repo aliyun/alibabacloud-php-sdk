@@ -15,6 +15,8 @@ class RetouchSkinResponseBody extends Model
     public $data;
 
     /**
+     * @example FD2BF3DF-3D98-1D5D-85BB-C8EC3A9FE347
+     *
      * @var string
      */
     public $requestId;

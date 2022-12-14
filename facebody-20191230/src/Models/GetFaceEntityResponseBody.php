@@ -15,6 +15,8 @@ class GetFaceEntityResponseBody extends Model
     public $data;
 
     /**
+     * @example DA7CAFEB-0A37-4496-9CDF-E3DBB6309CB2
+     *
      * @var string
      */
     public $requestId;

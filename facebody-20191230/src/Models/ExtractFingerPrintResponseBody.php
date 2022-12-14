@@ -15,6 +15,8 @@ class ExtractFingerPrintResponseBody extends Model
     public $data;
 
     /**
+     * @example D21978CC-C1E7-4A7A-A1B2-D5896BDC7ADF
+     *
      * @var string
      */
     public $requestId;

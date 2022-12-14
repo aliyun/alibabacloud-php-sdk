@@ -15,6 +15,8 @@ class ListFaceDbsResponseBody extends Model
     public $data;
 
     /**
+     * @example 2B93C43A-F824-40C8-AF79-844342B0F43A
+     *
      * @var string
      */
     public $requestId;

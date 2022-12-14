@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class pose extends Model
 {
     /**
+     * @example -0.9185499548912048
+     *
      * @var float
      */
     public $pitch;
 
     /**
+     * @example -0.18541647493839264
+     *
      * @var float
      */
     public $roll;
 
     /**
+     * @example 8.095342636108398
+     *
      * @var float
      */
     public $yaw;

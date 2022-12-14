@@ -15,6 +15,8 @@ class LiquifyFaceResponseBody extends Model
     public $data;
 
     /**
+     * @example CA1C8937-B30C-15E6-B804-41C357BA413B
+     *
      * @var string
      */
     public $requestId;

@@ -15,6 +15,8 @@ class FaceBeautyResponseBody extends Model
     public $data;
 
     /**
+     * @example 35C284E1-C5F5-4E5E-B7AD-97BBF485CDC8
+     *
      * @var string
      */
     public $requestId;

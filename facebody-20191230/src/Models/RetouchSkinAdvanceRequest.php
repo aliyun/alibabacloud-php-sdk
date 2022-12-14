@@ -10,16 +10,22 @@ use GuzzleHttp\Psr7\Stream;
 class RetouchSkinAdvanceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/RetouchSkin/RetouchSkin3.png
+     *
      * @var Stream
      */
     public $imageURLObject;
 
     /**
+     * @example 1.0
+     *
      * @var float
      */
     public $retouchDegree;
 
     /**
+     * @example 1.0
+     *
      * @var float
      */
     public $whiteningDegree;

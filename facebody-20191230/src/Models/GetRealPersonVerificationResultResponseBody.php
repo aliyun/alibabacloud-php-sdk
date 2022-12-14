@@ -15,6 +15,8 @@ class GetRealPersonVerificationResultResponseBody extends Model
     public $data;
 
     /**
+     * @example 10FC953D-7C0C-4915-8949-34E3246E5B79
+     *
      * @var string
      */
     public $requestId;

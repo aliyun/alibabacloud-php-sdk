@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class RecognizeFaceRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $age;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $beauty;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $expression;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $gender;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $glass;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $hat;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/RecognizeFace/RecognizeFace1.png
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $mask;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $maxFaceNumber;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $quality;

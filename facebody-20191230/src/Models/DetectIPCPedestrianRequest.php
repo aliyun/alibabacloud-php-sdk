@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DetectIPCPedestrianRequest extends Model
 {
     /**
+     * @example 288
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 3AAQSkZJRgABAQAAAQABA******
+     *
      * @var string
      */
     public $imageData;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/cc/RecognizeHandGesture1.jpg
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example 512
+     *
      * @var int
      */
     public $width;

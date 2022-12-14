@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 5
+     *
      * @var string
      */
     public $faceId;
 
     /**
+     * @example 99.79581
+     *
      * @var float
      */
     public $qualitieScore;

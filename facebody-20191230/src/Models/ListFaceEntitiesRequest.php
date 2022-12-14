@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListFaceEntitiesRequest extends Model
 {
     /**
+     * @example default
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @example U1
+     *
      * @var string
      */
     public $entityIdPrefix;
@@ -24,21 +28,29 @@ class ListFaceEntitiesRequest extends Model
     public $labels;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $offset;
 
     /**
+     * @example asc
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $token;

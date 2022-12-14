@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class faces extends Model
 {
     /**
+     * @example AliFace_0006272
+     *
      * @var string
      */
     public $id;
@@ -19,6 +21,8 @@ class faces extends Model
     public $name;
 
     /**
+     * @example 98.35
+     *
      * @var float
      */
     public $rate;

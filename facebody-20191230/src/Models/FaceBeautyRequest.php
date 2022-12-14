@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class FaceBeautyRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/FaceBeauty/FaceBeauty4.png
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example 1
+     *
      * @var float
      */
     public $sharp;
 
     /**
+     * @example 0.1
+     *
      * @var float
      */
     public $smooth;
 
     /**
+     * @example 0.3
+     *
      * @var float
      */
     public $white;

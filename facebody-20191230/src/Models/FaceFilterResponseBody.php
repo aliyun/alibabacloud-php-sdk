@@ -15,6 +15,8 @@ class FaceFilterResponseBody extends Model
     public $data;
 
     /**
+     * @example EA20A53F-9523-4FE6-92D4-69F9E0A066AF
+     *
      * @var string
      */
     public $requestId;

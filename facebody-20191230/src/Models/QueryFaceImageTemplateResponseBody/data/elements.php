@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class elements extends Model
 {
     /**
+     * @example 2021-01-29 10:19:05
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 6cd509ea-54fa-4730-8e9d-c94cadcda048
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/MergeImageFace/MergeImageFace-1.png
+     *
      * @var string
      */
     public $templateURL;
 
     /**
+     * @example 2021-01-29 10:19:05
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @example zhangsan
+     *
      * @var string
      */
     public $userId;

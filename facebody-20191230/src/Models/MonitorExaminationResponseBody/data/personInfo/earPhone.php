@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class earPhone extends Model
 {
     /**
+     * @example 0.7980290651321411
+     *
      * @var float
      */
     public $score;
 
     /**
+     * @example 0.6
+     *
      * @var float
      */
     public $threshold;

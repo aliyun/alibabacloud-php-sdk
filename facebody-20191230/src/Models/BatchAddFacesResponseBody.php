@@ -15,6 +15,8 @@ class BatchAddFacesResponseBody extends Model
     public $data;
 
     /**
+     * @example C46A46D0-3263-181A-A1EE-0901E4595390
+     *
      * @var string
      */
     public $requestId;

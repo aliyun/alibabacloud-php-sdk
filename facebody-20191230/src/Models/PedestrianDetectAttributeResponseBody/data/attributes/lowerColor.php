@@ -14,6 +14,8 @@ class lowerColor extends Model
     public $name;
 
     /**
+     * @example 0.69961744546890259
+     *
      * @var float
      */
     public $score;

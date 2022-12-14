@@ -15,6 +15,8 @@ class EnhanceFaceResponseBody extends Model
     public $data;
 
     /**
+     * @example 8B031473-6773-4A4C-AF33-A233758E6E98
+     *
      * @var string
      */
     public $requestId;

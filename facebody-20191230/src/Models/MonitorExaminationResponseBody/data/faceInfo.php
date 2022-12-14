@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class faceInfo extends Model
 {
     /**
+     * @example 1
+     *
      * @var float
      */
     public $completeness;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $faceNumber;

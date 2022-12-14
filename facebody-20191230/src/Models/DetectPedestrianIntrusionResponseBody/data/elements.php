@@ -15,21 +15,29 @@ class elements extends Model
     public $box;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $boxId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isIntrude;
 
     /**
+     * @example 0.950289249420166
+     *
      * @var int
      */
     public $score;
 
     /**
+     * @example person
+     *
      * @var string
      */
     public $type;

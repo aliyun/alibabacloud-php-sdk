@@ -14,11 +14,15 @@ class GenRealPersonVerificationTokenRequest extends Model
     public $certificateName;
 
     /**
+     * @example 33010219001123123X
+     *
      * @var string
      */
     public $certificateNumber;
 
     /**
+     * @example {"dwe":"ew4e"...}
+     *
      * @var string
      */
     public $metaInfo;

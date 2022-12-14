@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class failedFaces extends Model
 {
     /**
+     * @example ClientError.IllegalArgument
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test/imgsearch/demo/xxxx.png
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example not found the db=test
+     *
      * @var string
      */
     public $message;

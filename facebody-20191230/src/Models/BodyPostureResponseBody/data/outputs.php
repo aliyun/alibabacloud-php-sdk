@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class outputs extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $humanCount;

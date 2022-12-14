@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class elements extends Model
 {
     /**
+     * @example surprise
+     *
      * @var string
      */
     public $expression;
 
     /**
+     * @example 0.99651491641998291
+     *
      * @var float
      */
     public $faceProbability;

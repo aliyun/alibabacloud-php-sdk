@@ -14,11 +14,15 @@ class DetectPedestrianIntrusionShrinkRequest extends Model
     public $detectRegionShrink;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/DetectPedestrianIntrusion/DetectPedestrianIntrusion2.jpg
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example rectangle
+     *
      * @var string
      */
     public $regionType;

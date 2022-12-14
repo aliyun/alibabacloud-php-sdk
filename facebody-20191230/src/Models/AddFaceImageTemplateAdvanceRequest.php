@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class AddFaceImageTemplateAdvanceRequest extends Model
 {
     /**
+     * @example https://invi-label.oss-cn-shanghai.aliyuncs.com/label/temp/faceswap/img_facefusion/template/sucai1.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;

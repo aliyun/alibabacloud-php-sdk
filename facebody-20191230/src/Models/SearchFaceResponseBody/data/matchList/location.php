@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class location extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $width;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $x;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $y;

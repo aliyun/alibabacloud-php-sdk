@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example /9j/4AAQSkZJRgABAQAAAQABAAD****
+     *
      * @var int[]
      */
     public $fingerPrint;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class box extends Model
 {
     /**
+     * @example 0.555
+     *
      * @var float
      */
     public $confident;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class cellPhone extends Model
 {
     /**
+     * @example 0.39076218008995056
+     *
      * @var float
      */
     public $score;
 
     /**
+     * @example 0.6
+     *
      * @var float
      */
     public $threshold;

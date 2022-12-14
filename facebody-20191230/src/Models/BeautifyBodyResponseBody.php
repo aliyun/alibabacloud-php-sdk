@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class BeautifyBodyResponseBody extends Model
 {
     /**
+     * @description Id of the request
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @example ECC9587C-C06A-4350-9BF6-2DA6314D39D7
+     *
      * @var string
      */
     public $requestId;

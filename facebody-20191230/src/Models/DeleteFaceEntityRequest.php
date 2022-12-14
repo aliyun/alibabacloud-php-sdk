@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteFaceEntityRequest extends Model
 {
     /**
+     * @example default
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @example wood
+     *
      * @var string
      */
     public $entityId;

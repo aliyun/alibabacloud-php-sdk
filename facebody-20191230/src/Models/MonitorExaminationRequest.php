@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class MonitorExaminationRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/MonitorExamination/1MonitorExamination1.jpg
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;

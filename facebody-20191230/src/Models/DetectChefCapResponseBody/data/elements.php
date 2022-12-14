@@ -14,11 +14,15 @@ class elements extends Model
     public $box;
 
     /**
+     * @example chefcap
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example 0.6817094683647156
+     *
      * @var float
      */
     public $confidence;

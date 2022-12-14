@@ -15,6 +15,8 @@ class GenRealPersonVerificationTokenResponseBody extends Model
     public $data;
 
     /**
+     * @example A31006F2-22E7-4538-93BB-DE6B563643EE
+     *
      * @var string
      */
     public $requestId;

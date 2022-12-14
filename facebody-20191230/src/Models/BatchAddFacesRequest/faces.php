@@ -14,6 +14,8 @@ class faces extends Model
     public $extraData;
 
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test/imgsearch/demo/1.png
+     *
      * @var string
      */
     public $imageURL;

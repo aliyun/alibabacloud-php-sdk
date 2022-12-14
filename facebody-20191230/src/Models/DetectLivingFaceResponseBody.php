@@ -15,6 +15,8 @@ class DetectLivingFaceResponseBody extends Model
     public $data;
 
     /**
+     * @example 2EEA0396-BD84-5729-B8BD-D60776FCEF2B
+     *
      * @var string
      */
     public $requestId;

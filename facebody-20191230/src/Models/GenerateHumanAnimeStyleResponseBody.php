@@ -15,6 +15,8 @@ class GenerateHumanAnimeStyleResponseBody extends Model
     public $data;
 
     /**
+     * @example 59697D68-2A6E-4553-89BD-0FADD07881E8
+     *
      * @var string
      */
     public $requestId;

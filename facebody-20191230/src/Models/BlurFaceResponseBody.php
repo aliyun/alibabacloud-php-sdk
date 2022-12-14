@@ -15,6 +15,8 @@ class BlurFaceResponseBody extends Model
     public $data;
 
     /**
+     * @example 4C6080B0-64C4-488E-BBA6-245749CA11AD
+     *
      * @var string
      */
     public $requestId;

@@ -15,6 +15,8 @@ class AddFaceImageTemplateResponseBody extends Model
     public $data;
 
     /**
+     * @example 798A721D-7C7F-4D87-A125-1D04B3055C2C
+     *
      * @var string
      */
     public $requestId;

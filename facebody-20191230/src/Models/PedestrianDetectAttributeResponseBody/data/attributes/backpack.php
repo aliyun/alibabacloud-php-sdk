@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class backpack extends Model
 {
     /**
+     * @example No
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 0.96486538648605347
+     *
      * @var float
      */
     public $score;

@@ -25,6 +25,8 @@ class elements extends Model
     public $scores;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $timestamp;

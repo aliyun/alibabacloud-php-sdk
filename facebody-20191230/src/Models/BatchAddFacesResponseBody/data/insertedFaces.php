@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class insertedFaces extends Model
 {
     /**
+     * @example 16350536
+     *
      * @var string
      */
     public $faceId;
 
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test/imgsearch/demo/xxxx.png
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example 99.79581
+     *
      * @var float
      */
     public $qualitieScore;

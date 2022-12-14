@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CountCrowdRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/CountCrowd/CountCrowd4.jpg
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isShow;

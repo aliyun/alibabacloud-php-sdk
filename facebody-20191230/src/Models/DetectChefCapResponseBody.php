@@ -15,6 +15,8 @@ class DetectChefCapResponseBody extends Model
     public $data;
 
     /**
+     * @example ADA2A7FD-6A97-4D5F-8781-FEC2DEF28418
+     *
      * @var string
      */
     public $requestId;

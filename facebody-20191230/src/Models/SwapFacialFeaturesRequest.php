@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class SwapFacialFeaturesRequest extends Model
 {
     /**
+     * @example chin
+     *
      * @var string
      */
     public $editPart;
 
     /**
+     * @example 9j/4AAQSkZJRgABAQAAAQABAAD/2****
+     *
      * @var int[]
      */
     public $sourceImageData;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/SwapFacialFeatures/SwapFacialFeatures1.png
+     *
      * @var string
      */
     public $sourceImageURL;
 
     /**
+     * @example 9j/4AAQSkZJRgABAQAAAQABAAD/3****
+     *
      * @var int[]
      */
     public $targetImageData;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/SwapFacialFeatures/SwapFacialFeatures6.png
+     *
      * @var string
      */
     public $targetImageURL;

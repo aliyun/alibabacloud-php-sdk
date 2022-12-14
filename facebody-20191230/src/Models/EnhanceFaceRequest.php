@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EnhanceFaceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/EnhanceFace/EnhanceFace1.png
+     *
      * @var string
      */
     public $imageURL;

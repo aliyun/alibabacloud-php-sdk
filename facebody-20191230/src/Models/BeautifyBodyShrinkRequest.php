@@ -14,56 +14,78 @@ class BeautifyBodyShrinkRequest extends Model
     public $ageRangeShrink;
 
     /**
+     * @example [{\"X\":824,\"Y\":284,\"Height\":670,\"Width\":283},{\"X\":419,\"Y\":291,\"Height\":663,\"Width\":522}]
+     *
      * @var string
      */
     public $bodyBoxesShrink;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $custom;
 
     /**
+     * @example [{"age":24,"gender":0,"faceBox":{"x":887,"y":293,"width":81,"height":94}},{"age":24,"gender":0,"faceBox":{"x":695,"y":385,"width":65,"height":75}}]
+     *
      * @var string
      */
     public $faceListShrink;
 
     /**
+     * @example 1
+     *
      * @var float
      */
     public $femaleLiquifyDegree;
 
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/jin/BeautifyBody/BeautifyBody1.jpg
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isPregnant;
 
     /**
+     * @example 1
+     *
      * @var float
      */
     public $lengthenDegree;
 
     /**
+     * @example 1
+     *
      * @var float
      */
     public $maleLiquifyDegree;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $originalHeight;
 
     /**
+     * @example 1500
+     *
      * @var int
      */
     public $originalWidth;
 
     /**
+     * @example [{"pose":[{"x":715.33203125,"y":424.31640625,"score":0.8786243796348572},{"x":735.83984375,"y":415.52734375,"score":0.8847978115081787},{"x":703.61328125,"y":410.64453125,"score":0.8813298344612122}]},{"pose":[{"x":926.26953125,"y":342.28515625,"score":0.8721742630004883},{"x":938.96484375,"y":325.68359375,"score":0.8899118900299072},{"x":907.71484375,"y":332.51953125,"score":0.8997631072998047}]}]
+     *
      * @var string
      */
     public $poseListShrink;

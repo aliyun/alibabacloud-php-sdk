@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class glasses extends Model
 {
     /**
+     * @example No
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 0.87284471094608307
+     *
      * @var float
      */
     public $score;

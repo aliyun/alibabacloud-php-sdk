@@ -15,11 +15,15 @@ class data extends Model
     public $faceRecognizeResults;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $width;

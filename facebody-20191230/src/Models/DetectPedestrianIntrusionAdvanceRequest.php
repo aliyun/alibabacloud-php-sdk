@@ -16,11 +16,15 @@ class DetectPedestrianIntrusionAdvanceRequest extends Model
     public $detectRegion;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/DetectPedestrianIntrusion/DetectPedestrianIntrusion2.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;
 
     /**
+     * @example rectangle
+     *
      * @var string
      */
     public $regionType;

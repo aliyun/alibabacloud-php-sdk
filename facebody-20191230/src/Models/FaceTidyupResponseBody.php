@@ -15,6 +15,8 @@ class FaceTidyupResponseBody extends Model
     public $data;
 
     /**
+     * @example 8F3BF64D-4FDF-4AAF-9B34-11B4EF4CE815
+     *
      * @var string
      */
     public $requestId;

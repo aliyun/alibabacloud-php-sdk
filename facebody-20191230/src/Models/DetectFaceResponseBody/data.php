@@ -10,36 +10,50 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $faceCount;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $faceProbabilityList;
 
     /**
+     * @description 1
+     *
      * @var int[]
      */
     public $faceRectangles;
 
     /**
+     * @example 105
+     *
      * @var int
      */
     public $landmarkCount;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $landmarks;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $poseList;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $pupils;

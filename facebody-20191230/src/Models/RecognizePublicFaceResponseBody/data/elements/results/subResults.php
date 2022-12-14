@@ -15,21 +15,29 @@ class subResults extends Model
     public $faces;
 
     /**
+     * @example 153
+     *
      * @var float
      */
     public $h;
 
     /**
+     * @example 132
+     *
      * @var float
      */
     public $w;
 
     /**
+     * @example 182
+     *
      * @var float
      */
     public $x;
 
     /**
+     * @example 153
+     *
      * @var float
      */
     public $y;

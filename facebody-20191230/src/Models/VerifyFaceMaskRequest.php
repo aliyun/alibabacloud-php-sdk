@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class VerifyFaceMaskRequest extends Model
 {
     /**
+     * @example iVBORw0KGgoAAAANSUhEUgAAAoAAAAHJCAIAAACaEB9NAAEAAElEQVR4nNT9Wb****
+     *
      * @var int[]
      */
     public $imageData;
 
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/ceshi/VerifyFaceMaskA.jpg
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example iVBORw0KGgoAAAANSUhEUgAAAoAAAAHJCAIAAACaEB9NAAEAAElEQVR4nNT9WbA****
+     *
      * @var int[]
      */
     public $refData;
 
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/ceshi/VerifyFaceMaskB.jpg
+     *
      * @var string
      */
     public $refUrl;

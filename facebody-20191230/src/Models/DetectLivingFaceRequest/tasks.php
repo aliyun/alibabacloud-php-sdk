@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
+     * @example 9j/4AAQSkZJRgABAQAAAQABAAD/2****
+     *
      * @var string
      */
     public $imageData;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/DetectLivingFace/DetectLivingFace4.jpg
+     *
      * @var string
      */
     public $imageURL;

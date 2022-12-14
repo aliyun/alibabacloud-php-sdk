@@ -21,6 +21,8 @@ class matchList extends Model
     public $location;
 
     /**
+     * @example 71.7349
+     *
      * @var float
      */
     public $qualitieScore;

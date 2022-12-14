@@ -15,6 +15,8 @@ class VerifyFaceMaskResponseBody extends Model
     public $data;
 
     /**
+     * @example 044386BA-271C-4DAD-9E08-581A685FB984
+     *
      * @var string
      */
     public $requestId;
