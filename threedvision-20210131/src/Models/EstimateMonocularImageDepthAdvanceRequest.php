@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class EstimateMonocularImageDepthAdvanceRequest extends Model
 {
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/zhangchaorun/test-api/xxxx.png
+     *
      * @var Stream
      */
     public $imageURLObject;

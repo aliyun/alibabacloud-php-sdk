@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example http://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/VideoDepthPrediction/5c36dc69-2937-440e-ac34-67a00651a753/depths.npy
+     *
      * @var string
      */
     public $depthUrl;
 
     /**
+     * @example http://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/VideoDepthPrediction/5c36dc69-2937-440e-ac34-67a00651a753/depths_vis.avi
+     *
      * @var string
      */
     public $depthVisUrl;

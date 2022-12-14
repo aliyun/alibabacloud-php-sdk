@@ -5,25 +5,26 @@
 namespace AlibabaCloud\SDK\Threedvision\V20210131\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
-class EstimateStereoImageDepthRequest extends Model
+class EstimateStereoImageDepthAdvanceRequest extends Model
 {
     /**
      * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/xxxx/test/left.png
      *
-     * @var string
+     * @var Stream
      */
-    public $leftImageURL;
+    public $leftImageURLObject;
 
     /**
      * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/xxxx/test/right.png
      *
-     * @var string
+     * @var Stream
      */
-    public $rightImageURL;
+    public $rightImageURLObject;
     protected $_name = [
-        'leftImageURL'  => 'LeftImageURL',
-        'rightImageURL' => 'RightImageURL',
+        'leftImageURLObject'  => 'LeftImageURL',
+        'rightImageURLObject' => 'RightImageURL',
     ];
 
     public function validate()
@@ -33,11 +34,11 @@ class EstimateStereoImageDepthRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->leftImageURL) {
-            $res['LeftImageURL'] = $this->leftImageURL;
+        if (null !== $this->leftImageURLObject) {
+            $res['LeftImageURL'] = $this->leftImageURLObject;
         }
-        if (null !== $this->rightImageURL) {
-            $res['RightImageURL'] = $this->rightImageURL;
+        if (null !== $this->rightImageURLObject) {
+            $res['RightImageURL'] = $this->rightImageURLObject;
         }
 
         return $res;
@@ -46,16 +47,16 @@ class EstimateStereoImageDepthRequest extends Model
     /**
      * @param array $map
      *
-     * @return EstimateStereoImageDepthRequest
+     * @return EstimateStereoImageDepthAdvanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LeftImageURL'])) {
-            $model->leftImageURL = $map['LeftImageURL'];
+            $model->leftImageURLObject = $map['LeftImageURL'];
         }
         if (isset($map['RightImageURL'])) {
-            $model->rightImageURL = $map['RightImageURL'];
+            $model->rightImageURLObject = $map['RightImageURL'];
         }
 
         return $model;

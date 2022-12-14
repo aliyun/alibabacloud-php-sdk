@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class ReconstructBodyBySingleImageAdvanceRequest extends Model
 {
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/xxxx/test/yefeibg.png
+     *
      * @var Stream
      */
     public $imageURLObject;

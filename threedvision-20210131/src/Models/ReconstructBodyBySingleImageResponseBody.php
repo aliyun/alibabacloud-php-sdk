@@ -15,6 +15,8 @@ class ReconstructBodyBySingleImageResponseBody extends Model
     public $data;
 
     /**
+     * @example D755F706-B33B-4F3B-8751-4707AD2CA15C
+     *
      * @var string
      */
     public $requestId;

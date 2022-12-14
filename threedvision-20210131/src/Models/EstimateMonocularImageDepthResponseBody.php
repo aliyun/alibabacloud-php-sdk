@@ -15,6 +15,8 @@ class EstimateMonocularImageDepthResponseBody extends Model
     public $data;
 
     /**
+     * @example FC938F5D-0AD0-5A59-BCE8-D8BE1B3E606F
+     *
      * @var string
      */
     public $requestId;

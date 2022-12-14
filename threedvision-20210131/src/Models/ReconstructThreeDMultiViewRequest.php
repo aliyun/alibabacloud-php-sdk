@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ReconstructThreeDMultiViewRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/xxxx/tiyan/mvs_input.zip
+     *
      * @var string
      */
     public $zipFileUrl;

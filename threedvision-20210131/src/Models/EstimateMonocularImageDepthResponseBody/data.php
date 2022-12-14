@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example http://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/DepthPrediction/da6ef49a-afef-43c8-8855-4827cde7c152/depth.png
+     *
      * @var string
      */
     public $depthMapUrl;
 
     /**
+     * @example http://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/DepthPrediction/da6ef49a-afef-43c8-8855-4827cde7c152/color.png
+     *
      * @var string
      */
     public $depthToColorUrl;

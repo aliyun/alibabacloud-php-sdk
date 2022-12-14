@@ -15,6 +15,8 @@ class EstimateStereoImageDepthResponseBody extends Model
     public $data;
 
     /**
+     * @example 8B69644C-4815-476B-B087-340BAADE8E35
+     *
      * @var string
      */
     public $requestId;

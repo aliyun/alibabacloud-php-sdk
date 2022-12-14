@@ -18,6 +18,7 @@ use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateMonocularImageDepthRe
 use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateMonocularVideoDepthAdvanceRequest;
 use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateMonocularVideoDepthRequest;
 use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateMonocularVideoDepthResponse;
+use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateStereoImageDepthAdvanceRequest;
 use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateStereoImageDepthRequest;
 use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateStereoImageDepthResponse;
 use AlibabaCloud\SDK\Threedvision\V20210131\Models\GetAsyncJobResultRequest;
@@ -358,6 +359,109 @@ class Threedvision extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->estimateStereoImageDepthWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EstimateStereoImageDepthAdvanceRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return EstimateStereoImageDepthResponse
+     */
+    public function estimateStereoImageDepthAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'threedvision',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $estimateStereoImageDepthReq = new EstimateStereoImageDepthRequest([]);
+        OpenApiUtilClient::convert($request, $estimateStereoImageDepthReq);
+        if (!Utils::isUnset($request->leftImageURLObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->body->objectKey,
+                'content'     => $request->leftImageURLObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $estimateStereoImageDepthReq->leftImageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+        if (!Utils::isUnset($request->rightImageURLObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->body->objectKey,
+                'content'     => $request->rightImageURLObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $estimateStereoImageDepthReq->rightImageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+
+        return $this->estimateStereoImageDepthWithOptions($estimateStereoImageDepthReq, $runtime);
     }
 
     /**

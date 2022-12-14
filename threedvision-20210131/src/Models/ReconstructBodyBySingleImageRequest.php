@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReconstructBodyBySingleImageRequest extends Model
 {
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/xxxx/test/yefeibg.png
+     *
      * @var string
      */
     public $imageURL;

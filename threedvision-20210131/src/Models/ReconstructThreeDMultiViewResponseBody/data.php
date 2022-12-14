@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example http://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/MultiviewStereo/83e2fcec-02e1-4522-8680-92f532956e2c/cas_input.ply
+     *
      * @var string
      */
     public $pointCloudURL;

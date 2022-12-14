@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class EstimateMonocularVideoDepthRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var string
      */
     public $sampleRate;
 
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/xxxx/Estimate.mp4
+     *
      * @var string
      */
     public $videoURL;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EstimateMonocularImageDepthRequest extends Model
 {
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/zhangchaorun/test-api/xxxx.png
+     *
      * @var string
      */
     public $imageURL;

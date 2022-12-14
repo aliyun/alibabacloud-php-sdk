@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example http://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/HumanReconstruction/1ac0e56e-5138-40ea-a44d-05810b57c723/depth.npy
+     *
      * @var string
      */
     public $depthURL;
 
     /**
+     * @example http://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/HumanReconstruction/1ac0e56e-5138-40ea-a44d-05810b57c723/mesh.obj
+     *
      * @var string
      */
     public $meshURL;

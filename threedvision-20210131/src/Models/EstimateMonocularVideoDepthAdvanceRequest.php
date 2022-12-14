@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class EstimateMonocularVideoDepthAdvanceRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var string
      */
     public $sampleRate;
 
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/xxxx/Estimate.mp4
+     *
      * @var Stream
      */
     public $videoURLObject;

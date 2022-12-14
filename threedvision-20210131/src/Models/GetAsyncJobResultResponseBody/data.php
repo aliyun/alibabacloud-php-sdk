@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example InvalidParameter
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example paramsIllegal
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example B6590005-5E7C-4A25-8F97-4479888D8271
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example {\"pointCloudUrl\":\"http://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/MultiviewStereo/83e2fcec-02e1-4522-8680-92f532956e2c/cas_input.ply\"}
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @example PROCESS_SUCCESS
+     *
      * @var string
      */
     public $status;
