@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class PhoneNumberStatusForVirtualRequest extends Model
 {
     /**
+     * @example Dd1r***4id
+     *
      * @var string
      */
     public $authCode;
 
     /**
+     * @example 189****8999
+     *
      * @var string
      */
     public $inputNumber;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $mask;

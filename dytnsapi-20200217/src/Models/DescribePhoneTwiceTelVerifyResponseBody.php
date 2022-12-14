@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePhoneTwiceTelVerifyResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,11 +22,15 @@ class DescribePhoneTwiceTelVerifyResponseBody extends Model
     public $data;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 68A40250-50CD-034C-B728-0BD135850177
+     *
      * @var string
      */
     public $requestId;

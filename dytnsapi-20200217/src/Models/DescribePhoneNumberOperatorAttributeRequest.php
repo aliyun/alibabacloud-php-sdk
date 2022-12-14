@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribePhoneNumberOperatorAttributeRequest extends Model
 {
     /**
+     * @example Dd1r***4id
+     *
      * @var string
      */
     public $authCode;
 
     /**
+     * @example 139****1234
+     *
      * @var string
      */
     public $inputNumber;
 
     /**
+     * @example MD5
+     *
      * @var string
      */
     public $mask;

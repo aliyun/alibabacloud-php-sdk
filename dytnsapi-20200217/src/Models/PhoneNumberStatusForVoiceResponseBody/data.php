@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example CTCC
+     *
      * @var string
      */
     public $carrier;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $status;

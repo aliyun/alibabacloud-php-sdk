@@ -14,6 +14,8 @@ class DescribePhoneNumberResaleRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $phoneNumber;
@@ -29,6 +31,8 @@ class DescribePhoneNumberResaleRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 2018-01-01 12:00:00
+     *
      * @var string
      */
     public $since;

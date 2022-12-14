@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class twiceTelVerify extends Model
 {
     /**
+     * @example CMCC
+     *
      * @var string
      */
     public $carrier;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $verifyResult;

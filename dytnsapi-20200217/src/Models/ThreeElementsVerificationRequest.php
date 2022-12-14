@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ThreeElementsVerificationRequest extends Model
 {
     /**
+     * @example QASDW@#**
+     *
      * @var string
      */
     public $authCode;
 
     /**
+     * @example 83d8040d3cb2181e04****dc6ff5566d4493876a4a5da782887446356b0a787e
+     *
      * @var string
      */
     public $certCode;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $inputNumber;
 
     /**
+     * @example MD5
+     *
      * @var string
      */
     public $mask;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class PhoneNumberEncryptRequest extends Model
 {
     /**
+     * @example QASDW@#**
+     *
      * @var string
      */
     public $authCode;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $inputNumber;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $mask;

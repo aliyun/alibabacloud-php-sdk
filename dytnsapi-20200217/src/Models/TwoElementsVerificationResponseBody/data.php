@@ -14,6 +14,8 @@ class data extends Model
     public $basicCarrier;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isConsistent;

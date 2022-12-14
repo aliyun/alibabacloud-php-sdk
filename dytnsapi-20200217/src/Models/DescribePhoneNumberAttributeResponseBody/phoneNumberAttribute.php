@@ -24,11 +24,15 @@ class phoneNumberAttribute extends Model
     public $city;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isNumberPortability;
 
     /**
+     * @example 1511234
+     *
      * @var int
      */
     public $numberSegment;

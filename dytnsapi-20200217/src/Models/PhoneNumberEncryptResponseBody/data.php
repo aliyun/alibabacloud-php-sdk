@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1400513****
+     *
      * @var string
      */
     public $encryptedNumber;
 
     /**
+     * @example 2022-05-27 16:05:23
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $originalNumber;

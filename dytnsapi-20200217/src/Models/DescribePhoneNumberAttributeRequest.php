@@ -14,6 +14,8 @@ class DescribePhoneNumberAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $phoneNumber;

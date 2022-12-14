@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class PhoneNumberStatusForSmsRequest extends Model
 {
     /**
+     * @example zf08***pi6
+     *
      * @var string
      */
     public $authCode;
 
     /**
+     * @example 181****1234
+     *
      * @var string
      */
     public $inputNumber;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $mask;

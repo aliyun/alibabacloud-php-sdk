@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEmptyNumberDetectRequest extends Model
 {
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $encryptType;
@@ -19,6 +21,8 @@ class DescribeEmptyNumberDetectRequest extends Model
     public $ownerId;
 
     /**
+     * @example 13900001234
+     *
      * @var string
      */
     public $phone;

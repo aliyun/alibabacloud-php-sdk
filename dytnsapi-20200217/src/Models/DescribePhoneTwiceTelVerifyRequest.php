@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribePhoneTwiceTelVerifyRequest extends Model
 {
     /**
+     * @example Dd1r***4id
+     *
      * @var string
      */
     public $authCode;
 
     /**
+     * @example 139*******
+     *
      * @var string
      */
     public $inputNumber;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $mask;
@@ -39,6 +45,8 @@ class DescribePhoneTwiceTelVerifyRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 2018-01-01 00:00:00
+     *
      * @var string
      */
     public $startTime;

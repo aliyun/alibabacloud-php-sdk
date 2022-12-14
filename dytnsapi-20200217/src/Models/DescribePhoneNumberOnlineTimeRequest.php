@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribePhoneNumberOnlineTimeRequest extends Model
 {
     /**
+     * @example QASDW@#**
+     *
      * @var string
      */
     public $authCode;
 
     /**
+     * @example UNICOM
+     *
      * @var string
      */
     public $carrier;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $inputNumber;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $mask;

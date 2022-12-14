@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribePhoneNumberAnalysisRequest extends Model
 {
     /**
+     * @example QASDW@#**
+     *
      * @var string
      */
     public $authCode;
 
     /**
+     * @example 1310000****
+     *
      * @var string
      */
     public $inputNumber;
 
     /**
+     * @example MD5
+     *
      * @var string
      */
     public $mask;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $numberType;
@@ -34,6 +42,8 @@ class DescribePhoneNumberAnalysisRequest extends Model
     public $ownerId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $rate;

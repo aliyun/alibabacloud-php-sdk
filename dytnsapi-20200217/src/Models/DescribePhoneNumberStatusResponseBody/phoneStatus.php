@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class phoneStatus extends Model
 {
     /**
+     * @example CMCC
+     *
      * @var string
      */
     public $carrier;
 
     /**
+     * @example 1100000000000
+     *
      * @var string
      */
     public $serialId;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $status;

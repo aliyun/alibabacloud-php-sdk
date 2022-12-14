@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class PhoneNumberStatusForAccountResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,11 +22,15 @@ class PhoneNumberStatusForAccountResponseBody extends Model
     public $data;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example CC3BB6D2-2FDF-4321-9DCE-B38165CE4C47
+     *
      * @var string
      */
     public $requestId;

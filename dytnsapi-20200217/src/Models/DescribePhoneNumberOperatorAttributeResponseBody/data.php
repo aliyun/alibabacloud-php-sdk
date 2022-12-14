@@ -24,11 +24,15 @@ class data extends Model
     public $city;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isNumberPortability;
 
     /**
+     * @example 1892605
+     *
      * @var int
      */
     public $numberSegment;
