@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DetectIPCPedestrianOptimizedResponseBody extends Model
 {
     /**
-     * @description data
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description requestId
-     *
      * @var string
      */
     public $requestId;

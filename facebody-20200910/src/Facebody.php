@@ -13,6 +13,7 @@ use AlibabaCloud\SDK\Facebody\V20200910\Models\ExecuteServerSideVerificationResp
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Facebody extends OpenApiClient
@@ -50,10 +51,51 @@ class Facebody extends OpenApiClient
 
     /**
      * 行人检测快速版.
+     *   *
+     * @param DetectIPCPedestrianOptimizedRequest $request DetectIPCPedestrianOptimizedRequest
+     * @param string[]                            $headers map
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param DetectIPCPedestrianOptimizedRequest $request
+     * @return DetectIPCPedestrianOptimizedResponse DetectIPCPedestrianOptimizedResponse
+     */
+    public function detectIPCPedestrianOptimizedWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->height)) {
+            $body['height'] = $request->height;
+        }
+        if (!Utils::isUnset($request->imageData)) {
+            $body['imageData'] = $request->imageData;
+        }
+        if (!Utils::isUnset($request->width)) {
+            $body['width'] = $request->width;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectIPCPedestrianOptimized',
+            'version'     => '2020-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/viapi/k8s/facebody/detect-ipc-pedestrian-optimized',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetectIPCPedestrianOptimizedResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 行人检测快速版.
+     *   *
+     * @param DetectIPCPedestrianOptimizedRequest $request DetectIPCPedestrianOptimizedRequest
      *
-     * @return DetectIPCPedestrianOptimizedResponse
+     * @return DetectIPCPedestrianOptimizedResponse DetectIPCPedestrianOptimizedResponse
      */
     public function detectIPCPedestrianOptimized($request)
     {
@@ -61,47 +103,6 @@ class Facebody extends OpenApiClient
         $headers = [];
 
         return $this->detectIPCPedestrianOptimizedWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DetectIPCPedestrianOptimizedRequest $request
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DetectIPCPedestrianOptimizedResponse
-     */
-    public function detectIPCPedestrianOptimizedWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->imageData)) {
-            @$body['imageData'] = $request->imageData;
-        }
-        if (!Utils::isUnset($request->width)) {
-            @$body['width'] = $request->width;
-        }
-        if (!Utils::isUnset($request->height)) {
-            @$body['height'] = $request->height;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-
-        return DetectIPCPedestrianOptimizedResponse::fromMap($this->doROARequestWithForm('DetectIPCPedestrianOptimized', '2020-09-10', 'HTTPS', 'POST', 'AK', '/viapi/k8s/facebody/detect-ipc-pedestrian-optimized', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ExecuteServerSideVerificationRequest $request
-     *
-     * @return ExecuteServerSideVerificationResponse
-     */
-    public function executeServerSideVerification($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->executeServerSideVerificationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -116,25 +117,49 @@ class Facebody extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->certificateName)) {
-            @$body['certificateName'] = $request->certificateName;
+            $body['certificateName'] = $request->certificateName;
         }
         if (!Utils::isUnset($request->certificateNumber)) {
-            @$body['certificateNumber'] = $request->certificateNumber;
+            $body['certificateNumber'] = $request->certificateNumber;
         }
         if (!Utils::isUnset($request->facialPictureData)) {
-            @$body['facialPictureData'] = $request->facialPictureData;
+            $body['facialPictureData'] = $request->facialPictureData;
         }
         if (!Utils::isUnset($request->facialPictureUrl)) {
-            @$body['facialPictureUrl'] = $request->facialPictureUrl;
+            $body['facialPictureUrl'] = $request->facialPictureUrl;
         }
         if (!Utils::isUnset($request->sceneType)) {
-            @$body['sceneType'] = $request->sceneType;
+            $body['sceneType'] = $request->sceneType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ExecuteServerSideVerification',
+            'version'     => '2020-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/viapi/thirdparty/realperson/execServerSideVerification',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ExecuteServerSideVerificationResponse::fromMap($this->doROARequestWithForm('ExecuteServerSideVerification', '2020-09-10', 'HTTPS', 'POST', 'AK', '/viapi/thirdparty/realperson/execServerSideVerification', 'json', $req, $runtime));
+        return ExecuteServerSideVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ExecuteServerSideVerificationRequest $request
+     *
+     * @return ExecuteServerSideVerificationResponse
+     */
+    public function executeServerSideVerification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->executeServerSideVerificationWithOptions($request, $headers, $runtime);
     }
 }

@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class imageInfoList extends Model
 {
     /**
-     * @description Elements
-     *
      * @var elements[]
      */
     public $elements;

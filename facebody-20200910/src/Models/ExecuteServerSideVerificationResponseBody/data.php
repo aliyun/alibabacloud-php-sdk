@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $pass;
@@ -16,16 +18,18 @@ class data extends Model
     /**
      * @var string
      */
-    public $verificationToken;
+    public $reason;
 
     /**
+     * @example 6f1f730e732b232ccbdd85abc751****
+     *
      * @var string
      */
-    public $reason;
+    public $verificationToken;
     protected $_name = [
         'pass'              => 'Pass',
-        'verificationToken' => 'VerificationToken',
         'reason'            => 'Reason',
+        'verificationToken' => 'VerificationToken',
     ];
 
     public function validate()
@@ -38,11 +42,11 @@ class data extends Model
         if (null !== $this->pass) {
             $res['Pass'] = $this->pass;
         }
-        if (null !== $this->verificationToken) {
-            $res['VerificationToken'] = $this->verificationToken;
-        }
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
+        }
+        if (null !== $this->verificationToken) {
+            $res['VerificationToken'] = $this->verificationToken;
         }
 
         return $res;
@@ -59,11 +63,11 @@ class data extends Model
         if (isset($map['Pass'])) {
             $model->pass = $map['Pass'];
         }
-        if (isset($map['VerificationToken'])) {
-            $model->verificationToken = $map['VerificationToken'];
-        }
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
+        }
+        if (isset($map['VerificationToken'])) {
+            $model->verificationToken = $map['VerificationToken'];
         }
 
         return $model;

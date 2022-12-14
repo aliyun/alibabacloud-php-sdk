@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class elements extends Model
 {
     /**
-     * @description box array
-     *
      * @var int[]
      */
     public $boxes;
 
     /**
-     * @description score
-     *
      * @var float
      */
     public $score;

@@ -14,21 +14,29 @@ class ExecuteServerSideVerificationRequest extends Model
     public $certificateName;
 
     /**
+     * @example 1281739873298172981
+     *
      * @var string
      */
     public $certificateNumber;
 
     /**
-     * @var int[]
+     * @example /9j/wwew...
+     *
+     * @var string
      */
     public $facialPictureData;
 
     /**
+     * @example http://xxx.xxx.com/xxx.jpg
+     *
      * @var string
      */
     public $facialPictureUrl;
 
     /**
+     * @example server
+     *
      * @var string
      */
     public $sceneType;

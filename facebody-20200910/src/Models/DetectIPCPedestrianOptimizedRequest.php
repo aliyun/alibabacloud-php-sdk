@@ -9,29 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DetectIPCPedestrianOptimizedRequest extends Model
 {
     /**
-     * @description image data
-     *
+     * @var int
+     */
+    public $height;
+
+    /**
      * @var int[]
      */
     public $imageData;
 
     /**
-     * @description image width
-     *
      * @var int
      */
     public $width;
-
-    /**
-     * @description image height
-     *
-     * @var int
-     */
-    public $height;
     protected $_name = [
+        'height'    => 'height',
         'imageData' => 'imageData',
         'width'     => 'width',
-        'height'    => 'height',
     ];
 
     public function validate()
@@ -41,14 +35,14 @@ class DetectIPCPedestrianOptimizedRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->height) {
+            $res['height'] = $this->height;
+        }
         if (null !== $this->imageData) {
             $res['imageData'] = $this->imageData;
         }
         if (null !== $this->width) {
             $res['width'] = $this->width;
-        }
-        if (null !== $this->height) {
-            $res['height'] = $this->height;
         }
 
         return $res;
@@ -62,14 +56,14 @@ class DetectIPCPedestrianOptimizedRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['height'])) {
+            $model->height = $map['height'];
+        }
         if (isset($map['imageData'])) {
             $model->imageData = $map['imageData'];
         }
         if (isset($map['width'])) {
             $model->width = $map['width'];
-        }
-        if (isset($map['height'])) {
-            $model->height = $map['height'];
         }
 
         return $model;
