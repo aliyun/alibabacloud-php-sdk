@@ -5,7 +5,13 @@
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210218;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Appstreamcenter\V20210218\Models\GetAuthCodeRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210218\Models\GetAuthCodeResponse;
 use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Appstreamcenter extends OpenApiClient
@@ -39,5 +45,54 @@ class Appstreamcenter extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param GetAuthCodeRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetAuthCodeResponse
+     */
+    public function getAuthCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endUserId)) {
+            $body['EndUserId'] = $request->endUserId;
+        }
+        if (!Utils::isUnset($request->externalUserId)) {
+            $body['ExternalUserId'] = $request->externalUserId;
+        }
+        if (!Utils::isUnset($request->policy)) {
+            $body['Policy'] = $request->policy;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAuthCode',
+            'version'     => '2021-02-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAuthCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAuthCodeRequest $request
+     *
+     * @return GetAuthCodeResponse
+     */
+    public function getAuthCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAuthCodeWithOptions($request, $runtime);
     }
 }
