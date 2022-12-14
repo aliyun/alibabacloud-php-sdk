@@ -6,16 +6,34 @@ namespace AlibabaCloud\SDK\Dbs\V20210101;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\CreateDownloadRequest;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\CreateDownloadResponse;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\CreateSandboxInstanceRequest;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\CreateSandboxInstanceResponse;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\DeleteSandboxInstanceRequest;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\DeleteSandboxInstanceResponse;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeDBTablesRecoveryBackupSetRequest;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeDBTablesRecoveryBackupSetResponse;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeDBTablesRecoveryStateRequest;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeDBTablesRecoveryStateResponse;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeDBTablesRecoveryTimeRangeRequest;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeDBTablesRecoveryTimeRangeResponse;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeDownloadBackupSetStorageInfoRequest;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeDownloadBackupSetStorageInfoResponse;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeDownloadSupportRequest;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeDownloadSupportResponse;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeDownloadTaskRequest;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeDownloadTaskResponse;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeSandboxBackupSetsRequest;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeSandboxBackupSetsResponse;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeSandboxInstancesRequest;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeSandboxInstancesResponse;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeSandboxRecoveryTimeRequest;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeSandboxRecoveryTimeResponse;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\ModifyDBTablesRecoveryStateRequest;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\ModifyDBTablesRecoveryStateResponse;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\SupportDBTableRecoveryRequest;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\SupportDBTableRecoveryResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -81,10 +99,89 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param CreateSandboxInstanceRequest $request
-     * @param RuntimeOptions               $runtime
+     * You can create an advanced download task by point in time or backup file. You can set the Download Destination parameter to URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Advanced download](~~98819~~).
+     *   *
+     * @param CreateDownloadRequest $request CreateDownloadRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSandboxInstanceResponse
+     * @return CreateDownloadResponse CreateDownloadResponse
+     */
+    public function createDownloadWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bakSetId)) {
+            $query['BakSetId'] = $request->bakSetId;
+        }
+        if (!Utils::isUnset($request->bakSetSize)) {
+            $query['BakSetSize'] = $request->bakSetSize;
+        }
+        if (!Utils::isUnset($request->bakSetType)) {
+            $query['BakSetType'] = $request->bakSetType;
+        }
+        if (!Utils::isUnset($request->downloadPointInTime)) {
+            $query['DownloadPointInTime'] = $request->downloadPointInTime;
+        }
+        if (!Utils::isUnset($request->formatType)) {
+            $query['FormatType'] = $request->formatType;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->regionCode)) {
+            $query['RegionCode'] = $request->regionCode;
+        }
+        if (!Utils::isUnset($request->targetBucket)) {
+            $query['TargetBucket'] = $request->targetBucket;
+        }
+        if (!Utils::isUnset($request->targetOssRegion)) {
+            $query['TargetOssRegion'] = $request->targetOssRegion;
+        }
+        if (!Utils::isUnset($request->targetPath)) {
+            $query['TargetPath'] = $request->targetPath;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDownload',
+            'version'     => '2021-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDownloadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * You can create an advanced download task by point in time or backup file. You can set the Download Destination parameter to URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Advanced download](~~98819~~).
+     *   *
+     * @param CreateDownloadRequest $request CreateDownloadRequest
+     *
+     * @return CreateDownloadResponse CreateDownloadResponse
+     */
+    public function createDownload($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDownloadWithOptions($request, $runtime);
+    }
+
+    /**
+     * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Create a sandbox instance for emergency disaster recovery of an ApsaraDB RDS for MySQL database](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). The API operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+     *   *
+     * @param CreateSandboxInstanceRequest $request CreateSandboxInstanceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateSandboxInstanceResponse CreateSandboxInstanceResponse
      */
     public function createSandboxInstanceWithOptions($request, $runtime)
     {
@@ -139,9 +236,11 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param CreateSandboxInstanceRequest $request
+     * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Create a sandbox instance for emergency disaster recovery of an ApsaraDB RDS for MySQL database](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). The API operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+     *   *
+     * @param CreateSandboxInstanceRequest $request CreateSandboxInstanceRequest
      *
-     * @return CreateSandboxInstanceResponse
+     * @return CreateSandboxInstanceResponse CreateSandboxInstanceResponse
      */
     public function createSandboxInstance($request)
     {
@@ -151,10 +250,12 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param DeleteSandboxInstanceRequest $request
-     * @param RuntimeOptions               $runtime
+     * The API operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+     *   *
+     * @param DeleteSandboxInstanceRequest $request DeleteSandboxInstanceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSandboxInstanceResponse
+     * @return DeleteSandboxInstanceResponse DeleteSandboxInstanceResponse
      */
     public function deleteSandboxInstanceWithOptions($request, $runtime)
     {
@@ -185,9 +286,11 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param DeleteSandboxInstanceRequest $request
+     * The API operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+     *   *
+     * @param DeleteSandboxInstanceRequest $request DeleteSandboxInstanceRequest
      *
-     * @return DeleteSandboxInstanceResponse
+     * @return DeleteSandboxInstanceResponse DeleteSandboxInstanceResponse
      */
     public function deleteSandboxInstance($request)
     {
@@ -197,10 +300,348 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param DescribeSandboxBackupSetsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeDBTablesRecoveryBackupSetRequest $request
+     * @param RuntimeOptions                           $runtime
      *
-     * @return DescribeSandboxBackupSetsResponse
+     * @return DescribeDBTablesRecoveryBackupSetResponse
+     */
+    public function describeDBTablesRecoveryBackupSetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionCode)) {
+            $query['RegionCode'] = $request->regionCode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBTablesRecoveryBackupSet',
+            'version'     => '2021-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBTablesRecoveryBackupSetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBTablesRecoveryBackupSetRequest $request
+     *
+     * @return DescribeDBTablesRecoveryBackupSetResponse
+     */
+    public function describeDBTablesRecoveryBackupSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBTablesRecoveryBackupSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDBTablesRecoveryStateRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDBTablesRecoveryStateResponse
+     */
+    public function describeDBTablesRecoveryStateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionCode)) {
+            $query['RegionCode'] = $request->regionCode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBTablesRecoveryState',
+            'version'     => '2021-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBTablesRecoveryStateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBTablesRecoveryStateRequest $request
+     *
+     * @return DescribeDBTablesRecoveryStateResponse
+     */
+    public function describeDBTablesRecoveryState($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBTablesRecoveryStateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDBTablesRecoveryTimeRangeRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeDBTablesRecoveryTimeRangeResponse
+     */
+    public function describeDBTablesRecoveryTimeRangeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionCode)) {
+            $query['RegionCode'] = $request->regionCode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBTablesRecoveryTimeRange',
+            'version'     => '2021-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBTablesRecoveryTimeRangeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBTablesRecoveryTimeRangeRequest $request
+     *
+     * @return DescribeDBTablesRecoveryTimeRangeResponse
+     */
+    public function describeDBTablesRecoveryTimeRange($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBTablesRecoveryTimeRangeWithOptions($request, $runtime);
+    }
+
+    /**
+     * You can create an advanced download task by point in time or backup file. You can set the Download Destination parameter to URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Advanced download](~~98819~~).
+     *   *
+     * @param DescribeDownloadBackupSetStorageInfoRequest $request DescribeDownloadBackupSetStorageInfoRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDownloadBackupSetStorageInfoResponse DescribeDownloadBackupSetStorageInfoResponse
+     */
+    public function describeDownloadBackupSetStorageInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backupSetId)) {
+            $query['BackupSetId'] = $request->backupSetId;
+        }
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->regionCode)) {
+            $query['RegionCode'] = $request->regionCode;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDownloadBackupSetStorageInfo',
+            'version'     => '2021-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDownloadBackupSetStorageInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * You can create an advanced download task by point in time or backup file. You can set the Download Destination parameter to URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Advanced download](~~98819~~).
+     *   *
+     * @param DescribeDownloadBackupSetStorageInfoRequest $request DescribeDownloadBackupSetStorageInfoRequest
+     *
+     * @return DescribeDownloadBackupSetStorageInfoResponse DescribeDownloadBackupSetStorageInfoResponse
+     */
+    public function describeDownloadBackupSetStorageInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDownloadBackupSetStorageInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * You can create an advanced download task by point in time or backup file. You can set the Download Destination parameter to URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Advanced download](~~98819~~).
+     *   *
+     * @param DescribeDownloadSupportRequest $request DescribeDownloadSupportRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDownloadSupportResponse DescribeDownloadSupportResponse
+     */
+    public function describeDownloadSupportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->regionCode)) {
+            $query['RegionCode'] = $request->regionCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDownloadSupport',
+            'version'     => '2021-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDownloadSupportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * You can create an advanced download task by point in time or backup file. You can set the Download Destination parameter to URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Advanced download](~~98819~~).
+     *   *
+     * @param DescribeDownloadSupportRequest $request DescribeDownloadSupportRequest
+     *
+     * @return DescribeDownloadSupportResponse DescribeDownloadSupportResponse
+     */
+    public function describeDownloadSupport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDownloadSupportWithOptions($request, $runtime);
+    }
+
+    /**
+     * You can create an advanced download task by point in time or backup file. You can set the Download Destination parameter to URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Advanced download](~~98819~~).
+     *   *
+     * @param DescribeDownloadTaskRequest $request DescribeDownloadTaskRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDownloadTaskResponse DescribeDownloadTaskResponse
+     */
+    public function describeDownloadTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backupSetId)) {
+            $query['BackupSetId'] = $request->backupSetId;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->datasourceId)) {
+            $query['DatasourceId'] = $request->datasourceId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->orderColumn)) {
+            $query['OrderColumn'] = $request->orderColumn;
+        }
+        if (!Utils::isUnset($request->orderDirect)) {
+            $query['OrderDirect'] = $request->orderDirect;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionCode)) {
+            $query['RegionCode'] = $request->regionCode;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDownloadTask',
+            'version'     => '2021-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDownloadTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * You can create an advanced download task by point in time or backup file. You can set the Download Destination parameter to URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Advanced download](~~98819~~).
+     *   *
+     * @param DescribeDownloadTaskRequest $request DescribeDownloadTaskRequest
+     *
+     * @return DescribeDownloadTaskResponse DescribeDownloadTaskResponse
+     */
+    public function describeDownloadTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDownloadTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Create a sandbox instance for emergency disaster recovery of an ApsaraDB RDS for MySQL database](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). The API operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+     *   *
+     * @param DescribeSandboxBackupSetsRequest $request DescribeSandboxBackupSetsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSandboxBackupSetsResponse DescribeSandboxBackupSetsResponse
      */
     public function describeSandboxBackupSetsWithOptions($request, $runtime)
     {
@@ -237,9 +678,11 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param DescribeSandboxBackupSetsRequest $request
+     * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Create a sandbox instance for emergency disaster recovery of an ApsaraDB RDS for MySQL database](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). The API operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+     *   *
+     * @param DescribeSandboxBackupSetsRequest $request DescribeSandboxBackupSetsRequest
      *
-     * @return DescribeSandboxBackupSetsResponse
+     * @return DescribeSandboxBackupSetsResponse DescribeSandboxBackupSetsResponse
      */
     public function describeSandboxBackupSets($request)
     {
@@ -249,10 +692,12 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param DescribeSandboxInstancesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * The API operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+     *   *
+     * @param DescribeSandboxInstancesRequest $request DescribeSandboxInstancesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSandboxInstancesResponse
+     * @return DescribeSandboxInstancesResponse DescribeSandboxInstancesResponse
      */
     public function describeSandboxInstancesWithOptions($request, $runtime)
     {
@@ -289,9 +734,11 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param DescribeSandboxInstancesRequest $request
+     * The API operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+     *   *
+     * @param DescribeSandboxInstancesRequest $request DescribeSandboxInstancesRequest
      *
-     * @return DescribeSandboxInstancesResponse
+     * @return DescribeSandboxInstancesResponse DescribeSandboxInstancesResponse
      */
     public function describeSandboxInstances($request)
     {
@@ -301,10 +748,12 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param DescribeSandboxRecoveryTimeRequest $request
-     * @param RuntimeOptions                     $runtime
+     * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Create a sandbox instance for emergency disaster recovery of an ApsaraDB RDS for MySQL database](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). The API operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+     *   *
+     * @param DescribeSandboxRecoveryTimeRequest $request DescribeSandboxRecoveryTimeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSandboxRecoveryTimeResponse
+     * @return DescribeSandboxRecoveryTimeResponse DescribeSandboxRecoveryTimeResponse
      */
     public function describeSandboxRecoveryTimeWithOptions($request, $runtime)
     {
@@ -332,14 +781,120 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param DescribeSandboxRecoveryTimeRequest $request
+     * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Create a sandbox instance for emergency disaster recovery of an ApsaraDB RDS for MySQL database](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). The API operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+     *   *
+     * @param DescribeSandboxRecoveryTimeRequest $request DescribeSandboxRecoveryTimeRequest
      *
-     * @return DescribeSandboxRecoveryTimeResponse
+     * @return DescribeSandboxRecoveryTimeResponse DescribeSandboxRecoveryTimeResponse
      */
     public function describeSandboxRecoveryTime($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSandboxRecoveryTimeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDBTablesRecoveryStateRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyDBTablesRecoveryStateResponse
+     */
+    public function modifyDBTablesRecoveryStateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionCode)) {
+            $query['RegionCode'] = $request->regionCode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->retention)) {
+            $query['Retention'] = $request->retention;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBTablesRecoveryState',
+            'version'     => '2021-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBTablesRecoveryStateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDBTablesRecoveryStateRequest $request
+     *
+     * @return ModifyDBTablesRecoveryStateResponse
+     */
+    public function modifyDBTablesRecoveryState($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBTablesRecoveryStateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SupportDBTableRecoveryRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SupportDBTableRecoveryResponse
+     */
+    public function supportDBTableRecoveryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionCode)) {
+            $query['RegionCode'] = $request->regionCode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SupportDBTableRecovery',
+            'version'     => '2021-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SupportDBTableRecoveryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SupportDBTableRecoveryRequest $request
+     *
+     * @return SupportDBTableRecoveryResponse
+     */
+    public function supportDBTableRecovery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->supportDBTableRecoveryWithOptions($request, $runtime);
     }
 }

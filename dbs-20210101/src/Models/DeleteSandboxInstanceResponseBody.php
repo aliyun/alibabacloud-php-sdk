@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class DeleteSandboxInstanceResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
+     * @example Param.NotFound
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The response parameters.
+     *
+     * @example operation forbidden due to sandbox is creating.
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The error code.
+     *
+     * @example Param.NotFound
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message.
+     *
+     * @example The specified parameter %s value is not valid.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The error message.
+     *
+     * @example The specified parameter %s value is not valid.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4F1888AC-1138-4995-B9FE-D2734F61C058
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

@@ -9,21 +9,42 @@ use AlibabaCloud\Tea\Model;
 class DescribeSandboxInstancesRequest extends Model
 {
     /**
+     * @description The ID of the backup schedule. You can call the [DescribeBackupPlanList](~~437215~~) operation to obtain the ID of the backup schedule.
+     *
+     * >  If your instance is an ApsaraDB RDS for MySQL instance, you can configure [automatic access to the instance](~~193091~~) to automatically add the instance to DBS and obtain the ID of the backup schedule.
+     * @example 1hxxxx8xxxxxa
+     *
      * @var string
      */
     public $backupPlanId;
 
     /**
+     * @description The ID of the sandbox instance. You can call the [CreateSandboxInstance](~~437252~~) parameter to obtain the ID of the sandbox instance.
+     *
+     * @example 1jxxxxnxxx1xc
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of the page to return. The value must be an integer that is greater than 0. Default value: 1.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values:
+     *
+     *   30 (default value)
+     *   50
+     *   100
+     *
+     * @example 30
+     *
      * @var string
      */
     public $pageSize;

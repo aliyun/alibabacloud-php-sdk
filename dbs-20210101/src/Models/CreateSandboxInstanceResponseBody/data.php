@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the backup schedule.
+     *
+     * @example 1hxxxx8xxxxxa
+     *
      * @var string
      */
     public $backupPlanId;
 
     /**
+     * @description The ID of the sandbox instance.
+     *
+     * @example 1jxxxxx9xxxxh
+     *
      * @var string
      */
     public $instanceId;

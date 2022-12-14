@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DeleteSandboxInstanceRequest extends Model
 {
     /**
+     * @description The ID of the backup schedule. You can call the [DescribeBackupPlanList](~~437215~~) operation to obtain the ID of the backup schedule.
+     *
+     * >  If your instance is an ApsaraDB RDS for MySQL instance, you can configure [automatic access to the instance](~~193091~~) to automatically add the instance to DBS and obtain the ID of the backup schedule.
+     * @example 1hxxxx8xxxxxa
+     *
      * @var string
      */
     public $backupPlanId;
 
     /**
+     * @description The ID of the sandbox instance. You can call the [DescribeSandboxInstances](~~437257~~) operation to obtain the ID of the sandbox instance.
+     *
+     * @example 1jxxxxnxxx1xc
+     *
      * @var string
      */
     public $instanceId;

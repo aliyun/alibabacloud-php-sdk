@@ -4,40 +4,44 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20210101\Models;
 
-use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeSandboxRecoveryTimeResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class DescribeSandboxRecoveryTimeResponseBody extends Model
+class DescribeDownloadSupportResponseBody extends Model
 {
     /**
      * @description The error code.
      *
-     * @example Param.NotFound
+     * @example DBS.ParamIsInValid
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description The response parameters.
+     * @description Indicates whether the advanced download feature is supported. Valid values:
      *
-     * @var data
+     *   **true**: The advanced download feature is supported.
+     *   **false**: The advanced download feature is not supported.
+     *
+     * @example true
+     *
+     * @var string
      */
     public $data;
 
     /**
-     * @description The error code.
+     * @description The error code returned if the request fails.
      *
-     * @example Param.NotFound
+     * @example DBS.ParamIsInValid
      *
      * @var string
      */
     public $errCode;
 
     /**
-     * @description The error message.
+     * @description The error message returned if the request fails.
      *
-     * @example The specified parameter %s value is not valid.
+     * @example Argument: regionCode Must not be empty
      *
      * @var string
      */
@@ -46,7 +50,7 @@ class DescribeSandboxRecoveryTimeResponseBody extends Model
     /**
      * @description The error message.
      *
-     * @example The specified parameter %s value is not valid.
+     * @example Argument: regionCode Must not be empty
      *
      * @var string
      */
@@ -55,14 +59,17 @@ class DescribeSandboxRecoveryTimeResponseBody extends Model
     /**
      * @description The ID of the request.
      *
-     * @example 4F1888AC-1138-4995-B9FE-D2734F61C058
+     * @example F1A186F7-7B34-5C11-A903-EE23876B****
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**: The request is successful.
+     *   **false**: The request fails.
      *
      * @example true
      *
@@ -90,7 +97,7 @@ class DescribeSandboxRecoveryTimeResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = $this->data;
         }
         if (null !== $this->errCode) {
             $res['ErrCode'] = $this->errCode;
@@ -114,7 +121,7 @@ class DescribeSandboxRecoveryTimeResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeSandboxRecoveryTimeResponseBody
+     * @return DescribeDownloadSupportResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -123,7 +130,7 @@ class DescribeSandboxRecoveryTimeResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+            $model->data = $map['Data'];
         }
         if (isset($map['ErrCode'])) {
             $model->errCode = $map['ErrCode'];

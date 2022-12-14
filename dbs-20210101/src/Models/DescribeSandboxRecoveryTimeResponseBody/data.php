@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The backup schedule of the sandbox instance.
+     *
+     * @example 1hxxxx8xxxxxa
+     *
      * @var string
      */
     public $backupPlanId;
 
     /**
+     * @description The beginning of the time range during which the sandbox instance can be restored. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2021-08-01T12:01:01Z
+     *
      * @var string
      */
     public $recoveryBeginTime;
 
     /**
+     * @description The end of the time range during which the sandbox instance can be restored. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2021-08-02T12:01:01Z
+     *
      * @var string
      */
     public $recoveryEndTime;
