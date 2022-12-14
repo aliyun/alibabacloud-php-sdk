@@ -20,6 +20,8 @@ class EraseVideoLogoResponseBody extends Model
     public $message;
 
     /**
+     * @example 95532F36-98FC-4DCD-815C-282BB26D2DA1
+     *
      * @var string
      */
     public $requestId;

@@ -20,6 +20,8 @@ class EnhanceVideoQualityResponseBody extends Model
     public $message;
 
     /**
+     * @example 881F39DC-C107-4817-A6D5-000BE833CC2A
+     *
      * @var string
      */
     public $requestId;

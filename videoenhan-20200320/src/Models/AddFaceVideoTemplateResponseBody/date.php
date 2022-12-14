@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class date extends Model
 {
     /**
+     * @example 6cd509ea-54fa-4730-8e9d-c94cadcda048
+     *
      * @var string
      */
     public $templateId;

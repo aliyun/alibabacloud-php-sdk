@@ -10,21 +10,29 @@ use GuzzleHttp\Psr7\Stream;
 class AbstractEcommerceVideoAdvanceRequest extends Model
 {
     /**
+     * @example 5
+     *
      * @var float
      */
     public $duration;
 
     /**
+     * @example 480
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/AbstractEcommerceVideo/AbstractEcommerceVideo1.mp4
+     *
      * @var Stream
      */
     public $videoUrlObject;
 
     /**
+     * @example 480
+     *
      * @var int
      */
     public $width;

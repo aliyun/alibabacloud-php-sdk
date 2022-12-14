@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class AddFaceVideoTemplateAdvanceRequest extends Model
 {
     /**
+     * @example http://invi-label.oss-cn-shanghai.aliyuncs.com/labl/temp/faceswap/test_for_api/xxxx.mp4
+     *
      * @var Stream
      */
     public $videoURLObject;

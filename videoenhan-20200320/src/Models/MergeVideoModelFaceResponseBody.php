@@ -20,6 +20,8 @@ class MergeVideoModelFaceResponseBody extends Model
     public $message;
 
     /**
+     * @example 334F180F-3B50-51CB-B4CB-9A86A542D3BC
+     *
      * @var string
      */
     public $requestId;

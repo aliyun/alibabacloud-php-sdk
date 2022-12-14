@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteFaceVideoTemplateResponseBody extends Model
 {
     /**
+     * @example 2337D184-CD63-57B5-96A2-B60AABCB7B58
+     *
      * @var string
      */
     public $requestId;

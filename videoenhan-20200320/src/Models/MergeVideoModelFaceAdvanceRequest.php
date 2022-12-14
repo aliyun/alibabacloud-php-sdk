@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class MergeVideoModelFaceAdvanceRequest extends Model
 {
     /**
+     * @example https://invi-label.oss-cn-shanghai.aliyuncs.com/label/temp/faceswap/ref/ref.jpg
+     *
      * @var Stream
      */
     public $faceImageURLObject;
 
     /**
+     * @example 3bf2418c-7adf-4002-a9d6-2f7cf1889c0d
+     *
      * @var string
      */
     public $templateId;

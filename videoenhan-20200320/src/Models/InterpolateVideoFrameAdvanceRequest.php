@@ -10,16 +10,22 @@ use GuzzleHttp\Psr7\Stream;
 class InterpolateVideoFrameAdvanceRequest extends Model
 {
     /**
+     * @example 30
+     *
      * @var int
      */
     public $bitrate;
 
     /**
+     * @example 70
+     *
      * @var int
      */
     public $frameRate;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/InterpolateVideoFrame/InterpolateVideoFrame3.mp4
+     *
      * @var Stream
      */
     public $videoURLObject;

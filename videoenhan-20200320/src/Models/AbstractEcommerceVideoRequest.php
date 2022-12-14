@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class AbstractEcommerceVideoRequest extends Model
 {
     /**
+     * @example 5
+     *
      * @var float
      */
     public $duration;
 
     /**
+     * @example 480
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/AbstractEcommerceVideo/AbstractEcommerceVideo1.mp4
+     *
      * @var string
      */
     public $videoUrl;
 
     /**
+     * @example 480
+     *
      * @var int
      */
     public $width;

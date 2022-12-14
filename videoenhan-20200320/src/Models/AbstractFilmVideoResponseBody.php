@@ -20,6 +20,8 @@ class AbstractFilmVideoResponseBody extends Model
     public $message;
 
     /**
+     * @example 9A5B872B-1BF0-4D84-90DA-A2EE1F072B82
+     *
      * @var string
      */
     public $requestId;

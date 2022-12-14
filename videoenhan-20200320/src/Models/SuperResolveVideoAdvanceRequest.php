@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class SuperResolveVideoAdvanceRequest extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $bitRate;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/SuperResolveVideo/SuperResolveVideo2.mp4
+     *
      * @var Stream
      */
     public $videoUrlObject;

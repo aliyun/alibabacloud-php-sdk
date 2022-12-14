@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class elements extends Model
 {
     /**
+     * @example 2021-09-06 15:17:19
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 3bf2418c-7adf-4002-a9d6-2f7cf1889c0d
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example http://vibktprfx-prod-prod-aic-gd-cn-shanghai.oss-cn-shanghai.aliyuncs.com/image-face-fusion/OriginUrl/user/2021-09-06/e4d6ecf6-8dc8-4dac-acb5-56a737ccbc06?Expires=1630914551&OSSAccessKeyId=LTAI4FoLmvQ9urWXgSRp****&Signature=kBcLm66y7%2FZ3eIMgwXJg1zNP7k****
+     *
      * @var string
      */
     public $templateURL;
 
     /**
+     * @example 2021-09-06 15:18:15
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @example zhangsan
+     *
      * @var string
      */
     public $userId;

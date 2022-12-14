@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ConvertHdrVideoRequest extends Model
 {
     /**
+     * @example 30
+     *
      * @var int
      */
     public $bitrate;
 
     /**
+     * @example HLG
+     *
      * @var string
      */
     public $HDRFormat;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $maxIlluminance;
 
     /**
+     * @example https://invi-label.oss-cn-shanghai.aliyuncs.com/label/temp/faceswap/test_for_api/xxxx.mp4
+     *
      * @var string
      */
     public $videoURL;

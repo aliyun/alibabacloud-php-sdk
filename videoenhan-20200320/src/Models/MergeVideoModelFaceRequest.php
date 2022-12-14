@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class MergeVideoModelFaceRequest extends Model
 {
     /**
+     * @example https://invi-label.oss-cn-shanghai.aliyuncs.com/label/temp/faceswap/ref/ref.jpg
+     *
      * @var string
      */
     public $faceImageURL;
 
     /**
+     * @example 3bf2418c-7adf-4002-a9d6-2f7cf1889c0d
+     *
      * @var string
      */
     public $templateId;

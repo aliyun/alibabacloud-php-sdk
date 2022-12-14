@@ -20,6 +20,8 @@ class ChangeVideoSizeResponseBody extends Model
     public $message;
 
     /**
+     * @example C00C5A32-9F54-44F0-9778-0968DD9BF22A
+     *
      * @var string
      */
     public $requestId;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class EraseVideoSubtitlesRequest extends Model
 {
     /**
+     * @example 0.25
+     *
      * @var float
      */
     public $BH;
 
     /**
+     * @example 1
+     *
      * @var float
      */
     public $BW;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $BX;
 
     /**
+     * @example 0.75
+     *
      * @var float
      */
     public $BY;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/EraseVideoSubtitles/EraseVideoSubtitles1.mp4
+     *
      * @var string
      */
     public $videoUrl;

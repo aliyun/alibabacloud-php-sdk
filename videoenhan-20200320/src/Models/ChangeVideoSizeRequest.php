@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ChangeVideoSizeRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $b;
 
     /**
+     * @example smart
+     *
      * @var string
      */
     public $cropType;
 
     /**
+     * @example image
+     *
      * @var string
      */
     public $fillType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $g;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $r;
 
     /**
+     * @example 0.5
+     *
      * @var float
      */
     public $tightness;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/ChangeVideoSize/ChangeVideoSize1.mp4
+     *
      * @var string
      */
     public $videoUrl;
 
     /**
+     * @example 600
+     *
      * @var int
      */
     public $width;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ToneSdrVideoRequest extends Model
 {
     /**
+     * @example 30
+     *
      * @var int
      */
     public $bitrate;
 
     /**
+     * @example auto_l2
+     *
      * @var string
      */
     public $recolorModel;
 
     /**
+     * @example https://invi-label.oss-cn-shanghai.aliyuncs.com/label/temp/faceswap/test_for_api/xxxx.mp4
+     *
      * @var string
      */
     public $videoURL;

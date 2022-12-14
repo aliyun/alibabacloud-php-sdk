@@ -20,6 +20,8 @@ class ToneSdrVideoResponseBody extends Model
     public $message;
 
     /**
+     * @example 89B5AFF1-8A64-4F76-B391-56AD7D22DE35
+     *
      * @var string
      */
     public $requestId;

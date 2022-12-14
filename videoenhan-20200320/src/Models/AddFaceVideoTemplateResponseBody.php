@@ -20,6 +20,8 @@ class AddFaceVideoTemplateResponseBody extends Model
     public $message;
 
     /**
+     * @example F61182AE-515B-5B0A-A877-1C9AE908FF15
+     *
      * @var string
      */
     public $requestId;

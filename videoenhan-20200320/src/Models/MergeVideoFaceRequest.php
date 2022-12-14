@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class MergeVideoFaceRequest extends Model
 {
     /**
+     * @example " "
+     *
      * @var string
      */
     public $postURL;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/MergeVideoFace/MergeVideoFace-pic1.png
+     *
      * @var string
      */
     public $referenceURL;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/MergeVideoFace/MergeVideoFace1.mp4
+     *
      * @var string
      */
     public $videoURL;

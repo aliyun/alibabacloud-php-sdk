@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AbstractFilmVideoRequest extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $length;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/AbstractFilmVideo/AbstractFilmVideo1.mp4
+     *
      * @var string
      */
     public $videoUrl;

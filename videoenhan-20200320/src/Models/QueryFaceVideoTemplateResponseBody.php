@@ -15,6 +15,8 @@ class QueryFaceVideoTemplateResponseBody extends Model
     public $data;
 
     /**
+     * @example A06E3D21-890D-500B-97DA-D8B99D2DDDC4
+     *
      * @var string
      */
     public $requestId;

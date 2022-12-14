@@ -20,6 +20,8 @@ class SuperResolveVideoResponseBody extends Model
     public $message;
 
     /**
+     * @example 186AC396-0EEC-46F1-AAA1-BF3585227427
+     *
      * @var string
      */
     public $requestId;

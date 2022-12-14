@@ -10,56 +10,78 @@ use AlibabaCloud\Tea\Model;
 class GenerateVideoRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var float
      */
     public $duration;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $durationAdaption;
 
     /**
+     * @description 1
+     *
      * @var fileList[]
      */
     public $fileList;
 
     /**
+     * @example 640
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $mute;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $puzzleEffect;
 
     /**
+     * @example costume
+     *
      * @var string
      */
     public $scene;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $smartEffect;
 
     /**
+     * @example fast
+     *
      * @var string
      */
     public $style;
 
     /**
+     * @example brush
+     *
      * @var string
      */
     public $transitionStyle;
 
     /**
+     * @example 640
+     *
      * @var int
      */
     public $width;

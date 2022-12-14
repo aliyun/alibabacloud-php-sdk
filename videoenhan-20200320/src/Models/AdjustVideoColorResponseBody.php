@@ -20,6 +20,8 @@ class AdjustVideoColorResponseBody extends Model
     public $message;
 
     /**
+     * @example C4EB5E0B-0718-42CC-9B2C-1FB149256874
+     *
      * @var string
      */
     public $requestId;

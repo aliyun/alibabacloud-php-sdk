@@ -20,6 +20,8 @@ class ConvertHdrVideoResponseBody extends Model
     public $message;
 
     /**
+     * @example E0CF495F-E806-4B9C-B204-E1230608239D
+     *
      * @var string
      */
     public $requestId;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class AdjustVideoColorRequest extends Model
 {
     /**
+     * @example LogC
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $videoBitrate;
 
     /**
+     * @example h264
+     *
      * @var string
      */
     public $videoCodec;
 
     /**
+     * @example mp4
+     *
      * @var string
      */
     public $videoFormat;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/AdjustVideoColor/AdjustVideoColor1.mp4
+     *
      * @var string
      */
     public $videoUrl;

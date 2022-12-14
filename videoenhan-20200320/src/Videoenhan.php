@@ -1449,7 +1449,7 @@ class Videoenhan extends OpenApiClient
         $generateVideoReq = new GenerateVideoRequest([]);
         OpenApiUtilClient::convert($request, $generateVideoReq);
         if (!Utils::isUnset($request->fileList)) {
-            $i = 0;
+            $i0 = 0;
             foreach ($request->fileList as $item0) {
                 if (!Utils::isUnset($item0->fileUrlObject)) {
                     $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
@@ -1474,15 +1474,14 @@ class Videoenhan extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp          = @$generateVideoReq->fileList[${$i}];
+                    $tmp          = @$generateVideoReq->fileList[$i0];
                     $tmp->fileUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
-                    $i            = $i + 1;
+                    $i0           = $i0 + 1;
                 }
             }
         }
-        $generateVideoResp = $this->generateVideoWithOptions($generateVideoReq, $runtime);
 
-        return $generateVideoResp;
+        return $this->generateVideoWithOptions($generateVideoReq, $runtime);
     }
 
     /**

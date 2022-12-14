@@ -20,6 +20,8 @@ class EraseVideoSubtitlesResponseBody extends Model
     public $message;
 
     /**
+     * @example CCB082BF-A6B1-4C28-9E49-562EEE7DE639
+     *
      * @var string
      */
     public $requestId;

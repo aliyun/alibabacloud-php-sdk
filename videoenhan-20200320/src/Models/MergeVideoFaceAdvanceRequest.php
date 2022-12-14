@@ -10,16 +10,22 @@ use GuzzleHttp\Psr7\Stream;
 class MergeVideoFaceAdvanceRequest extends Model
 {
     /**
+     * @example " "
+     *
      * @var Stream
      */
     public $postURLObject;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/MergeVideoFace/MergeVideoFace-pic1.png
+     *
      * @var Stream
      */
     public $referenceURLObject;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/MergeVideoFace/MergeVideoFace1.mp4
+     *
      * @var Stream
      */
     public $videoURLObject;

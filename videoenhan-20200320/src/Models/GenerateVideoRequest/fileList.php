@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class fileList extends Model
 {
     /**
+     * @example 1-video1.mp4
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/GenerateVideo/1-video1.mp4
+     *
      * @var string
      */
     public $fileUrl;
 
     /**
+     * @example video
+     *
      * @var string
      */
     public $type;

@@ -10,36 +10,50 @@ use GuzzleHttp\Psr7\Stream;
 class EnhanceVideoQualityAdvanceRequest extends Model
 {
     /**
+     * @example 20
+     *
      * @var int
      */
     public $bitrate;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $frameRate;
 
     /**
+     * @example PQ
+     *
      * @var string
      */
     public $HDRFormat;
 
     /**
+     * @example 600
+     *
      * @var int
      */
     public $maxIlluminance;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $outPutHeight;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $outPutWidth;
 
     /**
+     * @example https://invi-label.oss-cn-shanghai.aliyuncs.com/label/temp/faceswap/test_for_api/xxxx.mp4
+     *
      * @var Stream
      */
     public $videoURLObject;

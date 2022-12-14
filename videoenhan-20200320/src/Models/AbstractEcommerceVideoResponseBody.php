@@ -20,6 +20,8 @@ class AbstractEcommerceVideoResponseBody extends Model
     public $message;
 
     /**
+     * @example 50B33B81-CCB8-42BC-8A73-AC838618936E
+     *
      * @var string
      */
     public $requestId;

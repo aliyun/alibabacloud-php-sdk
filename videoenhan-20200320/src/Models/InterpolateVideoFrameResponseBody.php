@@ -20,6 +20,8 @@ class InterpolateVideoFrameResponseBody extends Model
     public $message;
 
     /**
+     * @example 7EF85B5B-FB44-4C3E-9B8F-08C6CD912CEB
+     *
      * @var string
      */
     public $requestId;
