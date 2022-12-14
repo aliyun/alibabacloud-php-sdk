@@ -115,10 +115,18 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageLabelsShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageScoreRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageScoreResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageScoreShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DetectMediaMetaRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DetectMediaMetaResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DetectMediaMetaShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectTextAnomalyRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectTextAnomalyResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\FuzzyQueryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\FuzzyQueryResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateDRMLicenseRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateDRMLicenseResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateVideoPlaylistRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateVideoPlaylistResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateVideoPlaylistShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetBindingRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetBindingResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetDatasetRequest;
@@ -129,9 +137,6 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\GetFigureClusterRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFigureClusterResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileMetaResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GetMediaMetaRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GetMediaMetaResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GetMediaMetaShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetOSSBucketAttachmentRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetOSSBucketAttachmentResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetProjectRequest;
@@ -142,12 +147,6 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\GetTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetVideoLabelClassificationResultRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetVideoLabelClassificationResultResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GetVideoPlaylistRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GetVideoPlaylistResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GetVideoPlaylistShrinkRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GetWebofficeURLRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GetWebofficeURLResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GetWebofficeURLShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\IndexFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\IndexFileMetaResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\IndexFileMetaShrinkRequest;
@@ -2871,6 +2870,60 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param DetectMediaMetaRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DetectMediaMetaResponse
+     */
+    public function detectMediaMetaWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DetectMediaMetaShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->credentialConfig)) {
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->credentialConfigShrink)) {
+            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectMediaMeta',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetectMediaMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DetectMediaMetaRequest $request
+     *
+     * @return DetectMediaMetaResponse
+     */
+    public function detectMediaMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectMediaMetaWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DetectTextAnomalyRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2975,6 +3028,142 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->fuzzyQueryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GenerateDRMLicenseRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GenerateDRMLicenseResponse
+     */
+    public function generateDRMLicenseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
+        if (!Utils::isUnset($request->notifyEndpoint)) {
+            $query['NotifyEndpoint'] = $request->notifyEndpoint;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->protectionSystem)) {
+            $query['ProtectionSystem'] = $request->protectionSystem;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateDRMLicense',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenerateDRMLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GenerateDRMLicenseRequest $request
+     *
+     * @return GenerateDRMLicenseResponse
+     */
+    public function generateDRMLicense($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateDRMLicenseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GenerateVideoPlaylistRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GenerateVideoPlaylistResponse
+     */
+    public function generateVideoPlaylistWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GenerateVideoPlaylistShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->credentialConfig)) {
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->sourceSubtitles)) {
+            $request->sourceSubtitlesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceSubtitles, 'SourceSubtitles', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->targets)) {
+            $request->targetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->targets, 'Targets', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->credentialConfigShrink)) {
+            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+        if (!Utils::isUnset($request->masterURI)) {
+            $query['MasterURI'] = $request->masterURI;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourceDuration)) {
+            $query['SourceDuration'] = $request->sourceDuration;
+        }
+        if (!Utils::isUnset($request->sourceStartTime)) {
+            $query['SourceStartTime'] = $request->sourceStartTime;
+        }
+        if (!Utils::isUnset($request->sourceSubtitlesShrink)) {
+            $query['SourceSubtitles'] = $request->sourceSubtitlesShrink;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->targetsShrink)) {
+            $query['Targets'] = $request->targetsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateVideoPlaylist',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenerateVideoPlaylistResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GenerateVideoPlaylistRequest $request
+     *
+     * @return GenerateVideoPlaylistResponse
+     */
+    public function generateVideoPlaylist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateVideoPlaylistWithOptions($request, $runtime);
     }
 
     /**
@@ -3231,60 +3420,6 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetMediaMetaRequest $tmpReq
-     * @param RuntimeOptions      $runtime
-     *
-     * @return GetMediaMetaResponse
-     */
-    public function getMediaMetaWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new GetMediaMetaShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
-        }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
-        }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetMediaMeta',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetMediaMetaResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetMediaMetaRequest $request
-     *
-     * @return GetMediaMetaResponse
-     */
-    public function getMediaMeta($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getMediaMetaWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetOSSBucketAttachmentRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -3518,186 +3653,6 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getVideoLabelClassificationResultWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetVideoPlaylistRequest $tmpReq
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetVideoPlaylistResponse
-     */
-    public function getVideoPlaylistWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new GetVideoPlaylistShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->sourceSubtitles)) {
-            $request->sourceSubtitlesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceSubtitles, 'SourceSubtitles', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->targets)) {
-            $request->targetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->targets, 'Targets', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
-        }
-        if (!Utils::isUnset($request->masterURI)) {
-            $query['MasterURI'] = $request->masterURI;
-        }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
-        }
-        if (!Utils::isUnset($request->sourceDuration)) {
-            $query['SourceDuration'] = $request->sourceDuration;
-        }
-        if (!Utils::isUnset($request->sourceStartTime)) {
-            $query['SourceStartTime'] = $request->sourceStartTime;
-        }
-        if (!Utils::isUnset($request->sourceSubtitlesShrink)) {
-            $query['SourceSubtitles'] = $request->sourceSubtitlesShrink;
-        }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
-        }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
-        }
-        if (!Utils::isUnset($request->targetsShrink)) {
-            $query['Targets'] = $request->targetsShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetVideoPlaylist',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetVideoPlaylistResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetVideoPlaylistRequest $request
-     *
-     * @return GetVideoPlaylistResponse
-     */
-    public function getVideoPlaylist($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getVideoPlaylistWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetWebofficeURLRequest $tmpReq
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetWebofficeURLResponse
-     */
-    public function getWebofficeURLWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new GetWebofficeURLShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->permission)) {
-            $request->permissionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->permission, 'Permission', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->user)) {
-            $request->userShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->user, 'User', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->watermark)) {
-            $request->watermarkShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->watermark, 'Watermark', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->cachePreview)) {
-            $query['CachePreview'] = $request->cachePreview;
-        }
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
-        }
-        if (!Utils::isUnset($request->externalUploaded)) {
-            $query['ExternalUploaded'] = $request->externalUploaded;
-        }
-        if (!Utils::isUnset($request->filename)) {
-            $query['Filename'] = $request->filename;
-        }
-        if (!Utils::isUnset($request->hidecmb)) {
-            $query['Hidecmb'] = $request->hidecmb;
-        }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
-        }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
-        }
-        if (!Utils::isUnset($request->permissionShrink)) {
-            $query['Permission'] = $request->permissionShrink;
-        }
-        if (!Utils::isUnset($request->previewPages)) {
-            $query['PreviewPages'] = $request->previewPages;
-        }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
-        }
-        if (!Utils::isUnset($request->referer)) {
-            $query['Referer'] = $request->referer;
-        }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
-        }
-        if (!Utils::isUnset($request->userShrink)) {
-            $query['User'] = $request->userShrink;
-        }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
-        }
-        if (!Utils::isUnset($request->watermarkShrink)) {
-            $query['Watermark'] = $request->watermarkShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetWebofficeURL',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetWebofficeURLResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetWebofficeURLRequest $request
-     *
-     * @return GetWebofficeURLResponse
-     */
-    public function getWebofficeURL($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getWebofficeURLWithOptions($request, $runtime);
     }
 
     /**
