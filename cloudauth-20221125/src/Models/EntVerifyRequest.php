@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EntVerifyRequest extends Model
 {
     /**
+     * @example 321324***38293
+     *
      * @var string
      */
     public $accountNo;
@@ -24,11 +26,15 @@ class EntVerifyRequest extends Model
     public $infoVerifyType;
 
     /**
+     * @example 370105*****3892
+     *
      * @var string
      */
     public $legalPersonCertNo;
 
     /**
+     * @example 1300***53
+     *
      * @var string
      */
     public $legalPersonMobile;
@@ -39,36 +45,50 @@ class EntVerifyRequest extends Model
     public $legalPersonName;
 
     /**
+     * @example 32132***328932
+     *
      * @var string
      */
     public $licenseNo;
 
     /**
+     * @example 3219893173829193227
+     *
      * @var string
      */
     public $merchantBizId;
 
     /**
+     * @example 432312421
+     *
      * @var string
      */
     public $merchantUserId;
 
     /**
+     * @example BASIC
+     *
      * @var string
      */
     public $riskModelVersion;
 
     /**
+     * @example BUSINESS_AUTHENTICITY_RANK
+     *
      * @var string
      */
     public $riskVerifyType;
 
     /**
+     * @example withdraw
+     *
      * @var string
      */
     public $sceneCode;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $userAuthorization;

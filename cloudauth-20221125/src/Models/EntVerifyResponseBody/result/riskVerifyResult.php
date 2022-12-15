@@ -10,10 +10,16 @@ use AlibabaCloud\Tea\Model;
 class riskVerifyResult extends Model
 {
     /**
+     * @var string
+     */
+    public $found;
+
+    /**
      * @var modelResults[]
      */
     public $modelResults;
     protected $_name = [
+        'found'        => 'Found',
         'modelResults' => 'ModelResults',
     ];
 
@@ -24,6 +30,9 @@ class riskVerifyResult extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->found) {
+            $res['Found'] = $this->found;
+        }
         if (null !== $this->modelResults) {
             $res['ModelResults'] = [];
             if (null !== $this->modelResults && \is_array($this->modelResults)) {
@@ -45,6 +54,9 @@ class riskVerifyResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Found'])) {
+            $model->found = $map['Found'];
+        }
         if (isset($map['ModelResults'])) {
             if (!empty($map['ModelResults'])) {
                 $model->modelResults = [];

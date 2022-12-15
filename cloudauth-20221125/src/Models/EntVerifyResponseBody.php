@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class EntVerifyResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,10 @@ class EntVerifyResponseBody extends Model
     public $message;
 
     /**
+     * @description Id of the request
+     *
+     * @example 473469C7-A***B-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
