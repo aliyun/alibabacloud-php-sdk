@@ -35,9 +35,6 @@ use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVehicleIllegalParkingRespo
 use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVehicleIllegalParkingShrinkRequest;
 use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVehicleRequest;
 use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVehicleResponse;
-use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVideoFrameRequest;
-use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVideoFrameResponse;
-use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVideoFrameShrinkRequest;
 use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVideoIPCObjectAdvanceRequest;
 use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVideoIPCObjectRequest;
 use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVideoIPCObjectResponse;
@@ -48,13 +45,8 @@ use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectWorkwearAdvanceRequest;
 use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectWorkwearRequest;
 use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectWorkwearResponse;
 use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectWorkwearShrinkRequest;
-use AlibabaCloud\SDK\Objectdet\V20191230\Models\GenerateVehicleRepairPlanRequest;
-use AlibabaCloud\SDK\Objectdet\V20191230\Models\GenerateVehicleRepairPlanResponse;
 use AlibabaCloud\SDK\Objectdet\V20191230\Models\GetAsyncJobResultRequest;
 use AlibabaCloud\SDK\Objectdet\V20191230\Models\GetAsyncJobResultResponse;
-use AlibabaCloud\SDK\Objectdet\V20191230\Models\GetVehicleRepairPlanAdvanceRequest;
-use AlibabaCloud\SDK\Objectdet\V20191230\Models\GetVehicleRepairPlanRequest;
-use AlibabaCloud\SDK\Objectdet\V20191230\Models\GetVehicleRepairPlanResponse;
 use AlibabaCloud\SDK\Objectdet\V20191230\Models\RecognizeVehicleDamageAdvanceRequest;
 use AlibabaCloud\SDK\Objectdet\V20191230\Models\RecognizeVehicleDamageRequest;
 use AlibabaCloud\SDK\Objectdet\V20191230\Models\RecognizeVehicleDamageResponse;
@@ -71,7 +63,6 @@ use AlibabaCloud\SDK\OSS\OSS;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\Config;
@@ -1252,75 +1243,6 @@ class Objectdet extends OpenApiClient
     }
 
     /**
-     * @param DetectVideoFrameRequest $tmpReq
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DetectVideoFrameResponse
-     */
-    public function detectVideoFrameWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new DetectVideoFrameShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->features)) {
-            $request->featuresShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->features, 'Features', 'json');
-        }
-        $body = [];
-        if (!Utils::isUnset($request->createTime)) {
-            $body['CreateTime'] = $request->createTime;
-        }
-        if (!Utils::isUnset($request->featureConfig)) {
-            $body['FeatureConfig'] = $request->featureConfig;
-        }
-        if (!Utils::isUnset($request->featuresShrink)) {
-            $body['Features'] = $request->featuresShrink;
-        }
-        if (!Utils::isUnset($request->height)) {
-            $body['Height'] = $request->height;
-        }
-        if (!Utils::isUnset($request->imageURL)) {
-            $body['ImageURL'] = $request->imageURL;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $body['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->streamArn)) {
-            $body['StreamArn'] = $request->streamArn;
-        }
-        if (!Utils::isUnset($request->width)) {
-            $body['Width'] = $request->width;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DetectVideoFrame',
-            'version'     => '2019-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DetectVideoFrameResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DetectVideoFrameRequest $request
-     *
-     * @return DetectVideoFrameResponse
-     */
-    public function detectVideoFrame($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->detectVideoFrameWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DetectVideoIPCObjectRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1580,7 +1502,7 @@ class Objectdet extends OpenApiClient
         $request = new DetectWorkwearShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->clothes)) {
-            $request->clothesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->clothes), 'Clothes', 'json');
+            $request->clothesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->clothes, 'Clothes', 'json');
         }
         $body = [];
         if (!Utils::isUnset($request->clothesShrink)) {
@@ -1701,49 +1623,6 @@ class Objectdet extends OpenApiClient
     }
 
     /**
-     * @param GenerateVehicleRepairPlanRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return GenerateVehicleRepairPlanResponse
-     */
-    public function generateVehicleRepairPlanWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->damageImageList)) {
-            $body['DamageImageList'] = $request->damageImageList;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GenerateVehicleRepairPlan',
-            'version'     => '2019-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GenerateVehicleRepairPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GenerateVehicleRepairPlanRequest $request
-     *
-     * @return GenerateVehicleRepairPlanResponse
-     */
-    public function generateVehicleRepairPlan($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->generateVehicleRepairPlanWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetAsyncJobResultRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1784,158 +1663,6 @@ class Objectdet extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAsyncJobResultWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetVehicleRepairPlanRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetVehicleRepairPlanResponse
-     */
-    public function getVehicleRepairPlanWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->carNumberImage)) {
-            $body['CarNumberImage'] = $request->carNumberImage;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
-        }
-        if (!Utils::isUnset($request->vinCodeImage)) {
-            $body['VinCodeImage'] = $request->vinCodeImage;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetVehicleRepairPlan',
-            'version'     => '2019-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetVehicleRepairPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetVehicleRepairPlanRequest $request
-     *
-     * @return GetVehicleRepairPlanResponse
-     */
-    public function getVehicleRepairPlan($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getVehicleRepairPlanWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetVehicleRepairPlanAdvanceRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return GetVehicleRepairPlanResponse
-     */
-    public function getVehicleRepairPlanAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId          = $this->_credential->getAccessKeyId();
-        $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $securityToken        = $this->_credential->getSecurityToken();
-        $credentialType       = $this->_credential->getType();
-        $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
-            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
-        }
-        if (Utils::isUnset($credentialType)) {
-            $credentialType = 'access_key';
-        }
-        $authConfig = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'securityToken'   => $securityToken,
-            'type'            => $credentialType,
-            'endpoint'        => $openPlatformEndpoint,
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'objectdet',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
-        $getVehicleRepairPlanReq = new GetVehicleRepairPlanRequest([]);
-        OpenApiUtilClient::convert($request, $getVehicleRepairPlanReq);
-        if (!Utils::isUnset($request->carNumberImageObject)) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->body->objectKey,
-                'content'     => $request->carNumberImageObject,
-                'contentType' => '',
-            ]);
-            $ossHeader = new header([
-                'accessKeyId'         => $authResponse->body->accessKeyId,
-                'policy'              => $authResponse->body->encodedPolicy,
-                'signature'           => $authResponse->body->signature,
-                'key'                 => $authResponse->body->objectKey,
-                'file'                => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header'     => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $getVehicleRepairPlanReq->carNumberImage = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
-        }
-        if (!Utils::isUnset($request->vinCodeImageObject)) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->body->objectKey,
-                'content'     => $request->vinCodeImageObject,
-                'contentType' => '',
-            ]);
-            $ossHeader = new header([
-                'accessKeyId'         => $authResponse->body->accessKeyId,
-                'policy'              => $authResponse->body->encodedPolicy,
-                'signature'           => $authResponse->body->signature,
-                'key'                 => $authResponse->body->objectKey,
-                'file'                => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header'     => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $getVehicleRepairPlanReq->vinCodeImage = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
-        }
-
-        return $this->getVehicleRepairPlanWithOptions($getVehicleRepairPlanReq, $runtime);
     }
 
     /**

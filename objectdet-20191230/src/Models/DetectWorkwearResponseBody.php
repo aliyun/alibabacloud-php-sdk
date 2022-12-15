@@ -15,6 +15,8 @@ class DetectWorkwearResponseBody extends Model
     public $data;
 
     /**
+     * @example 16CA8094-D7BC-51D4-8D55-6AC59AB20E0B
+     *
      * @var string
      */
     public $requestId;

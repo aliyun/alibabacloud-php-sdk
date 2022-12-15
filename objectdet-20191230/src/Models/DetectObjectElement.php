@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DetectObjectElement extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 0.68225745
+     *
      * @var float
      */
     public $score;
 
     /**
+     * @example VEHICLE
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $width;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $x;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $y;

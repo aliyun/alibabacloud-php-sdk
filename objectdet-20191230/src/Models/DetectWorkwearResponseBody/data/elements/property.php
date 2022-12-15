@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class property extends Model
 {
     /**
+     * @example hat
+     *
      * @var string
      */
     public $label;

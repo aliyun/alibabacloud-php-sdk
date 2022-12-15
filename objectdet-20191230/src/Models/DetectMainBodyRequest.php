@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DetectMainBodyRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/objectdet/DetectMainBody/DetectMainBody1.jpg
+     *
      * @var string
      */
     public $imageURL;

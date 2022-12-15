@@ -15,11 +15,15 @@ class DetectWorkwearRequest extends Model
     public $clothes;
 
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/zhangchaorun/tiyan/xxxx.jpg
+     *
      * @var string
      */
     public $imageUrl;
 
     /**
+     * @description 1
+     *
      * @var string[]
      */
     public $labels;

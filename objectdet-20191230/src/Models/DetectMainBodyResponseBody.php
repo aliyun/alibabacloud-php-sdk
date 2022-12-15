@@ -15,6 +15,8 @@ class DetectMainBodyResponseBody extends Model
     public $data;
 
     /**
+     * @example 2E59C333-5480-4231-A8AB-BEE1001EA7FE
+     *
      * @var string
      */
     public $requestId;

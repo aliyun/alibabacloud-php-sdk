@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class elements extends Model
 {
     /**
+     * @example 156
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 0.7812
+     *
      * @var float
      */
     public $score;
 
     /**
+     * @example PERSON
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $width;
 
     /**
+     * @example 289
+     *
      * @var int
      */
     public $x;
 
     /**
+     * @example 271
+     *
      * @var int
      */
     public $y;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DetectKitchenAnimalsRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/objectdet/DetectKitchenAnimals/DetectKitchenAnimals-left1.png
+     *
      * @var string
      */
     public $imageURLA;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/objectdet/DetectKitchenAnimals/DetectKitchenAnimals-right1.png
+     *
      * @var string
      */
     public $imageURLB;

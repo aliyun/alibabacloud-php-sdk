@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class probability extends Model
 {
     /**
+     * @example 0.00036084422
+     *
      * @var float
      */
     public $no;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $threshold;
 
     /**
+     * @example 0.0006906331
+     *
      * @var float
      */
     public $unknown;
 
     /**
+     * @example 0.9989485
+     *
      * @var float
      */
     public $yes;

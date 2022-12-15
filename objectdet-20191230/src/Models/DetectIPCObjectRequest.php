@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DetectIPCObjectRequest extends Model
 {
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/objectdet/detect-ipc-xxxx.jpg
+     *
      * @var string
      */
     public $imageURL;

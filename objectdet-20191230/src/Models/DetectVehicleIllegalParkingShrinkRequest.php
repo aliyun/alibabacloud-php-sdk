@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DetectVehicleIllegalParkingShrinkRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/objectdet/DetectVehicleIllegalParking/DetectVehicleIllegalParking2.jpg
+     *
      * @var string
      */
     public $imageURL;

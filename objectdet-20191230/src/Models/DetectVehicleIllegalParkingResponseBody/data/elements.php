@@ -15,16 +15,22 @@ class elements extends Model
     public $boxes;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 0.9599609375
+     *
      * @var float
      */
     public $score;
 
     /**
+     * @example vehicle
+     *
      * @var string
      */
     public $typeName;

@@ -16,11 +16,15 @@ class DetectWorkwearAdvanceRequest extends Model
     public $clothes;
 
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/zhangchaorun/tiyan/xxxx.jpg
+     *
      * @var Stream
      */
     public $imageUrlObject;
 
     /**
+     * @description 1
+     *
      * @var string[]
      */
     public $labels;

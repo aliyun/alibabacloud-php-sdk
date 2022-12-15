@@ -15,6 +15,8 @@ class DetectTransparentImageResponseBody extends Model
     public $data;
 
     /**
+     * @example 3F3F335E-640C-4860-A85F-774726FF56A7
+     *
      * @var string
      */
     public $requestId;

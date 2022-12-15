@@ -15,6 +15,8 @@ class DetectVehicleIllegalParkingResponseBody extends Model
     public $data;
 
     /**
+     * @example DB882EDD-991A-5A0C-A19B-CC7C4BA65E35
+     *
      * @var string
      */
     public $requestId;

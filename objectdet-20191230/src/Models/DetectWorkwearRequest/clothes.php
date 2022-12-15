@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class clothes extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $maxNum;
 
     /**
+     * @example 0.4
+     *
      * @var float
      */
     public $threshold;

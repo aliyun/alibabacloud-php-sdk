@@ -15,6 +15,8 @@ class DetectIPCObjectResponseBody extends Model
     public $data;
 
     /**
+     * @example 7AE23740-A3E5-5607-8E10-895DCBD4C260
+     *
      * @var string
      */
     public $requestId;

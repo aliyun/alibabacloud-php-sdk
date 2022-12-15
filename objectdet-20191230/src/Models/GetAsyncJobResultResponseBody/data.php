@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example InvalidParameter
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example paramsIllegal
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 35B11E1B-800C-4598-B5AA-577E3BDBD917
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example {\"inputFile\":\"oss://public-vigen-video/guotian.xgt/test_images/test_video\",\"width\":1280,\"height\":720,\"frames\":[{\"time\":6124533574,\"elements\":[{\"type\":\"PERSON\",\"score\":0.7812,\"x\":289,\"y\":271,\"width\":100,\"height\":156},{\"type\":\"PERSON\",\"score\":0.4377,\"x\":917,\"y\":267,\"width\":34,\"height\":51}]}]}]}"}
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @example PROCESS_SUCCESS
+     *
      * @var string
      */
     public $status;

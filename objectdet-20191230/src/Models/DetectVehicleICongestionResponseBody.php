@@ -15,6 +15,8 @@ class DetectVehicleICongestionResponseBody extends Model
     public $data;
 
     /**
+     * @example 4FC381BB-04F2-50F4-B54B-593042BCF3C6
+     *
      * @var string
      */
     public $requestId;

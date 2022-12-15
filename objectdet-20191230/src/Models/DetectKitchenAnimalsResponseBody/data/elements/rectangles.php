@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class rectangles extends Model
 {
     /**
+     * @example 64
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 292
+     *
      * @var int
      */
     public $left;
 
     /**
+     * @example 1048
+     *
      * @var int
      */
     public $top;
 
     /**
+     * @example 64
+     *
      * @var int
      */
     public $width;

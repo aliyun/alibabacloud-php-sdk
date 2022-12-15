@@ -15,11 +15,15 @@ class data extends Model
     public $detectObjectInfoList;
 
     /**
+     * @example 436
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 612
+     *
      * @var int
      */
     public $width;

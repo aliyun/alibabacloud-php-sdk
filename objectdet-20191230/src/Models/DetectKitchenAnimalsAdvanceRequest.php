@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class DetectKitchenAnimalsAdvanceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/objectdet/DetectKitchenAnimals/DetectKitchenAnimals-left1.png
+     *
      * @var Stream
      */
     public $imageURLAObject;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/objectdet/DetectKitchenAnimals/DetectKitchenAnimals-right1.png
+     *
      * @var Stream
      */
     public $imageURLBObject;

@@ -15,6 +15,8 @@ class frames extends Model
     public $elements;
 
     /**
+     * @example 6124533574
+     *
      * @var int
      */
     public $time;

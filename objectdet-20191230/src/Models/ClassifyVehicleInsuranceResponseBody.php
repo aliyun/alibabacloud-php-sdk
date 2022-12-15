@@ -15,6 +15,8 @@ class ClassifyVehicleInsuranceResponseBody extends Model
     public $data;
 
     /**
+     * @example 878EB16C-87C6-4C8B-897D-F68036F8AC97
+     *
      * @var string
      */
     public $requestId;

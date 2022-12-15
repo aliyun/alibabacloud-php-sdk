@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class DetectIPCObjectAdvanceRequest extends Model
 {
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/objectdet/detect-ipc-xxxx.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;

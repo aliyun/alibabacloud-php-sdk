@@ -19,11 +19,15 @@ class elements extends Model
     public $className;
 
     /**
+     * @example 13
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @example 0.9990643858909607
+     *
      * @var float
      */
     public $score;

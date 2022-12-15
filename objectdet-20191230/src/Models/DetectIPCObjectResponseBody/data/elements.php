@@ -14,16 +14,22 @@ class elements extends Model
     public $box;
 
     /**
+     * @example 0.7138671875
+     *
      * @var float
      */
     public $score;
 
     /**
+     * @example 0.8566723958333333
+     *
      * @var float
      */
     public $targetRate;
 
     /**
+     * @example DOG
+     *
      * @var string
      */
     public $type;

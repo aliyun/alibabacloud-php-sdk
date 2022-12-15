@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class ClassifyVehicleInsuranceAdvanceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/objectdet/ClassifyVehicleInsurance/ClassifyVehicleInsurance1.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;

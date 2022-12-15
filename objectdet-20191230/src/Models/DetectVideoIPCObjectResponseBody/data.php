@@ -15,16 +15,22 @@ class data extends Model
     public $frames;
 
     /**
+     * @example 720
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example oss://viapi-test/viapi-3.0domepic/objectdet/DetectVideoIPCObject/DetectVideoIPCObject4.mp4
+     *
      * @var string
      */
     public $inputFile;
 
     /**
+     * @example 1280
+     *
      * @var int
      */
     public $width;

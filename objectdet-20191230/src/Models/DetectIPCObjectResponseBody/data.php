@@ -15,11 +15,15 @@ class data extends Model
     public $elements;
 
     /**
+     * @example 1200
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 1600
+     *
      * @var int
      */
     public $width;

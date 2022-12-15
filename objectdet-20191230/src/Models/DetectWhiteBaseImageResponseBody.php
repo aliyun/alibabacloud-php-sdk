@@ -15,6 +15,8 @@ class DetectWhiteBaseImageResponseBody extends Model
     public $data;
 
     /**
+     * @example 7A7F9EEB-44C4-4592-9089-A6185B222B23
+     *
      * @var string
      */
     public $requestId;

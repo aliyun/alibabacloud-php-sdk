@@ -15,6 +15,8 @@ class DetectKitchenAnimalsResponseBody extends Model
     public $data;
 
     /**
+     * @example C306F16F-30E1-54F4-93DF-A52CCF6664D1
+     *
      * @var string
      */
     public $requestId;

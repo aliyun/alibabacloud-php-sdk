@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class point extends Model
 {
     /**
+     * @example 400
+     *
      * @var int
      */
     public $x;
 
     /**
+     * @example 400
+     *
      * @var int
      */
     public $y;

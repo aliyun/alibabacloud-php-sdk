@@ -21,11 +21,15 @@ class elements extends Model
     public $rectangles;
 
     /**
+     * @example 0.63913465
+     *
      * @var float
      */
     public $score;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $type;
