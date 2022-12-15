@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SendByAliasShrinkRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $alias;
@@ -44,6 +46,8 @@ class SendByAliasShrinkRequest extends Model
     public $policyShrink;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $productionMode;
@@ -54,6 +58,8 @@ class SendByAliasShrinkRequest extends Model
     public $receiptType;
 
     /**
+     * @example https://msg.umeng.com/upush/receipt
+     *
      * @var string
      */
     public $receiptUrl;

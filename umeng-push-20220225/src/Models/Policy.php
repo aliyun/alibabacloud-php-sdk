@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class Policy extends Model
 {
     /**
+     * @example yyyy-MM-dd HH:mm:ss
+     *
      * @var string
      */
     public $expireTime;
@@ -19,11 +21,15 @@ class Policy extends Model
     public $outerBizNo;
 
     /**
+     * @example 5000
+     *
      * @var int
      */
     public $speed;
 
     /**
+     * @example yyyy-MM-dd HH:mm:ss
+     *
      * @var string
      */
     public $startTime;

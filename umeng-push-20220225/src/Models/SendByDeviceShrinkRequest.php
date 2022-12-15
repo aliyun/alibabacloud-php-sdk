@@ -24,6 +24,8 @@ class SendByDeviceShrinkRequest extends Model
     public $description;
 
     /**
+     * @example ArdNyIzFCH2K3szXA8arpu0Y7ywOdA67mCSumtpnMnmf
+     *
      * @var string
      */
     public $deviceTokens;
@@ -39,6 +41,8 @@ class SendByDeviceShrinkRequest extends Model
     public $policyShrink;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $productionMode;
@@ -49,6 +53,8 @@ class SendByDeviceShrinkRequest extends Model
     public $receiptType;
 
     /**
+     * @example https://msg.umeng.com/upush/receipt
+     *
      * @var string
      */
     public $receiptUrl;

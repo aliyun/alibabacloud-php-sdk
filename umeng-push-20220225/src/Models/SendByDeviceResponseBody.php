@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SendByDeviceResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $code;
@@ -20,21 +22,29 @@ class SendByDeviceResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example 内部错误
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 74808AA4-A044-102F-8F5F-AFE4D97A0F26
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

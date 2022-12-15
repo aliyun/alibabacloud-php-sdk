@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UploadDeviceRequest extends Model
 {
     /**
+     * @example device_token_1\ndevice_token_2\ndevice_token_3\n...
+     * alias1\nalias2\nalias3\n...
      * @var string
      */
     public $deviceTokens;

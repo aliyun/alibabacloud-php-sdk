@@ -24,6 +24,8 @@ class SendByFilterShrinkRequest extends Model
     public $description;
 
     /**
+     * @example "where":{"and":[{"or":[{"app_version":">=1.0"}]}]}
+     *
      * @var string
      */
     public $filter;
@@ -39,6 +41,8 @@ class SendByFilterShrinkRequest extends Model
     public $policyShrink;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $productionMode;
@@ -49,6 +53,8 @@ class SendByFilterShrinkRequest extends Model
     public $receiptType;
 
     /**
+     * @example https://msg.umeng.com/upush/receipt
+     *
      * @var string
      */
     public $receiptUrl;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryMsgStatResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $code;
@@ -20,21 +22,29 @@ class QueryMsgStatResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 86C4236B-D6C2-1E31-8370-2FAEC5CFE012
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

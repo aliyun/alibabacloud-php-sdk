@@ -24,6 +24,8 @@ class SendByDeviceFileIdRequest extends Model
     public $description;
 
     /**
+     * @example PF835431668603208261
+     *
      * @var string
      */
     public $fileId;
@@ -39,6 +41,8 @@ class SendByDeviceFileIdRequest extends Model
     public $policy;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $productionMode;
@@ -49,6 +53,8 @@ class SendByDeviceFileIdRequest extends Model
     public $receiptType;
 
     /**
+     * @example https://msg.umeng.com/upush/receipt
+     *
      * @var string
      */
     public $receiptUrl;

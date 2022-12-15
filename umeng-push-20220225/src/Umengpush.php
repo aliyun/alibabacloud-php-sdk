@@ -71,19 +71,6 @@ class Umengpush extends OpenApiClient
 
     /**
      * @param CancelByMsgIdRequest $request
-     *
-     * @return CancelByMsgIdResponse
-     */
-    public function cancelByMsgId($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->cancelByMsgIdWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param CancelByMsgIdRequest $request
      * @param string[]             $headers
      * @param RuntimeOptions       $runtime
      *
@@ -116,16 +103,16 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param QueryMsgStatRequest $request
+     * @param CancelByMsgIdRequest $request
      *
-     * @return QueryMsgStatResponse
+     * @return CancelByMsgIdResponse
      */
-    public function queryMsgStat($request)
+    public function cancelByMsgId($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->queryMsgStatWithOptions($request, $headers, $runtime);
+        return $this->cancelByMsgIdWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -162,16 +149,16 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param SendByAliasRequest $request
+     * @param QueryMsgStatRequest $request
      *
-     * @return SendByAliasResponse
+     * @return QueryMsgStatResponse
      */
-    public function sendByAlias($request)
+    public function queryMsgStat($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->sendByAliasWithOptions($request, $headers, $runtime);
+        return $this->queryMsgStatWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -249,16 +236,16 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param SendByAliasFileIdRequest $request
+     * @param SendByAliasRequest $request
      *
-     * @return SendByAliasFileIdResponse
+     * @return SendByAliasResponse
      */
-    public function sendByAliasFileId($request)
+    public function sendByAlias($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->sendByAliasFileIdWithOptions($request, $headers, $runtime);
+        return $this->sendByAliasWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -336,16 +323,16 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param SendByAppRequest $request
+     * @param SendByAliasFileIdRequest $request
      *
-     * @return SendByAppResponse
+     * @return SendByAliasFileIdResponse
      */
-    public function sendByApp($request)
+    public function sendByAliasFileId($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->sendByAppWithOptions($request, $headers, $runtime);
+        return $this->sendByAliasFileIdWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -417,16 +404,16 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param SendByDeviceRequest $request
+     * @param SendByAppRequest $request
      *
-     * @return SendByDeviceResponse
+     * @return SendByAppResponse
      */
-    public function sendByDevice($request)
+    public function sendByApp($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->sendByDeviceWithOptions($request, $headers, $runtime);
+        return $this->sendByAppWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -501,16 +488,16 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param SendByDeviceFileIdRequest $request
+     * @param SendByDeviceRequest $request
      *
-     * @return SendByDeviceFileIdResponse
+     * @return SendByDeviceResponse
      */
-    public function sendByDeviceFileId($request)
+    public function sendByDevice($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->sendByDeviceFileIdWithOptions($request, $headers, $runtime);
+        return $this->sendByDeviceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -585,16 +572,16 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param SendByFilterRequest $request
+     * @param SendByDeviceFileIdRequest $request
      *
-     * @return SendByFilterResponse
+     * @return SendByDeviceFileIdResponse
      */
-    public function sendByFilter($request)
+    public function sendByDeviceFileId($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->sendByFilterWithOptions($request, $headers, $runtime);
+        return $this->sendByDeviceFileIdWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -669,16 +656,16 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param UploadDeviceRequest $request
+     * @param SendByFilterRequest $request
      *
-     * @return UploadDeviceResponse
+     * @return SendByFilterResponse
      */
-    public function uploadDevice($request)
+    public function sendByFilter($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->uploadDeviceWithOptions($request, $headers, $runtime);
+        return $this->sendByFilterWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -712,5 +699,18 @@ class Umengpush extends OpenApiClient
         ]);
 
         return UploadDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UploadDeviceRequest $request
+     *
+     * @return UploadDeviceResponse
+     */
+    public function uploadDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->uploadDeviceWithOptions($request, $headers, $runtime);
     }
 }

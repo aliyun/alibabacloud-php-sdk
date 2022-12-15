@@ -34,6 +34,8 @@ class SendByAppRequest extends Model
     public $policy;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $productionMode;
@@ -44,6 +46,8 @@ class SendByAppRequest extends Model
     public $receiptType;
 
     /**
+     * @example https://msg.umeng.com/upush/receipt
+     *
      * @var string
      */
     public $receiptUrl;
