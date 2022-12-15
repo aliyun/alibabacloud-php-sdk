@@ -79,6 +79,11 @@ class Project extends Model
     public $serviceRole;
 
     /**
+     * @var string
+     */
+    public $templateId;
+
+    /**
      * @var int
      */
     public $totalFileSize;
@@ -102,6 +107,7 @@ class Project extends Model
         'projectName'             => 'ProjectName',
         'projectQueriesPerSecond' => 'ProjectQueriesPerSecond',
         'serviceRole'             => 'ServiceRole',
+        'templateId'              => 'TemplateId',
         'totalFileSize'           => 'TotalFileSize',
         'updateTime'              => 'UpdateTime',
     ];
@@ -154,6 +160,9 @@ class Project extends Model
         }
         if (null !== $this->serviceRole) {
             $res['ServiceRole'] = $this->serviceRole;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
         if (null !== $this->totalFileSize) {
             $res['TotalFileSize'] = $this->totalFileSize;
@@ -214,6 +223,9 @@ class Project extends Model
         }
         if (isset($map['ServiceRole'])) {
             $model->serviceRole = $map['ServiceRole'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
         if (isset($map['TotalFileSize'])) {
             $model->totalFileSize = $map['TotalFileSize'];

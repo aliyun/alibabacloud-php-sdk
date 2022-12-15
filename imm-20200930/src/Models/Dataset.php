@@ -64,6 +64,11 @@ class Dataset extends Model
     public $projectName;
 
     /**
+     * @var string
+     */
+    public $templateId;
+
+    /**
      * @var int
      */
     public $totalFileSize;
@@ -84,6 +89,7 @@ class Dataset extends Model
         'description'             => 'Description',
         'fileCount'               => 'FileCount',
         'projectName'             => 'ProjectName',
+        'templateId'              => 'TemplateId',
         'totalFileSize'           => 'TotalFileSize',
         'updateTime'              => 'UpdateTime',
     ];
@@ -127,6 +133,9 @@ class Dataset extends Model
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
         if (null !== $this->totalFileSize) {
             $res['TotalFileSize'] = $this->totalFileSize;
@@ -178,6 +187,9 @@ class Dataset extends Model
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
         if (isset($map['TotalFileSize'])) {
             $model->totalFileSize = $map['TotalFileSize'];
