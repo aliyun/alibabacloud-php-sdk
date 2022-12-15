@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class userList extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $departId;
 
     /**
+     * @example 123@163.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 8797
+     *
      * @var string
      */
     public $jobNo;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $leaveStatus;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $managerUserId;
 
     /**
+     * @example 15364762829
+     *
      * @var string
      */
     public $phone;
@@ -44,16 +56,22 @@ class userList extends Model
     public $position;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $positionLevel;
 
     /**
+     * @example ceshi
+     *
      * @var string
      */
     public $realNameEn;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $thirdDepartId;
@@ -64,6 +82,8 @@ class userList extends Model
     public $thirdDepartIdList;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $userId;

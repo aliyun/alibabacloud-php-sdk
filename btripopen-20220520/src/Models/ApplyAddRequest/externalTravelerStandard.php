@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class externalTravelerStandard extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $businessDiscount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $economyDiscount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $firstDiscount;
 
     /**
+     * @example F
+     *
      * @var string
      */
     public $flightCabins;
@@ -35,22 +43,34 @@ class externalTravelerStandard extends Model
     public $hotelCitys;
 
     /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $premiumEconomyDiscount;
+
+    /**
+     * @example 0
+     *
      * @var int
      */
     public $reserveType;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $trainSeats;
     protected $_name = [
-        'businessDiscount' => 'business_discount',
-        'economyDiscount'  => 'economy_discount',
-        'firstDiscount'    => 'first_discount',
-        'flightCabins'     => 'flight_cabins',
-        'hotelCitys'       => 'hotel_citys',
-        'reserveType'      => 'reserve_type',
-        'trainSeats'       => 'train_seats',
+        'businessDiscount'       => 'business_discount',
+        'economyDiscount'        => 'economy_discount',
+        'firstDiscount'          => 'first_discount',
+        'flightCabins'           => 'flight_cabins',
+        'hotelCitys'             => 'hotel_citys',
+        'premiumEconomyDiscount' => 'premium_economy_discount',
+        'reserveType'            => 'reserve_type',
+        'trainSeats'             => 'train_seats',
     ];
 
     public function validate()
@@ -80,6 +100,9 @@ class externalTravelerStandard extends Model
                     $res['hotel_citys'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->premiumEconomyDiscount) {
+            $res['premium_economy_discount'] = $this->premiumEconomyDiscount;
         }
         if (null !== $this->reserveType) {
             $res['reserve_type'] = $this->reserveType;
@@ -119,6 +142,9 @@ class externalTravelerStandard extends Model
                     $model->hotelCitys[$n++] = null !== $item ? hotelCitys::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['premium_economy_discount'])) {
+            $model->premiumEconomyDiscount = $map['premium_economy_discount'];
         }
         if (isset($map['reserve_type'])) {
             $model->reserveType = $map['reserve_type'];

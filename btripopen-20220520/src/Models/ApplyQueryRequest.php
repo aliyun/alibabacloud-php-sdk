@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ApplyQueryRequest extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $applyId;
 
     /**
+     * @example 201710111505000464651
+     *
      * @var string
      */
     public $applyShowId;
 
     /**
+     * @example adczd
+     *
      * @var string
      */
     public $thirdpartApplyId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;

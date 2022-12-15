@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ApplyAddShrinkRequest extends Model
 {
     /**
+     * @example 4000
+     *
      * @var int
      */
     public $budget;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $budgetMerge;
@@ -24,6 +28,8 @@ class ApplyAddShrinkRequest extends Model
     public $corpName;
 
     /**
+     * @example departId01
+     *
      * @var string
      */
     public $departId;
@@ -44,11 +50,15 @@ class ApplyAddShrinkRequest extends Model
     public $externalTravelerStandardShrink;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $flightBudget;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $hotelBudget;
@@ -59,6 +69,8 @@ class ApplyAddShrinkRequest extends Model
     public $hotelShareShrink;
 
     /**
+     * @example Y
+     *
      * @var string
      */
     public $internationalFlightCabins;
@@ -69,6 +81,8 @@ class ApplyAddShrinkRequest extends Model
     public $itineraryListShrink;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $itineraryRule;
@@ -79,21 +93,29 @@ class ApplyAddShrinkRequest extends Model
     public $itinerarySetListShrink;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $limitTraveler;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $thirdpartApplyId;
 
     /**
+     * @example 00714131
+     *
      * @var string
      */
     public $thirdpartBusinessId;
@@ -104,11 +126,15 @@ class ApplyAddShrinkRequest extends Model
     public $thirdpartDepartId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $togetherBookRule;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $trainBudget;
@@ -129,6 +155,8 @@ class ApplyAddShrinkRequest extends Model
     public $tripCause;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $tripDay;
@@ -139,16 +167,22 @@ class ApplyAddShrinkRequest extends Model
     public $tripTitle;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @example union001
+     *
      * @var string
      */
     public $unionNo;
 
     /**
+     * @example thridpart12138
+     *
      * @var string
      */
     public $userId;
@@ -159,6 +193,8 @@ class ApplyAddShrinkRequest extends Model
     public $userName;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $vehicleBudget;

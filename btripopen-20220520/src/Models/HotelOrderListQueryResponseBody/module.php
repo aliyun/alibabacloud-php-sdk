@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
+     * @example 22678
+     *
      * @var int
      */
     public $applyId;
@@ -23,11 +25,15 @@ class module extends Model
     public $btripTitle;
 
     /**
+     * @example 2022-05-15T22:27Z
+     *
      * @var string
      */
     public $checkIn;
 
     /**
+     * @example 2022-05-15T22:27Z
+     *
      * @var string
      */
     public $checkOut;
@@ -68,11 +74,15 @@ class module extends Model
     public $departName;
 
     /**
+     * @example 2022-05-15T22:27Z
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2022-05-15T22:27Z
+     *
      * @var string
      */
     public $gmtModified;
@@ -88,11 +98,15 @@ class module extends Model
     public $hotelName;
 
     /**
+     * @example 11
+     *
      * @var int
      */
     public $hotelSupportVatInvoiceType;
 
     /**
+     * @example 13764
+     *
      * @var int
      */
     public $id;
@@ -103,11 +117,15 @@ class module extends Model
     public $invoice;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $night;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $orderStatus;
@@ -118,6 +136,8 @@ class module extends Model
     public $orderStatusDesc;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $orderType;
@@ -133,11 +153,15 @@ class module extends Model
     public $priceInfoList;
 
     /**
+     * @example CS-PROJECTCODE
+     *
      * @var string
      */
     public $projectCode;
 
     /**
+     * @example 13631
+     *
      * @var int
      */
     public $projectId;
@@ -148,6 +172,8 @@ class module extends Model
     public $projectTitle;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $roomNum;
@@ -158,16 +184,22 @@ class module extends Model
     public $roomType;
 
     /**
+     * @example CS-THIRDAPPLY
+     *
      * @var string
      */
     public $thirdpartApplyId;
 
     /**
+     * @example CS-ITINEARY
+     *
      * @var string
      */
     public $thirdpartItineraryId;
 
     /**
+     * @example CS-THIRDPROJECT
+     *
      * @var string
      */
     public $thirdpartProjectId;

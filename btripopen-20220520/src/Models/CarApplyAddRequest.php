@@ -19,16 +19,22 @@ class CarApplyAddRequest extends Model
     public $city;
 
     /**
+     * @example 2022-07-12 14:52:52
+     *
      * @var string
      */
     public $date;
 
     /**
+     * @example 2022-07-12 18:51:25
+     *
      * @var string
      */
     public $finishedDate;
 
     /**
+     * @example project1413
+     *
      * @var string
      */
     public $projectCode;
@@ -39,36 +45,50 @@ class CarApplyAddRequest extends Model
     public $projectName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example IRGS1413
+     *
      * @var string
      */
     public $thirdPartApplyId;
 
     /**
+     * @example QA1411
+     *
      * @var string
      */
     public $thirdPartCostCenterId;
 
     /**
+     * @example GA15131
+     *
      * @var string
      */
     public $thirdPartInvoiceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $timesTotal;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $timesType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $timesUsed;
@@ -79,6 +99,8 @@ class CarApplyAddRequest extends Model
     public $title;
 
     /**
+     * @example OPEN1415614
+     *
      * @var string
      */
     public $userId;

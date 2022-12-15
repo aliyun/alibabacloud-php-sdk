@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class entityDOList extends Model
 {
     /**
+     * @example 123
+     *
      * @var string
      */
     public $entityId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $entityType;

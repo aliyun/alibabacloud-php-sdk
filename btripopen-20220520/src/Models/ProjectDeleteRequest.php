@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ProjectDeleteRequest extends Model
 {
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $thirdPartId;

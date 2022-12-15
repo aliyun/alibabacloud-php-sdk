@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class FlightOrderListQueryRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $allApply;
 
     /**
+     * @example 175634
+     *
      * @var int
      */
     public $applyId;
@@ -24,36 +28,50 @@ class FlightOrderListQueryRequest extends Model
     public $departId;
 
     /**
+     * @example 2022-07-01 00:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2022-07-01 00:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example CS-FLIGHT
+     *
      * @var string
      */
     public $thirdpartApplyId;
 
     /**
+     * @example 2022-07-01 00:00:00
+     *
      * @var string
      */
     public $updateEndTime;
 
     /**
+     * @example 2022-07-01 00:00:00
+     *
      * @var string
      */
     public $updateStartTime;

@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class CarOrderListQueryRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $allApply;
 
     /**
+     * @example 117429516
+     *
      * @var int
      */
     public $applyId;
 
     /**
+     * @example departId
+     *
      * @var string
      */
     public $departId;
 
     /**
+     * @example 2022-07-01 00:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2022-07-01 00:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example cs2NH_n1QTC3R6hB9m-BAQ08221658314273
+     *
      * @var string
      */
     public $thirdpartApplyId;
 
     /**
+     * @example 2022-07-01 00:00:00
+     *
      * @var string
      */
     public $updateEndTime;
 
     /**
+     * @example 2022-07-01 00:00:00
+     *
      * @var string
      */
     public $updateStartTime;
 
     /**
+     * @example userId
+     *
      * @var string
      */
     public $userId;

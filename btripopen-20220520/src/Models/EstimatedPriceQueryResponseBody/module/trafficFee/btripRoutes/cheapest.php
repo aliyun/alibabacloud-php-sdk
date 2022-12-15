@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class cheapest extends Model
 {
     /**
+     * @example 00:40
+     *
      * @var string
      */
     public $arrTime;
 
     /**
+     * @example 22:20
+     *
      * @var string
      */
     public $depTime;
 
     /**
+     * @example 30100
+     *
      * @var int
      */
     public $fee;
@@ -29,6 +35,8 @@ class cheapest extends Model
     public $seatGrade;
 
     /**
+     * @example MU9668
+     *
      * @var string
      */
     public $vehicleNo;

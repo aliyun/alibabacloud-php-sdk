@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class travelerStandard extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $businessDiscount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $economyDiscount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $firstDiscount;
 
     /**
+     * @example Y
+     *
      * @var string
      */
     public $flightCabins;
@@ -35,28 +43,42 @@ class travelerStandard extends Model
     public $hotelCitys;
 
     /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $premiumEconomyDiscount;
+
+    /**
+     * @example 0
+     *
      * @var int
      */
     public $reserveType;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $trainSeats;
 
     /**
+     * @example wfffeng
+     *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'businessDiscount' => 'business_discount',
-        'economyDiscount'  => 'economy_discount',
-        'firstDiscount'    => 'first_discount',
-        'flightCabins'     => 'flight_cabins',
-        'hotelCitys'       => 'hotel_citys',
-        'reserveType'      => 'reserve_type',
-        'trainSeats'       => 'train_seats',
-        'userId'           => 'user_id',
+        'businessDiscount'       => 'business_discount',
+        'economyDiscount'        => 'economy_discount',
+        'firstDiscount'          => 'first_discount',
+        'flightCabins'           => 'flight_cabins',
+        'hotelCitys'             => 'hotel_citys',
+        'premiumEconomyDiscount' => 'premium_economy_discount',
+        'reserveType'            => 'reserve_type',
+        'trainSeats'             => 'train_seats',
+        'userId'                 => 'user_id',
     ];
 
     public function validate()
@@ -86,6 +108,9 @@ class travelerStandard extends Model
                     $res['hotel_citys'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->premiumEconomyDiscount) {
+            $res['premium_economy_discount'] = $this->premiumEconomyDiscount;
         }
         if (null !== $this->reserveType) {
             $res['reserve_type'] = $this->reserveType;
@@ -128,6 +153,9 @@ class travelerStandard extends Model
                     $model->hotelCitys[$n++] = null !== $item ? hotelCitys::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['premium_economy_discount'])) {
+            $model->premiumEconomyDiscount = $map['premium_economy_discount'];
         }
         if (isset($map['reserve_type'])) {
             $model->reserveType = $map['reserve_type'];

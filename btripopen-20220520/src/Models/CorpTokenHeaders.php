@@ -11,6 +11,8 @@ class CorpTokenHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @example vf9_bvla0qs
+     *
      * @var string
      */
     public $xAcsBtripAccessToken;

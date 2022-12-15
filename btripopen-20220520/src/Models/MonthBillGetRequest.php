@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MonthBillGetRequest extends Model
 {
     /**
+     * @example 202207
+     *
      * @var string
      */
     public $billMonth;

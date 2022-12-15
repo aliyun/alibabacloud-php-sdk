@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class itinerarySetList extends Model
 {
     /**
+     * @example 2018-09-19T14:03Z
+     *
      * @var string
      */
     public $arrDate;
 
     /**
+     * @example BJS，HGH
+     *
      * @var string
      */
     public $cityCodeSet;
@@ -29,6 +33,8 @@ class itinerarySetList extends Model
     public $costCenterName;
 
     /**
+     * @example 2018-09-19T14:03Z
+     *
      * @var string
      */
     public $depDate;
@@ -39,11 +45,15 @@ class itinerarySetList extends Model
     public $invoiceName;
 
     /**
+     * @example abcd
+     *
      * @var string
      */
     public $itineraryId;
 
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $projectCode;
@@ -54,6 +64,8 @@ class itinerarySetList extends Model
     public $projectTitle;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $trafficType;

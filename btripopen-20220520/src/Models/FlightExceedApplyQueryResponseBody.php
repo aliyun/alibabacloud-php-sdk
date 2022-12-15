@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class FlightExceedApplyQueryResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -25,16 +27,22 @@ class FlightExceedApplyQueryResponseBody extends Model
     public $module;
 
     /**
+     * @example B72B39C8-32DE-558D-AD1C-D53F11F6ADFE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 21041ce316577904808056433edbb2
+     *
      * @var string
      */
     public $traceId;

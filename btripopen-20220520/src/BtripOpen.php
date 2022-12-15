@@ -219,19 +219,6 @@ class BtripOpen extends OpenApiClient
 
     /**
      * @param AccessTokenRequest $request
-     *
-     * @return AccessTokenResponse
-     */
-    public function accessToken($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->accessTokenWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param AccessTokenRequest $request
      * @param string[]           $headers
      * @param RuntimeOptions     $runtime
      *
@@ -267,16 +254,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param AddressGetRequest $request
+     * @param AccessTokenRequest $request
      *
-     * @return AddressGetResponse
+     * @return AccessTokenResponse
      */
-    public function addressGet($request)
+    public function accessToken($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new AddressGetHeaders([]);
+        $headers = [];
 
-        return $this->addressGetWithOptions($request, $headers, $runtime);
+        return $this->accessTokenWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -332,16 +319,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param AirportSearchRequest $request
+     * @param AddressGetRequest $request
      *
-     * @return AirportSearchResponse
+     * @return AddressGetResponse
      */
-    public function airportSearch($request)
+    public function addressGet($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new AirportSearchHeaders([]);
+        $headers = new AddressGetHeaders([]);
 
-        return $this->airportSearchWithOptions($request, $headers, $runtime);
+        return $this->addressGetWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -388,14 +375,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @return AllBaseCityInfoQueryResponse
+     * @param AirportSearchRequest $request
+     *
+     * @return AirportSearchResponse
      */
-    public function allBaseCityInfoQuery()
+    public function airportSearch($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new AllBaseCityInfoQueryHeaders([]);
+        $headers = new AirportSearchHeaders([]);
 
-        return $this->allBaseCityInfoQueryWithOptions($headers, $runtime);
+        return $this->airportSearchWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -432,16 +421,14 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ApplyAddRequest $request
-     *
-     * @return ApplyAddResponse
+     * @return AllBaseCityInfoQueryResponse
      */
-    public function applyAdd($request)
+    public function allBaseCityInfoQuery()
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ApplyAddHeaders([]);
+        $headers = new AllBaseCityInfoQueryHeaders([]);
 
-        return $this->applyAddWithOptions($request, $headers, $runtime);
+        return $this->allBaseCityInfoQueryWithOptions($headers, $runtime);
     }
 
     /**
@@ -600,16 +587,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ApplyApproveRequest $request
+     * @param ApplyAddRequest $request
      *
-     * @return ApplyApproveResponse
+     * @return ApplyAddResponse
      */
-    public function applyApprove($request)
+    public function applyAdd($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ApplyApproveHeaders([]);
+        $headers = new ApplyAddHeaders([]);
 
-        return $this->applyApproveWithOptions($request, $headers, $runtime);
+        return $this->applyAddWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -668,16 +655,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ApplyListQueryRequest $request
+     * @param ApplyApproveRequest $request
      *
-     * @return ApplyListQueryResponse
+     * @return ApplyApproveResponse
      */
-    public function applyListQuery($request)
+    public function applyApprove($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ApplyListQueryHeaders([]);
+        $headers = new ApplyApproveHeaders([]);
 
-        return $this->applyListQueryWithOptions($request, $headers, $runtime);
+        return $this->applyApproveWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -751,16 +738,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ApplyModifyRequest $request
+     * @param ApplyListQueryRequest $request
      *
-     * @return ApplyModifyResponse
+     * @return ApplyListQueryResponse
      */
-    public function applyModify($request)
+    public function applyListQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ApplyModifyHeaders([]);
+        $headers = new ApplyListQueryHeaders([]);
 
-        return $this->applyModifyWithOptions($request, $headers, $runtime);
+        return $this->applyListQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -911,16 +898,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ApplyQueryRequest $request
+     * @param ApplyModifyRequest $request
      *
-     * @return ApplyQueryResponse
+     * @return ApplyModifyResponse
      */
-    public function applyQuery($request)
+    public function applyModify($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ApplyQueryHeaders([]);
+        $headers = new ApplyModifyHeaders([]);
 
-        return $this->applyQueryWithOptions($request, $headers, $runtime);
+        return $this->applyModifyWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -973,16 +960,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CarApplyAddRequest $request
+     * @param ApplyQueryRequest $request
      *
-     * @return CarApplyAddResponse
+     * @return ApplyQueryResponse
      */
-    public function carApplyAdd($request)
+    public function applyQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CarApplyAddHeaders([]);
+        $headers = new ApplyQueryHeaders([]);
 
-        return $this->carApplyAddWithOptions($request, $headers, $runtime);
+        return $this->applyQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1068,16 +1055,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CarApplyModifyRequest $request
+     * @param CarApplyAddRequest $request
      *
-     * @return CarApplyModifyResponse
+     * @return CarApplyAddResponse
      */
-    public function carApplyModify($request)
+    public function carApplyAdd($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CarApplyModifyHeaders([]);
+        $headers = new CarApplyAddHeaders([]);
 
-        return $this->carApplyModifyWithOptions($request, $headers, $runtime);
+        return $this->carApplyAddWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1133,16 +1120,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CarApplyQueryRequest $request
+     * @param CarApplyModifyRequest $request
      *
-     * @return CarApplyQueryResponse
+     * @return CarApplyModifyResponse
      */
-    public function carApplyQuery($request)
+    public function carApplyModify($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CarApplyQueryHeaders([]);
+        $headers = new CarApplyModifyHeaders([]);
 
-        return $this->carApplyQueryWithOptions($request, $headers, $runtime);
+        return $this->carApplyModifyWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1201,16 +1188,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CarBillSettlementQueryRequest $request
+     * @param CarApplyQueryRequest $request
      *
-     * @return CarBillSettlementQueryResponse
+     * @return CarApplyQueryResponse
      */
-    public function carBillSettlementQuery($request)
+    public function carApplyQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CarBillSettlementQueryHeaders([]);
+        $headers = new CarApplyQueryHeaders([]);
 
-        return $this->carBillSettlementQueryWithOptions($request, $headers, $runtime);
+        return $this->carApplyQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1263,16 +1250,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CarOrderListQueryRequest $request
+     * @param CarBillSettlementQueryRequest $request
      *
-     * @return CarOrderListQueryResponse
+     * @return CarBillSettlementQueryResponse
      */
-    public function carOrderListQuery($request)
+    public function carBillSettlementQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CarOrderListQueryHeaders([]);
+        $headers = new CarBillSettlementQueryHeaders([]);
 
-        return $this->carOrderListQueryWithOptions($request, $headers, $runtime);
+        return $this->carBillSettlementQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1346,16 +1333,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CarOrderQueryRequest $request
+     * @param CarOrderListQueryRequest $request
      *
-     * @return CarOrderQueryResponse
+     * @return CarOrderListQueryResponse
      */
-    public function carOrderQuery($request)
+    public function carOrderListQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CarOrderQueryHeaders([]);
+        $headers = new CarOrderListQueryHeaders([]);
 
-        return $this->carOrderQueryWithOptions($request, $headers, $runtime);
+        return $this->carOrderListQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1402,16 +1389,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CitySearchRequest $request
+     * @param CarOrderQueryRequest $request
      *
-     * @return CitySearchResponse
+     * @return CarOrderQueryResponse
      */
-    public function citySearch($request)
+    public function carOrderQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CitySearchHeaders([]);
+        $headers = new CarOrderQueryHeaders([]);
 
-        return $this->citySearchWithOptions($request, $headers, $runtime);
+        return $this->carOrderQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1455,16 +1442,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CommonApplyQueryRequest $request
+     * @param CitySearchRequest $request
      *
-     * @return CommonApplyQueryResponse
+     * @return CitySearchResponse
      */
-    public function commonApplyQuery($request)
+    public function citySearch($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CommonApplyQueryHeaders([]);
+        $headers = new CitySearchHeaders([]);
 
-        return $this->commonApplyQueryWithOptions($request, $headers, $runtime);
+        return $this->citySearchWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1514,16 +1501,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CommonApplySyncRequest $request
+     * @param CommonApplyQueryRequest $request
      *
-     * @return CommonApplySyncResponse
+     * @return CommonApplyQueryResponse
      */
-    public function commonApplySync($request)
+    public function commonApplyQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CommonApplySyncHeaders([]);
+        $headers = new CommonApplyQueryHeaders([]);
 
-        return $this->commonApplySyncWithOptions($request, $headers, $runtime);
+        return $this->commonApplyQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1582,16 +1569,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CorpTokenRequest $request
+     * @param CommonApplySyncRequest $request
      *
-     * @return CorpTokenResponse
+     * @return CommonApplySyncResponse
      */
-    public function corpToken($request)
+    public function commonApplySync($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CorpTokenHeaders([]);
+        $headers = new CommonApplySyncHeaders([]);
 
-        return $this->corpTokenWithOptions($request, $headers, $runtime);
+        return $this->commonApplySyncWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1641,16 +1628,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CostCenterDeleteRequest $request
+     * @param CorpTokenRequest $request
      *
-     * @return CostCenterDeleteResponse
+     * @return CorpTokenResponse
      */
-    public function costCenterDelete($request)
+    public function corpToken($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CostCenterDeleteHeaders([]);
+        $headers = new CorpTokenHeaders([]);
 
-        return $this->costCenterDeleteWithOptions($request, $headers, $runtime);
+        return $this->corpTokenWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1694,16 +1681,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CostCenterModifyRequest $request
+     * @param CostCenterDeleteRequest $request
      *
-     * @return CostCenterModifyResponse
+     * @return CostCenterDeleteResponse
      */
-    public function costCenterModify($request)
+    public function costCenterDelete($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CostCenterModifyHeaders([]);
+        $headers = new CostCenterDeleteHeaders([]);
 
-        return $this->costCenterModifyWithOptions($request, $headers, $runtime);
+        return $this->costCenterDeleteWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1759,16 +1746,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CostCenterQueryRequest $request
+     * @param CostCenterModifyRequest $request
      *
-     * @return CostCenterQueryResponse
+     * @return CostCenterModifyResponse
      */
-    public function costCenterQuery($request)
+    public function costCenterModify($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CostCenterQueryHeaders([]);
+        $headers = new CostCenterModifyHeaders([]);
 
-        return $this->costCenterQueryWithOptions($request, $headers, $runtime);
+        return $this->costCenterModifyWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1821,16 +1808,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CostCenterSaveRequest $request
+     * @param CostCenterQueryRequest $request
      *
-     * @return CostCenterSaveResponse
+     * @return CostCenterQueryResponse
      */
-    public function costCenterSave($request)
+    public function costCenterQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CostCenterSaveHeaders([]);
+        $headers = new CostCenterQueryHeaders([]);
 
-        return $this->costCenterSaveWithOptions($request, $headers, $runtime);
+        return $this->costCenterQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1886,16 +1873,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param DepartmentSaveRequest $request
+     * @param CostCenterSaveRequest $request
      *
-     * @return DepartmentSaveResponse
+     * @return CostCenterSaveResponse
      */
-    public function departmentSave($request)
+    public function costCenterSave($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new DepartmentSaveHeaders([]);
+        $headers = new CostCenterSaveHeaders([]);
 
-        return $this->departmentSaveWithOptions($request, $headers, $runtime);
+        return $this->costCenterSaveWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1944,16 +1931,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param EntityAddRequest $request
+     * @param DepartmentSaveRequest $request
      *
-     * @return EntityAddResponse
+     * @return DepartmentSaveResponse
      */
-    public function entityAdd($request)
+    public function departmentSave($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new EntityAddHeaders([]);
+        $headers = new DepartmentSaveHeaders([]);
 
-        return $this->entityAddWithOptions($request, $headers, $runtime);
+        return $this->departmentSaveWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2005,16 +1992,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param EntityDeleteRequest $request
+     * @param EntityAddRequest $request
      *
-     * @return EntityDeleteResponse
+     * @return EntityAddResponse
      */
-    public function entityDelete($request)
+    public function entityAdd($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new EntityDeleteHeaders([]);
+        $headers = new EntityAddHeaders([]);
 
-        return $this->entityDeleteWithOptions($request, $headers, $runtime);
+        return $this->entityAddWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2071,16 +2058,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param EntitySetRequest $request
+     * @param EntityDeleteRequest $request
      *
-     * @return EntitySetResponse
+     * @return EntityDeleteResponse
      */
-    public function entitySet($request)
+    public function entityDelete($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new EntitySetHeaders([]);
+        $headers = new EntityDeleteHeaders([]);
 
-        return $this->entitySetWithOptions($request, $headers, $runtime);
+        return $this->entityDeleteWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2132,16 +2119,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param EstimatedPriceQueryRequest $request
+     * @param EntitySetRequest $request
      *
-     * @return EstimatedPriceQueryResponse
+     * @return EntitySetResponse
      */
-    public function estimatedPriceQuery($request)
+    public function entitySet($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new EstimatedPriceQueryHeaders([]);
+        $headers = new EntitySetHeaders([]);
 
-        return $this->estimatedPriceQueryWithOptions($request, $headers, $runtime);
+        return $this->entitySetWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2203,16 +2190,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ExceedApplySyncRequest $request
+     * @param EstimatedPriceQueryRequest $request
      *
-     * @return ExceedApplySyncResponse
+     * @return EstimatedPriceQueryResponse
      */
-    public function exceedApplySync($request)
+    public function estimatedPriceQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ExceedApplySyncHeaders([]);
+        $headers = new EstimatedPriceQueryHeaders([]);
 
-        return $this->exceedApplySyncWithOptions($request, $headers, $runtime);
+        return $this->estimatedPriceQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2271,16 +2258,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightBillSettlementQueryRequest $request
+     * @param ExceedApplySyncRequest $request
      *
-     * @return FlightBillSettlementQueryResponse
+     * @return ExceedApplySyncResponse
      */
-    public function flightBillSettlementQuery($request)
+    public function exceedApplySync($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new FlightBillSettlementQueryHeaders([]);
+        $headers = new ExceedApplySyncHeaders([]);
 
-        return $this->flightBillSettlementQueryWithOptions($request, $headers, $runtime);
+        return $this->exceedApplySyncWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2333,16 +2320,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightExceedApplyQueryRequest $request
+     * @param FlightBillSettlementQueryRequest $request
      *
-     * @return FlightExceedApplyQueryResponse
+     * @return FlightBillSettlementQueryResponse
      */
-    public function flightExceedApplyQuery($request)
+    public function flightBillSettlementQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new FlightExceedApplyQueryHeaders([]);
+        $headers = new FlightBillSettlementQueryHeaders([]);
 
-        return $this->flightExceedApplyQueryWithOptions($request, $headers, $runtime);
+        return $this->flightBillSettlementQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2386,16 +2373,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightOrderListQueryRequest $request
+     * @param FlightExceedApplyQueryRequest $request
      *
-     * @return FlightOrderListQueryResponse
+     * @return FlightExceedApplyQueryResponse
      */
-    public function flightOrderListQuery($request)
+    public function flightExceedApplyQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new FlightOrderListQueryHeaders([]);
+        $headers = new FlightExceedApplyQueryHeaders([]);
 
-        return $this->flightOrderListQueryWithOptions($request, $headers, $runtime);
+        return $this->flightExceedApplyQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2469,16 +2456,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightOrderQueryRequest $request
+     * @param FlightOrderListQueryRequest $request
      *
-     * @return FlightOrderQueryResponse
+     * @return FlightOrderListQueryResponse
      */
-    public function flightOrderQuery($request)
+    public function flightOrderListQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new FlightOrderQueryHeaders([]);
+        $headers = new FlightOrderListQueryHeaders([]);
 
-        return $this->flightOrderQueryWithOptions($request, $headers, $runtime);
+        return $this->flightOrderListQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2525,16 +2512,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelBillSettlementQueryRequest $request
+     * @param FlightOrderQueryRequest $request
      *
-     * @return HotelBillSettlementQueryResponse
+     * @return FlightOrderQueryResponse
      */
-    public function hotelBillSettlementQuery($request)
+    public function flightOrderQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new HotelBillSettlementQueryHeaders([]);
+        $headers = new FlightOrderQueryHeaders([]);
 
-        return $this->hotelBillSettlementQueryWithOptions($request, $headers, $runtime);
+        return $this->flightOrderQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2587,16 +2574,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelExceedApplyQueryRequest $request
+     * @param HotelBillSettlementQueryRequest $request
      *
-     * @return HotelExceedApplyQueryResponse
+     * @return HotelBillSettlementQueryResponse
      */
-    public function hotelExceedApplyQuery($request)
+    public function hotelBillSettlementQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new HotelExceedApplyQueryHeaders([]);
+        $headers = new HotelBillSettlementQueryHeaders([]);
 
-        return $this->hotelExceedApplyQueryWithOptions($request, $headers, $runtime);
+        return $this->hotelBillSettlementQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2640,16 +2627,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelOrderListQueryRequest $request
+     * @param HotelExceedApplyQueryRequest $request
      *
-     * @return HotelOrderListQueryResponse
+     * @return HotelExceedApplyQueryResponse
      */
-    public function hotelOrderListQuery($request)
+    public function hotelExceedApplyQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new HotelOrderListQueryHeaders([]);
+        $headers = new HotelExceedApplyQueryHeaders([]);
 
-        return $this->hotelOrderListQueryWithOptions($request, $headers, $runtime);
+        return $this->hotelExceedApplyQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2723,16 +2710,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelOrderQueryRequest $request
+     * @param HotelOrderListQueryRequest $request
      *
-     * @return HotelOrderQueryResponse
+     * @return HotelOrderListQueryResponse
      */
-    public function hotelOrderQuery($request)
+    public function hotelOrderListQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new HotelOrderQueryHeaders([]);
+        $headers = new HotelOrderListQueryHeaders([]);
 
-        return $this->hotelOrderQueryWithOptions($request, $headers, $runtime);
+        return $this->hotelOrderListQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2776,16 +2763,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IeFlightBillSettlementQueryRequest $request
+     * @param HotelOrderQueryRequest $request
      *
-     * @return IeFlightBillSettlementQueryResponse
+     * @return HotelOrderQueryResponse
      */
-    public function ieFlightBillSettlementQuery($request)
+    public function hotelOrderQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new IeFlightBillSettlementQueryHeaders([]);
+        $headers = new HotelOrderQueryHeaders([]);
 
-        return $this->ieFlightBillSettlementQueryWithOptions($request, $headers, $runtime);
+        return $this->hotelOrderQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2838,16 +2825,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InvoiceAddRequest $request
+     * @param IeFlightBillSettlementQueryRequest $request
      *
-     * @return InvoiceAddResponse
+     * @return IeFlightBillSettlementQueryResponse
      */
-    public function invoiceAdd($request)
+    public function ieFlightBillSettlementQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new InvoiceAddHeaders([]);
+        $headers = new IeFlightBillSettlementQueryHeaders([]);
 
-        return $this->invoiceAddWithOptions($request, $headers, $runtime);
+        return $this->ieFlightBillSettlementQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2912,16 +2899,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InvoiceDeleteRequest $request
+     * @param InvoiceAddRequest $request
      *
-     * @return InvoiceDeleteResponse
+     * @return InvoiceAddResponse
      */
-    public function invoiceDelete($request)
+    public function invoiceAdd($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new InvoiceDeleteHeaders([]);
+        $headers = new InvoiceAddHeaders([]);
 
-        return $this->invoiceDeleteWithOptions($request, $headers, $runtime);
+        return $this->invoiceAddWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2965,16 +2952,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InvoiceModifyRequest $request
+     * @param InvoiceDeleteRequest $request
      *
-     * @return InvoiceModifyResponse
+     * @return InvoiceDeleteResponse
      */
-    public function invoiceModify($request)
+    public function invoiceDelete($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new InvoiceModifyHeaders([]);
+        $headers = new InvoiceDeleteHeaders([]);
 
-        return $this->invoiceModifyWithOptions($request, $headers, $runtime);
+        return $this->invoiceDeleteWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3039,16 +3026,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InvoiceRuleSaveRequest $request
+     * @param InvoiceModifyRequest $request
      *
-     * @return InvoiceRuleSaveResponse
+     * @return InvoiceModifyResponse
      */
-    public function invoiceRuleSave($request)
+    public function invoiceModify($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new InvoiceRuleSaveHeaders([]);
+        $headers = new InvoiceModifyHeaders([]);
 
-        return $this->invoiceRuleSaveWithOptions($request, $headers, $runtime);
+        return $this->invoiceModifyWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3103,16 +3090,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InvoiceSearchRequest $request
+     * @param InvoiceRuleSaveRequest $request
      *
-     * @return InvoiceSearchResponse
+     * @return InvoiceRuleSaveResponse
      */
-    public function invoiceSearch($request)
+    public function invoiceRuleSave($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new InvoiceSearchHeaders([]);
+        $headers = new InvoiceRuleSaveHeaders([]);
 
-        return $this->invoiceSearchWithOptions($request, $headers, $runtime);
+        return $this->invoiceRuleSaveWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3159,16 +3146,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IsvUserSaveRequest $request
+     * @param InvoiceSearchRequest $request
      *
-     * @return IsvUserSaveResponse
+     * @return InvoiceSearchResponse
      */
-    public function isvUserSave($request)
+    public function invoiceSearch($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new IsvUserSaveHeaders([]);
+        $headers = new InvoiceSearchHeaders([]);
 
-        return $this->isvUserSaveWithOptions($request, $headers, $runtime);
+        return $this->invoiceSearchWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3217,16 +3204,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param MonthBillGetRequest $request
+     * @param IsvUserSaveRequest $request
      *
-     * @return MonthBillGetResponse
+     * @return IsvUserSaveResponse
      */
-    public function monthBillGet($request)
+    public function isvUserSave($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new MonthBillGetHeaders([]);
+        $headers = new IsvUserSaveHeaders([]);
 
-        return $this->monthBillGetWithOptions($request, $headers, $runtime);
+        return $this->isvUserSaveWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3270,16 +3257,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ProjectAddRequest $request
+     * @param MonthBillGetRequest $request
      *
-     * @return ProjectAddResponse
+     * @return MonthBillGetResponse
      */
-    public function projectAdd($request)
+    public function monthBillGet($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ProjectAddHeaders([]);
+        $headers = new MonthBillGetHeaders([]);
 
-        return $this->projectAddWithOptions($request, $headers, $runtime);
+        return $this->monthBillGetWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3335,16 +3322,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ProjectDeleteRequest $request
+     * @param ProjectAddRequest $request
      *
-     * @return ProjectDeleteResponse
+     * @return ProjectAddResponse
      */
-    public function projectDelete($request)
+    public function projectAdd($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ProjectDeleteHeaders([]);
+        $headers = new ProjectAddHeaders([]);
 
-        return $this->projectDeleteWithOptions($request, $headers, $runtime);
+        return $this->projectAddWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3388,16 +3375,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ProjectModifyRequest $request
+     * @param ProjectDeleteRequest $request
      *
-     * @return ProjectModifyResponse
+     * @return ProjectDeleteResponse
      */
-    public function projectModify($request)
+    public function projectDelete($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ProjectModifyHeaders([]);
+        $headers = new ProjectDeleteHeaders([]);
 
-        return $this->projectModifyWithOptions($request, $headers, $runtime);
+        return $this->projectDeleteWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3453,16 +3440,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param SyncSingleUserRequest $request
+     * @param ProjectModifyRequest $request
      *
-     * @return SyncSingleUserResponse
+     * @return ProjectModifyResponse
      */
-    public function syncSingleUser($request)
+    public function projectModify($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new SyncSingleUserHeaders([]);
+        $headers = new ProjectModifyHeaders([]);
 
-        return $this->syncSingleUserWithOptions($request, $headers, $runtime);
+        return $this->projectModifyWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3541,16 +3528,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainBillSettlementQueryRequest $request
+     * @param SyncSingleUserRequest $request
      *
-     * @return TrainBillSettlementQueryResponse
+     * @return SyncSingleUserResponse
      */
-    public function trainBillSettlementQuery($request)
+    public function syncSingleUser($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new TrainBillSettlementQueryHeaders([]);
+        $headers = new SyncSingleUserHeaders([]);
 
-        return $this->trainBillSettlementQueryWithOptions($request, $headers, $runtime);
+        return $this->syncSingleUserWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3603,16 +3590,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainExceedApplyQueryRequest $request
+     * @param TrainBillSettlementQueryRequest $request
      *
-     * @return TrainExceedApplyQueryResponse
+     * @return TrainBillSettlementQueryResponse
      */
-    public function trainExceedApplyQuery($request)
+    public function trainBillSettlementQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new TrainExceedApplyQueryHeaders([]);
+        $headers = new TrainBillSettlementQueryHeaders([]);
 
-        return $this->trainExceedApplyQueryWithOptions($request, $headers, $runtime);
+        return $this->trainBillSettlementQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3656,16 +3643,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainOrderListQueryRequest $request
+     * @param TrainExceedApplyQueryRequest $request
      *
-     * @return TrainOrderListQueryResponse
+     * @return TrainExceedApplyQueryResponse
      */
-    public function trainOrderListQuery($request)
+    public function trainExceedApplyQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new TrainOrderListQueryHeaders([]);
+        $headers = new TrainExceedApplyQueryHeaders([]);
 
-        return $this->trainOrderListQueryWithOptions($request, $headers, $runtime);
+        return $this->trainExceedApplyQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3739,16 +3726,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainOrderQueryRequest $request
+     * @param TrainOrderListQueryRequest $request
      *
-     * @return TrainOrderQueryResponse
+     * @return TrainOrderListQueryResponse
      */
-    public function trainOrderQuery($request)
+    public function trainOrderListQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new TrainOrderQueryHeaders([]);
+        $headers = new TrainOrderListQueryHeaders([]);
 
-        return $this->trainOrderQueryWithOptions($request, $headers, $runtime);
+        return $this->trainOrderListQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3795,16 +3782,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainStationSearchRequest $request
+     * @param TrainOrderQueryRequest $request
      *
-     * @return TrainStationSearchResponse
+     * @return TrainOrderQueryResponse
      */
-    public function trainStationSearch($request)
+    public function trainOrderQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new TrainStationSearchHeaders([]);
+        $headers = new TrainOrderQueryHeaders([]);
 
-        return $this->trainStationSearchWithOptions($request, $headers, $runtime);
+        return $this->trainOrderQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3848,16 +3835,16 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param UserQueryRequest $request
+     * @param TrainStationSearchRequest $request
      *
-     * @return UserQueryResponse
+     * @return TrainStationSearchResponse
      */
-    public function userQuery($request)
+    public function trainStationSearch($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new UserQueryHeaders([]);
+        $headers = new TrainStationSearchHeaders([]);
 
-        return $this->userQueryWithOptions($request, $headers, $runtime);
+        return $this->trainStationSearchWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3907,5 +3894,18 @@ class BtripOpen extends OpenApiClient
         ]);
 
         return UserQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UserQueryRequest $request
+     *
+     * @return UserQueryResponse
+     */
+    public function userQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UserQueryHeaders([]);
+
+        return $this->userQueryWithOptions($request, $headers, $runtime);
     }
 }

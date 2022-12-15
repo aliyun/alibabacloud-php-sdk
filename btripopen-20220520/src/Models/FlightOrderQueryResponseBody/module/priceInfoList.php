@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class priceInfoList extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $categoryCode;
 
     /**
+     * @example 2022-07-20T10:40Z
+     *
      * @var string
      */
     public $gmtCreate;
@@ -24,21 +28,29 @@ class priceInfoList extends Model
     public $passengerName;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $payType;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $price;
 
     /**
+     * @example CS73290
+     *
      * @var string
      */
     public $tradeId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;

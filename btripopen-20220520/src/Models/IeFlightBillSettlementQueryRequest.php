@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class IeFlightBillSettlementQueryRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2021-10-02
+     *
      * @var string
      */
     public $periodEnd;
 
     /**
+     * @example 2021-10-01
+     *
      * @var string
      */
     public $periodStart;

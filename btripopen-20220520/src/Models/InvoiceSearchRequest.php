@@ -14,6 +14,8 @@ class InvoiceSearchRequest extends Model
     public $title;
 
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $userId;

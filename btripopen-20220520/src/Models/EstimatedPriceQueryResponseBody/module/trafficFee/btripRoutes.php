@@ -16,11 +16,15 @@ class btripRoutes extends Model
     public $arrCity;
 
     /**
+     * @example 2022-12-09T00:00Z
+     *
      * @var int
      */
     public $arrDate;
 
     /**
+     * @description cheapest
+     *
      * @var cheapest
      */
     public $cheapest;
@@ -31,16 +35,22 @@ class btripRoutes extends Model
     public $depCity;
 
     /**
+     * @example 2022-12-08T00:00Z
+     *
      * @var int
      */
     public $depDate;
 
     /**
+     * @example demo
+     *
      * @var string
      */
     public $errMsg;
 
     /**
+     * @example 1245
+     *
      * @var string
      */
     public $itineraryId;
@@ -51,6 +61,8 @@ class btripRoutes extends Model
     public $mostExpensive;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CarApplyQueryRequest extends Model
 {
     /**
+     * @example 2021-03-18 20:26:56
+     *
      * @var string
      */
     public $createdEndAt;
 
     /**
+     * @example 2021-03-18 20:26:56
+     *
      * @var string
      */
     public $createdStartAt;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example apply1
+     *
      * @var string
      */
     public $thirdPartApplyId;
 
     /**
+     * @example userid
+     *
      * @var string
      */
     public $userId;

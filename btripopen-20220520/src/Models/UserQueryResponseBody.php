@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UserQueryResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -25,16 +27,24 @@ class UserQueryResponseBody extends Model
     public $module;
 
     /**
+     * @example C61ECFF6-606B-5F66-B81D-D77369043A5F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description traceId
+     *
+     * @example 2f624a6316366024344424669e3279
+     *
      * @var string
      */
     public $traceId;

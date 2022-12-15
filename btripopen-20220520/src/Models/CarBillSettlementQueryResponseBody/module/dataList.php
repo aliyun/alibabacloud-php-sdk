@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataList extends Model
 {
     /**
+     * @example 34534543545345
+     *
      * @var string
      */
     public $alipayTradeNo;
@@ -24,6 +26,8 @@ class dataList extends Model
     public $arrCity;
 
     /**
+     * @example 2022-07-02
+     *
      * @var string
      */
     public $arrDate;
@@ -34,16 +38,22 @@ class dataList extends Model
     public $arrLocation;
 
     /**
+     * @example 13:51:43
+     *
      * @var string
      */
     public $arrTime;
 
     /**
+     * @example 2022-05-15T22:27Z
+     *
      * @var string
      */
     public $billRecordTime;
 
     /**
+     * @example 2022-05-15 22:27:00
+     *
      * @var string
      */
     public $bookTime;
@@ -54,6 +64,8 @@ class dataList extends Model
     public $bookerId;
 
     /**
+     * @example 70022164
+     *
      * @var string
      */
     public $bookerJobNo;
@@ -69,6 +81,8 @@ class dataList extends Model
     public $businessCategory;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $capitalDirection;
@@ -89,16 +103,22 @@ class dataList extends Model
     public $costCenter;
 
     /**
+     * @example 2391-CN90.150
+     *
      * @var string
      */
     public $costCenterNumber;
 
     /**
+     * @example 1
+     *
      * @var float
      */
     public $coupon;
 
     /**
+     * @example 12.7
+     *
      * @var float
      */
     public $couponPrice;
@@ -119,6 +139,8 @@ class dataList extends Model
     public $deptCity;
 
     /**
+     * @example 2021-10-13
+     *
      * @var string
      */
     public $deptDate;
@@ -129,26 +151,36 @@ class dataList extends Model
     public $deptLocation;
 
     /**
+     * @example 13:46:05
+     *
      * @var string
      */
     public $deptTime;
 
     /**
+     * @example 29.07
+     *
      * @var string
      */
     public $estimateDriveDistance;
 
     /**
+     * @example 69
+     *
      * @var float
      */
     public $estimatePrice;
 
     /**
+     * @example 40107
+     *
      * @var string
      */
     public $feeType;
 
     /**
+     * @example 4988580
+     *
      * @var string
      */
     public $index;
@@ -164,31 +196,43 @@ class dataList extends Model
     public $memo;
 
     /**
+     * @example 110285961234324
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 12.7
+     *
      * @var float
      */
     public $orderPrice;
 
     /**
+     * @example 34535465346
+     *
      * @var string
      */
     public $overApplyId;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $personSettleFee;
 
     /**
+     * @example 4988580
+     *
      * @var int
      */
     public $primaryId;
 
     /**
+     * @example 23423432423
+     *
      * @var string
      */
     public $projectCode;
@@ -204,6 +248,8 @@ class dataList extends Model
     public $providerName;
 
     /**
+     * @example 0.00
+     *
      * @var string
      */
     public $realDriveDistance;
@@ -224,26 +270,36 @@ class dataList extends Model
     public $remark;
 
     /**
+     * @example 12.7
+     *
      * @var float
      */
     public $serviceFee;
 
     /**
+     * @example 5
+     *
      * @var float
      */
     public $settlementFee;
 
     /**
+     * @example 6.11
+     *
      * @var float
      */
     public $settlementGrantFee;
 
     /**
+     * @example 2022-05-15 22:27:00
+     *
      * @var string
      */
     public $settlementTime;
 
     /**
+     * @example 4
+     *
      * @var string
      */
     public $settlementType;
@@ -259,11 +315,15 @@ class dataList extends Model
     public $specialReason;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 123123232
+     *
      * @var string
      */
     public $subOrderId;
@@ -274,6 +334,8 @@ class dataList extends Model
     public $travelerId;
 
     /**
+     * @example 70022164
+     *
      * @var string
      */
     public $travelerJobNo;
@@ -289,6 +351,8 @@ class dataList extends Model
     public $userConfirmDesc;
 
     /**
+     * @example 11
+     *
      * @var int
      */
     public $voucherType;

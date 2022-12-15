@@ -14,16 +14,22 @@ class approverList extends Model
     public $note;
 
     /**
+     * @example 2018-09-19T14:03Z
+     *
      * @var string
      */
     public $operateTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $order;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
@@ -34,6 +40,8 @@ class approverList extends Model
     public $statusDesc;
 
     /**
+     * @example user1
+     *
      * @var string
      */
     public $userId;

@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class ticketInfoList extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $changed;
 
     /**
+     * @example 2022-05-15T22:27Z
+     *
      * @var string
      */
     public $checkInTime;
 
     /**
+     * @example 2022-05-15T22:27Z
+     *
      * @var string
      */
     public $checkOutTime;
 
     /**
+     * @example 01
+     *
      * @var string
      */
     public $coachNo;
 
     /**
+     * @example 2022-05-15T22:27Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 2022-05-15T22:27Z
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2022-05-15T22:27Z
+     *
      * @var string
      */
     public $gmtModify;
 
     /**
+     * @example m
+     *
      * @var string
      */
     public $outTicketStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $payType;
 
     /**
+     * @example A001
+     *
      * @var string
      */
     public $seatNo;
@@ -64,26 +84,36 @@ class ticketInfoList extends Model
     public $seatTypeName;
 
     /**
+     * @example 10
+     *
      * @var float
      */
     public $serviceFee;
 
     /**
+     * @example 2022-05-15T22:27Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example CS987JKDF
+     *
      * @var string
      */
     public $ticketNo;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $ticketPrice;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ticketStatus;

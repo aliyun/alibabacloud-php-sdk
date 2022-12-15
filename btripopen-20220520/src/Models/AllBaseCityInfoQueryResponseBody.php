@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class AllBaseCityInfoQueryResponseBody extends Model
 {
     /**
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example demo
+     *
      * @var string
      */
     public $message;
@@ -25,16 +29,24 @@ class AllBaseCityInfoQueryResponseBody extends Model
     public $module;
 
     /**
+     * @example C61ECFF6-606B-5F66-B81D-D77369043A5F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description traceId
+     *
+     * @example 210f079e16603757182131635d866a
+     *
      * @var string
      */
     public $traceId;

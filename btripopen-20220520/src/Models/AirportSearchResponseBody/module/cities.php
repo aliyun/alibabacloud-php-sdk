@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class cities extends Model
 {
     /**
+     * @example HGH
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $distance;
@@ -24,6 +28,8 @@ class cities extends Model
     public $name;
 
     /**
+     * @example 上海
+     *
      * @var string
      */
     public $travelName;

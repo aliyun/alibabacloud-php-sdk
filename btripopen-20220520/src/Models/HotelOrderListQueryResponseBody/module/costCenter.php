@@ -14,6 +14,8 @@ class costCenter extends Model
     public $corpId;
 
     /**
+     * @example 14668
+     *
      * @var int
      */
     public $id;
@@ -24,6 +26,8 @@ class costCenter extends Model
     public $name;
 
     /**
+     * @example CS-PNUY
+     *
      * @var string
      */
     public $number;

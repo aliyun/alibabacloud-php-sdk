@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $category;
@@ -25,16 +27,22 @@ class module extends Model
     public $dataList;
 
     /**
+     * @example 2021-10-14
+     *
      * @var string
      */
     public $periodEnd;
 
     /**
+     * @example 2021-10-13
+     *
      * @var string
      */
     public $periodStart;
 
     /**
+     * @example 5180
+     *
      * @var int
      */
     public $totalNum;

@@ -14,6 +14,8 @@ use AlibabaCloud\Tea\Model;
 class moduleList extends Model
 {
     /**
+     * @example 201710111505000464651
+     *
      * @var string
      */
     public $applyShowId;
@@ -24,16 +26,22 @@ class moduleList extends Model
     public $approverList;
 
     /**
+     * @example corp1
+     *
      * @var string
      */
     public $corpId;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $corpName;
 
     /**
+     * @example depart1
+     *
      * @var string
      */
     public $departId;
@@ -49,21 +57,29 @@ class moduleList extends Model
     public $externalTravelerList;
 
     /**
+     * @example abc1234
+     *
      * @var string
      */
     public $flowCode;
 
     /**
+     * @example 2018-09-19T14:03Z
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2018-09-19T14:03Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 1476
+     *
      * @var int
      */
     public $id;
@@ -74,6 +90,8 @@ class moduleList extends Model
     public $itineraryList;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $itineraryRule;
@@ -84,6 +102,8 @@ class moduleList extends Model
     public $itinerarySetList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
@@ -94,11 +114,15 @@ class moduleList extends Model
     public $statusDesc;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $thirdpartBusinessId;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $thirdpartId;
@@ -114,6 +138,8 @@ class moduleList extends Model
     public $tripCause;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $tripDay;
@@ -124,16 +150,22 @@ class moduleList extends Model
     public $tripTitle;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $unionNo;
 
     /**
+     * @example user1
+     *
      * @var string
      */
     public $userId;

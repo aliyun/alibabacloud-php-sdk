@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
+     * @description ID
+     *
+     * @example 1478652
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 405009
+     *
      * @var string
      */
     public $thirdPartInvoiceId;

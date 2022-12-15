@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class flightTicketInfoList extends Model
 {
     /**
+     * @example 100
+     *
      * @var float
      */
     public $buildPrice;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $changed;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $discount;
 
     /**
+     * @example 2022-07-20T10:40Z
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2022-07-20T10:40Z
+     *
      * @var string
      */
     public $gmtModify;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $oilPrice;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $payType;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $settlePrice;
 
     /**
+     * @example 000-123
+     *
      * @var string
      */
     public $ticketNo;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $ticketPrice;
 
     /**
+     * @example OPEN
+     *
      * @var string
      */
     public $ticketStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ticketStatusCode;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DepartmentSaveResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -24,16 +26,24 @@ class DepartmentSaveResponseBody extends Model
     public $module;
 
     /**
+     * @example 407543AF-2BD9-5890-BD92-9D1AB7218B27
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description traceId
+     *
+     * @example 210e847516614936690356047dde07
+     *
      * @var string
      */
     public $traceId;

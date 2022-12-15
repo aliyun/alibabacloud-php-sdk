@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CommonApplyQueryRequest extends Model
 {
     /**
+     * @example 1003366164
+     *
      * @var int
      */
     public $applyId;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $bizCategory;

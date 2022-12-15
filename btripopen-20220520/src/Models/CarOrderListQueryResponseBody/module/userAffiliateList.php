@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class userAffiliateList extends Model
 {
     /**
+     * @example 11342
+     *
      * @var string
      */
     public $userId;

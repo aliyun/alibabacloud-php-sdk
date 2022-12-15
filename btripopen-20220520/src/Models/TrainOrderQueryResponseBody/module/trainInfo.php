@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class trainInfo extends Model
 {
     /**
+     * @example 2022-05-15T22:27Z
+     *
      * @var string
      */
     public $arrTime;
 
     /**
+     * @example 2022-05-15T22:27Z
+     *
      * @var string
      */
     public $depTime;
@@ -24,6 +28,8 @@ class trainInfo extends Model
     public $fromStationName;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $runTime;
@@ -34,6 +40,8 @@ class trainInfo extends Model
     public $toStationName;
 
     /**
+     * @example CS-150
+     *
      * @var string
      */
     public $trainNo;

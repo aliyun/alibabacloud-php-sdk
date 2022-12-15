@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class applyIntentionInfoDo extends Model
 {
     /**
+     * @example SHA
+     *
      * @var string
      */
     public $arrCity;
@@ -19,16 +21,22 @@ class applyIntentionInfoDo extends Model
     public $arrCityName;
 
     /**
+     * @example 2022-01-12T16:47Z
+     *
      * @var string
      */
     public $arrTime;
 
     /**
+     * @example F
+     *
      * @var string
      */
     public $cabin;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $cabinClass;
@@ -39,6 +47,8 @@ class applyIntentionInfoDo extends Model
     public $cabinClassStr;
 
     /**
+     * @example SHA
+     *
      * @var string
      */
     public $depCity;
@@ -49,26 +59,36 @@ class applyIntentionInfoDo extends Model
     public $depCityName;
 
     /**
+     * @example 2022-01-12T16:47Z
+     *
      * @var string
      */
     public $depTime;
 
     /**
+     * @example 4
+     *
      * @var string
      */
     public $discount;
 
     /**
+     * @example MU2759
+     *
      * @var string
      */
     public $flightNo;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $price;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;

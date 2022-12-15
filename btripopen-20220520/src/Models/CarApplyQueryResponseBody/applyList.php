@@ -16,6 +16,8 @@ class applyList extends Model
     public $approverList;
 
     /**
+     * @example depart1
+     *
      * @var string
      */
     public $departId;
@@ -26,11 +28,15 @@ class applyList extends Model
     public $departName;
 
     /**
+     * @example 2021-03-18T20:26Z
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2021-03-18T20:26Z
+     *
      * @var string
      */
     public $gmtModified;
@@ -41,6 +47,8 @@ class applyList extends Model
     public $itineraryList;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $status;
@@ -51,6 +59,8 @@ class applyList extends Model
     public $statusDesc;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $thirdpartId;
@@ -66,6 +76,8 @@ class applyList extends Model
     public $tripTitle;
 
     /**
+     * @example user1
+     *
      * @var string
      */
     public $userId;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class HotelExceedApplyQueryResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -25,16 +27,22 @@ class HotelExceedApplyQueryResponseBody extends Model
     public $module;
 
     /**
+     * @example E03779E6-71C2-5082-ABE3-6315B8247EE8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 21041ce316577904808056433edbb2
+     *
      * @var string
      */
     public $traceId;

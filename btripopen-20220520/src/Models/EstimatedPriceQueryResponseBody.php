@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class EstimatedPriceQueryResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example demo
+     *
      * @var string
      */
     public $message;
@@ -25,16 +29,24 @@ class EstimatedPriceQueryResponseBody extends Model
     public $module;
 
     /**
+     * @example A5009956-1077-52FB-B520-EA8C7E91D722
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description traceId
+     *
+     * @example 21041ce316577904808056433edbb2
+     *
      * @var string
      */
     public $traceId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class carInfo extends Model
 {
     /**
+     * @example TRAVEL
+     *
      * @var string
      */
     public $businessCategory;
 
     /**
+     * @example 1669274251000
+     *
      * @var int
      */
     public $cancelTime;
@@ -24,16 +28,22 @@ class carInfo extends Model
     public $carInfo;
 
     /**
+     * @example 601
+     *
      * @var int
      */
     public $carLevel;
 
     /**
+     * @example 1669274251000
+     *
      * @var int
      */
     public $driverConfirmTime;
 
     /**
+     * @example 2900
+     *
      * @var int
      */
     public $estimatePrice;
@@ -49,6 +59,8 @@ class carInfo extends Model
     public $fromCityName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isSpecial;
@@ -59,11 +71,15 @@ class carInfo extends Model
     public $memo;
 
     /**
+     * @example 1669274251000
+     *
      * @var int
      */
     public $payTime;
 
     /**
+     * @example 1669274251000
+     *
      * @var int
      */
     public $publishTime;
@@ -89,16 +105,22 @@ class carInfo extends Model
     public $realToCityName;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $serviceType;
 
     /**
+     * @example v_sp_t_1,v_sp_t_2,v_sp_t_3,v_sp_t_4,v_sp_t_5
+     *
      * @var string
      */
     public $specialTypes;
 
     /**
+     * @example 1669274251000
+     *
      * @var int
      */
     public $takenTime;
@@ -114,6 +136,8 @@ class carInfo extends Model
     public $toCityName;
 
     /**
+     * @example 12
+     *
      * @var string
      */
     public $travelDistance;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class AddressGetResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -25,16 +27,22 @@ class AddressGetResponseBody extends Model
     public $module;
 
     /**
+     * @example 407543AF-2BD9-5890-BD92-9D1AB7218B27
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 210bcc3a16583004579056128d33d7
+     *
      * @var string
      */
     public $traceId;

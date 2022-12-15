@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class TrainOrderListQueryResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -31,16 +33,22 @@ class TrainOrderListQueryResponseBody extends Model
     public $pageInfo;
 
     /**
+     * @example F93C3EBD-17BE-5FE6-BF06-96A6F1AC8DC5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 21041ce316577904808056433edbb2
+     *
      * @var string
      */
     public $traceId;

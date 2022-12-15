@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class invoice extends Model
 {
     /**
+     * @example 11324
+     *
      * @var int
      */
     public $id;

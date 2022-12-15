@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class flightChangeTicketInfoList extends Model
 {
     /**
+     * @example 2022-07-20T10:40Z
+     *
      * @var string
      */
     public $arrTime;
 
     /**
+     * @example V
+     *
      * @var string
      */
     public $changeCabin;
 
     /**
+     * @example Y
+     *
      * @var string
      */
     public $changeCabinLevel;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $changeFee;
 
     /**
+     * @example MU7767
+     *
      * @var string
      */
     public $changeFlightNo;
 
     /**
+     * @example 33576
+     *
      * @var int
      */
     public $changeOrderId;
@@ -44,36 +56,50 @@ class flightChangeTicketInfoList extends Model
     public $changeReason;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $changeType;
 
     /**
+     * @example 2022-07-20T10:40Z
+     *
      * @var string
      */
     public $depTime;
 
     /**
+     * @example 2022-07-20T10:40Z
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2022-07-20T10:40Z
+     *
      * @var string
      */
     public $gmtModify;
 
     /**
+     * @example 00-123123
+     *
      * @var string
      */
     public $originTicketNo;
 
     /**
+     * @example 000-123123
+     *
      * @var string
      */
     public $ticketNo;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $upgradeFee;

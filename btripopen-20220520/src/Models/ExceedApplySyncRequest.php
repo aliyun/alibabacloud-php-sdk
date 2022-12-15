@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ExceedApplySyncRequest extends Model
 {
     /**
+     * @example 823744
+     *
      * @var int
      */
     public $applyId;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $bizCategory;
@@ -24,16 +28,22 @@ class ExceedApplySyncRequest extends Model
     public $remark;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 123421
+     *
      * @var string
      */
     public $thirdpartyFlowId;
 
     /**
+     * @example open5145141
+     *
      * @var string
      */
     public $userId;

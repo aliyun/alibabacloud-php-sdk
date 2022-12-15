@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class mostExpensive extends Model
 {
     /**
+     * @example 19:20
+     *
      * @var string
      */
     public $arrTime;
 
     /**
+     * @example 17:00
+     *
      * @var string
      */
     public $depTime;
 
     /**
+     * @example 265000
+     *
      * @var int
      */
     public $fee;
@@ -29,6 +35,8 @@ class mostExpensive extends Model
     public $seatGrade;
 
     /**
+     * @example CA1721
+     *
      * @var string
      */
     public $vehicleNo;

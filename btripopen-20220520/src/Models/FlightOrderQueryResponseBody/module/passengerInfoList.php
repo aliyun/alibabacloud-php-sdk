@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class passengerInfoList extends Model
 {
     /**
+     * @example 13446
+     *
      * @var int
      */
     public $costCenterId;
@@ -19,16 +21,22 @@ class passengerInfoList extends Model
     public $costCenterName;
 
     /**
+     * @example CS-3345
+     *
      * @var string
      */
     public $costCenterNumber;
 
     /**
+     * @example CS-PROJECT
+     *
      * @var string
      */
     public $projectCode;
 
     /**
+     * @example 133576
+     *
      * @var int
      */
     public $projectId;
@@ -39,6 +47,8 @@ class passengerInfoList extends Model
     public $projectTitle;
 
     /**
+     * @example CS-THIRDPROJECT
+     *
      * @var string
      */
     public $thirdpartProjectId;
@@ -54,6 +64,8 @@ class passengerInfoList extends Model
     public $userName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $userType;

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class CorpTokenResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -31,11 +33,17 @@ class CorpTokenResponseBody extends Model
     public $module;
 
     /**
+     * @example C61ECFF6-606B-5F66-B81D-D77369043A5F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description traceId
+     *
+     * @example 21041ce316577904808056433edbb2
+     *
      * @var string
      */
     public $traceId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddressGetRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $actionType;
 
     /**
+     * @example 460e254b5a5b4bd0801744a2790e5d78
+     *
      * @var string
      */
     public $itineraryId;
@@ -24,6 +28,8 @@ class AddressGetRequest extends Model
     public $phone;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;

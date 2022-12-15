@@ -14,6 +14,8 @@ class EntitySetShrinkRequest extends Model
     public $entityDOListShrink;
 
     /**
+     * @example 340049
+     *
      * @var string
      */
     public $thirdpartId;

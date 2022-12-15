@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InvoiceRuleSaveShrinkRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $allEmploye;
@@ -19,6 +21,8 @@ class InvoiceRuleSaveShrinkRequest extends Model
     public $entitiesShrink;
 
     /**
+     * @example i123
+     *
      * @var string
      */
     public $thirdPartId;

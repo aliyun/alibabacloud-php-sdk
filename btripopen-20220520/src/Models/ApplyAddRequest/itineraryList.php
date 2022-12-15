@@ -14,16 +14,22 @@ class itineraryList extends Model
     public $arrCity;
 
     /**
+     * @example HGH
+     *
      * @var string
      */
     public $arrCityCode;
 
     /**
+     * @example 2022-07-22
+     *
      * @var string
      */
     public $arrDate;
 
     /**
+     * @example 12138
+     *
      * @var int
      */
     public $costCenterId;
@@ -34,36 +40,50 @@ class itineraryList extends Model
     public $depCity;
 
     /**
+     * @example BJS
+     *
      * @var string
      */
     public $depCityCode;
 
     /**
+     * @example 2017-01-01 00:00:00
+     *
      * @var string
      */
     public $depDate;
 
     /**
+     * @example 34711
+     *
      * @var int
      */
     public $invoiceId;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $itineraryId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $needHotel;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $needTraffic;
 
     /**
+     * @example projecttow
+     *
      * @var string
      */
     public $projectCode;
@@ -74,21 +94,29 @@ class itineraryList extends Model
     public $projectTitle;
 
     /**
+     * @example thirdpart34711
+     *
      * @var string
      */
     public $thirdPartInvoiceId;
 
     /**
+     * @example thridpart12138
+     *
      * @var string
      */
     public $thirdpartCostCenterId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $trafficType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $tripWay;

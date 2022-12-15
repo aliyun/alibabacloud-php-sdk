@@ -14,6 +14,8 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
+     * @example 11774
+     *
      * @var int
      */
     public $applyId;
@@ -34,6 +36,8 @@ class module extends Model
     public $btripTitle;
 
     /**
+     * @example Y
+     *
      * @var string
      */
     public $cabinClass;
@@ -69,6 +73,8 @@ class module extends Model
     public $depCity;
 
     /**
+     * @example 2022-07-20T10:40Z
+     *
      * @var string
      */
     public $depDate;
@@ -84,26 +90,36 @@ class module extends Model
     public $departName;
 
     /**
+     * @example 30.12%
+     *
      * @var string
      */
     public $discount;
 
     /**
+     * @example MU7854
+     *
      * @var string
      */
     public $flightNo;
 
     /**
+     * @example 2022-07-20T10:40Z
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2022-07-20T10:40Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 200042
+     *
      * @var int
      */
     public $id;
@@ -119,6 +135,8 @@ class module extends Model
     public $invoice;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $passengerCount;
@@ -134,11 +152,15 @@ class module extends Model
     public $priceInfoList;
 
     /**
+     * @example CS-PROJECT
+     *
      * @var string
      */
     public $projectCode;
 
     /**
+     * @example CS-PROJECT
+     *
      * @var int
      */
     public $projectId;
@@ -149,31 +171,43 @@ class module extends Model
     public $projectTitle;
 
     /**
+     * @example 2022-07-20T10:40Z
+     *
      * @var string
      */
     public $retDate;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example CS-PROJECT
+     *
      * @var string
      */
     public $thirdPartProjectId;
 
     /**
+     * @example CS-UMN98989
+     *
      * @var string
      */
     public $thirdpartApplyId;
 
     /**
+     * @example cs9897766
+     *
      * @var string
      */
     public $thirdpartItineraryId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $tripType;

@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
+     * @example 117429516
+     *
      * @var int
      */
     public $applyId;
 
     /**
+     * @example 201802031353000525653
+     *
      * @var string
      */
     public $applyShowId;
@@ -26,11 +30,15 @@ class module extends Model
     public $btripTitle;
 
     /**
+     * @example TRAVEL
+     *
      * @var string
      */
     public $businessCategory;
 
     /**
+     * @example 2022-07-04T16:13Z
+     *
      * @var string
      */
     public $cancelTime;
@@ -41,6 +49,8 @@ class module extends Model
     public $carInfo;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $carLevel;
@@ -56,6 +66,8 @@ class module extends Model
     public $corpName;
 
     /**
+     * @example 11376
+     *
      * @var int
      */
     public $costCenterId;
@@ -66,6 +78,8 @@ class module extends Model
     public $costCenterName;
 
     /**
+     * @example CT-134JHK
+     *
      * @var string
      */
     public $costCenterNumber;
@@ -81,11 +95,15 @@ class module extends Model
     public $deptName;
 
     /**
+     * @example 2022-07-04T16:13Z
+     *
      * @var string
      */
     public $driverConfirmTime;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $estimatePrice;
@@ -101,21 +119,29 @@ class module extends Model
     public $fromCityName;
 
     /**
+     * @example 2022-07-04T16:13Z
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2022-07-04T16:13Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 3615085
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 11876
+     *
      * @var int
      */
     public $invoiceId;
@@ -126,6 +152,8 @@ class module extends Model
     public $invoiceTitle;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isSpecial;
@@ -146,6 +174,8 @@ class module extends Model
     public $passengerName;
 
     /**
+     * @example 2022-07-04T16:13Z
+     *
      * @var string
      */
     public $payTime;
@@ -156,11 +186,15 @@ class module extends Model
     public $priceInfoList;
 
     /**
+     * @example P- JI87KK
+     *
      * @var string
      */
     public $projectCode;
 
     /**
+     * @example 11546
+     *
      * @var int
      */
     public $projectId;
@@ -171,11 +205,15 @@ class module extends Model
     public $projectTitle;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $provider;
 
     /**
+     * @example 2022-07-04T16:13Z
+     *
      * @var string
      */
     public $publishTime;
@@ -201,6 +239,8 @@ class module extends Model
     public $realToCityName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $serviceType;
@@ -211,16 +251,22 @@ class module extends Model
     public $specialTypes;
 
     /**
+     * @example 2022-07-04T16:13Z
+     *
      * @var string
      */
     public $takenTime;
 
     /**
+     * @example CS-OIPK34H
+     *
      * @var string
      */
     public $thirdpartApplyId;
 
     /**
+     * @example CS-112JKDF
+     *
      * @var string
      */
     public $thirdpartItineraryId;
@@ -236,6 +282,8 @@ class module extends Model
     public $toCityName;
 
     /**
+     * @example 1.2
+     *
      * @var float
      */
     public $travelDistance;
@@ -246,6 +294,8 @@ class module extends Model
     public $userAffiliateList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $userConfirm;

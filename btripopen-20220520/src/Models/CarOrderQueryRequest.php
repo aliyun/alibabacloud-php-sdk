@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CarOrderQueryRequest extends Model
 {
     /**
+     * @example 1012000000000000
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example 1000000
+     *
      * @var int
      */
     public $subOrderId;

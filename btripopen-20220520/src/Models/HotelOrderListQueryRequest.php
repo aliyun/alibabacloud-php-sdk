@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class HotelOrderListQueryRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $allApply;
 
     /**
+     * @example 165782
+     *
      * @var int
      */
     public $applyId;
@@ -24,36 +28,50 @@ class HotelOrderListQueryRequest extends Model
     public $departId;
 
     /**
+     * @example 2022-07-01 00:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2022-07-01 00:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example CS154JKOI
+     *
      * @var string
      */
     public $thirdpartApplyId;
 
     /**
+     * @example 2022-07-01 00:00:00
+     *
      * @var string
      */
     public $updateEndTime;
 
     /**
+     * @example 2022-07-01 00:00:00
+     *
      * @var string
      */
     public $updateStartTime;

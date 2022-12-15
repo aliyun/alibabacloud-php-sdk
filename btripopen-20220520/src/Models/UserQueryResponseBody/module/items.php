@@ -14,11 +14,15 @@ class items extends Model
     public $employeeNick;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $thirdPartEmployeeId;
 
     /**
+     * @example 001
+     *
      * @var string
      */
     public $thirdPartJobNo;

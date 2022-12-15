@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class travelerList extends Model
 {
     /**
+     * @example user1
+     *
      * @var string
      */
     public $userId;

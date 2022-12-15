@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class hotelInfo extends Model
 {
     /**
+     * @example 1669344020
+     *
      * @var int
      */
     public $checkIn;
 
     /**
+     * @example 1669344020
+     *
      * @var int
      */
     public $checkOut;
@@ -29,16 +33,22 @@ class hotelInfo extends Model
     public $hotelName;
 
     /**
+     * @example 11
+     *
      * @var int
      */
     public $hotelSupportVatInvoiceType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $night;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $roomNum;

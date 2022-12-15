@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class entities extends Model
 {
     /**
+     * @example 123
+     *
      * @var string
      */
     public $id;
@@ -19,6 +21,8 @@ class entities extends Model
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;

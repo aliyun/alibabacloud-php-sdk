@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class InvoiceRuleSaveRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $allEmploye;
@@ -20,6 +22,8 @@ class InvoiceRuleSaveRequest extends Model
     public $entities;
 
     /**
+     * @example i123
+     *
      * @var string
      */
     public $thirdPartId;

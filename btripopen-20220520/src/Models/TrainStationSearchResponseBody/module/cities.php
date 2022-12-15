@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cities extends Model
 {
     /**
+     * @example hz
+     *
      * @var string
      */
     public $code;

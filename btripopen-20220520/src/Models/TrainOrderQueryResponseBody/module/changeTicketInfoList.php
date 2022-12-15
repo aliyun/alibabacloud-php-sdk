@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class changeTicketInfoList extends Model
 {
     /**
+     * @example 03
+     *
      * @var string
      */
     public $changeCoachNo;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $changeGapFee;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $changeHandlingFee;
 
     /**
+     * @example 004C
+     *
      * @var string
      */
     public $changeSeatNo;
@@ -34,11 +42,15 @@ class changeTicketInfoList extends Model
     public $changeSeatTypeName;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $changeServiceFee;
 
     /**
+     * @example D103
+     *
      * @var string
      */
     public $changeTrainNo;
@@ -49,16 +61,22 @@ class changeTicketInfoList extends Model
     public $changeTrainTypeName;
 
     /**
+     * @example 2022-05-15T22:27Z
+     *
      * @var string
      */
     public $checkInTime;
 
     /**
+     * @example 2022-05-15T22:27Z
+     *
      * @var string
      */
     public $checkOutTime;
 
     /**
+     * @example 2022-05-15T22:27Z
+     *
      * @var string
      */
     public $endTime;
@@ -69,31 +87,43 @@ class changeTicketInfoList extends Model
     public $fromStationName;
 
     /**
+     * @example 2022-05-15T22:27Z
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2022-05-15T22:27Z
+     *
      * @var string
      */
     public $gmtModify;
 
     /**
+     * @example CS987JKDF
+     *
      * @var string
      */
     public $originTicketNo;
 
     /**
+     * @example m
+     *
      * @var string
      */
     public $outTicketStatus;
 
     /**
+     * @example 2022-05-15T22:27Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example CS987JKDF
+     *
      * @var string
      */
     public $ticketNo;

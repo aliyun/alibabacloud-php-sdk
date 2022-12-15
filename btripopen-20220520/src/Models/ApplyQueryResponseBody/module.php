@@ -15,6 +15,8 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
+     * @example 201710111505000464651
+     *
      * @var string
      */
     public $applyShowId;
@@ -25,16 +27,22 @@ class module extends Model
     public $approverList;
 
     /**
+     * @example 100000
+     *
      * @var int
      */
     public $budget;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $budgetMerge;
 
     /**
+     * @example corpid
+     *
      * @var string
      */
     public $corpId;
@@ -45,11 +53,15 @@ class module extends Model
     public $corpName;
 
     /**
+     * @example dept1
+     *
      * @var string
      */
     public $departId;
 
     /**
+     * @example adv
+     *
      * @var string
      */
     public $departName;
@@ -60,21 +72,29 @@ class module extends Model
     public $externalTravelerList;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $flightBudget;
 
     /**
+     * @example 2018-09-19T14:03Z
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2018-09-19T14:03Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 100000
+     *
      * @var int
      */
     public $hotelBudget;
@@ -85,6 +105,8 @@ class module extends Model
     public $hotelShare;
 
     /**
+     * @example 3298
+     *
      * @var int
      */
     public $id;
@@ -95,6 +117,8 @@ class module extends Model
     public $itineraryList;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $itineraryRule;
@@ -105,11 +129,15 @@ class module extends Model
     public $itinerarySetList;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $limitTraveler;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
@@ -120,21 +148,29 @@ class module extends Model
     public $statusDesc;
 
     /**
+     * @example 1213
+     *
      * @var string
      */
     public $thirdpartBusinessId;
 
     /**
+     * @example 1214254
+     *
      * @var string
      */
     public $thirdpartId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $togetherBookRule;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $trainBudget;
@@ -150,6 +186,8 @@ class module extends Model
     public $tripCause;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $tripDay;
@@ -160,16 +198,22 @@ class module extends Model
     public $tripTitle;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @example abd123
+     *
      * @var string
      */
     public $unionNo;
 
     /**
+     * @example user1
+     *
      * @var string
      */
     public $userId;
@@ -180,6 +224,8 @@ class module extends Model
     public $userName;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $vehicleBudget;

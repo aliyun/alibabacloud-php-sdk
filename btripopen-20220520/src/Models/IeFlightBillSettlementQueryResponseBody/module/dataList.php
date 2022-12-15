@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class dataList extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $advanceDay;
 
     /**
+     * @example MU
+     *
      * @var string
      */
     public $airlineCorpCode;
@@ -24,16 +28,22 @@ class dataList extends Model
     public $airlineCorpName;
 
     /**
+     * @example 2021123432260
+     *
      * @var string
      */
     public $alipayTradeNo;
 
     /**
+     * @example 103189557
+     *
      * @var string
      */
     public $applyId;
 
     /**
+     * @example CAN
+     *
      * @var string
      */
     public $arrAirportCode;
@@ -44,6 +54,8 @@ class dataList extends Model
     public $arrCity;
 
     /**
+     * @example 2021-10-02
+     *
      * @var string
      */
     public $arrDate;
@@ -54,11 +66,15 @@ class dataList extends Model
     public $arrStation;
 
     /**
+     * @example 13:30:00
+     *
      * @var string
      */
     public $arrTime;
 
     /**
+     * @example 2020-12-23T20:18Z
+     *
      * @var string
      */
     public $billRecordTime;
@@ -69,16 +85,22 @@ class dataList extends Model
     public $bookMode;
 
     /**
+     * @example 2021-10-01 00:17:05
+     *
      * @var string
      */
     public $bookTime;
 
     /**
+     * @example al_xinuan.zsy
+     *
      * @var string
      */
     public $bookerId;
 
     /**
+     * @example 70022164
+     *
      * @var string
      */
     public $bookerJobNo;
@@ -89,11 +111,15 @@ class dataList extends Model
     public $bookerName;
 
     /**
+     * @example 23.9
+     *
      * @var float
      */
     public $btripCouponFee;
 
     /**
+     * @example R
+     *
      * @var string
      */
     public $cabin;
@@ -104,6 +130,8 @@ class dataList extends Model
     public $cabinClass;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $capitalDirection;
@@ -114,11 +142,15 @@ class dataList extends Model
     public $cascadeDepartment;
 
     /**
+     * @example 23.0
+     *
      * @var float
      */
     public $changeFee;
 
     /**
+     * @example 460
+     *
      * @var float
      */
     public $corpPayOrderFee;
@@ -129,16 +161,22 @@ class dataList extends Model
     public $costCenter;
 
     /**
+     * @example 8b7f3cd-24324-097
+     *
      * @var string
      */
     public $costCenterNumber;
 
     /**
+     * @example 1
+     *
      * @var float
      */
     public $coupon;
 
     /**
+     * @example KHN
+     *
      * @var string
      */
     public $depAirportCode;
@@ -149,6 +187,8 @@ class dataList extends Model
     public $department;
 
     /**
+     * @example 2345866
+     *
      * @var string
      */
     public $departmentId;
@@ -159,6 +199,8 @@ class dataList extends Model
     public $deptCity;
 
     /**
+     * @example 2021-10-02
+     *
      * @var string
      */
     public $deptDate;
@@ -169,36 +211,50 @@ class dataList extends Model
     public $deptStation;
 
     /**
+     * @example 12:00:00
+     *
      * @var string
      */
     public $deptTime;
 
     /**
+     * @example 51%
+     *
      * @var string
      */
     public $discount;
 
     /**
+     * @example 20101
+     *
      * @var string
      */
     public $feeType;
 
     /**
+     * @example MU9684
+     *
      * @var string
      */
     public $flightNo;
 
     /**
+     * @example 4564547
+     *
      * @var string
      */
     public $index;
 
     /**
+     * @example 23.9
+     *
      * @var float
      */
     public $insuranceFee;
 
     /**
+     * @example 15548214852
+     *
      * @var string
      */
     public $insuranceNumber;
@@ -209,21 +265,29 @@ class dataList extends Model
     public $invoiceTitle;
 
     /**
+     * @example 2021-10-01 00:17:13
+     *
      * @var string
      */
     public $mostDifferenceDeptTime;
 
     /**
+     * @example 23%
+     *
      * @var string
      */
     public $mostDifferenceDiscount;
 
     /**
+     * @example MU9684
+     *
      * @var string
      */
     public $mostDifferenceFlightNo;
 
     /**
+     * @example 23.9
+     *
      * @var float
      */
     public $mostDifferencePrice;
@@ -234,36 +298,50 @@ class dataList extends Model
     public $mostDifferenceReason;
 
     /**
+     * @example 23.9
+     *
      * @var float
      */
     public $mostPrice;
 
     /**
+     * @example 23.9
+     *
      * @var float
      */
     public $negotiationCouponFee;
 
     /**
+     * @example 234223423423
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $orderStatusDesc;
 
     /**
+     * @example 234324324423
+     *
      * @var string
      */
     public $overApplyId;
 
     /**
+     * @example 4564547
+     *
      * @var int
      */
     public $primaryId;
 
     /**
+     * @example 23423432423
+     *
      * @var string
      */
     public $projectCode;
@@ -274,6 +352,8 @@ class dataList extends Model
     public $projectName;
 
     /**
+     * @example 23.9
+     *
      * @var float
      */
     public $refundFee;
@@ -289,6 +369,8 @@ class dataList extends Model
     public $repeatRefund;
 
     /**
+     * @example 410
+     *
      * @var float
      */
     public $sealPrice;
@@ -299,61 +381,85 @@ class dataList extends Model
     public $segmentType;
 
     /**
+     * @example 23.9
+     *
      * @var float
      */
     public $serviceFee;
 
     /**
+     * @example 350
+     *
      * @var float
      */
     public $settlementFee;
 
     /**
+     * @example 6.11
+     *
      * @var float
      */
     public $settlementGrantFee;
 
     /**
+     * @example 2021-10-08 23:39:01
+     *
      * @var string
      */
     public $settlementTime;
 
     /**
+     * @example 4
+     *
      * @var string
      */
     public $settlementType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 123123232
+     *
      * @var string
      */
     public $subOrderId;
 
     /**
+     * @example 125.6
+     *
      * @var float
      */
     public $taxFee;
 
     /**
+     * @example 781-6586234234324
+     *
      * @var string
      */
     public $ticketId;
 
     /**
+     * @example CAN-KUL-BKK
+     *
      * @var string
      */
     public $trade;
 
     /**
+     * @example 54463464
+     *
      * @var string
      */
     public $travelerId;
 
     /**
+     * @example 326246
+     *
      * @var string
      */
     public $travelerJobNo;
@@ -364,6 +470,8 @@ class dataList extends Model
     public $travelerName;
 
     /**
+     * @example 11
+     *
      * @var int
      */
     public $voucherType;

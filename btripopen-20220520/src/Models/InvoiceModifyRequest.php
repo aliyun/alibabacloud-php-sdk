@@ -14,26 +14,36 @@ class InvoiceModifyRequest extends Model
     public $address;
 
     /**
+     * @example 12345678
+     *
      * @var string
      */
     public $bankName;
 
     /**
+     * @example 2222
+     *
      * @var string
      */
     public $bankNo;
 
     /**
+     * @example 122333121
+     *
      * @var string
      */
     public $taxNo;
 
     /**
+     * @example 12345678
+     *
      * @var string
      */
     public $tel;
 
     /**
+     * @example 340049
+     *
      * @var string
      */
     public $thirdPartId;
@@ -44,6 +54,8 @@ class InvoiceModifyRequest extends Model
     public $title;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;

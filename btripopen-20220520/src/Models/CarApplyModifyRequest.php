@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CarApplyModifyRequest extends Model
 {
     /**
+     * @example 2022-07-12 16:12:53
+     *
      * @var string
      */
     public $operateTime;
@@ -19,16 +21,22 @@ class CarApplyModifyRequest extends Model
     public $remark;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example IRGS1413
+     *
      * @var string
      */
     public $thirdPartApplyId;
 
     /**
+     * @example open62141
+     *
      * @var string
      */
     public $userId;

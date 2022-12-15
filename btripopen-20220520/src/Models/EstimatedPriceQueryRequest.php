@@ -14,6 +14,8 @@ class EstimatedPriceQueryRequest extends Model
     public $arrCity;
 
     /**
+     * @example flight
+     *
      * @var string
      */
     public $category;
@@ -24,21 +26,29 @@ class EstimatedPriceQueryRequest extends Model
     public $depCity;
 
     /**
+     * @example 1670601600000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 1245
+     *
      * @var string
      */
     public $itineraryId;
 
     /**
+     * @example 1670428800000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example 12345678910
+     *
      * @var string
      */
     public $userId;

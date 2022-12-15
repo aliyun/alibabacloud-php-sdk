@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class entityDOS extends Model
 {
     /**
+     * @example ding1234567
+     *
      * @var string
      */
     public $corpId;
 
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $entityId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $entityType;
 
     /**
+     * @example default_bus
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $userNum;

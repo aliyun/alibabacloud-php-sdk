@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CostCenterQueryRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $needOrgEntity;
 
     /**
+     * @example cost1
+     *
      * @var string
      */
     public $thirdpartId;
@@ -24,6 +28,8 @@ class CostCenterQueryRequest extends Model
     public $title;
 
     /**
+     * @example user1
+     *
      * @var string
      */
     public $userId;

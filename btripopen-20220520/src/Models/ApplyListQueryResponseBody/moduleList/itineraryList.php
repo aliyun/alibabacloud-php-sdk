@@ -14,6 +14,8 @@ class itineraryList extends Model
     public $arrCity;
 
     /**
+     * @example 2018-09-19T14:03Z
+     *
      * @var string
      */
     public $arrDate;
@@ -29,6 +31,8 @@ class itineraryList extends Model
     public $depCity;
 
     /**
+     * @example 2018-09-19T14:03Z
+     *
      * @var string
      */
     public $depDate;
@@ -39,11 +43,15 @@ class itineraryList extends Model
     public $invoiceName;
 
     /**
+     * @example abcd
+     *
      * @var string
      */
     public $itineraryId;
 
     /**
+     * @example xm1
+     *
      * @var string
      */
     public $projectCode;
@@ -54,11 +62,15 @@ class itineraryList extends Model
     public $projectTitle;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $trafficType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $tripWay;

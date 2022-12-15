@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InvoiceDeleteRequest extends Model
 {
     /**
+     * @example 340049
+     *
      * @var string
      */
     public $thirdPartId;

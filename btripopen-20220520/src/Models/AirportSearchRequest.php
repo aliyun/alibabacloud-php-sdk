@@ -14,6 +14,8 @@ class AirportSearchRequest extends Model
     public $keyword;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $type;

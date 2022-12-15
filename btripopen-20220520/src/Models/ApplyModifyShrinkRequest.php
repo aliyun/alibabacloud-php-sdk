@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ApplyModifyShrinkRequest extends Model
 {
     /**
+     * @example 4000
+     *
      * @var int
      */
     public $budget;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $budgetMerge;
@@ -24,6 +28,8 @@ class ApplyModifyShrinkRequest extends Model
     public $corpName;
 
     /**
+     * @example 001
+     *
      * @var string
      */
     public $departId;
@@ -44,11 +50,15 @@ class ApplyModifyShrinkRequest extends Model
     public $externalTravelerStandardShrink;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $flightBudget;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $hotelBudget;
@@ -59,11 +69,15 @@ class ApplyModifyShrinkRequest extends Model
     public $hotelShareShrink;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $itineraryListShrink;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $itineraryRule;
@@ -74,21 +88,29 @@ class ApplyModifyShrinkRequest extends Model
     public $itinerarySetListShrink;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $limitTraveler;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 0001A1100000007EX08O
+     *
      * @var string
      */
     public $thirdpartApplyId;
 
     /**
+     * @example 202201413141
+     *
      * @var string
      */
     public $thirdpartBusinessId;
@@ -99,11 +121,15 @@ class ApplyModifyShrinkRequest extends Model
     public $thirdpartDepartId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $togetherBookRule;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $trainBudget;
@@ -124,6 +150,8 @@ class ApplyModifyShrinkRequest extends Model
     public $tripCause;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $tripDay;
@@ -134,11 +162,15 @@ class ApplyModifyShrinkRequest extends Model
     public $tripTitle;
 
     /**
+     * @example union51415
+     *
      * @var string
      */
     public $unionNo;
 
     /**
+     * @example thirdpart12138
+     *
      * @var string
      */
     public $userId;
@@ -149,6 +181,8 @@ class ApplyModifyShrinkRequest extends Model
     public $userName;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $vehicleBudget;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class IeFlightBillSettlementQueryResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -25,21 +27,29 @@ class IeFlightBillSettlementQueryResponseBody extends Model
     public $module;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $morePage;
 
     /**
+     * @example C61ECFF6-606B-5F66-B81D-D77369043A5F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 210e842b16611337974412836dae27
+     *
      * @var string
      */
     public $traceId;

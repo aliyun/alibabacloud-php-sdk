@@ -15,21 +15,29 @@ class trafficFee extends Model
     public $btripRoutes;
 
     /**
+     * @example demo
+     *
      * @var string
      */
     public $errMsg;
 
     /**
+     * @example 265000
+     *
      * @var int
      */
     public $maxFee;
 
     /**
+     * @example 30100
+     *
      * @var int
      */
     public $minFee;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

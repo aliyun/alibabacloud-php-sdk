@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
+     * @example 1231
+     *
      * @var int
      */
     public $applyId;
@@ -25,6 +27,8 @@ class module extends Model
     public $btripCause;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $corpId;
@@ -35,6 +39,8 @@ class module extends Model
     public $exceedReason;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $exceedType;
@@ -45,26 +51,36 @@ class module extends Model
     public $originStandard;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 2022-01-12T16:47Z
+     *
      * @var string
      */
     public $submitTime;
 
     /**
+     * @example 0001A1100000007EX08O
+     *
      * @var string
      */
     public $thirdpartApplyId;
 
     /**
+     * @example test_corp
+     *
      * @var string
      */
     public $thirdpartCorpId;
 
     /**
+     * @example user1
+     *
      * @var string
      */
     public $userId;

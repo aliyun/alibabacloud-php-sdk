@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class allCityBaseInfoList extends Model
 {
     /**
+     * @example 330122
+     *
      * @var string
      */
     public $adcode;
 
     /**
+     * @example 0571
+     *
      * @var string
      */
     public $cityCode;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $cityLevel;
 
     /**
+     * @example 桐庐
+     *
      * @var string
      */
     public $cityName;
 
     /**
+     * @example 中国，浙江省，杭州市，桐庐
+     *
      * @var string
      */
     public $cnNameTree;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $id;

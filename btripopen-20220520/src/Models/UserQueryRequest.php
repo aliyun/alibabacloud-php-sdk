@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UserQueryRequest extends Model
 {
     /**
+     * @example 2021-06-02 00:00:00
+     *
      * @var string
      */
     public $modifiedTimeGreaterOrEqualThan;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 9YN+jxa7PcxbNUTISeKjEw==
+     *
      * @var string
      */
     public $pageToken;
 
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $thirdPartJobNo;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class priceInfoList extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $categoryCode;
 
     /**
+     * @example 1669274251000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $payType;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $personPrice;
 
     /**
+     * @example 2000
+     *
      * @var int
      */
     public $price;
 
     /**
+     * @example 1012000000001
+     *
      * @var string
      */
     public $tradeId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;

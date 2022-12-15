@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CostCenterSaveRequest extends Model
 {
     /**
+     * @example a@alipay.com
+     *
      * @var string
      */
     public $alipayNo;
 
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $number;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $scope;
 
     /**
+     * @example 340049
+     *
      * @var string
      */
     public $thirdpartId;

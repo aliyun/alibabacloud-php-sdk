@@ -15,6 +15,8 @@ class CarApplyQueryResponseBody extends Model
     public $applyList;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $code;
@@ -25,21 +27,29 @@ class CarApplyQueryResponseBody extends Model
     public $message;
 
     /**
+     * @example 407543AF-2BD9-5890-BD92-9D1AB7218B27
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $total;
 
     /**
+     * @example 210bcc3a16583004579056128d33d7
+     *
      * @var string
      */
     public $traceId;

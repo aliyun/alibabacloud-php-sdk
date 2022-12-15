@@ -14,11 +14,15 @@ class CorpTokenRequest extends Model
     public $appSecret;
 
     /**
+     * @example open324dfsdafsgcxvxv
+     *
      * @var string
      */
     public $corpId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $type;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class TrainOrderListQueryRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $allApply;
 
     /**
+     * @example 11657
+     *
      * @var int
      */
     public $applyId;
@@ -24,36 +28,50 @@ class TrainOrderListQueryRequest extends Model
     public $departId;
 
     /**
+     * @example 2022-05-15 22:27:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 25
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2022-05-15 22:27:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example CS-EDES9898
+     *
      * @var string
      */
     public $thirdpartApplyId;
 
     /**
+     * @example 2022-05-15 22:27:00
+     *
      * @var string
      */
     public $updateEndTime;
 
     /**
+     * @example 2022-05-15 22:27:00
+     *
      * @var string
      */
     public $updateStartTime;

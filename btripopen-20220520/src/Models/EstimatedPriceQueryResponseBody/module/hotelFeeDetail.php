@@ -14,21 +14,29 @@ class hotelFeeDetail extends Model
     public $city;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $criterion;
 
     /**
+     * @example 1245
+     *
      * @var string
      */
     public $itineraryId;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $total;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $tripDays;

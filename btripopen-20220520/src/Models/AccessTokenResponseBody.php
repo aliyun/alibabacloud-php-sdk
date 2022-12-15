@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class AccessTokenResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -31,11 +33,17 @@ class AccessTokenResponseBody extends Model
     public $module;
 
     /**
+     * @example 407543AF-2BD9-5890-BD92-9D1AB7218B27
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description traceId
+     *
+     * @example 21041ce316577904808056433edbb2
+     *
      * @var string
      */
     public $traceId;

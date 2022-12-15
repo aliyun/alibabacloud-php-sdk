@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hasMore;
@@ -20,11 +22,15 @@ class module extends Model
     public $items;
 
     /**
+     * @example 9YN+jxa7PcxbNUTISeKjEw==
+     *
      * @var string
      */
     public $pageToken;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $total;

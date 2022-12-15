@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class departList extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $departId;
@@ -19,26 +21,36 @@ class departList extends Model
     public $departName;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $departPid;
 
     /**
+     * @example 001|002|003
+     *
      * @var string
      */
     public $managerIds;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example testdepartid001
+     *
      * @var string
      */
     public $thirdDepartId;
 
     /**
+     * @example testdepartpid001
+     *
      * @var string
      */
     public $thirdDepartPid;

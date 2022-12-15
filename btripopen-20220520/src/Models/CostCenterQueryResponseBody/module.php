@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
+     * @example a@alipay.com
+     *
      * @var string
      */
     public $alipayNo;
 
     /**
+     * @example ding12345678
+     *
      * @var string
      */
     public $corpId;
@@ -25,26 +29,38 @@ class module extends Model
     public $entityDOS;
 
     /**
+     * @example 7232
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $number;
 
     /**
+     * @description rule code
+     *
+     * @example 500578154
+     *
      * @var int
      */
     public $ruleCode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $scope;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $thirdpartId;

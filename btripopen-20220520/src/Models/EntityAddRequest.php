@@ -15,6 +15,8 @@ class EntityAddRequest extends Model
     public $entityDOList;
 
     /**
+     * @example 340049
+     *
      * @var string
      */
     public $thirdpartId;

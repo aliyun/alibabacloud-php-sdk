@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ApplyApproveRequest extends Model
 {
     /**
+     * @example sdfg
+     *
      * @var string
      */
     public $applyId;
@@ -19,16 +21,22 @@ class ApplyApproveRequest extends Model
     public $note;
 
     /**
+     * @example 2022-07-12 16:12:53
+     *
      * @var string
      */
     public $operateTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example thirdpart12138
+     *
      * @var string
      */
     public $userId;

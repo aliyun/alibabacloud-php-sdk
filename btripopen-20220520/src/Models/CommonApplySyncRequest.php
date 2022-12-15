@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CommonApplySyncRequest extends Model
 {
     /**
+     * @example 1003366164
+     *
      * @var int
      */
     public $applyId;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $bizCategory;
@@ -24,11 +28,15 @@ class CommonApplySyncRequest extends Model
     public $remark;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example asfa
+     *
      * @var string
      */
     public $thirdpartyFlowId;

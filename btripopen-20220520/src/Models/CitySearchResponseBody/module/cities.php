@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cities extends Model
 {
     /**
+     * @example 330100
+     *
      * @var string
      */
     public $code;
@@ -19,6 +21,8 @@ class cities extends Model
     public $name;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $region;

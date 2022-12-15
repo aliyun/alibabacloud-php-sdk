@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class hotelCitys extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $cityCode;
@@ -19,6 +21,8 @@ class hotelCitys extends Model
     public $cityName;
 
     /**
+     * @example 1001
+     *
      * @var int
      */
     public $fee;

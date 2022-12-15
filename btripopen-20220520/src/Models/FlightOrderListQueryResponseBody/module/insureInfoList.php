@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class insureInfoList extends Model
 {
     /**
+     * @example KJ-879657
+     *
      * @var string
      */
     public $insureNo;
@@ -19,6 +21,8 @@ class insureInfoList extends Model
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ProjectModifyRequest extends Model
 {
     /**
+     * @example pro_code
+     *
      * @var string
      */
     public $code;
@@ -19,16 +21,22 @@ class ProjectModifyRequest extends Model
     public $projectName;
 
     /**
+     * @example 234
+     *
      * @var string
      */
     public $thirdPartCostCenterId;
 
     /**
+     * @example 340049
+     *
      * @var string
      */
     public $thirdPartId;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $thirdPartInvoiceId;

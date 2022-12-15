@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $applyId;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $bizCategory;
@@ -24,6 +28,8 @@ class module extends Model
     public $cause;
 
     /**
+     * @example 0001A1100000007EX08O
+     *
      * @var string
      */
     public $corpId;
@@ -34,21 +40,29 @@ class module extends Model
     public $extendValue;
 
     /**
+     * @example 2021-03-18T20:26Z
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 1233
+     *
      * @var string
      */
     public $thirdpartCorpId;
 
     /**
+     * @example 12344
+     *
      * @var string
      */
     public $thirdpartId;
@@ -59,6 +73,8 @@ class module extends Model
     public $tripCause;
 
     /**
+     * @example user1
+     *
      * @var string
      */
     public $userId;

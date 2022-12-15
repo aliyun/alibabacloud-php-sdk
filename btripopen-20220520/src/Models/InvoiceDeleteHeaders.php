@@ -11,6 +11,8 @@ class InvoiceDeleteHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @example feth00jqwls
+     *
      * @var string
      */
     public $xAcsBtripSoCorpToken;

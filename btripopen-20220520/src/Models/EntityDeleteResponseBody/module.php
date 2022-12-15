@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $removeNum;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $selectedUserNum;

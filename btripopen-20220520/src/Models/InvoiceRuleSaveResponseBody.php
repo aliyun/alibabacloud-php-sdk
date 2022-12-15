@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class InvoiceRuleSaveResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -25,16 +27,22 @@ class InvoiceRuleSaveResponseBody extends Model
     public $module;
 
     /**
+     * @example C61ECFF6-606B-5F66-B81D-D77369043A5F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 8465F68D-BC97-5C0F-9161-3E65919D9135
+     *
      * @var string
      */
     public $traceId;

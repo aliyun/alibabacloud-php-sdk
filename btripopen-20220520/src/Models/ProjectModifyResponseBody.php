@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ProjectModifyResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -19,21 +21,29 @@ class ProjectModifyResponseBody extends Model
     public $message;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $module;
 
     /**
+     * @example 407543AF-2BD9-5890-BD92-9D1AB7218B27
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 21041ce316577904808056433edbb2
+     *
      * @var string
      */
     public $traceId;

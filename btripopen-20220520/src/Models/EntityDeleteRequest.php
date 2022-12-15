@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class EntityDeleteRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $delAll;
@@ -20,6 +22,8 @@ class EntityDeleteRequest extends Model
     public $entityDOList;
 
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $thirdpartId;

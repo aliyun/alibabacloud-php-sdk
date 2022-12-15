@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
+     * @example thirdpart12132
+     *
      * @var int
      */
     public $applyId;
 
     /**
+     * @example thirdpart12132
+     *
      * @var string
      */
     public $thirdpartApplyId;
 
     /**
+     * @example 20220702001
+     *
      * @var string
      */
     public $thirdpartBusinessId;

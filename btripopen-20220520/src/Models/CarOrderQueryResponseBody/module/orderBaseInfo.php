@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class orderBaseInfo extends Model
 {
     /**
+     * @example xxxxx
+     *
      * @var string
      */
     public $applyId;
@@ -24,6 +26,8 @@ class orderBaseInfo extends Model
     public $btripTitle;
 
     /**
+     * @example xxxxxxxx
+     *
      * @var string
      */
     public $corpId;
@@ -34,6 +38,8 @@ class orderBaseInfo extends Model
     public $corpName;
 
     /**
+     * @example 10101010
+     *
      * @var string
      */
     public $departId;
@@ -44,51 +50,71 @@ class orderBaseInfo extends Model
     public $departName;
 
     /**
+     * @example 1669274251000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1669274251000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example xxxxx
+     *
      * @var string
      */
     public $itineraryId;
 
     /**
+     * @example 1012000000000000
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $orderStatus;
 
     /**
+     * @example 100000
+     *
      * @var int
      */
     public $subOrderId;
 
     /**
+     * @example thirdpart_1010101010
+     *
      * @var string
      */
     public $thirdDepartId;
 
     /**
+     * @example xxxxx
+     *
      * @var string
      */
     public $thirdpartApplyId;
 
     /**
+     * @example xxxxx
+     *
      * @var string
      */
     public $thirdpartItineraryId;
 
     /**
+     * @example xxxxxxxx
+     *
      * @var string
      */
     public $userId;

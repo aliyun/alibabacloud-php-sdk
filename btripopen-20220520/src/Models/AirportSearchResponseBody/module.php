@@ -15,6 +15,8 @@ class module extends Model
     public $cities;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $nearby;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TrainOrderQueryRequest extends Model
 {
     /**
+     * @example 2627694109810885616
+     *
      * @var int
      */
     public $orderId;

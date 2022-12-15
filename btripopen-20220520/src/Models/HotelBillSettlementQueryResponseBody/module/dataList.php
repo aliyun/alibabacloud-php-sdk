@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class dataList extends Model
 {
     /**
+     * @example 234432432
+     *
      * @var string
      */
     public $alipayTradeNo;
 
     /**
+     * @example 103208648
+     *
      * @var string
      */
     public $applyId;
 
     /**
+     * @example 2022-07-20T10:40Z
+     *
      * @var string
      */
     public $billRecordTime;
 
     /**
+     * @example 2021-10-12 23:58:48
+     *
      * @var string
      */
     public $bookTime;
@@ -44,6 +52,8 @@ class dataList extends Model
     public $bookerName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $capitalDirection;
@@ -54,11 +64,15 @@ class dataList extends Model
     public $cascadeDepartment;
 
     /**
+     * @example 2021-10-14 00:00:00
+     *
      * @var string
      */
     public $checkInDate;
 
     /**
+     * @example 2021-10-16 00:00:00
+     *
      * @var string
      */
     public $checkoutDate;
@@ -69,16 +83,22 @@ class dataList extends Model
     public $city;
 
     /**
+     * @example 110100
+     *
      * @var string
      */
     public $cityCode;
 
     /**
+     * @example 12
+     *
      * @var float
      */
     public $corpRefundFee;
 
     /**
+     * @example 1000
+     *
      * @var float
      */
     public $corpTotalFee;
@@ -89,6 +109,8 @@ class dataList extends Model
     public $costCenter;
 
     /**
+     * @example 8b7f3cd-24324-097
+     *
      * @var string
      */
     public $costCenterNumber;
@@ -104,16 +126,22 @@ class dataList extends Model
     public $departmentId;
 
     /**
+     * @example 20101
+     *
      * @var string
      */
     public $feeType;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $fees;
 
     /**
+     * @example 12
+     *
      * @var float
      */
     public $fuPointFee;
@@ -124,6 +152,8 @@ class dataList extends Model
     public $hotelName;
 
     /**
+     * @example 5038018
+     *
      * @var string
      */
     public $index;
@@ -144,16 +174,22 @@ class dataList extends Model
     public $isShareStr;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $nights;
 
     /**
+     * @example 223423423432422
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 1088.96
+     *
      * @var float
      */
     public $orderPrice;
@@ -164,26 +200,36 @@ class dataList extends Model
     public $orderType;
 
     /**
+     * @example 4234324
+     *
      * @var string
      */
     public $overApplyId;
 
     /**
+     * @example 34
+     *
      * @var float
      */
     public $personRefundFee;
 
     /**
+     * @example 88.96
+     *
      * @var float
      */
     public $personSettlePrice;
 
     /**
+     * @example 5038018
+     *
      * @var int
      */
     public $primaryId;
 
     /**
+     * @example 223423432
+     *
      * @var string
      */
     public $projectCode;
@@ -194,6 +240,8 @@ class dataList extends Model
     public $projectName;
 
     /**
+     * @example 113.02
+     *
      * @var float
      */
     public $promotionFee;
@@ -204,11 +252,15 @@ class dataList extends Model
     public $remark;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $roomNumber;
 
     /**
+     * @example 1201.98
+     *
      * @var float
      */
     public $roomPrice;
@@ -219,36 +271,50 @@ class dataList extends Model
     public $roomType;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $serviceFee;
 
     /**
+     * @example 1000
+     *
      * @var float
      */
     public $settlementFee;
 
     /**
+     * @example 5.68
+     *
      * @var float
      */
     public $settlementGrantFee;
 
     /**
+     * @example 2021-10-12 23:58:56
+     *
      * @var string
      */
     public $settlementTime;
 
     /**
+     * @example 4
+     *
      * @var string
      */
     public $settlementType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalNights;
@@ -259,6 +325,8 @@ class dataList extends Model
     public $travelerId;
 
     /**
+     * @example 326246
+     *
      * @var string
      */
     public $travelerJobNo;
@@ -269,6 +337,8 @@ class dataList extends Model
     public $travelerName;
 
     /**
+     * @example 11
+     *
      * @var int
      */
     public $voucherType;

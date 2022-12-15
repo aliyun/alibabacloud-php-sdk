@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class ApplyListQueryRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $allApply;
 
     /**
+     * @example dept1
+     *
      * @var string
      */
     public $departId;
 
     /**
+     * @example 2017-05-01 00:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 2018-05-01 00:00:00
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $onlyShangLvApply;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2017-05-01 00:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @example abs123
+     *
      * @var string
      */
     public $unionNo;
 
     /**
+     * @example user1
+     *
      * @var string
      */
     public $userId;

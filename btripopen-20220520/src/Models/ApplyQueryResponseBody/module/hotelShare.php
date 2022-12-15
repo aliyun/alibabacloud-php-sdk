@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class hotelShare extends Model
 {
     /**
+     * @example 70
+     *
      * @var string
      */
     public $param;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $type;

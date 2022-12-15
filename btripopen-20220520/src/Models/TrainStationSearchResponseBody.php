@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class TrainStationSearchResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -20,21 +22,29 @@ class TrainStationSearchResponseBody extends Model
     public $message;
 
     /**
+     * @description module
+     *
      * @var module
      */
     public $module;
 
     /**
+     * @example B72B39C8-32DE-558D-AD1C-D53F11F6ADFE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 210e847f16611516748613869de4f6
+     *
      * @var string
      */
     public $traceId;

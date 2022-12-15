@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class applyIntentionInfoDo extends Model
 {
     /**
+     * @example 2021-07-08
+     *
      * @var string
      */
     public $checkIn;
 
     /**
+     * @example 2021-07-08
+     *
      * @var string
      */
     public $checkOut;
 
     /**
+     * @example SHA
+     *
      * @var string
      */
     public $cityCode;
@@ -29,16 +35,22 @@ class applyIntentionInfoDo extends Model
     public $cityName;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $price;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $together;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $type;

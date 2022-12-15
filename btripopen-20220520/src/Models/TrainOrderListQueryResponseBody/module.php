@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
+     * @example 11367
+     *
      * @var int
      */
     public $applyId;
@@ -28,6 +30,8 @@ class module extends Model
     public $arrStation;
 
     /**
+     * @example 2022-05-15T22:27Z
+     *
      * @var string
      */
     public $arrTime;
@@ -68,6 +72,8 @@ class module extends Model
     public $depStation;
 
     /**
+     * @example 2022-05-15T22:27Z
+     *
      * @var string
      */
     public $depTime;
@@ -83,16 +89,22 @@ class module extends Model
     public $departName;
 
     /**
+     * @example 2022-05-15T22:27Z
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2022-05-15T22:27Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 1478652
+     *
      * @var int
      */
     public $id;
@@ -108,11 +120,15 @@ class module extends Model
     public $priceInfoList;
 
     /**
+     * @example PCXIDF
+     *
      * @var string
      */
     public $projectCode;
 
     /**
+     * @example 12425
+     *
      * @var int
      */
     public $projectId;
@@ -128,6 +144,8 @@ class module extends Model
     public $riderName;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $runTime;
@@ -138,36 +156,50 @@ class module extends Model
     public $seatType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example CS-SKPFDS
+     *
      * @var string
      */
     public $thirdPartProjectId;
 
     /**
+     * @example CSIODJUSN
+     *
      * @var string
      */
     public $thirdpartApplyId;
 
     /**
+     * @example CS-IT89D
+     *
      * @var string
      */
     public $thirdpartItineraryId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ticketCount;
 
     /**
+     * @example CS-663
+     *
      * @var string
      */
     public $ticketNo12306;
 
     /**
+     * @example CS-663
+     *
      * @var string
      */
     public $trainNumber;
