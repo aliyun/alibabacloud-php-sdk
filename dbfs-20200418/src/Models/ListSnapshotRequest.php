@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class ListSnapshotRequest extends Model
 {
     /**
+     * @example SnapshotId
+     *
      * @var string
      */
     public $filterKey;
 
     /**
+     * @example s-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $filterValue;
 
     /**
+     * @example dbfs-GOrr********Yd0VLOyBpg
+     *
      * @var string
      */
     public $fsId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example ["s-bp67acfmxazb4p****", "s-bp67acfmxazb5p****", … "s-bp67acfmxazb6p****"]
+     *
      * @var string
      */
     public $snapshotIds;
 
     /**
+     * @example testSnapshotName
+     *
      * @var string
      */
     public $snapshotName;
 
     /**
+     * @example user
+     *
      * @var string
      */
     public $snapshotType;
 
     /**
+     * @example SnapshotSize
+     *
      * @var string
      */
     public $sortKey;
 
     /**
+     * @example desc
+     *
      * @var string
      */
     public $sortType;
 
     /**
+     * @example accomplished
+     *
      * @var string
      */
     public $status;

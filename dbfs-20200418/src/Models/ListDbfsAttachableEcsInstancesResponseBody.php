@@ -15,11 +15,15 @@ class ListDbfsAttachableEcsInstancesResponseBody extends Model
     public $ecsLabelInfo;
 
     /**
+     * @example 3724CFEF-02DA-578B-AED6-67EE80671B4A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 32
+     *
      * @var int
      */
     public $totalCount;

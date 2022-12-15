@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateDbfsRequest extends Model
 {
     /**
+     * @example {"cpuCoreCount":0.5,"memorySize":512,"pageCacheSize":128}
+     *
      * @var string
      */
     public $advancedFeatures;
 
     /**
+     * @example dbfs-GOrr********Yd0VLOyBpg
+     *
      * @var string
      */
     public $fsId;
 
     /**
+     * @example dbfs.medium
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example MySQL 5.7
+     *
      * @var string
      */
     public $usedScene;

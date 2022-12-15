@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateSnapshotRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example d-bp131n0q38u3a4zi*****
+     *
      * @var string
      */
     public $fsId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $retentionDays;
 
     /**
+     * @example testSnapshotName
+     *
      * @var string
      */
     public $snapshotName;

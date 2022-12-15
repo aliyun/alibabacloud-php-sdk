@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteDbfsRequest extends Model
 {
     /**
+     * @example d-bp131n0q38u3a4zi*****
+     *
      * @var string
      */
     public $fsId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

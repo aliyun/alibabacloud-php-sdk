@@ -6,14 +6,19 @@ namespace AlibabaCloud\SDK\DBFS\V20200418\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class TagDbfsRequest extends Model
+class CancelAutoSnapshotPolicyRequest extends Model
 {
     /**
-     * @example dbfs-nUy1tb********BQ4X8Gpw
+     * @var string[]
+     */
+    public $dbfsIds;
+
+    /**
+     * @example sp-z5siir3iq3m**********
      *
      * @var string
      */
-    public $dbfsId;
+    public $policyId;
 
     /**
      * @example cn-hangzhou
@@ -21,17 +26,10 @@ class TagDbfsRequest extends Model
      * @var string
      */
     public $regionId;
-
-    /**
-     * @example [{"TagKey":"k1","TagValue":"v1"},{"TagKey":"k2","TagValue":"v2"}]
-     *
-     * @var string
-     */
-    public $tags;
     protected $_name = [
-        'dbfsId'   => 'DbfsId',
+        'dbfsIds'  => 'DbfsIds',
+        'policyId' => 'PolicyId',
         'regionId' => 'RegionId',
-        'tags'     => 'Tags',
     ];
 
     public function validate()
@@ -41,14 +39,14 @@ class TagDbfsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dbfsId) {
-            $res['DbfsId'] = $this->dbfsId;
+        if (null !== $this->dbfsIds) {
+            $res['DbfsIds'] = $this->dbfsIds;
+        }
+        if (null !== $this->policyId) {
+            $res['PolicyId'] = $this->policyId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
         }
 
         return $res;
@@ -57,19 +55,21 @@ class TagDbfsRequest extends Model
     /**
      * @param array $map
      *
-     * @return TagDbfsRequest
+     * @return CancelAutoSnapshotPolicyRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DbfsId'])) {
-            $model->dbfsId = $map['DbfsId'];
+        if (isset($map['DbfsIds'])) {
+            if (!empty($map['DbfsIds'])) {
+                $model->dbfsIds = $map['DbfsIds'];
+            }
+        }
+        if (isset($map['PolicyId'])) {
+            $model->policyId = $map['PolicyId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
         }
 
         return $model;

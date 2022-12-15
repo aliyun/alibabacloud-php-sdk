@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetDbfsRequest extends Model
 {
     /**
+     * @example dbfs-GOrr********Yd0VLOyBpg
+     *
      * @var string
      */
     public $fsId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

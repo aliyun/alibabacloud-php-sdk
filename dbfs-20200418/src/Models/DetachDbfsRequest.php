@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DetachDbfsRequest extends Model
 {
     /**
+     * @example i-bp67acfmxazb4ph***
+     *
      * @var string
      */
     public $ECSInstanceId;
 
     /**
+     * @example d-bp131n0q38u3a4zi*****
+     *
      * @var string
      */
     public $fsId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

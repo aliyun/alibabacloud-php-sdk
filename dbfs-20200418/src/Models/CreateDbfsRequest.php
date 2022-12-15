@@ -9,81 +9,113 @@ use AlibabaCloud\Tea\Model;
 class CreateDbfsRequest extends Model
 {
     /**
+     * @example {"cpuCoreCount":0.5,"memorySize":512,"pageCacheSize":128}
+     *
      * @var string
      */
     public $advancedFeatures;
 
     /**
+     * @example standard
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $deleteSnapshot;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableRaid;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $encryption;
 
     /**
+     * @example testdbfs-001
+     *
      * @var string
      */
     public $fsName;
 
     /**
+     * @example dbfs.small
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example 0e478b7a-4262-4802-b8cb-00d3fb40826X
+     *
      * @var string
      */
     public $KMSKeyId;
 
     /**
+     * @example PL1
+     *
      * @var string
      */
     public $performanceLevel;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $raidStripeUnitNumber;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $sizeG;
 
     /**
+     * @example s-y2vZ3********vvMilZ2hQ
+     *
      * @var string
      */
     public $snapshotId;
 
     /**
+     * @example PostgreSQL
+     *
      * @var string
      */
     public $usedScene;
 
     /**
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;

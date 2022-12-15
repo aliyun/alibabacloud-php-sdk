@@ -6,14 +6,14 @@ namespace AlibabaCloud\SDK\DBFS\V20200418\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateDbfsResponseBody extends Model
+class CreateAutoSnapshotPolicyResponseBody extends Model
 {
     /**
-     * @example dbfs-GOrr********Yd0VLOyBpg
+     * @example sp-z5siir3iq3m**********
      *
      * @var string
      */
-    public $fsId;
+    public $policyId;
 
     /**
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -22,7 +22,7 @@ class CreateDbfsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'fsId'      => 'FsId',
+        'policyId'  => 'PolicyId',
         'requestId' => 'RequestId',
     ];
 
@@ -33,8 +33,8 @@ class CreateDbfsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fsId) {
-            $res['FsId'] = $this->fsId;
+        if (null !== $this->policyId) {
+            $res['PolicyId'] = $this->policyId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -46,13 +46,13 @@ class CreateDbfsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateDbfsResponseBody
+     * @return CreateAutoSnapshotPolicyResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FsId'])) {
-            $model->fsId = $map['FsId'];
+        if (isset($map['PolicyId'])) {
+            $model->policyId = $map['PolicyId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

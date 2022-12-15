@@ -9,71 +9,99 @@ use AlibabaCloud\Tea\Model;
 class snapshots extends Model
 {
     /**
+     * @example standard
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example 1609330367000
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1609330367000
+     *
      * @var string
      */
     public $lastModifiedTime;
 
     /**
+     * @example 100%
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @example 38
+     *
      * @var int
      */
     public $remainTime;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $retentionDays;
 
     /**
+     * @example s-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $snapshotId;
 
     /**
+     * @example testSnapshotName
+     *
      * @var string
      */
     public $snapshotName;
 
     /**
+     * @example user
+     *
      * @var string
      */
     public $snapshotType;
 
     /**
+     * @example dbfs-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $sourceFsId;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $sourceFsSize;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $sourceFsStripeWidth;
 
     /**
+     * @example accomplished
+     *
      * @var string
      */
     public $status;

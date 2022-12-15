@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListDbfsAttachedEcsInstancesRequest extends Model
 {
     /**
+     * @example dbfs-nUy1tb********BQ4X8Gpw
+     *
      * @var string
      */
     public $fsId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

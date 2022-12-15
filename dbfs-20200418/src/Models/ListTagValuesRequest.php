@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListTagValuesRequest extends Model
 {
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example tagKey1
+     *
      * @var string
      */
     public $tagKey;

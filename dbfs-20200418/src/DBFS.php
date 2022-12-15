@@ -10,6 +10,12 @@ use AlibabaCloud\SDK\DBFS\V20200418\Models\AddTagsBatchRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\AddTagsBatchResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\AttachDbfsRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\AttachDbfsResponse;
+use AlibabaCloud\SDK\DBFS\V20200418\Models\CancelAutoSnapshotPolicyRequest;
+use AlibabaCloud\SDK\DBFS\V20200418\Models\CancelAutoSnapshotPolicyResponse;
+use AlibabaCloud\SDK\DBFS\V20200418\Models\CancelAutoSnapshotPolicyShrinkRequest;
+use AlibabaCloud\SDK\DBFS\V20200418\Models\CreateAutoSnapshotPolicyRequest;
+use AlibabaCloud\SDK\DBFS\V20200418\Models\CreateAutoSnapshotPolicyResponse;
+use AlibabaCloud\SDK\DBFS\V20200418\Models\CreateAutoSnapshotPolicyShrinkRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\CreateDbfsRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\CreateDbfsResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\CreateServiceLinkedRoleRequest;
@@ -238,6 +244,123 @@ class DBFS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->attachDbfsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CancelAutoSnapshotPolicyRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CancelAutoSnapshotPolicyResponse
+     */
+    public function cancelAutoSnapshotPolicyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CancelAutoSnapshotPolicyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->dbfsIds)) {
+            $request->dbfsIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dbfsIds, 'DbfsIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->dbfsIdsShrink)) {
+            $query['DbfsIds'] = $request->dbfsIdsShrink;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelAutoSnapshotPolicy',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelAutoSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CancelAutoSnapshotPolicyRequest $request
+     *
+     * @return CancelAutoSnapshotPolicyResponse
+     */
+    public function cancelAutoSnapshotPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelAutoSnapshotPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateAutoSnapshotPolicyRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateAutoSnapshotPolicyResponse
+     */
+    public function createAutoSnapshotPolicyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateAutoSnapshotPolicyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->repeatWeekdays)) {
+            $request->repeatWeekdaysShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->repeatWeekdays, 'RepeatWeekdays', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->timePoints)) {
+            $request->timePointsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->timePoints, 'TimePoints', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->policyName)) {
+            $query['PolicyName'] = $request->policyName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->repeatWeekdaysShrink)) {
+            $query['RepeatWeekdays'] = $request->repeatWeekdaysShrink;
+        }
+        if (!Utils::isUnset($request->retentionDays)) {
+            $query['RetentionDays'] = $request->retentionDays;
+        }
+        if (!Utils::isUnset($request->timePointsShrink)) {
+            $query['TimePoints'] = $request->timePointsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAutoSnapshotPolicy',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAutoSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAutoSnapshotPolicyRequest $request
+     *
+     * @return CreateAutoSnapshotPolicyResponse
+     */
+    public function createAutoSnapshotPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAutoSnapshotPolicyWithOptions($request, $runtime);
     }
 
     /**

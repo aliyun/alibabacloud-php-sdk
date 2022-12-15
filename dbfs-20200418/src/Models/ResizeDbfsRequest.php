@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ResizeDbfsRequest extends Model
 {
     /**
+     * @example dbfs-GOrr********Yd0VLOyBpg
+     *
      * @var string
      */
     public $fsId;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $newSizeG;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

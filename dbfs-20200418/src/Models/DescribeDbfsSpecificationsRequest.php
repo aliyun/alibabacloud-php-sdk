@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDbfsSpecificationsRequest extends Model
 {
     /**
+     * @example enterprise
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example ecs.g7se
+     *
      * @var string
      */
     public $ecsInstanceType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

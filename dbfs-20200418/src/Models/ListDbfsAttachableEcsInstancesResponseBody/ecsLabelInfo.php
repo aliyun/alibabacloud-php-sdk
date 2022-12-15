@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ecsLabelInfo extends Model
 {
     /**
+     * @example ecs.g7se
+     *
      * @var string
      */
     public $instanceTypeFamily;
 
     /**
+     * @example Alibaba Cloud Linux 2.1903 LTS 64 bit
+     *
      * @var string
      */
     public $OSName;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;
 
     /**
+     * @example dbfs-test-01
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @example i-bp10jb8mqajkmrejgo00
+     *
      * @var string
      */
     public $value;

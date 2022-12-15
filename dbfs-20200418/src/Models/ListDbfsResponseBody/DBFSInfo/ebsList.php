@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ebsList extends Model
 {
     /**
+     * @example d-bp1383******3uir001r
+     *
      * @var string
      */
     public $ebsId;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $sizeG;

@@ -12,21 +12,29 @@ use AlibabaCloud\Tea\Model;
 class DBFSInfo extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $attachNodeNumber;
 
     /**
+     * @example standard
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example 1609330367000
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @example c39EcDBf-2Ecb-C3C6-6526-018d4Dcf63eD
+     *
      * @var string
      */
     public $DBFSClusterId;
@@ -42,76 +50,106 @@ class DBFSInfo extends Model
     public $ecsList;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableRaid;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $encryption;
 
     /**
+     * @example dbfs-GOrr********Yd0VLOyBpg
+     *
      * @var string
      */
     public $fsId;
 
     /**
+     * @example dbfs-test-01
+     *
      * @var string
      */
     public $fsName;
 
     /**
+     * @example dbfs.small
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example 0e478b7a-4262-4802-b8cb-00d3fb408***
+     *
      * @var string
      */
     public $KMSKeyId;
 
     /**
+     * @example TargetIsBusy.DBFS
+     *
      * @var string
      */
     public $lastFailed;
 
     /**
+     * @example 1644915400000
+     *
      * @var string
      */
     public $lastMountTime;
 
     /**
+     * @example 1644915319000
+     *
      * @var string
      */
     public $lastUmountTime;
 
     /**
+     * @example postpaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example PL1
+     *
      * @var string
      */
     public $performanceLevel;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $raidStrip;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $sizeG;
 
     /**
+     * @example attached
+     *
      * @var string
      */
     public $status;
@@ -122,11 +160,15 @@ class DBFSInfo extends Model
     public $tags;
 
     /**
+     * @example MySQL 5.7
+     *
      * @var string
      */
     public $usedScene;
 
     /**
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteSnapshotRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $force;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
