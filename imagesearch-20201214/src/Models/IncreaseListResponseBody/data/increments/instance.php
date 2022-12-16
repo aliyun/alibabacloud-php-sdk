@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @example bucketName
+     *
      * @var string
      */
     public $bucketName;
 
     /**
+     * @example http://xxxxx
+     *
      * @var string
      */
     public $callbackAddress;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example https://imagesearchname.oss-cn-shanghai.aliyuncs.com/xxx
+     *
      * @var string
      */
     public $errorUrl;
 
     /**
+     * @example 500
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example sucess
+     *
      * @var string
      */
     public $msg;
 
     /**
+     * @example /xx/xx
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1629095713000
+     *
      * @var string
      */
     public $utcCreate;
 
     /**
+     * @example 1629095760000
+     *
      * @var int
      */
     public $utcModified;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 500
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example PROCESSING
+     *
      * @var string
      */
     public $incrementStatus;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class IncreaseInstanceRequest extends Model
 {
     /**
+     * @example bucketName
+     *
      * @var string
      */
     public $bucketName;
 
     /**
+     * @example http://xxxxx
+     *
      * @var string
      */
     public $callbackAddress;
 
     /**
+     * @example imagesearchName
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example /xxx/xxx
+     *
      * @var string
      */
     public $path;

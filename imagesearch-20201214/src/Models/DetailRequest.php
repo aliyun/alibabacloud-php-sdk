@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DetailRequest extends Model
 {
     /**
+     * @example imagesearchName
+     *
      * @var string
      */
     public $instanceName;

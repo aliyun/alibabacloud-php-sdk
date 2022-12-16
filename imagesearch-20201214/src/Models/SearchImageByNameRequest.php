@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class SearchImageByNameRequest extends Model
 {
     /**
+     * @example 88888888
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @example int_attr>=100
+     *
      * @var string
      */
     public $filter;
 
     /**
+     * @example demoinstance1
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $num;
 
     /**
+     * @example 2092061_1.jpg
+     *
      * @var string
      */
     public $picName;
 
     /**
+     * @example 2092061_1
+     *
      * @var string
      */
     public $productId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $start;

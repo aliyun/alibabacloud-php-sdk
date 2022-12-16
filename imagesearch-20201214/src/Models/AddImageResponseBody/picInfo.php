@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class picInfo extends Model
 {
     /**
+     * @example 88888888
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @example 94,691,206,650
+     *
      * @var string
      */
     public $region;

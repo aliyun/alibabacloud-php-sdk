@@ -100,6 +100,9 @@ class ImageSearch extends OpenApiClient
         if (!Utils::isUnset($request->intAttr)) {
             $body['IntAttr'] = $request->intAttr;
         }
+        if (!Utils::isUnset($request->intAttr2)) {
+            $body['IntAttr2'] = $request->intAttr2;
+        }
         if (!Utils::isUnset($request->picContent)) {
             $body['PicContent'] = $request->picContent;
         }
@@ -114,6 +117,9 @@ class ImageSearch extends OpenApiClient
         }
         if (!Utils::isUnset($request->strAttr)) {
             $body['StrAttr'] = $request->strAttr;
+        }
+        if (!Utils::isUnset($request->strAttr2)) {
+            $body['StrAttr2'] = $request->strAttr2;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -742,6 +748,9 @@ class ImageSearch extends OpenApiClient
         if (!Utils::isUnset($request->intAttr)) {
             $body['IntAttr'] = $request->intAttr;
         }
+        if (!Utils::isUnset($request->intAttr2)) {
+            $body['IntAttr2'] = $request->intAttr2;
+        }
         if (!Utils::isUnset($request->picName)) {
             $body['PicName'] = $request->picName;
         }
@@ -750,6 +759,9 @@ class ImageSearch extends OpenApiClient
         }
         if (!Utils::isUnset($request->strAttr)) {
             $body['StrAttr'] = $request->strAttr;
+        }
+        if (!Utils::isUnset($request->strAttr2)) {
+            $body['StrAttr2'] = $request->strAttr2;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),

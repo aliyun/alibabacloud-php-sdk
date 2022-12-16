@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class allCategories extends Model
 {
     /**
+     * @example 88888888
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example other
+     *
      * @var string
      */
     public $name;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DumpMetaRequest extends Model
 {
     /**
+     * @example imagesearchName
+     *
      * @var string
      */
     public $instanceName;

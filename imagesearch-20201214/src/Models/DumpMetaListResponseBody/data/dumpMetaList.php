@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class dumpMetaList extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 500
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example https://imagesearchname.oss-cn-shanghai.aliyuncs.com/xxx
+     *
      * @var string
      */
     public $metaUrl;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $msg;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1629095713000
+     *
      * @var string
      */
     public $utcCreate;
 
     /**
+     * @example 1629095760000
+     *
      * @var int
      */
     public $utcModified;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class IncreaseListRequest extends Model
 {
     /**
+     * @example bucketName
+     *
      * @var string
      */
     public $bucketName;
 
     /**
+     * @example 500
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example demoinstance1
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example /xxx/xxx
+     *
      * @var string
      */
     public $path;

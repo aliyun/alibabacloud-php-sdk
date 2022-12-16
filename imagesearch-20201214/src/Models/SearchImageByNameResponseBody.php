@@ -17,6 +17,8 @@ class SearchImageByNameResponseBody extends Model
     public $auctions;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
@@ -27,6 +29,8 @@ class SearchImageByNameResponseBody extends Model
     public $head;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $msg;
@@ -37,11 +41,15 @@ class SearchImageByNameResponseBody extends Model
     public $picInfo;
 
     /**
+     * @example 36C43E96-8F68-44AA-B1AF-B1F7AB94A6C1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

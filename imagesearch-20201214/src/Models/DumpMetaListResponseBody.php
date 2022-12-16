@@ -15,6 +15,8 @@ class DumpMetaListResponseBody extends Model
     public $data;
 
     /**
+     * @example B3137727-7D6E-488C-BA21-0E034C38A879
+     *
      * @var string
      */
     public $requestId;

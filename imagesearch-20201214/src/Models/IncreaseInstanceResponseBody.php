@@ -15,11 +15,15 @@ class IncreaseInstanceResponseBody extends Model
     public $data;
 
     /**
+     * @example 36C43E96-8F68-44AA-B1AF-B1F7AB94A6C1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

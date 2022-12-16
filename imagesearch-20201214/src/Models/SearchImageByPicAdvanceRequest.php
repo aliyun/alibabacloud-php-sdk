@@ -10,41 +10,57 @@ use GuzzleHttp\Psr7\Stream;
 class SearchImageByPicAdvanceRequest extends Model
 {
     /**
+     * @example 88888888
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $crop;
 
     /**
+     * @example int_attr=1000 AND str_attr="value1"
+     *
      * @var string
      */
     public $filter;
 
     /**
+     * @example demoinstance1
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $num;
 
     /**
+     * @example AAAANSUhEUgAAAPcAAAEVCAYAAAA8d3NuAAAAAXNSR0IArs......RK5CYII=
+     *
      * @var Stream
      */
     public $picContentObject;
 
     /**
+     * @example 280,486,232,351
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $start;

@@ -16,6 +16,8 @@ class picInfo extends Model
     public $allCategories;
 
     /**
+     * @example 88888888
+     *
      * @var int
      */
     public $categoryId;
@@ -26,6 +28,8 @@ class picInfo extends Model
     public $multiRegion;
 
     /**
+     * @example 280,486,232,351
+     *
      * @var string
      */
     public $region;

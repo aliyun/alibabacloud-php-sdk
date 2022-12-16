@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class head extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $docsFound;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $docsReturn;
 
     /**
+     * @example 95
+     *
      * @var int
      */
     public $searchTime;

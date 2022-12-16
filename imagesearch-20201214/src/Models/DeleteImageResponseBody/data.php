@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 5555.jpg
+     *
      * @var string[]
      */
     public $picNames;

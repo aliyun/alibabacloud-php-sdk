@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $capacity;
 
     /**
+     * @example imagesearchName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $qps;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $serviceType;
 
     /**
+     * @example 10063
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @example 1620382716000
+     *
      * @var string
      */
     public $utcCreate;
 
     /**
+     * @example 1623081600000
+     *
      * @var string
      */
     public $utcExpireTime;

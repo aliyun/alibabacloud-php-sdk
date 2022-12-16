@@ -15,16 +15,22 @@ class data extends Model
     public $increments;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $totalCount;

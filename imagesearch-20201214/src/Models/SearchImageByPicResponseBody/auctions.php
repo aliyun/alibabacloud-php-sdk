@@ -9,53 +9,81 @@ use AlibabaCloud\Tea\Model;
 class auctions extends Model
 {
     /**
+     * @example 8888888
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @example zidingyi
+     *
      * @var string
      */
     public $customContent;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $intAttr;
 
     /**
+     * @var int
+     */
+    public $intAttr2;
+
+    /**
+     * @example 2092061_1.jpg
+     *
      * @var string
      */
     public $picName;
 
     /**
+     * @example 2092061_1
+     *
      * @var string
      */
     public $productId;
 
     /**
+     * @example 1
+     *
      * @var float
      */
     public $score;
 
     /**
+     * @example 5.37633353624177e+24;0
+     *
      * @var string
      */
     public $sortExprValues;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $strAttr;
+
+    /**
+     * @var string
+     */
+    public $strAttr2;
     protected $_name = [
         'categoryId'     => 'CategoryId',
         'customContent'  => 'CustomContent',
         'intAttr'        => 'IntAttr',
+        'intAttr2'       => 'IntAttr2',
         'picName'        => 'PicName',
         'productId'      => 'ProductId',
         'score'          => 'Score',
         'sortExprValues' => 'SortExprValues',
         'strAttr'        => 'StrAttr',
+        'strAttr2'       => 'StrAttr2',
     ];
 
     public function validate()
@@ -74,6 +102,9 @@ class auctions extends Model
         if (null !== $this->intAttr) {
             $res['IntAttr'] = $this->intAttr;
         }
+        if (null !== $this->intAttr2) {
+            $res['IntAttr2'] = $this->intAttr2;
+        }
         if (null !== $this->picName) {
             $res['PicName'] = $this->picName;
         }
@@ -88,6 +119,9 @@ class auctions extends Model
         }
         if (null !== $this->strAttr) {
             $res['StrAttr'] = $this->strAttr;
+        }
+        if (null !== $this->strAttr2) {
+            $res['StrAttr2'] = $this->strAttr2;
         }
 
         return $res;
@@ -110,6 +144,9 @@ class auctions extends Model
         if (isset($map['IntAttr'])) {
             $model->intAttr = $map['IntAttr'];
         }
+        if (isset($map['IntAttr2'])) {
+            $model->intAttr2 = $map['IntAttr2'];
+        }
         if (isset($map['PicName'])) {
             $model->picName = $map['PicName'];
         }
@@ -124,6 +161,9 @@ class auctions extends Model
         }
         if (isset($map['StrAttr'])) {
             $model->strAttr = $map['StrAttr'];
+        }
+        if (isset($map['StrAttr2'])) {
+            $model->strAttr2 = $map['StrAttr2'];
         }
 
         return $model;

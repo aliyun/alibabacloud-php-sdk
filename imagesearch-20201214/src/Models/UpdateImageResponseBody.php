@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateImageResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example E0845DE6-52AF-4B50-9F15-51ED4044E6AB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
