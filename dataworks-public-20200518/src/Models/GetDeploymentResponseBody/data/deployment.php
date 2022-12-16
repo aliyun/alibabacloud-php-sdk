@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class deployment extends Model
 {
     /**
+     * @example 7
+     *
      * @var int
      */
     public $checkingStatus;
 
     /**
+     * @example 1593877765000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 20030****
+     *
      * @var string
      */
     public $creatorId;
@@ -29,31 +35,43 @@ class deployment extends Model
     public $errorMessage;
 
     /**
+     * @example 1593877765000
+     *
      * @var int
      */
     public $executeTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $fromEnvironment;
 
     /**
+     * @example 2003****
+     *
      * @var string
      */
     public $handlerId;
 
     /**
+     * @example ods_user_info_d-2020-07-04_20030****
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $toEnvironment;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class shiftPersons extends Model
 {
     /**
+     * @example 1593950832000
+     *
      * @var int
      */
     public $beginTime;
 
     /**
+     * @example 1593950832000
+     *
      * @var int
      */
     public $endTime;
@@ -24,6 +28,8 @@ class shiftPersons extends Model
     public $shiftPersonName;
 
     /**
+     * @example 3726346****
+     *
      * @var string
      */
     public $shiftPersonUID;

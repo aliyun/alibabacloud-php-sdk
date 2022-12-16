@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DeleteQualityFollowerResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @example 401
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example You have no permission.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example 6d739ef6-098a-47****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

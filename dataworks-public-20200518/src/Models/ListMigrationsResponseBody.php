@@ -15,11 +15,15 @@ class ListMigrationsResponseBody extends Model
     public $data;
 
     /**
+     * @example F9198AA3-9010-53D5-9714-DC4461427D3E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

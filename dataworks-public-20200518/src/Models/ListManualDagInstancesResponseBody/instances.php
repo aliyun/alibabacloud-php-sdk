@@ -9,86 +9,120 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @example 1605178414676
+     *
      * @var int
      */
     public $beginRunningTime;
 
     /**
+     * @example 1605178414676
+     *
      * @var int
      */
     public $beginWaitResTime;
 
     /**
+     * @example 1605178414676
+     *
      * @var int
      */
     public $beginWaitTimeTime;
 
     /**
+     * @example 1605178414676
+     *
      * @var int
      */
     public $bizDate;
 
     /**
+     * @example 1605178414676
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example Test
+     *
      * @var string
      */
     public $createUser;
 
     /**
+     * @example 1605178414676
+     *
      * @var int
      */
     public $cycTime;
 
     /**
+     * @example 350850491
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @example 5
+     *
      * @var string
      */
     public $dagType;
 
     /**
+     * @example 1605178414676
+     *
      * @var int
      */
     public $finishTime;
 
     /**
+     * @example 11726873619
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @example 1605178414676
+     *
      * @var int
      */
     public $modifyTime;
 
     /**
+     * @example 37851
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example test2
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @example xxx=yyy
+     *
      * @var string
      */
     public $paramValues;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example MANUAL
+     *
      * @var string
      */
     public $taskType;

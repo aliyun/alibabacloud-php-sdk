@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $blockType;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $checkerId;
@@ -24,101 +28,141 @@ class rules extends Model
     public $comment;
 
     /**
+     * @example 40
+     *
      * @var string
      */
     public $criticalThreshold;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $entityId;
 
     /**
+     * @example 1000
+     *
      * @var string
      */
     public $expectValue;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $fixCheck;
 
     /**
+     * @example history max:80%,history min:50%
+     *
      * @var string
      */
     public $historyCriticalThreshold;
 
     /**
+     * @example history max:40%,history min:10%
+     *
      * @var string
      */
     public $historyWarningThreshold;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example dt=$[yyyymmdd]
+     *
      * @var string
      */
     public $matchExpression;
 
     /**
+     * @example 21
+     *
      * @var int
      */
     public $methodId;
 
     /**
+     * @example count/table_count
+     *
      * @var string
      */
     public $methodName;
 
     /**
+     * @example 1912****
+     *
      * @var string
      */
     public $onDuty;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $onDutyAccountName;
 
     /**
+     * @example autotest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example id
+     *
      * @var string
      */
     public $property;
 
     /**
+     * @example table_count
+     *
      * @var string
      */
     public $propertyKey;
 
     /**
+     * @example 132323
+     *
      * @var int
      */
     public $ruleCheckerRelationId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $ruleType;
 
     /**
+     * @example dual
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $templateId;
@@ -129,11 +173,15 @@ class rules extends Model
     public $templateName;
 
     /**
+     * @example abs
+     *
      * @var string
      */
     public $trend;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $warningThreshold;

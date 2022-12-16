@@ -15,6 +15,8 @@ class GetDataServiceApiTestResponseBody extends Model
     public $data;
 
     /**
+     * @example adssdsewe
+     *
      * @var string
      */
     public $requestId;

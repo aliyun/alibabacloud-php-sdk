@@ -15,11 +15,15 @@ class GetMigrationSummaryResponseBody extends Model
     public $data;
 
     /**
+     * @example 19999A96-71BA-1845-B455-ED620EF4E37F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

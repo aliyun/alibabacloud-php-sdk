@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetOpRiskDataRequest extends Model
 {
     /**
+     * @example 20210221
+     *
      * @var string
      */
     public $date;
 
     /**
+     * @example [ {"dbType":"hologres","instanceName":"ABC","databaseName":"abc"}, {"dbType":"ODPS.ODPS","projectName":"adbc"} ]
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $alarmMode;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $entityId;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $follower;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $followerAccountName;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example autotest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example dual
+     *
      * @var string
      */
     public $tableName;

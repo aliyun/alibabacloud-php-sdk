@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class columnList extends Model
 {
     /**
+     * @example data comment
+     *
      * @var string
      */
     public $caption;
 
     /**
+     * @example odps.engine_name.table_name.1
+     *
      * @var string
      */
     public $columnGuid;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $columnName;
 
     /**
+     * @example string
+     *
      * @var string
      */
     public $columnType;
 
     /**
+     * @example comment
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isForeignKey;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isPartitionColumn;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isPrimaryKey;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $position;

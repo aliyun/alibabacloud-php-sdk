@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class pathParams extends Model
 {
     /**
+     * @example path1
+     *
      * @var string
      */
     public $paramKey;
 
     /**
+     * @example api
+     *
      * @var string
      */
     public $paramValue;

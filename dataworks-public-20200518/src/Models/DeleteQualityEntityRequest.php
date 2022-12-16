@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteQualityEntityRequest extends Model
 {
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $entityId;
 
     /**
+     * @example ODPS
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @example autotest
+     *
      * @var string
      */
     public $projectName;

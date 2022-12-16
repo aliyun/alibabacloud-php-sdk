@@ -15,6 +15,10 @@ class ListExtensionsResponseBody extends Model
     public $pagingInfo;
 
     /**
+     * @description Id of the request
+     *
+     * @example 0000-ABCD-EFG
+     *
      * @var string
      */
     public $requestId;

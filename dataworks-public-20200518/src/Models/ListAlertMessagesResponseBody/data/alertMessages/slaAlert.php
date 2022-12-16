@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class slaAlert extends Model
 {
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $baselineId;
@@ -19,26 +21,36 @@ class slaAlert extends Model
     public $baselineName;
 
     /**
+     * @example 952795279****
+     *
      * @var string
      */
     public $baselineOwner;
 
     /**
+     * @example 1553443200000
+     *
      * @var int
      */
     public $bizdate;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $inGroupId;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example SAFE
+     *
      * @var string
      */
     public $status;

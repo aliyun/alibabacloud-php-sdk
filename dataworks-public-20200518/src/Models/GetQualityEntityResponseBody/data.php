@@ -9,81 +9,113 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1593964800000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $entityLevel;
 
     /**
+     * @example odps
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @example 1822931****
+     *
      * @var string
      */
     public $followers;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hasRelativeNode;
 
     /**
+     * @example 4003918
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example dt=$[yyyymmdd-1]
+     *
      * @var string
      */
     public $matchExpression;
 
     /**
+     * @example 1593964800000
+     *
      * @var int
      */
     public $modifyTime;
 
     /**
+     * @example 1822931****
+     *
      * @var string
      */
     public $modifyUser;
 
     /**
+     * @example 1822931****
+     *
      * @var string
      */
     public $onDuty;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $onDutyAccountName;
 
     /**
+     * @example autotest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example [{"projectName":"xc_DP****","nodeId":7000026****}]
+     *
      * @var string
      */
     public $relativeNode;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $sql;
 
     /**
+     * @example test_dqc_de****
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $task;

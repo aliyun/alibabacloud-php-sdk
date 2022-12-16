@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateTableAddColumnResponseBody extends Model
 {
     /**
+     * @example abc
+     *
      * @var string
      */
     public $requestId;

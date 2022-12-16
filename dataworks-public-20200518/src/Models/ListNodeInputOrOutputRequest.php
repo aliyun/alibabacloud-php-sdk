@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListNodeInputOrOutputRequest extends Model
 {
     /**
+     * @example output
+     *
      * @var string
      */
     public $ioType;
 
     /**
+     * @example 12314567
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example PROD
+     *
      * @var string
      */
     public $projectEnv;

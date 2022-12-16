@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class instanceCounts extends Model
 {
     /**
+     * @example 9527
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example 1623772800000
+     *
      * @var int
      */
     public $date;

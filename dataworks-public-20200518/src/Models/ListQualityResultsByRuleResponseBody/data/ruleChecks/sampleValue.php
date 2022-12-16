@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class sampleValue extends Model
 {
     /**
+     * @example 1600704000000
+     *
      * @var string
      */
     public $bizDate;
 
     /**
+     * @example type2
+     *
      * @var string
      */
     public $discreteProperty;
 
     /**
+     * @example 23
+     *
      * @var float
      */
     public $value;

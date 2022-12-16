@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateQualityEntityResponseBody extends Model
 {
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $data;
 
     /**
+     * @example 401
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example Your project is not relative with your account.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example 011e1231u3****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

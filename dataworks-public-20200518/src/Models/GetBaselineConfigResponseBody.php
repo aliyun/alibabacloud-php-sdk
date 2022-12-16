@@ -15,26 +15,36 @@ class GetBaselineConfigResponseBody extends Model
     public $data;
 
     /**
+     * @example 1031203110005
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example The specified parameters are invalid.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 401
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example ecb967ec-c137-48a5-860****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -15,26 +15,36 @@ class GetQualityFollowerResponseBody extends Model
     public $data;
 
     /**
+     * @example Invalid.Tenant.ConnectionNotExists
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example You have no permission.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example 38cbdef0-f6cf-49
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

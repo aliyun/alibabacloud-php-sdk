@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListCalcEnginesRequest extends Model
 {
     /**
+     * @example ODPS
+     *
      * @var string
      */
     public $calcEngineType;
 
     /**
+     * @example PRD
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 27
+     *
      * @var int
      */
     public $projectId;

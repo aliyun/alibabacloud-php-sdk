@@ -14,46 +14,64 @@ class ListFilesRequest extends Model
     public $fileFolderPath;
 
     /**
+     * @example 10,23
+     *
      * @var string
      */
     public $fileTypes;
 
     /**
+     * @example ods
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @example 123541234
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example 3726346****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example dw_project
+     *
      * @var string
      */
     public $projectIdentifier;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $useType;

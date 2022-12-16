@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListProjectRolesRequest extends Model
 {
     /**
+     * @example 27
+     *
      * @var int
      */
     public $projectId;

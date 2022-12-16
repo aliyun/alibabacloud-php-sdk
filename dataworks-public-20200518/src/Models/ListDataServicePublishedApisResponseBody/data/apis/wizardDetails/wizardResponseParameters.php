@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class wizardResponseParameters extends Model
 {
     /**
+     * @example example2
+     *
      * @var string
      */
     public $exampleValue;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $parameterDataType;
 
     /**
+     * @example description2
+     *
      * @var string
      */
     public $parameterDescription;
 
     /**
+     * @example param2
+     *
      * @var string
      */
     public $parameterName;

@@ -15,6 +15,8 @@ class UpdateTableAddColumnRequest extends Model
     public $column;
 
     /**
+     * @example odps.engine_name.table_name
+     *
      * @var string
      */
     public $tableGuid;

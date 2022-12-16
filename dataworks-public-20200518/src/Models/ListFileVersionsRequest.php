@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListFileVersionsRequest extends Model
 {
     /**
+     * @example 100000001
+     *
      * @var int
      */
     public $fileId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example dw_project
+     *
      * @var string
      */
     public $projectIdentifier;

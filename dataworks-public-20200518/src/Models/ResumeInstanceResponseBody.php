@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ResumeInstanceResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @example Invalid.Tenant.ConnectionNotExists
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example The connection does not exist.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example E6F0DBDD-5AD****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

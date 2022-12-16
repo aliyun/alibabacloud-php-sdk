@@ -13,26 +13,36 @@ use AlibabaCloud\Tea\Model;
 class alertMessages extends Model
 {
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $alertId;
 
     /**
+     * @example READY_TO_SEND
+     *
      * @var string
      */
     public $alertMessageStatus;
 
     /**
+     * @example SMS
+     *
      * @var string
      */
     public $alertMethod;
 
     /**
+     * @example 1553531401000
+     *
      * @var int
      */
     public $alertTime;
 
     /**
+     * @example 9527952795****
+     *
      * @var string
      */
     public $alertUser;
@@ -53,6 +63,8 @@ class alertMessages extends Model
     public $nodes;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $remindId;
@@ -68,6 +80,8 @@ class alertMessages extends Model
     public $slaAlert;
 
     /**
+     * @example REMIND_ALERT
+     *
      * @var string
      */
     public $source;

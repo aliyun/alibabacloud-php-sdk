@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class baselineStatuses extends Model
 {
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $baselineId;
@@ -19,61 +21,85 @@ class baselineStatuses extends Model
     public $baselineName;
 
     /**
+     * @example 1553443200000
+     *
      * @var int
      */
     public $bizdate;
 
     /**
+     * @example 1800
+     *
      * @var int
      */
     public $buffer;
 
     /**
+     * @example 1553531400000
+     *
      * @var int
      */
     public $endCast;
 
     /**
+     * @example 1553531400000
+     *
      * @var int
      */
     public $expTime;
 
     /**
+     * @example UNFINISH
+     *
      * @var string
      */
     public $finishStatus;
 
     /**
+     * @example 1553531400000
+     *
      * @var int
      */
     public $finishTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $inGroupId;
 
     /**
+     * @example 9527952795****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 1553531400000
+     *
      * @var int
      */
     public $slaTime;
 
     /**
+     * @example SAFE
+     *
      * @var string
      */
     public $status;

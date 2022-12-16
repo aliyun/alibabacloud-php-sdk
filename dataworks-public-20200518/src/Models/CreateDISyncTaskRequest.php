@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateDISyncTaskRequest extends Model
 {
     /**
+     * @example 0000-ABCD-EFG****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example {"type":"job","version":"2.0","steps":[{"stepType":"mysql","parameter":{"envType":1,"datasource":"mysql_pub","column":["id","name","create_time","age","score","t_01"],"connection":[{"datasource":"mysql_pub","table":["u_pk"]}],"where":"","splitPk":"id","encoding":"UTF-8"},"name":"Reader","category":"reader"},{"stepType":"odps","parameter":{"partition":"pt=${bizdate}","truncate":true,"datasource":"odps_first","envType":1,"column":["id","name","create_time","age","score","t_01"],"emptyAsNull":false,"tableComment":"null","table":"u_pk"},"name":"Writer","category":"writer"}],"setting":{"executeMode":null,"errorLimit":{"record":""},"speed":{"concurrent":2,"throttle":false}},"order":{"hops":[{"from":"Reader","to":"Writer"}]}}
+     *
      * @var string
      */
     public $taskContent;
 
     /**
+     * @example new_di_task
+     *
      * @var string
      */
     public $taskName;
@@ -34,6 +42,8 @@ class CreateDISyncTaskRequest extends Model
     public $taskParam;
 
     /**
+     * @example DI_OFFLINE
+     *
      * @var string
      */
     public $taskType;

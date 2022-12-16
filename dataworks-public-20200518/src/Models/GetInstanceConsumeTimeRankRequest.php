@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceConsumeTimeRankRequest extends Model
 {
     /**
+     * @example 2020-09-21T00:00:00+0800
+     *
      * @var string
      */
     public $bizdate;
 
     /**
+     * @example 100000
+     *
      * @var int
      */
     public $projectId;

@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class scriptRequestParameters extends Model
 {
     /**
+     * @example column1
+     *
      * @var string
      */
     public $columnName;
 
     /**
+     * @example default1
+     *
      * @var string
      */
     public $defaultValue;
 
     /**
+     * @example example1
+     *
      * @var string
      */
     public $exampleValue;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isRequiredParameter;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $parameterDataType;
 
     /**
+     * @example description1
+     *
      * @var string
      */
     public $parameterDescription;
 
     /**
+     * @example param1
+     *
      * @var string
      */
     public $parameterName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $parameterOperator;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $parameterPosition;

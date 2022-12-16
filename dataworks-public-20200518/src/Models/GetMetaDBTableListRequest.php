@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class GetMetaDBTableListRequest extends Model
 {
     /**
+     * @example odps.testProjectName
+     *
      * @var string
      */
     public $appGuid;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example odps
+     *
      * @var string
      */
     public $dataSourceType;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

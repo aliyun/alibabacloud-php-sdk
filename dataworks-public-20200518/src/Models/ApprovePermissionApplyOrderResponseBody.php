@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ApprovePermissionApplyOrderResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $approveSuccess;
 
     /**
+     * @example 0bc1ec92159376****
+     *
      * @var string
      */
     public $requestId;

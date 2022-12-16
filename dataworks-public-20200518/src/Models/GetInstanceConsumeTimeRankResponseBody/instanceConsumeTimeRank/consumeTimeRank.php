@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class consumeTimeRank extends Model
 {
     /**
+     * @example 1600963200000
+     *
      * @var int
      */
     public $bizdate;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $consumed;
 
     /**
+     * @example 95279527
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @example 9527
+     *
      * @var int
      */
     public $nodeId;
@@ -34,11 +42,15 @@ class consumeTimeRank extends Model
     public $nodeName;
 
     /**
+     * @example 952795279527
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $prgType;

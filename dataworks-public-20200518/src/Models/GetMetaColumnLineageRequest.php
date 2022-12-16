@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class GetMetaColumnLineageRequest extends Model
 {
     /**
+     * @example abc
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example odps.engine_name.table_name.column_name
+     *
      * @var string
      */
     public $columnGuid;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $columnName;
 
     /**
+     * @example emr
+     *
      * @var string
      */
     public $dataSourceType;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @example up
+     *
      * @var string
      */
     public $direction;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $tableName;

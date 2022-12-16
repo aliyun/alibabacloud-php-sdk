@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetOptionValueForProjectResponseBody extends Model
 {
     /**
+     * @example {"cuNumber":"0"}
+     *
      * @var string
      */
     public $optionValue;
 
     /**
+     * @description Id of the request
+     *
+     * @example E6F0DBDD-5AD****
+     *
      * @var string
      */
     public $requestId;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example fileId[100] is invalid
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example streamx_name
+     *
      * @var string
      */
     public $name;
@@ -25,6 +29,8 @@ class data extends Model
     public $solutionInfo;
 
     /**
+     * @example RUN
+     *
      * @var string
      */
     public $status;

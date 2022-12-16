@@ -15,26 +15,36 @@ class ListNodeInputOrOutputResponseBody extends Model
     public $data;
 
     /**
+     * @example Invalid.Tenant.ProjectNotExists
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example The project does not exist.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example E6F0DBDD-5AD****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

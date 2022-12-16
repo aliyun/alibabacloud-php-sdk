@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetBusinessRequest extends Model
 {
     /**
+     * @example 1000000001
+     *
      * @var int
      */
     public $businessId;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example dw_project
+     *
      * @var string
      */
     public $projectIdentifier;

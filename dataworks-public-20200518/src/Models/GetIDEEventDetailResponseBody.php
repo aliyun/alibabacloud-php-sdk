@@ -15,6 +15,8 @@ class GetIDEEventDetailResponseBody extends Model
     public $eventDetail;
 
     /**
+     * @example 8abcb91f-d266-4073-b907-2ed670378ed1
+     *
      * @var string
      */
     public $requestId;

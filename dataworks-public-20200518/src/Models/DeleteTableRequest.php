@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DeleteTableRequest extends Model
 {
     /**
+     * @example odps.test
+     *
      * @var string
      */
     public $appGuid;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $envType;
 
     /**
+     * @example 101
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $schema;
 
     /**
+     * @example table1
+     *
      * @var string
      */
     public $tableName;

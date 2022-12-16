@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateTableThemeResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example ABCd
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $themeId;

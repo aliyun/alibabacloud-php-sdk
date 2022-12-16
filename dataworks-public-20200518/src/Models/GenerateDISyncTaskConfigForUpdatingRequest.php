@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GenerateDISyncTaskConfigForUpdatingRequest extends Model
 {
     /**
+     * @example ABFUOEUOTRTRJKE
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $taskId;
 
     /**
+     * @example {      "steps": [         {             "parameter": {                 "connection": [                     {                         "table": [                             "xyx"                         ]                     }                 ]             },             "name": "Reader",             "category": "reader"         }     ] }
+     *
      * @var string
      */
     public $taskParam;
 
     /**
+     * @example DI_REALTIME
+     *
      * @var string
      */
     public $taskType;

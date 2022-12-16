@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1553524393000
+     *
      * @var int
      */
     public $addTime;
 
     /**
+     * @example 1553524393000
+     *
      * @var int
      */
     public $alertTime;
 
     /**
+     * @example 952795****
+     *
      * @var string
      */
     public $assigner;
 
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $baselineBuffer;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $baselineId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $baselineInGroupId;
@@ -44,46 +56,64 @@ class data extends Model
     public $baselineName;
 
     /**
+     * @example SAFE
+     *
      * @var string
      */
     public $baselineStatus;
 
     /**
+     * @example 1200
+     *
      * @var int
      */
     public $buffer;
 
     /**
+     * @example 1553524393000
+     *
      * @var int
      */
     public $dealTime;
 
     /**
+     * @example 952795****
+     *
      * @var string
      */
     public $dealUser;
 
     /**
+     * @example 1553524393000
+     *
      * @var int
      */
     public $fixTime;
 
     /**
+     * @example 1553524393000
+     *
      * @var int
      */
     public $happenTime;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @example 1553524393000
+     *
      * @var int
      */
     public $nextAlertTime;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $nodeId;
@@ -94,16 +124,22 @@ class data extends Model
     public $nodeName;
 
     /**
+     * @example 952795****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $topicId;
@@ -114,11 +150,15 @@ class data extends Model
     public $topicName;
 
     /**
+     * @example FIXING
+     *
      * @var string
      */
     public $topicStatus;
 
     /**
+     * @example ERROR
+     *
      * @var string
      */
     public $topicType;

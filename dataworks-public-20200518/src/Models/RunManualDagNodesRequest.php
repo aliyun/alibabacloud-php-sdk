@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class RunManualDagNodesRequest extends Model
 {
     /**
+     * @example 2020-11-11 00:00:00
+     *
      * @var string
      */
     public $bizDate;
 
     /**
+     * @example {"kaaaa": "vaaaaa", "kbbbb": "vbbbbb"}
+     *
      * @var string
      */
     public $dagParameters;
 
     /**
+     * @example 123,456
+     *
      * @var string
      */
     public $excludeNodeIds;
 
     /**
+     * @example test_workflow
+     *
      * @var string
      */
     public $flowName;
 
     /**
+     * @example 74324,74325
+     *
      * @var string
      */
     public $includeNodeIds;
 
     /**
+     * @example {"20000123121": "key1=val2 key2=val2", "20000123124": "kkkk=vvvvv aaaa=bbbb"}
+     *
      * @var string
      */
     public $nodeParameters;
@@ -44,11 +56,15 @@ class RunManualDagNodesRequest extends Model
     public $projectEnv;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example test_workspace
+     *
      * @var string
      */
     public $projectName;

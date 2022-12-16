@@ -15,16 +15,22 @@ class ListDataSourcesResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example 0bc14115159376359****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -15,6 +15,8 @@ class ListShiftSchedulesResponseBody extends Model
     public $paging;
 
     /**
+     * @example E6F0DBDD-5AD****
+     *
      * @var string
      */
     public $requestId;

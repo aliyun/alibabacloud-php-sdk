@@ -9,106 +9,148 @@ use AlibabaCloud\Tea\Model;
 class files extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoParsing;
 
     /**
+     * @example 300000
+     *
      * @var int
      */
     public $bizId;
 
     /**
+     * @example 300000
+     *
      * @var int
      */
     public $businessId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $commitStatus;
 
     /**
+     * @example odps_first
+     *
      * @var string
      */
     public $connectionName;
 
     /**
+     * @example SHOW TABLES;
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example 1593950832000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 382762****
+     *
      * @var string
      */
     public $createUser;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $currentVersion;
 
     /**
+     * @example my test datastudio file
+     *
      * @var string
      */
     public $fileDescription;
 
     /**
+     * @example 2735c2****
+     *
      * @var string
      */
     public $fileFolderId;
 
     /**
+     * @example 10000001
+     *
      * @var int
      */
     public $fileId;
 
     /**
+     * @example ods_user_info_d
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $fileType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isMaxCompute;
 
     /**
+     * @example 1593950832000
+     *
      * @var int
      */
     public $lastEditTime;
 
     /**
+     * @example 38748246285727
+     *
      * @var string
      */
     public $lastEditUser;
 
     /**
+     * @example 300001
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example 3872572****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $parentId;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $useType;

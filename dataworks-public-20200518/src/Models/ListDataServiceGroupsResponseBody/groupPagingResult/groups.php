@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class groups extends Model
 {
     /**
+     * @example 100abc
+     *
      * @var string
      */
     public $apiGatewayGroupId;
 
     /**
+     * @example 2020-09-24T18:37:51+0800
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @example 10001
+     *
      * @var string
      */
     public $creatorId;
@@ -29,6 +35,8 @@ class groups extends Model
     public $description;
 
     /**
+     * @example ds_123abc
+     *
      * @var string
      */
     public $groupId;
@@ -39,16 +47,22 @@ class groups extends Model
     public $groupName;
 
     /**
+     * @example 2020-09-24T18:37:51+0800
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example 10002
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 10003
+     *
      * @var int
      */
     public $tenantId;

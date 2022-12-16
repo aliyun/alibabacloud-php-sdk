@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class statusCount extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $failureCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $notRunCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $runningCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $successCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $waitResCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $waitTimeCount;

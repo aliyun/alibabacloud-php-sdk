@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $nodeId;
@@ -19,11 +21,15 @@ class data extends Model
     public $nodeName;
 
     /**
+     * @example 9527952****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $projectId;

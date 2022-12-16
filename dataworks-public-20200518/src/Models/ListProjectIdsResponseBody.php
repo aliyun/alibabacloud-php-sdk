@@ -14,6 +14,8 @@ class ListProjectIdsResponseBody extends Model
     public $projectIds;
 
     /**
+     * @example 0b57ff7216278945532771749d****
+     *
      * @var string
      */
     public $requestId;

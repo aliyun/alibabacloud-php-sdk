@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class projectRoleList extends Model
 {
     /**
+     * @example role_project_guest
+     *
      * @var string
      */
     public $projectRoleCode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $projectRoleId;
@@ -24,6 +28,8 @@ class projectRoleList extends Model
     public $projectRoleName;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $projectRoleType;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteProjectMemberRequest extends Model
 {
     /**
+     * @example 27
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $userId;

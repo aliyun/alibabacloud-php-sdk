@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateConnectionRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $connectionId;
 
     /**
+     * @example {"database":"dbname","instanceName":"instancename","password":"password","rdsOwnerId":"123","username":"username"}
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $envType;
 
     /**
+     * @example ENABLED
+     *
      * @var string
      */
     public $status;

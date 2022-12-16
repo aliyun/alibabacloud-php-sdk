@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteTableLevelResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $deleteResult;
 
     /**
+     * @example abcde
+     *
      * @var string
      */
     public $requestId;

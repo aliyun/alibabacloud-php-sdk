@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $baselineId;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $businessId;
 
     /**
+     * @example odps_first_dev
+     *
      * @var string
      */
     public $connection;
 
     /**
+     * @example 00 00 00 * * ?
+     *
      * @var string
      */
     public $cronExpress;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example [{"projectName":"test_0923001","tableName":"test_table_001","partition":"ds\u003d$[yyyymmdd]"},{"projectName":"test_0923001","tableName":"test_table_002","partition":"NOTAPARTITIONTABLE"}]
+     *
      * @var string
      */
     public $dqcDescription;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $dqcType;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $nodeId;
@@ -54,41 +70,57 @@ class data extends Model
     public $nodeName;
 
     /**
+     * @example 17366294****
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @example a=b
+     *
      * @var string
      */
     public $paramValues;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example ODPS_SQL
+     *
      * @var string
      */
     public $programType;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $relatedFlowId;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $repeatInterval;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $repeatability;
@@ -99,6 +131,8 @@ class data extends Model
     public $resGroupName;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $schedulerType;

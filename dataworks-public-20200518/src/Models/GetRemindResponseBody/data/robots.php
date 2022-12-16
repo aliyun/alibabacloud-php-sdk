@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class robots extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $atAll;
 
     /**
+     * @example https://oapi.dingtalk.com/robot/send?access_token=******************************
+     *
      * @var string
      */
     public $webUrl;

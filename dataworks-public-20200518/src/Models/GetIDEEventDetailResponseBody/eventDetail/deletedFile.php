@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class deletedFile extends Model
 {
     /**
+     * @example 74328
+     *
      * @var int
      */
     public $businessId;
 
     /**
+     * @example SHOW TABLES;
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentVersion;
 
     /**
+     * @example odps_first
+     *
      * @var string
      */
     public $dataSourceName;
 
     /**
+     * @example 1234123
+     *
      * @var int
      */
     public $fileId;
 
     /**
+     * @example hello_dataworks.sql
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $fileType;
 
     /**
+     * @example aldurie78l2falure
+     *
      * @var string
      */
     public $folderId;
 
     /**
+     * @example 421429
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example 7384234****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 1234122
+     *
      * @var int
      */
     public $parentFileId;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $useType;

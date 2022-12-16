@@ -15,26 +15,36 @@ class GetInstanceResponseBody extends Model
     public $data;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example E6F0DBDD-5AD****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

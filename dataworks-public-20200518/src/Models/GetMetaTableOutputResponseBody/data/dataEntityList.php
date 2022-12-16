@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class dataEntityList extends Model
 {
     /**
+     * @example 1511107200000
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 333
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 1511107200000
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example odps.engine_name.table_name
+     *
      * @var string
      */
     public $tableGuid;
 
     /**
+     * @example 32
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example 3521
+     *
      * @var int
      */
     public $taskInstanceId;
 
     /**
+     * @example 323
+     *
      * @var string
      */
     public $waitTime;

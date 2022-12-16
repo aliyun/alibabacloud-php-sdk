@@ -15,26 +15,36 @@ class GetMetaTableThemeLevelResponseBody extends Model
     public $entity;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example 1324afdsfde
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

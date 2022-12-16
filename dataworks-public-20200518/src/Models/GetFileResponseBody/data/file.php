@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class file extends Model
 {
     /**
+     * @example {"queue":"default","SPARK_CONF":"--conf spark.driver.memory=2g"}
+     *
      * @var string
      */
     public $advancedSettings;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoParsing;
 
     /**
+     * @example 1000001
+     *
      * @var int
      */
     public $bizId;
 
     /**
+     * @example 1000001
+     *
      * @var int
      */
     public $businessId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $commitStatus;
 
     /**
+     * @example odps_first
+     *
      * @var string
      */
     public $connectionName;
 
     /**
+     * @example SHOW TABLES;
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example 1593879116000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 424732****
+     *
      * @var string
      */
     public $createUser;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $currentVersion;
 
     /**
+     * @example RECYCLE
+     *
      * @var string
      */
     public $deletedStatus;
@@ -69,51 +91,71 @@ class file extends Model
     public $fileDescription;
 
     /**
+     * @example 2735c2****
+     *
      * @var string
      */
     public $fileFolderId;
 
     /**
+     * @example ods_user_info_d
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $fileType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isMaxCompute;
 
     /**
+     * @example 1593879116000
+     *
      * @var int
      */
     public $lastEditTime;
 
     /**
+     * @example 62465892****
+     *
      * @var string
      */
     public $lastEditUser;
 
     /**
+     * @example 300001
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example 7775674356****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $parentId;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $useType;

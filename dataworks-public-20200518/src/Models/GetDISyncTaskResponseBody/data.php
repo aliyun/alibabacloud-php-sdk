@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example {"extend":{"mode":"wizard","resourceGroup":"S_res_group_287114642182658_1560324290517"},"nodeDef":{},"order":{"hops":[{"from":"datahub_8htXSsfiS2vtZCVG","to":"datahub_CRHBAyGfhSaLmv2f"}]},"setting":{"errorLimit":{},"jvmOption":""},"steps":[{"stepType":"datahub","category":"writer","displayName":"DataHub1","parameter":{"batchSize":1000,"datasource":"datahub_cloud_dev_test","topic":"dwd_tfc_opt_speed_rid_amap_rt"},"name":"datahub_CRHBAyGfhSaLmv2f","gui":{"x":262,"y":325}},{"stepType":"datahub","displayName":"DataHub2","parameter":{"datasource":"datahub_uric_test","topic":"dwd_tfc_opt_speed_rid_amap_rt_330000","batchSize":1000},"name":"datahub_8htXSsfiS2vtZCVG","gui":{"x":268,"y":160.5},"category":"writer"}]}
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example fileId:[100] is invalid.
+     *
      * @var string
      */
     public $message;
@@ -25,6 +29,8 @@ class data extends Model
     public $solutionDetail;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $status;

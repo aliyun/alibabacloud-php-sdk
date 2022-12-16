@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetManualDagInstancesRequest extends Model
 {
     /**
+     * @example 7000001231241
+     *
      * @var string
      */
     public $dagId;
 
     /**
+     * @example RPOD
+     *
      * @var string
      */
     public $projectEnv;
 
     /**
+     * @example test_workspace
+     *
      * @var string
      */
     public $projectName;

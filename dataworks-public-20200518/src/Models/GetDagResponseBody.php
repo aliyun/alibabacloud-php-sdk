@@ -15,26 +15,36 @@ class GetDagResponseBody extends Model
     public $data;
 
     /**
+     * @example Invalid.Tenant.ConnectionNotExists
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example The connection does not exist.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example 7782a299-b291-4fee-8424-cf8058efa8e8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

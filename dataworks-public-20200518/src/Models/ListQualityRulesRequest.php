@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListQualityRulesRequest extends Model
 {
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $entityId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example autotest
+     *
      * @var string
      */
     public $projectName;

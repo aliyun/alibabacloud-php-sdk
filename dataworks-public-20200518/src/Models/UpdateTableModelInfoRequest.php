@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateTableModelInfoRequest extends Model
 {
     /**
+     * @example 101
+     *
      * @var int
      */
     public $firstLevelThemeId;
 
     /**
+     * @example 101
+     *
      * @var int
      */
     public $levelId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $levelType;
 
     /**
+     * @example 101
+     *
      * @var int
      */
     public $secondLevelThemeId;
 
     /**
+     * @example odps.test.table1
+     *
      * @var string
      */
     public $tableGuid;

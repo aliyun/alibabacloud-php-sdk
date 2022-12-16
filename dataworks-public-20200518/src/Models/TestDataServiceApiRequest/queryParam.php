@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class queryParam extends Model
 {
     /**
+     * @example name
+     *
      * @var string
      */
     public $paramKey;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $paramValue;

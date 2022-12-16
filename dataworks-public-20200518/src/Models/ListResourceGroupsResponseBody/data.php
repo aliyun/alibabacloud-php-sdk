@@ -10,71 +10,99 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example default
+     *
      * @var string
      */
     public $bizExtKey;
 
     /**
+     * @example AY18G
+     *
      * @var string
      */
     public $cluster;
 
     /**
+     * @example Jul 9, 2018 2:43:37 PM
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableKp;
 
     /**
+     * @example 1234567
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example e1815577-2f4e-4c5e-b29****
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isDefault;
 
     /**
+     * @example SHARE
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $resourceGroupType;
 
     /**
+     * @example rg-acfmzbn7pti3zfa
+     *
      * @var string
      */
     public $resourceManagerResourceGroupId;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $sequence;
 
     /**
+     * @example {}
+     *
      * @var mixed[]
      */
     public $specs;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;
@@ -85,11 +113,15 @@ class data extends Model
     public $tags;
 
     /**
+     * @example 1234567
+     *
      * @var int
      */
     public $tenantId;
 
     /**
+     * @example Jul 9, 2018 2:43:37 PM
+     *
      * @var string
      */
     public $updateTime;

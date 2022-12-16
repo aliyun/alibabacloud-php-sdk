@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceStatusStatisticRequest extends Model
 {
     /**
+     * @example 2020-01-01
+     *
      * @var string
      */
     public $bizDate;
 
     /**
+     * @example MANUAL
+     *
      * @var string
      */
     public $dagType;
 
     /**
+     * @example PROD
+     *
      * @var string
      */
     public $projectEnv;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $schedulerType;

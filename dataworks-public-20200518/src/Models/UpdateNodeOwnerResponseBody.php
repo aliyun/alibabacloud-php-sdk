@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateNodeOwnerResponseBody extends Model
 {
     /**
+     * @example E6F0DBDD-5AD****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

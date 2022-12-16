@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class OfflineNodeRequest extends Model
 {
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example 9527
+     *
      * @var int
      */
     public $projectId;

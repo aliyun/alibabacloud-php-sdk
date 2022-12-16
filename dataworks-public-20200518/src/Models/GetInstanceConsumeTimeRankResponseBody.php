@@ -15,6 +15,8 @@ class GetInstanceConsumeTimeRankResponseBody extends Model
     public $instanceConsumeTimeRank;
 
     /**
+     * @example 6347364dadsfadf****
+     *
      * @var string
      */
     public $requestId;

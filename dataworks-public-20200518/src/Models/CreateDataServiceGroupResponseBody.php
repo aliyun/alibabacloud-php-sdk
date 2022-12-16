@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateDataServiceGroupResponseBody extends Model
 {
     /**
+     * @example ds_12345
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example 0000-ABCD-EF****
+     *
      * @var string
      */
     public $requestId;

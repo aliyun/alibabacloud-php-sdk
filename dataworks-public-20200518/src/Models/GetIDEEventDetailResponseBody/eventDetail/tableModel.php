@@ -20,26 +20,36 @@ class tableModel extends Model
     public $comment;
 
     /**
+     * @example odps_first
+     *
      * @var string
      */
     public $dataSourceName;
 
     /**
+     * @example DEV
+     *
      * @var string
      */
     public $env;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $lifeCycle;
 
     /**
+     * @example hdfs://path/to/object
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example tb_hello
+     *
      * @var string
      */
     public $tableName;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetSensitiveDataRequest extends Model
 {
     /**
+     * @example [ {"dbType":"hologres","instanceName":"ABC","databaseName":"abc"}, {"dbType":"ODPS.ODPS","projectName":"adbc"} ]
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $pageSize;

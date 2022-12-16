@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListBaselineConfigsRequest extends Model
 {
     /**
+     * @example DAILY,HOURLY
+     *
      * @var string
      */
     public $baselineTypes;
 
     /**
+     * @example 95279527****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1,3,5,7,8
+     *
      * @var string
      */
     public $priority;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $projectId;
@@ -44,6 +56,8 @@ class ListBaselineConfigsRequest extends Model
     public $searchText;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useflag;

@@ -14,21 +14,29 @@ class ListDataServiceApiAuthoritiesRequest extends Model
     public $apiNameKeyword;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 10001
+     *
      * @var int
      */
     public $tenantId;

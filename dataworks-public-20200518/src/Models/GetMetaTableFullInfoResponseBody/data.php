@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example C-010A704DA760****
+     *
      * @var string
      */
     public $clusterId;
@@ -20,76 +22,106 @@ class data extends Model
     public $columnList;
 
     /**
+     * @example comment
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @example 1589870293000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $dataSize;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $envType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isVisible;
 
     /**
+     * @example 1589870294000
+     *
      * @var int
      */
     public $lastAccessTime;
 
     /**
+     * @example 1589870294000
+     *
      * @var int
      */
     public $lastDdlTime;
 
     /**
+     * @example 1589870294000
+     *
      * @var int
      */
     public $lastModifyTime;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $lifeCycle;
 
     /**
+     * @example hdfs://localhost:777/user/hadoop/test.txt
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $partitionKeys;
 
     /**
+     * @example 22
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $projectName;
@@ -100,21 +132,29 @@ class data extends Model
     public $schema;
 
     /**
+     * @example odps.engine_name.table_name
+     *
      * @var string
      */
     public $tableGuid;
 
     /**
+     * @example table_name
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $tenantId;
 
     /**
+     * @example 22
+     *
      * @var int
      */
     public $totalColumnCount;

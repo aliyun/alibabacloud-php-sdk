@@ -15,6 +15,8 @@ class data extends Model
     public $themeList;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

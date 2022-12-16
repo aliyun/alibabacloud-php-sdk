@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class taskInfo extends Model
 {
     /**
+     * @example success
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example abc1
+     *
      * @var string
      */
     public $nextTaskId;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example abc2
+     *
      * @var string
      */
     public $taskId;

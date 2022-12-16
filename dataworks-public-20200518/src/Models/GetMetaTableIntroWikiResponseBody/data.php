@@ -14,26 +14,36 @@ class data extends Model
     public $content;
 
     /**
+     * @example 1584444247000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $creatorName;
 
     /**
+     * @example 1584444247000
+     *
      * @var int
      */
     public $modifiedTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $version;

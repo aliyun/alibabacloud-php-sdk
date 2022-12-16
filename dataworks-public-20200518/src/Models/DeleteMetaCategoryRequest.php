@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteMetaCategoryRequest extends Model
 {
     /**
+     * @example 23
+     *
      * @var int
      */
     public $categoryId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableIntroWikiRequest extends Model
 {
     /**
+     * @example odps.engine_name.table_name
+     *
      * @var string
      */
     public $tableGuid;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $wikiVersion;

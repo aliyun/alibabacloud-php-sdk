@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateNodeOwnerRequest extends Model
 {
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example PROD
+     *
      * @var string
      */
     public $projectEnv;
 
     /**
+     * @example 19337906836551
+     *
      * @var string
      */
     public $userId;

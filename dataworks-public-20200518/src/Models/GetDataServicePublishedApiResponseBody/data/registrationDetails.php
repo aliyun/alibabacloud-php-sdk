@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class registrationDetails extends Model
 {
     /**
+     * @example {"success": false}
+     *
      * @var string
      */
     public $failedResultSample;
@@ -26,26 +28,36 @@ class registrationDetails extends Model
     public $registrationRequestParameters;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $serviceContentType;
 
     /**
+     * @example http://example.aliyundoc.com
+     *
      * @var string
      */
     public $serviceHost;
 
     /**
+     * @example /index
+     *
      * @var string
      */
     public $servicePath;
 
     /**
+     * @example {"abc":1}
+     *
      * @var string
      */
     public $serviceRequestBodyDescription;
 
     /**
+     * @example {"success": true}
+     *
      * @var string
      */
     public $successfulResultSample;

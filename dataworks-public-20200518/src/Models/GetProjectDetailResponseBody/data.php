@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example group_280749521****
+     *
      * @var string
      */
     public $defaultDiResourceGroupIdentifier;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $developmentType;
@@ -30,16 +34,22 @@ class data extends Model
     public $envTypes;
 
     /**
+     * @example Oct 10, 2019 3:42:53 PM
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example Dec 3, 2019 9:12:20 PM
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isAllowDownload;
@@ -50,41 +60,57 @@ class data extends Model
     public $isDefault;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $projectDescription;
 
     /**
+     * @example 27
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $projectIdentifier;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $projectMode;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example 18229311****
+     *
      * @var string
      */
     public $projectOwnerBaseId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $protectedMode;
 
     /**
+     * @example private
+     *
      * @var string
      */
     public $residentArea;
@@ -95,16 +121,22 @@ class data extends Model
     public $resourceManagerResourceGroupId;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $schedulerMaxRetryTimes;
 
     /**
+     * @example 120000
+     *
      * @var int
      */
     public $schedulerRetryInterval;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;
@@ -120,6 +152,8 @@ class data extends Model
     public $tags;
 
     /**
+     * @example 280749521950784
+     *
      * @var int
      */
     public $tenantId;

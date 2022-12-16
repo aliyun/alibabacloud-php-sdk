@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class lastInstance extends Model
 {
     /**
+     * @example 1553443200000
+     *
      * @var int
      */
     public $endCast;
 
     /**
+     * @example 1553443200000
+     *
      * @var int
      */
     public $finishTime;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $nodeId;
@@ -34,16 +42,22 @@ class lastInstance extends Model
     public $nodeName;
 
     /**
+     * @example 9527952795****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;

@@ -9,141 +9,197 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @example 123123
+     *
      * @var int
      */
     public $baselineId;
 
     /**
+     * @example 1590416703313
+     *
      * @var int
      */
     public $beginRunningTime;
 
     /**
+     * @example 1590416703313
+     *
      * @var int
      */
     public $beginWaitResTime;
 
     /**
+     * @example 1590416703313
+     *
      * @var int
      */
     public $beginWaitTimeTime;
 
     /**
+     * @example 1590336000000
+     *
      * @var int
      */
     public $bizdate;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $businessId;
 
     /**
+     * @example odps_first
+     *
      * @var string
      */
     public $connection;
 
     /**
+     * @example 1590416703313
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example Test
+     *
      * @var string
      */
     public $createUser;
 
     /**
+     * @example 1590422400000
+     *
      * @var int
      */
     public $cycTime;
 
     /**
+     * @example 33845
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @example DAILY
+     *
      * @var string
      */
     public $dagType;
 
     /**
+     * @example [{"projectName":"ztjy_dim","tableName":"dim_user_agent_manage_area_a","partition":"ds\u003d$[yyyy-mm-dd-1]"}]
+     *
      * @var string
      */
     public $dqcDescription;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $dqcType;
 
     /**
+     * @example error message
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 1590416703313
+     *
      * @var int
      */
     public $finishTime;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @example 1590416703313
+     *
      * @var int
      */
     public $modifyTime;
 
     /**
+     * @example 33115
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example kzh
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @example bizdate=$bizdate tbods=$tbods
+     *
      * @var string
      */
     public $paramValues;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $relatedFlowId;
 
     /**
+     * @example 60000
+     *
      * @var int
      */
     public $repeatInterval;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $repeatability;
 
     /**
+     * @example NOT_RUN
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $taskRerunTime;
 
     /**
+     * @example NORMAL(0)
+     *
      * @var string
      */
     public $taskType;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class CreateConnectionRequest extends Model
 {
     /**
+     * @example rds
+     *
      * @var string
      */
     public $connectionType;
 
     /**
+     * @example {"database":"dbname","instanceName":"instancename","password":"password","rdsOwnerId":"123","username":"username"}
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $envType;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example mysql
+     *
      * @var string
      */
     public $subType;

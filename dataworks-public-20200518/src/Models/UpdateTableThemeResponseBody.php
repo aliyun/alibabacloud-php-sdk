@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class UpdateTableThemeResponseBody extends Model
 {
     /**
+     * @example 1031203110005
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example The specified parameters are invalid.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example abcd
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $updateResult;

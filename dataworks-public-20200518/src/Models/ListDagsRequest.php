@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListDagsRequest extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $opSeq;
 
     /**
+     * @example PROD
+     *
      * @var string
      */
     public $projectEnv;

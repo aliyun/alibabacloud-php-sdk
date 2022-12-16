@@ -15,6 +15,8 @@ class GetDDLJobStatusResponseBody extends Model
     public $data;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $requestId;

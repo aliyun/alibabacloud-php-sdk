@@ -15,11 +15,15 @@ class SetDataSourceShareResponseBody extends Model
     public $data;
 
     /**
+     * @example 0000-ABCD-EFG
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

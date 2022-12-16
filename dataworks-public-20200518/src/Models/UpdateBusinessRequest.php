@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class UpdateBusinessRequest extends Model
 {
     /**
+     * @example 300000
+     *
      * @var int
      */
     public $businessId;
 
     /**
+     * @example MyBusiness
+     *
      * @var string
      */
     public $businessName;
 
     /**
+     * @example modified from my first business
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 348428****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example dw_project
+     *
      * @var string
      */
     public $projectIdentifier;

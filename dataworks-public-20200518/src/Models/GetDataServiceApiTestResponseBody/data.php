@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 12343
+     *
      * @var int
      */
     public $apiId;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $costTime;
 
     /**
+     * @example [<span style=\"color: #92D581;\">INFO</span>] [16:15:13.240] resource group is 498774069027041[<span style=\"color: #92D581;\">INFO</span>]
+     *
      * @var string
      */
     public $debugInfo;
 
     /**
+     * @example [<span style=\"color: #92D581;\">INFO</span>] [16:15:13.240] resource group is 498774069027041[<span style=\"color: #92D581;\">INFO</span>]
+     *
      * @var string
      */
     public $nodesDebugInfo;
 
     /**
+     * @example {"name":"test"}
+     *
      * @var string
      */
     public $paramMap;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $retCode;
 
     /**
+     * @example {"id":2}
+     *
      * @var string
      */
     public $retResult;
 
     /**
+     * @example FINISHED
+     *
      * @var string
      */
     public $status;

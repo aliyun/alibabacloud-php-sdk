@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class approveContent extends Model
 {
     /**
+     * @example I need to use this table
+     *
      * @var string
      */
     public $applyReason;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $orderType;

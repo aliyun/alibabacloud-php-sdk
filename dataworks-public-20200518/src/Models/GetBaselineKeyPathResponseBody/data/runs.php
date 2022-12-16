@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class runs extends Model
 {
     /**
+     * @example 1553531402000
+     *
      * @var int
      */
     public $absTime;
 
     /**
+     * @example 1553531686000
+     *
      * @var int
      */
     public $beginCast;
 
     /**
+     * @example 1553531401000
+     *
      * @var int
      */
     public $beginRunningTime;
 
     /**
+     * @example 1553531401000
+     *
      * @var int
      */
     public $beginWaitResTime;
 
     /**
+     * @example 1553531400000
+     *
      * @var int
      */
     public $beginWaitTimeTime;
 
     /**
+     * @example 1553443200000
+     *
      * @var int
      */
     public $bizdate;
 
     /**
+     * @example 1553443200000
+     *
      * @var int
      */
     public $cycTime;
 
     /**
+     * @example 1553531687000
+     *
      * @var int
      */
     public $endCast;
 
     /**
+     * @example 1553531401000
+     *
      * @var int
      */
     public $finishTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $inGroupId;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $nodeId;
@@ -74,16 +98,22 @@ class runs extends Model
     public $nodeName;
 
     /**
+     * @example 9527952****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;

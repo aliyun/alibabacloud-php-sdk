@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class StartDISyncInstanceRequest extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $fileId;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example {"failoverLimit":{"count":10,"interval":30},"errorLimit":{"record":0},"ddlMarkMap":{"RENAMECOLUMN":"WARNING","DROPTABLE":"WARNING","CREATETABLE":"IGNORE","MODIFYCOLUMN":"WARNING","TRUNCATETABLE":"NORMAL","DROPCOLUMN":"IGNORE","ADDCOLUMN":"NORMAL","RENAMETABLE":"CRITICAL"}}
+     *
      * @var string
      */
     public $startParam;
 
     /**
+     * @example DI_REALTIME
+     *
      * @var string
      */
     public $taskType;

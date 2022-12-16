@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDataServiceApiTestRequest extends Model
 {
     /**
+     * @example 123434
+     *
      * @var int
      */
     public $testId;

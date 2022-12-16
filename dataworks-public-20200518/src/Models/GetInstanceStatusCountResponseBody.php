@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceStatusCountResponseBody extends Model
 {
     /**
+     * @example 0000-ABCD-EFG****
+     *
      * @var string
      */
     public $requestId;

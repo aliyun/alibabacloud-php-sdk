@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class ListConnectionsRequest extends Model
 {
     /**
+     * @example rds
+     *
      * @var string
      */
     public $connectionType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $envType;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 76086
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example mysql
+     *
      * @var string
      */
     public $subType;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryDISyncTaskConfigProcessResultRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $asyncProcessId;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example DI_REALTIME
+     *
      * @var string
      */
     public $taskType;

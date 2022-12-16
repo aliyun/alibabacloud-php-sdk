@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DeleteTableThemeResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $deleteResult;
 
     /**
+     * @example 1031203110005
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example The specified parameters are invalid.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example abcdef
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

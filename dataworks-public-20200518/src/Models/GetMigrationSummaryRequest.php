@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetMigrationSummaryRequest extends Model
 {
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $migrationId;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $projectId;

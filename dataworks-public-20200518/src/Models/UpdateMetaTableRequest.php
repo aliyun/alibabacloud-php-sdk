@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateMetaTableRequest extends Model
 {
     /**
+     * @example a,b,c
+     *
      * @var string
      */
     public $addedLabels;
@@ -19,26 +21,36 @@ class UpdateMetaTableRequest extends Model
     public $caption;
 
     /**
+     * @example 101
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $envType;
 
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $newOwnerId;
 
     /**
+     * @example 101
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example a,b,c
+     *
      * @var string
      */
     public $removedLabels;
@@ -49,16 +61,22 @@ class UpdateMetaTableRequest extends Model
     public $schema;
 
     /**
+     * @example odps.test.table1
+     *
      * @var string
      */
     public $tableGuid;
 
     /**
+     * @example table1
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $visibility;

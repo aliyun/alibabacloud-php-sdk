@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class projectMeta extends Model
 {
     /**
+     * @example aMaxComputeProject
+     *
      * @var string
      */
     public $maxComputeProjectName;
@@ -20,6 +22,8 @@ class projectMeta extends Model
     public $objectMetaList;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $workspaceId;

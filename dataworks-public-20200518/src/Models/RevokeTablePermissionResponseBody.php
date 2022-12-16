@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RevokeTablePermissionResponseBody extends Model
 {
     /**
+     * @example 0bc1ec92159376****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $revokeSuccess;

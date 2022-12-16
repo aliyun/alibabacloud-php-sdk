@@ -10,36 +10,50 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $appkey;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $baseProject;
 
     /**
+     * @example group_280749521****
+     *
      * @var string
      */
     public $defaultDiResourceGroupIdentifier;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $destination;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $devStorageQuota;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $developmentType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $disableDevelopment;
@@ -50,71 +64,99 @@ class data extends Model
     public $envTypes;
 
     /**
+     * @example Oct 10, 2019 3:42:53 PM
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example Dec 3, 2019 9:12:20 PM
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isAllowDownload;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isDefault;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $maxFlowNode;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $prodStorageQuota;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $projectDescription;
 
     /**
+     * @example 27
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $projectIdentifier;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $projectMode;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example 18229311****
+     *
      * @var string
      */
     public $projectOwnerBaseId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $protectedMode;
 
     /**
+     * @example private
+     *
      * @var string
      */
     public $residentArea;
@@ -125,21 +167,29 @@ class data extends Model
     public $resourceManagerResourceGroupId;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $schedulerMaxRetryTimes;
 
     /**
+     * @example 120000
+     *
      * @var int
      */
     public $schedulerRetryInterval;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $tablePrivacyMode;
@@ -150,11 +200,15 @@ class data extends Model
     public $tags;
 
     /**
+     * @example 280749521
+     *
      * @var int
      */
     public $tenantId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useProxyOdpsAccount;

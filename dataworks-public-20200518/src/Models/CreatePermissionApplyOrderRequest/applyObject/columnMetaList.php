@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class columnMetaList extends Model
 {
     /**
+     * @example aColumnName
+     *
      * @var string
      */
     public $name;

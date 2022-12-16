@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteFolderRequest extends Model
 {
     /**
+     * @example 2eb6f9****
+     *
      * @var string
      */
     public $folderId;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example dw_project
+     *
      * @var string
      */
     public $projectIdentifier;

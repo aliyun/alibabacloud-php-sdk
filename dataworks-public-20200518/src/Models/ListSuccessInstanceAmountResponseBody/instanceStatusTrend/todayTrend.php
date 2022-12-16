@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class todayTrend extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example 01:00
+     *
      * @var string
      */
     public $timePoint;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DISyncTasks extends Model
 {
     /**
+     * @example [\"qcc_polardb2\"]
+     *
      * @var string
      */
     public $diDestinationDatasource;
 
     /**
+     * @example [\"odps_writer\"]
+     *
      * @var string
      */
     public $diSourceDatasource;
 
     /**
+     * @example 100000
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example abcd1234
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @example DI_OFFLINE
+     *
      * @var string
      */
     public $taskType;

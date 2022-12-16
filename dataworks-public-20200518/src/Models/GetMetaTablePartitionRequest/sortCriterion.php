@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class sortCriterion extends Model
 {
     /**
+     * @example desc
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $sortField;

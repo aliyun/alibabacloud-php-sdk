@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteDataServiceApiAuthorityResponseBody extends Model
 {
     /**
+     * @example 0000-ABCD-EF****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

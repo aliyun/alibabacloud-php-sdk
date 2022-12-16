@@ -15,26 +15,36 @@ class GetNodeChildrenResponseBody extends Model
     public $data;
 
     /**
+     * @example 1060010000000
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example err
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example adsfasdf-adf-asdf-asdf-asdfadfasdd
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

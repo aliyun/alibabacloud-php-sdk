@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class inputList extends Model
 {
     /**
+     * @example project.001_out
+     *
      * @var string
      */
     public $input;
 
     /**
+     * @example MANUAL
+     *
      * @var string
      */
     public $parseType;

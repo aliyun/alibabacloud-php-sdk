@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RemoveProjectMemberFromRoleRequest extends Model
 {
     /**
+     * @example 27
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example role_project_guest
+     *
      * @var string
      */
     public $roleCode;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $userId;

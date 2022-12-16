@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableChangeLogRequest extends Model
 {
     /**
+     * @example ALTER_TABLE
+     *
      * @var string
      */
     public $changeType;
 
     /**
+     * @example 2020-06-02 00:00:00
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @example TABLE
+     *
      * @var string
      */
     public $objectType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2020-06-01 00:00:00
+     *
      * @var string
      */
     public $startDate;
 
     /**
+     * @example odps.engine_name.table_name
+     *
      * @var string
      */
     public $tableGuid;

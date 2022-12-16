@@ -15,26 +15,36 @@ class GetNodeOnBaselineResponseBody extends Model
     public $data;
 
     /**
+     * @example 1031203110005
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example The specified parameters are invalid.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example 0000-ABCD-E****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;

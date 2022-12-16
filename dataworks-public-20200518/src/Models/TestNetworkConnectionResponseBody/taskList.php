@@ -14,6 +14,8 @@ class taskList extends Model
     public $connectMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $connectStatus;

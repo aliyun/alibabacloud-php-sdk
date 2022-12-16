@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceLogRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $instanceHistoryId;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @example PROD
+     *
      * @var string
      */
     public $projectEnv;

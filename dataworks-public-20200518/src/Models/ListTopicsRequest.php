@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ListTopicsRequest extends Model
 {
     /**
+     * @example 2019-03-24T00:00:00+0800
+     *
      * @var string
      */
     public $beginTime;
 
     /**
+     * @example 2019-03-25T23:00:00+0800
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example 952795****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example IGNORE,NEW,FIXING,RECOVER
+     *
      * @var string
      */
     public $topicStatuses;
 
     /**
+     * @example ERROR,SLOW
+     *
      * @var string
      */
     public $topicTypes;

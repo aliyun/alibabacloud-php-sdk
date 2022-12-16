@@ -15,6 +15,8 @@ class ListDataServiceGroupsResponseBody extends Model
     public $groupPagingResult;
 
     /**
+     * @example 0000-ABCD-EF****
+     *
      * @var string
      */
     public $requestId;

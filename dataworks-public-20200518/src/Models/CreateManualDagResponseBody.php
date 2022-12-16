@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateManualDagResponseBody extends Model
 {
     /**
+     * @example 700000123123141
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @example AASFDFSDFG-DFSDF-DFSDFD-SDFSDF
+     *
      * @var string
      */
     public $requestId;

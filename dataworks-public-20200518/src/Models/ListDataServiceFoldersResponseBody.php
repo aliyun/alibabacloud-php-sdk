@@ -15,6 +15,8 @@ class ListDataServiceFoldersResponseBody extends Model
     public $folderPagingResult;
 
     /**
+     * @example 0000-ABCD-EF****
+     *
      * @var string
      */
     public $requestId;

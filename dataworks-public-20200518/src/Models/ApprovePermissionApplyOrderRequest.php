@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ApprovePermissionApplyOrderRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $approveAction;
 
     /**
+     * @example agree
+     *
      * @var string
      */
     public $approveComment;
 
     /**
+     * @example 48f36729-05f9-4a40-9286-933fd940f30a
+     *
      * @var string
      */
     public $flowId;

@@ -15,6 +15,8 @@ class ListProjectsResponseBody extends Model
     public $pageResult;
 
     /**
+     * @example 20658801***
+     *
      * @var string
      */
     public $requestId;

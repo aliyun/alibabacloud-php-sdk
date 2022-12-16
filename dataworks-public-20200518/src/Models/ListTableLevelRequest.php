@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListTableLevelRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $levelType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $projectId;

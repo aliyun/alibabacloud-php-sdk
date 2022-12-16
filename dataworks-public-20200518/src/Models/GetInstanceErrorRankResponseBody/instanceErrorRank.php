@@ -15,6 +15,8 @@ class instanceErrorRank extends Model
     public $errorRank;
 
     /**
+     * @example 1600963200000
+     *
      * @var int
      */
     public $updateTime;

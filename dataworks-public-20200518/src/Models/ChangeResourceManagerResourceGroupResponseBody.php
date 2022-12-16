@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ChangeResourceManagerResourceGroupResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example 1AFAE64E-D1BE-432B-A9****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

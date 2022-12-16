@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 982293332403****
+     *
      * @var string
      */
     public $createUser;
 
     /**
+     * @example https://shanghai-xxx-oss.oss-cn-shanghai.aliyuncs.com/pre/store/f10_bf47_b4fa7df0860f.zip?Expires=1639540903&OSSAccessKeyId=XXXXXXeF4Lv5j&Signature=qxxxxx
+     *
      * @var string
      */
     public $downloadUrl;
 
     /**
+     * @example 1589904000000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1589904000000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $migrationId;
 
     /**
+     * @example test_export_01
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 982293332403****
+     *
      * @var string
      */
     public $opUser;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example EXPORT_SUCCESS
+     *
      * @var string
      */
     public $status;

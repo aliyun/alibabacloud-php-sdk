@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTablePartitionShrinkRequest extends Model
 {
     /**
+     * @example abc
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example emr
+     *
      * @var string
      */
     public $dataSourceType;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -39,11 +49,15 @@ class GetMetaTablePartitionShrinkRequest extends Model
     public $sortCriterionShrink;
 
     /**
+     * @example odps.engine_name.table_name
+     *
      * @var string
      */
     public $tableGuid;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $tableName;

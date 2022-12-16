@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $blockType;
 
     /**
+     * @example 9
+     *
      * @var int
      */
     public $checker;
 
     /**
+     * @example compared with a fixed value
+     *
      * @var string
      */
     public $checkerName;
@@ -29,61 +35,85 @@ class data extends Model
     public $comment;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $criticalThreshold;
 
     /**
+     * @example 165523
+     *
      * @var int
      */
     public $entityId;
 
     /**
+     * @example 30
+     *
      * @var string
      */
     public $expectValue;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $fixCheck;
 
     /**
+     * @example 123232
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $methodId;
 
     /**
+     * @example table_count
+     *
      * @var string
      */
     public $methodName;
 
     /**
+     * @example 1822931****
+     *
      * @var string
      */
     public $onDuty;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $onDutyAccountName;
 
     /**
+     * @example >=
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $predictType;
 
     /**
+     * @example id
+     *
      * @var string
      */
     public $property;
@@ -94,31 +124,43 @@ class data extends Model
     public $ruleName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $ruleType;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $templateId;
 
     /**
+     * @example SQL task table rows, 1,7, 30 days fluctuation test
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example abs
+     *
      * @var string
      */
     public $trend;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $warningThreshold;
 
     /**
+     * @example id>10
+     *
      * @var string
      */
     public $whereCondition;

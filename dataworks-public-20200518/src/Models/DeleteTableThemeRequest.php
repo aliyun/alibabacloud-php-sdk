@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteTableThemeRequest extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $themeId;

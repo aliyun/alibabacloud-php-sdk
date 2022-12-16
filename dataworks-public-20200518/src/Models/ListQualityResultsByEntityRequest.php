@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListQualityResultsByEntityRequest extends Model
 {
     /**
+     * @example 2020-09-21 00:00:00
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @example 152322134
+     *
      * @var int
      */
     public $entityId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example autotest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example 2020-09-20 00:00:00
+     *
      * @var string
      */
     public $startDate;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class outputList extends Model
 {
     /**
+     * @example dw_project.002_out
+     *
      * @var string
      */
     public $output;
 
     /**
+     * @example ods_user_info_d
+     *
      * @var string
      */
     public $refTableName;

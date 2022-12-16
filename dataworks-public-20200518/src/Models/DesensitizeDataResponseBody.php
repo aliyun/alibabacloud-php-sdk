@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DesensitizeDataResponseBody extends Model
 {
     /**
+     * @example {     "desensData": "**198807120510**"   }
+     *
      * @var string
      */
     public $desensitizeData;
 
     /**
+     * @example BCA321BA-46C5-40E9-8A08-6******
+     *
      * @var string
      */
     public $requestId;

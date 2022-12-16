@@ -15,36 +15,50 @@ class CreatePermissionApplyOrderRequest extends Model
     public $applyObject;
 
     /**
+     * @example I need to use this table
+     *
      * @var string
      */
     public $applyReason;
 
     /**
+     * @example 267842600408993176,267842600408993177
+     *
      * @var string
      */
     public $applyUserIds;
 
     /**
+     * @example 1617115071885
+     *
      * @var int
      */
     public $deadline;
 
     /**
+     * @example odps
+     *
      * @var string
      */
     public $engineType;
 
     /**
+     * @example aMaxcomputeProjectName
+     *
      * @var string
      */
     public $maxComputeProjectName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $orderType;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $workspaceId;

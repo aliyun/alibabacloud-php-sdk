@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class business extends Model
 {
     /**
+     * @example 3000001
+     *
      * @var int
      */
     public $businessId;
@@ -24,16 +26,22 @@ class business extends Model
     public $description;
 
     /**
+     * @example 34824327****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $useType;

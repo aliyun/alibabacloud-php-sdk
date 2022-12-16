@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteQualityFollowerRequest extends Model
 {
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $followerId;
 
     /**
+     * @example autotest
+     *
      * @var string
      */
     public $projectName;

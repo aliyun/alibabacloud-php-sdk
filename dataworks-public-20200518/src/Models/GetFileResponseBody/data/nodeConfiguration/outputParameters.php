@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class outputParameters extends Model
 {
     /**
+     * @example It\"s a context output parameter.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example output
+     *
      * @var string
      */
     public $parameterName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example ${bizdate}
+     *
      * @var string
      */
     public $value;

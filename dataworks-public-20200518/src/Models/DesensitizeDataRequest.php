@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DesensitizeDataRequest extends Model
 {
     /**
+     * @example 15365291784
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example _default_scene_code
+     *
      * @var string
      */
     public $sceneCode;

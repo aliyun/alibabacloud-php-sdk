@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetFileVersionRequest extends Model
 {
     /**
+     * @example 1000001
+     *
      * @var int
      */
     public $fileId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $fileVersion;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example dw_project
+     *
      * @var string
      */
     public $projectIdentifier;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetBaselineStatusRequest extends Model
 {
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $baselineId;
 
     /**
+     * @example 2020-07-07T00:00:00+0800
+     *
      * @var string
      */
     public $bizdate;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $inGroupId;

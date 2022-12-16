@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SearchNodesByOutputRequest extends Model
 {
     /**
+     * @example aaaaa.1231412_out,bbbb.12313123_out
+     *
      * @var string
      */
     public $outputs;
 
     /**
+     * @example PROD
+     *
      * @var string
      */
     public $projectEnv;

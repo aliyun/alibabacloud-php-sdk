@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListMetaDBRequest extends Model
 {
     /**
+     * @example abc
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example emr
+     *
      * @var string
      */
     public $dataSourceType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $projectId;

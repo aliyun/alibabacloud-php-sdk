@@ -15,6 +15,8 @@ class tableLevelInfo extends Model
     public $levelList;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

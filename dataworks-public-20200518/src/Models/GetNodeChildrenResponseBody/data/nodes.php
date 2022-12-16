@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
+     * @example 12345656
+     *
      * @var int
      */
     public $baselineId;
 
     /**
+     * @example 00 00 * * * *
+     *
      * @var string
      */
     public $cronExpress;
 
     /**
+     * @example 1244564565
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example test_Node
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @example 123124561341251321
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example ODPS_SQL
+     *
      * @var string
      */
     public $programType;
 
     /**
+     * @example 12315412412
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $repeatability;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $schedulerType;

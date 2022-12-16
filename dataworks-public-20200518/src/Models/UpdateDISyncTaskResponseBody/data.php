@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example ResourceGroup:[S_res_group_XXX] is invalid.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $status;

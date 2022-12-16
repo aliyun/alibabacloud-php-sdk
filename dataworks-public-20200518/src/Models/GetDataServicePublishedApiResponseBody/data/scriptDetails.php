@@ -13,16 +13,22 @@ use AlibabaCloud\Tea\Model;
 class scriptDetails extends Model
 {
     /**
+     * @example {"success": false}
+     *
      * @var string
      */
     public $failedResultSample;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isPagedResponse;
 
     /**
+     * @example select a from t
+     *
      * @var string
      */
     public $script;
@@ -48,6 +54,8 @@ class scriptDetails extends Model
     public $scriptResponseParameters;
 
     /**
+     * @example {"success": true}
+     *
      * @var string
      */
     public $successfulResultSample;

@@ -15,6 +15,8 @@ class projectMeta extends Model
     public $objectMetaList;
 
     /**
+     * @example aWorkspaceName
+     *
      * @var string
      */
     public $workspaceName;

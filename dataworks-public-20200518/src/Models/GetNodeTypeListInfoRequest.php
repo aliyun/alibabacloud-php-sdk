@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class GetNodeTypeListInfoRequest extends Model
 {
     /**
+     * @example ODPS SQ
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @example zh-CN
+     *
      * @var string
      */
     public $locale;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example dw_project
+     *
      * @var string
      */
     public $projectIdentifier;

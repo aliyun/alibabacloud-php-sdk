@@ -15,6 +15,8 @@ class objectMetaList extends Model
     public $columnMetaList;
 
     /**
+     * @example aTableName
+     *
      * @var string
      */
     public $objectName;

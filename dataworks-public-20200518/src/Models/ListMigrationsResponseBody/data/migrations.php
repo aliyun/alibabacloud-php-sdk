@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class migrations extends Model
 {
     /**
+     * @example 123124123123123
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 123123****
+     *
      * @var string
      */
     public $createUser;
 
     /**
+     * @example 3h1_test
+     *
      * @var string
      */
     public $createUserName;
@@ -29,61 +35,85 @@ class migrations extends Model
     public $description;
 
     /**
+     * @example http://geoip-sdk-user.oss-cn-zhangjiakou.aliyuncs.com/product/v1/ipv4/trace/v1.20220424123842.dex?Expires=1650780849&OSSAccessKeyId=XXXXXXeF4Lv5j&Signature=qxxxxx
+     *
      * @var string
      */
     public $downloadUrl;
 
     /**
+     * @example 436064
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example An internal system error occurred. datasource kafka region is not cn-chengdu, can\"t open network for it
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example EXPORT
+     *
      * @var string
      */
     public $migrationType;
 
     /**
+     * @example test_task_1638498642279
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example DATAWORKS_MODEL
+     *
      * @var string
      */
     public $packageType;
 
     /**
+     * @example 72132
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 16307
+     *
      * @var int
      */
     public $tenantId;
 
     /**
+     * @example 123123123123123
+     *
      * @var int
      */
     public $updateTime;
 
     /**
+     * @example 1231****
+     *
      * @var string
      */
     public $updateUser;
 
     /**
+     * @example 3h1_test
+     *
      * @var string
      */
     public $updateUserName;

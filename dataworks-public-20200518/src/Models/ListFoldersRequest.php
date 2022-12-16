@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListFoldersRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -24,11 +28,15 @@ class ListFoldersRequest extends Model
     public $parentFolderPath;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example dw_project
+     *
      * @var string
      */
     public $projectIdentifier;

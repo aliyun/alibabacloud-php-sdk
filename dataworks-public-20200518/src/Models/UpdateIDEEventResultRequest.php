@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class UpdateIDEEventResultRequest extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $checkResult;
 
     /**
+     * @example Succeeded
+     *
      * @var string
      */
     public $checkResultTip;
 
     /**
+     * @example 8abcb91f-d266-4073-b907-2ed670378ed1
+     *
      * @var string
      */
     public $extensionCode;
 
     /**
+     * @description 扩展点消息UUID
+     *
+     * @example 8abcb91f-d266-4073-b907-2ed670378ed1
+     *
      * @var string
      */
     public $messageId;

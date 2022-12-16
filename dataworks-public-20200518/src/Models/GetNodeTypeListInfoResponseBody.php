@@ -15,6 +15,8 @@ class GetNodeTypeListInfoResponseBody extends Model
     public $nodeTypeInfoList;
 
     /**
+     * @example 0000-ABCD-EFG****
+     *
      * @var string
      */
     public $requestId;

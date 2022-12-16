@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListProgramTypeCountRequest extends Model
 {
     /**
+     * @example PROD
+     *
      * @var string
      */
     public $projectEnv;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $projectId;

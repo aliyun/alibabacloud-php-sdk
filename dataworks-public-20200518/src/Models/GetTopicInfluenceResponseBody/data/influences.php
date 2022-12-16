@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class influences extends Model
 {
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $baselineId;
@@ -19,36 +21,50 @@ class influences extends Model
     public $baselineName;
 
     /**
+     * @example 1553356800000
+     *
      * @var int
      */
     public $bizdate;
 
     /**
+     * @example 360
+     *
      * @var int
      */
     public $buffer;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $inGroupId;
 
     /**
+     * @example 952795****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example SAFE
+     *
      * @var string
      */
     public $status;

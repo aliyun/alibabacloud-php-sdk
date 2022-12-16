@@ -15,6 +15,8 @@ class GetDataServiceFolderResponseBody extends Model
     public $folder;
 
     /**
+     * @example 0000-ABCD-EF****
+     *
      * @var string
      */
     public $requestId;

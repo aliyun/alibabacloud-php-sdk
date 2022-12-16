@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class columns extends Model
 {
     /**
+     * @example ID
+     *
      * @var string
      */
     public $columnName;
 
     /**
+     * @example BIGINT
+     *
      * @var string
      */
     public $columnType;
 
     /**
+     * @example ID
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isPartitionColumn;

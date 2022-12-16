@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ListBaselineStatusesRequest extends Model
 {
     /**
+     * @example DAILY,HOURLY
+     *
      * @var string
      */
     public $baselineTypes;
 
     /**
+     * @example 2020-07-07T00:00:00+0800
+     *
      * @var string
      */
     public $bizdate;
 
     /**
+     * @example FINISH,UNFINISH
+     *
      * @var string
      */
     public $finishStatus;
 
     /**
+     * @example 9527952795****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1,3,5,7,8
+     *
      * @var string
      */
     public $priority;
@@ -49,11 +63,15 @@ class ListBaselineStatusesRequest extends Model
     public $searchText;
 
     /**
+     * @example SAFE,DANGROUS,OVER
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $topicId;

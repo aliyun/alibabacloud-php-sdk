@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example odps.engine_name
+     *
      * @var string
      */
     public $appGuid;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $clusterBizId;
@@ -24,51 +28,71 @@ class data extends Model
     public $comment;
 
     /**
+     * @example 1541576644000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example http://service.odpsstg.aliyun-inc.com/
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $envType;
 
     /**
+     * @example hdfs://
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example 1541576644000
+     *
      * @var int
      */
     public $modifyTime;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 23
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @example 323
+     *
      * @var string
      */
     public $ownerName;
 
     /**
+     * @example 22
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $projectName;
@@ -79,11 +103,15 @@ class data extends Model
     public $projectNameCn;
 
     /**
+     * @example 233
+     *
      * @var int
      */
     public $tenantId;
 
     /**
+     * @example hive
+     *
      * @var string
      */
     public $type;

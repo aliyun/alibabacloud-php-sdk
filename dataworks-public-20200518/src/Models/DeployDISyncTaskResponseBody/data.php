@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example submit and deploy fail.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $status;

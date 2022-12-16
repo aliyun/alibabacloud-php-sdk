@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class projectMemberList extends Model
 {
     /**
+     * @example zhangsan
+     *
      * @var string
      */
     public $nick;
 
     /**
+     * @example 121
+     *
      * @var string
      */
     public $projectMemberId;
@@ -25,6 +29,8 @@ class projectMemberList extends Model
     public $projectMemberName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $projectMemberType;
@@ -35,6 +41,8 @@ class projectMemberList extends Model
     public $projectRoleList;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $status;

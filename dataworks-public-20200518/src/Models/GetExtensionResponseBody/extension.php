@@ -16,6 +16,8 @@ class extension extends Model
     public $bindEventList;
 
     /**
+     * @example https://www.aliyun.com/
+     *
      * @var string
      */
     public $detailUrl;
@@ -26,6 +28,8 @@ class extension extends Model
     public $eventCategoryList;
 
     /**
+     * @example ce4*********086da5
+     *
      * @var string
      */
     public $extensionCode;
@@ -41,6 +45,8 @@ class extension extends Model
     public $extensionName;
 
     /**
+     * @example https://www.aliyun.com/
+     *
      * @var string
      */
     public $helpDocUrl;
@@ -51,16 +57,22 @@ class extension extends Model
     public $optionSetting;
 
     /**
+     * @example extension.project.disabled=projectId1,projectId2,projectId3
+     *
      * @var string
      */
     public $parameterSetting;
 
     /**
+     * @example 13552
+     *
      * @var int
      */
     public $projectTesting;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;

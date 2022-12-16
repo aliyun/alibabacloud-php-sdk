@@ -15,16 +15,22 @@ class applyOrders extends Model
     public $applyOrder;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 150
+     *
      * @var int
      */
     public $totalCount;

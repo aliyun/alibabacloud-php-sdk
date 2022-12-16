@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListDIProjectConfigRequest extends Model
 {
     /**
+     * @example elasticsearch
+     *
      * @var string
      */
     public $destinationType;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example mysql
+     *
      * @var string
      */
     public $sourceType;

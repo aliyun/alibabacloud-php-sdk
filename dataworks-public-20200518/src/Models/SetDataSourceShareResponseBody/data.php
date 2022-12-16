@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example datasource is wrong
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $status;

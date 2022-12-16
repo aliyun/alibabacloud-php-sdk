@@ -15,6 +15,8 @@ class ListMetaDBResponseBody extends Model
     public $databaseInfo;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $requestId;

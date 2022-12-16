@@ -9,66 +9,96 @@ use AlibabaCloud\Tea\Model;
 class dags extends Model
 {
     /**
+     * @example 1605052800000
+     *
      * @var int
      */
     public $bizdate;
 
     /**
+     * @example 1605052800000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 1736629400048545
+     *
      * @var string
      */
     public $createUser;
 
     /**
+     * @description DagId。
+     *
+     * @example 351249682
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @example 1605052800000
+     *
      * @var int
      */
     public $finishTime;
 
     /**
+     * @description Gmtdate。
+     *
+     * @example 1605052800000
+     *
      * @var int
      */
     public $gmtdate;
 
     /**
+     * @example 1605052800000
+     *
      * @var int
      */
     public $modifyTime;
 
     /**
+     * @example test_dag
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $opSeq;
 
     /**
+     * @example 112345
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 1605052800000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example FAILURE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example MANUAL_FLOW
+     *
      * @var string
      */
     public $type;

@@ -19,21 +19,29 @@ class CreateBusinessRequest extends Model
     public $description;
 
     /**
+     * @example 1000000000001
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example dw_project
+     *
      * @var string
      */
     public $projectIdentifier;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $useType;

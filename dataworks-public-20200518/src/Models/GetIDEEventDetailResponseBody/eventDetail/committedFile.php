@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class committedFile extends Model
 {
     /**
+     * @example UPDATE
+     *
      * @var string
      */
     public $changeType;
@@ -21,21 +23,29 @@ class committedFile extends Model
     public $comment;
 
     /**
+     * @example 7384234****
+     *
      * @var string
      */
     public $committor;
 
     /**
+     * @example SHOW TABLES;
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example 1234123
+     *
      * @var int
      */
     public $fileId;
 
     /**
+     * @example hello_dataworks.sql
+     *
      * @var string
      */
     public $fileName;
@@ -46,6 +56,8 @@ class committedFile extends Model
     public $filePropertyContent;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $fileType;
@@ -56,11 +68,15 @@ class committedFile extends Model
     public $nodeConfiguration;
 
     /**
+     * @example 421429
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $useType;

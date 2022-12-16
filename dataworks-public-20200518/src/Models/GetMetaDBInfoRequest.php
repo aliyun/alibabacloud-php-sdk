@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetMetaDBInfoRequest extends Model
 {
     /**
+     * @example odps.some_engine_name
+     *
      * @var string
      */
     public $appGuid;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example emr
+     *
      * @var string
      */
     public $dataSourceType;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $databaseName;

@@ -9,86 +9,120 @@ use AlibabaCloud\Tea\Model;
 class nodeList extends Model
 {
     /**
+     * @example 1235667
+     *
      * @var int
      */
     public $baselineId;
 
     /**
+     * @example odps_first
+     *
      * @var string
      */
     public $connection;
 
     /**
+     * @example 00 00 00 * * ?
+     *
      * @var string
      */
     public $cronExpress;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example [{"projectName":"ztjy_dim","tableName":"dim_user_agent_manage_area_a","partition":"ds\u003d$[yyyy-mm-dd-1]"}]
+     *
      * @var string
      */
     public $dqcDescription;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $dqcType;
 
     /**
+     * @example ODPS_SQL
+     *
      * @var string
      */
     public $fileType;
 
     /**
+     * @example 125677
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example liux_test_n****
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @example 19337906836551
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @example a=b
+     *
      * @var string
      */
     public $paramValues;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example ODPS_SQL
+     *
      * @var string
      */
     public $programType;
 
     /**
+     * @example 33671
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 1235655464
+     *
      * @var int
      */
     public $relatedFlowId;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $repeatInterval;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $repeatability;
@@ -99,6 +133,8 @@ class nodeList extends Model
     public $resGroupName;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $schedulerType;

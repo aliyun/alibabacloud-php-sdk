@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetDeploymentRequest extends Model
 {
     /**
+     * @example 3000001
+     *
      * @var int
      */
     public $deploymentId;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example dw_project
+     *
      * @var string
      */
     public $projectIdentifier;

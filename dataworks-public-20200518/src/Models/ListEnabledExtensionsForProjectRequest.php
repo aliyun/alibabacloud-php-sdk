@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListEnabledExtensionsForProjectRequest extends Model
 {
     /**
+     * @example commit-file
+     *
      * @var string
      */
     public $eventCode;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $fileType;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;

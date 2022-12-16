@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetIDEEventDetailRequest extends Model
 {
     /**
+     * @example 8abcb91f-d266-4073-b907-2ed670378ed1
+     *
      * @var string
      */
     public $messageId;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;

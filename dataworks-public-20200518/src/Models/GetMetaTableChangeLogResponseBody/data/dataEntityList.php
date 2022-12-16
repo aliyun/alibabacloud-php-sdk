@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class dataEntityList extends Model
 {
     /**
+     * @example "[{\"action\":\"ADD_COLUMN\",\"value\":[{\"originName\":\"\",\"originType\":\"\",\"originComment\":\"\",\"name\":\"id\",\"type\":\"struct<name:string>\",\"comment\":\"\"}]}]",
+     *
      * @var string
      */
     public $changeContent;
 
     /**
+     * @example CREATE_TABLE
+     *
      * @var string
      */
     public $changeType;
 
     /**
+     * @example 1590722845000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 1590722845000
+     *
      * @var int
      */
     public $modifiedTime;
 
     /**
+     * @example TABLE
+     *
      * @var string
      */
     public $objectType;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $operator;

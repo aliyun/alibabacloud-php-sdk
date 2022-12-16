@@ -14,6 +14,8 @@ class CreateTableLevelRequest extends Model
     public $description;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $levelType;
@@ -24,6 +26,8 @@ class CreateTableLevelRequest extends Model
     public $name;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $projectId;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class TestNetworkConnectionRequest extends Model
 {
     /**
+     * @example mysql_name
+     *
      * @var string
      */
     public $datasourceName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example S_res_group_2XXXX4_1619100XXXXX
+     *
      * @var string
      */
     public $resourceGroup;

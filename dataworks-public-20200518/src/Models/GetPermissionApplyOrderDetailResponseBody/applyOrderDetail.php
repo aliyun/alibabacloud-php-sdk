@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class applyOrderDetail extends Model
 {
     /**
+     * @example 267842600408993176
+     *
      * @var string
      */
     public $applyBaseId;
 
     /**
+     * @example 1615284086000
+     *
      * @var int
      */
     public $applyTimestamp;
@@ -32,11 +36,15 @@ class applyOrderDetail extends Model
     public $approveContent;
 
     /**
+     * @example ad8da78d-8135-455e-9486-27cf213fc140
+     *
      * @var string
      */
     public $flowId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $flowStatus;

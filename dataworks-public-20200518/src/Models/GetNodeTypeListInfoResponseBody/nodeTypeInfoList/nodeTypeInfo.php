@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class nodeTypeInfo extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $nodeType;
 
     /**
+     * @example ODPS SQL
+     *
      * @var string
      */
     public $nodeTypeName;

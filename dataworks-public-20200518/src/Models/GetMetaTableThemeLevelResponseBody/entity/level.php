@@ -14,16 +14,22 @@ class level extends Model
     public $description;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $levelId;
 
     /**
+     * @example level1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;

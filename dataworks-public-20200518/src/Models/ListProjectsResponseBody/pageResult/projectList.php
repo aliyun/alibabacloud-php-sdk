@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class projectList extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $disableDevelopment;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isDefault;
@@ -25,11 +29,15 @@ class projectList extends Model
     public $projectDescription;
 
     /**
+     * @example 1212
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $projectIdentifier;
@@ -40,26 +48,36 @@ class projectList extends Model
     public $projectName;
 
     /**
+     * @example 122222
+     *
      * @var string
      */
     public $projectOwnerBaseId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $projectStatus;
 
     /**
+     * @example AVAILABLE
+     *
      * @var string
      */
     public $projectStatusCode;
 
     /**
+     * @example rg-acfmzbn7pti3zfa
+     *
      * @var string
      */
     public $resourceManagerResourceGroupId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $tablePrivacyMode;
@@ -70,6 +88,8 @@ class projectList extends Model
     public $tags;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useProxyOdpsAccount;

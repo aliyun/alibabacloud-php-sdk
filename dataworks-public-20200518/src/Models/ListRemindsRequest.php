@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListRemindsRequest extends Model
 {
     /**
+     * @example 9527952795****
+     *
      * @var string
      */
     public $alertTarget;
 
     /**
+     * @example 9527952795****
+     *
      * @var string
      */
     public $founder;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example FINISHED,ERROR
+     *
      * @var string
      */
     public $remindTypes;

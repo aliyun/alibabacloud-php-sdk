@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ScanSensitiveDataRequest extends Model
 {
     /**
+     * @example 13900001234
+     *
      * @var string
      */
     public $data;

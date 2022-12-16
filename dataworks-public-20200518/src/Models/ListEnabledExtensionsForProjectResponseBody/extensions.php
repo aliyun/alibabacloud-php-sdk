@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class extensions extends Model
 {
     /**
+     * @example 3444434343555
+     *
      * @var string
      */
     public $createUser;
 
     /**
+     * @example a94a8e23bc0b4dfab9a5e4d2f374d645
+     *
      * @var string
      */
     public $extensionCode;
@@ -29,31 +33,43 @@ class extensions extends Model
     public $extensionName;
 
     /**
+     * @example 1660117173
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1569308162000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example 34452335611988
+     *
      * @var string
      */
     public $modifyUser;
 
     /**
+     * @example 21323672*******55500
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example extension.fileType.23.deploy-file.enabled=true
+     *
      * @var string
      */
     public $parameterSetting;
 
     /**
+     * @example 529889518659842
+     *
      * @var int
      */
     public $tenantId;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetDataServiceGroupRequest extends Model
 {
     /**
+     * @example ds_123abc
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example 10001
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 10002
+     *
      * @var int
      */
     public $tenantId;

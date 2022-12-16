@@ -9,91 +9,127 @@ use AlibabaCloud\Tea\Model;
 class dataSources extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $bindingCalcEngineId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $connectStatus;
 
     /**
+     * @example {"pubEndpoint":"http://service.cn.maxcompute.aliyun.com/api","accessId":"TMP.3KecGjvzy3i8MYfn2BGHgF7EHGyBFZcHm7GgngrABVRyvvKQrfF5kskR36xP361C3dqwbGo7SGYptAeGyiTwHXqLaBUvYC","securityToken":null,"endpoint":"http://service.cn.maxcompute.aliyun-inc.com/api","accessKey":"***","name":"PRE_PROJECT_A_engine","project":"PRE_PROJECT_A","vpcEndpoint":"http://service.cn.maxcompute.aliyun-inc.com/api","region":"cn-shanghai","authType":"2"}
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $dataSourceType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $defaultEngine;
 
     /**
+     * @example a connection
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $envType;
 
     /**
+     * @example Mar 17, 2021 4:09:32 PM
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example Mar 17, 2021 4:09:32 PM
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 193543050****
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $sequence;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $shared;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example mysql
+     *
      * @var string
      */
     public $subType;
 
     /**
+     * @example 1234567
+     *
      * @var int
      */
     public $tenantId;

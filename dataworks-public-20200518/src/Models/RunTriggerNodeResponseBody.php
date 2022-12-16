@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RunTriggerNodeResponseBody extends Model
 {
     /**
+     * @example 9BA675F1-F848-4752-A6E3-92ABA0616005
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

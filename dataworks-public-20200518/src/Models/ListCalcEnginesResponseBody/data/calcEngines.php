@@ -9,66 +9,92 @@ use AlibabaCloud\Tea\Model;
 class calcEngines extends Model
 {
     /**
+     * @example 27
+     *
      * @var int
      */
     public $bindingProjectId;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $bindingProjectName;
 
     /**
+     * @example ODPS
+     *
      * @var string
      */
     public $calcEngineType;
 
     /**
+     * @example cn-zhangjiakou
+     *
      * @var string
      */
     public $dwRegion;
 
     /**
+     * @example 35
+     *
      * @var int
      */
     public $engineId;
 
     /**
+     * @example {"pubEndpoint":"http://service.cn.maxcompute.aliyun.com/api","endpoint":"http://service.cn.maxcompute.aliyun-inc.com/api","resourceGroupType":"ODPS","resourceGroupId":"361826516****","vpcEndpoint":"http://service.cn.maxcompute.aliyun-inc.com/api","projectName":"onefall_test_zjk","taskSameAsOwner":"true"}
+     *
      * @var mixed[]
      */
     public $engineInfo;
 
     /**
+     * @example PRD
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @example Oct 10, 2019 3:42:44 PM
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isDefault;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example cn-zhangjiakou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example PROJECT
+     *
      * @var string
      */
     public $taskAuthType;
 
     /**
+     * @example 1234567
+     *
      * @var int
      */
     public $tenantId;

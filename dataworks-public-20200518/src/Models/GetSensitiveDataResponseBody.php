@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetSensitiveDataResponseBody extends Model
 {
     /**
+     * @example 0000-ABCD-EFG****
+     *
      * @var string
      */
     public $requestId;

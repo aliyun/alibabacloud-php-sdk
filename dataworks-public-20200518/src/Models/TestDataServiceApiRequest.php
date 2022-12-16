@@ -13,11 +13,17 @@ use AlibabaCloud\Tea\Model;
 class TestDataServiceApiRequest extends Model
 {
     /**
+     * @description API Id
+     *
+     * @example 12343
+     *
      * @var int
      */
     public $apiId;
 
     /**
+     * @example {"name":"test"}
+     *
      * @var string
      */
     public $bodyContent;

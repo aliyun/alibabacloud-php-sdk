@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class dataEntityList extends Model
 {
     /**
+     * @example 133
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @example category 1
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @example 1541576644000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $depth;
 
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $lastOperatorId;
 
     /**
+     * @example 1541576644000
+     *
      * @var int
      */
     public $modifiedTime;
 
     /**
+     * @example category 1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $parentCategoryId;

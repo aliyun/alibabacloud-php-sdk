@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class wizardDetails extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isPagedResponse;

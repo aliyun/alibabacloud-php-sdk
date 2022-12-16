@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class eventCategoryList extends Model
 {
     /**
+     * @example file-change
+     *
      * @var string
      */
     public $categoryCode;

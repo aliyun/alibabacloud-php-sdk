@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class deployments extends Model
 {
     /**
+     * @example 1593877765000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 2003****
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 1593877765000
+     *
      * @var int
      */
     public $executeTime;
 
     /**
+     * @example 2003****
+     *
      * @var string
      */
     public $executor;
 
     /**
+     * @example 11111
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example auto_created
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class errorRank extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example 9527
+     *
      * @var int
      */
     public $nodeId;
@@ -24,16 +28,22 @@ class errorRank extends Model
     public $nodeName;
 
     /**
+     * @example 952795279527
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $programType;
 
     /**
+     * @example 9527
+     *
      * @var int
      */
     public $projectId;

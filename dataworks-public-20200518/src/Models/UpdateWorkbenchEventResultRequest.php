@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateWorkbenchEventResultRequest extends Model
 {
     /**
+     * @example FAIL
+     *
      * @var string
      */
     public $checkResult;
 
     /**
+     * @example 注意节点有效期
+     *
      * @var string
      */
     public $checkResultTip;
 
     /**
+     * @example 58e95e2acd6f408e8707f1bf2591f9e9
+     *
      * @var string
      */
     public $extensionCode;
 
     /**
+     * @example 03400b03-b721-4c34-8727-2d6884077091
+     *
      * @var string
      */
     public $messageId;

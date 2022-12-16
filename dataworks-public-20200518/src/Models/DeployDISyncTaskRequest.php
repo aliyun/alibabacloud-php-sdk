@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeployDISyncTaskRequest extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $fileId;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example DI_REALTIME
+     *
      * @var string
      */
     public $taskType;

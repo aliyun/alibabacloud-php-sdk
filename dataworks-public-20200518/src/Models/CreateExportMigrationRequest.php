@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateExportMigrationRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example FULL
+     *
      * @var string
      */
     public $exportMode;
 
     /**
+     * @example SAVED
+     *
      * @var string
      */
     public $exportObjectStatus;
 
     /**
+     * @example 1589904000000
+     *
      * @var int
      */
     public $incrementalSince;
 
     /**
+     * @example test_export_01
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $projectId;

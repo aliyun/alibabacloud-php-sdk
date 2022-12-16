@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class scriptErrorCodes extends Model
 {
     /**
+     * @example 1001
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example fail to call
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example retry
+     *
      * @var string
      */
     public $errorSolution;

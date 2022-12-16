@@ -14,26 +14,36 @@ class ListDataServiceFoldersRequest extends Model
     public $folderNameKeyword;
 
     /**
+     * @example ds_123abc
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 10001
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 10002
+     *
      * @var int
      */
     public $tenantId;

@@ -15,11 +15,15 @@ class data extends Model
     public $dataEntityList;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hasNext;
 
     /**
+     * @example odps.tt.2
+     *
      * @var string
      */
     public $nextPrimaryKey;

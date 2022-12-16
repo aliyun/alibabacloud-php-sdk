@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateQualityFollowerRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $alarmMode;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $entityId;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $follower;
 
     /**
+     * @example autotest
+     *
      * @var string
      */
     public $projectName;

@@ -14,31 +14,43 @@ class ListDataServiceApisRequest extends Model
     public $apiNameKeyword;
 
     /**
+     * @example /test/
+     *
      * @var string
      */
     public $apiPathKeyword;
 
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $creatorId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 10001
+     *
      * @var int
      */
     public $tenantId;

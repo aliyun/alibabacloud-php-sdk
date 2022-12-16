@@ -15,6 +15,8 @@ class GetDataServiceGroupResponseBody extends Model
     public $group;
 
     /**
+     * @example 0000-ABCD-EF****
+     *
      * @var string
      */
     public $requestId;

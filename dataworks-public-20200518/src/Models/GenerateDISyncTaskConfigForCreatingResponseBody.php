@@ -15,11 +15,15 @@ class GenerateDISyncTaskConfigForCreatingResponseBody extends Model
     public $data;
 
     /**
+     * @example 0bc1411515937635973****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

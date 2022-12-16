@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $nodeId;
@@ -24,11 +28,15 @@ class instances extends Model
     public $nodeName;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example NOT_RUN
+     *
      * @var string
      */
     public $status;

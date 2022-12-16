@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CheckMetaPartitionRequest extends Model
 {
     /**
+     * @example abc
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example emr
+     *
      * @var string
      */
     public $dataSourceType;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @example ds=202005
+     *
      * @var string
      */
     public $partition;
 
     /**
+     * @example odps.engine_name.table_name
+     *
      * @var string
      */
     public $tableGuid;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $tableName;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetOptionValueForProjectRequest extends Model
 {
     /**
+     * @example ce4*********086da5
+     *
      * @var string
      */
     public $extensionCode;
 
     /**
+     * @example 234
+     *
      * @var string
      */
     public $projectId;

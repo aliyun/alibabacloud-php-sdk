@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ListAlertMessagesRequest extends Model
 {
     /**
+     * @example SMS,MAIL,PHONE
+     *
      * @var string
      */
     public $alertMethods;
 
     /**
+     * @example GLOBAL,USER_DEFINE,OTHER
+     *
      * @var string
      */
     public $alertRuleTypes;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $alertUser;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $baselineId;
 
     /**
+     * @example 2020-04-02T00:00:00+0800
+     *
      * @var string
      */
     public $beginTime;
 
     /**
+     * @example 2020-04-04T00:00:00+0800
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 9527
+     *
      * @var int
      */
     public $remindId;

@@ -15,6 +15,8 @@ class GetMetaDBInfoResponseBody extends Model
     public $data;
 
     /**
+     * @example 0bc1411515937****
+     *
      * @var string
      */
     public $requestId;

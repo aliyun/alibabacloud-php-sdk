@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateMetaCategoryRequest extends Model
 {
     /**
+     * @example category 1
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @example category_name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $parentId;

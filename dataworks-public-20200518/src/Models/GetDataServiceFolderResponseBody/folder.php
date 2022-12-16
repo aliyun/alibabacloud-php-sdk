@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class folder extends Model
 {
     /**
+     * @example 2020-09-24T18:37:51+0800
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @example 11
+     *
      * @var int
      */
     public $folderId;
 
     /**
+     * @example test1
+     *
      * @var string
      */
     public $folderName;
 
     /**
+     * @example ds_1234
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example 2020-09-24T18:37:51+0800
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $parentId;
 
     /**
+     * @example 10001
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 10002
+     *
      * @var int
      */
     public $tenantId;

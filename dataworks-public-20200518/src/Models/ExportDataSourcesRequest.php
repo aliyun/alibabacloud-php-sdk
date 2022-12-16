@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ExportDataSourcesRequest extends Model
 {
     /**
+     * @example rds
+     *
      * @var string
      */
     public $dataSourceType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $envType;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example mysql
+     *
      * @var string
      */
     public $subType;

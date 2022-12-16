@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryPublicModelEngineRequest extends Model
 {
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example show dim tables
+     *
      * @var string
      */
     public $text;

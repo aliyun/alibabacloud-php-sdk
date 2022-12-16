@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class dataEntityList extends Model
 {
     /**
+     * @example abc
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $entityType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $envType;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @example 323
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $schema;
 
     /**
+     * @example odps.engine_name.test_name
+     *
      * @var string
      */
     public $tableGuid;
 
     /**
+     * @example test_name
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $tenantId;

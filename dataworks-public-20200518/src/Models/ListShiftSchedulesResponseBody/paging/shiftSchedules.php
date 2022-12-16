@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class shiftSchedules extends Model
 {
     /**
+     * @example 2ab6456ada634b2f938ee******9b45b
+     *
      * @var string
      */
     public $shiftScheduleIdentifier;

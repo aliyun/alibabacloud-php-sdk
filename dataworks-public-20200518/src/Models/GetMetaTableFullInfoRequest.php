@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableFullInfoRequest extends Model
 {
     /**
+     * @example C-010A704DA760****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example emr
+     *
      * @var string
      */
     public $dataSourceType;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example odps.engine_name.table_name
+     *
      * @var string
      */
     public $tableGuid;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $tableName;

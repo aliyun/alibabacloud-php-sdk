@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class fileVersions extends Model
 {
     /**
+     * @example UPDATE
+     *
      * @var string
      */
     public $changeType;
@@ -19,56 +21,78 @@ class fileVersions extends Model
     public $comment;
 
     /**
+     * @example 1593881265000
+     *
      * @var int
      */
     public $commitTime;
 
     /**
+     * @example 73842342****
+     *
      * @var string
      */
     public $commitUser;
 
     /**
+     * @example SHOW TABLES;
+     *
      * @var string
      */
     public $fileContent;
 
     /**
+     * @example ods_user_info_d
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example {"fileName":"ods_user_info_d","fileType":10}
+     *
      * @var string
      */
     public $filePropertyContent;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $fileVersion;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isCurrentProd;
 
     /**
+     * @example {"cycleType":0,"cronExpress":"00 05 00 * * ?"}
+     *
      * @var string
      */
     public $nodeContent;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example COMMITTED
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $useType;

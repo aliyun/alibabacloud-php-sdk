@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $apiId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $apiMode;
@@ -27,16 +31,22 @@ class data extends Model
     public $apiName;
 
     /**
+     * @example /test/1
+     *
      * @var string
      */
     public $apiPath;
 
     /**
+     * @example 2020-06-23T00:21:01+0800
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @example 1234567
+     *
      * @var string
      */
     public $creatorId;
@@ -47,21 +57,29 @@ class data extends Model
     public $description;
 
     /**
+     * @example ab12**
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example 2020-06-23T00:21:01+0800
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example 2345678
+     *
      * @var string
      */
     public $operatorId;
 
     /**
+     * @example 10001
+     *
      * @var int
      */
     public $projectId;
@@ -77,11 +95,15 @@ class data extends Model
     public $registrationDetails;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $requestMethod;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $responseContentType;
@@ -92,21 +114,29 @@ class data extends Model
     public $scriptDetails;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 10001
+     *
      * @var int
      */
     public $tenantId;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $timeout;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $visibleRange;

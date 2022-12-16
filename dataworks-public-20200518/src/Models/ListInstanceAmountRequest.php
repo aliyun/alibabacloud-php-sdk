@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceAmountRequest extends Model
 {
     /**
+     * @example 2021-06-13T00:00:00+0800
+     *
      * @var string
      */
     public $beginDate;
 
     /**
+     * @example 2021-06-16T00:00:00+0800
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;

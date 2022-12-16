@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class SuspendInstanceResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @example Invalid.Tenant.ProjectNotExists
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example The connection does not exist.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example 0baf87f0159376****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

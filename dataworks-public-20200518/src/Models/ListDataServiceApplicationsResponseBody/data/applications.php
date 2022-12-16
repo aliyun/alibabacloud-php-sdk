@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class applications extends Model
 {
     /**
+     * @example 20000
+     *
      * @var int
      */
     public $applicationId;
@@ -19,6 +21,8 @@ class applications extends Model
     public $applicationName;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;

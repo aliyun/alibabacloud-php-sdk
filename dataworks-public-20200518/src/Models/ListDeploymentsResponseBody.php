@@ -15,6 +15,8 @@ class ListDeploymentsResponseBody extends Model
     public $data;
 
     /**
+     * @example 0000-ABCD-EFG
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetNodeOnBaselineRequest extends Model
 {
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $baselineId;

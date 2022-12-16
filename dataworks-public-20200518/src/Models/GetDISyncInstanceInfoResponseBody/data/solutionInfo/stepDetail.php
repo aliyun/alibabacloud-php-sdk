@@ -14,11 +14,15 @@ class stepDetail extends Model
     public $info;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $stepId;

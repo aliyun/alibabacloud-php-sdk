@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class fileExecutionCommand extends Model
 {
     /**
+     * @example SHOW TABLES;
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example odps_first
+     *
      * @var string
      */
     public $dataSourceName;
 
     /**
+     * @example 1234123
+     *
      * @var int
      */
     public $fileId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $fileType;

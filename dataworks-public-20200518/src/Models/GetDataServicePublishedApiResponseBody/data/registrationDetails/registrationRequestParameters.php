@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class registrationRequestParameters extends Model
 {
     /**
+     * @example default1
+     *
      * @var string
      */
     public $defaultValue;
 
     /**
+     * @example example1
+     *
      * @var string
      */
     public $exampleValue;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isRequiredParameter;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $parameterDataType;
 
     /**
+     * @example description1
+     *
      * @var string
      */
     public $parameterDescription;
 
     /**
+     * @example name1
+     *
      * @var string
      */
     public $parameterName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $parameterOperator;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $parameterPosition;

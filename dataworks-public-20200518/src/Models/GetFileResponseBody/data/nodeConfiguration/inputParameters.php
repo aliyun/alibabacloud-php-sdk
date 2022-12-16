@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class inputParameters extends Model
 {
     /**
+     * @example input
+     *
      * @var string
      */
     public $parameterName;
 
     /**
+     * @example project_001.parent_node:outputs
+     *
      * @var string
      */
     public $valueSource;

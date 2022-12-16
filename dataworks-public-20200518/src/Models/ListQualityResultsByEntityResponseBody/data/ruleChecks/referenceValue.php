@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class referenceValue extends Model
 {
     /**
+     * @example 2020-12-03
+     *
      * @var string
      */
     public $bizDate;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $discreteProperty;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $singleCheckResult;
 
     /**
+     * @example 0.5
+     *
      * @var float
      */
     public $threshold;
 
     /**
+     * @example 19
+     *
      * @var float
      */
     public $value;

@@ -15,6 +15,8 @@ class data extends Model
     public $influences;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $topicId;

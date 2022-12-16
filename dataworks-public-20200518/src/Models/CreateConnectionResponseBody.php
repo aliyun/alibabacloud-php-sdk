@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateConnectionResponseBody extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $data;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $httpStatusCode;
 
     /**
+     * @example 0bc141151593763****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

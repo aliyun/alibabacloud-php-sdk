@@ -14,131 +14,183 @@ class data extends Model
     public $caption;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $columnCount;
 
     /**
+     * @example test table
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @example 1589870294000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $dataSize;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $envType;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $favoriteCount;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isPartitionTable;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isView;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isVisible;
 
     /**
+     * @example 1589870294000
+     *
      * @var int
      */
     public $lastAccessTime;
 
     /**
+     * @example 1589870294000
+     *
      * @var int
      */
     public $lastDdlTime;
 
     /**
+     * @example 1589870294000
+     *
      * @var int
      */
     public $lastModifyTime;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $lifeCycle;
 
     /**
+     * @example hdfs://
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @example ab
+     *
      * @var string
      */
     public $partitionKeys;
 
     /**
+     * @example 232
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $readCount;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $schema;
 
     /**
+     * @example odps.engine_name.table_name
+     *
      * @var string
      */
     public $tableGuid;
 
     /**
+     * @example table_name
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $tenantId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $viewCount;

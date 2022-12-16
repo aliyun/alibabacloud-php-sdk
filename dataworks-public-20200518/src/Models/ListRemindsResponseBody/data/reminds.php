@@ -19,6 +19,8 @@ class reminds extends Model
     public $alertTargets;
 
     /**
+     * @example OWNER
+     *
      * @var string
      */
     public $alertUnit;
@@ -34,16 +36,22 @@ class reminds extends Model
     public $bizProcessIds;
 
     /**
+     * @example 08:00
+     *
      * @var string
      */
     public $dndEnd;
 
     /**
+     * @example 00:00
+     *
      * @var string
      */
     public $dndStart;
 
     /**
+     * @example 952795****
+     *
      * @var string
      */
     public $founder;
@@ -59,6 +67,8 @@ class reminds extends Model
     public $projectIds;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $remindId;
@@ -69,16 +79,22 @@ class reminds extends Model
     public $remindName;
 
     /**
+     * @example FINISHED
+     *
      * @var string
      */
     public $remindType;
 
     /**
+     * @example NODE
+     *
      * @var string
      */
     public $remindUnit;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useflag;

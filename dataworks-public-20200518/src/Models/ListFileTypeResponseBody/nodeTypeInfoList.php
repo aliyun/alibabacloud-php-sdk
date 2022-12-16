@@ -15,16 +15,22 @@ class nodeTypeInfoList extends Model
     public $nodeTypeInfo;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 127
+     *
      * @var int
      */
     public $totalCount;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class SetDataSourceShareRequest extends Model
 {
     /**
+     * @example mysql_name
+     *
      * @var string
      */
     public $datasourceName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example [{"projectId":1000,"permission":"WRITE","sharedName":"PX_DATAHUB1.shared_name"}]
+     *
      * @var string
      */
     public $projectPermissions;
 
     /**
+     * @example [{"projectId":10000,"users":[{"userId":"276184575345452131","permission":"WRITE"}],"sharedName":"PX_DATAHUB1.shared_name"}]
+     *
      * @var string
      */
     public $userPermissions;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class authorizationRecords extends Model
 {
     /**
+     * @example 2020-06-23T00:21:01+0800
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $creatorId;
 
     /**
+     * @example 2020-06-24T00:21:01+0800
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 10004
+     *
      * @var int
      */
     public $projectId;

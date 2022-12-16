@@ -15,6 +15,8 @@ class ListManualDagInstancesResponseBody extends Model
     public $instances;
 
     /**
+     * @example SDFSDFSDF-SDFSDF-SDFDSF-SDFSDF
+     *
      * @var string
      */
     public $requestId;

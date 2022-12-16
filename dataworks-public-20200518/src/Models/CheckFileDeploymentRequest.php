@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CheckFileDeploymentRequest extends Model
 {
     /**
+     * @example https://result.aliyun.com/?checkerInstanceId=
+     *
      * @var string
      */
     public $checkDetailUrl;
 
     /**
+     * @example 66_123455623_2
+     *
      * @var string
      */
     public $checkerInstanceId;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $status;

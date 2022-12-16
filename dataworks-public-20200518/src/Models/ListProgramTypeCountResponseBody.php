@@ -15,6 +15,8 @@ class ListProgramTypeCountResponseBody extends Model
     public $programTypeAndCounts;
 
     /**
+     * @example E6F0DBDD-5AD****
+     *
      * @var string
      */
     public $requestId;

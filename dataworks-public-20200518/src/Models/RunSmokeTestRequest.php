@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class RunSmokeTestRequest extends Model
 {
     /**
+     * @example 2020-05-26 00:00:00
+     *
      * @var string
      */
     public $bizdate;
 
     /**
+     * @example xm_create_test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example bizdate=$bizdate tbods=$tbods
+     *
      * @var string
      */
     public $nodeParams;
 
     /**
+     * @example PROD
+     *
      * @var string
      */
     public $projectEnv;

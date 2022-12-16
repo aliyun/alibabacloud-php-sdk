@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class CreateFileRequest extends Model
 {
     /**
+     * @example {"queue":"default","SPARK_CONF":"--conf spark.driver.memory=2g"}
+     *
      * @var string
      */
     public $advancedSettings;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoParsing;
 
     /**
+     * @example 120000
+     *
      * @var int
      */
     public $autoRerunIntervalMillis;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $autoRerunTimes;
 
     /**
+     * @example odps_first
+     *
      * @var string
      */
     public $connectionName;
 
     /**
+     * @example SHOW TABLES;
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example 00 05 00 * * ?
+     *
      * @var string
      */
     public $cronExpress;
 
     /**
+     * @example DAY
+     *
      * @var string
      */
     public $cycleType;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $dependentNodeIdList;
 
     /**
+     * @example NONE
+     *
      * @var string
      */
     public $dependentType;
 
     /**
+     * @example 4155787800000
+     *
      * @var int
      */
     public $endEffectDate;
@@ -79,76 +101,106 @@ class CreateFileRequest extends Model
     public $fileName;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $fileType;
 
     /**
+     * @example project_root,project.file1,project.001_out
+     *
      * @var string
      */
     public $inputList;
 
     /**
+     * @example [{"ValueSource": "project_001.first_node:bizdate_param","ParameterName": "bizdate_input"}]
+     *
      * @var string
      */
     public $inputParameters;
 
     /**
+     * @example [{"Type": 1,"Value": "${bizdate}","ParameterName": "bizdate_param"}]
+     *
      * @var string
      */
     public $outputParameters;
 
     /**
+     * @example 1000000000001
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example a=x b=y
+     *
      * @var string
      */
     public $paraValue;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example dw_project
+     *
      * @var string
      */
     public $projectIdentifier;
 
     /**
+     * @example ALL_ALLOWED
+     *
      * @var string
      */
     public $rerunMode;
 
     /**
+     * @example 375827434852437
+     *
      * @var int
      */
     public $resourceGroupId;
 
     /**
+     * @example group_375827434852437
+     *
      * @var string
      */
     public $resourceGroupIdentifier;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $schedulerType;
 
     /**
+     * @example 936923400000
+     *
      * @var int
      */
     public $startEffectDate;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $startImmediately;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $stop;

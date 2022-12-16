@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetOpSensitiveDataRequest extends Model
 {
     /**
+     * @example 20210116
+     *
      * @var string
      */
     public $date;
 
     /**
+     * @example [  {"dbType":"hologres","instanceName":"ABC","databaseName":"abc"},  {"dbType":"ODPS.ODPS","projectName":"adbc"}  ]
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example SQL_SELECT
+     *
      * @var string
      */
     public $opType;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;

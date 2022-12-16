@@ -14,21 +14,29 @@ class SubmitFileRequest extends Model
     public $comment;
 
     /**
+     * @example 1000000
+     *
      * @var int
      */
     public $fileId;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example dw_project
+     *
      * @var string
      */
     public $projectIdentifier;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $skipAllDeployFileExtensions;

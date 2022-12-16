@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class filePropertyContent extends Model
 {
     /**
+     * @example 74328
+     *
      * @var int
      */
     public $businessId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentVersion;
 
     /**
+     * @example odps_first
+     *
      * @var string
      */
     public $dataSourceName;
 
     /**
+     * @example aldurie78l2falure
+     *
      * @var string
      */
     public $folderId;
 
     /**
+     * @example 7384234****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 1234122
+     *
      * @var int
      */
     public $parentFileId;

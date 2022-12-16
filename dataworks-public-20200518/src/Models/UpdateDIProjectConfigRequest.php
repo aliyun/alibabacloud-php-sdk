@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateDIProjectConfigRequest extends Model
 {
     /**
+     * @example odps
+     *
      * @var string
      */
     public $destinationType;
 
     /**
+     * @example {"RENAMECOLUMN":"WARNING","DROPTABLE":"WARNING","CREATETABLE":"WARNING","MODIFYCOLUMN":"WARNING","TRUNCATETABLE":"WARNING","DROPCOLUMN":"WARNING","ADDCOLUMN":"WARNING","RENAMETABLE":"WARNING"}
+     *
      * @var string
      */
     public $projectConfig;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example mysql
+     *
      * @var string
      */
     public $sourceType;

@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class UpdateFileRequest extends Model
 {
     /**
+     * @example {"queue":"default","SPARK_CONF":"--conf spark.driver.memory=2g"}
+     *
      * @var string
      */
     public $advancedSettings;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoParsing;
 
     /**
+     * @example 120000
+     *
      * @var int
      */
     public $autoRerunIntervalMillis;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $autoRerunTimes;
 
     /**
+     * @example odps_first
+     *
      * @var string
      */
     public $connectionName;
 
     /**
+     * @example SELECT "1";
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example 00 00-59/5 1-23 * * ?
+     *
      * @var string
      */
     public $cronExpress;
 
     /**
+     * @example NOT_DAY
+     *
      * @var string
      */
     public $cycleType;
 
     /**
+     * @example 5,10,15,20
+     *
      * @var string
      */
     public $dependentNodeIdList;
 
     /**
+     * @example USER_DEFINE
+     *
      * @var string
      */
     public $dependentType;
 
     /**
+     * @example 4155787800000
+     *
      * @var int
      */
     public $endEffectDate;
@@ -74,81 +96,113 @@ class UpdateFileRequest extends Model
     public $fileFolderPath;
 
     /**
+     * @example 100000001
+     *
      * @var int
      */
     public $fileId;
 
     /**
+     * @example ods_user_info_d
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example project_root,project.file1,project.001_out
+     *
      * @var string
      */
     public $inputList;
 
     /**
+     * @example [{"ValueSource": "project_001.first_node:bizdate_param","ParameterName": "bizdate_input"}]
+     *
      * @var string
      */
     public $inputParameters;
 
     /**
+     * @example dw_project.ods_user_info_d
+     *
      * @var string
      */
     public $outputList;
 
     /**
+     * @example [{"Type": 1,"Value": "${bizdate}","ParameterName": "bizdate_param"}]
+     *
      * @var string
      */
     public $outputParameters;
 
     /**
+     * @example 18023848927592
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example x=a y=b z=c
+     *
      * @var string
      */
     public $paraValue;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example dw_project
+     *
      * @var string
      */
     public $projectIdentifier;
 
     /**
+     * @example ALL_ALLOWED
+     *
      * @var string
      */
     public $rerunMode;
 
     /**
+     * @example default_group
+     *
      * @var string
      */
     public $resourceGroupIdentifier;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $schedulerType;
 
     /**
+     * @example 936923400000
+     *
      * @var int
      */
     public $startEffectDate;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $startImmediately;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $stop;

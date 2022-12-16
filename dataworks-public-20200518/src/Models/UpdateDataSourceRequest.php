@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateDataSourceRequest extends Model
 {
     /**
+     * @example {"accessId":"xssssss","accessKey":"xsaxsaxsa","authType":2,"endpoint":"http://service.odps.aliyun.com/api","project":"xsaxsax","tag":"public"}
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $dataSourceId;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $envType;
 
     /**
+     * @example ENABLED
+     *
      * @var string
      */
     public $status;

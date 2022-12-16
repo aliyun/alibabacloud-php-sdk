@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TopTenElapsedTimeInstanceRequest extends Model
 {
     /**
+     * @example 100000
+     *
      * @var int
      */
     public $projectId;

@@ -15,26 +15,36 @@ class GetMigrationProcessResponseBody extends Model
     public $data;
 
     /**
+     * @example 110001123456
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example test error msg
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example SADFSDFSD-SDFSDF-XDXCVX-ESWW
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

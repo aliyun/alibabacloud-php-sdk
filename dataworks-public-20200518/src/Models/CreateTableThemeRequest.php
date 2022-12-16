@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTableThemeRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $level;
@@ -19,11 +21,15 @@ class CreateTableThemeRequest extends Model
     public $name;
 
     /**
+     * @example 122
+     *
      * @var int
      */
     public $parentId;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $projectId;

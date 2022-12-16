@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetNodeParentsRequest extends Model
 {
     /**
+     * @example 12345456211234
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example PROD
+     *
      * @var string
      */
     public $projectEnv;

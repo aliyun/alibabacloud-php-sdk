@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class CreateTableRequest extends Model
 {
     /**
+     * @example odps.test
+     *
      * @var string
      */
     public $appGuid;
 
     /**
+     * @example 101
+     *
      * @var int
      */
     public $categoryId;
@@ -36,41 +40,57 @@ class CreateTableRequest extends Model
     public $comment;
 
     /**
+     * @example odps://abc
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $envType;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $externalTableType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $hasPart;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $isView;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $lifeCycle;
 
     /**
+     * @example location
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example 101
+     *
      * @var int
      */
     public $logicalLevelId;
@@ -81,21 +101,29 @@ class CreateTableRequest extends Model
     public $ownerId;
 
     /**
+     * @example 101
+     *
      * @var int
      */
     public $physicsLevelId;
 
     /**
+     * @example 23
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $schema;
 
     /**
+     * @example tableName1
+     *
      * @var string
      */
     public $tableName;
@@ -106,6 +134,8 @@ class CreateTableRequest extends Model
     public $themes;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $visibility;

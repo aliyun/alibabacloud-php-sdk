@@ -14,6 +14,8 @@ class columnMetaList extends Model
     public $columnComment;
 
     /**
+     * @example aColumnName
+     *
      * @var string
      */
     public $columnName;

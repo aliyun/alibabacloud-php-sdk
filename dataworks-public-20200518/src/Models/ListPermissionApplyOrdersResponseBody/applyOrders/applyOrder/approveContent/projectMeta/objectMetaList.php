@@ -14,6 +14,8 @@ class objectMetaList extends Model
     public $actions;
 
     /**
+     * @example aTableName
+     *
      * @var string
      */
     public $objectName;

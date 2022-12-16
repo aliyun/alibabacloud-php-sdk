@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class solutionInfo extends Model
 {
     /**
+     * @example dataworks_3h1
+     *
      * @var string
      */
     public $creatorName;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example run
+     *
      * @var string
      */
     public $status;

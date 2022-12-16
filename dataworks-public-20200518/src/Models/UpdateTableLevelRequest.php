@@ -14,11 +14,15 @@ class UpdateTableLevelRequest extends Model
     public $description;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $levelId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $levelType;
@@ -29,6 +33,8 @@ class UpdateTableLevelRequest extends Model
     public $name;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $projectId;

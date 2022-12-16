@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example Data source DEV XXX already exists
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $status;

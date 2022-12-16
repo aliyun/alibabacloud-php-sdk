@@ -15,26 +15,36 @@ class GetNodeParentsResponseBody extends Model
     public $data;
 
     /**
+     * @example 1060010000000
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example err
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example asdfasdfas-adfasdf-asfas-dfasdf-asdf
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

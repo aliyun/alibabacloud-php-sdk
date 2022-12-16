@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListDataServiceApiTestRequest extends Model
 {
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $apiId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

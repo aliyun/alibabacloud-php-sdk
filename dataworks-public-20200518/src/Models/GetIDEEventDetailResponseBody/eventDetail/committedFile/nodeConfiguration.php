@@ -11,31 +11,43 @@ use AlibabaCloud\Tea\Model;
 class nodeConfiguration extends Model
 {
     /**
+     * @example 120000
+     *
      * @var int
      */
     public $autoRerunIntervalMillis;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $autoRerunTimes;
 
     /**
+     * @example 00 05 00 * * ?
+     *
      * @var string
      */
     public $cronExpress;
 
     /**
+     * @example DAY
+     *
      * @var string
      */
     public $cycleType;
 
     /**
+     * @example 5,10,15,20
+     *
      * @var string
      */
     public $dependentNodeIdList;
 
     /**
+     * @example USER_DEFINE
+     *
      * @var string
      */
     public $dependentType;
@@ -51,21 +63,29 @@ class nodeConfiguration extends Model
     public $outputList;
 
     /**
+     * @example a=x b=y
+     *
      * @var string
      */
     public $paraValue;
 
     /**
+     * @example ALL_ALLOWED
+     *
      * @var string
      */
     public $rerunMode;
 
     /**
+     * @example 375827434852437
+     *
      * @var int
      */
     public $resourceGroupId;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $schedulerType;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class AddProjectMemberToRoleRequest extends Model
 {
     /**
+     * @example 1AFAE64E-D1BE-432B-A9*****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example 27
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example role_project_guest
+     *
      * @var string
      */
     public $roleCode;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $userId;

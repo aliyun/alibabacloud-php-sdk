@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateQualityFollowerRequest extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $alarmMode;
 
     /**
+     * @example 1912232****
+     *
      * @var string
      */
     public $follower;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $followerId;
 
     /**
+     * @example autotest
+     *
      * @var string
      */
     public $projectName;

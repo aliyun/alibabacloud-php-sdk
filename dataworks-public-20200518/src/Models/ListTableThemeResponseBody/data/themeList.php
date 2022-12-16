@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class themeList extends Model
 {
     /**
+     * @example 123432343243
+     *
      * @var int
      */
     public $createTimeStamp;
 
     /**
+     * @example 123455
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $level;
@@ -29,16 +35,22 @@ class themeList extends Model
     public $name;
 
     /**
+     * @example 122
+     *
      * @var int
      */
     public $parentId;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $themeId;

@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class ListDeploymentsRequest extends Model
 {
     /**
+     * @example 20030****
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @example 1593877765000
+     *
      * @var int
      */
     public $endCreateTime;
 
     /**
+     * @example 1593877765000
+     *
      * @var int
      */
     public $endExecuteTime;
 
     /**
+     * @example 2003****
+     *
      * @var string
      */
     public $executor;
 
     /**
+     * @example hello
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example dw_project
+     *
      * @var string
      */
     public $projectIdentifier;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;

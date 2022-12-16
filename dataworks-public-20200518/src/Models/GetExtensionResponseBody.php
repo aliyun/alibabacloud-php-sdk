@@ -15,6 +15,8 @@ class GetExtensionResponseBody extends Model
     public $extension;
 
     /**
+     * @example 0000-ABCD-EFG
+     *
      * @var string
      */
     public $requestId;

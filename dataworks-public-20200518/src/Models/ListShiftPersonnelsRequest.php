@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListShiftPersonnelsRequest extends Model
 {
     /**
+     * @example 1593950832000
+     *
      * @var int
      */
     public $beginTime;
 
     /**
+     * @example 1593950832000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 1933790****551
+     *
      * @var string
      */
     public $shiftPersonUID;
 
     /**
+     * @example 2ab6456ada634b2f938ee******9b45b
+     *
      * @var string
      */
     public $shiftScheduleIdentifier;
 
     /**
+     * @example ALL
+     *
      * @var string
      */
     public $userType;

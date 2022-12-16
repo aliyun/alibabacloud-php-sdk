@@ -13,16 +13,22 @@ use AlibabaCloud\Tea\Model;
 class wizardDetails extends Model
 {
     /**
+     * @example {"success": false}
+     *
      * @var string
      */
     public $failedResultSample;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isPagedResponse;
 
     /**
+     * @example {"success": true}
+     *
      * @var string
      */
     public $successfulResultSample;

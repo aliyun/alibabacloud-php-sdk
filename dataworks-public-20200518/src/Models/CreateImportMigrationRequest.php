@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class CreateImportMigrationRequest extends Model
 {
     /**
+     * @example {     "ODPS": {       "zxy_8221431_engine": "wzp_kaifazheban_engine"     },     "EMR": {         "aaaa": "bbb"     }   }
+     *
      * @var string
      */
     public $calculateEngineMap;
 
     /**
+     * @example {     "resourceAutoCommit": false,     "resourceAutoDeploy": false,     "functionAutoCommit": false,     "functionAutoDeploy": false,     "tableAutoCommitToDev": false,     "tableAutoCommitToProd": false,     "ignoreLock": false,     "fileAutoCommit": false,     "fileAutoDeploy": false   }
+     *
      * @var string
      */
     public $commitRule;
 
     /**
+     * @example test description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example test_import_001
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example /home/admin/xxx/import.zip
+     *
      * @var string
      */
     public $packageFile;
 
     /**
+     * @example DATAWORKS_MODEL
+     *
      * @var string
      */
     public $packageType;
 
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example {"SCHEDULER_RESOURCE_GROUP": {"xxx":"yyy"},"DI_RESOURCE_GROUP":{"ccc":"ddd"}}
+     *
      * @var string
      */
     public $resourceGroupMap;
 
     /**
+     * @example {"test_workspace_src": "test_workspace_target"}
+     *
      * @var string
      */
     public $workspaceMap;

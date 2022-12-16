@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDataSourceRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $dataSourceId;

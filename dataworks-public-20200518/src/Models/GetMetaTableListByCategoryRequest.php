@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableListByCategoryRequest extends Model
 {
     /**
+     * @example 23
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

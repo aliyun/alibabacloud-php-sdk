@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteTableLevelRequest extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $levelId;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $projectId;

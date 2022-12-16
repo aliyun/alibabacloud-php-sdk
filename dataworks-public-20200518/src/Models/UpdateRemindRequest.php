@@ -9,91 +9,127 @@ use AlibabaCloud\Tea\Model;
 class UpdateRemindRequest extends Model
 {
     /**
+     * @example 1800
+     *
      * @var int
      */
     public $alertInterval;
 
     /**
+     * @example SMS,MAIL
+     *
      * @var string
      */
     public $alertMethods;
 
     /**
+     * @example 9527952795279527
+     *
      * @var string
      */
     public $alertTargets;
 
     /**
+     * @example OWNER
+     *
      * @var string
      */
     public $alertUnit;
 
     /**
+     * @example 1,2,3
+     *
      * @var string
      */
     public $baselineIds;
 
     /**
+     * @example 1,2,3
+     *
      * @var string
      */
     public $bizProcessIds;
 
     /**
+     * @example {"hour":23,"minu":59}
+     *
      * @var string
      */
     public $detail;
 
     /**
+     * @example 08:00
+     *
      * @var string
      */
     public $dndEnd;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $maxAlertTimes;
 
     /**
+     * @example 1,2,3
+     *
      * @var string
      */
     public $nodeIds;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $remindId;
 
     /**
+     * @example update_remindname
+     *
      * @var string
      */
     public $remindName;
 
     /**
+     * @example FINISHED
+     *
      * @var string
      */
     public $remindType;
 
     /**
+     * @example NODE
+     *
      * @var string
      */
     public $remindUnit;
 
     /**
+     * @example https://oapi.dingtalk.com/robot/send?access_token=******************************
+     *
      * @var string
      */
     public $robotUrls;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useFlag;
 
     /**
+     * @example https://open.feishu.cn/open-apis/bot/v2/hook/*******
+     *
      * @var string
      */
     public $webhooks;

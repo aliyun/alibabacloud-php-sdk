@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ListInnerNodesRequest extends Model
 {
     /**
+     * @example liux_test_n****
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $outerNodeId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example ODPS_SQL
+     *
      * @var string
      */
     public $programType;
 
     /**
+     * @example PROD
+     *
      * @var string
      */
     public $projectEnv;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $projectId;

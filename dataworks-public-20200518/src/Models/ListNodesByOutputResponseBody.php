@@ -15,26 +15,36 @@ class ListNodesByOutputResponseBody extends Model
     public $data;
 
     /**
+     * @example Invalid.Tenant.ConnectionNotExists
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example The connection does not exist.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example SDFSDFSDF-asdfDFSDF-SDFSDf-SDfSFD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

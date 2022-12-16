@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListProjectsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example rg-acfmzbn7pti3zfa
+     *
      * @var string
      */
     public $resourceManagerResourceGroupId;

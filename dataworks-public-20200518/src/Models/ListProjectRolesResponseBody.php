@@ -15,6 +15,8 @@ class ListProjectRolesResponseBody extends Model
     public $projectRoleList;
 
     /**
+     * @example 1AFAE64E-D1BE-432B-A9****
+     *
      * @var string
      */
     public $requestId;

@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class CreateQualityRelativeNodeRequest extends Model
 {
     /**
+     * @example ODPS
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @example dt=$[yyyymmdd]
+     *
      * @var string
      */
     public $matchExpression;
 
     /**
+     * @example 12321
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example autotest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example dual
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $targetNodeProjectId;
 
     /**
+     * @example autotest
+     *
      * @var string
      */
     public $targetNodeProjectName;

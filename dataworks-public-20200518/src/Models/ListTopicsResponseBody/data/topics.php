@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class topics extends Model
 {
     /**
+     * @example 1553524393000
+     *
      * @var int
      */
     public $addTime;
 
     /**
+     * @example 1553508465000
+     *
      * @var int
      */
     public $fixTime;
 
     /**
+     * @example 1553508465000
+     *
      * @var int
      */
     public $happenTime;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $nodeId;
@@ -39,16 +49,22 @@ class topics extends Model
     public $nodeName;
 
     /**
+     * @example 952795****
+     *
      * @var string
      */
     public $nodeOwner;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $topicId;
@@ -59,11 +75,15 @@ class topics extends Model
     public $topicName;
 
     /**
+     * @example NEW
+     *
      * @var string
      */
     public $topicStatus;
 
     /**
+     * @example ERROR
+     *
      * @var string
      */
     public $topicType;

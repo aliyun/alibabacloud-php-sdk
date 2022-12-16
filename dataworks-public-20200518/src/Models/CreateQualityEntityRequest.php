@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateQualityEntityRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $entityLevel;
 
     /**
+     * @example ODPS
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @example dt=$[yyyymmdd]
+     *
      * @var string
      */
     public $matchExpression;
 
     /**
+     * @example autotest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example dual
+     *
      * @var string
      */
     public $tableName;

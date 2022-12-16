@@ -15,16 +15,22 @@ class ListCalcEnginesResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example 0bc1ec92159376****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

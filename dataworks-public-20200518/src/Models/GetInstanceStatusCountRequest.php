@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceStatusCountRequest extends Model
 {
     /**
+     * @example 2020-01-01
+     *
      * @var string
      */
     public $bizDate;
 
     /**
+     * @example PROD
+     *
      * @var string
      */
     public $projectEnv;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $projectId;

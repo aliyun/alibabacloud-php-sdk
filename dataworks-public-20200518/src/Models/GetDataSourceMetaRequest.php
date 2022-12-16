@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetDataSourceMetaRequest extends Model
 {
     /**
+     * @example mysql_name
+     *
      * @var string
      */
     public $datasourceName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;

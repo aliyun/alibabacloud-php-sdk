@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetProjectRequest extends Model
 {
     /**
+     * @example 27
+     *
      * @var int
      */
     public $projectId;

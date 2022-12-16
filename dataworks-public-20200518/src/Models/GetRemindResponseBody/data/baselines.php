@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class baselines extends Model
 {
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $baselineId;

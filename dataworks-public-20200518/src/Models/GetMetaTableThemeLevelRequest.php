@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableThemeLevelRequest extends Model
 {
     /**
+     * @example odps
+     *
      * @var string
      */
     public $dataSourceType;
 
     /**
+     * @example odps.project1.name1
+     *
      * @var string
      */
     public $tableGuid;

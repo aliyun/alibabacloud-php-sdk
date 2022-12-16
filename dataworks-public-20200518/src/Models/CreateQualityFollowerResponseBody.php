@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateQualityFollowerResponseBody extends Model
 {
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $data;
 
     /**
+     * @example 401
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example You have no permission.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example ecb967ec-c137-48****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

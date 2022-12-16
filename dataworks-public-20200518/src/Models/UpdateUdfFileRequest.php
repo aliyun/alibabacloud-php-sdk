@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateUdfFileRequest extends Model
 {
     /**
+     * @example com.alibaba.DataWorks.api.udf.StringConcat
+     *
      * @var string
      */
     public $className;
 
     /**
+     * @example StringConcat(String... substrs)
+     *
      * @var string
      */
     public $cmdDescription;
 
     /**
+     * @example StringConcat(\"a\", \"b\", \"c\")
+     *
      * @var string
      */
     public $example;
@@ -29,11 +35,15 @@ class UpdateUdfFileRequest extends Model
     public $fileFolderPath;
 
     /**
+     * @example 10000001
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @example STRING
+     *
      * @var string
      */
     public $functionType;
@@ -44,16 +54,22 @@ class UpdateUdfFileRequest extends Model
     public $parameterDescription;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example dw_project
+     *
      * @var string
      */
     public $projectIdentifier;
 
     /**
+     * @example string-concat-1.0.0.jar,commons-lang-2.6.jar
+     *
      * @var string
      */
     public $resources;

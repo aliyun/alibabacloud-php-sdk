@@ -14,61 +14,85 @@ class UpdateDataServiceApiRequest extends Model
     public $apiDescription;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $apiId;
 
     /**
+     * @example /test/2
+     *
      * @var string
      */
     public $apiPath;
 
     /**
+     * @example 10001
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 0,1
+     *
      * @var string
      */
     public $protocols;
 
     /**
+     * @example {"failedResultSample":"fail","registrationErrorCodes":[{"errorCode":"e1","errorMessage":"msg1","errorSolution":"sol1"},{"errorCode":"e2","errorMessage":"msg2","errorSolution":"sol2"}],"registrationRequestParameters":[{"columnName":"","defaultValue":"","exampleValue":"","isRequiredParameter":true,"parameterDataType":0,"parameterDescription":"","parameterName":"id","parameterOperator":0,"parameterPosition":1},{"columnName":"","defaultValue":"xx","exampleValue":"","isRequiredParameter":true,"parameterDataType":0,"parameterDescription":"","parameterName":"cc","parameterOperator":2,"parameterPosition":2}],"serviceContentType":1,"serviceHost":"http://www.baidu.com","servicePath":"/[uid]","serviceRequestBodyDescription":"body","successfulResultSample":"success"}
+     *
      * @var string
      */
     public $registrationDetails;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $requestMethod;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $responseContentType;
 
     /**
+     * @example {"isPagedResponse":false,"script":"select id as id1, name as name1 from person where id=${inputid}","scriptConnection":{"connectionId":122786,"tableName":"person"},"scriptRequestParameters":[{"defaultValue":"","exampleValue":"","isRequiredParameter":true,"parameterDataType":0,"parameterDescription":"","parameterName":"inputid","parameterOperator":0,"parameterPosition":1}],"scriptResponseParameters":[{"exampleValue":"","parameterDataType":0,"parameterDescription":"","parameterName":"id1"},{"exampleValue":"","parameterDataType":0,"parameterDescription":"","parameterName":"name1"}]}
+     *
      * @var string
      */
     public $scriptDetails;
 
     /**
+     * @example 10001
+     *
      * @var int
      */
     public $tenantId;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $timeout;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $visibleRange;
 
     /**
+     * @example {"isPagedResponse":true,"wizardConnection":{"connectionId":122786,"tableName":"person"},"wizardRequestParameters":[{"columnName":"id","defaultValue":"","exampleValue":"1","isRequiredParameter":true,"parameterDataType":2,"parameterDescription":"","parameterName":"id","parameterOperator":0,"parameterPosition":0}],"wizardResponseParameters":[{"columnName":"id","exampleValue":"11","parameterDataType":2,"parameterDescription":"","parameterName":"id"}]}
+     *
      * @var string
      */
     public $wizardDetails;

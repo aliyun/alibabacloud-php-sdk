@@ -15,6 +15,8 @@ class ListInstanceAmountResponseBody extends Model
     public $instanceCounts;
 
     /**
+     * @example 95279527adhfj****
+     *
      * @var string
      */
     public $requestId;

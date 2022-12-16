@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateDataServiceApiAuthorityRequest extends Model
 {
     /**
+     * @example 10001
+     *
      * @var int
      */
     public $apiId;
 
     /**
+     * @example 10002
+     *
      * @var int
      */
     public $authorizedProjectId;
 
     /**
+     * @example 1600531564
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 10003
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 1004
+     *
      * @var int
      */
     public $tenantId;

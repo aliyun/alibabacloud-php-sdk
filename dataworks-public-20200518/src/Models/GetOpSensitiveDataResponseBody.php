@@ -14,6 +14,8 @@ class GetOpSensitiveDataResponseBody extends Model
     public $opSensitiveData;
 
     /**
+     * @example 0000-ABCD-EFG****
+     *
      * @var string
      */
     public $requestId;

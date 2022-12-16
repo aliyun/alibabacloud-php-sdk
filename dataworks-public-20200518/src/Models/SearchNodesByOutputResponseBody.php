@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class SearchNodesByOutputResponseBody extends Model
 {
     /**
+     * @example { "test_0709_1.630003558_out": {  "nodeId": 21673,             "nodeName": "hour_sql",             "ownerId": 123123123124,             "cronExpress": "00 00 00-23/2 * * ?",             "repeatability": true,             "programType": "ODPS_SQL",             "projectId": 11111,             "schedulerType": "NORMAL",             "priority": 1,             "baselineId": 20001721,             "connection": "odps_first"         },         "test_0709_1.630003556_out": {             "nodeId": 21671,             "nodeName": "start",             "ownerId": 123141231231,             "cronExpress": "00 *\/10 00-23 * * ?",             "repeatability": true,             "programType": "VIRTUAL",             "projectId": 1111,             "schedulerType": "NORMAL",             "priority": 1,             "baselineId": 20001721         }     }
+     *
      * @var mixed[]
      */
     public $data;
 
     /**
+     * @example Invalid.Tenant.ConnectionNotExists
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example The connection does not exist.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example SDFSDFSDF-asdfDFSDF-SDFSDf-SDfSFD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

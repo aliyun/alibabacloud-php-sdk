@@ -15,6 +15,8 @@ class databaseInfo extends Model
     public $dbList;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

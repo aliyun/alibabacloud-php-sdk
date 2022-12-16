@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class SearchMetaTablesRequest extends Model
 {
     /**
+     * @example odps.engine_name
+     *
      * @var string
      */
     public $appGuid;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example emr
+     *
      * @var string
      */
     public $dataSourceType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $entityType;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $schema;

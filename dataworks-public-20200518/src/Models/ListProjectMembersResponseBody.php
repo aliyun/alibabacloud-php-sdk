@@ -15,6 +15,8 @@ class ListProjectMembersResponseBody extends Model
     public $data;
 
     /**
+     * @example 1AFAE64E-D1BE-432B-A9****
+     *
      * @var string
      */
     public $requestId;

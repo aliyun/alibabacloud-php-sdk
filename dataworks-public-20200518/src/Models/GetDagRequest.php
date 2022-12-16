@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetDagRequest extends Model
 {
     /**
+     * @example 123141452344525
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @example PROD
+     *
      * @var string
      */
     public $projectEnv;

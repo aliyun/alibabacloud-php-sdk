@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ImportDataSourcesRequest extends Model
 {
     /**
+     * @example [{"SubType":"","DataSourceType":"mysql","EnvType":1,"Name":"mysql_dms2","Description":"aaa","Content":"{\"database\":\"mysql_chengdu_old\",\"password\":\"***\",\"instanceName\":\"rm-2vcrckb37163g7l3w\",\"regionId\":\"cn-chengdu\",\"tag\":\"rds\",\"rdsOwnerId\":\"333\",\"username\":\"mysql_chengdu2\"}"},{"SubType":"","DataSourceType":"mysql","EnvType":1,"Name":"mysql_dms2","Description":"aaa","Content":"{\"database\":\"mysql_chengdu_old\",\"password\":\"***\",\"instanceName\":\"rm-2vcrckb37163g7l3w\",\"regionId\":\"cn-chengdu\",\"tag\":\"rds\",\"rdsOwnerId\":\"143\",\"username\":\"mysql_chengdu2\"}"}]
+     *
      * @var string
      */
     public $dataSources;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;

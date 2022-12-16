@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateImportMigrationResponseBody extends Model
 {
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $data;
 
     /**
+     * @example 110001123456
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example test error message
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example ADFASDFASDFA-ADFASDF-ASDFADSDF-AFFADS
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

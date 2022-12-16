@@ -14,21 +14,29 @@ class DeployFileRequest extends Model
     public $comment;
 
     /**
+     * @example 10000001
+     *
      * @var int
      */
     public $fileId;
 
     /**
+     * @example 2000001
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example dw_project
+     *
      * @var string
      */
     public $projectIdentifier;

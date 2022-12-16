@@ -9,91 +9,127 @@ use AlibabaCloud\Tea\Model;
 class connections extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $bindingCalcEngineId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $connectStatus;
 
     /**
+     * @example mysql
+     *
      * @var string
      */
     public $connectionType;
 
     /**
+     * @example {\"database\":\"xxx\",\"instanceName\":\"xxx\",\"password\":\"xxx\",\"rdsOwnerId\":\"xxx\",\"tag\":\"rds\",\"username\":\"xxx\"}
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $defaultEngine;
 
     /**
+     * @example a connection
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $envType;
 
     /**
+     * @example Mar 17, 2021 4:09:32 PM
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example Mar 17, 2021 4:09:32 PM
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 193543050****
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $sequence;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $shared;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example mysql
+     *
      * @var string
      */
     public $subType;
 
     /**
+     * @example 1234567
+     *
      * @var int
      */
     public $tenantId;

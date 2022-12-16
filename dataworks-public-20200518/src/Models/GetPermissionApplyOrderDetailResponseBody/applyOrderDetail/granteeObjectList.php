@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class granteeObjectList extends Model
 {
     /**
+     * @example 267842600408993176
+     *
      * @var string
      */
     public $granteeId;
 
     /**
+     * @example RAM$dataworks_3h1_1:StsRamUser(StsRamUser)
+     *
      * @var string
      */
     public $granteeName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $granteeType;
 
     /**
+     * @example 103
+     *
      * @var int
      */
     public $granteeTypeSub;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetFileTypeStatisticRequest extends Model
 {
     /**
+     * @example PROD
+     *
      * @var string
      */
     public $projectEnv;
 
     /**
+     * @example 123465
+     *
      * @var int
      */
     public $projectId;

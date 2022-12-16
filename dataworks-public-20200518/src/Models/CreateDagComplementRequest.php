@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class CreateDagComplementRequest extends Model
 {
     /**
+     * @example 00:00:00
+     *
      * @var string
      */
     public $bizBeginTime;
 
     /**
+     * @example 23:00:00
+     *
      * @var string
      */
     public $bizEndTime;
 
     /**
+     * @example 2020-05-21 00:00:00
+     *
      * @var string
      */
     public $endBizDate;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $excludeNodeIds;
 
     /**
+     * @example 74324,74325
+     *
      * @var string
      */
     public $includeNodeIds;
 
     /**
+     * @example xm_test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example {74324:"key1=val1 key2=val"}
+     *
      * @var string
      */
     public $nodeParams;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $parallelism;
 
     /**
+     * @example PROD
+     *
      * @var string
      */
     public $projectEnv;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $rootNodeId;
 
     /**
+     * @example 2020-05-20 00:00:00
+     *
      * @var string
      */
     public $startBizDate;

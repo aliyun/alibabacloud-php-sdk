@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListRefDISyncTasksRequest extends Model
 {
     /**
+     * @example mysql_datasource
+     *
      * @var string
      */
     public $datasourceName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example from
+     *
      * @var string
      */
     public $refType;
 
     /**
+     * @example DI_OFFLINE
+     *
      * @var string
      */
     public $taskType;

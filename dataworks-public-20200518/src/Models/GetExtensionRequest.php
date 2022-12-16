@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetExtensionRequest extends Model
 {
     /**
+     * @example ce4*********086da5
+     *
      * @var string
      */
     public $extensionCode;

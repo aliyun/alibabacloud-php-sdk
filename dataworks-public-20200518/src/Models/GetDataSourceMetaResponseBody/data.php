@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example read datasource time out
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example {"dbTables":[{"dbName":"testdb","schema":[{"tableInfos":[{"dbName":"testdb","enable":true,"table":"table1","tableName":"table1"}]},{"tableInfos":[{"dbName":"testdb","enable":true,"table":"table2","tableName":"table2"}]}]}]}
+     *
      * @var string
      */
     public $meta;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $status;

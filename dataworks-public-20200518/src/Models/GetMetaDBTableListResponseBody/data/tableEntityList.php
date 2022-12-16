@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class tableEntityList extends Model
 {
     /**
+     * @example abc
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @example odps.engine_name.tname
+     *
      * @var string
      */
     public $tableGuid;
 
     /**
+     * @example tname
+     *
      * @var string
      */
     public $tableName;

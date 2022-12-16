@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateDataServiceFolderResponseBody extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $folderId;
 
     /**
+     * @example 0000-ABCD-E****
+     *
      * @var string
      */
     public $requestId;

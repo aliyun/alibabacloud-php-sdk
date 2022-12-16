@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class ListPermissionApplyOrdersRequest extends Model
 {
     /**
+     * @example 1617200471885
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example odps
+     *
      * @var string
      */
     public $engineType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $flowStatus;
 
     /**
+     * @example aMaxComputeProject
+     *
      * @var string
      */
     public $maxComputeProjectName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $orderType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $queryType;
 
     /**
+     * @example 1616200471885
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example aTableName
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $workspaceId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetFolderRequest extends Model
 {
     /**
+     * @example 273****
+     *
      * @var string
      */
     public $folderId;
@@ -19,11 +21,15 @@ class GetFolderRequest extends Model
     public $folderPath;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example dw_project
+     *
      * @var string
      */
     public $projectIdentifier;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class scriptResponseParameters extends Model
 {
     /**
+     * @example column2
+     *
      * @var string
      */
     public $columnName;
 
     /**
+     * @example example2
+     *
      * @var string
      */
     public $exampleValue;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $parameterDataType;
 
     /**
+     * @example description2
+     *
      * @var string
      */
     public $parameterDescription;
 
     /**
+     * @example param2
+     *
      * @var string
      */
     public $parameterName;

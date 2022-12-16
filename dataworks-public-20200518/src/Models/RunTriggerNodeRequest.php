@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class RunTriggerNodeRequest extends Model
 {
     /**
+     * @example 10001
+     *
      * @var int
      */
     public $appId;
 
     /**
+     * @example 1606200230105
+     *
      * @var int
      */
     public $bizDate;
 
     /**
+     * @example 1606200230105
+     *
      * @var int
      */
     public $cycleTime;
 
     /**
+     * @example 10000011
+     *
      * @var int
      */
     public $nodeId;

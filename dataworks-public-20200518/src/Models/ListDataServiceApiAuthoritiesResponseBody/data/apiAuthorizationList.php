@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class apiAuthorizationList extends Model
 {
     /**
+     * @example 10002
+     *
      * @var int
      */
     public $apiId;
@@ -20,11 +22,15 @@ class apiAuthorizationList extends Model
     public $apiName;
 
     /**
+     * @example /test/1
+     *
      * @var string
      */
     public $apiPath;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $apiStatus;
@@ -35,31 +41,43 @@ class apiAuthorizationList extends Model
     public $authorizationRecords;
 
     /**
+     * @example 2020-06-23T00:21:01+0800
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $creatorId;
 
     /**
+     * @example ab123
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example 2020-06-23T00:21:01+0800
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 10001
+     *
      * @var int
      */
     public $tenantId;

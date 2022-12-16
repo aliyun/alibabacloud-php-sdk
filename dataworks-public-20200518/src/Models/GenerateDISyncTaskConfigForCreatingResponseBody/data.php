@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example XXX is invalid.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $processId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $status;

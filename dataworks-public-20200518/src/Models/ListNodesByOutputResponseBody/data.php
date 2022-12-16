@@ -15,6 +15,8 @@ class data extends Model
     public $nodeList;
 
     /**
+     * @example test_0709_1.630003556_out
+     *
      * @var string
      */
     public $output;

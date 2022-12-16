@@ -15,6 +15,8 @@ class ListEnabledExtensionsForProjectResponseBody extends Model
     public $extensions;
 
     /**
+     * @example 4F2CA7ED-27E5-59EA-A8C4-F1F7A1FF0B22
+     *
      * @var string
      */
     public $requestId;

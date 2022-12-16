@@ -14,6 +14,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1800
+     *
      * @var int
      */
     public $alertInterval;
@@ -29,6 +31,8 @@ class data extends Model
     public $alertTargets;
 
     /**
+     * @example OWNER
+     *
      * @var string
      */
     public $alertUnit;
@@ -44,26 +48,36 @@ class data extends Model
     public $bizProcesses;
 
     /**
+     * @example {"hour":23,"minu":59}
+     *
      * @var string
      */
     public $detail;
 
     /**
+     * @example 08:00
+     *
      * @var string
      */
     public $dndEnd;
 
     /**
+     * @example 00:00
+     *
      * @var string
      */
     public $dndStart;
 
     /**
+     * @example 9527951795****
+     *
      * @var string
      */
     public $founder;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $maxAlertTimes;
@@ -79,6 +93,8 @@ class data extends Model
     public $projects;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $remindId;
@@ -89,11 +105,15 @@ class data extends Model
     public $remindName;
 
     /**
+     * @example FINISHED
+     *
      * @var string
      */
     public $remindType;
 
     /**
+     * @example NODE
+     *
      * @var string
      */
     public $remindUnit;
@@ -104,6 +124,8 @@ class data extends Model
     public $robots;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useflag;

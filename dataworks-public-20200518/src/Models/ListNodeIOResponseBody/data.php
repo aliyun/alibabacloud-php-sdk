@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example dataworks_a.1234_out
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example 123123
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example dataworks_a.datastudio_tenant_waitres_alarm
+     *
      * @var string
      */
     public $tableName;

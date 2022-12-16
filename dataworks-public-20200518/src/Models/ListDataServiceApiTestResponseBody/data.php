@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 2343
+     *
      * @var int
      */
     public $apiId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $costTime;
 
     /**
+     * @example 1651824913000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example {"name":"test"}
+     *
      * @var string
      */
     public $paramMap;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $retCode;
 
     /**
+     * @example {"id":2}
+     *
      * @var string
      */
     public $retResult;
 
     /**
+     * @example FINISHED
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $testId;

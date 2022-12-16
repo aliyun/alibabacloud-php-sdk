@@ -14,21 +14,29 @@ class CreateDataServiceFolderRequest extends Model
     public $folderName;
 
     /**
+     * @example 1000abcd
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $parentId;
 
     /**
+     * @example 10001
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 10002
+     *
      * @var int
      */
     public $tenantId;

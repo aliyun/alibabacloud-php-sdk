@@ -15,6 +15,8 @@ class ListSuccessInstanceAmountResponseBody extends Model
     public $instanceStatusTrend;
 
     /**
+     * @example 952795279527ab****
+     *
      * @var string
      */
     public $requestId;

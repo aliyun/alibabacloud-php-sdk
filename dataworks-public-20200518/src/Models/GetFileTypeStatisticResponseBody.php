@@ -15,6 +15,8 @@ class GetFileTypeStatisticResponseBody extends Model
     public $programTypeAndCounts;
 
     /**
+     * @example SDFSDFSDF-SDFSDF-SDFDSF-SDFSDF
+     *
      * @var string
      */
     public $requestId;

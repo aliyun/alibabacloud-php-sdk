@@ -15,6 +15,8 @@ class ListDataServiceApiTestResponseBody extends Model
     public $data;
 
     /**
+     * @example ESDAFWEA
+     *
      * @var string
      */
     public $requestId;

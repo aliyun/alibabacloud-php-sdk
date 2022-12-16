@@ -11,46 +11,64 @@ use AlibabaCloud\Tea\Model;
 class ruleChecks extends Model
 {
     /**
+     * @example ds=20200912
+     *
      * @var string
      */
     public $actualExpression;
 
     /**
+     * @example 1600704000000
+     *
      * @var int
      */
     public $beginTime;
 
     /**
+     * @example 1600704000000
+     *
      * @var int
      */
     public $bizDate;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $blockType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $checkResult;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $checkResultStatus;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $checkerId;
 
     /**
+     * @example fulx
+     *
      * @var string
      */
     public $checkerName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $checkerType;
@@ -61,86 +79,120 @@ class ruleChecks extends Model
     public $comment;
 
     /**
+     * @example 0.5
+     *
      * @var float
      */
     public $criticalThreshold;
 
     /**
+     * @example YMD
+     *
      * @var string
      */
     public $dateType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $discreteCheck;
 
     /**
+     * @example 1600704000000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 15432322
+     *
      * @var int
      */
     public $entityId;
 
     /**
+     * @example 200
+     *
      * @var float
      */
     public $expectValue;
 
     /**
+     * @example 1112323123
+     *
      * @var string
      */
     public $externalId;
 
     /**
+     * @example CWF2
+     *
      * @var string
      */
     public $externalType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $fixedCheck;
 
     /**
+     * @example 121212121
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isPrediction;
 
     /**
+     * @example 2344
+     *
      * @var float
      */
     public $lowerValue;
 
     /**
+     * @example ds=$[yyyymmdd]
+     *
      * @var string
      */
     public $matchExpression;
 
     /**
+     * @example count_distinct
+     *
      * @var string
      */
     public $methodName;
 
     /**
+     * @example >
+     *
      * @var string
      */
     public $op;
 
     /**
+     * @example autotest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example type
+     *
      * @var string
      */
     public $property;
@@ -151,11 +203,15 @@ class ruleChecks extends Model
     public $referenceValue;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $resultString;
 
     /**
+     * @example 123123232
+     *
      * @var int
      */
     public $ruleId;
@@ -171,16 +227,22 @@ class ruleChecks extends Model
     public $sampleValue;
 
     /**
+     * @example dual
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @example 16008552981681a0d6****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $templateId;
@@ -191,26 +253,36 @@ class ruleChecks extends Model
     public $templateName;
 
     /**
+     * @example 202
+     *
      * @var string
      */
     public $timeCost;
 
     /**
+     * @example abs
+     *
      * @var string
      */
     public $trend;
 
     /**
+     * @example 25555
+     *
      * @var float
      */
     public $upperValue;
 
     /**
+     * @example 0.1
+     *
      * @var float
      */
     public $warningThreshold;
 
     /**
+     * @example id>0
+     *
      * @var string
      */
     public $whereCondition;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class dbList extends Model
 {
     /**
+     * @example 1388776825
+     *
      * @var int
      */
     public $createTimeStamp;
 
     /**
+     * @example hdfs://localhost:777/user/hadoop/test.txt
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example 1388776837
+     *
      * @var int
      */
     public $modifiedTimeStamp;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1232
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @example HIVE
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 32342
+     *
      * @var string
      */
     public $UUID;

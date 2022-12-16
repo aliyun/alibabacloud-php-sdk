@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateExportMigrationResponseBody extends Model
 {
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $data;
 
     /**
+     * @example 34267E2E-0335-1A60-A1F0-ADA530890CBA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

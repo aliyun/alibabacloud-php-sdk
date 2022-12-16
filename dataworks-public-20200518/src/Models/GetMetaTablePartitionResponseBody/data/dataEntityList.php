@@ -14,51 +14,71 @@ class dataEntityList extends Model
     public $comment;
 
     /**
+     * @example 1590032868000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 19
+     *
      * @var int
      */
     public $dataSize;
 
     /**
+     * @example 1590032868000
+     *
      * @var int
      */
     public $modifiedTime;
 
     /**
+     * @example odps.engine_name.table_name.pt=20170614
+     *
      * @var string
      */
     public $partitionGuid;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $partitionLocation;
 
     /**
+     * @example pt=20170614
+     *
      * @var string
      */
     public $partitionName;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $partitionPath;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $partitionType;
 
     /**
+     * @example 233
+     *
      * @var int
      */
     public $recordCount;
 
     /**
+     * @example odps.engine_name.table_name
+     *
      * @var string
      */
     public $tableGuid;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetQualityFollowerRequest extends Model
 {
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $entityId;
 
     /**
+     * @example autotest
+     *
      * @var string
      */
     public $projectName;

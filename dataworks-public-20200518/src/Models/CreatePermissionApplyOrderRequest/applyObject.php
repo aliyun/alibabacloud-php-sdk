@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class applyObject extends Model
 {
     /**
+     * @example Select,Describe
+     *
      * @var string
      */
     public $actions;
@@ -20,6 +22,8 @@ class applyObject extends Model
     public $columnMetaList;
 
     /**
+     * @example aTableName
+     *
      * @var string
      */
     public $name;

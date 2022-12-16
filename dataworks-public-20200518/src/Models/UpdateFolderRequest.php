@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateFolderRequest extends Model
 {
     /**
+     * @example 2735c2c19d58
+     *
      * @var string
      */
     public $folderId;
 
     /**
+     * @example MySecondFolder
+     *
      * @var string
      */
     public $folderName;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example dw_project
+     *
      * @var string
      */
     public $projectIdentifier;

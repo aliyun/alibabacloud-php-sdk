@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class scriptConnection extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $connectionId;
 
     /**
+     * @example t
+     *
      * @var string
      */
     public $tableName;

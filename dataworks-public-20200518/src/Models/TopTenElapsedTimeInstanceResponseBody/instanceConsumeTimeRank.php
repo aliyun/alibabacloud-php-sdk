@@ -15,6 +15,8 @@ class instanceConsumeTimeRank extends Model
     public $consumeTimeRank;
 
     /**
+     * @example 1600963200000
+     *
      * @var int
      */
     public $updateTime;

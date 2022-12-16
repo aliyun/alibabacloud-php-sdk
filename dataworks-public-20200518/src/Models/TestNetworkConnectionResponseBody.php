@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class TestNetworkConnectionResponseBody extends Model
 {
     /**
+     * @example 0000-ABCD-EFG
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

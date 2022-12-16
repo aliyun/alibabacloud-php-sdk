@@ -14,11 +14,15 @@ class CreateFolderRequest extends Model
     public $folderPath;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example dw_project
+     *
      * @var string
      */
     public $projectIdentifier;

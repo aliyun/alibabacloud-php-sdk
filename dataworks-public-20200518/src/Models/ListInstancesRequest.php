@@ -9,71 +9,99 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesRequest extends Model
 {
     /**
+     * @example 2020-02-02 00:00:00
+     *
      * @var string
      */
     public $beginBizdate;
 
     /**
+     * @example test_bizName
+     *
      * @var string
      */
     public $bizName;
 
     /**
+     * @example 2020-02-02 00:00:00
+     *
      * @var string
      */
     public $bizdate;
 
     /**
+     * @example 11111
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @example 2020-02-03 00:00:00
+     *
      * @var string
      */
     public $endBizdate;
 
     /**
+     * @example 100000000000
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example openmr_8****
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @example 193379****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example ODPS_SQL
+     *
      * @var string
      */
     public $programType;
 
     /**
+     * @example PROD
+     *
      * @var string
      */
     public $projectEnv;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example NOT_RUN
+     *
      * @var string
      */
     public $status;

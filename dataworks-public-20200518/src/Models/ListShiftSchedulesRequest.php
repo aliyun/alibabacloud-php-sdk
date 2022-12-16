@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListShiftSchedulesRequest extends Model
 {
     /**
+     * @example 1933790683****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

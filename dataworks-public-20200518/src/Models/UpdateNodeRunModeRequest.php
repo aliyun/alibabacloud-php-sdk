@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateNodeRunModeRequest extends Model
 {
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example PROD
+     *
      * @var string
      */
     public $projectEnv;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $schedulerType;

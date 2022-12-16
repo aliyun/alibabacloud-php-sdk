@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $baselineId;
@@ -19,61 +21,85 @@ class data extends Model
     public $baselineName;
 
     /**
+     * @example DAILY
+     *
      * @var string
      */
     public $baselineType;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $expHour;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $expMinu;
 
     /**
+     * @example {"1":"03:28","2":"04:28","3":"05:28","4":"06:28","5":"07:28","6":"08:28","7":"09:28","8":"10:28","9":"11:28","10":"12:28","11":"13:28","12":"14:28","13":"15:28","14":"16:28","15":"17:28","16":"18:28","17":"19:28","18":"20:28","19":"21:28","20":"22:28","21":"23:28","22":"24:28","23":"25:28","24":"26:28"}
+     *
      * @var string
      */
     public $hourExpDetail;
 
     /**
+     * @example {"1":"03:58","2":"04:58","3":"05:58","4":"06:58","5":"07:58","6":"08:58","7":"09:58","8":"10:58","9":"11:58","10":"12:58","11":"13:58","12":"14:58","13":"15:58","14":"16:58","15":"17:58","16":"18:58","17":"19:58","18":"20:58","19":"21:58","20":"22:58","21":"23:58","22":"24:58","23":"25:58","24":"26:58"}
+     *
      * @var string
      */
     public $hourSlaDetail;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isDefault;
 
     /**
+     * @example 9527952****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 9
+     *
      * @var int
      */
     public $slaHour;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $slaMinu;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useFlag;

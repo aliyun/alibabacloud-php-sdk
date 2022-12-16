@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteDataServiceApiAuthorityRequest extends Model
 {
     /**
+     * @example 10001
+     *
      * @var int
      */
     public $apiId;
 
     /**
+     * @example 10002
+     *
      * @var int
      */
     public $authorizedProjectId;
 
     /**
+     * @example 10003
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 10004
+     *
      * @var int
      */
     public $tenantId;

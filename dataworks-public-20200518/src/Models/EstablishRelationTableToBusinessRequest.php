@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class EstablishRelationTableToBusinessRequest extends Model
 {
     /**
+     * @example 1000001
+     *
      * @var string
      */
     public $businessId;
 
     /**
+     * @example 2eb6f9****
+     *
      * @var string
      */
     public $folderId;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example dw
+     *
      * @var string
      */
     public $projectIdentifier;
 
     /**
+     * @example odps.dw_project.tb1
+     *
      * @var string
      */
     public $tableGuid;

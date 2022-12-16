@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class approveAccountList extends Model
 {
     /**
+     * @example 182293110403****
+     *
      * @var string
      */
     public $baseId;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class topics extends Model
 {
     /**
+     * @example 1553531401000
+     *
      * @var int
      */
     public $addTime;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $topicId;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $topicName;

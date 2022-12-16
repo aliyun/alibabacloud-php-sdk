@@ -15,16 +15,22 @@ class pagingInfo extends Model
     public $extensions;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $totalCount;

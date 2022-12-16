@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteDataSourceResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $httpStatusCode;
 
     /**
+     * @example 0bc1411515937635****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

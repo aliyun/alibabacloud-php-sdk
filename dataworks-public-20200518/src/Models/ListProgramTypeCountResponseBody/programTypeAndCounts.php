@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class programTypeAndCounts extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example ODPS_SQL
+     *
      * @var string
      */
     public $programType;

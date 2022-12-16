@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteFileRequest extends Model
 {
     /**
+     * @example 10000001
+     *
      * @var int
      */
     public $fileId;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example dw_project
+     *
      * @var string
      */
     public $projectIdentifier;

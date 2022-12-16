@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class RevokeTablePermissionRequest extends Model
 {
     /**
+     * @example Select,Describe
+     *
      * @var string
      */
     public $actions;
 
     /**
+     * @example aMaxcomputeProjectName
+     *
      * @var string
      */
     public $maxComputeProjectName;
 
     /**
+     * @example 267842600408993176
+     *
      * @var string
      */
     public $revokeUserId;
 
     /**
+     * @example RAM$dataworks_3h1_1:stsramuser
+     *
      * @var string
      */
     public $revokeUserName;
 
     /**
+     * @example aTableName
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $workspaceId;

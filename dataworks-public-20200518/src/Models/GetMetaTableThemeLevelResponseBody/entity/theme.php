@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class theme extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $level;
 
     /**
+     * @example theme1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $parentId;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $themeId;

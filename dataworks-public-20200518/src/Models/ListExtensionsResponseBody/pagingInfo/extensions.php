@@ -30,11 +30,15 @@ class extensions extends Model
     public $extensionName;
 
     /**
+     * @example 2003****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;

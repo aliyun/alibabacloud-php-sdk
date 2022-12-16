@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListTableThemeRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 121
+     *
      * @var int
      */
     public $parentId;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $projectId;

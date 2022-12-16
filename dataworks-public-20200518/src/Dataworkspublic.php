@@ -1094,10 +1094,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateConnectionRequest $request
-     * @param RuntimeOptions          $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return CreateConnectionResponse
+     * @param CreateConnectionRequest $request CreateConnectionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateConnectionResponse CreateConnectionResponse
      */
     public function createConnectionWithOptions($request, $runtime)
     {
@@ -1143,9 +1147,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateConnectionRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return CreateConnectionResponse
+     * @param CreateConnectionRequest $request CreateConnectionRequest
+     *
+     * @return CreateConnectionResponse CreateConnectionResponse
      */
     public function createConnection($request)
     {
@@ -1213,10 +1221,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateDagComplementRequest $request
-     * @param RuntimeOptions             $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return CreateDagComplementResponse
+     * @param CreateDagComplementRequest $request CreateDagComplementRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDagComplementResponse CreateDagComplementResponse
      */
     public function createDagComplementWithOptions($request, $runtime)
     {
@@ -1274,9 +1286,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateDagComplementRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return CreateDagComplementResponse
+     * @param CreateDagComplementRequest $request CreateDagComplementRequest
+     *
+     * @return CreateDagComplementResponse CreateDagComplementResponse
      */
     public function createDagComplement($request)
     {
@@ -1286,10 +1302,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateDagTestRequest $request
-     * @param RuntimeOptions       $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return CreateDagTestResponse
+     * @param CreateDagTestRequest $request CreateDagTestRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDagTestResponse CreateDagTestResponse
      */
     public function createDagTestWithOptions($request, $runtime)
     {
@@ -1329,9 +1349,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateDagTestRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return CreateDagTestResponse
+     * @param CreateDagTestRequest $request CreateDagTestRequest
+     *
+     * @return CreateDagTestResponse CreateDagTestResponse
      */
     public function createDagTest($request)
     {
@@ -2034,10 +2058,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateManualDagRequest $request
-     * @param RuntimeOptions         $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return CreateManualDagResponse
+     * @param CreateManualDagRequest $request CreateManualDagRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateManualDagResponse CreateManualDagResponse
      */
     public function createManualDagWithOptions($request, $runtime)
     {
@@ -2086,9 +2114,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateManualDagRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return CreateManualDagResponse
+     * @param CreateManualDagRequest $request CreateManualDagRequest
+     *
+     * @return CreateManualDagResponse CreateManualDagResponse
      */
     public function createManualDag($request)
     {
@@ -2993,10 +3025,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteConnectionRequest $request
-     * @param RuntimeOptions          $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return DeleteConnectionResponse
+     * @param DeleteConnectionRequest $request DeleteConnectionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteConnectionResponse DeleteConnectionResponse
      */
     public function deleteConnectionWithOptions($request, $runtime)
     {
@@ -3024,9 +3060,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteConnectionRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return DeleteConnectionResponse
+     * @param DeleteConnectionRequest $request DeleteConnectionRequest
+     *
+     * @return DeleteConnectionResponse DeleteConnectionResponse
      */
     public function deleteConnection($request)
     {
@@ -5346,10 +5386,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceConsumeTimeRankRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetInstanceConsumeTimeRankResponse
+     * @param GetInstanceConsumeTimeRankRequest $request GetInstanceConsumeTimeRankRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetInstanceConsumeTimeRankResponse GetInstanceConsumeTimeRankResponse
      */
     public function getInstanceConsumeTimeRankWithOptions($request, $runtime)
     {
@@ -5380,9 +5424,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceConsumeTimeRankRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetInstanceConsumeTimeRankResponse
+     * @param GetInstanceConsumeTimeRankRequest $request GetInstanceConsumeTimeRankRequest
+     *
+     * @return GetInstanceConsumeTimeRankResponse GetInstanceConsumeTimeRankResponse
      */
     public function getInstanceConsumeTimeRank($request)
     {
@@ -5392,10 +5440,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceCountTrendRequest $request
-     * @param RuntimeOptions               $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetInstanceCountTrendResponse
+     * @param GetInstanceCountTrendRequest $request GetInstanceCountTrendRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetInstanceCountTrendResponse GetInstanceCountTrendResponse
      */
     public function getInstanceCountTrendWithOptions($request, $runtime)
     {
@@ -5429,9 +5481,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceCountTrendRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetInstanceCountTrendResponse
+     * @param GetInstanceCountTrendRequest $request GetInstanceCountTrendRequest
+     *
+     * @return GetInstanceCountTrendResponse GetInstanceCountTrendResponse
      */
     public function getInstanceCountTrend($request)
     {
@@ -5441,10 +5497,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceErrorRankRequest $request
-     * @param RuntimeOptions              $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetInstanceErrorRankResponse
+     * @param GetInstanceErrorRankRequest $request GetInstanceErrorRankRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetInstanceErrorRankResponse GetInstanceErrorRankResponse
      */
     public function getInstanceErrorRankWithOptions($request, $runtime)
     {
@@ -5472,9 +5532,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceErrorRankRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetInstanceErrorRankResponse
+     * @param GetInstanceErrorRankRequest $request GetInstanceErrorRankRequest
+     *
+     * @return GetInstanceErrorRankResponse GetInstanceErrorRankResponse
      */
     public function getInstanceErrorRank($request)
     {
@@ -5533,10 +5597,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceStatusCountRequest $request
-     * @param RuntimeOptions                $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetInstanceStatusCountResponse
+     * @param GetInstanceStatusCountRequest $request GetInstanceStatusCountRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetInstanceStatusCountResponse GetInstanceStatusCountResponse
      */
     public function getInstanceStatusCountWithOptions($request, $runtime)
     {
@@ -5570,9 +5638,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceStatusCountRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetInstanceStatusCountResponse
+     * @param GetInstanceStatusCountRequest $request GetInstanceStatusCountRequest
+     *
+     * @return GetInstanceStatusCountResponse GetInstanceStatusCountResponse
      */
     public function getInstanceStatusCount($request)
     {
@@ -5637,10 +5709,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetManualDagInstancesRequest $request
-     * @param RuntimeOptions               $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetManualDagInstancesResponse
+     * @param GetManualDagInstancesRequest $request GetManualDagInstancesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetManualDagInstancesResponse GetManualDagInstancesResponse
      */
     public function getManualDagInstancesWithOptions($request, $runtime)
     {
@@ -5674,9 +5750,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetManualDagInstancesRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetManualDagInstancesResponse
+     * @param GetManualDagInstancesRequest $request GetManualDagInstancesRequest
+     *
+     * @return GetManualDagInstancesResponse GetManualDagInstancesResponse
      */
     public function getManualDagInstances($request)
     {
@@ -5900,10 +5980,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableBasicInfoRequest $request
-     * @param RuntimeOptions               $runtime
+     * ****
+     *   *
+     * @param GetMetaTableBasicInfoRequest $request GetMetaTableBasicInfoRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMetaTableBasicInfoResponse
+     * @return GetMetaTableBasicInfoResponse GetMetaTableBasicInfoResponse
      */
     public function getMetaTableBasicInfoWithOptions($request, $runtime)
     {
@@ -5928,9 +6010,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableBasicInfoRequest $request
+     * ****
+     *   *
+     * @param GetMetaTableBasicInfoRequest $request GetMetaTableBasicInfoRequest
      *
-     * @return GetMetaTableBasicInfoResponse
+     * @return GetMetaTableBasicInfoResponse GetMetaTableBasicInfoResponse
      */
     public function getMetaTableBasicInfo($request)
     {
@@ -6254,6 +6338,9 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->tableGuid)) {
             $query['TableGuid'] = $request->tableGuid;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6625,10 +6712,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetNodeOnBaselineRequest $request
-     * @param RuntimeOptions           $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetNodeOnBaselineResponse
+     * @param GetNodeOnBaselineRequest $request GetNodeOnBaselineRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetNodeOnBaselineResponse GetNodeOnBaselineResponse
      */
     public function getNodeOnBaselineWithOptions($request, $runtime)
     {
@@ -6656,9 +6747,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetNodeOnBaselineRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetNodeOnBaselineResponse
+     * @param GetNodeOnBaselineRequest $request GetNodeOnBaselineRequest
+     *
+     * @return GetNodeOnBaselineResponse GetNodeOnBaselineResponse
      */
     public function getNodeOnBaseline($request)
     {
@@ -6714,10 +6809,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetNodeTypeListInfoRequest $request
-     * @param RuntimeOptions             $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetNodeTypeListInfoResponse
+     * @param GetNodeTypeListInfoRequest $request GetNodeTypeListInfoRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetNodeTypeListInfoResponse GetNodeTypeListInfoResponse
      */
     public function getNodeTypeListInfoWithOptions($request, $runtime)
     {
@@ -6760,9 +6859,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetNodeTypeListInfoRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetNodeTypeListInfoResponse
+     * @param GetNodeTypeListInfoRequest $request GetNodeTypeListInfoRequest
+     *
+     * @return GetNodeTypeListInfoResponse GetNodeTypeListInfoResponse
      */
     public function getNodeTypeListInfo($request)
     {
@@ -6984,10 +7087,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetProjectDetailRequest $request
-     * @param RuntimeOptions          $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetProjectDetailResponse
+     * @param GetProjectDetailRequest $request GetProjectDetailRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetProjectDetailResponse GetProjectDetailResponse
      */
     public function getProjectDetailWithOptions($request, $runtime)
     {
@@ -7015,9 +7122,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetProjectDetailRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetProjectDetailResponse
+     * @param GetProjectDetailRequest $request GetProjectDetailRequest
+     *
+     * @return GetProjectDetailResponse GetProjectDetailResponse
      */
     public function getProjectDetail($request)
     {
@@ -7254,10 +7365,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetSuccessInstanceTrendRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetSuccessInstanceTrendResponse
+     * @param GetSuccessInstanceTrendRequest $request GetSuccessInstanceTrendRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetSuccessInstanceTrendResponse GetSuccessInstanceTrendResponse
      */
     public function getSuccessInstanceTrendWithOptions($request, $runtime)
     {
@@ -7285,9 +7400,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetSuccessInstanceTrendRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetSuccessInstanceTrendResponse
+     * @param GetSuccessInstanceTrendRequest $request GetSuccessInstanceTrendRequest
+     *
+     * @return GetSuccessInstanceTrendResponse GetSuccessInstanceTrendResponse
      */
     public function getSuccessInstanceTrend($request)
     {
@@ -7297,10 +7416,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetTopicRequest $request
-     * @param RuntimeOptions  $runtime
+     * ****
+     *   *
+     * @param GetTopicRequest $request GetTopicRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTopicResponse
+     * @return GetTopicResponse GetTopicResponse
      */
     public function getTopicWithOptions($request, $runtime)
     {
@@ -7328,9 +7449,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetTopicRequest $request
+     * ****
+     *   *
+     * @param GetTopicRequest $request GetTopicRequest
      *
-     * @return GetTopicResponse
+     * @return GetTopicResponse GetTopicResponse
      */
     public function getTopic($request)
     {
@@ -7807,10 +7930,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListConnectionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return ListConnectionsResponse
+     * @param ListConnectionsRequest $request ListConnectionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListConnectionsResponse ListConnectionsResponse
      */
     public function listConnectionsWithOptions($request, $runtime)
     {
@@ -7835,9 +7962,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListConnectionsRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return ListConnectionsResponse
+     * @param ListConnectionsRequest $request ListConnectionsRequest
+     *
+     * @return ListConnectionsResponse ListConnectionsResponse
      */
     public function listConnections($request)
     {
@@ -9208,10 +9339,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListNodeIORequest $request
-     * @param RuntimeOptions    $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return ListNodeIOResponse
+     * @param ListNodeIORequest $request ListNodeIORequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListNodeIOResponse ListNodeIOResponse
      */
     public function listNodeIOWithOptions($request, $runtime)
     {
@@ -9245,9 +9380,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListNodeIORequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return ListNodeIOResponse
+     * @param ListNodeIORequest $request ListNodeIORequest
+     *
+     * @return ListNodeIOResponse ListNodeIOResponse
      */
     public function listNodeIO($request)
     {
@@ -9532,10 +9671,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListProgramTypeCountRequest $request
-     * @param RuntimeOptions              $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return ListProgramTypeCountResponse
+     * @param ListProgramTypeCountRequest $request ListProgramTypeCountRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListProgramTypeCountResponse ListProgramTypeCountResponse
      */
     public function listProgramTypeCountWithOptions($request, $runtime)
     {
@@ -9566,9 +9709,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListProgramTypeCountRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return ListProgramTypeCountResponse
+     * @param ListProgramTypeCountRequest $request ListProgramTypeCountRequest
+     *
+     * @return ListProgramTypeCountResponse ListProgramTypeCountResponse
      */
     public function listProgramTypeCount($request)
     {
@@ -9770,10 +9917,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListQualityResultsByEntityRequest $request
-     * @param RuntimeOptions                    $runtime
+     * ****
+     *   *
+     * @param ListQualityResultsByEntityRequest $request ListQualityResultsByEntityRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListQualityResultsByEntityResponse
+     * @return ListQualityResultsByEntityResponse ListQualityResultsByEntityResponse
      */
     public function listQualityResultsByEntityWithOptions($request, $runtime)
     {
@@ -9816,9 +9965,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListQualityResultsByEntityRequest $request
+     * ****
+     *   *
+     * @param ListQualityResultsByEntityRequest $request ListQualityResultsByEntityRequest
      *
-     * @return ListQualityResultsByEntityResponse
+     * @return ListQualityResultsByEntityResponse ListQualityResultsByEntityResponse
      */
     public function listQualityResultsByEntity($request)
     {
@@ -10085,9 +10236,6 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->tagsShrink)) {
             $query['Tags'] = $request->tagsShrink;
-        }
-        if (!Utils::isUnset($request->typeNames)) {
-            $query['TypeNames'] = $request->typeNames;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -11218,10 +11366,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param SearchNodesByOutputRequest $request
-     * @param RuntimeOptions             $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return SearchNodesByOutputResponse
+     * @param SearchNodesByOutputRequest $request SearchNodesByOutputRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SearchNodesByOutputResponse SearchNodesByOutputResponse
      */
     public function searchNodesByOutputWithOptions($request, $runtime)
     {
@@ -11252,9 +11404,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param SearchNodesByOutputRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return SearchNodesByOutputResponse
+     * @param SearchNodesByOutputRequest $request SearchNodesByOutputRequest
+     *
+     * @return SearchNodesByOutputResponse SearchNodesByOutputResponse
      */
     public function searchNodesByOutput($request)
     {
@@ -11264,10 +11420,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param SetDataSourceShareRequest $request
-     * @param RuntimeOptions            $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return SetDataSourceShareResponse
+     * @param SetDataSourceShareRequest $request SetDataSourceShareRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SetDataSourceShareResponse SetDataSourceShareResponse
      */
     public function setDataSourceShareWithOptions($request, $runtime)
     {
@@ -11307,9 +11467,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param SetDataSourceShareRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return SetDataSourceShareResponse
+     * @param SetDataSourceShareRequest $request SetDataSourceShareRequest
+     *
+     * @return SetDataSourceShareResponse SetDataSourceShareResponse
      */
     public function setDataSourceShare($request)
     {
@@ -12051,10 +12215,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateConnectionRequest $request
-     * @param RuntimeOptions          $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return UpdateConnectionResponse
+     * @param UpdateConnectionRequest $request UpdateConnectionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateConnectionResponse UpdateConnectionResponse
      */
     public function updateConnectionWithOptions($request, $runtime)
     {
@@ -12094,9 +12262,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateConnectionRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return UpdateConnectionResponse
+     * @param UpdateConnectionRequest $request UpdateConnectionRequest
+     *
+     * @return UpdateConnectionResponse UpdateConnectionResponse
      */
     public function updateConnection($request)
     {

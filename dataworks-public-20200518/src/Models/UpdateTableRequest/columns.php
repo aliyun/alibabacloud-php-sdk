@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class columns extends Model
 {
     /**
+     * @example abc
+     *
      * @var string
      */
     public $columnName;
@@ -19,6 +21,8 @@ class columns extends Model
     public $columnNameCn;
 
     /**
+     * @example string
+     *
      * @var string
      */
     public $columnType;
@@ -29,16 +33,22 @@ class columns extends Model
     public $comment;
 
     /**
+     * @example 0
+     *
      * @var bool
      */
     public $isPartitionCol;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $length;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $seqNumber;

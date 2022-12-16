@@ -14,11 +14,15 @@ class UpdateTableThemeRequest extends Model
     public $name;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $themeId;

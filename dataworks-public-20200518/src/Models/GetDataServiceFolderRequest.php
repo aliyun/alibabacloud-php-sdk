@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetDataServiceFolderRequest extends Model
 {
     /**
+     * @example 10001
+     *
      * @var int
      */
     public $folderId;
 
     /**
+     * @example 10002
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 10003
+     *
      * @var int
      */
     public $tenantId;

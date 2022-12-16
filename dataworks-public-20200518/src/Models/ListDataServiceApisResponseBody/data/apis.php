@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class apis extends Model
 {
     /**
+     * @example 10002
+     *
      * @var int
      */
     public $apiId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $apiMode;
@@ -27,16 +31,22 @@ class apis extends Model
     public $apiName;
 
     /**
+     * @example /test/1
+     *
      * @var string
      */
     public $apiPath;
 
     /**
+     * @example 2020-06-23T00:21:01+0800
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @example 1234567
+     *
      * @var string
      */
     public $creatorId;
@@ -47,26 +57,36 @@ class apis extends Model
     public $description;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $folderId;
 
     /**
+     * @example abcde123456789
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example 2020-06-23T00:21:01+0800
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example 2345678
+     *
      * @var string
      */
     public $operatorId;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
@@ -82,11 +102,15 @@ class apis extends Model
     public $registrationDetails;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $requestMethod;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $responseContentType;
@@ -97,21 +121,29 @@ class apis extends Model
     public $scriptDetails;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $tenantId;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $timeout;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $visibleRange;
