@@ -14,6 +14,11 @@ class items extends Model
     public $employeeNick;
 
     /**
+     * @var int
+     */
+    public $leaveStatus;
+
+    /**
      * @example 123
      *
      * @var string
@@ -28,6 +33,7 @@ class items extends Model
     public $thirdPartJobNo;
     protected $_name = [
         'employeeNick'        => 'employee_nick',
+        'leaveStatus'         => 'leave_status',
         'thirdPartEmployeeId' => 'third_part_employee_id',
         'thirdPartJobNo'      => 'third_part_job_no',
     ];
@@ -41,6 +47,9 @@ class items extends Model
         $res = [];
         if (null !== $this->employeeNick) {
             $res['employee_nick'] = $this->employeeNick;
+        }
+        if (null !== $this->leaveStatus) {
+            $res['leave_status'] = $this->leaveStatus;
         }
         if (null !== $this->thirdPartEmployeeId) {
             $res['third_part_employee_id'] = $this->thirdPartEmployeeId;
@@ -62,6 +71,9 @@ class items extends Model
         $model = new self();
         if (isset($map['employee_nick'])) {
             $model->employeeNick = $map['employee_nick'];
+        }
+        if (isset($map['leave_status'])) {
+            $model->leaveStatus = $map['leave_status'];
         }
         if (isset($map['third_part_employee_id'])) {
             $model->thirdPartEmployeeId = $map['third_part_employee_id'];
