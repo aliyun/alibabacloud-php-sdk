@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateConsumerGroupRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateConsumerGroupResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateTopicRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateTopicResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteConsumerGroupResponse;
@@ -71,21 +73,6 @@ class RocketMQ extends OpenApiClient
      * @param string                     $instanceId
      * @param string                     $consumerGroupId
      * @param CreateConsumerGroupRequest $request
-     *
-     * @return CreateConsumerGroupResponse
-     */
-    public function createConsumerGroup($instanceId, $consumerGroupId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->createConsumerGroupWithOptions($instanceId, $consumerGroupId, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param string                     $instanceId
-     * @param string                     $consumerGroupId
-     * @param CreateConsumerGroupRequest $request
      * @param string[]                   $headers
      * @param RuntimeOptions             $runtime
      *
@@ -124,18 +111,105 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @param string             $instanceId
-     * @param string             $topicName
-     * @param CreateTopicRequest $request
+     * @param string                     $instanceId
+     * @param string                     $consumerGroupId
+     * @param CreateConsumerGroupRequest $request
      *
-     * @return CreateTopicResponse
+     * @return CreateConsumerGroupResponse
      */
-    public function createTopic($instanceId, $topicName, $request)
+    public function createConsumerGroup($instanceId, $consumerGroupId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createTopicWithOptions($instanceId, $topicName, $request, $headers, $runtime);
+        return $this->createConsumerGroupWithOptions($instanceId, $consumerGroupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateInstanceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateInstanceResponse
+     */
+    public function createInstanceWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['clientToken'] = $request->clientToken;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->autoRenew)) {
+            $body['autoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $body['autoRenewPeriod'] = $request->autoRenewPeriod;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $body['instanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->networkInfo)) {
+            $body['networkInfo'] = $request->networkInfo;
+        }
+        if (!Utils::isUnset($request->paymentType)) {
+            $body['paymentType'] = $request->paymentType;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $body['period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $body['periodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->productInfo)) {
+            $body['productInfo'] = $request->productInfo;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $body['remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['resourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->seriesCode)) {
+            $body['seriesCode'] = $request->seriesCode;
+        }
+        if (!Utils::isUnset($request->serviceCode)) {
+            $body['serviceCode'] = $request->serviceCode;
+        }
+        if (!Utils::isUnset($request->subSeriesCode)) {
+            $body['subSeriesCode'] = $request->subSeriesCode;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateInstance',
+            'version'     => '2022-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/instances',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateInstanceRequest $request
+     *
+     * @return CreateInstanceResponse
+     */
+    public function createInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createInstanceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -177,17 +251,18 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @param string $instanceId
-     * @param string $consumerGroupId
+     * @param string             $instanceId
+     * @param string             $topicName
+     * @param CreateTopicRequest $request
      *
-     * @return DeleteConsumerGroupResponse
+     * @return CreateTopicResponse
      */
-    public function deleteConsumerGroup($instanceId, $consumerGroupId)
+    public function createTopic($instanceId, $topicName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteConsumerGroupWithOptions($instanceId, $consumerGroupId, $headers, $runtime);
+        return $this->createTopicWithOptions($instanceId, $topicName, $request, $headers, $runtime);
     }
 
     /**
@@ -220,15 +295,16 @@ class RocketMQ extends OpenApiClient
 
     /**
      * @param string $instanceId
+     * @param string $consumerGroupId
      *
-     * @return DeleteInstanceResponse
+     * @return DeleteConsumerGroupResponse
      */
-    public function deleteInstance($instanceId)
+    public function deleteConsumerGroup($instanceId, $consumerGroupId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteInstanceWithOptions($instanceId, $headers, $runtime);
+        return $this->deleteConsumerGroupWithOptions($instanceId, $consumerGroupId, $headers, $runtime);
     }
 
     /**
@@ -260,16 +336,15 @@ class RocketMQ extends OpenApiClient
 
     /**
      * @param string $instanceId
-     * @param string $topicName
      *
-     * @return DeleteTopicResponse
+     * @return DeleteInstanceResponse
      */
-    public function deleteTopic($instanceId, $topicName)
+    public function deleteInstance($instanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteTopicWithOptions($instanceId, $topicName, $headers, $runtime);
+        return $this->deleteInstanceWithOptions($instanceId, $headers, $runtime);
     }
 
     /**
@@ -302,16 +377,16 @@ class RocketMQ extends OpenApiClient
 
     /**
      * @param string $instanceId
-     * @param string $consumerGroupId
+     * @param string $topicName
      *
-     * @return GetConsumerGroupResponse
+     * @return DeleteTopicResponse
      */
-    public function getConsumerGroup($instanceId, $consumerGroupId)
+    public function deleteTopic($instanceId, $topicName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getConsumerGroupWithOptions($instanceId, $consumerGroupId, $headers, $runtime);
+        return $this->deleteTopicWithOptions($instanceId, $topicName, $headers, $runtime);
     }
 
     /**
@@ -344,15 +419,16 @@ class RocketMQ extends OpenApiClient
 
     /**
      * @param string $instanceId
+     * @param string $consumerGroupId
      *
-     * @return GetInstanceResponse
+     * @return GetConsumerGroupResponse
      */
-    public function getInstance($instanceId)
+    public function getConsumerGroup($instanceId, $consumerGroupId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getInstanceWithOptions($instanceId, $headers, $runtime);
+        return $this->getConsumerGroupWithOptions($instanceId, $consumerGroupId, $headers, $runtime);
     }
 
     /**
@@ -384,16 +460,15 @@ class RocketMQ extends OpenApiClient
 
     /**
      * @param string $instanceId
-     * @param string $topicName
      *
-     * @return GetTopicResponse
+     * @return GetInstanceResponse
      */
-    public function getTopic($instanceId, $topicName)
+    public function getInstance($instanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getTopicWithOptions($instanceId, $topicName, $headers, $runtime);
+        return $this->getInstanceWithOptions($instanceId, $headers, $runtime);
     }
 
     /**
@@ -425,17 +500,17 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @param string                    $instanceId
-     * @param ListConsumerGroupsRequest $request
+     * @param string $instanceId
+     * @param string $topicName
      *
-     * @return ListConsumerGroupsResponse
+     * @return GetTopicResponse
      */
-    public function listConsumerGroups($instanceId, $request)
+    public function getTopic($instanceId, $topicName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listConsumerGroupsWithOptions($instanceId, $request, $headers, $runtime);
+        return $this->getTopicWithOptions($instanceId, $topicName, $headers, $runtime);
     }
 
     /**
@@ -479,16 +554,17 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request
+     * @param string                    $instanceId
+     * @param ListConsumerGroupsRequest $request
      *
-     * @return ListInstancesResponse
+     * @return ListConsumerGroupsResponse
      */
-    public function listInstances($request)
+    public function listConsumerGroups($instanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listInstancesWithOptions($request, $headers, $runtime);
+        return $this->listConsumerGroupsWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -531,17 +607,16 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @param string            $instanceId
-     * @param ListTopicsRequest $request
+     * @param ListInstancesRequest $request
      *
-     * @return ListTopicsResponse
+     * @return ListInstancesResponse
      */
-    public function listTopics($instanceId, $request)
+    public function listInstances($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listTopicsWithOptions($instanceId, $request, $headers, $runtime);
+        return $this->listInstancesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -585,18 +660,17 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @param string                     $instanceId
-     * @param string                     $consumerGroupId
-     * @param UpdateConsumerGroupRequest $request
+     * @param string            $instanceId
+     * @param ListTopicsRequest $request
      *
-     * @return UpdateConsumerGroupResponse
+     * @return ListTopicsResponse
      */
-    public function updateConsumerGroup($instanceId, $consumerGroupId, $request)
+    public function listTopics($instanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateConsumerGroupWithOptions($instanceId, $consumerGroupId, $request, $headers, $runtime);
+        return $this->listTopicsWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -641,17 +715,18 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @param string                $instanceId
-     * @param UpdateInstanceRequest $request
+     * @param string                     $instanceId
+     * @param string                     $consumerGroupId
+     * @param UpdateConsumerGroupRequest $request
      *
-     * @return UpdateInstanceResponse
+     * @return UpdateConsumerGroupResponse
      */
-    public function updateInstance($instanceId, $request)
+    public function updateConsumerGroup($instanceId, $consumerGroupId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateInstanceWithOptions($instanceId, $request, $headers, $runtime);
+        return $this->updateConsumerGroupWithOptions($instanceId, $consumerGroupId, $request, $headers, $runtime);
     }
 
     /**
@@ -666,14 +741,14 @@ class RocketMQ extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
-        if (!Utils::isUnset($request->extConfig)) {
-            $body['extConfig'] = $request->extConfig;
-        }
         if (!Utils::isUnset($request->instanceName)) {
             $body['instanceName'] = $request->instanceName;
         }
         if (!Utils::isUnset($request->networkInfo)) {
             $body['networkInfo'] = $request->networkInfo;
+        }
+        if (!Utils::isUnset($request->productInfo)) {
+            $body['productInfo'] = $request->productInfo;
         }
         if (!Utils::isUnset($request->remark)) {
             $body['remark'] = $request->remark;
@@ -698,18 +773,17 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @param string             $instanceId
-     * @param string             $topicName
-     * @param UpdateTopicRequest $request
+     * @param string                $instanceId
+     * @param UpdateInstanceRequest $request
      *
-     * @return UpdateTopicResponse
+     * @return UpdateInstanceResponse
      */
-    public function updateTopic($instanceId, $topicName, $request)
+    public function updateInstance($instanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateTopicWithOptions($instanceId, $topicName, $request, $headers, $runtime);
+        return $this->updateInstanceWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -745,5 +819,20 @@ class RocketMQ extends OpenApiClient
         ]);
 
         return UpdateTopicResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string             $instanceId
+     * @param string             $topicName
+     * @param UpdateTopicRequest $request
+     *
+     * @return UpdateTopicResponse
+     */
+    public function updateTopic($instanceId, $topicName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateTopicWithOptions($instanceId, $topicName, $request, $headers, $runtime);
     }
 }

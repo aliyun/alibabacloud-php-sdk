@@ -2,20 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
+namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateTopicRequest extends Model
+class aclInfo extends Model
 {
     /**
-     * @example This is the remark for test.
-     *
      * @var string
      */
-    public $remark;
+    public $aclType;
     protected $_name = [
-        'remark' => 'remark',
+        'aclType' => 'aclType',
     ];
 
     public function validate()
@@ -25,8 +23,8 @@ class UpdateTopicRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->remark) {
-            $res['remark'] = $this->remark;
+        if (null !== $this->aclType) {
+            $res['aclType'] = $this->aclType;
         }
 
         return $res;
@@ -35,13 +33,13 @@ class UpdateTopicRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateTopicRequest
+     * @return aclInfo
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['remark'])) {
-            $model->remark = $map['remark'];
+        if (isset($map['aclType'])) {
+            $model->aclType = $map['aclType'];
         }
 
         return $model;

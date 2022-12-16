@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListConsumerGroupsRequest extends Model
 {
     /**
+     * @example CID-TEST
+     *
      * @var string
      */
     public $filter;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

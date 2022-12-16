@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceResponseBody extends Model
 {
     /**
+     * @example MissingInstanceId
+     *
      * @var string
      */
     public $code;
@@ -20,31 +22,43 @@ class GetInstanceResponseBody extends Model
     public $data;
 
     /**
+     * @example InstanceId
+     *
      * @var string
      */
     public $dynamicCode;
 
     /**
+     * @example instanceId
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @example 400
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example Parameter instanceId is mandatory for this action .
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 05AB7FBD-F1D3-5D87-BF78-BD782249****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

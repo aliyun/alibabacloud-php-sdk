@@ -9,91 +9,127 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example ons_rmqsub_public_cn
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @example 2022-08-01 00:00:00
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2022-09-01 00:00:00
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $groupCount;
 
     /**
+     * @example rmq-cn-7e22ody****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example test instance
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example Subscription
+     *
      * @var string
      */
     public $paymentType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 2022-09-07 00:00:00
+     *
      * @var string
      */
     public $releaseTime;
 
     /**
+     * @example This is remark for instance.
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @example standard
+     *
      * @var string
      */
     public $seriesCode;
 
     /**
+     * @example rmq
+     *
      * @var string
      */
     public $serviceCode;
 
     /**
+     * @example 2022-08-01 00:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example cluster_ha
+     *
      * @var string
      */
     public $subSeriesCode;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $topicCount;
 
     /**
+     * @example 2022-08-02 00:00:00
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @example 6W0xz2uPfiwp****
+     *
      * @var string
      */
     public $userId;

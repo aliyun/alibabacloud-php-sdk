@@ -5,9 +5,11 @@
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody;
 
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data\accountInfo;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data\aclInfo;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data\extConfig;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data\instanceQuotas;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data\networkInfo;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data\productInfo;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -18,21 +20,36 @@ class data extends Model
     public $accountInfo;
 
     /**
+     * @var aclInfo
+     */
+    public $aclInfo;
+
+    /**
+     * @description BID
+     *
+     * @example 26842
+     *
      * @var string
      */
     public $bid;
 
     /**
+     * @example ons_rmqsub_public_cn
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @example 2022-08-01 00:00:00
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2022-09-01 00:00:00
+     *
      * @var string
      */
     public $expireTime;
@@ -43,16 +60,15 @@ class data extends Model
     public $extConfig;
 
     /**
-     * @var int
-     */
-    public $groupCount;
-
-    /**
+     * @example rmq-cn-7e22ody****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example test instance
+     *
      * @var string
      */
     public $instanceName;
@@ -68,21 +84,34 @@ class data extends Model
     public $networkInfo;
 
     /**
+     * @example Subscription
+     *
      * @var string
      */
     public $paymentType;
 
     /**
+     * @var productInfo
+     */
+    public $productInfo;
+
+    /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 2022-09-07 00:00:00
+     *
      * @var string
      */
     public $releaseTime;
 
     /**
+     * @example This is remark for instance.
+     *
      * @var string
      */
     public $remark;
@@ -90,66 +119,81 @@ class data extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @example standard
+     *
+     * @var string
+     */
     public $seriesCode;
 
     /**
+     * @example rmq
+     *
      * @var string
      */
     public $serviceCode;
 
     /**
+     * @example 2022-08-01 00:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example cluster_ha
+     *
      * @var string
      */
     public $subSeriesCode;
 
     /**
-     * @var int
-     */
-    public $topicCount;
-
-    /**
+     * @example 2022-08-02 00:00:00
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @example 111111111111111
+     *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'accountInfo'    => 'accountInfo',
-        'bid'            => 'bid',
-        'commodityCode'  => 'commodityCode',
-        'createTime'     => 'createTime',
-        'expireTime'     => 'expireTime',
-        'extConfig'      => 'extConfig',
-        'groupCount'     => 'groupCount',
-        'instanceId'     => 'instanceId',
-        'instanceName'   => 'instanceName',
-        'instanceQuotas' => 'instanceQuotas',
-        'networkInfo'    => 'networkInfo',
-        'paymentType'    => 'paymentType',
-        'regionId'       => 'regionId',
-        'releaseTime'    => 'releaseTime',
-        'remark'         => 'remark',
-        'seriesCode'     => 'seriesCode',
-        'serviceCode'    => 'serviceCode',
-        'startTime'      => 'startTime',
-        'status'         => 'status',
-        'subSeriesCode'  => 'subSeriesCode',
-        'topicCount'     => 'topicCount',
-        'updateTime'     => 'updateTime',
-        'userId'         => 'userId',
+        'accountInfo'     => 'accountInfo',
+        'aclInfo'         => 'aclInfo',
+        'bid'             => 'bid',
+        'commodityCode'   => 'commodityCode',
+        'createTime'      => 'createTime',
+        'expireTime'      => 'expireTime',
+        'extConfig'       => 'extConfig',
+        'instanceId'      => 'instanceId',
+        'instanceName'    => 'instanceName',
+        'instanceQuotas'  => 'instanceQuotas',
+        'networkInfo'     => 'networkInfo',
+        'paymentType'     => 'paymentType',
+        'productInfo'     => 'productInfo',
+        'regionId'        => 'regionId',
+        'releaseTime'     => 'releaseTime',
+        'remark'          => 'remark',
+        'resourceGroupId' => 'resourceGroupId',
+        'seriesCode'      => 'seriesCode',
+        'serviceCode'     => 'serviceCode',
+        'startTime'       => 'startTime',
+        'status'          => 'status',
+        'subSeriesCode'   => 'subSeriesCode',
+        'updateTime'      => 'updateTime',
+        'userId'          => 'userId',
     ];
 
     public function validate()
@@ -161,6 +205,9 @@ class data extends Model
         $res = [];
         if (null !== $this->accountInfo) {
             $res['accountInfo'] = null !== $this->accountInfo ? $this->accountInfo->toMap() : null;
+        }
+        if (null !== $this->aclInfo) {
+            $res['aclInfo'] = null !== $this->aclInfo ? $this->aclInfo->toMap() : null;
         }
         if (null !== $this->bid) {
             $res['bid'] = $this->bid;
@@ -176,9 +223,6 @@ class data extends Model
         }
         if (null !== $this->extConfig) {
             $res['extConfig'] = null !== $this->extConfig ? $this->extConfig->toMap() : null;
-        }
-        if (null !== $this->groupCount) {
-            $res['groupCount'] = $this->groupCount;
         }
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
@@ -201,6 +245,9 @@ class data extends Model
         if (null !== $this->paymentType) {
             $res['paymentType'] = $this->paymentType;
         }
+        if (null !== $this->productInfo) {
+            $res['productInfo'] = null !== $this->productInfo ? $this->productInfo->toMap() : null;
+        }
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
@@ -209,6 +256,9 @@ class data extends Model
         }
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->seriesCode) {
             $res['seriesCode'] = $this->seriesCode;
@@ -224,9 +274,6 @@ class data extends Model
         }
         if (null !== $this->subSeriesCode) {
             $res['subSeriesCode'] = $this->subSeriesCode;
-        }
-        if (null !== $this->topicCount) {
-            $res['topicCount'] = $this->topicCount;
         }
         if (null !== $this->updateTime) {
             $res['updateTime'] = $this->updateTime;
@@ -249,6 +296,9 @@ class data extends Model
         if (isset($map['accountInfo'])) {
             $model->accountInfo = accountInfo::fromMap($map['accountInfo']);
         }
+        if (isset($map['aclInfo'])) {
+            $model->aclInfo = aclInfo::fromMap($map['aclInfo']);
+        }
         if (isset($map['bid'])) {
             $model->bid = $map['bid'];
         }
@@ -263,9 +313,6 @@ class data extends Model
         }
         if (isset($map['extConfig'])) {
             $model->extConfig = extConfig::fromMap($map['extConfig']);
-        }
-        if (isset($map['groupCount'])) {
-            $model->groupCount = $map['groupCount'];
         }
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
@@ -288,6 +335,9 @@ class data extends Model
         if (isset($map['paymentType'])) {
             $model->paymentType = $map['paymentType'];
         }
+        if (isset($map['productInfo'])) {
+            $model->productInfo = productInfo::fromMap($map['productInfo']);
+        }
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }
@@ -296,6 +346,9 @@ class data extends Model
         }
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];
+        }
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
         if (isset($map['seriesCode'])) {
             $model->seriesCode = $map['seriesCode'];
@@ -311,9 +364,6 @@ class data extends Model
         }
         if (isset($map['subSeriesCode'])) {
             $model->subSeriesCode = $map['subSeriesCode'];
-        }
-        if (isset($map['topicCount'])) {
-            $model->topicCount = $map['topicCount'];
         }
         if (isset($map['updateTime'])) {
             $model->updateTime = $map['updateTime'];

@@ -4,32 +4,33 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
-use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetTopicResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class GetTopicResponseBody extends Model
+class CreateInstanceResponseBody extends Model
 {
     /**
-     * @example Topic.NotFound
+     * @example OrderType.NotSupport
      *
      * @var string
      */
     public $code;
 
     /**
-     * @var data
+     * @example true
+     *
+     * @var string
      */
     public $data;
 
     /**
-     * @example TopicName
+     * @example InstanceId
      *
      * @var string
      */
     public $dynamicCode;
 
     /**
-     * @example topicName
+     * @example instanceId
      *
      * @var string
      */
@@ -43,7 +44,7 @@ class GetTopicResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @example The topic cannot be found.
+     * @example The order type not supported.
      *
      * @var string
      */
@@ -84,7 +85,7 @@ class GetTopicResponseBody extends Model
             $res['code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['data'] = $this->data;
         }
         if (null !== $this->dynamicCode) {
             $res['dynamicCode'] = $this->dynamicCode;
@@ -111,7 +112,7 @@ class GetTopicResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetTopicResponseBody
+     * @return CreateInstanceResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -120,7 +121,7 @@ class GetTopicResponseBody extends Model
             $model->code = $map['code'];
         }
         if (isset($map['data'])) {
-            $model->data = data::fromMap($map['data']);
+            $model->data = $map['data'];
         }
         if (isset($map['dynamicCode'])) {
             $model->dynamicCode = $map['dynamicCode'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class accountInfo extends Model
 {
     /**
+     * @example 6W0xz2uPfiwp****
+     *
      * @var string
      */
     public $username;

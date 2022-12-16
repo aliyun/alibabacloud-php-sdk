@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example GID-TEST
+     *
      * @var string
      */
     public $consumerGroupId;
 
     /**
+     * @example 2022-08-01 20:05:50
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example rmq-cn-7e22ody****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example This is the remark for test.
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 2022-08-01 20:05:50
+     *
      * @var string
      */
     public $updateTime;

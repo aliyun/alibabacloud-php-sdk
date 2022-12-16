@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceResponseBody extends Model
 {
     /**
+     * @example MissingInstanceId
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @example InstanceId
+     *
      * @var string
      */
     public $dynamicCode;
 
     /**
+     * @example instanceId
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @example 400
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example Parameter instanceId is mandatory for this action .
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example AA87DE09-DA44-52F4-9515-78B1B607****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

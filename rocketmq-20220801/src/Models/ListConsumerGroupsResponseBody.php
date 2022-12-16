@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListConsumerGroupsResponseBody extends Model
 {
     /**
+     * @example MissingInstanceId
+     *
      * @var string
      */
     public $code;
@@ -20,31 +22,43 @@ class ListConsumerGroupsResponseBody extends Model
     public $data;
 
     /**
+     * @example InstanceId
+     *
      * @var string
      */
     public $dynamicCode;
 
     /**
+     * @example instanceId
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @example 400
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example Parameter InstanceId is mandatory for this action .
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 5503A460-98ED-5543-92CF-4853DE28****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

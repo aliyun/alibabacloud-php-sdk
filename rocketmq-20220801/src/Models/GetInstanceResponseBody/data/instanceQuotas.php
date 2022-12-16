@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class instanceQuotas extends Model
 {
     /**
+     * @example 20
+     *
      * @var float
      */
     public $freeCount;
 
     /**
+     * @example TOPIC_COUNT
+     *
      * @var string
      */
     public $quotaName;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $totalCount;
 
     /**
+     * @example 10
+     *
      * @var float
      */
     public $usedCount;

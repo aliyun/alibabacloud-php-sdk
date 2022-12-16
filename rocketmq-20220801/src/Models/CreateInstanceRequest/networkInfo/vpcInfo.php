@@ -2,21 +2,21 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data\networkInfo;
+namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceRequest\networkInfo;
 
 use AlibabaCloud\Tea\Model;
 
 class vpcInfo extends Model
 {
     /**
-     * @example vsw-uf6gwtbn6etadpvz7****
+     * @example vsw-uf6gwtbn6etadpv*******
      *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @example vpc-uf6of9452b2pba82c****
+     * @example vpc-wz9qt50xhtj9krb******
      *
      * @var string
      */

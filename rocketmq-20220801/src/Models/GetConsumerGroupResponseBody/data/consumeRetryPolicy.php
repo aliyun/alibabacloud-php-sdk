@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class consumeRetryPolicy extends Model
 {
     /**
+     * @example 16
+     *
      * @var int
      */
     public $maxRetryTimes;
 
     /**
+     * @example DefaultRetryPolicy
+     *
      * @var string
      */
     public $retryPolicy;

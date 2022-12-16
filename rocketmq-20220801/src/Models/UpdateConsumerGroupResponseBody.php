@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class UpdateConsumerGroupResponseBody extends Model
 {
     /**
+     * @example InvalidDeliveryOrderType
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @example DeliveryOrderType
+     *
      * @var string
      */
     public $dynamicCode;
 
     /**
+     * @example deliveryOrderType
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @example 400
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example Parameter deliveryOrderType is invalid.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example C7F94090-3358-506A-97DC-34BC803C****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DeleteTopicResponseBody extends Model
 {
     /**
+     * @example Topic.NotFound
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @example TopicName
+     *
      * @var string
      */
     public $dynamicCode;
 
     /**
+     * @example topicName
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @example 400
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example The topic cannot be found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example AF9A8B10-C426-530F-A0DD-96320B39****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

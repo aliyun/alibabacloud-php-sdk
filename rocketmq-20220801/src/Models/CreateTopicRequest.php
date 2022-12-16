@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateTopicRequest extends Model
 {
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $messageType;
 
     /**
+     * @example This is the remark for test.
+     *
      * @var string
      */
     public $remark;

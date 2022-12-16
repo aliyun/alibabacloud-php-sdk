@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class endpoints extends Model
 {
     /**
+     * @example TCP_INTERNET
+     *
      * @var string
      */
     public $endpointType;
 
     /**
+     * @example rmq-cn-c4d2tbk****-vpc.cn-hangzhou.rmq.aliyuncs.com:8080
+     *
      * @var string
      */
     public $endpointUrl;
 
     /**
+     * @example 192.168.x.x/24
+     *
      * @var string
      */
     public $ipWhitelist;

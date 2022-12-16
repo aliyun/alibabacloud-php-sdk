@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTopicsResponseBody extends Model
 {
     /**
+     * @example Topic.NotFound
+     *
      * @var string
      */
     public $code;
@@ -20,31 +22,43 @@ class ListTopicsResponseBody extends Model
     public $data;
 
     /**
+     * @example TopicName
+     *
      * @var string
      */
     public $dynamicCode;
 
     /**
+     * @example topicName
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @example 400
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example The topic cannot be found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example AF9A8B10-C426-530F-A0DD-96320B39****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesResponseBody extends Model
 {
     /**
+     * @example MissingPageNumber
+     *
      * @var string
      */
     public $code;
@@ -20,31 +22,43 @@ class ListInstancesResponseBody extends Model
     public $data;
 
     /**
+     * @example PageNumber
+     *
      * @var string
      */
     public $dynamicCode;
 
     /**
+     * @example pageNumber
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @example 400
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example Parameter pageNumber is mandatory for this action .
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 84445A20-2B50-5306-A3C0-AF99FC1833C6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

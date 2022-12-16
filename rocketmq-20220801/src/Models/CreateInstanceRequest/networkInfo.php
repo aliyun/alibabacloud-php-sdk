@@ -2,20 +2,14 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data;
+namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceRequest;
 
-use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data\networkInfo\endpoints;
-use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data\networkInfo\internetInfo;
-use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data\networkInfo\vpcInfo;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceRequest\networkInfo\internetInfo;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceRequest\networkInfo\vpcInfo;
 use AlibabaCloud\Tea\Model;
 
 class networkInfo extends Model
 {
-    /**
-     * @var endpoints[]
-     */
-    public $endpoints;
-
     /**
      * @var internetInfo
      */
@@ -26,7 +20,6 @@ class networkInfo extends Model
      */
     public $vpcInfo;
     protected $_name = [
-        'endpoints'    => 'endpoints',
         'internetInfo' => 'internetInfo',
         'vpcInfo'      => 'vpcInfo',
     ];
@@ -38,15 +31,6 @@ class networkInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endpoints) {
-            $res['endpoints'] = [];
-            if (null !== $this->endpoints && \is_array($this->endpoints)) {
-                $n = 0;
-                foreach ($this->endpoints as $item) {
-                    $res['endpoints'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->internetInfo) {
             $res['internetInfo'] = null !== $this->internetInfo ? $this->internetInfo->toMap() : null;
         }
@@ -65,15 +49,6 @@ class networkInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['endpoints'])) {
-            if (!empty($map['endpoints'])) {
-                $model->endpoints = [];
-                $n                = 0;
-                foreach ($map['endpoints'] as $item) {
-                    $model->endpoints[$n++] = null !== $item ? endpoints::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['internetInfo'])) {
             $model->internetInfo = internetInfo::fromMap($map['internetInfo']);
         }

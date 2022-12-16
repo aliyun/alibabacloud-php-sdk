@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class CreateConsumerGroupResponseBody extends Model
 {
     /**
+     * @example InvalidConsumerGroupId
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @example ConsumerGroupId
+     *
      * @var string
      */
     public $dynamicCode;
 
     /**
+     * @example consumerGroupId
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @example 400
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example Parameter consumerGroupId is invalid.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example AF9A8B10-C426-530F-A0DD-96320B39****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListTopicsRequest extends Model
 {
     /**
+     * @example topic_test
+     *
      * @var string
      */
     public $filter;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $pageSize;

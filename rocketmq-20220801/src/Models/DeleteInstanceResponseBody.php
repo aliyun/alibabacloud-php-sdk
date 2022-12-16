@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceResponseBody extends Model
 {
     /**
+     * @example MissingInstanceId
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @example InstanceId
+     *
      * @var string
      */
     public $dynamicCode;
 
     /**
+     * @example instanceId
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @example 400
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example Parameter instanceId is mandatory for this action .
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 048242AA-BADA-5F29-B2CD-ED9FA344467F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -15,11 +15,15 @@ class CreateConsumerGroupRequest extends Model
     public $consumeRetryPolicy;
 
     /**
+     * @example Concurrently
+     *
      * @var string
      */
     public $deliveryOrderType;
 
     /**
+     * @example This is the remark for test.
+     *
      * @var string
      */
     public $remark;

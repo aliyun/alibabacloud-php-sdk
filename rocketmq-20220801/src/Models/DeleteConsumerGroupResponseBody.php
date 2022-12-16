@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DeleteConsumerGroupResponseBody extends Model
 {
     /**
+     * @example InvalidConsumerGroupId
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @example ConsumerGroupId
+     *
      * @var string
      */
     public $dynamicCode;
 
     /**
+     * @example consumerGroupId
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @example 400
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example Parameter consumerGroupId is invalid.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example C7F94090-3358-506A-97DC-34BC803C****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

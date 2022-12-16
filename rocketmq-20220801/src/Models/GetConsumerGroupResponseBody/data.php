@@ -15,41 +15,57 @@ class data extends Model
     public $consumeRetryPolicy;
 
     /**
+     * @example CID-TEST
+     *
      * @var string
      */
     public $consumerGroupId;
 
     /**
+     * @example 2022-08-01 20:05:50
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example Concurrently
+     *
      * @var string
      */
     public $deliveryOrderType;
 
     /**
+     * @example rmq-cn-7e22ody****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example This is the remark for test.
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 2022-08-01 20:05:50
+     *
      * @var string
      */
     public $updateTime;

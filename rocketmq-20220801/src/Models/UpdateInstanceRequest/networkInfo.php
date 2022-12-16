@@ -4,17 +4,17 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceRequest;
 
-use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceRequest\networkInfo\endpoints;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceRequest\networkInfo\internetInfo;
 use AlibabaCloud\Tea\Model;
 
 class networkInfo extends Model
 {
     /**
-     * @var endpoints[]
+     * @var internetInfo
      */
-    public $endpoints;
+    public $internetInfo;
     protected $_name = [
-        'endpoints' => 'endpoints',
+        'internetInfo' => 'internetInfo',
     ];
 
     public function validate()
@@ -24,14 +24,8 @@ class networkInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endpoints) {
-            $res['endpoints'] = [];
-            if (null !== $this->endpoints && \is_array($this->endpoints)) {
-                $n = 0;
-                foreach ($this->endpoints as $item) {
-                    $res['endpoints'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->internetInfo) {
+            $res['internetInfo'] = null !== $this->internetInfo ? $this->internetInfo->toMap() : null;
         }
 
         return $res;
@@ -45,14 +39,8 @@ class networkInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['endpoints'])) {
-            if (!empty($map['endpoints'])) {
-                $model->endpoints = [];
-                $n                = 0;
-                foreach ($map['endpoints'] as $item) {
-                    $model->endpoints[$n++] = null !== $item ? endpoints::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['internetInfo'])) {
+            $model->internetInfo = internetInfo::fromMap($map['internetInfo']);
         }
 
         return $model;
