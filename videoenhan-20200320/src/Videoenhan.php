@@ -1664,9 +1664,6 @@ class Videoenhan extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
-        if (!Utils::isUnset($request->postURL)) {
-            $body['PostURL'] = $request->postURL;
-        }
         if (!Utils::isUnset($request->referenceURL)) {
             $body['ReferenceURL'] = $request->referenceURL;
         }
@@ -1752,31 +1749,6 @@ class Videoenhan extends OpenApiClient
         OpenApiUtilClient::convert($runtime, $ossRuntime);
         $mergeVideoFaceReq = new MergeVideoFaceRequest([]);
         OpenApiUtilClient::convert($request, $mergeVideoFaceReq);
-        if (!Utils::isUnset($request->postURLObject)) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->body->objectKey,
-                'content'     => $request->postURLObject,
-                'contentType' => '',
-            ]);
-            $ossHeader = new header([
-                'accessKeyId'         => $authResponse->body->accessKeyId,
-                'policy'              => $authResponse->body->encodedPolicy,
-                'signature'           => $authResponse->body->signature,
-                'key'                 => $authResponse->body->objectKey,
-                'file'                => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header'     => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $mergeVideoFaceReq->postURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
-        }
         if (!Utils::isUnset($request->referenceURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;

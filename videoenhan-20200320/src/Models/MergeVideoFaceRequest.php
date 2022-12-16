@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class MergeVideoFaceRequest extends Model
 {
     /**
-     * @example " "
-     *
-     * @var string
-     */
-    public $postURL;
-
-    /**
      * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/MergeVideoFace/MergeVideoFace-pic1.png
      *
      * @var string
@@ -29,7 +22,6 @@ class MergeVideoFaceRequest extends Model
      */
     public $videoURL;
     protected $_name = [
-        'postURL'      => 'PostURL',
         'referenceURL' => 'ReferenceURL',
         'videoURL'     => 'VideoURL',
     ];
@@ -41,9 +33,6 @@ class MergeVideoFaceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->postURL) {
-            $res['PostURL'] = $this->postURL;
-        }
         if (null !== $this->referenceURL) {
             $res['ReferenceURL'] = $this->referenceURL;
         }
@@ -62,9 +51,6 @@ class MergeVideoFaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PostURL'])) {
-            $model->postURL = $map['PostURL'];
-        }
         if (isset($map['ReferenceURL'])) {
             $model->referenceURL = $map['ReferenceURL'];
         }
