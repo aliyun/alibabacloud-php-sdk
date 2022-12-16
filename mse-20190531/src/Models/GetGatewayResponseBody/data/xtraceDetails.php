@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class xtraceDetails extends Model
 {
     /**
+     * @description The sampling rate of Tracing Analysis.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $sample;
 
     /**
+     * @description Indicates whether sampling by using Tracing Analysis is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $traceOn;

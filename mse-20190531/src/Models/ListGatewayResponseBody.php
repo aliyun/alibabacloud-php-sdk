@@ -10,31 +10,56 @@ use AlibabaCloud\Tea\Model;
 class ListGatewayResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
+     * @example You are not authorized to perform this operation. Action: mse:ListGateway, Resource: acs:mse:cn-hangzhou:102123:*
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 34300B3-52EC-5049-8C96-914098CF090C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

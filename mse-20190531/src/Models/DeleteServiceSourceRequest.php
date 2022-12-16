@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DeleteServiceSourceRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-492af9b04bb4474cae9d645be850****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The ID of the service source.
+     *
+     * @example 17
+     *
      * @var int
      */
     public $sourceId;

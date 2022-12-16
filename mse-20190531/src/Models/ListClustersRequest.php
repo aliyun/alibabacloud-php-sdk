@@ -10,41 +10,74 @@ use AlibabaCloud\Tea\Model;
 class ListClustersRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The alias of the instance. Fuzzy match is supported.
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $clusterAliasName;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region in which the instance resides. The region is supported by MSE.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The extended request parameter in the JSON format.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $requestPars;
 
     /**
+     * @description The ID of the resource group. For more information about resource groups, see the topic "View basic information of a resource group."
+     *
+     * @example rg-acfmxbzafebvvfa
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The list of tags. A maximum number of 20 tags are supported.
+     *
      * @var tag[]
      */
     public $tag;

@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewaySpecRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example gw-c70622ff52fe49beb29bea9a6f52****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The number of nodes.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $replica;
 
     /**
+     * @description The node specifications.
+     *
+     * @example MSE_GTW_4_8_200_c
+     *
      * @var string
      */
     public $spec;

@@ -10,41 +10,71 @@ use AlibabaCloud\Tea\Model;
 class ExportNacosConfigResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The details of the data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The dynamic part in the error message. This parameter is used to replace the **%s** variable in the **Message** parameter.
+     * > If the specified **InstanceId** parameter is invalid, **The Value of Input Parameter %s is not valid** is returned for **Message** and **InstanceId** is returned for **DynamicMessage**.
+     * @example The specified parameter is invalid.
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @description The error code returned if the request fails.
+     *
+     * @example mse-100-000
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example The request is processed successfully.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 92245803-49B7-54CF-8D49-01A34A0E1CD6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     * - `false`: The request fails.
+     * @example True
+     *
      * @var bool
      */
     public $success;

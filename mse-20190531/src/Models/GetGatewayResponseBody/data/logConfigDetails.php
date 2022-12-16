@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class logConfigDetails extends Model
 {
     /**
+     * @description Indicates whether log shipping is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $logEnabled;
 
     /**
+     * @description The name of the Logstore.
+     *
+     * @example mse_access_log
+     *
      * @var string
      */
     public $logStoreName;
 
     /**
+     * @description The name of the project.
+     *
+     * @example k8s-log-c173117256e934a96b7fefdf2ef8a8057
+     *
      * @var string
      */
     public $projectName;

@@ -9,36 +9,69 @@ use AlibabaCloud\Tea\Model;
 class UpdateNacosServiceRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * > This operation contains both the InstanceId and ClusterId parameters. You must configure either InstanceId or ClusterId.
+     * @example mse-09k1q11****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The name of the group.
+     *
+     * @example DEFAULT_GROUP
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The ID of the instance.
+     *
+     * > This operation contains both the InstanceId and ClusterId parameters. You must configure either InstanceId or ClusterId.
+     * @example mse-cn-st21ri2****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example 5e3ee449-b5c0-4aee-b857-32c0acbebf26
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The protection threshold.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $protectThreshold;
 
     /**
+     * @description The name of the service.
+     *
+     * @example com.dingtalk.doc.thumbnails.pdf.ThumbnailService
+     *
      * @var string
      */
     public $serviceName;

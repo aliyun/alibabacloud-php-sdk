@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class labels extends Model
 {
     /**
+     * @description The key of the tag.
+     *
+     * @example version
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the tag.
+     *
+     * @example v2
+     *
      * @var string
      */
     public $value;

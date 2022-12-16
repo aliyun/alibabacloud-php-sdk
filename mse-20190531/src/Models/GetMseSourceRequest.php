@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetMseSourceRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-7ea3da97b96543e19f6c597cd4a9****
+     *
      * @var string
      */
     public $gatewayUniqueId;

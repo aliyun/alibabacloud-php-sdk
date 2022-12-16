@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListZnodeChildrenRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example mse-09k1q11****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The path of the node.
+     *
+     * @example /zookeeper
+     *
      * @var string
      */
     public $path;

@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class ListGatewayDomainResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The details of the data.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The error message returned if the request fails.
+     *
+     * @example You are not authorized to perform this operation.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3F5D8E93-CA66-57F1-8BCF-A223E11*****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     * - `false`: The request fails.
+     * @example true
+     *
      * @var bool
      */
     public $success;

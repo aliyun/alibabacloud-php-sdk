@@ -9,31 +9,61 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayOptionResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The returned data.
+     *
+     * @example {\"LogConfigDetails\": {\"LogEnabled\": True}, \"TraceDetails\": {\"Sample\": 17, \"TraceEnabled\": True}}
+     *
      * @var GatewayOption
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The message returned.
+     *
+     *   If the request is successful, a success message is returned.
+     *   If the request fails, an error message is returned.
+     *
+     * @example The request is successfully processed.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 124D02EB-DBDD-534D-A701-B4A95D3D****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

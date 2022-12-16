@@ -10,81 +10,145 @@ use AlibabaCloud\Tea\Model;
 class CreateOrUpdateSwimmingLaneRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:****
+     *
+     *   **zh-CN**: Chinese
+     *   **en-US**: English.
+     *
+     * > Default value: **zh-CN**.
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description Specifies whether to enable a lane.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @description Specifies whether to set a routing rule for the lane. If an Ingress gateway is used, this parameter is not required.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableRules;
 
     /**
+     * @description json string.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $entryRule;
 
     /**
+     * @description SwimmingLane.
+     *
      * @var entryRules[]
      */
     public $entryRules;
 
     /**
+     * @description Optional. The time when the lane was created.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description Optional. The time when the lane was last modified.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description The group to which the lane belongs.
+     *
+     * @example 115
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @description The ID of the primary key. A value -1 specifies a request that is used to create a lane. A value greater than 0 specifies a request that is used to modify a lane.
+     *
+     * @example -1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The license key in use.
+     *
+     * @example 9wnrf04a0j@****
+     *
      * @var string
      */
     public $licenseKey;
 
     /**
+     * @description The name of the lane.
+     *
+     * @example Test lane
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The service source. Valid value: edasmsc.
+     *
+     * @example edasmsc
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The value 0 indicates that the lane is disabled.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The tag.
+     *
+     * @example gray
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @description The Alibaba Cloud account. The format is a number, such as 136246975637\*\*\*\*. You can leave this parameter empty.
+     *
      * @var string
      */
     public $userId;

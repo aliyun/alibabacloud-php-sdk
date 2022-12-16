@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class GetServiceListResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The data entries returned.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example xxx-xxx-xxx
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

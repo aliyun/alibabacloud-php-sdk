@@ -9,66 +9,118 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The Chinese name of the region.
+     *
+     * @example China (Shanghai)
+     *
      * @var string
      */
     public $cnName;
 
     /**
+     * @description The description of the region.
+     *
+     * @example China (Shanghai)
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The Chinese name of the district.
+     *
+     * @example Asia Pacific
+     *
      * @var string
      */
     public $districtCnName;
 
     /**
+     * @description The English name of the district.
+     *
+     * @example Asia Pacific
+     *
      * @var string
      */
     public $districtEnName;
 
     /**
+     * @description The ID of the district.
+     *
+     * @example asia-pacific
+     *
      * @var string
      */
     public $districtId;
 
     /**
+     * @description The ordering information of the district.
+     *
+     * @example 101
+     *
      * @var int
      */
     public $districtOrdering;
 
     /**
+     * @description The display name of the district.
+     *
+     * @example Asia Pacific
+     *
      * @var string
      */
     public $districtShowName;
 
     /**
+     * @description The complete description of the region.
+     *
+     * @example China East 2 (Shanghai)
+     *
      * @var string
      */
     public $enDescription;
 
     /**
+     * @description The English name of the region.
+     *
+     * @example China (Shanghai)
+     *
      * @var string
      */
     public $enName;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ordering information.
+     *
+     * @example 6
+     *
      * @var int
      */
     public $ordering;
 
     /**
+     * @description The display name of the region.
+     *
+     * @example China (Shanghai)
+     *
      * @var string
      */
     public $showName;
 
     /**
+     * @description The type of the data.
+     *
+     * @example region
+     *
      * @var string
      */
     public $type;

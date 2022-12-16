@@ -9,61 +9,107 @@ use AlibabaCloud\Tea\Model;
 class CreateNacosInstanceRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The name of the Nacos cluster.
+     *
+     * @example DEFAULT
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description Specifies whether to enable the service for the instance.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @description Specifies whether to mark the instance as a temporary node.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $ephemeral;
 
     /**
+     * @description The name of the group.
+     *
+     * @example DEFAULT_GROUP
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-cn-123456
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The IP address of the Nacos instance.
+     *
+     * @example 1.2.3.4
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The node metadata of the instance.
+     *
+     * @example {\"grayversion\":\"1.0\",\"preserved.register.source\":\"SPRING_CLOUD\",\"management.context-path\":\"\"}
+     *
      * @var string
      */
     public $metadata;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example 9e78a671-4b9b-4dd4-99c1-0b9da87****
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The port of the Nacos instance.
+     *
+     * @example 12281
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The name of the service.
+     *
+     * @example hello_service
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The weight of the instance.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $weight;

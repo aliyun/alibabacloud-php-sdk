@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class namespaces extends Model
 {
     /**
+     * @description The name of the namespace.
+     *
+     * @example default
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The tags of the namespace.
+     *
+     * @example "mse-enable":"enabled"
+     *
      * @var string
      */
     public $tags;

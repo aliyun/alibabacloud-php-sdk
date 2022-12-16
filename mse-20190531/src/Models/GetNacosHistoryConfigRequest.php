@@ -9,31 +9,56 @@ use AlibabaCloud\Tea\Model;
 class GetNacosHistoryConfigRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the configuration.
+     *
+     * @example msg-center.main.yaml
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @description The name of the group.
+     *
+     * @example DEFAULT_GROUP
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse_prepaid_public_cn-st220g9ka02
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example 6cf708a5-****-89f2-3ba62c5ee9ba
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The historical version ID of the configuration.
+     *
+     * @example 40****
+     *
      * @var string
      */
     public $nid;

@@ -9,46 +9,82 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The description of the rule.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 81
+     *
      * @var int
      */
     public $gatewayId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-12a432a1f5da423997d8880bd32c304d
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The time when the security group rule was created.
+     *
+     * @example 2022-01-07T10:07:57.000+0000
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The time when the security group rule was last modified.
+     *
+     * @example 2022-01-07T10:07:57.000+0000
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description ID.
+     *
+     * @example 21
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The type of the protocol.
+     *
+     * @example tcp
+     *
      * @var string
      */
     public $ipProtocol;
 
     /**
+     * @description The range of ports.
+     *
+     * @example 8000/8000
+     *
      * @var string
      */
     public $portRange;
 
     /**
+     * @description The ID of the security group.
+     *
+     * @example sg-bp1cg6qlyjepj0y6cf2c
+     *
      * @var string
      */
     public $securityGroupId;

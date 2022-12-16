@@ -9,36 +9,65 @@ use AlibabaCloud\Tea\Model;
 class UpdateEngineNamespaceRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example mse-09k1q11****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The description of the cluster.
+     *
+     * @example public
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example 33ff74b6-d21e-4f9b-91a8-bc1ea4ef****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-cn-st21ri2****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the cluster.
+     *
+     * @example name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The number of active services.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $serviceCount;

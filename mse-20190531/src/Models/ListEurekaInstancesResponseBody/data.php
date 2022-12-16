@@ -9,71 +9,127 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the application.
+     *
+     * @example CONTACTINFO
+     *
      * @var string
      */
     public $app;
 
     /**
+     * @description The timeout period of the instance.
+     * After the specified timeout period expires, the service is unavailable by default and therefore is deleted.
+     * @example 90
+     *
      * @var int
      */
     public $durationInSecs;
 
     /**
+     * @description The URL of the homepage.
+     *
+     * @example http://30.5.XX.XX:8091/
+     *
      * @var string
      */
     public $homePageUrl;
 
     /**
+     * @description The hostname.
+     *
+     * @example 30.5.XX.XX
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example L-PC1A6A28-****.hz.ali.com:contactinfo:8091
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The IP address of the instance.
+     *
+     * @example 30.5.XX.XX
+     *
      * @var string
      */
     public $ipAddr;
 
     /**
+     * @description The time when the instance was last modified.
+     *
+     * @example 20201009115543
+     *
      * @var int
      */
     public $lastDirtyTimestamp;
 
     /**
+     * @description The time when the instance heartbeat was last checked.
+     *
+     * @example 20201010071203
+     *
      * @var int
      */
     public $lastUpdatedTimestamp;
 
     /**
+     * @description The metadata.
+     *
+     * @example [string]
+     *
      * @var mixed[]
      */
     public $metadata;
 
     /**
+     * @description The port of the service.
+     *
+     * @example 8091
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The maximum interval between two heartbeat checks after a heartbeat check times out.
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $renewalIntervalInSecs;
 
     /**
+     * @description The security port.
+     *
+     * @example 443
+     *
      * @var int
      */
     public $securePort;
 
     /**
+     * @description The number of service providers. The value is in the following format: Number of healthy instances/Total number of instances.
+     *
+     * @example 1/1
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The virtual hostname.
+     *
+     * @example contactinfo
+     *
      * @var string
      */
     public $vipAddress;

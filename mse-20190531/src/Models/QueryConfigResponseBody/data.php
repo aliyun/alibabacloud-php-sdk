@@ -10,26 +10,52 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description A reserved parameter.
+     *
+     * @example none
+     *
      * @var string
      */
     public $autopurgePurgeInterval;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example none
+     *
      * @var string
      */
     public $autopurgeSnapRetainCount;
 
     /**
+     * @description The name of the cluster.
+     *
+     * @example name
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description Indicates whether RAM authentication of a configuration center is enabled. This parameter is valid for Nacos instances. Valid values:
+     *
+     *   `true`: enabled
+     *   `false`: disabled
+     *
+     * @example true
+     *
      * @var bool
      */
     public $configAuthEnabled;
 
     /**
+     * @description Indicates whether RAM authentication is supported by a configuration center of the instance. This parameter is valid for Nacos instances. Valid values:
+     *
+     *   `true`: supported
+     *   `false`: not supported
+     *
+     * @example true
+     *
      * @var bool
      */
     public $configAuthSupported;
@@ -40,51 +66,103 @@ class data extends Model
     public $configContentLimit;
 
     /**
+     * @description Indicates whether configuration encryption of a configuration center is enabled by the instance. This parameter is valid for Nacos instances. Valid values:
+     *
+     *   `true`: enabled
+     *   `false`: disabled
+     *
+     * @example true
+     *
      * @var bool
      */
     public $configSecretEnabled;
 
     /**
+     * @description Indicates whether configuration encryption of a configuration center is supported by the instance. This parameter is valid for Nacos instances. Valid values:
+     *
+     *   `true`: supported
+     *   `false`: not supported
+     *
+     * @example true
+     *
      * @var bool
      */
     public $configSecretSupported;
 
     /**
+     * @description The maximum connection duration of the instance. This parameter is valid for ZooKeeper instances. Unit: seconds.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $initLimit;
 
     /**
+     * @description The maximum amount of data on each node. This parameter is valid for ZooKeeper instances. Unit: bytes.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $juteMaxbuffer;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example none
+     *
      * @var string
      */
     public $jvmFlagsCustom;
 
     /**
+     * @description Indicates whether Mesh Configuration Protocol (MCP) is enabled. This parameter is valid for Nacos instances. Valid values:
+     *
+     *   `true`: enabled
+     *   `false`: disabled
+     *
+     * @example true
+     *
      * @var bool
      */
     public $MCPEnabled;
 
     /**
+     * @description Indicates whether MCP is supported. This parameter is valid for Nacos instances. Valid values:
+     *
+     *   `true`: supported
+     *   `false`: not supported
+     *
+     * @example true
+     *
      * @var bool
      */
     public $MCPSupported;
 
     /**
+     * @description The number of connections between a client and a server. This parameter is valid for ZooKeeper instances.\
+     * If this parameter is set to 0, no limits are imposed on the number of connections.
+     * @example 0
+     *
      * @var string
      */
     public $maxClientCnxns;
 
     /**
+     * @description The maximum timeout period. This parameter is valid for ZooKeeper instances.
+     *
+     * @example -1
+     *
      * @var string
      */
     public $maxSessionTimeout;
 
     /**
+     * @description The minimum timeout period. This parameter is valid for ZooKeeper instances.
+     *
+     * @example -1
+     *
      * @var string
      */
     public $minSessionTimeout;
@@ -95,51 +173,106 @@ class data extends Model
     public $nacosRunningEnv;
 
     /**
+     * @description Indicates whether RAM authentication of a registry is enabled. This parameter is valid for Nacos instances. Valid values:
+     *
+     *   `true`: enabled
+     *   `false`: disabled
+     *
+     * @example false
+     *
      * @var bool
      */
     public $namingAuthEnabled;
 
     /**
+     * @description Indicates whether RAM authentication of services is supported by the instance. This parameter is valid for Nacos instances. Valid values:
+     *
+     *   `true`: supported
+     *   `false`: not supported
+     *
+     * @example true
+     *
      * @var bool
      */
     public $namingAuthSupported;
 
     /**
+     * @description Indicates whether service creation is supported for the instance. This parameter is valid for Nacos instances. Valid values:
+     *
+     *   `true`: supported
+     *   `false`: not supported
+     *
+     * @example true
+     *
      * @var bool
      */
     public $namingCreateServiceSupported;
 
     /**
+     * @description Indicates whether super permissions are enabled. This parameter is valid for ZooKeeper instances. Valid values:
+     *
+     *   `true`: enabled
+     *   `false`: disabled
+     *
+     * @example true
+     *
      * @var bool
      */
     public $openSuperAcl;
 
     /**
+     * @description The password of the user. This parameter is valid only if OpenSuperAcl is set to true.
+     *
+     * @example password
+     *
      * @var string
      */
     public $passWord;
 
     /**
+     * @description Indicates whether the instance was restarted and new configurations have taken effect. Valid values:
+     *
+     *   `true`: The restart was successful.
+     *   `false`: The restart failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $restartFlag;
 
     /**
+     * @description The frequency for generating snapshots. This parameter is valid for ZooKeeper instances.
+     *
+     * @example 100000
+     *
      * @var string
      */
     public $snapshotCount;
 
     /**
+     * @description The connection timeout period of the instance. This parameter is valid for ZooKeeper instances. Unit: seconds.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $syncLimit;
 
     /**
+     * @description The time unit of the engine. This parameter is valid for ZooKeeper instances. Default value: 2000. Unit: milliseconds.
+     *
+     * @example 2000
+     *
      * @var string
      */
     public $tickTime;
 
     /**
+     * @description The username of the user. This parameter is valid only if OpenSuperAcl is set to true.
+     *
+     * @example name
+     *
      * @var string
      */
     public $userName;

@@ -10,31 +10,56 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayRouteWafStatusResponseBody extends Model
 {
     /**
+     * @description The status code returned. A value of 200 indicates that the request is successful.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The response message.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description ID of the Request.
+     *
+     * @example 7466566F-F30F-4A29-965D-3E0AF21D****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

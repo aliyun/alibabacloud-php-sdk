@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class routeServices extends Model
 {
     /**
+     * @description The type of the protocol.
+     *
+     * @example DUBBO
+     *
      * @var string
      */
     public $agreementType;
 
     /**
+     * @description The name of the group to which the service belongs.
+     *
+     * @example api
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The name of the service.
+     *
+     * @example dubbo4
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The namespace.
+     *
+     * @example acs_ecs_dashboard
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The weight.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $percent;
 
     /**
+     * @description The ID of the service.
+     *
+     * @example 782
+     *
      * @var int
      */
     public $serviceId;
 
     /**
+     * @description The name of the service.
+     *
+     * @example xkc-crm
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The service port.
+     *
+     * @example 20880
+     *
      * @var int
      */
     public $servicePort;
 
     /**
+     * @description The source type of the service.
+     *
+     * @example MSE
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @description The version of the service.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $version;

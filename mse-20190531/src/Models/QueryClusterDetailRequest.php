@@ -9,21 +9,36 @@ use AlibabaCloud\Tea\Model;
 class QueryClusterDetailRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $aclSwitch;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-cn-st21ri2****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the order.
+     *
+     * @example 20576750143****
+     *
      * @var string
      */
     public $orderId;

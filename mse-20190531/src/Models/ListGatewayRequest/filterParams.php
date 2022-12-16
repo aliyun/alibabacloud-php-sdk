@@ -9,36 +9,60 @@ use AlibabaCloud\Tea\Model;
 class filterParams extends Model
 {
     /**
+     * @description The type of the gateway.
+     *
+     * @example Ingress
+     *
      * @var string
      */
     public $gatewayType;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-5017305290e14centbrveca****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse_ingresspre-cn-****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example [{"key":"tagkey","value":"tagvalue"}]
+     *
      * @var string
      */
     public $mseTag;
 
     /**
+     * @description The name of the gateway.
+     *
+     * @example rutain-test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example rg-7y2uye*****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
+     * @example vpc-bp13hhyjntbab7w****
+     *
      * @var string
      */
     public $vpc;

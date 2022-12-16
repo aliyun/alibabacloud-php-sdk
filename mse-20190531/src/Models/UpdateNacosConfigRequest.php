@@ -9,66 +9,119 @@ use AlibabaCloud\Tea\Model;
 class UpdateNacosConfigRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The name of the application.
+     *
+     * @example postoffice
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The list of IP addresses where the beta release of the configuration is performed.
+     *
+     * @example 196.168.XX.XX
+     *
      * @var string
      */
     public $betaIps;
 
     /**
+     * @description The content of the configuration.
+     *
+     * @example attribute1=1221111\r\nattribute2=Chinese\r\nattribute3=abc11\r\nattribute4=1.00111
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The ID of the configuration.
+     *
+     * @example ky-check-****.yml
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @description The description of the configuration.
+     *
+     * @example Basic configuration
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @description The encryption key.
+     *
+     * @example 122wdwe****
+     *
      * @var string
      */
     public $encryptedDataKey;
 
     /**
+     * @description The name of the group.
+     *
+     * @example resource
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-cn-7pp2a****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The MD5 value of the configuration.
+     *
+     * @example 045439703a273a94306422b****
+     *
      * @var string
      */
     public $md5;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example 78b7af66-d15f-4541-b886-11ed81ecb6c0
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The tags of the configuration.
+     *
+     * @example 2021-10-20
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The format of the configuration. Supported formats include TEXT, JSON, XML, and HTML.
+     *
+     * @example text
+     *
      * @var string
      */
     public $type;

@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example hkhon1po62@54e1f42f37cd65a
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description Indicates whether the canary release for messaging feature is enabled.
+     *
+     *   `true`: enabled
+     *   `false`: disabled
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @description The side for message filtering when the canary release for messaging feature is enabled.
+     *
+     * @example Server
+     *
      * @var string
      */
     public $filterSide;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The tags used to ignore message consumption for nodes in untagged environments.
+     *
      * @var string[]
      */
     public $tags;

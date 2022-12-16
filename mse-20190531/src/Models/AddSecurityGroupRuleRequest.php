@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class AddSecurityGroupRuleRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The description of the rule.
+     *
+     * @example description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example gw-c9bc5afd61014165bd58f621b491****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The port range.
+     *
+     * @example 1/65535
+     *
      * @var string
      */
     public $portRange;
 
     /**
+     * @description The ID of the security group.
+     *
+     * @example sg-wz929kxhcdpw9z8idqd8
+     *
      * @var string
      */
     public $securityGroupId;

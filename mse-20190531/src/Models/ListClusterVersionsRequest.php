@@ -9,16 +9,27 @@ use AlibabaCloud\Tea\Model;
 class ListClusterVersionsRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The type of the cluster. Valid values: ZooKeeper, Nacos-Ans, and Eureka.
+     *
+     * @example Nacos-Ans
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @example mse_pro
+     *
      * @var string
      */
     public $mseVersion;

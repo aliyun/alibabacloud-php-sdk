@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayServiceVersionRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-eccf313e2224438ba53d95d039e5****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The ID of the service.
+     *
+     * @example 575
+     *
      * @var int
      */
     public $serviceId;
 
     /**
+     * @description The version of the service.
+     *
+     * @example {\"name\":\"v3\",\"labels\":[{\"key\":\"version\",\"value\":\"v3\"}]}
+     *
      * @var string
      */
     public $serviceVersion;

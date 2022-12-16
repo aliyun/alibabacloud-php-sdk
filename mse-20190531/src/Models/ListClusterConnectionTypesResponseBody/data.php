@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The connection type.
+     *
+     * @example slb
+     *
      * @var string
      */
     public $showName;

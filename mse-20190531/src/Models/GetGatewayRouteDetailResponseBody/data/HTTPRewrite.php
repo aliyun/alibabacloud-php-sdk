@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class HTTPRewrite extends Model
 {
     /**
+     * @description The hostname of the gateway.
+     *
+     * @example aliyuncs.com
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @description The path of the node.
+     *
+     * @example /test/client
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @description The rewrite type.
+     *
+     * @example PRE
+     *
      * @var string
      */
     public $pathType;
 
     /**
+     * @description The matching pattern.
+     *
+     * @example /test
+     *
      * @var string
      */
     public $pattern;
 
     /**
+     * @description The status of the policy.
+     *
+     * @example off
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The replacement.
+     *
+     * @example test
+     *
      * @var string
      */
     public $substitution;

@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class UpgradeClusterRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-cn-nif1w51wi0c
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The extended request parameters in the JSON format.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $requestPars;
 
     /**
+     * @description The destination version.
+     *
+     * @example 1.2.1
+     *
      * @var string
      */
     public $upgradeVersion;

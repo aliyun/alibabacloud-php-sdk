@@ -9,31 +9,56 @@ use AlibabaCloud\Tea\Model;
 class CreateNacosConfigResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The error code returned if the request fails.
+     *
+     * @example mse-100-000
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 202
+     *
      * @var string
      */
     public $httpCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example The request is processed successfully.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 673DBD43-569E-510F-B3DE-20BB8DFEB20A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     * - `false`: The request fails.
+     * @example true
+     *
      * @var bool
      */
     public $success;

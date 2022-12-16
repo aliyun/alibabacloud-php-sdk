@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class ImportServicesShrinkRequest extends Model
 {
     /**
+     * @description The data structure.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-77e1153db6e14c0a8b1fae20bcb89ca5
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The information about services.
+     *
      * @var string
      */
     public $serviceListShrink;
 
     /**
+     * @description The source type of the service.
+     *
+     * @example DNS
+     *
      * @var string
      */
     public $sourceType;

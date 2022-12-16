@@ -18,136 +18,222 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The configuration for cross-origin resource sharing (CORS).
+     *
      * @var cors
      */
     public $cors;
 
     /**
+     * @description The default service ID.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $defaultServiceId;
 
     /**
+     * @description The default service name.
+     *
+     * @example test
+     *
      * @var string
      */
     public $defaultServiceName;
 
     /**
+     * @description The destination service type.
+     *
+     * @example Single
+     *
      * @var string
      */
     public $destinationType;
 
     /**
+     * @description The information about service mocking.
+     *
      * @var directResponse
      */
     public $directResponse;
 
     /**
+     * @description The ID of the domain name.
+     *
+     * @example 235
+     *
      * @var int
      */
     public $domainId;
 
     /**
+     * @description The IDs of the domain names.
+     *
      * @var int[]
      */
     public $domainIdList;
 
     /**
+     * @description The domain name.
+     *
+     * @example nbhamster.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The domain names.
+     *
      * @var string[]
      */
     public $domainNameList;
 
     /**
+     * @description Indicates whether WAF is enabled.
+     *
+     * @example 0
+     *
      * @var bool
      */
     public $enableWaf;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 102
+     *
      * @var int
      */
     public $gatewayId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-7ea3da97b96543e19f6c597cd4a9****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The creation time.
+     *
+     * @example 2022-01-26T09:52:41.000+0000
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The modification time.
+     *
+     * @example 2022-02-24T06:08:29.230+0000
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description The information about the rewrite policy.
+     *
      * @var HTTPRewrite
      */
     public $HTTPRewrite;
 
     /**
+     * @description The information about the header configuration policy.
+     *
      * @var headerOp
      */
     public $headerOp;
 
     /**
+     * @description The ID of the route.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the route.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The matching rule.
+     *
+     * @example {\"PathPredicates\":{\"Path\":\"/metas\",\"Type\":\"PRE\",\"IgnoreCase\":false}}
+     *
      * @var string
      */
     public $predicates;
 
     /**
+     * @description The configuration of the redirection.
+     *
      * @var redirect
      */
     public $redirect;
 
     /**
+     * @description The retry configuration.
+     *
      * @var retry
      */
     public $retry;
 
     /**
+     * @description The sequence number of the route.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $routeOrder;
 
     /**
+     * @description The information about route matching.
+     *
      * @var routePredicates
      */
     public $routePredicates;
 
     /**
+     * @description The information about services.
+     *
      * @var routeServices[]
      */
     public $routeServices;
 
     /**
+     * @description The information about services.
+     *
+     * @example [{\"Percent\":100,\"ServiceId\":126}]
+     *
      * @var string
      */
     public $services;
 
     /**
+     * @description The status of the route.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The timeout configuration.
+     *
      * @var timeout
      */
     public $timeout;

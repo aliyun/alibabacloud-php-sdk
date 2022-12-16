@@ -9,26 +9,54 @@ use AlibabaCloud\Tea\Model;
 class GetPluginsRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * zh: Chinese en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The plug-in directory.
+     *
+     *   0: user-defined
+     *   1: permission authentication
+     *   2: security protection
+     *   3: transmission protocol
+     *   4: traffic control
+     *   5: traffic observation
+     *
+     * @example 1
+     *
      * @var int
      */
     public $category;
 
     /**
+     * @description Specifies whether to enable the plug-in.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableOnly;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example gw-0adf3ad751284cc69fcf9669fba*****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The name of the plug-in.
+     *
+     * @example key-auth
+     *
      * @var string
      */
     public $name;

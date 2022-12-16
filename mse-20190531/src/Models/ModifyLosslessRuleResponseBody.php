@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class ModifyLosslessRuleResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
+     * @example mse-100-000
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $httpCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example modifyLosslessRule success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3369AD10-F1A6-4E6F-B99E-20F51826****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

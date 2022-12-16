@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class UpdateClusterRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The alias of the cluster.
+     *
+     * @example cluster-1
+     *
      * @var string
      */
     public $clusterAliasName;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-cn-78v1l83****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The extended request parameter in the JSON format.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $requestPars;

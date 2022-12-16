@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListServiceSourceRequest extends Model
 {
     /**
+     * @description The data structure.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-c51a15c7ee934a4fb945ccf35fe1****
+     *
      * @var string
      */
     public $gatewayUniqueId;

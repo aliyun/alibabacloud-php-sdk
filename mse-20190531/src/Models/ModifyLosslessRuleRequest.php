@@ -9,61 +9,115 @@ use AlibabaCloud\Tea\Model;
 class ModifyLosslessRuleRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description Specifies whether to align the lifecycle of the application in the Kubernetes cluster with that of the microservice.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $aligned;
 
     /**
+     * @description The ID of the application.
+     *
+     * @example c644n5frmc@3e75f25fd4*****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The name of the application.
+     *
+     * @example wx-work-api
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The registration latency.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $delayTime;
 
     /**
+     * @description Specifies whether to enable the alert rule. Valid values:
+     *
+     *   `true`: enables the rule.
+     *   `false`: disables the rule.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @description The slope of the prefetching curve.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $funcType;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Specifies whether to associate readiness probe with service prefetching.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $related;
 
     /**
+     * @description The cooldown duration. Unit: seconds.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $shutdownWaitSeconds;
 
     /**
+     * @description The service source. Valid values:
+     *
+     * @example edasmsc
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The prefetching duration.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $warmupTime;

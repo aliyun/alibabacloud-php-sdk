@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example abcdef123456789
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
+     * @example example-cluster
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description The version of the cluster.
+     *
+     * @example 1.22
+     *
      * @var string
      */
     public $k8sVersion;
 
     /**
+     * @description The information of the namespace.
+     *
+     * @example [{"Name":"ack-onepilot","Tags":{"name":"ack-onepilot"}}]
+     *
      * @var string
      */
     public $namespaceInfos;
 
     /**
+     * @description The time when the ack-one-pilot component was started.
+     *
+     * @example 2022-05-17T05:39:43.000+0000
+     *
      * @var string
      */
     public $pilotStartTime;
 
     /**
+     * @description Region
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;

@@ -14,76 +14,129 @@ use AlibabaCloud\Tea\Model;
 class AddGatewayRouteRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The destination service type.
+     *
+     * @example Multiple
+     *
      * @var string
      */
     public $destinationType;
 
     /**
+     * @description The mock response configuration.
+     *
      * @var directResponseJSON
      */
     public $directResponseJSON;
 
     /**
+     * @description The ID of the domain name.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $domainId;
 
     /**
+     * @description The list of domain names.
+     *
+     * @example [0,94]
+     *
      * @var string
      */
     public $domainIdListJSON;
 
     /**
+     * @description Specifies whether to enable Web Application Firewall (WAF).
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableWaf;
 
     /**
+     * @description Specifies whether to enable the Fallback service.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $fallback;
 
     /**
+     * @description The information of the Fallback service.
+     *
      * @var fallbackServices[]
      */
     public $fallbackServices;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 526
+     *
      * @var int
      */
     public $gatewayId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-492af9b04bb4474cae9d645be8*****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The name of the route.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The matching rule.
+     *
      * @var predicates
      */
     public $predicates;
 
     /**
+     * @description The configuration of the redirection.
+     *
      * @var redirectJSON
      */
     public $redirectJSON;
 
     /**
+     * @description The sequence number of the route. (A small value indicates a high priority.)
+     *
+     * @example 1
+     *
      * @var int
      */
     public $routeOrder;
 
     /**
+     * @description The information about services.
+     *
      * @var services[]
      */
     public $services;

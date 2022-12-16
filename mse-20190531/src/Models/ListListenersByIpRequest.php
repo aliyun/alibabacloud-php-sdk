@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class ListListenersByIpRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse_prepaid_public_cn-i7m2cecji09
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The IP address of the listener.
+     *
+     * @example 172.22.0.240
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example ea02a522-9482-4255-bb65-dc0636d783f2
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The extended request parameters in the JSON format.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $requestPars;

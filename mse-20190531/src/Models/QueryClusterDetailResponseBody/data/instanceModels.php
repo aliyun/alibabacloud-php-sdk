@@ -9,41 +9,71 @@ use AlibabaCloud\Tea\Model;
 class instanceModels extends Model
 {
     /**
+     * @description The timestamp when the node was created.
+     *
+     * @example 1578575377732
+     *
      * @var string
      */
     public $creationTimestamp;
 
     /**
+     * @description The health status of the node.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $healthStatus;
 
     /**
+     * @description The public IP address.
+     *
+     * @example 47.98.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The IP address of the node.
+     *
+     * @example 10.12.XX.XX
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The name of the pod.
+     *
+     * @example mse-7413****-159616656****-reg-center-0-0
+     *
      * @var string
      */
     public $podName;
 
     /**
+     * @description The role of the node.
+     *
+     * @example Peer
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @description The single-thread IP address.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $singleTunnelVip;
 
     /**
+     * @example cn-shanghai-f
+     *
      * @var string
      */
     public $zone;

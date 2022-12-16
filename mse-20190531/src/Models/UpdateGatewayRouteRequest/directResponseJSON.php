@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class directResponseJSON extends Model
 {
     /**
+     * @description The return value for service mocking.
+     *
+     * @example hello
+     *
      * @var string
      */
     public $body;
 
     /**
+     * @description The status code returned for service mocking.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;

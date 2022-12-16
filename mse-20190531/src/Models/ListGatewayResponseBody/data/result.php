@@ -12,161 +12,288 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Indicates whether Application High Availability Service (AHAS) is enabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $ahasOn;
 
     /**
+     * @description The version of the application.
+     *
+     * @example 1.0.1.0
+     *
      * @var string
      */
     public $appVersion;
 
     /**
+     * @description Indicates whether Application Real-Time Monitoring Service (ARMS) is enabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $armsOn;
 
     /**
+     * @description The billing method.
+     *
+     * @example POSTPAY
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The current version of the gateway.
+     *
+     * @example 0.1.0-mse-gw
+     *
      * @var string
      */
     public $currentVersion;
 
     /**
+     * @description The time when the subscription gateway expires.
+     *
+     * @example 4792060800000
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @description The type of the gateway.
+     *
+     * @example Ingress
+     *
      * @var string
      */
     public $gatewayType;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-5017305290e14cebb8ce5cb6a4****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @example 1.2.9
+     *
      * @var string
      */
     public $gatewayVersion;
 
     /**
+     * @description The creation time.
+     *
+     * @example 2021-09-13 19:24:23
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The modification time.
+     *
+     * @example 2021-09-13 19:24:23
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 153
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The configurations.
+     *
      * @var initConfig
      */
     public $initConfig;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse_ingresspost-cn-0jbvrcex****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The details of the Internet-facing SLB instances.
+     *
      * @var internetSlb[]
      */
     public $internetSlb;
 
     /**
+     * @description The latest version of the gateway.
+     *
+     * @example 0.1.0-mse-gw
+     *
      * @var string
      */
     public $latestVersion;
 
     /**
+     * @example {"tagKey":"tagValue"}
+     *
      * @var string
      */
     public $mseTag;
 
     /**
+     * @description Indicates whether the gateway can be forcefully updated.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $mustUpgrade;
 
     /**
+     * @description The name of the gateway.
+     *
+     * @example tesa-test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The information about the user.
+     *
+     * @example 18278117654342
+     *
      * @var string
      */
     public $primaryUser;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The number of replicas.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $replica;
 
     /**
+     * @example rg-97hg87vi****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $rollBack;
 
     /**
+     * @description The details of the Server Load Balancer (SLB) instances.
+     *
      * @var slb[]
      */
     public $slb;
 
     /**
+     * @description The specifications of the gateway.
+     *
+     * @example MSE_GTW_1_2_200_c
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @description The gateway status.
+     *
+     *   0: The gateway is being created.
+     *   1: The gateway fails to be created.
+     *   2: The gateway is running.
+     *   3: The gateway is changing.
+     *   4: The gateway is scaling down.
+     *   6: The gateway is scaling up.
+     *   8: The gateway is being deleted.
+     *   9: The gateway is suspended and to be released.
+     *   10: The gateway is restarting.
+     *   11: The gateway is being rebuilt.
+     *   12: The gateway is updating.
+     *   13: The gateway fails to be updated.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The description of the status.
+     *
+     * @example Restarting
+     *
      * @var string
      */
     public $statusDesc;
 
     /**
+     * @description Indicates whether WebAssembly (Wasm) is supported.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $supportWasm;
 
     /**
+     * @description The tag.
+     *
+     * @example test
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @description Indicates whether the gateway can be updated.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $upgrade;
 
     /**
+     * @description The ID of the secondary vSwitch.
+     *
+     * @example vsw-bpbrveck45nf****
+     *
      * @var string
      */
     public $vswitch2;

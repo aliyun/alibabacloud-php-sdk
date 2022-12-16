@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ingressOptionsRequest extends Model
 {
     /**
+     * @description Specifies whether to enable Ingress.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableIngress;
 
     /**
+     * @description Specifies whether to update the Ingress status.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableStatus;
 
     /**
+     * @description Specifies whether to monitor Ingress classes.
+     *
+     * @example com.test.xxx
+     *
      * @var string
      */
     public $ingressClass;
 
     /**
+     * @description The namespace whose resources you want to monitor.
+     *
+     * @example default
+     *
      * @var string
      */
     public $watchNamespace;

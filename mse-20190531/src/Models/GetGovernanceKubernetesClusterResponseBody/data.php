@@ -10,41 +10,71 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example cd23228b3c80c4d4f9ad7af1d87cc30d5
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
+     * @example myCluster
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description The version of Kubernetes.
+     *
+     * @example 1.20.11-aliyun.1
+     *
      * @var string
      */
     public $k8sVersion;
 
     /**
+     * @description The information about namespaces.
+     *
+     * @example [{\"Name\":\"ack-onepilot\",\"Tags\":null},{\"Name\":\"default\",\"Tags\":{\"mse-enable\":\"enabled\"}},{\"Name\":\"kube-node-lease\",\"Tags\":null},{\"Name\":\"kube-public\",\"Tags\":null},{\"Name\":\"kube-system\",\"Tags\":null}]
+     *
      * @var string
      */
     public $namespaceInfos;
 
     /**
+     * @description The details of namespaces.
+     *
      * @var namespaces[]
      */
     public $namespaces;
 
     /**
+     * @description The time when the cluster was started.
+     *
+     * @example 2022-01-11T11:50:38.000+0000
+     *
      * @var string
      */
     public $pilotStartTime;
 
     /**
+     * @description The ID of the region in which the cluster resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The time when the cluster was last modified.
+     *
+     * @example 2022-01-12T05:24:31.000+0000
+     *
      * @var string
      */
     public $updateTime;

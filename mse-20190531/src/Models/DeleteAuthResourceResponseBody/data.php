@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the authorization record.
+     *
+     * @example 253
+     *
      * @var int
      */
     public $authId;
 
     /**
+     * @description The ID of the domain name.
+     *
+     * @example 235
+     *
      * @var int
      */
     public $domainId;
 
     /**
+     * @description The domain name.
+     *
+     * @example name
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example gw-7ea3da97b96543e19f6c597cd4a9****
+     *
      * @var int
      */
     public $gatewayId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-7ea3da97b96543e19f6c597cd4a9****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The creation time.
+     *
+     * @example 2022-01-07T10:07:57.000+0000
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The modification time.
+     *
+     * @example 2022-01-07T10:07:57.000+0000
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description The ID of the primary key.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description Indicates whether the whitelist mode is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isWhite;
 
     /**
+     * @description The path.
+     *
+     * @example /zookeeper
+     *
      * @var string
      */
     public $path;

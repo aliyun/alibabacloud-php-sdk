@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class RetryClusterRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-cn-st21ri2****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The extended request parameters in the JSON format.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $requestPars;

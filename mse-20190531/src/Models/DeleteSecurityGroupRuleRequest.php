@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteSecurityGroupRuleRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-83b0ddb569434f82b9fe8e4c60c40f7c
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The ID of the security group rule.
+     *
+     * @example 93
+     *
      * @var int
      */
     public $id;

@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The group.
+     *
+     * @example test
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The namespace.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The alias of the namespace.
+     *
+     * @example public
+     *
      * @var string
      */
     public $namespaceShowName;
 
     /**
+     * @description The information about services.
+     *
      * @var services[]
      */
     public $services;

@@ -9,41 +9,80 @@ use AlibabaCloud\Tea\Model;
 class CreateNacosServiceRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the cluster. This operation contains both the InstanceId and ClusterId parameters. You must configure either InstanceId or ClusterId.
+     *
+     * @example mse-3691a080
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description Specifies whether the instance is a temporary node. Valid values:
+     *
+     *   `true`: yes
+     *   `false`: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $ephemeral;
 
     /**
+     * @description The name of the group.
+     *
+     * @example DEFAULT_GROUP
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The ID of the instance.
+     *
+     * > This operation contains both the InstanceId and ClusterId parameters. You must configure either InstanceId or ClusterId.
+     * @example mse-cn-st21ri2****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example production
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The protection threshold.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $protectThreshold;
 
     /**
+     * @description The name of the service.
+     *
+     * @example com.alibabacloud.hipstershop.cartserviceapi.service.CartService
+     *
      * @var string
      */
     public $serviceName;

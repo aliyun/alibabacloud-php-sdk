@@ -10,16 +10,28 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The type of the service source.
+     *
+     * @example ***
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $bindingWithGateway;
 
     /**
+     * @description The time when the service source was added.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $gatewayId;
@@ -30,11 +42,19 @@ class data extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description The time when the service source was last modified.
+     *
+     * @example 2022-01-07 18:07:57
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The unique ID of the service source.
+     *
+     * @example 2022-01-07 18:07:57
+     *
      * @var string
      */
     public $gmtModified;
@@ -45,16 +65,26 @@ class data extends Model
     public $groupList;
 
     /**
+     * @description The name of the service source.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description Programming language
+     *
      * @var ingressOptions
      */
     public $ingressOptions;
 
     /**
+     * @description The ID of the Container Service for Kubernetes (ACK) cluster, or the endpoint of the Microservices Engine (MSE) Nacos registry.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
@@ -65,16 +95,28 @@ class data extends Model
     public $pathList;
 
     /**
+     * @description Indicates whether the service source is associated with the gateway.
+     *
+     * @example MSE
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description Query service sources
+     *
+     * @example mse-cn-***
+     *
      * @var string
      */
     public $sourceUniqueId;
 
     /**
+     * @description The source of the service source.
+     *
+     * @example NACOS
+     *
      * @var string
      */
     public $type;

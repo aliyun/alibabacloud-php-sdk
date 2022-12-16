@@ -9,31 +9,56 @@ use AlibabaCloud\Tea\Model;
 class GetOverviewResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The details of the data.
+     *
+     * @example data
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example The request is processed successfully.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 52BA6DA6-A702-4362-A32F-DFF79655****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     * - `false`: The request fails.
+     * @example true
+     *
      * @var string
      */
     public $success;

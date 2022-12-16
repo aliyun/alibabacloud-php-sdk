@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class ModifyGovernanceKubernetesClusterRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example cd23228b3c80c4d4f9ad87cc3****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The information about the namespaces of the cluster.
+     *
+     * @example [{"Name":"default","Tags":{"mse-enable":"disabled","kubernetes.io/metadata.name":"default"}},{"Name":"test2","Tags":{"test2":"test2","kubernetes.io/metadata.name":"test2"}}]
+     *
      * @var string
      */
     public $namespaceInfos;
 
     /**
+     * @description The region in which the cluster resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

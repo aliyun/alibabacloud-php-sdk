@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class UpdateZnodeRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example mse-09k1q11****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The data of the node.
+     *
+     * @example data
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The path of the node.
+     *
+     * @example /zookeeper
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @description The extended request parameters in the JSON format.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $requestPars;

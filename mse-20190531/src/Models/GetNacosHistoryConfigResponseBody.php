@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class GetNacosHistoryConfigResponseBody extends Model
 {
     /**
+     * @description The information about the configuration.
+     *
      * @var configuration
      */
     public $configuration;
 
     /**
+     * @description The error code returned if the request fails.
+     *
+     * @example NoPermission
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example The request is processed successfully.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 69AD2AA7-DB47-449B-941B-B14409DF****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     * - `false`: The request fails.
+     * @example true
+     *
      * @var bool
      */
     public $success;

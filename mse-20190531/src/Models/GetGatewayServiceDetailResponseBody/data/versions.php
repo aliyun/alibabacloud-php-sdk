@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class versions extends Model
 {
     /**
+     * @description The key of the tag.
+     *
+     * @example version
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The type of the version.
+     *
+     * @example test
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The value of the tag.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $value;

@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class GetGatewayServiceDetailResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The details of the data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example The request is processed successfully.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 9802C54E-5CC5-5706-927B-993DBB6DCF2F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     * - `false`: The request fails.
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class redirectJSON extends Model
 {
     /**
+     * @description The return code.
+     *
+     * @example 302
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The hostname to be redirected to.
+     *
+     * @example test.com
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @description The path to be redirected to.
+     *
+     * @example /test
+     *
      * @var string
      */
     public $path;

@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class AddSSLCertResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description Indicates whether the association is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example You are not authorized to perform this operation.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E1CC74F0-5BDE-5220-A031-5CA622D80723
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class AddSSLCertRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the certificate.
+     *
+     * @example 5213641-cn-hangzhou
+     *
      * @var string
      */
     public $certIdentifier;
 
     /**
+     * @description The ID of the domain name.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $domainId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-c70622ff52fe49beb29bea9a6f52****
+     *
      * @var string
      */
     public $gatewayUniqueId;

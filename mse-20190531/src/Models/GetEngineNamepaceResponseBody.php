@@ -9,56 +9,101 @@ use AlibabaCloud\Tea\Model;
 class GetEngineNamepaceResponseBody extends Model
 {
     /**
+     * @description The number of configurations.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $configCount;
 
     /**
+     * @description The error code returned if the request fails.
+     *
+     * @example mse-100-000
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 202
+     *
      * @var string
      */
     public $httpCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example public
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The description of the namespace.
+     *
+     * @example mytest
+     *
      * @var string
      */
     public $namespaceDesc;
 
     /**
+     * @description The display name of the namespace.
+     *
+     * @example public
+     *
      * @var string
      */
     public $namespaceShowName;
 
     /**
+     * @description The quota of configurations.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $quota;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example FA8F966F-420C-52F5-B49E-6ED7CCE02697
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     * - `false`: The request fails.
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The type of the namespace. Valid values:
+     *
+     * - 2: custom namespace
+     * @example 1
+     *
      * @var string
      */
     public $type;

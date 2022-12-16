@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class GetTagsBySwimmingLaneGroupIdRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the lane group.
+     *
+     * @example 154
+     *
      * @var int
      */
     public $groupId;

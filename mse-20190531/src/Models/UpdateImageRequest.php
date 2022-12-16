@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class UpdateImageRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example mse-cn-09k1zkrnt0h
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The destination version of the image.
+     *
+     * @example ZooKeeper_3_5_5
+     *
      * @var string
      */
     public $versionCode;

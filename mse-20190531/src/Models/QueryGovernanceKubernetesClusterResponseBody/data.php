@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -25,6 +33,10 @@ class data extends Model
     public $result;
 
     /**
+     * @description The number of clusters.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $totalSize;

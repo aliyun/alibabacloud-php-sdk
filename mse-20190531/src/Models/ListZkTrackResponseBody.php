@@ -10,41 +10,57 @@ use AlibabaCloud\Tea\Model;
 class ListZkTrackResponseBody extends Model
 {
     /**
+     * @example mse-100-000
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $httpCode;
 
     /**
+     * @example ok
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example DC34E4A3-5F1C-4E40-86EA-02EDF967****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $totalCount;

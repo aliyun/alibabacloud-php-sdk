@@ -10,36 +10,62 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The information about clusters.
+     *
      * @var clusters[]
      */
     public $clusters;
 
     /**
+     * @description Indicates whether the service is marked as a temporary node. Valid values:
+     * - `false`
+     * @example true
+     *
      * @var bool
      */
     public $ephemeral;
 
     /**
+     * @description The name of the contact group.
+     *
+     * @example DEFAULT_GROUP
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The metadata.
+     *
+     * @example 111
+     *
      * @var mixed[]
      */
     public $metadata;
 
     /**
+     * @description The name of the service.
+     *
+     * @example DEFAULT
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The protection threshold.
+     *
+     * @example 0
+     *
      * @var float
      */
     public $protectThreshold;
 
     /**
+     * @description The election mode.
+     *
+     * @example none
+     *
      * @var string
      */
     public $selectorType;

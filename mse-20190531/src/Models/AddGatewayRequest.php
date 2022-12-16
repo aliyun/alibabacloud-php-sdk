@@ -10,86 +10,174 @@ use AlibabaCloud\Tea\Model;
 class AddGatewayRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description Specifies whether to enable hardware acceleration.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableHardwareAcceleration;
 
     /**
+     * @description Specifies whether to enable Log Service.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableSls;
 
     /**
+     * @description Specifies whether to enable Tracing Analysis.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableXtrace;
 
     /**
+     * @description Specifies whether to use an advanced security group.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enterpriseSecurityGroup;
 
     /**
+     * @description The specifications of the Internet-facing SLB instance.
+     *
+     *   slb.s1.small
+     *   slb.s2.small
+     *   slb.s2.medium
+     *   slb.s3.small
+     *   slb.s3.medium
+     *   slb.s3.large
+     *
+     * @example slb.s2.small
+     *
      * @var string
      */
     public $internetSlbSpec;
 
     /**
+     * @description The name of the gateway.
+     *
+     * @example test-ceshi
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The number of nodes.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $replica;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfm34x43l*****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The specifications of the internal-facing Server Load Balancer (SLB) instance.
+     *
+     *   slb.s1.small
+     *   slb.s2.small
+     *   slb.s2.medium
+     *   slb.s3.small
+     *   slb.s3.medium
+     *   slb.s3.large
+     *
+     * @example slb.s2.small
+     *
      * @var string
      */
     public $slbSpec;
 
     /**
+     * @description The node specifications.
+     *
+     *   MSE_GTW\_16\_32\_200\_c(16C32G)
+     *   MSE_GTW\_2\_4\_200\_c(2C4G)
+     *   MSE_GTW\_4\_8\_200\_c(4C8G)
+     *   MSE_GTW\_8\_16\_200\_c(8C16G)
+     *
+     * @example MSE_GTW_2_4_200_c
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @description The tag of the gateway.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The ID of the primary vSwitch.
+     *
+     * @example vsw-bp1q8th57frl5khj2li43
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the secondary vSwitch.
+     *
+     * @example vsw-wz9bu6o5vsvitt5mrxo6s
+     *
      * @var string
      */
     public $vSwitchId2;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
+     * @example vpc-bp15mncnrtm83uauxd1xb
+     *
      * @var string
      */
     public $vpc;
 
     /**
+     * @description The sample rate of Tracing Analysis. Valid values: \[1,100].
+     *
+     * @example 10
+     *
      * @var string
      */
     public $xtraceRatio;

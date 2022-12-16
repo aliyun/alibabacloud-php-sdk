@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayRouteHTTPRewriteResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The returned data.
+     *
+     * @example 411
+     *
      * @var int
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example The request is processed successfully.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example AE60DA1E-B234-5105-897B-68372453A5A2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     * - `false`: The request fails.
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class tls extends Model
 {
     /**
+     * @description The public key of the CA certificate .
+     *
+     * @example content
+     *
      * @var string
      */
     public $caCertContent;
 
     /**
+     * @description The ID of the certification authority (CA) certificate.
+     *
+     * @example 5******-cn-hangzhou
+     *
      * @var string
      */
     public $caCertId;
 
     /**
+     * @description The ID of the certificate.
+     *
+     * @example 5******-cn-hangzhou
+     *
      * @var string
      */
     public $certId;
 
     /**
+     * @description The TLS mode.
+     *
+     *   DISABLE
+     *   SIMPLE
+     *   MUTUAL
+     *   ISTIO_MUTUAL
+     *
+     * @example SIMPLE
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The Server Name Indication (SNI) value.
+     *
+     * @example name-sni
+     *
      * @var string
      */
     public $sni;
 
     /**
+     * @description The array of subject aliases.
+     *
      * @var string[]
      */
     public $subjectAltNames;

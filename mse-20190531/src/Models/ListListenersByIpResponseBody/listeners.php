@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class listeners extends Model
 {
     /**
+     * @description The ID of the data.
+     *
+     * @example test.yaml
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @description The group.
+     *
+     * @example default
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description The verification string.
+     *
+     * @example 23sdfdf
+     *
      * @var string
      */
     public $md5;

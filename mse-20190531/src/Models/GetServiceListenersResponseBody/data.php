@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 119.23.84.102
+     *
      * @var string
      */
     public $addr;
 
     /**
+     * @example Nacos-Java-Client:v2.1.1
+     *
      * @var string
      */
     public $agent;
 
     /**
+     * @example app
+     *
      * @var string
      */
     public $app;
 
     /**
+     * @example DEFAULT
+     *
      * @var string
      */
     public $cluster;
 
     /**
+     * @example 172.16.1.5
+     *
      * @var string
      */
     public $IP;
 
     /**
+     * @example 0ba53825-b183-414f-a6a0-288e4f1c467e
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @example 8080
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @example zeekr-orderboss
+     *
      * @var string
      */
     public $serviceName;

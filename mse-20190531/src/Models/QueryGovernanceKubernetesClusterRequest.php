@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class QueryGovernanceKubernetesClusterRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the Kubernetes cluster.
+     *
+     * @example c24c9354acxxxxxxx
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The name of the Kubernetes cluster.
+     *
+     * @example example-cluster
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

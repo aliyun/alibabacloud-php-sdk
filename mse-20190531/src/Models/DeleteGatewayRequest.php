@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DeleteGatewayRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description Specifies whether to delete the Server Load Balancer (SLB) instance purchased for the gateway.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $deleteSlb;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-0fe488252dc44d55a9dd57875193a1d7
+     *
      * @var string
      */
     public $gatewayUniqueId;

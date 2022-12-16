@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description SLB ID.
+     *
+     * @example lb-bp14lqiw5n96hq2****
+     *
      * @var string
      */
     public $slbId;
 
     /**
+     * @description The name of the SLB instance.
+     *
+     * @example MseGatewaySlb-gw
+     *
      * @var string
      */
     public $slbName;

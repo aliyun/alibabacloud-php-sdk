@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayRouteWafStatusRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description Specifies whether to enable Web Application Firewall (WAF).
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableWaf;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-86575c0bc9f04ecfbacb92b8e392****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The ID of the route entry.
+     *
+     * @example 645
+     *
      * @var int
      */
     public $routeId;

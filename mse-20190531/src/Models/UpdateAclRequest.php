@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateAclRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The IP addresses in the whitelist.
+     *
+     * @example 192.168.0.0/XX,192.168.0.0/XX
+     *
      * @var string
      */
     public $aclEntryList;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-cn-78v1l83****
+     *
      * @var string
      */
     public $instanceId;

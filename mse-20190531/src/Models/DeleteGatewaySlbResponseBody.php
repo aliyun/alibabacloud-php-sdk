@@ -9,31 +9,61 @@ use AlibabaCloud\Tea\Model;
 class DeleteGatewaySlbResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The deletion result.
+     *
+     * @example 28
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The message returned.
+     *
+     *   If the request is successful, a success message is returned.
+     *   If the request fails, an error message is returned.
+     *
+     * @example The request is successfully processed.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 9297B27D-D932-5E9F-93B9-99D6C5F3A879
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

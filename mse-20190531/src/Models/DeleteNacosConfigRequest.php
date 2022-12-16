@@ -9,31 +9,61 @@ use AlibabaCloud\Tea\Model;
 class DeleteNacosConfigRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description Specifies whether to perform a beta release. Valid values:
+     *
+     *   `true`: yes
+     *   `false`: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $beta;
 
     /**
+     * @description The ID of the configuration.
+     *
+     * @example user-ds.yml
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @description The type of the group.
+     *
+     * @example HALVIE_MICRO_GROUP
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse_prepaid_public_cn-tl32epfyu18
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example 0e9d849b-****-8435da6c21ad
+     *
      * @var string
      */
     public $namespaceId;

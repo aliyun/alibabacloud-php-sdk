@@ -9,36 +9,67 @@ use AlibabaCloud\Tea\Model;
 class CreateEngineNamespaceRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example mse-98s****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The description of the namespace.
+     *
+     * @example Development environment
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @description The custom ID of the namespace. If you do not specify this parameter, the automatically generated Universally Unique Identifier (UUID) is returned.
+     *
+     * @example f4fa5b81-2f26-4900-833a-7516b315ebb2
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-cn-st21ri2****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The display name of the namespace.
+     *
+     * @example dev
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The maximum number of services that can run in the namespace.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $serviceCount;

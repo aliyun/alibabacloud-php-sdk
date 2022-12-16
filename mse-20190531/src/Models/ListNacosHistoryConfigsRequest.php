@@ -9,46 +9,83 @@ use AlibabaCloud\Tea\Model;
 class ListNacosHistoryConfigsRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the configuration.
+     *
+     * @example user-prod.yaml
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @description The name of the group.
+     *
+     * @example fc-dev-cluster-1
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-cn-2r42e3bk20n
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example fc0f6e40-****-946b-45e3af313707
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region in which the cluster resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The extended request parameters in the JSON format.
+     *
+     * @example {\"appGroup\":\"aliyun-phecda-service-staging\",\"appName\":\"aliyun-phecda-service\",\"appStage\":\"DAILY\",\"appUnit\":\"center\",\"bucId\":\"250858\",\"bucName\":\"Alibaba Cloud\",\"provider\":\"aliyun\"}
+     *
      * @var string
      */
     public $requestPars;

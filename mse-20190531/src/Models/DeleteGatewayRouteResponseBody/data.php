@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the default service.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $defaultServiceId;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 125
+     *
      * @var int
      */
     public $gatewayId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-5017305290e14cebbrvec4a5****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The time when the route was created.
+     *
+     * @example 2022-01-07 18:07:57
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The time when the route was last modified.
+     *
+     * @example 2021-12-30T06:41:52.000+0000
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description ID.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the route.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The matching rules of the route.
+     *
+     * @example {\"PathPredicates\":{\"Path\":\"/metas\",\"Type\":\"PRE\",\"IgnoreCase\":false}}
+     *
      * @var string
      */
     public $predicates;
 
     /**
+     * @description The sequence number of the route.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $routeOrder;
 
     /**
+     * @description The status of the route.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;

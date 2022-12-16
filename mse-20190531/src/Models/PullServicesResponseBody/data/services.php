@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class services extends Model
 {
     /**
+     * @description The group.
+     *
+     * @example test
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The name of the service.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The namespace.
+     *
+     * @example public
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The ID of the service source.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $sourceId;
 
     /**
+     * @description The type of the service source.
+     *
+     * @example MSE
+     *
      * @var string
      */
     public $sourceType;

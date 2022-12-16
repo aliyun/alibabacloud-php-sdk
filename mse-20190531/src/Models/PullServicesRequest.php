@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class PullServicesRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-eccf313e2224438ba53d95d039e5****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The namespace.
+     *
+     * @example public
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The type of the service source.
+     *
+     * @example K8s
+     *
      * @var string
      */
     public $sourceType;

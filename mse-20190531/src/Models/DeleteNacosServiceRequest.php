@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class DeleteNacosServiceRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The name of the group.
+     *
+     * @example DEFAULT_GROUP
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-cn-123456
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example 9e78a671-4b9b-4dd4-99c1-0****
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The name of the service.
+     *
+     * @example hello_service
+     *
      * @var string
      */
     public $serviceName;

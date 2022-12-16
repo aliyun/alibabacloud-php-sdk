@@ -9,51 +9,98 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceSourceShrinkRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The address.
+     *
+     * @example c9ad2a0717032427e920754e25b49e3b5
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 429
+     *
      * @var int
      */
     public $gatewayId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-cdd1bb9bfb8341e9805f931a3ba1f4c6
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The ID of the service source.
+     *
+     * @example 63
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The configurations of Ingress resources.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $ingressOptionsRequestShrink;
 
     /**
+     * @description The name.
+     *
+     * @example istio
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description An array of service root paths.
+     *
      * @var string
      */
     public $pathListShrink;
 
     /**
+     * @description The service source. Valid values:
+     *
+     *   K8S: ACK cluster
+     *   MSE: Nacos instance
+     *
+     * @example K8S
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The type of the service source. Valid values:
+     *
+     *   K8S: ACK cluster
+     *   NACOS: Nacos instance
+     *
+     * @example K8S
+     *
      * @var string
      */
     public $type;

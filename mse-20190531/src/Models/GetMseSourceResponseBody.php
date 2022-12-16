@@ -10,31 +10,54 @@ use AlibabaCloud\Tea\Model;
 class GetMseSourceResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The data structure.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The message returned. Valid values:
+     *
+     * - If the request fails, an error message is returned, such as the "TaskId not found" message.
+     * @example The request is processed successfully.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 5EB2D865-B43F-5526-8F92-857718CF73A2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     * - `false`: The request fails.
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -10,46 +10,80 @@ use AlibabaCloud\Tea\Model;
 class ListNacosHistoryConfigsResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request fails.
+     *
+     * @example mse-100-000
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The information about configurations.
+     *
      * @var historyItems[]
      */
     public $historyItems;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $httpCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example The request is processed successfully.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 53338ECA-F880-54D8-A9B3-5606355A1B89
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     * - `false`: The request fails.
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $totalCount;

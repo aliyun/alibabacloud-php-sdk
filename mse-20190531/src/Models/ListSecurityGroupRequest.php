@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ListSecurityGroupRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example gw-e98e40675aaf49bda082137d158e1585
+     *
      * @var string
      */
     public $gatewayUniqueId;

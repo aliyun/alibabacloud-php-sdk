@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example daqijp6c31@xxx
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The name of the application.
+     *
+     * @example service-lottery-core
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The information about routing rules.
+     *
      * @var routeRules[]
      */
     public $routeRules;
 
     /**
+     * @description The status of the route. Valid values: -0: disabled. -1: enabled.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $routeStatus;

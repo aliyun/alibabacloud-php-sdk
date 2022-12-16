@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The effective time of the certificate.
+     *
+     * @example 2021-04-01 02:35:12
+     *
      * @var string
      */
     public $afterDate;
 
     /**
+     * @description The algorithm of the certificate.
+     *
+     * @example test
+     *
      * @var string
      */
     public $algorithm;
 
     /**
+     * @description The expiration time of the certificate.
+     *
+     * @example 2031-03-30 02:35:12
+     *
      * @var string
      */
     public $beforeDate;
 
     /**
+     * @description The ID of the certificate.
+     *
+     * @example 1234
+     *
      * @var string
      */
     public $certIdentifier;
 
     /**
+     * @description The name of the certificate.
+     *
+     * @example test.com
+     *
      * @var string
      */
     public $certName;
 
     /**
+     * @description The domain name with which the certificate is associated.
+     *
+     * @example *.test.com
+     *
      * @var string
      */
     public $commonName;
 
     /**
+     * @description The effective time of the certificate.
+     *
+     * @example 2021-04-01 02:35:12
+     *
      * @var string
      */
     public $gmtAfter;
 
     /**
+     * @description The expiration time of the certificate.
+     *
+     * @example 2031-03-30 02:35:12
+     *
      * @var string
      */
     public $gmtBefore;
 
     /**
+     * @description The issuer of the certificate.
+     *
+     * @example test
+     *
      * @var string
      */
     public $issuer;
 
     /**
+     * @description The SSL certificate.
+     *
+     * @example SSL
+     *
      * @var string
      */
     public $sans;

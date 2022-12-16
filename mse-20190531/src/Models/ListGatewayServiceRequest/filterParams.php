@@ -9,31 +9,61 @@ use AlibabaCloud\Tea\Model;
 class filterParams extends Model
 {
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-5017305290e14centbrveca****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The group.
+     *
+     * @example test
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The name of the service.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The namespace.
+     *
+     * @example public
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The protocol of the service.
+     *
+     *   HTTP
+     *   HTTPS
+     *   HTTP2
+     *   GRPC
+     *   DUBBO
+     *
+     * @example HTTP
+     *
      * @var string
      */
     public $serviceProtocol;
 
     /**
+     * @description The type of the service source.
+     *
+     * @example MSE
+     *
      * @var string
      */
     public $sourceType;

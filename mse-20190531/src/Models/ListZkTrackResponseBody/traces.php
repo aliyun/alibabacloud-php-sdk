@@ -9,71 +9,105 @@ use AlibabaCloud\Tea\Model;
 class traces extends Model
 {
     /**
+     * @description ACL。
+     *
+     * @example world:anyone:cdrwa
+     *
      * @var string
      */
     public $acl;
 
     /**
+     * @example persist
+     *
      * @var string
      */
     public $dataType;
 
     /**
+     * @example NodeCreated
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $finished;
 
     /**
+     * @example 2022-11-28 15:09:15,606
+     *
      * @var string
      */
     public $logDate;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $multiSize;
 
     /**
+     * @example Create
+     *
      * @var string
      */
     public $opType;
 
     /**
+     * @example /path
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @description SessionId。
+     *
+     * @example 0x301fdfbdbf00***
+     *
      * @var string
      */
     public $sessionId;
 
     /**
+     * @example 1669619383000
+     *
      * @var string
      */
     public $timestamp;
 
     /**
+     * @example Push
+     *
      * @var string
      */
     public $traceType;
 
     /**
+     * @description TTL。
+     *
+     * @example 0
+     *
      * @var int
      */
     public $ttl;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $watch;

@@ -15,41 +15,57 @@ class GetServiceListenersResponseBody extends Model
     public $data;
 
     /**
+     * @example mse-100-000
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example 202
+     *
      * @var string
      */
     public $httpCode;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 54973C90-F379-4372-9AA5-053A3F7****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

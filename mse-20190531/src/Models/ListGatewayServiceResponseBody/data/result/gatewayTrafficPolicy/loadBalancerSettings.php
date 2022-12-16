@@ -10,16 +10,31 @@ use AlibabaCloud\Tea\Model;
 class loadBalancerSettings extends Model
 {
     /**
+     * @description The consistent hashing settings.
+     *
      * @var consistentHashLBConfig
      */
     public $consistentHashLBConfig;
 
     /**
+     * @description The load balancing type.
+     *
+     *   ROUND_ROBIN
+     *   LEAST_CONN
+     *   RANDOM
+     *   CONSISTENT_HASH
+     *
+     * @example RANDOM
+     *
      * @var string
      */
     public $loadbalancerType;
 
     /**
+     * @description The prefetch time of least connection load balancing.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $warmupDuration;

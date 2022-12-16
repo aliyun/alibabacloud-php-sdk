@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The total number of clusters.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $clusterCount;
 
     /**
+     * @description The name of the contact group.
+     *
+     * @example name
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The total number of instances with healthy heartbeats.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $healthyInstanceCount;
 
     /**
+     * @description The total number of instances that are used for the current service.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $ipCount;
 
     /**
+     * @description The name of the service.
+     *
+     * @example name
+     *
      * @var string
      */
     public $name;

@@ -9,16 +9,36 @@ use AlibabaCloud\Tea\Model;
 class paramMapsList extends Model
 {
     /**
+     * @description The key extracted from the input parameter.
+     *
+     * @example name
+     *
      * @var string
      */
     public $extractKey;
 
     /**
+     * @description The position of the input parameter.
+     *
+     * > Valid values:
+     *
+     *   `ALL_QUERY_PARAMETER`: request parameter
+     *
+     *   `ALL_HEADER`: request header
+     *   `ALL_PATH`: request path
+     *   `ALL_BODY`: request body
+     *
+     * @example ALL_QUERY_PARAMETER
+     *
      * @var string
      */
     public $extractKeySpec;
 
     /**
+     * @description The type of the backend service parameter.
+     *
+     * @example java.lang.String
+     *
      * @var string
      */
     public $mappingType;

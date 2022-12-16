@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class queryPredicates extends Model
 {
     /**
+     * @description The key.
+     *
+     * @example userid
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The matching type.
+     *
+     * @example PRE
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The value.
+     *
+     * @example test
+     *
      * @var string
      */
     public $value;

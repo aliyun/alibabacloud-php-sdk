@@ -9,31 +9,61 @@ use AlibabaCloud\Tea\Model;
 class GetGatewayOptionResponseBody extends Model
 {
     /**
+     * @description The status code returned. The value 200 indicates that the request is successfully processed.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The returned data.
+     *
+     * @example {\"LogConfigDetails\": {\"LogEnabled\": False}, \"TraceDetails\": {\"TraceEnabled\": False}}
+     *
      * @var GatewayOption
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The message returned.
+     *
+     *   If the request is successful, a success message is returned.
+     *   If the request fails, an error message is returned, such as the "TaskId not found" message.
+     *
+     * @example The request is successfully processed.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C92F4A4D-A2FD-593E-839E-F3D4DFD2E238
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

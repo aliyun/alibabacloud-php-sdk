@@ -10,31 +10,54 @@ use AlibabaCloud\Tea\Model;
 class entryRules extends Model
 {
     /**
+     * @description The common parameters in the JSON format.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $condition;
 
     /**
+     * @description Specifies whether to enable the rule. Valid values:
+     *
+     *   `true`: yes
+     *   `false`: no
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @description The path.
+     *
+     * @example /test
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @description The list of paths.
+     *
      * @var string[]
      */
     public $paths;
 
     /**
+     * @description The priority. A smaller value of this parameter indicates a higher priority.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @description The information about the rule for the REST method.
+     *
      * @var restItems[]
      */
     public $restItems;

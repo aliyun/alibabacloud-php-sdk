@@ -9,111 +9,223 @@ use AlibabaCloud\Tea\Model;
 class UpdateConfigRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example none
+     *
      * @var string
      */
     public $autopurgePurgeInterval;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example none
+     *
      * @var string
      */
     public $autopurgeSnapRetainCount;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-09k1q11****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description Specifies whether to enable RAM authentication for a configuration center. This parameter is valid for Nacos instances. Valid values:
+     *
+     *   `true`: yes
+     *   `false`: no
+     *
+     * > Before you set this parameter, you must call the QueryConfig operation to obtain the ConfigAuthSupported parameter value to check whether the instance supports this feature.
+     * @example true
+     *
      * @var bool
      */
     public $configAuthEnabled;
 
     /**
+     * @description Specifies whether to enable configuration encryption for a configuration center. This parameter is valid for Nacos instances. Valid values:
+     *
+     *   `true`: yes
+     *   `false`: no
+     *
+     * > Before you set this parameter, you must call the QueryConfig operation to obtain the ConfigSecretSupported parameter value to check whether the instance supports this feature.
+     * @example true
+     *
      * @var bool
      */
     public $configSecretEnabled;
 
     /**
+     * @description The format of the configuration. Supported formats include TEXT, JSON, XML, and HTML.
+     *
+     * @example TEXT
+     *
      * @var string
      */
     public $configType;
 
     /**
+     * @description The maximum connection duration of the instance. This parameter is valid for ZooKeeper instances. Unit: seconds.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $initLimit;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse_prepaid_public_cn-st2212****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The maximum amount of data on each node. This parameter is valid for ZooKeeper instances. The default maximum data amount on each node is 1 megabyte. Unit: bytes.
+     *
+     * @example 1048575
+     *
      * @var string
      */
     public $juteMaxbuffer;
 
     /**
+     * @description Specifies whether to enable Mesh Configuration Protocol (MCP). This parameter is valid for Nacos instances. Valid values:
+     *
+     *   `true`: yes
+     *   `false`: no
+     *
+     * > Before you set this parameter, you must call the QueryConfig operation to obtain the MCPSupported parameter value to check whether the instance supports this feature.
+     * @example true
+     *
      * @var bool
      */
     public $MCPEnabled;
 
     /**
+     * @description The number of connections between a client and a server. This parameter is valid for ZooKeeper instances.\
+     * If this parameter is set to 0, no limits are imposed on the number of connections.
+     * @example 0
+     *
      * @var string
      */
     public $maxClientCnxns;
 
     /**
+     * @description The maximum timeout period. This parameter is valid for ZooKeeper instances. Unit: seconds.
+     *
+     * @example 1000
+     *
      * @var string
      */
     public $maxSessionTimeout;
 
     /**
+     * @description The minimum timeout period. This parameter is valid for ZooKeeper instances. Unit: seconds.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $minSessionTimeout;
 
     /**
+     * @description Specifies whether to enable RAM authentication for a registry. This parameter is valid for Nacos instances. Valid values:
+     *
+     *   `true`: yes
+     *   `false`: no
+     *
+     * > Before you set this parameter, you must call the QueryConfig operation to obtain the NamingAuthSupported parameter value to check whether the instance supports this feature.
+     * @example true
+     *
      * @var bool
      */
     public $namingAuthEnabled;
 
     /**
+     * @description Specifies whether to enable super permissions. This parameter is valid for ZooKeeper instances. Valid values:
+     *
+     *   `true`: yes
+     *   `false`: no
+     *
+     * @example true
+     *
      * @var string
      */
     public $openSuperAcl;
 
     /**
+     * @description The password that corresponds to the username.
+     *
+     * > You must specify this parameter if OpenSuperAcl is set to true.
+     * @example password
+     *
      * @var string
      */
     public $passWord;
 
     /**
+     * @description The extended request parameter in the JSON format.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $requestPars;
 
     /**
+     * @description The frequency for generating snapshots. This parameter is valid for ZooKeeper instances.
+     *
+     * @example 100000
+     *
      * @var string
      */
     public $snapshotCount;
 
     /**
+     * @description The connection timeout period of the instance. This parameter is valid for ZooKeeper instances. Unit: seconds.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $syncLimit;
 
     /**
+     * @description The time unit. This parameter is valid for ZooKeeper instances. Default value: 2000. Unit: milliseconds.
+     *
+     * @example 2000
+     *
      * @var string
      */
     public $tickTime;
 
     /**
+     * @description The name of the user.
+     *
+     * > You must specify this parameter if OpenSuperAcl is set to true.
+     * @example name
+     *
      * @var string
      */
     public $userName;

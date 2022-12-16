@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The type of the cluster.
+     *
+     * @example Nacos-Ans
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @description The code of the cluster type.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The display name of the cluster type.
+     *
+     * @example Nacos
+     *
      * @var string
      */
     public $showName;

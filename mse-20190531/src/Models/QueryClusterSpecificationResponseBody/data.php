@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The engine specifications that can be used.
+     *
+     * @example MSE_SC_1_2_200_c
+     *
      * @var string
      */
     public $clusterSpecificationName;
 
     /**
+     * @description The number of vCPUs in the specifications.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $cpuCapacity;
 
     /**
+     * @description The memory size in the specifications. Unit: GB.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $memoryCapacity;

@@ -15,6 +15,8 @@ class loadBalancerSettings extends Model
     public $consistentHashLBConfig;
 
     /**
+     * @example RANDOM
+     *
      * @var string
      */
     public $loadbalancerType;

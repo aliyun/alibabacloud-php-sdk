@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class DeleteNacosConfigsRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The IDs of configurations.
+     *
+     * @example 20024,20025,20026,20027,20034,20104,20394
+     *
      * @var string
      */
     public $ids;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse_prepaid_public_cn-i7m2e32pd0n
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example 1ef93a21-3487-4367-a859-857d8****
+     *
      * @var string
      */
     public $namespaceId;

@@ -9,31 +9,53 @@ use AlibabaCloud\Tea\Model;
 class QueryGatewayRegionResponseBody extends Model
 {
     /**
+     * @description The request is processed successfully.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     * - `false`: The request fails.
      * @var string[]
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example The message returned.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The data structure.
+     *
+     * @example 9e78a671-4b9b-4dd4-99c1-0b9da87d3dec
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status code returned.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

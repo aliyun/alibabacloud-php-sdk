@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class httpDubboTranscoder extends Model
 {
     /**
+     * @description The Dubbo service group.
+     *
+     * @example service group
+     *
      * @var string
      */
     public $dubboServiceGroup;
 
     /**
+     * @description The name of the Dubbo service.
+     *
+     * @example org.apache.dubbo.samples.basic.api.DemoService
+     *
      * @var string
      */
     public $dubboServiceName;
 
     /**
+     * @description The version of the Dubbo service.
+     *
+     * @example 0.0.0
+     *
      * @var string
      */
     public $dubboServiceVersion;
 
     /**
+     * @description The forwarding rules of the Dubbo service.
+     *
      * @var mothedMapList[]
      */
     public $mothedMapList;

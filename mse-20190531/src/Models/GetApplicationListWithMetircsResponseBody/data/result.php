@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example daqijp6c31@xxx
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example finance
+     *
      * @var string
      */
     public $appName;
@@ -31,6 +35,8 @@ class result extends Model
     public $curMetricsFm;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extraInfo;
@@ -41,26 +47,36 @@ class result extends Model
     public $instancesNumber;
 
     /**
+     * @example JAVA
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @example diyh1rln1u@8d97eb7ad938167
+     *
      * @var string
      */
     public $licenseKey;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example edasmsc
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;

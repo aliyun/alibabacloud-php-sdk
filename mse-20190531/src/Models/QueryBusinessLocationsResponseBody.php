@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class QueryBusinessLocationsResponseBody extends Model
 {
     /**
+     * @description The details of the data.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The error code returned if the request fails.
+     *
+     * @example mse-100-000
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example The specified parameter is invalid.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3369AD10-F1A6-4E6F-B99E-20F51826****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

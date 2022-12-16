@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class headerOpItems extends Model
 {
     /**
+     * @description The request or response.
+     *
+     * @example Response
+     *
      * @var string
      */
     public $directionType;
 
     /**
+     * @description Header Key.
+     *
+     * @example debug
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The operation type.
+     *
+     * @example Add
+     *
      * @var string
      */
     public $opType;
 
     /**
+     * @description The header value.
+     *
+     * @example test
+     *
      * @var string
      */
     public $value;

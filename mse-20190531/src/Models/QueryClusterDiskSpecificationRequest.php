@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class QueryClusterDiskSpecificationRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The type of the cluster. Valid values: ZooKeeper, Nacos-Ans, and Eureka.
+     *
+     * @example ZooKeeper
+     *
      * @var string
      */
     public $clusterType;

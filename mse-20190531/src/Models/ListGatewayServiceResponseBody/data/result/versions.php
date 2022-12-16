@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class versions extends Model
 {
     /**
+     * @description The version number.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $name;

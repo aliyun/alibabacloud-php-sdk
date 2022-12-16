@@ -9,51 +9,94 @@ use AlibabaCloud\Tea\Model;
 class GetApplicationListRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the application.
+     *
+     * @example hkhon1po62@c3df23522b*****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The name of the application.
+     *
+     * @example rest-container
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The programming language of the application, such as Java and Go.
+     *
+     * @example Java
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description Specifies whether to enable the Sentinel-compatible mode.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $sentinelEnable;
 
     /**
+     * @description The source of the application. The value is fixed as edasmsc.
+     *
+     * @example edasmsc
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description Specifies whether to enable switching.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $switchEnable;

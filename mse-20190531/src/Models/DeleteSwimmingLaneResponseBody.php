@@ -9,41 +9,74 @@ use AlibabaCloud\Tea\Model;
 class DeleteSwimmingLaneResponseBody extends Model
 {
     /**
+     * @description The status code. A value of 200 is returned if the request is successful.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The details of the data.
+     *
+     * @example {}
+     *
      * @var mixed
      */
     public $data;
 
     /**
+     * @description The dynamic part in the error message.
+     *
+     * @example The specified parameter is invalid.
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @description The error code returned if the request fails.
+     *
+     * @example mse-100-000
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example The request is processed successfully.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 69AD2AA7-DB47-449B-941B-B14409DF****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     * - `false`: The request fails.
+     * @example true
+     *
      * @var bool
      */
     public $success;

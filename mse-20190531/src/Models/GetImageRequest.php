@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetImageRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The version of the cluster.
+     *
+     * @example ZooKeeper_3_5_5
+     *
      * @var string
      */
     public $versionCode;

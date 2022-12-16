@@ -10,26 +10,49 @@ use AlibabaCloud\Tea\Model;
 class QueryMonitorResponseBody extends Model
 {
     /**
+     * @description The details of the data.
+     *
+     * @example 6
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The error code returned.
+     *
+     * @example mse-100-000
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example The request is successfully processed.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example ADDD8AB7-8D1C-4697-A83E-410D2607****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

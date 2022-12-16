@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The endpoint of the instance.
+     *
+     * @example mse-af1****-nacos-ans.mse.aliyuncs.com:8848
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example mse_
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse_prepaid_public_cn-7pp2eec****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the service source.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the service source.
+     *
+     * @example Nacos
+     *
      * @var string
      */
     public $type;

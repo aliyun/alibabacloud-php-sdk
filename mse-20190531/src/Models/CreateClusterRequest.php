@@ -10,96 +10,228 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The engine specifications. Valid values:
+     *
+     * \[Professional Edition]
+     *
+     *   `MSE_SC_2_4_60_c`: 2 CPU cores and 4 GB of memory
+     *   `MSE_SC_1_2_60_c`: 1 CPU core and 2 GB of memory
+     *   `MSE_SC_4_8_60_c`: 4 CPU cores and 8 GB of memory
+     *   `MSE_SC_8_16_60_c`: 8 CPU cores and 16 GB of memory
+     *   `MSE_SC_16_32_60_c`: 16 CPU cores and 32 GB of memory
+     *
+     * \[Developer Edition]
+     *
+     *   `MSE_SC_1_2_60_c`: 1 CPU core and 2 GB of memory
+     *   `MSE_SC_2_4_60_c`: 2 CPU cores and 4 GB of memory
+     *
+     * @example MSE_SC_2_4_60_c
+     *
      * @var string
      */
     public $clusterSpecification;
 
     /**
+     * @description The type of the instance. Valid values: ZooKeeper and Nacos-Ans.
+     *
+     * @example Nacos-Ans
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @description The engine version of the instance. Valid values:
+     *
+     * \[Professional Edition]
+     *
+     *   `NACOS_2_0_0`: Nacos 2.0.0
+     *   `ZooKeeper_3_8_0`: ZooKeeper 3.8.0
+     *
+     * \[Developer Edition]
+     *
+     *   `NACOS_2_0_0`: Nacos 2.0.0
+     *   `ZooKeeper_3_8_0`: ZooKeeper 3.8.0
+     *
+     * @example NACOS_2_0_0
+     *
      * @var string
      */
     public $clusterVersion;
 
     /**
+     * @description The network connection type. Valid values:
+     *
+     *   slb
+     *   eni
+     *
+     * @example slb
+     *
      * @var string
      */
     public $connectionType;
 
     /**
+     * @description The disk type. Valid values:
+     *
+     *   alicloud-disk-ssd
+     *   alicloud-disk-essd-pl1
+     *
+     * @example alicloud-disk-ssd
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @description The number of nodes in the instance. Valid values: 1 to 9.
+     *
+     * \[Professional Edition]
+     *
+     *   The number of nodes in an instance is greater than or equal to 3 and must be an odd number.
+     *
+     * \[Developer Edition]
+     *
+     *   Only one node can be deployed for an instance.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $instanceCount;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example tanshuyingtest001
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description Set this parameter unless otherwise specified. Valid values:
+     *
+     *   `mse_pro`: Professional Edition
+     *   `mse_dev`: Developer Edition
+     *
+     * @example mse_pro
+     *
      * @var string
      */
     public $mseVersion;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   `privatenet`: VPC
+     *   `pubnet`: Internet
+     *
+     * @example privatenet
+     *
      * @var string
      */
     public $netType;
 
     /**
+     * @description The specifications of the internal-facing SLB instance. Valid values:
+     *
+     *   `slb.s1.small`
+     *   `slb.s3.medium`
+     *
+     * @example slb.s1.small
+     *
      * @var string
      */
     public $privateSlbSpecification;
 
     /**
+     * @description The public bandwidth. Unit: Mbit/s.\
+     * Valid values: 0 to 5000. The value 0 indicates no access to the Internet.
+     * @example 0
+     *
      * @var string
      */
     public $pubNetworkFlow;
 
     /**
+     * @description The specifications of the Internet-facing Server Load Balancer (SLB) instance. Valid values:
+     *
+     *   `slb.s1.small`
+     *   `slb.s3.medium`
+     *
+     * @example slb.s1.small
+     *
      * @var string
      */
     public $pubSlbSpecification;
 
     /**
+     * @description The region where the MSE instance resides. Examples:
+     *
+     *   `cn-hangzhou`: China (Hangzhou)
+     *   `cn-beijing`: China (Beijing)
+     *   `cn-shanghai`: China (Shanghai)
+     *   `cn-zhangjiakou`: China (Zhangjiakou)
+     *   `cn-shenzhen`: China (Shenzhen)
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The extended request parameter in the JSON format.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $requestPars;
 
     /**
+     * @description The ID of the resource group. For more information about resource groups, see the topic "View basic information of a resource group."
+     *
+     * @example rg-aekzcqmoay3dlyq
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The list of the tags that you want to add.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-bp17opt4v18sto39k****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description VPC ID.
+     *
+     * @example vpc-bp1t50e045b5g7i3p****
+     *
      * @var string
      */
     public $vpcId;

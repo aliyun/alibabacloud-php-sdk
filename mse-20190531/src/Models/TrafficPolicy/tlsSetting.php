@@ -24,6 +24,8 @@ class tlsSetting extends Model
     public $sni;
 
     /**
+     * @example SIMPLE
+     *
      * @var string
      */
     public $tlsMode;

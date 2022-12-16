@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DeleteEngineNamespaceResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request fails.
+     *
+     * @example mse-100-000
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 202
+     *
      * @var string
      */
     public $httpCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example The request is processed successfully.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A73AC37C-C617-4E3A-8049-372CF49C****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     * - `false`: The request fails.
+     * @example True
+     *
      * @var bool
      */
     public $success;

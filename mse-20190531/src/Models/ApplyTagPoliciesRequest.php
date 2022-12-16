@@ -9,36 +9,65 @@ use AlibabaCloud\Tea\Model;
 class ApplyTagPoliciesRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the application.
+     *
+     * @example h5pohqu3gd@xxx
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description Specifies whether to enable the routing rule.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @description Optional. The ID of the namespace.
+     *
+     * @example 12233****
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The details of the routing rule.
+     *
+     * @example {
+     * }
      * @var string
      */
     public $rules;
 
     /**
+     * @description The source of the routing rule.
+     *
+     * @example edasmsc
+     *
      * @var string
      */
     public $source;

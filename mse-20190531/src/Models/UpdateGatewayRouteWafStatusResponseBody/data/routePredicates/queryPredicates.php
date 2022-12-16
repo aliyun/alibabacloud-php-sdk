@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class queryPredicates extends Model
 {
     /**
+     * @description The name of the parameter.
+     *
+     * @example instanceId
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The type.
+     *
+     * @example PRE
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The value of the parameter.
+     *
+     * @example test
+     *
      * @var string
      */
     public $value;

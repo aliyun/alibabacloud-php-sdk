@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class UpdateImageResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request fails.
+     *
+     * @example mse-100-000
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3855D475-2B66-5CFF-9A51-3D698E52C472
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     * - `false`: The request fails.
+     * @example True
+     *
      * @var bool
      */
     public $success;

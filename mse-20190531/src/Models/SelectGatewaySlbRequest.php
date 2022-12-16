@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class SelectGatewaySlbRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-492af9b04bb4474cae9d645be850****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The name of the SLB instance.
+     *
+     * @example test-slb
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the SLB instance.
+     *
+     * @example PUB_NET
+     *
      * @var string
      */
     public $type;

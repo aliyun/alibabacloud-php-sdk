@@ -10,46 +10,83 @@ use AlibabaCloud\Tea\Model;
 class ListListenersByIpResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
+     * @example MSE-100-000
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 202
+     *
      * @var string
      */
     public $httpCode;
 
     /**
+     * @description The information about listeners.
+     *
      * @var listeners[]
      */
     public $listeners;
 
     /**
+     * @description The message returned.
+     *
+     * @example The request is successfully processed.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 54973C90-F379-4372-9AA5-053A3F7****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
+     * @example True
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The total number of instances.
+     *
+     * @example 6
+     *
      * @var int
      */
     public $totalCount;

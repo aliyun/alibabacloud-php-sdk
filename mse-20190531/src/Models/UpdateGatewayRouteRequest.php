@@ -14,21 +14,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayRouteRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The type of the destination service.
+     *
+     * @example Mock
+     *
      * @var string
      */
     public $destinationType;
 
     /**
+     * @description The information about service mocking.
+     *
      * @var directResponseJSON
      */
     public $directResponseJSON;
 
     /**
+     * @description The IDs of domain names with which the route is associated.
+     *
+     * @example [90]
+     *
      * @var string
      */
     public $domainIdListJSON;
@@ -49,41 +64,67 @@ class UpdateGatewayRouteRequest extends Model
     public $fallbackServices;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 501
+     *
      * @var int
      */
     public $gatewayId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-86575c0bc9f04ecfbacb92b8e392a2c4
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The ID of the route.
+     *
+     * @example 139
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the route.
+     *
+     * @example route-web
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The matching rules of the route.
+     *
      * @var predicates
      */
     public $predicates;
 
     /**
+     * @description The configuration of the redirect action.
+     *
      * @var redirectJSON
      */
     public $redirectJSON;
 
     /**
+     * @description The sequence number of the route.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $routeOrder;
 
     /**
+     * @description The information about services.
+     *
      * @var services[]
      */
     public $services;

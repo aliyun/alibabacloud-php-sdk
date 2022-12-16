@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The directory of the plug-in.
+     *
+     * 5: traffic observation
+     * @example 0
+     *
      * @var int
      */
     public $category;
 
     /**
+     * @description The information about the configuration check.
+     *
+     * @example \# Configure to check required fields for the plug-in, such as name, age, and friends. Sample configuration: name: John age: 18 friends: - David - Anne
+     *
      * @var string
      */
     public $configCheck;
 
     /**
+     * @description The ID of the plug-in.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $id;
@@ -26,66 +39,138 @@ class data extends Model
     /**
      * @var string
      */
+    public $maxVersion;
+
+    /**
+     * @var int
+     */
+    public $mode;
+
+    /**
+     * @description The name of the plug-in.
+     *
+     * @example key-auth
+     *
+     * @var string
+     */
     public $name;
 
     /**
+     * @var bool
+     */
+    public $newVersionPublishingFlag;
+
+    /**
+     * @description The plug-in execution stage.
+     *
+     *   0: default stage
+     *   1: authorization stage
+     *   2: authentication stage
+     *   3: statistics stage
+     *
+     * @example 1
+     *
      * @var int
      */
     public $phase;
 
     /**
+     * @description The ID of the creator.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $primaryUser;
 
     /**
+     * @description The plug-in execution priority. A larger value indicates a higher priority.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @description The publish status.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $publishState;
 
     /**
+     * @description Indicates whether the plug-in is enabled.
+     *
+     *   0: disabled
+     *   1: enabled
+     *
+     * @example 1
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The summary of the plug-in.
+     *
+     * @example This is a plug-in.
+     *
      * @var string
      */
     public $summary;
 
     /**
+     * @description The version of the plug-in.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $version;
 
     /**
+     * @description The Object Storage Service (OSS) of the WebAssembly plug-in.
+     *
+     * @example https://mse-shared-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/cfg/import/1917515******\/gw-0adf3ad751284cc69fcf9669fba*****\/2022/11/02/4d390496-2c17-4b42-a479-f9068ba****\/16673573***5.wasm
+     *
      * @var string
      */
     public $wasmFile;
 
     /**
+     * @description The WebAssembly language.
+     *
+     *   0: C++
+     *   1: TinyGo
+     *   2: Rust
+     *   3: AssemblyScript
+     *   4: Zig
+     *
+     * @example 0
+     *
      * @var int
      */
     public $wasmLang;
     protected $_name = [
-        'category'     => 'Category',
-        'configCheck'  => 'ConfigCheck',
-        'id'           => 'Id',
-        'name'         => 'Name',
-        'phase'        => 'Phase',
-        'primaryUser'  => 'PrimaryUser',
-        'priority'     => 'Priority',
-        'publishState' => 'PublishState',
-        'status'       => 'Status',
-        'summary'      => 'Summary',
-        'version'      => 'Version',
-        'wasmFile'     => 'WasmFile',
-        'wasmLang'     => 'WasmLang',
+        'category'                 => 'Category',
+        'configCheck'              => 'ConfigCheck',
+        'id'                       => 'Id',
+        'maxVersion'               => 'MaxVersion',
+        'mode'                     => 'Mode',
+        'name'                     => 'Name',
+        'newVersionPublishingFlag' => 'NewVersionPublishingFlag',
+        'phase'                    => 'Phase',
+        'primaryUser'              => 'PrimaryUser',
+        'priority'                 => 'Priority',
+        'publishState'             => 'PublishState',
+        'status'                   => 'Status',
+        'summary'                  => 'Summary',
+        'version'                  => 'Version',
+        'wasmFile'                 => 'WasmFile',
+        'wasmLang'                 => 'WasmLang',
     ];
 
     public function validate()
@@ -104,8 +189,17 @@ class data extends Model
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+        if (null !== $this->maxVersion) {
+            $res['MaxVersion'] = $this->maxVersion;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->newVersionPublishingFlag) {
+            $res['NewVersionPublishingFlag'] = $this->newVersionPublishingFlag;
         }
         if (null !== $this->phase) {
             $res['Phase'] = $this->phase;
@@ -155,8 +249,17 @@ class data extends Model
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+        if (isset($map['MaxVersion'])) {
+            $model->maxVersion = $map['MaxVersion'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['NewVersionPublishingFlag'])) {
+            $model->newVersionPublishingFlag = $map['NewVersionPublishingFlag'];
         }
         if (isset($map['Phase'])) {
             $model->phase = $map['Phase'];

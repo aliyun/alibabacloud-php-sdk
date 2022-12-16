@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The data of the node.
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description Indicates whether the node directory information is returned. Valid values:
+     * - `false`: The information fails to be returned.
+     * @example true
+     *
      * @var bool
      */
     public $dir;
 
     /**
+     * @description The name of the node.
+     *
+     * @example mse-bc1a29b0-160230875****-reg-center-0-1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The path of the node.
+     *
+     * @example /
+     *
      * @var string
      */
     public $path;

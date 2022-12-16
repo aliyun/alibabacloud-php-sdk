@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class comment extends Model
 {
     /**
+     * @description The status.
+     *
+     * @example error
+     *
      * @var string
      */
     public $status;

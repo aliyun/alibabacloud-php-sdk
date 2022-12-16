@@ -9,31 +9,56 @@ use AlibabaCloud\Tea\Model;
 class ListEurekaInstancesRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example mse-09k1q11****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The extended request parameters in the JSON format.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $requestPars;
 
     /**
+     * @description The name of the service.
+     *
+     * @example name
+     *
      * @var string
      */
     public $serviceName;

@@ -9,26 +9,58 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceCountRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The type of the instance. Valid values: ZooKeeper and Nacos-Ans.
+     *
+     * @example Nacos-Ans
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @description The edition type of the instance. Valid values:
+     *
+     *   `mse_dev`: Developer Edition
+     *   `mse_pro`: Professional Edition
+     *
+     * @example mse_pro
+     *
      * @var string
      */
     public $mseVersion;
 
     /**
+     * @description The ID of the region where the instance resides. Examples:
+     *
+     *   cn-hangzhou: China (Hangzhou)
+     *   cn-beijing: China (Beijing)
+     *   cn-shanghai: China (Shanghai)
+     *   cn-zhangjiakou: China (Zhangjiakou)
+     *   cn-shenzhen: China (Shenzhen)
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The extended request parameters in the JSON format.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $requestPars;

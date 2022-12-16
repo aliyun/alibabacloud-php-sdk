@@ -15,6 +15,10 @@ class services extends Model
     public $agreementType;
 
     /**
+     * @description The name of the group to which the service belongs.
+     *
+     * @example test
+     *
      * @var string
      */
     public $groupName;
@@ -25,21 +29,37 @@ class services extends Model
     public $httpDubboTranscoder;
 
     /**
+     * @description The name of the service.
+     *
+     * @example web
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The namespace in which the service resides.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The weight in the form of a percentage value.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $percent;
 
     /**
+     * @description The ID of the service.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $serviceId;
@@ -50,11 +70,19 @@ class services extends Model
     public $servicePort;
 
     /**
+     * @description The source type of the service.
+     *
+     * @example MSE
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @description The version of the service.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $version;

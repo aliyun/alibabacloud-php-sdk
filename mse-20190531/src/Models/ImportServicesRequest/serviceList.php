@@ -9,31 +9,53 @@ use AlibabaCloud\Tea\Model;
 class serviceList extends Model
 {
     /**
+     * @description The name of the group.
+     *
+     * @example test
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The IP addresses of the service.
+     *
      * @var string[]
      */
     public $ips;
 
     /**
+     * @description The name of the service.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example public
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The port of the service.
+     *
+     * @example 8080
+     *
      * @var int
      */
     public $servicePort;
 
     /**
+     * @description The protocol of the service.
+     *
+     * @example GRPC, HTTP
+     *
      * @var string
      */
     public $serviceProtocol;

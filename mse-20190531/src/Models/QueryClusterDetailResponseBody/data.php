@@ -10,171 +10,303 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The whitelist of the cluster.
+     *
+     * @example []
+     *
      * @var string
      */
     public $aclEntryList;
 
     /**
+     * @description The ID of the whitelist.
+     *
+     * @example acl-bp17020kiqvzutwwj****
+     *
      * @var string
      */
     public $aclId;
 
     /**
+     * @description The version of the application.
+     *
+     * @example 1.2.1
+     *
      * @var string
      */
     public $appVersion;
 
     /**
+     * @description The billing method, such as subscription or pay-as-you-go.
+     *
+     * @example POSTPAY
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The alias of the cluster.
+     *
+     * @example mse-7413****
+     *
      * @var string
      */
     public $clusterAliasName;
 
     /**
+     * @description The name of the cluster.
+     *
+     * @example mse-bc1a29b0-160230875****
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description The specifications of the engine.
+     *
+     * @example MSE_SC_1_2_200_c
+     *
      * @var string
      */
     public $clusterSpecification;
 
     /**
+     * @description The type of the cluster. Valid values: ZooKeeper, Nacos-Ans, and Eureka.
+     *
+     * @example Nacos-Ans
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @description The version of the cluster.
+     *
+     * @example 1.2.1
+     *
      * @var string
      */
     public $clusterVersion;
 
     /**
+     * @description The connection type. Valid values:
+     *
+     * - eni
+     * @example slb
+     *
      * @var string
      */
     public $connectionType;
 
     /**
+     * @description The number of CPUs.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @description The time when the cluster was created.
+     *
+     * @example 2020-07-31 11:36:08
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The capacity of the disk. Unit: GB.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $diskCapacity;
 
     /**
+     * @description The type of the disk.
+     *
+     * @example alicloud-disk-ssd-multi-zone
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @description The health status of the cluster.
+     *
+     * @example RESTART_SUCCESS
+     *
      * @var string
      */
     public $healthStatus;
 
     /**
+     * @description The amount of time taken to create the cluster. Unit: milliseconds.
+     *
+     * @example 98408
+     *
      * @var int
      */
     public $initCostTime;
 
     /**
+     * @description The creation status of the cluster.
+     *
+     * @example RESTART_SUCCESS
+     *
      * @var string
      */
     public $initStatus;
 
     /**
+     * @description The number of nodes.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $instanceCount;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-cn-st21ri2****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The information about nodes.
+     *
      * @var instanceModels[]
      */
     public $instanceModels;
 
     /**
+     * @description The public IP address.
+     *
+     * @example 47.98.XX.XX
+     *
      * @var string
      */
     public $internetAddress;
 
     /**
+     * @description The public domain name.
+     *
+     * @example mse-7413****-p.eureka.mse.aliyuncs.com
+     *
      * @var string
      */
     public $internetDomain;
 
     /**
+     * @description The private port.
+     *
+     * @example 8761
+     *
      * @var string
      */
     public $internetPort;
 
     /**
+     * @description The private IP address.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $intranetAddress;
 
     /**
+     * @description The private domain name.
+     *
+     * @example mse-7413****-eureka.mse.aliyuncs.com
+     *
      * @var string
      */
     public $intranetDomain;
 
     /**
+     * @description The private port.
+     *
+     * @example 8761
+     *
      * @var string
      */
     public $intranetPort;
 
     /**
+     * @description The size of the memory. Unit: GB.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $memoryCapacity;
 
     /**
+     * @description The version category of the cluster.
+     *
+     * @example mse_basic
+     *
      * @var string
      */
     public $mseVersion;
 
     /**
+     * @description The network type of the cluster. Valid values:
+     *
+     * - `pubnet`: the Internet
+     * @example privatenet
+     *
      * @var string
      */
     public $netType;
 
     /**
+     * @example 1.2.0
+     *
      * @var string
      */
     public $orderClusterVersion;
 
     /**
+     * @description The billing method, such as subscription or pay-as-you-go.
+     *
+     * @example POSTPAY
+     *
      * @var string
      */
     public $payInfo;
 
     /**
+     * @description The public bandwidth. Unit: Mbit/s.
+     * Valid values: 0 to 5000. A value of 0 indicates no access to the Internet.
+     * @example 3
+     *
      * @var string
      */
     public $pubNetworkFlow;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-aek2dhgysj*****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -185,11 +317,19 @@ class data extends Model
     public $tags;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-xxx-xxxx
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description VPC ID.
+     *
+     * @example vpc-bp1hcg467ekqsv0zr****
+     *
      * @var string
      */
     public $vpcId;

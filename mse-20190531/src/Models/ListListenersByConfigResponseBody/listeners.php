@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class listeners extends Model
 {
     /**
+     * @description IP.
+     *
+     * @example 1.1.1.1
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The verification string.
+     *
+     * @example 23sdfdf
+     *
      * @var string
      */
     public $md5;
 
     /**
+     * @description The status.
+     *
+     * @example beta
+     *
      * @var string
      */
     public $status;

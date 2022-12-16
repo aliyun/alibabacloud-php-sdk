@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class redirect extends Model
 {
     /**
+     * @description The response code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The hostname.
+     *
+     * @example ww.al.c
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @description The path.
+     *
+     * @example /
+     *
      * @var string
      */
     public $path;

@@ -9,66 +9,116 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $gatewayId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-7ea3da97b96543e19f6c597c****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The time when the service was created.
+     *
+     * @example 2022-01-14 14:39:16
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The time when the domain name was last modified.
+     *
+     * @example 2022-01-07T10:07:57.000+0000
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description The name of the group.
+     *
+     * @example DEFAULT_GROUP
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The ID of the service.
+     *
+     * @example 190
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description IP
+     *
      * @var string[]
      */
     public $ips;
 
     /**
+     * @description The basic information about the service.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $metaInfo;
 
     /**
+     * @description The name of the service.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The namespace in which the service resides.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The name of the service registered with the service registry.
+     *
+     * @example test
+     *
      * @var string
      */
     public $serviceNameInRegistry;
 
     /**
+     * @description The source ID of the service.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $sourceId;
 
     /**
+     * @description The source type of the service.
+     *
+     * @example MSE
+     *
      * @var string
      */
     public $sourceType;

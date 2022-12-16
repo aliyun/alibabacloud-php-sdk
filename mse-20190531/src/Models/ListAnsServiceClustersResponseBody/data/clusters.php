@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class clusters extends Model
 {
     /**
+     * @description The default port used for a health check.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $defaultCheckPort;
 
     /**
+     * @description The default port.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $defaultPort;
 
     /**
+     * @description The type of health check.
+     *
+     * @example beat
+     *
      * @var string
      */
     public $healthCheckerType;
 
     /**
+     * @description The metadata.
+     *
+     * @example 111
+     *
      * @var mixed[]
      */
     public $metadata;
 
     /**
+     * @description The name of the cluster.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The name of the service.
+     *
+     * @example DEFAULT_GROUP@@consumers:com.alibaba.edas.IHelloService::
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description Indicates whether the IP address is used for a health check.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $useIPPort4Check;

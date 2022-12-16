@@ -19,6 +19,8 @@ class httpCookie extends Model
     public $path;
 
     /**
+     * @example 0s
+     *
      * @var string
      */
     public $TTL;

@@ -10,31 +10,56 @@ use AlibabaCloud\Tea\Model;
 class CreateApplicationResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The details of the data.
+     *
+     * @example data
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 68D91223-CCE9-5F9C-B538-20F617DA48B1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     * - `false`: The request fails.
+     * @example true
+     *
      * @var string
      */
     public $success;

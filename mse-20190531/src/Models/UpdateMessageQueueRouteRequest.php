@@ -9,31 +9,59 @@ use AlibabaCloud\Tea\Model;
 class UpdateMessageQueueRouteRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the application.
+     *
+     * @example hkhon1po62@c3df23522baa898
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description Specifies whether the canary release for messaging feature is enabled for the application. Valid values:
+     *
+     *   `true`: enabled
+     *   `false`: disabled
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @description The side for message filtering when the canary release for messaging feature is enabled.
+     *
+     * @example Server
+     *
      * @var string
      */
     public $filterSide;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The tag that is negligible for the untagged environment of the application.
+     *
      * @var string[]
      */
     public $tags;

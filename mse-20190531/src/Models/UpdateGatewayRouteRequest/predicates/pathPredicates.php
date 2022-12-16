@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class pathPredicates extends Model
 {
     /**
+     * @description Specifies whether to perform case-insensitive matches.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $ignoreCase;
 
     /**
+     * @description The path.
+     *
+     * @example /test
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @description The matching mode.
+     *
+     * @example PRE
+     *
      * @var string
      */
     public $type;

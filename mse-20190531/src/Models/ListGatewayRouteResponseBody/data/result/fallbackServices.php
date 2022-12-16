@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class fallbackServices extends Model
 {
     /**
+     * @description The type of the protocol.
+     *
+     * @example DUBBO
+     *
      * @var string
      */
     public $agreementType;
 
     /**
+     * @description The name of the group to which the service belongs.
+     *
+     * @example test
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The name.
+     *
+     * @example name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The namespace to which the service belongs.
+     *
+     * @example Namespace
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The weight in the form of a percentage value.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $percent;
 
     /**
+     * @description The ID of the service.
+     *
+     * @example 353
+     *
      * @var int
      */
     public $serviceId;
 
     /**
+     * @description The name of the service.
+     *
+     * @example service name
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The service port number.
+     *
+     * @example 8848
+     *
      * @var int
      */
     public $servicePort;
 
     /**
+     * @description The type of the service source.
+     *
+     * @example MSE
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @description The version of the service.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $version;

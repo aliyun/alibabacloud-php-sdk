@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayServiceTrafficPolicyShrinkRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   **zh**: Chinese. This is the default value.
+     *   **en**: English.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 429
+     *
      * @var int
      */
     public $gatewayId;
 
     /**
+     * @description The traffic policy of the service.
+     *
      * @var string
      */
     public $gatewayTrafficPolicyShrink;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-75c5036c083e4f89ba8ef9fafff2e902
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The ID of the service.
+     *
+     * @example 411
+     *
      * @var int
      */
     public $serviceId;

@@ -9,31 +9,56 @@ use AlibabaCloud\Tea\Model;
 class CloneNacosConfigRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The IDs of configurations.
+     *
+     * @example 253661,253662
+     *
      * @var string
      */
     public $ids;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse_prepaid_public_cn-i7m25igg403
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the source namespace.
+     *
+     * @example be821963-6d48-4ea5-9910-6057d****
+     *
      * @var string
      */
     public $originNamespaceId;
 
     /**
+     * @description The policy used to handle write conflicts.
+     *
+     * @example overwrite
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @description The ID of the destination namespace.
+     *
+     * @example 08be4b5d-2d1c-4e6e-aa85-83b9****
+     *
      * @var string
      */
     public $targetNamespaceId;

@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the security group.
+     *
+     * @example sg-8vb8gsmrqyc35k645rk6
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @description The name of the security group.
+     *
+     * @example sg2
+     *
      * @var string
      */
     public $securityGroupName;
 
     /**
+     * @description The type of the security group. Valid values:
+     *
+     * - enterprise: advanced security group For more information, see [Overview](~~120621~~).
+     * @example enterprise
+     *
      * @var string
      */
     public $securityGroupType;
 
     /**
+     * @description VPC ID.
+     *
+     * @example vpc-bp1b
+     *
      * @var string
      */
     public $vpcId;

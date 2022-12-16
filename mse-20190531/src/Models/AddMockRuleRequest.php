@@ -9,61 +9,112 @@ use AlibabaCloud\Tea\Model;
 class AddMockRuleRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the custom application.
+     *
+     * @example [{\"appName\":\"provide\",\"appId\":\"bst8l6o735@f6d8aaf6e56e67d\"}]
+     *
      * @var string
      */
     public $consumerAppIds;
 
     /**
+     * @description The items in the recycle bin.
+     *
+     * @example []
+     *
      * @var string
      */
     public $dubboMockItems;
 
     /**
+     * @description Specifies whether to enable the rule. Valid values:
+     *
+     * - `false`: disables the rule.
+     * @example true
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @description The description.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $extraJson;
 
     /**
+     * @description The response time threshold of slow calls. Valid values:
+     *
+     * - 120: 120 ms
+     * @example 1
+     *
      * @var int
      */
     public $mockType;
 
     /**
+     * @description The name of the rule.
+     *
+     * @example agent-auto-test-sc
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the service provider application.
+     *
+     * @example dcqtkuhnc4@66e5235415****
+     *
      * @var string
      */
     public $providerAppId;
 
     /**
+     * @description The name of the service provider application.
+     *
+     * @example demo-cartservice
+     *
      * @var string
      */
     public $providerAppName;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The input parameters. The JSON format is supported.
+     *
+     * @example []
+     *
      * @var string
      */
     public $scMockItems;
 
     /**
+     * @description The source of the rule. Valid values: -custom_fc: The rule is based on a custom function. -system_custom: The rule is based on a system function.
+     *
+     * @example edasmsc
+     *
      * @var string
      */
     public $source;

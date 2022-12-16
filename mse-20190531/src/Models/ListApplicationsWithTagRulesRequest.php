@@ -9,36 +9,65 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationsWithTagRulesRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the application.
+     *
+     * @example xjpc0h9h4d@xxx
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The name of the application.
+     *
+     * @example test
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The source of the routing rule. Default value: edasmsc.
+     *
+     * @example edasmsc
+     *
      * @var string
      */
     public $source;

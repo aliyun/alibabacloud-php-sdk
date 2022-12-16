@@ -9,21 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ListClusterTypesRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The network type. Valid values:
+     *
+     *   slb
+     *   eni
+     *
+     * @example slb
+     *
      * @var string
      */
     public $connectType;
 
     /**
+     * @description The edition of the MSE instance that you want to activate.
+     *
+     *   mse_pro: Professional Edition
+     *   mse_dev: Developer Edition
+     *
+     * @example mse_pro
+     *
      * @var string
      */
     public $mseVersion;
 
     /**
+     * @description The ID of the region in which the instance resides. The region is supported by Microservices Engine (MSE).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

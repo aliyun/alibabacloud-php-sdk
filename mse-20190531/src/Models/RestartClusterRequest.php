@@ -9,26 +9,44 @@ use AlibabaCloud\Tea\Model;
 class RestartClusterRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example mse-09k1q11****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-cn-78v1l83****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the pod. You can specify the names of multiple pods at a time. Separate multiple pod names with commas (,).
+     * The specified pods must belong to the current cluster and be associated with the specified instance. Otherwise, a restart exception occurs.
+     * @example mse-a8aba010-1629719288255-reg-center-0-1
+     *
      * @var string
      */
     public $podNameList;
 
     /**
+     * @description The extended request parameters in the JSON format.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $requestPars;

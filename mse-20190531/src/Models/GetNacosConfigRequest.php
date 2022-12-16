@@ -9,31 +9,57 @@ use AlibabaCloud\Tea\Model;
 class GetNacosConfigRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description Specifies whether to perform a beta release. Valid values:
+     *
+     * - `false`
+     * @example true
+     *
      * @var bool
      */
     public $beta;
 
     /**
+     * @description The ID of the configuration.
+     *
+     * @example halvie-mp-item****
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @description The name of the group.
+     *
+     * @example common
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-cn-i7m2h0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example ddaf8f12-****-b1c1-86e7c72e266b
+     *
      * @var string
      */
     public $namespaceId;

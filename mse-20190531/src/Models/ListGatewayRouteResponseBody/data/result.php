@@ -15,131 +15,219 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The route comment (ingress).
+     *
      * @var comment
      */
     public $comment;
 
     /**
+     * @description The default service ID.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $defaultServiceId;
 
     /**
+     * @description The default service name.
+     *
+     * @example test
+     *
      * @var string
      */
     public $defaultServiceName;
 
     /**
+     * @description The destination type.
+     *
+     * @example Single
+     *
      * @var string
      */
     public $destinationType;
 
     /**
+     * @description The information about service mocking.
+     *
      * @var directResponse
      */
     public $directResponse;
 
     /**
+     * @description The domain ID.
+     *
+     * @example 265
+     *
      * @var int
      */
     public $domainId;
 
     /**
+     * @description The list of domain IDs.
+     *
      * @var int[]
      */
     public $domainIdList;
 
     /**
+     * @description The domain name.
+     *
+     * @example y.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The list of domain names.
+     *
      * @var string[]
      */
     public $domainNameList;
 
     /**
+     * @description Indicates whether Web Application Firewall (WAF) is activated.
+     *
+     * @example false
+     *
      * @var string
      */
     public $enableWaf;
 
     /**
+     * @description Indicates whether the Fallback service is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $fallback;
 
     /**
+     * @description The information about the Fallback service.
+     *
      * @var fallbackServices[]
      */
     public $fallbackServices;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 496
+     *
      * @var int
      */
     public $gatewayId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-cf0e7f52ecc7429dbc7ba4d5e3656100
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The creation time.
+     *
+     * @example 2022-01-25T07:14:01.817+0000
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The modification time.
+     *
+     * @example 2022-01-07 18:07:57
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description ID.
+     *
+     * @example 47
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The matching rules.
+     *
+     * @example {\"PathPredicates\":{\"Path\":\"/rpc/compute \",\"Type\":\"PRE\",\"IgnoreCase\":true}}
+     *
      * @var string
      */
     public $predicates;
 
     /**
+     * @description The information about redirection.
+     *
      * @var redirect
      */
     public $redirect;
 
     /**
+     * @description The order.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $routeOrder;
 
     /**
+     * @description The matching rules.
+     *
      * @var routePredicates
      */
     public $routePredicates;
 
     /**
+     * @description The information about services.
+     *
      * @var routeServices[]
      */
     public $routeServices;
 
     /**
+     * @description The information about services.
+     *
+     * @example []
+     *
      * @var string
      */
     public $services;
 
     /**
+     * @description The status.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The route type.
+     *
+     * @example Op
+     *
      * @var string
      */
     public $type;

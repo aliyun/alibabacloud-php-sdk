@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class OfflineGatewayRouteRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-77e1153db6e14c0a8b1fae20bcb89ca5
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The ID of the route.
+     *
+     * @example 645
+     *
      * @var string
      */
     public $routeId;

@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayRouteTimeoutResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The details of the data.
+     *
+     * @example 400
+     *
      * @var int
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example You are not authorized to perform this operation.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Id of the request
+     *
+     * @example 5359729E-A059-5942-98AF-E981E89C99FA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. A value of true indicates that the request is successful. A value of false indicates that the request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

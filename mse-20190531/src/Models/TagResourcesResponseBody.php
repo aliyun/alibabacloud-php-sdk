@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesResponseBody extends Model
 {
     /**
+     * @example mse-100-000
+     *
      * @var string
      */
     public $errorCode;
@@ -19,11 +21,15 @@ class TagResourcesResponseBody extends Model
     public $message;
 
     /**
+     * @example E0A79810-9396-521C-A09D-E757B3E2BAF4
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class GetKubernetesSourceRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-c5d1aadb7df646cfb7065fbf75c1****
+     *
      * @var string
      */
     public $gatewayUniqueId;

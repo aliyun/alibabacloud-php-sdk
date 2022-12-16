@@ -9,81 +9,145 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the edit operation is supported.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $editEnable;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $gatewayId;
 
     /**
+     * @description The service source.
+     *
+     * @example UserSelect
+     *
      * @var string
      */
     public $gatewaySlbMode;
 
     /**
+     * @description The association status.
+     *
+     * @example Ready
+     *
      * @var string
      */
     public $gatewaySlbStatus;
 
     /**
+     * @description The creation time.
+     *
+     * @example 2022-01-14 14:39:16
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The port number of the HTTP virtual service group.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $httpPort;
 
     /**
+     * @description The port number of the HTTPS virtual service group.
+     *
+     * @example 443
+     *
      * @var int
      */
     public $httpsPort;
 
     /**
+     * @description The ID of the HTTPS virtual service group.
+     *
+     * @example 353
+     *
      * @var string
      */
     public $httpsVServerGroupId;
 
     /**
+     * @description ID
+     *
+     * @example ID
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The service weight.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $serviceWeight;
 
     /**
+     * @description SLB ID
+     *
+     * @example lb-bp1kmnli3hdpreptw2ah3
+     *
      * @var string
      */
     public $slbId;
 
     /**
+     * @description SLB IP
+     *
+     * @example 121.199.XX.XX
+     *
      * @var string
      */
     public $slbIp;
 
     /**
+     * @description The port number of the SLB instance.
+     *
+     * @example 80,443
+     *
      * @var string
      */
     public $slbPort;
 
     /**
+     * @description The description of the status.
+     *
+     * @example Associating
+     *
      * @var string
      */
     public $statusDesc;
 
     /**
+     * @description The type.
+     *
+     * @example PUB_NET
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The ID of the HTTP virtual service group.
+     *
+     * @example 353
+     *
      * @var string
      */
     public $VServerGroupId;

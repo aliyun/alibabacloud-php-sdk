@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class historyItems extends Model
 {
     /**
+     * @description The name of the application.
+     *
+     * @example gateway
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The ID of the configuration.
+     *
+     * @example test.yaml
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @description The name of the group.
+     *
+     * @example default
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description The ID of the configuration.
+     *
+     * @example 23fdsf
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The timestamp when the configuration was last modified.
+     *
+     * @example 16434400
+     *
      * @var int
      */
     public $lastModifiedTime;
 
     /**
+     * @description The type of the configuration.
+     *
+     * @example yaml
+     *
      * @var string
      */
     public $opType;

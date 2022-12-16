@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class CreateZnodeRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example mse-09k1q11****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The data of the node.
+     *
+     * @example data
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The path of the node.
+     *
+     * @example /zookeeper
+     *
      * @var string
      */
     public $path;

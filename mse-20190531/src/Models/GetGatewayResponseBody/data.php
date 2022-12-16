@@ -11,111 +11,195 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The billing method, such as subscription or pay-as-you-go.
+     *
+     * @example POSTPAY
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The time when the gateway expires.
+     *
+     * @example 2021-08-01 00:00:00
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-7ea3da97b96543e19f6c597cd4a9****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The time when the gateway was created. The time is displayed in GMT. The time is the local time of the region in which the gateway resides.
+     *
+     * @example 2022-01-07T10:07:57.000+0000
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The time when the gateway was last modified.
+     *
+     * @example 2022-01-07T10:07:57.000+0000
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-cn-st21ri2****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The log configuration.
+     *
      * @var logConfigDetails
      */
     public $logConfigDetails;
 
     /**
+     * @description The tag of the instance.
+     *
+     * @example {"TagKey":"TagValue"}
+     *
      * @var string
      */
     public $mseTag;
 
     /**
+     * @description The name of the gateway.
+     *
+     * @example DEFAULT
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The Alibaba Cloud account ID of the user who created the gateway.
+     *
+     * @example 1231254
+     *
      * @var string
      */
     public $primaryUser;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The number of gateway replicas.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $replica;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfm34x43l*****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The ID of the security group.
+     *
+     * @example sg-bp11ufzqn6mmb8dtzz82
+     *
      * @var string
      */
     public $securityGroup;
 
     /**
+     * @description The specifications of the gateway.
+     *
+     * @example MSE_GTW_16_32_200_c
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @description The status of the gateway. Valid values: 0: The gateway is being created. 1: The gateway fails to be created. 2: The gateway is running. 3: The gateway is changing. 4: The gateway is scaling down. 6: The gateway is scaling up. 8: The gateway is being deleted. 10: The gateway is restarting. 11: The gateway is being rebuilt. 12: The gateway is updating. 13: The gateway fails to be updated.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The description of the status.
+     *
+     * @example Restarting
+     *
      * @var string
      */
     public $statusDesc;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-bp1328cm01m6uel42b5zb
+     *
      * @var string
      */
     public $vpc;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-bp18zeqxx6mpuq843z4n5
+     *
      * @var string
      */
     public $vswitch;
 
     /**
+     * @description The ID of the secondary vSwitch.
+     *
+     * @example vpc-bp1j6ivhav15ve7q54kq2
+     *
      * @var string
      */
     public $vswitch2;
 
     /**
+     * @description The details of Tracing Analysis.
+     *
      * @var xtraceDetails
      */
     public $xtraceDetails;

@@ -9,41 +9,74 @@ use AlibabaCloud\Tea\Model;
 class CreateApplicationRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The name of the application.
+     *
+     * @example spring-cloud-a
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The additional information.
+     *
+     * @example text
+     *
      * @var string
      */
     public $extraInfo;
 
     /**
+     * @description The programming language of the application.
+     *
+     * @example JAVA
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @description The region to which the application belongs.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description Specifies whether to enable the Sentinel-compatible mode.
+     *
+     * @example true
+     *
      * @var string
      */
     public $sentinelEnable;
 
     /**
+     * @description The service where the application is deployed. A value of ACK indicates Container Service for Kubernetes.
+     *
+     * @example ACK
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description Specifies whether to enable switching.
+     *
+     * @example true
+     *
      * @var string
      */
     public $switchEnable;

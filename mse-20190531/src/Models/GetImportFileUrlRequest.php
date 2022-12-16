@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class GetImportFileUrlRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The type of the configuration file.
+     *
+     * @example application/zip
+     *
      * @var string
      */
     public $contentType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse_prepaid_public_cn-7pp2b****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example 12788f73-9848-4388-98f1-507778f2****
+     *
      * @var string
      */
     public $namespaceId;

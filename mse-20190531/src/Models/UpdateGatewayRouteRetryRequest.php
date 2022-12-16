@@ -10,26 +10,45 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayRouteRetryRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 501
+     *
      * @var int
      */
     public $gatewayId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-3f97e2989c344f35ab3fd62b19f1d10a
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The ID of the route.
+     *
+     * @example 508
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The information about the retry policy.
+     *
      * @var retryJSON
      */
     public $retryJSON;

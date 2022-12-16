@@ -9,46 +9,85 @@ use AlibabaCloud\Tea\Model;
 class AddGatewaySlbRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-9cdcf8e4f58144059e73ff4c5ef9****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The HTTP port number (virtual service group).
+     *
+     * @example 80
+     *
      * @var int
      */
     public $httpPort;
 
     /**
+     * @description The HTTPS port number (virtual service group).
+     *
+     * @example 443
+     *
      * @var int
      */
     public $httpsPort;
 
     /**
+     * @description The ID of the HTTPS virtual service group.
+     *
+     * @example 353
+     *
      * @var string
      */
     public $httpsVServerGroupId;
 
     /**
+     * @description The service weight.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $serviceWeight;
 
     /**
+     * @description SLB ID.
+     *
+     * @example lb-bp18t6jjskwxh6wy1****
+     *
      * @var string
      */
     public $slbId;
 
     /**
+     * @description The type.
+     *
+     * @example PUB_NET
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The ID of the HTTP virtual service group.
+     *
+     * @example 353
+     *
      * @var string
      */
     public $VServerGroupId;

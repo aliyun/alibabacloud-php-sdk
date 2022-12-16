@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class configurations extends Model
 {
     /**
+     * @description The name of the application.
+     *
+     * @example test
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The ID of the configuration.
+     *
+     * @example log.yaml
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @description The ID of the group.
+     *
+     * @example public
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description The ID of the application.
+     *
+     * @example 132****
+     *
      * @var string
      */
     public $id;

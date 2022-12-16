@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class UpdatePluginConfigResponseBody extends Model
 {
     /**
+     * @description Code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The ID of the plug-in configuration.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $data;
 
     /**
+     * @description The dynamic part in the error message.
+     *
+     * @example code
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @description The error code returned if the request failed.
+     *
+     * @example 500
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 03A3E2F4-6804-5663-9D5D-2EC47A1*****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

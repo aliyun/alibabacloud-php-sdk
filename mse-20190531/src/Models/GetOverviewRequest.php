@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetOverviewRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The subscription period of the instance. Unit: months. Valid values: 1, 2, 3, 6, and 12.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;

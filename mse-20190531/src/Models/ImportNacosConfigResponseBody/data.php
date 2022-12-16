@@ -11,21 +11,33 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The information about configurations failed to be imported.
+     *
      * @var failData[]
      */
     public $failData;
 
     /**
+     * @description The number of configurations that are skipped.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $skipCount;
 
     /**
+     * @description The information about skipped configurations.
+     *
      * @var skipData[]
      */
     public $skipData;
 
     /**
+     * @description The number of configurations that are imported.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $succCount;

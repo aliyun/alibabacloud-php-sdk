@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class gatewayTrafficPolicy extends Model
 {
     /**
+     * @description The load balancing settings.
+     *
      * @var loadBalancerSettings
      */
     public $loadBalancerSettings;
 
     /**
+     * @description TLS.
+     *
      * @var tls
      */
     public $tls;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the ACK cluster.
+     *
+     * @example cbc1efca895a64af097ff00b26f3f****
+     *
      * @var string
      */
     public $cluster;
 
     /**
+     * @description The name of the ACK cluster.
+     *
+     * @example k8s-demo
+     *
      * @var string
      */
     public $name;

@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of configurations.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $configCount;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example public
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The description of the namespace.
+     *
+     * @example mytest
+     *
      * @var string
      */
     public $namespaceDesc;
 
     /**
+     * @description The display name of the namespace.
+     *
+     * @example mytestshowname
+     *
      * @var string
      */
     public $namespaceShowName;
 
     /**
+     * @description The quota of configurations.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $quota;
 
     /**
+     * @description The type of the namespace. Valid values:
+     * - `2`: custom namespace
+     * @example 1
+     *
      * @var int
      */
     public $type;

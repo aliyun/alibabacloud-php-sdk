@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ingressOptions extends Model
 {
     /**
+     * @description Alibaba Cloud provides SDKs for multiple programming languages to help you integrate Alibaba Cloud products and services by using APIs. We recommend that you use an SDK to call API operations. This frees you from manual signature verification.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableIngress;
@@ -19,11 +23,19 @@ class ingressOptions extends Model
     public $enableStatus;
 
     /**
+     * @description ingress class
+     *
+     * @example com.test.xxx
+     *
      * @var string
      */
     public $ingressClass;
 
     /**
+     * @description Alibaba Cloud CLI allows you to search for API operations, call and debug API operations online, and dynamically generate executable sample code for SDKs.
+     *
+     * @example default
+     *
      * @var string
      */
     public $watchNamespace;

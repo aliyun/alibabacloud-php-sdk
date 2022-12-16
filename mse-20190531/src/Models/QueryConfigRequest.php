@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class QueryConfigRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example mse-09k1q11****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The format of the configuration. Supported formats include TEXT, JSON, XML, and HTML.
+     *
+     * @example TEXT
+     *
      * @var string
      */
     public $configType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse_prepaid_public_cn-st2212****
+     *
      * @var string
      */
     public $instanceId;
@@ -34,6 +53,10 @@ class QueryConfigRequest extends Model
     public $needRunningConf;
 
     /**
+     * @description The extended request parameter in the JSON format.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $requestPars;

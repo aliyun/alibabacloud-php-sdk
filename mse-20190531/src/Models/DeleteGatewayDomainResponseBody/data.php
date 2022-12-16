@@ -9,46 +9,82 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether HTTP probing is allowed.
+     *
+     * @example 243
+     *
      * @var string
      */
     public $certIdentifier;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example 253
+     *
      * @var int
      */
     public $gatewayId;
 
     /**
+     * @description The name of the gateway.
+     *
+     * @example gw-7ea3da97b96543e19f6c597c****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The ID of the certificate.
+     *
+     * @example 2022-01-07T10:07:57.000+0000
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The time when the domain name was added.
+     *
+     * @example 2022-01-07T10:07:57.000+0000
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description The returned data.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The protocol used by the gateway.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $mustHttps;
 
     /**
+     * @description The ID of the domain name.
+     *
+     * @example CONTACTINFO
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example HTTP
+     *
      * @var string
      */
     public $protocol;

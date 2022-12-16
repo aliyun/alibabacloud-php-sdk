@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetApplicationListWithMetircsResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -20,6 +22,8 @@ class GetApplicationListWithMetircsResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -30,11 +34,15 @@ class GetApplicationListWithMetircsResponseBody extends Model
     public $message;
 
     /**
+     * @example 062D13C5-DEA3-4921-8918-C49A0F1B****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

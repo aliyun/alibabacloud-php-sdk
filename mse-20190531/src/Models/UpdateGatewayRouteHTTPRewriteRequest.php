@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayRouteHTTPRewriteRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 430
+     *
      * @var int
      */
     public $gatewayId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-90392d768a3847a7b804c505254da96d
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The information about the rewrite policy. The JSON format is supported.
+     *
+     * @example {"HTTPRewrite":"{\"pathType\":\"PRE\",\"path\":\"/\",\"status\":\"on\"}"}
+     *
      * @var string
      */
     public $httpRewriteJSON;
 
     /**
+     * @description The ID of the route.
+     *
+     * @example 238
+     *
      * @var int
      */
     public $id;

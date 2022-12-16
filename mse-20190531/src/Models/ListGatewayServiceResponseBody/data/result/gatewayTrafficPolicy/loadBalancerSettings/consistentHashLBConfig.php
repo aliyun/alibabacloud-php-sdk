@@ -10,21 +10,40 @@ use AlibabaCloud\Tea\Model;
 class consistentHashLBConfig extends Model
 {
     /**
+     * @description The type based on which consistent hashing load balancing is performed.
+     *
+     *   HEADER
+     *   COOKIE
+     *   SOURCE_IP
+     *   QUERY_PARAMETER
+     *
+     * @example HEADER
+     *
      * @var string
      */
     public $consistentHashLBType;
 
     /**
+     * @description The cookie-based load balancing parameters.
+     *
      * @var httpCookie
      */
     public $httpCookie;
 
     /**
+     * @description The minimum value of the hash ring.
+     *
+     * @example 10000
+     *
      * @var int
      */
     public $minimumRingSize;
 
     /**
+     * @description The name of the parameter.
+     *
+     * @example param
+     *
      * @var string
      */
     public $parameterName;

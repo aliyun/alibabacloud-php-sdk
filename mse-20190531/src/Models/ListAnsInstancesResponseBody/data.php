@@ -9,101 +9,193 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the application.
+     *
+     * @example app
+     *
      * @var string
      */
     public $app;
 
     /**
+     * @description The name of the cluster.
+     *
+     * @example DEFAULT
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description The reference key.
+     *
+     * @example 30.5.XX.XX:unknown:DEFAULT
+     *
      * @var string
      */
     public $datumKey;
 
     /**
+     * @description The default key.
+     *
+     * @example 30.5.XX.XX:unknown
+     *
      * @var string
      */
     public $defaultKey;
 
     /**
+     * @description The effective status of the instance. Valid values:
+     *
+     *   `true`: The instance takes effect.
+     *   `false`: The instance does not take effect.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @description Indicates whether the service is marked as a temporary node. Valid values:
+     *
+     *   `true`: yes
+     *   `false`: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $ephemeral;
 
     /**
+     * @description The number of failed checks.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $failCount;
 
     /**
+     * @description The health status of the instance. Valid values:
+     *
+     *   `true`: The instance is healthy.
+     *   `false`: The instance is unhealthy.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $healthy;
 
     /**
+     * @description The heartbeat interval of the instance. Unit: seconds.
+     *
+     * @example 5000
+     *
      * @var int
      */
     public $instanceHeartBeatInterval;
 
     /**
+     * @description The timeout period of the instance heartbeat.
+     *
+     * @example 15000
+     *
      * @var int
      */
     public $instanceHeartBeatTimeOut;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example 30.5.XX.XX#0#DEFAULT#DEFAULT_GROUP@@consumers:com.alibaba.edas.IHelloService
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The public IP address.
+     *
+     * @example 30.5.XX.XX
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The timeout period for removing an IP address.
+     *
+     * @example 30000
+     *
      * @var int
      */
     public $ipDeleteTimeout;
 
     /**
+     * @description The time when the instance heartbeat was last checked.
+     *
+     * @example 20201010
+     *
      * @var int
      */
     public $lastBeat;
 
     /**
+     * @description Indicates whether the instance was marked. Valid values:
+     *
+     *   `true`: The instance marking was successful.
+     *   `false`: The instance marking failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $marked;
 
     /**
+     * @description The metadata.
+     *
+     * @example [int]
+     *
      * @var mixed[]
      */
     public $metadata;
 
     /**
+     * @description The number of successful checks.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $okCount;
 
     /**
+     * @description The port number.
+     *
+     * @example 8080
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The name of the service.
+     *
+     * @example DEFAULT_GROUP@@consumers:com.alibaba.edas.IHelloService::
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The weight.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $weight;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class timeout extends Model
 {
     /**
+     * @description The status.
+     *
+     * @example off
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The time unit.
+     *
+     * @example s
+     *
      * @var string
      */
     public $timeUnit;
 
     /**
+     * @description The unit number.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $unitNum;

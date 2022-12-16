@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayRouteCORSRequest extends Model
 {
     /**
+     * @description The language of the response. In compliance with [RFC 7231](https://tools.ietf.org/html/rfc7231), the backend service must return a response based on the language used by the user.
+     * This parameter is empty by default. Valid values:
+     * zh-CN: Chinese
+     * en-US: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The information about the CORS policy.
+     *
      * @var corsJSON
      */
     public $corsJSON;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 85
+     *
      * @var int
      */
     public $gatewayId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-f70a6ddf2f0941a2bb997b2d16028f37
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The ID of the route.
+     *
+     * @example 55
+     *
      * @var int
      */
     public $id;

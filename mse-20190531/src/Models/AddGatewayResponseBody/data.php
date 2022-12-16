@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-5017305290e14cebbrvec4a5****
+     *
      * @var string
      */
     public $gatewayUniqueId;

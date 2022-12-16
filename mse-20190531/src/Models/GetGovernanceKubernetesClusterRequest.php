@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetGovernanceKubernetesClusterRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example cd23228b3c80c4d4f9ad7af1d87cc****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The ID of the region in which the cluster resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,31 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DeleteGatewayServiceVersionResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The returned data.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The message returned.
+     *
+     * - If the request fails, an error message is returned, such as the "TaskId not found" message.
+     * @example The request is processed successfully.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Id of the request
+     *
+     * @example 29D52777-BE96-563E-BC6B-796ACE47A7A5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     * - `false`: The request fails.
+     * @example true
+     *
      * @var bool
      */
     public $success;

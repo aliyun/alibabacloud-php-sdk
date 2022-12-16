@@ -9,46 +9,84 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The description.
+     *
+     * @example auto-description1
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 103
+     *
      * @var int
      */
     public $gatewayId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-7ea3da97b96543e19f6c597c****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The time when the security group rule was created.
+     *
+     * @example 2022-01-07 18:07:57
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The time when the security group rule was last modified.
+     *
+     * @example 2022-01-11T14:12:55.000+0000
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description ID.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The transport layer protocol. The value of this parameter is case-insensitive. Valid values:
+     *
+     * - all: All protocols are supported.
+     * @example tcp
+     *
      * @var string
      */
     public $ipProtocol;
 
     /**
+     * @description The range of destination ports that correspond to the transport layer protocol. Valid values:
+     *
+     * - When the value of the IpProtocol parameter is all, the port number range is -1/-1, which indicates all ports.
+     * @example 8443/8443
+     *
      * @var string
      */
     public $portRange;
 
     /**
+     * @description The ID of the security group.
+     *
+     * @example sg-uf6hgwe067prhg68agfa
+     *
      * @var string
      */
     public $securityGroupId;

@@ -9,56 +9,100 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The content of the blacklist.
+     *
+     * @example text
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $gatewayId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-7ea3da97b96543e19f6c597c****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The time when the blacklist or whitelist was created.
+     *
+     * @example 2022-01-07T10:07:57.000+0000
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The time when the blacklist or whitelist was last modified.
+     *
+     * @example 2022-01-07T10:07:57.000+0000
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description ID.
+     *
+     * @example 275
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description Indicates whether the whitelist is queried.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isWhite;
 
     /**
+     * @description The ID of the resource.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource.
+     *
+     * @example GATEWAY
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The status of the blacklist or whitelist.
+     *
+     * @example on
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The type of the blacklist or whitelist.
+     *
+     * @example IP
+     *
      * @var string
      */
     public $type;

@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DeleteAuthResourceRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-3f97e2989c344f35ab3fd62b19f1****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The ID of the authorization record.
+     *
+     * @example 36
+     *
      * @var int
      */
     public $id;

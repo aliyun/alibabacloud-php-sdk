@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class corsJSON extends Model
 {
     /**
+     * @description The credentials allowed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $allowCredentials;
 
     /**
+     * @description The request headers allowed.
+     *
+     * @example content-type
+     *
      * @var string
      */
     public $allowHeaders;
 
     /**
+     * @description The HTTP methods allowed.
+     *
+     * @example GET,POST
+     *
      * @var string
      */
     public $allowMethods;
 
     /**
+     * @description The origins from which access is allowed.
+     *
+     * @example https://api.aliyun-inc.com/
+     *
      * @var string
      */
     public $allowOrigins;
 
     /**
+     * @description The response headers allowed.
+     *
+     * @example *
+     *
      * @var string
      */
     public $exposeHeaders;
 
     /**
+     * @description The status of the policy.
+     *
+     * @example off
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The unit of time.
+     *
+     * @example h
+     *
      * @var string
      */
     public $timeUnit;
 
     /**
+     * @description The value of time.
+     *
+     * @example 24
+     *
      * @var int
      */
     public $unitNum;

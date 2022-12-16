@@ -10,31 +10,56 @@ use AlibabaCloud\Tea\Model;
 class CreateEngineNamespaceResponseBody extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example mse-892k****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The details of the data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error code returned.
+     *
+     * @example mse-100-000
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example The request is successfully processed.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F6092602-C357-4750-89D9-E572FBEA****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

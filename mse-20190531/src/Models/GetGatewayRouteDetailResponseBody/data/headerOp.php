@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class headerOp extends Model
 {
     /**
+     * @description The information about headers.
+     *
      * @var headerOpItems[]
      */
     public $headerOpItems;
 
     /**
+     * @description The status.
+     *
+     * @example off
+     *
      * @var string
      */
     public $status;

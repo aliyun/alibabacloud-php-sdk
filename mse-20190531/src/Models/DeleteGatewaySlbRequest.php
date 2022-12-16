@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DeleteGatewaySlbRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description Specifies whether to delete the SLB instance purchased for the gateway when you delete the gateway.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $deleteSlb;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-c9bc5afd61014165bd58f621b491****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The ID of the associated record.
+     *
+     * @example 395
+     *
      * @var string
      */
     public $id;

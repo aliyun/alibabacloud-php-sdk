@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class timeoutJSON extends Model
 {
     /**
+     * @description The status of the policy.
+     *
+     * @example off
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The unit of time. A value of s indicates seconds.
+     *
+     * @example s
+     *
      * @var string
      */
     public $timeUnit;
 
     /**
+     * @description The value of the timeout period.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $unitNum;

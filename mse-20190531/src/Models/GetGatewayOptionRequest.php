@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class GetGatewayOptionRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 429
+     *
      * @var int
      */
     public $gatewayId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-c9bc5afd61014165bd58f621b491*****
+     *
      * @var string
      */
     public $gatewayUniqueId;

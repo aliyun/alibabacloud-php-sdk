@@ -9,56 +9,101 @@ use AlibabaCloud\Tea\Model;
 class ListNacosConfigsRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The name of the application.
+     *
+     * @example fpx-pds-pns
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The ID of the configuration.
+     *
+     * @example zeekr-*
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @description The name of the group. Default value: `default`.
+     *
+     * @example crm
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-cn-7mz2fj****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example fad732a7-ff1a-4f21-8126-4edd4****
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region in which the cluster resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The extended request parameters. The JSON format is supported.
+     *
+     * @example {\"appGroup\":\"sm_zk_asi_na610\",\"appName\":\"sm-zk\",\"appStage\":\"PUBLISH\",\"appUnit\":\"center\",\"bucId\":\"193554\",\"bucName\":\"Alibaba Mobile Business Group-UC\",\"provider\":\"aliyun\"}
+     *
      * @var string
      */
     public $requestPars;
 
     /**
+     * @description The tags of the configuration.
+     *
+     * @example billing
+     *
      * @var string
      */
     public $tags;

@@ -10,31 +10,59 @@ use AlibabaCloud\Tea\Model;
 class AddGatewayResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
+     *   If the request is successful, a success message is returned.
+     *   If the request fails, an error message is returned.
+     *
+     * @example The request is successfully processed.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 2F46B9E7-67EF-5C8A-BA52-D38D5B32AF2C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

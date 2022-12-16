@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class AddBlackWhiteListRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The content of the blacklist.
+     *
+     * @example 1.117.115.51
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-0fe488252dc44d55a9dd57875193****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description Specifies whether to enable the whitelist mode for authorization.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isWhite;
@@ -44,16 +58,28 @@ class AddBlackWhiteListRequest extends Model
     public $resourceIdJsonList;
 
     /**
+     * @description The resource type to which the blacklist or whitelist applies.
+     *
+     * @example GATEWAY
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The status of the blacklist.
+     *
+     * @example off
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The type of object in the blacklist or whitelist.
+     *
+     * @example IP
+     *
      * @var string
      */
     public $type;

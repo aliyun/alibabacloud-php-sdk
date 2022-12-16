@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the returned data.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The maximum number of connections.
+     *
+     * @example 50,000
+     *
      * @var string
      */
     public $maxConnection;
 
     /**
+     * @description The name of the instance type.
+     *
+     * @example Standard I
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The maximum connections per second (CPS).
+     *
+     * @example 50,000
+     *
      * @var string
      */
     public $newConnectionPerSecond;
 
     /**
+     * @description The maximum queries per second (QPS).
+     *
+     * @example 50,000
+     *
      * @var string
      */
     public $qps;
 
     /**
+     * @description The instance type of the SLB instance.
+     *
+     * @example slb.s2.small
+     *
      * @var string
      */
     public $spec;

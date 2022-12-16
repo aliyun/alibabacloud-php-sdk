@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class configuration extends Model
 {
     /**
+     * @description The name of the application.
+     *
+     * @example test
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The list of IP addresses where the beta release of the configuration is performed.
+     *
+     * @example 1.1.1.1,2.2.2.2
+     *
      * @var string
      */
     public $betaIps;
 
     /**
+     * @description The content of the configuration.
+     *
+     * @example log.level=error
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The ID of the configuration.
+     *
+     * @example log.yaml
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @description The description of the configuration.
+     *
+     * @example For testing
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @description The encryption key.
+     *
+     * @example key
+     *
      * @var string
      */
     public $encryptedDataKey;
 
     /**
+     * @description The name of the group.
+     *
+     * @example test
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description The MD5 value of the configuration.
+     *
+     * @example 123rfsdf3
+     *
      * @var string
      */
     public $md5;
 
     /**
+     * @description The tags of the configuration.
+     *
+     * @example context
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The format of the configuration.
+     *
+     * @example text
+     *
      * @var string
      */
     public $type;

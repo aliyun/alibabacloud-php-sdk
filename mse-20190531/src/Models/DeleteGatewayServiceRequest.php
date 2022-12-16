@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class DeleteGatewayServiceRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $gatewayId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-1a4ab101d5924b6f92c5ec98a841761f
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The ID of the service.
+     *
+     * @example 190
+     *
      * @var string
      */
     public $serviceId;

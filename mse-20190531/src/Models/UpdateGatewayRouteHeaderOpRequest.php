@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayRouteHeaderOpRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 324
+     *
      * @var int
      */
     public $gatewayId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-6bdc977deda44bf589c49d063b4c2d1d
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The information about the header configuration policy.
+     *
+     * @example {\"status\":\"on\",\"headerOpItems\":[{\"directionType\":\"Request\",\"opType\":\"Update\",\"key\":\"hosts\",\"value\":\"test.com\"}]}
+     *
      * @var string
      */
     public $headerOpJSON;
 
     /**
+     * @description The ID of the route.
+     *
+     * @example 411
+     *
      * @var int
      */
     public $id;

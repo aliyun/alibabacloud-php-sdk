@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayNameRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-1cef54brvecdb419fb264d4f9b8c
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The name of the gateway.
+     *
+     * @example demo-test
+     *
      * @var string
      */
     public $name;

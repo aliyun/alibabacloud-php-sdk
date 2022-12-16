@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class UpdateClusterSpecRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example mse-09k1q11****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The specifications of the engine.
+     *
+     * @example MSE_SC_2_4_200_c
+     *
      * @var string
      */
     public $clusterSpecification;
 
     /**
+     * @description The number of nodes.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $instanceCount;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-cn-st21ri2****
+     *
      * @var string
      */
     public $instanceId;

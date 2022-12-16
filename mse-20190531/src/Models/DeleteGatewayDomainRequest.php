@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DeleteGatewayDomainRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-90392d768a3847a7b804c505254d****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The ID of the domain name.
+     *
+     * @example 109
+     *
      * @var string
      */
     public $id;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class failData extends Model
 {
     /**
+     * @description The ID of the configuration.
+     *
+     * @example test2.yaml
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @description The ID of the group.
+     *
+     * @example test
+     *
      * @var string
      */
     public $group;

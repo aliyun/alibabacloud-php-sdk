@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class QueryGovernanceKubernetesClusterResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description HttpCode
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description Message
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DE34D413-2B79-5E77-9696-36D875E822AD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

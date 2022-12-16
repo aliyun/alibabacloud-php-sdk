@@ -10,31 +10,54 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationsWithTagRulesResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The details of the data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The message returned. Valid values:
+     *
+     * - If the request fails, an error message is returned.
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7466566F-F30F-4A29-965D-3E0AF21D****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values: -[unk]true[unk]: The request is successful. -[unk]false[unk]: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

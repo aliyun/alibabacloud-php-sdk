@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class GetEngineNamepaceRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example mse-98s****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example 0e958d79-****-b282-b702d66362b5
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse.cn-hangzhou.aliyuncs.com
+     *
      * @var string
      */
     public $instanceId;

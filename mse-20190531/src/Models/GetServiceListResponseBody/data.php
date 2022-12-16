@@ -10,51 +10,89 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the Dubbo application.
+     *
+     * @example dubbo-application
+     *
      * @var string
      */
     public $dubboApplicationName;
 
     /**
+     * @description The name of the application.
+     *
+     * @example test
+     *
      * @var string
      */
     public $edasAppName;
 
     /**
+     * @description The group.
+     *
+     * @example dubbo
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description The metadata.
+     *
+     * @example {}
+     *
      * @var mixed[]
      */
     public $metadata;
 
     /**
+     * @description The methods.
+     *
      * @var methods[]
      */
     public $methods;
 
     /**
+     * @description The type of the service registry.
+     *
+     * @example nacos
+     *
      * @var string
      */
     public $registryType;
 
     /**
+     * @description The name of the service.
+     *
+     * @example com.alibaba.xxx
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The type of the service.
+     *
+     * @example dubbo
+     *
      * @var string
      */
     public $serviceType;
 
     /**
+     * @description The name of the Spring application.
+     *
+     * @example spring-application
+     *
      * @var string
      */
     public $springApplicationName;
 
     /**
+     * @description The version information.
+     *
+     * @example 1.0.0
+     *
      * @var string
      */
     public $version;

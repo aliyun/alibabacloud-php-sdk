@@ -10,26 +10,45 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayRouteTimeoutRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 85
+     *
      * @var int
      */
     public $gatewayId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-533290d279c1405f9628c64f7c8272ee
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The ID of the route.
+     *
+     * @example 567
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The timeout period.
+     *
      * @var timeoutJSON
      */
     public $timeoutJSON;

@@ -9,71 +9,129 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
+     * @example 178432728867xxxx
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @description The ID of the consumer application.
+     *
+     * @example hkhon1po62@a000601b265xxxx
+     *
      * @var string
      */
     public $consumerAppId;
 
     /**
+     * @description The name of the consumer application.
+     *
+     * @example demo-xxxx
+     *
      * @var string
      */
     public $consumerAppName;
 
     /**
+     * @description Indicates whether the rule is enabled.
+     *
+     * - `false`: disabled
+     * @example true
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @description The description.
+     *
+     * @example desc
+     *
      * @var string
      */
     public $extraJson;
 
     /**
+     * @description The ID of the rule.
+     *
+     * @example 275
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The type of the model. Valid values:
+     *
+     * - `[unk]1[unk]`: mobile client
+     * @example 0
+     *
      * @var int
      */
     public $mockType;
 
     /**
+     * @description The name of the rule.
+     *
+     * @example mse-bc1a29b0-160230875****-reg-center-0-1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The ID of the service provider application.
+     *
+     * @example hkhon1po62@a000601b265xxxx
+     *
      * @var string
      */
     public $providerAppId;
 
     /**
+     * @description The name of the service provider application.
+     *
+     * @example demo-xxxx
+     *
      * @var string
      */
     public $providerAppName;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The HTTP mock rule.
+     *
+     * @example [{"oper":"return+json","Path":"/mock","Value":"{\n \"date\": \"2021-09-10T07:45:12.357+0000\",\n \"name\": \"name\",\n \"id\": \"1\"\n}","Method":"GET","Condition":"AND","Timeout":1,"ArgumentMockItems":[{"type":"param","name":"id","value":"1","cond":"==","operator":"rawvalue"},{"type":"param","name":"name","value":"aliyun","cond":"==","operator":"rawvalue"}]}]
+     *
      * @var string
      */
     public $scMockItemJson;
 
     /**
+     * @description The source.
+     *
+     * @example edasmsc
+     *
      * @var string
      */
     public $source;

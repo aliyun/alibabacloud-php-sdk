@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class DeleteGatewayServiceVersionRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-b6988bd16920479d9104e1729f97****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The ID of the service.
+     *
+     * @example 777
+     *
      * @var int
      */
     public $serviceId;
 
     /**
+     * @description The version of the service.
+     *
+     * @example {\"name\":\"app\",\"labels\":[{\"key\":\"app\",\"value\":\"demo-server\"}]}
+     *
      * @var string
      */
     public $serviceVersion;

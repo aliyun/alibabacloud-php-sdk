@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetPluginConfigRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * zh: Chinese en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-ubuwqygbq4783gqb2y3f87q****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The ID of the gateway plug-in.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $pluginId;

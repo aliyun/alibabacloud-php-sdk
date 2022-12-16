@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class versionDetails extends Model
 {
     /**
+     * @description The number of instances.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $endpointNum;
 
     /**
+     * @description The percentage of instances.
+     *
+     * @example 20%
+     *
      * @var string
      */
     public $endpointNumPercent;
 
     /**
+     * @description The version of the service.
+     *
      * @var serviceVersion
      */
     public $serviceVersion;

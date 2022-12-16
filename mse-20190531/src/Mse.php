@@ -142,11 +142,15 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\GetServiceListRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetServiceListResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetTagsBySwimmingLaneGroupIdRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetTagsBySwimmingLaneGroupIdResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetZookeeperDataImportUrlRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetZookeeperDataImportUrlResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ImportNacosConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ImportNacosConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ImportServicesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ImportServicesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ImportServicesShrinkRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ImportZookeeperDataRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ImportZookeeperDataResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListAnsInstancesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListAnsInstancesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListAnsServiceClustersRequest;
@@ -159,6 +163,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListApplicationsWithTagRulesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListApplicationsWithTagRulesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListClusterConnectionTypesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListClusterConnectionTypesResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListClusterHealthCheckTaskRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListClusterHealthCheckTaskResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListClustersRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListClustersResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListClusterTypesRequest;
@@ -1241,10 +1247,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CloneNacosConfigRequest $request
-     * @param RuntimeOptions          $runtime
+     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param CloneNacosConfigRequest $request CloneNacosConfigRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CloneNacosConfigResponse
+     * @return CloneNacosConfigResponse CloneNacosConfigResponse
      */
     public function cloneNacosConfigWithOptions($request, $runtime)
     {
@@ -1287,9 +1295,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CloneNacosConfigRequest $request
+     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param CloneNacosConfigRequest $request CloneNacosConfigRequest
      *
-     * @return CloneNacosConfigResponse
+     * @return CloneNacosConfigResponse CloneNacosConfigResponse
      */
     public function cloneNacosConfig($request)
     {
@@ -1363,10 +1373,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateClusterRequest $request
-     * @param RuntimeOptions       $runtime
+     * Before you call this API operation, you must make sure that you fully understand the billing method and pricing of MSE.
+     *   *
+     * @param CreateClusterRequest $request CreateClusterRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateClusterResponse
+     * @return CreateClusterResponse CreateClusterResponse
      */
     public function createClusterWithOptions($request, $runtime)
     {
@@ -1448,9 +1460,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateClusterRequest $request
+     * Before you call this API operation, you must make sure that you fully understand the billing method and pricing of MSE.
+     *   *
+     * @param CreateClusterRequest $request CreateClusterRequest
      *
-     * @return CreateClusterResponse
+     * @return CreateClusterResponse CreateClusterResponse
      */
     public function createCluster($request)
     {
@@ -1588,10 +1602,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateNacosConfigRequest $request
-     * @param RuntimeOptions           $runtime
+     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param CreateNacosConfigRequest $request CreateNacosConfigRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateNacosConfigResponse
+     * @return CreateNacosConfigResponse CreateNacosConfigResponse
      */
     public function createNacosConfigWithOptions($request, $runtime)
     {
@@ -1649,9 +1665,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateNacosConfigRequest $request
+     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param CreateNacosConfigRequest $request CreateNacosConfigRequest
      *
-     * @return CreateNacosConfigResponse
+     * @return CreateNacosConfigResponse CreateNacosConfigResponse
      */
     public function createNacosConfig($request)
     {
@@ -1661,10 +1679,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateNacosInstanceRequest $request
-     * @param RuntimeOptions             $runtime
+     * Programming language.
+     *   *
+     * @param CreateNacosInstanceRequest $request CreateNacosInstanceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateNacosInstanceResponse
+     * @return CreateNacosInstanceResponse CreateNacosInstanceResponse
      */
     public function createNacosInstanceWithOptions($request, $runtime)
     {
@@ -1727,9 +1747,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateNacosInstanceRequest $request
+     * Programming language.
+     *   *
+     * @param CreateNacosInstanceRequest $request CreateNacosInstanceRequest
      *
-     * @return CreateNacosInstanceResponse
+     * @return CreateNacosInstanceResponse CreateNacosInstanceResponse
      */
     public function createNacosInstance($request)
     {
@@ -1739,10 +1761,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateNacosServiceRequest $request
-     * @param RuntimeOptions            $runtime
+     * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param CreateNacosServiceRequest $request CreateNacosServiceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateNacosServiceResponse
+     * @return CreateNacosServiceResponse CreateNacosServiceResponse
      */
     public function createNacosServiceWithOptions($request, $runtime)
     {
@@ -1791,9 +1815,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateNacosServiceRequest $request
+     * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param CreateNacosServiceRequest $request CreateNacosServiceRequest
      *
-     * @return CreateNacosServiceResponse
+     * @return CreateNacosServiceResponse CreateNacosServiceResponse
      */
     public function createNacosService($request)
     {
@@ -2481,10 +2507,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteNacosConfigRequest $request
-     * @param RuntimeOptions           $runtime
+     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param DeleteNacosConfigRequest $request DeleteNacosConfigRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNacosConfigResponse
+     * @return DeleteNacosConfigResponse DeleteNacosConfigResponse
      */
     public function deleteNacosConfigWithOptions($request, $runtime)
     {
@@ -2527,9 +2555,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteNacosConfigRequest $request
+     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param DeleteNacosConfigRequest $request DeleteNacosConfigRequest
      *
-     * @return DeleteNacosConfigResponse
+     * @return DeleteNacosConfigResponse DeleteNacosConfigResponse
      */
     public function deleteNacosConfig($request)
     {
@@ -2539,10 +2569,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteNacosConfigsRequest $request
-     * @param RuntimeOptions            $runtime
+     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param DeleteNacosConfigsRequest $request DeleteNacosConfigsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNacosConfigsResponse
+     * @return DeleteNacosConfigsResponse DeleteNacosConfigsResponse
      */
     public function deleteNacosConfigsWithOptions($request, $runtime)
     {
@@ -2579,9 +2611,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteNacosConfigsRequest $request
+     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param DeleteNacosConfigsRequest $request DeleteNacosConfigsRequest
      *
-     * @return DeleteNacosConfigsResponse
+     * @return DeleteNacosConfigsResponse DeleteNacosConfigsResponse
      */
     public function deleteNacosConfigs($request)
     {
@@ -2591,10 +2625,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteNacosInstanceRequest $request
-     * @param RuntimeOptions             $runtime
+     * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param DeleteNacosInstanceRequest $request DeleteNacosInstanceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNacosInstanceResponse
+     * @return DeleteNacosInstanceResponse DeleteNacosInstanceResponse
      */
     public function deleteNacosInstanceWithOptions($request, $runtime)
     {
@@ -2646,9 +2682,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteNacosInstanceRequest $request
+     * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param DeleteNacosInstanceRequest $request DeleteNacosInstanceRequest
      *
-     * @return DeleteNacosInstanceResponse
+     * @return DeleteNacosInstanceResponse DeleteNacosInstanceResponse
      */
     public function deleteNacosInstance($request)
     {
@@ -2658,10 +2696,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteNacosServiceRequest $request
-     * @param RuntimeOptions            $runtime
+     * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param DeleteNacosServiceRequest $request DeleteNacosServiceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNacosServiceResponse
+     * @return DeleteNacosServiceResponse DeleteNacosServiceResponse
      */
     public function deleteNacosServiceWithOptions($request, $runtime)
     {
@@ -2701,9 +2741,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteNacosServiceRequest $request
+     * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param DeleteNacosServiceRequest $request DeleteNacosServiceRequest
      *
-     * @return DeleteNacosServiceResponse
+     * @return DeleteNacosServiceResponse DeleteNacosServiceResponse
      */
     public function deleteNacosService($request)
     {
@@ -2955,10 +2997,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ExportNacosConfigRequest $request
-     * @param RuntimeOptions           $runtime
+     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param ExportNacosConfigRequest $request ExportNacosConfigRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExportNacosConfigResponse
+     * @return ExportNacosConfigResponse ExportNacosConfigResponse
      */
     public function exportNacosConfigWithOptions($request, $runtime)
     {
@@ -3004,9 +3048,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ExportNacosConfigRequest $request
+     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param ExportNacosConfigRequest $request ExportNacosConfigRequest
      *
-     * @return ExportNacosConfigResponse
+     * @return ExportNacosConfigResponse ExportNacosConfigResponse
      */
     public function exportNacosConfig($request)
     {
@@ -3640,10 +3686,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetImportFileUrlRequest $request
-     * @param RuntimeOptions          $runtime
+     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param GetImportFileUrlRequest $request GetImportFileUrlRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetImportFileUrlResponse
+     * @return GetImportFileUrlResponse GetImportFileUrlResponse
      */
     public function getImportFileUrlWithOptions($request, $runtime)
     {
@@ -3680,9 +3728,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetImportFileUrlRequest $request
+     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param GetImportFileUrlRequest $request GetImportFileUrlRequest
      *
-     * @return GetImportFileUrlResponse
+     * @return GetImportFileUrlResponse GetImportFileUrlResponse
      */
     public function getImportFileUrl($request)
     {
@@ -3833,10 +3883,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetNacosConfigRequest $request
-     * @param RuntimeOptions        $runtime
+     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param GetNacosConfigRequest $request GetNacosConfigRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetNacosConfigResponse
+     * @return GetNacosConfigResponse GetNacosConfigResponse
      */
     public function getNacosConfigWithOptions($request, $runtime)
     {
@@ -3879,9 +3931,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetNacosConfigRequest $request
+     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param GetNacosConfigRequest $request GetNacosConfigRequest
      *
-     * @return GetNacosConfigResponse
+     * @return GetNacosConfigResponse GetNacosConfigResponse
      */
     public function getNacosConfig($request)
     {
@@ -3891,10 +3945,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetNacosHistoryConfigRequest $request
-     * @param RuntimeOptions               $runtime
+     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param GetNacosHistoryConfigRequest $request GetNacosHistoryConfigRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetNacosHistoryConfigResponse
+     * @return GetNacosHistoryConfigResponse GetNacosHistoryConfigResponse
      */
     public function getNacosHistoryConfigWithOptions($request, $runtime)
     {
@@ -3937,9 +3993,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetNacosHistoryConfigRequest $request
+     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param GetNacosHistoryConfigRequest $request GetNacosHistoryConfigRequest
      *
-     * @return GetNacosHistoryConfigResponse
+     * @return GetNacosHistoryConfigResponse GetNacosHistoryConfigResponse
      */
     public function getNacosHistoryConfig($request)
     {
@@ -4282,10 +4340,61 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ImportNacosConfigRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param GetZookeeperDataImportUrlRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return ImportNacosConfigResponse
+     * @return GetZookeeperDataImportUrlResponse
+     */
+    public function getZookeeperDataImportUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->contentType)) {
+            $query['ContentType'] = $request->contentType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetZookeeperDataImportUrl',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetZookeeperDataImportUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetZookeeperDataImportUrlRequest $request
+     *
+     * @return GetZookeeperDataImportUrlResponse
+     */
+    public function getZookeeperDataImportUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getZookeeperDataImportUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param ImportNacosConfigRequest $request ImportNacosConfigRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ImportNacosConfigResponse ImportNacosConfigResponse
      */
     public function importNacosConfigWithOptions($request, $runtime)
     {
@@ -4325,9 +4434,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ImportNacosConfigRequest $request
+     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param ImportNacosConfigRequest $request ImportNacosConfigRequest
      *
-     * @return ImportNacosConfigResponse
+     * @return ImportNacosConfigResponse ImportNacosConfigResponse
      */
     public function importNacosConfig($request)
     {
@@ -4397,10 +4508,70 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListAnsInstancesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param ImportZookeeperDataRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return ListAnsInstancesResponse
+     * @return ImportZookeeperDataResponse
+     */
+    public function importZookeeperDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->fileUrl)) {
+            $query['FileUrl'] = $request->fileUrl;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->requestPars)) {
+            $query['RequestPars'] = $request->requestPars;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportZookeeperData',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ImportZookeeperDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ImportZookeeperDataRequest $request
+     *
+     * @return ImportZookeeperDataResponse
+     */
+    public function importZookeeperData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importZookeeperDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param ListAnsInstancesRequest $request ListAnsInstancesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAnsInstancesResponse ListAnsInstancesResponse
      */
     public function listAnsInstancesWithOptions($request, $runtime)
     {
@@ -4425,9 +4596,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListAnsInstancesRequest $request
+     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param ListAnsInstancesRequest $request ListAnsInstancesRequest
      *
-     * @return ListAnsInstancesResponse
+     * @return ListAnsInstancesResponse ListAnsInstancesResponse
      */
     public function listAnsInstances($request)
     {
@@ -4437,10 +4610,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListAnsServiceClustersRequest $request
-     * @param RuntimeOptions                $runtime
+     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param ListAnsServiceClustersRequest $request ListAnsServiceClustersRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAnsServiceClustersResponse
+     * @return ListAnsServiceClustersResponse ListAnsServiceClustersResponse
      */
     public function listAnsServiceClustersWithOptions($request, $runtime)
     {
@@ -4465,9 +4640,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListAnsServiceClustersRequest $request
+     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param ListAnsServiceClustersRequest $request ListAnsServiceClustersRequest
      *
-     * @return ListAnsServiceClustersResponse
+     * @return ListAnsServiceClustersResponse ListAnsServiceClustersResponse
      */
     public function listAnsServiceClusters($request)
     {
@@ -4477,10 +4654,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListAnsServicesRequest $request
-     * @param RuntimeOptions         $runtime
+     * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param ListAnsServicesRequest $request ListAnsServicesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAnsServicesResponse
+     * @return ListAnsServicesResponse ListAnsServicesResponse
      */
     public function listAnsServicesWithOptions($request, $runtime)
     {
@@ -4505,9 +4684,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListAnsServicesRequest $request
+     * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param ListAnsServicesRequest $request ListAnsServicesRequest
      *
-     * @return ListAnsServicesResponse
+     * @return ListAnsServicesResponse ListAnsServicesResponse
      */
     public function listAnsServices($request)
     {
@@ -4646,6 +4827,64 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listClusterConnectionTypesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListClusterHealthCheckTaskRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListClusterHealthCheckTaskResponse
+     */
+    public function listClusterHealthCheckTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->requestPars)) {
+            $query['RequestPars'] = $request->requestPars;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClusterHealthCheckTask',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListClusterHealthCheckTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListClusterHealthCheckTaskRequest $request
+     *
+     * @return ListClusterHealthCheckTaskResponse
+     */
+    public function listClusterHealthCheckTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listClusterHealthCheckTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -5249,10 +5488,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListListenersByConfigRequest $request
-     * @param RuntimeOptions               $runtime
+     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param ListListenersByConfigRequest $request ListListenersByConfigRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListListenersByConfigResponse
+     * @return ListListenersByConfigResponse ListListenersByConfigResponse
      */
     public function listListenersByConfigWithOptions($request, $runtime)
     {
@@ -5295,9 +5536,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListListenersByConfigRequest $request
+     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param ListListenersByConfigRequest $request ListListenersByConfigRequest
      *
-     * @return ListListenersByConfigResponse
+     * @return ListListenersByConfigResponse ListListenersByConfigResponse
      */
     public function listListenersByConfig($request)
     {
@@ -5307,10 +5550,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListListenersByIpRequest $request
-     * @param RuntimeOptions           $runtime
+     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param ListListenersByIpRequest $request ListListenersByIpRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListListenersByIpResponse
+     * @return ListListenersByIpResponse ListListenersByIpResponse
      */
     public function listListenersByIpWithOptions($request, $runtime)
     {
@@ -5350,9 +5595,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListListenersByIpRequest $request
+     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param ListListenersByIpRequest $request ListListenersByIpRequest
      *
-     * @return ListListenersByIpResponse
+     * @return ListListenersByIpResponse ListListenersByIpResponse
      */
     public function listListenersByIp($request)
     {
@@ -5362,10 +5609,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListNacosConfigsRequest $request
-     * @param RuntimeOptions          $runtime
+     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param ListNacosConfigsRequest $request ListNacosConfigsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListNacosConfigsResponse
+     * @return ListNacosConfigsResponse ListNacosConfigsResponse
      */
     public function listNacosConfigsWithOptions($request, $runtime)
     {
@@ -5423,9 +5672,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListNacosConfigsRequest $request
+     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param ListNacosConfigsRequest $request ListNacosConfigsRequest
      *
-     * @return ListNacosConfigsResponse
+     * @return ListNacosConfigsResponse ListNacosConfigsResponse
      */
     public function listNacosConfigs($request)
     {
@@ -5435,10 +5686,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListNacosHistoryConfigsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param ListNacosHistoryConfigsRequest $request ListNacosHistoryConfigsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListNacosHistoryConfigsResponse
+     * @return ListNacosHistoryConfigsResponse ListNacosHistoryConfigsResponse
      */
     public function listNacosHistoryConfigsWithOptions($request, $runtime)
     {
@@ -5490,9 +5743,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListNacosHistoryConfigsRequest $request
+     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param ListNacosHistoryConfigsRequest $request ListNacosHistoryConfigsRequest
      *
-     * @return ListNacosHistoryConfigsResponse
+     * @return ListNacosHistoryConfigsResponse ListNacosHistoryConfigsResponse
      */
     public function listNacosHistoryConfigs($request)
     {
@@ -7104,10 +7359,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateClusterSpecRequest $request
-     * @param RuntimeOptions           $runtime
+     * You can call this API operation to update the number of nodes or specifications of a pay-as-you-go MSE instance. You are charged for node addition or specifications upgrades of the instance. For more information about billing, see [Billing overview](~~139842~~).
+     *   *
+     * @param UpdateClusterSpecRequest $request UpdateClusterSpecRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateClusterSpecResponse
+     * @return UpdateClusterSpecResponse UpdateClusterSpecResponse
      */
     public function updateClusterSpecWithOptions($request, $runtime)
     {
@@ -7147,9 +7404,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateClusterSpecRequest $request
+     * You can call this API operation to update the number of nodes or specifications of a pay-as-you-go MSE instance. You are charged for node addition or specifications upgrades of the instance. For more information about billing, see [Billing overview](~~139842~~).
+     *   *
+     * @param UpdateClusterSpecRequest $request UpdateClusterSpecRequest
      *
-     * @return UpdateClusterSpecResponse
+     * @return UpdateClusterSpecResponse UpdateClusterSpecResponse
      */
     public function updateClusterSpec($request)
     {
@@ -8057,10 +8316,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewaySpecRequest $request
-     * @param RuntimeOptions           $runtime
+     * You can call this operation to update the number or specifications of nodes in a pay-as-you-go cloud-native gateway. You are charged when you add nodes or upgrade node specifications. For more information, see \\[Pricing] (`~~250950~~`).
+     *   *
+     * @param UpdateGatewaySpecRequest $request UpdateGatewaySpecRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGatewaySpecResponse
+     * @return UpdateGatewaySpecResponse UpdateGatewaySpecResponse
      */
     public function updateGatewaySpecWithOptions($request, $runtime)
     {
@@ -8097,9 +8358,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewaySpecRequest $request
+     * You can call this operation to update the number or specifications of nodes in a pay-as-you-go cloud-native gateway. You are charged when you add nodes or upgrade node specifications. For more information, see \\[Pricing] (`~~250950~~`).
+     *   *
+     * @param UpdateGatewaySpecRequest $request UpdateGatewaySpecRequest
      *
-     * @return UpdateGatewaySpecResponse
+     * @return UpdateGatewaySpecResponse UpdateGatewaySpecResponse
      */
     public function updateGatewaySpec($request)
     {
@@ -8288,10 +8551,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateNacosConfigRequest $request
-     * @param RuntimeOptions           $runtime
+     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param UpdateNacosConfigRequest $request UpdateNacosConfigRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateNacosConfigResponse
+     * @return UpdateNacosConfigResponse UpdateNacosConfigResponse
      */
     public function updateNacosConfigWithOptions($request, $runtime)
     {
@@ -8355,9 +8620,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateNacosConfigRequest $request
+     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param UpdateNacosConfigRequest $request UpdateNacosConfigRequest
      *
-     * @return UpdateNacosConfigResponse
+     * @return UpdateNacosConfigResponse UpdateNacosConfigResponse
      */
     public function updateNacosConfig($request)
     {
@@ -8367,10 +8634,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateNacosInstanceRequest $request
-     * @param RuntimeOptions             $runtime
+     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param UpdateNacosInstanceRequest $request UpdateNacosInstanceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateNacosInstanceResponse
+     * @return UpdateNacosInstanceResponse UpdateNacosInstanceResponse
      */
     public function updateNacosInstanceWithOptions($request, $runtime)
     {
@@ -8433,9 +8702,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateNacosInstanceRequest $request
+     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param UpdateNacosInstanceRequest $request UpdateNacosInstanceRequest
      *
-     * @return UpdateNacosInstanceResponse
+     * @return UpdateNacosInstanceResponse UpdateNacosInstanceResponse
      */
     public function updateNacosInstance($request)
     {
@@ -8445,10 +8716,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateNacosServiceRequest $request
-     * @param RuntimeOptions            $runtime
+     * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param UpdateNacosServiceRequest $request UpdateNacosServiceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateNacosServiceResponse
+     * @return UpdateNacosServiceResponse UpdateNacosServiceResponse
      */
     public function updateNacosServiceWithOptions($request, $runtime)
     {
@@ -8494,9 +8767,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateNacosServiceRequest $request
+     * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *   *
+     * @param UpdateNacosServiceRequest $request UpdateNacosServiceRequest
      *
-     * @return UpdateNacosServiceResponse
+     * @return UpdateNacosServiceResponse UpdateNacosServiceResponse
      */
     public function updateNacosService($request)
     {

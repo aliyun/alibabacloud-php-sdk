@@ -9,31 +9,49 @@ use AlibabaCloud\Tea\Model;
 class methods extends Model
 {
     /**
+     * @description The controller of the method.
+     *
+     * @example com.alibaba.SayHelloController
+     *
      * @var string
      */
     public $methodController;
 
     /**
+     * @description The name of the method.
+     *
+     * @example sayHello
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The data types of the parameters.
+     *
      * @var string[]
      */
     public $parameterTypes;
 
     /**
+     * @description The paths.
+     *
      * @var string[]
      */
     public $paths;
 
     /**
+     * @description The methods.
+     *
      * @var string[]
      */
     public $requestMethods;
 
     /**
+     * @description The type of the return value.
+     *
+     * @example int
+     *
      * @var string
      */
     public $returnType;

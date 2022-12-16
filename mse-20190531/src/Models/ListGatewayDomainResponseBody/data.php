@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The expiration time of the certificate.
+     *
+     * @example 2031-03-30 02:35:12
+     *
      * @var string
      */
     public $certBeforeDate;
 
     /**
+     * @description The ID of the certificate.
+     *
+     * @example 3452-cn-hangzhou
+     *
      * @var string
      */
     public $certIdentifier;
@@ -25,61 +33,105 @@ class data extends Model
     public $comment;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $gatewayId;
 
     /**
+     * @description The time when the domain name was associated.
+     *
+     * @example 2031-03-30 02:35:12
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The time when the domain name was last modified.
+     *
+     * @example 2031-03-30 02:35:12
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description Specifies whether to enable `Http2`.
+     * - `globalConfig`: uses global configurations.
+     * @example close
+     *
      * @var string
      */
     public $http2;
 
     /**
+     * @description ID
+     *
+     * @example 243
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description Indicates whether HTTPS is forcibly used.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $mustHttps;
 
     /**
+     * @description The domain name.
+     *
+     * @example test.com
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the protocol.
+     *
+     * @example HTTP
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The maximum version of Transport Layer Security (TLS).
+     *
+     * @example TLS 1.3
+     *
      * @var string
      */
     public $tlsMax;
 
     /**
+     * @description The minimum version of TLS.
+     *
+     * @example TLS 1.0
+     *
      * @var string
      */
     public $tlsMin;
 
     /**
+     * @example Op
+     *
      * @var string
      */
     public $type;

@@ -9,96 +9,170 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The application version.
+     *
+     * @example 1.9.3
+     *
      * @var string
      */
     public $appVersion;
 
     /**
+     * @description Indicates whether the instance can be upgraded.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $canUpdate;
 
     /**
+     * @description The billing method, such as subscription or pay-as-you-go.
+     *
+     * @example Pay-as-you-go
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The alias of the instance.
+     *
+     * @example mse-7413****
+     *
      * @var string
      */
     public $clusterAliasName;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example mse-cn-st21ri2****
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description The type of the instance. Valid values: ZooKeeper, Nacos-Ans, and Eureka.
+     *
+     * @example Eureka
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @description The time when the instance was created.
+     *
+     * @example 2020-07-31 11:36:08
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The time when the instance expires.
+     *
+     * @example 2021-08-01 00:00:00
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @description The initialization status of the instance.
+     *
+     * @example RESTART_SUCCESS
+     *
      * @var string
      */
     public $initStatus;
 
     /**
+     * @description The number of instances.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $instanceCount;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-cn-st21ri2****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The public IP address of the instance.
+     *
+     * @example 47.98.XX.XX
+     *
      * @var string
      */
     public $internetAddress;
 
     /**
+     * @description The public endpoint of the instance.
+     *
+     * @example mse-7413****-p.eureka.mse.aliyuncs.com
+     *
      * @var string
      */
     public $internetDomain;
 
     /**
+     * @description The internal IP address of the instance.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $intranetAddress;
 
     /**
+     * @description The internal endpoint of the instance.
+     *
+     * @example mse-7413****-eureka.mse.aliyuncs.com
+     *
      * @var string
      */
     public $intranetDomain;
 
     /**
+     * @description The edition of the instance.
+     *
+     * @example mse_pro
+     *
      * @var string
      */
     public $mseVersion;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
+     * @example rg-acfmv7jiavm4uxa
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The tags that are attached to the instance.
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @description The version information.
+     *
+     * @example EUREKA_1_9_3
+     *
      * @var string
      */
     public $versionCode;

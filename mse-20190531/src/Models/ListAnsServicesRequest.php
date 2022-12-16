@@ -9,51 +9,96 @@ use AlibabaCloud\Tea\Model;
 class ListAnsServicesRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * > This operation contains both the InstanceId and ClusterId parameters. You must specify one of them.
+     * @example mse-09k1q11****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The name of the contact group.
+     *
+     * @example name
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description Specifies whether to query the number of instances that are used for the service.
+     *
+     * @example true
+     *
      * @var string
      */
     public $hasIpCount;
 
     /**
+     * @description The ID of the instance.
+     *
+     * > This operation contains both the InstanceId and ClusterId parameters. You must specify one of them.
+     * @example mse-cn-st21v5****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example 12233****
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The extended request parameter in the JSON format.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $requestPars;
 
     /**
+     * @description The name of the service.
+     *
+     * @example name
+     *
      * @var string
      */
     public $serviceName;

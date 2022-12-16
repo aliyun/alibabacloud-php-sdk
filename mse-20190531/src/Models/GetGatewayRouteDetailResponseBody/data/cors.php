@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class cors extends Model
 {
     /**
+     * @description The credentials allowed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $allowCredentials;
 
     /**
+     * @description The headers allowed.
+     *
+     * @example *
+     *
      * @var string
      */
     public $allowHeaders;
 
     /**
+     * @description The methods allowed.
+     *
+     * @example GET,POST,PUT,DELETE,HEAD,OPTIONS,PATCH
+     *
      * @var string
      */
     public $allowMethods;
 
     /**
+     * @description The origins allowed.
+     *
+     * @example *
+     *
      * @var string
      */
     public $allowOrigins;
 
     /**
+     * @description The response headers.
+     *
+     * @example *
+     *
      * @var string
      */
     public $exposeHeaders;
 
     /**
+     * @description The status.
+     *
+     * @example off
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The time unit.
+     *
+     * @example h
+     *
      * @var string
      */
     public $timeUnit;
 
     /**
+     * @description The unit number.
+     *
+     * @example 24
+     *
      * @var int
      */
     public $unitNum;

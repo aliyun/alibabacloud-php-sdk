@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class GetNacosConfigResponseBody extends Model
 {
     /**
+     * @description The information about the configuration.
+     *
      * @var configuration
      */
     public $configuration;
 
     /**
+     * @description The error code returned if the request fails.
+     *
+     * @example mse-100-000
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B4EAB48C-BB4B-5B8D-B33B-35D69606C5AD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     * - `false`: The request fails.
+     * @example true
+     *
      * @var bool
      */
     public $success;

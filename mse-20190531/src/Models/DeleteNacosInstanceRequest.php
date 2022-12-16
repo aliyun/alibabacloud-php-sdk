@@ -9,46 +9,88 @@ use AlibabaCloud\Tea\Model;
 class DeleteNacosInstanceRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example DEFAULT
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description Specifies whether the instance is a temporary node. Valid values:
+     *
+     *   `true`: yes
+     *   `false`: no
+     *
+     * @example false
+     *
      * @var bool
      */
     public $ephemeral;
 
     /**
+     * @description The name of the group.
+     *
+     * @example DEFAULT_GROUP
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-cn-st21v5****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The IP address of the instance.
+     *
+     * @example 10.237.1.32
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example 9e78a671-4b9b-4dd4-99c1-0b9da87****
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The port number of the instance.
+     *
+     * @example 8080
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The name of the service.
+     *
+     * @example hello_service
+     *
      * @var string
      */
     public $serviceName;

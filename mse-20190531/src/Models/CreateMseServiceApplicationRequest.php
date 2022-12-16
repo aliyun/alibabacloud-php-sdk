@@ -9,46 +9,94 @@ use AlibabaCloud\Tea\Model;
 class CreateMseServiceApplicationRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The name of the application.
+     *
+     * @example bsd-xxyp-open-goods-server
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The additional information.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $extraInfo;
 
     /**
+     * @description The programming language of the application.
+     *
+     * @example JAVA
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @description The edition of the MSE instance that you want to purchase.
+     *
+     *   mse_pro: Professional Edition
+     *   mse_dev: Developer Edition
+     *
+     * @example mse_pro
+     *
      * @var string
      */
     public $mseVersion;
 
     /**
+     * @description The ID of the region where the Microservices Engine (MSE) instance resides. Examples:
+     *
+     *   cn-hangzhou: China (Hangzhou)
+     *   cn-beijing: China (Beijing)
+     *   cn-shanghai: China (Shanghai)
+     *   cn-zhangjiakou: China (Zhangjiakou)
+     *   cn-shenzhen: China (Shenzhen)
+     *
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description Specifies whether to enable the Sentinel-compatible mode.
+     *
+     * @example true
+     *
      * @var string
      */
     public $sentinelEnable;
 
     /**
+     * @description The service source.
+     *
+     * @example edasmsc
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description Specifies whether to enable switching.
+     *
+     * @example true
+     *
      * @var string
      */
     public $switchEnable;

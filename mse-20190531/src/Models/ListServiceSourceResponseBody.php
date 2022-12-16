@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class ListServiceSourceResponseBody extends Model
 {
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     * - `false`: The request fails.
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The data structure.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The error message returned if the request fails.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The status code returned.
+     *
+     * @example You are not authorized to perform this operation.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example B8C4B0D8-EBB9-5F20-8295-04224FBE5529
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The returned results.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,46 +9,80 @@ use AlibabaCloud\Tea\Model;
 class healthCheckInfo extends Model
 {
     /**
+     * @description Indicates whether checks are performed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $check;
 
     /**
+     * @description The expected status of the health check.
+     *
      * @var int[]
      */
     public $expectedStatuses;
 
     /**
+     * @description The threshold for healthy instances.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $healthyThreshold;
 
     /**
+     * @description The URL of the HTTP request for the health check.
+     *
+     * @example http://172.168.0.1
+     *
      * @var string
      */
     public $httpHost;
 
     /**
+     * @description The path to which the HTTP request for the health check is sent.
+     *
+     * @example /health
+     *
      * @var string
      */
     public $httpPath;
 
     /**
+     * @description The health check interval.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @description The network protocol.
+     *
+     * @example TCP
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @description The timeout period.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $timeout;
 
     /**
+     * @description The threshold for unhealthy instances.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $unhealthyThreshold;

@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class UpdateBlackWhiteListRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The content of the blacklist.
+     *
+     * @example 127.0.2.11
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-c70622ff52fe49beb29bea9a6f52****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The ID of the blacklist.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description Specifies whether to modify the whitelist.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isWhite;
@@ -49,16 +70,28 @@ class UpdateBlackWhiteListRequest extends Model
     public $resourceIdJsonList;
 
     /**
+     * @description The type of the resource.
+     *
+     * @example GATEWAY
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description Specifies whether to enable the blacklist or whitelist.
+     *
+     * @example on
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The type of the blacklist or whitelist.
+     *
+     * @example IP
+     *
      * @var string
      */
     public $type;

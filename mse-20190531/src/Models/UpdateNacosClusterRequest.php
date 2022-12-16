@@ -9,46 +9,85 @@ use AlibabaCloud\Tea\Model;
 class UpdateNacosClusterRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The port used for health checks.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $checkPort;
 
     /**
+     * @description The name of the Nacos cluster.
+     *
+     * @example DEFAULT
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description The name of the group.
+     *
+     * @example DEFAULT_GROUP
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The type of the health check.
+     *
+     * @example {"type":"none"}
+     *
      * @var string
      */
     public $healthChecker;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-cn-123456
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example 9e78a671-4b9b-4dd4-99c1-0b9da87d3dec
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The name of the service.
+     *
+     * @example hello_service
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description Specifies whether to use the port of the instance for a health check.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $useInstancePortForCheck;

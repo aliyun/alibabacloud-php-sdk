@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The information about instances.
+     *
      * @var string[]
      */
     public $instancesId;
 
     /**
+     * @description The name of the service.
+     *
+     * @example CONTACTINFO
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The number of service providers. The value is in the following format: Number of healthy instances/Total number of instances.
+     *
+     * @example 1/1
+     *
      * @var string
      */
     public $upStatus;

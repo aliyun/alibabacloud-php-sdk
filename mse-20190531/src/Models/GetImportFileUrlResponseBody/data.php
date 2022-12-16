@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The upload URL of the configuration file.
+     *
+     * @example http://xxxxxxx
+     *
      * @var string
      */
     public $url;

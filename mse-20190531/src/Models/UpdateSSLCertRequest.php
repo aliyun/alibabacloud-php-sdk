@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class UpdateSSLCertRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the certificate.
+     *
+     * @example 5951436-cn-hangzhou
+     *
      * @var string
      */
     public $certIdentifier;
 
     /**
+     * @description The ID of the domain name.
+     *
+     * @example 210
+     *
      * @var int
      */
     public $domainId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-2a99625886d54722be94d92e9a69****
+     *
      * @var string
      */
     public $gatewayUniqueId;

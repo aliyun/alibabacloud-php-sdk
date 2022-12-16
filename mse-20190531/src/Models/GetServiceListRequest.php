@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class GetServiceListRequest extends Model
 {
     /**
+     * @description The language of the response.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the application.
+     *
+     * @example xxx@xxx
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The IP address.
+     *
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-zhangjiakou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The name of the service.
+     *
+     * @example com.alibaba.xxx
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The type of the framework.
+     *
+     * @example dubbo
+     *
      * @var string
      */
     public $serviceType;

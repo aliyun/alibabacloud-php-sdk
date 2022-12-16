@@ -10,91 +10,170 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The category of the plug-in.
+     *
+     * 5: traffic observation
+     * @example 0
+     *
      * @var int
      */
     public $category;
 
     /**
+     * @description The information about the plug-in configuration used for checking.
+     *
+     * @example \# The configuration includes the fields required for checking, such as name, age, and friends. Sample configuration: name: John age: 18 friends: - David - Anne
+     *
      * @var string
      */
     public $configCheck;
 
     /**
+     * @description The list of gateway plug-in configurations.
+     *
      * @var gatewayConfigList[]
      */
     public $gatewayConfigList;
 
     /**
+     * @description The ID of the plug-in.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the image.
+     *
+     * @example name
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @description The mode.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $mode;
 
     /**
+     * @description The name of the plug-in.
+     *
+     * @example name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The execution stage of the plug-in.
+     *
+     * 3: statistics stage
+     * @example 0
+     *
      * @var int
      */
     public $phase;
 
     /**
+     * @description The ID of the creator.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $primaryUser;
 
     /**
+     * @description The execution priority of the plug-in. A larger value indicates a higher priority.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @description The publish status.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $publishState;
 
     /**
+     * @description The description of the README file.
+     *
+     * @example read me
+     *
      * @var string
      */
     public $readme;
 
     /**
+     * @description The description of the README file that is edited in English.
+     *
+     * @example read me
+     *
      * @var string
      */
     public $readmeEn;
 
     /**
+     * @description Indicates whether the plug-in is enabled.
+     *
+     * 1: enabled
+     * @example 1
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The summary of the plug-in.
+     *
+     * @example This is a plug-in.
+     *
      * @var string
      */
     public $summary;
 
     /**
+     * @description The type.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @description The version of the plug-in.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $version;
 
     /**
+     * @var string
+     */
+    public $versionJson;
+
+    /**
+     * @description The WebAssembly language.
+     *
+     * 4: Zig
+     * @example 0
+     *
      * @var int
      */
     public $wasmLang;
@@ -116,6 +195,7 @@ class data extends Model
         'summary'           => 'Summary',
         'type'              => 'Type',
         'version'           => 'Version',
+        'versionJson'       => 'VersionJson',
         'wasmLang'          => 'WasmLang',
     ];
 
@@ -182,6 +262,9 @@ class data extends Model
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
+        }
+        if (null !== $this->versionJson) {
+            $res['VersionJson'] = $this->versionJson;
         }
         if (null !== $this->wasmLang) {
             $res['WasmLang'] = $this->wasmLang;
@@ -254,6 +337,9 @@ class data extends Model
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
+        }
+        if (isset($map['VersionJson'])) {
+            $model->versionJson = $map['VersionJson'];
         }
         if (isset($map['WasmLang'])) {
             $model->wasmLang = $map['WasmLang'];

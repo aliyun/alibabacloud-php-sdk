@@ -9,36 +9,94 @@ use AlibabaCloud\Tea\Model;
 class QueryMonitorRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The timestamp when the monitoring ends.
+     *
+     * @example 1666678376
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-cn-****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The metric type. The following metrics are supported:
+     *
+     * \[Basic system metrics]
+     *
+     *   cpuUsage
+     *   memoryUsage
+     *   diskUsage
+     *   gcCount
+     *   gcTime
+     *
+     * \[Nacos registry]
+     *
+     *   serviceCount
+     *   writeCostTime
+     *   readCostTime
+     *   regCenterTps
+     *   regCenterQps
+     *
+     * \[Nacos configuration center]
+     *
+     *   publish
+     *   getConfig
+     *
+     * \[Zookeeper]
+     *
+     *   zk_TpsCount
+     *   zk_QpsCount
+     *   zookeeper_AvgRequestLatency
+     *
+     * @example regCenterQps
+     *
      * @var string
      */
     public $monitorType;
 
     /**
+     * @description The extended request parameters in the JSON format.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $requestPars;
 
     /**
+     * @description The timestamp when the monitoring starts.
+     *
+     * @example 1666678376
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The interval between data points. Unit: seconds.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $step;

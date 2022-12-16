@@ -9,56 +9,101 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example xxxxxxxx@xxxxxxxxxx
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The name of the application.
+     *
+     * @example spring-cloud-a
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The time when the application was created.
+     *
+     * @example 1631001140913
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The additional information.
+     *
+     * @example {\"rpcTypes\":[\"dubbo\",\"springCloud\"]}
+     *
      * @var string
      */
     public $extraInfo;
 
     /**
+     * @description The programming language of the application.
+     *
+     * @example JAVA
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @description The license key in use.
+     *
+     * @example xxxxxxxx@xxxxxxxxxx
+     *
      * @var string
      */
     public $licenseKey;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The service where the application is deployed. Valid values:
+     *
+     * - Normal: another service
+     * @example ACK
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The status of the application. A value of 1 indicates that the application is in a normal state.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The time when the application was last modified.
+     *
+     * @example 1632979237663
+     *
      * @var int
      */
     public $updateTime;
 
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
+     * @example 1888888888
+     *
      * @var string
      */
     public $userId;

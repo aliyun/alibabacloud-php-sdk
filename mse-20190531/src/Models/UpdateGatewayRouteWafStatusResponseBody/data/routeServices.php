@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class routeServices extends Model
 {
     /**
+     * @description The name of the group to which the service belongs.
+     *
+     * @example DEFAULT_GROUP
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The name of the service.
+     *
+     * @example test-aixue-gray
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The namespace.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The weight.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $percent;
 
     /**
+     * @description The ID of the service.
+     *
+     * @example 547
+     *
      * @var int
      */
     public $serviceId;
 
     /**
+     * @description The name of the service.
+     *
+     * @example b-service
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The source type of the service.
+     *
+     * @example K8S
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @description The version of the service.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $version;

@@ -9,31 +9,61 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description Specifies whether to delete all tags. This parameter takes effect only when the TagKey.N parameter is not specified. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
+     * @example true
+     *
      * @var bool
      */
     public $all;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The resource IDs. A maximum of 50 resource IDs can be specified.
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The type of the resources. Valid values:
+     *
+     *   CLUSTER: MSE instance
+     *   GATEWAY: cloud-native gateway
+     *
+     * @example CLUSTER
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tag keys. A maximum of 20 tag keys are supported.
+     *
      * @var string[]
      */
     public $tagKey;

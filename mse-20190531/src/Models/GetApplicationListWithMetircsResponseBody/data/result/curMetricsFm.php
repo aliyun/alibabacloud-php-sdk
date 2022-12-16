@@ -24,21 +24,33 @@ class curMetricsFm extends Model
     public $passQps;
 
     /**
+     * @description QPS。
+     *
+     * @example 1
+     *
      * @var float
      */
     public $qps;
 
     /**
+     * @description Rt。
+     *
+     * @example 0
+     *
      * @var float
      */
     public $rt;
 
     /**
+     * @example 1
+     *
      * @var float
      */
     public $thread;
 
     /**
+     * @example 1648117002717
+     *
      * @var int
      */
     public $timestamp;

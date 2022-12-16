@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class UpdateClusterSpecResponseBody extends Model
 {
     /**
+     * @description The response code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The data returned.
+     *
+     * @example null
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example The request is successfully processed.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description ID of the Request.
+     *
+     * @example 5B170A0D-2C5D-4CF8-B808-03966B86****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   `true`: The call was successful.
+     *   `false`: The call failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

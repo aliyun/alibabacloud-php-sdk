@@ -9,31 +9,53 @@ use AlibabaCloud\Tea\Model;
 class QueryGatewayTypeResponseBody extends Model
 {
     /**
+     * @description The status code returned. A value of 200 indicates that the request is successful. Other values indicate that the request fails.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The information about gateway types.
+     *
      * @var string[]
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The message returned. If the request is successful, a success message is returned. If the request fails, an error message is returned.
+     *
+     * @example The request is processed successfully.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 52BA6DA6-A702-4362-A32F-DFF79655****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     * - `false`: The request fails.
+     * @example true
+     *
      * @var bool
      */
     public $success;

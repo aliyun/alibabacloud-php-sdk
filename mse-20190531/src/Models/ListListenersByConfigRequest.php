@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class ListListenersByConfigRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the data.
+     *
+     * @example zeekr-clueboss.yml
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @description The group.
+     *
+     * @example prod
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-cn-m7r1yurp00e
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example aaeb4d28-c9eb-4fa2-85f5-d03ce7ee8df1
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The extended request parameters in the JSON format.
+     *
+     * @example {\\"appGroup\\":\\"emas-zfive_prehost\\",\\"appName\\":\\"emas-zfive\\",\\"appStage\\":\\"PRE_PUBLISH\\",\\"appUnit\\":\\"\\",\\"bucId\\":\\"225902\\",\\"bucName\\":\\"Wireless\\",\\"provider\\":\\"aliyun\\"}
+     *
      * @var string
      */
     public $requestPars;

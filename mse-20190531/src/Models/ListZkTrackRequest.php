@@ -9,51 +9,73 @@ use AlibabaCloud\Tea\Model;
 class ListZkTrackRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @example 1669619383
+     *
      * @var int
      */
     public $endTs;
 
     /**
+     * @example mse-cn-0ju2yq****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example /path
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @description RequestPars。
+     *
      * @var string
      */
     public $requestPars;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $reverse;
 
     /**
+     * @description SessionId。
+     *
+     * @example 0x301fdfbdbf00***
+     *
      * @var string
      */
     public $sessionId;
 
     /**
+     * @example 1669618483
+     *
      * @var int
      */
     public $startTs;

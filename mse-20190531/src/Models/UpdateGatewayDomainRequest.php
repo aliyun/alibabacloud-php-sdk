@@ -9,46 +9,92 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayDomainRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the certificate.
+     *
+     * @example 6209108-cn-hangzhou
+     *
      * @var string
      */
     public $certIdentifier;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-86575c0bc9f04ecfbacb92b8e392****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description Specifies whether to enable `HTTP/2`.
+     *
+     *   `open`: enables `HTTP/2`
+     *   `close`: disables `HTTP/2`
+     *   `globalConfig`: uses global configurations
+     *
+     * @example close
+     *
      * @var string
      */
     public $http2;
 
     /**
+     * @description The ID of the domain name.
+     *
+     * @example 94
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description Specifies whether to forcibly use HTTPS.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $mustHttps;
 
     /**
+     * @description The type of the protocol. Valid values:
+     *
+     *   HTTPS
+     *   HTTP
+     *
+     * @example HTTPS
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @description The maximum version of Transport Layer Security (TLS).
+     *
+     * @example TLS 1.3
+     *
      * @var string
      */
     public $tlsMax;
 
     /**
+     * @description The minimum version of TLS.
+     *
+     * @example TLS 1.0
+     *
      * @var string
      */
     public $tlsMin;

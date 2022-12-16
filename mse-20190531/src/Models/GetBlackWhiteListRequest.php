@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class GetBlackWhiteListRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-32d5c9769c1842b1a2cc3426c59e****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description Specifies whether to query the whitelist.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isWhite;
 
     /**
+     * @description The type of the resource.
+     *
+     * @example GATEWAY
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The type of the blacklist or whitelist.
+     *
+     * @example IP
+     *
      * @var string
      */
     public $type;

@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class AddAuthResourceRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the authorization record.
+     *
+     * @example 13
+     *
      * @var int
      */
     public $authId;
 
     /**
+     * @description The ID of the domain name.
+     *
+     * @example 128
+     *
      * @var int
      */
     public $domainId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-86575c0bc9f04ecfbacb92b8e392****
+     *
      * @var string
      */
     public $gatewayUniqueId;
@@ -34,6 +48,10 @@ class AddAuthResourceRequest extends Model
     public $matchType;
 
     /**
+     * @description The path.
+     *
+     * @example /abc
+     *
      * @var string
      */
     public $path;

@@ -9,61 +9,118 @@ use AlibabaCloud\Tea\Model;
 class UpdateNacosInstanceRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The name of the Nacos instance.
+     *
+     * @example DEFAULT
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description Specifies whether to disable this service. Valid values:
+     *
+     *   `true`: yes
+     *   `false`: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @description Specifies whether the node is a non-persistent node. Valid values:
+     *
+     *   `true`: yes
+     *   `false`: no
+     *
+     * @example false
+     *
      * @var bool
      */
     public $ephemeral;
 
     /**
+     * @description The name of the group.
+     *
+     * @example DEFAULT_GROUP
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-cn-123456
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The IP address of the Nacos instance.
+     *
+     * @example 1.2.X.X
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The metadata of the instance.
+     *
+     * @example [int]
+     *
      * @var string
      */
     public $metadata;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example 9e78a671-4b9b-4dd4-99c1-0****
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The port of the Nacos instance.
+     *
+     * @example 12281
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The name of the service.
+     *
+     * @example hello_service
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The weight. Valid values: 0 to 10000. The value must be an integer. A larger value indicates a higher frequency at which the instance is accessed.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $weight;

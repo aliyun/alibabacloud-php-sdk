@@ -9,46 +9,77 @@ use AlibabaCloud\Tea\Model;
 class AddServiceSourceShrinkRequest extends Model
 {
     /**
+     * @description The language in which the returned information is displayed. Valid values:
+     *
+     * - ja: Japanese.
+     * @example zh-CN
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The address of the service.
+     *
+     * @example c9ad2a0717032427e920754e25b49e3b5
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-c70622ff52fe49beb29bea9a6f52****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description GroupList.
+     *
      * @var string
      */
     public $groupListShrink;
 
     /**
+     * @description The Ingress configuration.
+     *
      * @var string
      */
     public $ingressOptionsRequestShrink;
 
     /**
+     * @description The name of the service.
+     *
+     * @example istio
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description Service root path array.
+     *
      * @var string
      */
     public $pathListShrink;
 
     /**
+     * @description The type of the service source.
+     *
+     * @example K8s
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The service type.
+     *
+     * @example K8s
+     *
      * @var string
      */
     public $type;

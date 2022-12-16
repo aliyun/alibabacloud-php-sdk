@@ -9,31 +9,56 @@ use AlibabaCloud\Tea\Model;
 class ImportServicesResponseBody extends Model
 {
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     * - `false`: The request fails.
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description Import services
+     *
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @description The message returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The request is processed successfully.
+     *
+     * @example The status code returned.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 0F0FBA7D-5AC5-5DC4-A1E9-E9656BFAE1B9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The returned results.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

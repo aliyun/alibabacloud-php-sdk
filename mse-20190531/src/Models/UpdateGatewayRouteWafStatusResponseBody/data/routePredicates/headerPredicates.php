@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class headerPredicates extends Model
 {
     /**
+     * @description The key of the request header.
+     *
+     * @example alibo
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The matching type.
+     *
+     * @example PRE
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The value of the request header.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $value;

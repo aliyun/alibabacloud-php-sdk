@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryGatewayRegionRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;

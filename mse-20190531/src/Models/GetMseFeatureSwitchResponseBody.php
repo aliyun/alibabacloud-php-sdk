@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class GetMseFeatureSwitchResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request fails.
+     *
+     * @example NoPermission
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example The request is processed successfully.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 6B4653A3-8D9C-5FDC-BB0C-936D40E9794B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The returned results.
+     *
+     * @example {\"nacos_config_encrypt\": False}
+     *
      * @var mixed[]
      */
     public $result;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     * - `false`: The request fails.
+     * @example true
+     *
      * @var bool
      */
     public $success;

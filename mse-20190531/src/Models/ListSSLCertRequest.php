@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ListSSLCertRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-3f97e2989c344f35ab3fd62b19f1****
+     *
      * @var string
      */
     public $gatewayUniqueId;

@@ -9,16 +9,27 @@ use AlibabaCloud\Tea\Model;
 class ListGatewayDomainRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-c9bc5afd61014165bd58f621b491****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @example All
+     *
      * @var string
      */
     public $type;

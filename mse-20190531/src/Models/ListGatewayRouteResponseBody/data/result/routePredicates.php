@@ -12,21 +12,29 @@ use AlibabaCloud\Tea\Model;
 class routePredicates extends Model
 {
     /**
+     * @description The headers used for route matching.
+     *
      * @var headerPredicates[]
      */
     public $headerPredicates;
 
     /**
+     * @description The HTTP methods used for route matching.
+     *
      * @var string[]
      */
     public $methodPredicates;
 
     /**
+     * @description The path used for route matching.
+     *
      * @var pathPredicates
      */
     public $pathPredicates;
 
     /**
+     * @description The parameters used for route matching.
+     *
      * @var queryPredicates[]
      */
     public $queryPredicates;

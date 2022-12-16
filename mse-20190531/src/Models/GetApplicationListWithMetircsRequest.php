@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class GetApplicationListWithMetircsRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @example hkhon1po62@c3df23522baa898
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example spring-cloud-a
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example edasmsc
+     *
      * @var string
      */
     public $source;

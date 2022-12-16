@@ -9,46 +9,82 @@ use AlibabaCloud\Tea\Model;
 class internetSlb extends Model
 {
     /**
+     * @description The mode of the SLB instance.
+     *
+     * @example UserHost
+     *
      * @var string
      */
     public $gatewaySlbMode;
 
     /**
+     * @description The status of the SLB instance.
+     *
+     * @example Ready
+     *
      * @var string
      */
     public $gatewaySlbStatus;
 
     /**
+     * @description The traffic of the gateway.
+     *
+     * @example 20
+     *
      * @var string
      */
     public $internetNetworkFlow;
 
     /**
+     * @description SLB ID.
+     *
+     * @example lb-bp1ut8asdfgucjk****
+     *
      * @var string
      */
     public $slbId;
 
     /**
+     * @description SLB IP.
+     *
+     * @example 153.12.XX.XX
+     *
      * @var string
      */
     public $slbIp;
 
     /**
+     * @description The port number of the SLB instance.
+     *
+     * @example slb.s2.small
+     *
      * @var string
      */
     public $slbPort;
 
     /**
+     * @description The specifications of the SLB instance.
+     *
+     * @example slb.s2.small
+     *
      * @var string
      */
     public $slbSpec;
 
     /**
+     * @description The description of the status.
+     *
+     * @example Creating
+     *
      * @var string
      */
     public $statusDesc;
 
     /**
+     * @description The type.
+     *
+     * @example PUB_NET
+     *
      * @var string
      */
     public $type;

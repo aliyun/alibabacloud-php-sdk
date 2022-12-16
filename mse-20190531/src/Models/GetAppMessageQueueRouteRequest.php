@@ -9,16 +9,37 @@ use AlibabaCloud\Tea\Model;
 class GetAppMessageQueueRouteRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the application.
+     *
+     * @example hkhon1po62@c3df23522baa898
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The region where the cluster resides. Examples:
+     *
+     *   `cn-hangzhou`: China (Hangzhou)
+     *   `cn-beijing`: China (Beijing)
+     *   `cn-shanghai`: China (Shanghai)
+     *   `cn-zhangjiakou`: China (Zhangjiakou)
+     *   `cn-shenzhen`: China (Shenzhen)
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;

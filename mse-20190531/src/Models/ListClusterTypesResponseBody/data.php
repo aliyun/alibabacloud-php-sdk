@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The type of the MSE engine that can be activated.
+     *
+     * @example Zookeeper
+     *
      * @var string
      */
     public $showName;

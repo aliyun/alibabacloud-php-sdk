@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example hkhon1po62@5f1b08becb*****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The name of the application.
+     *
+     * @example finance
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The additional information.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $extraInfo;
 
     /**
+     * @description The number of instances.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $instancesNumber;
 
     /**
+     * @description The programming language of the application.
+     *
+     * @example JAVA
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @description The license key in use.
+     *
+     * @example diyh1rln1u@*****7ad938167
+     *
      * @var string
      */
     public $licenseKey;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The source of the application.
+     *
+     * @example edasmsc
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The status.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The ID of the user.
+     *
+     * @example 1234567890
+     *
      * @var string
      */
     public $userId;

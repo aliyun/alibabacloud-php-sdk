@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class filterParams extends Model
 {
     /**
+     * @description The default service ID.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $defaultServiceId;
 
     /**
+     * @description The domain ID.
+     *
+     * @example 284
+     *
      * @var int
      */
     public $domainId;
 
     /**
+     * @description The associated domain name.
+     *
+     * @example *.alites.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 81
+     *
      * @var int
      */
     public $gatewayId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-30a0106924c94bca8712ec4e79fc5acc
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The name of the gateway.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The order.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $routeOrder;
 
     /**
+     * @description The status.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;

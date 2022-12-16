@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class retryJSON extends Model
 {
     /**
+     * @description The number of retries allowed.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $attempts;
 
     /**
+     * @description The HTTP status codes returned.
+     *
      * @var string[]
      */
     public $httpCodes;
 
     /**
+     * @description The retry conditions.
+     *
      * @var string[]
      */
     public $retryOn;
 
     /**
+     * @description The status of the policy.
+     *
+     * @example off
+     *
      * @var string
      */
     public $status;

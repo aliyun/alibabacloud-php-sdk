@@ -9,51 +9,90 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether pass-through is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $carryData;
 
     /**
+     * @description Indicates whether the routing rule is enabled.
+     *
+     * - `false`: disabled
+     * @example true
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @description The ID of the primary key.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The number of instances.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $instanceNum;
 
     /**
+     * @description The name of the routing rule.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The rate.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $rate;
 
     /**
+     * @description Indicates whether the routing rule is deleted.
+     *
      * @var bool
      */
     public $remove;
 
     /**
+     * @description The details of the routing rule.
+     *
+     * @example {\"_base\": {\"rate\": 100, \"remove\": true}, \"blue\": {\"rate\": 0}}
+     *
      * @var string
      */
     public $rules;
 
     /**
+     * @description The status of the routing rule.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The tag.
+     *
+     * @example gray
+     *
      * @var string
      */
     public $tag;

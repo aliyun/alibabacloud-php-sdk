@@ -9,36 +9,65 @@ use AlibabaCloud\Tea\Model;
 class ExportNacosConfigRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The name of the application.
+     *
+     * @example qjl-gateway-openapi
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The data ID.
+     *
+     * @example sms-mes-develop.prop****
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @description The name of the group.
+     *
+     * @example TIMEDTASK_COMMON_GROUP
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description The IDs of configurations.
+     *
+     * @example 1709,1710
+     *
      * @var string
      */
     public $ids;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse-cn-2r42ddc****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example ae77c258-4d4f-478f-baaa-084aee0****
+     *
      * @var string
      */
     public $namespaceId;

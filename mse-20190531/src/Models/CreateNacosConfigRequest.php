@@ -9,56 +9,101 @@ use AlibabaCloud\Tea\Model;
 class CreateNacosConfigRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * - en: English
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The name of the application.
+     *
+     * @example saledatacenter-task
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The list of IP addresses where the beta release of the configuration is performed.
+     *
+     * @example 100.117.XX.XX,100.117.XX.XX
+     *
      * @var string
      */
     public $betaIps;
 
     /**
+     * @description The content of the configuration.
+     *
+     * @example asdf
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The data ID.
+     *
+     * @example common.yaml
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @description The description of the configuration.
+     *
+     * @example Basic module configuration.
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @description The ID of the group.
+     *
+     * @example alime-bridge-aliyun
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example mse_prepaid_public_cn-tl32****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example 547fd2a0-d0d6-****-80db2a1afb82
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The tag of the configuration.
+     *
+     * @example Basic config
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The format of the configuration. Supported formats include TEXT, JSON, and XML.
+     *
+     * @example text
+     *
      * @var string
      */
     public $type;

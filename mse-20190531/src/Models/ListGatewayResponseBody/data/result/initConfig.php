@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class initConfig extends Model
 {
     /**
+     * @description Indicates whether Web Application Firewall (WAF) is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableWaf;
 
     /**
+     * @description Indicates whether WAF is supported.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $supportWaf;

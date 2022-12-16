@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class CreateNacosInstanceResponseBody extends Model
 {
     /**
+     * @description The message returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example ok
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The data structure.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example The message returned.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 9e78a671-4b9b-4dd4-99c1-0b9da87d3dec
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status code returned.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

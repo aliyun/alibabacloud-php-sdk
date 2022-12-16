@@ -10,31 +10,56 @@ use AlibabaCloud\Tea\Model;
 class ListGatewayServiceRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description Specifies whether to enable sorting.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $descSort;
 
     /**
+     * @description The parameters that specify filter conditions, which are in the format of {"key1":"value1"}.
+     *
      * @var filterParams
      */
     public $filterParams;
 
     /**
+     * @description The item based on which entries are sorted.
+     *
+     * @example GmtCreate
+     *
      * @var string
      */
     public $orderItem;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
