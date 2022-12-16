@@ -16,6 +16,8 @@ class ListInstanceHistoryEventsResponseBody extends Model
     public $headers;
 
     /**
+     * @example D1A6830A-F59B-4E05-BFAC-9496C21DBBA7
+     *
      * @var string
      */
     public $requestId;

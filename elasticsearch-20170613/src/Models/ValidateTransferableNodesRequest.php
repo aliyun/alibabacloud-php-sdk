@@ -15,6 +15,8 @@ class ValidateTransferableNodesRequest extends Model
     public $body;
 
     /**
+     * @example WORKER
+     *
      * @var string
      */
     public $nodeType;

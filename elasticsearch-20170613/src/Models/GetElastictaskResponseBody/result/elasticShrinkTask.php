@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class elasticShrinkTask extends Model
 {
     /**
+     * @example 4 4 4 ? * WED
+     *
      * @var string
      */
     public $cronExpression;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $elasticNodeCount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $replicaCount;
@@ -29,6 +35,8 @@ class elasticShrinkTask extends Model
     public $targetIndices;
 
     /**
+     * @example crontab
+     *
      * @var string
      */
     public $triggerType;

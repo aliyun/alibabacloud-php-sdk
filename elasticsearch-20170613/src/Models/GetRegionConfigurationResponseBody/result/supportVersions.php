@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class supportVersions extends Model
 {
     /**
+     * @example x-pack
+     *
      * @var string
      */
     public $instanceCategory;

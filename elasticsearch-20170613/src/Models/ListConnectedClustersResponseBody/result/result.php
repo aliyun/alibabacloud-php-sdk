@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example es-cn-09k1rocex0006****
+     *
      * @var string
      */
     public $instances;
 
     /**
+     * @example vpc
+     *
      * @var string
      */
     public $networkType;

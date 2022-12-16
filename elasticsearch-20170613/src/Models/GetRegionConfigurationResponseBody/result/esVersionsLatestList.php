@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class esVersionsLatestList extends Model
 {
     /**
+     * @example 5.5_with_X-Pack
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example 5.5.3_with_X-Pack
+     *
      * @var string
      */
     public $value;

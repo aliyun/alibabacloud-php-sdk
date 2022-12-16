@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class StartApmResponseBody extends Model
 {
     /**
+     * @example 526F30AB-4A43-55BA-910F-ACD275FD5F14
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;

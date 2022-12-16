@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDiagnoseIndicesRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;

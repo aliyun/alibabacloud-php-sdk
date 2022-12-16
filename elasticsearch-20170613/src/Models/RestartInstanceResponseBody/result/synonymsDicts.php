@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class synonymsDicts extends Model
 {
     /**
+     * @example 2782602
+     *
      * @var int
      */
     public $fileSize;
 
     /**
+     * @example SYSTEM_MAIN.dic
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example ORIGIN
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @example STOP
+     *
      * @var string
      */
     public $type;

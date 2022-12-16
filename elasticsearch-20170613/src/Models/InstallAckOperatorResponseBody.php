@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class InstallAckOperatorResponseBody extends Model
 {
     /**
+     * @example EFA88951-7A6F-4A8E-AB8F-2BB7132BA751
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;

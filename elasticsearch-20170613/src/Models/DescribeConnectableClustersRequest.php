@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeConnectableClustersRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $alreadySetItems;

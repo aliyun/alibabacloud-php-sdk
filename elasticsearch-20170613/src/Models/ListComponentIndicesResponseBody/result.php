@@ -20,6 +20,8 @@ class result extends Model
     public $content;
 
     /**
+     * @example synthetics-settings
+     *
      * @var string
      */
     public $name;

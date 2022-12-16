@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class machines extends Model
 {
     /**
+     * @example heartOk
+     *
      * @var string
      */
     public $agentStatus;
 
     /**
+     * @example c1b9fde5172b84f82b9928e825a7b8988
+     *
      * @var string
      */
     public $instanceId;

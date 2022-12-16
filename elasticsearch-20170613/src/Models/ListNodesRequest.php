@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListNodesRequest extends Model
 {
     /**
+     * @example i-bp1ei8ysh7orb6eq****
+     *
      * @var string
      */
     public $ecsInstanceIds;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $ecsInstanceName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example [{"tagKey":"abc","tagValue":"xyz"}]
+     *
      * @var string
      */
     public $tags;

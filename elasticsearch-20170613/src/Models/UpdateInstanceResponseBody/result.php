@@ -12,26 +12,36 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 2018-07-13T03:58:07.253Z
+     *
      * @var string
      */
     public $createdAt;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example es-cn-abc.elasticsearch.aliyuncs.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example 5.5.3_with_X-Pack
+     *
      * @var string
      */
     public $esVersion;
 
     /**
+     * @example es-cn-abc
+     *
      * @var string
      */
     public $instanceId;
@@ -47,6 +57,8 @@ class result extends Model
     public $masterConfiguration;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $nodeAmount;
@@ -57,11 +69,15 @@ class result extends Model
     public $nodeSpec;
 
     /**
+     * @example postpaid
+     *
      * @var string
      */
     public $paymentType;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $status;

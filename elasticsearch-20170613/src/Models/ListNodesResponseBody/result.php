@@ -11,21 +11,29 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example heartOk
+     *
      * @var string
      */
     public $agentStatus;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $cloudAssistantStatus;
 
     /**
+     * @example i-bp13y63575oypr****
+     *
      * @var string
      */
     public $ecsInstanceId;
 
     /**
+     * @example ECS_beat
+     *
      * @var string
      */
     public $ecsInstanceName;
@@ -36,11 +44,15 @@ class result extends Model
     public $ipAddress;
 
     /**
+     * @example linux
+     *
      * @var string
      */
     public $osType;
 
     /**
+     * @example running
+     *
      * @var string
      */
     public $status;

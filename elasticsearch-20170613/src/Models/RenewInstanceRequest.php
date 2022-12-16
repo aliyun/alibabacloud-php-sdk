@@ -14,6 +14,8 @@ class RenewInstanceRequest extends Model
     public $body;
 
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B350****
+     *
      * @var string
      */
     public $clientToken;

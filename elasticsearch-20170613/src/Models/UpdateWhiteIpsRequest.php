@@ -20,11 +20,15 @@ class UpdateWhiteIpsRequest extends Model
     public $whiteIpGroup;
 
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example Cover
+     *
      * @var string
      */
     public $modifyMode;

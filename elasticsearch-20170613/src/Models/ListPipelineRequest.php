@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListPipelineRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example pipeline_test
+     *
      * @var string
      */
     public $pipelineId;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $size;

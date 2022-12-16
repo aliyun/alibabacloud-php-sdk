@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateLogstashResponseBody extends Model
 {
     /**
+     * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE*****
+     *
      * @var string
      */
     public $requestId;

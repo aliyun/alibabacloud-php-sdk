@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example Business Search
+     *
      * @var string
      */
     public $scene;
 
     /**
+     * @example 1588994035385
+     *
      * @var int
      */
     public $updateTime;

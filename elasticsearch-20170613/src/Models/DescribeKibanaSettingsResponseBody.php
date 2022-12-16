@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeKibanaSettingsResponseBody extends Model
 {
     /**
+     * @example F99407AB-2FA9-489E-A259-40CF6D*****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example {"map.includeElasticMapsService": "false", "server.ssl.cert": "/home/admin/packages/kibana/config/cert/client.crt", "server.ssl.enabled": "true", "server.ssl.key": "/home/admin/packages/kibana/config/cert/client.key", "xpack.reporting.capture.browser.chromium.disableSandbox": "true"}
+     *
      * @var mixed[]
      */
     public $result;

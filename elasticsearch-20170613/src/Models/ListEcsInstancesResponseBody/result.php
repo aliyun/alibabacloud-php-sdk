@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example true
+     *
      * @var string
      */
     public $cloudAssistantStatus;
@@ -21,11 +23,15 @@ class result extends Model
     public $collectors;
 
     /**
+     * @example i-bp14ncqge8wy3l3d****
+     *
      * @var string
      */
     public $ecsInstanceId;
 
     /**
+     * @example ecsTestName
+     *
      * @var string
      */
     public $ecsInstanceName;
@@ -36,16 +42,22 @@ class result extends Model
     public $ipAddress;
 
     /**
+     * @example linux
+     *
      * @var string
      */
     public $osType;
 
     /**
+     * @example running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example [ { "tagKey": "a", "tagValue": "b" } ]
+     *
      * @var string
      */
     public $tags;

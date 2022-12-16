@@ -16,6 +16,8 @@ class ListSearchLogResponseBody extends Model
     public $headers;
 
     /**
+     * @example 7F40EAA1-6F1D-4DD9-8DB8-C5F00C4E****
+     *
      * @var string
      */
     public $requestId;

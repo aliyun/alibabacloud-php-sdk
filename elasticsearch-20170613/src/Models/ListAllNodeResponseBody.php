@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListAllNodeResponseBody extends Model
 {
     /**
+     * @example 0D71B597-F3FF-5B56-88D7-74F9D3F7****
+     *
      * @var string
      */
     public $requestId;

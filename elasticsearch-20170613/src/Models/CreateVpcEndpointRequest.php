@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcEndpointRequest extends Model
 {
     /**
+     * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example epsrv-hp3xdsq46ael67lo****
+     *
      * @var string
      */
     public $serviceId;
 
     /**
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;

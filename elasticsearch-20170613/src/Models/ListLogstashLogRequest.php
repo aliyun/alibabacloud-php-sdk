@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListLogstashLogRequest extends Model
 {
     /**
+     * @example 1531910852074
+     *
      * @var int
      */
     public $beginTime;
 
     /**
+     * @example 1531910852074
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example host:10.7.xx.xx AND level:info AND content:opening
+     *
      * @var string
      */
     public $query;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example LOGSTASH_INSTANCE_LOG
+     *
      * @var string
      */
     public $type;

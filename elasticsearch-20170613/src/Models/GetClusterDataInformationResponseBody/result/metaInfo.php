@@ -19,11 +19,15 @@ class metaInfo extends Model
     public $indices;
 
     /**
+     * @example {\"_doc\":{\"properties\":{\"user\":{\"properties\":{\"last\":{\"type\":\"text\",...}}}}}}
+     *
      * @var string
      */
     public $mapping;
 
     /**
+     * @example {\n  \"index\": {\n    \"replication\": {\n}.....}}
+     *
      * @var string
      */
     public $settings;

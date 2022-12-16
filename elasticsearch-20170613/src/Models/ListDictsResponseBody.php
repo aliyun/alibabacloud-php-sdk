@@ -16,6 +16,8 @@ class ListDictsResponseBody extends Model
     public $headers;
 
     /**
+     * @example 2937F832-F39E-41EF-89BA-B528342A2A3A
+     *
      * @var string
      */
     public $requestId;

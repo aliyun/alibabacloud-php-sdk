@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @example 0 0 01 ? * * *
+     *
      * @var string
      */
     public $quartzRegex;

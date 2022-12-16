@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example IK analysis plug-in for Elasticsearch.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example analysis-ik
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example SYSTEM
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example https://xxxx.html
+     *
      * @var string
      */
     public $specificationUrl;
 
     /**
+     * @example INSTALLED
+     *
      * @var string
      */
     public $state;

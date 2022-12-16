@@ -16,6 +16,8 @@ class ListKibanaPluginsResponseBody extends Model
     public $headers;
 
     /**
+     * @example 11234B4A-34CE-473B-8E61-AD95702E****
+     *
      * @var string
      */
     public $requestId;

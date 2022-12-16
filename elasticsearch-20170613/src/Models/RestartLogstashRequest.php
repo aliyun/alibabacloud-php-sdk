@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RestartLogstashRequest extends Model
 {
     /**
+     * @example 20%
+     *
      * @var float
      */
     public $batchCount;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $blueGreenDep;
@@ -29,16 +33,22 @@ class RestartLogstashRequest extends Model
     public $nodes;
 
     /**
+     * @example instance
+     *
      * @var string
      */
     public $restartType;
 
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $force;

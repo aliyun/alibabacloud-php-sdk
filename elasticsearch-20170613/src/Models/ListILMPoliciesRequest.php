@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListILMPoliciesRequest extends Model
 {
     /**
+     * @example policy-1
+     *
      * @var string
      */
     public $policyName;

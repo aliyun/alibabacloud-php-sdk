@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class RecommendTemplatesResponseBody extends Model
 {
     /**
+     * @example 66B060CF-7381-49C7-9B89-7757927FDA16
+     *
      * @var string
      */
     public $requestId;

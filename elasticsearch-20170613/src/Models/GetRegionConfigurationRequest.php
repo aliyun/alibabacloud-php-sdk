@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetRegionConfigurationRequest extends Model
 {
     /**
+     * @example cn-hangzhou-f
+     *
      * @var string
      */
     public $zoneId;

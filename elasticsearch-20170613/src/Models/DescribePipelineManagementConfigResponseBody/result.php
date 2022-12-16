@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example ["http://es-cn-n6w1o1x0w001c****.elasticsearch.aliyuncs.com:9200"]
+     *
      * @var string
      */
     public $endpoints;
 
     /**
+     * @example es-cn-n6w1o1x0w001c****
+     *
      * @var string
      */
     public $esInstanceId;
@@ -24,11 +28,15 @@ class result extends Model
     public $pipelineIds;
 
     /**
+     * @example MULTIPLE_PIPELINE
+     *
      * @var string
      */
     public $pipelineManagementType;
 
     /**
+     * @example elastic
+     *
      * @var string
      */
     public $userName;

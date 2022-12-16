@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteIndexTemplateResponseBody extends Model
 {
     /**
+     * @example A0761F7E-0B50-46B9-8CAA-EBB3A420****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;

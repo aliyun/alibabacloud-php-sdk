@@ -20,11 +20,15 @@ class ValidateShrinkNodesRequest extends Model
     public $count;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $ignoreStatus;
 
     /**
+     * @example WORKER
+     *
      * @var string
      */
     public $nodeType;

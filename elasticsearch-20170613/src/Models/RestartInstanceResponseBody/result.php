@@ -15,11 +15,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 2020-07-06T10:18:48.662Z
+     *
      * @var string
      */
     public $createdAt;
 
     /**
+     * @example es-cn-abc
+     *
      * @var string
      */
     public $description;
@@ -30,16 +34,22 @@ class result extends Model
     public $dictList;
 
     /**
+     * @example es-cn-nif1q8auz0003****.elasticsearch.aliyuncs.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example 6.7.0_with_X-Pack
+     *
      * @var string
      */
     public $esVersion;
 
     /**
+     * @example es-cn-n6w1o1x0w001c****
+     *
      * @var string
      */
     public $instanceId;
@@ -50,11 +60,15 @@ class result extends Model
     public $kibanaConfiguration;
 
     /**
+     * @example es-cn-nif1q8auz0003****.kibana.elasticsearch.aliyuncs.com
+     *
      * @var string
      */
     public $kibanaDomain;
 
     /**
+     * @example 5601
+     *
      * @var int
      */
     public $kibanaPort;
@@ -70,6 +84,8 @@ class result extends Model
     public $networkConfig;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $nodeAmount;
@@ -80,21 +96,29 @@ class result extends Model
     public $nodeSpec;
 
     /**
+     * @example postpaid
+     *
      * @var string
      */
     public $paymentType;
 
     /**
+     * @example es-cn-n6w1o1x0w001c****.public.elasticsearch.aliyuncs.com
+     *
      * @var string
      */
     public $publicDomain;
 
     /**
+     * @example 9200
+     *
      * @var int
      */
     public $publicPort;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $status;
@@ -105,6 +129,8 @@ class result extends Model
     public $synonymsDicts;
 
     /**
+     * @example 2018-07-18T10:10:04.484Z
+     *
      * @var string
      */
     public $updatedAt;

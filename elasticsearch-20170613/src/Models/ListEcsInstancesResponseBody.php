@@ -16,6 +16,8 @@ class ListEcsInstancesResponseBody extends Model
     public $headers;
 
     /**
+     * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***
+     *
      * @var string
      */
     public $requestId;

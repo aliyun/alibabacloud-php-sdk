@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListLogstashPluginsRequest extends Model
 {
     /**
+     * @example logstash-filter-clone
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example USER
+     *
      * @var string
      */
     public $source;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateXpackMonitorConfigRequest extends Model
 {
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enable;
@@ -24,11 +28,15 @@ class UpdateXpackMonitorConfigRequest extends Model
     public $endpoints;
 
     /**
+     * @example ******
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example elastic
+     *
      * @var string
      */
     public $userName;

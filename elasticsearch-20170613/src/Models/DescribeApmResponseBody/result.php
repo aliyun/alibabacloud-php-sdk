@@ -9,96 +9,134 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example apm-cn-i7m2fuae****.apm.elasticsearch.aliyuncs.com:8200
+     *
      * @var string
      */
     public $apmServerDomain;
 
     /**
+     * @example 2021-11-16T07:15:51.967Z
+     *
      * @var string
      */
     public $createdAt;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $deployedReplica;
 
     /**
+     * @example APMtest
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 4792752000000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example apm-cn-i7m2fuae****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $nodeAmount;
 
     /**
+     * @example es-cn-i7m2fsfhc001x****
+     *
      * @var string
      */
     public $outputES;
 
     /**
+     * @example elastic
+     *
      * @var string
      */
     public $outputESUserName;
 
     /**
+     * @example 133071096032****
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @example postpaid
+     *
      * @var string
      */
     public $paymentType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $replica;
 
     /**
+     * @example C1M2
+     *
      * @var string
      */
     public $resourceSpec;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 7.10.2
+     *
      * @var string
      */
     public $version;
 
     /**
+     * @example vpc-bp1530vdhqkamm9s0****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $vsArea;
 
     /**
+     * @example vsw-bp1j1mql6r9g5vfb4****
+     *
      * @var string
      */
     public $vswitchId;

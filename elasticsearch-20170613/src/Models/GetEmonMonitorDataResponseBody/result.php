@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example { "1586249280": 465.1980465119913, "1586249300": 213.45243650423305 }
+     *
      * @var mixed[]
      */
     public $dps;
 
     /**
+     * @example 1.0
+     *
      * @var float
      */
     public $integrity;
 
     /**
+     * @example 1522127381471
+     *
      * @var int
      */
     public $messageWatermark;
 
     /**
+     * @example elasticbuild.elasticsearch.source.total_doc_count
+     *
      * @var string
      */
     public $metric;
 
     /**
+     * @example 10
+     *
      * @var float
      */
     public $summary;
 
     /**
+     * @example {"taskName":"et-xxx","userId":"123456"}
+     *
      * @var mixed[]
      */
     public $tags;

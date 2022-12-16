@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CapacityPlanResponseBody extends Model
 {
     /**
+     * @example E91B7129-A669-4D9D-A743-F90A0FF1F5EF
+     *
      * @var string
      */
     public $requestId;

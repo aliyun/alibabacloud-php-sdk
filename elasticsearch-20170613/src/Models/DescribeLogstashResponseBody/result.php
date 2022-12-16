@@ -19,6 +19,8 @@ class result extends Model
     public $extendConfigs;
 
     /**
+     * @example rg-aekzvowej3i****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -34,16 +36,22 @@ class result extends Model
     public $zoneInfos;
 
     /**
+     * @example {"slowlog.threshold.warn": "2s","slowlog.threshold.info": "1s","slowlog.threshold.debug": "500ms","slowlog.threshold.trace": "100ms" }
+     *
      * @var mixed[]
      */
     public $config;
 
     /**
+     * @example 2020-02-06T14:12:03.672Z
+     *
      * @var string
      */
     public $createdAt;
 
     /**
+     * @example ls-cn-abc
+     *
      * @var string
      */
     public $description;
@@ -54,6 +62,8 @@ class result extends Model
     public $endpointList;
 
     /**
+     * @example ls-cn-abc
+     *
      * @var string
      */
     public $instanceId;
@@ -64,6 +74,8 @@ class result extends Model
     public $networkConfig;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $nodeAmount;
@@ -74,26 +86,36 @@ class result extends Model
     public $nodeSpec;
 
     /**
+     * @example prepaid
+     *
      * @var string
      */
     public $paymentType;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 2020-02-06T14:22:36.850Z
+     *
      * @var string
      */
     public $updatedAt;
 
     /**
+     * @example 7.4.0_with_X-Pack
+     *
      * @var string
      */
     public $version;
 
     /**
+     * @example vpc-bp16k1dvzxtmagcva****
+     *
      * @var string
      */
     public $vpcInstanceId;

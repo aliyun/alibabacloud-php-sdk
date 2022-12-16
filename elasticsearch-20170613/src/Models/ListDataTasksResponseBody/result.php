@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 2020-07-30 06:32:18
+     *
      * @var string
      */
     public $createTime;
@@ -26,11 +28,15 @@ class result extends Model
     public $sourceCluster;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example et_cn_mfv1233r47272****
+     *
      * @var string
      */
     public $taskId;

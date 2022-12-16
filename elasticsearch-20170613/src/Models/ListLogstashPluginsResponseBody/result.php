@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example The clone filter is for duplicating events.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example logstash-filter-clone
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example SYSTEM
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example https://xxx.html
+     *
      * @var string
      */
     public $specificationUrl;
 
     /**
+     * @example INSTALLED
+     *
      * @var string
      */
     public $state;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class template extends Model
 {
     /**
+     * @example {\"mydata\":{}}
+     *
      * @var string
      */
     public $aliases;
 
     /**
+     * @example {\"properties\":{\"created_at\":{\"format\":\"EEE MMM dd HH:mm:ss Z yyyy\",\"type\":\"date\"},\"host_name\":{\"type\":\"keyword\"}}}
+     *
      * @var string
      */
     public $mappings;
 
     /**
+     * @example {\"index.refresh_interval\":\"1s\"}
+     *
      * @var string
      */
     public $settings;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyDeployMachineResponseBody extends Model
 {
     /**
+     * @example C37CE536-6C0F-4778-9B59-6D94C7F7EB63
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;

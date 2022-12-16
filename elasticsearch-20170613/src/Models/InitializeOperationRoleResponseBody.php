@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class InitializeOperationRoleResponseBody extends Model
 {
     /**
+     * @example 29101430-4797-4D1D-96C3-9FCBCCA8F845
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListDictInformationResponseBody extends Model
 {
     /**
+     * @example 7C4334EA-D22B-48BD-AE28-08EE68******
+     *
      * @var string
      */
     public $requestId;

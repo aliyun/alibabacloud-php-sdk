@@ -17,16 +17,22 @@ class result extends Model
     public $tags;
 
     /**
+     * @example 2018-07-13T03:58:07.253Z
+     *
      * @var string
      */
     public $createdAt;
 
     /**
+     * @example ls-cn-abc
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example ls-cn-n6w1o5jq****
+     *
      * @var string
      */
     public $instanceId;
@@ -37,6 +43,8 @@ class result extends Model
     public $networkConfig;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $nodeAmount;
@@ -47,21 +55,29 @@ class result extends Model
     public $nodeSpec;
 
     /**
+     * @example postpaid
+     *
      * @var string
      */
     public $paymentType;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 2018-07-18T10:10:04.484Z
+     *
      * @var string
      */
     public $updatedAt;
 
     /**
+     * @example 6.7.0_with_X-Pack
+     *
      * @var string
      */
     public $version;

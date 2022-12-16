@@ -14,6 +14,8 @@ class UpdatePipelineManagementConfigRequest extends Model
     public $endpoints;
 
     /**
+     * @example ******
+     *
      * @var string
      */
     public $password;
@@ -24,16 +26,22 @@ class UpdatePipelineManagementConfigRequest extends Model
     public $pipelineIds;
 
     /**
+     * @example ES
+     *
      * @var string
      */
     public $pipelineManagementType;
 
     /**
+     * @example elastic
+     *
      * @var string
      */
     public $userName;
 
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
+     *
      * @var string
      */
     public $clientToken;

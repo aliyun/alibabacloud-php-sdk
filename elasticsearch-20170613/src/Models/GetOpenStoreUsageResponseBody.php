@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetOpenStoreUsageResponseBody extends Model
 {
     /**
+     * @example E1DE2491-804F-4C86-BAB4-548DD70B****
+     *
      * @var string
      */
     public $requestId;

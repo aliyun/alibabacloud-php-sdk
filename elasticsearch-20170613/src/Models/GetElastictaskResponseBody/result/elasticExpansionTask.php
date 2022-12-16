@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class elasticExpansionTask extends Model
 {
     /**
+     * @example 0 0 0 ? * MON
+     *
      * @var string
      */
     public $cronExpression;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $elasticNodeCount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $replicaCount;
@@ -29,6 +35,8 @@ class elasticExpansionTask extends Model
     public $targetIndices;
 
     /**
+     * @example crontab
+     *
      * @var string
      */
     public $triggerType;

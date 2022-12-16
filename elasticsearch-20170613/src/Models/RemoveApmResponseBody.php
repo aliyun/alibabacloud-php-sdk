@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RemoveApmResponseBody extends Model
 {
     /**
+     * @example 29A879FB-86BF-54CA-9426-B769A099E1A1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;

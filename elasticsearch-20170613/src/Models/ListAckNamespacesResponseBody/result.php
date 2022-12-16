@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example logging
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @example Active
+     *
      * @var string
      */
     public $status;

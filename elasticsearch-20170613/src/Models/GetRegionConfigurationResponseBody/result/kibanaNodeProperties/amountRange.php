@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class amountRange extends Model
 {
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxAmount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $minAmount;

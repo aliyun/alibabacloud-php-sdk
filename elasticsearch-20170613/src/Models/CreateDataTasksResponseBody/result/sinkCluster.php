@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class sinkCluster extends Model
 {
     /**
+     * @example elasticsearch
+     *
      * @var string
      */
     public $dataSourceType;
 
     /**
+     * @example index_001
+     *
      * @var string
      */
     public $index;
 
     /**
+     * @example {\"doc\":{\"properties\":{\"interval_ms\":{\"type\":\"long\"},....}
+     *
      * @var string
      */
     public $mapping;
 
     /**
+     * @example xxxxx
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example cluster_name
+     *
      * @var string
      */
     public $routing;
 
     /**
+     * @example {\n  \"index\": {\n    \"replication\": {\n      \"type\": .....}
+     *
      * @var string
      */
     public $settings;
 
     /**
+     * @example index_001
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example elastic
+     *
      * @var string
      */
     public $username;
 
     /**
+     * @example vpc-2ze55voww95g82gak****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example es-cn-oew1oxiro000f****-worker
+     *
      * @var string
      */
     public $vpcInstanceId;
 
     /**
+     * @example 9200
+     *
      * @var string
      */
     public $vpcInstancePort;

@@ -16,6 +16,8 @@ class ListNodesResponseBody extends Model
     public $headers;
 
     /**
+     * @example E1FD7642-7C40-4FF2-9C0F-21F1A1746F70
+     *
      * @var string
      */
     public $requestId;

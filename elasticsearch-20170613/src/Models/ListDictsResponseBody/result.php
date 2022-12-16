@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example http://test_bucket.oss-cn-hangzhou.aliyuncs.com/AliyunEs/test.dic?Expires=162573****&OSSAccessKeyId=LTAI*****V9&Signature=PNPO********BBGsJDO4V3VfU4sE%3D
+     *
      * @var string
      */
     public $downloadUrl;
 
     /**
+     * @example 2782602
+     *
      * @var int
      */
     public $fileSize;
 
     /**
+     * @example SYSTEM_MAIN.dic
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example ORIGIN
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @example MAIN
+     *
      * @var string
      */
     public $type;

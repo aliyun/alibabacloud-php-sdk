@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListComponentIndicesRequest extends Model
 {
     /**
+     * @example template
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $size;

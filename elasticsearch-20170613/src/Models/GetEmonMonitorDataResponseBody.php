@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class GetEmonMonitorDataResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 2D184B55-FA51-43F7-A1EF-E68A0545****
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class GetEmonMonitorDataResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

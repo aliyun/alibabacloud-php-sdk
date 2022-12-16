@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListShardRecoveriesRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $activeOnly;

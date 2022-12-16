@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class index extends Model
 {
     /**
+     * @example best_compression
+     *
      * @var string
      */
     public $codec;

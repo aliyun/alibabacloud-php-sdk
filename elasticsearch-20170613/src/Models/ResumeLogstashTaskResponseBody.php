@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ResumeLogstashTaskResponseBody extends Model
 {
     /**
+     * @example InstanceNotFound
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example The specified cluster does not exist. Check the cluster status and try again.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 0FA05123-745C-42FD-A69B-AFF48EF9****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;

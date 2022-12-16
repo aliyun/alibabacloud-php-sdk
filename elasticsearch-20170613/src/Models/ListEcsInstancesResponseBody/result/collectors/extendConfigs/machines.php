@@ -14,6 +14,8 @@ class machines extends Model
     public $agentStatus;
 
     /**
+     * @example i-bp13y63575oypr9d****
+     *
      * @var string
      */
     public $instanceId;

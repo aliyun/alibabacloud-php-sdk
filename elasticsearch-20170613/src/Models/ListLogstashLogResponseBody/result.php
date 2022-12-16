@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example [logstash.outputs.fileextend] Opening file {:path=>\"/ssd/1/ls-cn-v0h1kzca****\/logstash/logs/debug/test\"}
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example 192.168.xx.xx
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example ls-cn-v0h1kzca****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example info
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @example 1531985112420
+     *
      * @var int
      */
     public $timestamp;

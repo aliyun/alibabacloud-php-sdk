@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example Disconnected
+     *
      * @var string
      */
     public $connectionStatus;
 
     /**
+     * @example 2021-07-22T01:19:24Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $endpointBusinessStatus;
 
     /**
+     * @example ep-bp18s6wy9420wdi4****.epsrv-bp1bz3efowa4kc0****.cn-hangzhou.privatelink.aliyuncs.com
+     *
      * @var string
      */
     public $endpointDomain;
 
     /**
+     * @example ep-bp1tah7zbrwmkjef****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $endpointName;
 
     /**
+     * @example Active
+     *
      * @var string
      */
     public $endpointStatus;
 
     /**
+     * @example epsrv-bp1w0p3jdirbfmt6****
+     *
      * @var string
      */
     public $serviceId;
 
     /**
+     * @example com.aliyuncs.privatelink.cn-hangzhou.epsrv-bp1w0p3jdirbfmt6****
+     *
      * @var string
      */
     public $serviceName;

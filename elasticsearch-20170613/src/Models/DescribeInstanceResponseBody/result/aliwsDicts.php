@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class aliwsDicts extends Model
 {
     /**
+     * @example 2782602
+     *
      * @var int
      */
     public $fileSize;
 
     /**
+     * @example aliws_ext_dict.txt
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example OSS
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @example ALI_WS
+     *
      * @var string
      */
     public $type;

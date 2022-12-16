@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePipelineResponseBody extends Model
 {
     /**
+     * @example 829F38F6-E2D6-4109-90A6-888160BD1***
+     *
      * @var string
      */
     public $requestId;

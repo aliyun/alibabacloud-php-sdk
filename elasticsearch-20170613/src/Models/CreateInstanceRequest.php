@@ -19,16 +19,22 @@ class CreateInstanceRequest extends Model
     public $elasticDataNodeConfiguration;
 
     /**
+     * @example es_password
+     *
      * @var string
      */
     public $esAdminPassword;
 
     /**
+     * @example 5.5.3_with_X-Pack
+     *
      * @var string
      */
     public $esVersion;
 
     /**
+     * @example advanced
+     *
      * @var string
      */
     public $instanceCategory;
@@ -49,6 +55,8 @@ class CreateInstanceRequest extends Model
     public $networkConfig;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $nodeAmount;
@@ -64,6 +72,8 @@ class CreateInstanceRequest extends Model
     public $paymentInfo;
 
     /**
+     * @example postpaid
+     *
      * @var string
      */
     public $paymentType;
@@ -74,11 +84,15 @@ class CreateInstanceRequest extends Model
     public $warmNodeConfiguration;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $zoneCount;
 
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
+     *
      * @var string
      */
     public $clientToken;

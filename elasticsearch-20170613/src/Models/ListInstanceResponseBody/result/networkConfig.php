@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class networkConfig extends Model
 {
     /**
+     * @example vpc
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example vpc-abc
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example cn-hangzhou-e
+     *
      * @var string
      */
     public $vsArea;
 
     /**
+     * @example vsw-def
+     *
      * @var string
      */
     public $vswitchId;

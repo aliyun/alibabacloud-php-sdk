@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class advancedSetting extends Model
 {
     /**
+     * @example CMS
+     *
      * @var string
      */
     public $gcName;

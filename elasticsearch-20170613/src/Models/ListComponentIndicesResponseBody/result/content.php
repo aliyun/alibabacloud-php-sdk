@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @example { "description": "set number of shards to one" }
+     *
      * @var mixed[]
      */
     public $meta;
@@ -20,6 +22,8 @@ class content extends Model
     public $template;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $version;

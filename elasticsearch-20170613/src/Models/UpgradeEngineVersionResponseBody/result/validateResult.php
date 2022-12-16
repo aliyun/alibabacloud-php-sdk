@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class validateResult extends Model
 {
     /**
+     * @example ClusterStatusNotHealth
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example The cluster status is not health
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @example clusterStatus
+     *
      * @var string
      */
     public $errorType;

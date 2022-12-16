@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetEmonGrafanaAlertsResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 08FA74C7-5654-4309-9729-D555AF587B7F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class extendConfigs extends Model
 {
     /**
+     * @example collectorDeployMachine
+     *
      * @var string
      */
     public $configType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableMonitoring;
 
     /**
+     * @example default_ct-cn-5i2l75bz4776****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example es-cn-n6w1o1x0w001c****-kibana.internal.elasticsearch.aliyuncs.com:5601
+     *
      * @var string
      */
     public $host;
@@ -35,16 +43,22 @@ class extendConfigs extends Model
     public $hosts;
 
     /**
+     * @example es-cn-n6w1o1****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example elasticsearch
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example https://es-cn-nif1z89fz003i****.kibana.elasticsearch.aliyuncs.com:5601
+     *
      * @var string
      */
     public $kibanaHost;
@@ -55,26 +69,36 @@ class extendConfigs extends Model
     public $machines;
 
     /**
+     * @example HTTP
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @example 8
+     *
      * @var string
      */
     public $successPodsCount;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $totalPodsCount;
 
     /**
+     * @example ECSInstanceId
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example elastic
+     *
      * @var string
      */
     public $userName;

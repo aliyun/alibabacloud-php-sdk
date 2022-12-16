@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListAckClustersResponseBody extends Model
 {
     /**
+     * @example F93EAA49-284F-4FCE-9E67-FA23FB4BB512
+     *
      * @var string
      */
     public $requestId;

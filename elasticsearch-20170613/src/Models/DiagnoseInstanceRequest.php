@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DiagnoseInstanceRequest extends Model
 {
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
+     *
      * @var string
      */
     public $clientToken;
@@ -29,6 +31,8 @@ class DiagnoseInstanceRequest extends Model
     public $type;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class clientNodeDiskList extends Model
 {
     /**
+     * @example cloud_efficiency
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxSize;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $minSize;
 
     /**
+     * @example 18
+     *
      * @var int
      */
     public $scaleLimit;

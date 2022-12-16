@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class headers extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $xManagedCount;
 
     /**
+     * @example 143993923932990
+     *
      * @var int
      */
     public $xManagedStorageSize;

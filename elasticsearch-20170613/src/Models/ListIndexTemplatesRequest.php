@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListIndexTemplatesRequest extends Model
 {
     /**
+     * @example my-template
+     *
      * @var string
      */
     public $indexTemplate;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $size;

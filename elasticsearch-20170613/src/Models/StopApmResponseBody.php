@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class StopApmResponseBody extends Model
 {
     /**
+     * @example FEC32FE6-4697-5110-9668-C6016EAEB5DE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;

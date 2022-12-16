@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListEcsInstancesRequest extends Model
 {
     /**
+     * @example ["i-bp13y63575oypr9d****","i-bp1gyhphjaj73jsr****"]
+     *
      * @var string
      */
     public $ecsInstanceIds;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $ecsInstanceName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example [{ "tagKey":"a","tagValue":"b"}]
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @example vpc-bp16k1dvzxtmagcva****
+     *
      * @var string
      */
     public $vpcId;

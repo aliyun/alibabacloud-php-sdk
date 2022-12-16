@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class sinkCluster extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $dataSourceType;
 
     /**
+     * @example http://192.168.xx.xx:4101
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @example product_info
+     *
      * @var string
      */
     public $index;
 
     /**
+     * @example _doc
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example vpc-2ze55voww95g82gak****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example es-cn-09k1rnu3g0002****-worker
+     *
      * @var string
      */
     public $vpcInstanceId;
 
     /**
+     * @example 9200
+     *
      * @var string
      */
     public $vpcInstancePort;

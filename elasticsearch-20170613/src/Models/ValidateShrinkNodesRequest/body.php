@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @example 192.168.xx.xx
+     *
      * @var string
      */
     public $host;
@@ -24,11 +26,15 @@ class body extends Model
     public $nodeType;
 
     /**
+     * @example 9200
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example cn-shanghai-c
+     *
      * @var string
      */
     public $zoneId;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class elasticDataNodeConfiguration extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $amount;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $disk;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $diskEncryption;
 
     /**
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @example elasticsearch.sn2ne.large
+     *
      * @var string
      */
     public $spec;

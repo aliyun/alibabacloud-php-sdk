@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 1853083
+     *
      * @var int
      */
     public $fileSize;
 
     /**
+     * @example mysql-connector-java-6.0.2.jar
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example ORIGIN
+     *
      * @var string
      */
     public $sourceType;

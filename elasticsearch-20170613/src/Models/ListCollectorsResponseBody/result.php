@@ -21,6 +21,8 @@ class result extends Model
     public $configs;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
@@ -31,46 +33,64 @@ class result extends Model
     public $extendConfigs;
 
     /**
+     * @example 2020-08-18T02:06:12.000+0000
+     *
      * @var string
      */
     public $gmtCreatedTime;
 
     /**
+     * @example 2020-08-18T09:40:43.000+0000
+     *
      * @var string
      */
     public $gmtUpdateTime;
 
     /**
+     * @example FileBeat001
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 168520994880****
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @example ct-cn-0v3xj86085dvq****
+     *
      * @var string
      */
     public $resId;
 
     /**
+     * @example fileBeat
+     *
      * @var string
      */
     public $resType;
 
     /**
+     * @example 6.8.5_with_community
+     *
      * @var string
      */
     public $resVersion;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example vpc-bp16k1dvzxtma*****
+     *
      * @var string
      */
     public $vpcId;

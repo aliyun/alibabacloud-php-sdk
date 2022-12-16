@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ikHotDicts extends Model
 {
     /**
+     * @example 6
+     *
      * @var int
      */
     public $fileSize;
 
     /**
+     * @example deploy_0.dic
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example OSS
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @example MAIN
+     *
      * @var string
      */
     public $type;

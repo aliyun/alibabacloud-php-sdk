@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $dataStream;
 
     /**
+     * @example my_ilm_policy
+     *
      * @var string
      */
     public $ilmPolicy;
@@ -25,11 +29,15 @@ class result extends Model
     public $indexPatterns;
 
     /**
+     * @example my-template
+     *
      * @var string
      */
     public $indexTemplate;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $priority;

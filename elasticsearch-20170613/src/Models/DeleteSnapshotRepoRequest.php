@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteSnapshotRepoRequest extends Model
 {
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example es-cn-n6w1rux8i000w****
+     *
      * @var string
      */
     public $repoPath;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example success
+     *
      * @var string
      */
     public $status;
@@ -20,6 +22,8 @@ class result extends Model
     public $validateResult;
 
     /**
+     * @example checkClusterHealth
+     *
      * @var string
      */
     public $validateType;

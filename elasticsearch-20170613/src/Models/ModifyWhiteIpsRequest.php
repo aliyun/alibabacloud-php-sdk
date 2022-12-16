@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyWhiteIpsRequest extends Model
 {
     /**
+     * @example Cover
+     *
      * @var string
      */
     public $modifyMode;
 
     /**
+     * @example PUBLIC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @example WORKER
+     *
      * @var string
      */
     public $nodeType;
@@ -35,6 +41,8 @@ class ModifyWhiteIpsRequest extends Model
     public $whiteIpList;
 
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
+     *
      * @var string
      */
     public $clientToken;

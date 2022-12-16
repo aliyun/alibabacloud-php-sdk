@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListDictsRequest extends Model
 {
     /**
+     * @example IK
+     *
      * @var string
      */
     public $analyzerType;
 
     /**
+     * @example SYSTEM_MAIN.dic
+     *
      * @var string
      */
     public $name;

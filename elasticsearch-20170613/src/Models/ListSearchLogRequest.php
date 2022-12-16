@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListSearchLogRequest extends Model
 {
     /**
+     * @example 1531910852074
+     *
      * @var int
      */
     public $beginTime;
 
     /**
+     * @example 1531910852074
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example host:172.16.**.** AND content:netty
+     *
      * @var string
      */
     public $query;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example INSTANCELOG
+     *
      * @var string
      */
     public $type;

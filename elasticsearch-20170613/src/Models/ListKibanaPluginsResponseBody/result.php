@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example Customize DSL statements to query data.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example bsearch_querybuilder
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example SYSTEM
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example https://xxxx
+     *
      * @var string
      */
     public $specificationUrl;
 
     /**
+     * @example INSTALLED
+     *
      * @var string
      */
     public $state;

@@ -9,31 +9,47 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @example 1d2db86sca4384811e0b5e8707e******
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 1
+     *
+     * @deprecated
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example ["es-cn-aaa","es-cn-bbb"]
+     *
      * @var string
      */
     public $resourceIds;
 
     /**
+     * @example INSTANCE
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example 10
+     *
+     * @deprecated
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example [{"key":"env","value","dev"},{"key":"dev",  "value":"IT"}]
+     *
      * @var string
      */
     public $tags;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example /ssd/1/share/ls-cn-oew1qbgl****\/logstash/current/config/custom/mysql-connector-java-5.1.35.jar
+     *
      * @var string
      */
     public $filePath;
 
     /**
+     * @example 968668
+     *
      * @var int
      */
     public $fileSize;
 
     /**
+     * @example mysql-connector-java-5.1.35.jar
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example ORIGIN
+     *
      * @var string
      */
     public $sourceType;

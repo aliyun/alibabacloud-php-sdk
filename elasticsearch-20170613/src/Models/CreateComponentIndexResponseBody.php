@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateComponentIndexResponseBody extends Model
 {
     /**
+     * @example C20022BA-5382-4339-89FB-30AF48A05431
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;

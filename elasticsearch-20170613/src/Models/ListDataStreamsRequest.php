@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListDataStreamsRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isManaged;
 
     /**
+     * @example Log1
+     *
      * @var string
      */
     public $name;

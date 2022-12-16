@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class InterruptElasticsearchTaskResponseBody extends Model
 {
     /**
+     * @example InstanceStatusNotSupportCurrentAction
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example The cluster is running tasks or in an error status. Try again later.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;

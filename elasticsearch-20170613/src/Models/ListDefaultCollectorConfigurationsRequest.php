@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListDefaultCollectorConfigurationsRequest extends Model
 {
     /**
+     * @example fileBeat
+     *
      * @var string
      */
     public $resType;
 
     /**
+     * @example 6.8.5_with_community
+     *
      * @var string
      */
     public $resVersion;
 
     /**
+     * @example ECS
+     *
      * @var string
      */
     public $sourceType;

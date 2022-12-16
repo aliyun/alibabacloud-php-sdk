@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnosisSettingsResponseBody extends Model
 {
     /**
+     * @example 5E82B8A8-EED7-4557-A6E9-D1AD3E58****
+     *
      * @var string
      */
     public $requestId;

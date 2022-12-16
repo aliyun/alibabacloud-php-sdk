@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 2202301
+     *
      * @var int
      */
     public $fileSize;
@@ -20,6 +22,8 @@ class result extends Model
     public $ossObject;
 
     /**
+     * @example STOP
+     *
      * @var string
      */
     public $type;

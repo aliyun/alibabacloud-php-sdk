@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class whiteIpGroup extends Model
 {
     /**
+     * @example test_group
+     *
      * @var string
      */
     public $groupName;
@@ -19,6 +21,8 @@ class whiteIpGroup extends Model
     public $ips;
 
     /**
+     * @example PRIVATE_ES
+     *
      * @var string
      */
     public $whiteIpType;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListPipelineIdsRequest extends Model
 {
     /**
+     * @example {     "userName":"elastic",     "password":"xxxxxx" }
+     *
      * @var string
      */
     public $body;

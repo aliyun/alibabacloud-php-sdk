@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ActivateZonesResponseBody extends Model
 {
     /**
+     * @example 5A5D8E74-565C-43DC-B031-29289FA****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;

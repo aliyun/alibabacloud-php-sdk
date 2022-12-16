@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class nodeConfigurations extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $amount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $disk;
 
     /**
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $memory;
 
     /**
+     * @example WORKER
+     *
      * @var string
      */
     public $nodeType;

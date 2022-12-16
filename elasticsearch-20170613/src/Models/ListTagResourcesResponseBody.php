@@ -16,11 +16,15 @@ class ListTagResourcesResponseBody extends Model
     public $headers;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example F99407AB-2FA9-489E-A259-40CF6D******
+     *
      * @var string
      */
     public $requestId;

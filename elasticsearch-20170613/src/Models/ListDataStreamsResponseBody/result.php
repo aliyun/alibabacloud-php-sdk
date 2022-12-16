@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example Green
+     *
      * @var string
      */
     public $health;
 
     /**
+     * @example rollver1
+     *
      * @var string
      */
     public $ilmPolicyName;
 
     /**
+     * @example template1
+     *
      * @var string
      */
     public $indexTemplateName;
@@ -30,16 +36,22 @@ class result extends Model
     public $indices;
 
     /**
+     * @example 1788239393298
+     *
      * @var int
      */
     public $managedStorageSize;
 
     /**
+     * @example my-index-0001
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1788239393298
+     *
      * @var int
      */
     public $totalStorageSize;

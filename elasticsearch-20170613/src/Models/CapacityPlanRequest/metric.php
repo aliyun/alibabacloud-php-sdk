@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class metric extends Model
 {
     /**
+     * @example 30
+     *
      * @var int
      */
     public $averageQps;
 
     /**
+     * @example write
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $concurrent;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $peakQps;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $responseTime;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $throughput;
 
     /**
+     * @example common
+     *
      * @var string
      */
     public $type;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListDiagnoseReportIdsRequest extends Model
 {
     /**
+     * @example 1595174399999
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example spanish
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example 1595088000000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example SYSTEM
+     *
      * @var string
      */
     public $trigger;

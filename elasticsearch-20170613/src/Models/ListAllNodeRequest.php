@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAllNodeRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $extended;

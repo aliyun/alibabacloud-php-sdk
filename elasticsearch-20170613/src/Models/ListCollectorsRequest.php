@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListCollectorsRequest extends Model
 {
     /**
+     * @example es-cn-nif1q8auz0003****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example collectorName1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example ct-cn-77uqof2s7rg5c****
+     *
      * @var string
      */
     public $resId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example ECS
+     *
      * @var string
      */
     public $sourceType;

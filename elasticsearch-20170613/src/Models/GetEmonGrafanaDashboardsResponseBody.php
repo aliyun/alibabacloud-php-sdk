@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetEmonGrafanaDashboardsResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1E9D9827-2092-4385-9DA1-FC5A8D1DB3F5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticsearchHealthResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 0731F217-2C8A-4D42-8BCD-5C352866E3B7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example GREEN
+     *
      * @var string
      */
     public $result;

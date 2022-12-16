@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class nodeSpec extends Model
 {
     /**
+     * @example 20
+     *
      * @var int
      */
     public $disk;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $diskEncryption;
 
     /**
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @example elasticsearch.sn1ne.large
+     *
      * @var string
      */
     public $spec;

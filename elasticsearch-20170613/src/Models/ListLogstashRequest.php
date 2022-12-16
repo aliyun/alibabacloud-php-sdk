@@ -9,31 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListLogstashRequest extends Model
 {
     /**
+     * @example ls-cn-abc
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example ls-cn-n6w1o5jq****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @var string
-     */
-    public $ownerId;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example rg-acfm2h5vbzd****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $size;
@@ -44,13 +49,14 @@ class ListLogstashRequest extends Model
     public $tags;
 
     /**
+     * @example 5.5.3_with_X-Pack
+     *
      * @var string
      */
     public $version;
     protected $_name = [
         'description'     => 'description',
         'instanceId'      => 'instanceId',
-        'ownerId'         => 'ownerId',
         'page'            => 'page',
         'resourceGroupId' => 'resourceGroupId',
         'size'            => 'size',
@@ -70,9 +76,6 @@ class ListLogstashRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
-        }
-        if (null !== $this->ownerId) {
-            $res['ownerId'] = $this->ownerId;
         }
         if (null !== $this->page) {
             $res['page'] = $this->page;
@@ -106,9 +109,6 @@ class ListLogstashRequest extends Model
         }
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
-        }
-        if (isset($map['ownerId'])) {
-            $model->ownerId = $map['ownerId'];
         }
         if (isset($map['page'])) {
             $model->page = $map['page'];

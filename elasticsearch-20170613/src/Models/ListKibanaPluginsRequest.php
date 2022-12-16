@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListKibanaPluginsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $page;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $size;

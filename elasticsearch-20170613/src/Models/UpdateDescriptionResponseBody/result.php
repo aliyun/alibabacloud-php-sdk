@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example aliyunes_test_name
+     *
      * @var string
      */
     public $description;

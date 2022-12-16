@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateLogstashRequest extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $nodeAmount;
@@ -20,6 +22,8 @@ class UpdateLogstashRequest extends Model
     public $nodeSpec;
 
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
+     *
      * @var string
      */
     public $clientToken;

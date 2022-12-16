@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListDictInformationRequest extends Model
 {
     /**
+     * @example ALIWS
+     *
      * @var string
      */
     public $analyzerType;
 
     /**
+     * @example search-cloud-test-cn-****
+     *
      * @var string
      */
     public $bucketName;
 
     /**
+     * @example oss/dic_0.dic
+     *
      * @var string
      */
     public $key;

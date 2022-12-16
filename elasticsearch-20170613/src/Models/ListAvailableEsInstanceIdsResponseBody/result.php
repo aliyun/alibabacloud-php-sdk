@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example instanceName
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example http://es-cn-n6w1o1x0w001c****.elasticsearch.aliyuncs.com:9200
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @example es-cn-n6w1o1x0w001c****
+     *
      * @var string
      */
     public $esInstanceId;
 
     /**
+     * @example https://es-cn-n6w1o1x0w001c****.kibana.elasticsearch.aliyuncs.com:5601
+     *
      * @var string
      */
     public $kibanaEndpoint;

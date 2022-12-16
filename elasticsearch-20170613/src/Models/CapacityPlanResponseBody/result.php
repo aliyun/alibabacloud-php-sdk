@@ -16,6 +16,8 @@ class result extends Model
     public $extendConfigs;
 
     /**
+     * @example advanced
+     *
      * @var string
      */
     public $instanceCategory;
@@ -26,6 +28,8 @@ class result extends Model
     public $nodeConfigurations;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $oversizedCluster;

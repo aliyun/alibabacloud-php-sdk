@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateDescriptionRequest extends Model
 {
     /**
+     * @example aliyunes_name_test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B350****
+     *
      * @var string
      */
     public $clientToken;

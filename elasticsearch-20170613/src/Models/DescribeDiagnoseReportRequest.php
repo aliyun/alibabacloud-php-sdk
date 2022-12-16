@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnoseReportRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;

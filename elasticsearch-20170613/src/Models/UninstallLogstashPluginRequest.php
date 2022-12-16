@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UninstallLogstashPluginRequest extends Model
 {
     /**
+     * @example ["logstash-input-datahub", "logstash-input-maxcompute" ]
+     *
      * @var string[]
      */
     public $body;
 
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
+     *
      * @var string
      */
     public $clientToken;

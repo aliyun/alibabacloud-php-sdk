@@ -16,6 +16,8 @@ class ListPluginsResponseBody extends Model
     public $headers;
 
     /**
+     * @example 5A5D8E74-565C-43DC-B031-29289FA9****
+     *
      * @var string
      */
     public $requestId;

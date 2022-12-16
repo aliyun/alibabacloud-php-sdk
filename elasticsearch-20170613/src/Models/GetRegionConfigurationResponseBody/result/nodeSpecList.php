@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class nodeSpecList extends Model
 {
     /**
+     * @example 16
+     *
      * @var int
      */
     public $cpuCount;
 
     /**
+     * @example 44000
+     *
      * @var int
      */
     public $disk;
 
     /**
+     * @example local_efficiency
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @example 64
+     *
      * @var int
      */
     public $memorySize;
 
     /**
+     * @example elasticsearch.sn2ne.large
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @example local_efficiency
+     *
      * @var string
      */
     public $specGroupType;

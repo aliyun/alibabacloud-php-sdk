@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class dataInfo extends Model
 {
     /**
+     * @example totalRawData
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @example hot
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example MiB
+     *
      * @var string
      */
     public $unit;

@@ -16,6 +16,8 @@ class ListApmResponseBody extends Model
     public $headers;
 
     /**
+     * @example 080D3399-76CF-519D-A540-2C44BC056EB7
+     *
      * @var string
      */
     public $requestId;

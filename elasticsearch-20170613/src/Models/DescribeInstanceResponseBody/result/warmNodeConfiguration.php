@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class warmNodeConfiguration extends Model
 {
     /**
+     * @example 6
+     *
      * @var int
      */
     public $amount;
 
     /**
+     * @example 500
+     *
      * @var int
      */
     public $disk;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $diskEncryption;
 
     /**
+     * @example cloud_efficiency
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @example elasticsearch.n4.small
+     *
      * @var string
      */
     public $spec;

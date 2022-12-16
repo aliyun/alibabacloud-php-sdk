@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddConnectableClusterRequest extends Model
 {
     /**
+     * @example {     "instanceId":"es-cn-09k1rgid9000g****" }
+     *
      * @var string
      */
     public $body;
 
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
+     *
      * @var string
      */
     public $clientToken;

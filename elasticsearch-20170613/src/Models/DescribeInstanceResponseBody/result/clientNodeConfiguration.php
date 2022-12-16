@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class clientNodeConfiguration extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $amount;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $disk;
 
     /**
+     * @example cloud_efficiency
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @example elasticsearch.n4.small
+     *
      * @var string
      */
     public $spec;

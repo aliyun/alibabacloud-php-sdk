@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 204800
+     *
      * @var int
      */
     public $currentUsage;
 
     /**
+     * @example 184320
+     *
      * @var int
      */
     public $lastDayUsage;

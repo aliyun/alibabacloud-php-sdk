@@ -15,11 +15,15 @@ class diagnoseItems extends Model
     public $detail;
 
     /**
+     * @example YELLOW
+     *
      * @var string
      */
     public $health;
 
     /**
+     * @example IndexAliasUseDiagnostic
+     *
      * @var string
      */
     public $item;

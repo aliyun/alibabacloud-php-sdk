@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeILMPolicyResponseBody extends Model
 {
     /**
+     * @example FF44681E-FD41-4FDE-B8DF-295DCDD6****
+     *
      * @var string
      */
     public $requestId;

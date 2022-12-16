@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 192.168.**.**
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example 9200
+     *
      * @var int
      */
     public $port;

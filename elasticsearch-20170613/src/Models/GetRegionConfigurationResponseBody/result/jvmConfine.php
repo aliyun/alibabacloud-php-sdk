@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class jvmConfine extends Model
 {
     /**
+     * @example 32
+     *
      * @var int
      */
     public $memory;

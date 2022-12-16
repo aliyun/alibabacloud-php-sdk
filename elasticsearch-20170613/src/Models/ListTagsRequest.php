@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListTagsRequest extends Model
 {
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example INSTANCE
+     *
      * @var string
      */
     public $resourceType;

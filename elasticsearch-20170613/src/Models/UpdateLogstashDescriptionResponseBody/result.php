@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example logstash_name
+     *
      * @var string
      */
     public $description;

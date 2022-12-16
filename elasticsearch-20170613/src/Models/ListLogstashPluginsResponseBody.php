@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListLogstashPluginsResponseBody extends Model
 {
     /**
+     * @example 99407AB-2FA9-489E-A259-40CF6DCC****
+     *
      * @var string
      */
     public $requestId;

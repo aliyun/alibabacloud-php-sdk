@@ -403,20 +403,6 @@ class Elasticsearch extends OpenApiClient
     /**
      * @param string               $InstanceId
      * @param ActivateZonesRequest $request
-     *
-     * @return ActivateZonesResponse
-     */
-    public function activateZones($InstanceId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->activateZonesWithOptions($InstanceId, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param string               $InstanceId
-     * @param ActivateZonesRequest $request
      * @param string[]             $headers
      * @param RuntimeOptions       $runtime
      *
@@ -450,17 +436,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                       $InstanceId
-     * @param AddConnectableClusterRequest $request
+     * @param string               $InstanceId
+     * @param ActivateZonesRequest $request
      *
-     * @return AddConnectableClusterResponse
+     * @return ActivateZonesResponse
      */
-    public function addConnectableCluster($InstanceId, $request)
+    public function activateZones($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->addConnectableClusterWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->activateZonesWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -499,17 +485,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                 $InstanceId
-     * @param AddSnapshotRepoRequest $request
+     * @param string                       $InstanceId
+     * @param AddConnectableClusterRequest $request
      *
-     * @return AddSnapshotRepoResponse
+     * @return AddConnectableClusterResponse
      */
-    public function addSnapshotRepo($InstanceId, $request)
+    public function addConnectableCluster($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->addSnapshotRepoWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->addConnectableClusterWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -543,17 +529,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                $InstanceId
-     * @param CancelDeletionRequest $request
+     * @param string                 $InstanceId
+     * @param AddSnapshotRepoRequest $request
      *
-     * @return CancelDeletionResponse
+     * @return AddSnapshotRepoResponse
      */
-    public function cancelDeletion($InstanceId, $request)
+    public function addSnapshotRepo($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->cancelDeletionWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->addSnapshotRepoWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -591,17 +577,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                        $InstanceId
-     * @param CancelLogstashDeletionRequest $request
+     * @param string                $InstanceId
+     * @param CancelDeletionRequest $request
      *
-     * @return CancelLogstashDeletionResponse
+     * @return CancelDeletionResponse
      */
-    public function cancelLogstashDeletion($InstanceId, $request)
+    public function cancelDeletion($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->cancelLogstashDeletionWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->cancelDeletionWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -639,17 +625,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string            $InstanceId
-     * @param CancelTaskRequest $request
+     * @param string                        $InstanceId
+     * @param CancelLogstashDeletionRequest $request
      *
-     * @return CancelTaskResponse
+     * @return CancelLogstashDeletionResponse
      */
-    public function cancelTask($InstanceId, $request)
+    public function cancelLogstashDeletion($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->cancelTaskWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->cancelLogstashDeletionWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -690,16 +676,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param CapacityPlanRequest $request
+     * @param string            $InstanceId
+     * @param CancelTaskRequest $request
      *
-     * @return CapacityPlanResponse
+     * @return CancelTaskResponse
      */
-    public function capacityPlan($request)
+    public function cancelTask($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->capacityPlanWithOptions($request, $headers, $runtime);
+        return $this->cancelTaskWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -745,17 +732,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                $InstanceId
-     * @param CloseDiagnosisRequest $request
+     * @param CapacityPlanRequest $request
      *
-     * @return CloseDiagnosisResponse
+     * @return CapacityPlanResponse
      */
-    public function closeDiagnosis($InstanceId, $request)
+    public function capacityPlan($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->closeDiagnosisWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->capacityPlanWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -796,17 +782,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string            $InstanceId
-     * @param CloseHttpsRequest $request
+     * @param string                $InstanceId
+     * @param CloseDiagnosisRequest $request
      *
-     * @return CloseHttpsResponse
+     * @return CloseDiagnosisResponse
      */
-    public function closeHttps($InstanceId, $request)
+    public function closeDiagnosis($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->closeHttpsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->closeDiagnosisWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -844,18 +830,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                   $InstanceId
-     * @param string                   $Index
-     * @param CloseManagedIndexRequest $request
+     * @param string            $InstanceId
+     * @param CloseHttpsRequest $request
      *
-     * @return CloseManagedIndexResponse
+     * @return CloseHttpsResponse
      */
-    public function closeManagedIndex($InstanceId, $Index, $request)
+    public function closeHttps($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->closeManagedIndexWithOptions($InstanceId, $Index, $request, $headers, $runtime);
+        return $this->closeHttpsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -894,16 +879,18 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param CreateCollectorRequest $request
+     * @param string                   $InstanceId
+     * @param string                   $Index
+     * @param CloseManagedIndexRequest $request
      *
-     * @return CreateCollectorResponse
+     * @return CloseManagedIndexResponse
      */
-    public function createCollector($request)
+    public function closeManagedIndex($InstanceId, $Index, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createCollectorWithOptions($request, $headers, $runtime);
+        return $this->closeManagedIndexWithOptions($InstanceId, $Index, $request, $headers, $runtime);
     }
 
     /**
@@ -941,18 +928,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                      $InstanceId
-     * @param string                      $name
-     * @param CreateComponentIndexRequest $request
+     * @param CreateCollectorRequest $request
      *
-     * @return CreateComponentIndexResponse
+     * @return CreateCollectorResponse
      */
-    public function createComponentIndex($InstanceId, $name, $request)
+    public function createCollector($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createComponentIndexWithOptions($InstanceId, $name, $request, $headers, $runtime);
+        return $this->createCollectorWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -994,17 +979,18 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                  $InstanceId
-     * @param CreateDataStreamRequest $request
+     * @param string                      $InstanceId
+     * @param string                      $name
+     * @param CreateComponentIndexRequest $request
      *
-     * @return CreateDataStreamResponse
+     * @return CreateComponentIndexResponse
      */
-    public function createDataStream($InstanceId, $request)
+    public function createComponentIndex($InstanceId, $name, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createDataStreamWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->createComponentIndexWithOptions($InstanceId, $name, $request, $headers, $runtime);
     }
 
     /**
@@ -1043,17 +1029,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                 $InstanceId
-     * @param CreateDataTasksRequest $request
+     * @param string                  $InstanceId
+     * @param CreateDataStreamRequest $request
      *
-     * @return CreateDataTasksResponse
+     * @return CreateDataStreamResponse
      */
-    public function createDataTasks($InstanceId, $request)
+    public function createDataStream($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createDataTasksWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->createDataStreamWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1074,7 +1060,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
+            'body'    => Utils::toArray($request->body),
         ]);
         $params = new Params([
             'action'      => 'CreateDataTasks',
@@ -1093,16 +1079,16 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                 $InstanceId
-     * @param CreateILMPolicyRequest $request
+     * @param CreateDataTasksRequest $request
      *
-     * @return CreateILMPolicyResponse
+     * @return CreateDataTasksResponse
      */
-    public function createILMPolicy($InstanceId, $request)
+    public function createDataTasks($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createILMPolicyWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->createDataTasksWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1141,17 +1127,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                     $InstanceId
-     * @param CreateIndexTemplateRequest $request
+     * @param string                 $InstanceId
+     * @param CreateILMPolicyRequest $request
      *
-     * @return CreateIndexTemplateResponse
+     * @return CreateILMPolicyResponse
      */
-    public function createIndexTemplate($InstanceId, $request)
+    public function createILMPolicy($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createIndexTemplateWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->createILMPolicyWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1190,16 +1176,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param CreateLogstashRequest $request
+     * @param string                     $InstanceId
+     * @param CreateIndexTemplateRequest $request
      *
-     * @return CreateLogstashResponse
+     * @return CreateIndexTemplateResponse
      */
-    public function createLogstash($request)
+    public function createIndexTemplate($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createLogstashWithOptions($request, $headers, $runtime);
+        return $this->createIndexTemplateWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1259,17 +1246,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                 $InstanceId
-     * @param CreatePipelinesRequest $request
+     * @param CreateLogstashRequest $request
      *
-     * @return CreatePipelinesResponse
+     * @return CreateLogstashResponse
      */
-    public function createPipelines($InstanceId, $request)
+    public function createLogstash($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createPipelinesWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->createLogstashWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1311,17 +1297,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                $InstanceId
-     * @param CreateSnapshotRequest $request
+     * @param string                 $InstanceId
+     * @param CreatePipelinesRequest $request
      *
-     * @return CreateSnapshotResponse
+     * @return CreatePipelinesResponse
      */
-    public function createSnapshot($InstanceId, $request)
+    public function createPipelines($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createSnapshotWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->createPipelinesWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1360,17 +1346,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                   $InstanceId
-     * @param CreateVpcEndpointRequest $request
+     * @param string                $InstanceId
+     * @param CreateSnapshotRequest $request
      *
-     * @return CreateVpcEndpointResponse
+     * @return CreateSnapshotResponse
      */
-    public function createVpcEndpoint($InstanceId, $request)
+    public function createSnapshot($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createVpcEndpointWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->createSnapshotWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1419,17 +1405,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                 $InstanceId
-     * @param DeactivateZonesRequest $request
+     * @param string                   $InstanceId
+     * @param CreateVpcEndpointRequest $request
      *
-     * @return DeactivateZonesResponse
+     * @return CreateVpcEndpointResponse
      */
-    public function deactivateZones($InstanceId, $request)
+    public function createVpcEndpoint($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deactivateZonesWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->createVpcEndpointWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1468,17 +1454,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                 $ResId
-     * @param DeleteCollectorRequest $request
+     * @param string                 $InstanceId
+     * @param DeactivateZonesRequest $request
      *
-     * @return DeleteCollectorResponse
+     * @return DeactivateZonesResponse
      */
-    public function deleteCollector($ResId, $request)
+    public function deactivateZones($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteCollectorWithOptions($ResId, $request, $headers, $runtime);
+        return $this->deactivateZonesWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1516,17 +1502,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
-     * @param string $name
+     * @param string                 $ResId
+     * @param DeleteCollectorRequest $request
      *
-     * @return DeleteComponentIndexResponse
+     * @return DeleteCollectorResponse
      */
-    public function deleteComponentIndex($InstanceId, $name)
+    public function deleteCollector($ResId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteComponentIndexWithOptions($InstanceId, $name, $headers, $runtime);
+        return $this->deleteCollectorWithOptions($ResId, $request, $headers, $runtime);
     }
 
     /**
@@ -1558,17 +1544,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                        $InstanceId
-     * @param DeleteConnectedClusterRequest $request
+     * @param string $InstanceId
+     * @param string $name
      *
-     * @return DeleteConnectedClusterResponse
+     * @return DeleteComponentIndexResponse
      */
-    public function deleteConnectedCluster($InstanceId, $request)
+    public function deleteComponentIndex($InstanceId, $name)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteConnectedClusterWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->deleteComponentIndexWithOptions($InstanceId, $name, $headers, $runtime);
     }
 
     /**
@@ -1609,18 +1595,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                  $InstanceId
-     * @param string                  $DataStream
-     * @param DeleteDataStreamRequest $request
+     * @param string                        $InstanceId
+     * @param DeleteConnectedClusterRequest $request
      *
-     * @return DeleteDataStreamResponse
+     * @return DeleteConnectedClusterResponse
      */
-    public function deleteDataStream($InstanceId, $DataStream, $request)
+    public function deleteConnectedCluster($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteDataStreamWithOptions($InstanceId, $DataStream, $request, $headers, $runtime);
+        return $this->deleteConnectedClusterWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1659,17 +1644,18 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                $InstanceId
-     * @param DeleteDataTaskRequest $request
+     * @param string                  $InstanceId
+     * @param string                  $DataStream
+     * @param DeleteDataStreamRequest $request
      *
-     * @return DeleteDataTaskResponse
+     * @return DeleteDataStreamResponse
      */
-    public function deleteDataTask($InstanceId, $request)
+    public function deleteDataStream($InstanceId, $DataStream, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteDataTaskWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->deleteDataStreamWithOptions($InstanceId, $DataStream, $request, $headers, $runtime);
     }
 
     /**
@@ -1710,17 +1696,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
-     * @param string $name
+     * @param string                $InstanceId
+     * @param DeleteDataTaskRequest $request
      *
-     * @return DeleteDeprecatedTemplateResponse
+     * @return DeleteDataTaskResponse
      */
-    public function deleteDeprecatedTemplate($InstanceId, $name)
+    public function deleteDataTask($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteDeprecatedTemplateWithOptions($InstanceId, $name, $headers, $runtime);
+        return $this->deleteDataTaskWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1753,16 +1739,16 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string $InstanceId
-     * @param string $PolicyName
+     * @param string $name
      *
-     * @return DeleteILMPolicyResponse
+     * @return DeleteDeprecatedTemplateResponse
      */
-    public function deleteILMPolicy($InstanceId, $PolicyName)
+    public function deleteDeprecatedTemplate($InstanceId, $name)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteILMPolicyWithOptions($InstanceId, $PolicyName, $headers, $runtime);
+        return $this->deleteDeprecatedTemplateWithOptions($InstanceId, $name, $headers, $runtime);
     }
 
     /**
@@ -1795,16 +1781,16 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string $InstanceId
-     * @param string $IndexTemplate
+     * @param string $PolicyName
      *
-     * @return DeleteIndexTemplateResponse
+     * @return DeleteILMPolicyResponse
      */
-    public function deleteIndexTemplate($InstanceId, $IndexTemplate)
+    public function deleteILMPolicy($InstanceId, $PolicyName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteIndexTemplateWithOptions($InstanceId, $IndexTemplate, $headers, $runtime);
+        return $this->deleteILMPolicyWithOptions($InstanceId, $PolicyName, $headers, $runtime);
     }
 
     /**
@@ -1836,17 +1822,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                $InstanceId
-     * @param DeleteInstanceRequest $request
+     * @param string $InstanceId
+     * @param string $IndexTemplate
      *
-     * @return DeleteInstanceResponse
+     * @return DeleteIndexTemplateResponse
      */
-    public function deleteInstance($InstanceId, $request)
+    public function deleteIndexTemplate($InstanceId, $IndexTemplate)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteInstanceWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->deleteIndexTemplateWithOptions($InstanceId, $IndexTemplate, $headers, $runtime);
     }
 
     /**
@@ -1888,16 +1874,16 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                $InstanceId
-     * @param DeleteLogstashRequest $request
+     * @param DeleteInstanceRequest $request
      *
-     * @return DeleteLogstashResponse
+     * @return DeleteInstanceResponse
      */
-    public function deleteLogstash($InstanceId, $request)
+    public function deleteInstance($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteLogstashWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->deleteInstanceWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1938,17 +1924,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                 $InstanceId
-     * @param DeletePipelinesRequest $request
+     * @param string                $InstanceId
+     * @param DeleteLogstashRequest $request
      *
-     * @return DeletePipelinesResponse
+     * @return DeleteLogstashResponse
      */
-    public function deletePipelines($InstanceId, $request)
+    public function deleteLogstash($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deletePipelinesWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->deleteLogstashWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1989,17 +1975,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                    $InstanceId
-     * @param DeleteSnapshotRepoRequest $request
+     * @param string                 $InstanceId
+     * @param DeletePipelinesRequest $request
      *
-     * @return DeleteSnapshotRepoResponse
+     * @return DeletePipelinesResponse
      */
-    public function deleteSnapshotRepo($InstanceId, $request)
+    public function deletePipelines($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteSnapshotRepoWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->deletePipelinesWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -2040,18 +2026,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                   $InstanceId
-     * @param string                   $EndpointId
-     * @param DeleteVpcEndpointRequest $request
+     * @param string                    $InstanceId
+     * @param DeleteSnapshotRepoRequest $request
      *
-     * @return DeleteVpcEndpointResponse
+     * @return DeleteSnapshotRepoResponse
      */
-    public function deleteVpcEndpoint($InstanceId, $EndpointId, $request)
+    public function deleteSnapshotRepo($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteVpcEndpointWithOptions($InstanceId, $EndpointId, $request, $headers, $runtime);
+        return $this->deleteSnapshotRepoWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -2090,16 +2075,18 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
+     * @param string                   $InstanceId
+     * @param string                   $EndpointId
+     * @param DeleteVpcEndpointRequest $request
      *
-     * @return DescribeAckOperatorResponse
+     * @return DeleteVpcEndpointResponse
      */
-    public function describeAckOperator($ClusterId)
+    public function deleteVpcEndpoint($InstanceId, $EndpointId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeAckOperatorWithOptions($ClusterId, $headers, $runtime);
+        return $this->deleteVpcEndpointWithOptions($InstanceId, $EndpointId, $request, $headers, $runtime);
     }
 
     /**
@@ -2130,16 +2117,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $instanceId
+     * @param string $ClusterId
      *
-     * @return DescribeApmResponse
+     * @return DescribeAckOperatorResponse
      */
-    public function describeApm($instanceId)
+    public function describeAckOperator($ClusterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeApmWithOptions($instanceId, $headers, $runtime);
+        return $this->describeAckOperatorWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
@@ -2170,16 +2157,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $ResId
+     * @param string $instanceId
      *
-     * @return DescribeCollectorResponse
+     * @return DescribeApmResponse
      */
-    public function describeCollector($ResId)
+    public function describeApm($instanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeCollectorWithOptions($ResId, $headers, $runtime);
+        return $this->describeApmWithOptions($instanceId, $headers, $runtime);
     }
 
     /**
@@ -2210,17 +2197,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
-     * @param string $name
+     * @param string $ResId
      *
-     * @return DescribeComponentIndexResponse
+     * @return DescribeCollectorResponse
      */
-    public function describeComponentIndex($InstanceId, $name)
+    public function describeCollector($ResId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeComponentIndexWithOptions($InstanceId, $name, $headers, $runtime);
+        return $this->describeCollectorWithOptions($ResId, $headers, $runtime);
     }
 
     /**
@@ -2252,17 +2238,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                             $InstanceId
-     * @param DescribeConnectableClustersRequest $request
+     * @param string $InstanceId
+     * @param string $name
      *
-     * @return DescribeConnectableClustersResponse
+     * @return DescribeComponentIndexResponse
      */
-    public function describeConnectableClusters($InstanceId, $request)
+    public function describeComponentIndex($InstanceId, $name)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeConnectableClustersWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->describeComponentIndexWithOptions($InstanceId, $name, $headers, $runtime);
     }
 
     /**
@@ -2300,17 +2286,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
-     * @param string $name
+     * @param string                             $InstanceId
+     * @param DescribeConnectableClustersRequest $request
      *
-     * @return DescribeDeprecatedTemplateResponse
+     * @return DescribeConnectableClustersResponse
      */
-    public function describeDeprecatedTemplate($InstanceId, $name)
+    public function describeConnectableClusters($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeDeprecatedTemplateWithOptions($InstanceId, $name, $headers, $runtime);
+        return $this->describeConnectableClustersWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -2342,18 +2328,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                        $InstanceId
-     * @param string                        $ReportId
-     * @param DescribeDiagnoseReportRequest $request
+     * @param string $InstanceId
+     * @param string $name
      *
-     * @return DescribeDiagnoseReportResponse
+     * @return DescribeDeprecatedTemplateResponse
      */
-    public function describeDiagnoseReport($InstanceId, $ReportId, $request)
+    public function describeDeprecatedTemplate($InstanceId, $name)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeDiagnoseReportWithOptions($InstanceId, $ReportId, $request, $headers, $runtime);
+        return $this->describeDeprecatedTemplateWithOptions($InstanceId, $name, $headers, $runtime);
     }
 
     /**
@@ -2392,17 +2377,18 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                           $InstanceId
-     * @param DescribeDiagnosisSettingsRequest $request
+     * @param string                        $InstanceId
+     * @param string                        $ReportId
+     * @param DescribeDiagnoseReportRequest $request
      *
-     * @return DescribeDiagnosisSettingsResponse
+     * @return DescribeDiagnoseReportResponse
      */
-    public function describeDiagnosisSettings($InstanceId, $request)
+    public function describeDiagnoseReport($InstanceId, $ReportId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeDiagnosisSettingsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->describeDiagnoseReportWithOptions($InstanceId, $ReportId, $request, $headers, $runtime);
     }
 
     /**
@@ -2440,16 +2426,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param string                           $InstanceId
+     * @param DescribeDiagnosisSettingsRequest $request
      *
-     * @return DescribeDynamicSettingsResponse
+     * @return DescribeDiagnosisSettingsResponse
      */
-    public function describeDynamicSettings($InstanceId)
+    public function describeDiagnosisSettings($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeDynamicSettingsWithOptions($InstanceId, $headers, $runtime);
+        return $this->describeDiagnosisSettingsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -2482,14 +2469,14 @@ class Elasticsearch extends OpenApiClient
     /**
      * @param string $InstanceId
      *
-     * @return DescribeElasticsearchHealthResponse
+     * @return DescribeDynamicSettingsResponse
      */
-    public function describeElasticsearchHealth($InstanceId)
+    public function describeDynamicSettings($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeElasticsearchHealthWithOptions($InstanceId, $headers, $runtime);
+        return $this->describeDynamicSettingsWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
@@ -2521,16 +2508,15 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string $InstanceId
-     * @param string $PolicyName
      *
-     * @return DescribeILMPolicyResponse
+     * @return DescribeElasticsearchHealthResponse
      */
-    public function describeILMPolicy($InstanceId, $PolicyName)
+    public function describeElasticsearchHealth($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeILMPolicyWithOptions($InstanceId, $PolicyName, $headers, $runtime);
+        return $this->describeElasticsearchHealthWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
@@ -2563,16 +2549,16 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string $InstanceId
-     * @param string $IndexTemplate
+     * @param string $PolicyName
      *
-     * @return DescribeIndexTemplateResponse
+     * @return DescribeILMPolicyResponse
      */
-    public function describeIndexTemplate($InstanceId, $IndexTemplate)
+    public function describeILMPolicy($InstanceId, $PolicyName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeIndexTemplateWithOptions($InstanceId, $IndexTemplate, $headers, $runtime);
+        return $this->describeILMPolicyWithOptions($InstanceId, $PolicyName, $headers, $runtime);
     }
 
     /**
@@ -2605,15 +2591,16 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string $InstanceId
+     * @param string $IndexTemplate
      *
-     * @return DescribeInstanceResponse
+     * @return DescribeIndexTemplateResponse
      */
-    public function describeInstance($InstanceId)
+    public function describeIndexTemplate($InstanceId, $IndexTemplate)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeInstanceWithOptions($InstanceId, $headers, $runtime);
+        return $this->describeIndexTemplateWithOptions($InstanceId, $IndexTemplate, $headers, $runtime);
     }
 
     /**
@@ -2646,14 +2633,14 @@ class Elasticsearch extends OpenApiClient
     /**
      * @param string $InstanceId
      *
-     * @return DescribeKibanaSettingsResponse
+     * @return DescribeInstanceResponse
      */
-    public function describeKibanaSettings($InstanceId)
+    public function describeInstance($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeKibanaSettingsWithOptions($InstanceId, $headers, $runtime);
+        return $this->describeInstanceWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
@@ -2686,14 +2673,14 @@ class Elasticsearch extends OpenApiClient
     /**
      * @param string $InstanceId
      *
-     * @return DescribeLogstashResponse
+     * @return DescribeKibanaSettingsResponse
      */
-    public function describeLogstash($InstanceId)
+    public function describeKibanaSettings($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeLogstashWithOptions($InstanceId, $headers, $runtime);
+        return $this->describeKibanaSettingsWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
@@ -2725,16 +2712,15 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string $InstanceId
-     * @param string $PipelineId
      *
-     * @return DescribePipelineResponse
+     * @return DescribeLogstashResponse
      */
-    public function describePipeline($InstanceId, $PipelineId)
+    public function describeLogstash($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describePipelineWithOptions($InstanceId, $PipelineId, $headers, $runtime);
+        return $this->describeLogstashWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
@@ -2766,17 +2752,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                                  $InstanceId
-     * @param DescribePipelineManagementConfigRequest $request
+     * @param string $InstanceId
+     * @param string $PipelineId
      *
-     * @return DescribePipelineManagementConfigResponse
+     * @return DescribePipelineResponse
      */
-    public function describePipelineManagementConfig($InstanceId, $request)
+    public function describePipeline($InstanceId, $PipelineId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describePipelineManagementConfigWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->describePipelineWithOptions($InstanceId, $PipelineId, $headers, $runtime);
     }
 
     /**
@@ -2814,14 +2800,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @return DescribeRegionsResponse
+     * @param string                                  $InstanceId
+     * @param DescribePipelineManagementConfigRequest $request
+     *
+     * @return DescribePipelineManagementConfigResponse
      */
-    public function describeRegions()
+    public function describePipelineManagementConfig($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeRegionsWithOptions($headers, $runtime);
+        return $this->describePipelineManagementConfigWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -2851,16 +2840,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
-     *
-     * @return DescribeSnapshotSettingResponse
+     * @return DescribeRegionsResponse
      */
-    public function describeSnapshotSetting($InstanceId)
+    public function describeRegions()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeSnapshotSettingWithOptions($InstanceId, $headers, $runtime);
+        return $this->describeRegionsWithOptions($headers, $runtime);
     }
 
     /**
@@ -2893,14 +2880,14 @@ class Elasticsearch extends OpenApiClient
     /**
      * @param string $InstanceId
      *
-     * @return DescribeTemplatesResponse
+     * @return DescribeSnapshotSettingResponse
      */
-    public function describeTemplates($InstanceId)
+    public function describeSnapshotSetting($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeTemplatesWithOptions($InstanceId, $headers, $runtime);
+        return $this->describeSnapshotSettingWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
@@ -2933,14 +2920,14 @@ class Elasticsearch extends OpenApiClient
     /**
      * @param string $InstanceId
      *
-     * @return DescribeXpackMonitorConfigResponse
+     * @return DescribeTemplatesResponse
      */
-    public function describeXpackMonitorConfig($InstanceId)
+    public function describeTemplates($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeXpackMonitorConfigWithOptions($InstanceId, $headers, $runtime);
+        return $this->describeTemplatesWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
@@ -2971,17 +2958,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                  $InstanceId
-     * @param DiagnoseInstanceRequest $request
+     * @param string $InstanceId
      *
-     * @return DiagnoseInstanceResponse
+     * @return DescribeXpackMonitorConfigResponse
      */
-    public function diagnoseInstance($InstanceId, $request)
+    public function describeXpackMonitorConfig($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->diagnoseInstanceWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->describeXpackMonitorConfigWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
@@ -3033,17 +3019,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                              $InstanceId
-     * @param EstimatedLogstashRestartTimeRequest $request
+     * @param string                  $InstanceId
+     * @param DiagnoseInstanceRequest $request
      *
-     * @return EstimatedLogstashRestartTimeResponse
+     * @return DiagnoseInstanceResponse
      */
-    public function estimatedLogstashRestartTime($InstanceId, $request)
+    public function diagnoseInstance($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->estimatedLogstashRestartTimeWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->diagnoseInstanceWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -3082,17 +3068,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                      $InstanceId
-     * @param EstimatedRestartTimeRequest $request
+     * @param string                              $InstanceId
+     * @param EstimatedLogstashRestartTimeRequest $request
      *
-     * @return EstimatedRestartTimeResponse
+     * @return EstimatedLogstashRestartTimeResponse
      */
-    public function estimatedRestartTime($InstanceId, $request)
+    public function estimatedLogstashRestartTime($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->estimatedRestartTimeWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->estimatedLogstashRestartTimeWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -3131,16 +3117,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param GetClusterDataInformationRequest $request
+     * @param string                      $InstanceId
+     * @param EstimatedRestartTimeRequest $request
      *
-     * @return GetClusterDataInformationResponse
+     * @return EstimatedRestartTimeResponse
      */
-    public function getClusterDataInformation($request)
+    public function estimatedRestartTime($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getClusterDataInformationWithOptions($request, $headers, $runtime);
+        return $this->estimatedRestartTimeWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -3173,16 +3160,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param GetClusterDataInformationRequest $request
      *
-     * @return GetElastictaskResponse
+     * @return GetClusterDataInformationResponse
      */
-    public function getElastictask($InstanceId)
+    public function getClusterDataInformation($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getElastictaskWithOptions($InstanceId, $headers, $runtime);
+        return $this->getClusterDataInformationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3213,17 +3200,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                      $ProjectId
-     * @param GetEmonGrafanaAlertsRequest $request
+     * @param string $InstanceId
      *
-     * @return GetEmonGrafanaAlertsResponse
+     * @return GetElastictaskResponse
      */
-    public function getEmonGrafanaAlerts($ProjectId, $request)
+    public function getElastictask($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getEmonGrafanaAlertsWithOptions($ProjectId, $request, $headers, $runtime);
+        return $this->getElastictaskWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
@@ -3257,17 +3243,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                          $ProjectId
-     * @param GetEmonGrafanaDashboardsRequest $request
+     * @param string                      $ProjectId
+     * @param GetEmonGrafanaAlertsRequest $request
      *
-     * @return GetEmonGrafanaDashboardsResponse
+     * @return GetEmonGrafanaAlertsResponse
      */
-    public function getEmonGrafanaDashboards($ProjectId, $request)
+    public function getEmonGrafanaAlerts($ProjectId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getEmonGrafanaDashboardsWithOptions($ProjectId, $request, $headers, $runtime);
+        return $this->getEmonGrafanaAlertsWithOptions($ProjectId, $request, $headers, $runtime);
     }
 
     /**
@@ -3301,17 +3287,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                    $ProjectId
-     * @param GetEmonMonitorDataRequest $request
+     * @param string                          $ProjectId
+     * @param GetEmonGrafanaDashboardsRequest $request
      *
-     * @return GetEmonMonitorDataResponse
+     * @return GetEmonGrafanaDashboardsResponse
      */
-    public function getEmonMonitorData($ProjectId, $request)
+    public function getEmonGrafanaDashboards($ProjectId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getEmonMonitorDataWithOptions($ProjectId, $request, $headers, $runtime);
+        return $this->getEmonGrafanaDashboardsWithOptions($ProjectId, $request, $headers, $runtime);
     }
 
     /**
@@ -3345,16 +3331,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param string                    $ProjectId
+     * @param GetEmonMonitorDataRequest $request
      *
-     * @return GetOpenStoreUsageResponse
+     * @return GetEmonMonitorDataResponse
      */
-    public function getOpenStoreUsage($InstanceId)
+    public function getEmonMonitorData($ProjectId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getOpenStoreUsageWithOptions($InstanceId, $headers, $runtime);
+        return $this->getEmonMonitorDataWithOptions($ProjectId, $request, $headers, $runtime);
     }
 
     /**
@@ -3385,16 +3372,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param GetRegionConfigurationRequest $request
+     * @param string $InstanceId
      *
-     * @return GetRegionConfigurationResponse
+     * @return GetOpenStoreUsageResponse
      */
-    public function getRegionConfiguration($request)
+    public function getOpenStoreUsage($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getRegionConfigurationWithOptions($request, $headers, $runtime);
+        return $this->getOpenStoreUsageWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
@@ -3431,17 +3418,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                           $InstanceId
-     * @param GetSuggestShrinkableNodesRequest $request
+     * @param GetRegionConfigurationRequest $request
      *
-     * @return GetSuggestShrinkableNodesResponse
+     * @return GetRegionConfigurationResponse
      */
-    public function getSuggestShrinkableNodes($InstanceId, $request)
+    public function getRegionConfiguration($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getSuggestShrinkableNodesWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->getRegionConfigurationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3485,17 +3471,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                      $InstanceId
-     * @param GetTransferableNodesRequest $request
+     * @param string                           $InstanceId
+     * @param GetSuggestShrinkableNodesRequest $request
      *
-     * @return GetTransferableNodesResponse
+     * @return GetSuggestShrinkableNodesResponse
      */
-    public function getTransferableNodes($InstanceId, $request)
+    public function getSuggestShrinkableNodes($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getTransferableNodesWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->getSuggestShrinkableNodesWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -3536,16 +3522,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param InitializeOperationRoleRequest $request
+     * @param string                      $InstanceId
+     * @param GetTransferableNodesRequest $request
      *
-     * @return InitializeOperationRoleResponse
+     * @return GetTransferableNodesResponse
      */
-    public function initializeOperationRole($request)
+    public function getTransferableNodes($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->initializeOperationRoleWithOptions($request, $headers, $runtime);
+        return $this->getTransferableNodesWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -3583,17 +3570,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                    $ClusterId
-     * @param InstallAckOperatorRequest $request
+     * @param InitializeOperationRoleRequest $request
      *
-     * @return InstallAckOperatorResponse
+     * @return InitializeOperationRoleResponse
      */
-    public function installAckOperator($ClusterId, $request)
+    public function initializeOperationRole($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->installAckOperatorWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->initializeOperationRoleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3632,17 +3618,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                           $InstanceId
-     * @param InstallKibanaSystemPluginRequest $request
+     * @param string                    $ClusterId
+     * @param InstallAckOperatorRequest $request
      *
-     * @return InstallKibanaSystemPluginResponse
+     * @return InstallAckOperatorResponse
      */
-    public function installKibanaSystemPlugin($InstanceId, $request)
+    public function installAckOperator($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->installKibanaSystemPluginWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->installAckOperatorWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -3681,17 +3667,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                             $InstanceId
-     * @param InstallLogstashSystemPluginRequest $request
+     * @param string                           $InstanceId
+     * @param InstallKibanaSystemPluginRequest $request
      *
-     * @return InstallLogstashSystemPluginResponse
+     * @return InstallKibanaSystemPluginResponse
      */
-    public function installLogstashSystemPlugin($InstanceId, $request)
+    public function installKibanaSystemPlugin($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->installLogstashSystemPluginWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->installKibanaSystemPluginWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -3730,17 +3716,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                     $InstanceId
-     * @param InstallSystemPluginRequest $request
+     * @param string                             $InstanceId
+     * @param InstallLogstashSystemPluginRequest $request
      *
-     * @return InstallSystemPluginResponse
+     * @return InstallLogstashSystemPluginResponse
      */
-    public function installSystemPlugin($InstanceId, $request)
+    public function installLogstashSystemPlugin($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->installSystemPluginWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->installLogstashSystemPluginWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -3779,17 +3765,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                    $InstanceId
-     * @param InstallUserPluginsRequest $request
+     * @param string                     $InstanceId
+     * @param InstallSystemPluginRequest $request
      *
-     * @return InstallUserPluginsResponse
+     * @return InstallSystemPluginResponse
      */
-    public function installUserPlugins($InstanceId, $request)
+    public function installSystemPlugin($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->installUserPluginsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->installSystemPluginWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -3823,17 +3809,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                            $InstanceId
-     * @param InterruptElasticsearchTaskRequest $request
+     * @param string                    $InstanceId
+     * @param InstallUserPluginsRequest $request
      *
-     * @return InterruptElasticsearchTaskResponse
+     * @return InstallUserPluginsResponse
      */
-    public function interruptElasticsearchTask($InstanceId, $request)
+    public function installUserPlugins($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->interruptElasticsearchTaskWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->installUserPluginsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -3871,17 +3857,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                       $InstanceId
-     * @param InterruptLogstashTaskRequest $request
+     * @param string                            $InstanceId
+     * @param InterruptElasticsearchTaskRequest $request
      *
-     * @return InterruptLogstashTaskResponse
+     * @return InterruptElasticsearchTaskResponse
      */
-    public function interruptLogstashTask($InstanceId, $request)
+    public function interruptElasticsearchTask($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->interruptLogstashTaskWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->interruptElasticsearchTaskWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -3919,16 +3905,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListAckClustersRequest $request
+     * @param string                       $InstanceId
+     * @param InterruptLogstashTaskRequest $request
      *
-     * @return ListAckClustersResponse
+     * @return InterruptLogstashTaskResponse
      */
-    public function listAckClusters($request)
+    public function interruptLogstashTask($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listAckClustersWithOptions($request, $headers, $runtime);
+        return $this->interruptLogstashTaskWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -3971,17 +3958,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                   $ClusterId
-     * @param ListAckNamespacesRequest $request
+     * @param ListAckClustersRequest $request
      *
-     * @return ListAckNamespacesResponse
+     * @return ListAckClustersResponse
      */
-    public function listAckNamespaces($ClusterId, $request)
+    public function listAckClusters($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listAckNamespacesWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->listAckClustersWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4022,17 +4008,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                   $InstanceId
-     * @param ListActionRecordsRequest $request
+     * @param string                   $ClusterId
+     * @param ListAckNamespacesRequest $request
      *
-     * @return ListActionRecordsResponse
+     * @return ListAckNamespacesResponse
      */
-    public function listActionRecords($InstanceId, $request)
+    public function listAckNamespaces($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listActionRecordsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listAckNamespacesWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -4091,17 +4077,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string             $InstanceId
-     * @param ListAllNodeRequest $request
+     * @param string                   $InstanceId
+     * @param ListActionRecordsRequest $request
      *
-     * @return ListAllNodeResponse
+     * @return ListActionRecordsResponse
      */
-    public function listAllNode($InstanceId, $request)
+    public function listActionRecords($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listAllNodeWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listActionRecordsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -4139,17 +4125,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                              $InstanceId
-     * @param ListAlternativeSnapshotReposRequest $request
+     * @param string             $InstanceId
+     * @param ListAllNodeRequest $request
      *
-     * @return ListAlternativeSnapshotReposResponse
+     * @return ListAllNodeResponse
      */
-    public function listAlternativeSnapshotRepos($InstanceId, $request)
+    public function listAllNode($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listAlternativeSnapshotReposWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listAllNodeWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -4187,16 +4173,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListApmRequest $request
+     * @param string                              $InstanceId
+     * @param ListAlternativeSnapshotReposRequest $request
      *
-     * @return ListApmResponse
+     * @return ListAlternativeSnapshotReposResponse
      */
-    public function listApm($request)
+    public function listAlternativeSnapshotRepos($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listApmWithOptions($request, $headers, $runtime);
+        return $this->listAlternativeSnapshotReposWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -4245,16 +4232,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param ListApmRequest $request
      *
-     * @return ListAvailableEsInstanceIdsResponse
+     * @return ListApmResponse
      */
-    public function listAvailableEsInstanceIds($InstanceId)
+    public function listApm($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listAvailableEsInstanceIdsWithOptions($InstanceId, $headers, $runtime);
+        return $this->listApmWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4285,16 +4272,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListCollectorsRequest $request
+     * @param string $InstanceId
      *
-     * @return ListCollectorsResponse
+     * @return ListAvailableEsInstanceIdsResponse
      */
-    public function listCollectors($request)
+    public function listAvailableEsInstanceIds($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listCollectorsWithOptions($request, $headers, $runtime);
+        return $this->listAvailableEsInstanceIdsWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
@@ -4346,17 +4333,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                      $InstanceId
-     * @param ListComponentIndicesRequest $request
+     * @param ListCollectorsRequest $request
      *
-     * @return ListComponentIndicesResponse
+     * @return ListCollectorsResponse
      */
-    public function listComponentIndices($InstanceId, $request)
+    public function listCollectors($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listComponentIndicesWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listCollectorsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4400,16 +4386,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param string                      $InstanceId
+     * @param ListComponentIndicesRequest $request
      *
-     * @return ListConnectedClustersResponse
+     * @return ListComponentIndicesResponse
      */
-    public function listConnectedClusters($InstanceId)
+    public function listComponentIndices($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listConnectedClustersWithOptions($InstanceId, $headers, $runtime);
+        return $this->listComponentIndicesWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -4440,17 +4427,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                 $InstanceId
-     * @param ListDataStreamsRequest $request
+     * @param string $InstanceId
      *
-     * @return ListDataStreamsResponse
+     * @return ListConnectedClustersResponse
      */
-    public function listDataStreams($InstanceId, $request)
+    public function listConnectedClusters($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listDataStreamsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listConnectedClustersWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
@@ -4491,16 +4477,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param string                 $InstanceId
+     * @param ListDataStreamsRequest $request
      *
-     * @return ListDataTasksResponse
+     * @return ListDataStreamsResponse
      */
-    public function listDataTasks($InstanceId)
+    public function listDataStreams($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listDataTasksWithOptions($InstanceId, $headers, $runtime);
+        return $this->listDataStreamsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -4531,16 +4518,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListDefaultCollectorConfigurationsRequest $request
+     * @param string $InstanceId
      *
-     * @return ListDefaultCollectorConfigurationsResponse
+     * @return ListDataTasksResponse
      */
-    public function listDefaultCollectorConfigurations($request)
+    public function listDataTasks($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listDefaultCollectorConfigurationsWithOptions($request, $headers, $runtime);
+        return $this->listDataTasksWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
@@ -4583,17 +4570,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                         $InstanceId
-     * @param ListDeprecatedTemplatesRequest $request
+     * @param ListDefaultCollectorConfigurationsRequest $request
      *
-     * @return ListDeprecatedTemplatesResponse
+     * @return ListDefaultCollectorConfigurationsResponse
      */
-    public function listDeprecatedTemplates($InstanceId, $request)
+    public function listDefaultCollectorConfigurations($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listDeprecatedTemplatesWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listDefaultCollectorConfigurationsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4637,17 +4623,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                     $InstanceId
-     * @param ListDiagnoseIndicesRequest $request
+     * @param string                         $InstanceId
+     * @param ListDeprecatedTemplatesRequest $request
      *
-     * @return ListDiagnoseIndicesResponse
+     * @return ListDeprecatedTemplatesResponse
      */
-    public function listDiagnoseIndices($InstanceId, $request)
+    public function listDeprecatedTemplates($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listDiagnoseIndicesWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listDeprecatedTemplatesWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -4685,17 +4671,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                    $InstanceId
-     * @param ListDiagnoseReportRequest $request
+     * @param string                     $InstanceId
+     * @param ListDiagnoseIndicesRequest $request
      *
-     * @return ListDiagnoseReportResponse
+     * @return ListDiagnoseIndicesResponse
      */
-    public function listDiagnoseReport($InstanceId, $request)
+    public function listDiagnoseIndices($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listDiagnoseReportWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listDiagnoseIndicesWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -4751,17 +4737,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                       $InstanceId
-     * @param ListDiagnoseReportIdsRequest $request
+     * @param string                    $InstanceId
+     * @param ListDiagnoseReportRequest $request
      *
-     * @return ListDiagnoseReportIdsResponse
+     * @return ListDiagnoseReportResponse
      */
-    public function listDiagnoseReportIds($InstanceId, $request)
+    public function listDiagnoseReport($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listDiagnoseReportIdsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listDiagnoseReportWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -4814,17 +4800,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                     $InstanceId
-     * @param ListDictInformationRequest $request
+     * @param string                       $InstanceId
+     * @param ListDiagnoseReportIdsRequest $request
      *
-     * @return ListDictInformationResponse
+     * @return ListDiagnoseReportIdsResponse
      */
-    public function listDictInformation($InstanceId, $request)
+    public function listDiagnoseReportIds($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listDictInformationWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listDiagnoseReportIdsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -4868,17 +4854,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string           $InstanceId
-     * @param ListDictsRequest $request
+     * @param string                     $InstanceId
+     * @param ListDictInformationRequest $request
      *
-     * @return ListDictsResponse
+     * @return ListDictInformationResponse
      */
-    public function listDicts($InstanceId, $request)
+    public function listDictInformation($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listDictsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listDictInformationWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -4919,16 +4905,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListEcsInstancesRequest $request
+     * @param string           $InstanceId
+     * @param ListDictsRequest $request
      *
-     * @return ListEcsInstancesResponse
+     * @return ListDictsResponse
      */
-    public function listEcsInstances($request)
+    public function listDicts($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listEcsInstancesWithOptions($request, $headers, $runtime);
+        return $this->listDictsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -4980,16 +4967,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param ListEcsInstancesRequest $request
      *
-     * @return ListExtendfilesResponse
+     * @return ListEcsInstancesResponse
      */
-    public function listExtendfiles($InstanceId)
+    public function listEcsInstances($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listExtendfilesWithOptions($InstanceId, $headers, $runtime);
+        return $this->listEcsInstancesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5020,17 +5007,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                 $InstanceId
-     * @param ListILMPoliciesRequest $request
+     * @param string $InstanceId
      *
-     * @return ListILMPoliciesResponse
+     * @return ListExtendfilesResponse
      */
-    public function listILMPolicies($InstanceId, $request)
+    public function listExtendfiles($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listILMPoliciesWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listExtendfilesWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
@@ -5068,17 +5054,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                    $InstanceId
-     * @param ListIndexTemplatesRequest $request
+     * @param string                 $InstanceId
+     * @param ListILMPoliciesRequest $request
      *
-     * @return ListIndexTemplatesResponse
+     * @return ListILMPoliciesResponse
      */
-    public function listIndexTemplates($InstanceId, $request)
+    public function listILMPolicies($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listIndexTemplatesWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listILMPoliciesWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -5122,16 +5108,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceRequest $request
+     * @param string                    $InstanceId
+     * @param ListIndexTemplatesRequest $request
      *
-     * @return ListInstanceResponse
+     * @return ListIndexTemplatesResponse
      */
-    public function listInstance($request)
+    public function listIndexTemplates($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listInstanceWithOptions($request, $headers, $runtime);
+        return $this->listIndexTemplatesWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -5198,16 +5185,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceHistoryEventsRequest $request
+     * @param ListInstanceRequest $request
      *
-     * @return ListInstanceHistoryEventsResponse
+     * @return ListInstanceResponse
      */
-    public function listInstanceHistoryEvents($request)
+    public function listInstance($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listInstanceHistoryEventsWithOptions($request, $headers, $runtime);
+        return $this->listInstanceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5274,6 +5261,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => Utils::toArray($request->body),
         ]);
         $params = new Params([
             'action'      => 'ListInstanceHistoryEvents',
@@ -5291,17 +5279,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                     $InstanceId
-     * @param ListInstanceIndicesRequest $request
+     * @param ListInstanceHistoryEventsRequest $request
      *
-     * @return ListInstanceIndicesResponse
+     * @return ListInstanceHistoryEventsResponse
      */
-    public function listInstanceIndices($InstanceId, $request)
+    public function listInstanceHistoryEvents($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listInstanceIndicesWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listInstanceHistoryEventsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5354,17 +5341,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                   $InstanceId
-     * @param ListKibanaPluginsRequest $request
+     * @param string                     $InstanceId
+     * @param ListInstanceIndicesRequest $request
      *
-     * @return ListKibanaPluginsResponse
+     * @return ListInstanceIndicesResponse
      */
-    public function listKibanaPlugins($InstanceId, $request)
+    public function listInstanceIndices($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listKibanaPluginsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listInstanceIndicesWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -5405,16 +5392,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListLogstashRequest $request
+     * @param string                   $InstanceId
+     * @param ListKibanaPluginsRequest $request
      *
-     * @return ListLogstashResponse
+     * @return ListKibanaPluginsResponse
      */
-    public function listLogstash($request)
+    public function listKibanaPlugins($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listLogstashWithOptions($request, $headers, $runtime);
+        return $this->listKibanaPluginsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -5433,9 +5421,6 @@ class Elasticsearch extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['instanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['ownerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->page)) {
             $query['page'] = $request->page;
@@ -5472,17 +5457,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                 $InstanceId
-     * @param ListLogstashLogRequest $request
+     * @param ListLogstashRequest $request
      *
-     * @return ListLogstashLogResponse
+     * @return ListLogstashResponse
      */
-    public function listLogstashLog($InstanceId, $request)
+    public function listLogstash($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listLogstashLogWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listLogstashWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5535,17 +5519,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                     $InstanceId
-     * @param ListLogstashPluginsRequest $request
+     * @param string                 $InstanceId
+     * @param ListLogstashLogRequest $request
      *
-     * @return ListLogstashPluginsResponse
+     * @return ListLogstashLogResponse
      */
-    public function listLogstashPlugins($InstanceId, $request)
+    public function listLogstashLog($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listLogstashPluginsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listLogstashLogWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -5592,17 +5576,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string           $ResId
-     * @param ListNodesRequest $request
+     * @param string                     $InstanceId
+     * @param ListLogstashPluginsRequest $request
      *
-     * @return ListNodesResponse
+     * @return ListLogstashPluginsResponse
      */
-    public function listNodes($ResId, $request)
+    public function listLogstashPlugins($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listNodesWithOptions($ResId, $request, $headers, $runtime);
+        return $this->listLogstashPluginsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -5652,17 +5636,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string              $InstanceId
-     * @param ListPipelineRequest $request
+     * @param string           $ResId
+     * @param ListNodesRequest $request
      *
-     * @return ListPipelineResponse
+     * @return ListNodesResponse
      */
-    public function listPipeline($InstanceId, $request)
+    public function listNodes($ResId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listPipelineWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listNodesWithOptions($ResId, $request, $headers, $runtime);
     }
 
     /**
@@ -5706,17 +5690,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                 $InstanceId
-     * @param ListPipelineIdsRequest $request
+     * @param string              $InstanceId
+     * @param ListPipelineRequest $request
      *
-     * @return ListPipelineIdsResponse
+     * @return ListPipelineResponse
      */
-    public function listPipelineIds($InstanceId, $request)
+    public function listPipeline($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listPipelineIdsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listPipelineWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -5750,17 +5734,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string             $InstanceId
-     * @param ListPluginsRequest $request
+     * @param string                 $InstanceId
+     * @param ListPipelineIdsRequest $request
      *
-     * @return ListPluginsResponse
+     * @return ListPipelineIdsResponse
      */
-    public function listPlugins($InstanceId, $request)
+    public function listPipelineIds($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listPluginsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listPipelineIdsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -5807,17 +5791,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string               $InstanceId
-     * @param ListSearchLogRequest $request
+     * @param string             $InstanceId
+     * @param ListPluginsRequest $request
      *
-     * @return ListSearchLogResponse
+     * @return ListPluginsResponse
      */
-    public function listSearchLog($InstanceId, $request)
+    public function listPlugins($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listSearchLogWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listPluginsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -5870,17 +5854,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                     $InstanceId
-     * @param ListShardRecoveriesRequest $request
+     * @param string               $InstanceId
+     * @param ListSearchLogRequest $request
      *
-     * @return ListShardRecoveriesResponse
+     * @return ListSearchLogResponse
      */
-    public function listShardRecoveries($InstanceId, $request)
+    public function listSearchLog($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listShardRecoveriesWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listSearchLogWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -5918,16 +5902,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param string                     $InstanceId
+     * @param ListShardRecoveriesRequest $request
      *
-     * @return ListSnapshotReposByInstanceIdResponse
+     * @return ListShardRecoveriesResponse
      */
-    public function listSnapshotReposByInstanceId($InstanceId)
+    public function listShardRecoveries($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listSnapshotReposByInstanceIdWithOptions($InstanceId, $headers, $runtime);
+        return $this->listShardRecoveriesWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -5958,16 +5943,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @param string $InstanceId
      *
-     * @return ListTagResourcesResponse
+     * @return ListSnapshotReposByInstanceIdResponse
      */
-    public function listTagResources($request)
+    public function listSnapshotReposByInstanceId($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listTagResourcesWithOptions($request, $headers, $runtime);
+        return $this->listSnapshotReposByInstanceIdWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
@@ -6019,16 +6004,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListTagsRequest $request
+     * @param ListTagResourcesRequest $request
      *
-     * @return ListTagsResponse
+     * @return ListTagResourcesResponse
      */
-    public function listTags($request)
+    public function listTagResources($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listTagsWithOptions($request, $headers, $runtime);
+        return $this->listTagResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6068,17 +6053,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                  $InstanceId
-     * @param ListVpcEndpointsRequest $request
+     * @param ListTagsRequest $request
      *
-     * @return ListVpcEndpointsResponse
+     * @return ListTagsResponse
      */
-    public function listVpcEndpoints($InstanceId, $request)
+    public function listTags($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listVpcEndpointsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listTagsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6119,17 +6103,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                    $InstanceId
-     * @param MigrateToOtherZoneRequest $request
+     * @param string                  $InstanceId
+     * @param ListVpcEndpointsRequest $request
      *
-     * @return MigrateToOtherZoneResponse
+     * @return ListVpcEndpointsResponse
      */
-    public function migrateToOtherZone($InstanceId, $request)
+    public function listVpcEndpoints($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->migrateToOtherZoneWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listVpcEndpointsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -6168,17 +6152,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                     $ResId
-     * @param ModifyDeployMachineRequest $request
+     * @param string                    $InstanceId
+     * @param MigrateToOtherZoneRequest $request
      *
-     * @return ModifyDeployMachineResponse
+     * @return MigrateToOtherZoneResponse
      */
-    public function modifyDeployMachine($ResId, $request)
+    public function migrateToOtherZone($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->modifyDeployMachineWithOptions($ResId, $request, $headers, $runtime);
+        return $this->migrateToOtherZoneWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -6217,17 +6201,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                   $InstanceId
-     * @param ModifyElastictaskRequest $request
+     * @param string                     $ResId
+     * @param ModifyDeployMachineRequest $request
      *
-     * @return ModifyElastictaskResponse
+     * @return ModifyDeployMachineResponse
      */
-    public function modifyElastictask($InstanceId, $request)
+    public function modifyDeployMachine($ResId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->modifyElastictaskWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->modifyDeployMachineWithOptions($ResId, $request, $headers, $runtime);
     }
 
     /**
@@ -6261,17 +6245,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                            $InstanceId
-     * @param ModifyInstanceMaintainTimeRequest $request
+     * @param string                   $InstanceId
+     * @param ModifyElastictaskRequest $request
      *
-     * @return ModifyInstanceMaintainTimeResponse
+     * @return ModifyElastictaskResponse
      */
-    public function modifyInstanceMaintainTime($InstanceId, $request)
+    public function modifyElastictask($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->modifyInstanceMaintainTimeWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->modifyElastictaskWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -6310,17 +6294,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                $InstanceId
-     * @param ModifyWhiteIpsRequest $request
+     * @param string                            $InstanceId
+     * @param ModifyInstanceMaintainTimeRequest $request
      *
-     * @return ModifyWhiteIpsResponse
+     * @return ModifyInstanceMaintainTimeResponse
      */
-    public function modifyWhiteIps($InstanceId, $request)
+    public function modifyInstanceMaintainTime($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->modifyWhiteIpsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->modifyInstanceMaintainTimeWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -6375,17 +6359,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                   $InstanceId
-     * @param MoveResourceGroupRequest $request
+     * @param string                $InstanceId
+     * @param ModifyWhiteIpsRequest $request
      *
-     * @return MoveResourceGroupResponse
+     * @return ModifyWhiteIpsResponse
      */
-    public function moveResourceGroup($InstanceId, $request)
+    public function modifyWhiteIps($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->moveResourceGroupWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->modifyWhiteIpsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -6424,17 +6408,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string               $InstanceId
-     * @param OpenDiagnosisRequest $request
+     * @param string                   $InstanceId
+     * @param MoveResourceGroupRequest $request
      *
-     * @return OpenDiagnosisResponse
+     * @return MoveResourceGroupResponse
      */
-    public function openDiagnosis($InstanceId, $request)
+    public function moveResourceGroup($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->openDiagnosisWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->moveResourceGroupWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -6475,17 +6459,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string           $InstanceId
-     * @param OpenHttpsRequest $request
+     * @param string               $InstanceId
+     * @param OpenDiagnosisRequest $request
      *
-     * @return OpenHttpsResponse
+     * @return OpenDiagnosisResponse
      */
-    public function openHttps($InstanceId, $request)
+    public function openDiagnosis($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->openHttpsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->openDiagnosisWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -6523,18 +6507,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                      $ProjectId
-     * @param string                      $AlarmGroupId
-     * @param PostEmonTryAlarmRuleRequest $request
+     * @param string           $InstanceId
+     * @param OpenHttpsRequest $request
      *
-     * @return PostEmonTryAlarmRuleResponse
+     * @return OpenHttpsResponse
      */
-    public function postEmonTryAlarmRule($ProjectId, $AlarmGroupId, $request)
+    public function openHttps($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->postEmonTryAlarmRuleWithOptions($ProjectId, $AlarmGroupId, $request, $headers, $runtime);
+        return $this->openHttpsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -6569,17 +6552,18 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                    $InstanceId
-     * @param RecommendTemplatesRequest $request
+     * @param string                      $ProjectId
+     * @param string                      $AlarmGroupId
+     * @param PostEmonTryAlarmRuleRequest $request
      *
-     * @return RecommendTemplatesResponse
+     * @return PostEmonTryAlarmRuleResponse
      */
-    public function recommendTemplates($InstanceId, $request)
+    public function postEmonTryAlarmRule($ProjectId, $AlarmGroupId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->recommendTemplatesWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->postEmonTryAlarmRuleWithOptions($ProjectId, $AlarmGroupId, $request, $headers, $runtime);
     }
 
     /**
@@ -6617,17 +6601,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                    $ResId
-     * @param ReinstallCollectorRequest $request
+     * @param string                    $InstanceId
+     * @param RecommendTemplatesRequest $request
      *
-     * @return ReinstallCollectorResponse
+     * @return RecommendTemplatesResponse
      */
-    public function reinstallCollector($ResId, $request)
+    public function recommendTemplates($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->reinstallCollectorWithOptions($ResId, $request, $headers, $runtime);
+        return $this->recommendTemplatesWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -6666,16 +6650,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $instanceId
+     * @param string                    $ResId
+     * @param ReinstallCollectorRequest $request
      *
-     * @return RemoveApmResponse
+     * @return ReinstallCollectorResponse
      */
-    public function removeApm($instanceId)
+    public function reinstallCollector($ResId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->removeApmWithOptions($instanceId, $headers, $runtime);
+        return $this->reinstallCollectorWithOptions($ResId, $request, $headers, $runtime);
     }
 
     /**
@@ -6706,17 +6691,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string               $InstanceId
-     * @param RenewInstanceRequest $request
+     * @param string $instanceId
      *
-     * @return RenewInstanceResponse
+     * @return RemoveApmResponse
      */
-    public function renewInstance($InstanceId, $request)
+    public function removeApm($instanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->renewInstanceWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->removeApmWithOptions($instanceId, $headers, $runtime);
     }
 
     /**
@@ -6756,16 +6740,16 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string               $InstanceId
-     * @param RenewLogstashRequest $request
+     * @param RenewInstanceRequest $request
      *
-     * @return RenewLogstashResponse
+     * @return RenewInstanceResponse
      */
-    public function renewLogstash($InstanceId, $request)
+    public function renewInstance($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->renewLogstashWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->renewInstanceWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -6804,17 +6788,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                  $ResId
-     * @param RestartCollectorRequest $request
+     * @param string               $InstanceId
+     * @param RenewLogstashRequest $request
      *
-     * @return RestartCollectorResponse
+     * @return RenewLogstashResponse
      */
-    public function restartCollector($ResId, $request)
+    public function renewLogstash($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->restartCollectorWithOptions($ResId, $request, $headers, $runtime);
+        return $this->renewLogstashWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -6852,17 +6836,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                 $InstanceId
-     * @param RestartInstanceRequest $request
+     * @param string                  $ResId
+     * @param RestartCollectorRequest $request
      *
-     * @return RestartInstanceResponse
+     * @return RestartCollectorResponse
      */
-    public function restartInstance($InstanceId, $request)
+    public function restartCollector($ResId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->restartInstanceWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->restartCollectorWithOptions($ResId, $request, $headers, $runtime);
     }
 
     /**
@@ -6905,16 +6889,16 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                 $InstanceId
-     * @param RestartLogstashRequest $request
+     * @param RestartInstanceRequest $request
      *
-     * @return RestartLogstashResponse
+     * @return RestartInstanceResponse
      */
-    public function restartLogstash($InstanceId, $request)
+    public function restartInstance($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->restartLogstashWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->restartInstanceWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -6972,17 +6956,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                         $InstanceId
-     * @param ResumeElasticsearchTaskRequest $request
+     * @param string                 $InstanceId
+     * @param RestartLogstashRequest $request
      *
-     * @return ResumeElasticsearchTaskResponse
+     * @return RestartLogstashResponse
      */
-    public function resumeElasticsearchTask($InstanceId, $request)
+    public function restartLogstash($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->resumeElasticsearchTaskWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->restartLogstashWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -7020,17 +7004,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                    $InstanceId
-     * @param ResumeLogstashTaskRequest $request
+     * @param string                         $InstanceId
+     * @param ResumeElasticsearchTaskRequest $request
      *
-     * @return ResumeLogstashTaskResponse
+     * @return ResumeElasticsearchTaskResponse
      */
-    public function resumeLogstashTask($InstanceId, $request)
+    public function resumeElasticsearchTask($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->resumeLogstashTaskWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->resumeElasticsearchTaskWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -7069,17 +7053,16 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                    $InstanceId
-     * @param string                    $DataStream
-     * @param RolloverDataStreamRequest $request
+     * @param ResumeLogstashTaskRequest $request
      *
-     * @return RolloverDataStreamResponse
+     * @return ResumeLogstashTaskResponse
      */
-    public function rolloverDataStream($InstanceId, $DataStream, $request)
+    public function resumeLogstashTask($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->rolloverDataStreamWithOptions($InstanceId, $DataStream, $request, $headers, $runtime);
+        return $this->resumeLogstashTaskWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -7118,17 +7101,18 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string              $InstanceId
-     * @param RunPipelinesRequest $request
+     * @param string                    $InstanceId
+     * @param string                    $DataStream
+     * @param RolloverDataStreamRequest $request
      *
-     * @return RunPipelinesResponse
+     * @return RolloverDataStreamResponse
      */
-    public function runPipelines($InstanceId, $request)
+    public function rolloverDataStream($InstanceId, $DataStream, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->runPipelinesWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->rolloverDataStreamWithOptions($InstanceId, $DataStream, $request, $headers, $runtime);
     }
 
     /**
@@ -7167,17 +7151,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string            $InstanceId
-     * @param ShrinkNodeRequest $request
+     * @param string              $InstanceId
+     * @param RunPipelinesRequest $request
      *
-     * @return ShrinkNodeResponse
+     * @return RunPipelinesResponse
      */
-    public function shrinkNode($InstanceId, $request)
+    public function runPipelines($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->shrinkNodeWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->runPipelinesWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -7225,16 +7209,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $instanceId
+     * @param string            $InstanceId
+     * @param ShrinkNodeRequest $request
      *
-     * @return StartApmResponse
+     * @return ShrinkNodeResponse
      */
-    public function startApm($instanceId)
+    public function shrinkNode($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->startApmWithOptions($instanceId, $headers, $runtime);
+        return $this->shrinkNodeWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -7265,17 +7250,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                $ResId
-     * @param StartCollectorRequest $request
+     * @param string $instanceId
      *
-     * @return StartCollectorResponse
+     * @return StartApmResponse
      */
-    public function startCollector($ResId, $request)
+    public function startApm($instanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->startCollectorWithOptions($ResId, $request, $headers, $runtime);
+        return $this->startApmWithOptions($instanceId, $headers, $runtime);
     }
 
     /**
@@ -7313,16 +7297,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $instanceId
+     * @param string                $ResId
+     * @param StartCollectorRequest $request
      *
-     * @return StopApmResponse
+     * @return StartCollectorResponse
      */
-    public function stopApm($instanceId)
+    public function startCollector($ResId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->stopApmWithOptions($instanceId, $headers, $runtime);
+        return $this->startCollectorWithOptions($ResId, $request, $headers, $runtime);
     }
 
     /**
@@ -7353,17 +7338,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string               $ResId
-     * @param StopCollectorRequest $request
+     * @param string $instanceId
      *
-     * @return StopCollectorResponse
+     * @return StopApmResponse
      */
-    public function stopCollector($ResId, $request)
+    public function stopApm($instanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->stopCollectorWithOptions($ResId, $request, $headers, $runtime);
+        return $this->stopApmWithOptions($instanceId, $headers, $runtime);
     }
 
     /**
@@ -7401,17 +7385,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string               $InstanceId
-     * @param StopPipelinesRequest $request
+     * @param string               $ResId
+     * @param StopCollectorRequest $request
      *
-     * @return StopPipelinesResponse
+     * @return StopCollectorResponse
      */
-    public function stopPipelines($InstanceId, $request)
+    public function stopCollector($ResId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->stopPipelinesWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->stopCollectorWithOptions($ResId, $request, $headers, $runtime);
     }
 
     /**
@@ -7450,16 +7434,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @param string               $InstanceId
+     * @param StopPipelinesRequest $request
      *
-     * @return TagResourcesResponse
+     * @return StopPipelinesResponse
      */
-    public function tagResources($request)
+    public function stopPipelines($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->tagResourcesWithOptions($request, $headers, $runtime);
+        return $this->stopPipelinesWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -7502,17 +7487,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string              $InstanceId
-     * @param TransferNodeRequest $request
+     * @param TagResourcesRequest $request
      *
-     * @return TransferNodeResponse
+     * @return TagResourcesResponse
      */
-    public function transferNode($InstanceId, $request)
+    public function tagResources($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->transferNodeWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->tagResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7554,17 +7538,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                $InstanceId
-     * @param TriggerNetworkRequest $request
+     * @param string              $InstanceId
+     * @param TransferNodeRequest $request
      *
-     * @return TriggerNetworkResponse
+     * @return TransferNodeResponse
      */
-    public function triggerNetwork($InstanceId, $request)
+    public function transferNode($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->triggerNetworkWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->transferNodeWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -7613,17 +7597,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                       $InstanceId
-     * @param UninstallKibanaPluginRequest $request
+     * @param string                $InstanceId
+     * @param TriggerNetworkRequest $request
      *
-     * @return UninstallKibanaPluginResponse
+     * @return TriggerNetworkResponse
      */
-    public function uninstallKibanaPlugin($InstanceId, $request)
+    public function triggerNetwork($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->uninstallKibanaPluginWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->triggerNetworkWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -7662,17 +7646,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                         $InstanceId
-     * @param UninstallLogstashPluginRequest $request
+     * @param string                       $InstanceId
+     * @param UninstallKibanaPluginRequest $request
      *
-     * @return UninstallLogstashPluginResponse
+     * @return UninstallKibanaPluginResponse
      */
-    public function uninstallLogstashPlugin($InstanceId, $request)
+    public function uninstallKibanaPlugin($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->uninstallLogstashPluginWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->uninstallKibanaPluginWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -7711,17 +7695,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                 $InstanceId
-     * @param UninstallPluginRequest $request
+     * @param string                         $InstanceId
+     * @param UninstallLogstashPluginRequest $request
      *
-     * @return UninstallPluginResponse
+     * @return UninstallLogstashPluginResponse
      */
-    public function uninstallPlugin($InstanceId, $request)
+    public function uninstallLogstashPlugin($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->uninstallPluginWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->uninstallLogstashPluginWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -7760,16 +7744,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @param string                 $InstanceId
+     * @param UninstallPluginRequest $request
      *
-     * @return UntagResourcesResponse
+     * @return UninstallPluginResponse
      */
-    public function untagResources($request)
+    public function uninstallPlugin($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->untagResourcesWithOptions($request, $headers, $runtime);
+        return $this->uninstallPluginWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -7816,17 +7801,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                     $InstanceId
-     * @param UpdateAdminPasswordRequest $request
+     * @param UntagResourcesRequest $request
      *
-     * @return UpdateAdminPasswordResponse
+     * @return UntagResourcesResponse
      */
-    public function updateAdminPassword($InstanceId, $request)
+    public function untagResources($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateAdminPasswordWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->untagResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7869,17 +7853,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                       $InstanceId
-     * @param UpdateAdvancedSettingRequest $request
+     * @param string                     $InstanceId
+     * @param UpdateAdminPasswordRequest $request
      *
-     * @return UpdateAdvancedSettingResponse
+     * @return UpdateAdminPasswordResponse
      */
-    public function updateAdvancedSetting($InstanceId, $request)
+    public function updateAdminPassword($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateAdvancedSettingWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateAdminPasswordWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -7918,17 +7902,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                 $InstanceId
-     * @param UpdateAliwsDictRequest $request
+     * @param string                       $InstanceId
+     * @param UpdateAdvancedSettingRequest $request
      *
-     * @return UpdateAliwsDictResponse
+     * @return UpdateAdvancedSettingResponse
      */
-    public function updateAliwsDict($InstanceId, $request)
+    public function updateAdvancedSetting($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateAliwsDictWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateAdvancedSettingWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -7967,17 +7951,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string           $instanceId
-     * @param UpdateApmRequest $request
+     * @param string                 $InstanceId
+     * @param UpdateAliwsDictRequest $request
      *
-     * @return UpdateApmResponse
+     * @return UpdateAliwsDictResponse
      */
-    public function updateApm($instanceId, $request)
+    public function updateAliwsDict($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateApmWithOptions($instanceId, $request, $headers, $runtime);
+        return $this->updateAliwsDictWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -8027,26 +8011,30 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                $InstanceId
-     * @param UpdateBlackIpsRequest $request
+     * @param string           $instanceId
+     * @param UpdateApmRequest $request
      *
-     * @return UpdateBlackIpsResponse
+     * @return UpdateApmResponse
      */
-    public function updateBlackIps($InstanceId, $request)
+    public function updateApm($instanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateBlackIpsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateApmWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string                $InstanceId
-     * @param UpdateBlackIpsRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return UpdateBlackIpsResponse
+     * @param string                $InstanceId
+     * @param UpdateBlackIpsRequest $request    UpdateBlackIpsRequest
+     * @param string[]              $headers    map
+     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return UpdateBlackIpsResponse UpdateBlackIpsResponse
      */
     public function updateBlackIpsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -8075,17 +8063,21 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                 $ResId
-     * @param UpdateCollectorRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return UpdateCollectorResponse
+     * @param string                $InstanceId
+     * @param UpdateBlackIpsRequest $request    UpdateBlackIpsRequest
+     *
+     * @return UpdateBlackIpsResponse UpdateBlackIpsResponse
      */
-    public function updateCollector($ResId, $request)
+    public function updateBlackIps($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateCollectorWithOptions($ResId, $request, $headers, $runtime);
+        return $this->updateBlackIpsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -8124,17 +8116,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                     $ResId
-     * @param UpdateCollectorNameRequest $request
+     * @param string                 $ResId
+     * @param UpdateCollectorRequest $request
      *
-     * @return UpdateCollectorNameResponse
+     * @return UpdateCollectorResponse
      */
-    public function updateCollectorName($ResId, $request)
+    public function updateCollector($ResId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateCollectorNameWithOptions($ResId, $request, $headers, $runtime);
+        return $this->updateCollectorWithOptions($ResId, $request, $headers, $runtime);
     }
 
     /**
@@ -8173,18 +8165,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                      $InstanceId
-     * @param string                      $name
-     * @param UpdateComponentIndexRequest $request
+     * @param string                     $ResId
+     * @param UpdateCollectorNameRequest $request
      *
-     * @return UpdateComponentIndexResponse
+     * @return UpdateCollectorNameResponse
      */
-    public function updateComponentIndex($InstanceId, $name, $request)
+    public function updateCollectorName($ResId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateComponentIndexWithOptions($InstanceId, $name, $request, $headers, $runtime);
+        return $this->updateCollectorNameWithOptions($ResId, $request, $headers, $runtime);
     }
 
     /**
@@ -8226,17 +8217,18 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                   $InstanceId
-     * @param UpdateDescriptionRequest $request
+     * @param string                      $InstanceId
+     * @param string                      $name
+     * @param UpdateComponentIndexRequest $request
      *
-     * @return UpdateDescriptionResponse
+     * @return UpdateComponentIndexResponse
      */
-    public function updateDescription($InstanceId, $request)
+    public function updateComponentIndex($InstanceId, $name, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateDescriptionWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateComponentIndexWithOptions($InstanceId, $name, $request, $headers, $runtime);
     }
 
     /**
@@ -8279,17 +8271,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                         $InstanceId
-     * @param UpdateDiagnosisSettingsRequest $request
+     * @param string                   $InstanceId
+     * @param UpdateDescriptionRequest $request
      *
-     * @return UpdateDiagnosisSettingsResponse
+     * @return UpdateDescriptionResponse
      */
-    public function updateDiagnosisSettings($InstanceId, $request)
+    public function updateDescription($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateDiagnosisSettingsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateDescriptionWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -8331,17 +8323,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string            $InstanceId
-     * @param UpdateDictRequest $request
+     * @param string                         $InstanceId
+     * @param UpdateDiagnosisSettingsRequest $request
      *
-     * @return UpdateDictResponse
+     * @return UpdateDiagnosisSettingsResponse
      */
-    public function updateDict($InstanceId, $request)
+    public function updateDiagnosisSettings($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateDictWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateDiagnosisSettingsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -8380,17 +8372,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                       $InstanceId
-     * @param UpdateDynamicSettingsRequest $request
+     * @param string            $InstanceId
+     * @param UpdateDictRequest $request
      *
-     * @return UpdateDynamicSettingsResponse
+     * @return UpdateDictResponse
      */
-    public function updateDynamicSettings($InstanceId, $request)
+    public function updateDict($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateDynamicSettingsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateDictWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -8435,17 +8427,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                    $InstanceId
-     * @param UpdateExtendConfigRequest $request
+     * @param string                       $InstanceId
+     * @param UpdateDynamicSettingsRequest $request
      *
-     * @return UpdateExtendConfigResponse
+     * @return UpdateDynamicSettingsResponse
      */
-    public function updateExtendConfig($InstanceId, $request)
+    public function updateDynamicSettings($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateExtendConfigWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateDynamicSettingsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -8484,17 +8476,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                   $InstanceId
-     * @param UpdateExtendfilesRequest $request
+     * @param string                    $InstanceId
+     * @param UpdateExtendConfigRequest $request
      *
-     * @return UpdateExtendfilesResponse
+     * @return UpdateExtendConfigResponse
      */
-    public function updateExtendfiles($InstanceId, $request)
+    public function updateExtendConfig($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateExtendfilesWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateExtendConfigWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -8533,17 +8525,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                  $InstanceId
-     * @param UpdateHotIkDictsRequest $request
+     * @param string                   $InstanceId
+     * @param UpdateExtendfilesRequest $request
      *
-     * @return UpdateHotIkDictsResponse
+     * @return UpdateExtendfilesResponse
      */
-    public function updateHotIkDicts($InstanceId, $request)
+    public function updateExtendfiles($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateHotIkDictsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateExtendfilesWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -8582,18 +8574,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                 $InstanceId
-     * @param string                 $PolicyName
-     * @param UpdateILMPolicyRequest $request
+     * @param string                  $InstanceId
+     * @param UpdateHotIkDictsRequest $request
      *
-     * @return UpdateILMPolicyResponse
+     * @return UpdateHotIkDictsResponse
      */
-    public function updateILMPolicy($InstanceId, $PolicyName, $request)
+    public function updateHotIkDicts($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateILMPolicyWithOptions($InstanceId, $PolicyName, $request, $headers, $runtime);
+        return $this->updateHotIkDictsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -8633,18 +8624,18 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                     $InstanceId
-     * @param string                     $IndexTemplate
-     * @param UpdateIndexTemplateRequest $request
+     * @param string                 $InstanceId
+     * @param string                 $PolicyName
+     * @param UpdateILMPolicyRequest $request
      *
-     * @return UpdateIndexTemplateResponse
+     * @return UpdateILMPolicyResponse
      */
-    public function updateIndexTemplate($InstanceId, $IndexTemplate, $request)
+    public function updateILMPolicy($InstanceId, $PolicyName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateIndexTemplateWithOptions($InstanceId, $IndexTemplate, $request, $headers, $runtime);
+        return $this->updateILMPolicyWithOptions($InstanceId, $PolicyName, $request, $headers, $runtime);
     }
 
     /**
@@ -8684,17 +8675,18 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                $InstanceId
-     * @param UpdateInstanceRequest $request
+     * @param string                     $InstanceId
+     * @param string                     $IndexTemplate
+     * @param UpdateIndexTemplateRequest $request
      *
-     * @return UpdateInstanceResponse
+     * @return UpdateIndexTemplateResponse
      */
-    public function updateInstance($InstanceId, $request)
+    public function updateIndexTemplate($InstanceId, $IndexTemplate, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateInstanceWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateIndexTemplateWithOptions($InstanceId, $IndexTemplate, $request, $headers, $runtime);
     }
 
     /**
@@ -8764,17 +8756,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                          $InstanceId
-     * @param UpdateInstanceChargeTypeRequest $request
+     * @param string                $InstanceId
+     * @param UpdateInstanceRequest $request
      *
-     * @return UpdateInstanceChargeTypeResponse
+     * @return UpdateInstanceResponse
      */
-    public function updateInstanceChargeType($InstanceId, $request)
+    public function updateInstance($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateInstanceChargeTypeWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateInstanceWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -8813,17 +8805,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                        $InstanceId
-     * @param UpdateInstanceSettingsRequest $request
+     * @param string                          $InstanceId
+     * @param UpdateInstanceChargeTypeRequest $request
      *
-     * @return UpdateInstanceSettingsResponse
+     * @return UpdateInstanceChargeTypeResponse
      */
-    public function updateInstanceSettings($InstanceId, $request)
+    public function updateInstanceChargeType($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateInstanceSettingsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateInstanceChargeTypeWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -8862,17 +8854,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                      $InstanceId
-     * @param UpdateKibanaSettingsRequest $request
+     * @param string                        $InstanceId
+     * @param UpdateInstanceSettingsRequest $request
      *
-     * @return UpdateKibanaSettingsResponse
+     * @return UpdateInstanceSettingsResponse
      */
-    public function updateKibanaSettings($InstanceId, $request)
+    public function updateInstanceSettings($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateKibanaSettingsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateInstanceSettingsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -8912,16 +8904,16 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                      $InstanceId
-     * @param UpdateKibanaWhiteIpsRequest $request
+     * @param UpdateKibanaSettingsRequest $request
      *
-     * @return UpdateKibanaWhiteIpsResponse
+     * @return UpdateKibanaSettingsResponse
      */
-    public function updateKibanaWhiteIps($InstanceId, $request)
+    public function updateKibanaSettings($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateKibanaWhiteIpsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateKibanaSettingsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -8970,17 +8962,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                $InstanceId
-     * @param UpdateLogstashRequest $request
+     * @param string                      $InstanceId
+     * @param UpdateKibanaWhiteIpsRequest $request
      *
-     * @return UpdateLogstashResponse
+     * @return UpdateKibanaWhiteIpsResponse
      */
-    public function updateLogstash($InstanceId, $request)
+    public function updateKibanaWhiteIps($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateLogstashWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateKibanaWhiteIpsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -9026,17 +9018,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                          $InstanceId
-     * @param UpdateLogstashChargeTypeRequest $request
+     * @param string                $InstanceId
+     * @param UpdateLogstashRequest $request
      *
-     * @return UpdateLogstashChargeTypeResponse
+     * @return UpdateLogstashResponse
      */
-    public function updateLogstashChargeType($InstanceId, $request)
+    public function updateLogstash($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateLogstashChargeTypeWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateLogstashWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -9075,17 +9067,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                           $InstanceId
-     * @param UpdateLogstashDescriptionRequest $request
+     * @param string                          $InstanceId
+     * @param UpdateLogstashChargeTypeRequest $request
      *
-     * @return UpdateLogstashDescriptionResponse
+     * @return UpdateLogstashChargeTypeResponse
      */
-    public function updateLogstashDescription($InstanceId, $request)
+    public function updateLogstashChargeType($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateLogstashDescriptionWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateLogstashChargeTypeWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -9124,17 +9116,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                        $InstanceId
-     * @param UpdateLogstashSettingsRequest $request
+     * @param string                           $InstanceId
+     * @param UpdateLogstashDescriptionRequest $request
      *
-     * @return UpdateLogstashSettingsResponse
+     * @return UpdateLogstashDescriptionResponse
      */
-    public function updateLogstashSettings($InstanceId, $request)
+    public function updateLogstashDescription($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateLogstashSettingsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateLogstashDescriptionWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -9173,17 +9165,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                                $InstanceId
-     * @param UpdatePipelineManagementConfigRequest $request
+     * @param string                        $InstanceId
+     * @param UpdateLogstashSettingsRequest $request
      *
-     * @return UpdatePipelineManagementConfigResponse
+     * @return UpdateLogstashSettingsResponse
      */
-    public function updatePipelineManagementConfig($InstanceId, $request)
+    public function updateLogstashSettings($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updatePipelineManagementConfigWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateLogstashSettingsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -9238,17 +9230,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                 $InstanceId
-     * @param UpdatePipelinesRequest $request
+     * @param string                                $InstanceId
+     * @param UpdatePipelineManagementConfigRequest $request
      *
-     * @return UpdatePipelinesResponse
+     * @return UpdatePipelineManagementConfigResponse
      */
-    public function updatePipelines($InstanceId, $request)
+    public function updatePipelineManagementConfig($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updatePipelinesWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updatePipelineManagementConfigWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -9290,17 +9282,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                              $InstanceId
-     * @param UpdatePrivateNetworkWhiteIpsRequest $request
+     * @param string                 $InstanceId
+     * @param UpdatePipelinesRequest $request
      *
-     * @return UpdatePrivateNetworkWhiteIpsResponse
+     * @return UpdatePipelinesResponse
      */
-    public function updatePrivateNetworkWhiteIps($InstanceId, $request)
+    public function updatePipelines($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updatePrivateNetworkWhiteIpsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updatePipelinesWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -9342,17 +9334,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                     $InstanceId
-     * @param UpdatePublicNetworkRequest $request
+     * @param string                              $InstanceId
+     * @param UpdatePrivateNetworkWhiteIpsRequest $request
      *
-     * @return UpdatePublicNetworkResponse
+     * @return UpdatePrivateNetworkWhiteIpsResponse
      */
-    public function updatePublicNetwork($InstanceId, $request)
+    public function updatePrivateNetworkWhiteIps($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updatePublicNetworkWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updatePrivateNetworkWhiteIpsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -9391,17 +9383,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                      $InstanceId
-     * @param UpdatePublicWhiteIpsRequest $request
+     * @param string                     $InstanceId
+     * @param UpdatePublicNetworkRequest $request
      *
-     * @return UpdatePublicWhiteIpsResponse
+     * @return UpdatePublicNetworkResponse
      */
-    public function updatePublicWhiteIps($InstanceId, $request)
+    public function updatePublicNetwork($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updatePublicWhiteIpsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updatePublicNetworkWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -9443,17 +9435,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                       $InstanceId
-     * @param UpdateReadWritePolicyRequest $request
+     * @param string                      $InstanceId
+     * @param UpdatePublicWhiteIpsRequest $request
      *
-     * @return UpdateReadWritePolicyResponse
+     * @return UpdatePublicWhiteIpsResponse
      */
-    public function updateReadWritePolicy($InstanceId, $request)
+    public function updatePublicWhiteIps($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateReadWritePolicyWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updatePublicWhiteIpsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -9493,16 +9485,16 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                       $InstanceId
-     * @param UpdateSnapshotSettingRequest $request
+     * @param UpdateReadWritePolicyRequest $request
      *
-     * @return UpdateSnapshotSettingResponse
+     * @return UpdateReadWritePolicyResponse
      */
-    public function updateSnapshotSetting($InstanceId, $request)
+    public function updateReadWritePolicy($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateSnapshotSettingWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateReadWritePolicyWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -9536,17 +9528,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                     $InstanceId
-     * @param UpdateSynonymsDictsRequest $request
+     * @param string                       $InstanceId
+     * @param UpdateSnapshotSettingRequest $request
      *
-     * @return UpdateSynonymsDictsResponse
+     * @return UpdateSnapshotSettingResponse
      */
-    public function updateSynonymsDicts($InstanceId, $request)
+    public function updateSnapshotSetting($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateSynonymsDictsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateSnapshotSettingWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -9585,18 +9577,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                $InstanceId
-     * @param string                $TemplateName
-     * @param UpdateTemplateRequest $request
+     * @param string                     $InstanceId
+     * @param UpdateSynonymsDictsRequest $request
      *
-     * @return UpdateTemplateResponse
+     * @return UpdateSynonymsDictsResponse
      */
-    public function updateTemplate($InstanceId, $TemplateName, $request)
+    public function updateSynonymsDicts($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateTemplateWithOptions($InstanceId, $TemplateName, $request, $headers, $runtime);
+        return $this->updateSynonymsDictsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -9637,16 +9628,17 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                $InstanceId
-     * @param UpdateWhiteIpsRequest $request
+     * @param string                $TemplateName
+     * @param UpdateTemplateRequest $request
      *
-     * @return UpdateWhiteIpsResponse
+     * @return UpdateTemplateResponse
      */
-    public function updateWhiteIps($InstanceId, $request)
+    public function updateTemplate($InstanceId, $TemplateName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateWhiteIpsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateTemplateWithOptions($InstanceId, $TemplateName, $request, $headers, $runtime);
     }
 
     /**
@@ -9695,17 +9687,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                          $InstanceId
-     * @param UpdateXpackMonitorConfigRequest $request
+     * @param string                $InstanceId
+     * @param UpdateWhiteIpsRequest $request
      *
-     * @return UpdateXpackMonitorConfigResponse
+     * @return UpdateWhiteIpsResponse
      */
-    public function updateXpackMonitorConfig($InstanceId, $request)
+    public function updateWhiteIps($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateXpackMonitorConfigWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateWhiteIpsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -9757,17 +9749,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                      $InstanceId
-     * @param UpgradeEngineVersionRequest $request
+     * @param string                          $InstanceId
+     * @param UpdateXpackMonitorConfigRequest $request
      *
-     * @return UpgradeEngineVersionResponse
+     * @return UpdateXpackMonitorConfigResponse
      */
-    public function upgradeEngineVersion($InstanceId, $request)
+    public function updateXpackMonitorConfig($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->upgradeEngineVersionWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->updateXpackMonitorConfigWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -9816,17 +9808,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                    $InstanceId
-     * @param ValidateConnectionRequest $request
+     * @param string                      $InstanceId
+     * @param UpgradeEngineVersionRequest $request
      *
-     * @return ValidateConnectionResponse
+     * @return UpgradeEngineVersionResponse
      */
-    public function validateConnection($InstanceId, $request)
+    public function upgradeEngineVersion($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->validateConnectionWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->upgradeEngineVersionWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -9865,17 +9857,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                     $InstanceId
-     * @param ValidateShrinkNodesRequest $request
+     * @param string                    $InstanceId
+     * @param ValidateConnectionRequest $request
      *
-     * @return ValidateShrinkNodesResponse
+     * @return ValidateConnectionResponse
      */
-    public function validateShrinkNodes($InstanceId, $request)
+    public function validateConnection($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->validateShrinkNodesWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->validateConnectionWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -9920,16 +9912,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ValidateSlrPermissionRequest $request
+     * @param string                     $InstanceId
+     * @param ValidateShrinkNodesRequest $request
      *
-     * @return ValidateSlrPermissionResponse
+     * @return ValidateShrinkNodesResponse
      */
-    public function validateSlrPermission($request)
+    public function validateShrinkNodes($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->validateSlrPermissionWithOptions($request, $headers, $runtime);
+        return $this->validateShrinkNodesWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -9969,17 +9962,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                           $InstanceId
-     * @param ValidateTransferableNodesRequest $request
+     * @param ValidateSlrPermissionRequest $request
      *
-     * @return ValidateTransferableNodesResponse
+     * @return ValidateSlrPermissionResponse
      */
-    public function validateTransferableNodes($InstanceId, $request)
+    public function validateSlrPermission($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->validateTransferableNodesWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->validateSlrPermissionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -10018,16 +10010,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request
+     * @param string                           $InstanceId
+     * @param ValidateTransferableNodesRequest $request
      *
-     * @return CreateInstanceResponse
+     * @return ValidateTransferableNodesResponse
      */
-    public function createInstance($request)
+    public function validateTransferableNodes($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createInstanceWithOptions($request, $headers, $runtime);
+        return $this->validateTransferableNodesWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -10105,5 +10098,18 @@ class Elasticsearch extends OpenApiClient
         ]);
 
         return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateInstanceRequest $request
+     *
+     * @return CreateInstanceResponse
+     */
+    public function createInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createInstanceWithOptions($request, $headers, $runtime);
     }
 }

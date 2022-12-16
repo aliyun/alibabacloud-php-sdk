@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CancelDeletionResponseBody extends Model
 {
     /**
+     * @example D682B6B3-B425-46DA-A5FC-5F5C60553622
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;

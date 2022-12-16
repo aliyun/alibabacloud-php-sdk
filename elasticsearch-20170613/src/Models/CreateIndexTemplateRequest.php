@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateIndexTemplateRequest extends Model
 {
     /**
+     * @example E1136AE9-4E49-4585-9358-6FDD2A6D****
+     *
      * @var string
      */
     public $clientToken;

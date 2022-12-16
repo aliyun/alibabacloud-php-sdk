@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateWhiteIpsResponseBody extends Model
 {
     /**
+     * @example 8D58B014-BBD7-4D80-B219-00B9D5C6860C
+     *
      * @var string
      */
     public $requestId;

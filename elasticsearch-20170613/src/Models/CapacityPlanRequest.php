@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class CapacityPlanRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $complexQueryAvailable;
@@ -26,6 +28,8 @@ class CapacityPlanRequest extends Model
     public $metric;
 
     /**
+     * @example general
+     *
      * @var string
      */
     public $usageScenario;

@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example i-2ze8s9cjdf2cv969****
+     *
      * @var string
      */
     public $ecsId;
 
     /**
+     * @example 2017-12-07T00:00:00Z
+     *
      * @var string
      */
     public $eventCreateTime;
 
     /**
+     * @example EXECUTED
+     *
      * @var string
      */
     public $eventCycleStatus;
 
     /**
+     * @example 2017-12-07T00:00:00Z
+     *
      * @var string
      */
     public $eventExecuteTime;
 
     /**
+     * @example 2017-12-07T00:00:00Z
+     *
      * @var string
      */
     public $eventFinashTime;
 
     /**
+     * @example INFO
+     *
      * @var string
      */
     public $eventLevel;
 
     /**
+     * @example ECS:AUTO_RESTART
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @example es-cn-2r42l7a740005****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 10.1.xx.xx
+     *
      * @var string
      */
     public $nodeIP;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

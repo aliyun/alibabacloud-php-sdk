@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class extendConfigs extends Model
 {
     /**
+     * @example sharedDisk
+     *
      * @var string
      */
     public $configType;
 
     /**
+     * @example 2048
+     *
      * @var int
      */
     public $disk;
 
     /**
+     * @example CPFS_PREMIUM
+     *
      * @var string
      */
     public $diskType;

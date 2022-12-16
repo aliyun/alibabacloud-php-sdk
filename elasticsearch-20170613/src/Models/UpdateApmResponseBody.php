@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateApmResponseBody extends Model
 {
     /**
+     * @example 18061926-CC50-5F9B-9600-034C29F1D5B0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;

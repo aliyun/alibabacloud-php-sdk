@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListAckClustersRequest extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example vpc-bp12nu14urf0upaf4****
+     *
      * @var string
      */
     public $vpcId;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class TriggerNetworkRequest extends Model
 {
     /**
+     * @example OPEN
+     *
      * @var string
      */
     public $actionType;
 
     /**
+     * @example PUBLIC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @example KIBANA
+     *
      * @var string
      */
     public $nodeType;
 
     /**
+     * @example 407d02b74c49beb5bfdac7ec8bde2488
+     *
      * @var string
      */
     public $clientToken;

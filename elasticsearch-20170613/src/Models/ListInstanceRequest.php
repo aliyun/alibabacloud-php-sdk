@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceRequest extends Model
 {
     /**
+     * @example aliyunes_test1
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 6.7_with_X-Pack
+     *
      * @var string
      */
     public $esVersion;
 
     /**
+     * @example advanced
+     *
      * @var string
      */
     public $instanceCategory;
 
     /**
+     * @example es-cn-v641a0ta3000g****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example postpaid
+     *
      * @var string
      */
     public $paymentType;
 
     /**
+     * @example rg-aekzvowej3i****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example [{"tagKey":"key1","tagValue":"value1"}]
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @example vpc-bp16k1dvzxtmagcva****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;

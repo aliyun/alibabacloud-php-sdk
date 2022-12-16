@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 50
+     *
      * @var int
      */
     public $batchDelay;
 
     /**
+     * @example 125
+     *
      * @var int
      */
     public $batchSize;
 
     /**
+     * @example input {  }  filter {  }  output {  }
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @example this is a test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 2020-06-20T07:26:47.000+0000
+     *
      * @var string
      */
     public $gmtCreatedTime;
 
     /**
+     * @example 2020-06-20T07:26:47.000+0000
+     *
      * @var string
      */
     public $gmtUpdateTime;
 
     /**
+     * @example pipeline_test
+     *
      * @var string
      */
     public $pipelineId;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $pipelineStatus;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $queueCheckPointWrites;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $queueMaxBytes;
 
     /**
+     * @example memory
+     *
      * @var string
      */
     public $queueType;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $workers;

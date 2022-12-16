@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class detail extends Model
 {
     /**
+     * @example Check whether the number of replica shards is optimal and easy to maintain
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @example Number of Replica Shards
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example You may need to adjust the numbers of replica shards of some indices as follows:  [geoname08 : 0 -&gt; 1][geoname09 : 0 -&gt; 1][geonametest01 : 0 -&gt; 1]
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @example You can call the following function in the Elasticsearch API....
+     *
      * @var string
      */
     public $suggest;
 
     /**
+     * @example ES_API
+     *
      * @var string
      */
     public $type;

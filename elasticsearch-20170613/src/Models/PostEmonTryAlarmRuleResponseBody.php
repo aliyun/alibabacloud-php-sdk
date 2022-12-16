@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class PostEmonTryAlarmRuleResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 3EC5731F-0944-4E4F-9DD5-1F976B3FCC3D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

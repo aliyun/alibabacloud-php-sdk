@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceResponseBody extends Model
 {
     /**
+     * @example 94B03BBA-A132-42C3-8367-0A0C1C45****
+     *
      * @var string
      */
     public $requestId;

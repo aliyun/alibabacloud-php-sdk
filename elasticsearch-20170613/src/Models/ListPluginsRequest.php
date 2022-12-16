@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListPluginsRequest extends Model
 {
     /**
+     * @example analysis-ik
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $page;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example SYSTEM
+     *
      * @var string
      */
     public $source;

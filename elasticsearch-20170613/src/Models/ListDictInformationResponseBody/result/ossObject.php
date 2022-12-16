@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ossObject extends Model
 {
     /**
+     * @example es-osstest*
+     *
      * @var string
      */
     public $bucketName;
 
     /**
+     * @example 2ABAB5E70BBF631145647F6BE533****
+     *
      * @var string
      */
     public $etag;
 
     /**
+     * @example oss/dict_0*.dic
+     *
      * @var string
      */
     public $key;

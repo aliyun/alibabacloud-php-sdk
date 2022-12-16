@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dataStream;
@@ -20,11 +22,15 @@ class result extends Model
     public $indexPatterns;
 
     /**
+     * @example openstore-index-template
+     *
      * @var string
      */
     public $indexTemplate;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $order;
@@ -35,6 +41,8 @@ class result extends Model
     public $template;
 
     /**
+     * @example 70000
+     *
      * @var string
      */
     public $version;

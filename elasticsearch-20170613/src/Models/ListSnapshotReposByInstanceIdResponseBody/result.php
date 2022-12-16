@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example es-cn-6ja1ro4jt000c****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example es-cn-6ja1ro4jt000c****
+     *
      * @var string
      */
     public $repoPath;
 
     /**
+     * @example aliyun_snapshot_from_es-cn-6ja1ro4jt000c****
+     *
      * @var string
      */
     public $snapWarehouse;
 
     /**
+     * @example available
+     *
      * @var string
      */
     public $status;

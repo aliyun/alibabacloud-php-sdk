@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class extendConfigs extends Model
 {
     /**
+     * @example collectorDeployMachine
+     *
      * @var string
      */
     public $configType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableMonitoring;
 
     /**
+     * @example default_ct-cn-5i2l75bz4776****
+     *
      * @var string
      */
     public $groupId;
@@ -30,11 +36,15 @@ class extendConfigs extends Model
     public $hosts;
 
     /**
+     * @example es-cn-nif1z89fz003i****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example elasticsearch
+     *
      * @var string
      */
     public $instanceType;
@@ -45,16 +55,22 @@ class extendConfigs extends Model
     public $machines;
 
     /**
+     * @example HTTP
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @example ECSInstanceId
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example elastic
+     *
      * @var string
      */
     public $userName;

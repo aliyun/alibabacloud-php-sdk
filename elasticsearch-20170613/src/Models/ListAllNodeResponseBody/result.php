@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 4.2%
+     *
      * @var string
      */
     public $cpuPercent;
 
     /**
+     * @example 1.0%
+     *
      * @var string
      */
     public $diskUsedPercent;
 
     /**
+     * @example GREEN
+     *
      * @var string
      */
     public $health;
 
     /**
+     * @example 21.6%
+     *
      * @var string
      */
     public $heapPercent;
 
     /**
+     * @example 10.15.XX.XX
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example 0.12
+     *
      * @var string
      */
     public $loadOneM;
 
     /**
+     * @example WORKER
+     *
      * @var string
      */
     public $nodeType;
 
     /**
+     * @example 9200
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;

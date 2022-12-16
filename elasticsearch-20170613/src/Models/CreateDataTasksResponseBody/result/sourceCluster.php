@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class sourceCluster extends Model
 {
     /**
+     * @example elasticsearch
+     *
      * @var string
      */
     public $dataSourceType;
 
     /**
+     * @example http://10.20.xx.xx:9200
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @example index_001
+     *
      * @var string
      */
     public $index;
 
     /**
+     * @example xxxxxx
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example index_001
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example elastic
+     *
      * @var string
      */
     public $username;
 
     /**
+     * @example vpc-2ze55voww95g82gak****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example es-cn-oew1oxiro000f****-worker
+     *
      * @var string
      */
     public $vpcInstanceId;
 
     /**
+     * @example 9200
+     *
      * @var int
      */
     public $vpcInstancePort;

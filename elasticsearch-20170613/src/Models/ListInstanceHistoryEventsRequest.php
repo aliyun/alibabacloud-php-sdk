@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceHistoryEventsRequest\body;
 use AlibabaCloud\Tea\Model;
 
 class ListInstanceHistoryEventsRequest extends Model
 {
     /**
+     * @var body[]
+     */
+    public $body;
+
+    /**
+     * @example 1645596516000
+     *
      * @var string
      */
     public $eventCreateEndTime;
 
     /**
+     * @example 1645596516000
+     *
      * @var string
      */
     public $eventCreateStartTime;
@@ -24,21 +34,29 @@ class ListInstanceHistoryEventsRequest extends Model
     public $eventCycleStatus;
 
     /**
+     * @example 1645596516000
+     *
      * @var string
      */
     public $eventExecuteEndTime;
 
     /**
+     * @example 1645596516000
+     *
      * @var string
      */
     public $eventExecuteStartTime;
 
     /**
+     * @example 1645596516000
+     *
      * @var string
      */
     public $eventFinashEndTime;
 
     /**
+     * @example 1645596516000
+     *
      * @var string
      */
     public $eventFinashStartTime;
@@ -54,25 +72,34 @@ class ListInstanceHistoryEventsRequest extends Model
     public $eventType;
 
     /**
+     * @example es-cn-2r42l7a740005****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 10.1.xx.xx
+     *
      * @var string
      */
     public $nodeIP;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $size;
     protected $_name = [
+        'body'                  => 'body',
         'eventCreateEndTime'    => 'eventCreateEndTime',
         'eventCreateStartTime'  => 'eventCreateStartTime',
         'eventCycleStatus'      => 'eventCycleStatus',
@@ -95,6 +122,15 @@ class ListInstanceHistoryEventsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->body) {
+            $res['body'] = [];
+            if (null !== $this->body && \is_array($this->body)) {
+                $n = 0;
+                foreach ($this->body as $item) {
+                    $res['body'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->eventCreateEndTime) {
             $res['eventCreateEndTime'] = $this->eventCreateEndTime;
         }
@@ -146,6 +182,15 @@ class ListInstanceHistoryEventsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['body'])) {
+            if (!empty($map['body'])) {
+                $model->body = [];
+                $n           = 0;
+                foreach ($map['body'] as $item) {
+                    $model->body[$n++] = null !== $item ? body::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['eventCreateEndTime'])) {
             $model->eventCreateEndTime = $map['eventCreateEndTime'];
         }

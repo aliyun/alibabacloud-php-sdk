@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteILMPolicyResponseBody extends Model
 {
     /**
+     * @example 694FDC20-0FDD-47C4-B921-BFF902FA****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;

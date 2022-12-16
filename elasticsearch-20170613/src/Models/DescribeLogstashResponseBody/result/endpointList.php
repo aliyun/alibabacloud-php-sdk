@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class endpointList extends Model
 {
     /**
+     * @example 172.16.**.**
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example 9600
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

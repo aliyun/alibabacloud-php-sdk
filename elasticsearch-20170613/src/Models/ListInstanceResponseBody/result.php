@@ -16,6 +16,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $advancedDedicateMaster;
@@ -26,16 +28,22 @@ class result extends Model
     public $clientNodeConfiguration;
 
     /**
+     * @example 2018-07-13T03:58:07.253Z
+     *
      * @var string
      */
     public $createdAt;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dedicateMaster;
 
     /**
+     * @example es-cn-abc
+     *
      * @var string
      */
     public $description;
@@ -46,6 +54,8 @@ class result extends Model
     public $elasticDataNodeConfiguration;
 
     /**
+     * @example 6.7_with_X-Pack
+     *
      * @var string
      */
     public $esVersion;
@@ -56,11 +66,15 @@ class result extends Model
     public $extendConfigs;
 
     /**
+     * @example es-cn-v641a0ta3000g****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $isNewDeployment;
@@ -81,6 +95,8 @@ class result extends Model
     public $networkConfig;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $nodeAmount;
@@ -91,26 +107,36 @@ class result extends Model
     public $nodeSpec;
 
     /**
+     * @example postpaid
+     *
      * @var string
      */
     public $paymentType;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $postpaidServiceStatus;
 
     /**
+     * @example rg-aekzvowej3i****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $serviceVpc;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $status;
@@ -121,11 +147,15 @@ class result extends Model
     public $tags;
 
     /**
+     * @example 2018-07-18T10:10:04.484Z
+     *
      * @var string
      */
     public $updatedAt;
 
     /**
+     * @example vpc-bp1uag5jj38c****
+     *
      * @var string
      */
     public $vpcInstanceId;

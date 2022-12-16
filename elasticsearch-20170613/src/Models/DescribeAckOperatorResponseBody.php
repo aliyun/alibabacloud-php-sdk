@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAckOperatorResponseBody extends Model
 {
     /**
+     * @example 6615EE8D-FD9D-4FD3-997E-6FEA5B8D82ED
+     *
      * @var string
      */
     public $requestId;

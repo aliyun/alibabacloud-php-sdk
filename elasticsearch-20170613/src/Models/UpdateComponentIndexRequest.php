@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateComponentIndexRequest extends Model
 {
     /**
+     * @example { "description": "set number of shards to one" }
+     *
      * @var mixed[]
      */
     public $meta;

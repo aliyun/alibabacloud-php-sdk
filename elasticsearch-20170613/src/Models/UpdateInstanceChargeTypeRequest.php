@@ -14,6 +14,8 @@ class UpdateInstanceChargeTypeRequest extends Model
     public $body;
 
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
+     *
      * @var string
      */
     public $clientToken;

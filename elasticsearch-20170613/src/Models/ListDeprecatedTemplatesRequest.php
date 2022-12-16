@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListDeprecatedTemplatesRequest extends Model
 {
     /**
+     * @example component-openstore-index-template
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $size;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class template extends Model
 {
     /**
+     * @example {}
+     *
      * @var mixed[]
      */
     public $aliases;
 
     /**
+     * @example { 			"properties": { 				"@timestamp": { 					"type": "date" 				} 			} 		}
+     *
      * @var mixed[]
      */
     public $mappings;
 
     /**
+     * @example { 			"index.number_of_replicas": 0 		}
+     *
      * @var mixed[]
      */
     public $settings;

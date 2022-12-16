@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class sourceCluster extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $dataSourceType;
 
     /**
+     * @example product_info
+     *
      * @var string
      */
     public $index;
 
     /**
+     * @example {\"_doc\":{\"properties\":{\"user\":{\"properties\":{\"last\":{\"type\":\"text\",...}}}}}}
+     *
      * @var string
      */
     public $mapping;
 
     /**
+     * @example _id
+     *
      * @var string
      */
     public $routing;
 
     /**
+     * @example {\n  \"index\": {\n    \"replication\": {\n}.....}}
+     *
      * @var string
      */
     public $settings;
 
     /**
+     * @example _doc
+     *
      * @var string
      */
     public $type;

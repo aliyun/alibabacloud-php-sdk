@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class CreateLogstashRequest extends Model
 {
     /**
+     * @example ls-cn-abc
+     *
      * @var string
      */
     public $description;
@@ -22,6 +24,8 @@ class CreateLogstashRequest extends Model
     public $networkConfig;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $nodeAmount;
@@ -37,16 +41,22 @@ class CreateLogstashRequest extends Model
     public $paymentInfo;
 
     /**
+     * @example prepaid
+     *
      * @var string
      */
     public $paymentType;
 
     /**
+     * @example 6.7_with_X-Pack
+     *
      * @var string
      */
     public $version;
 
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
+     *
      * @var string
      */
     public $clientToken;

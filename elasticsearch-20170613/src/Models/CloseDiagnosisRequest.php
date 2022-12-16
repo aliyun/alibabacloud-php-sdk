@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CloseDiagnosisRequest extends Model
 {
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example spanish
+     *
      * @var string
      */
     public $lang;

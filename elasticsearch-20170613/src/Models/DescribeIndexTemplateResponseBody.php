@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeIndexTemplateResponseBody extends Model
 {
     /**
+     * @example 25DB38F8-82E4-4D16-82BB-FF077C7F****
+     *
      * @var string
      */
     public $requestId;

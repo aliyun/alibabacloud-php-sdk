@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 80%
+     *
      * @var string
      */
     public $bytesPercent;
 
     /**
+     * @example 12086
+     *
      * @var int
      */
     public $bytesTotal;
 
     /**
+     * @example 80.0%
+     *
      * @var string
      */
     public $filesPercent;
 
     /**
+     * @example 79
+     *
      * @var int
      */
     public $filesTotal;
 
     /**
+     * @example my-index-000001
+     *
      * @var string
      */
     public $index;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $sourceHost;
 
     /**
+     * @example 2Kni3dJ
+     *
      * @var string
      */
     public $sourceNode;
 
     /**
+     * @example done
+     *
      * @var string
      */
     public $stage;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $targetHost;
 
     /**
+     * @example YVVKLmW
+     *
      * @var string
      */
     public $targetNode;
 
     /**
+     * @example 12086
+     *
      * @var int
      */
     public $translogOps;
 
     /**
+     * @example 80%
+     *
      * @var string
      */
     public $translogOpsPercent;

@@ -23,6 +23,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $advancedDedicateMaster;
@@ -43,16 +45,22 @@ class result extends Model
     public $clientNodeConfiguration;
 
     /**
+     * @example 2018-07-13T03:58:07.253Z
+     *
      * @var string
      */
     public $createdAt;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dedicateMaster;
 
     /**
+     * @example es-cn-abc
+     *
      * @var string
      */
     public $description;
@@ -63,6 +71,8 @@ class result extends Model
     public $dictList;
 
     /**
+     * @example es-cn-3h4k3axh33th9****.elasticsearch.aliyuncs.com
+     *
      * @var string
      */
     public $domain;
@@ -73,21 +83,29 @@ class result extends Model
     public $elasticDataNodeConfiguration;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableKibanaPrivateNetwork;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableKibanaPublicNetwork;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enablePublic;
 
     /**
+     * @example {"http.cors.allow-credentials":"false"}
+     *
      * @var mixed[]
      */
     public $esConfig;
@@ -103,6 +121,8 @@ class result extends Model
     public $esIPWhitelist;
 
     /**
+     * @example 6.3.2_with_X-Pack
+     *
      * @var string
      */
     public $esVersion;
@@ -113,11 +133,15 @@ class result extends Model
     public $extendConfigs;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $haveClientNode;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $haveKibana;
@@ -128,11 +152,15 @@ class result extends Model
     public $ikHotDicts;
 
     /**
+     * @example es-cn-3h4k3axh33th9****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isNewDeployment;
@@ -143,6 +171,8 @@ class result extends Model
     public $kibanaConfiguration;
 
     /**
+     * @example es-cn-3h4k3axh33th9****.kibana.elasticsearch.aliyuncs.com
+     *
      * @var string
      */
     public $kibanaDomain;
@@ -153,6 +183,8 @@ class result extends Model
     public $kibanaIPWhitelist;
 
     /**
+     * @example 5601
+     *
      * @var int
      */
     public $kibanaPort;
@@ -173,6 +205,8 @@ class result extends Model
     public $networkConfig;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $nodeAmount;
@@ -183,16 +217,22 @@ class result extends Model
     public $nodeSpec;
 
     /**
+     * @example postpaid
+     *
      * @var string
      */
     public $paymentType;
 
     /**
+     * @example 9200
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $postpaidServiceStatus;
@@ -203,11 +243,15 @@ class result extends Model
     public $privateNetworkIpWhiteList;
 
     /**
+     * @example HTTP
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @example es-cn-3h4k3axh33th9****.elasticsearch.aliyuncs.com
+     *
      * @var string
      */
     public $publicDomain;
@@ -218,21 +262,29 @@ class result extends Model
     public $publicIpWhitelist;
 
     /**
+     * @example 9200
+     *
      * @var int
      */
     public $publicPort;
 
     /**
+     * @example rg-aekzvowej3i****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $serviceVpc;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $status;
@@ -248,16 +300,22 @@ class result extends Model
     public $tags;
 
     /**
+     * @example 2018-07-13T03:58:07.253Z
+     *
      * @var string
      */
     public $updatedAt;
 
     /**
+     * @example vpc-bp1uag5jj38c****
+     *
      * @var string
      */
     public $vpcInstanceId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $warmNode;
@@ -268,6 +326,8 @@ class result extends Model
     public $warmNodeConfiguration;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $zoneCount;

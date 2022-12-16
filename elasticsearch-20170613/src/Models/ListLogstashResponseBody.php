@@ -16,6 +16,8 @@ class ListLogstashResponseBody extends Model
     public $headers;
 
     /**
+     * @example AC442F2F-5068-4434-AA21-E78947A9****
+     *
      * @var string
      */
     public $requestId;

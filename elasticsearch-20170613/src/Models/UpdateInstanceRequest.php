@@ -19,6 +19,8 @@ class UpdateInstanceRequest extends Model
     public $elasticDataNodeConfiguration;
 
     /**
+     * @example advanced
+     *
      * @var string
      */
     public $instanceCategory;
@@ -34,6 +36,8 @@ class UpdateInstanceRequest extends Model
     public $masterConfiguration;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $nodeAmount;
@@ -49,16 +53,22 @@ class UpdateInstanceRequest extends Model
     public $warmNodeConfiguration;
 
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $force;
 
     /**
+     * @example upgrade
+     *
      * @var string
      */
     public $orderActionType;

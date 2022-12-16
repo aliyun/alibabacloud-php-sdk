@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example https://elasticsearch-cn-hangzhou.console.aliyun.com
+     *
      * @var string
      */
     public $consoleEndpoint;
 
     /**
+     * @example China (Hangzhou)
+     *
      * @var string
      */
     public $localName;
 
     /**
+     * @example elasticsearch.cn-hangzhou.aliyuncs.com
+     *
      * @var string
      */
     public $regionEndpoint;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example available
+     *
      * @var string
      */
     public $status;

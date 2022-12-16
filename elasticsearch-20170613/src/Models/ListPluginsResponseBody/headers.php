@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class headers extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $xTotalCount;

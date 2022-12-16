@@ -14,6 +14,8 @@ class EstimatedRestartTimeRequest extends Model
     public $body;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $force;

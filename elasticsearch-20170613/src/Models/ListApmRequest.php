@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListApmRequest extends Model
 {
     /**
+     * @example APMtest
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example apm-cn-i7m2fuae****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example es-cn-i7m2fsfhc001x****
+     *
      * @var string
      */
     public $output;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $size;

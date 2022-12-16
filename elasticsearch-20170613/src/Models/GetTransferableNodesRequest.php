@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetTransferableNodesRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example WORKER
+     *
      * @var string
      */
     public $nodeType;

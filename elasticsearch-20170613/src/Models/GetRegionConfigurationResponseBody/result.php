@@ -36,6 +36,8 @@ class result extends Model
     public $clientNodeSpec;
 
     /**
+     * @example https://common-buy.aliyun.com/?commodityCode=elasticsearch&orderType=BUY#/buy
+     *
      * @var string
      */
     public $createUrl;
@@ -51,6 +53,8 @@ class result extends Model
     public $elasticNodeProperties;
 
     /**
+     * @example production
+     *
      * @var string
      */
     public $env;
@@ -101,6 +105,8 @@ class result extends Model
     public $nodeSpecList;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

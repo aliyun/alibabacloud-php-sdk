@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class lifecycle extends Model
 {
     /**
+     * @example synthetics
+     *
      * @var string
      */
     public $name;

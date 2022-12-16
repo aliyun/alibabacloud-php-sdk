@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 220
+     *
      * @var int
      */
     public $fileSize;
 
     /**
+     * @example deploy_0.txt
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example OSS
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @example SYNONYMS
+     *
      * @var string
      */
     public $type;

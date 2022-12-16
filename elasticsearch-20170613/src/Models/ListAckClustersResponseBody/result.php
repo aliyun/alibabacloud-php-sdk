@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example c5ea2c2d9a3cf499481292f60425d****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example ManagedKubernetes
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example vpc-bp12nu14urf0upaf4****
+     *
      * @var string
      */
     public $vpcId;

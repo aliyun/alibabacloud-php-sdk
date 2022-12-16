@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteDataTaskRequest extends Model
 {
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example et_cn_0oyg09o96ib40****
+     *
      * @var string
      */
     public $taskId;

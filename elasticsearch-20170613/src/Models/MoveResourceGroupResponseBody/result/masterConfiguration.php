@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class masterConfiguration extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $amount;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $disk;
 
     /**
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @example elasticsearch.sn2ne.large
+     *
      * @var string
      */
     public $spec;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enable;
@@ -19,6 +21,8 @@ class result extends Model
     public $endpoints;
 
     /**
+     * @example es-cn-n6w1o1x0w001c****
+     *
      * @var string
      */
     public $esInstanceId;
@@ -29,6 +33,8 @@ class result extends Model
     public $pipelineIds;
 
     /**
+     * @example elastic
+     *
      * @var string
      */
     public $userName;

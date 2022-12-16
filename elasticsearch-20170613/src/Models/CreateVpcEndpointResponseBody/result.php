@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example ep-bp1tah7zbrwmkjef****.epsrv-bp1w0p3jdirbfmt6****.cn-hangzhou.privatelink.aliyuncs.com
+     *
      * @var string
      */
     public $endpointDomain;
 
     /**
+     * @example ep-bp1tah7zbrwmkjef****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @example vpcElasticSearchABC
+     *
      * @var string
      */
     public $endpointName;
 
     /**
+     * @example epsrv-bp1w0p3jdirbfmt6****
+     *
      * @var string
      */
     public $serviceId;

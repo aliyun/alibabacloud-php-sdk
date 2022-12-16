@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example es-cn-6ja1ro4jt000c****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example RepoPath
+     *
      * @var string
      */
     public $repoPath;

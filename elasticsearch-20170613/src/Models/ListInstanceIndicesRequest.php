@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceIndicesRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $all;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isManaged;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isOpenstore;
 
     /**
+     * @example log-0001
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $size;

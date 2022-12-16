@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RestartCollectorResponseBody extends Model
 {
     /**
+     * @example 84B4038A-AF38-4BF4-9FAD-EA92A4FFF00A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;

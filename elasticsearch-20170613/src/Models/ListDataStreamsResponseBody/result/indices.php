@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class indices extends Model
 {
     /**
+     * @example 2018-07-13T03:58:07.253Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example Green
+     *
      * @var string
      */
     public $health;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isManaged;
 
     /**
+     * @example following
+     *
      * @var string
      */
     public $managedStatus;
 
     /**
+     * @example Log1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 15393899
+     *
      * @var int
      */
     public $size;

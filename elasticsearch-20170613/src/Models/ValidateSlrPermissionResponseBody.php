@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ValidateSlrPermissionResponseBody extends Model
 {
     /**
+     * @example BC4ED7DD-8C84-49B5-8A95-456F82E44D13
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;

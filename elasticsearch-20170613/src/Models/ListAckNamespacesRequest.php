@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListAckNamespacesRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $size;

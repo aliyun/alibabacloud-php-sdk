@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 1535745731000
+     *
      * @var int
      */
     public $createTime;
@@ -20,26 +22,36 @@ class result extends Model
     public $diagnoseItems;
 
     /**
+     * @example YELLOW
+     *
      * @var string
      */
     public $health;
 
     /**
+     * @example es-cn-abc
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example trigger__2020-08-17T17:09:02
+     *
      * @var string
      */
     public $reportId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example SYSTEM
+     *
      * @var string
      */
     public $trigger;

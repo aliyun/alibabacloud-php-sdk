@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CancelLogstashDeletionResponseBody extends Model
 {
     /**
+     * @example 23EBF56B-2DC0-4507-8BE5-B87395DB0FEB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;

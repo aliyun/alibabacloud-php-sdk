@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpgradeEngineVersionRequest extends Model
 {
     /**
+     * @example engineVersion
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 6.7
+     *
      * @var string
      */
     public $version;
 
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;

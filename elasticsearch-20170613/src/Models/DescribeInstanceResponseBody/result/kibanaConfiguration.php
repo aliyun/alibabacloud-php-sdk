@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class kibanaConfiguration extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $amount;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $disk;
 
     /**
+     * @example elasticsearch.n4.small
+     *
      * @var string
      */
     public $spec;

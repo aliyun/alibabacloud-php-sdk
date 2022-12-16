@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeletePipelinesRequest extends Model
 {
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example pipeline-test
+     *
      * @var string
      */
     public $pipelineIds;

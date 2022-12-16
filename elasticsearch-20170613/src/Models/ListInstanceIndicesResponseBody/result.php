@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 2021-01-11T05:49:41.114Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example green
+     *
      * @var string
      */
     public $health;
 
     /**
+     * @example {    "indices": {         ".ds-console-2021.08.18-000002": {             "index": ".ds-console-2021.08.18-000002",             "managed": true,             "policy": "console",             "lifecycle_date_millis": 1629277498775,             "age": "2.64h",             "phase": "hot",             "phase_time_millis": 1629277450334,             "action": "complete",             "action_time_millis": 1629278605586,             "step": "complete",             "step_time_millis": 1629278605586,             "phase_execution": {                 "policy": "console",                 "phase_definition": {                     "min_age": "0s",                     "actions": {                         "rollover": {                             "max_size": "1gb",                             "max_age": "1d",                             "max_docs": 10000                         },                         "set_priority": {                             "priority": 1000                         }                     }                 },                 "version": 1,                 "modified_date_in_millis": 1629277370953             }         }     } }
+     *
      * @var string
      */
     public $ilmExplain;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $isManaged;
 
     /**
+     * @example closing
+     *
      * @var string
      */
     public $managedStatus;
 
     /**
+     * @example .kibana_task_manager_1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example warm
+     *
      * @var string
      */
     public $phase;
 
     /**
+     * @example 49298589
+     *
      * @var int
      */
     public $size;

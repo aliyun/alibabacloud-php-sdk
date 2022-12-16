@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetSuggestShrinkableNodesRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $ignoreStatus;
 
     /**
+     * @example WORKER
+     *
      * @var string
      */
     public $nodeType;

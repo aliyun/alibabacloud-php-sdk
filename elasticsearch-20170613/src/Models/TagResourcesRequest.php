@@ -15,6 +15,8 @@ class TagResourcesRequest extends Model
     public $resourceIds;
 
     /**
+     * @example INSTANCE
+     *
      * @var string
      */
     public $resourceType;

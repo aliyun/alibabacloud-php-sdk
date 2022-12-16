@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class diskList extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $diskEncryption;
 
     /**
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @example 5120
+     *
      * @var int
      */
     public $maxSize;
 
     /**
+     * @example 500
+     *
      * @var int
      */
     public $minSize;
 
     /**
+     * @example 2048
+     *
      * @var int
      */
     public $scaleLimit;

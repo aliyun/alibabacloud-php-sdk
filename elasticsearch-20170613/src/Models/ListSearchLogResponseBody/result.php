@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example [GC (Allocation Failure) 2018-07-19T17:24:20.682+0800: 7516.513: [ParNew: 6604768K->81121K(7341504K), 0.0760606 secs] 7226662K->703015K(31813056K), 0.0762507 secs] [Times: user=0.52 sys=0.00, real=0.07 secs]
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example {"level": "info", "host": "192.168.**.**", "time": "2019-03-18T08:16:12.741Z","content": "[o.e.c.r.a.AllocationService] [MnNASM_] Cluster health status changed from [YELLOW] to [GREEN] (reason: [shards started [[my_index][3]] ...])."}
+     *
      * @var mixed[]
      */
     public $contentCollection;
 
     /**
+     * @example 192.168.**.**
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example es-cn-n6w1o1x0w001c****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example info
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @example 1531985112420
+     *
      * @var int
      */
     public $timestamp;

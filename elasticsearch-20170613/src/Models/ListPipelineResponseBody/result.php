@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 2020-08-05T03:10:38.188Z
+     *
      * @var string
      */
     public $gmtCreatedTime;
 
     /**
+     * @example 2020-08-05T08:43:31.757Z
+     *
      * @var string
      */
     public $gmtUpdateTime;
 
     /**
+     * @example pipeline_test
+     *
      * @var string
      */
     public $pipelineId;
 
     /**
+     * @example NOT_DEPLOYED
+     *
      * @var string
      */
     public $pipelineStatus;
