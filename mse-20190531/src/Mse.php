@@ -6161,6 +6161,12 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->funcType)) {
             $query['FuncType'] = $request->funcType;
         }
+        if (!Utils::isUnset($request->lossLessDetail)) {
+            $query['LossLessDetail'] = $request->lossLessDetail;
+        }
+        if (!Utils::isUnset($request->notice)) {
+            $query['Notice'] = $request->notice;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }

@@ -78,6 +78,16 @@ class ModifyLosslessRuleRequest extends Model
     public $funcType;
 
     /**
+     * @var bool
+     */
+    public $lossLessDetail;
+
+    /**
+     * @var bool
+     */
+    public $notice;
+
+    /**
      * @description The region ID.
      *
      * @example cn-beijing
@@ -129,6 +139,8 @@ class ModifyLosslessRuleRequest extends Model
         'delayTime'           => 'DelayTime',
         'enable'              => 'Enable',
         'funcType'            => 'FuncType',
+        'lossLessDetail'      => 'LossLessDetail',
+        'notice'              => 'Notice',
         'regionId'            => 'RegionId',
         'related'             => 'Related',
         'shutdownWaitSeconds' => 'ShutdownWaitSeconds',
@@ -163,6 +175,12 @@ class ModifyLosslessRuleRequest extends Model
         }
         if (null !== $this->funcType) {
             $res['FuncType'] = $this->funcType;
+        }
+        if (null !== $this->lossLessDetail) {
+            $res['LossLessDetail'] = $this->lossLessDetail;
+        }
+        if (null !== $this->notice) {
+            $res['Notice'] = $this->notice;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -211,6 +229,12 @@ class ModifyLosslessRuleRequest extends Model
         }
         if (isset($map['FuncType'])) {
             $model->funcType = $map['FuncType'];
+        }
+        if (isset($map['LossLessDetail'])) {
+            $model->lossLessDetail = $map['LossLessDetail'];
+        }
+        if (isset($map['Notice'])) {
+            $model->notice = $map['Notice'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
