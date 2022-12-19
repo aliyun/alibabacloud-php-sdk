@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeScanTaskProgressRequest extends Model
 {
     /**
+     * @description The ID of the virus scan task.
+     *
+     * >  You can call the [StartVirusScanTask](~~StartVirusScanTask~~) operation to query the IDs of virus scan tasks.
+     * @example 282832
+     *
      * @var int
      */
     public $taskId;

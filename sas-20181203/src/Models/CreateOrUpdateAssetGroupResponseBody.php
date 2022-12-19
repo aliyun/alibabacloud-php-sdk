@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateOrUpdateAssetGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the server group.
+     *
+     * @example 9935302
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example E70074C8-DFB4-44C5-96C7-909DD231D68A
+     *
      * @var string
      */
     public $requestId;

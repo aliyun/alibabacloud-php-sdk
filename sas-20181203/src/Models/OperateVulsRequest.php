@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class OperateVulsRequest extends Model
 {
     /**
+     * @description The operation on the vulnerabilities. Set the value to **vul_fix**, which indicates vulnerability fixing.
+     *
+     * @example vul_fix
+     *
      * @var string
      */
     public $operateType;
 
     /**
+     * @description The type of the vulnerabilities that you want to fix. Set the value to **cve**, which indicates Linux software vulnerabilities.
+     *
+     * @example cve
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The UUIDs of servers for which you want to fix vulnerabilities.
+     *
      * @var string[]
      */
     public $uuids;
 
     /**
+     * @description The names of the vulnerabilities that you want to fix.
+     *
      * @var string[]
      */
     public $vulNames;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupRestoreCountResponseBody extends Model
 {
     /**
+     * @description The statistics of restoration tasks.
+     *
      * @var backupRestoreCount
      */
     public $backupRestoreCount;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example ECC6B3E3-D496-512D-B46D-E6996A6B63EE
+     *
      * @var string
      */
     public $requestId;

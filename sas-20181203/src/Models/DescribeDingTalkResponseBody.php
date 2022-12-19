@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeDingTalkResponseBody extends Model
 {
     /**
+     * @description An array that consists of details of notifications.
+     *
      * @var actionList[]
      */
     public $actionList;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B256A525-7E42-4BB9-A27C-9017FDDFF1A2
+     *
      * @var string
      */
     public $requestId;

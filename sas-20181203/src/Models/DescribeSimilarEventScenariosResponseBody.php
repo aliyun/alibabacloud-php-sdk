@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeSimilarEventScenariosResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example FDF7B8D9-8493-4B90-8D13-E0C1FFCE5F97
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The scenarios in which you can handle the alerts triggered by the same rule or rules of the same type.
+     *
      * @var scenarios[]
      */
     public $scenarios;

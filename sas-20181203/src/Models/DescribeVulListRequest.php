@@ -9,66 +9,137 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulListRequest extends Model
 {
     /**
+     * @description The name of the vulnerability.
+     *
+     * @example RHSA-2019:0230-Important: polkit security update
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @description The additional type of the vulnerability. You can specify this parameter when you query application vulnerabilities. Set the value to **sca**. If you set **Type** to **app**, you must specify this parameter.
+     *
+     * >  If you set this parameter to **sca**, application vulnerabilities and the vulnerabilities that are detected based on software component analysis are queried. If you do not specify this parameter, only application vulnerabilities are queried.
+     * @example sca
+     *
      * @var string
      */
     public $attachTypes;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description Specifies whether the vulnerability is fixed. Valid values:
+     *
+     *   **y**: yes
+     *   **n**: no
+     *
+     * @example n
+     *
      * @var string
      */
     public $dealed;
 
     /**
+     * @description The ID of the asset group.
+     *
+     * >  You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of asset groups.
+     * @example 9207613
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The alias of the vulnerability.
+     *
+     * @example oval:com.redhat.rhsa:def:20172836
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The priority to fix the vulnerability. Separate multiple priorities with commas (,). Valid values:
+     *
+     *   **asap**: high
+     *   **later**: medium
+     *   **nntf**: low
+     *
+     * @example asap,later,nntf
+     *
      * @var string
      */
     public $necessity;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The remarks for the asset affected by the vulnerability. The value can be the private IP address, public IP address, or name of the asset.
+     *
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The type of the vulnerabilities. Valid values:
+     *
+     *   **cve**: Linux software vulnerability
+     *   **sys**: Windows system vulnerability
+     *   **cms**: Web-CMS vulnerability
+     *   **app**: application vulnerability that is detected by using web scanner
+     *   **emg**: urgent vulnerability
+     *   **sca**: application vulnerability that is detected by using software component analysis
+     *
+     * @example cve
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The UUIDs of the servers on which you want to query the vulnerabilities. Separate multiple UUIDs with commas (,).
+     *
+     * @example 1587bedb-fdb4-48c4-9330-****
+     *
      * @var string
      */
     public $uuids;
 
     /**
+     * @description The IDs of the virtual private clouds (VPCs) in which the vulnerability is detected. Separate multiple IDs with commas (,).
+     *
+     * @example ins-133****,ins-5414****
+     *
      * @var string
      */
     public $vpcInstanceIds;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeRiskItemTypeResponseBody extends Model
 {
     /**
+     * @description An array that consists of the types of check items.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3B3F3A90-46A5-4023-A2D8-D68B14262F96
+     *
      * @var string
      */
     public $requestId;

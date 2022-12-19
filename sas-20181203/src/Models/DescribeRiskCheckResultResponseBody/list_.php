@@ -10,71 +10,149 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The number of affected assets.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $affectedCount;
 
     /**
+     * @description The timestamp when the last check was performed. Unit: milliseconds.
+     *
+     * @example 1639429164000
+     *
      * @var int
      */
     public $checkTime;
 
     /**
+     * @description The ID of the check item. For more information about the description of the check item ID, see the check item table in the "Response parameters" section of this topic.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @description The time when the next check will be performed.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $remainingTime;
 
     /**
+     * @description Indicates whether the risks that are detected for the check item can be fixed. Valid values:
+     *
+     *   **enabled**: yes
+     *   **disabled**: no
+     *
+     * @example disabled
+     *
      * @var string
      */
     public $repairStatus;
 
     /**
+     * @description The type of the affected assets.
+     *
+     * @example ECS
+     *
      * @var string
      */
     public $riskAssertType;
 
     /**
+     * @description An array that consists of the details about the check item.
+     *
      * @var riskItemResources[]
      */
     public $riskItemResources;
 
     /**
+     * @description The risk level of the check item. Valid values:
+     *
+     *   **high**
+     *   **medium**
+     *   **low**
+     *
+     * @example high
+     *
      * @var string
      */
     public $riskLevel;
 
     /**
+     * @description The sequence number of the check result. The check items are sorted based on the sequence number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $sort;
 
     /**
+     * @description Indicates whether the check item is supported by the cloud service. Valid values:
+     *
+     *   **enabled**: The check item is supported by the cloud service.
+     *   **disable**: The check item is not supported by the cloud service.
+     *
+     * @example enabled
+     *
      * @var string
      */
     public $startStatus;
 
     /**
+     * @description The status of the check result. Valid values:
+     *
+     *   **pass**
+     *   **failed**
+     *   **running**
+     *   **waiting**
+     *   **ignored**
+     *   **falsePositive**
+     *
+     * @example pass
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the check task.
+     *
+     * @example 15384933
+     *
      * @var int
      */
     public $taskId;
 
     /**
+     * @description The name of the check item.
+     *
+     * @example RDS - Whitelist Configuration
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The type of the check item. Valid values:
+     *
+     *   Identity authentication and permissions
+     *   Network access control
+     *   Log audit
+     *   Data security
+     *   Monitoring and alerting
+     *   Basic security protection
+     *
+     * @example Log audit
+     *
      * @var string
      */
     public $type;

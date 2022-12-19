@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class OpenSensitiveFileScanRequest extends Model
 {
     /**
+     * @description Specifies whether to enable or disable sensitive file scan. Valid values:
+     *
+     *   **on**: enables sensitive file scan
+     *   **off**: disables sensitive file scan
+     *
+     * @example on
+     *
      * @var string
      */
     public $switchOn;

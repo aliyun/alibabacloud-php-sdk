@@ -10,61 +10,126 @@ use AlibabaCloud\Tea\Model;
 class vpcHoneyPotDTOList extends Model
 {
     /**
+     * @description The CIDR block of the VPC.
+     *
+     * @example 192.168.XX.XX/16
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @description The time when the VPC was created. Unit: milliseconds.
+     *
+     * @example 1607365213000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The status of the server on which the honeypot is deployed. Valid values:
+     *
+     *   **Pending**: The server is being created.
+     *   **Running**: The server is running.
+     *   **Starting**: The server is being started.
+     *   **Stopping**: The server is being stopped.
+     *   **Stopped**: The server is stopped.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $honeyPotEcsInstanceStatus;
 
     /**
+     * @description The ID of the elastic network interface (ENI) used by the honeypot in the VPC.
+     *
+     * @example eni-p0whwgg7bing8b80****
+     *
      * @var string
      */
     public $honeyPotEniInstanceId;
 
     /**
+     * @description Indicates whether the cloud honeypot feature is enabled for the VPC. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $honeyPotExistence;
 
     /**
+     * @description The status of the honeypot. Valid values:
+     *
+     *   **pending**: The honeypot is being created.
+     *   **deleting**: The honeypot is being deleted.
+     *   **off**: The honeypot is disabled.
+     *   **suspending**: The honeypot is suspended.
+     *   **on**: The honeypot is enabled.
+     *
+     * @example on
+     *
      * @var string
      */
     public $honeyPotInstanceStatus;
 
     /**
+     * @description The ID of the vSwitch to which the ENI used by the honeypot is connected.
+     *
+     * @example vsw-p0w7gdcfvn20tvdul****
+     *
      * @var string
      */
     public $honeyPotVpcSwitchId;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-p0w223apdl49sr5zv****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The name of the VPC.
+     *
+     * @example abc-vpcname
+     *
      * @var string
      */
     public $vpcName;
 
     /**
+     * @description The region ID of the VPC.
+     *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * @example ap-southeast-2
+     *
      * @var string
      */
     public $vpcRegionId;
 
     /**
+     * @description The status of the VPC. Valid values:
+     *
+     *   **Available**: The VPC is normal and available.
+     *   **Pending**: The VPC is being configured.
+     *
+     * @example Available
+     *
      * @var string
      */
     public $vpcStatus;
 
     /**
+     * @description An array that consists of the vSwitches in the VPC.
+     *
      * @var vpcSwitchIdList[]
      */
     public $vpcSwitchIdList;

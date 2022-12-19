@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcHoneyPotCriteriaResponseBody extends Model
 {
     /**
+     * @description An array consisting of the search conditions that can be used to query honeypots.
+     *
      * @var criteriaList[]
      */
     public $criteriaList;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example FCE38ADB-7361-4212-AD87-A4514E4DF925
+     *
      * @var string
      */
     public $requestId;

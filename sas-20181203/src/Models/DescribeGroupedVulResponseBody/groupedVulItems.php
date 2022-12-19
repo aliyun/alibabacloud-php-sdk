@@ -9,51 +9,105 @@ use AlibabaCloud\Tea\Model;
 class groupedVulItems extends Model
 {
     /**
+     * @description The alias of the vulnerability.
+     *
+     * @example RHSA-2017:0184-Important: mysql security update
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @description The number of vulnerabilities that have the **high** priority.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $asapCount;
 
     /**
+     * @description The timestamp when the vulnerability was last detected. Unit: milliseconds.
+     *
+     * @example 1639371446000
+     *
      * @var int
      */
     public $gmtLast;
 
     /**
+     * @description The number of handled vulnerabilities.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $handledCount;
 
     /**
+     * @description The number of vulnerabilities that have the **medium** priority.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $laterCount;
 
     /**
+     * @description The name of the vulnerability.
+     *
+     * @example oval:com.redhat.rhsa:def:20170184
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The number of vulnerabilities that have the **low** priority.
+     *
+     * @example 59
+     *
      * @var int
      */
     public $nntfCount;
 
     /**
+     * @description The tag that is added to the vulnerability. Valid values:
+     *
+     *   Restart required
+     *   Remote exploitation
+     *   Exploit exists
+     *   Exploitable
+     *   Privilege escalation
+     *   Code execution
+     *
+     * @example Code Execution
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The total number of fixed vulnerabilities.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $totalFixCount;
 
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   **cve**: Linux software vulnerability
+     *   **sys**: Windows system vulnerability
+     *   **cms**: Web-CMS vulnerability
+     *   **app**: application vulnerability
+     *   **emg**: urgent vulnerability
+     *   **sca**: vulnerability that is detected based on software component analysis
+     *
+     * @example cve
+     *
      * @var string
      */
     public $type;

@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class pageContentResource extends Model
 {
     /**
+     * @description The data of the affected assets on each page in a dynamic table.
+     *
+     * @example {"resultStatus":\[{"id":32183150,"status":"failed"}],"columns":\[{"title":"Zone","key":"RegionId"},{"title":"Database instance ID","key":"DBInstanceId"},{"title":"Error entry value","key":"VulValue"}],"values":\[{"DBInstanceId":{"type":"link","value":"dds-bp144b42843\*\*\*\*\n","url":"https://mongodb.console.aliyun.com/replicate/cn-hangzhou/instances/dds-bp144b42843\*\*\*\*\/basicInfo"},"VulValue":{"type":"link","value":"0.0.0.0/0","url":"https://mongodb.console.aliyun.com/replicate/cn-hangzhou/instances/dds-bp144b42843\*\*\*\*\/whiteList"},"RegionId":{"type":"text","value":"cn-hangzhou"}}],"emptyGridValue":{"type":"text","value":"No data found"},"type":"grid"}
+     *
      * @var mixed[]
      */
     public $contentResource;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The total number of pages returned.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $pageCount;
 
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

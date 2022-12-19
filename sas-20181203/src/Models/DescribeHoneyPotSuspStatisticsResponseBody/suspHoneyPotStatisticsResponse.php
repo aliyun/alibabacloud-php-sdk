@@ -9,31 +9,62 @@ use AlibabaCloud\Tea\Model;
 class suspHoneyPotStatisticsResponse extends Model
 {
     /**
+     * @description The total number of alerts that are generated for the asset.
+     *
+     * @example 8793
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The ID of the server.
+     *
+     * >  This parameter is returned only if **StatisticsKeyType** is set to **uuid**.
+     * @example i-p0whhoba24wd28p8****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the server.
+     *
+     * >  This parameter is returned only if **StatisticsKeyType** is set to **uuid**.
+     * @example abc-launch-advisor
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The type of the asset. Valid values:
+     *
+     *   **vpcInstanceId**: VPC
+     *   **uuid**: server
+     *
+     * @example vpcInstanceId
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * >  This parameter is returned only if **StatisticsKeyType** is set to **vpcInstanceId**.
+     * @example vpc-p0wwdsuutdyu1ygkt****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The name of the VPC.
+     *
+     * >  This parameter is returned only if **StatisticsKeyType** is set to **vpcInstanceId**.
+     * @example abc01
+     *
      * @var string
      */
     public $vpcName;

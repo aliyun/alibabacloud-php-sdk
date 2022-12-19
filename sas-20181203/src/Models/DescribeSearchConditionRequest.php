@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class DescribeSearchConditionRequest extends Model
 {
     /**
+     * @description The language of the content within the request and the response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 117.220.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description The type of the asset. Valid values:
+     *
+     *   **ecs**: Elastic Compute Service (ECS) instance
+     *   **cloud_product**: cloud service except ECS
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $type;

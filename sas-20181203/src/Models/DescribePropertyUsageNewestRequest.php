@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyUsageNewestRequest extends Model
 {
     /**
+     * @description The type of the accounts.
+     *
+     * Valid values:
+     *
+     *   user
+     *   system
+     *
+     * @example user
+     *
      * @var string
      */
     public $type;

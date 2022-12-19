@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeSuspEventQuaraFilesResponseBody extends Model
 {
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description An array that consists of the quarantined files.
+     *
      * @var quaraFiles[]
      */
     public $quaraFiles;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 32A73759-4C0F-4801-BE98-901223ACEE9A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 38
+     *
      * @var int
      */
     public $totalCount;

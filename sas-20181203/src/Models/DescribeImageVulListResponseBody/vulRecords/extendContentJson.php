@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class extendContentJson extends Model
 {
     /**
+     * @description The name of the operating system.
+     *
+     * @example debian
+     *
      * @var string
      */
     public $os;
 
     /**
+     * @description The version of the operating system in the image.
+     *
+     * @example 10.9
+     *
      * @var string
      */
     public $osRelease;
 
     /**
+     * @description The details of the packages of the software that has the vulnerability.
+     *
      * @var rpmEntityList[]
      */
     public $rpmEntityList;

@@ -9,11 +9,27 @@ use AlibabaCloud\Tea\Model;
 class createSimilarSecurityEventsQueryTaskResponse extends Model
 {
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   **New**: The task is created.
+     *   **RetrievingData**: Data is being retrieved.
+     *   **DataRetrieved**: Data is retrieved.
+     *   **Processing**: The task is running.
+     *   **Success**: The task is successful.
+     *   **Failed**: The task failed.
+     *   **PartialFailed**: The task partially failed.
+     *
+     * @example New
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 2915
+     *
      * @var int
      */
     public $taskId;

@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedTagsRequest extends Model
 {
     /**
+     * @description The type of the asset to query. If you do not specify this parameter, the tags of all asset types are queried. Valid values:
+     *
+     *   **ecs**: server
+     *   **cloud_product**: Alibaba Cloud service
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $machineTypes;

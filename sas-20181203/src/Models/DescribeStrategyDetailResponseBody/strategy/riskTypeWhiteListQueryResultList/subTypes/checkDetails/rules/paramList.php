@@ -9,41 +9,76 @@ use AlibabaCloud\Tea\Model;
 class paramList extends Model
 {
     /**
+     * @description If the value of paramType is 2, this parameter provides the options that can be selected for the rule parameter.
+     *
+     * @example 0,1,2,3
+     *
      * @var string
      */
     public $enumValue;
 
     /**
+     * @description The maximum value of the rule parameter.
+     *
+     * @example 999
+     *
      * @var int
      */
     public $maxValue;
 
     /**
+     * @description The minimum value of the rule parameter.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $minValue;
 
     /**
+     * @description The default value of the rule parameter.
+     *
+     * @example 7
+     *
      * @var string
      */
     public $paramDefaultValue;
 
     /**
+     * @description The description of the rule parameter.
+     *
+     * @example The setting value is 0 means no definition, 1 means success, 2 means failure, 3 means success and failure
+     *
      * @var string
      */
     public $paramDesc;
 
     /**
+     * @description The name of the rule parameter.
+     *
+     * @example range_val
+     *
      * @var string
      */
     public $paramName;
 
     /**
+     * @description The type of the rule parameter. Valid values:
+     *
+     *   **1**: input
+     *   **2**: selection
+     *
+     * @example 1
+     *
      * @var int
      */
     public $paramType;
 
     /**
+     * @description The specified value of the rule parameter.
+     *
+     * @example 7
+     *
      * @var string
      */
     public $value;

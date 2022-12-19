@@ -9,56 +9,100 @@ use AlibabaCloud\Tea\Model;
 class imageInfos extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example c08d5fc1a329a4b88950a253d082f1****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
+     * @example docker-law
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description The ID of the container.
+     *
+     * @example 04d20e98c8e2c93b7b864372084320a15a58c8671e53c972ce3a71d9c163****
+     *
      * @var string
      */
     public $containerId;
 
     /**
+     * @description The SHA-256 value of the image digest.
+     *
+     * @example 2e6daffce524ffeae66cccaa90c8fc47de912346dcec295c27395b6d66db6423
+     *
      * @var string
      */
     public $digest;
 
     /**
+     * @description The number of images on which **high** baseline risks are detected.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $highRiskImage;
 
     /**
+     * @description The name of the image.
+     *
+     * @example registry.cn-wulanchabu.aliyuncs.com/sas_test/huxin-test-001:nuxeo6-conta****
+     *
      * @var string
      */
     public $image;
 
     /**
+     * @description The timestamp when the image was created. Unit: milliseconds.
+     *
+     * @example 1636962328000
+     *
      * @var int
      */
     public $imageCreate;
 
     /**
+     * @description The ID of the image.
+     *
+     * @example cddb5fd33b34a1fabb358d0a19497cdfe362fe624821cb250947af0ea5cc****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The size of the image.
+     *
+     * @example 157408623
+     *
      * @var int
      */
     public $imageSize;
 
     /**
+     * @description The timestamp when the image was updated. Unit: milliseconds.
+     *
+     * @example 1636974116000
+     *
      * @var int
      */
     public $imageUpdate;
 
     /**
+     * @description The ID of the image instance.
+     *
+     * @example cri-a595qp31knh9****
+     *
      * @var string
      */
     public $instanceId;
@@ -84,61 +128,112 @@ class imageInfos extends Model
     public $lastScanTime;
 
     /**
+     * @description The number of images on which **low** baseline risks are detected.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $lowRiskImage;
 
     /**
+     * @description The number of images on which **medium** baseline risks are detected.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $middleRiskImage;
 
     /**
+     * @description The namespace.
+     *
+     * @example test-002
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The number of images that do not have baseline risks.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $noRiskImage;
 
     /**
+     * @description The pod.
+     *
+     * @example 22222-7xsqq
+     *
      * @var string
      */
     public $pod;
 
     /**
+     * @description The region ID of the image instance.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * @example crr-1lt6q7167yh6****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The name of the image repository.
+     *
+     * @example scanner
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The namespace to which the image repository belongs.
+     *
+     * @example libssh2
+     *
      * @var string
      */
     public $repoNamespace;
 
     /**
+     * @description The type of the image repository.
+     *
+     * @example PRIVATE
+     *
      * @var string
      */
     public $repoType;
 
     /**
+     * @description Indicates whether the image is at risk. Valid values:
+     *
+     *   **YES**
+     *   **NO**
+     *
+     * @example YES
+     *
      * @var string
      */
     public $riskStatus;
 
     /**
+     * @description The version of the image.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $tag;
@@ -159,11 +254,19 @@ class imageInfos extends Model
     public $targetType;
 
     /**
+     * @description The total number of risk items that are detected on the image by using the baseline.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $totalItemCount;
 
     /**
+     * @description The UUID of the image.
+     *
+     * @example f58681174f944623345379e23b7b****
+     *
      * @var string
      */
     public $uuid;

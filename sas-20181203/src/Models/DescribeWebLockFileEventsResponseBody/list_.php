@@ -9,86 +9,179 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The number of attempts.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The timestamp at which the event on web tamper proofing was first detected.
+     *
+     * @example 1657178400000
+     *
      * @var int
      */
     public $ds;
 
     /**
+     * @description The name of the event on web tamper proofing.
+     *
+     * @example modify
+     *
      * @var string
      */
     public $eventName;
 
     /**
+     * @description The status of the event on web tamper proofing. Valid values:
+     *
+     *   **1**: unhandled
+     *   **2**: ignored
+     *   **4**: deprecated
+     *   **8**: marked as false positive
+     *   **10**: added to the whitelist
+     *   **16**: being handled
+     *   **32**: defended
+     *   **64**: invalid
+     *   **128**: deleted
+     *   **512**: automatically handled
+     *
+     * @example 1
+     *
      * @var string
      */
     public $eventStatus;
 
     /**
+     * @description The prevention mode. Valid values:
+     *
+     *   **audit**: Interception Mode
+     *   **web_lock**: Alert Mode
+     *
+     * @example audit
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @description The timestamp at which the event on web tamper proofing was last detected.
+     *
+     * @example 1657178400000
+     *
      * @var int
      */
     public $gmtEvent;
 
     /**
+     * @description The ID of the event on web tamper proofing.
+     *
+     * @example 3555953980
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the asset.
+     *
+     * @example sql-test-001
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The public IP address of the affected asset.
+     *
+     * @example 8.210.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The private IP address of the asset.
+     *
+     * @example 172.25.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @description The IP address of the asset.
+     *
+     * @example 8.210.XX.XX
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The severity of the event on web tamper proofing. Valid values: **medium**.
+     *
+     * @example medium
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description The file path.
+     *
+     * @example D:\test-tamper-proofing\123.html
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @description The name of the process.
+     *
+     * @example python3.7
+     *
      * @var string
      */
     public $processName;
 
     /**
+     * @description The path of the process.
+     *
+     * @example C:\Windows\explorer.exe
+     *
      * @var string
      */
     public $processPath;
 
     /**
+     * @description The status of the event on web tamper proofing. Valid values:
+     *
+     *   **1**: unhandled
+     *   **2**: ignored
+     *   **4**: deprecated
+     *   **8**: marked as false positive
+     *   **10**: added to the whitelist
+     *   **16**: being handled
+     *   **32**: defended
+     *   **64**: invalid
+     *   **128**: deleted
+     *   **512**: automatically handled
+     *
+     * @example 1
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The UUID of the asset.
+     *
+     * @example 49e25e0f-bb51-4a5a-a1b3-13a4ddaa****
+     *
      * @var string
      */
     public $uuid;

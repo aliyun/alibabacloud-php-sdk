@@ -10,61 +10,166 @@ use AlibabaCloud\Tea\Model;
 class checks extends Model
 {
     /**
+     * @description The ID of the check item.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $checkId;
 
     /**
+     * @description The check policies.
+     *
      * @var checkPolicies[]
      */
     public $checkPolicies;
 
     /**
+     * @description The name of the check item.
+     *
+     * @example OSS-PublicReadOpenManifestFileWithoutEncryption
+     *
      * @var string
      */
     public $checkShowName;
 
     /**
+     * @description The asset subtype of the cloud service. Valid values:
+     *
+     *   If the **InstanceType** parameter is set to **ECS**, this parameter supports the following valid values:
+     *
+     *   **INSTANCE**
+     *   **DISK**
+     *   **SECURITY_GROUP**
+     *
+     *   If the **InstanceType** parameter is set to **ACR**, this parameter supports the following valid values:
+     *
+     *   **REPOSITORY_ENTERPRISE**
+     *   **REPOSITORY_PERSON**
+     *
+     *   If the **InstanceType** parameter is set to **RAM**, this parameter supports the following valid values:
+     *
+     *   **ALIAS**
+     *   **USER**
+     *   **POLICY**
+     *   **GROUP**
+     *
+     *   If the **InstanceType** parameter is set to **WAF**, this parameter supports the following valid values:
+     *
+     *   **DOMAIN**
+     *
+     *   If the **InstanceType** parameter is set to other values, this parameter supports the following valid values:
+     *
+     *   **INSTANCE**
+     *
+     * @example DISK
+     *
      * @var string
      */
     public $instanceSubType;
 
     /**
+     * @description The asset type of the cloud service. Valid values:
+     *
+     *   **ECS**: ECS
+     *   **SLB**: SLB
+     *   **RDS**: ApsaraDB RDS
+     *   **MONGODB**: MongoDB
+     *   **KVSTORE**: Redis
+     *   **ACR**: Container Registry
+     *   **CSK**: ACK
+     *   **VPC**: VPC
+     *   **ACTIONTRAIL**: ActionTrail
+     *   **CDN**: CDN
+     *   **CAS**: Certificate Management Service (formerly SSL Certificates Service)
+     *   **RDC**: Apsara Devops
+     *   **RAM**: RAM
+     *   **DDOS**: Anti-DDoS
+     *   **WAF**: WAF
+     *   **OSS**: OSS
+     *   **POLARDB**: PolarDB
+     *   **POSTGRESQL**: ApsaraDB RDS for PostgreSQL
+     *   **MSE**: MSE
+     *   **NAS**: NAS
+     *   **SDDP**: SDDP
+     *   **EIP**: EIP
+     *
+     * @example ECS
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The timestamp when the last check was performed. Unit: milliseconds.
+     *
+     * @example 1657793398000
+     *
      * @var int
      */
     public $lastCheckTime;
 
     /**
+     * @description The risk level of the check item. Valid values:
+     *
+     *   **HIGH**
+     *   **MEDIUM**
+     *   **LOW**
+     *
+     * @example HIGH
+     *
      * @var string
      */
     public $riskLevel;
 
     /**
+     * @description The state of the check item. Valid values:
+     *
+     *   **PASS**
+     *   **NOT_PASS**
+     *   **CHECKING**
+     *   **NOT_CHECK**
+     *   **WHITELIST**
+     *
+     * @example PASS
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the check task.
+     *
+     * @example 64
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The flag that whether this check item needs trial permission.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $trialPermission;
 
     /**
+     * @description The value of the cloud service provider.
+     *
+     * @example ALIYUN
+     *
      * @var string
      */
     public $vendor;
 
     /**
+     * @description The name of the cloud service provider.
+     *
+     * @example Aliyun
+     *
      * @var string
      */
     public $vendorShowName;

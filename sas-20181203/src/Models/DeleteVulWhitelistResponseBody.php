@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteVulWhitelistResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 9FBC6E47-7508-58C9-9E76-528E118CB1CC
+     *
      * @var string
      */
     public $requestId;

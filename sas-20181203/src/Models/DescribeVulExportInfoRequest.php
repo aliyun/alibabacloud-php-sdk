@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulExportInfoRequest extends Model
 {
     /**
+     * @description The ID of the vulnerability export task.
+     *
+     * @example 14356
+     *
      * @var int
      */
     public $exportId;

@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateFileDetectRequest extends Model
 {
     /**
+     * @description The identifier of the file. Only MD5 hash values are supported.
+     *
+     * @example 0a212417e65c26ff133cfff28f6c****
+     *
      * @var string
      */
     public $hashKey;
 
     /**
+     * @description The key of the file that is stored in the Object Storage Service (OSS) bucket. You can call the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation to query the keys of files.
+     *
+     * @example 1/2022/06/23/15/41/16559701077444693a0c6-33b2-4cc2-a99f-9f38b8b8****
+     *
      * @var string
      */
     public $ossKey;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 115.213.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description The type of the file. Valid values:
+     *
+     *   **0**: unknown files
+     *   **1**: binary files
+     *   **2**: webshell files
+     *   **4**: script files
+     *
+     * >  If you do not know the type of the file, set this parameter to 0.
+     * @example 0
+     *
      * @var int
      */
     public $type;

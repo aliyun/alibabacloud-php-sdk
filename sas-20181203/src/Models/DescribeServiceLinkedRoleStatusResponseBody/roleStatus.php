@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class roleStatus extends Model
 {
     /**
+     * @description Indicates whether the service-linked role is created. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $status;

@@ -9,51 +9,106 @@ use AlibabaCloud\Tea\Model;
 class groupedVulItems extends Model
 {
     /**
+     * @description The alias of the vulnerability.
+     *
+     * @example RHSA-2017:3075-Important: wget security update
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @description The number of vulnerabilities that have the high priority.
+     *
+     * @example 26
+     *
      * @var int
      */
     public $asapCount;
 
     /**
+     * @description The timestamp when the first scan was performed. Unit: milliseconds.
+     *
+     * @example 1611201274000
+     *
      * @var int
      */
     public $gmtLast;
 
     /**
+     * @description The timestamp when the last scan was performed. Unit: milliseconds.
+     *
+     * @example 1611201274000
+     *
      * @var int
      */
     public $lastScanTime;
 
     /**
+     * @description The number of vulnerabilities that have the medium priority.
+     *
+     * @example 26
+     *
      * @var int
      */
     public $laterCount;
 
     /**
+     * @description The name of the vulnerability.
+     *
+     * @example debian:9:CVE-2019-3858
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The number of vulnerabilities that have the low priority.
+     *
+     * @example 29
+     *
      * @var int
      */
     public $nntfCount;
 
     /**
+     * @description The status of the vulnerability. Valid values:
+     *
+     *   **0**: unhandled
+     *   **1**: handled
+     *   **2**: verifying
+     *   **3**: added to the whitelist
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The tag that is added to the vulnerability. Valid values:
+     *
+     *   Restart required
+     *   Remote exploitation
+     *   Exploit exists
+     *   Exploitable
+     *   Privilege escalation
+     *   Code execution
+     *
+     * @example EXP exists
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   **cve**: image system vulnerability
+     *   **sca**: image application vulnerability
+     *
+     * @example cve
+     *
      * @var string
      */
     public $type;

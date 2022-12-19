@@ -9,26 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageFixTaskRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The timestamp when the task ends. Unit: milliseconds.
+     *
+     * @example 1635575219000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The timestamp when the task starts. Unit: milliseconds.
+     *
+     * @example 1634725571000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   **1**: The task is running.
+     *   **2**: The task is successful.
+     *   **3**: The task failed.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $status;

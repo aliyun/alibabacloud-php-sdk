@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class FixCheckWarningsResponseBody extends Model
 {
     /**
+     * @description The ID of the baseline risk item that has been fixed by using the Batch Repair feature.
+     *
+     * @example 52370
+     *
      * @var int
      */
     public $batchId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 76C1D7FD-DB1E-45EA-B804-3FBD9A1DD9C0
+     *
      * @var string
      */
     public $requestId;

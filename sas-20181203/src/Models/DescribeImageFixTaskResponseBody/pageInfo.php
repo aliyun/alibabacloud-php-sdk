@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
+     * @description The number of tasks returned on the current page.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The page number of the returned page. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of entries returned per page. Default value: **20**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The total number of tasks returned.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $totalCount;

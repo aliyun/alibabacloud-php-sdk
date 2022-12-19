@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedStatisticsDetailResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 7CBAFB3F-1ED7-4A23-986A-6F67F0466BD1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array consisting of the gateway assets, ports, system components, or public IP addresses that are exposed on the Internet and are returned.
+     *
      * @var statisticsDetails[]
      */
     public $statisticsDetails;

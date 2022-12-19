@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class criteriaList extends Model
 {
     /**
+     * @description The name of the search condition.
+     *
+     * @example vpcRegionId
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the search condition. Valid values:
+     *
+     *   **input**: You must manually enter the search condition.
+     *   **select**: You must select a search condition from the **Values** drop-down list.
+     *
+     * @example select
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The values of the search condition. This parameter is returned only if the value of **Type** is **select**.
+     *
+     * >  If the value of **Type** is **input**, the value of this parameter is an empty string.
+     * @example ap-southeast-2,eu-west-1
+     *
      * @var string
      */
     public $values;

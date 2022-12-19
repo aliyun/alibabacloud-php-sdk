@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class description extends Model
 {
     /**
+     * @description The link to the description of the check item.
+     *
+     * @example https://www.alibabacloud.com/help/en/object-storage-service/latest/tutorial-implement-data-sharing-across-departments-based-on-bucket-policies
+     *
      * @var string
      */
     public $link;
 
     /**
+     * @description The type of the description of the check item. The value is fixed as text.
+     *
+     * @example text
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The content in the description of the check item.
+     *
+     * @example The MSE instance does not enable authentication by default. If public network access is enabled at the same time, the data in the configuration center may be dragged and there is a security risk.
+     *
      * @var string
      */
     public $value;

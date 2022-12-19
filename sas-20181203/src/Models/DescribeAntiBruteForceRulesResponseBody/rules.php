@@ -9,46 +9,84 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @description Indicates whether the defense rule is the default rule. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * >  The default rule takes effect on all servers that are not protected by defense rules against brute-force attacks.
+     * @example true
+     *
      * @var bool
      */
     public $defaultRule;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableSmartRule;
 
     /**
+     * @description The threshold of logon failures that you specify.
+     *
+     * @example 15
+     *
      * @var int
      */
     public $failCount;
 
     /**
+     * @description The period of time during which logons from an account are not allowed. Unit: minutes.
+     *
+     * @example 360
+     *
      * @var int
      */
     public $forbiddenTime;
 
     /**
+     * @description The ID of the defense rule.
+     *
+     * @example 1629
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The number of servers to which the defense rule is applied.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $machineCount;
 
     /**
+     * @description The name of the defense rule.
+     *
+     * @example AntiBruteForceRule01
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The period of time during which logon failures from an account are measured. Unit: minutes. If **Span** is set to 10, the defense rule takes effect when the logon failures measured within 10 minutes reaches the specified threshold. The IP address of attackers cannot be used to log on to the server in the specified period of time.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $span;
 
     /**
+     * @description An array consisting of the UUIDs of servers to which the defense rule is applied.
+     *
      * @var string[]
      */
     public $uuidList;

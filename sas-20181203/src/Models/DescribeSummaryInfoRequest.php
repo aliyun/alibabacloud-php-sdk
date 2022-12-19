@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeSummaryInfoRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

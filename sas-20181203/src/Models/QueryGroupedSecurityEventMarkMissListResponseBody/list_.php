@@ -9,56 +9,109 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The ID of the user.
+     *
+     * @example 31412647
+     *
      * @var int
      */
     public $aliUid;
 
     /**
+     * @description The handling method. Valid values:
+     *
+     *   **auto\_add_white**: Automatically Added to Whitelist
+     *   **defense\_not_notification**: Defense Without Notification
+     *
+     * @example auto_add_white
+     *
      * @var string
      */
     public $disposalWay;
 
     /**
+     * @description The name of the alert event. The value indicates a subtype.
+     *
+     * @example Login with unusual location
+     *
      * @var string
      */
     public $eventName;
 
     /**
+     * @description The name of the alert event. The value indicates a type.
+     *
+     * @example login_common_location
+     *
      * @var string
      */
     public $eventNameOriginal;
 
     /**
+     * @description The subtype of the alert event.
+     *
+     * @example Unusual Logon
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @description The type of the alert event.
+     *
+     * @example Unusual logon
+     *
      * @var string
      */
     public $eventTypeOriginal;
 
     /**
+     * @description The field that is used in the whitelist rule.
+     *
+     * @example type
+     *
      * @var string
      */
     public $field;
 
     /**
+     * @description The value of the field.
+     *
+     * @example root
+     *
      * @var string
      */
     public $fieldValue;
 
     /**
+     * @description The alias of the field.
+     *
+     * @example Logon Time
+     *
      * @var string
      */
     public $filedAliasName;
 
     /**
+     * @description The operator. Valid values:
+     *
+     *   **contains**: contains
+     *   **notContains**: does not contain
+     *   **strEqual**: equals
+     *   **strNotEqual**: does not equal
+     *   **regex**: regular expression
+     *
+     * @example contains
+     *
      * @var string
      */
     public $operate;
 
     /**
+     * @description The UUIDs of assets. Multiple UUIDs are separated by commas (,).
+     *
+     * @example 6985b88c-eb19-4d27-98ad-e4a42312****,5721d503-9b04-4243-89ca-1fb8ca5e****,db2678c3-10e3-4a20-92f1-265f6****
+     *
      * @var string
      */
     public $uuids;

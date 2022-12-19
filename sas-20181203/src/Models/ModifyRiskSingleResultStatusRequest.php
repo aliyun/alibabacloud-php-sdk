@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ModifyRiskSingleResultStatusRequest extends Model
 {
     /**
+     * @description The IDs of the affected assets.
+     *
      * @var string[]
      */
     public $ids;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
@@ -24,16 +33,31 @@ class ModifyRiskSingleResultStatusRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 42.120.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description The method to handle the risk item. Valid values:
+     *
+     *   **ignored**: ignores the risk item.
+     *   **failed**: cancels the ignore operation on the risk item.
+     *
+     * @example ignored
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the check task to which the affected asset belongs.
+     *
+     * @example 57
+     *
      * @var int
      */
     public $taskId;

@@ -9,26 +9,59 @@ use AlibabaCloud\Tea\Model;
 class FixCheckWarningsRequest extends Model
 {
     /**
+     * @description The parameters for the baseline risk item that you want to fix.
+     *
+     *   **checkId**: the ID of the check item that corresponds to the baseline risk item.
+     *
+     *   **rules**: an array that consists of the rules applied to fixes.
+     *
+     *   **value**: specifies whether a fix method is selected. Valid values: **0** and **1**. The value 0 indicates that no fix method is selected and the value 1 indicates that a fix method is selected.
+     *   **ruleId**: the ID of the fix method.
+     *   **paramList**: an array that consists of the details about the fix method.\
+     * • **paramName**: the name of the fix method.\
+     * • **value**: the value of the fix method.
+     * @example [{"checkId":8,"rules":[{"ruleId":"rule.ssh_Idle.interval","value":1,"paramList":[{"paramName":"range_val","value":"600"},{"paramName":"range_val","value":"600"}]},{"ruleId":"rule.ssh_Idle.count","value":1,"paramList":[{"paramName":"range_val","value":"3"}]}]}]
+     *
      * @var string
      */
     public $checkParams;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the baseline risk item.
+     *
+     * >  To query specified baseline risk items and the check items of a specified server, you must provide the IDs of the baseline risk items. You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs.
+     * @example 10354
+     *
      * @var int
      */
     public $riskId;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 165.225.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description The UUID of the asset for which you want to fix the baseline risk item. You can call the [DescribeWarningMachines](~~DescribeWarningMachines~~) operation to query the UUIDs of assets.
+     *
+     * @example 75a417dda5f25edb5bed8f208a9a****,c7e10fd794262a1510d5648f9e5d****
+     *
      * @var string
      */
     public $uuids;

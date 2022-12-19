@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class criteriaList extends Model
 {
     /**
+     * @description The structured attribute values of the assets that match the keyword. The value of this parameter is in the JSON format and contains the following fields:
+     *
+     *   **vendor**: providers
+     *   **regionIds**: IDs of supported regions
+     *
+     * @example [{"vendor":0,"regionIds":{"default":["ap-southeast-1","ap-northeast-2","ap-southeast-3","ap-southeast-5","ap-southeast-7","me-central-1"]}},{"vendor":1,"regionIds":{"default":["outside-of-aliyun"]}}]
+     *
      * @var string
      */
     public $multiValues;
 
     /**
+     * @description The name of the filter condition.
+     *
+     * @example internetIp
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the filter condition. Valid values:
+     *
+     *   **input**: The filter condition needs to be specified.
+     *   **select**: The filter condition is an option that can be selected from the drop-down list.
+     *
+     * @example input
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The attribute values of the assets that match the keyword.
+     *
+     * @example 47.96.XX.XX
+     *
      * @var string
      */
     public $values;

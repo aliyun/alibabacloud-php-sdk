@@ -9,21 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckEcsWarningsResponseBody extends Model
 {
     /**
+     * @description Indicates whether you use the free trial of Security Center. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
+     * @example 0
+     *
      * @var string
      */
     public $canTry;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4E5BFDCF-B9DD-430D-9DA4-151BCB581C9D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The edition of Security Center that you use. Valid values:
+     *
+     *   **1**: Basic edition
+     *   **2** or **3**: Enterprise edition
+     *   **5**: Advanced edition
+     *   **6**: Anti-virus edition
+     *
+     * >  Both the value 2 and the value 3 indicate the Enterprise edition.
+     * @example 3
+     *
      * @var string
      */
     public $sasVersion;
 
     /**
+     * @description The number of weak passwords that can cause high risks to your assets.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $weakPasswordCount;

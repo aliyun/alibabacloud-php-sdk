@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DescribeSimilarSecurityEventsRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -29,11 +44,19 @@ class DescribeSimilarSecurityEventsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description The ID of the task. You can call the [CreateSimilarSecurityEventsQueryTask](~~CreateSimilarSecurityEventsQueryTask~~) operation to query the IDs of tasks.
+     *
+     * @example 1689135
+     *
      * @var int
      */
     public $taskId;

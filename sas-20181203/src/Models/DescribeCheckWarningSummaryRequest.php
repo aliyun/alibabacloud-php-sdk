@@ -9,71 +9,149 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckWarningSummaryRequest extends Model
 {
     /**
+     * @description The ID of the container cluster.
+     *
+     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+     * @example c80dae73bd1be442699766b14ffd0****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The name of the container field. Valid values:
+     *
+     *   **clusterId**: the ID of the cluster
+     *   **image**: the name of the image
+     *   **imageId**: the ID of the image
+     *   **namespace**: the namespace
+     *
+     * @example namespace
+     *
      * @var string
      */
     public $containerFieldName;
 
     /**
+     * @description The value of the container field.
+     *
+     * @example c819391d2d520485fa3e81e2dc2ea****
+     *
      * @var string
      */
     public $containerFieldValue;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The language of the content within the request and the response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The name of the risk item.
+     *
+     * @example Redis
+     *
      * @var string
      */
     public $riskName;
 
     /**
+     * @description The status of the baseline check. Valid values:
+     *
+     *   **1**: failed
+     *   **3**: passed
+     *
+     * @example 1
+     *
      * @var int
      */
     public $riskStatus;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 219.133.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description The status of the check item. Valid values:
+     *
+     *   **1**: failed
+     *   **2**: verifying
+     *   **3**: passed
+     *   **5**: expired
+     *   **6**: ignored
+     *
+     * @example 1
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the baseline check policy.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $strategyId;
 
     /**
+     * @description The type of the query condition. Valid values:
+     *
+     *   **uuid**: the ID of an asset
+     *
+     * @example uuid
+     *
      * @var string
      */
     public $targetType;
 
     /**
+     * @description The level-1 type of check items.
+     *
+     * >  You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to query the level-1 types of check items.
+     * @example database
+     *
      * @var string
      */
     public $typeName;
 
     /**
+     * @description The UUID of the asset.
+     *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of assets.
+     * @example f03259d8-1e81-4fae-bcbb-275fb5****
+     *
      * @var string
      */
     public $uuids;

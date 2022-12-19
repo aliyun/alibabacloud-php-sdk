@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteBackupPolicyRequest extends Model
 {
     /**
+     * @description The ID of the anti-ransomware policy that you want to delete.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The version of the anti-ransomware policy that you want to delete. You can call the [DescribeBackupPolicies](~~322795~~) operation to query the versions of anti-ransomware policies. Valid values:
+     *
+     *   **1.0.0**
+     *   **2.0.0**
+     *
+     * @example 2.0.0
+     *
      * @var string
      */
     public $policyVersion;

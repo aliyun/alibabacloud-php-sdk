@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class GetFileDetectResultRequest extends Model
 {
     /**
+     * @description An array that consists of the identifiers of files. Only MD5 hash values are supported.
+     *
      * @var string[]
      */
     public $hashKeyList;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 183.46.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description The type of the file. Valid values:
+     *
+     *   **0**: unknown file
+     *   **1**: binary file
+     *   **2**: webshell file
+     *   **4**: script file
+     *
+     * >  If you do not know the type of the file, set this parameter to 0.
+     * @example 0
+     *
      * @var int
      */
     public $type;

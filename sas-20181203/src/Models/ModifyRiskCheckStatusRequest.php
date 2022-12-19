@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyRiskCheckStatusRequest extends Model
 {
     /**
+     * @description The ID of the check item.
+     *
+     * @example 37
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @description The language of the content within the request and the response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
@@ -24,16 +35,31 @@ class ModifyRiskCheckStatusRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 183.223.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description The method to handle the check item. Valid values:
+     *
+     *   **ignored**: ignores the check item.
+     *   **reset**: cancels ignoring the check item.
+     *
+     * @example ignored
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the check task to which the check item belongs.
+     *
+     * @example 57
+     *
      * @var int
      */
     public $taskId;

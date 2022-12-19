@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class rpmEntityList extends Model
 {
     /**
+     * @description The complete version number of the package.
+     *
+     * @example 2.3.3-4
+     *
      * @var string
      */
     public $fullVersion;
 
     /**
+     * @description The SHA-256 value of the digest of the image layer.
+     *
+     * @example b1f5b9420803ad0657cf21566e3e20acc08581e7f22991249ef3aa80b8b1c587
+     *
      * @var string
      */
     public $layer;
 
     /**
+     * @description The reason why the vulnerability is detected.
+     *
+     * @example libseccomp2 version less than equals 2.3.3-4
+     *
      * @var string
      */
     public $matchDetail;
 
     /**
+     * @description The details of the rules that are used to detect the vulnerability.
+     *
+     * @example ["libseccomp2 version less than equals 2.3.3-4"]
+     *
      * @var string[]
      */
     public $matchList;
 
     /**
+     * @description The name of the software package.
+     *
+     * @example libseccomp2
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The path of the software that has the vulnerability.
+     *
+     * @example /usr/lib64/libssh2.so.1
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @description The command that is used to fix the vulnerability.
+     *
+     * @example apt-get update && apt-get install libseccomp2  --only-upgrade
+     *
      * @var string
      */
     public $updateCmd;
 
     /**
+     * @description The version number of the package.
+     *
+     * @example 2.3.3-4
+     *
      * @var string
      */
     public $version;

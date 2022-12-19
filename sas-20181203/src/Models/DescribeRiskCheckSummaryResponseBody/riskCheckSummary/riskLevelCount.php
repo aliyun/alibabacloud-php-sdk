@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class riskLevelCount extends Model
 {
     /**
+     * @description The number of check items at the specified risk level.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The risk level of the check items. Valid values of risk levels:
+     *
+     *   **high**
+     *   **medium**
+     *   **low**
+     *
+     * @example medium
+     *
      * @var string
      */
     public $key;

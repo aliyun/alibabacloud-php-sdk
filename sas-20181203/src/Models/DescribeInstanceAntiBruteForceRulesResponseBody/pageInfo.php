@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
+     * @description The number of servers to which the defense rule is applied on the current page.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The total number of servers to which the defense rule is applied.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $totalCount;

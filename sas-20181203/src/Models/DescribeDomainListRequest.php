@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainListRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The type of the domain name that you want to query. Valid values:
+     *
+     *   **root**: root domain name
+     *   **sub**: subdomain name
+     *
+     * @example root
+     *
      * @var string
      */
     public $domainType;
 
     /**
+     * @description The keyword that is used to query domain names. Fuzzy match is supported.
+     *
+     * @example sas
+     *
      * @var string
      */
     public $fuzzyDomain;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 192.122.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CheckSecurityEventIdResponseBody extends Model
 {
     /**
+     * @description Indicates whether the alert events are generated on the server. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 1383B0DB-D5D6-4B0C-9E6B-75939C8E67FE
+     *
      * @var string
      */
     public $requestId;

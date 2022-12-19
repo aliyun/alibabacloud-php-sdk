@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class propertyItems extends Model
 {
     /**
+     * @description The number of servers that belong to the account.
+     *
+     * @example 384
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The name of the account.
+     *
+     * @example adm
+     *
      * @var string
      */
     public $user;

@@ -9,41 +9,83 @@ use AlibabaCloud\Tea\Model;
 class statisticsDetails extends Model
 {
     /**
+     * @description The total number of system vulnerabilities that are detected on your server and are exposed on the Internet.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $exposedCount;
 
     /**
+     * @description The system component that is exposed on the Internet.
+     *
+     * @example tomcat
+     *
      * @var string
      */
     public $exposureComponent;
 
     /**
+     * @description The public IP address that is exposed on the Internet.
+     *
+     * @example 123.57.XX.XX
+     *
      * @var string
      */
     public $exposureIp;
 
     /**
+     * @description The port that is exposed on the Internet.
+     *
+     * @example 22
+     *
      * @var string
      */
     public $exposurePort;
 
     /**
+     * @description The resource from which the asset is exposed. Valid values:
+     *
+     *   **INTERNET_IP**: the IP address of the Elastic Compute Service (ECS) instance
+     *   **SLB**: the public IP address of the SLB instance
+     *   **EIP**: the elastic IP address (EIP)
+     *   **DNAT**: the NAT gateway that connects to the Internet by using the DNAT feature
+     *
+     * @example SLB
+     *
      * @var string
      */
     public $exposureType;
 
     /**
+     * @description The ID of the instance to which the resource belongs. The valid values of this parameter vary based on the value of the ExposureType parameter.
+     *
+     *   If the value of the **ExposureType** parameter is **INTERNET_IP**, the value of this parameter is an empty string.
+     *   If the value of the **ExposureType** parameter is **SLB**, the value of this parameter is the ID of the Internet-facing SLB instance.
+     *   If the value of the **ExposureType** parameter is **EIP**, the value of this parameter is the ID of the EIP.
+     *   If the value of the **ExposureType** parameter is **DNAT**, the value of this parameter is the ID of the NAT gateway.
+     *
+     * @example lb-2ze4rso39h4nczcqs****
+     *
      * @var string
      */
     public $exposureTypeId;
 
     /**
+     * @description The name of the gateway asset that is exposed on the Internet.
+     *
+     * @example ngw-bp1vkbju8f3w87c9v****
+     *
      * @var string
      */
     public $exposureTypeInstanceName;
 
     /**
+     * @description The region ID of the asset.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

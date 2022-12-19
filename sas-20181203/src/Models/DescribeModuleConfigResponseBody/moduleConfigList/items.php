@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The ID of the server group to which the server belongs.
+     *
+     * @example 173
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @description The ID of the server.
+     *
+     * @example lb-xxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the server.
+     *
+     * @example ssxxxxxxxx
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The IP address of the server.
+     *
+     * @example 2.2.X.X
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The region in which the server resides.
+     *
+     * @example outside-of-aliyun
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The UUID of the server.
+     *
+     * @example lb-xxxx-xxxx-xxxx-xxxx
+     *
      * @var string
      */
     public $uuid;

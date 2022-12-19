@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class AddVpcHoneyPotResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example CE500770-42D3-442E-9DDD-156E0F9F3B45
+     *
      * @var string
      */
     public $requestId;

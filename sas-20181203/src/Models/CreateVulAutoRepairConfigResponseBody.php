@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class CreateVulAutoRepairConfigResponseBody extends Model
 {
     /**
+     * @description The status code returned. The status code **200** indicates that the request was is successful. Other status codes indicate that the request fails. You can identify the cause of the failure based on the status code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The error message returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 6673D49C-A9AB-40DD-B4A2-B92306701AE7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

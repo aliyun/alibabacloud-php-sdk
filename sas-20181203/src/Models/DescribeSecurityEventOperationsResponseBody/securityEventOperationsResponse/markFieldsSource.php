@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class markFieldsSource extends Model
 {
     /**
+     * @description The alias of the field that can be used in the whitelist rule.
+     *
+     * @example file path
+     *
      * @var string
      */
     public $filedAliasName;
 
     /**
+     * @description The field that can be used in the whitelist rule.
+     *
+     * @example gmtModified
+     *
      * @var string
      */
     public $filedName;
 
     /**
+     * @description The value of the field that can be used in the whitelist rule.
+     *
+     * @example contains
+     *
      * @var string
      */
     public $markMisValue;
 
     /**
+     * @description An array consisting of the operations that are supported by the method to add the alert event to the whitelist.
+     *
      * @var string[]
      */
     public $supportedMisType;

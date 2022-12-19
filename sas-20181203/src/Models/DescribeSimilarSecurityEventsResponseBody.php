@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeSimilarSecurityEventsResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 9F4217C8-763F-51EF-84D4-5535E072B2D8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array consisting of the alert events that are triggered by the same rule or of the same alert type.
+     *
      * @var securityEventsResponse[]
      */
     public $securityEventsResponse;

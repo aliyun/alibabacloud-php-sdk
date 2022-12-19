@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeRiskCheckSummaryRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is added as a member by using the multi-account control feature.
+     *
+     * @example 1232428423234****
+     *
      * @var string
      */
     public $resourceDirectoryAccountId;
@@ -24,6 +35,10 @@ class DescribeRiskCheckSummaryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

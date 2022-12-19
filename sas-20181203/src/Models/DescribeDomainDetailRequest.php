@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainDetailRequest extends Model
 {
     /**
+     * @description The domain name or the name of website that you want to query.
+     *
+     * >  Fuzzy match is not supported. You must enter a complete domain name or a website.
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

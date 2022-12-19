@@ -9,51 +9,98 @@ use AlibabaCloud\Tea\Model;
 class pushTaskResultList extends Model
 {
     /**
+     * @description The ID of the server group to which the server belongs.
+     *
+     * @example 226
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @description The ID of the server.
+     *
+     * @example i-wz9f7wlklxqnvdk****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the server.
+     *
+     * @example TestInstance
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The IP address of the server.
+     *
+     * @example 127.XX.XX
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The message that describes the security check failure.
+     *
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the Security Center agent is online. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * >  If the Security Center agent of the server is offline, Security Center does not protect the server.
+     * @example false
+     *
      * @var bool
      */
     public $online;
 
     /**
+     * @description The operating system version of the server.
+     *
+     * @example linux
+     *
      * @var string
      */
     public $osVersion;
 
     /**
+     * @description The region in which the server resides.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description Indicates whether the security check task is successful. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example false
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The UUID of the server.
+     *
+     * @example 5493fe42-61f5-4627-9aa2-8c449bbe****
+     *
      * @var string
      */
     public $uuid;

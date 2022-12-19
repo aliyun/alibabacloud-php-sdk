@@ -9,61 +9,113 @@ use AlibabaCloud\Tea\Model;
 class buildTasks extends Model
 {
     /**
+     * @description The ID of the task.
+     *
+     * @example ivf-939536b5-c3ca-427b-8183-91007756
+     *
      * @var string
      */
     public $buildTaskId;
 
     /**
+     * @description The timestamp when the task starts. Unit: milliseconds.
+     *
+     * @example 2021-10-14 20:34:07
+     *
      * @var string
      */
     public $finishTime;
 
     /**
+     * @description The timestamp when the task ends. Unit: milliseconds.
+     *
+     * @example 2021-10-14 20:32:05
+     *
      * @var string
      */
     public $fixTime;
 
     /**
+     * @description The version of the image after image risks are fixed.
+     *
+     * @example redhat8-vault
+     *
      * @var string
      */
     public $newTag;
 
     /**
+     * @description The UUID of the image after image risks are fixed.
+     *
+     * @example 2fa731681911ae8d1b5f11893ace****
+     *
      * @var string
      */
     public $newUuid;
 
     /**
+     * @description The version of the image.
+     *
+     * @example centos8.1-ja
+     *
      * @var string
      */
     public $oldTag;
 
     /**
+     * @description The UUID of the image.
+     *
+     * @example 2fa731681911ae8d1b5f11893ace****
+     *
      * @var string
      */
     public $oldUuid;
 
     /**
+     * @description The region of the image.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the image repository.
+     *
+     * @example test-redhat
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The namespace of the image.
+     *
+     * @example name-002
+     *
      * @var string
      */
     public $repoNamespace;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   **1**: The task is running.
+     *   **2**: The task is successful.
+     *   **3**: The task failed.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The type of the task. The value is fixed as IMAGE_REPAIR, which indicates a task that fixes image risks.
+     *
+     * @example IMAGE_REPAIR
+     *
      * @var string
      */
     public $taskType;

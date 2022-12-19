@@ -9,46 +9,86 @@ use AlibabaCloud\Tea\Model;
 class PublicPreCheckImageScanTaskRequest extends Model
 {
     /**
+     * @description The SHA-256 value of the image digest. Separate multiple SHA-256 values with commas (,).
+     *
+     * @example 6a5e103187b31a94592a47a5858617f7****
+     *
      * @var string
      */
     public $digests;
 
     /**
+     * @description The ID of the Container Registry instance in which the image repository is created. Separate multiple IDs with commas (,).
+     *
+     * @example i-uf6j8vq9l4r5ntht****
+     *
      * @var string
      */
     public $instanceIds;
 
     /**
+     * @description The region ID of the image. Separate multiple IDs with commas (,).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionIds;
 
     /**
+     * @description The type of the image repository. Separate multiple types with commas (,). Valid values:
+     *
+     *   **acr**
+     *   **harbor**
+     *   **quay**
+     *
+     * @example acr
+     *
      * @var string
      */
     public $registryTypes;
 
     /**
+     * @description The ID of the image repository. Separate multiple IDs with commas (,).
+     *
+     * @example crr-vridcl4****
+     *
      * @var string
      */
     public $repoIds;
 
     /**
+     * @description The name of the image repository. Separate multiple names with commas (,).
+     *
+     * @example centos
+     *
      * @var string
      */
     public $repoNames;
 
     /**
+     * @description The namespace to which the image repository belongs. Separate multiple namespaces with commas (,).
+     *
+     * @example hanghai-namespace
+     *
      * @var string
      */
     public $repoNamespaces;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description The tag that is added to the image. Separate multiple tags with commas (,).
+     *
+     * @example 0.2
+     *
      * @var string
      */
     public $tags;

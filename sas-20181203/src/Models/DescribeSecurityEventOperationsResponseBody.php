@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityEventOperationsResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example B7A2000F-497E-5DA0-B14D-615CD410DD7E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array consisting of the operations that you can perform to handle the alert event.
+     *
      * @var securityEventOperationsResponse[]
      */
     public $securityEventOperationsResponse;

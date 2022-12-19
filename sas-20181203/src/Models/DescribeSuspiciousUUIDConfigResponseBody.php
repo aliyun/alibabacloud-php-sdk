@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeSuspiciousUUIDConfigResponseBody extends Model
 {
     /**
+     * @description The total number of servers on which proactive defense of the specified type takes effect.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 6044DC07-86F1-5DDA-A611-EC578EA4EEE6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The UUIDs of servers on which proactive defense of the specified type takes effect.
+     *
      * @var string[]
      */
     public $UUIDList;

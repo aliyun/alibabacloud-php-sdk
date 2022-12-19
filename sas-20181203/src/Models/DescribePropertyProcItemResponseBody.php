@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyProcItemResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description An array that consists of the processes returned.
+     *
      * @var propertyItems[]
      */
     public $propertyItems;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BD8AD4C6-A169-4FA3-BA1F-ED40ED52973B
+     *
      * @var string
      */
     public $requestId;

@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupFilesResponseBody extends Model
 {
     /**
+     * @description An array that consists of the backup files returned.
+     *
      * @var backupFiles[]
      */
     public $backupFiles;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 00A60A6D-33E0-5D5A-9B7C-E5D4DCA88148
+     *
      * @var string
      */
     public $requestId;

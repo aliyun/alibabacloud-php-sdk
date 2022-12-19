@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class OperateAgentClientInstallResponseBody extends Model
 {
     /**
+     * @description An array that consists of the returned results.
+     *
      * @var aegisCelintInstallResposeList[]
      */
     public $aegisCelintInstallResposeList;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example AE79B457-877C-51C6-AD72-0D34A025D***
+     *
      * @var string
      */
     public $requestId;

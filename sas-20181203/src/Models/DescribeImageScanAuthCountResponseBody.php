@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageScanAuthCountResponseBody extends Model
 {
     /**
+     * @description The details about the quota for container image scan.
+     *
      * @var imageScan
      */
     public $imageScan;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 892NYH839-0EDC-4CD0-A2EF-5BD294656C99
+     *
      * @var string
      */
     public $requestId;

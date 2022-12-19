@@ -14,16 +14,30 @@ class CreateSimilarSecurityEventsQueryTaskRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the alert event.
+     *
+     * >  You must specify at least one of the SecurityEventId and SimilarEventScenarioCode parameters.
+     * @example 14323
+     *
      * @var int
      */
     public $securityEventId;
 
     /**
+     * @description The codes of alert events that are triggered by the same rule or of the same alert type.
+     *
+     * >  You must specify at least one of the SecurityEventId and SimilarEventScenarioCode parameters.
+     * @example default
+     *
      * @var string
      */
     public $similarEventScenarioCode;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class strategyTargets extends Model
 {
     /**
+     * @description The number of the assets that belong to the asset group.
+     *
+     * @example 85
+     *
      * @var int
      */
     public $bindUuidCount;
 
     /**
+     * @description Indicates whether the baseline check policy is applied to the asset group. Valid values:
+     *
+     *   **add**: yes
+     *   **del**: no
+     *
+     * @example add
+     *
      * @var string
      */
     public $flag;
 
     /**
+     * @description The ID of the asset group to which the assets belong or the UUID of the asset.
+     *
+     * @example 9165712
+     *
      * @var string
      */
     public $target;
 
     /**
+     * @description The method that is used to add the assets to the baseline check policy. Valid values:
+     *
+     *   **groupId**: the ID of the asset group
+     *   **uuid**: the UUID of the asset
+     *
+     * @example groupId
+     *
      * @var string
      */
     public $targetType;

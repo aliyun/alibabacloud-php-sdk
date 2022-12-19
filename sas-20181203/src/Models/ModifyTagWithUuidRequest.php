@@ -9,21 +9,44 @@ use AlibabaCloud\Tea\Model;
 class ModifyTagWithUuidRequest extends Model
 {
     /**
+     * @description The type of the assets whose tags you want to modify. Valid values:
+     *
+     *   **ecs**: Elastic Compute Service (ECS) instances or servers that are not deployed on Alibaba Cloud.
+     *   **cloud_product**: Alibaba Cloud service.
+     *
+     * >  If you do not specify this parameter, the default value **ecs** is used.
+     * @example ecs
+     *
      * @var string
      */
     public $machineTypes;
 
     /**
+     * @description The ID of the tag whose name you want to change.
+     *
+     * >  You can call the [DescribeGroupedTags](~~DescribeGroupedTags~~) operation to query the IDs of the tags.
+     * @example 3897941
+     *
      * @var string
      */
     public $tagId;
 
     /**
+     * @description The tag names that you want to change. Separate multiple tag names with commas (,).
+     *
+     * >  You can call the [DescribeGroupedTags](~~DescribeGroupedTags~~) operation to query the names of the tags that are added to assets.
+     * @example ac,ad
+     *
      * @var string
      */
     public $tagList;
 
     /**
+     * @description The UUIDs of the assets whose tags you want to modify. Separate multiple UUIDs with commas (,).
+     *
+     * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of assets to which the tags are added. If you do not specify this parameter, the tags that are specified in **TagList** parameter are removed from all assets.
+     * @example e2737dc3-78f4-4653-a986-dc5fad4b****,c189f0e3-df22-42d5-a73d-02c05667****
+     *
      * @var string
      */
     public $uuidList;

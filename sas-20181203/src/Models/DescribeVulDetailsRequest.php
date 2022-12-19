@@ -9,21 +9,47 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulDetailsRequest extends Model
 {
     /**
+     * @description The name in the **vulnerability introduction**.
+     *
+     * @example RHSA-2019:3197-Important: sudo security update
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The name of the vulnerability.
+     *
+     * @example SCA:ACSV-2020-052801
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   **cve**: Linux software vulnerability
+     *   **sys**: Windows system vulnerability
+     *   **cms**: Web-CMS vulnerability
+     *   **app**: application vulnerability
+     *   **emg**: urgent vulnerability
+     *   **sca**: vulnerability that is detected based on software component analysis
+     *
+     * @example sca
+     *
      * @var string
      */
     public $type;

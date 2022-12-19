@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeExportInfoRequest extends Model
 {
     /**
+     * @description The ID of the export task.
+     *
+     * @example 111
+     *
      * @var int
      */
     public $exportId;

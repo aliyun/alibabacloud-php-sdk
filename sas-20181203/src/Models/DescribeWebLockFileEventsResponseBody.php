@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockFileEventsResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description An array that consists of events on web tamper proofing returned.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 79CFF74D-E967-5407-8A78-EE03B925FDAA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of events on web tamper proofing returned.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

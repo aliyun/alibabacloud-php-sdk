@@ -9,21 +9,45 @@ use AlibabaCloud\Tea\Model;
 class ModifyVulTargetConfigRequest extends Model
 {
     /**
+     * @description Specifies whether to enable vulnerability detection. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example off
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   **cve**: Linux software vulnerability
+     *   **sys**: Windows system vulnerability
+     *   **cms**: Web-CMS vulnerability
+     *   **emg**: urgent vulnerability
+     *
+     * @example cve
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The UUID of the server.
+     *
+     * @example inet-7c676676-06fa-442e-90fb-b802e5d6****
+     *
      * @var string
      */
     public $uuid;

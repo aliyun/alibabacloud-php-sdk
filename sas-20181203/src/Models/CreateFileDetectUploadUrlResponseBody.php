@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateFileDetectUploadUrlResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 09969D2C-4FAD-429E-BFBF-9A60DEF8BF6F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array consisting of the parameters that are required to upload a file.
+     *
      * @var uploadUrlList[]
      */
     public $uploadUrlList;

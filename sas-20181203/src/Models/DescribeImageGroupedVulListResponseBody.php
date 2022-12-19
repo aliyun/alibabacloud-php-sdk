@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageGroupedVulListResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description An array that consists of the image vulnerabilities.
+     *
      * @var groupedVulItems[]
      */
     public $groupedVulItems;
 
     /**
+     * @description The number of entries returned per page. Default value: **20**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 5E244439-UJND-8BF7-26F36E21B9AA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of image system vulnerabilities.
+     *
+     * @example 21
+     *
      * @var int
      */
     public $totalCount;

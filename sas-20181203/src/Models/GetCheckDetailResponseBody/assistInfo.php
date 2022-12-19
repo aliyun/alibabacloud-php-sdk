@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class assistInfo extends Model
 {
     /**
+     * @description The link to the help information about the risk item when the Type parameter is set to link.
+     *
+     * @example https://www.alibabacloud.com/help/en/resource-access-management/latest/faq-about-ram-users
+     *
      * @var string
      */
     public $link;
 
     /**
+     * @description The type of the help information about the risk item. Valid values:
+     *
+     *   **text**
+     *   **link**
+     *
+     * @example text
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The content in the help information about the risk item when the Type parameter is set to text.
+     *
+     * @example Configure an IP address whitelist
+     *
      * @var string
      */
     public $value;

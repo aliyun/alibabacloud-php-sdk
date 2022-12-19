@@ -12,21 +12,31 @@ use AlibabaCloud\Tea\Model;
 class GetCheckDetailResponseBody extends Model
 {
     /**
+     * @description The help information about the check item.
+     *
      * @var assistInfo
      */
     public $assistInfo;
 
     /**
+     * @description The description of the check item.
+     *
      * @var description
      */
     public $description;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 15A6ED6A-DBFE-5255-A248-289907809BEC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The solution to handle the risk item.
+     *
      * @var solution
      */
     public $solution;

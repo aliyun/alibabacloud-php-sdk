@@ -9,36 +9,78 @@ use AlibabaCloud\Tea\Model;
 class DescribeEmgVulItemRequest extends Model
 {
     /**
+     * @description The check method. Valid values:
+     *
+     *   **0**: proof of concept (POC) verification
+     *   **1**: version comparison
+     *
+     * @example 0
+     *
      * @var int
      */
     public $checkType;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description Specifies whether the vulnerability poses risks.\
+     * If you do not specify this parameter, all vulnerabilities are queried regardless of whether the vulnerabilities pose risks. Valid values:
+     *
+     *   **y**: yes
+     *   **n**: no
+     *
+     * @example y
+     *
      * @var string
      */
     public $riskStatus;
 
     /**
+     * @description The method that is used to detect the vulnerability.\
+     * If you do not specify this parameter, all vulnerabilities are queried regardless of which method is used. Valid values:
+     *
+     *   **python**: The Version method is used. Security Center checks the software versions of your server to check whether disclosed vulnerabilities exist on your server.
+     *   **scan**: The Network Scan method is used. Security Center analyzes the access traffic to your server over the Internet to check whether vulnerabilities exist on your server.
+     *
+     * @example python
+     *
      * @var string
      */
     public $scanType;
 
     /**
+     * @description The name of the urgent vulnerability.
+     *
+     * @example Changjietong T + SetupAccount/Upload.aspx file Upload vulnerability (CNVD-2022-60632)
+     *
      * @var string
      */
     public $vulName;

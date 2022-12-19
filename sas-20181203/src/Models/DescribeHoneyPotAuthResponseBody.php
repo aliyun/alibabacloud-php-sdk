@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeHoneyPotAuthResponseBody extends Model
 {
     /**
+     * @description The total quota.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $honeyPotAuthCount;
 
     /**
+     * @description The quota that is consumed.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $honeyPotCount;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 0F5023B6-9C1F-459F-ACCC-8B4636804037
+     *
      * @var string
      */
     public $requestId;

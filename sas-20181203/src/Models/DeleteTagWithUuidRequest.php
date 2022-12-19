@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DeleteTagWithUuidRequest extends Model
 {
     /**
+     * @description The name of the tag.
+     *
+     * @example abc
+     *
      * @var string
      */
     public $tagName;
 
     /**
+     * @description The list of server UUIDs.
+     *
+     * >  If the UuidList parameter is configured, Security Center removes the tag only from the servers whose UUIDs are specified by UuidList. If the UuidList parameter is not configured, Security Center removes the tag from all servers.
+     * @example 111-xx,aa-bb
+     *
      * @var string
      */
     public $uuidList;

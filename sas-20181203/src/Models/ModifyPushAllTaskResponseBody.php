@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ModifyPushAllTaskResponseBody extends Model
 {
     /**
+     * @description The results of security check tasks.
+     *
      * @var pushTaskRsp
      */
     public $pushTaskRsp;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 91EB4AC7-7FEF-4C72-BE49-4414E459AEC2
+     *
      * @var string
      */
     public $requestId;

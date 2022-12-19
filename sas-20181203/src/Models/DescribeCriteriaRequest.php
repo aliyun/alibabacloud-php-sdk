@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeCriteriaRequest extends Model
 {
     /**
+     * @description The type of the asset. Valid values:
+     *
+     *   **ecs**: Elastic Compute Service (ECS) instance
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $machineTypes;
 
     /**
+     * @description Specifies whether the keyword that you specify for fuzzy search can be automatically matched. default **false**, Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $supportAutoTag;
 
     /**
+     * @description The keyword that you specify for fuzzy search when you query the asset.
+     *
+     * @example 47.96
+     *
      * @var string
      */
     public $value;

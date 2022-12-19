@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyPropertyScheduleConfigResponseBody extends Model
 {
     /**
+     * @description Indicates whether the collection frequency of asset fingerprints is modified. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $modifyResult;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example C0D1DF51-D879-55A8-B6C7-7D3B913EF34D
+     *
      * @var string
      */
     public $requestId;

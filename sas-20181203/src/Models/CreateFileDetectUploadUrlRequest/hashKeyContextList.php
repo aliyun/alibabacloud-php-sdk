@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class hashKeyContextList extends Model
 {
     /**
+     * @description The size of the file. Unit: bytes.
+     *
+     * @example 2698557
+     *
      * @var int
      */
     public $fileSize;
 
     /**
+     * @description The hash value of the file.
+     *
+     * @example 30319dd5cee8f894766e479cac170da0
+     *
      * @var string
      */
     public $hashKey;

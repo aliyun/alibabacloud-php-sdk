@@ -9,26 +9,56 @@ use AlibabaCloud\Tea\Model;
 class AddInstallCodeRequest extends Model
 {
     /**
+     * @description The validity period of the installation command. The value is a 13-digit timestamp.
+     *
+     * >  The installation command is valid only within the validity period. An expired installation command cannot be used to install the Security Center agent.
+     * @example 1680257463853
+     *
      * @var int
      */
     public $expiredDate;
 
     /**
+     * @description The ID of the asset group to which the you want to add the asset.
+     *
+     * >  You can call the [DescribeAllGroups](~~describeallgroups~~) operation to query the IDs of asset groups.
+     * @example 8076980
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @description Specifies whether to create an image. Default value: **false**. Valid values:
+     *
+     *   **false**: does not create an image.
+     *   **true**: creates an image.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $onlyImage;
 
     /**
+     * @description The operating system of the instance. Default value: **linux**. Valid values:
+     *
+     *   **linux**
+     *   **windows**
+     *   **windows-2003**
+     *
+     * @example linux
+     *
      * @var string
      */
     public $os;
 
     /**
+     * @description The name of the service provider for the asset. Default value: **ALIYUN**.
+     *
+     * >  You can call the [DescribeVendorList](~~DescribeVendorList~~) operation to query the names of service providers.
+     * @example ALIYUN
+     *
      * @var string
      */
     public $vendorName;

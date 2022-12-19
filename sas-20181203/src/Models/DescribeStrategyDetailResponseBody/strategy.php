@@ -10,51 +10,103 @@ use AlibabaCloud\Tea\Model;
 class strategy extends Model
 {
     /**
+     * @description The type of the baseline check policy. Valid values:
+     *
+     *   **common**: standard baseline check policy
+     *   **custom**: custom baseline check policy
+     *
+     * @example common
+     *
      * @var string
      */
     public $customType;
 
     /**
+     * @description The check interval of the policy.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $cycleDays;
 
     /**
+     * @description The time period during which the check starts. Valid values:
+     *
+     *   **0**: 00:00 to 06:00
+     *   **6**: 06:00 to 12:00
+     *   **12**: 12:00 to 18:00
+     *   **18**: 18:00 to 24:00
+     *
+     * @example 0
+     *
      * @var int
      */
     public $cycleStartTime;
 
     /**
+     * @description The time when the baseline check based on the baseline check policy ends.
+     *
+     * @example 03:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the baseline check policy.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the baseline check policy.
+     *
+     * @example TestStrategy
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description An array that consists of the whitelist of risk items.
+     *
      * @var riskTypeWhiteListQueryResultList[]
      */
     public $riskTypeWhiteListQueryResultList;
 
     /**
+     * @description The time when the baseline check based on the baseline check policy starts.
+     *
+     * @example 02:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The condition by which the baseline check policy is applied to the asset. Valid values:
+     *
+     *   **groupId**: the ID of the asset group
+     *   **uuid**: the UUID of the asset
+     *
+     * @example groupId
+     *
      * @var string
      */
     public $targetType;
 
     /**
+     * @description The type of the baseline check policy. Valid values:
+     *
+     *   **1**: standard baseline check policy
+     *   **2**: custom baseline check policy
+     *
+     * @example 1
+     *
      * @var int
      */
     public $type;

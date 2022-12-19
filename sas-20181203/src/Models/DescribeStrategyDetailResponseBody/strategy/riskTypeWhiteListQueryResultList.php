@@ -10,21 +10,38 @@ use AlibabaCloud\Tea\Model;
 class riskTypeWhiteListQueryResultList extends Model
 {
     /**
+     * @description The alias of the check item.
+     *
+     * @example Unauthorized Access
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @description Indicates whether the risk item is selected. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example false
+     *
      * @var bool
      */
     public $on;
 
     /**
+     * @description An array that consists of sub-risk items.
+     *
      * @var subTypes[]
      */
     public $subTypes;
 
     /**
+     * @description The check item.
+     *
+     * @example hc_exploit
+     *
      * @var string
      */
     public $typeName;

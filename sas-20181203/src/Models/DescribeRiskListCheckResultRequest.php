@@ -9,21 +9,39 @@ use AlibabaCloud\Tea\Model;
 class DescribeRiskListCheckResultRequest extends Model
 {
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The instance ID of the cloud service. Separate multiple IDs with commas (,).
+     *
+     * >  If you do not specify this parameter, an empty list is returned.
      * @var string[]
      */
     public $instanceIds;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -34,6 +52,10 @@ class DescribeRiskListCheckResultRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 59.57.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

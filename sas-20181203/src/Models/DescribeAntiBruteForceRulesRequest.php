@@ -11,13 +11,23 @@ class DescribeAntiBruteForceRulesRequest extends Model
     /**
      * @var int
      */
+    public $id;
+
+    /**
+     * @var int
+     */
     public $resourceOwnerId;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 121.69.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
     protected $_name = [
+        'id'              => 'Id',
         'resourceOwnerId' => 'ResourceOwnerId',
         'sourceIp'        => 'SourceIp',
     ];
@@ -29,6 +39,9 @@ class DescribeAntiBruteForceRulesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -47,6 +60,9 @@ class DescribeAntiBruteForceRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

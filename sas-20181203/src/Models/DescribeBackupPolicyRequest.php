@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupPolicyRequest extends Model
 {
     /**
+     * @description The ID of the anti-ransomware policy.
+     *
+     * >  You can call the [DescribeBackupPolicies](~~DescribeBackupPolicies~~) operation to query the IDs of anti-ransomware policies.
+     * @example 51880
+     *
      * @var int
      */
     public $id;

@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class OperationCancelIgnoreSuspEventResponseBody extends Model
 {
     /**
+     * @description The status code returned. The status code **200** indicates that the request was is successful. Other status codes indicate that the request fails. You can identify the cause of the failure based on the status code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The error message returned.
+     *
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CE500770-42D3-442E-9DDD-156E0F9F3B45
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The handling result of an exception. Valid values:
+     *
+     *   **true**: successful
+     *   **false**: failed
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The time consumed for the request. Unit: seconds.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $timeCost;

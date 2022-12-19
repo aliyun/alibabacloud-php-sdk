@@ -9,41 +9,71 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the management node to which the honeypot is deployed.
+     *
+     * @example managerNodename
+     *
      * @var string
      */
     public $controlNodeName;
 
     /**
+     * @description The ID of the honeypot.
+     *
+     * @example 9bf8cd373112263d4bc102fc5dba9d9f812ee05d4d35c487d330d52e937f****
+     *
      * @var string
      */
     public $honeypotId;
 
     /**
+     * @description The display name of the image that is used for the honeypot.
+     *
+     * @example HoneyDisplayName
+     *
      * @var string
      */
     public $honeypotImageDisplayName;
 
     /**
+     * @description The name of the image that is used for the honeypot.
+     *
+     * @example tcp_proxy
+     *
      * @var string
      */
     public $honeypotImageName;
 
     /**
+     * @description The custom name of the honeypot.
+     *
+     * @example ruoyi
+     *
      * @var string
      */
     public $honeypotName;
 
     /**
+     * @description The ID of the management node.
+     *
+     * @example a882e590-b87b-45a6-87b9-d0a3e5a0****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The ID of the custom configuration for the honeypot.
+     *
+     * @example ddh3731641137fe4b72b245346a2721d4b6tdgg3731641137fe4b72b245346a2721***
+     *
      * @var string
      */
     public $presetId;
 
     /**
+     * @description The status of the honeypot.
+     *
      * @var string[]
      */
     public $state;

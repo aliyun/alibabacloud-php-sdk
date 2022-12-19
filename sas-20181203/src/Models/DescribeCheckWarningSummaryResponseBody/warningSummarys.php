@@ -9,66 +9,128 @@ use AlibabaCloud\Tea\Model;
 class warningSummarys extends Model
 {
     /**
+     * @description The number of check items.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $checkCount;
 
     /**
+     * @description Indicates whether the risk item can be exploited. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example false
+     *
      * @var bool
      */
     public $checkExploit;
 
     /**
+     * @description Indicates whether the risk item is a database risk item. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example false
+     *
      * @var bool
      */
     public $databaseRisk;
 
     /**
+     * @description The number of high-risk items.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $highWarningCount;
 
     /**
+     * @description The time when the last baseline check was performed.
+     *
+     * @example 2019-01-01 12:23:00
+     *
      * @var string
      */
     public $lastFoundTime;
 
     /**
+     * @description The risk level of the risk item. Valid values:
+     *
+     *   **high**
+     *   **medium**
+     *   **low**
+     *
+     * @example high
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description The number of low-risk items.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $lowWarningCount;
 
     /**
+     * @description The number of medium-risk items.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $mediumWarningCount;
 
     /**
+     * @description The ID of the risk item.
+     *
+     * @example 118
+     *
      * @var int
      */
     public $riskId;
 
     /**
+     * @description The name of the risk item.
+     *
+     * @example Redis
+     *
      * @var string
      */
     public $riskName;
 
     /**
+     * @description The level-2 type of the risk item.
+     *
+     * @example Redis
+     *
      * @var string
      */
     public $subTypeAlias;
 
     /**
+     * @description The level-1 type of the check item. Examples: database, system, weak password, and middleware.
+     *
+     * @example databases
+     *
      * @var string
      */
     public $typeAlias;
 
     /**
+     * @description The number of assets on which risk items are detected.
+     *
+     * @example 11
+     *
      * @var int
      */
     public $warningMachineCount;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class classifys extends Model
 {
     /**
+     * @description The type of the vulnerability.
+     *
+     * @example remote_code_execution
+     *
      * @var string
      */
     public $classify;
 
     /**
+     * @description The URL of the demo video for the vulnerability.
+     *
+     * @example https://example.com
+     *
      * @var string
      */
     public $demoVideoUrl;
 
     /**
+     * @description The description of the vulnerability type.
+     *
+     * @example Remote code execution
+     *
      * @var string
      */
     public $description;

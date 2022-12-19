@@ -9,201 +9,375 @@ use AlibabaCloud\Tea\Model;
 class restoreJobs extends Model
 {
     /**
+     * @description The size of backup data. Unit: bytes.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $actualBytes;
 
     /**
+     * @description The total size of data that is restored. Unit: bytes.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $bytesDone;
 
     /**
+     * @description The total size of data that you want to restore. Unit: bytes.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $bytesTotal;
 
     /**
+     * @description The ID of the anti-ransomware agent that is used to restore data.
+     *
+     * @example c-000frxwusjauhp9ajpu6
+     *
      * @var string
      */
     public $clientId;
 
     /**
+     * @description The timestamp when the restoration task is complete. Unit: milliseconds.
+     *
+     * @example 1583289054000
+     *
      * @var int
      */
     public $completeTime;
 
     /**
+     * @description The timestamp when the restoration task is created. Unit: milliseconds.
+     *
+     * @example 1583289052000
+     *
      * @var int
      */
     public $createdTime;
 
     /**
+     * @description The duration of the restoration task. Unit: seconds.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @description The number of the restoration tasks on which errors occur.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $errorCount;
 
     /**
+     * @description The name of the CSV file. The CSV file contains the files that fail to be restored.
+     *
+     * @example s-000f4wxm8f7gur6g2otm.csv
+     *
      * @var string
      */
     public $errorFile;
 
     /**
+     * @description The URL to download the CSV file. The CSV file contains the files that fail to be restored.
+     *
+     * @example ["/home/user"]
+     *
      * @var string
      */
     public $errorFileUrl;
 
     /**
+     * @description The error code that is returned for the restoration task.
+     *
+     * @example NONE
+     *
      * @var string
      */
     public $errorType;
 
     /**
+     * @description The timestamp when the in-progress restoration task is expected to be complete. Unit: seconds.
+     *
+     * @example 1583299054
+     *
      * @var int
      */
     public $eta;
 
     /**
+     * @description The directory excluded from the anti-ransomware policy. The value is the directory that you specify to skip protection when you create the anti-ransomware policy.
+     *
+     * @example ["/home/user"]
+     *
      * @var string
      */
     public $excludes;
 
     /**
+     * @description The return value of the restoration task.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $exitCode;
 
     /**
+     * @description The time when the restoration task is created.
+     *
+     * @example 2021-04-25T19:11Z
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The time when the restoration task is updated.
+     *
+     * @example 2021-04-25T19:11Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description The included directory based on which the files to restore are located. The value is the directory that you specify for protection when you create the anti-ransomware policy
+     *
+     * @example ["/root/disk-uuid-test","/root/install.sh"]
+     *
      * @var string
      */
     public $includes;
 
     /**
+     * @description The ID of the server whose data you want to restore.
+     *
+     * @example i-bp12xnvdax6307gw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the server whose data you want to restore.
+     *
+     * @example win2012-01
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The public IP address of the server whose data you want to restore.
+     *
+     * @example 1.1.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The internal IP address of the server whose data you want to restore.
+     *
+     * @example 2.1.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @description The number of files that are backed up.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $itemsDone;
 
     /**
+     * @description The total number of files that you want to restore.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $itemsTotal;
 
     /**
+     * @description The error message returned.
+     *
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The progress of the restoration task in percentage.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $percentage;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 0ED92280-4363-57D3-A4D3-4D3FBC99B29F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the restoration task.
+     *
+     * @example r-000gmcypy5dyf9ey3uv7
+     *
      * @var string
      */
     public $restoreId;
 
     /**
+     * @description The name of the restoration task.
+     *
+     * @example Restore
+     *
      * @var string
      */
     public $restoreName;
 
     /**
+     * @description The type of the file that is restored. Valid values:
+     *
+     *   **ECS_FILE**: files on Elastic Compute Service (ECS) instances
+     *   **FILE**: files on servers in data centers
+     *
+     * @example ECS_FILE
+     *
      * @var string
      */
     public $restoreType;
 
     /**
+     * @description The hash value of the snapshot that stores backup data when the data is backed up.
+     *
+     * @example a3992de83f529b844135fe795d949181735a7d20e0ac8539485c61b7983e618f
+     *
      * @var string
      */
     public $snapshotHash;
 
     /**
+     * @description The hash value ID of the snapshot that stores backup data when the data is backed up.
+     *
+     * @example s-000gmcypy5dy54e39yny
+     *
      * @var string
      */
     public $snapshotId;
 
     /**
+     * @description The version of the backup data.
+     *
+     * @example 2020-03-03 18:00
+     *
      * @var string
      */
     public $snapshotVersion;
 
     /**
+     * @description The path to the source file that you want to restore.
+     *
+     * @example ["/home/admin","\\\\servername\\sharename"]
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The ID of the anti-ransomware agent that is used to back up data.
+     *
+     * @example c-000gmcypy5dyf9ey3uv7
+     *
      * @var string
      */
     public $sourceClientId;
 
     /**
+     * @description The speed of data restoration. Unit: byte/s.
+     *
+     * @example 25766558
+     *
      * @var int
      */
     public $speed;
 
     /**
+     * @description The status of the restoration task. Valid values:
+     *
+     *   **RUNNING**: The task is running.
+     *   **COMPLETE**: The task is complete.
+     *   **FAILED**: The task fails.
+     *   **CANCELING**: The task is being canceled.
+     *   **CANCELED**: The task is canceled.
+     *   **PARTIAL_COMPLETE**: The task is partially successful.
+     *   **CREATED**: The task is created but is not run.
+     *   **EXPIRED**: The task is not updated.
+     *   **QUEUED**: The task is waiting to be run.
+     *   **CLIENT_DELETED**: The task fails because the anti-ransomware agent is uninstalled.
+     *
+     * @example COMPLETE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The folder to which the backup data is restored. After you create the restoration task, the backup data is restored to the specified folder.
+     *
+     * @example /home
+     *
      * @var string
      */
     public $target;
 
     /**
+     * @description The timestamp when the restoration task was last updated. Unit: milliseconds.
+     *
+     * @example 1583289054000
+     *
      * @var int
      */
     public $updatedTime;
 
     /**
+     * @description The UUID of the server whose data you want to restore.
+     *
+     * @example 6E3DABB6-3F6A-40DB-9492-2C8B59C****
+     *
      * @var string
      */
     public $uuid;
 
     /**
+     * @description The ID of the backup vault in which the backup data is stored.
+     *
+     * @example v-000b0v0jqzmse2yz06zw
+     *
      * @var string
      */
     public $vaultId;

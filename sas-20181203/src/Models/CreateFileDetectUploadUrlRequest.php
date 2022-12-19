@@ -10,16 +10,32 @@ use AlibabaCloud\Tea\Model;
 class CreateFileDetectUploadUrlRequest extends Model
 {
     /**
+     * @description The hash values of files.
+     *
+     * >  You must specify at least one of the **HashKeyList** and **HashKeyContextList** parameters.
      * @var hashKeyContextList[]
      */
     public $hashKeyContextList;
 
     /**
+     * @description The identifier of the file. Only MD5 hash values are supported.
+     *
+     * >  You must specify at least one of the **HashKeyList** and **HashKeyContextList** parameters.
      * @var string[]
      */
     public $hashKeyList;
 
     /**
+     * @description The type of the file. Valid values:
+     *
+     *   **0**: unknown files
+     *   **1**: binary files
+     *   **2**: webshell files
+     *   **4**: script files
+     *
+     * >  If you do not know the type of the file, set this parameter to **0**.
+     * @example 0
+     *
      * @var int
      */
     public $type;

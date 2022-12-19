@@ -9,46 +9,88 @@ use AlibabaCloud\Tea\Model;
 class DescribeWarningExportInfoResponseBody extends Model
 {
     /**
+     * @description The number of baseline entries that are exported.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentCount;
 
     /**
+     * @description The status of the export task.
+     *
+     * Valid values:
+     *
+     *   **init**: The task is being initialized.
+     *   **exporting**: The task is in progress.
+     *   **success**: The task is successful.
+     *
+     * @example success
+     *
      * @var string
      */
     public $exportStatus;
 
     /**
+     * @description The name of the exported Excel file.
+     *
+     * @example app_20210917
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @description The ID of the export task for the baseline check result.
+     *
+     * @example 131231
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The URL at which you can download the exported Excel file.
+     *
+     * @example https://eds.aliyun.com/notification/entitle/64b5c3e2-e52b-4d29-9617-e7e6d74XXXX
+     *
      * @var string
      */
     public $link;
 
     /**
+     * @description The message that shows the export task result. The value is fixed as **successful**, which indicates that the export task is successful.
+     *
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The progress percentage of the export task.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $progress;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 79CFF74D-E967-5407-8A78-EE03B925FDAA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of baseline entries returned.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

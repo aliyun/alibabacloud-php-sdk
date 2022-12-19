@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupClientsResponseBody extends Model
 {
     /**
+     * @description An array that consists of the information about the anti-ransomware agent.
+     *
      * @var clients[]
      */
     public $clients;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example E3ED094C-9EB7-4239-962B-D0FB3D5F23C7
+     *
      * @var string
      */
     public $requestId;

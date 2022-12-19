@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class createAntiBruteForceRule extends Model
 {
     /**
+     * @description The ID of the defense rule.
+     *
+     * @example 65778
+     *
      * @var int
      */
     public $ruleId;

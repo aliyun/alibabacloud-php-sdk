@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeEmgVulItemResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page. Pages start from page **1**. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description An array that consists of the urgent vulnerabilities returned.
+     *
      * @var groupedVulItems[]
      */
     public $groupedVulItems;
 
     /**
+     * @description The number of entries returned per page. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example BC1868ED-A0E1-4D1C-BF7E-10DC0C34B3C3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of the urgent vulnerabilities returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

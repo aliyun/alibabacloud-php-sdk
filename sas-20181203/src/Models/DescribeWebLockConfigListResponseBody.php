@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockConfigListResponseBody extends Model
 {
     /**
+     * @description An array that consists of the configurations of web tamper proofing.
+     *
      * @var configList[]
      */
     public $configList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D9354C1A-D709-4873-9AAE-41513327B247
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of directories that have web tamper proofing enabled on the specified server.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

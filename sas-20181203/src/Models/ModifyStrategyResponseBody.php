@@ -10,21 +10,38 @@ use AlibabaCloud\Tea\Model;
 class ModifyStrategyResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 8EFA2BD9-00CD-5D69-B6B0-4EE83EAF072E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The result returned.
+     *
      * @var result
      */
     public $result;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

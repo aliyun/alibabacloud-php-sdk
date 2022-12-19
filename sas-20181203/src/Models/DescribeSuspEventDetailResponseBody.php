@@ -10,91 +10,180 @@ use AlibabaCloud\Tea\Model;
 class DescribeSuspEventDetailResponseBody extends Model
 {
     /**
+     * @description Indicates whether the online processing of exceptions is supported, such as blocking an exception, adding an exception to the whitelist, and ignoring an exception. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $canBeDealOnLine;
 
     /**
+     * @description The data source of the exception.
+     *
+     * @example aegis_suspicious_****
+     *
      * @var string
      */
     public $dataSource;
 
     /**
+     * @description The details about the exception.
+     *
      * @var details[]
      */
     public $details;
 
     /**
+     * @description The description of the exception.
+     *
+     * @example The detection model found a suspicious Webshell file on your server, which may be a backdoor file implanted to maintain permissions after the attacker successfully invaded the website.
+     *
      * @var string
      */
     public $eventDesc;
 
     /**
+     * @description The name of the exception.
+     *
+     * @example WEBSHELL
+     *
      * @var string
      */
     public $eventName;
 
     /**
+     * @description The status of the exception. Valid values:
+     *
+     *   **1**: pending handling
+     *   **2**: ignored
+     *   **4**: confirmed
+     *   **8**: marked as a false positive
+     *   **16**: handling
+     *   **32**: handled
+     *   **64**: expired
+     *
+     * @example 1
+     *
      * @var string
      */
     public $eventStatus;
 
     /**
+     * @description The type of the exception.
+     *
+     * @example Malicious Software-Variable Trojan
+     *
      * @var string
      */
     public $eventTypeDesc;
 
     /**
+     * @description The ID of the exception.
+     *
+     * @example 11416624
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the server on which the exception was detected.
+     *
+     * @example ca_cpm_****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The public IP address of the server on which the exception was detected.
+     *
+     * @example 101.132.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The private IP address of the server on which the exception was detected.
+     *
+     * @example 172.26.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @description The time when the exception was last detected.
+     *
+     * @example 2018-10-30 11:43:46
+     *
      * @var string
      */
     public $lastTime;
 
     /**
+     * @description The severity of the exception. Valid values:
+     *
+     *   **serious**
+     *   **suspicious**
+     *   **remind**
+     *
+     * @example serious
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description The code that indicates the handling result of the exception.
+     *
+     * @example quara.Succes
+     *
      * @var string
      */
     public $operateErrorCode;
 
     /**
+     * @description The message that indicates the handling result of the exception.
+     *
+     * @example success
+     *
      * @var string
      */
     public $operateMsg;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0B48AB3C-84FC-424D-A01D-B9270EF46038
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The edition of Security Center in which the exception can be detected. Valid values:
+     *
+     *   **0**: Basic edition
+     *   **1**: Advanced edition
+     *   **2**: Enterprise edition
+     *
+     * @example 1
+     *
      * @var string
      */
     public $saleVersion;
 
     /**
+     * @description The UUID of the server on which the exception was detected.
+     *
+     * @example bffb12c3-590a-4db2-b538-****
+     *
      * @var string
      */
     public $uuid;

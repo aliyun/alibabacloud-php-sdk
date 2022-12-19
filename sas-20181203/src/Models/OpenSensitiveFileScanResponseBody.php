@@ -10,31 +10,56 @@ use AlibabaCloud\Tea\Model;
 class OpenSensitiveFileScanResponseBody extends Model
 {
     /**
+     * @description The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The error message returned.
+     *
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example B4A4C081-7F06-5481-9323-02A5419B9423
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

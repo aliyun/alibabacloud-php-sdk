@@ -10,16 +10,27 @@ use AlibabaCloud\Tea\Model;
 class CreateVulAutoRepairConfigRequest extends Model
 {
     /**
+     * @description The reason why the vulnerability can be automatically fixed.
+     *
+     * @example TestAutoRepair
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @description The type of the vulnerability. Valid values:
+     * - **cve**: Linux software vulnerability.
+     * - **sys**: Windows system vulnerability.
+     * @example cve
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The vulnerabilities that can be automatically fixed.
+     *
      * @var vulAutoRepairConfigList[]
      */
     public $vulAutoRepairConfigList;

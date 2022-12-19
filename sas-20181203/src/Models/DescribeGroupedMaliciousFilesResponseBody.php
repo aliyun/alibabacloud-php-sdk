@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedMaliciousFilesResponseBody extends Model
 {
     /**
+     * @description An array that consists of the malicious image samples.
+     *
      * @var groupedMaliciousFileResponse[]
      */
     public $groupedMaliciousFileResponse;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 8045E03E-6D91-4C53-9F22-5A1B84BB29D9
+     *
      * @var string
      */
     public $requestId;

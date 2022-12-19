@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class causeDetails extends Model
 {
     /**
+     * @description The key that is used to trace the alert event.
+     *
+     * @example 842e314e69b1a2c45d5c1a2f88a16***
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description An array consisting of the value that is used to trace the alert event.
+     *
      * @var value[]
      */
     public $value;

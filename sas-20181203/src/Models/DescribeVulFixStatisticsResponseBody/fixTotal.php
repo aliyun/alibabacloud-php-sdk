@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class fixTotal extends Model
 {
     /**
+     * @description The number of vulnerabilities that are fixed on the current day.
+     *
+     * @example 15
+     *
      * @var int
      */
     public $fixedTodayNum;
 
     /**
+     * @description The total number of fixed vulnerabilities.
+     *
+     * @example 47
+     *
      * @var int
      */
     public $fixedTotalNum;
 
     /**
+     * @description The number of vulnerabilities that are being fixed.
+     *
+     * @example 22
+     *
      * @var int
      */
     public $fixingNum;
 
     /**
+     * @description The number of unfixed vulnerabilities.
+     *
+     * @example 62
+     *
      * @var int
      */
     public $needFixNum;

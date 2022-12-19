@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class CreateHoneypotNodeRequest extends Model
 {
     /**
+     * @description Specifies whether to allow the honeypots to access the Internet. Valid values:
+     *
+     *   **true**: allows the honeypots to access the Internet.
+     *   **false**: does not allow the honeypots to access the Internet.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $allowHoneypotAccessInternet;
 
     /**
+     * @description The number of probes that you want to allocate for the management node.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $availableProbeNum;
 
     /**
+     * @description The name of the management node.
+     *
+     * @example manageNode
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description The CIDR blocks that are allowed to access the management node.
+     *
      * @var string[]
      */
     public $securityGroupProbeIpList;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RollbackSuspEventQuaraFileResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 52A3AEE6-114A-499D-8990-4BA9B27FE0AA
+     *
      * @var string
      */
     public $requestId;

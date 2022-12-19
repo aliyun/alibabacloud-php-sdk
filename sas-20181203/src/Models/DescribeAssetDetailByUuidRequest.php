@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class DescribeAssetDetailByUuidRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description The UUID of the server to query.
+     *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     * @example 9e6cad93-a379-46fd-a701-9bbf02f4****
+     *
      * @var string
      */
     public $uuid;

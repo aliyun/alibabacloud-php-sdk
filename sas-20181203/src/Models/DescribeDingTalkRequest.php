@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeDingTalkRequest extends Model
 {
     /**
+     * @description The number of the page to return.Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of entries to return on each page.Default value: 20.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The name of the notification.
+     *
+     * @example Vulnerability notification
+     *
      * @var string
      */
     public $ruleActionName;

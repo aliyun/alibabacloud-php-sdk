@@ -9,11 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyCountRequest extends Model
 {
     /**
+     * @description The type of the asset fingerprints. Separate multiple types with commas (,). Valid values:
+     *
+     *   **port**: port
+     *   **process**: process
+     *   **software**: software
+     *   **user**: account
+     *   **cron**: scheduled task
+     *   **sca**: middleware
+     *   **web**: website
+     *   **database**: database
+     *   **lkm**: kernel module
+     *   **autorun**: startup item
+     *   **web_server**: web service
+     *
+     * @example port,process
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The UUIDs of the assets. Separate multiple UUIDs with commas (,).
+     *
+     * @example 9658314a-7609-4426-afc4-2c924072****,
+     * 9658314a-7609-4426-afc4-2c924072****
      * @var string
      */
     public $uuidList;

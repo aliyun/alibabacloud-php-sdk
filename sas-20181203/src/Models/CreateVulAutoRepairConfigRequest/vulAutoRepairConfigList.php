@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class vulAutoRepairConfigList extends Model
 {
     /**
+     * @description The alias of the vulnerability.
+     *
+     * @example CVE-2018-25032:zlib 1.2.11 memory corruption
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @description The name of the vulnerability.
+     *
+     * @example anolisos:8.4:ANSA-2022:0001
+     *
      * @var string
      */
     public $name;

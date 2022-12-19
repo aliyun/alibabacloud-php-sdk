@@ -9,16 +9,46 @@ use AlibabaCloud\Tea\Model;
 class riskCheckJobConfig extends Model
 {
     /**
+     * @description The day of the week when the check tasks are performed. Multiple days can be specified. Multiple days are separated by commas (,).
+     *
+     *   **1**: Monday
+     *   **2**: Tuesday
+     *   **3**: Wednesday
+     *   **4**: Thursday
+     *   **5**: Friday
+     *   **6**: Saturday
+     *   **7**: Sunday
+     *
+     * @example 1,2,3
+     *
      * @var string
      */
     public $daysOfWeek;
 
     /**
+     * @description The time range during which check tasks end. Valid values:
+     *
+     *   **6**: 00:00 to 06:00
+     *   **12**: 06:00 to 12:00
+     *   **18**: 12:00 to 18:00
+     *   **24**: 18:00 to 24:00
+     *
+     * @example 12
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The time range during which check tasks start. Valid values:
+     *
+     *   **0**: 00:00 to 06:00
+     *   **6**: 06:00 to 12:00
+     *   **12**: 12:00 to 18:00
+     *   **18**: 18:00 to 24:00
+     *
+     * @example 6
+     *
      * @var int
      */
     public $startTime;

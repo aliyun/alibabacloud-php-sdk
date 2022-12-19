@@ -12,26 +12,42 @@ use AlibabaCloud\Tea\Model;
 class ListCheckInstanceResultResponseBody extends Model
 {
     /**
+     * @description An array that consists of the basic information about the instances.
+     *
      * @var basicData[]
      */
     public $basicData;
 
     /**
+     * @description The extended information about the instances.
+     *
+     * @example [{
+     * "link": "https://ecs.console.aliyun.com/#/securityGroupDetail/region/ap-southeast-1/groupId/sg-t4nbk2aodzio52xvj00s/rule/intranetIngress",
+     * "value": "sg-t4nbk2aodzio52xv****"
+     * }]
      * @var mixed[][]
      */
     public $checks;
 
     /**
+     * @description The metadata information about the search conditions that can be used to filter instances.
+     *
      * @var columns[]
      */
     public $columns;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 3AB18264-8A1B-52A6-A9AF-A886556E0F2E
+     *
      * @var string
      */
     public $requestId;

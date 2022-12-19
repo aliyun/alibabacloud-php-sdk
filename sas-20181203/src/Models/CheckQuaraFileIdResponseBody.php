@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CheckQuaraFileIdResponseBody extends Model
 {
     /**
+     * @description Indicates whether the ID of the quarantined file is valid. Valid values:
+     *
+     *   **true**: The ID of the quarantined file is valid.
+     *   **false**: The ID of the quarantined file is invalid.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
+     *
      * @var string
      */
     public $requestId;

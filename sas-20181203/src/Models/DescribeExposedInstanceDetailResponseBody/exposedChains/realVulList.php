@@ -9,26 +9,58 @@ use AlibabaCloud\Tea\Model;
 class realVulList extends Model
 {
     /**
+     * @description The alias of the vulnerability.
+     *
+     * @example RHSA-2022:0274-Important: polkit pkexec Local Privilege Escalation Vulnerability(CVE-2021-4034)
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @description The name of the vulnerability.
+     *
+     * @example SCA:ACSV-2020-052801
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The priority to fix the vulnerability. Valid values:
+     *
+     *   **asap**: high
+     *   **later**: medium
+     *   **nntf**: low
+     *
+     * >  We recommend that you fix the vulnerabilities that have the **high** priority at the earliest opportunity.
+     * @example asap
+     *
      * @var string
      */
     public $necessity;
 
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   **cve**: Linux software vulnerabilities
+     *   **sys**: Windows system vulnerabilities
+     *   **cms**: Web-CMS vulnerabilities
+     *   **app**: application vulnerabilities
+     *   **emg**: urgent vulnerabilities
+     *   **sca**: middleware vulnerabilities
+     *
+     * @example sca
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The UUID of the server.
+     *
+     * @example 4f9ce097-4a7d-48fe-baef-6960e5b6****
+     *
      * @var string
      */
     public $uuid;

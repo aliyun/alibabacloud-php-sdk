@@ -11,51 +11,87 @@ use AlibabaCloud\Tea\Model;
 class riskCheckSummary extends Model
 {
     /**
+     * @description The number of affected assets.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $affectedAssetCount;
 
     /**
+     * @description The number of the check items that fail the check.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $disabledRiskCount;
 
     /**
+     * @description The number of the check items that pass the check.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $enabledRiskCount;
 
     /**
+     * @description An array that consists of the statistics about each type of check items.
+     *
      * @var groups[]
      */
     public $groups;
 
     /**
+     * @description The number of check items.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $itemCount;
 
     /**
+     * @description The number of risk items detected in the last check.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $previousCount;
 
     /**
+     * @description The timestamp of the last check. Unit: milliseconds.
+     *
+     * @example 1545012926000
+     *
      * @var int
      */
     public $previousTime;
 
     /**
+     * @description The number of detected risk items.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $riskCount;
 
     /**
+     * @description An array that consists of the number of check items at each risk level.
+     *
      * @var riskLevelCount[]
      */
     public $riskLevelCount;
 
     /**
+     * @description The proportion of risk items to all check items.
+     *
+     * @example 0.25
+     *
      * @var float
      */
     public $riskRate;

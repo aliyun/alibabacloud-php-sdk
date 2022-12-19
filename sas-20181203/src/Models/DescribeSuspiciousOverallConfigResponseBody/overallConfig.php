@@ -9,11 +9,29 @@ use AlibabaCloud\Tea\Model;
 class overallConfig extends Model
 {
     /**
+     * @description The status of the feature. Valid values:
+     *
+     *   **off**: disabled
+     *   **on**: enabled
+     *
+     * @example on
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @description The type of the feature. Valid values:
+     *
+     *   **auto_breaking**: Anti-Virus
+     *   **ransomware_breaking**: Anti-ransomware (Bait Capture)
+     *   **webshell\_cloud_breaking**: Webshell Protection
+     *   **alinet**: Behavior prevention
+     *   **k8s\_log_analysis**: K8s Threat Detection
+     *   **alisecguard**: Defense mode for Client Protection
+     *
+     * @example auto_breaking
+     *
      * @var string
      */
     public $type;

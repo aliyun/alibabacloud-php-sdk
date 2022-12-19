@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ValidateHcWarningsRequest extends Model
 {
     /**
+     * @description The IDs of risk items that you want to verify. Separate multiple IDs with commas (,).
+     *
+     * @example 43
+     *
      * @var string
      */
     public $riskIds;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 1.2.3.4
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description The UUIDs of servers on which you want to verify risk items.
+     *
+     * @example 78645c8e-2e89-441b-8eb,a9622a6b-adb5-4dd3-929e,0136460a-1cb5-44e8-****
+     *
      * @var string
      */
     public $uuids;

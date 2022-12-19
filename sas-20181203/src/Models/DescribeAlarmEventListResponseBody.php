@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlarmEventListResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 28267723-D857-4DD8-B295-013100000000
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array that consists of the alert events.
+     *
      * @var suspEvents[]
      */
     public $suspEvents;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserBaselineAuthorizationResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 0AF20EB0-EBBC-4B94-9B84-F3BAFAC53EDE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about whether Security Center is authorized to run configuration checks on cloud services.
+     *
      * @var userBaselineAuthorization
      */
     public $userBaselineAuthorization;
