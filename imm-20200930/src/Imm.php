@@ -26,6 +26,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\BatchIndexFileMetaShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\BatchUpdateFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\BatchUpdateFileMetaResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\BatchUpdateFileMetaShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CompareImageFacesRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CompareImageFacesResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CompareImageFacesShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateArchiveFileInspectionTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateArchiveFileInspectionTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateArchiveFileInspectionTaskShrinkRequest;
@@ -42,6 +45,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDatasetResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDetectVideoLabelsTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDetectVideoLabelsTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDetectVideoLabelsTaskShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFacesSearchingTaskRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFacesSearchingTaskResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFacesSearchingTaskShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFigureClusteringTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFigureClusteringTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFigureClusteringTaskShrinkRequest;
@@ -74,6 +80,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\CreateOfficeConversionTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateOfficeConversionTaskShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateProjectResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateSimilarImageClusteringTaskRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateSimilarImageClusteringTaskResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateSimilarImageClusteringTaskShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateStoryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateStoryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateStoryShrinkRequest;
@@ -127,6 +136,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateDRMLicenseResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateVideoPlaylistRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateVideoPlaylistResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateVideoPlaylistShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateWebofficeTokenRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateWebofficeTokenResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateWebofficeTokenShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetBindingRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetBindingResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetDatasetRequest;
@@ -172,6 +184,8 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\QueryFigureClustersShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryLocationDateClustersRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryLocationDateClustersResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryLocationDateClustersShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\QuerySimilarImageClustersRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\QuerySimilarImageClustersResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryStoriesRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryStoriesResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryStoriesShrinkRequest;
@@ -183,6 +197,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\RemoveStoryFilesResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\RemoveStoryFilesShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ResumeBindingRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ResumeBindingResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\SearchImageFigureClusterRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\SearchImageFigureClusterResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\SearchImageFigureClusterShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SemanticQueryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SemanticQueryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SimpleQueryRequest;
@@ -640,6 +657,63 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param CompareImageFacesRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CompareImageFacesResponse
+     */
+    public function compareImageFacesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CompareImageFacesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->credentialConfig)) {
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->source)) {
+            $request->sourceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->source, 'Source', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->credentialConfigShrink)) {
+            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourceShrink)) {
+            $query['Source'] = $request->sourceShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CompareImageFaces',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CompareImageFacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CompareImageFacesRequest $request
+     *
+     * @return CompareImageFacesResponse
+     */
+    public function compareImageFaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->compareImageFacesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateArchiveFileInspectionTaskRequest $tmpReq
      * @param RuntimeOptions                         $runtime
      *
@@ -1061,6 +1135,72 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDetectVideoLabelsTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateFacesSearchingTaskRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateFacesSearchingTaskResponse
+     */
+    public function createFacesSearchingTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateFacesSearchingTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->sources)) {
+            $request->sourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->maxResult)) {
+            $query['MaxResult'] = $request->maxResult;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourcesShrink)) {
+            $query['Sources'] = $request->sourcesShrink;
+        }
+        if (!Utils::isUnset($request->topK)) {
+            $query['TopK'] = $request->topK;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFacesSearchingTask',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateFacesSearchingTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateFacesSearchingTaskRequest $request
+     *
+     * @return CreateFacesSearchingTaskResponse
+     */
+    public function createFacesSearchingTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFacesSearchingTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -1953,6 +2093,66 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateSimilarImageClusteringTaskRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return CreateSimilarImageClusteringTaskResponse
+     */
+    public function createSimilarImageClusteringTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateSimilarImageClusteringTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSimilarImageClusteringTask',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSimilarImageClusteringTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSimilarImageClusteringTaskRequest $request
+     *
+     * @return CreateSimilarImageClusteringTaskResponse
+     */
+    public function createSimilarImageClusteringTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSimilarImageClusteringTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -3167,6 +3367,105 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param GenerateWebofficeTokenRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GenerateWebofficeTokenResponse
+     */
+    public function generateWebofficeTokenWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GenerateWebofficeTokenShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->credentialConfig)) {
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->permission)) {
+            $request->permissionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->permission, 'Permission', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->user)) {
+            $request->userShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->user, 'User', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->watermark)) {
+            $request->watermarkShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->watermark, 'Watermark', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->cachePreview)) {
+            $query['CachePreview'] = $request->cachePreview;
+        }
+        if (!Utils::isUnset($request->credentialConfigShrink)) {
+            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+        if (!Utils::isUnset($request->externalUploaded)) {
+            $query['ExternalUploaded'] = $request->externalUploaded;
+        }
+        if (!Utils::isUnset($request->filename)) {
+            $query['Filename'] = $request->filename;
+        }
+        if (!Utils::isUnset($request->hidecmb)) {
+            $query['Hidecmb'] = $request->hidecmb;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->permissionShrink)) {
+            $query['Permission'] = $request->permissionShrink;
+        }
+        if (!Utils::isUnset($request->previewPages)) {
+            $query['PreviewPages'] = $request->previewPages;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->referer)) {
+            $query['Referer'] = $request->referer;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        if (!Utils::isUnset($request->userShrink)) {
+            $query['User'] = $request->userShrink;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        if (!Utils::isUnset($request->watermarkShrink)) {
+            $query['Watermark'] = $request->watermarkShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateWebofficeToken',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenerateWebofficeTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GenerateWebofficeTokenRequest $request
+     *
+     * @return GenerateWebofficeTokenResponse
+     */
+    public function generateWebofficeToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateWebofficeTokenWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetBindingRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -4291,6 +4590,64 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param QuerySimilarImageClustersRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QuerySimilarImageClustersResponse
+     */
+    public function querySimilarImageClustersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->customLabels)) {
+            $query['CustomLabels'] = $request->customLabels;
+        }
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySimilarImageClusters',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySimilarImageClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySimilarImageClustersRequest $request
+     *
+     * @return QuerySimilarImageClustersResponse
+     */
+    public function querySimilarImageClusters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySimilarImageClustersWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryStoriesRequest $tmpReq
      * @param RuntimeOptions      $runtime
      *
@@ -4553,6 +4910,63 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resumeBindingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SearchImageFigureClusterRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SearchImageFigureClusterResponse
+     */
+    public function searchImageFigureClusterWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SearchImageFigureClusterShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->credentialConfig)) {
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->credentialConfigShrink)) {
+            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchImageFigureCluster',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SearchImageFigureClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SearchImageFigureClusterRequest $request
+     *
+     * @return SearchImageFigureClusterResponse
+     */
+    public function searchImageFigureCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchImageFigureClusterWithOptions($request, $runtime);
     }
 
     /**
