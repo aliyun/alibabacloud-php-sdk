@@ -15,6 +15,8 @@ class ScanTextResponseBody extends Model
     public $data;
 
     /**
+     * @example C7CD87E3-57A5-4E2F-8A44-809F3554692C
+     *
      * @var string
      */
     public $requestId;

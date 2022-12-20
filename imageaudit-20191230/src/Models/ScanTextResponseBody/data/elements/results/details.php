@@ -15,6 +15,8 @@ class details extends Model
     public $contexts;
 
     /**
+     * @example ad
+     *
      * @var string
      */
     public $label;

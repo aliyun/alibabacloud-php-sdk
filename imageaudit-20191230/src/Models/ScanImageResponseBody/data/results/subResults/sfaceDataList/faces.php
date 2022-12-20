@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class faces extends Model
 {
     /**
+     * @example AliFace_0001234
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 91.54
+     *
      * @var float
      */
     public $rate;

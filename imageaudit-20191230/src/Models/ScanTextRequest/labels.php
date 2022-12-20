@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class labels extends Model
 {
     /**
+     * @example ad
+     *
      * @var string
      */
     public $label;

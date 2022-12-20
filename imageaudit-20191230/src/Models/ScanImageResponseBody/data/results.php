@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @example uuid-xxxx-xxx-1234
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @example http://xxx.xxx.xxx/xxx.jpg
+     *
      * @var string
      */
     public $imageURL;
@@ -25,6 +29,8 @@ class results extends Model
     public $subResults;
 
     /**
+     * @example img4wlJcb7p4wH4lAP3111111-123456
+     *
      * @var string
      */
     public $taskId;

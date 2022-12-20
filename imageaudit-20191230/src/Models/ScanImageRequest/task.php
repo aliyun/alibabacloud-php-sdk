@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class task extends Model
 {
     /**
+     * @example uuid-xxxx-xxxx-1234
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $imageTimeMillisecond;
 
     /**
+     * @example http://xxx.xxx.com/xxx.jpg
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $maxFrames;

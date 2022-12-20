@@ -15,16 +15,22 @@ class results extends Model
     public $details;
 
     /**
+     * @example ad
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @example 99.91
+     *
      * @var float
      */
     public $rate;
 
     /**
+     * @example block
+     *
      * @var string
      */
     public $suggestion;

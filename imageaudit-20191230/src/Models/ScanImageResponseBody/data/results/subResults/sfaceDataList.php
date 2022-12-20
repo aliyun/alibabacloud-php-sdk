@@ -15,21 +15,29 @@ class sfaceDataList extends Model
     public $faces;
 
     /**
+     * @example 131
+     *
      * @var float
      */
     public $height;
 
     /**
+     * @example 97
+     *
      * @var float
      */
     public $width;
 
     /**
+     * @example 49
+     *
      * @var float
      */
     public $x;
 
     /**
+     * @example 39
+     *
      * @var float
      */
     public $y;

@@ -154,7 +154,7 @@ class Imageaudit extends OpenApiClient
         $scanImageReq = new ScanImageRequest([]);
         OpenApiUtilClient::convert($request, $scanImageReq);
         if (!Utils::isUnset($request->task)) {
-            $i = 0;
+            $i0 = 0;
             foreach ($request->task as $item0) {
                 if (!Utils::isUnset($item0->imageURLObject)) {
                     $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
@@ -179,15 +179,14 @@ class Imageaudit extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp           = @$scanImageReq->task[${$i}];
+                    $tmp           = @$scanImageReq->task[$i0];
                     $tmp->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
-                    $i             = $i + 1;
+                    $i0            = $i0 + 1;
                 }
             }
         }
-        $scanImageResp = $this->scanImageWithOptions($scanImageReq, $runtime);
 
-        return $scanImageResp;
+        return $this->scanImageWithOptions($scanImageReq, $runtime);
     }
 
     /**

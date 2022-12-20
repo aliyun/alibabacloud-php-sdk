@@ -15,6 +15,8 @@ class ScanImageResponseBody extends Model
     public $data;
 
     /**
+     * @example 69B41AE8-1234-1234-1234-12D395695D2D
+     *
      * @var string
      */
     public $requestId;

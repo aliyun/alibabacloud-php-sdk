@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class ScanTextRequest extends Model
 {
     /**
+     * @description 1
+     *
      * @var labels[]
      */
     public $labels;
 
     /**
+     * @description 1
+     *
      * @var tasks[]
      */
     public $tasks;

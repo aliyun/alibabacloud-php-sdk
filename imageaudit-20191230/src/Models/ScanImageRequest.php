@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ScanImageRequest extends Model
 {
     /**
+     * @description 1
+     *
+     * @example porn
+     *
      * @var string[]
      */
     public $scene;
 
     /**
+     * @description 1
+     *
      * @var task[]
      */
     public $task;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class logoDataList extends Model
 {
     /**
+     * @example 106
+     *
      * @var float
      */
     public $height;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example TV
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 106
+     *
      * @var float
      */
     public $width;
 
     /**
+     * @example 140
+     *
      * @var float
      */
     public $x;
 
     /**
+     * @example 68
+     *
      * @var float
      */
     public $y;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class hintWordsInfoList extends Model
 {
     /**
+     * @example abc
+     *
      * @var string
      */
     public $context;

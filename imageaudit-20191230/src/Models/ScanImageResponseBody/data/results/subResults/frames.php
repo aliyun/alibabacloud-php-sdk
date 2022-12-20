@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class frames extends Model
 {
     /**
+     * @example 89.85
+     *
      * @var float
      */
     public $rate;
 
     /**
+     * @example http://xxx.xxx.com/xxx-0.jpg
+     *
      * @var string
      */
     public $URL;

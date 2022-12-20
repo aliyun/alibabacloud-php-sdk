@@ -24,6 +24,8 @@ class subResults extends Model
     public $hintWordsInfoList;
 
     /**
+     * @example normal
+     *
      * @var string
      */
     public $label;
@@ -34,6 +36,8 @@ class subResults extends Model
     public $logoDataList;
 
     /**
+     * @description 1
+     *
      * @var string[]
      */
     public $OCRDataList;
@@ -44,11 +48,15 @@ class subResults extends Model
     public $programCodeDataList;
 
     /**
+     * @example 99.91
+     *
      * @var float
      */
     public $rate;
 
     /**
+     * @example ad
+     *
      * @var string
      */
     public $scene;
@@ -59,6 +67,8 @@ class subResults extends Model
     public $sfaceDataList;
 
     /**
+     * @example block
+     *
      * @var string
      */
     public $suggestion;

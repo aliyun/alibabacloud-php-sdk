@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class programCodeDataList extends Model
 {
     /**
+     * @example 413.0
+     *
      * @var float
      */
     public $height;
 
     /**
+     * @example 402.0
+     *
      * @var float
      */
     public $width;
 
     /**
+     * @example 11.0
+     *
      * @var float
      */
     public $x;
 
     /**
+     * @example 0.0
+     *
      * @var float
      */
     public $y;
