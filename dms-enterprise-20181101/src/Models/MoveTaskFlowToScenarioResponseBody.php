@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class MoveTaskFlowToScenarioResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example D85FD18C-4322-5D49-8C14-5A10E668F86C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class GetDatabaseResponseBody extends Model
 {
     /**
+     * @description The details of the database.
+     *
      * @var database
      */
     public $database;
 
     /**
+     * @description The error code.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
+     * @example An unknown error occurred.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3CDB8601-AD74-4A47-8114-08E08CD6****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**: The request is successful.
+     *   **false**: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

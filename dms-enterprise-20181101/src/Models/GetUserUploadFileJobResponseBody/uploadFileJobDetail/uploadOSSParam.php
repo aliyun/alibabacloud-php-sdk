@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class uploadOSSParam extends Model
 {
     /**
+     * @description The name of the OSS bucket.
+     *
+     * @example test_bucket
+     *
      * @var string
      */
     public $bucketName;
 
     /**
+     * @description The endpoint of the OSS bucket.
+     *
+     * @example http://oss-cn-hangzhou.aliyuncs.com
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @description The name of the OSS object.
+     *
+     * @example test.sql
+     *
      * @var string
      */
     public $objectName;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class PublishAndDeployTaskFlowResponseBody extends Model
 {
     /**
+     * @example 12**
+     *
      * @var int
      */
     public $deployId;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example Unknown server error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 64E26249-B61F-51C6-B6DF-47EFF50128CC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

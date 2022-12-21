@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListScenariosResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 7FAD400F-7A5C-4193-8F9A-39D86C4F0231
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class ListScenariosResponseBody extends Model
     public $scenarioList;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

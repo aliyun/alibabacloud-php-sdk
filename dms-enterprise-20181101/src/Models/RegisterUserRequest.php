@@ -9,26 +9,53 @@ use AlibabaCloud\Tea\Model;
 class RegisterUserRequest extends Model
 {
     /**
+     * @description The mobile number of the user.
+     *
+     * @example 130000000xx
+     *
      * @var string
      */
     public $mobile;
 
     /**
+     * @description The role that you want to assign to the user. Valid values:
+     *
+     *   **USER**: a regular user role
+     *   **DBA**: a database administrator (DBA) role
+     *   **ADMIN**: a DMS administrator role
+     *   **SECURITY_ADMIN**: a security administrator role
+     *
+     * >  If you do not specify this parameter, the regular user role is assigned to the user by default. You can assign one or more roles to the user. Separate multiple roles with commas (,).
+     * @example USER,DBA
+     *
      * @var string
      */
     public $roleNames;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * >  To query ID of the tenant, move the pointer over the profile picture in the upper-right corner of the DMS console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](~~181330~~) topic.
+     * @example -1
+     *
      * @var int
      */
     public $tid;
 
     /**
+     * @description The UID of the Alibaba Cloud account of the user that you want to register.
+     *
+     * @example 12345678
+     *
      * @var string
      */
     public $uid;
 
     /**
+     * @description The nickname of the user.
+     *
+     * @example dmstest
+     *
      * @var string
      */
     public $userNick;

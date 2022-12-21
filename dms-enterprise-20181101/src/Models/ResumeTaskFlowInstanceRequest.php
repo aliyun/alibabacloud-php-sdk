@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ResumeTaskFlowInstanceRequest extends Model
 {
     /**
+     * @example 11****
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @example 3****
+     *
      * @var int
      */
     public $dagInstanceId;
 
     /**
+     * @example []
+     *
      * @var string
      */
     public $dagVersion;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

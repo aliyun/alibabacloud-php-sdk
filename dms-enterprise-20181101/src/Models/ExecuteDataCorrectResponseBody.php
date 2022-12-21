@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class ExecuteDataCorrectResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
+     * @example Unknown server error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example EADDA791-2809-58CE-A303-743A77FF****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**: The request is successful.
+     *   **false**: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

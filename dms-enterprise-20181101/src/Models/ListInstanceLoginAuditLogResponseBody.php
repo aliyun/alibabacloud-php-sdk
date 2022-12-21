@@ -10,31 +10,56 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceLoginAuditLogResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
+     * @example InvalidPageSize
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
+     * @example Specified parameter PageSize is not valid.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The logon records of the instance.
+     *
      * @var instanceLoginAuditLogList
      */
     public $instanceLoginAuditLogList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 074CE7C9-4F9C-5B62-89BC-7B4914A3****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

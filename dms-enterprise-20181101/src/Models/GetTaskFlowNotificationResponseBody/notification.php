@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class notification extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $dagNotificationFail;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $dagNotificationSla;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $dagNotificationSuccess;

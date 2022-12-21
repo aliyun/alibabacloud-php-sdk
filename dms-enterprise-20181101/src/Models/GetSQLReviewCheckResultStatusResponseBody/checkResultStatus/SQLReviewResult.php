@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class SQLReviewResult extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $mustImprove;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $potentialIssue;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $suggestImprove;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $tableIndexSuggest;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $useDmsDmlUnlock;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $useDmsToolkit;

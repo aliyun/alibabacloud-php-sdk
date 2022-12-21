@@ -9,81 +9,159 @@ use AlibabaCloud\Tea\Model;
 class dag extends Model
 {
     /**
+     * @description Indicates whether the task flow can be modified. Valid values:
+     *
+     *   **true**: The task flow can be modified.
+     *   **false**: The task flow cannot be modified.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $canEdit;
 
     /**
+     * @description The ID of the user who creates the task flow.
+     *
+     * @example 51****
+     *
      * @var string
      */
     public $creatorId;
 
     /**
+     * @description The name of the user who creates the workspace.
+     *
+     * @example Creator_Name
+     *
      * @var string
      */
     public $creatorNickName;
 
     /**
+     * @description The name of the task flow.
+     *
+     * @example Dag_Name
+     *
      * @var string
      */
     public $dagName;
 
     /**
+     * @description The user ID of the task flow owner.
+     *
+     * @example 51****
+     *
      * @var string
      */
     public $dagOwnerId;
 
     /**
+     * @description The name of the task flow owner.
+     *
+     * @example Owner_Name
+     *
      * @var string
      */
     public $dagOwnerNickName;
 
     /**
+     * @description The extended field. No meaning is specified for this field.
+     *
+     * @example -
+     *
      * @var int
      */
     public $dataFlowId;
 
     /**
+     * @description The extended field. No meaning is specified for this field.
+     *
+     * @example -
+     *
      * @var string
      */
     public $demoId;
 
     /**
+     * @description The ID of the latest deployment record.
+     *
+     * @example 12**
+     *
      * @var int
      */
     public $deployId;
 
     /**
+     * @description The ID of the task flow.
+     *
+     * @example 134137****
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description Indicates whether the task flow is deleted. Valid values:
+     *
+     *   **true**: deleted
+     *   **false**: not deleted
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isDeleted;
 
     /**
+     * @description The status of the latest execution. Valid values:
+     *
+     *   **0**: invalid
+     *   **1**: scheduling disabled
+     *   **2**: waiting to be scheduled
+     *
+     * @example 0
+     *
      * @var int
      */
     public $latestInstanceStatus;
 
     /**
+     * @description The time when the latest execution record was generated.
+     *
+     * @example 2022-04-14
+     *
      * @var int
      */
     public $latestInstanceTime;
 
     /**
+     * @description The ID of the business scenario.
+     *
+     * @example 2**
+     *
      * @var int
      */
     public $scenarioId;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $spaceId;
 
     /**
+     * @description The status of the task flow. Valid values:
+     *
+     *   **0**: invalid
+     *   **1**: scheduling disabled
+     *   **2**: waiting to be scheduled
+     *
+     * @example 2
+     *
      * @var int
      */
     public $status;

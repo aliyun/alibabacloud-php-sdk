@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListEffectiveOrdersResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
@@ -25,11 +29,15 @@ class ListEffectiveOrdersResponseBody extends Model
     public $orderSummary;
 
     /**
+     * @example A8FE12AA-300D-5FDF-806F-C2CB99161F32
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSQLReviewOrderShrinkRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $comment;
@@ -24,6 +26,8 @@ class CreateSQLReviewOrderShrinkRequest extends Model
     public $relatedUserListShrink;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $tid;

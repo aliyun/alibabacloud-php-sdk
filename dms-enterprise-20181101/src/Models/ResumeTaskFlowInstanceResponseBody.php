@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ResumeTaskFlowInstanceResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 7FF2E325-763F-5E27-9157-C3CFA02F4CBF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

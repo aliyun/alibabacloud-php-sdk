@@ -9,56 +9,110 @@ use AlibabaCloud\Tea\Model;
 class originSQLList extends Model
 {
     /**
+     * @description The review status of the SQL statement. Valid values:
+     *
+     *   **new**: The SQL statement is pending for analysis.
+     *   **unknown**: The SQL statement failed to be parsed.
+     *   **check_not_pass**: The SQL statement failed the review.
+     *   **check_pass**: The SQL statement passed the review.
+     *   **force_pass**: The SQL statement passed the review by manual effort.
+     *   **force_not_pass**: The SQL statement failed the review by manual effort.
+     *
+     * @example check_pass
+     *
      * @var string
      */
     public $checkStatus;
 
     /**
+     * @description The time when the SQL statement is reviewed.
+     *
+     * @example 2021-06-09 21:07:00
+     *
      * @var string
      */
     public $checkedTime;
 
     /**
+     * @description The ID of the file.
+     *
+     * @example 123321
+     *
      * @var int
      */
     public $fileId;
 
     /**
+     * @description The name of the file.
+     *
+     * @example test.sql
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @description The statistics of optimization suggestions for SQL statements. The value is a JSON string. The following optimization suggestions are involved:
+     *
+     *   **MUST_IMPROVE**: The SQL statement must be improved.
+     *   **POTENTIAL_ISSUE**: The SQL statement contains potential issues.
+     *   **SUGGEST_IMPROVE**: We recommend that you improve the SQL statement.
+     *   **USEDMSTOOLKIT**: We recommend that you change schemas without locking tables.
+     *   **USEDMSDML_UNLOCK**: We recommend that you change data without locking tables.
+     *   **TABLEINDEXSUGGEST**: We recommend that you use SQL statements that use indexes.
+     *
+     * @example {"POTENTIAL_ISSUE":1,"SUGGEST_IMPROVE":1}
+     *
      * @var string
      */
     public $reviewSummary;
 
     /**
+     * @description The SQL statement.
+     *
+     * @example select id from table_name
+     *
      * @var string
      */
     public $SQLContent;
 
     /**
+     * @description The ID of the SQL statement.
+     *
+     * @example 1111
+     *
      * @var int
      */
     public $SQLId;
 
     /**
+     * @example getByPk
+     *
      * @var string
      */
     public $SQLName;
 
     /**
+     * @description The key that is used to query the details of optimization suggestions. You can call the [GetSQLReviewOptimizeDetail](https://icms.alibaba-inc.com/content/dms/doc?l=1\&m=61777\&n=2712723\&spm) operation to query the details of optimization suggestions based on the key.
+     *
+     * @example a57e54ec5433475ea3082d882fdb89c5
+     *
      * @var string
      */
     public $SQLReviewQueryKey;
 
     /**
+     * @description The MD5 hash value of the SQL statement.
+     *
+     * @example 95adb6e77a0884d9e50232cb8c5c969d
+     *
      * @var string
      */
     public $sqlHash;
 
     /**
+     * @description The description of the review status.
+     *
      * @var string
      */
     public $statusDesc;

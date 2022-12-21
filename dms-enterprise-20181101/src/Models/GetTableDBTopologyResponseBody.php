@@ -15,21 +15,29 @@ class GetTableDBTopologyResponseBody extends Model
     public $DBTopology;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 853F7FD4-D922-4EFB-931C-D253EF159E06
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

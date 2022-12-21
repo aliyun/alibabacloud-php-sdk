@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class dataCronClearTaskDetailList extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $actualAffectRows;
 
     /**
+     * @example 2021-01-14 10:00:00
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 432523
+     *
      * @var int
      */
     public $DBTaskGroupId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $jobStatus;

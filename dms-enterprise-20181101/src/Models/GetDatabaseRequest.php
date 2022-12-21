@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class GetDatabaseRequest extends Model
 {
     /**
+     * @description The endpoint that is used to connect to the database.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @description The port that is used to connect to the database.
+     *
+     * @example 3306
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The name of the database.
+     *
+     * @example mysql
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @description The system identifier (SID) of the database.
+     *
+     * >  The SID uniquely identifies an Oracle database. After a database is created, a SID is generated for the database.
+     * @example test_sid
+     *
      * @var string
      */
     public $sid;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the ID of the tenant.
+     *
+     * @example -1
+     *
      * @var int
      */
     public $tid;

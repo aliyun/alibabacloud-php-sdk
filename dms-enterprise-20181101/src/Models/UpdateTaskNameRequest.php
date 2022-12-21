@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskNameRequest extends Model
 {
     /**
+     * @description The ID of the node. You can call the [GetTaskInstanceRelation](~~424711~~) operation to query the node ID.
+     *
+     * @example 449***
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The name of the node. You can call the [GetTaskInstanceRelation](~~424711~~) operation to query the node name.
+     *
+     * @example Spark-test
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

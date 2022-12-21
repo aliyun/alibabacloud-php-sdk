@@ -10,31 +10,56 @@ use AlibabaCloud\Tea\Model;
 class workflowNode extends Model
 {
     /**
+     * @description The IDs of the approvers.
+     *
      * @var auditUserIdList
      */
     public $auditUserIdList;
 
     /**
+     * @description The name of the approval node.
+     *
+     * @example DBA
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description The remarks of the approval.
+     *
      * @var string
      */
     public $operateComment;
 
     /**
+     * @description The time when the ticket was submitted.
+     *
+     * @example 2019-10-15 13:47:54
+     *
      * @var string
      */
     public $operateTime;
 
     /**
+     * @description The ID of the user who submitted the ticket.
+     *
+     * @example 1****
+     *
      * @var int
      */
     public $operatorId;
 
     /**
+     * @description The approval status of the ticket. Valid values:
+     *
+     *   **AUDITING**: The ticket is being processed.
+     *   **REJECT**: The ticket was rejected.
+     *   **CANCEL**: The ticket was revoked.
+     *   **APPROVED**: The ticket was approved.
+     *
+     * @example APPROVED
+     *
      * @var string
      */
     public $workflowInsCode;

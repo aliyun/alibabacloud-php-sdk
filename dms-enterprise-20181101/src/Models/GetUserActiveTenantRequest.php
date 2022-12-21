@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetUserActiveTenantRequest extends Model
 {
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the tenant ID.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

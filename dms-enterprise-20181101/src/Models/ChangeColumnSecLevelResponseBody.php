@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class ChangeColumnSecLevelResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C51420E3-144A-4A94-B473-8662FCF4AD10
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request is successful.
+     *   false: The request fails.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $success;

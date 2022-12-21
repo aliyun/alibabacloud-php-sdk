@@ -15,21 +15,29 @@ class ListDDLPublishRecordsResponseBody extends Model
     public $DDLPublishRecordList;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example A1549FB0-D4B8-4140-919F-17322C1072B8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

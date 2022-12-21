@@ -11,66 +11,114 @@ use AlibabaCloud\Tea\Model;
 class table extends Model
 {
     /**
+     * @description The ID of the physical database.
+     *
+     * @example 1860****
+     *
      * @var string
      */
     public $databaseId;
 
     /**
+     * @description The description of the table.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The encoding format of the table.
+     *
+     * @example utf8
+     *
      * @var string
      */
     public $encoding;
 
     /**
+     * @description The engine of the table.
+     *
+     * @example InnoDB
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The number of rows in the table. This is a statistical value and does not indicate the actual number of rows.
+     *
+     * @example 10085
+     *
      * @var int
      */
     public $numRows;
 
     /**
+     * @description The IDs of the owners of the table.
+     *
      * @var ownerIdList
      */
     public $ownerIdList;
 
     /**
+     * @description The nicknames of the owners of the table.
+     *
      * @var ownerNameList
      */
     public $ownerNameList;
 
     /**
+     * @description The storage space that is occupied by the table. This is a statistical value and does not indicate the accurate storage space. Unit: MB.
+     *
+     * @example 1024
+     *
      * @var int
      */
     public $storeCapacity;
 
     /**
+     * @description The GUID of the table in DMS.
+     *
+     * @example IDB_44743****.qntest.consumption_records
+     *
      * @var string
      */
     public $tableGuid;
 
     /**
+     * @description The ID of the table.
+     *
+     * @example 44743****
+     *
      * @var string
      */
     public $tableId;
 
     /**
+     * @description The name of the table.
+     *
+     * @example consumption_records
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @description The database in which the table resides.
+     *
+     * @example qntest
+     *
      * @var string
      */
     public $tableSchemaName;
 
     /**
+     * @description The type of the table. Default value: NORMAL.
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $tableType;

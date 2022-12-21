@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class downloadURLResult extends Model
 {
     /**
+     * @description Indicates whether export results are available for download. Valid values:
+     *
+     *   **true**: Export results are available for download.
+     *   **false**: No export results are available for download.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $hasResult;
 
     /**
+     * @description The message that indicates an exception.
+     *
+     * @example tip message
+     *
      * @var string
      */
     public $tipMessage;
 
     /**
+     * @description The download URL of the file that records the export results for the ticket.
+     *
+     * @example https://dms-idb-hangzhou.oss-cn-hangzhou.aliyuncs.com/xxx.zip
+     *
      * @var string
      */
     public $URL;

@@ -10,41 +10,57 @@ use AlibabaCloud\Tea\Model;
 class userPermission extends Model
 {
     /**
+     * @example instance_alias
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @example column_name
+     *
      * @var string
      */
     public $columnName;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $dbId;
 
     /**
+     * @example mysql
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @example DATABASE
+     *
      * @var string
      */
     public $dsType;
 
     /**
+     * @example product
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @example 1443
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $logic;
@@ -55,31 +71,43 @@ class userPermission extends Model
     public $permDetails;
 
     /**
+     * @example xxx@xxxx:3306
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $searchName;
 
     /**
+     * @example 42345
+     *
      * @var string
      */
     public $tableId;
 
     /**
+     * @example table_name
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @example 14324
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example user_nick_name
+     *
      * @var string
      */
     public $userNickName;

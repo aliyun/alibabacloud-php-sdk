@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListTaskFlowsByPageRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageIndex;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -24,6 +28,8 @@ class ListTaskFlowsByPageRequest extends Model
     public $searchKey;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

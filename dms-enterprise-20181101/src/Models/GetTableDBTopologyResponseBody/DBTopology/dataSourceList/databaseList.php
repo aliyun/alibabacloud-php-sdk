@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class databaseList extends Model
 {
     /**
+     * @example 489347
+     *
      * @var string
      */
     public $dbId;
 
     /**
+     * @example db-test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @example MySQL
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @example pre
+     *
      * @var string
      */
     public $envType;

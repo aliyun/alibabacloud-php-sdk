@@ -9,56 +9,108 @@ use AlibabaCloud\Tea\Model;
 class DAGInstance extends Model
 {
     /**
+     * @description The business time of the task flow. The time is displayed in the yyyy-MM-DD HH:mm:ss format.
+     *
+     * @example 2021-11-10 14:37:26
+     *
      * @var string
      */
     public $businessTime;
 
     /**
+     * @description The ID of the task flow.
+     *
+     * @example 7***
+     *
      * @var string
      */
     public $dagId;
 
     /**
+     * @description The name of the task flow.
+     *
+     * @example Spark_SQL_test
+     *
      * @var string
      */
     public $dagName;
 
     /**
+     * @example []
+     *
      * @var string
      */
     public $dagVersion;
 
     /**
+     * @description The time when the execution of the task flow was complete. The time is displayed in the yyyy-MM-DD HH:mm:ss format.
+     *
+     * @example 2021-11-11 14:38:57
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the previously published version of the task flow.
+     *
+     * @example 2****
+     *
      * @var int
      */
     public $historyDagId;
 
     /**
+     * @description The ID of the execution record.
+     *
+     * @example 9234
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The description of the task.
+     *
+     * @example test
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The name of the task flow owner.
+     *
+     * @example test_name
+     *
      * @var string
      */
     public $ownerName;
 
     /**
+     * @description The status of the task flow. Valid values:
+     *
+     *   **0**: The task flow is waiting to be scheduled.
+     *   **1**: The task flow is being executed.
+     *   **2**: The task flow is paused.
+     *   **3**: The task flow failed.
+     *   **4**: The task flow is executed.
+     *   **5**: The task flow is complete.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The mode in which the task flow is triggered. Valid values:
+     *
+     *   **0**: The task flow is automatically triggered based on periodic scheduling.
+     *   **1**: The task flow is manually triggered.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $triggerType;

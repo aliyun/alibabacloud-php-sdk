@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class publishTaskInfoList extends Model
 {
     /**
+     * @example 4325
+     *
      * @var int
      */
     public $dbId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $logic;
 
     /**
+     * @example 2020-12-14 20:52:38
+     *
      * @var string
      */
     public $planTime;
@@ -30,16 +36,22 @@ class publishTaskInfoList extends Model
     public $publishJobList;
 
     /**
+     * @example IMMEDIATELY
+     *
      * @var string
      */
     public $publishStrategy;
 
     /**
+     * @example NONE
+     *
      * @var string
      */
     public $statusDesc;
 
     /**
+     * @example NONE
+     *
      * @var string
      */
     public $taskJobStatus;

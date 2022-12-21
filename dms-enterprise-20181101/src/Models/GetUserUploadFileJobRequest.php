@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class GetUserUploadFileJobRequest extends Model
 {
     /**
+     * @description The key of the file upload task. You can call the [CreateUploadFileJob](~~206059~~) or [CreateUploadOSSFileJob](~~206060~~) operation to query the key.
+     *
+     * @example 65254a49100e
+     *
      * @var string
      */
     public $jobKey;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](~~181330~~) topic.
+     * @example -1
+     *
      * @var int
      */
     public $tid;

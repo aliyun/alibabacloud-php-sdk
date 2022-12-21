@@ -9,51 +9,93 @@ use AlibabaCloud\Tea\Model;
 class BackFillShrinkRequest extends Model
 {
     /**
+     * @description The running sequence of task flows for data backfill. Valid values:
+     *
+     *   **0**: reverse chronological order.
+     *   **1**: chronological order. This is the default value.
+     *
+     * @example 0
+     *
      * @var bool
      */
     public $asc;
 
     /**
+     * @description The date for the data to be backfilled. This parameter is required if you specify a date for data backfill.
+     *
+     * @example 2022-01-14
+     *
      * @var string
      */
     public $backFillDate;
 
     /**
+     * @description The start date of the date range for the data to be backfilled. This parameter is required if you specify a date range for data backfill.
+     *
+     * @example 2022-01-14
+     *
      * @var string
      */
     public $backFillDateBegin;
 
     /**
+     * @description The end date of the date range for the data to be backfilled. This parameter is required if you specify a date range for data backfill.
+     *
+     * @example 2022-09-29
+     *
      * @var string
      */
     public $backFillDateEnd;
 
     /**
+     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
+     *
+     * @example 15***
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @description The ID of the historical task flow.
+     *
+     * @example 16***
+     *
      * @var int
      */
     public $historyDagId;
 
     /**
+     * @description The interval at which data backfill is performed. Unit: hours. Minimum value: 1. Default value: 24.
+     *
+     * @example 24
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @description Specifies whether to run descendant nodes. Default value: true.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isTriggerSubTree;
 
     /**
+     * @description The number of nodes for which you want to backfill data.
+     *
      * @var string
      */
     public $startNodeIdsShrink;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

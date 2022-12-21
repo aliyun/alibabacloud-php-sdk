@@ -9,46 +9,102 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesRequest extends Model
 {
     /**
+     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @description The type of the environment to which the database instance belongs. Valid values:
+     *
+     *   **product**: production environment
+     *   **dev**: development environment
+     *   **pre**: staging environment
+     *   **test**: test environment
+     *   **sit**: system integration testing (SIT) environment
+     *   **uat**: user acceptance testing (UAT) environment
+     *   **pet**: stress testing environment
+     *   **stag**: STAG environment
+     *
+     * @example product
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @description The source of the database instance. Valid values:
+     *
+     *   **PUBLIC_OWN**: a self-managed database instance that is deployed on the Internet
+     *   **RDS**: an ApsaraDB RDS instance
+     *   **ECS_OWN**: a self-managed database that is deployed on an Elastic Compute Service (ECS) instance
+     *   **VPC_IDC**: a self-managed database instance that is deployed in a data center connected over a virtual private cloud (VPC)
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $instanceSource;
 
     /**
+     * @description The status of the database instance. Valid values:
+     *
+     *   **NORMAL**: normal
+     *   **DISABLE**: disabled
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $instanceState;
 
     /**
+     * @description The network type of the database instance. Valid values:
+     *
+     *   **CLASSIC**: classic network
+     *   **VPC**: VPC
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $netType;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. The number cannot exceed 100.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The keyword that is used to search for database instances.
+     *
+     * @example test
+     *
      * @var string
      */
     public $searchKey;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to obtain the tenant ID.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

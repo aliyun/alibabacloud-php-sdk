@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskConfigRequest extends Model
 {
     /**
+     * @example { "rerun":{ "rerunEnable":true,  "rerunCount":1,   "rerunInterval":10 } }
+     *
      * @var string
      */
     public $nodeConfig;
 
     /**
+     * @example 43****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

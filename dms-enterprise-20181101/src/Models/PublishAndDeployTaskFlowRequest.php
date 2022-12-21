@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class PublishAndDeployTaskFlowRequest extends Model
 {
     /**
+     * @example 7***
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;
 
     /**
+     * @example vc_test
+     *
      * @var string
      */
     public $versionComments;

@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class CreateUploadOSSFileJobRequest extends Model
 {
     /**
+     * @example test.sql
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example datacorrect
+     *
      * @var string
      */
     public $fileSource;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $tid;

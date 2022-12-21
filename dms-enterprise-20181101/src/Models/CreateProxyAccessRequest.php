@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class CreateProxyAccessRequest extends Model
 {
     /**
+     * @description The database account.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $indepAccount;
 
     /**
+     * @description The password that is used to log on to the database.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $indepPassword;
 
     /**
+     * @description The ID of the security protection agent. You can call the [ListProxies](https://www.alibabacloud.com/help/en/data-management-service/latest/listproxies) or [GetProxy](https://www.alibabacloud.com/help/en/data-management-service/latest/getproxy) operation to obtain this parameter.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $proxyId;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://www.alibabacloud.com/help/en/data-management-service/latest/getuseractivetenant) or [ListUserTenants](https://www.alibabacloud.com/help/en/data-management-service/latest/listusertenants) operation to obtain this parameter.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $tid;
 
     /**
+     * @description The ID of the user. You can call the [ListUsers](https://www.alibabacloud.com/help/en/data-management-service/latest/listusers) or [GetUser](https://www.alibabacloud.com/help/en/data-management-service/latest/getuser) operation to obtain this parameter.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $userId;

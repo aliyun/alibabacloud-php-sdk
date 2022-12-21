@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ListColumnsRequest extends Model
 {
     /**
+     * @description Specifies whether the database is a logical database. Valid values:
+     *
+     *   **true**: The database is a logical database.
+     *   **false**: The database is a physical database.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $logic;
 
     /**
+     * @description The ID of the table. You can call the [ListTables](~~141878~~) operation to obtain the table ID.
+     *
+     * @example 39281****
+     *
      * @var string
      */
     public $tableId;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to obtain the tenant ID.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

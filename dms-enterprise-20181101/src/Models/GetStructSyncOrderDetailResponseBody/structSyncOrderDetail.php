@@ -14,6 +14,8 @@ use AlibabaCloud\Tea\Model;
 class structSyncOrderDetail extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $ignoreError;
@@ -24,6 +26,8 @@ class structSyncOrderDetail extends Model
     public $sourceDatabaseInfo;
 
     /**
+     * @example VERSION
+     *
      * @var string
      */
     public $sourceType;
@@ -44,6 +48,8 @@ class structSyncOrderDetail extends Model
     public $targetDatabaseInfo;
 
     /**
+     * @example DATASOURCE
+     *
      * @var string
      */
     public $targetType;

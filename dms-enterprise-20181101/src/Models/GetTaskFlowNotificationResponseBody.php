@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetTaskFlowNotificationResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
@@ -25,11 +29,15 @@ class GetTaskFlowNotificationResponseBody extends Model
     public $notification;
 
     /**
+     * @example F19D575F-EBEA-5683-AFA3-A8F6D9A7DE03
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

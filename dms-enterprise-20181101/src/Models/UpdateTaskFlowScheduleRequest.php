@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskFlowScheduleRequest extends Model
 {
     /**
+     * @example CronBeginDate_test
+     *
      * @var string
      */
     public $cronBeginDate;
 
     /**
+     * @example CronEndDate_test
+     *
      * @var string
      */
     public $cronEndDate;
 
     /**
+     * @example CronStr_test
+     *
      * @var string
      */
     public $cronStr;
 
     /**
+     * @example HOUR
+     *
      * @var string
      */
     public $cronType;
 
     /**
+     * @example 7***
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @example ScheduleParam_test
+     *
      * @var string
      */
     public $scheduleParam;
@@ -44,16 +56,22 @@ class UpdateTaskFlowScheduleRequest extends Model
     public $scheduleSwitch;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;
 
     /**
+     * @example Asia/Shanghai
+     *
      * @var string
      */
     public $timeZoneId;
 
     /**
+     * @example Event
+     *
      * @var string
      */
     public $triggerType;

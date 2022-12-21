@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class slaRuleList extends Model
 {
     /**
+     * @example 15***
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @example 1080
+     *
      * @var int
      */
     public $intervalMinutes;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $type;

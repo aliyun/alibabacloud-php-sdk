@@ -14,21 +14,29 @@ class CreateSQLReviewOrderResponseBody extends Model
     public $createOrderResult;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

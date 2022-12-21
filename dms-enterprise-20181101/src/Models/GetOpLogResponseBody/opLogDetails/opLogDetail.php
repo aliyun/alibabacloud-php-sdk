@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class opLogDetail extends Model
 {
     /**
+     * @description The endpoint of the database instance.
+     *
+     * > *   This parameter is valid only for database instances of the LocalInstance type.
+     *   This parameter is valid only for operations on the functional modules related to tasks.
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @description The functional module for which the operation log is queried.
+     *
      * @var string
      */
     public $module;
 
     /**
+     * @description The details of the operation.
+     *
+     * @example SELECT * FROM `orders` \n LIMIT 20
+     *
      * @var string
      */
     public $opContent;
 
     /**
+     * @description The time when the operation was performed.
+     *
+     * @example 2022-03-28 16:45:19
+     *
      * @var string
      */
     public $opTime;
 
     /**
+     * @description The ID of the user who performed the operation.
+     *
+     * @example 51****
+     *
      * @var int
      */
     public $opUserId;
 
     /**
+     * @description The ID of the ticket or task.
+     *
+     * >  This parameter is valid only for operations on the functional modules related to tasks and the task management module in system management.
+     * @example 509****
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @description The UID of the Alibaba Cloud account.
+     *
+     * @example 22275482072787****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description The display name of the user.
+     *
+     * @example test_name
+     *
      * @var string
      */
     public $userNick;

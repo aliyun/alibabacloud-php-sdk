@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskFlowCooperatorsResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example D05B3EE1-B6D3-5B17-8CA6-A8054828E5B2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

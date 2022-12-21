@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class tableList extends Model
 {
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $tableId;
 
     /**
+     * @example 151977812
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @example yuyang_test_0000
+     *
      * @var string
      */
     public $tableType;

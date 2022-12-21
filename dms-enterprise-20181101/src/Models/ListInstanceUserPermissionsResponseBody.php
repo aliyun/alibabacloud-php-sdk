@@ -10,31 +10,54 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceUserPermissionsResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7D162AAE-6501-5691-BF14-D7018F662895
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     * - false: The request fails.
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The permissions of the user on the instance.
+     *
      * @var userPermissions
      */
     public $userPermissions;

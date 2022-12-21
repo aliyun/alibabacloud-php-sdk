@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DeleteLakeHouseSpaceResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request fails.
+     *
+     * @example NoPermission
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned if the request fails.
+     *
+     * @example You are not authorized to perform this operation.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E76DD2E7-EBAC-5724-B163-19AAC233F8F2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request is successful.
+     *   false: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

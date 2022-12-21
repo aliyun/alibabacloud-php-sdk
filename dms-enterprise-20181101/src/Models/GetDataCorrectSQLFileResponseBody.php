@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetDataCorrectSQLFileResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example https://dmsxxx
+     *
      * @var string
      */
     public $fileUrl;
 
     /**
+     * @example 283C461F-11D8-48AA-B695-DF092DA32AF3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

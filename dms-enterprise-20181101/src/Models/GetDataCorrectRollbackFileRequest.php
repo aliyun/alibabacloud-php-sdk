@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetDataCorrectRollbackFileRequest extends Model
 {
     /**
+     * @example 3214325
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

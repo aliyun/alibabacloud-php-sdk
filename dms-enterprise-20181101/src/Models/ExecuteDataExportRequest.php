@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ExecuteDataExportRequest extends Model
 {
     /**
+     * @example {    "fileType": "CSV",    "encoding": ""  }
+     *
      * @var mixed[]
      */
     public $actionDetail;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $tid;

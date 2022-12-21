@@ -15,26 +15,36 @@ class ListDBTaskSQLJobResponseBody extends Model
     public $DBTaskSQLJobList;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example F6C47680-8D2D-43A4-8902-F2740D71A398
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

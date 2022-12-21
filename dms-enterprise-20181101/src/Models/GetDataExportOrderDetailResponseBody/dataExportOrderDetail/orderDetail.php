@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class orderDetail extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $actualAffectRows;
 
     /**
+     * @example text
+     *
      * @var string
      */
     public $classify;
 
     /**
+     * @example xxx@xxx:3306
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $dbId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @example select 1
+     *
      * @var string
      */
     public $exeSQL;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $ignoreAffectRows;
 
     /**
+     * @example empty
+     *
      * @var string
      */
     public $ignoreAffectRowsReason;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $logic;

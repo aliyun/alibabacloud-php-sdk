@@ -9,46 +9,89 @@ use AlibabaCloud\Tea\Model;
 class order extends Model
 {
     /**
+     * @description The remarks of the ticket.
+     *
+     * @example test
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The user who submitted the ticket.
+     *
+     * @example test
+     *
      * @var string
      */
     public $committer;
 
     /**
+     * @description The ID of the user who submitted the ticket.
+     *
+     * @example 51****
+     *
      * @var int
      */
     public $committerId;
 
     /**
+     * @description The time when the ticket was created.
+     *
+     * @example 2022-04-08 11:15:46
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The time when the ticket was last modified.
+     *
+     * @example 2022-04-08 11:27:45
+     *
      * @var string
      */
     public $lastModifyTime;
 
     /**
+     * @description The ID of the ticket.
+     *
+     * @example 51****
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @description The type of the ticket.
+     *
+     * @example DC_COMMON
+     *
      * @var string
      */
     public $pluginType;
 
     /**
+     * @description The status code of the ticket. Valid values:
+     *
+     *   **fail**: The ticket fails to be executed.
+     *   **toaudit**: The ticket is waiting for approval.
+     *   **cancel**: The ticket is cancelled.
+     *   **processing**: The ticket is being executed.
+     *   **approved**: The ticket is approved.
+     *   **reject**: The ticket is rejected.
+     *   **success**: The ticket is executed.
+     *   **closed**: The ticket is closed.
+     *
+     * @example success
+     *
      * @var string
      */
     public $statusCode;
 
     /**
+     * @description The status description of the ticket.
+     *
      * @var string
      */
     public $statusDesc;

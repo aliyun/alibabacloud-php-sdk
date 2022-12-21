@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class CreateLakeHouseSpaceResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request fails.
+     *
+     * @example InvalidParameterValid
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned if the request fails.
+     *
+     * @example Invalid parameters: space name、mode、prod db id、db type、config.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7FAD400F-7A5C-4193-8F9A-39D86C4F0231
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example 24
+     *
      * @var int
      */
     public $spaceId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**: The request is successful.
+     *   **false**: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

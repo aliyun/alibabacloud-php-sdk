@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class uploadTarget extends Model
 {
     /**
+     * @example test_bucket
+     *
      * @var string
      */
     public $bucketName;
 
     /**
+     * @example http://oss-cn-hangzhou.aliyuncs.com
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @example test.sql
+     *
      * @var string
      */
     public $objectName;

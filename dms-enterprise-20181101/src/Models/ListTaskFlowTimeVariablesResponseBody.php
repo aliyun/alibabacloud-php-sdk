@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class ListTaskFlowTimeVariablesResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example EC12A3BE-149F-5365-AF33-12CC8C963923
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

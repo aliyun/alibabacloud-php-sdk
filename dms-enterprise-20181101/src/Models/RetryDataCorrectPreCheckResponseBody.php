@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class RetryDataCorrectPreCheckResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
+     * @example MissingOrderId
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
+     * @example OrderId is mandatory for this action.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 5BC081C7-5F77-5C92-9758-E1ED17CA****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

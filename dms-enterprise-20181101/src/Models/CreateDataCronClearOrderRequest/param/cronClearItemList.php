@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class cronClearItemList extends Model
 {
     /**
+     * @description The name of the field.
+     *
+     * @example gmt_create
+     *
      * @var string
      */
     public $columnName;
 
     /**
+     * @description The filter conditions.
+     *
+     * @example where 1 = 1
+     *
      * @var string
      */
     public $filterSQL;
 
     /**
+     * @description The retention period of the historical data. Unit: days. For example, if you set the parameter to 7, DMS deletes the data that is retained for more than seven days.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $remainDays;
 
     /**
+     * @description The name of the table. You can call the [ListTables](~~141878~~) operation to query the name of the table.
+     *
+     * @example t1
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @description The type of time granularity. If the ColumnName parameter specifies a field of a time type, this parameter is required. Valid values:
+     *
+     *   **MILLISECONDS**: milliseconds
+     *   **SECONDS**: seconds
+     *
+     * @example MILLISECONDS
+     *
      * @var string
      */
     public $timeUnit;

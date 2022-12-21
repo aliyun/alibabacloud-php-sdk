@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class database extends Model
 {
     /**
+     * @description The ID of the database.
+     *
+     * @example 1860****
+     *
      * @var int
      */
     public $dbId;
 
     /**
+     * @description The engine of the database.
+     *
+     * @example mysql
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @description The type of the environment to which the database belongs. Valid values:
+     *
+     * - stag: STAG environment
+     * @example product
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @description Indicates whether the database is a logical database. Valid values:
+     *
+     * - **true**: The database is a logical database.
+     * - **false**: The database is a physical database.
+     * @example false
+     *
      * @var bool
      */
     public $logic;
 
     /**
+     * @description The name that is used to search for the database.
+     *
+     * @example xxx@xxx:3306
+     *
      * @var string
      */
     public $searchName;

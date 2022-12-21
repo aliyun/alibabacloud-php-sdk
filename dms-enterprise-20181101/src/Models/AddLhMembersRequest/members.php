@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class members extends Model
 {
     /**
+     * @description The role. Valid values:
+     *
+     *   **ADMIN**: workspace administrator. You can add a workspace administrator only as a DMS administrator or a DBA.
+     *   **MEMBER**: workspace member.
+     *   **DEVELOPER**: task flow developer. Only a workspace member can be added as a task flow developer.
+     *
      * @var string[]
      */
     public $roles;
 
     /**
+     * @description The ID of the user to be added. You can call the [ListUsers](~~141938~~) or [GetUser](~~147098~~) operation to obtain the user ID.
+     *
+     * @example 15****
+     *
      * @var int
      */
     public $userId;

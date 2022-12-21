@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class permDetail extends Model
 {
     /**
+     * @example 2019-12-12 00:00:00
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example 2020-12-12 00:00:00
+     *
      * @var string
      */
     public $expireDate;
 
     /**
+     * @example DEFAULT
+     *
      * @var string
      */
     public $extraData;
 
     /**
+     * @example xxx grant
+     *
      * @var string
      */
     public $originFrom;
 
     /**
+     * @example QUERY
+     *
      * @var string
      */
     public $permType;
 
     /**
+     * @example 13434
+     *
      * @var string
      */
     public $userAccessId;

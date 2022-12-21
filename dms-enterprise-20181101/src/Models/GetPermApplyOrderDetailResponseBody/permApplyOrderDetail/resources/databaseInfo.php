@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class databaseInfo extends Model
 {
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $dbId;
 
     /**
+     * @example MySQL
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @example product
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $logic;
@@ -39,6 +47,8 @@ class databaseInfo extends Model
     public $ownerNickNames;
 
     /**
+     * @example test@xxxx:3306【test】
+     *
      * @var string
      */
     public $searchName;

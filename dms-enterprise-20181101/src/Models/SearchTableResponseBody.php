@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class SearchTableResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 1489257F-1B5D-4B5B-89EF-923C12CEEBD1
+     *
      * @var string
      */
     public $requestId;
@@ -30,11 +36,15 @@ class SearchTableResponseBody extends Model
     public $searchTableList;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

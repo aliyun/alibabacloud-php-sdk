@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class ModifyDesensitizationStrategyResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 283C461F-11D8-48AA-B695-DF092DA32AF3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The returned result.
+     *
+     * @example True
+     *
      * @var bool
      */
     public $result;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $success;

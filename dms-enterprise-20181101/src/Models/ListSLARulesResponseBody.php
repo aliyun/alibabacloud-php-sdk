@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListSLARulesResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 3D1A59F4-EB2B-5D24-80A5-90C446A00DE2
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class ListSLARulesResponseBody extends Model
     public $SLARuleList;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

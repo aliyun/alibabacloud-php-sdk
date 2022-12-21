@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ExecuteStructSyncResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 4E1D2B4D-3E53-4ABC-999D-1D2520B3471A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

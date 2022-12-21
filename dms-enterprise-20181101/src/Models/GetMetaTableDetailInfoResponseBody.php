@@ -15,21 +15,29 @@ class GetMetaTableDetailInfoResponseBody extends Model
     public $detailInfo;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example E881CB2F-DE42-42E5-90EB-8B3173DCB9B9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class ModifyDataCorrectExecSQLResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
+     * @example InvalidOrderId
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
+     * @example Specified parameter OrderId is not valid.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0C1CB646-1DE4-4AD0-B4A4-7D47DD52****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

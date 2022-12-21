@@ -9,51 +9,94 @@ use AlibabaCloud\Tea\Model;
 class sensitiveColumnsDetail extends Model
 {
     /**
+     * @description The description of the field.
+     *
+     * @example test
+     *
      * @var string
      */
     public $columnDescription;
 
     /**
+     * @description The name of the field.
+     *
+     * @example ColumnName_test
+     *
      * @var string
      */
     public $columnName;
 
     /**
+     * @description The data type of the field.
+     *
+     * @example varchar(32)
+     *
      * @var string
      */
     public $columnType;
 
     /**
+     * @description The ID of the database.
+     *
+     * @example 1860****
+     *
      * @var int
      */
     public $dbId;
 
     /**
+     * @description The type of the database.
+     *
+     * @example mysql
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @description The type of the environment to which the database belongs.
+     *
+     * @example product
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @description Indicates whether the database is a logical database. Valid values:
+     *
+     *   **true**: The database is a logical database.
+     *   **false**: The database is not a logical database.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $logic;
 
     /**
+     * @description The name of the database.
+     *
+     * @example SchemaName_test
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @description The name that is used to search for the database.
+     *
+     * @example test@xxx:3306
+     *
      * @var string
      */
     public $searchName;
 
     /**
+     * @description The name of the table.
+     *
+     * @example test
+     *
      * @var string
      */
     public $tableName;

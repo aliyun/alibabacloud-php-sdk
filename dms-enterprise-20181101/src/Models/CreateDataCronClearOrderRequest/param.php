@@ -11,31 +11,55 @@ use AlibabaCloud\Tea\Model;
 class param extends Model
 {
     /**
+     * @description The reason for the data change.
+     *
+     * @example test
+     *
      * @var string
      */
     public $classify;
 
     /**
+     * @description The tables for which you want to clear historical data.
+     *
      * @var cronClearItemList[]
      */
     public $cronClearItemList;
 
     /**
+     * @description The crontab expression that you can use to run the task at a specified time. For more information, see [Crontab expression](~~206581~~).
+     *
+     * @example 0 0 2 * * ?
+     *
      * @var string
      */
     public $cronFormat;
 
     /**
+     * @description The databases for which you want to clear historical data.
+     *
      * @var dbItemList[]
      */
     public $dbItemList;
 
     /**
+     * @description The amount of time taken to run the task. Unit: hours.
+     *
+     * >  If the **specifyDuration** parameter is set to **true**, this parameter is required.
+     * @example 4
+     *
      * @var int
      */
     public $durationHour;
 
     /**
+     * @description Specifies whether to specify an end time for the task. Valid values:
+     *
+     *   **true**: specifies an end time for the task. The task is automatically suspended after this end time.
+     *   **false**: does not specify an end time for the task. The task is stopped after the historical data is cleared.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $specifyDuration;

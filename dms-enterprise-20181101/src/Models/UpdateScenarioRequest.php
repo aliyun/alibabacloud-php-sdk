@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateScenarioRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 12***
+     *
      * @var string
      */
     public $scenarioId;
@@ -24,6 +28,8 @@ class UpdateScenarioRequest extends Model
     public $scenarioName;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

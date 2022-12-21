@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class currentHandler extends Model
 {
     /**
+     * @description The ID of the user.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The nickname of the user.
+     *
+     * @example nickName
+     *
      * @var string
      */
     public $nickName;

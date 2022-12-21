@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class keyInfo extends Model
 {
     /**
+     * @example EXPORT_SUCCESS
+     *
      * @var string
      */
     public $jobStatus;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $preCheckId;

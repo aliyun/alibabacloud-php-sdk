@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class SearchTableRequest extends Model
 {
     /**
+     * @example MySQL
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @example PRODUCT
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $returnGuid;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $searchKey;
 
     /**
+     * @example OWNER
+     *
      * @var string
      */
     public $searchRange;
 
     /**
+     * @example LOGIC_TABLE
+     *
      * @var string
      */
     public $searchTarget;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $tid;

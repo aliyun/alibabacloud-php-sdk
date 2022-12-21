@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sensitiveDataLog extends Model
 {
     /**
+     * @example ExampleColumnName
+     *
      * @var string
      */
     public $columnName;
@@ -29,6 +31,8 @@ class sensitiveDataLog extends Model
     public $securityLevel;
 
     /**
+     * @example ExampleTableName
+     *
      * @var string
      */
     public $tableName;

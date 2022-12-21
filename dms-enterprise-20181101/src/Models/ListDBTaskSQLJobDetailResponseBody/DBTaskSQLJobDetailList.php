@@ -9,71 +9,142 @@ use AlibabaCloud\Tea\Model;
 class DBTaskSQLJobDetailList extends Model
 {
     /**
+     * @description The number of rows affected by the SQL task.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $affectRows;
 
     /**
+     * @description The SQL statement that was executed in the SQL task.
+     *
+     * @example update a set id = 1 where id  = 1;
+     *
      * @var string
      */
     public $currentSql;
 
     /**
+     * @description The ID of the physical database.
+     *
+     * @example 1988****
+     *
      * @var int
      */
     public $dbId;
 
     /**
+     * @description The point in time when the SQL task ended.
+     *
+     * @example 2021-12-16 00:00:01
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The number of times that the SQL statement was executed.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $executeCount;
 
     /**
+     * @description The ID of the details of the SQL task.
+     *
+     * @example 24723****
+     *
      * @var int
      */
     public $jobDetailId;
 
     /**
+     * @description The ID of the SQL task.
+     *
+     * @example 1276****
+     *
      * @var int
      */
     public $jobId;
 
     /**
+     * @description The details of the operational log.
+     *
+     * @example log_info
+     *
      * @var string
      */
     public $log;
 
     /**
+     * @description Indicates whether the database is a logical database. Valid values:
+     *
+     *   **true**: The database is a logical database.
+     *   **false**: The database is a physical database.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $logic;
 
     /**
+     * @description Indicates whether the SQL statement was skipped. Valid values:
+     *
+     *   **true**: The SQL statement was skipped.
+     *   **false**: The SQL statement was not skipped.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $skip;
 
     /**
+     * @description The type of the SQL statement, such as DELETE, UPDATE, or ALTER_TABLE.
+     *
+     * @example CREATE_TABLE
+     *
      * @var string
      */
     public $sqlType;
 
     /**
+     * @description The point in time when the SQL task started.
+     *
+     * @example 2021-12-16 00:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The status of the SQL task. Valid values:
+     *
+     *   **INIT**: The SQL task was initialized.
+     *   **PENDING**: The SQL task waited to be run.
+     *   **BE_SCHEDULED**: The SQL task waited to be scheduled.
+     *   **FAIL**: The SQL task failed.
+     *   **SUCCESS**: The SQL task was successful.
+     *   **PAUSE**: The SQL task was paused.
+     *   **DELETE**: The SQL task was deleted.
+     *   **RUNNING**: The SQL task was being run.
+     *
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The duration of the SQL task. Unit: milliseconds.
+     *
+     * @example 38
+     *
      * @var int
      */
     public $timeDelay;

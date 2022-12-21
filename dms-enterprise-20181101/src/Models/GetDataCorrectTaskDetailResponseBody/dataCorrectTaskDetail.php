@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class dataCorrectTaskDetail extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $actualAffectRows;
 
     /**
+     * @example 2021-03-05 15:08:55
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 1234235
+     *
      * @var int
      */
     public $DBTaskGroupId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $jobStatus;

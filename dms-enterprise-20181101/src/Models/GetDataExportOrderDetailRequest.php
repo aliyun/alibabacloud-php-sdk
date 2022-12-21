@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetDataExportOrderDetailRequest extends Model
 {
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $tid;

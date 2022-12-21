@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ownerApplyOrderDetail extends Model
 {
     /**
+     * @example DB
+     *
      * @var string
      */
     public $applyType;

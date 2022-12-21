@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ModifyDataCorrectExecSQLRequest extends Model
 {
     /**
+     * @description The new SQL script.
+     *
+     * @example update tb set id = 1 where id = 1;
+     *
      * @var string
      */
     public $execSQL;
 
     /**
+     * @description The ID of the data change ticket.
+     *
+     * @example 4328****
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the tenant ID.
+     *
+     * @example 4****
+     *
      * @var int
      */
     public $tid;

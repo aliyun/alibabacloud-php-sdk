@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserRequest extends Model
 {
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $maxExecuteCount;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $maxResultCount;
 
     /**
+     * @example 188xxxxxxxx
+     *
      * @var string
      */
     public $mobile;
 
     /**
+     * @example ADMIN,DBA
+     *
      * @var string
      */
     public $roleNames;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $tid;
 
     /**
+     * @example 123456789
+     *
      * @var int
      */
     public $uid;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $userNick;

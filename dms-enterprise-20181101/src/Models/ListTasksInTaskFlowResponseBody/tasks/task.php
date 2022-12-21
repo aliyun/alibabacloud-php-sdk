@@ -9,41 +9,65 @@ use AlibabaCloud\Tea\Model;
 class task extends Model
 {
     /**
+     * @description The position of the node on the Directed Acyclic Graph (DAG).
+     *
+     * @example {\"x\":435,\"y\":192,\"layoutType\":\"Horizontal\"}
+     *
      * @var string
      */
     public $graphParam;
 
     /**
+     * @description The advanced configuration for the node.
+     *
      * @var string
      */
     public $nodeConfig;
 
     /**
+     * @description The configuration for the node.
+     *
      * @var string
      */
     public $nodeContent;
 
     /**
+     * @description The ID of the node.
+     *
+     * @example 92***
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The name of the node.
+     *
+     * @example Cross-Database Spark SQL-1
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description The output variables for the task.
+     *
      * @var string
      */
     public $nodeOutput;
 
     /**
+     * @description The type of the node. For more information about the valid values for this parameter, see [NodeType parameter](~~424705~~).
+     *
+     * @example SPARK_SQL
+     *
      * @var string
      */
     public $nodeType;
 
     /**
+     * @description The time variables configured for the node.
+     *
      * @var string
      */
     public $timeVariables;

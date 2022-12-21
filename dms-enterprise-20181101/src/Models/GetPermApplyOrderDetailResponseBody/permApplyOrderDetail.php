@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class permApplyOrderDetail extends Model
 {
     /**
+     * @example DB
+     *
      * @var string
      */
     public $applyType;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $permType;
@@ -25,6 +29,8 @@ class permApplyOrderDetail extends Model
     public $resources;
 
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $seconds;

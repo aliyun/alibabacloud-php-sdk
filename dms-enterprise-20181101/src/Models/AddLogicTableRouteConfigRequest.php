@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class AddLogicTableRouteConfigRequest extends Model
 {
     /**
+     * @description The routing algorithm expression. For more information about how to configure a routing algorithm expression, see [Configure a routing algorithm](https://www.alibabacloud.com/help/en/data-management-service/latest/configure-a-routing-algorithm).
+     *
+     * @example #id#%16
+     *
      * @var string
      */
     public $routeExpr;
 
     /**
+     * @description The unique key of the routing algorithm.
+     *
+     * - The unique key of the routing algorithm in the same logical table must be unique.
+     * @example id-hash-mod16
+     *
      * @var string
      */
     public $routeKey;
 
     /**
+     * @description The ID of the logical table. You can call the [ListLogicTables](https://www.alibabacloud.com/help/en/data-management-service/latest/listlogictables) operation to query the ID of the logical table.
+     *
+     * @example 4****
+     *
      * @var int
      */
     public $tableId;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://www.alibabacloud.com/help/en/data-management-service/latest/getuseractivetenant) operation to query the tenant ID.
+     *
+     * @example 4***
+     *
      * @var int
      */
     public $tid;

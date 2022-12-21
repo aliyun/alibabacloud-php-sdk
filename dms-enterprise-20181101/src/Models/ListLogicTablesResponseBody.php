@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListLogicTablesResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
@@ -25,16 +29,22 @@ class ListLogicTablesResponseBody extends Model
     public $logicTableList;
 
     /**
+     * @example F1E6484F-9DF1-4406-9BDE-0861C4629B69
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

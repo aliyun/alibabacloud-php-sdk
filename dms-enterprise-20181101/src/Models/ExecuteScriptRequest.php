@@ -9,21 +9,39 @@ use AlibabaCloud\Tea\Model;
 class ExecuteScriptRequest extends Model
 {
     /**
+     * @description The ID of the database.
+     *
+     * >  This parameter is equivalent to the DatabaseId parameter in the SearchDatabase, ListDatabases, and GetDatabase operations. You can call one of these operations to obtain the required database ID. For more information, see [SearchDatabase](~~141876~~), [ListDatabases](~~141873~~), and [GetDatabase](~~141869~~).
+     * @example 123
+     *
      * @var int
      */
     public $dbId;
 
     /**
+     * @description Specifies whether the database is a logical database.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $logic;
 
     /**
+     * @description The SQL statements to be executed. Data query language (DQL) statements, data definition language (DDL) statements, and data manipulation language (DML) statements are supported. The control mode of the instance that you want to query determines whether you can execute DDL and DML statements.
+     *
+     * @example select dt from report_daily
+     *
      * @var string
      */
     public $script;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * >  To obtain the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Tenant information](~~181330~~).
+     * @example 234
+     *
      * @var int
      */
     public $tid;

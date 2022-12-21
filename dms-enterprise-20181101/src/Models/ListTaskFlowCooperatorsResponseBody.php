@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class ListTaskFlowCooperatorsResponseBody extends Model
 {
     /**
+     * @description The users that are involved in the task flow.
+     *
      * @var cooperatorList
      */
     public $cooperatorList;
 
     /**
+     * @description The error code returned if the request failed.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
+     *
+     * @example 54C99C70-2DFF-5A8C-A252-EBAA1EB668EC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class SLARule extends Model
 {
     /**
+     * @description The ID of the task flow.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @description The ID of the SLA rule.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The timeout period. Unit: minutes.
+     *
+     * @example 1080
+     *
      * @var int
      */
     public $intervalMinutes;
 
     /**
+     * @description The ID of the task node.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @description The type of the rule. Valid values:
+     *
+     *   **0**: an SLA rule for a task flow
+     *   **1**: an SLA rule for a task node
+     *
+     * @example 0
+     *
      * @var int
      */
     public $ruleType;

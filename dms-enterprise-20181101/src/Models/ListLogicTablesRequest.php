@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListLogicTablesRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $databaseId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $returnGuid;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $searchName;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $tid;

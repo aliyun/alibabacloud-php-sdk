@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class index extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $indexComment;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $indexId;
 
     /**
+     * @example idx_test
+     *
      * @var string
      */
     public $indexName;
 
     /**
+     * @example Primary
+     *
      * @var string
      */
     public $indexType;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $tableId;

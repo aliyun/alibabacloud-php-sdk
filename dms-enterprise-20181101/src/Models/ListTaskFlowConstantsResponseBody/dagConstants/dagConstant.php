@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class dagConstant extends Model
 {
     /**
+     * @example example
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $value;

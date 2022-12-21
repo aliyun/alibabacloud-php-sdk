@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class sourceDatabaseInfo extends Model
 {
     /**
+     * @example 432532
+     *
      * @var int
      */
     public $dbId;
 
     /**
+     * @example MySQL
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @example dev
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $logic;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $searchName;

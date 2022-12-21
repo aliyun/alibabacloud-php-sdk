@@ -10,26 +10,46 @@ use AlibabaCloud\Tea\Model;
 class ListLogicTableRouteConfigResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
+     * @example MissingTableId
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
+     * @example TableId is mandatory for this action.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The routing algorithms.
+     *
      * @var logicTableRouteConfigList
      */
     public $logicTableRouteConfigList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7C6A0D7D-B034-59F6-854C-32425AC6****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     * - **true**: The request was successful.
+     * - **false**: The request failed.
+     * @example true
+     *
      * @var bool
      */
     public $success;

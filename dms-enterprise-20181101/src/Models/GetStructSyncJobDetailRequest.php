@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class GetStructSyncJobDetailRequest extends Model
 {
     /**
+     * @description The ID of the ticket.
+     *
+     * @example 4324321
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * >  The ID of the tenant is displayed when you move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Tenant information](~~181330~~).
+     * @example 1
+     *
      * @var int
      */
     public $tid;

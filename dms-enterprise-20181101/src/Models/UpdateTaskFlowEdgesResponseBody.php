@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskFlowEdgesResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description You can use the ID to locate logs and troubleshoot issues.
+     *
+     * @example 93FC1AE1-EC54-52B1-B146-650180FB82E8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

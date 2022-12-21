@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListLogicTableRouteConfigRequest extends Model
 {
     /**
+     * @description The ID of the logical table. You can call the [ListLogicTables](https://www.alibabacloud.com/help/en/data-management-service/latest/listlogictables) operation to query the ID of the logical table.
+     *
+     * @example 1****
+     *
      * @var int
      */
     public $tableId;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://www.alibabacloud.com/help/en/data-management-service/latest/getuseractivetenant) operation to query the tenant ID.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

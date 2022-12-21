@@ -10,21 +10,49 @@ use AlibabaCloud\Tea\Model;
 class orderActionDetail extends Model
 {
     /**
+     * @description The review status of the SQL statement. Valid values:
+     *
+     *   **new**: The SQL statement is pending for analysis.
+     *   **unknown**: The SQL statement failed to be parsed.
+     *   **check_not_pass**: The SQL statement failed the review.
+     *   **check_pass**: The SQL statement passed the review.
+     *   **force_pass**: The SQL statement passed the review by manual effort.
+     *   **force_not_pass**: The SQL statement failed the review by manual effort.
+     *
+     * @example check_not_pass
+     *
      * @var string
      */
     public $checkStatusResult;
 
     /**
+     * @description The ID of the file.
+     *
+     * @example 123345
+     *
      * @var int
      */
     public $fileId;
 
     /**
+     * @description The paging settings.
+     *
      * @var page
      */
     public $page;
 
     /**
+     * @description The optimization suggestion for the SQL statement. Valid values:
+     *
+     *   **MUST_IMPROVE**: The SQL statement must be improved.
+     *   **POTENTIAL_ISSUE**: The SQL statement contains potential issues.
+     *   **SUGGEST_IMPROVE**: We recommend that you improve the SQL statement.
+     *   **USE_DMS_TOOLKIT**: We recommend that you change schemas without locking tables.
+     *   **USE_DMS_DML_UNLOCK**: We recommend that you change data without locking tables.
+     *   **TABLE_INDEX_SUGGEST**: We recommend that you use SQL statements that use indexes.
+     *
+     * @example MUST_IMPROVE
+     *
      * @var string
      */
     public $SQLReviewResult;

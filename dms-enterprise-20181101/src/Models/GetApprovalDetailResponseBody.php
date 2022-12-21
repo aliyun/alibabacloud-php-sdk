@@ -10,26 +10,46 @@ use AlibabaCloud\Tea\Model;
 class GetApprovalDetailResponseBody extends Model
 {
     /**
+     * @description The approval details of the ticket.
+     *
      * @var approvalDetail
      */
     public $approvalDetail;
 
     /**
+     * @description The error code returned if the request fails.
+     *
+     * @example MissingWorkflowInstanceId
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned if the request fails.
+     *
+     * @example WorkflowInstanceId is mandatory for this action.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 66DE630B-ECA1-52A3-9198-602066F9****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     * - **true**: The request was successful.
+     * - **false**: The request failed.
+     * @example true
+     *
      * @var bool
      */
     public $success;

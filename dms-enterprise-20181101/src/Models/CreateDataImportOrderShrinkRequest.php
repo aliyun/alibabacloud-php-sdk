@@ -9,26 +9,42 @@ use AlibabaCloud\Tea\Model;
 class CreateDataImportOrderShrinkRequest extends Model
 {
     /**
+     * @description The key of the attachment that provides more instructions for the ticket. You can call the [GetUserUploadFileJob](~~206069~~) operation to obtain the attachment key from the value of the AttachmentKey parameter.
+     *
+     * @example order_attachment.txt
+     *
      * @var string
      */
     public $attachmentKey;
 
     /**
+     * @description The purpose or objective of the data import. This parameter is used to help reduce unnecessary communication.
+     *
+     * @example test
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The parameters of the ticket.
+     *
      * @var string
      */
     public $paramShrink;
 
     /**
+     * @description The stakeholders of the data import. All stakeholders can view the ticket details and assist in the approval process. Irrelevant users other than DMS administrators and database administrators (DBAs) are not allowed to view the ticket details.
+     *
      * @var string
      */
     public $relatedUserListShrink;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

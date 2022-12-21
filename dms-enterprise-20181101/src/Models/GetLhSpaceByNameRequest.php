@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetLhSpaceByNameRequest extends Model
 {
     /**
+     * @description The name of the workspace.
+     *
+     * @example test_space
+     *
      * @var string
      */
     public $spaceName;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     *
+     * @example 3000
+     *
      * @var int
      */
     public $tid;

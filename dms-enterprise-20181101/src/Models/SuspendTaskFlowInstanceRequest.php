@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SuspendTaskFlowInstanceRequest extends Model
 {
     /**
+     * @example 7***
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @example 47****
+     *
      * @var int
      */
     public $dagInstanceId;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

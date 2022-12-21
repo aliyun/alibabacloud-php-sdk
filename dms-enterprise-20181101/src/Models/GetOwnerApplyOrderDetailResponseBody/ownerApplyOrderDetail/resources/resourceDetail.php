@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class resourceDetail extends Model
 {
     /**
+     * @example MYSQL
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @example PRODUCT
+     *
      * @var string
      */
     public $envType;
@@ -29,11 +33,15 @@ class resourceDetail extends Model
     public $ownerNickNames;
 
     /**
+     * @example yuyang【test】
+     *
      * @var string
      */
     public $searchName;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $tableName;

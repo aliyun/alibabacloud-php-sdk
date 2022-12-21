@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class task extends Model
 {
     /**
+     * @example 7321
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @example {"{\"x\":0,\"y\":0,\"layoutType\":\"Horizontal\"}",  "id": 51***}
+     *
      * @var string
      */
     public $graphParam;
@@ -24,6 +28,8 @@ class task extends Model
     public $nodeConfig;
 
     /**
+     * @example {\"dbList\":[{\"instanceId\":177****}"   }
+     *
      * @var string
      */
     public $nodeContent;
@@ -34,16 +40,22 @@ class task extends Model
     public $nodeName;
 
     /**
+     * @example { "outputs":[ "extractMethod":"json" , "variableName":"var",   "description":"demo desc" } ] }
+     *
      * @var string
      */
     public $nodeOutput;
 
     /**
+     * @example SPARK_SQL
+     *
      * @var string
      */
     public $nodeType;
 
     /**
+     * @example {\"variables\":[{\"name\":\"Today\",\"pattern\":\"yyyy-MM-dd|+1d\"}]}
+     *
      * @var string
      */
     public $timeVariables;

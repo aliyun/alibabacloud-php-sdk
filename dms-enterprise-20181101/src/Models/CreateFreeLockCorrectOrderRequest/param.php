@@ -10,46 +10,90 @@ use AlibabaCloud\Tea\Model;
 class param extends Model
 {
     /**
+     * @description The key of the attachment that contains the SQL statements used to change data. This parameter is not supported.
+     *
+     * @example test.sql
+     *
      * @var string
      */
     public $attachmentName;
 
     /**
+     * @description The reason for the data change.
+     *
+     * @example test
+     *
      * @var string
      */
     public $classify;
 
     /**
+     * @description The databases in which you want to change data.
+     *
      * @var dbItemList[]
      */
     public $dbItemList;
 
     /**
+     * @description The execution mode of the ticket after the ticket is approved. Valid values:
+     *
+     *   **COMMITOR**: The data change is performed by the user who submits the ticket.
+     *   **AUTO**: The data change is automatically performed after the ticket is approved.
+     *   **LAST_AUDITOR**: The data change is performed by the last approver of the ticket.
+     *
+     * @example COMMITOR
+     *
      * @var string
      */
     public $execMode;
 
     /**
+     * @description The SQL statements that you want to execute to change data.
+     *
+     * @example delete from base_user where 1 = 1;
+     *
      * @var string
      */
     public $execSQL;
 
     /**
+     * @description The key of the attachment that contains the SQL statements used to roll back the data change.
+     *
+     * @example test_rollback.sql
+     *
      * @var string
      */
     public $rollbackAttachmentName;
 
     /**
+     * @description The SQL statements used to roll back the data change.
+     *
+     * @example empty
+     *
      * @var string
      */
     public $rollbackSQL;
 
     /**
+     * @description The format of the SQL statements used to roll back the data change. Valid values:
+     *
+     *   **TEXT**: text
+     *   **ATTACHMENT**: attachment. This value is not supported.
+     *
+     * @example TEXT
+     *
      * @var string
      */
     public $rollbackSqlType;
 
     /**
+     * @description The format of the SQL statements used to change data. Valid values:
+     *
+     *   **TEXT**: text
+     *   **ATTACHMENT**: attachment. This value is not supported.
+     *
+     * @example TEXT
+     *
      * @var string
      */
     public $sqlType;

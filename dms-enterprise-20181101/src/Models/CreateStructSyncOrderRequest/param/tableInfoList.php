@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class tableInfoList extends Model
 {
     /**
+     * @example test_tbl
+     *
      * @var string
      */
     public $sourceTableName;
 
     /**
+     * @example test_tbl
+     *
      * @var string
      */
     public $targetTableName;

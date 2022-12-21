@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class ListTablesRequest extends Model
 {
     /**
+     * @description The ID of the physical database. You can call the [ListDatabases](~~141873~~) or [SearchDatabase](~~141876~~) operation to obtain the ID of the physical database.
+     *
+     * @example 1860****
+     *
      * @var string
      */
     public $databaseId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description Specifies whether to return the GUID of a table. Valid values:
+     *
+     *   **true**: returns the GUID of a table.
+     *   **false**: does not return the GUID of a table.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $returnGuid;
 
     /**
+     * @description The name used to search for tables. Fuzzy search is supported.
+     *
+     * @example test
+     *
      * @var string
      */
     public $searchName;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

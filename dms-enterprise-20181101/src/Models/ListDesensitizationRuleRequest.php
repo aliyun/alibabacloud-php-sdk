@@ -9,36 +9,63 @@ use AlibabaCloud\Tea\Model;
 class ListDesensitizationRuleRequest extends Model
 {
     /**
+     * @description The type of the masking algorithm.
+     *
+     * @example MD5
+     *
      * @var string
      */
     public $funcType;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. The maximum value is 100.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the masking rule.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $ruleId;
 
     /**
+     * @description The name of the masking rule.
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The algorithm used for masking.
+     *
+     * @example HASH
+     *
      * @var string
      */
     public $ruleType;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [View information about the current tenant](~~181330~~).
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

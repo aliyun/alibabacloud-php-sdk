@@ -10,31 +10,56 @@ use AlibabaCloud\Tea\Model;
 class ListDBTaskSQLJobDetailResponseBody extends Model
 {
     /**
+     * @description The details of SQL tasks.
+     *
      * @var DBTaskSQLJobDetailList[]
      */
     public $DBTaskSQLJobDetailList;
 
     /**
+     * @description The error code that is returned.
+     *
+     * @example MissingJobId
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message that is returned.
+     *
+     * @example JobId is mandatory for this action.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3F044E33-FE09-58F1-8C61-A0F612EC****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**: The request is successful.
+     *   **false**: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The total number of SQL tasks.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

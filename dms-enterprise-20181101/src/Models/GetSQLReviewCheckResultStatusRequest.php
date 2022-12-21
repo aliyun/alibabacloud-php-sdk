@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetSQLReviewCheckResultStatusRequest extends Model
 {
     /**
+     * @example 123321
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $tid;

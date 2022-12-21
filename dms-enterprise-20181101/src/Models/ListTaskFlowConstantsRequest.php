@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListTaskFlowConstantsRequest extends Model
 {
     /**
+     * @example 3****
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

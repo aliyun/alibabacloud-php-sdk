@@ -15,21 +15,29 @@ class GetDataCorrectTaskDetailResponseBody extends Model
     public $dataCorrectTaskDetail;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example B5FD0BC8-2D90-4478-B8EC-A0E92E0B1773
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

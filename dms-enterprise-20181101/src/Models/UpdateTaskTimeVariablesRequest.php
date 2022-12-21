@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskTimeVariablesRequest extends Model
 {
     /**
+     * @example 43****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;
 
     /**
+     * @example {"variables":[ {"name":"var", "pattern":"yyyy-MM-dd|+0m+0h-2d+0w+0M+1y"} ]}
+     *
      * @var string
      */
     public $timeVariables;

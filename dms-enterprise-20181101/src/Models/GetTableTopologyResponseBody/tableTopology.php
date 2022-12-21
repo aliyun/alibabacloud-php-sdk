@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class tableTopology extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $logic;
 
     /**
+     * @example IDB_L_308302.yuyang_test.test_ch
+     *
      * @var string
      */
     public $tableGuid;
 
     /**
+     * @example test_ch
+     *
      * @var string
      */
     public $tableName;

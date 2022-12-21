@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class DBTopologyInfoList extends Model
 {
     /**
+     * @example def
+     *
      * @var string
      */
     public $catalogName;
 
     /**
+     * @example 423532
+     *
      * @var int
      */
     public $dbId;
 
     /**
+     * @example polardb
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @example dev
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @example 4325325
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @example rm-xxx
+     *
      * @var string
      */
     public $instanceResourceId;
 
     /**
+     * @example RDS
+     *
      * @var string
      */
     public $instanceSource;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example db_test@rm-xxx:3306
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @example db_test
+     *
      * @var string
      */
     public $searchName;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class RefundPayAsYouGoOrderResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example C51420E3-144A-4A94-B473-8662FCF4AD10
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskContentResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
+     *
+     * @example 39557312-28D5-528F-9554-80C0700EB489
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

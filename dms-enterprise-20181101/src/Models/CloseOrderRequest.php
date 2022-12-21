@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CloseOrderRequest extends Model
 {
     /**
+     * @example close reason
+     *
      * @var string
      */
     public $closeReason;
 
     /**
+     * @example 1343
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $tid;

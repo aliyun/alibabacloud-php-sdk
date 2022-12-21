@@ -14,6 +14,8 @@ class structSyncExecSqlDetail extends Model
     public $execSql;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalSqlCount;

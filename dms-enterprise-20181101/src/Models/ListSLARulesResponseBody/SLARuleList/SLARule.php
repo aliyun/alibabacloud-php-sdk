@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class SLARule extends Model
 {
     /**
+     * @example 11****
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 1080
+     *
      * @var int
      */
     public $intervalMinutes;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $ruleType;

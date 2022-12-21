@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListSLARulesRequest extends Model
 {
     /**
+     * @example 11****
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

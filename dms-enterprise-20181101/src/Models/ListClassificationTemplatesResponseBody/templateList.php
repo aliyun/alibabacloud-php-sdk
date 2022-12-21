@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class templateList extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @example 3**
+     *
      * @var int
      */
     public $templateId;
 
     /**
+     * @example USER_DEFINE
+     *
      * @var string
      */
     public $templateType;

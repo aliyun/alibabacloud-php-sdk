@@ -11,46 +11,64 @@ use AlibabaCloud\Tea\Model;
 class database extends Model
 {
     /**
+     * @example def
+     *
      * @var string
      */
     public $catalogName;
 
     /**
+     * @example 43125312
+     *
      * @var string
      */
     public $databaseId;
 
     /**
+     * @example mysql
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @example 43253
+     *
      * @var string
      */
     public $dbaId;
 
     /**
+     * @example dmstest
+     *
      * @var string
      */
     public $dbaName;
 
     /**
+     * @example utf8mb4
+     *
      * @var string
      */
     public $encoding;
 
     /**
+     * @example product
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @example rm-xxxab3r272.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example 43215325
+     *
      * @var string
      */
     public $instanceId;
@@ -66,26 +84,36 @@ class database extends Model
     public $ownerNameList;
 
     /**
+     * @example 3306
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example dmstest
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @example dmstest@rm-xxxab3r272.mysql.rds.aliyuncs.com:3306
+     *
      * @var string
      */
     public $searchName;
 
     /**
+     * @example def
+     *
      * @var string
      */
     public $sid;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $state;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskFlowScheduleResponseBody extends Model
 {
     /**
+     * @example InvalidParameterValid
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example InvalidParameterValid
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 7BF38A13-C181-5B5E-97F1-8643F8A10093
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

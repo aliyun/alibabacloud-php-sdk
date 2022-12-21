@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetDataCorrectTaskDetailRequest extends Model
 {
     /**
+     * @example 12435523
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example 14325432
+     *
      * @var int
      */
     public $tid;

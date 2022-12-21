@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetStructSyncJobAnalyzeResultRequest extends Model
 {
     /**
+     * @example CREATE_TABLE
+     *
      * @var string
      */
     public $compareType;
 
     /**
+     * @example 1342355
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $tid;

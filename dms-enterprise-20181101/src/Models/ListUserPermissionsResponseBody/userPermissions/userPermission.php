@@ -10,86 +10,157 @@ use AlibabaCloud\Tea\Model;
 class userPermission extends Model
 {
     /**
+     * @description The alias of the instance.
+     *
+     * @example instance_alias
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @description The name of the field.
+     *
+     * @example column_name
+     *
      * @var string
      */
     public $columnName;
 
     /**
+     * @description The ID of the database.
+     *
+     * @example 1860****
+     *
      * @var string
      */
     public $dbId;
 
     /**
+     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](https://www.alibabacloud.com/help/en/data-management-service/latest/dbtype-parameter).
+     *
+     * @example polardb
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @description The permissions on a specific type of objects that are granted to the user. Valid values:
+     *
+     * - LOGIC_TABLE: permissions on logical tables
+     * @example DATABASE
+     *
      * @var string
      */
     public $dsType;
 
     /**
+     * @description The type of the environment to which the database belongs. Valid values:
+     *
+     * - stag: STAG environment
+     * @example dev
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @description The endpoint that is used to connect the database.
+     *
+     * @example rm-bp144d5ky4l4r****
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example 174****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description Indicates whether the database is a logical database. Valid values:
+     *
+     *   true: The database is a logical database.
+     *   false: The database is a physical database.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $logic;
 
     /**
+     * @description The details of permissions.
+     *
      * @var permDetails
      */
     public $permDetails;
 
     /**
+     * @description The port that is used to connect to the instance.
+     *
+     * @example 3306
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The name of the database.
+     *
+     * @example test_db
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @description The name that is used to search for the database.
+     *
+     * @example test_db@xxx:3306
+     *
      * @var string
      */
     public $searchName;
 
     /**
+     * @description The ID of the table.
+     *
+     * @example 13434
+     *
      * @var string
      */
     public $tableId;
 
     /**
+     * @description The name of the table.
+     *
+     * @example test_table
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @description The ID of the user.
+     *
+     * @example 51****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description The nickname of the user.
+     *
+     * @example nick_name
+     *
      * @var string
      */
     public $userNickName;

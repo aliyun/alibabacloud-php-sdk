@@ -10,26 +10,46 @@ use AlibabaCloud\Tea\Model;
 class ListColumnsResponseBody extends Model
 {
     /**
+     * @description The information about the columns returned.
+     *
      * @var columnList
      */
     public $columnList;
 
     /**
+     * @description The error code returned.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0AD9AC55-5873-474A-9F33-4285806A3619
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     * - **true**: The request was successful.
+     * - **false**: The request failed.
+     * @example true
+     *
      * @var bool
      */
     public $success;

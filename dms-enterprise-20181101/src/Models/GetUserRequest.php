@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class GetUserRequest extends Model
 {
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the ID of the tenant.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;
 
     /**
+     * @description The UID of the user. You can view your UID by moving the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console.
+     *
+     * @example 22973492647626****
+     *
      * @var string
      */
     public $uid;
 
     /**
+     * @description The ID of the user. You can call the [ListUsers](~~141938~~) operation to query the ID of the user.
+     *
+     * @example 51****
+     *
      * @var string
      */
     public $userId;

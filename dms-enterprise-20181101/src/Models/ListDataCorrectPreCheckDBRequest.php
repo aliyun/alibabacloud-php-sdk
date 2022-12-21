@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class ListDataCorrectPreCheckDBRequest extends Model
 {
     /**
+     * @description The ID of the ticket for the data change.
+     *
+     * @example 432****
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the ID of the tenant.
+     *
+     * @example 4321****
+     *
      * @var int
      */
     public $tid;

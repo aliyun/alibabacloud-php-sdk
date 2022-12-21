@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetOrderAttachmentFileRequest extends Model
 {
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

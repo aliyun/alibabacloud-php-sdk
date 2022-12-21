@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskFlowConstantsRequest extends Model
 {
     /**
+     * @description The constants for the task flow.
+     *
      * @var dagConstants[]
      */
     public $dagConstants;
 
     /**
+     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
+     *
+     * @example 3****
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the tenant ID.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

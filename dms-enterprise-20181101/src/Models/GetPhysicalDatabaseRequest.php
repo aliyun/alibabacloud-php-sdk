@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetPhysicalDatabaseRequest extends Model
 {
     /**
+     * @example 43153
+     *
      * @var int
      */
     public $dbId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $tid;

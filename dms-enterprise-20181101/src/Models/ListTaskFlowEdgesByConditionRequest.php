@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class ListTaskFlowEdgesByConditionRequest extends Model
 {
     /**
+     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
+     *
+     * @example 15***
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @description The ID of the task flow edge.
+     *
+     * @example 24***
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The ID of the end node on the edge.
+     *
+     * @example 44***
+     *
      * @var int
      */
     public $nodeEnd;
 
     /**
+     * @description The ID of the start node on the edge.
+     *
+     * @example 44***
+     *
      * @var int
      */
     public $nodeFrom;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

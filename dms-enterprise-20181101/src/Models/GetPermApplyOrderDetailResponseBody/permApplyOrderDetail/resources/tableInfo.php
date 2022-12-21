@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tableInfo extends Model
 {
     /**
+     * @example test_tb
+     *
      * @var string
      */
     public $tableName;

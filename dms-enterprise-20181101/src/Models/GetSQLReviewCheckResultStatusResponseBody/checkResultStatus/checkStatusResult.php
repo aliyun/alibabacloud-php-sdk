@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class checkStatusResult extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $checkNotPass;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $checkPass;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $forceNotPass;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $forcePass;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $new;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $unknown;

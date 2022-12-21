@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListIndexesResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
@@ -25,11 +29,15 @@ class ListIndexesResponseBody extends Model
     public $indexList;
 
     /**
+     * @example 1F4DE2F1-5B47-462A-A973-E02EB7AF386B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

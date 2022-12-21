@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class logicTable extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $databaseId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $logic;
@@ -31,31 +35,43 @@ class logicTable extends Model
     public $ownerNameList;
 
     /**
+     * @example yuyang_test
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @example 4
+     *
      * @var string
      */
     public $tableCount;
 
     /**
+     * @example test[1-4]
+     *
      * @var string
      */
     public $tableExpr;
 
     /**
+     * @example IDB_L_308302.yuyang_test.test_ch
+     *
      * @var string
      */
     public $tableGuid;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $tableId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $tableName;

@@ -9,16 +9,27 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskFlowEdgesShrinkRequest extends Model
 {
     /**
+     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
+     *
+     * @example 15***
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @description The list of updated task flow edges.
+     *
      * @var string
      */
     public $edgesShrink;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

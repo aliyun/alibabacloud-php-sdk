@@ -9,71 +9,141 @@ use AlibabaCloud\Tea\Model;
 class SQLExecAuditLog extends Model
 {
     /**
+     * @description The number of rows affected by the SQL statement. For example, if you execute an SQL statement to query data, the number of retrieved rows is returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $affectRows;
 
     /**
+     * @description The ID of the database.
+     *
+     * @example 2157****
+     *
      * @var int
      */
     public $dbId;
 
     /**
+     * @description The amount of time consumed by the execution of the SQL statement. Unit: milliseconds.
+     *
+     * @example 18
+     *
      * @var int
      */
     public $elapsedTime;
 
     /**
+     * @description The execution status of the SQL statement. Valid values:
+     *
+     *   **FAIL**: The SQL statement fails to be executed.
+     *   **NOEXE**: The SQL statement has not been executed.
+     *   **RUNNING**: The SQL statement is being executed.
+     *   **CANCEL**: The execution of the SQL statement is canceled.
+     *   **SUCCESS**: The SQL statement is executed.
+     *
+     * @example SUCCESS
+     *
      * @var string
      */
     public $execState;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example 185***
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @description The name of the database.
+     *
+     * >  If the SQL statement takes effect on an instance, the name of the instance is returned.
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description Indicates whether the database is a logical database. Valid values:
+     *
+     *   **true**: The database is a logical database.
+     *   **false**: The database is a physical database.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $logic;
 
     /**
+     * @description The time when the operation specified by the SQL statement was performed on the instance or database.
+     *
+     * @example 2021-11-08 11:04:27
+     *
      * @var string
      */
     public $opTime;
 
     /**
+     * @description The comment on the SQL statement.
+     *
+     * @example success
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The SQL statement that was written.
+     *
+     * @example SELECT * FROM `polar123`.`p_qw` ORDER BY `id` DESC
+     *
      * @var string
      */
     public $SQL;
 
     /**
+     * @description The type of the SQL statement. Valid values:
+     *
+     *   **SELECT**: the SQL statement that is used to query data.
+     *   **INSERT**: the SQL statement that is used to insert data.
+     *   **DELETE**: the SQL statement that is used to delete data.
+     *   **CREATE_TABLE**: the SQL statement that is used to create tables.
+     *
+     * >  To view more types of SQL statements, log on to the DMS console and click Security and Specifications. In the left-side navigation pane, click **Operation Audit**. Then, you can view all supported types of SQL statements from the **SQL type** drop-down list.
+     * @example SELECT
+     *
      * @var string
      */
     public $SQLType;
 
     /**
+     * @description The name of the database.
+     *
+     * @example polar123
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @description The ID of the user who wrote the SQL statement.
+     *
+     * @example 12****
+     *
      * @var int
      */
     public $userId;
 
     /**
+     * @description The nickname of the user who wrote the SQL statement.
+     *
+     * @example test_UserName
+     *
      * @var string
      */
     public $userName;

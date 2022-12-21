@@ -9,23 +9,41 @@ use AlibabaCloud\Tea\Model;
 class cooperator extends Model
 {
     /**
+     * @description The email address of the user.
+     *
+     * @example test@XX.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @description The username.
+     *
+     * @example name
+     *
      * @var string
      */
     public $loginName;
 
     /**
+     * @description The alias of the user.
+     *
+     * @example name
+     *
      * @var string
      */
     public $nickName;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'email'     => 'Email',
         'loginName' => 'LoginName',
         'nickName'  => 'NickName',
+        'userId'    => 'UserId',
     ];
 
     public function validate()
@@ -43,6 +61,9 @@ class cooperator extends Model
         }
         if (null !== $this->nickName) {
             $res['NickName'] = $this->nickName;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -64,6 +85,9 @@ class cooperator extends Model
         }
         if (isset($map['NickName'])) {
             $model->nickName = $map['NickName'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

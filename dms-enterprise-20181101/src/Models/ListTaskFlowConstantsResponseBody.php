@@ -15,21 +15,29 @@ class ListTaskFlowConstantsResponseBody extends Model
     public $dagConstants;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 028BF827-3801-5869-8548-F4A039256304
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class standardGroup extends Model
 {
     /**
+     * @description The type of the control mode. Valid values:
+     *
+     *   **COMMON**: Security Collaboration
+     *   **NONE_CONTROL**: Flexible Management
+     *   **STABLE**: Stable Change
+     *
+     * @example NONE_CONTROL
+     *
      * @var string
      */
     public $groupMode;
 
     /**
+     * @description The name of the security rule set corresponding to the control mode.
+     *
      * @var string
      */
     public $groupName;

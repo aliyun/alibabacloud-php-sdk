@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class columnList extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoIncrement;
 
     /**
+     * @example 191234849
+     *
      * @var string
      */
     public $columnId;
 
     /**
+     * @example id
+     *
      * @var string
      */
     public $columnName;
 
     /**
+     * @example bigint(20) unsigned
+     *
      * @var string
      */
     public $columnType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $dataLength;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $dataPrecision;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $dataScale;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $nullable;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $position;

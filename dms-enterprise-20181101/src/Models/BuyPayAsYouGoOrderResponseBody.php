@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class BuyPayAsYouGoOrderResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example dms_pre_public_cn-nif23l****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example C51420E3-144A-4A94-B473-8662FCF4AD10
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

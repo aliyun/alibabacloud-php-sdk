@@ -9,26 +9,42 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @description The fields that are queried after the SQL statement is executed.
+     *
      * @var string[]
      */
     public $columnNames;
 
     /**
+     * @description The error message that is returned if the SQL statement fails to be executed. For example, an error message is returned because the SQL statement is invalid.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The total number of entries that are returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $rowCount;
 
     /**
+     * @description The rows that are queried after the SQL statement is executed.
+     *
      * @var mixed[][]
      */
     public $rows;
 
     /**
+     * @description Indicates whether the SQL statement is executed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

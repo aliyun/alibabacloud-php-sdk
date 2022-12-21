@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetDataCronClearTaskDetailListRequest extends Model
 {
     /**
+     * @example 432532
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $tid;

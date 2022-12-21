@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class RevokeUserPermissionResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
+     * @example MissingUserId
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
+     * @example UserId is mandatory for this action.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A99CD576-1E18-4E86-931E-C3CCE56D****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

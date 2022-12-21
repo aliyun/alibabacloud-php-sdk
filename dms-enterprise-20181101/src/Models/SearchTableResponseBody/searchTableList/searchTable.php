@@ -11,46 +11,64 @@ use AlibabaCloud\Tea\Model;
 class searchTable extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $DBSearchName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $databaseId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @example mysql
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example utf8
+     *
      * @var string
      */
     public $encoding;
 
     /**
+     * @example innodb
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $logic;
@@ -66,21 +84,29 @@ class searchTable extends Model
     public $ownerNameList;
 
     /**
+     * @example IDB_L_9032.db-test.yuyang_test
+     *
      * @var string
      */
     public $tableGuid;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $tableId;
 
     /**
+     * @example test_table
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @example test@xxx.xxx.xxx.xxx:3306
+     *
      * @var string
      */
     public $tableSchemaName;

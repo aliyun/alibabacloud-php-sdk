@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListWorkFlowTemplatesRequest extends Model
 {
     /**
+     * @example Admin
+     *
      * @var string
      */
     public $searchName;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $tid;

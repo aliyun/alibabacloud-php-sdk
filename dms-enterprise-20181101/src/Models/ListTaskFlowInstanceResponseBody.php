@@ -10,31 +10,56 @@ use AlibabaCloud\Tea\Model;
 class ListTaskFlowInstanceResponseBody extends Model
 {
     /**
+     * @description The information about the execution records returned.
+     *
      * @var DAGInstanceList
      */
     public $DAGInstanceList;
 
     /**
+     * @description The error code returned if the request fails.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned if the request fails.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 8CFF2295-8249-5287-B888-DBD4F0D76CB0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**: The request is successful.
+     *   **false**: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The total number of execution records returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

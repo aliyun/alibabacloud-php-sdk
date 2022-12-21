@@ -10,31 +10,55 @@ use AlibabaCloud\Tea\Model;
 class ListLogicDatabasesResponseBody extends Model
 {
     /**
+     * @description The error code that is returned.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message that is returned.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The details of logical databases.
+     *
      * @var logicDatabaseList
      */
     public $logicDatabaseList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 8068AF82-8A1A-592C-AC2E-6B75338BAB87
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     * - **true**: The request is successful.
+     * - **false**: The request fails.
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The total number of logical databases.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $totalCount;

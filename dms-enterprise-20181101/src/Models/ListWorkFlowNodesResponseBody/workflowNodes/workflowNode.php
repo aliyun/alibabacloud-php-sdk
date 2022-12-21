@@ -15,31 +15,43 @@ class workflowNode extends Model
     public $auditUsers;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $createUserId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $createUserNickName;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @example SYS
+     *
      * @var string
      */
     public $nodeType;

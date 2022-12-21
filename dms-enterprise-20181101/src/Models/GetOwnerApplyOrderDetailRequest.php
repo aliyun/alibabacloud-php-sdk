@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetOwnerApplyOrderDetailRequest extends Model
 {
     /**
+     * @example 730000
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $tid;

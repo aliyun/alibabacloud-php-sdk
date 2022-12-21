@@ -11,76 +11,135 @@ use AlibabaCloud\Tea\Model;
 class searchDatabase extends Model
 {
     /**
+     * @description The alias of the database.
+     *
+     * @example test_rds
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @description The ID of the database.
+     *
+     * @example 2528****
+     *
      * @var string
      */
     public $databaseId;
 
     /**
+     * @description The name of the data link for cross-database queries.
+     *
+     * @example datalink_name
+     *
      * @var string
      */
     public $datalinkName;
 
     /**
+     * @description The type of the database.
+     *
+     * @example mysql
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @description The ID of the user who assumes the database administrator (DBA) role.
+     *
+     * @example 10****
+     *
      * @var string
      */
     public $dbaId;
 
     /**
+     * @description The encoding method of the database.
+     *
+     * @example utf8
+     *
      * @var string
      */
     public $encoding;
 
     /**
+     * @description The type of the environment to which the database belongs. For more information, see [Change the environment type of an instance](~~163309~~).
+     *
+     * @example test
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @description The endpoint of the instance in which the database resides.
+     *
+     * @example rm-xxxx.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @description Indicates whether the database is a logical database. Valid values:
+     *
+     *   **true**: The database is a logical database.
+     *   **false**: The database is not a logical database.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $logic;
 
     /**
+     * @description The IDs of the owners of the database.
+     *
      * @var ownerIdList
      */
     public $ownerIdList;
 
     /**
+     * @description The nicknames of the database owners.
+     *
      * @var ownerNameList
      */
     public $ownerNameList;
 
     /**
+     * @description The port number of the instance in which the database resides.
+     *
+     * @example 3306
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The name of the database.
+     *
+     * @example test
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @description The name that is used to search for the database.
+     *
+     * @example test@xxx.xxx.xxx.xxx:3306
+     *
      * @var string
      */
     public $searchName;
 
     /**
+     * @description The system ID (Sid) of the instance in which the database resides.
+     *
+     * @example testSid
+     *
      * @var string
      */
     public $sid;

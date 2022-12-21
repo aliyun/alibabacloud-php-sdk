@@ -9,31 +9,57 @@ use AlibabaCloud\Tea\Model;
 class permDetail extends Model
 {
     /**
+     * @description The time when the permissions were granted.
+     *
+     * @example 2019-12-12 00:00:00
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @description The time when the permissions expire.
+     *
+     * @example 2020-12-12 00:00:00
+     *
      * @var string
      */
     public $expireDate;
 
     /**
+     * @description This parameter is reserved.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $extraData;
 
     /**
+     * @description The user who grants the permissions.
+     *
      * @var string
      */
     public $originFrom;
 
     /**
+     * @description The type of the permissions. Valid values:
+     *
+     *   QUERY: the query permissions
+     *   EXPORT: the export permissions
+     *   CORRECT: the change permissions
+     *
+     * @example QUERY
+     *
      * @var string
      */
     public $permType;
 
     /**
+     * @description The ID of the authorization record.
+     *
+     * @example 758****
+     *
      * @var string
      */
     public $userAccessId;

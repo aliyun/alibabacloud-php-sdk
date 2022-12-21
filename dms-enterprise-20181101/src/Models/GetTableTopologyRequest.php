@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetTableTopologyRequest extends Model
 {
     /**
+     * @example IDB_L_308302.yuyang_test.test_ch
+     *
      * @var string
      */
     public $tableGuid;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $tid;

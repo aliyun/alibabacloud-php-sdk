@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ExecuteDataExportShrinkRequest extends Model
 {
     /**
+     * @example {    "fileType": "CSV",    "encoding": ""  }
+     *
      * @var string
      */
     public $actionDetailShrink;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $tid;

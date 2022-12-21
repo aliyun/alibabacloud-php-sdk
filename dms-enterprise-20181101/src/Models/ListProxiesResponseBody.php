@@ -10,26 +10,46 @@ use AlibabaCloud\Tea\Model;
 class ListProxiesResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
+     * @example User can not access to Tenant [123445]
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description An array that consists of secure access proxies.
+     *
      * @var proxyList[]
      */
     public $proxyList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 5812180E-555F-5F90-BE4F-280576F4****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     * - **true**: The request was successful.
+     * - **false**: The request failed.
+     * @example true
+     *
      * @var bool
      */
     public $success;

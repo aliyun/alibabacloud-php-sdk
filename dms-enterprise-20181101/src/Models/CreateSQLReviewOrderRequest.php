@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSQLReviewOrderRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $comment;
@@ -25,6 +27,8 @@ class CreateSQLReviewOrderRequest extends Model
     public $relatedUserList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $tid;

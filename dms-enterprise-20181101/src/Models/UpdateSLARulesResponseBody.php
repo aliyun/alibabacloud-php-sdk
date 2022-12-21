@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateSLARulesResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 88E053F7-347B-52DD-A186-1F340EEC0C27
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

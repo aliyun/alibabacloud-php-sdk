@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableColumnRequest extends Model
 {
     /**
+     * @description The globally unique identifier (GUID) of the table in Data Management (DMS).
+     *
+     *   If the database to which the table belongs is a logical database, you can call the [ListLogicTables](~~141875~~) operation to obtain the value of this parameter.
+     *   If the database to which the table belongs is a physical database, you can call the [ListTables](~~141878~~) operation to obtain the value of this parameter.
+     *
+     * @example IDB_40753****.qntest2.activity_setting
+     *
      * @var string
      */
     public $tableGuid;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the tenant ID.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

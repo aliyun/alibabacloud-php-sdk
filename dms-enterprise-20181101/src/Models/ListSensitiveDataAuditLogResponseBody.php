@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListSensitiveDataAuditLogResponseBody extends Model
 {
     /**
+     * @example 403
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example E0D21075-CD3E-4D98-8264-FD8AD04A63B6
+     *
      * @var string
      */
     public $requestId;
@@ -30,11 +36,15 @@ class ListSensitiveDataAuditLogResponseBody extends Model
     public $sensitiveDataAuditLogList;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

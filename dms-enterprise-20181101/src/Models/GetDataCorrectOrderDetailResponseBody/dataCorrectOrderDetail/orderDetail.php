@@ -9,56 +9,106 @@ use AlibabaCloud\Tea\Model;
 class orderDetail extends Model
 {
     /**
+     * @description The number of affected rows that is obtained by the precheck.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $actualAffectRows;
 
     /**
+     * @description The name of the attachment that contains the SQL statements used to change data.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $attachmentName;
 
     /**
+     * @description The category of the reason for the data change.
+     *
+     * @example test
+     *
      * @var string
      */
     public $classify;
 
     /**
+     * @description The estimated number of affected rows.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $estimateAffectRows;
 
     /**
+     * @description The executed SQL statements.
+     *
+     * @example update t1 set name = \"xxx\" where id <= 100
+     *
      * @var string
      */
     public $exeSQL;
 
     /**
+     * @description Indicates whether the precheck result is ignored. Valid values:
+     *
+     * - **true**: The precheck result is ignored.
+     * - **false**: The precheck result is not ignored.
+     * @example false
+     *
      * @var bool
      */
     public $ignoreAffectRows;
 
     /**
+     * @description The reason why the precheck result is ignored.
+     *
+     * @example test
+     *
      * @var string
      */
     public $ignoreAffectRowsReason;
 
     /**
+     * @description The name of the attachment that contains the SQL statements used to roll back the data change.
+     *
+     * @example test
+     *
      * @var string
      */
     public $rbAttachmentName;
 
     /**
+     * @description The SQL statements used to roll back the data change.
+     *
+     * @example empty
+     *
      * @var string
      */
     public $rbSQL;
 
     /**
+     * @description The format of the SQL statements used to roll back the data change. Valid values:
+     *
+     * - **TEXT**: text
+     * - **ATTACHMENT**: attachment
+     * @example text
+     *
      * @var string
      */
     public $rbSQLType;
 
     /**
+     * @description The format of the SQL statements used to change data. Valid values:
+     *
+     * - **TEXT**: text
+     * - **ATTACHMENT**: attachment
+     * @example text
+     *
      * @var string
      */
     public $sqlType;

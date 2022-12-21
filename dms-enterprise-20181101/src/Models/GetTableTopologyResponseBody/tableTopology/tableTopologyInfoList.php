@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class tableTopologyInfoList extends Model
 {
     /**
+     * @example 43215
+     *
      * @var int
      */
     public $dbId;
 
     /**
+     * @example yuyang_test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @example yuyang_test@localhost:3306【yuyang_test_dev】
+     *
      * @var string
      */
     public $dbSearchName;
 
     /**
+     * @example mysql
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @example 4325325
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @example rm-xxx
+     *
      * @var string
      */
     public $instanceResourceId;
 
     /**
+     * @example RDS
+     *
      * @var string
      */
     public $instanceSource;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $tableCount;
 
     /**
+     * @example test_ch_[0000-0005]
+     *
      * @var string
      */
     public $tableNameExpr;
 
     /**
+     * @example test_ch_0000,test_ch_0001,test_ch_0002,test_ch_0003,test_ch_0004,test_ch_0005
+     *
      * @var string
      */
     public $tableNameList;

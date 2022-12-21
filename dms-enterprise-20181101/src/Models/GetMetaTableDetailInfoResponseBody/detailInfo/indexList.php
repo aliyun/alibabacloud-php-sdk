@@ -14,21 +14,29 @@ class indexList extends Model
     public $indexColumns;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $indexId;
 
     /**
+     * @example PRIMARY
+     *
      * @var string
      */
     public $indexName;
 
     /**
+     * @example Primary
+     *
      * @var string
      */
     public $indexType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $unique;

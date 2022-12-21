@@ -9,41 +9,82 @@ use AlibabaCloud\Tea\Model;
 class SearchDatabaseRequest extends Model
 {
     /**
+     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
+     *
+     * @example MYSQL
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @description The type of the environment to which the database belongs. For more information, see [Change the environment type of an instance](~~163309~~).
+     *
+     * @example test
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The keyword that is used to search for databases.
+     *
+     * @example testdb
+     *
      * @var string
      */
     public $searchKey;
 
     /**
+     * @description The query range based on permissions. Valid values:
+     *
+     *   **HAS_PERMSSION**: searches for databases on which the current user has permissions.
+     *   **OWNER**: searches for databases owned by the current user.
+     *   **MY_FOCUS**: searches for databases that the current user follows.
+     *   **UNKNOWN**: searches for all databases.
+     *
+     * @example HAS_PERMSSION
+     *
      * @var string
      */
     public $searchRange;
 
     /**
+     * @description The category of the database. Valid values:
+     *
+     *   **DB**: single database or logical database.
+     *   **SINGLE_DB**: single database.
+     *   **LOGIC_DB**: logical database.
+     *
+     * @example SINGLE_DB
+     *
      * @var string
      */
     public $searchTarget;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to obtain the tenant ID.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

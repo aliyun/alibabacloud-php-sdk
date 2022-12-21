@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DisableUserResponseBody extends Model
 {
     /**
+     * @example 403
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example The specified user not exists.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 34E01EDD-6A16-4CF0-9541-C644D1BE01AA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

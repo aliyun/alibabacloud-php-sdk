@@ -9,51 +9,85 @@ use AlibabaCloud\Tea\Model;
 class desensitizationRuleList extends Model
 {
     /**
+     * @description The parameter.
+     *
+     * @example {paramName: salt, paramValue: 1}
+     *
      * @var string
      */
     public $funcParams;
 
     /**
+     * @description The example.
+     *
+     * @example [{paramName: testStr, paramValue: 1}]
+     *
      * @var string
      */
     public $funcSample;
 
     /**
+     * @description The algorithm type.
+     *
+     * @example MD5
+     *
      * @var string
      */
     public $functionType;
 
     /**
+     * @description The ID of the user who last modified the masking rule.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $lastModifierId;
 
     /**
+     * @description The name of the user who last modified the masking rule.
+     *
      * @var string
      */
     public $lastModifierName;
 
     /**
+     * @description The number of times that the masking was used.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $referenceCount;
 
     /**
+     * @description The description of the rule.
+     *
      * @var string
      */
     public $ruleDesc;
 
     /**
+     * @description The ID of the masking rule.
+     *
+     * @example 23
+     *
      * @var int
      */
     public $ruleId;
 
     /**
+     * @description The name of the masking rule.
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The algorithm used for masking.
+     *
+     * @example HASH
+     *
      * @var string
      */
     public $ruleType;

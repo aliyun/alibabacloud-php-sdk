@@ -10,31 +10,55 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesResponseBody extends Model
 {
     /**
+     * @description The error code that is returned.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message that is returned.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The information about the database instances that are returned.
+     *
      * @var instanceList
      */
     public $instanceList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B4B07137-F6AE-4756-8474-7F92BB6C4E04
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     * - **true**: The request was successful.
+     * - **false**: The request failed.
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The total number of database instances that are returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

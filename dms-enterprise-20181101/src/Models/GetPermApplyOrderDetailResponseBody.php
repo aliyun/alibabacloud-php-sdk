@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetPermApplyOrderDetailResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
@@ -25,11 +29,15 @@ class GetPermApplyOrderDetailResponseBody extends Model
     public $permApplyOrderDetail;
 
     /**
+     * @example A4C4499E-5AC2-4318-9FCF-03E426781A04
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class DBTaskSQLJobList extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @example 2021-02-18 17:49:20
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 43214523
+     *
      * @var int
      */
     public $dbId;
 
     /**
+     * @example test@xxx:3306【test】
+     *
      * @var string
      */
     public $dbSearchName;
 
     /**
+     * @example 4324132
+     *
      * @var int
      */
     public $dbTaskGroupId;
 
     /**
+     * @example 123435
+     *
      * @var int
      */
     public $jobId;
 
     /**
+     * @example STRUCT_SYNC
+     *
      * @var string
      */
     public $jobType;
 
     /**
+     * @example 2021-02-18 17:49:31
+     *
      * @var string
      */
     public $lastExecTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $logic;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $transactional;

@@ -10,26 +10,42 @@ use AlibabaCloud\Tea\Model;
 class CreateDataCorrectOrderRequest extends Model
 {
     /**
+     * @description The key of the attachment that provides more instructions for the ticket. You can call the [GetUserUploadFileJob](~~206069~~) operation to obtain the attachment key from the value of the AttachmentKey parameter.
+     *
+     * @example order_attachment.txt
+     *
      * @var string
      */
     public $attachmentKey;
 
     /**
+     * @description The purpose or objective of the data change. This parameter is used to help reduce unnecessary communication.
+     *
+     * @example test
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The parameters of the ticket.
+     *
      * @var param
      */
     public $param;
 
     /**
+     * @description The stakeholders of the data change. All stakeholders can view the ticket details and assist in the approval process. Irrelevant users other than DMS administrators and database administrators (DBAs) are not allowed to view the ticket details.
+     *
      * @var int[]
      */
     public $relatedUserList;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

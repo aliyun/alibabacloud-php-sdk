@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetStructSyncOrderDetailRequest extends Model
 {
     /**
+     * @example 432553
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $tid;

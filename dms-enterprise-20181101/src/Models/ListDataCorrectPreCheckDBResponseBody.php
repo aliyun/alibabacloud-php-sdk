@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListDataCorrectPreCheckDBResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The information about the databases that are involved in the precheck.
+     *
      * @var preCheckDBList[]
      */
     public $preCheckDBList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 95A972AF-FAED-4768-9360-7C0DF5D594D0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

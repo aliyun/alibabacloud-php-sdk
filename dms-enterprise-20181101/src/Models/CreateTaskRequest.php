@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class CreateTaskRequest extends Model
 {
     /**
+     * @example 7***
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $graphParam;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $nodeContent;
 
     /**
+     * @example zhttest
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $nodeOutput;
 
     /**
+     * @example 36
+     *
      * @var string
      */
     public $nodeType;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $timeVariables;

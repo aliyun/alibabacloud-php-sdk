@@ -9,31 +9,53 @@ use AlibabaCloud\Tea\Model;
 class standardGroupList extends Model
 {
     /**
+     * @description The type of the database engine. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
+     *
+     * @example mysql
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @description The description of the security rule set.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 41****
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @description The control mode. Valid values:
+     *
+     *   **NONE_CONTROL**: Flexible Management
+     *   **STABLE**: Stable Change
+     *   **COMMON**: Security Collaboration
+     *
+     * @example COMMON
+     *
      * @var string
      */
     public $groupMode;
 
     /**
+     * @description The name of the security rule set.
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The ID of the user who queries the security sets.
+     *
+     * @example 51****
+     *
      * @var int
      */
     public $lastMenderId;

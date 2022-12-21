@@ -10,31 +10,55 @@ use AlibabaCloud\Tea\Model;
 class ListTablesResponseBody extends Model
 {
     /**
+     * @description The error code that is returned if the request fails.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned if the request fails.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B16FB618-5E96-4FFD-BB0D-490C890A4030
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     * - **true**: The request was successful.
+     * - **false**: The request failed.
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The details of the tables.
+     *
      * @var tableList
      */
     public $tableList;
 
     /**
+     * @description The total number of tables that meet the query conditions.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

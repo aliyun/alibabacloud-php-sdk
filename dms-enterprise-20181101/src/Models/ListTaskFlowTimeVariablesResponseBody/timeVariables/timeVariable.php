@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class timeVariable extends Model
 {
     /**
+     * @example time_test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 2018-09-26|+7h
+     *
      * @var string
      */
     public $pattern;

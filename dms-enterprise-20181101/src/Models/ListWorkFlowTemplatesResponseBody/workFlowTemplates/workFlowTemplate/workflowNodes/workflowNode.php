@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class workflowNode extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $createUserId;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @example SYS
+     *
      * @var string
      */
     public $nodeType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $position;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $templateId;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class GetUserUploadFileJobResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BDEFE9F2-B3B4-42D0-83AE-ECF9FC067DCD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The details of the file upload task.
+     *
      * @var uploadFileJobDetail
      */
     public $uploadFileJobDetail;

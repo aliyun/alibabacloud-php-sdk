@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class auditUser extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $nickName;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $realName;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $userId;

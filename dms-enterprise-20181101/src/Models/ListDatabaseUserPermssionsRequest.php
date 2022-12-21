@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ListDatabaseUserPermssionsRequest extends Model
 {
     /**
+     * @example 123
+     *
      * @var string
      */
     public $dbId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $logic;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example DATABASE
+     *
      * @var string
      */
     public $permType;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $tid;
 
     /**
+     * @example search_user_name
+     *
      * @var string
      */
     public $userName;

@@ -9,41 +9,81 @@ use AlibabaCloud\Tea\Model;
 class taskFlow extends Model
 {
     /**
+     * @description The ID of the user who creates the task flow.
+     *
+     * @example 51****
+     *
      * @var string
      */
     public $creatorId;
 
     /**
+     * @description The name of the user who creates the task flow.
+     *
+     * @example Creator_NickName
+     *
      * @var string
      */
     public $creatorNickName;
 
     /**
+     * @description The name of the task flow owner.
+     *
+     * @example Owner_NickName
+     *
      * @var string
      */
     public $dagOwnerNickName;
 
     /**
+     * @description The ID of the latest deployment record.
+     *
+     * @example 12**
+     *
      * @var int
      */
     public $deployId;
 
     /**
+     * @description The ID of the task flow.
+     *
+     * @example 134137****
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The status of the latest execution. Valid values:
+     *
+     *   **0**: invalid.
+     *   **1**: scheduling disabled.
+     *   **2**: waiting to be scheduled.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $latestInstanceStatus;
 
     /**
+     * @description The time when the latest execution record was generated.
+     *
+     * @example 2022-04-13
+     *
      * @var string
      */
     public $latestInstanceTime;
 
     /**
+     * @description The status of the task flow. Valid values:
+     *
+     *   **0**: The task flow is invalid.
+     *   **1**: Scheduling is disabled for the task flow.
+     *   **2**: The task flow is waiting to be scheduled.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $status;

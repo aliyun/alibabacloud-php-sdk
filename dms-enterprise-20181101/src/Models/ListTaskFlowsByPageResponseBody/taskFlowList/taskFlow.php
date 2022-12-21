@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class taskFlow extends Model
 {
     /**
+     * @example 51****
+     *
      * @var string
      */
     public $creatorId;
 
     /**
+     * @example Creator_NickName
+     *
      * @var string
      */
     public $creatorNickName;
 
     /**
+     * @example poc_task_test
+     *
      * @var string
      */
     public $dagName;
 
     /**
+     * @example Owner_NickName
+     *
      * @var string
      */
     public $dagOwnerNickName;
 
     /**
+     * @example 65***
+     *
      * @var int
      */
     public $deployId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 7***
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $latestInstanceStatus;
 
     /**
+     * @example 2022-04-13
+     *
      * @var string
      */
     public $latestInstanceTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class publishJobList extends Model
 {
     /**
+     * @example 423515
+     *
      * @var int
      */
     public $DBTaskGroupId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $executeCount;
 
     /**
+     * @example ALTER TABLE test_toolkit_rename_table_after_rename MODIFY COLUMN gmt_modified datetime NOT NULL
+     *
      * @var string
      */
     public $scripts;
 
     /**
+     * @example NONE
+     *
      * @var string
      */
     public $statusDesc;
 
     /**
+     * @example test_toolkit_rename_table_after_rename
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @example NONE
+     *
      * @var string
      */
     public $taskJobStatus;

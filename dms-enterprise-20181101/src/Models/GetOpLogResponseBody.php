@@ -10,31 +10,55 @@ use AlibabaCloud\Tea\Model;
 class GetOpLogResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request fails.
+     *
+     * @example 403
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned if the request fails.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The details of the operation log.
+     *
      * @var opLogDetails
      */
     public $opLogDetails;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 47D56208-DB1D-4FD3-BE32-300E43185488
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     * - **true**: The request is successful.
+     * - **false**: The request fails.
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The total number of operation logs that are returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

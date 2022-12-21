@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateScenarioRequest extends Model
 {
     /**
+     * @description The description of the business scenario.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the business scenario.
+     *
+     * @example Business scenario - test
+     *
      * @var string
      */
     public $scenarioName;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * > To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](~~181330~~) topic.
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

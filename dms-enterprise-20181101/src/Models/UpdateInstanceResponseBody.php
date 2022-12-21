@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceResponseBody extends Model
 {
     /**
+     * @description The error code that is returned.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message that is returned.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E9BEBF41-4F69-4605-A5D5-A67955173941
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $success;

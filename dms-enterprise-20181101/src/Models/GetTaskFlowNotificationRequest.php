@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetTaskFlowNotificationRequest extends Model
 {
     /**
+     * @example 15***
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

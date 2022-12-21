@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListStandardGroupsRequest extends Model
 {
     /**
+     * @description The ID of the tenant.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

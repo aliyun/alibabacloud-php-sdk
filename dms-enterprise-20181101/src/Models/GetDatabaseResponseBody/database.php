@@ -11,81 +11,156 @@ use AlibabaCloud\Tea\Model;
 class database extends Model
 {
     /**
+     * @description The name of the catalog to which the database belongs.
+     *
+     * @example def
+     *
      * @var string
      */
     public $catalogName;
 
     /**
+     * @description The ID of the database.
+     *
+     * @example 984****
+     *
      * @var string
      */
     public $databaseId;
 
     /**
+     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
+     *
+     * @example mysql
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @description The ID of the database administrator (DBA).
+     *
+     * @example 27****
+     *
      * @var string
      */
     public $dbaId;
 
     /**
+     * @description The nickname of the DBA.
+     *
+     * @example dba_name
+     *
      * @var string
      */
     public $dbaName;
 
     /**
+     * @description The encoding format of the database.
+     *
+     * @example utf8mb4
+     *
      * @var string
      */
     public $encoding;
 
     /**
+     * @description The type of the environment to which the database belongs. Valid values:
+     *
+     *   **product**: production environment
+     *   **dev**: development environment
+     *   **pre**: staging environment
+     *   **test**: test environment
+     *   **sit**: SIT environment
+     *   **uat**: user acceptance testing (UAT) environment
+     *   **pet**: stress testing environment
+     *   **stag**: STAG environment
+     *
+     * @example product
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @description The endpoint that is used to connect to the database.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example 149****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The IDs of the owners of the database.
+     *
      * @var ownerIdList
      */
     public $ownerIdList;
 
     /**
+     * @description The names of the owners of the database.
+     *
      * @var ownerNameList
      */
     public $ownerNameList;
 
     /**
+     * @description The port that is used to connect to the database.
+     *
+     * @example 3306
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The name of the database.
+     *
+     * @example mysql
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @description The keyword that is used to search for the database.
+     *
+     * @example mysql@192.168.XX.XX:3306
+     *
      * @var string
      */
     public $searchName;
 
     /**
+     * @description The SID of the database.
+     *
+     * >  The value of the parameter is returned only for Oracle databases.
+     * @example test_sid
+     *
      * @var string
      */
     public $sid;
 
     /**
+     * @description The status of the database. Valid values:
+     *
+     *   **NORMAL**: The database is running as expected.
+     *   **DISABLE**: The database is disabled.
+     *   **OFFLINE**: The database is unpublished.
+     *   **NOT_EXIST**: The database does not exist.
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $state;

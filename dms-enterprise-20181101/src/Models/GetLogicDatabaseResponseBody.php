@@ -10,26 +10,45 @@ use AlibabaCloud\Tea\Model;
 class GetLogicDatabaseResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The details about the logical database.
+     *
      * @var logicDatabase
      */
     public $logicDatabase;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 90260530-565C-42B9-A6E8-893481FE6AB6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     * - false: The request fails.
+     * @example true
+     *
      * @var bool
      */
     public $success;

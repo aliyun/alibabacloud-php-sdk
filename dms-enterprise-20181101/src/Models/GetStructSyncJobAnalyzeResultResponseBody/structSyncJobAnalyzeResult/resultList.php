@@ -14,11 +14,15 @@ class resultList extends Model
     public $script;
 
     /**
+     * @example helloz_bak
+     *
      * @var string
      */
     public $sourceTableName;
 
     /**
+     * @example helloz_bak
+     *
      * @var string
      */
     public $targetTableName;

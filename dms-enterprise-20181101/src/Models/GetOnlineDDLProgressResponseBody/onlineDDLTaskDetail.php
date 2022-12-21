@@ -9,66 +9,92 @@ use AlibabaCloud\Tea\Model;
 class onlineDDLTaskDetail extends Model
 {
     /**
+     * @example DROP
+     *
      * @var string
      */
     public $cleanStrategy;
 
     /**
+     * @example AUTO
+     *
      * @var string
      */
     public $copyChunkMode;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $copyChunkSize;
 
     /**
+     * @example 9
+     *
      * @var int
      */
     public $copyCount;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $copyTotal;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $cutoverFailRetryTimes;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $cutoverLockTimeSeconds;
 
     /**
+     * @example 13:00:00
+     *
      * @var string
      */
     public $cutoverWindowEndTime;
 
     /**
+     * @example 12:00:00
+     *
      * @var string
      */
     public $cutoverWindowStartTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $delaySeconds;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $jobStatus;
 
     /**
+     * @example 90%
+     *
      * @var string
      */
     public $progressRatio;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $statusDesc;

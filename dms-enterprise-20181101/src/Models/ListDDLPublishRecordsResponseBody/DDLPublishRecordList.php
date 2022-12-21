@@ -10,31 +10,43 @@ use AlibabaCloud\Tea\Model;
 class DDLPublishRecordList extends Model
 {
     /**
+     * @example 2020-12-14 20:52:38
+     *
      * @var string
      */
     public $auditExpireTime;
 
     /**
+     * @example CANCEL
+     *
      * @var string
      */
     public $auditStatus;
 
     /**
+     * @example 1423
+     *
      * @var int
      */
     public $creatorId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $finality;
 
     /**
+     * @example CANCEL
+     *
      * @var string
      */
     public $finalityReason;
 
     /**
+     * @example AUDIT
+     *
      * @var string
      */
     public $publishStatus;
@@ -45,16 +57,22 @@ class DDLPublishRecordList extends Model
     public $publishTaskInfoList;
 
     /**
+     * @example LOW_RISK
+     *
      * @var string
      */
     public $riskLevel;
 
     /**
+     * @example CANCEL
+     *
      * @var string
      */
     public $statusDesc;
 
     /**
+     * @example 432153
+     *
      * @var int
      */
     public $workflowInstanceId;

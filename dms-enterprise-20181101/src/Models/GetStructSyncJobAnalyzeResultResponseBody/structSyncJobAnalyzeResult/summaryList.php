@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class summaryList extends Model
 {
     /**
+     * @example CREATE_TABLE
+     *
      * @var string
      */
     public $compareType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $count;

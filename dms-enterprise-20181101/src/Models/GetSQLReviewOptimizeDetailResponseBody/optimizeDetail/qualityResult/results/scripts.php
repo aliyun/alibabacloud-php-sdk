@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class scripts extends Model
 {
     /**
+     * @description The content of the SQL script.
+     *
+     * @example alter table xxx add index idx_xx(yyy);
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The purpose of the SQL script. The value is set to AddIndex.
+     *
+     * @example AddIndex
+     *
      * @var string
      */
     public $opType;
 
     /**
+     * @description The name of the table.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $tableName;

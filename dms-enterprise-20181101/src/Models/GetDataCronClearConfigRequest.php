@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetDataCronClearConfigRequest extends Model
 {
     /**
+     * @example 420****
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

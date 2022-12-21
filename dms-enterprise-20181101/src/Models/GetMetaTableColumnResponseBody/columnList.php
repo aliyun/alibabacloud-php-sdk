@@ -9,61 +9,122 @@ use AlibabaCloud\Tea\Model;
 class columnList extends Model
 {
     /**
+     * @description Indicates whether the field is an auto-increment field. Valid values:
+     *
+     *   **true**: The field is an auto-increment field.
+     *   **false**: The field is not an auto-increment field.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $autoIncrement;
 
     /**
+     * @description The ID of the field.
+     *
+     * @example 63513****
+     *
      * @var string
      */
     public $columnId;
 
     /**
+     * @description The name of the field.
+     *
+     * @example has_promotion
+     *
      * @var string
      */
     public $columnName;
 
     /**
+     * @description The data type of the field.
+     *
+     * >  The returned data type is not unique. For example, the returned data type can be **bigint** or **int**.
+     * @example bigint(1)
+     *
      * @var string
      */
     public $columnType;
 
     /**
+     * @description The length of the field.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $dataLength;
 
     /**
+     * @description The precision of the field.
+     *
+     * @example 19
+     *
      * @var int
      */
     public $dataPrecision;
 
     /**
+     * @description The number of decimal places that the field shows.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $dataScale;
 
     /**
+     * @description The description of the field.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether the field can be empty. Valid values:
+     *
+     *   **true**: The field can be empty.
+     *   **false**: The field cannot be empty.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $nullable;
 
     /**
+     * @description The position of the field in the table.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $position;
 
     /**
+     * @description Indicates whether the field is the primary key. Valid values:
+     *
+     *   **true**: The field is the primary key.
+     *   **false**: The field is not the primary key.
+     *
+     * @example true
+     *
      * @var string
      */
     public $primaryKey;
 
     /**
+     * @description The sensitivity level of the field. Valid values:
+     *
+     *   **INNER**: The field is not sensitive.
+     *   **SENSITIVE**: The field is sensitive.
+     *   **CONFIDENTIAL**: The field is confidential.
+     *
+     * >  For more information, see [Sensitivity levels of fields](~~66091~~).
+     * @example INNER
+     *
      * @var string
      */
     public $securityLevel;

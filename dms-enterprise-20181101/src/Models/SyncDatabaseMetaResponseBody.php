@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SyncDatabaseMetaResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example A99CD576-1E18-4E86-931E-C3CCE56DC030
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

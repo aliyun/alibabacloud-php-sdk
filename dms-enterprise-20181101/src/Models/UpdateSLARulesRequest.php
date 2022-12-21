@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateSLARulesRequest extends Model
 {
     /**
+     * @example 11****
+     *
      * @var int
      */
     public $dagId;
@@ -20,6 +22,8 @@ class UpdateSLARulesRequest extends Model
     public $slaRuleList;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

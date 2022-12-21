@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class CreateDataCronClearOrderRequest extends Model
 {
     /**
+     * @description The key of the attachment for the ticket. The attachment provides more instructions for this operation.
+     *
+     * You can call the [GetUserUploadFileJob](~~206069~~) operation to query the key of the attachment.
+     * @example order_attachement.txt
+     *
      * @var string
      */
     public $attachmentKey;
 
     /**
+     * @description The purpose or objective of the data change. This reduces unnecessary communication.
+     *
+     * @example test
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The parameters of the ticket.
+     *
      * @var param
      */
     public $param;
 
     /**
+     * @description The stakeholders of this operation. All stakeholders can view the ticket details and assist in the approval process. Irrelevant users other than Data Management (DMS) administrators and database administrators (DBAs) are not allowed to view the ticket details.
+     *
      * @var int[]
      */
     public $relatedUserList;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * >  The ID of the tenant is displayed when you move the pointer over the profile picture in the upper-right corner of the DMS console. For more information, see the [View information about the current tenant](~~181330~~) section of the Manage DMS tenants topic.
+     * @example 123454324
+     *
      * @var int
      */
     public $tid;

@@ -10,31 +10,56 @@ use AlibabaCloud\Tea\Model;
 class ListDAGVersionsResponseBody extends Model
 {
     /**
+     * @description The information about the published versions.
+     *
      * @var dagVersionList
      */
     public $dagVersionList;
 
     /**
+     * @description The error code returned if the request fails.
+     *
+     * @example 403
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned if the request fails.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C7775630-7901-51B9-8782-9B585EC0799A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**: The request is successful.
+     *   **false**: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

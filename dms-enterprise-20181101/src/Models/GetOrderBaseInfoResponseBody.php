@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetOrderBaseInfoResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
@@ -25,11 +29,15 @@ class GetOrderBaseInfoResponseBody extends Model
     public $orderBaseInfo;
 
     /**
+     * @example 7133DF67-5B25-460F-8285-C4CC93472C2F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

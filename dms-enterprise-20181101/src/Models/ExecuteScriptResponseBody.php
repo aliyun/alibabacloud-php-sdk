@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ExecuteScriptResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message about the gateway.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example FE8EE2F1-4880-46BC-A704-5CF63EAF9A04
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The results of the SQL statements that are executed, in the format of an array. Each entry in the array indicates the result of an SQL statement.
+     *
      * @var results[]
      */
     public $results;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

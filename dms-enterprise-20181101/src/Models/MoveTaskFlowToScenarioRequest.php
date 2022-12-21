@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class MoveTaskFlowToScenarioRequest extends Model
 {
     /**
+     * @example 11****
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @example 1****
+     *
      * @var int
      */
     public $scenarioId;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

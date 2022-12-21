@@ -10,31 +10,56 @@ use AlibabaCloud\Tea\Model;
 class ListSQLExecAuditLogResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
+     * @example MissingStartTime
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
+     * @example StartTime is mandatory for this action.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 39BC9C86-95AE-58F2-9862-A7C3D896****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The entries returned.
+     *
      * @var SQLExecAuditLogList
      */
     public $SQLExecAuditLogList;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

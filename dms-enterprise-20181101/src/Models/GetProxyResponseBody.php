@@ -9,76 +9,138 @@ use AlibabaCloud\Tea\Model;
 class GetProxyResponseBody extends Model
 {
     /**
+     * @description The ID of the user who enabled the secure access proxy feature.
+     *
+     * @example 12****
+     *
      * @var int
      */
     public $creatorId;
 
     /**
+     * @description The nickname of the user who enabled the secure access proxy feature.
+     *
+     * @example test_name
+     *
      * @var string
      */
     public $creatorName;
 
     /**
+     * @description The error code returned.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
+     * @example The condition cannot be empty!
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The port that was used by HTTPS clients to connect to the database instance.
+     *
+     * @example 443
+     *
      * @var int
      */
     public $httpsPort;
 
     /**
+     * @description The ID of the database instance.
+     *
+     * @example 183****
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @description Indicates whether the internal endpoint is enabled. Default value: **true**.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $privateEnable;
 
     /**
+     * @description The internal endpoint.
+     *
+     * @example dphzmy-5j8oimjsz6ze****.proxy.dms.aliyuncs.com
+     *
      * @var string
      */
     public $privateHost;
 
     /**
+     * @example 3306
+     *
      * @var int
      */
     public $protocolPort;
 
     /**
+     * @example MYSQL
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @description The ID of the secure access proxy.
+     *
+     * @example 4**
+     *
      * @var int
      */
     public $proxyId;
 
     /**
+     * @description Indicates whether the public endpoint is enabled. Valid values:
+     *
+     * - **true**: The public endpoint is enabled.
+     * - **false**: The public endpoint is disabled.
+     * @example true
+     *
      * @var bool
      */
     public $publicEnable;
 
     /**
+     * @description The public endpoint. A public endpoint is returned no matter whether the public endpoint is enabled or disabled.
+     *
+     * > - If the value of the PublicEnable parameter is **true**, a valid public endpoint that can be resolved by using Alibaba Cloud DNS (DNS) is returned.
+     * - If the value of the PublicEnable parameter is **false**, an invalid public endpoint that cannot be resolved by using DNS is returned.
+     * @example dphzmy-5j8oimjsz6zed7k****.proxy.dms.aliyuncs.com
+     *
      * @var string
      */
     public $publicHost;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F49D4598-2B3C-5723-865E-2CCB818E****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     * - **true**: The request was successful.
+     * - **false**: The request failed.
+     * @example true
+     *
      * @var bool
      */
     public $success;

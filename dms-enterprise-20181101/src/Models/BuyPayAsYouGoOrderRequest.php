@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class BuyPayAsYouGoOrderRequest extends Model
 {
     /**
+     * @example SensitiveDataProtection
+     *
      * @var string
      */
     public $commodityType;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $insNum;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;
 
     /**
+     * @example stand
+     *
      * @var string
      */
     public $versionType;

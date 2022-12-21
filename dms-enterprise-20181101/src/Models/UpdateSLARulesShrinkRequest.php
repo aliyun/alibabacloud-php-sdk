@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateSLARulesShrinkRequest extends Model
 {
     /**
+     * @example 11****
+     *
      * @var int
      */
     public $dagId;
@@ -19,6 +21,8 @@ class UpdateSLARulesShrinkRequest extends Model
     public $slaRuleListShrink;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

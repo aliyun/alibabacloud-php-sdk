@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class param extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $ignoreError;

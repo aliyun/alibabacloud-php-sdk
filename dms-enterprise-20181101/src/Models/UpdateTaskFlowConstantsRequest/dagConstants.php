@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class dagConstants extends Model
 {
     /**
+     * @description The key name of a constant for the task flow.
+     *
+     * @example poc_test
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The key value of a constant for the task flow.
+     *
+     * @example poc_test
+     *
      * @var string
      */
     public $value;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class GetStructSyncJobDetailResponseBody extends Model
 {
     /**
+     * @description The error code that is returned.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message that is returned.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 48602B78-0DDF-414C-8688-70CAB6070115
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the schema synchronization task.
+     *
      * @var structSyncJobDetail
      */
     public $structSyncJobDetail;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceRequest extends Model
 {
     /**
+     * @description The endpoint of the database instance. You can call the [ListInstances](~~141936~~) operation to obtain the endpoint.
+     *
+     * @example 172.17.XXX.XXX
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @description The port number that is used to connect to the database instance. You can call the [ListInstances](~~141936~~) operation to obtain the port number.
+     *
+     * @example 5432
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The system ID (SID) of the database instance. You can call the [ListInstances](~~141936~~) operation to obtain the SID.
+     *
+     * @example test
+     *
      * @var string
      */
     public $sid;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to obtain the tenant ID.
+     *
+     * @example 2***
+     *
      * @var int
      */
     public $tid;

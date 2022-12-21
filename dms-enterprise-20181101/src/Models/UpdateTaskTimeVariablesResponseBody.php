@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskTimeVariablesResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 39557312-28D5-528F-9554-80C0700EB489
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

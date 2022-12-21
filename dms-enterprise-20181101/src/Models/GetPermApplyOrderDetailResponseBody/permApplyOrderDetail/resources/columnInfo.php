@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class columnInfo extends Model
 {
     /**
+     * @example test_col
+     *
      * @var string
      */
     public $columnName;
 
     /**
+     * @example test_tb
+     *
      * @var string
      */
     public $tableName;

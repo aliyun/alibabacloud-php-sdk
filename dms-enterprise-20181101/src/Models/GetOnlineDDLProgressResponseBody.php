@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetOnlineDDLProgressResponseBody extends Model
 {
     /**
+     * @example 403
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
@@ -25,11 +29,15 @@ class GetOnlineDDLProgressResponseBody extends Model
     public $onlineDDLTaskDetail;
 
     /**
+     * @example 34E01EDD-6A16-4CF0-9541-C644D1BE01AA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

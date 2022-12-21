@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetOnlineDDLProgressRequest extends Model
 {
     /**
+     * @example 15***
+     *
      * @var int
      */
     public $jobDetailId;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

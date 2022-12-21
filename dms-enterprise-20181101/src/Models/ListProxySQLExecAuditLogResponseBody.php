@@ -10,31 +10,56 @@ use AlibabaCloud\Tea\Model;
 class ListProxySQLExecAuditLogResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
+     * @example InvalidStartTime
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
+     * @example Specified parameter StartTime is not valid.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The audit information about the database instance that is provided by the secure access proxy feature.
+     *
      * @var proxySQLExecAuditLogList
      */
     public $proxySQLExecAuditLogList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 50ECB006-2C35-5FCA-91B9-01987A0B****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class GetUserActiveTenantResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
+     * @example TenantNotExist
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
+     * @example The specified tenant does not exist.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4B63CAC5-BD7F-5C7C-82C9-59DFFBC3C5C2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**: The request is successful.
+     *   **false**: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The details of the tenant.
+     *
      * @var tenant
      */
     public $tenant;

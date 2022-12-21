@@ -9,66 +9,137 @@ use AlibabaCloud\Tea\Model;
 class column extends Model
 {
     /**
+     * @description Indicates whether the field is an auto-increment field. Valid values:
+     *
+     *   true: The field is an auto-increment field.
+     *   false: The field is not an auto-increment field.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $autoIncrement;
 
     /**
+     * @description The ID of the field.
+     *
+     * @example 62589****
+     *
      * @var string
      */
     public $columnId;
 
     /**
+     * @description The name of the field.
+     *
+     * @example name
+     *
      * @var string
      */
     public $columnName;
 
     /**
+     * @description The data type of the field.
+     *
+     * @example varchar
+     *
      * @var string
      */
     public $columnType;
 
     /**
+     * @description The length of the field.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $dataLength;
 
     /**
+     * @description The number of valid digits for the field.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $dataPrecision;
 
     /**
+     * @description The number of decimal places for the field.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $dataScale;
 
     /**
+     * @description The default value of the field.
+     *
+     * @example def_value
+     *
      * @var string
      */
     public $defaultValue;
 
     /**
+     * @description The description of the field.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The type of the masking algorithm that is used for the field. Valid values:
+     *
+     *   null: No masking algorithm is used.
+     *   DEFAULT: A full masking algorithm is used.
+     *   FIX_POS: The fixed position is masked.
+     *   FIX_CHAR: The fixed characters are replaced.
+     *
+     * @example DEFAULT
+     *
      * @var string
      */
     public $functionType;
 
     /**
+     * @description Indicates whether the field can be empty. Valid values:
+     *
+     *   **true**: The field can be empty.
+     *   **false**: The field cannot be empty.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $nullable;
 
     /**
+     * @description The security level of the field. Valid values:
+     *
+     *   INNER: The field is an internal field but not sensitive.
+     *   SENSITIVE: The field is a sensitive field.
+     *   CONFIDENTIAL: The field is a confidential field.
+     *
+     * >  For more information, see [Adjust the sensitivity level of one or more fields](~~66091~~).
+     * @example INNER
+     *
      * @var string
      */
     public $securityLevel;
 
     /**
+     * @description Indicates whether the field is a sensitive field. Valid values:
+     *
+     *   **true**: The field is a sensitive field.
+     *   **false**: The field is not a sensitive field.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $sensitive;

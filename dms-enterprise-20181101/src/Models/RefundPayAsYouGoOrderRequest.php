@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RefundPayAsYouGoOrderRequest extends Model
 {
     /**
+     * @example 2190037****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

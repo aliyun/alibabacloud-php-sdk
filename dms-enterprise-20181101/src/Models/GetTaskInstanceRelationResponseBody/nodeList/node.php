@@ -9,46 +9,89 @@ use AlibabaCloud\Tea\Model;
 class node extends Model
 {
     /**
+     * @description The business time of the node.
+     *
+     * @example 2021-11-09 14:37:26
+     *
      * @var string
      */
     public $businessTime;
 
     /**
+     * @description The time when the execution of the task flow was complete. The time is displayed in the yyyy-MM-DD HH:mm:ss format.
+     *
+     * @example 2021-11-11 14:38:57
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The amount of time consumed for running the node. Unit: milliseconds.
+     *
+     * @example 170655
+     *
      * @var int
      */
     public $executeTime;
 
     /**
+     * @description The ID of the execution record of the task flow.
+     *
+     * @example 14059
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The description of the task.
+     *
+     * @example test
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the node.
+     *
+     * @example 14059
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @description The name of the node.
+     *
+     * @example Spark SQL-1
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description The type of the node. For more information about the valid values for this parameter, see [NodeType parameter](~~424705~~).
+     *
+     * @example 36
+     *
      * @var int
      */
     public $nodeType;
 
     /**
+     * @description The status of the node. Valid values:
+     *
+     *   **0**: The node is waiting to be scheduled.
+     *   **1**: The node is running.
+     *   **2**: The node is suspended.
+     *   **3**: The node failed to run.
+     *   **4**: The node is run.
+     *   **5**: The node is complete.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $status;

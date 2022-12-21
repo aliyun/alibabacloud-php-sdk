@@ -15,26 +15,36 @@ class GetDataCronClearTaskDetailListResponseBody extends Model
     public $dataCronClearTaskDetailList;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example C1D39814-9808-47F8-AFE0-AF167239AC9B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

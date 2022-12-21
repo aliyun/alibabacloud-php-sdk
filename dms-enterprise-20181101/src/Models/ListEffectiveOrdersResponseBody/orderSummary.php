@@ -15,6 +15,8 @@ class orderSummary extends Model
     public $commodityCode;
 
     /**
+     * @example VersionType
+     *
      * @var string
      */
     public $commodityType;
@@ -25,11 +27,15 @@ class orderSummary extends Model
     public $orderList;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $totalQuota;
 
     /**
+     * @example safety
+     *
      * @var string
      */
     public $versionType;

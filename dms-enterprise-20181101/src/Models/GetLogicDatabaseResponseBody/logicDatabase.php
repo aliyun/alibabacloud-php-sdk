@@ -12,11 +12,19 @@ use AlibabaCloud\Tea\Model;
 class logicDatabase extends Model
 {
     /**
+     * @description The alias of the logical database.
+     *
+     * @example test_logic_alias
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @description The ID of the logical database.
+     *
+     * @example 1***
+     *
      * @var string
      */
     public $databaseId;
@@ -27,36 +35,61 @@ class logicDatabase extends Model
     public $databaseIds;
 
     /**
+     * @description The type of the database. For more information about the valid values of the DbType parameter, see [DbType parameter](https://www.alibabacloud.com/help/en/data-management-service/latest/dbtype-parameter).
+     *
+     * @example polardb
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @description The type of the environment to which the database belongs. Valid values:
+     *
+     * - stag: STAG environment
+     * @example dev
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @description Indicates whether the database is a logical database. The return value is true.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $logic;
 
     /**
+     * @description The IDs of the owners of the logical database.
+     *
      * @var ownerIdList
      */
     public $ownerIdList;
 
     /**
+     * @description The names of the owners of the logical database.
+     *
      * @var ownerNameList
      */
     public $ownerNameList;
 
     /**
+     * @description The name of the logical database.
+     *
+     * @example test_logic_db
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @description The name that is used to search for the logical database.
+     *
+     * @example test_logic_db[test_logic_alias]
+     *
      * @var string
      */
     public $searchName;

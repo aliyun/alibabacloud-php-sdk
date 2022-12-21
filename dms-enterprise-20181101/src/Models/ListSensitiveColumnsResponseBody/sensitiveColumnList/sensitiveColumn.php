@@ -9,31 +9,62 @@ use AlibabaCloud\Tea\Model;
 class sensitiveColumn extends Model
 {
     /**
+     * @description The number of sensitive fields.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $columnCount;
 
     /**
+     * @description The name of the field.
+     *
+     * @example test_column
+     *
      * @var string
      */
     public $columnName;
 
     /**
+     * @description The type of the de-identification algorithm. Valid values:
+     *
+     *   DEFAULT: All characters are masked. This is the default value.
+     *   FIX_POS: The characters at specific positions are masked.
+     *   FIX_CHAR: Specific characters are masked.
+     *
+     * @example DEFAULT
+     *
      * @var string
      */
     public $functionType;
 
     /**
+     * @description The name of the database.
+     *
+     * @example test_schema
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @description The sensitivity level of the field. Valid values:
+     *
+     *   SENSITIVE
+     *   CONFIDENTIAL
+     *
+     * @example SENSITIVE
+     *
      * @var string
      */
     public $securityLevel;
 
     /**
+     * @description The name of the table.
+     *
+     * @example test_table
+     *
      * @var string
      */
     public $tableName;

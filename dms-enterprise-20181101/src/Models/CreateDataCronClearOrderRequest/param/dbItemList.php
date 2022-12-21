@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class dbItemList extends Model
 {
     /**
+     * @description The ID of the database. You can call the [SearchDatabases](~~141876~~) operation to query the ID of the database.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $dbId;
 
     /**
+     * @description Indicates whether the database is a logical database. Valid values:
+     *
+     *   **true**: The database is a logical database.
+     *   **false**: The database is not a logical database.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $logic;

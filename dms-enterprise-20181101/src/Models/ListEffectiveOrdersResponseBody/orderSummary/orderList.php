@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class orderList extends Model
 {
     /**
+     * @example 2698420314****
+     *
      * @var string
      */
     public $buyerId;
 
     /**
+     * @example 2022-11-24 00:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 7
+     *
      * @var string
      */
     public $insNum;
 
     /**
+     * @example rm-bp1xd1v866****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 2190037****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 2022-10-24 00:00:00
+     *
      * @var string
      */
     public $startTime;

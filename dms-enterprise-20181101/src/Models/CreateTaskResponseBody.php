@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateTaskResponseBody extends Model
 {
     /**
+     * @example InvalidParameterValid
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example InvalidParameterValid
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example CFD8FE00-36D9-4C1B-940D-65A7B73D9066
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddTaskFlowEdgesShrinkRequest extends Model
 {
     /**
+     * @example 15***
+     *
      * @var int
      */
     public $dagId;
@@ -19,6 +21,8 @@ class AddTaskFlowEdgesShrinkRequest extends Model
     public $edgesShrink;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

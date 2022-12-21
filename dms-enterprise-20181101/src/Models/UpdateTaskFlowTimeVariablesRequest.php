@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskFlowTimeVariablesRequest extends Model
 {
     /**
+     * @example 43****
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;
 
     /**
+     * @example {"variables":[ {"name":"var", "pattern":"yyyy-MM-dd|+0m+0h-2d+0w+0M+1y"} ]}
+     *
      * @var string
      */
     public $timeVariables;

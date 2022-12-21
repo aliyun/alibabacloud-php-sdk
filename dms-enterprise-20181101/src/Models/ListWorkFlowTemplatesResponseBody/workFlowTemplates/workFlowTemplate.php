@@ -10,31 +10,43 @@ use AlibabaCloud\Tea\Model;
 class workFlowTemplate extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $createUserId;
 
     /**
+     * @example Y
+     *
      * @var string
      */
     public $enabled;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isSystem;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $templateId;
 
     /**
+     * @example Admin
+     *
      * @var string
      */
     public $templateName;

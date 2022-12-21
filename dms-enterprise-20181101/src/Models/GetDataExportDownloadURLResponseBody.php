@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class GetDataExportDownloadURLResponseBody extends Model
 {
     /**
+     * @description The details about the download URL of the file that records the export results for the ticket.
+     *
      * @var downloadURLResult
      */
     public $downloadURLResult;
 
     /**
+     * @description The error code.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4BF24EA5-9013-4C85-AE68-6C23AF5E0097
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

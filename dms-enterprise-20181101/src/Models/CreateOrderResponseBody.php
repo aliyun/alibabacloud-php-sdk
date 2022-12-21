@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class CreateOrderResponseBody extends Model
 {
     /**
+     * @description The ID of the ticket.
+     *
      * @var createOrderResult
      */
     public $createOrderResult;
 
     /**
+     * @description The error code.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 427688B8-ADFB-4C4E-9D45-EF5C1FD6****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

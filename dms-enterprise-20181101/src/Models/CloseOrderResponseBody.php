@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CloseOrderResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 427688B8-ADFB-4C4E-9D45-EF5C1FD6E23D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SyncDatabaseMetaRequest extends Model
 {
     /**
+     * @example 123
+     *
      * @var string
      */
     public $dbId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $logic;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $tid;

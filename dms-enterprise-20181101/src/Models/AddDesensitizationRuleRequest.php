@@ -14,26 +14,43 @@ class AddDesensitizationRuleRequest extends Model
     public $functionParams;
 
     /**
+     * @description The type of the masking algorithm.
+     *
+     * @example MD5
+     *
      * @var string
      */
     public $functionType;
 
     /**
+     * @description The description of the rule.
+     *
      * @var string
      */
     public $ruleDescription;
 
     /**
+     * @description The name of the rule.
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The masking algorithm.
+     *
+     * @example HASH
+     *
      * @var string
      */
     public $ruleType;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

@@ -11,26 +11,47 @@ use AlibabaCloud\Tea\Model;
 class taskFlowGraph extends Model
 {
     /**
+     * @description Indicates whether the task flow is editable. Valid values:
+     *
+     * - **true**: editable
+     * - **false**: non-editable
+     * @example true
+     *
      * @var bool
      */
     public $canEdit;
 
     /**
+     * @description The name of the task flow.
+     *
+     * @example test
+     *
      * @var string
      */
     public $dagName;
 
     /**
+     * @description The list of task flow edges.
+     *
      * @var edges
      */
     public $edges;
 
     /**
+     * @description The node list of the task flow.
+     *
      * @var nodes
      */
     public $nodes;
 
     /**
+     * @description The status of the task flow. Valid values:
+     *
+     * - **0**: invalid
+     * - **1**: not scheduled
+     * - **2**: to be scheduled
+     * @example 2
+     *
      * @var int
      */
     public $status;

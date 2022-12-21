@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class source extends Model
 {
     /**
+     * @example 4324532
+     *
      * @var int
      */
     public $dbId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $dbSearchName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $logic;
 
     /**
+     * @example e179bbb8163dcdcfacda24858bedb4d8006ae2b8
+     *
      * @var string
      */
     public $versionId;

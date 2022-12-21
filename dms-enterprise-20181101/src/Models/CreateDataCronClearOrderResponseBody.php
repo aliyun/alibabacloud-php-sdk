@@ -9,26 +9,44 @@ use AlibabaCloud\Tea\Model;
 class CreateDataCronClearOrderResponseBody extends Model
 {
     /**
+     * @description The ID of the ticket.
+     *
      * @var int[]
      */
     public $createOrderResult;
 
     /**
+     * @description The error code.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

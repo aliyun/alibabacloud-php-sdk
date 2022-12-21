@@ -15,11 +15,15 @@ class DBTopology extends Model
     public $dataSourceList;
 
     /**
+     * @example IDB_L_9032.db-test.yuyang_test
+     *
      * @var string
      */
     public $tableGuid;
 
     /**
+     * @example yuyang_test
+     *
      * @var string
      */
     public $tableName;

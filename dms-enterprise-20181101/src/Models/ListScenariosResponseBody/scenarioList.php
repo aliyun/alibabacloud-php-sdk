@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class scenarioList extends Model
 {
     /**
+     * @example 23***
+     *
      * @var string
      */
     public $creatorId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 41***
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $scenarioName;

@@ -10,21 +10,41 @@ use AlibabaCloud\Tea\Model;
 class AddLhMembersRequest extends Model
 {
     /**
+     * @description The information about the users to be added.
+     *
      * @var members[]
      */
     public $members;
 
     /**
+     * @description The ID of the object.
+     *
+     *   If the object is a workspace, you can call the [GetLhSpaceByName](~~424379~~) operation to obtain the workspace ID.
+     *   If the object is a task flow, you can call the [ListLhTaskFlowAndScenario](~~426672~~) operation to obtain the task flow ID.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $objectId;
 
     /**
+     * @description The type of the object. Valid values:
+     *
+     *   **0**: workspace
+     *   **1**: task flow
+     *
+     * @example 0
+     *
      * @var int
      */
     public $objectType;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     *
+     * @example 3000
+     *
      * @var int
      */
     public $tid;

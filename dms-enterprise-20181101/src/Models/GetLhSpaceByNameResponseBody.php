@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class GetLhSpaceByNameResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request fails.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned if the request fails.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The workspace for data warehouse development.
+     *
      * @var lakehouseSpace
      */
     public $lakehouseSpace;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example FE8CA4A8-AB2D-55B7-BD30-01A4609F40D8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**: The request is successful.
+     *   **false**: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

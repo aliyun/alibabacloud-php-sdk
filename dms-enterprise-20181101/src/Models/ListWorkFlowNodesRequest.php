@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListWorkFlowNodesRequest extends Model
 {
     /**
+     * @example admin
+     *
      * @var string
      */
     public $searchName;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $tid;

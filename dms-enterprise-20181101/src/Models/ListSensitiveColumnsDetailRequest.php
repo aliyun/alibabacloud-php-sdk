@@ -9,31 +9,67 @@ use AlibabaCloud\Tea\Model;
 class ListSensitiveColumnsDetailRequest extends Model
 {
     /**
+     * @description The name of the field. You can call the [ListSensitiveColumns](~~188103~~) operation to obtain the name of the field.
+     *
+     * >  You can also call the [ListColumns](~~141870~~) operation to obtain the name of the field.
+     * @example ColumnName_test
+     *
      * @var string
      */
     public $columnName;
 
     /**
+     * @description The ID of the database. The database can be a physical database or a logical database.
+     *
+     *   To obtain the ID of a physical database, call the [ListDatabases](~~141873~~) or [SearchDatabase](~~141876~~) operation.
+     *   To obtain the ID of a logical database, call the [ListLogicDatabases](~~141874~~) or [SearchDatabase](~~141876~~) operation.
+     *
+     * @example 1860****
+     *
      * @var int
      */
     public $dbId;
 
     /**
+     * @description Specifies whether the database is a logical database. Valid values:
+     *
+     *   **true**: The database is a logical database.
+     *   **false**: The database is a physical database.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $logic;
 
     /**
+     * @description The name of the database. You can call the [ListSensitiveColumns](~~188103~~) operation to obtain the name of the database.
+     *
+     * >
+     *   You can also call the [ListDatabases](~~141873~~) or [SearchDatabase](~~141876~~) operation to obtain the name of a physical database.
+     *   You can also call the [ListLogicDatabases](~~141874~~) or [SearchDatabase](~~141876~~) operation to obtain the name of a logical database.
+     *
+     * @example SchemaName_test
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @description The name of the table. You can call the [ListSensitiveColumns](~~188103~~) operation to obtain the name of the table.
+     *
+     * >  You can also call the [ListTables](~~141878~~) operation to obtain the name of the table.
+     * @example test
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

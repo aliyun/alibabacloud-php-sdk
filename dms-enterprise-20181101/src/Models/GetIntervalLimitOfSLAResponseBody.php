@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetIntervalLimitOfSLAResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 59
+     *
      * @var int
      */
     public $intervalLimit;
 
     /**
+     * @example 5B96E35F-A58E-5399-9041-09CF9A1E46EA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -10,31 +10,55 @@ use AlibabaCloud\Tea\Model;
 class ListUsersResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
+     * @example InvalidTid
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
+     * @example Specified parameter Tid is not valid.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 67E910F2-4B62-5B0C-ACA3-7547695C****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     * - **true**: The request was successful.
+     * - **false**: The request failed.
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The details of users.
+     *
      * @var userList
      */
     public $userList;

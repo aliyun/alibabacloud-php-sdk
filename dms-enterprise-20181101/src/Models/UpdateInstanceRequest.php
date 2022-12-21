@@ -9,126 +9,254 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceRequest extends Model
 {
     /**
+     * @description The name of the data link for cross-database query.
+     *
+     * >
+     *   This parameter is required if the UseDsql parameter is set to 1.
+     *   The name can contain only lowercase letters and underscores (\_).
+     *   The name must be unique within a tenant.
+     *
+     * @example datalink_test
+     *
      * @var string
      */
     public $dataLinkName;
 
     /**
+     * @description The password that is used to log on to the database.
+     *
+     * @example ******
+     *
      * @var string
      */
     public $databasePassword;
 
     /**
+     * @description The account that is used to log on to the database.
+     *
+     * @example dbuser
+     *
      * @var string
      */
     public $databaseUser;
 
     /**
+     * @description The ID of the user who assumes the DBA role of the database instance. You can call the [ListUsers](~~141938~~) or [GetInstance](~~141567~~) operation to obtain the user ID.
+     *
+     * @example 27****
+     *
      * @var string
      */
     public $dbaId;
 
     /**
+     * @description Specifies whether to enable the lock-free schema change feature for the database instance. Valid values:
+     *
+     *   0: The feature is disabled.
+     *   1: The native online DDL feature takes precedence.
+     *   2: The lock-free schema change feature of DMS takes precedence.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $ddlOnline;
 
     /**
+     * @description The ID of the ECS instance.
+     *
+     * >  This parameter is required if the InstanceSource parameter is set to ECS_OWN.
+     * @example i-2zei9gs1t7h8l7ac****
+     *
      * @var string
      */
     public $ecsInstanceId;
 
     /**
+     * @description The ID of the region in which the database instance resides.
+     *
+     * >  This parameter is required if the InstanceSource parameter is set to RDS, ECS_OWN, or VPC_IDC.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $ecsRegion;
 
     /**
+     * @example Y
+     *
      * @var string
      */
     public $enableSellSitd;
 
     /**
+     * @description The type of the environment to which the database instance belongs. Valid values:
+     *
+     *   **product**: production environment
+     *   **dev**: development environment
+     *   **pre**: staging environment
+     *   **test**: test environment
+     *   **sit**: system integration testing (SIT) environment
+     *   **uat**: user acceptance testing (UAT) environment
+     *   **pet**: stress testing environment
+     *   **stag**: STAG environment
+     *
+     * @example product
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @description The timeout period for exporting data from the database instance.
+     *
+     * @example 600
+     *
      * @var int
      */
     public $exportTimeout;
 
     /**
+     * @description The host address that is used to connect to the database instance.
+     *
+     * @example 192.XXX.0.56
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @description The alias of the database instance. Specify an alias that can help you identify the database instance in DMS.
+     *
+     * @example instance_test
+     *
      * @var string
      */
     public $instanceAlias;
 
     /**
+     * @description The ID of the database instance. You can call the [GetInstance](~~141567~~) operation to obtain the instance ID.
+     *
+     * @example 126****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The source of the database instance. Valid values:
+     *
+     *   **PUBLIC_OWN**: a self-managed database instance that is deployed on the Internet
+     *   **RDS**: an ApsaraDB RDS instance
+     *   **ECS_OWN**: a self-managed database that is deployed on an Elastic Compute Service (ECS) instance
+     *   **VPC_IDC**: a self-managed database instance that is deployed in a data center connected over a virtual private cloud (VPC)
+     *
+     * @example ECS_OWN
+     *
      * @var string
      */
     public $instanceSource;
 
     /**
+     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
+     *
+     * @example mysql
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The port number that is used to connect to the database instance.
+     *
+     * @example 3306
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The timeout period for querying data in the database instance.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $queryTimeout;
 
     /**
+     * @description The ID of the security rule set for the instance. You can call the [ListStandardGroups](~~417891~~) or [GetInstance](~~141567~~) operation to obtain the name of the security rule set that you want to use.
+     *
+     * @example 3****
+     *
      * @var string
      */
     public $safeRuleId;
 
     /**
+     * @description The system ID (SID) of the database instance.
+     *
+     * >  This parameter is required if the InstanceType parameter is set to ORACLE.
+     * @example XXX
+     *
      * @var string
      */
     public $sid;
 
     /**
+     * @description Specifies whether to skip connectivity test. Valid values:
+     *
+     *   **true**: The connectivity test is skipped.
+     *   **false**: The connectivity test is not skipped.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $skipTest;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $templateId;
 
     /**
+     * @example INNER
+     *
      * @var string
      */
     public $templateType;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to obtain the tenant ID.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;
 
     /**
+     * @description Specifies whether to enable the cross-database query feature for the database instance. Valid values:
+     *
+     *   0: The feature is disabled.
+     *   1: The feature is enabled.
+     *
+     * >  Supported database types: MySQL, SQL Server, PostgreSQL, PolarDB for Oracle, and ApsaraDB for Redis.
+     * @example 0
+     *
      * @var int
      */
     public $useDsql;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * >  This parameter is required if the InstanceSource parameter is set to VPC_IDC.
+     * @example vpc-xxx
+     *
      * @var string
      */
     public $vpcId;

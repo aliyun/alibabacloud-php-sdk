@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class edges extends Model
 {
     /**
+     * @description The ID of the task flow edge.
+     *
+     * @example 24***
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The ID of the end node on the edge.
+     *
+     * @example 44***
+     *
      * @var int
      */
     public $nodeEnd;
 
     /**
+     * @description The ID of the start node on the edge.
+     *
+     * @example 44***
+     *
      * @var int
      */
     public $nodeFrom;

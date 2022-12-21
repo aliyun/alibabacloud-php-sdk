@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DBTopology extends Model
 {
     /**
+     * @example logic_db_test
+     *
      * @var string
      */
     public $alias;
@@ -20,26 +22,36 @@ class DBTopology extends Model
     public $DBTopologyInfoList;
 
     /**
+     * @example polardb
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @example dev
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $logicDbId;
 
     /**
+     * @example logic_db_test
+     *
      * @var string
      */
     public $logicDbName;
 
     /**
+     * @example logic_db_test
+     *
      * @var string
      */
     public $searchName;

@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ListSQLReviewOriginSQLShrinkRequest extends Model
 {
     /**
+     * @description The parameters that are used to filter SQL statements involved in the ticket.
+     *
      * @var string
      */
     public $orderActionDetailShrink;
 
     /**
+     * @description The ID of the ticket for the SQL review. You can call the [CreateSQLReviewOrder](~~257777~~) operation to query the ID of the ticket.
+     *
+     * @example 123321
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://www.alibabacloud.com/help/en/data-management-service/latest/getuseractivetenant) or [ListUserTenants](https://www.alibabacloud.com/help/en/data-management-service/latest/listusertenants) operation to query the ID of the tenant.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $tid;

@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class ListWorkFlowNodesResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example CFD8FE00-36D9-4C1B-940D-65A7B73D9066
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

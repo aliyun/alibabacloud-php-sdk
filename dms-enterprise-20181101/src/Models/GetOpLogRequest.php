@@ -9,31 +9,76 @@ use AlibabaCloud\Tea\Model;
 class GetOpLogRequest extends Model
 {
     /**
+     * @description The end of the time range to query. Specify the time in the yyyy-MM-DD HH:mm:ss format.
+     *
+     * @example 2022-03-29 10:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The functional module for which you want to query operation logs. If you do not specify this parameter, operation logs for all functional modules are returned. Valid values:
+     *
+     *   **PERMISSION**: permissions
+     *   **OWNER**: data owner
+     *   **SQL_CONSOLE**: data query
+     *   **SQL_CONSOLE_EXPORT**: query result export
+     *   **DATA_CHANGE**: data change
+     *   **DATA_EXPORT**: data export
+     *   **SQL_REVIEW**: SQL review
+     *   **DT_SYNC**: database and table synchronization
+     *   **DT_DETAIL**: database and table details
+     *   **DB_TASK**: task management
+     *   **INSTANCE_MANAGE**: instance management
+     *   **USER_MANAGE**: user management
+     *   **SECURITY_RULE**: security rule
+     *   **CONFIG_MANAGE**: configuration management
+     *   **RESOURCE_AUTH**: resource authorization
+     *   **ACCESS_WHITE_IP**: access IP address allowlist
+     *
+     * @example SECURITY_RULE
+     *
      * @var string
      */
     public $module;
 
     /**
+     * @description The number of the page to return. Pages start from page 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values:
+     *
+     *   30
+     *   50
+     *   100
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-DD HH:mm:ss format.
+     *
+     * @example 2022-03-23 10:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

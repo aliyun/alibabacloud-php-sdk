@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateStructSyncOrderRequest extends Model
 {
     /**
+     * @example upload_3c7edea3-e4c3-4403-857d-737043036f69_test.sql
+     *
      * @var string
      */
     public $attachmentKey;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $comment;
@@ -30,6 +34,8 @@ class CreateStructSyncOrderRequest extends Model
     public $relatedUserList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $tid;

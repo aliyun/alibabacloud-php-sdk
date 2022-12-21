@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskFlowOwnerRequest extends Model
 {
     /**
+     * @description The ID of the task flow. You can call the [ListTaskFlowInstance](~~424689~~) operation to query the task flow ID.
+     *
+     * @example 15***
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @description The user ID of the new owner. You can call the [GetUser](~~147098~~) or [ListUsers](~~141938~~) operation to query the user ID.
+     *
+     * @example 51****
+     *
      * @var string
      */
     public $newOwnerId;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

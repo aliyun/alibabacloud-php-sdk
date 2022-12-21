@@ -12,131 +12,240 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @description The name of the database link for the database instance.
+     *
+     * @example test
+     *
      * @var string
      */
     public $dataLinkName;
 
     /**
+     * @description The password that is used to log on to the database.
+     *
+     * @example ******
+     *
      * @var string
      */
     public $databasePassword;
 
     /**
+     * @description The account that is used to log on to the database instance.
+     *
+     * @example dbuser
+     *
      * @var string
      */
     public $databaseUser;
 
     /**
+     * @description The ID of the database administrator (DBA) for the database instance.
+     *
+     * @example 29****
+     *
      * @var string
      */
     public $dbaId;
 
     /**
+     * @description The nickname of the DBA for the database instance.
+     *
+     * @example dbaname
+     *
      * @var string
      */
     public $dbaNickName;
 
     /**
+     * @description Indicates whether the lock-free schema change feature is enabled for the database instance.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $ddlOnline;
 
     /**
+     * @description The ID of the Elastic Compute Service (ECS) instance on which the database instance is deployed.
+     *
+     * @example i-bp124ldpklqz59y3****
+     *
      * @var string
      */
     public $ecsInstanceId;
 
     /**
+     * @description The ID of the region in which the database instance resides.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $ecsRegion;
 
     /**
+     * @description The type of the environment to which the database instance belongs. Valid values:
+     *
+     *   **product**: production environment
+     *   **dev**: development environment
+     *   **pre**: staging environment
+     *   **test**: test environment
+     *   **sit**: system integration testing (SIT) environment
+     *   **uat**: user acceptance testing (UAT) environment
+     *   **pet**: stress testing environment
+     *   **stag**: STAG environment
+     *
+     * @example test
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @description The timeout period for exporting data from the database instance.
+     *
+     * @example 86400
+     *
      * @var int
      */
     public $exportTimeout;
 
     /**
+     * @description The host address that is used to connect to the database instance.
+     *
+     * @example 192.168.XXX.XXX
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @description The alias of the database instance.
+     *
      * @var string
      */
     public $instanceAlias;
 
     /**
+     * @description The ID of the database instance.
+     *
+     * @example 188****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The source of the database instance.
+     *
+     * @example ECS_OWN
+     *
      * @var string
      */
     public $instanceSource;
 
     /**
+     * @description The type of the database instance.
+     *
+     * @example postgresql
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The IDs of the owners for the database instance.
+     *
      * @var ownerIdList
      */
     public $ownerIdList;
 
     /**
+     * @description The nicknames of the owners for the database instance.
+     *
      * @var ownerNameList
      */
     public $ownerNameList;
 
     /**
+     * @description The port number that is used to connect to the database instance.
+     *
+     * @example 5432
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The timeout period for querying data in the database instance.
+     *
+     * @example 7200
+     *
      * @var int
      */
     public $queryTimeout;
 
     /**
+     * @description The ID of the security rule set for the database instance.
+     *
+     * @example 3****
+     *
      * @var string
      */
     public $safeRuleId;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $sellSitd;
 
     /**
+     * @description The SID of the database instance.
+     *
+     * @example test
+     *
      * @var string
      */
     public $sid;
 
     /**
+     * @description The control mode of the database instance.
+     *
      * @var standardGroup
      */
     public $standardGroup;
 
     /**
+     * @description The status of the database instance. Valid values:
+     *
+     *   **NORMAL**: normal
+     *   **DISABLE**: disabled
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description Indicates whether the cross-database query feature is enabled for the database instance. Valid values:
+     *
+     *   **0**: disabled
+     *   **1**: enabled
+     *
+     * @example 0
+     *
      * @var int
      */
     public $useDsql;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the database instance belongs.
+     *
+     * @example vpc-o6wrloqsdqc9io3mg****
+     *
      * @var string
      */
     public $vpcId;

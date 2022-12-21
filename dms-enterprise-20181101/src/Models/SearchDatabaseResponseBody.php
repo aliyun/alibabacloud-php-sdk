@@ -10,31 +10,55 @@ use AlibabaCloud\Tea\Model;
 class SearchDatabaseResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E0D21075-CD3E-4D98-8264-FD8AD04A63B6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the databases.
+     *
      * @var searchDatabaseList
      */
     public $searchDatabaseList;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     * - **true**: The request was successful.
+     * - **false**: The request failed.
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

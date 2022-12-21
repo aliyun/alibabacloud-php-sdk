@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskConfigResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example F4E2A94B-604F-43FF-93E7-F4EE3DCF412E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

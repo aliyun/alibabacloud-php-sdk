@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class userPermission extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example 174****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The details of permissions.
+     *
      * @var permDetails
      */
     public $permDetails;
 
     /**
+     * @description The ID of the user.
+     *
+     * @example 51****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description The nickname of the user.
+     *
+     * @example test_nick_name
+     *
      * @var string
      */
     public $userNickName;

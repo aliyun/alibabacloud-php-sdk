@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class ListSensitiveDataAuditLogRequest extends Model
 {
     /**
+     * @example ExampleColumnName
+     *
      * @var string
      */
     public $columnName;
 
     /**
+     * @example ExampleDbName
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @example 2022-11-18 11:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example SQL_CONSOLE
+     *
      * @var string
      */
     public $moduleName;
 
     /**
+     * @example ExampleOpUserName
+     *
      * @var string
      */
     public $opUserName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2022-11-18 10:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example ExampleTableName
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

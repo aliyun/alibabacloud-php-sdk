@@ -9,51 +9,104 @@ use AlibabaCloud\Tea\Model;
 class ListOrdersRequest extends Model
 {
     /**
+     * @description The end of the time range to query.
+     *
+     * @example 2022-04-09 11:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The scope of the tickets that you want to query. Valid values:
+     *
+     *   **AS_ADMIN**: all tickets.
+     *   **AS_COMMITTER**: the tickets that are submitted by the current user.
+     *   **AS_HANDLER**: the tickets to be processed by the current user.
+     *   **AS_OWNER**: the tickets that are processed by the current user.
+     *   **AS_Related**: the tickets that are related to the current user.
+     *
+     * @example AS_ADMIN
+     *
      * @var string
      */
     public $orderResultType;
 
     /**
+     * @description The status of the tickets that you want to query. Valid values:
+     *
+     *   **ALL**: queries the tickets of all statuses.
+     *   **FINISHED**: queries the tickets that are completed.
+     *   **RUNNING**: queries the tickets that are being processed.
+     *
+     * @example ALL
+     *
      * @var string
      */
     public $orderStatus;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The type of the tickets that you want to query. For more information, see [PluginType parameter](~~429109~~).
+     *
+     * @example DC_COMMON
+     *
      * @var string
      */
     public $pluginType;
 
     /**
+     * @description The keyword that is used to query tickets.
+     *
+     * @example test
+     *
      * @var string
      */
     public $searchContent;
 
     /**
+     * @description The time condition based on which you want to query tickets. Valid values:
+     *
+     *   **CREATE_TIME**: the time when a ticket was created.
+     *   **MODIFY_TIME**: the time when a ticket was last modified.
+     *
+     * @example CREATE_TIME
+     *
      * @var string
      */
     public $searchDateType;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * @example 2022-04-08 11:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     *
+     * @example 3000
+     *
      * @var int
      */
     public $tid;

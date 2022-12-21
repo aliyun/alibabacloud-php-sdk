@@ -11,36 +11,50 @@ use AlibabaCloud\Tea\Model;
 class orderBaseInfo extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $committer;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $committerId;
 
     /**
+     * @example 2019-10-10 00:00:00
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2019-10-10 00:00:00
+     *
      * @var string
      */
     public $lastModifyTime;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example DC_COMMON
+     *
      * @var string
      */
     public $pluginType;
@@ -56,21 +70,29 @@ class orderBaseInfo extends Model
     public $relatedUserNickList;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $statusCode;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $statusDesc;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $workflowInstanceId;
 
     /**
+     * @example approved
+     *
      * @var string
      */
     public $workflowStatusDesc;

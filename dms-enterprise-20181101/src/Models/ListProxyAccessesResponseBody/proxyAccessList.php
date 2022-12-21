@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class proxyAccessList extends Model
 {
     /**
+     * @description The username of the database account that is authorized to access the database instance by using the secure access proxy feature.
+     *
+     * @example MXPL8HalI22m****
+     *
      * @var string
      */
     public $accessId;
 
     /**
+     * @description The time when the user is authorized to access the database instance by using the secure access proxy feature.
+     *
+     * @example 2021-03-31 10:34:18
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The username of the independent database account.
+     *
+     * @example ****
+     *
      * @var string
      */
     public $indepAccount;
 
     /**
+     * @description The ID of the database instance.
+     *
+     * @example 164****
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @description The method that is used to authorize the user to access the database instance by using the secure access proxy feature. Valid values:
+     *
+     * - **Authorization by the Alibaba Cloud Account ()**: The information in the parentheses () indicates the user ID (UID) of the Alibaba Cloud account.
+     * - **Authorization by submitting the ticket ()**:The information in the parentheses () indicates the number of the ticket that the user submits to apply for permissions.
      * @var string
      */
     public $originInfo;
 
     /**
+     * @description The ID that DMS generates after the user is authorized to access the database instance by using the secure access proxy feature. The ID is unique in DMS.
+     *
+     * @example ****
+     *
      * @var int
      */
     public $proxyAccessId;
 
     /**
+     * @description The ID of the secure access proxy.
+     *
+     * @example 47
+     *
      * @var int
      */
     public $proxyId;
 
     /**
+     * @description The ID of the user.
+     *
+     * @example 26****
+     *
      * @var int
      */
     public $userId;
 
     /**
+     * @description The nickname of the user.
+     *
+     * @example user
+     *
      * @var string
      */
     public $userName;
 
     /**
+     * @description The UID of the Alibaba Cloud account.
+     *
+     * @example 25936669186260****
+     *
      * @var string
      */
     public $userUid;

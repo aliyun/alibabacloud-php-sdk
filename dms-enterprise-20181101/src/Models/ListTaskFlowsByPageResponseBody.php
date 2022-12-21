@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class ListTaskFlowsByPageResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 6CB28697-BFE2-5739-9228-3971990E982C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -35,6 +43,8 @@ class ListTaskFlowsByPageResponseBody extends Model
     public $taskFlowList;
 
     /**
+     * @example 24
+     *
      * @var int
      */
     public $totalCount;

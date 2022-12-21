@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class ReRunTaskFlowInstanceRequest extends Model
 {
     /**
+     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
+     *
+     * @example 7***
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @description The ID of the execution record of the task flow. You can call the [ListTaskFlowInstance](~~424689~~) operation to query the execution record ID.
+     *
+     * @example 47****
+     *
      * @var int
      */
     public $dagInstanceId;
 
     /**
+     * @description The version number of the task flow. You can call the ListTaskFlowVersions operation to query the version number of the task flow.
+     *
+     * @example 2****
+     *
      * @var string
      */
     public $dagVersion;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * > To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

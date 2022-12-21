@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetTaskRequest extends Model
 {
     /**
+     * @example 51***
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

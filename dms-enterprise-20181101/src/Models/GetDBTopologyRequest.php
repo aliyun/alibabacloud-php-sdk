@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetDBTopologyRequest extends Model
 {
     /**
+     * @example 134325
+     *
      * @var int
      */
     public $logicDbId;
 
     /**
+     * @example 43215
+     *
      * @var int
      */
     public $tid;

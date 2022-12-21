@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class targetVersionInfo extends Model
 {
     /**
+     * @example e179bbb8163dcdcfacda24858bedb4d8006ae2b8
+     *
      * @var string
      */
     public $versionId;

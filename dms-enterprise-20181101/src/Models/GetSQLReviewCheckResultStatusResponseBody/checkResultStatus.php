@@ -16,6 +16,8 @@ class checkResultStatus extends Model
     public $checkStatusResult;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $checkedCount;
@@ -26,6 +28,8 @@ class checkResultStatus extends Model
     public $SQLReviewResult;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalSQLCount;

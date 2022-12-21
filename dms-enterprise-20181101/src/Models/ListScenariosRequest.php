@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListScenariosRequest extends Model
 {
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

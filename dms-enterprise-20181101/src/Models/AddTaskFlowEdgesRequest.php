@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class AddTaskFlowEdgesRequest extends Model
 {
     /**
+     * @example 15***
+     *
      * @var int
      */
     public $dagId;
@@ -20,6 +22,8 @@ class AddTaskFlowEdgesRequest extends Model
     public $edges;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

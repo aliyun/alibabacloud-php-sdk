@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class GetDataCorrectBackupFilesShrinkRequest extends Model
 {
     /**
+     * @description The parameters that are required to perform the operation. You do not need to specify this parameter.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $actionDetailShrink;
 
     /**
+     * @description The ID of the ticket. You can call the [ListOrders](~~144643~~) operation to obtain the ticket ID.
+     *
+     * @example 4200000
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ReDeployLhDagVersionRequest extends Model
 {
     /**
+     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to obtain the ID of the task flow.
+     *
+     * @example 7***
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @description The ID of the task flow version. You can call the [ListDAGVersions](~~424682~~) operation to obtain the ID of the task flow version.
+     *
+     * @example 2****
+     *
      * @var int
      */
     public $dagVersion;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the ID of the tenant.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

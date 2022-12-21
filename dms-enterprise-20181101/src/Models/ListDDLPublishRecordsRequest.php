@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListDDLPublishRecordsRequest extends Model
 {
     /**
+     * @example 3214325
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $tid;

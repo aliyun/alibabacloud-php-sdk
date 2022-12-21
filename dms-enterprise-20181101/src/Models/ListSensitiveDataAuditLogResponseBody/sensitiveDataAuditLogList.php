@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class sensitiveDataAuditLogList extends Model
 {
     /**
+     * @example ExampleDbName@xxx.xxx.xxx.xxx:3306
+     *
      * @var string
      */
     public $dbDisplayName;
 
     /**
+     * @example 12****
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @example SQL_CONSOLE
+     *
      * @var string
      */
     public $moduleName;
 
     /**
+     * @example 2022-11-18 10:01:00
+     *
      * @var string
      */
     public $opTime;
@@ -40,11 +48,15 @@ class sensitiveDataAuditLogList extends Model
     public $targetName;
 
     /**
+     * @example 1**
+     *
      * @var int
      */
     public $userId;
 
     /**
+     * @example ExampleUserName
+     *
      * @var string
      */
     public $userName;

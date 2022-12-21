@@ -9,46 +9,92 @@ use AlibabaCloud\Tea\Model;
 class ListProxySQLExecAuditLogRequest extends Model
 {
     /**
+     * @description The end of the time range to query. The value of this parameter must be a timestamp that follows the UNIX time format.
+     *
+     * @example 1636962846000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The execution status of the SQL statement. Valid values:
+     *
+     *   **FAIL**: The execution of the SQL statement fails.
+     *   **CANCEL**: The execution of the SQL statement is canceled.
+     *   **SUCCESS**: The SQL statement is executed.
+     *
+     * @example SUCCESS
+     *
      * @var string
      */
     public $execState;
 
     /**
+     * @description The alias of the user.
+     *
+     * @example testNickName
+     *
      * @var string
      */
     public $opUserName;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum values: 100.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The type of SQL statement. Valid values:
+     *
+     *   **SELECT**
+     *   **INSERT**
+     *   **DELETE**
+     *   **CREATE_TABLE**
+     *
+     * >  You can choose Operation Audit > Secure Access Proxy in the top navigation bar of the DMS console to view more types of SQL statements.
+     * @example SELECT
+     *
      * @var string
      */
     public $SQLType;
 
     /**
+     * @description The name of the database instance.
+     *
+     * @example test
+     *
      * @var string
      */
     public $searchName;
 
     /**
+     * @description The beginning of the time range to query. The value of this parameter must be a timestamp that follows the UNIX time format.
+     *
+     * @example 1636876446000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the tenant ID.
+     *
+     * @example 14****
+     *
      * @var int
      */
     public $tid;

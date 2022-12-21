@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetOrderAttachmentFileResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example https://dmsxxx
+     *
      * @var string
      */
     public $fileUrl;
 
     /**
+     * @example FE8EE2F1-4880-46BC-A704-5CF63EAF9A04
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

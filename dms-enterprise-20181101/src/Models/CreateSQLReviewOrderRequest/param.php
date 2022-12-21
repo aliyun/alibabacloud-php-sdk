@@ -14,6 +14,8 @@ class param extends Model
     public $attachmentKeyList;
 
     /**
+     * @example 123321
+     *
      * @var int
      */
     public $dbId;

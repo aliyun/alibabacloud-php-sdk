@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateScenarioResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 7FAD400F-7A5C-4193-8F9A-39D86C4F0231
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

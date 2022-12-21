@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class ReDeployLhDagVersionResponseBody extends Model
 {
     /**
+     * @description The ID of the deployment record.
+     *
+     * @example 15990
+     *
      * @var int
      */
     public $deployId;
 
     /**
+     * @description The error code returned if the request fails.
+     *
+     * @example 403
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned if the request fails.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 035C92E0-2EAD-50E5-A6DD-550F5F73D7CE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**: The request is successful.
+     *   **false**: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class ListClassificationTemplatesResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 90260530-565C-42B9-A6E8-893481FE6AB6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

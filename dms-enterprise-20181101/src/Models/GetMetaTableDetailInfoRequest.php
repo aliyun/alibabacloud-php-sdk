@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableDetailInfoRequest extends Model
 {
     /**
+     * @example IDB_L_9032.db-test.yuyang_test
+     *
      * @var string
      */
     public $tableGuid;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $tid;

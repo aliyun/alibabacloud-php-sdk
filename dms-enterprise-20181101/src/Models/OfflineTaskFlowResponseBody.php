@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class OfflineTaskFlowResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request fails.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned if the request fails.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A8FE12AA-300D-5FDF-806F-C2CB99161F32
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**: The request is successful.
+     *   **false**: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

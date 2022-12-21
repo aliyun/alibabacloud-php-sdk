@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class CreateProxyRequest extends Model
 {
     /**
+     * @description The ID of the database instance. You can call the [ListInstances](https://www.alibabacloud.com/help/en/data-management-service/latest/listinstances) or [GetInstance](https://www.alibabacloud.com/help/en/data-management-service/latest/getinstance) operation to query the database instance ID.
+     *
+     * @example 183****
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @description The password of the database account.
+     *
+     * @example ******
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://www.alibabacloud.com/help/en/data-management-service/latest/getuseractivetenant) operation to query the tenant ID.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;
 
     /**
+     * @description The username of the database account.
+     *
+     * @example username
+     *
      * @var string
      */
     public $username;

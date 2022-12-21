@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataCronClearConfig extends Model
 {
     /**
+     * @example 2
+     *
      * @var string
      */
     public $cronCallTimes;
@@ -19,31 +21,43 @@ class dataCronClearConfig extends Model
     public $cronFormat;
 
     /**
+     * @example 2022-11-18 00:00:00
+     *
      * @var string
      */
     public $cronLastCallStartTime;
 
     /**
+     * @example 2022-11-19 00:00:00
+     *
      * @var string
      */
     public $cronNextCallTime;
 
     /**
+     * @example PAUSE
+     *
      * @var string
      */
     public $cronStatus;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $currentClearTaskCount;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $optimizeTableAfterEveryClearTimes;

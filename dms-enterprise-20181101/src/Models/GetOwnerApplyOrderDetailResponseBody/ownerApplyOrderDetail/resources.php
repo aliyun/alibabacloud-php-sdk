@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $logic;
@@ -20,6 +22,8 @@ class resources extends Model
     public $resourceDetail;
 
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $targetId;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class CreateTaskFlowRequest extends Model
 {
     /**
+     * @description The name of the task flow.
+     *
+     * @example Dag_Name
+     *
      * @var string
      */
     public $dagName;
 
     /**
+     * @description The description of the task flow.
+     *
+     * @example zht_test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the scenario.
+     *
+     * @example 2**
+     *
      * @var int
      */
     public $scenarioId;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the tenant ID.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

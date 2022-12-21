@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreatePublishGroupTaskRequest extends Model
 {
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $dbId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $logic;
 
     /**
+     * @example 142435
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example 2019-10-10 00:00:00
+     *
      * @var string
      */
     public $planTime;
 
     /**
+     * @example IMMEDIATELY
+     *
      * @var string
      */
     public $publishStrategy;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $tid;

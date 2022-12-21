@@ -9,41 +9,71 @@ use AlibabaCloud\Tea\Model;
 class node extends Model
 {
     /**
+     * @description The ID of the task flow.
+     *
+     * @example 15***
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @description The position of the node in the DAG.
+     *
+     * @example {\"x\":541,\"y\":322,\"layoutType\":\"Horizontal\"}
+     *
      * @var string
      */
     public $graphParam;
 
     /**
+     * @description The advanced configuration of the node.
+     *
      * @var string
      */
     public $nodeConfig;
 
     /**
+     * @description The configuration of the node.
+     *
+     * @example {ODI3OTNRVC****UHVFT29"}
+     *
      * @var string
      */
     public $nodeContent;
 
     /**
+     * @description The ID of the node.
+     *
+     * @example 44***
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @description The name of the node.
+     *
+     * @example test
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description The type of the node. For more information about the valid values for this parameter, see [NodeType parameter](~~424705~~).
+     *
+     * @example 36
+     *
      * @var int
      */
     public $nodeType;
 
     /**
+     * @description The time variables for the node.
+     *
+     * @example {\"variables\":[{\"name\":\"Today\",\"pattern\":\"yyyy-MM-dd|+1d\"}]}
+     *
      * @var string
      */
     public $timeVariables;

@@ -10,26 +10,46 @@ use AlibabaCloud\Tea\Model;
 class ListSensitiveColumnsDetailResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7629888F-C9FB-4D16-A7D3-B443FE06FBD4
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the sensitive field.
+     *
      * @var sensitiveColumnsDetailList
      */
     public $sensitiveColumnsDetailList;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     * - **true**: The request was successful.
+     * - **false**: The request failed.
+     * @example true
+     *
      * @var bool
      */
     public $success;

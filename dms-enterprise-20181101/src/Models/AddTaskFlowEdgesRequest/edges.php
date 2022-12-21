@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class edges extends Model
 {
     /**
+     * @example 44***
+     *
      * @var int
      */
     public $nodeEnd;
 
     /**
+     * @example 44***
+     *
      * @var int
      */
     public $nodeFrom;

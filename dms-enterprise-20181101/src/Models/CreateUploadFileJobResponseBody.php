@@ -9,26 +9,50 @@ use AlibabaCloud\Tea\Model;
 class CreateUploadFileJobResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
+     * @example InvalidParameterValid
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
+     * @example Unsupported url scheme : null, scheme must be https or http
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The key of the task.
+     *
+     * >  You can call the [GetUserUploadFileJob](~~206069~~) operation to query the progress and details of the task.
+     * @example 761f18031635736380812****
+     *
      * @var string
      */
     public $jobKey;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E103C5F9-DE47-53F2-BF34-D71DF38F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -15,21 +15,29 @@ class dataSourceList extends Model
     public $databaseList;
 
     /**
+     * @example MySQL
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @example xxx.mysql.polardb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example 3306
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example def
+     *
      * @var string
      */
     public $sid;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListIndexesRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $logic;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $tableId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $tid;

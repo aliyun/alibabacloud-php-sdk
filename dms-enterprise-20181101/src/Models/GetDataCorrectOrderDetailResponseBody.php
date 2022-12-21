@@ -10,26 +10,46 @@ use AlibabaCloud\Tea\Model;
 class GetDataCorrectOrderDetailResponseBody extends Model
 {
     /**
+     * @description The information about the data change ticket.
+     *
      * @var dataCorrectOrderDetail
      */
     public $dataCorrectOrderDetail;
 
     /**
+     * @description The error code returned if the request fails.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned if the request fails.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 427688B8-ADFB-4C4E-9D45-EF5C1FD6E23D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     * - **true**: The request is successful.
+     * - **false**: The request fails.
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetDataCorrectRollbackFileResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example https://dmsxxx
+     *
      * @var string
      */
     public $fileUrl;
 
     /**
+     * @example 3CDB8601-AD74-4A47-8114-08E08CD6****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

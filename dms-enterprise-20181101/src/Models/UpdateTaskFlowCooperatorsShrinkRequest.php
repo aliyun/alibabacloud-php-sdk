@@ -14,11 +14,15 @@ class UpdateTaskFlowCooperatorsShrinkRequest extends Model
     public $cooperatorIdsShrink;
 
     /**
+     * @example 11****
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

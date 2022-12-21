@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListDatabasesRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $tid;

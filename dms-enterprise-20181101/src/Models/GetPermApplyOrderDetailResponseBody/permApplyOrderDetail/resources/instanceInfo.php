@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class instanceInfo extends Model
 {
     /**
+     * @example MySQL
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $dbaId;
 
     /**
+     * @example test_dba
+     *
      * @var string
      */
     public $dbaNickName;
 
     /**
+     * @example product
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $instanceId;
@@ -49,11 +61,15 @@ class instanceInfo extends Model
     public $ownerNickName;
 
     /**
+     * @example 3306
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example xxxx:3306
+     *
      * @var string
      */
     public $searchName;
