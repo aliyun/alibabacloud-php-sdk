@@ -9,66 +9,118 @@ use AlibabaCloud\Tea\Model;
 class templates extends Model
 {
     /**
+     * @description The time when the template was created.
+     *
+     * @example 2020-08-19T03:31:32.415Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description A list of connectors that are used in the template. The connectors are separated by commas.
+     *
+     * @example oss,rds
+     *
      * @var string
      */
     public $templateConnector;
 
     /**
+     * @description The publisher of the template.
+     *
+     * @example Logic Composer
+     *
      * @var string
      */
     public $templateCreator;
 
     /**
+     * @description A brief introduction to the template.
+     *
+     * @example This is a test template.
+     *
      * @var string
      */
     public $templateDescription;
 
     /**
+     * @description The ID of the template.
+     *
+     * @example tp-uf6tbvhheciyxl
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description The language that is used in the template. Chinese and English are supported.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $templateLocale;
 
     /**
+     * @description The name of the template.
+     *
+     * @example test
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description An overview of the template, which is a JSON string.
+     *
+     * @example []
+     *
      * @var string
      */
     public $templateOverview;
 
     /**
+     * @description A description of the template.
+     *
+     * @example This is a test template.
+     *
      * @var string
      */
     public $templateSummary;
 
     /**
+     * @description A brief introduction to the template.
+     *
+     * @example This is a test template
+     *
      * @var string
      */
     public $templateSummaryEn;
 
     /**
+     * @description The tag of the template.
+     *
+     * @example finance
+     *
      * @var string
      */
     public $templateTag;
 
     /**
+     * @description The version of the template, which is a number that increments from 0.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $templateVersion;
 
     /**
+     * @description The time when the template was last updated.
+     *
+     * @example 2020-08-19T03:31:32.415Z
+     *
      * @var string
      */
     public $updateTime;

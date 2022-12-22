@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class EnableFlowRequest extends Model
 {
     /**
+     * @description The ID of the workflow that you want to enable.
+     *
+     * @example tp-uf6pvud38xl0ia
+     *
      * @var string
      */
     public $flowId;

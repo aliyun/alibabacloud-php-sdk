@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DisableFlowRequest extends Model
 {
     /**
+     * @description The ID of the workflow that you want to disable.
+     *
+     * @example lc-uf6pvud38xl0ia
+     *
      * @var string
      */
     public $flowId;

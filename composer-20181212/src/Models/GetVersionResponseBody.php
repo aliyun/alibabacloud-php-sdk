@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class GetVersionResponseBody extends Model
 {
     /**
+     * @description The time when the version was created.
+     *
+     * @example 2018-12-12T07:36:22.992Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The definition of the workflow to which the version belongs.
+     *
+     * @example {\"schemaVersion\":\"2018-12-12\",\"actions\":{},\"version\":\"1.0.0\",\"triggers\":{}}
+     *
      * @var string
      */
     public $definition;
 
     /**
+     * @description The ID of the workflow to which the version belongs.
+     *
+     * @example lc-uf6wvbsyvvl5sy
+     *
      * @var string
      */
     public $flowId;
 
     /**
+     * @description The region where the workflow resides.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example ADB97A33-50E7-48A5-963D-ACBAE36D0BEC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The time when the version was last updated.
+     *
+     * @example 2018-12-12T07:36:22.992Z
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @description The description of the version.
+     *
+     * @example This is the description of the version.
+     *
      * @var string
      */
     public $versionDescription;
 
     /**
+     * @description The ID of the version.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $versionId;
 
     /**
+     * @description The name of the version.
+     *
+     * @example 5.3.6
+     *
      * @var string
      */
     public $versionName;
 
     /**
+     * @description The status of the version. **Enabled** indicates that the version is enabled.
+     *
+     * @example Enabled
+     *
      * @var string
      */
     public $versionStatus;

@@ -9,21 +9,39 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description 系统规定参数。取值：UntagResources。
+     *
+     * @example false
+     *
      * @var bool
      */
     public $all;
 
     /**
+     * @description The type of the resources. Set the value to ALIYUN::LC::FLOW.
+     *
+     *   ALIYUN::LC::FLOW indicates Logic Composer workflows.
+     *
+     * @example lc-uf6tbvhheciyxl
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description system
+     *
+     * @example ALIYUN::LC::FLOW
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description Specifies a maximum of 50 resource IDs.
+     *
+     * @example tagKey
+     *
      * @var string[]
      */
     public $tagKey;

@@ -10,16 +10,28 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
+     * @description Specifies a maximum of 50 resource IDs.
+     *
+     * @example lc-uf6tbvhheciyxl
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The type of the resources. Set the value to ALIYUN::LC::FLOW.
+     *
+     *   ALIYUN::LC::FLOW indicates Logic Composer workflows.
+     *
+     * @example ALIYUN::LC::FLOW
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description Specifies a list of tags that you want to attach to the resources.
+     *
      * @var tag[]
      */
     public $tag;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteFlowRequest extends Model
 {
     /**
+     * @description The ID of the workflow that you want to delete.
+     *
+     * @example lc-uf6wvbsyvvl5sy
+     *
      * @var string
      */
     public $flowId;

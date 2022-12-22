@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class InvokeFlowRequest extends Model
 {
     /**
+     * @description The token that is used to guarantee idempotence to avoid repeated operations.
+     *
+     * @example abcdefghijklmn
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The data for invoking the workflow.
+     *
+     * @example {"body": {"test": true}}
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The parameters required by the template, which must be in JSON format.
+     *
+     * @example lc-abcdefg
+     *
      * @var string
      */
     public $flowId;
 
     /**
+     * @description The input parameters required by the trigger of the workflow execution, which must be in JSON format.
+     *
+     * @example {"ParamA": "test"}
+     *
      * @var string
      */
     public $parameters;

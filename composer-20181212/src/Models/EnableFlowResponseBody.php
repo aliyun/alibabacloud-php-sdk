@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class EnableFlowResponseBody extends Model
 {
     /**
+     * @description The status of the workflow. Valid values:
+     *
+     *   **Enabled**: The workflow is enabled.
+     *   **Disabled**: The workflow is disabled.
+     *
+     * @example Enabled
+     *
      * @var string
      */
     public $flowStatus;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example ADB97A33-50E7-48A5-963D-ACBAE36D0BEC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the operation was successful. Valid values:
+     *
+     *   **true**: The operation was successful.
+     *   **false**: The operation failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

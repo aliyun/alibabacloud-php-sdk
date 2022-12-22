@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListFlowsResponseBody extends Model
 {
     /**
+     * @description A list of workflows.
+     *
      * @var flows[]
      */
     public $flows;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A4865221-E0BC-5AF6-BDD3-749F5A2371CC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of workflows in the current region.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

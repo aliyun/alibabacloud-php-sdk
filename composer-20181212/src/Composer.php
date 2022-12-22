@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Composer\V20181212;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Composer\V20181212\Models\CloneFlowRequest;
 use AlibabaCloud\SDK\Composer\V20181212\Models\CloneFlowResponse;
 use AlibabaCloud\SDK\Composer\V20181212\Models\CreateFlowRequest;
@@ -42,6 +43,7 @@ use AlibabaCloud\SDK\Composer\V20181212\Models\UpdateFlowResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Composer extends OpenApiClient
@@ -78,25 +80,51 @@ class Composer extends OpenApiClient
     }
 
     /**
-     * @param CloneFlowRequest $request
-     * @param RuntimeOptions   $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return CloneFlowResponse
+     * @param CloneFlowRequest $request CloneFlowRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CloneFlowResponse CloneFlowResponse
      */
     public function cloneFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->flowId)) {
+            $body['FlowId'] = $request->flowId;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $body['VersionId'] = $request->versionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CloneFlow',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CloneFlowResponse::fromMap($this->doRPCRequest('CloneFlow', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CloneFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CloneFlowRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return CloneFlowResponse
+     * @param CloneFlowRequest $request CloneFlowRequest
+     *
+     * @return CloneFlowResponse CloneFlowResponse
      */
     public function cloneFlow($request)
     {
@@ -106,25 +134,59 @@ class Composer extends OpenApiClient
     }
 
     /**
-     * @param CreateFlowRequest $request
-     * @param RuntimeOptions    $runtime
+     * After you create a workflow, the system automatically creates a version for the workflow. You can call the GetVersion operation to obtain the version information.
+     *   *
+     * @param CreateFlowRequest $request CreateFlowRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFlowResponse
+     * @return CreateFlowResponse CreateFlowResponse
      */
     public function createFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->definition)) {
+            $body['Definition'] = $request->definition;
+        }
+        if (!Utils::isUnset($request->flowDescription)) {
+            $body['FlowDescription'] = $request->flowDescription;
+        }
+        if (!Utils::isUnset($request->flowName)) {
+            $body['FlowName'] = $request->flowName;
+        }
+        if (!Utils::isUnset($request->flowSource)) {
+            $body['FlowSource'] = $request->flowSource;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $body['TemplateId'] = $request->templateId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFlow',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateFlowResponse::fromMap($this->doRPCRequest('CreateFlow', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateFlowRequest $request
+     * After you create a workflow, the system automatically creates a version for the workflow. You can call the GetVersion operation to obtain the version information.
+     *   *
+     * @param CreateFlowRequest $request CreateFlowRequest
      *
-     * @return CreateFlowResponse
+     * @return CreateFlowResponse CreateFlowResponse
      */
     public function createFlow($request)
     {
@@ -134,25 +196,44 @@ class Composer extends OpenApiClient
     }
 
     /**
-     * @param DeleteFlowRequest $request
-     * @param RuntimeOptions    $runtime
+     * If you delete a workflow, all the versions and execution records of the workflow are automatically deleted.
+     *   *
+     * @param DeleteFlowRequest $request DeleteFlowRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFlowResponse
+     * @return DeleteFlowResponse DeleteFlowResponse
      */
     public function deleteFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->flowId)) {
+            $body['FlowId'] = $request->flowId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFlow',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteFlowResponse::fromMap($this->doRPCRequest('DeleteFlow', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteFlowRequest $request
+     * If you delete a workflow, all the versions and execution records of the workflow are automatically deleted.
+     *   *
+     * @param DeleteFlowRequest $request DeleteFlowRequest
      *
-     * @return DeleteFlowResponse
+     * @return DeleteFlowResponse DeleteFlowResponse
      */
     public function deleteFlow($request)
     {
@@ -170,11 +251,26 @@ class Composer extends OpenApiClient
     public function disableFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->flowId)) {
+            $body['FlowId'] = $request->flowId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableFlow',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableFlowResponse::fromMap($this->doRPCRequest('DisableFlow', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -198,11 +294,26 @@ class Composer extends OpenApiClient
     public function enableFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->flowId)) {
+            $body['FlowId'] = $request->flowId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableFlow',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableFlowResponse::fromMap($this->doRPCRequest('EnableFlow', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -226,11 +337,26 @@ class Composer extends OpenApiClient
     public function getFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->flowId)) {
+            $body['FlowId'] = $request->flowId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetFlow',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetFlowResponse::fromMap($this->doRPCRequest('GetFlow', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -254,11 +380,26 @@ class Composer extends OpenApiClient
     public function getTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->templateId)) {
+            $body['TemplateId'] = $request->templateId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTemplate',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTemplateResponse::fromMap($this->doRPCRequest('GetTemplate', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -282,11 +423,29 @@ class Composer extends OpenApiClient
     public function getVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->flowId)) {
+            $body['FlowId'] = $request->flowId;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $body['VersionId'] = $request->versionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVersion',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetVersionResponse::fromMap($this->doRPCRequest('GetVersion', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -302,25 +461,65 @@ class Composer extends OpenApiClient
     }
 
     /**
-     * @param GroupInvokeFlowRequest $request
-     * @param RuntimeOptions         $runtime
+     * *   You can call this operation to trigger a workflow to be executed more than 100 times per second. If the desired execution frequency does not exceed 100 times per second, we recommend that you call the InvokeFlow operation.
+     *   * *   However, you may need to call the GroupInvokeFlow operation multiple times. For example, assume that you want a workflow to be executed 1,000 times per second and the 1,000 times of execution are divided into ten groups. You need to call the operation ten times for the ten groups and specify a group key for each group.
+     *   * *   Each call corresponds to a group execution. Logic Composer automatically determines when a group execution starts. You must set the Data parameter to a JSON array of strings to specify the information required by the execution. Each string provides the information required by one time of execution. The string must use the format of the Data parameter in the InvokeFlow operation.
+     *   *
+     * @param GroupInvokeFlowRequest $request GroupInvokeFlowRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GroupInvokeFlowResponse
+     * @return GroupInvokeFlowResponse GroupInvokeFlowResponse
      */
     public function groupInvokeFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->data)) {
+            $body['Data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->flowId)) {
+            $body['FlowId'] = $request->flowId;
+        }
+        if (!Utils::isUnset($request->groupKey)) {
+            $body['GroupKey'] = $request->groupKey;
+        }
+        if (!Utils::isUnset($request->totalCount)) {
+            $body['TotalCount'] = $request->totalCount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GroupInvokeFlow',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GroupInvokeFlowResponse::fromMap($this->doRPCRequest('GroupInvokeFlow', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GroupInvokeFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GroupInvokeFlowRequest $request
+     * *   You can call this operation to trigger a workflow to be executed more than 100 times per second. If the desired execution frequency does not exceed 100 times per second, we recommend that you call the InvokeFlow operation.
+     *   * *   However, you may need to call the GroupInvokeFlow operation multiple times. For example, assume that you want a workflow to be executed 1,000 times per second and the 1,000 times of execution are divided into ten groups. You need to call the operation ten times for the ten groups and specify a group key for each group.
+     *   * *   Each call corresponds to a group execution. Logic Composer automatically determines when a group execution starts. You must set the Data parameter to a JSON array of strings to specify the information required by the execution. Each string provides the information required by one time of execution. The string must use the format of the Data parameter in the InvokeFlow operation.
+     *   *
+     * @param GroupInvokeFlowRequest $request GroupInvokeFlowRequest
      *
-     * @return GroupInvokeFlowResponse
+     * @return GroupInvokeFlowResponse GroupInvokeFlowResponse
      */
     public function groupInvokeFlow($request)
     {
@@ -338,11 +537,35 @@ class Composer extends OpenApiClient
     public function invokeFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->data)) {
+            $body['Data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->flowId)) {
+            $body['FlowId'] = $request->flowId;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $body['Parameters'] = $request->parameters;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'InvokeFlow',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return InvokeFlowResponse::fromMap($this->doRPCRequest('InvokeFlow', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return InvokeFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -366,11 +589,38 @@ class Composer extends OpenApiClient
     public function listFlowsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->filter)) {
+            $body['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->flowName)) {
+            $body['FlowName'] = $request->flowName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFlows',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFlowsResponse::fromMap($this->doRPCRequest('ListFlows', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFlowsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -394,11 +644,38 @@ class Composer extends OpenApiClient
     public function listTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $body['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $body['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagResourcesResponse::fromMap($this->doRPCRequest('ListTagResources', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -422,11 +699,38 @@ class Composer extends OpenApiClient
     public function listTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->lang)) {
+            $body['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $body['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTemplates',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTemplatesResponse::fromMap($this->doRPCRequest('ListTemplates', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -450,11 +754,32 @@ class Composer extends OpenApiClient
     public function listVersionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->flowId)) {
+            $body['FlowId'] = $request->flowId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVersions',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListVersionsResponse::fromMap($this->doRPCRequest('ListVersions', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -478,11 +803,32 @@ class Composer extends OpenApiClient
     public function tagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->resourceId)) {
+            $body['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $body['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TagResourcesResponse::fromMap($this->doRPCRequest('TagResources', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -506,11 +852,35 @@ class Composer extends OpenApiClient
     public function untagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->all)) {
+            $body['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $body['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $body['TagKey'] = $request->tagKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UntagResourcesResponse::fromMap($this->doRPCRequest('UntagResources', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -534,11 +904,35 @@ class Composer extends OpenApiClient
     public function updateFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->definition)) {
+            $body['Definition'] = $request->definition;
+        }
+        if (!Utils::isUnset($request->flowDescription)) {
+            $body['FlowDescription'] = $request->flowDescription;
+        }
+        if (!Utils::isUnset($request->flowId)) {
+            $body['FlowId'] = $request->flowId;
+        }
+        if (!Utils::isUnset($request->flowName)) {
+            $body['FlowName'] = $request->flowName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateFlow',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateFlowResponse::fromMap($this->doRPCRequest('UpdateFlow', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

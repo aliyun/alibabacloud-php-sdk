@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateFlowResponseBody extends Model
 {
     /**
+     * @description The ID of the created workflow.
+     *
+     * @example lc-utf6abcdefg
+     *
      * @var string
      */
     public $flowId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D264C934-2DA8-44B4-B034-C659A63AC659
+     *
      * @var string
      */
     public $requestId;

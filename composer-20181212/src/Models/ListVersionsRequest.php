@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ListVersionsRequest extends Model
 {
     /**
+     * @description The ID of the workflow whose versions you want to query.
+     *
+     * @example lc-uf6axpwfcw4ubx
+     *
      * @var string
      */
     public $flowId;
 
     /**
+     * @description The page number of the page to return. The value must be an integer that is greater than 0. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of versions to return on each page. One page contains a maximum of 100 versions. Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

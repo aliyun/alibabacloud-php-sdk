@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CloneFlowRequest extends Model
 {
     /**
+     * @description The ID of the workflow that you want to clone.
+     *
+     * @example lc-uf6yrfwxpe6wkw
+     *
      * @var string
      */
     public $flowId;
 
     /**
+     * @description The version of the workflow that you want to clone. If you do not specify this parameter, the latest version of the workflow is cloned.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $versionId;

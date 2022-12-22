@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CloneFlowResponseBody extends Model
 {
     /**
+     * @description The ID of the cloned workflow.
+     *
+     * @example lc-uf6wvbsyvvl5sy
+     *
      * @var string
      */
     public $flowId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example ADB97A33-50E7-48A5-963D-ACBAE36D0BEC
+     *
      * @var string
      */
     public $requestId;

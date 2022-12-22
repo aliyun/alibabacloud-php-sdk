@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListVersionsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example ADB97A33-50E7-48A5-963D-ACBAE36D0BEC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of versions of the workflow.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description A list of the versions.
+     *
      * @var versions[]
      */
     public $versions;

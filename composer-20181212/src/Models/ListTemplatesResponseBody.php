@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListTemplatesResponseBody extends Model
 {
     /**
+     * @description The unique identifier of the request.
+     *
+     * @example ADB97A33-50E7-48A5-963D-ACBAE36D0BEC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description A list of templates.
+     *
      * @var templates[]
      */
     public $templates;
 
     /**
+     * @description The total number of templates.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesResponseBody extends Model
 {
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example ADB97A33-50E7-48A5-963D-ACBAE36D0BEC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ListTemplatesRequest extends Model
 {
     /**
+     * @description The language that is used in the templates.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The keyword that is used to search for templates. This parameter is invalid if you specify a tag.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The page number of current page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of templates on each page. A page can contain a maximum of 100 templates. Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The tag that is used to search for templates.
+     *
+     * @example {"key": "a","value":"b"}
+     *
      * @var string
      */
     public $tag;

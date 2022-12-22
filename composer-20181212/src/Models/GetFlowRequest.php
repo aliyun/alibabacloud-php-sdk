@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetFlowRequest extends Model
 {
     /**
+     * @description The ID of the workflow.
+     *
+     * @example lc-uf6pvud38xl0ia
+     *
      * @var string
      */
     public $flowId;

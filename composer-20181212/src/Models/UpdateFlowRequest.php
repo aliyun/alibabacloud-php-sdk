@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class UpdateFlowRequest extends Model
 {
     /**
+     * @description The new definition that you want to specify for the workflow.
+     *
+     * @example {\"schemaVersion\":\"2018-12-12\",\"actions\":{},\"version\":\"1.0.0\",\"triggers\":{}}
+     *
      * @var string
      */
     public $definition;
 
     /**
+     * @description The new description that you want to specify for the workflow.
+     *
+     * @example This is the description of the workflow.
+     *
      * @var string
      */
     public $flowDescription;
 
     /**
+     * @description The ID of the workflow whose information you want to update.
+     *
+     * @example lc-uf6axpwfcw4ubx
+     *
      * @var string
      */
     public $flowId;
 
     /**
+     * @description The new name that you want to specify for the workflow.
+     *
+     * @example test
+     *
      * @var string
      */
     public $flowName;

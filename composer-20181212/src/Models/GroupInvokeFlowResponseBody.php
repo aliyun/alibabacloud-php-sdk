@@ -9,26 +9,59 @@ use AlibabaCloud\Tea\Model;
 class GroupInvokeFlowResponseBody extends Model
 {
     /**
+     * @description The number of times of execution that are pending.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $currentCount;
 
     /**
+     * @description The unique identifier of the execution.
+     *
+     * @example 7bdbdb58-f028-4155-915e-f21e1f8fc48a
+     *
      * @var string
      */
     public $groupInvocationId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4F06F96E-D1F8-54ED-9611-4F621AD899B5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status of the group. Valid values:
+     *
+     *   New: The group is created and waiting to be executed.
+     *   Started: The group is being executed.
+     *   Canceled: The group was canceled.
+     *   Failed: The execution failed.
+     *   Completed: All the times of execution in the group are complete.
+     *   Unknown: The group status is uncertain. In this case, a system error may occur.
+     *   TimedOut: The execution timed out.
+     *   Paused: The execution was suspended.
+     *
+     * @example Completed
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description Indicates whether the operation was successful.
+     *
+     *   **true**: The workflow execution is triggered.
+     *   **false**: The workflow execution failed to be triggered.
+     *
+     * > : You can call the **GetInvocationLog** operation to check whether the workflow execution is successful.
+     * @example true
+     *
      * @var bool
      */
     public $success;

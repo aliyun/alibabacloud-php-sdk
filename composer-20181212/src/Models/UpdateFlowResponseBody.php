@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class UpdateFlowResponseBody extends Model
 {
     /**
+     * @description The version ID of the workflow after the update.
+     *
+     * @example ve-uf6bwdtvid7o25
+     *
      * @var int
      */
     public $currentVersionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example ADB97A33-50E7-48A5-963D-ACBAE36D0BEC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the operation was successful. Valid values:
+     *
+     *   **true**: The operation was successful.
+     *   **false**: The operation failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

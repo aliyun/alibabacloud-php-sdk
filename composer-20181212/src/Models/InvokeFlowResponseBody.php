@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class InvokeFlowResponseBody extends Model
 {
     /**
+     * @description The unique identifier of the execution.
+     *
+     * @example 6b387696-d160-4ed7-xxxx-070ac29dce4d
+     *
      * @var string
      */
     public $invocationId;
 
     /**
+     * @description The ID for this request.
+     *
+     * @example 5CE7EAE6-XXXX-XXXX-A1A3-D3C2AE624000
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the workflow execution was triggered.
+     *
+     *   **true**: The workflow execution was triggered
+     *   **false**: The workflow execution failed to be triggered.
+     *
+     * > : You can call the **GetInvocationLog** operation to check whether the workflow execution is successful.
+     * @example true
+     *
      * @var bool
      */
     public $success;

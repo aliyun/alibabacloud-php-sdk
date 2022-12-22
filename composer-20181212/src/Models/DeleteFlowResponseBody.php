@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteFlowResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example ADB97A33-50E7-48A5-963D-ACBAE36D0BEC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the operation was successful. Valid values: **true**: The operation was successful. **false**: The operation failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

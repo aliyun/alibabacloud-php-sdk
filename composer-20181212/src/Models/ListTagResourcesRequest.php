@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The maximum number of results to return on each page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to start the next query.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description A list of resource IDs.
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The type of the resources. Set the value to ALIYUN::LC::FLOW.
+     *
+     *   ALIYUN::LC::FLOW indicates Logic Composer workflows.
+     *
+     * @example ALIYUN::LC::FLOW
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description A list of tags that are attached to the resources. A list can contain a maximum of 20 tags.
+     *
      * @var tag[]
      */
     public $tag;

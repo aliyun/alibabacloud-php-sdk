@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetVersionRequest extends Model
 {
     /**
+     * @description The ID of the workflow.
+     *
+     * @example lc-uf6axpwfcw4ubx
+     *
      * @var string
      */
     public $flowId;
 
     /**
+     * @description The ID of the version.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $versionId;

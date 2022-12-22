@@ -9,81 +9,145 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateResponseBody extends Model
 {
     /**
+     * @description The time when the template was created.
+     *
+     * @example 2020-08-19T03:31:32.415Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The definition of the template.
+     *
+     * @example {"actions": {},"schemaVersion":"2018-12-12","version": "1.0.0"}
+     *
      * @var string
      */
     public $definition;
 
     /**
+     * @description The region where the template resides.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BCF7212F-9478-569A-B57C-8C1B5A560C2F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description A list of connectors that are used in the template. The connectors are separated by commas.
+     *
+     * @example config,oss
+     *
      * @var string
      */
     public $templateConnector;
 
     /**
+     * @description The publisher of the template.
+     *
+     * @example Logic Composer
+     *
      * @var string
      */
     public $templateCreator;
 
     /**
+     * @description A description of the template.
+     *
+     * @example This template is used only for testing purposes.
+     *
      * @var string
      */
     public $templateDescription;
 
     /**
+     * @description The ID of the template.
+     *
+     * @example tp-uf6tbvhheciyxl
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description The language that is used in the template. Chinese and English are supported.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $templateLocale;
 
     /**
+     * @description The name of the template.
+     *
+     * @example test
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description An overview of the template, which is a JSON string.
+     *
+     * @example []
+     *
      * @var string
      */
     public $templateOverview;
 
     /**
+     * @description A brief introduction to the template.
+     *
+     * @example This is a test template.
+     *
      * @var string
      */
     public $templateSummary;
 
     /**
+     * @description A brief introduction to the template.
+     *
+     * @example This is a test template
+     *
      * @var string
      */
     public $templateSummaryEn;
 
     /**
+     * @description The tag of the template.
+     *
+     * @example test,owner
+     *
      * @var string
      */
     public $templateTag;
 
     /**
+     * @description The version of the template, which is a number that increments from 0.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $templateVersion;
 
     /**
+     * @description The time when the template was last updated.
+     *
+     * @example 2020-08-19T03:31:32.415Z
+     *
      * @var string
      */
     public $updateTime;
