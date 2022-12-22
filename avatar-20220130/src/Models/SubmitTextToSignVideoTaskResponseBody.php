@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitTextToSignVideoTaskResponseBody extends Model
 {
     /**
+     * @example 401
+     *
      * @var string
      */
     public $code;
@@ -25,11 +27,15 @@ class SubmitTextToSignVideoTaskResponseBody extends Model
     public $message;
 
     /**
+     * @example 4C8BF3A5-948F-1F89-AACD-D18DEF52D1XX
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $success;

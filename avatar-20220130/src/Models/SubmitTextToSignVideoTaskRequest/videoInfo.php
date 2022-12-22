@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class videoInfo extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isAlpha;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isSubtitles;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $resolution;

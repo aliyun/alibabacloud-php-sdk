@@ -15,16 +15,22 @@ class data extends Model
     public $channel;
 
     /**
+     * @example 13E0445E-CA7F-5DD3-9B0F-D4B39E0180F7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 4f63f9e9788449f9adc88d9438c8dec3
+     *
      * @var string
      */
     public $sessionId;
 
     /**
+     * @example 879441ee7b363886418
+     *
      * @var string
      */
     public $token;

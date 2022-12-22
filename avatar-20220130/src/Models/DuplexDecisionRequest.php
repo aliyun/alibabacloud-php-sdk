@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DuplexDecisionRequest extends Model
 {
     /**
+     * @example 12131231
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example xxxxxxxxxx
+     *
      * @var string
      */
     public $bizRequestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $callTime;
@@ -35,21 +41,29 @@ class DuplexDecisionRequest extends Model
     public $dialogContext;
 
     /**
+     * @example ROBOTTALK
+     *
      * @var string
      */
     public $dialogStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $interruptType;
 
     /**
+     * @example xxxxxxxxxx
+     *
      * @var string
      */
     public $sessionId;
 
     /**
+     * @example xxxxx
+     *
      * @var int
      */
     public $tenantId;

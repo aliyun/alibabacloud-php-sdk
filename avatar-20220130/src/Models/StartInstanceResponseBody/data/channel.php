@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class channel extends Model
 {
     /**
+     * @example ONEX7E28C7C221854
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 108293819
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example 2022-01-04T16:00Z
+     *
      * @var string
      */
     public $expiredTime;
@@ -29,21 +35,29 @@ class channel extends Model
     public $gslb;
 
     /**
+     * @example CK-9b5c335b9ae75879441ee7b363886418
+     *
      * @var string
      */
     public $nonce;
 
     /**
+     * @example e59f61b2482b4d0562ab542da3f824f7
+     *
      * @var string
      */
     public $token;
 
     /**
+     * @example 6
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example userId
+     *
      * @var string
      */
     public $userId;

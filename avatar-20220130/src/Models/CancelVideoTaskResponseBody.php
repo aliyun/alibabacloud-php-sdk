@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CancelVideoTaskResponseBody extends Model
 {
     /**
+     * @example 502
+     *
      * @var string
      */
     public $code;
@@ -25,11 +27,15 @@ class CancelVideoTaskResponseBody extends Model
     public $message;
 
     /**
+     * @example xxxx-xxxx-xxxx
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

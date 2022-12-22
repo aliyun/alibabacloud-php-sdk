@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class SendMessageResponseBody extends Model
 {
     /**
+     * @description Id of the request
+     *
+     * @example QUERY_ACCOUNT_INFO_ERROR
+     *
      * @var string
      */
     public $code;
@@ -20,11 +24,15 @@ class SendMessageResponseBody extends Model
     public $data;
 
     /**
+     * @example operation success.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

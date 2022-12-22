@@ -28,6 +28,8 @@ class SubmitTextTo2DAvatarVideoTaskRequest extends Model
     public $avatarInfo;
 
     /**
+     * @example xxxxx
+     *
      * @var int
      */
     public $tenantId;

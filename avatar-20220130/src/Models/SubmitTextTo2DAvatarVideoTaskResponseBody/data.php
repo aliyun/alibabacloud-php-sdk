@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example xxxx-xxx-xxx
+     *
      * @var string
      */
     public $taskUuid;

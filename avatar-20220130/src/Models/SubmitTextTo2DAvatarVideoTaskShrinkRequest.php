@@ -24,6 +24,8 @@ class SubmitTextTo2DAvatarVideoTaskShrinkRequest extends Model
     public $avatarInfoShrink;
 
     /**
+     * @example xxxxx
+     *
      * @var int
      */
     public $tenantId;

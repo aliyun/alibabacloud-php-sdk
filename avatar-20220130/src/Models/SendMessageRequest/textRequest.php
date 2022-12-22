@@ -14,6 +14,8 @@ class textRequest extends Model
     public $commandType;
 
     /**
+     * @example 0000001000586737
+     *
      * @var string
      */
     public $id;
@@ -24,6 +26,8 @@ class textRequest extends Model
     public $speechText;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $interrupt;

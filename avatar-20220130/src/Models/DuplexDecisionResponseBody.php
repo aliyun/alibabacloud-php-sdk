@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DuplexDecisionResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class DuplexDecisionResponseBody extends Model
     public $data;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 13E0445E-CA7F-5DD3-9B0F-D4B39E0180F7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;

@@ -16,6 +16,8 @@ class data extends Model
     public $channel;
 
     /**
+     * @example 4f63f9e9788449f9adc88d9438c8dec3
+     *
      * @var string
      */
     public $sessionId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class StopInstanceRequest extends Model
 {
     /**
+     * @example 9adb569b-f66b-4e92-8b9d-62aa626f8318
+     *
      * @var string
      */
     public $sessionId;
 
     /**
+     * @example 234234
+     *
      * @var int
      */
     public $tenantId;

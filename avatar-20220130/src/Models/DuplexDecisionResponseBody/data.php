@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example UNDERTAKE
+     *
      * @var string
      */
     public $actionType;
 
     /**
+     * @example GRAB
+     *
      * @var string
      */
     public $grabType;

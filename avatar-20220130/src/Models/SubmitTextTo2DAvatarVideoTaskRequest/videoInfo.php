@@ -14,11 +14,15 @@ class videoInfo extends Model
     public $backgroundImageUrl;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isAlpha;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isSubtitles;

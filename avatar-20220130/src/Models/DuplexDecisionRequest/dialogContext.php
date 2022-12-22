@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class dialogContext extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $curUtteranceIdx;

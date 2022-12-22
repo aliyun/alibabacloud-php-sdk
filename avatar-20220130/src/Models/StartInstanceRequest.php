@@ -28,6 +28,8 @@ class StartInstanceRequest extends Model
     public $commandRequest;
 
     /**
+     * @example 9185
+     *
      * @var int
      */
     public $tenantId;

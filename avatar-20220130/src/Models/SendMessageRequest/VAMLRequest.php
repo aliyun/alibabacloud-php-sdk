@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class VAMLRequest extends Model
 {
     /**
+     * @example VAML_REQUEST
+     *
      * @var string
      */
     public $code;

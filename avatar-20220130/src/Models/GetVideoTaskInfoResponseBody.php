@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetVideoTaskInfoResponseBody extends Model
 {
     /**
+     * @example 502
+     *
      * @var string
      */
     public $code;
@@ -25,11 +27,15 @@ class GetVideoTaskInfoResponseBody extends Model
     public $message;
 
     /**
+     * @example xxx-xxx-xxx-xx
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

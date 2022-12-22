@@ -15,11 +15,15 @@ class GetVideoTaskInfoRequest extends Model
     public $app;
 
     /**
+     * @example xxxx-xxxx-xxx
+     *
      * @var string
      */
     public $taskUuid;
 
     /**
+     * @example xxxxxx
+     *
      * @var int
      */
     public $tenantId;

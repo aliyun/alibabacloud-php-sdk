@@ -14,11 +14,15 @@ class CancelVideoTaskShrinkRequest extends Model
     public $appShrink;
 
     /**
+     * @example xxxx-xxxx-xxxx
+     *
      * @var string
      */
     public $taskUuid;
 
     /**
+     * @example xxxxx
+     *
      * @var int
      */
     public $tenantId;

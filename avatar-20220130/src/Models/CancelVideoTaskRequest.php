@@ -15,11 +15,15 @@ class CancelVideoTaskRequest extends Model
     public $app;
 
     /**
+     * @example xxxx-xxxx-xxxx
+     *
      * @var string
      */
     public $taskUuid;
 
     /**
+     * @example xxxxx
+     *
      * @var int
      */
     public $tenantId;

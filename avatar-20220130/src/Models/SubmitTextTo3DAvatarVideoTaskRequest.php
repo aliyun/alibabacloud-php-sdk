@@ -22,6 +22,8 @@ class SubmitTextTo3DAvatarVideoTaskRequest extends Model
     public $avatarInfo;
 
     /**
+     * @example xxxx
+     *
      * @var int
      */
     public $tenantId;

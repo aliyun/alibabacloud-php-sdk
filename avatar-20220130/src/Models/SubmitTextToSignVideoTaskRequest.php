@@ -16,6 +16,8 @@ class SubmitTextToSignVideoTaskRequest extends Model
     public $app;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $tenantId;

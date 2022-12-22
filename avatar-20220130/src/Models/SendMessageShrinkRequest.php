@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SendMessageShrinkRequest extends Model
 {
     /**
+     * @example 76898bd3b90b4a65b1c078d8824a2e9c
+     *
      * @var string
      */
     public $sessionId;
 
     /**
+     * @example 5615
+     *
      * @var int
      */
     public $tenantId;

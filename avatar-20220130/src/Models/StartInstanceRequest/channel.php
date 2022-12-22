@@ -14,6 +14,8 @@ class channel extends Model
     public $reqConfig;
 
     /**
+     * @example RTMP
+     *
      * @var string
      */
     public $type;

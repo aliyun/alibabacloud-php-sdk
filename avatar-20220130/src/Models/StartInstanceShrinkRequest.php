@@ -24,6 +24,8 @@ class StartInstanceShrinkRequest extends Model
     public $commandRequestShrink;
 
     /**
+     * @example 9185
+     *
      * @var int
      */
     public $tenantId;

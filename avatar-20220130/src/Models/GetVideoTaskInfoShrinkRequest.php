@@ -14,11 +14,15 @@ class GetVideoTaskInfoShrinkRequest extends Model
     public $appShrink;
 
     /**
+     * @example xxxx-xxxx-xxx
+     *
      * @var string
      */
     public $taskUuid;
 
     /**
+     * @example xxxxxx
+     *
      * @var int
      */
     public $tenantId;

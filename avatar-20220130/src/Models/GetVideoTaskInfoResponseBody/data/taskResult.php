@@ -11,18 +11,28 @@ class taskResult extends Model
     /**
      * @var string
      */
+    public $failCode;
+
+    /**
+     * @var string
+     */
     public $failReason;
 
     /**
+     * @example xxx/xxx/xxx.ass
+     *
      * @var string
      */
     public $subtitlesUrl;
 
     /**
+     * @example xxx/xxxx/xx.mp4
+     *
      * @var string
      */
     public $videoUrl;
     protected $_name = [
+        'failCode'     => 'FailCode',
         'failReason'   => 'FailReason',
         'subtitlesUrl' => 'SubtitlesUrl',
         'videoUrl'     => 'VideoUrl',
@@ -35,6 +45,9 @@ class taskResult extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->failCode) {
+            $res['FailCode'] = $this->failCode;
+        }
         if (null !== $this->failReason) {
             $res['FailReason'] = $this->failReason;
         }
@@ -56,6 +69,9 @@ class taskResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FailCode'])) {
+            $model->failCode = $map['FailCode'];
+        }
         if (isset($map['FailReason'])) {
             $model->failReason = $map['FailReason'];
         }

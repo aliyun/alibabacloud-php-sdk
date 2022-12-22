@@ -14,11 +14,15 @@ class data extends Model
     public $failReason;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isCancel;
 
     /**
+     * @example xxxx-xxxx-xxxx
+     *
      * @var string
      */
     public $taskUuid;

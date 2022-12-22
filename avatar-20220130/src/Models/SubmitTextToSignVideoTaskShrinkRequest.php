@@ -14,6 +14,8 @@ class SubmitTextToSignVideoTaskShrinkRequest extends Model
     public $appShrink;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $tenantId;

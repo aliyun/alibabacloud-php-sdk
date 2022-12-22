@@ -14,11 +14,15 @@ class QueryRunningInstanceShrinkRequest extends Model
     public $appShrink;
 
     /**
+     * @example 76898bd3b90b4a65b1c078d8824a2e9c
+     *
      * @var string
      */
     public $sessionId;
 
     /**
+     * @example 9185
+     *
      * @var int
      */
     public $tenantId;

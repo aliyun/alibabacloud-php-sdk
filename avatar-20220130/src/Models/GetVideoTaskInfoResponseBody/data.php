@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 99
+     *
      * @var string
      */
     public $process;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $status;
@@ -25,11 +29,15 @@ class data extends Model
     public $taskResult;
 
     /**
+     * @example xxxx-xxx-xx-xx
+     *
      * @var string
      */
     public $taskUuid;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $type;
