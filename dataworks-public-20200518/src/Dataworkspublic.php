@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AbolishDataServiceApiRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AbolishDataServiceApiResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AddMetaCollectionEntityRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AddMetaCollectionEntityResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AddProjectMemberToRoleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AddProjectMemberToRoleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AddToMetaCategoryRequest;
@@ -57,6 +59,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateManualDagRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateManualDagResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateMetaCategoryRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateMetaCategoryResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateMetaCollectionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateMetaCollectionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreatePermissionApplyOrderRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreatePermissionApplyOrderResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateProjectMemberRequest;
@@ -101,6 +105,10 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteFromMetaCategoryRequ
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteFromMetaCategoryResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteMetaCategoryRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteMetaCategoryResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteMetaCollectionEntityRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteMetaCollectionEntityResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteMetaCollectionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteMetaCollectionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteProjectMemberRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteProjectMemberResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteQualityEntityRequest;
@@ -197,6 +205,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetManualDagInstancesReque
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetManualDagInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaCategoryRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaCategoryResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaCollectionDetailRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaCollectionDetailResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaColumnLineageRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaColumnLineageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaDBInfoRequest;
@@ -222,6 +232,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTableOutputResponse
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTablePartitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTablePartitionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTablePartitionShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTableProducingTasksRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTableProducingTasksResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTableThemeLevelRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTableThemeLevelResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMigrationProcessRequest;
@@ -330,6 +342,10 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListManualDagInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListManualDagInstancesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListMetaCollectionEntitiesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListMetaCollectionEntitiesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListMetaCollectionsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListMetaCollectionsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListMetaDBRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListMetaDBResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListMigrationsRequest;
@@ -463,6 +479,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateIDEEventResultReques
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateIDEEventResultResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateMetaCategoryRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateMetaCategoryResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateMetaCollectionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateMetaCollectionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateMetaTableIntroWikiRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateMetaTableIntroWikiResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateMetaTableRequest;
@@ -611,6 +629,52 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->abolishDataServiceApiWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddMetaCollectionEntityRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return AddMetaCollectionEntityResponse
+     */
+    public function addMetaCollectionEntityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->collectionQualifiedName)) {
+            $query['CollectionQualifiedName'] = $request->collectionQualifiedName;
+        }
+        if (!Utils::isUnset($request->entityQualifiedName)) {
+            $query['EntityQualifiedName'] = $request->entityQualifiedName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddMetaCollectionEntity',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddMetaCollectionEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddMetaCollectionEntityRequest $request
+     *
+     * @return AddMetaCollectionEntityResponse
+     */
+    public function addMetaCollectionEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addMetaCollectionEntityWithOptions($request, $runtime);
     }
 
     /**
@@ -2179,6 +2243,58 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param CreateMetaCollectionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateMetaCollectionResponse
+     */
+    public function createMetaCollectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->collectionType)) {
+            $query['CollectionType'] = $request->collectionType;
+        }
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->parentQualifiedName)) {
+            $query['ParentQualifiedName'] = $request->parentQualifiedName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMetaCollection',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateMetaCollectionRequest $request
+     *
+     * @return CreateMetaCollectionResponse
+     */
+    public function createMetaCollection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMetaCollectionWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreatePermissionApplyOrderRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -3450,6 +3566,95 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteMetaCategoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteMetaCollectionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteMetaCollectionResponse
+     */
+    public function deleteMetaCollectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->qualifiedName)) {
+            $query['QualifiedName'] = $request->qualifiedName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMetaCollection',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteMetaCollectionRequest $request
+     *
+     * @return DeleteMetaCollectionResponse
+     */
+    public function deleteMetaCollection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMetaCollectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteMetaCollectionEntityRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteMetaCollectionEntityResponse
+     */
+    public function deleteMetaCollectionEntityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->collectionQualifiedName)) {
+            $query['CollectionQualifiedName'] = $request->collectionQualifiedName;
+        }
+        if (!Utils::isUnset($request->entityQualifiedName)) {
+            $query['EntityQualifiedName'] = $request->entityQualifiedName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMetaCollectionEntity',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteMetaCollectionEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteMetaCollectionEntityRequest $request
+     *
+     * @return DeleteMetaCollectionEntityResponse
+     */
+    public function deleteMetaCollectionEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMetaCollectionEntityWithOptions($request, $runtime);
     }
 
     /**
@@ -5815,6 +6020,49 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param GetMetaCollectionDetailRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetMetaCollectionDetailResponse
+     */
+    public function getMetaCollectionDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->qualifiedName)) {
+            $query['QualifiedName'] = $request->qualifiedName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMetaCollectionDetail',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMetaCollectionDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetMetaCollectionDetailRequest $request
+     *
+     * @return GetMetaCollectionDetailResponse
+     */
+    public function getMetaCollectionDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMetaCollectionDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetMetaColumnLineageRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -6439,6 +6687,64 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getMetaTablePartitionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMetaTableProducingTasksRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetMetaTableProducingTasksResponse
+     */
+    public function getMetaTableProducingTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $query['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->schemaName)) {
+            $query['SchemaName'] = $request->schemaName;
+        }
+        if (!Utils::isUnset($request->tableGuid)) {
+            $query['TableGuid'] = $request->tableGuid;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMetaTableProducingTasks',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMetaTableProducingTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetMetaTableProducingTasksRequest $request
+     *
+     * @return GetMetaTableProducingTasksResponse
+     */
+    public function getMetaTableProducingTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMetaTableProducingTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -9241,6 +9547,128 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listManualDagInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListMetaCollectionEntitiesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListMetaCollectionEntitiesResponse
+     */
+    public function listMetaCollectionEntitiesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->collectionQualifiedName)) {
+            $query['CollectionQualifiedName'] = $request->collectionQualifiedName;
+        }
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMetaCollectionEntities',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMetaCollectionEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListMetaCollectionEntitiesRequest $request
+     *
+     * @return ListMetaCollectionEntitiesResponse
+     */
+    public function listMetaCollectionEntities($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMetaCollectionEntitiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListMetaCollectionsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListMetaCollectionsResponse
+     */
+    public function listMetaCollectionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->administrator)) {
+            $query['Administrator'] = $request->administrator;
+        }
+        if (!Utils::isUnset($request->collectionType)) {
+            $query['CollectionType'] = $request->collectionType;
+        }
+        if (!Utils::isUnset($request->creator)) {
+            $query['Creator'] = $request->creator;
+        }
+        if (!Utils::isUnset($request->follower)) {
+            $query['Follower'] = $request->follower;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->parentQualifiedName)) {
+            $query['ParentQualifiedName'] = $request->parentQualifiedName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMetaCollections',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMetaCollectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListMetaCollectionsRequest $request
+     *
+     * @return ListMetaCollectionsResponse
+     */
+    public function listMetaCollections($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMetaCollectionsWithOptions($request, $runtime);
     }
 
     /**
@@ -12796,6 +13224,55 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateMetaCategoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateMetaCollectionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateMetaCollectionResponse
+     */
+    public function updateMetaCollectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->qualifiedName)) {
+            $query['QualifiedName'] = $request->qualifiedName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMetaCollection',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateMetaCollectionRequest $request
+     *
+     * @return UpdateMetaCollectionResponse
+     */
+    public function updateMetaCollection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMetaCollectionWithOptions($request, $runtime);
     }
 
     /**
