@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeControlPolicyResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNo;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The details about the access control policy.
+     *
      * @var policys[]
      */
     public $policys;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of the returned access control policies.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $totalCount;

@@ -10,46 +10,98 @@ use AlibabaCloud\Tea\Model;
 class AddAddressBookRequest extends Model
 {
     /**
+     * @description The addresses that you want to add to the address book. Separate multiple addresses with commas (,).
+     *
+     * >
+     * > * If you set GroupType to `ip`, you must add IP addresses to the address book. Example: 192.0.XX.XX/32, 192.0.XX.XX/24.
+     * > * If you set GroupType to `port`, you must add port numbers or port ranges to the address book. Example: 80, 100/200.
+     * > * If you set GroupType to `domain`, you must add domain names to the address book. Example: example.com, aliyundoc.com.
+     * @example 192.0.XX.XX/32, 192.0.XX.XX/24
+     *
      * @var string
      */
     public $addressList;
 
     /**
+     * @description Specifies whether to automatically add public IP addresses of ECS instances to the address book if the instances match the specified tags. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no (default)
+     *
+     * @example 1
+     *
      * @var string
      */
     public $autoAddTagEcs;
 
     /**
+     * @description The description of the address book.
+     *
+     * @example sz-001
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the address book.
+     *
+     * @example sz-001
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The type of the address book. Valid values:
+     *
+     * **ip**: IP address book
+     * **domain**: domain address book
+     * **port**: port address book
+     * **tag**: ECS tag-based address book
+     *
+     * @example ip
+     *
      * @var string
      */
     public $groupType;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description The ECS tags that you want to match.
+     *
      * @var tagList[]
      */
     public $tagList;
 
     /**
+     * @description The logical relation among the ECS tags that you want to match. Valid values:
+     *
+     *   **and**: Only the public IP addresses of ECS instances that match all the specified tags can be added to the address book. This is the default value.
+     *   **or**: The public IP addresses of ECS instances that match one of the specified tags can be added to the address book.
+     *
+     * @example and
+     *
      * @var string
      */
     public $tagRelation;

@@ -9,21 +9,52 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyPriorUsedRequest extends Model
 {
     /**
+     * @description The direction of the traffic to which the access control policy applies.
+     *
+     * Valid values:
+     *
+     *   **in**: inbound traffic
+     *   **out**: outbound traffic
+     *
+     * @example in
+     *
      * @var string
      */
     public $direction;
 
     /**
+     * @description The IP version of the asset that is protected by Cloud Firewall.
+     *
+     * Valid values:
+     *
+     *   **4**: IPv4 (default)
+     *   **6**: IPv6
+     *
+     * @example 6
+     *
      * @var string
      */
     public $ipVersion;
 
     /**
+     * @description The natural language of the request and response.
+     *
+     * Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

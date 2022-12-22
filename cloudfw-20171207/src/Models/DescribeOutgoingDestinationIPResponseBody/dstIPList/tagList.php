@@ -9,26 +9,48 @@ use AlibabaCloud\Tea\Model;
 class tagList extends Model
 {
     /**
+     * @example Trusted
+     *
      * @var string
      */
     public $classId;
 
     /**
+     * @description The risk level. Valid values:
+     *
+     *   **1**: low
+     *   **2**: medium
+     *   **3**: high
+     *
+     * @example 1
+     *
      * @var int
      */
     public $riskLevel;
 
     /**
+     * @description The description of the tag.
+     *
+     * @example 放行标签
+     *
      * @var string
      */
     public $tagDescribe;
 
     /**
+     * @description The ID of the tag.
+     *
+     * @example AliYun
+     *
      * @var string
      */
     public $tagId;
 
     /**
+     * @description The name of the tag.
+     *
+     * @example 放行标签
+     *
      * @var string
      */
     public $tagName;

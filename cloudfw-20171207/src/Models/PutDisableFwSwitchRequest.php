@@ -9,26 +9,52 @@ use AlibabaCloud\Tea\Model;
 class PutDisableFwSwitchRequest extends Model
 {
     /**
+     * @description The IP addresses.
+     *
+     * >  You must specify at least one of the IpaddrList, RegionList, and ResourceTypeList parameters.
+     * @example ["192.0.XX.XX","192.0.XX.XX"]
+     *
      * @var string[]
      */
     public $ipaddrList;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The regions.
+     *
+     * >  You must specify at least one of the IpaddrList, RegionList, and ResourceTypeList parameters.
+     * @example ["cn-hangzhou","cn-shanghai"]
+     *
      * @var string[]
      */
     public $regionList;
 
     /**
+     * @description The types of the assets.
+     *
+     * > You must specify at least one of the IpaddrList, RegionList, and ResourceTypeList parameters.
+     * @example ["EcsPublicIp","NatEip"]
+     *
      * @var string[]
      */
     public $resourceTypeList;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

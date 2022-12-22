@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
+     * @description The page number of the current page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The total number of the members in Cloud Firewall.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $totalCount;

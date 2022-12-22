@@ -11,86 +11,157 @@ use AlibabaCloud\Tea\Model;
 class localVpc extends Model
 {
     /**
+     * @description The ID of the connection between two network instances.
+     *
+     * @example tr-attach-sxig7bye51fid5****
+     *
      * @var string
      */
     public $attachmentId;
 
     /**
+     * @description The name of the connection between two network instances.
+     *
+     * @example local-test
+     *
      * @var string
      */
     public $attachmentName;
 
     /**
+     * @description The CIDR blocks that are protected by the VPC firewall.
+     *
      * @var string[]
      */
     public $defendCidrList;
 
     /**
+     * @description The Elastic Network Interfaces (ENIs).
+     *
      * @var eniList[]
      */
     public $eniList;
 
     /**
+     * @description The ID of the vSwitch. The value of this parameter is returned only when the RouteMode parameter is set to manual.
+     *
+     * @example vsw-zeq4o875u****
+     *
      * @var string
      */
     public $manualVSwitchId;
 
     /**
+     * @description The ID of the VPC for which the VPC firewall is created.
+     *
+     * @example vpc-2zefk9fbn8j7v585g****
+     *
      * @var string
      */
     public $networkInstanceId;
 
     /**
+     * @description The name of the network instance.
+     *
+     * @example test-network
+     *
      * @var string
      */
     public $networkInstanceName;
 
     /**
+     * @description The type of the network instance. The value is fixed as **VPC**.
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $networkInstanceType;
 
     /**
+     * @description The UID of the Alibaba Cloud account to which the VPC belongs.
+     *
+     * @example 158039427902****
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @description The ID of the region in which the VPC resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionNo;
 
     /**
+     * @description The routing mode. Valid values:
+     *
+     *   auto
+     *   manual
+     *
+     * @example auto
+     *
      * @var string
      */
     public $routeMode;
 
     /**
+     * @description Indicates whether the routing mode can be set to manual. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 0
+     *
      * @var string
      */
     public $supportManualMode;
 
     /**
+     * @description The instance ID of the CEN transit router.
+     *
+     * @example tr-2zetwxskej633l3u1****
+     *
      * @var string
      */
     public $transitRouterId;
 
     /**
+     * @description The edition of the CEN transit router. Valid values:
+     *
+     *   **Basic**: Basic Edition
+     *   **Enterprise**: Enterprise Edition
+     *
+     * @example Basic
+     *
      * @var string
      */
     public $transitRouterType;
 
     /**
+     * @description The CIDR blocks of the VPC.
+     *
      * @var vpcCidrTableList[]
      */
     public $vpcCidrTableList;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-8vbwbo90rq0anm6t****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The name of the VPC.
+     *
+     * @example UAT
+     *
      * @var string
      */
     public $vpcName;

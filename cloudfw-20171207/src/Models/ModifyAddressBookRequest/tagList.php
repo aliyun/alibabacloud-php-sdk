@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tagList extends Model
 {
     /**
+     * @description The key of ECS tag N that you want to match.
+     *
+     * @example TXY
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The value of ECS tag N that you want to match.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $tagValue;

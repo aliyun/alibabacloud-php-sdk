@@ -11,61 +11,121 @@ use AlibabaCloud\Tea\Model;
 class vpcFirewalls extends Model
 {
     /**
+     * @description The ID of the CEN instance.
+     *
+     * @example cen-x5jayxou71ad73****
+     *
      * @var string
      */
     public $cenId;
 
     /**
+     * @description The name of the CEN instance.
+     *
+     * @example cen_swas
+     *
      * @var string
      */
     public $cenName;
 
     /**
+     * @description The connection type of the VPC firewall. The value is fixed as cen, which indicates a CEN instance.
+     *
+     * @example cen
+     *
      * @var string
      */
     public $connectType;
 
     /**
+     * @description The status of the VPC firewall. Valid values:
+     *
+     *   **opened**: The VPC firewall is enabled.
+     *   **closed**: The VPC firewall is disabled.
+     *   **notconfigured**: The VPC firewall is not created.
+     *
+     * @example opened
+     *
      * @var string
      */
     public $firewallSwitchStatus;
 
     /**
+     * @description The information about the intrusion prevention system (IPS) configuration.
+     *
      * @var ipsConfig
      */
     public $ipsConfig;
 
     /**
+     * @description The details about the VPC.
+     *
      * @var localVpc
      */
     public $localVpc;
 
     /**
+     * @description The UID of the member that is manged by your Alibaba Cloud account. The member is also an Alibaba Cloud account.
+     *
+     * @example 258039427902****
+     *
      * @var string
      */
     public $memberUid;
 
     /**
+     * @description Indicates whether the VPC firewall can be automatically enabled to protect VPC traffic based on route learning. Valid values:
+     *
+     * - **passed**: The VPC firewall can be automatically enabled.
+     * - **failed**: The VPC firewall cannot be automatically enabled.
+     * - **unknown**: The VPC firewall is in an unknown state.
+     * @example failed
+     *
      * @var string
      */
     public $precheckStatus;
 
     /**
+     * @description Indicates whether you can create a VPC firewall in a region. Valid values:
+     *
+     *   **enable**: yes
+     *   **disable**: no
+     *
+     * @example enable
+     *
      * @var string
      */
     public $regionStatus;
 
     /**
+     * @description The result code of the operation that creates the VPC firewall. Valid values:
+     *
+     *   **Unauthorized**: Cloud Firewall is not authorized to access the VPC for which the VPC firewall is created, and the VPC firewall cannot be created.
+     *   **RegionDisable**: .VPC Firewall is not supported in the region of the VPC for which the VPC firewall is created, and the VPC firewall cannot be created.
+     *   **OpsDisable**: You are not allowed to create the VPC firewall.
+     *   **VbrNotSupport**: The VPC firewall cannot be created for a VBR that is attached to the CEN instance.
+     *   Empty string: You can create a VPC firewall for the network instance.
+     *
+     * @example Unauthorized
+     *
      * @var string
      */
     public $resultCode;
 
     /**
+     * @description The instance ID of the VPC firewall.
+     *
+     * @example vfw-m5e7dbc4y****
+     *
      * @var string
      */
     public $vpcFirewallId;
 
     /**
+     * @description The instance name of the VPC firewall.
+     *
+     * @example test-firewall
+     *
      * @var string
      */
     public $vpcFirewallName;

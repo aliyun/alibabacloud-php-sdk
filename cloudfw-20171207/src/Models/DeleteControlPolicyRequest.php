@@ -9,21 +9,48 @@ use AlibabaCloud\Tea\Model;
 class DeleteControlPolicyRequest extends Model
 {
     /**
+     * @description The ID of the access control policy.
+     *
+     * To delete an access control policy, you must provide the ID of the policy. You can call the [DescribeControlPolicy](~~138866~~) operation to query the ID.
+     * @example 00281255-d220-4db1-8f4f-c4df221ad84c
+     *
      * @var string
      */
     public $aclUuid;
 
     /**
+     * @description The direction of the traffic to which the access control policy applies.
+     *
+     * Valid values:
+     *
+     *   **in**: inbound traffic
+     *   **out**: outbound traffic
+     *
+     * @example in
+     *
      * @var string
      */
     public $direction;
 
     /**
+     * @description The natural language of the request and response.
+     *
+     * Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The source IP address of the traffic.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

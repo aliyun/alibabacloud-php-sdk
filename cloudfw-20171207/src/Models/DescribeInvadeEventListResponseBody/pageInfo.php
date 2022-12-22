@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The total number of breach awareness events.
+     *
+     * @example 40
+     *
      * @var int
      */
     public $totalCount;

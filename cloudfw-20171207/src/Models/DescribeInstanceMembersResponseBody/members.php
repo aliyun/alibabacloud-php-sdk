@@ -9,31 +9,60 @@ use AlibabaCloud\Tea\Model;
 class members extends Model
 {
     /**
+     * @description The time when the member was added to Cloud Firewall.
+     *
+     * >  The value is a UNIX timestamp. Unit: seconds.
+     * @example 1615189819
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The remarks of the member in Cloud Firewall.
+     *
+     * @example renewal
+     *
      * @var string
      */
     public $memberDesc;
 
     /**
+     * @description The name of the member in Cloud Firewall.
+     *
+     * @example cloudfirewall_2
+     *
      * @var string
      */
     public $memberDisplayName;
 
     /**
+     * @description The status of the member in Cloud Firewall. Valid values:
+     *
+     *   **normal**
+     *   **deleting**
+     *
+     * @example normal
+     *
      * @var string
      */
     public $memberStatus;
 
     /**
+     * @description The UID of the member in Cloud Firewall.
+     *
+     * @example 258039427902****
+     *
      * @var int
      */
     public $memberUid;
 
     /**
+     * @description The time when the member in Cloud Firewall was last modified.
+     *
+     * >  The value is a UNIX timestamp. Unit: seconds.
+     * @example 1615189819
+     *
      * @var int
      */
     public $modifyTime;

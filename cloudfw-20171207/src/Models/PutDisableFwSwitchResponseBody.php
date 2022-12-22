@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class PutDisableFwSwitchResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example B2841452-CB8D-4F7D-B247-38E1CF7334F8
+     *
      * @var string
      */
     public $requestId;

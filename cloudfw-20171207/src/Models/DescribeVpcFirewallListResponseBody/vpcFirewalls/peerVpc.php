@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class peerVpc extends Model
 {
     /**
+     * @description Indicates whether Cloud Firewall is authorized to access the peer VPC. The value is fixed as **authorized**, which indicates that Cloud Firewall is authorized to access the peer VPC.
+     *
+     * @example authorized
+     *
      * @var string
      */
     public $authorizationStatus;
 
     /**
+     * @description The UID of the Alibaba Cloud account to which the peer VPC belongs.
+     *
+     * @example 158039427902****
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @description The region ID of the peer VPC.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionNo;
 
     /**
+     * @description The CIDR blocks of the peer VPC.
+     *
      * @var vpcCidrTableList[]
      */
     public $vpcCidrTableList;
 
     /**
+     * @description The ID of the peer VPC.
+     *
+     * @example vpc-8vbwbo90rq0anm6t****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The name of the peer VPC.
+     *
+     * @example defaultvpc
+     *
      * @var string
      */
     public $vpcName;

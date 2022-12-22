@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteVpcFirewallConfigureRequest extends Model
 {
     /**
+     * @description The natural language of the request and response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The UID of the member that is managed by your Alibaba Cloud account.
+     *
+     * @example 258039427902****
+     *
      * @var string
      */
     public $memberUid;
 
     /**
+     * @description The list of the VPC firewall IDs.
+     *
      * @var string[]
      */
     public $vpcFirewallIdList;

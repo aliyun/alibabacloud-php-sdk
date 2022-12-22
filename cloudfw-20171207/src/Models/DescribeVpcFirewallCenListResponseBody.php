@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcFirewallCenListResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 850A84D6-0DE4-4797-A1E8-00090125k8g2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of VPC firewalls.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The details about the VPC firewall.
+     *
      * @var vpcFirewalls[]
      */
     public $vpcFirewalls;

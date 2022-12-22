@@ -9,36 +9,71 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcFirewallCenConfigureRequest extends Model
 {
     /**
+     * @description The ID of the CEN instance.
+     *
+     * @example cen-x5jayxou71ad73****
+     *
      * @var string
      */
     public $cenId;
 
     /**
+     * @description Specifies whether to enable the VPC firewall. Valid values:
+     *
+     *   **open**: After you create the VPC firewall, the VPC firewall is automatically enabled. This is the default value.
+     *   **close**: After you create the VPC firewall, the VPC firewall is disabled. You can call the [ModifyVpcFirewallCenSwitchStatus](~~345780~~) operation to manually enable the VPC firewall.
+     *
+     * @example open
+     *
      * @var string
      */
     public $firewallSwitch;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The UID of the member that is managed by your Alibaba Cloud account.
+     *
+     * @example 258039427902****
+     *
      * @var string
      */
     public $memberUid;
 
     /**
+     * @description The ID of the VPC for which you want to create the VPC firewall.
+     *
+     * @example vpc-bp10zlifxh6j0232w****
+     *
      * @var string
      */
     public $networkInstanceId;
 
     /**
+     * @description The instance name of the VPC firewall.
+     *
+     * @example test-cloufirewall-vpc
+     *
      * @var string
      */
     public $vpcFirewallName;
 
     /**
+     * @description The ID of the region to which the VPC belongs.
+     *
+     * >  For more information about the regions, see [Supported regions](~~195657~~).
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $vpcRegion;

@@ -9,151 +9,332 @@ use AlibabaCloud\Tea\Model;
 class policys extends Model
 {
     /**
+     * @description The action that Cloud Firewall performs on the traffic. Valid values:
+     *
+     *   **accept**: allows the traffic.
+     *   **drop**: denies the traffic.
+     *   **log**: monitors the traffic.
+     *
+     * @example accept
+     *
      * @var string
      */
     public $aclAction;
 
     /**
+     * @description The unique ID of the access control policy.
+     *
+     * @example 00281255-d220-4db1-8f4f-c4df221a****
+     *
      * @var string
      */
     public $aclUuid;
 
     /**
+     * @description The application ID in the access control policy.
+     *
+     * @example 10***
+     *
      * @var string
      */
     public $applicationId;
 
     /**
+     * @description The type of the application that the access control policy supports. Valid values:
+     *
+     *   **FTP**
+     *   **HTTP**
+     *   **HTTPS**
+     *   **Memcache**
+     *   **MongoDB**
+     *   **MQTT**
+     *   **MySQL**
+     *   **RDP**
+     *   **Redis**
+     *   **SMTP**
+     *   **SMTPS**
+     *   **SSH**
+     *   **SSL**
+     *   **VNC**
+     *   **ANY**: all types of applications
+     *
+     * @example HTTP
+     *
      * @var string
      */
     public $applicationName;
 
     /**
+     * @description The names of applications.
+     *
      * @var string[]
      */
     public $applicationNameList;
 
     /**
+     * @description The time at which the access control policy was created.
+     *
+     * @example 1761062400
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The description of the access control policy.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The destination port in the access control policy.
+     *
+     * @example 80
+     *
      * @var string
      */
     public $destPort;
 
     /**
+     * @description The name of the destination port address book in the access control policy.
+     *
+     * @example my_port_group
+     *
      * @var string
      */
     public $destPortGroup;
 
     /**
+     * @description The ports in the destination port address book.
+     *
      * @var string[]
      */
     public $destPortGroupPorts;
 
     /**
+     * @description The type of the destination port in the access control policy. Valid values:
+     *
+     *   **port**: port
+     *   **group**: port address book
+     *
+     * @example port
+     *
      * @var string
      */
     public $destPortType;
 
     /**
+     * @description The destination address in the access control policy. The value of this parameter depends on the value of the DestinationType parameter. Valid values:
+     *
+     *   If **DestinationType** is set to **net**, the value of Destination is a CIDR block. Example: 192.0.XX.XX/24.
+     *   If **DestinationType** is set to **domain**, the value of Destination is a domain name. Example: aliyuncs.com.
+     *   If **DestinationType** is set to **group**, the value of Destination is the name of an address book. Example: db_group.
+     *   If **DestinationType** is set to **location**, the value of Destination is a location. For more information about location codes, see [AddControlPolicy](~~138867~~). Example: \["BJ11", "ZB"].
+     *
+     * @example 192.0.XX.XX/24
+     *
      * @var string
      */
     public $destination;
 
     /**
+     * @description The CIDR blocks in the destination address book.
+     *
      * @var string[]
      */
     public $destinationGroupCidrs;
 
     /**
+     * @description The type of the destination address book in the access control policy. Valid values:
+     *
+     *   **ip**: an address book that includes one or more IP addresses
+     *   **tag**: an ECS tag-based address book that includes the IP addresses of the ECS instances with one or more specific tags
+     *   **domain**: an address book that includes one or more domain names
+     *   **threat**: an address book that includes one or more malicious IP addresses or domain names
+     *   **backsrc**: an address book that includes one or more back-to-origin addresses of Anti-DDoS Pro or Anti-DDoS Premium instances or WAF instances
+     *
+     * @example ip
+     *
      * @var string
      */
     public $destinationGroupType;
 
     /**
+     * @description The type of the destination address in the access control policy. Valid values:
+     *
+     *   **net**: destination CIDR block
+     *   **group**: destination address book
+     *   **domain**: destination domain name
+     *   **location**: destination location
+     *
+     * @example net
+     *
      * @var string
      */
     public $destinationType;
 
     /**
+     * @description The direction of the traffic to which the access control policy applies. Valid values:
+     *
+     *   **in**: inbound traffic
+     *   **out**: outbound traffic
+     *
+     * @example in
+     *
      * @var string
      */
     public $direction;
 
     /**
+     * @description The DNS resolution result.
+     *
+     * @example 192.0.XX.XX,192.0.XX.XX
+     *
      * @var string
      */
     public $dnsResult;
 
     /**
+     * @description The timestamp of the DNS resolution result. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1579261141
+     *
      * @var int
      */
     public $dnsResultTime;
 
     /**
+     * @description The timestamp when the access control policy was last hit. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1579261141
+     *
      * @var int
      */
     public $hitLastTime;
 
     /**
+     * @description The number of hits for the access control policy.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $hitTimes;
 
     /**
+     * @description The IP version of the address in the access control policy. Valid values:
+     *
+     *   **4**: IPv4
+     *   **6**: IPv6
+     *
+     * @example 6
+     *
      * @var int
      */
     public $ipVersion;
 
     /**
+     * @description The time at which the access control policy was modified.
+     *
+     * @example 1761062400
+     *
      * @var int
      */
     public $modifyTime;
 
     /**
+     * @description The priority of the access control policy.
+     *
+     * The priority value starts from 1. A small priority value indicates a high priority.
+     * @example 1
+     *
      * @var int
      */
     public $order;
 
     /**
+     * @description The type of the protocol in the access control policy. Valid values:
+     *
+     *   **ANY**
+     *   **TCP**
+     *   **UDP**
+     *   **ICMP**
+     *
+     * @example TCP
+     *
      * @var string
      */
     public $proto;
 
     /**
+     * @description Indicates whether the access control policy is enabled. By default, an access control policy is enabled after it is created. Valid values:
+     *
+     *   **true**: The access control policy is enabled.
+     *   **false**: The access control policy is disabled.
+     *
+     * @example true
+     *
      * @var string
      */
     public $release;
 
     /**
+     * @description The source address in the access control policy. Valid values:
+     *
+     *   If **SourceType** is set to `net`, the value of Source is a CIDR block. Example: 192.0.XX.XX/24.
+     *   If **SourceType** is set to `group`, the value of Source is the name of an address book. Example: db_group.
+     *   If **SourceType** is set to `location`, the value of Source is a location. For more information about location codes, see [AddControlPolicy](~~138867~~). Example: \["BJ11", "ZB"].
+     *
+     * @example 192.0.XX.XX/24
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The CIDR blocks in the source address book.
+     *
      * @var string[]
      */
     public $sourceGroupCidrs;
 
     /**
+     * @description The type of the source address book in the access control policy. Valid values:
+     *
+     *   **ip**: an address book that includes one or more IP addresses
+     *   **tag**: an Elastic Compute Service (ECS) tag-based address book that includes the IP addresses of the ECS instances with one or more specific tags
+     *   **domain**: an address book that includes one or more domain names
+     *   **threat**: an address book that includes one or more malicious IP addresses or domain names
+     *   **backsrc**: an address book that includes one or more back-to-origin addresses of Anti-DDoS Pro or Anti-DDoS Premium instances or Web Application Firewall (WAF) instances
+     *
+     * @example ip
+     *
      * @var string
      */
     public $sourceGroupType;
 
     /**
+     * @description The type of the source address in the access control policy. Valid values:
+     *
+     *   **net**: source CIDR block
+     *   **group**: source address book
+     *   **location**: source location
+     *
+     * @example net
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @description The total quota consumed by the returned access control policies, which is the sum of the quota consumed by each policy.
+     *
+     * Quota that is consumed by an access control policy = Number of source CIDR blocks × Number of destination CIDR blocks, destination locations, or IP addresses that are resolved from destination domain names × Number of applications × Number of ports.
+     * @example 10,000
+     *
      * @var int
      */
     public $spreadCnt;

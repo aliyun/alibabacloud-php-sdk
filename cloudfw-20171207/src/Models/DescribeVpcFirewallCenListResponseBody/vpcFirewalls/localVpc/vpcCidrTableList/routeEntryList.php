@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class routeEntryList extends Model
 {
     /**
+     * @description The destination CIDR block of the VPC.
+     *
+     * @example 192.168.XX.XX/24
+     *
      * @var string
      */
     public $destinationCidr;
 
     /**
+     * @description The instance ID for the next hop of the VPC.
+     *
+     * @example vrt-m5eb5me6c3l5sezae****
+     *
      * @var string
      */
     public $nextHopInstanceId;

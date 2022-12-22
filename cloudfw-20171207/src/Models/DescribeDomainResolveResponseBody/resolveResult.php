@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class resolveResult extends Model
 {
     /**
+     * @description The IP address to which the domain name is resolved. Multiple IP addresses are separated by commas (,).
+     *
+     * @example 11.1.X.X,12.1.X.X
+     *
      * @var string
      */
     public $ipAddrs;
 
     /**
+     * @description The time when the domain name was resolved. The value of this parameter is a timestamp. Unit: seconds.
+     *
+     * @example 1579091739
+     *
      * @var int
      */
     public $updateTime;

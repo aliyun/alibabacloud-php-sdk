@@ -9,26 +9,53 @@ use AlibabaCloud\Tea\Model;
 class ModifyControlPolicyPositionRequest extends Model
 {
     /**
+     * @description The direction of the traffic to which the IPv4 access control policy applies. Valid values:
+     *
+     *   in: inbound traffic
+     *   out: outbound traffic
+     *
+     * @example in
+     *
      * @var string
      */
     public $direction;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   zh: Chinese (default)
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The new priority of the IPv4 access control policy.
+     *
+     * We recommend that you first call the [DescribePolicyPriorUsed](~~138862~~) operation to query the priority range of existing IPv4 access control policies that apply to the traffic of the specified direction.
+     * @example 1
+     *
      * @var string
      */
     public $newOrder;
 
     /**
+     * @description The original priority of the IPv4 access control policy.
+     *
+     * @example 5
+     *
      * @var string
      */
     public $oldOrder;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

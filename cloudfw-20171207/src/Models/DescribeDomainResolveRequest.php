@@ -9,21 +9,47 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainResolveRequest extends Model
 {
     /**
+     * @description The domain name whose DNS record you want to query.
+     *
+     * @example www.aliyundoc.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The IP version of the asset that is protected by Cloud Firewall.
+     *
+     * Valid values:
+     *
+     *   **4**: IPv4 (default)
+     *   **6**: IPv6
+     *
+     * @example 6
+     *
      * @var string
      */
     public $ipVersion;
 
     /**
+     * @description The natural language of the response.
+     *
+     * Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

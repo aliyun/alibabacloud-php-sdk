@@ -9,31 +9,65 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcFirewallCenListRequest extends Model
 {
     /**
+     * @description The ID of the CEN instance.
+     *
+     * @example cen-x5jayxou71ad73****
+     *
      * @var string
      */
     public $cenId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Pages start from page 1. Default value: 1.
+     * @example 1
+     *
      * @var string
      */
     public $currentPage;
 
     /**
+     * @description The status of the VPC firewall. Valid values:
+     *
+     *   **opened**: The VPC firewall is enabled.
+     *   **closed**: The VPC firewall is disabled.
+     *   **notconfigured**: The VPC firewall is not created.
+     *   **configured**: The VPC firewall is created but is not enabled.
+     *
+     * >  If you do not specify this parameter, VPC firewalls in all states are queried.
+     * @example opened
+     *
      * @var string
      */
     public $firewallSwitchStatus;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The UID of the member that is manged by your Alibaba Cloud account. The member is also an Alibaba Cloud account.
+     *
+     * @example 258039427902****
+     *
      * @var string
      */
     public $memberUid;
 
     /**
+     * @description The ID of the network instance.
+     *
+     * @example vpc-8vbwbo90rq0anm6t****
+     *
      * @var string
      */
     public $networkInstanceId;
@@ -44,31 +78,64 @@ class DescribeVpcFirewallCenListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10. Maximum value: 50.
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the VPC.
+     *
+     * >  For more information about the regions, see [Supported regions](~~195657~~).
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionNo;
 
     /**
+     * @description The routing mode of the VPC firewall. Valid values:
+     *
+     *   **auto**: automatic mode
+     *   **manual**: manual mode
+     *
+     * >  If you do not specify this parameter, VPC firewalls in all routing modes are queried.
+     * @example auto
+     *
      * @var string
      */
     public $routeMode;
 
     /**
+     * @description The type of the transit router. Valid values:
+     *
+     *   **Basic**: Basic Edition transit router
+     *   **Enterprise**: Enterprise Edition transit router
+     *
+     * @example Basic
+     *
      * @var string
      */
     public $transitRouterType;
 
     /**
+     * @description The instance ID of the VPC firewall.
+     *
+     * @example vfw-m5e7dbc4y****
+     *
      * @var string
      */
     public $vpcFirewallId;
 
     /**
+     * @description The instance name of the VPC firewall.
+     *
+     * @example vfw1
+     *
      * @var string
      */
     public $vpcFirewallName;

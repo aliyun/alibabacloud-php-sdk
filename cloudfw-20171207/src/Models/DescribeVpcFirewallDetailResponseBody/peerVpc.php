@@ -10,36 +10,62 @@ use AlibabaCloud\Tea\Model;
 class peerVpc extends Model
 {
     /**
+     * @description The ID of the ENI for the peer VPC.
+     *
+     * @example eni-8vbhfosfqv2rff42****
+     *
      * @var string
      */
     public $eniId;
 
     /**
+     * @description The private IP address of the ENI for the peer VPC.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $eniPrivateIpAddress;
 
     /**
+     * @description The region ID of the peer VPC.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionNo;
 
     /**
+     * @description The router interface ID of the peer VPC.
+     *
+     * @example vrt-m5eb5me6c3l5sezae****
+     *
      * @var string
      */
     public $routerInterfaceId;
 
     /**
+     * @description The CIDR blocks of the peer VPC.
+     *
      * @var vpcCidrTableList[]
      */
     public $vpcCidrTableList;
 
     /**
+     * @description The ID of the peer VPC.
+     *
+     * @example vpc-90rq0anm6t8vbwbo****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The name of the peer VPC.
+     *
+     * @example zcy_prod
+     *
      * @var string
      */
     public $vpcName;

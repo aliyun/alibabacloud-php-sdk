@@ -9,21 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcFirewallDefaultIPSConfigResponseBody extends Model
 {
     /**
+     * @description Indicates whether basic policies are enabled. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 1
+     *
      * @var int
      */
     public $basicRules;
 
     /**
+     * @description Indicates whether virtual patching is enabled. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 1
+     *
      * @var int
      */
     public $enableAllPatch;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 850A84D6-0DE4-4797-A1E8-00090125adf1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The mode of the intrusion prevention system (IPS). Valid values:
+     *
+     *   **1**: block mode
+     *   **0**: monitor mode
+     *
+     * @example 0
+     *
      * @var int
      */
     public $runMode;

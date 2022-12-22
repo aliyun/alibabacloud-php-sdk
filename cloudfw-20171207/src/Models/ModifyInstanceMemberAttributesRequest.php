@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceMemberAttributesRequest extends Model
 {
     /**
+     * @description The members that to be modified.
+     *
      * @var members[]
      */
     public $members;

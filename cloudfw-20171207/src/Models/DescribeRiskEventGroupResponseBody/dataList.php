@@ -13,116 +13,233 @@ use AlibabaCloud\Tea\Model;
 class dataList extends Model
 {
     /**
+     * @description The name of the attacked application.
+     *
+     * @example MySql
+     *
      * @var string
      */
     public $attackApp;
 
     /**
+     * @description The attack type of the intrusion event. Valid values:
+     *
+     * **1**: suspicious connection
+     * **2**: command execution
+     * **3**: brute-force attack
+     * **4**: scanning
+     * **5**: others
+     * **6**: information leak
+     * **7**: DoS attack
+     * **8**: buffer overflow attack
+     * **9**: web attack
+     * **10**: trojan backdoor
+     * **11**: computer worm
+     * **12**: mining
+     * **13**: reverse shell
+     *
+     * @example 1
+     *
      * @var int
      */
     public $attackType;
 
     /**
+     * @description The description of the intrusion event.
+     *
+     * @example the test event.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The direction of the traffic for the intrusion events. Valid values:
+     *
+     *   **in**: inbound
+     *   **out**: outbound
+     *
+     * @example in
+     *
      * @var string
      */
     public $direction;
 
     /**
+     * @description The destination IP address that is included in the intrusion event.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $dstIP;
 
     /**
+     * @description The number of intrusion events.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $eventCount;
 
     /**
+     * @description The ID of the intrusion event.
+     *
+     * @example 2b58efae-4c4b-4d96-9544-a586fb1f****
+     *
      * @var string
      */
     public $eventId;
 
     /**
+     * @description The name of the intrusion event.
+     *
+     * @example intEventName
+     *
      * @var string
      */
     public $eventName;
 
     /**
+     * @description The time when the intrusion event was first detected. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1534408189
+     *
      * @var int
      */
     public $firstEventTime;
 
     /**
+     * @description The information about the geographical location of the IP address. The value is a struct that contains the following parameters: **CityId**, **CityName**, **CountryId**, and **CountryName**.
+     *
      * @var IPLocationInfo
      */
     public $IPLocationInfo;
 
     /**
+     * @description The time when the intrusion event was last detected. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1534408267
+     *
      * @var int
      */
     public $lastEventTime;
 
     /**
+     * @description The information about the private IP address of the intrusion event. The value is an array that contains the following parameters: **RegionNo**, **ResourceInstanceId**, **ResourceInstanceName**, and **ResourcePrivateIP**.
+     *
      * @var resourcePrivateIPList[]
      */
     public $resourcePrivateIPList;
 
     /**
+     * @description The type of the public IP address in the intrusion event. Valid values:
+     *
+     *   **EIP**: the elastic IP address (EIP)
+     *   **EcsPublicIP**: the public IP address of an Elastic Compute Service (ECS) instance
+     *   **EcsEIP**: the EIP of an ECS instance
+     *   **NatPublicIP**: the public IP address of a NAT gateway
+     *   **NatEIP**: the EIP of a NAT gateway
+     *
+     * @example EcsPublicIP
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The ID of the rule that is used to detect the intrusion event.
+     *
+     * @example 1000****
+     *
      * @var string
      */
     public $ruleId;
 
     /**
+     * @description The status of the firewall. Valid values:
+     *
+     *   **1**: alerting
+     *   **2**: blocking
+     *
+     * @example 2
+     *
      * @var int
      */
     public $ruleResult;
 
     /**
+     * @description The module of the rule that is used to detect the intrusion event. Valid values:
+     *
+     *   **1**: basic protection
+     *   **2**: virtual patching
+     *   **4**: threat intelligence
+     *
+     * @example 1
+     *
      * @var int
      */
     public $ruleSource;
 
     /**
+     * @description The source IP address that is included in the intrusion event.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $srcIP;
 
     /**
+     * @description The source IP tag. It is used to identify whether it is the cloud product back to the source IP.
+     *
+     * @example WAF Back-to-origin Address
+     *
      * @var string
      */
     public $srcIPTag;
 
     /**
+     * @description The source private IP addresses of the intrusion event.
+     *
+     * >  The value of this parameter is returned only when you set Direction to out.
      * @var string[]
      */
     public $srcPrivateIPList;
 
     /**
+     * @description The tag added to the threat intelligence that is provided for major events.
+     *
+     * @example ScheduleTag
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @description The information about the destination VPC of the intrusion event. The value is a struct that contains the following parameters: **EcsInstanceId**, **EcsInstanceName**, **NetworkInstanceId**, **NetworkInstanceName**, and **RegionNo**.
+     *
      * @var vpcDstInfo
      */
     public $vpcDstInfo;
 
     /**
+     * @description The information about the source VPC of the intrusion event. The value is a struct that contains the following parameters: **EcsInstanceId**, **EcsInstanceName**, **NetworkInstanceId**, **NetworkInstanceName**, and **RegionNo**.
+     *
      * @var vpcSrcInfo
      */
     public $vpcSrcInfo;
 
     /**
+     * @description The risk level of the intrusion event. Valid values:
+     *
+     *   **1**: low
+     *   **2**: medium
+     *   **3**: high
+     *
+     * @example 1
+     *
      * @var int
      */
     public $vulLevel;

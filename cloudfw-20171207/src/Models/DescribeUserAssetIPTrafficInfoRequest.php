@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserAssetIPTrafficInfoRequest extends Model
 {
     /**
+     * @description The IP address of the asset.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $assetIP;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The point in time to query. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1656923760
+     *
      * @var string
      */
     public $trafficTime;

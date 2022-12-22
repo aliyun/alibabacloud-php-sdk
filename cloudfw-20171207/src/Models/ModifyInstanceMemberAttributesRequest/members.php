@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class members extends Model
 {
     /**
+     * @description The remarks of the member in Cloud Firewall.
+     *
+     * @example renewal
+     *
      * @var string
      */
     public $memberDesc;
 
     /**
+     * @description The UID of the member in Cloud Firewall.
+     *
+     * @example 123412341234****
+     *
      * @var int
      */
     public $memberUid;

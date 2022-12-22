@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class vpcDstInfo extends Model
 {
     /**
+     * @description The ID of the ECS instance.
+     *
+     * @example i-wz92jf4scg2zb74p****
+     *
      * @var string
      */
     public $ecsInstanceId;
 
     /**
+     * @description The name of the ECS instance.
+     *
+     * @example LD-shenzhen-zy****
+     *
      * @var string
      */
     public $ecsInstanceName;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-uf6e9a9zyokj2ywuo****
+     *
      * @var string
      */
     public $networkInstanceId;
 
     /**
+     * @description The name of the VPC.
+     *
+     * @example VPC-SH-TX****
+     *
      * @var string
      */
     public $networkInstanceName;
 
     /**
+     * @description The ID of the region in which the destination VPC resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionNo;

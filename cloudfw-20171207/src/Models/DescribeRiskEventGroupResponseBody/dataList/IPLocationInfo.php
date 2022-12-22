@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class IPLocationInfo extends Model
 {
     /**
+     * @description The ID of the city to which the IP address belongs.
+     *
+     * @example 510100
+     *
      * @var string
      */
     public $cityId;
 
     /**
+     * @description The name of the city to which the IP address belongs.
+     *
+     * @example Chengdu
+     *
      * @var string
      */
     public $cityName;
 
     /**
+     * @description The ID of the country to which the IP address belongs.
+     *
+     * @example CN
+     *
      * @var string
      */
     public $countryId;
 
     /**
+     * @description The name of the country to which the IP address belongs.
+     *
+     * @example China
+     *
      * @var string
      */
     public $countryName;

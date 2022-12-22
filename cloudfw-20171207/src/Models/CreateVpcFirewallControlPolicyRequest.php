@@ -9,81 +9,186 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcFirewallControlPolicyRequest extends Model
 {
     /**
+     * @description The action that Cloud Firewall performs on the traffic. Valid values:
+     *
+     * - **accept**: allows the traffic.
+     * - **drop**: blocks the traffic.
+     * - **log**: monitors the traffic.
+     * @example accept
+     *
      * @var string
      */
     public $aclAction;
 
     /**
+     * @description The type of the applications that the access control policy supports. Valid values:
+     *
+     * - **FTP**
+     * - **HTTP**
+     * - **HTTPS**
+     * - **MySQL**
+     * - **SMTP**
+     * - **SMTPS**
+     * - **RDP**
+     * - **VNC**
+     * - **SSH**
+     * - **Redis**
+     * - **MQTT**
+     * - **MongoDB**
+     * - **Memcache**
+     * - **SSL**
+     * - **ANY**: all types of applications
+     * @example HTTP
+     *
      * @var string
      */
     public $applicationName;
 
     /**
+     * @description The description of the access control policy.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The destination port in the access control policy.
+     *
+     * >  If **DestPortType** is set to `port`, you must specify this parameter.
+     * @example 80
+     *
      * @var string
      */
     public $destPort;
 
     /**
+     * @description The name of the destination port address book in the access control policy.
+     *
+     * >  If **DestPortType** is set to `group`, you must specify this parameter.
+     * @example my_port_group
+     *
      * @var string
      */
     public $destPortGroup;
 
     /**
+     * @description The type of the destination port in the access control policy. Valid values:
+     *
+     * - **port**: port
+     * - **group**: port address book
+     * @example port
+     *
      * @var string
      */
     public $destPortType;
 
     /**
+     * @description The destination address in the access control policy. Valid values:
+     *
+     * - If **DestinationType** is set to `net`, the value of **Destination** must be a CIDR block.
+     * - If **DestinationType** is set to `group`, the value of **Destination** must be an address book.
+     * - If **DestinationType** is set to `domain`, the value of **Destination** must be a domain name.
+     * @example 10.2.XX.XX/24
+     *
      * @var string
      */
     public $destination;
 
     /**
+     * @description The type of the destination address in the access control policy. Valid values:
+     *
+     * - **net**: CIDR block
+     * - **group**: address book
+     * - **domain**: domain name
+     * @example net
+     *
      * @var string
      */
     public $destinationType;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     * - **zh**: Chinese (default)
+     * - **en**: English
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The UID of the member that is managed by your Alibaba Cloud account.
+     *
+     * @example 258039427902****
+     *
      * @var string
      */
     public $memberUid;
 
     /**
+     * @description The priority of the access control policy.
+     *
+     * The priority value starts from 1. A smaller priority value indicates a higher priority.
+     * @example 1
+     *
      * @var string
      */
     public $newOrder;
 
     /**
+     * @description The type of the protocol in the access control policy. Valid values:
+     *
+     * - **ANY** (If you are not sure about the protocol type, you can set this parameter to ANY.)
+     * - **TCP**
+     * - **UDP**
+     * - **ICMP**
+     * @example TCP
+     *
      * @var string
      */
     public $proto;
 
     /**
+     * @description Specifies whether to enable the access control policy. By default, an access control policy is enabled after the policy is created. Valid values:
+     *
+     * - **true**: enables the access control policy.
+     * - **false**: disables the access control policy.
+     * @example true
+     *
      * @var string
      */
     public $release;
 
     /**
+     * @description The source address in the access control policy.
+     *
+     * - If SourceType is set to `group`, the value of Source must be an address book.
+     * @example 10.2.XX.XX/24
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The type of the source address in the access control policy. Valid values:
+     *
+     * - **net**: CIDR block
+     * - **group**: address book
+     * @example net
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @description The ID of the policy group in which you want to create the access control policy.
+     *
+     * >  You can call the [DescribeVpcFirewallAclGroupList](https://www.alibabacloud.com/help/en/cloud-firewall/latest/describevpcfirewallaclgrouplist) operation to query the IDs.
+     * @example vfw-a42bbb7b887148c9****
+     *
      * @var string
      */
     public $vpcFirewallId;

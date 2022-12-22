@@ -10,36 +10,62 @@ use AlibabaCloud\Tea\Model;
 class localVpc extends Model
 {
     /**
+     * @description The ID of the ENI for the local VPC.
+     *
+     * @example eni-8vbhfosfqv2rff42****
+     *
      * @var string
      */
     public $eniId;
 
     /**
+     * @description The private IP address of the elastic network interface (ENI) for the local VPC.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $eniPrivateIpAddress;
 
     /**
+     * @description The region ID of the local VPC.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionNo;
 
     /**
+     * @description The router interface ID of the local VPC.
+     *
+     * @example vrt-m5eb5me6c3l5sezae****
+     *
      * @var string
      */
     public $routerInterfaceId;
 
     /**
+     * @description The CIDR blocks of the local VPC.
+     *
      * @var vpcCidrTableList[]
      */
     public $vpcCidrTableList;
 
     /**
+     * @description The ID of the local VPC.
+     *
+     * @example vpc-8vbwbo90rq0anm6t****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The name of the local VPC.
+     *
+     * @example Vitasoy
+     *
      * @var string
      */
     public $vpcName;

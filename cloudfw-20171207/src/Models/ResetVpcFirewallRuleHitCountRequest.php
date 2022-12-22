@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class ResetVpcFirewallRuleHitCountRequest extends Model
 {
     /**
+     * @description The ID of the access control policy.
+     *
+     * @example 00281255-d220-4db1-8f4f-c4df221a****
+     *
      * @var string
      */
     public $aclUuid;
 
     /**
+     * @description The natural language of the request and response.
+     *
+     * Valid values:
+     *
+     * - **zh**: Chinese (default)
+     * - **en**: English
+     * @example zh
+     *
      * @var string
      */
     public $lang;

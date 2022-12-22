@@ -9,21 +9,44 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpcFirewallCenSwitchStatusRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the VPC firewall. Valid values:
+     *
+     *   **open**: yes
+     *   **close**: no
+     *
+     * @example open
+     *
      * @var string
      */
     public $firewallSwitch;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The UID of the member that is managed by your Alibaba Cloud account.
+     *
+     * @example 258039427902****
+     *
      * @var string
      */
     public $memberUid;
 
     /**
+     * @description The instance ID of the VPC firewall.
+     *
+     * >  You can call the [DescribeVpcFirewallCenList](~~345777~~) operation to query the instance IDs of VPC firewalls.
+     * @example vfw-m5e7dbc4y****
+     *
      * @var string
      */
     public $vpcFirewallId;

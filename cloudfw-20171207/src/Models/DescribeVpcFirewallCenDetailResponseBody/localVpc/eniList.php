@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class eniList extends Model
 {
     /**
+     * @description The ID of the ENI that belongs to the VPC.
+     *
+     * @example eni-8vbhfosfqv2rff42****
+     *
      * @var string
      */
     public $eniId;
 
     /**
+     * @description The private IP address of the ENI that belongs to the VPC.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $eniPrivateIpAddress;

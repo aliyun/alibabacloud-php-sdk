@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class PutDisableAllFwSwitchRequest extends Model
 {
     /**
+     * @description The instance ID of your Cloud Firewall.
+     *
+     * @example i-2ze8v2x5kd9qyvp2****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The natural language of the request and response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

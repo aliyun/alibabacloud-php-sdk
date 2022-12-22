@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class addressGroupList extends Model
 {
     /**
+     * @example my-address-group
+     *
      * @var string
      */
     public $addressGroupName;
 
     /**
+     * @example f04ac7ce-628b-4cb7-be61-310222b7****
+     *
      * @var string
      */
     public $addressGroupUUID;

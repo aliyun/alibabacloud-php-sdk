@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class AddAddressBookResponseBody extends Model
 {
     /**
+     * @description The UUID of the returned address book.
+     *
+     * @example f04ac7ce-628b-4cb7-be61-310222b7****
+     *
      * @var string
      */
     public $groupUuid;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2****
+     *
      * @var string
      */
     public $requestId;

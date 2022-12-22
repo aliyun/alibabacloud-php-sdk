@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class ipsConfig extends Model
 {
     /**
+     * @description Indicates whether basic protection is enabled. Valid values:
+     *
+     * - **1**: yes
+     * - **0**: no
+     * @example 1
+     *
      * @var int
      */
     public $basicRules;
 
     /**
+     * @description Indicates whether virtual patching is enabled. Valid values:
+     *
+     * - **1**: yes
+     * - **0**: no
+     * @example 1
+     *
      * @var int
      */
     public $enableAllPatch;
 
     /**
+     * @description The mode of the IPS. Valid values:
+     *
+     * - **1**: block mode
+     * - **0**: monitor mode
+     * @example 0
+     *
      * @var int
      */
     public $runMode;

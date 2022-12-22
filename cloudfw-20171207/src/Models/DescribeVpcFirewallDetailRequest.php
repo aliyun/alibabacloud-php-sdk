@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcFirewallDetailRequest extends Model
 {
     /**
+     * @description The natural language of the request and response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the local VPC.
+     *
+     * @example vpc-8vbwbo90rq0anm6t****
+     *
      * @var string
      */
     public $localVpcId;
 
     /**
+     * @description The ID of the peer VPC.
+     *
+     * @example vpc-90rq0anm6t8vbwbo****
+     *
      * @var string
      */
     public $peerVpcId;
 
     /**
+     * @description The instance ID of the VPC firewall.
+     *
+     * >  You can call the [DescribeVpcFirewallList](~~342932~~) operation to query the instance IDs of VPC firewalls.
+     * @example vfw-m5e7dbc4y****
+     *
      * @var string
      */
     public $vpcFirewallId;

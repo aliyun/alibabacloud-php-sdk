@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeAddressBookResponseBody extends Model
 {
     /**
+     * @description The information about the address book.
+     *
      * @var acls[]
      */
     public $acls;
 
     /**
+     * @description The page number of the current page.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNo;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B36F150A-1E27-43AA-B72C-D2AC712F09DA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of the returned address books.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $totalCount;

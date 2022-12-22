@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tagList extends Model
 {
     /**
+     * @description The key of the ECS tag.
+     *
+     * @example company
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The value of the ECS tag.
+     *
+     * @example admin
+     *
      * @var string
      */
     public $tagValue;

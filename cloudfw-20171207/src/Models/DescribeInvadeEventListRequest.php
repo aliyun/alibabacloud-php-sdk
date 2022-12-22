@@ -9,81 +9,149 @@ use AlibabaCloud\Tea\Model;
 class DescribeInvadeEventListRequest extends Model
 {
     /**
+     * @description The IP address of the affected asset.
+     *
+     * @example 10.0.XX.XX
+     *
      * @var string
      */
     public $assetsIP;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example ins_1321_asedb_****
+     *
      * @var string
      */
     public $assetsInstanceId;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example ECS_test
+     *
      * @var string
      */
     public $assetsInstanceName;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Pages start from page 1. Default value: 1.
+     * @example 1
+     *
      * @var string
      */
     public $currentPage;
 
     /**
+     * @description The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1656837360
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the breach awareness event.
+     *
+     * @example 69d189e2-ec17-4676-a2fe-02969234****
+     *
      * @var string
      */
     public $eventKey;
 
     /**
+     * @description The name of the breach awareness event.
+     *
+     * @example event_test
+     *
      * @var string
      */
     public $eventName;
 
     /**
+     * @description The UUID of the breach awareness event.
+     *
+     * @example fadd-dfdd-****
+     *
      * @var string
      */
     public $eventUuid;
 
     /**
+     * @description Specifies whether to ignore the breach awareness event. Valid values:
+     *
+     *   **true**: ignores the breach awareness event.
+     *   **false**: does not ignore the breach awareness event.
+     *
+     * @example true
+     *
      * @var string
      */
     public $isIgnore;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the member.
+     *
+     * @example 135809047715****
+     *
      * @var int
      */
     public $memberUid;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 6. Maximum value: 10.
+     * @example 1
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The list of process statuses.
+     *
      * @var int[]
      */
     public $processStatusList;
 
     /**
+     * @description The list of risk levels.
+     *
      * @var int[]
      */
     public $riskLevel;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1656750960
+     *
      * @var string
      */
     public $startTime;

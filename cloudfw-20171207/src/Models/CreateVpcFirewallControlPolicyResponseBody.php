@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcFirewallControlPolicyResponseBody extends Model
 {
     /**
+     * @description The ID of the access control policy.
+     *
+     * @example 00281255-d220-4db1-8f4f-c4df221ad84c
+     *
      * @var string
      */
     public $aclUuid;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2837D
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class ModifyPolicyAdvancedConfigRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the strict mode for the access control policy. Valid values:
+     *
+     *   **on**: enables the strict mode.
+     *   **off**: disables the strict mode.
+     *
+     * @example off
+     *
      * @var string
      */
     public $internetSwitch;
 
     /**
+     * @description The natural language of the request and response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

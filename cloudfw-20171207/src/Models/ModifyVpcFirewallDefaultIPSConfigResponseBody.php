@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpcFirewallDefaultIPSConfigResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 3B51B5BF-3C26-5009-ADAB-190E58DE4D6E
+     *
      * @var string
      */
     public $requestId;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class AddInstanceMembersRequest extends Model
 {
     /**
+     * @description The members that you want to add to Cloud Firewall.
+     *
      * @var members[]
      */
     public $members;

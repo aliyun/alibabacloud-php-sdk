@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class localVpc extends Model
 {
     /**
+     * @description Indicates whether Cloud Firewall is authorized to access the local VPC. The value is fixed as authorized, which indicates that Cloud Firewall is authorized to access the local VPC.
+     *
+     * @example authorized
+     *
      * @var string
      */
     public $authorizationStatus;
 
     /**
+     * @description The UID of the Alibaba Cloud account to which the local VPC belongs.
+     *
+     * @example 158039427902****
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @description The region ID of the local VPC.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionNo;
 
     /**
+     * @description The CIDR blocks of the local VPC.
+     *
      * @var vpcCidrTableList[]
      */
     public $vpcCidrTableList;
 
     /**
+     * @description The ID of the local VPC.
+     *
+     * @example vpc-8vbwbo90rq0anm6t****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The name of the local VPC.
+     *
+     * @example dute_network
+     *
      * @var string
      */
     public $vpcName;

@@ -9,11 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcFirewallPolicyPriorUsedRequest extends Model
 {
     /**
+     * @description The natural language of the request and response.
+     *
+     * Valid values:
+     *
+     * - **zh**: Chinese (default)
+     * - **en**: English
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the policy group to which the access control policy belongs. You can call the DescribeVpcFirewallAclGroupList operation to query the ID.
+     *
+     * - If the VPC firewall is used to protect a Cloud Enterprise Network (CEN) instance, the value of this parameter is the ID of the CEN instance.
+     *
+     * Example: cen-ervw0g12b5jbw****
+     * - If the VPC firewall is used to protect an Express Connect circuit, the value of this parameter is the ID of the VPC firewall instance.
+     *
+     * Example: vfw-a42bbb7b887148c9****
+     * @example vfw-a42bbb7b887148c9****
+     *
      * @var string
      */
     public $vpcFirewallId;

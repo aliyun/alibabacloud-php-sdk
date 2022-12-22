@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class applicationPortList extends Model
 {
     /**
+     * @description The type of the application.
+     *
+     * @example HTTP
+     *
      * @var string
      */
     public $applicationName;
 
     /**
+     * @description The port of the application.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $port;

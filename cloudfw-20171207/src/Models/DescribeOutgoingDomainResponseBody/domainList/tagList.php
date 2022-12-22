@@ -9,26 +9,54 @@ use AlibabaCloud\Tea\Model;
 class tagList extends Model
 {
     /**
+     * @description The type of the tag. Valid values:
+     *
+     *   **Suspicious**
+     *   **Malicious**
+     *   **Trusted**
+     *
+     * @example Trusted
+     *
      * @var string
      */
     public $classId;
 
     /**
+     * @description The risk level. Valid values:
+     *
+     *   **1**: low
+     *   **2**: medium
+     *   **3**: high
+     *
+     * @example 3
+     *
      * @var int
      */
     public $riskLevel;
 
     /**
+     * @description The description of the tag.
+     *
+     * @example White list
+     *
      * @var string
      */
     public $tagDescribe;
 
     /**
+     * @description The ID of the tag.
+     *
+     * @example 123****
+     *
      * @var string
      */
     public $tagId;
 
     /**
+     * @description The name of the tag.
+     *
+     * @example Whitelist
+     *
      * @var string
      */
     public $tagName;

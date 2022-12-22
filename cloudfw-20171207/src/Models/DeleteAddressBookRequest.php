@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class DeleteAddressBookRequest extends Model
 {
     /**
+     * @description The ID of the address book.
+     *
+     * To delete the address book, you must provide the ID of the address book. You can call the DescribeAddressBook operation to query the ID.
+     * @example 0657ab9d-fe8b-4174-b2a6-6baf358e****
+     *
      * @var string
      */
     public $groupUuid;
 
     /**
+     * @description The natural language of the request and response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

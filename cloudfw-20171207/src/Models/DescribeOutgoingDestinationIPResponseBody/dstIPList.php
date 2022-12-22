@@ -12,16 +12,34 @@ use AlibabaCloud\Tea\Model;
 class dstIPList extends Model
 {
     /**
+     * @description Indicates whether an access control policy is configured. Valid values:
+     *
+     *   **Uncovered**: No access control policies are configured.
+     *   **FullCoverage**: An access control policy is configured.
+     *
+     * @example Uncovered
+     *
      * @var string
      */
     public $aclCoverage;
 
     /**
+     * @description The suggestion in an access control policy.
+     *
+     * @example 建议放行
+     *
      * @var string
      */
     public $aclRecommendDetail;
 
     /**
+     * @description The state of the access control policy. Valid values:
+     *
+     *   **normal**: healthy
+     *   **abnormal**: unhealthy
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $aclStatus;
@@ -32,66 +50,124 @@ class dstIPList extends Model
     public $addressGroupList;
 
     /**
+     * @description An array that consists of application ports.
+     *
      * @var applicationPortList[]
      */
     public $applicationPortList;
 
     /**
+     * @example Trusted
+     *
      * @var string
      */
     public $categoryClassId;
 
     /**
+     * @description The ID of the service to which the destination IP address belongs. Valid values:
+     *
+     *   **Aliyun**: Alibaba Cloud services
+     *   **NotAliyun**: third-party services
+     *
+     * @example Aliyun
+     *
      * @var string
      */
     public $categoryId;
 
     /**
+     * @description The type of the service to which the destination IP address belongs. Valid values:
+     *
+     *   **Alibaba Cloud services**
+     *   **third-party services**
+     *
+     * @example AliYun
+     *
      * @var string
      */
     public $categoryName;
 
     /**
+     * @description The destination IP address in the outbound connection that is initiated to access a domain name.
+     *
+     * @example 10.0.XX.XX
+     *
      * @var string
      */
     public $dstIP;
 
     /**
+     * @description The name of the group to which the access control policy belongs.
+     *
+     * @example 组名称
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $hasAcl;
 
     /**
+     * @description Indicates whether an access control policy is recommended. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $hasAclRecommend;
 
     /**
+     * @description The inbound traffic. Unit: bytes.
+     *
+     * @example 472
+     *
      * @var int
      */
     public $inBytes;
 
     /**
+     * @description Indicates whether the destination IP address is added to an allowlist. Valid values:
+     *
+     *   **true**: added
+     *   **false**: not added
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isMarkNormal;
 
     /**
+     * @description The outbound traffic. Unit: bytes.
+     *
+     * @example 965
+     *
      * @var int
      */
     public $outBytes;
 
     /**
+     * @description The UUID of the access control policy.
+     *
+     * @example fadsfd-dfadf-df****
+     *
      * @var string
      */
     public $ruleId;
 
     /**
+     * @description The name of the access control policy.
+     *
+     * @example 默认规则
+     *
      * @var string
      */
     public $ruleName;
@@ -102,21 +178,37 @@ class dstIPList extends Model
     public $securityReason;
 
     /**
+     * @description The suggestion to handle the traffic of the domain name in outbound connections. Valid values:
+     *
+     *   **pass**: allow
+     *   **alert**: deny
+     *   **drop**: monitor
+     *
+     * @example pass
+     *
      * @var string
      */
     public $securitySuggest;
 
     /**
+     * @description The number of requests.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $sessionCount;
 
     /**
+     * @description An array that consists of tags.
+     *
      * @var tagList[]
      */
     public $tagList;
 
     /**
+     * @example 800
+     *
      * @var string
      */
     public $totalBytes;

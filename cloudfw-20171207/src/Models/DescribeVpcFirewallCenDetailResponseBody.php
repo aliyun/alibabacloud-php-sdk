@@ -10,31 +10,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcFirewallCenDetailResponseBody extends Model
 {
     /**
+     * @description The connection type of the VPC firewall. The value is fixed as **cen**, which indicates CEN instances.
+     *
+     * @example cen
+     *
      * @var string
      */
     public $connectType;
 
     /**
+     * @description The status of the VPC firewall. Valid values:
+     *
+     *   **opened**: enabled
+     *   **closed**: disabled
+     *   **notconfigured**: not configured
+     *
+     * @example opened
+     *
      * @var string
      */
     public $firewallSwitchStatus;
 
     /**
+     * @description The details about the VPC.
+     *
      * @var localVpc
      */
     public $localVpc;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 850A84D6-0DE4-4797-A1E8-00090125g4d2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The instance ID of the VPC firewall.
+     *
+     * @example vfw-m5e7dbc4y****
+     *
      * @var string
      */
     public $vpcFirewallId;
 
     /**
+     * @description The instance name of the VPC firewall.
+     *
+     * @example FW-VPC-Internal
+     *
      * @var string
      */
     public $vpcFirewallName;

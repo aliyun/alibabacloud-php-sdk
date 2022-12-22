@@ -9,61 +9,135 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcFirewallControlPolicyRequest extends Model
 {
     /**
+     * @description The action that Cloud Firewall performs on the traffic. Valid values:
+     *
+     *   **accept**: allows the traffic.
+     *   **drop**: blocks the traffic.
+     *   **log**: monitors the traffic.
+     *
+     * >  If you do not specify this parameter, access control policies are queried based on all actions.
+     * @example accept
+     *
      * @var string
      */
     public $aclAction;
 
     /**
+     * @description The unique ID of the access control policy.
+     *
+     * @example 4037fbf7-3e39-4634-92a4-d0155247****
+     *
      * @var string
      */
     public $aclUuid;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $currentPage;
 
     /**
+     * @description The description of the access control policy. Fuzzy match is supported.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The destination address in the access control policy. Fuzzy match is supported.
+     *
+     * >  The value of this parameter can be a CIDR block, a domain name, or an address book name.
+     * @example 192.0.XX.XX/24
+     *
      * @var string
      */
     public $destination;
 
     /**
+     * @description The language of the content within the request and response.
+     *
+     * Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The UID of the member that is managed by your Alibaba Cloud account.
+     *
+     * @example 258039427902****
+     *
      * @var string
      */
     public $memberUid;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Maximum value: 50.
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The protocol type in the access control policy. Valid values:
+     *
+     *   **TCP**
+     *   **UDP**
+     *   **ICMP**
+     *   **ANY**: all protocol types
+     *
+     * >  If you do not specify this parameter, access control policies are queried based on all protocol types.
+     * @example TCP
+     *
      * @var string
      */
     public $proto;
 
     /**
+     * @description Indicates whether the access control policy is enabled. By default, an access control policy is enabled after the policy is created. Valid values:
+     *
+     *   **true**: The access control policy is enabled.
+     *   **false**: The access control policy is disabled.
+     *
+     * @example true
+     *
      * @var string
      */
     public $release;
 
     /**
+     * @description The source address in the access control policy. Fuzzy match is supported.
+     *
+     * >  The value of this parameter can be a CIDR block or an address book name.
+     * @example 192.0.XX.XX/24
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The instance ID of the VPC firewall. Valid values:
+     *
+     *   If the VPC firewall protects the traffic between two VPCs that are connected by using a CEN instance, the value of this parameter must be the ID of the CEN instance.
+     *   If the VPC firewall protects the traffic between two VPCs that are connected by using an Express Connect circuit, the value of this parameter must be the instance ID of the VPC firewall.
+     *
+     * >  You can call the [DescribeVpcFirewallAclGroupList](~~159760~~) operation to query the IDs.
+     * @example vfw-a42bbb7b887148c9****
+     *
      * @var string
      */
     public $vpcFirewallId;

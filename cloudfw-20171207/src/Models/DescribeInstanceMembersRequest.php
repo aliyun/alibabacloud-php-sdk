@@ -9,26 +9,48 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceMembersRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * Pages start from page 1. Default value: **1**.
+     * @example 1
+     *
      * @var string
      */
     public $currentPage;
 
     /**
+     * @description The remarks of the member in Cloud Firewall. The length is 1 ~ 256 characters.
+     *
+     * @example renewal
+     *
      * @var string
      */
     public $memberDesc;
 
     /**
+     * @description The name of the member in Cloud Firewall.
+     *
+     * @example cloudfirewall_2
+     *
      * @var string
      */
     public $memberDisplayName;
 
     /**
+     * @description The unique identifier (UID) of the member in Cloud Firewall.
+     *
+     * @example 258039427902****
+     *
      * @var string
      */
     public $memberUid;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: **20**.
+     * @example 20
+     *
      * @var string
      */
     public $pageSize;

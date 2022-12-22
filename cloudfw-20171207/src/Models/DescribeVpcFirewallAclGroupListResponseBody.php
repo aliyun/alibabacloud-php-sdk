@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcFirewallAclGroupListResponseBody extends Model
 {
     /**
+     * @description An array that consists of the information about the policy group.
+     *
      * @var aclGroupList[]
      */
     public $aclGroupList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2837D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of the policy groups that are returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeRiskEventGroupResponseBody extends Model
 {
     /**
+     * @description An array that consists of the details of the intrusion events.
+     *
      * @var dataList[]
      */
     public $dataList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B14757D0-4640-4B44-AC67-7F558FE7E6EF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of risk events.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $totalCount;

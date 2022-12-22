@@ -9,61 +9,144 @@ use AlibabaCloud\Tea\Model;
 class DescribeAssetListRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $currentPage;
 
     /**
+     * @description The IP version of the asset that is protected by Cloud Firewall. Valid values:
+     *
+     *   **4**: IPv4 (default)
+     *   **6**: IPv6
+     *
+     * @example 4
+     *
      * @var string
      */
     public $ipVersion;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The UID of the member that is added in Cloud Firewall.
+     *
+     * @example 258039427902****
+     *
      * @var int
      */
     public $memberUid;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region in which Cloud Firewall is supported.
+     *
+     * >  For more information about the regions in which Cloud Firewall is supported, see [Supported regions](~~195657~~).
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionNo;
 
     /**
+     * @description The type of the asset. Valid values:
+     *
+     *   **BastionHostEgressIP**: the egress IP address of a bastion host
+     *   **BastionHostIngressIP**: the ingress IP address of a bastion host
+     *   **EcsEIP**: the elastic IP address (EIP) of an Elastic Compute Service (ECS) instance
+     *   **EcsPublicIP**: the public IP address of an ECS instance
+     *   **EIP**: the EIP
+     *   **EniEIP**: the EIP of an elastic network interface (ENI)
+     *   **NatEIP**: the EIP of a Network Address Translation (NAT) gateway
+     *   **SlbEIP**: the EIP of a Server Load Balancer (SLB) instance
+     *   **SlbPublicIP**: the public IP address of an SLB instance
+     *   **NatPublicIP**: the public IP address of a NAT gateway
+     *   **HAVIP**: the high-availability virtual IP address (HAVIP)
+     *
+     * @example EIP
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The instance ID or the IP address of the asset.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $searchItem;
 
     /**
+     * @description The status of the security group policy. Valid values:
+     *
+     *   **pass**: delivered
+     *
+     *   **block**: undelivered
+     *
+     *   **unsupport**: unsupported
+     *
+     * > If you do not specify this parameter, the assets on which security group policies in all states take effect are queried.
+     * @example pass
+     *
      * @var string
      */
     public $sgStatus;
 
     /**
+     * @description The status of the firewall. Valid values:
+     *
+     *   **open**: The firewall is enabled.
+     *   **opening**: The firewall is being enabled.
+     *   **closed**: The firewall is disabled.
+     *   **closing**: The firewall is being disabled.
+     *
+     * >  If you do not specify this parameter, the assets that are configured for firewalls in all states are queried.
+     * @example open
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example eip
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The edition of Cloud Firewall. Valid values:
+     *
+     *   **buy**: a paid edition (default)
+     *   **free**: a free edition
+     *
+     * @example buy
+     *
      * @var string
      */
     public $userType;

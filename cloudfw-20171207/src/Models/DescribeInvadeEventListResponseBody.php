@@ -11,31 +11,51 @@ use AlibabaCloud\Tea\Model;
 class DescribeInvadeEventListResponseBody extends Model
 {
     /**
+     * @description An array that consists of breach awareness events.
+     *
      * @var eventList[]
      */
     public $eventList;
 
     /**
+     * @description The ratio of high-risk events.
+     *
+     * @example 40
+     *
      * @var int
      */
     public $highLevelPercent;
 
     /**
+     * @description The ratio of low-risk events.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $lowLevelPercent;
 
     /**
+     * @description The ratio of medium-risk events.
+     *
+     * @example 40
+     *
      * @var int
      */
     public $middleLevelPercent;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F0F82705-CFC7-5F83-86C8-A063892F****
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,35 @@ use AlibabaCloud\Tea\Model;
 class aclGroupList extends Model
 {
     /**
+     * @description The ID of the policy group.
+     *
+     * - If the VPC firewall is used to protect a Cloud Enterprise Network (CEN) instance, the value of this parameter is the ID of the CEN instance.
+     *
+     * Example: cen-ervw0g12b5jbw****
+     * - If the VPC firewall is used to protect an Express Connect circuit, the value of this parameter is the ID of the VPC firewall instance.
+     *
+     * Example: vfw-a42bbb7b887148c9****
+     * @example vfw-a42bbb7b887148c9****
+     *
      * @var string
      */
     public $aclGroupId;
 
     /**
+     * @description The name of the policy group. Valid values:
+     *
+     * - If the VPC firewall is used to protect an Express Connect circuit, the value of this parameter is the name of the VPC firewall instance.
+     * @example group_test
+     *
      * @var string
      */
     public $aclGroupName;
 
     /**
+     * @description The UID of the member that is managed by your Alibaba Cloud account.
+     *
+     * @example 258039427902****
+     *
      * @var string
      */
     public $memberUid;

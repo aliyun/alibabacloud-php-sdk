@@ -10,121 +10,240 @@ use AlibabaCloud\Tea\Model;
 class domainList extends Model
 {
     /**
+     * @description Indicates whether an access control policy is configured. Valid values:
+     *
+     *   **Uncovered**: No access control policies are configured.
+     *   **FullCoverage**: An access control policy is configured.
+     *
+     * @example Uncovered
+     *
      * @var string
      */
     public $aclCoverage;
 
     /**
+     * @description The suggestion in an access control policy.
+     *
+     * @example 建议放行
+     *
      * @var string
      */
     public $aclRecommendDetail;
 
     /**
+     * @description The state of the access control policy. Valid values:
+     *
+     *   **normal**: healthy
+     *   **abnormal**: unhealthy
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $aclStatus;
 
     /**
+     * @description The name of the address book.
+     *
+     * @example my_address_book
+     *
      * @var string
      */
     public $addressGroupName;
 
     /**
+     * @description The UUID of the address book.
+     *
+     * @example fdad-fdafa-dafa-dfa****
+     *
      * @var string
      */
     public $addressGroupUUID;
 
     /**
+     * @description The website service.
+     *
      * @var string
      */
     public $business;
 
     /**
+     * @description The type of the tag. Valid values:
+     *
+     *   **Suspicious**
+     *   **Malicious**
+     *   **Trusted**
+     *
+     * @example Trusted
+     *
      * @var string
      */
     public $categoryClassId;
 
     /**
+     * @description The ID of the service to which the destination IP address belongs. Valid values:
+     *
+     *   **Aliyun**: Alibaba Cloud services
+     *   **NotAliyun**: third-party services
+     *
+     * @example Aliyun
+     *
      * @var string
      */
     public $categoryId;
 
     /**
+     * @description The type of the service to which the domain name belongs. Valid values:
+     *
+     *   **Alibaba Cloud services**
+     *   **third-party services**
+     *
+     * @example AliYun
+     *
      * @var string
      */
     public $categoryName;
 
     /**
+     * @description The domain name in outbound connections.
+     *
+     * @example www.aliyundoc.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The name of the group to which the access control policy belongs.
+     *
+     * @example my_group
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description Indicates whether an `access control policy` is configured for the domain name. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var string
      */
     public $hasAcl;
 
     /**
+     * @description Indicates whether an access control policy is recommended. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $hasAclRecommend;
 
     /**
+     * @description The inbound traffic.
+     *
+     * @example 3214
+     *
      * @var int
      */
     public $inBytes;
 
     /**
+     * @description Indicates whether the domain name is marked as normal. Valid values:
+     *
+     *   **true**: normal
+     *   **false**: abnormal
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isMarkNormal;
 
     /**
+     * @description The name of the organization.
+     *
+     * @example My ORG
+     *
      * @var string
      */
     public $organization;
 
     /**
+     * @description The outbound traffic.
+     *
+     * @example 4582
+     *
      * @var int
      */
     public $outBytes;
 
     /**
+     * @description The ID of the access control policy.
+     *
+     * @example add-dfadf-f****
+     *
      * @var string
      */
     public $ruleId;
 
     /**
+     * @description The name of the access control policy.
+     *
+     * @example default-rule
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The reason why the domain name is secure.
+     *
      * @var string
      */
     public $securityReason;
 
     /**
+     * @description The suggestion to handle the traffic of the domain name in outbound connections. Valid values:
+     *
+     *   **pass**: allow
+     *   **alert**: monitor
+     *   **drop**: deny
+     *
+     * @example pass
+     *
      * @var string
      */
     public $securitySuggest;
 
     /**
+     * @description The number of requests.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $sessionCount;
 
     /**
+     * @description An array that consists of tags.
+     *
      * @var tagList[]
      */
     public $tagList;
 
     /**
+     * @description The total volume of traffic. Unit: bytes.
+     *
+     * @example 800
+     *
      * @var string
      */
     public $totalBytes;

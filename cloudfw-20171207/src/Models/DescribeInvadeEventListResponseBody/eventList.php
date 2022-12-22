@@ -9,81 +9,182 @@ use AlibabaCloud\Tea\Model;
 class eventList extends Model
 {
     /**
+     * @description The ID of the affected asset.
+     *
+     * @example i-ECS****
+     *
      * @var string
      */
     public $assetsInstanceId;
 
     /**
+     * @description The name of the affected asset.
+     *
+     * @example ECS_test
+     *
      * @var string
      */
     public $assetsInstanceName;
 
     /**
+     * @description The type of the affected asset. Valid values:
+     *
+     * **BastionHostIP**: the egress IP address of a bastion host
+     * **BastionHostIngressIP**: the ingress IP address of a bastion host
+     * **EcsEIP**: the elastic IP address (EIP) of an Elastic Compute Service (ECS) instance
+     * **EcsPublicIP**: the public IP address of an ECS instance
+     * **EIP**: the EIP
+     * **EniEIP**: the EIP of an elastic network interface (ENI)
+     * **NatEIP**: the EIP of a NAT gateway
+     * **SlbEIP**: the EIP of a Server Load Balancer (SLB) instance
+     * **SlbPublicIP**: the public IP address of an SLB instance
+     * **NatPublicIP**: the public IP address of a NAT gateway
+     * **HAVIP**: the high-availability virtual IP address (HAVIP)
+     *
+     * @example EcsPublicIp
+     *
      * @var string
      */
     public $assetsType;
 
     /**
+     * @description The ID of the breach awareness event.
+     *
+     * @example 69d189e2-ec17-4676-a2fe-02969234****
+     *
      * @var string
      */
     public $eventKey;
 
     /**
+     * @description The name of the breach awareness event.
+     *
+     * @example event_test
+     *
      * @var string
      */
     public $eventName;
 
     /**
+     * @description The type of the breach awareness event. Valid values:
+     *
+     *   **IPS**: intrusion prevention event
+     *   **offline**: disconnection event
+     *
+     * @example IPS
+     *
      * @var string
      */
     public $eventSrc;
 
     /**
+     * @description The UUID of the breach awareness event.
+     *
+     * @example fadd-dfdd-****
+     *
      * @var string
      */
     public $eventUuid;
 
     /**
+     * @description The time when the breach awareness event first occurred. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1656750960
+     *
      * @var int
      */
     public $firstTime;
 
     /**
+     * @description Indicates whether the breach awareness event is ignored. Valid values:
+     *
+     *   **true**: The breach awareness event is ignored.
+     *   **false**: The breach awareness event is not ignored.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isIgnore;
 
     /**
+     * @description The time when the breach awareness event last occurred. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1656837360
+     *
      * @var int
      */
     public $lastTime;
 
     /**
+     * @description The ID of the member.
+     *
+     * @example 135809047715****
+     *
      * @var string
      */
     public $memberUid;
 
     /**
+     * @description The private IP address of the affected asset.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $privateIP;
 
     /**
+     * @description The handling status of the breach awareness event. Valid values:
+     *
+     *   **0**: unhandled
+     *   **20**: handled
+     *
+     * @example 20
+     *
      * @var int
      */
     public $processStatus;
 
     /**
+     * @description The public IP address of the affected asset.
+     *
+     * @example 198.51.XX.XX
+     *
      * @var string
      */
     public $publicIP;
 
     /**
+     * @description The type of the affected asset. Valid values:
+     *
+     * **BastionHostIP**: the egress IP address of a bastion host
+     * **BastionHostIngressIP**: the ingress IP address of a bastion host
+     * **EcsEIP**: the EIP of an ECS instance
+     * **EcsPublicIP**: the public IP address of an ECS instance
+     * **EIP**: the EIP
+     * **EniEIP**: the EIP of an ENI
+     * **NatEIP**: the EIP of a NAT gateway
+     * **SlbEIP**: the EIP of an SLB instance
+     * **SlbPublicIP**: the public IP address of an SLB instance
+     * **NatPublicIP**: the public IP address of a NAT gateway
+     * **HAVIP**: the HAVIP
+     *
+     * @example EcsPublicIp
+     *
      * @var string
      */
     public $publicIpType;
 
     /**
+     * @description The risk level. Valid values:
+     *
+     *   **1**: low
+     *   **2**: medium
+     *   **3**: high
+     *
+     * @example 1
+     *
      * @var int
      */
     public $riskLevel;

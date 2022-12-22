@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceMembersResponseBody extends Model
 {
     /**
+     * @description The information about the member in Cloud Firewall.
+     *
      * @var members[]
      */
     public $members;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A531AE1A-FBA2-48B6-BAB8-84D02BD409EE
+     *
      * @var string
      */
     public $requestId;

@@ -9,56 +9,114 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcFirewallListRequest extends Model
 {
     /**
+     * @description The sub type of connection. Valid values:
+     *
+     * - **vpc2vpc**: High-speed channel.
+     * - **vppeer**: Peer connection.
+     * @example vpcpeer
+     *
      * @var string
      */
     public $connectSubType;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Pages start from page **1**. Default value: **1**.
+     * @example 1
+     *
      * @var string
      */
     public $currentPage;
 
     /**
+     * @description The status of the VPC firewall. Valid values:
+     *
+     *   **opened**: The VPC firewall is enabled.
+     *   **closed**: The VPC firewall is disabled.
+     *   **notconfigured**: The VPC firewall is not configured.
+     *   **configured**: The VPC firewall is configured.
+     *
+     * >  If you do not specify this parameter, VPC firewalls in all states are queried.
+     * @example opened
+     *
      * @var string
      */
     public $firewallSwitchStatus;
 
     /**
+     * @description The natural language of the request and response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The UID of the member that is managed by your Alibaba Cloud account.
+     *
+     * @example 258039427902****
+     *
      * @var string
      */
     public $memberUid;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: **10**.**** Maximum value: **50**.
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The cloud account UID of the peer VPC.
+     *
+     * @example 258039427902****
+     *
      * @var string
      */
     public $peerUid;
 
     /**
+     * @description The region ID of the VPC.
+     *
+     * >  For more information about regions in which Cloud Firewall is supported, see [Supported regions](~~195657~~).
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionNo;
 
     /**
+     * @description The instance ID of the VPC firewall.
+     *
+     * @example vfw-m5e7dbc4y****
+     *
      * @var string
      */
     public $vpcFirewallId;
 
     /**
+     * @description The instance name of the VPC firewall.
+     *
+     * @example tf-test-update
+     *
      * @var string
      */
     public $vpcFirewallName;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-8vbwbo90rq0anm6t****
+     *
      * @var string
      */
     public $vpcId;

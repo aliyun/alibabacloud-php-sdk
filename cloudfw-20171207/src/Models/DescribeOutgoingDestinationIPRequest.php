@@ -9,71 +9,150 @@ use AlibabaCloud\Tea\Model;
 class DescribeOutgoingDestinationIPRequest extends Model
 {
     /**
+     * @description The type of the applications that the access control policy supports. Valid values:
+     *
+     * - **FTP**
+     * - **HTTP**
+     * - **HTTPS**
+     * - **MySQL**
+     * - **SMTP**
+     * - **SMTPS**
+     * - **RDP**
+     * - **VNC**
+     * - **SSH**
+     * - **Redis**
+     * - **MQTT**
+     * - **MongoDB**
+     * - **Memcache**
+     * - **SSL**
+     * - **ANY**: all types of applications
+     * @example FTP
+     *
      * @var string
      */
     public $applicationName;
 
     /**
+     * @example All
+     *
      * @var string
      */
     public $categoryId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Pages start from page 1. Default value: 1.
+     * @example 1
+     *
      * @var string
      */
     public $currentPage;
 
     /**
+     * @description The destination IP address in the outbound connection that is initiated to access a domain name.
+     *
+     * @example 10.0.XX.XX
+     *
      * @var string
      */
     public $dstIP;
 
     /**
+     * @description The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1656923760
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The field based on which you want to sort the queried information. Valid values:
+     *
+     *   **SessionCount**: the number of requests. This is the default value.
+     *   **InBytes**: the inbound traffic.
+     *   **OutBytes**: the outbound traffic.
+     *
+     * @example desc
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 6. Maximum value: 10.
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The port number.
+     *
+     * @example 80
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The private IP address of the ECS instance that initiates the outbound connection.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $privateIP;
 
     /**
+     * @description The public IP address of the Elastic Compute Service (ECS) instance that initiates the outbound connection.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $publicIP;
 
     /**
+     * @description The order in which you want to sort the queried information. Valid values:
+     *
+     *   **asc**: the ascending order
+     *   **desc**: the descending order
+     *
+     * @example SessionCount
+     *
      * @var string
      */
     public $sort;
 
     /**
+     * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1656837360
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example AliYun
+     *
      * @var string
      */
     public $tagIdNew;

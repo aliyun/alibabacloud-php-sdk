@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeOutgoingDestinationIPResponseBody extends Model
 {
     /**
+     * @description An array that consists of destination IP addresses in outbound connections.
+     *
      * @var dstIPList[]
      */
     public $dstIPList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F0F82705-CFC7-5F83-86C8-A063892F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of destination IP addresses in outbound connections.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $totalCount;
