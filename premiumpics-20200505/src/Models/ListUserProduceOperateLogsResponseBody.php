@@ -15,31 +15,43 @@ class ListUserProduceOperateLogsResponseBody extends Model
     public $data;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example DA789D6E-875B-5473-B374-ABA909970BAB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalItemNum;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $totalPageNum;

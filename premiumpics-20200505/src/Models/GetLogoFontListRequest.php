@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetLogoFontListRequest extends Model
 {
     /**
+     * @description type
+     *
+     * @example brand
+     *
      * @var string
      */
     public $type;

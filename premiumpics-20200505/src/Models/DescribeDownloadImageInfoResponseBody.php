@@ -9,31 +9,45 @@ use AlibabaCloud\Tea\Model;
 class DescribeDownloadImageInfoResponseBody extends Model
 {
     /**
+     * @example http
+     *
      * @var string
      */
     public $authorizationUrl;
 
     /**
+     * @example sae.errorcode.ServiceDisabled.message
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description errorMsg
+     *
+     * @example Success. Request Success.
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @example dsw-registry-vpc.cn-shenzhen.cr.aliyuncs.com/cloud-dsw-user/users:u1135620889978899-8589-20220922110432
+     *
      * @var string
      */
     public $imageUrl;
 
     /**
+     * @example 047CE3B4-32EE-5AB9-89C8-BCEC23A5B4F4
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetLogoImageRequest extends Model
 {
     /**
+     * @example 26d876ab1d765adfc81b7a478e4d4261
+     *
      * @var string
      */
     public $goodsId;

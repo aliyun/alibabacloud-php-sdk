@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class QueryConfigurationOrderResponseBody extends Model
 {
     /**
+     * @description module
+     *
+     * @example []
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description errorMsg
+     *
+     * @example Not Found
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description requestId
+     *
+     * @example 1991B495-FB2A-5693-A79F-37245D48E293
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description success
+     *
+     * @example True
+     *
      * @var bool
      */
     public $success;

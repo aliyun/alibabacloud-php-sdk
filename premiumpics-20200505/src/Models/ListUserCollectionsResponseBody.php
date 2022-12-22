@@ -15,36 +15,52 @@ class ListUserCollectionsResponseBody extends Model
     public $data;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example error
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description requestId
+     *
+     * @example 5AF6352F-7F3E-1325-B717-314BDC5A1311
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $totalCount;

@@ -9,36 +9,52 @@ use AlibabaCloud\Tea\Model;
 class specifications extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 55222
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description ID
+     *
+     * @example h4604360275725312
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example authId
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 300
+     *
      * @var string
      */
     public $price;
 
     /**
+     * @example jpg
+     *
      * @var string
      */
     public $suffix;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $width;

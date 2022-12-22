@@ -15,31 +15,43 @@ class ListUserProducesResponseBody extends Model
     public $data;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 03442C19-8708-5E37-B2F2-CB0D2883F453
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $totalItemNum;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $totalPageNum;

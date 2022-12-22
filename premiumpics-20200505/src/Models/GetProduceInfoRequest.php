@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetProduceInfoRequest extends Model
 {
     /**
+     * @example 94e51c6930d24f0b88f2a4f5066089c7
+     *
      * @var string
      */
     public $goodsId;

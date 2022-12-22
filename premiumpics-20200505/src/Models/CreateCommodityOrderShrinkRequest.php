@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class CreateCommodityOrderShrinkRequest extends Model
 {
     /**
+     * @description BizType
+     *
+     * @example esp.logo
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example PrePaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example bvt-UpdateSecurityPolicyAttribute-821f6e26d4c539561b472a32956200
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example dbaudit
+     *
      * @var string
      */
     public $commodityCode;
@@ -34,11 +44,15 @@ class CreateCommodityOrderShrinkRequest extends Model
     public $componentsShrink;
 
     /**
+     * @example 4420
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example waf_elasticity-cn-zvp2bvnkq04n
+     *
      * @var string
      */
     public $instanceId;
@@ -49,21 +63,29 @@ class CreateCommodityOrderShrinkRequest extends Model
     public $orderParamsShrink;
 
     /**
+     * @example RENEW
+     *
      * @var string
      */
     public $orderType;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $pricingCycle;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @example 103
+     *
      * @var string
      */
     public $specCode;

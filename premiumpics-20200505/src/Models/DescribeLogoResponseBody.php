@@ -24,6 +24,8 @@ class DescribeLogoResponseBody extends Model
     public $colorOne;
 
     /**
+     * @example red
+     *
      * @var string
      */
     public $colorThree;
@@ -34,6 +36,8 @@ class DescribeLogoResponseBody extends Model
     public $colorTwo;
 
     /**
+     * @example FontDescription
+     *
      * @var string
      */
     public $fontDescription;
@@ -44,16 +48,22 @@ class DescribeLogoResponseBody extends Model
     public $images;
 
     /**
+     * @example path
+     *
      * @var string
      */
     public $namePath;
 
     /**
+     * @example 0FDB7AA6-CEA2-5948-B930-A01F5266D90E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyResponseBody extends Model
 {
     /**
+     * @example LTAIAOUYgRDRcA7g
+     *
      * @var string
      */
     public $accessId;
 
     /**
+     * @example eyJleHBpcmF0aW9uIjoiMjAyMi0xMS0wMlQxMDoxOTowMS44NjJaIiwiY29uZGl0aW9ucyI6W1siZXEiLCIka2V5IiwiNzc0MF8xNDcyMTUyMjY3OTI2MDYwXzg2ZTdkODZlZDk2MDQ2NWM4YWZiMTVjMWQ3ODExMzc5Il1dfQ==
+     *
      * @var string
      */
     public $encodedPolicy;
 
     /**
+     * @example 1640314850225
+     *
      * @var int
      */
     public $expireTime;
 
     /**
+     * @example design/design/1998855314930043/1667528047548
+     *
      * @var string
      */
     public $fileDir;
 
     /**
+     * @example rm-uf6kek7cfqn3095zy.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example F7D17E93-12E9-5DB6-9BE3-821FC8C63EDD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example TSoPHNjbvr+cYzPAiQFf0K5ZiCU=
+     *
      * @var string
      */
     public $signature;

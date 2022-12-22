@@ -9,51 +9,73 @@ use AlibabaCloud\Tea\Model;
 class ListUserProducesRequest extends Model
 {
     /**
+     * @example P20221130182621000001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @description BizType
+     *
+     * @example esp.logo
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example {\"templateName\":\"\"}
+     *
      * @var string
      */
     public $extCondition;
 
     /**
+     * @example I20221118100626000001
+     *
      * @var string
      */
     public $intentionBizId;
 
     /**
+     * @example 212011287720705
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example S20220630151319000001
+     *
      * @var string
      */
     public $solutionBizId;
 
     /**
+     * @example {\"fieldName\":\"gmtModified\",\"dir\":\"DESC\"}
+     *
      * @var string
      */
     public $sortParam;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $status;

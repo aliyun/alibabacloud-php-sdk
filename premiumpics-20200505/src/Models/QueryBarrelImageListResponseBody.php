@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class QueryBarrelImageListResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example Success. Request Success.
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @example False
+     *
      * @var bool
      */
     public $hasNext;
@@ -30,21 +36,29 @@ class QueryBarrelImageListResponseBody extends Model
     public $images;
 
     /**
+     * @example 51003
+     *
      * @var int
      */
     public $nextId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 0FDB7AA6-CEA2-5948-B930-A01F5266D90E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

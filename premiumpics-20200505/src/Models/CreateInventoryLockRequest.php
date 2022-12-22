@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateInventoryLockRequest extends Model
 {
     /**
+     * @example acf5c3c5fa4358ae158263d6b7cce2e9
+     *
      * @var string
      */
     public $goodsId;
 
     /**
+     * @description UserId
+     *
+     * @example UserId
+     *
      * @var string
      */
     public $userId;

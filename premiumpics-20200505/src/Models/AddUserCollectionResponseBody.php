@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class AddUserCollectionResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example Success. Request Success.
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @example A5225329-2A0D-52DC-888F-35BAE1C6B421
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $status;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateCategoriesRequest extends Model
 {
     /**
+     * @example pc-2ze6x04o5eu444ceg
+     *
      * @var int
      */
     public $parentId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $recursive;
 
     /**
+     * @example True
+     *
      * @var string
      */
     public $status;

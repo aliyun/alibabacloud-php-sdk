@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class ListLogoSamplesRequest extends Model
 {
     /**
+     * @example e2a520fd3efd46fcb8e2e112b158b246
+     *
      * @var string
      */
     public $goodsId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @description UserId
+     *
+     * @example UserId
+     *
      * @var string
      */
     public $userId;

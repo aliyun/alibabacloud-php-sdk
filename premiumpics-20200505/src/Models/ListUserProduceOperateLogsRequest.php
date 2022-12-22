@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ListUserProduceOperateLogsRequest extends Model
 {
     /**
+     * @example P20220428100535000001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @description BizType
+     *
+     * @example esp.logo
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

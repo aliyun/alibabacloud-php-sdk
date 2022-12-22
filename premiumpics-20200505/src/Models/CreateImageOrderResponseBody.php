@@ -9,26 +9,38 @@ use AlibabaCloud\Tea\Model;
 class CreateImageOrderResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description errorMsg
+     *
+     * @example {&quot;ErrMsg&quot;:&quot;Right angle correction failed!&quot;,&quot;ErrCode&quot;:&quot;5002&quot;}
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @example 216992253670473
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example FF882F7C-BF8D-5DCC-9F63-93A5BA36FD9F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

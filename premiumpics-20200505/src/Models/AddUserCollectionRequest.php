@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class AddUserCollectionRequest extends Model
 {
     /**
+     * @description BizType
+     *
+     * @example esp.logo
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example b8db6c243481b5c6661b11c2f9163499
+     *
      * @var string
      */
     public $unitId;

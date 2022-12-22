@@ -20,6 +20,8 @@ class images extends Model
     public $buy;
 
     /**
+     * @example h4548620964041728
+     *
      * @var string
      */
     public $imageId;
@@ -40,6 +42,8 @@ class images extends Model
     public $specifications;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $tag;

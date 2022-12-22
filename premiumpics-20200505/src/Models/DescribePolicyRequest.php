@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyRequest extends Model
 {
     /**
+     * @description BizType
+     *
+     * @example esp.logo
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example design
+     *
      * @var string
      */
     public $fileType;

@@ -9,81 +9,145 @@ use AlibabaCloud\Tea\Model;
 class ConfirmConfigurationOrderRequest extends Model
 {
     /**
+     * @description aliyunKp
+     *
+     * @example 123
+     *
      * @var string
      */
     public $aliyunKp;
 
     /**
+     * @description aliyunKpLong
+     *
+     * @example 123
+     *
      * @var int
      */
     public $aliyunKpLong;
 
     /**
+     * @description bid
+     *
+     * @example 26842
+     *
      * @var string
      */
     public $bid;
 
     /**
+     * @description callerParentId
+     *
+     * @example 1654319633766437
+     *
      * @var int
      */
     public $callerParentId;
 
     /**
+     * @description callerSecurityTransport
+     *
+     * @example 123
+     *
      * @var bool
      */
     public $callerSecurityTransport;
 
     /**
+     * @description callerType
+     *
+     * @example product
+     *
      * @var string
      */
     public $callerType;
 
     /**
+     * @description clientIp
+     *
+     * @example 121.69.40.14
+     *
      * @var string
      */
     public $clientIp;
 
     /**
+     * @description configurationId
+     *
+     * @example f86b33a0b6bbefd9f44db95c30df0cd2
+     *
      * @var int
      */
     public $configurationId;
 
     /**
+     * @description lang
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description mfaPresent
+     *
+     * @example true
+     *
      * @var bool
      */
     public $mfaPresent;
 
     /**
+     * @description originalRequest
+     *
+     * @example 123
+     *
      * @var string
      */
     public $originalRequest;
 
     /**
+     * @description popAction
+     *
+     * @example QuerySmsPackage
+     *
      * @var string
      */
     public $popAction;
 
     /**
+     * @description proxyCallerIp
+     *
+     * @example 123
+     *
      * @var string
      */
     public $proxyCallerIp;
 
     /**
+     * @description proxyCallerSecurityTransport
+     *
+     * @example 123
+     *
      * @var bool
      */
     public $proxyCallerSecurityTransport;
 
     /**
+     * @description proxyTrustTransportInfo
+     *
+     * @example 123
+     *
      * @var bool
      */
     public $proxyTrustTransportInfo;
 
     /**
+     * @description requestId
+     *
+     * @example E5CD23E6-2EF2-563F-B38B-F49AF089B028
+     *
      * @var string
      */
     public $requestId;
@@ -94,51 +158,91 @@ class ConfirmConfigurationOrderRequest extends Model
     public $securityToken;
 
     /**
+     * @description stsTokenCallerBid
+     *
+     * @example 123
+     *
      * @var int
      */
     public $stsTokenCallerBid;
 
     /**
+     * @description stsTokenCallerUid
+     *
+     * @example 123
+     *
      * @var int
      */
     public $stsTokenCallerUid;
 
     /**
+     * @description userBid
+     *
+     * @example 122
+     *
      * @var string
      */
     public $userBid;
 
     /**
+     * @description userCallerParentId
+     *
+     * @example 244
+     *
      * @var int
      */
     public $userCallerParentId;
 
     /**
+     * @description userCallerSecurityTransport
+     *
+     * @example 234
+     *
      * @var bool
      */
     public $userCallerSecurityTransport;
 
     /**
+     * @description userCallerType
+     *
+     * @example 345
+     *
      * @var string
      */
     public $userCallerType;
 
     /**
+     * @description userClientIp
+     *
+     * @example 345
+     *
      * @var string
      */
     public $userClientIp;
 
     /**
+     * @description userKp
+     *
+     * @example 123
+     *
      * @var string
      */
     public $userKp;
 
     /**
+     * @description userMfaPresent
+     *
+     * @example 123
+     *
      * @var bool
      */
     public $userMfaPresent;
 
     /**
+     * @description userSecurityToken
+     *
+     * @example 234
+     *
      * @var string
      */
     public $userSecurityToken;

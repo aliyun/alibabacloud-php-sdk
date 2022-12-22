@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class QueryBarrelImageListRequest extends Model
 {
     /**
+     * @description Barrel
+     *
+     * @example caipin
+     *
      * @var string
      */
     public $barrel;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 110941
+     *
      * @var int
      */
     public $startId;

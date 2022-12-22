@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetTextLogoListResponseBody extends Model
 {
     /**
+     * @example 5d6716ceb8cd4370a05e0a0e30f4cb78
+     *
      * @var string
      */
     public $logoVersion;
@@ -20,11 +22,15 @@ class GetTextLogoListResponseBody extends Model
     public $logos;
 
     /**
+     * @example 88E0B72B-7EA8-5D8F-BDA5-27A01E0539F4
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

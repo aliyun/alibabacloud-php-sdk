@@ -9,26 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserCollectionResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description errorMsg
+     *
+     * @example dabukai dabukaidabukaidabukai
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @example AEA9CED1-57F2-5E33-A86A-427D46E7EBF7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description status
+     *
+     * @example True
+     *
      * @var bool
      */
     public $status;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

@@ -19,6 +19,8 @@ class ListLogosRequest extends Model
     public $description;
 
     /**
+     * @example 12
+     *
      * @var string
      */
     public $industryId;
@@ -29,11 +31,15 @@ class ListLogosRequest extends Model
     public $industryName;
 
     /**
+     * @example B2022040710171504189511
+     *
      * @var string
      */
     public $logoVersion;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $page;
@@ -44,11 +50,19 @@ class ListLogosRequest extends Model
     public $slogan;
 
     /**
+     * @description type
+     *
+     * @example brand
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description UserId
+     *
+     * @example UserId
+     *
      * @var string
      */
     public $userId;

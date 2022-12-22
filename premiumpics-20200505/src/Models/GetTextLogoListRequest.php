@@ -14,6 +14,8 @@ class GetTextLogoListRequest extends Model
     public $brandName;
 
     /**
+     * @example dfs
+     *
      * @var string
      */
     public $fontId;

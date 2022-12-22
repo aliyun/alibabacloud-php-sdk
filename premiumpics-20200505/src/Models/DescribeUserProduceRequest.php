@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserProduceRequest extends Model
 {
     /**
+     * @example P20220731142346000001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @description BizType
+     *
+     * @example esp.logo
+     *
      * @var string
      */
     public $bizType;

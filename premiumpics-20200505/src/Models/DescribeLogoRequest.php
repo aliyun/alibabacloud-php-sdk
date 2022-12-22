@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogoRequest extends Model
 {
     /**
+     * @example a4dbb263d80f4362bbc8305deacf2499
+     *
      * @var string
      */
     public $goodsId;
 
     /**
+     * @description userId
+     *
+     * @example userId
+     *
      * @var string
      */
     public $userId;

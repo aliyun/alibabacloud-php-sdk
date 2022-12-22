@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class fonts extends Model
 {
     /**
+     * @example dfs
+     *
      * @var string
      */
     public $fontId;
 
     /**
+     * @example 18622562726
+     *
      * @var string
      */
     public $image;
 
     /**
+     * @example MyFamily
+     *
      * @var string
      */
     public $name;

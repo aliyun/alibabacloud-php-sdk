@@ -9,66 +9,96 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example P20220422095728000001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @description BizType
+     *
+     * @example esp.logo
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example {\"designFileUrl\":\"https:\\/\\/oss.smalld.cn\\/zip\\/svg\\/20221115\\/105111f9-0ce4-4348-be1b-d88ea19de648.zip\"}
+     *
      * @var string
      */
     public $extInfo;
 
     /**
+     * @example I20220927174444000001
+     *
      * @var string
      */
     public $intentionBizId;
 
     /**
+     * @example 1639037068811
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @example 1154683179852260
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example swcopyright_normalReg_public_cn-i7m2mmo710v
+     *
      * @var string
      */
     public $orderInstanceId;
 
     /**
+     * @example 809.10
+     *
      * @var string
      */
     public $orderPrice;
 
     /**
+     * @example 2021-12-13 18:03:03
+     *
      * @var string
      */
     public $orderTime;
 
     /**
+     * @example luokeke
+     *
      * @var string
      */
     public $partnerCode;
 
     /**
+     * @example S20220928163411000001
+     *
      * @var string
      */
     public $solutionBizId;
 
     /**
+     * @example initial
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description UserId
+     *
+     * @example UserId
+     *
      * @var string
      */
     public $userId;

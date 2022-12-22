@@ -9,26 +9,44 @@ use AlibabaCloud\Tea\Model;
 class ConfirmConfigurationOrderResponseBody extends Model
 {
     /**
+     * @description module
+     *
      * @var int[]
      */
     public $data;
 
     /**
+     * @description errorCode
+     *
+     * @example AppManage.ExecuteFileMissing
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description errorMsg
+     *
+     * @example ok
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description requestId
+     *
+     * @example 4E739D67-5A59-5BC0-93F8-E76F9AC85617
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description success
+     *
+     * @example True
+     *
      * @var bool
      */
     public $success;

@@ -15,11 +15,15 @@ class DescribeIndustryListResponseBody extends Model
     public $data;
 
     /**
+     * @example 2653A619-5539-50C3-8120-1594A3B758DD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

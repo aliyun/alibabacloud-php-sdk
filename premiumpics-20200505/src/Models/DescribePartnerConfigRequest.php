@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribePartnerConfigRequest extends Model
 {
     /**
+     * @description BizType
+     *
+     * @example esp.logo
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example luokeke
+     *
      * @var string
      */
     public $partnerCode;

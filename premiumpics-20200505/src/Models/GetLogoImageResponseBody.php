@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetLogoImageResponseBody extends Model
 {
     /**
+     * @example c8de36707f47437c86114552f7d9bddd
+     *
      * @var string
      */
     public $goodsId;
 
     /**
+     * @example 934BDF0A-DA15-53AD-BB41-A78F4DD685E9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example http://bird.alibaba-inc.com/
+     *
      * @var string
      */
     public $url;

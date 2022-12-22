@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example https://pre-logo.aliyun.com/logo/image?goodsId=cd6c189cc87842afb5985fa1712dc797&type=png
+     *
      * @var string
      */
     public $image;
 
     /**
+     * @description id
+     *
+     * @example cd6c189cc87842afb5985fa1712dc797
+     *
      * @var string
      */
     public $unitId;
@@ -24,6 +30,8 @@ class data extends Model
     public $unitName;
 
     /**
+     * @example {"cudId":"P20221026203254000001","from":"cud"}
+     *
      * @var string
      */
     public $extend;

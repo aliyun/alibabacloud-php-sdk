@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListUserCollectionsRequest extends Model
 {
     /**
+     * @example esp.logo
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example 21
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;

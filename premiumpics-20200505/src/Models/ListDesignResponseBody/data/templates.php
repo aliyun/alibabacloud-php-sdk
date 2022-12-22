@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class templates extends Model
 {
     /**
+     * @example https://preview-lyj.aliyuncs.com/preview/36dec4b3530848dc90e128870790fdc4?subSceneIds=219024
+     *
      * @var string
      */
     public $previewUrl;
 
     /**
+     * @example 1320814
+     *
      * @var string
      */
     public $templateId;

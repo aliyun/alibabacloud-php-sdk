@@ -15,11 +15,15 @@ class GetLogoFontListResponseBody extends Model
     public $fonts;
 
     /**
+     * @example 8F007088-FD52-596E-8688-D7AE887D8329
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CheckSensitiveResponseBody extends Model
 {
     /**
+     * @example MnsServiceNotEnabled
+     *
      * @var string
      */
     public $checkMessage;
 
     /**
+     * @example True
+     *
      * @var string
      */
     public $checkResult;
 
     /**
+     * @example 4A89FD37-CAAB-5B31-A789-D073A5445578
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

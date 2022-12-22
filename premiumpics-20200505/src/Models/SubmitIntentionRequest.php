@@ -9,26 +9,38 @@ use AlibabaCloud\Tea\Model;
 class SubmitIntentionRequest extends Model
 {
     /**
+     * @example DOMESTIC
+     *
      * @var string
      */
     public $area;
 
     /**
+     * @description BizType
+     *
+     * @example esp.logo
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $channel;
 
     /**
+     * @example yunMarket
+     *
      * @var string
      */
     public $commodityType;
 
     /**
+     * @example arms-alertwebhook-cloud-mpp-k8s-prod-arms-prom-onboar-d2681f22
+     *
      * @var string
      */
     public $contactName;
@@ -39,21 +51,29 @@ class SubmitIntentionRequest extends Model
     public $description;
 
     /**
+     * @example {\"downloadType\":\"normalLogo\"}
+     *
      * @var string
      */
     public $extInfo;
 
     /**
+     * @example 19182198505
+     *
      * @var string
      */
     public $mobile;
 
     /**
+     * @example a5d2d827491a4e3a9b3a5c9009c02e89
+     *
      * @var string
      */
     public $token;
 
     /**
+     * @example 025684
+     *
      * @var string
      */
     public $vcode;

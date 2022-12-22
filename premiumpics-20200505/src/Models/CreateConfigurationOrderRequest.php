@@ -9,86 +9,154 @@ use AlibabaCloud\Tea\Model;
 class CreateConfigurationOrderRequest extends Model
 {
     /**
+     * @description aliyunKp
+     *
+     * @example 123
+     *
      * @var string
      */
     public $aliyunKp;
 
     /**
+     * @description aliyunKpLong
+     *
+     * @example 123
+     *
      * @var int
      */
     public $aliyunKpLong;
 
     /**
+     * @description bid
+     *
+     * @example 26888
+     *
      * @var string
      */
     public $bid;
 
     /**
+     * @description callerParentId
+     *
+     * @example 1703411985821693
+     *
      * @var int
      */
     public $callerParentId;
 
     /**
+     * @description callerSecurityTransport
+     *
+     * @example 123
+     *
      * @var bool
      */
     public $callerSecurityTransport;
 
     /**
+     * @description callerType
+     *
+     * @example acl
+     *
      * @var string
      */
     public $callerType;
 
     /**
+     * @description clientIp
+     *
+     * @example 100.104.16.254:51166
+     *
      * @var string
      */
     public $clientIp;
 
     /**
+     * @description items
+     *
+     * @example {\"Backup\": []}
+     *
      * @var string
      */
     public $items;
 
     /**
+     * @description lang
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description mfaPresent
+     *
+     * @example false
+     *
      * @var bool
      */
     public $mfaPresent;
 
     /**
+     * @description originalRequest
+     *
+     * @example 123
+     *
      * @var string
      */
     public $originalRequest;
 
     /**
+     * @description packageId
+     *
+     * @example 1008349
+     *
      * @var int
      */
     public $packageId;
 
     /**
+     * @description popAction
+     *
+     * @example QuerySmsBaseScreen
+     *
      * @var string
      */
     public $popAction;
 
     /**
+     * @description proxyCallerIp
+     *
+     * @example 123
+     *
      * @var string
      */
     public $proxyCallerIp;
 
     /**
+     * @description proxyCallerSecurityTransport
+     *
+     * @example 123
+     *
      * @var bool
      */
     public $proxyCallerSecurityTransport;
 
     /**
+     * @description proxyTrustTransportInfo
+     *
+     * @example 123
+     *
      * @var bool
      */
     public $proxyTrustTransportInfo;
 
     /**
+     * @description requestId
+     *
+     * @example 22DEBAC0-C46E-52C1-87F8-0378AE238063
+     *
      * @var string
      */
     public $requestId;
@@ -99,61 +167,109 @@ class CreateConfigurationOrderRequest extends Model
     public $securityToken;
 
     /**
+     * @description stsTokenCallerBid
+     *
+     * @example 123
+     *
      * @var int
      */
     public $stsTokenCallerBid;
 
     /**
+     * @description stsTokenCallerUid
+     *
+     * @example 123
+     *
      * @var int
      */
     public $stsTokenCallerUid;
 
     /**
+     * @description systemCall
+     *
+     * @example true
+     *
      * @var bool
      */
     public $systemCall;
 
     /**
+     * @description userAccessKeyId
+     *
+     * @example 123
+     *
      * @var string
      */
     public $userAccessKeyId;
 
     /**
+     * @description userBid
+     *
+     * @example 123
+     *
      * @var string
      */
     public $userBid;
 
     /**
+     * @description userCallerParentId
+     *
+     * @example 123
+     *
      * @var int
      */
     public $userCallerParentId;
 
     /**
+     * @description userCallerSecurityTransport
+     *
+     * @example 123
+     *
      * @var bool
      */
     public $userCallerSecurityTransport;
 
     /**
+     * @description userCallerType
+     *
+     * @example 123
+     *
      * @var string
      */
     public $userCallerType;
 
     /**
+     * @description userClientIp
+     *
+     * @example 123
+     *
      * @var string
      */
     public $userClientIp;
 
     /**
+     * @description userKp
+     *
+     * @example 123
+     *
      * @var string
      */
     public $userKp;
 
     /**
+     * @description userMfaPresent
+     *
+     * @example 123
+     *
      * @var bool
      */
     public $userMfaPresent;
 
     /**
+     * @description userSecurityToken
+     *
+     * @example 123
+     *
      * @var string
      */
     public $userSecurityToken;

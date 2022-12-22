@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class OperateProduceForUserRequest extends Model
 {
     /**
+     * @example P20221110021200000001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @description BizType
+     *
+     * @example esp.logo
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example {\"downloadType\":\"normalLogo\"}
+     *
      * @var string
      */
     public $extInfo;
 
     /**
+     * @example USER_CONFIRM
+     *
      * @var string
      */
     public $operateType;

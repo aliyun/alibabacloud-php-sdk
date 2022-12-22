@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SubmitIntentionResponseBody extends Model
 {
     /**
+     * @example Not Found
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @example I20221124101817000001
+     *
      * @var string
      */
     public $intentionBizId;
 
     /**
+     * @example F3328A56-916E-59E4-A7C6-EE7AC1FE517D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

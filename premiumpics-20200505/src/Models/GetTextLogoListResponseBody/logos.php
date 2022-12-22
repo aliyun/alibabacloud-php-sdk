@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class logos extends Model
 {
     /**
+     * @example 812f1855fa8d2b1e31ec2653eebe0702
+     *
      * @var string
      */
     public $goodsId;
 
     /**
+     * @example https://edu.aliyun.com/clouder/gdpr/showResourceAlert?token=fftdXk12sf3dHrp%2BukTT87K%2BDXM%3D
+     *
      * @var string
      */
     public $url;

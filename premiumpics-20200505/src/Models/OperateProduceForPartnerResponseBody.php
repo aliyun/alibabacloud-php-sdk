@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class OperateProduceForPartnerResponseBody extends Model
 {
     /**
+     * @example sae.errorcode.ServiceDisabled.message
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example Not Found
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @example 67F8BCAC-B9C2-57FC-844C-80D5DC34F81D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

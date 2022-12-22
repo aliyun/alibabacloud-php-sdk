@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribePartnerConfigResponseBody extends Model
 {
     /**
+     * @example aaa
+     *
      * @var string
      */
     public $contact;
 
     /**
+     * @example luokeke
+     *
      * @var string
      */
     public $partnerCode;
@@ -24,6 +28,8 @@ class DescribePartnerConfigResponseBody extends Model
     public $partnerName;
 
     /**
+     * @example 3B7E24E8-33C1-5C62-9EDF-1743C060E038
+     *
      * @var string
      */
     public $requestId;

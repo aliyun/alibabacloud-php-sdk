@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DescribeDownloadImageInfoRequest extends Model
 {
     /**
+     * @example P20220627101248000001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $downloadType;
 
     /**
+     * @example h5568374035170305
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description ImageUserBuyId
+     *
+     * @example ImageUserBuyId
+     *
      * @var int
      */
     public $imageUserBuyId;

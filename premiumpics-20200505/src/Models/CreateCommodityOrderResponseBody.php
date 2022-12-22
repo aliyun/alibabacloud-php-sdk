@@ -14,11 +14,15 @@ class CreateCommodityOrderResponseBody extends Model
     public $data;
 
     /**
+     * @example D50C9922-4547-58F7-B2BD-040D9798D53D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

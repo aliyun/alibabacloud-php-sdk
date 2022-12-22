@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class CreateInventoryLockResponseBody extends Model
 {
     /**
+     * @example 4A89FD37-CAAB-5B31-A789-D073A5445578
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description status
+     *
+     * @example True
+     *
      * @var bool
      */
     public $status;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

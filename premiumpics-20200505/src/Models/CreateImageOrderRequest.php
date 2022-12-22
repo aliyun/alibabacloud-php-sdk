@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateImageOrderRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var string
      */
     public $autoRenew;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $buyerType;
 
     /**
+     * @example 6
+     *
      * @var string
      */
     public $channel;
@@ -29,21 +35,29 @@ class CreateImageOrderRequest extends Model
     public $contactName;
 
     /**
+     * @example 17603034177
+     *
      * @var string
      */
     public $contactNumber;
 
     /**
+     * @example 0da9332a7e46bf3a3648322cc4cefe55
+     *
      * @var string
      */
     public $goodsId;
 
     /**
+     * @example waf-cn-2r427peet48
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example SINGLE
+     *
      * @var string
      */
     public $orderType;
@@ -54,11 +68,17 @@ class CreateImageOrderRequest extends Model
     public $specificationName;
 
     /**
+     * @example 74aed3df801b1abeea70604eae4c777a
+     *
      * @var string
      */
     public $token;
 
     /**
+     * @description type
+     *
+     * @example A
+     *
      * @var string
      */
     public $type;

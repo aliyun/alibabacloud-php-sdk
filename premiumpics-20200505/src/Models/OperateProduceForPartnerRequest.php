@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class OperateProduceForPartnerRequest extends Model
 {
     /**
+     * @example P20220224114917000001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @description BizType
+     *
+     * @example esp.design
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example {\"makingStatus\":1,\"expressNumber\":\"\\u672a\\u586b\\u5199\",\"expressStatus\":[]}
+     *
      * @var string
      */
     public $extInfo;
 
     /**
+     * @description OperateType
+     *
+     * @example PARTNER_SYNC_STATUS
+     *
      * @var string
      */
     public $operateType;

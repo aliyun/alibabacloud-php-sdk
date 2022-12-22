@@ -9,86 +9,124 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserProduceResponseBody extends Model
 {
     /**
+     * @example P20220713180339000001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @description BizType
+     *
+     * @example esp.logo
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example 2022-08-24 10:53:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example sae.errorcode.ServiceDisabled.message
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example 111111111111111
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @example {\"designFileUrl\":\"https:\\/\\/oss.smalld.cn\\/zip\\/svg\\/20220519\\/3e63365c-f7d9-4fa6-9d38-413262fbf4c7.zip\"}
+     *
      * @var string
      */
     public $extInfo;
 
     /**
+     * @example I20221129122203000001
+     *
      * @var string
      */
     public $intentionBizId;
 
     /**
+     * @example 216992253670473
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example swcopyright_swRegNormal_public_cn-tl32wr9giwy
+     *
      * @var string
      */
     public $orderInstanceId;
 
     /**
+     * @example 1899.00
+     *
      * @var string
      */
     public $orderPrice;
 
     /**
+     * @example luokeke
+     *
      * @var string
      */
     public $partnerCode;
 
     /**
+     * @example 1B0A9A68-5A1A-5179-8591-0463F4686EEB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example S20220624105026000001
+     *
      * @var string
      */
     public $solutionBizId;
 
     /**
+     * @example 2022-10-16T06:35:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description UserId
+     *
+     * @example UserId
+     *
      * @var string
      */
     public $userId;

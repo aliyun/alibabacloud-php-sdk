@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserCollectionRequest extends Model
 {
     /**
+     * @description BizType
+     *
+     * @example esp.logo
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example 2c5d68e067f84c99b33def98f30d26d4
+     *
      * @var string
      */
     public $unitId;
 
     /**
+     * @description userid
+     *
+     * @example userid
+     *
      * @var string
      */
     public $userId;

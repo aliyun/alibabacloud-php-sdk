@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetProduceInfoResponseBody extends Model
 {
     /**
+     * @example P20220531100052000001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 6c1ccb5f26794d16bb13330fa84c86c7
+     *
      * @var string
      */
     public $goodsId;
 
     /**
+     * @example 55534AD0-F8E2-5114-BB52-72150A499DEB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

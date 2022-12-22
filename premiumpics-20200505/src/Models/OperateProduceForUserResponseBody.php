@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OperateProduceForUserResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $errorCode;
@@ -19,11 +21,15 @@ class OperateProduceForUserResponseBody extends Model
     public $errorMsg;
 
     /**
+     * @example CDCCC923-5BA8-5D38-9B0F-66516448716F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

@@ -14,11 +14,15 @@ class ListLogoSamplesResponseBody extends Model
     public $images;
 
     /**
+     * @example 526B029B-2A59-5A71-9C22-B01926D80B14
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

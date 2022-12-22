@@ -15,31 +15,43 @@ class ListDesignResponseBody extends Model
     public $data;
 
     /**
+     * @example 47c2f5ff-6c7c-4ef0-b48c-b12e1e996ed6
+     *
      * @var string
      */
     public $designVersion;
 
     /**
+     * @example True
+     *
      * @var int
      */
     public $end;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 00F97175-FEAA-5E42-B048-952D32E9B881
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 2018-12-12
+     *
      * @var string
      */
     public $version;

@@ -15,31 +15,43 @@ class ListLogosResponseBody extends Model
     public $data;
 
     /**
+     * @example B2022040710171504189511
+     *
      * @var string
      */
     public $logoVersion;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $nextPage;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 6D61BB02-171C-51D7-8E85-1FC1920F45D4
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 2018-05-10
+     *
      * @var string
      */
     public $version;

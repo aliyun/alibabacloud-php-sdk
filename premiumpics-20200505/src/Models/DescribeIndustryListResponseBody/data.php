@@ -14,6 +14,8 @@ class data extends Model
     public $description;
 
     /**
+     * @example 21
+     *
      * @var string
      */
     public $industryId;

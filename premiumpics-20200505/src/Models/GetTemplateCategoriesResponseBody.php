@@ -9,36 +9,62 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateCategoriesResponseBody extends Model
 {
     /**
+     * @description allowRetry
+     *
+     * @example False
+     *
      * @var bool
      */
     public $allowRetry;
 
     /**
+     * @description appName
+     *
+     * @example ronghe
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description errorCode
+     *
+     * @example 200
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description errorMsg
+     *
+     * @example {&quot;ErrMsg&quot;:&quot;Right angle correction failed!&quot;,&quot;ErrCode&quot;:&quot;5002&quot;}
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description module
+     *
      * @var mixed[]
      */
     public $module;
 
     /**
+     * @description requestId
+     *
+     * @example AF0F836D-5E0C-5701-BD55-3DA4C4F29021
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description success
+     *
+     * @example True
+     *
      * @var bool
      */
     public $success;
