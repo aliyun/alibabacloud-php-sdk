@@ -21,6 +21,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayServiceVersionRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayServiceVersionResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewaySlbRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewaySlbResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\AddMigrationTaskRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\AddMigrationTaskResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddMockRuleRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddMockRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddSecurityGroupRuleRequest;
@@ -232,6 +234,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\QueryClusterDetailRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryClusterDetailResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryClusterDiskSpecificationRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryClusterDiskSpecificationResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\QueryClusterInfoRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\QueryClusterInfoResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryClusterSpecificationRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryClusterSpecificationResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryConfigRequest;
@@ -242,6 +246,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\QueryGatewayTypeRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryGatewayTypeResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryGovernanceKubernetesClusterRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryGovernanceKubernetesClusterResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\QueryInstancesInfoRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\QueryInstancesInfoResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryMonitorRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryMonitorResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QuerySlbSpecRequest;
@@ -873,6 +879,79 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addGatewaySlbWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddMigrationTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddMigrationTaskResponse
+     */
+    public function addMigrationTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['ClusterType'] = $request->clusterType;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->originInstanceAddress)) {
+            $query['OriginInstanceAddress'] = $request->originInstanceAddress;
+        }
+        if (!Utils::isUnset($request->originInstanceName)) {
+            $query['OriginInstanceName'] = $request->originInstanceName;
+        }
+        if (!Utils::isUnset($request->originInstanceNamespace)) {
+            $query['OriginInstanceNamespace'] = $request->originInstanceNamespace;
+        }
+        if (!Utils::isUnset($request->projectDesc)) {
+            $query['ProjectDesc'] = $request->projectDesc;
+        }
+        if (!Utils::isUnset($request->requestPars)) {
+            $query['RequestPars'] = $request->requestPars;
+        }
+        if (!Utils::isUnset($request->targetClusterName)) {
+            $query['TargetClusterName'] = $request->targetClusterName;
+        }
+        if (!Utils::isUnset($request->targetClusterUrl)) {
+            $query['TargetClusterUrl'] = $request->targetClusterUrl;
+        }
+        if (!Utils::isUnset($request->targetInstanceId)) {
+            $query['TargetInstanceId'] = $request->targetInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddMigrationTask',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddMigrationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddMigrationTaskRequest $request
+     *
+     * @return AddMigrationTaskResponse
+     */
+    public function addMigrationTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addMigrationTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -6541,6 +6620,67 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param QueryClusterInfoRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryClusterInfoResponse
+     */
+    public function queryClusterInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->aclSwitch)) {
+            $query['AclSwitch'] = $request->aclSwitch;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->requestPars)) {
+            $query['RequestPars'] = $request->requestPars;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryClusterInfo',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryClusterInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryClusterInfoRequest $request
+     *
+     * @return QueryClusterInfoResponse
+     */
+    public function queryClusterInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryClusterInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryClusterSpecificationRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -6753,6 +6893,64 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryGovernanceKubernetesClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryInstancesInfoRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryInstancesInfoResponse
+     */
+    public function queryInstancesInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->requestPars)) {
+            $query['RequestPars'] = $request->requestPars;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryInstancesInfo',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryInstancesInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryInstancesInfoRequest $request
+     *
+     * @return QueryInstancesInfoResponse
+     */
+    public function queryInstancesInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryInstancesInfoWithOptions($request, $runtime);
     }
 
     /**
