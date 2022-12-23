@@ -11,12 +11,27 @@ class ListLogosRequest extends Model
     /**
      * @var string
      */
+    public $authorityType;
+
+    /**
+     * @var string
+     */
     public $brandName;
 
     /**
      * @var string
      */
+    public $colorStyle;
+
+    /**
+     * @var string
+     */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $fontStyle;
 
     /**
      * @example 12
@@ -50,6 +65,11 @@ class ListLogosRequest extends Model
     public $slogan;
 
     /**
+     * @var string
+     */
+    public $styleId;
+
+    /**
      * @description type
      *
      * @example brand
@@ -67,15 +87,19 @@ class ListLogosRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'brandName'    => 'BrandName',
-        'description'  => 'Description',
-        'industryId'   => 'IndustryId',
-        'industryName' => 'IndustryName',
-        'logoVersion'  => 'LogoVersion',
-        'page'         => 'Page',
-        'slogan'       => 'Slogan',
-        'type'         => 'Type',
-        'userId'       => 'UserId',
+        'authorityType' => 'AuthorityType',
+        'brandName'     => 'BrandName',
+        'colorStyle'    => 'ColorStyle',
+        'description'   => 'Description',
+        'fontStyle'     => 'FontStyle',
+        'industryId'    => 'IndustryId',
+        'industryName'  => 'IndustryName',
+        'logoVersion'   => 'LogoVersion',
+        'page'          => 'Page',
+        'slogan'        => 'Slogan',
+        'styleId'       => 'StyleId',
+        'type'          => 'Type',
+        'userId'        => 'UserId',
     ];
 
     public function validate()
@@ -85,11 +109,20 @@ class ListLogosRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->authorityType) {
+            $res['AuthorityType'] = $this->authorityType;
+        }
         if (null !== $this->brandName) {
             $res['BrandName'] = $this->brandName;
         }
+        if (null !== $this->colorStyle) {
+            $res['ColorStyle'] = $this->colorStyle;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->fontStyle) {
+            $res['FontStyle'] = $this->fontStyle;
         }
         if (null !== $this->industryId) {
             $res['IndustryId'] = $this->industryId;
@@ -105,6 +138,9 @@ class ListLogosRequest extends Model
         }
         if (null !== $this->slogan) {
             $res['Slogan'] = $this->slogan;
+        }
+        if (null !== $this->styleId) {
+            $res['StyleId'] = $this->styleId;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -124,11 +160,20 @@ class ListLogosRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthorityType'])) {
+            $model->authorityType = $map['AuthorityType'];
+        }
         if (isset($map['BrandName'])) {
             $model->brandName = $map['BrandName'];
         }
+        if (isset($map['ColorStyle'])) {
+            $model->colorStyle = $map['ColorStyle'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['FontStyle'])) {
+            $model->fontStyle = $map['FontStyle'];
         }
         if (isset($map['IndustryId'])) {
             $model->industryId = $map['IndustryId'];
@@ -144,6 +189,9 @@ class ListLogosRequest extends Model
         }
         if (isset($map['Slogan'])) {
             $model->slogan = $map['Slogan'];
+        }
+        if (isset($map['StyleId'])) {
+            $model->styleId = $map['StyleId'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
