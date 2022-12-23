@@ -16,6 +16,26 @@ class data extends Model
     public $confidence;
 
     /**
+     * @var int
+     */
+    public $isMaskA;
+
+    /**
+     * @var int
+     */
+    public $isMaskB;
+
+    /**
+     * @var int[]
+     */
+    public $landmarksAList;
+
+    /**
+     * @var int[]
+     */
+    public $landmarksBList;
+
+    /**
      * @example imageB quality score less threshold
      *
      * @var string
@@ -57,13 +77,17 @@ class data extends Model
      */
     public $thresholds;
     protected $_name = [
-        'confidence'    => 'Confidence',
-        'messageTips'   => 'MessageTips',
-        'qualityScoreA' => 'QualityScoreA',
-        'qualityScoreB' => 'QualityScoreB',
-        'rectAList'     => 'RectAList',
-        'rectBList'     => 'RectBList',
-        'thresholds'    => 'Thresholds',
+        'confidence'     => 'Confidence',
+        'isMaskA'        => 'IsMaskA',
+        'isMaskB'        => 'IsMaskB',
+        'landmarksAList' => 'LandmarksAList',
+        'landmarksBList' => 'LandmarksBList',
+        'messageTips'    => 'MessageTips',
+        'qualityScoreA'  => 'QualityScoreA',
+        'qualityScoreB'  => 'QualityScoreB',
+        'rectAList'      => 'RectAList',
+        'rectBList'      => 'RectBList',
+        'thresholds'     => 'Thresholds',
     ];
 
     public function validate()
@@ -75,6 +99,18 @@ class data extends Model
         $res = [];
         if (null !== $this->confidence) {
             $res['Confidence'] = $this->confidence;
+        }
+        if (null !== $this->isMaskA) {
+            $res['IsMaskA'] = $this->isMaskA;
+        }
+        if (null !== $this->isMaskB) {
+            $res['IsMaskB'] = $this->isMaskB;
+        }
+        if (null !== $this->landmarksAList) {
+            $res['LandmarksAList'] = $this->landmarksAList;
+        }
+        if (null !== $this->landmarksBList) {
+            $res['LandmarksBList'] = $this->landmarksBList;
         }
         if (null !== $this->messageTips) {
             $res['MessageTips'] = $this->messageTips;
@@ -108,6 +144,22 @@ class data extends Model
         $model = new self();
         if (isset($map['Confidence'])) {
             $model->confidence = $map['Confidence'];
+        }
+        if (isset($map['IsMaskA'])) {
+            $model->isMaskA = $map['IsMaskA'];
+        }
+        if (isset($map['IsMaskB'])) {
+            $model->isMaskB = $map['IsMaskB'];
+        }
+        if (isset($map['LandmarksAList'])) {
+            if (!empty($map['LandmarksAList'])) {
+                $model->landmarksAList = $map['LandmarksAList'];
+            }
+        }
+        if (isset($map['LandmarksBList'])) {
+            if (!empty($map['LandmarksBList'])) {
+                $model->landmarksBList = $map['LandmarksBList'];
+            }
         }
         if (isset($map['MessageTips'])) {
             $model->messageTips = $map['MessageTips'];
