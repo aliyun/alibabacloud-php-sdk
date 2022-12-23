@@ -11,26 +11,42 @@ use AlibabaCloud\Tea\Model;
 class userPlayStatisTotal extends Model
 {
     /**
+     * @description The date when the statistics were generated. The date follows the *yyyy-MM-dd* format.
+     *
+     * @example 20170120
+     *
      * @var string
      */
     public $date;
 
     /**
+     * @description The total playback duration. Unit: milliseconds.
+     *
+     * @example 9340070
+     *
      * @var string
      */
     public $playDuration;
 
     /**
+     * @description The distribution of the playback duration.
+     *
+     * @example "<=1m:74.3%;>1<=5m:22.8%;>5<=10m:1.0%;>10<=15m:1.0%;>15<=30m:1.0%"
+     *
      * @var string
      */
     public $playRange;
 
     /**
+     * @description The total number of unique visitors.
+     *
      * @var UV
      */
     public $UV;
 
     /**
+     * @description The total number of video views.
+     *
      * @var VV
      */
     public $VV;

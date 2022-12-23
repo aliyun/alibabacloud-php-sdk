@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class logInfoDetail extends Model
 {
     /**
+     * @description The end of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2018-05-31T05:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The name of the log file.
+     *
+     * @example example.com_2018_03_25_180000_19****.gz
+     *
      * @var string
      */
     public $logName;
 
     /**
+     * @description The path of the log file.
+     *
+     * @example example.com/2018_03_25/example.com_2018_03_25_180000_19****.gz?Expires=1522659931&OSSAccessKeyId=****&Signature=****
+     *
      * @var string
      */
     public $logPath;
 
     /**
+     * @description The size of the log file.
+     *
+     * @example 2645401
+     *
      * @var int
      */
     public $logSize;
 
     /**
+     * @description The beginning of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2018-05-31T04:00:00Z
+     *
      * @var string
      */
     public $startTime;

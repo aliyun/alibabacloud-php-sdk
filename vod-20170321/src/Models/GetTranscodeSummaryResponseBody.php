@@ -10,16 +10,24 @@ use AlibabaCloud\Tea\Model;
 class GetTranscodeSummaryResponseBody extends Model
 {
     /**
+     * @description The IDs of the audio or video files that do not exist.
+     *
      * @var string[]
      */
     public $nonExistVideoIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 25818875-5F78-4A*****F6-D7393642CA58
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The transcoding summary of the file.
+     *
      * @var transcodeSummaryList[]
      */
     public $transcodeSummaryList;

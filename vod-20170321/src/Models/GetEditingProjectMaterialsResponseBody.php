@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetEditingProjectMaterialsResponseBody extends Model
 {
     /**
+     * @description The materials.
+     *
      * @var materialList
      */
     public $materialList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 746FFA07-8BBB-46B1-3E94E3B2915E****
+     *
      * @var string
      */
     public $requestId;

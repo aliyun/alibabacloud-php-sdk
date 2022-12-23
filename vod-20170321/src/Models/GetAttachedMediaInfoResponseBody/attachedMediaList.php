@@ -10,61 +10,111 @@ use AlibabaCloud\Tea\Model;
 class attachedMediaList extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example app-*****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The list of categories.
+     *
      * @var categories[]
      */
     public $categories;
 
     /**
+     * @description The time when the auxiliary media asset was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-01-01T10:00:00Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The description of the auxiliary media asset.
+     *
+     * @example description test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the auxiliary media asset.
+     *
+     * @example 0222e203cf80f9c22870a4d2c****
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @description The time when the auxiliary media asset was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2020-05-31T11:42:20Z
+     *
      * @var string
      */
     public $modificationTime;
 
     /**
+     * @description The status of the auxiliary media asset. Valid values:
+     * - **Uploading**: The auxiliary media asset is being uploaded. This is the initial status.
+     * - **Normal**: The auxiliary media asset is uploaded.
+     * - **UploadFail**: The auxiliary media asset fails to be uploaded.
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The OSS bucket where the auxiliary media asset is stored.
+     *
+     * @example outin-bfefbb9*****c7426.oss-cn-shanghai.aliyuncs.com
+     *
      * @var string
      */
     public $storageLocation;
 
     /**
+     * @description The tags of the auxiliary media asset.
+     *
+     * @example tag1,tag2
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The title of the auxiliary media asset.
+     *
+     * @example subtitle test
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The type of the auxiliary media asset. Valid values:
+     * - **watermark**
+     * - **subtitle**
+     * - **material**
+     * @example subtitle
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The URL of the auxiliary media asset.
+     * > If a CDN domain name is specified, a CDN URL is returned. Otherwise, an OSS URL is returned.
+     * @example https://al*****.cn/subtitle/9843C2*****4E186F19B6.vtt?auth_key=159099f60e0b7fd59****
+     *
      * @var string
      */
     public $URL;

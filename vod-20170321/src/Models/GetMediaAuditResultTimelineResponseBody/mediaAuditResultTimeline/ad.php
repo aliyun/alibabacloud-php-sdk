@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ad extends Model
 {
     /**
+     * @description The category of the review result. Valid values:
+     *
+     *   **normal**: normal content
+     *   **ad**: ad or text violation
+     *
+     * @example ad
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The score of the review result category. Valid values: `[0, 100]`. The value is rounded down to 10 decimal places. The score is representative of the confidence.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $score;
 
     /**
+     * @description The position in the video. Unit: milliseconds.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $timestamp;

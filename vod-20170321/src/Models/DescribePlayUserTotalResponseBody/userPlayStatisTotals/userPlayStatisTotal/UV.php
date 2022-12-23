@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class UV extends Model
 {
     /**
+     * @description The total number of unique visitors who use ApsaraVideo Player SDK for Android.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $android;
 
     /**
+     * @description The total number of unique visitors who use ApsaraVideo Player SDK for Flash.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $flash;
 
     /**
+     * @description The total number of unique visitors who use ApsaraVideo Player SDK for HTML5.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $HTML5;
 
     /**
+     * @description The total number of unique visitors who use ApsaraVideo Player SDK for iOS.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $iOS;

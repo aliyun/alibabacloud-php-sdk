@@ -11,21 +11,33 @@ use AlibabaCloud\Tea\Model;
 class domainLogDetail extends Model
 {
     /**
+     * @description The domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The total number of entries returned on the current page.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $logCount;
 
     /**
+     * @description The detailed information about Alibaba Cloud CDN logs.
+     *
      * @var logInfos
      */
     public $logInfos;
 
     /**
+     * @description The pagination settings of Alibaba Cloud CDN logs.
+     *
      * @var pageInfos
      */
     public $pageInfos;

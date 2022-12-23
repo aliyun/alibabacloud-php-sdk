@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetAppInfosRequest extends Model
 {
     /**
+     * @description The ID of the application. You can specify a maximum of 10 application IDs. Separate them with commas (,).
+     *
+     * @example app-****
+     *
      * @var string
      */
     public $appIds;

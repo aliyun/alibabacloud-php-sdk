@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetMediaAuditResultResponseBody extends Model
 {
     /**
+     * @description The review results.
+     *
      * @var mediaAuditResult
      */
     public $mediaAuditResult;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CB7D7232-1AB2-40FE-B8D5-****
+     *
      * @var string
      */
     public $requestId;

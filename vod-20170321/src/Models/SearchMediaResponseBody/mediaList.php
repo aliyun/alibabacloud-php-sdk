@@ -13,36 +13,61 @@ use AlibabaCloud\Tea\Model;
 class mediaList extends Model
 {
     /**
+     * @description [Details about auxiliary media assets](~~86991~~).
+     *
      * @var attachedMedia
      */
     public $attachedMedia;
 
     /**
+     * @description [Details about audio files](~~86991~~).
+     *
      * @var audio
      */
     public $audio;
 
     /**
+     * @description The time when the media asset was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2018-07-19T03:45:25Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description [Details about image files](~~86991~~).
+     *
      * @var image
      */
     public $image;
 
     /**
+     * @description The ID of the media asset.
+     *
+     * @example a82a2cd7d4e147bbed6c1ee372****
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @description The type of the media asset. Valid values:
+     *
+     *   **video**
+     *   **audio**
+     *   **image**
+     *   **attached**
+     *
+     * @example video
+     *
      * @var string
      */
     public $mediaType;
 
     /**
+     * @description [Details about video files](~~86991~~).
+     *
      * @var video
      */
     public $video;

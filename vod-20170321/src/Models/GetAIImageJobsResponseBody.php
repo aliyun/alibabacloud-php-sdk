@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetAIImageJobsResponseBody extends Model
 {
     /**
+     * @description The image AI processing jobs.
+     *
      * @var AIImageJobList[]
      */
     public $AIImageJobList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7721B494-1F78-4E*****E8-A7CEE7315BFA
+     *
      * @var string
      */
     public $requestId;

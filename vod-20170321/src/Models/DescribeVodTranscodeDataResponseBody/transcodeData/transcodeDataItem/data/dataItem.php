@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class dataItem extends Model
 {
     /**
+     * @description The transcoding specification. Valid values:
+     *
+     *   **Audio**: audio transcoding
+     *   **Segmentation**: container format conversion
+     *   H.264 and H.265-related video transcoding specifications, such as **H264.LD, H264.SD, H264.HD, H264.2K, and H264.4K**
+     *
+     * @example H264.SD
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The transcoding length. Unit: seconds.
+     *
+     * @example 111
+     *
      * @var string
      */
     public $value;

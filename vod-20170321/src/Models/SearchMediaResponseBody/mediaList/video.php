@@ -9,101 +9,202 @@ use AlibabaCloud\Tea\Model;
 class video extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example app-****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The category ID of the video file.
+     *
+     * @example 10000123
+     *
      * @var int
      */
     public $cateId;
 
     /**
+     * @description The name of the category.
+     *
+     * @example video1
+     *
      * @var string
      */
     public $cateName;
 
     /**
+     * @description The URL of the thumbnail.
+     *
+     * @example https://example.aliyundoc.com/image01.png
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @description The time when the video file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2018-07-19T03:45:25Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The description of the video file.
+     *
+     * @example Video test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The download switch. The video file can be downloaded offline only when the download switch is turned on. Valid values:
+     *
+     *   **on**
+     *   **off**
+     *
+     * @example on
+     *
      * @var string
      */
     public $downloadSwitch;
 
     /**
+     * @description The duration of the video file. Unit: seconds.
+     *
+     * @example 123
+     *
      * @var float
      */
     public $duration;
 
     /**
+     * @description The source. Valid values:
+     *
+     *   **general**: The video file is uploaded by using ApsaraVideo VOD.
+     *   **short_video**: The video file is uploaded by using the short video SDK.
+     *   **editing**: The video file is produced after online editing.
+     *   **live**: The video stream is recorded and uploaded as a file.
+     *
+     * @example general
+     *
      * @var string
      */
     public $mediaSource;
 
     /**
+     * @description The time when the video file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2018-07-19T03:48:25Z
+     *
      * @var string
      */
     public $modificationTime;
 
     /**
+     * @description The preprocessing status. Valid values:
+     *
+     *   **UnPreprocess**
+     *   **Preprocessing**
+     *   **PreprocessSucceed**
+     *   **PreprocessFailed**
+     *
+     * @example Preprocessing
+     *
      * @var string
      */
     public $preprocessStatus;
 
     /**
+     * @description The size of the video file.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The list of automatic snapshots.
+     *
      * @var string[]
      */
     public $snapshots;
 
     /**
+     * @description The list of sprite snapshots.
+     *
      * @var string[]
      */
     public $spriteSnapshots;
 
     /**
+     * @description The status of the video file. Valid values:
+     *
+     *   **Uploading**
+     *   **UploadFail**
+     *   **UploadSucc**
+     *   **Transcoding**
+     *   **TranscodeFail**
+     *   **Blocked**
+     *   **Normal**
+     *
+     * @example UploadSucc
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The endpoint of the OSS bucket in which the video file is stored.
+     *
+     * @example outin-bfefbb90a47c******163e1c7426.oss-cn-shanghai.aliyuncs.com
+     *
      * @var string
      */
     public $storageLocation;
 
     /**
+     * @description The tags of the video file.
+     *
+     * @example tag1
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The title of the video file.
+     *
+     * @example ceshi
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The transcoding mode. Default value: FastTranscode. Valid values:
+     *
+     *   **FastTranscode**: The video file is immediately transcoded after it is uploaded. You cannot play the file before it is transcoded.
+     *   **NoTranscode**: The video file can be played without being transcoded. You can immediately play the file after it is uploaded.
+     *   **AsyncTranscode**: The video file can be immediately played and asynchronously transcoded after it is uploaded.
+     *
+     * @example FastTranscode
+     *
      * @var string
      */
     public $transcodeMode;
 
     /**
+     * @description The ID of the video file.
+     *
+     * @example a82a2asdasqadaf3faa0ed6c1ee372****
+     *
      * @var string
      */
     public $videoId;

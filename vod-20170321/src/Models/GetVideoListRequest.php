@@ -9,41 +9,84 @@ use AlibabaCloud\Tea\Model;
 class GetVideoListRequest extends Model
 {
     /**
+     * @description The ID of the video category.
+     *
+     * @example 781111
+     *
      * @var int
      */
     public $cateId;
 
     /**
+     * @description The end of the time range for querying videos based on their creation time. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * @example 2017-01-11T12:59:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description Optional. The number of entries to return on each page. Default value: **10**. Maximum value: **100**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The method for sorting the results. Valid values:
+     *
+     *   **CreationTime:Desc** (default): The results are sorted in reverse chronological order based on the creation time.
+     *   **CreationTime:Asc**: The results are sorted in chronological order based on the creation time.
+     *
+     * @example CreationTime:Asc
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @description The beginning of the time range for querying videos based on their creation time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * @example 2017-01-11T12:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The status of the video. By default, you can obtain videos in all states. Separate multiple states with commas (,). Valid values:
+     *
+     *   **Uploading**: The video is being uploaded.
+     *   **UploadFail**: The video fails to be uploaded.
+     *   **UploadSucc**: The video is uploaded.
+     *   **Transcoding**: The video is being transcoded.
+     *   **TranscodeFail**: The video fails to be transcoded.
+     *   **Blocked**: The video is blocked.
+     *   **Normal**: The video can be played.
+     *
+     * @example Uploading,Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The Object Storage Service (OSS) bucket where the video file is stored.
+     *
+     * @example out-****.oss-cn-shanghai.aliyuncs.com
+     *
      * @var string
      */
     public $storageLocation;

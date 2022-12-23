@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class topPlayVideoStatis extends Model
 {
     /**
+     * @description The playback duration. Unit: milliseconds.
+     *
+     * @example 4640369
+     *
      * @var string
      */
     public $playDuration;
 
     /**
+     * @description The title of the video.
+     *
+     * @example Four streams (two streams encrypted): LD-HLS-encrypted + SD-MP4 + HD-H
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The number of unique visitors.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $UV;
 
     /**
+     * @description The number of video views.
+     *
+     * @example 107
+     *
      * @var string
      */
     public $VV;
 
     /**
+     * @description The ID of the video.
+     *
+     * @example 2a8d4cb9ecbb487681473a15****8fda
+     *
      * @var string
      */
     public $videoId;

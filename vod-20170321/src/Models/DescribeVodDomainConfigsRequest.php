@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainConfigsRequest extends Model
 {
     /**
+     * @description The domain name for CDN.
+     *
+     * @example www.example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The name of the feature. Separate multiple names with commas (,). For more information, see the **Feature description** section.
+     *
+     * @example filetype_based_ttl_set,set_req_host_header
+     *
      * @var string
      */
     public $functionNames;

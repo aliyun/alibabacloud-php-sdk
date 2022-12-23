@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainUsageDataRequest extends Model
 {
     /**
+     * @description The region where the data is queried. The default value is CN, which indicates mainland China. Valid values:
+     *
+     *   **CN**: mainland China.
+     *   **OverSeas**: outside mainland China.
+     *
+     * @example CN
+     *
      * @var string
      */
     public $area;
 
     /**
+     * @description The domain name for CDN. If you do not specify this parameter, the merged data of all your domain names for CDN is returned. You can specify multiple domain names. Separate them with commas (,).
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * @example 2015-12-10T12:20:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The type of the data to be queried. Valid values:
+     *
+     *   **bps**: bandwidth.
+     *   **traf**: traffic.
+     *
+     * @example bps
+     *
      * @var string
      */
     public $field;
@@ -34,11 +56,23 @@ class DescribeVodDomainUsageDataRequest extends Model
     public $ownerId;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * @example 2015-12-10T10:20:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The type of the content based on which the data is generated. Valid values:
+     *
+     *   **static**
+     *   **dynamic**
+     *   **all**
+     *
+     * @example static
+     *
      * @var string
      */
     public $type;

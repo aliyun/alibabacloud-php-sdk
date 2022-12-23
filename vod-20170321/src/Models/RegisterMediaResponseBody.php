@@ -10,16 +10,24 @@ use AlibabaCloud\Tea\Model;
 class RegisterMediaResponseBody extends Model
 {
     /**
+     * @description The URLs of the media files that failed to be registered.
+     *
      * @var string[]
      */
     public $failedFileURLs;
 
     /**
+     * @description The media files that are registered, including newly registered and repeatedly registered media files.
+     *
      * @var registeredMediaList[]
      */
     public $registeredMediaList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 14F43C5C-8033-448B-AD04F64E5098****
+     *
      * @var string
      */
     public $requestId;

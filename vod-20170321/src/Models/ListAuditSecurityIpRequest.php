@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListAuditSecurityIpRequest extends Model
 {
     /**
+     * @description The name of the review security group where you want to query IP addresses. If you do not set this parameter, IP addresses in all review security groups are queried.
+     *
+     * @example Default
+     *
      * @var string
      */
     public $securityGroupName;

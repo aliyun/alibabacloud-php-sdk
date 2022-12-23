@@ -14,36 +14,61 @@ use AlibabaCloud\Tea\Model;
 class videoResult extends Model
 {
     /**
+     * @description The results of ad review.
+     *
      * @var adResult
      */
     public $adResult;
 
     /**
+     * @description The category of the review result. Valid values:
+     *
+     *   **ad**
+     *   **normal**
+     *
+     * @example normal
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The results of undesired content review.
+     *
      * @var liveResult
      */
     public $liveResult;
 
     /**
+     * @description The results of logo review.
+     *
      * @var logoResult
      */
     public $logoResult;
 
     /**
+     * @description The results of pornography content review.
+     *
      * @var pornResult
      */
     public $pornResult;
 
     /**
+     * @description The recommendation for review results. Valid values:
+     *
+     *   **block**: The content violates the regulations.
+     *   **review**: The content may violate the regulations.
+     *   **pass**: The content passes the review.
+     *
+     * @example pass
+     *
      * @var string
      */
     public $suggestion;
 
     /**
+     * @description The results of terrorism content review.
+     *
      * @var terrorismResult
      */
     public $terrorismResult;

@@ -9,61 +9,113 @@ use AlibabaCloud\Tea\Model;
 class image extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example app-****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The category ID of the image file.
+     *
+     * @example 1000123
+     *
      * @var int
      */
     public $cateId;
 
     /**
+     * @description The name of the category.
+     *
+     * @example beauty
+     *
      * @var string
      */
     public $cateName;
 
     /**
+     * @description The time when the image file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2018-07-19T03:45:25Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The description of the image file.
+     *
+     * @example image test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the image file.
+     *
+     * @example 11130843741se99wqmoes****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The time when the image file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2018-07-19T03:48:25Z
+     *
      * @var string
      */
     public $modificationTime;
 
     /**
+     * @description The status of the image file.
+     *
+     *   **Uploading**: The image file is being uploaded. This is the initial status.
+     *   **Normal**: The image file is uploaded.
+     *   **UploadFail**: The image file fails to be uploaded.
+     *
+     * @example Uploading
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The endpoint of the OSS bucket in which the image file is stored.
+     *
+     * @example outin-bfefbb90a47c******163e1c7426.oss-cn-shanghai.aliyuncs.com
+     *
      * @var string
      */
     public $storageLocation;
 
     /**
+     * @description The tags of the image file.
+     *
+     * @example tag1
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The title of the image file.
+     *
+     * @example image1
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The URL of the image file.
+     *
+     * @example https://example.com/****.png
+     *
      * @var string
      */
     public $URL;

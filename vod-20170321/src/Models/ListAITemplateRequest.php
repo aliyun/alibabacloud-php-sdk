@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListAITemplateRequest extends Model
 {
     /**
+     * @description The type of the AI template. Valid values:
+     *
+     *   **AIMediaAudit**: automated review
+     *   **AIImage**: smart thumbnail
+     *
+     * @example AIMediaAudit
+     *
      * @var string
      */
     public $templateType;

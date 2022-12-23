@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class GetAppInfosResponseBody extends Model
 {
     /**
+     * @description The details of each application.
+     *
      * @var appInfoList[]
      */
     public $appInfoList;
 
     /**
+     * @var string
+     */
+    public $code;
+
+    /**
+     * @description The ID of the application that was not found.
+     *
      * @var string[]
      */
     public $nonExistAppIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 25818875-5F78-4A13-4DC4-D7393642****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'appInfoList'    => 'AppInfoList',
+        'code'           => 'Code',
         'nonExistAppIds' => 'NonExistAppIds',
         'requestId'      => 'RequestId',
     ];
@@ -44,6 +58,9 @@ class GetAppInfosResponseBody extends Model
                     $res['AppInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->nonExistAppIds) {
             $res['NonExistAppIds'] = $this->nonExistAppIds;
@@ -71,6 +88,9 @@ class GetAppInfosResponseBody extends Model
                     $model->appInfoList[$n++] = null !== $item ? appInfoList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['NonExistAppIds'])) {
             if (!empty($map['NonExistAppIds'])) {

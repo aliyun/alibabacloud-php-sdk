@@ -10,71 +10,132 @@ use AlibabaCloud\Tea\Model;
 class video extends Model
 {
     /**
+     * @description The ID of the video category.
+     *
+     * @example 78
+     *
      * @var int
      */
     public $cateId;
 
     /**
+     * @description The name of the video category.
+     *
+     * @example Category name
+     *
      * @var string
      */
     public $cateName;
 
     /**
+     * @description The thumbnail URL of the video.
+     *
+     * @example https://example.aliyundoc.com/coversample.jpg
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @description The time when the video was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2017-12-08T07:40:56Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The description of the video.
+     *
+     * @example Description of the ApsaraVideo VOD video
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The duration of the video. Unit: seconds.
+     *
+     * @example 135.6
+     *
      * @var float
      */
     public $duration;
 
     /**
+     * @description The last time when the video was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2017-12-08T09:40:56Z
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @description The size of the mezzanine file. Unit: byte.
+     *
+     * @example 10897890
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The array of video snapshot URLs.
+     *
      * @var snapshots
      */
     public $snapshots;
 
     /**
+     * @description The status of the video. Valid values:
+     *   **Uploading:**: indicates that the video is being uploaded.
+     *   **UploadFail**: indicates that the video failed to be uploaded.
+     *   **UploadSucces**: indicates that the video was uploaded.
+     *   **Transcoding**: indicates that the video is being transcoded.
+     *   **TranscodeFail**: indicates that the video failed to be transcoded.
+     *   **Blocked**: indicates that the video is blocked.
+     *   **Normal**: indicates that the video is in a normal state.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The tags of the video. Separate multiple tags with commas (,).
+     *
+     * @example tag1, tag2
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The ID of the transcoding template group.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $templateGroupId;
 
     /**
+     * @description The title of the video.
+     *
+     * @example Title of the ApsaraVideo VOD video
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The ID of the video.
+     *
+     * @example 93ab850b4f6f*****54b6e91d24d81d4
+     *
      * @var string
      */
     public $videoId;

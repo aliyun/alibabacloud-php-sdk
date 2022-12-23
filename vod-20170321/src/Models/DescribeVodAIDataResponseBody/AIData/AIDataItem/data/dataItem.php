@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class dataItem extends Model
 {
     /**
+     * @description The type of video AI. Valid values:
+     *
+     * - **AIVideoCensor**: automated review
+     * - **AIVideoFPShot**: media fingerprinting
+     * - **AIVideoTag**: smart tag
+     * @example AIVideoCensor
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The processing duration. Unit: seconds.
+     *
+     * @example 111
+     *
      * @var string
      */
     public $value;

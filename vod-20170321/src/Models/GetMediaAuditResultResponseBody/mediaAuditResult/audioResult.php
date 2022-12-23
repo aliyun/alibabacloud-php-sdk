@@ -9,21 +9,52 @@ use AlibabaCloud\Tea\Model;
 class audioResult extends Model
 {
     /**
+     * @description The category of the review result.
+     *
+     *   **normal**
+     *   **spam**
+     *   **ad**
+     *   **politics**
+     *   **terrorism**
+     *   **abuse**
+     *   **porn**
+     *   **flood**
+     *   **contraband**
+     *   **meaningless**
+     *
+     * @example normal
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The review scenario. The value is **antispam**.
+     *
+     * @example antispam
+     *
      * @var string
      */
     public $scene;
 
     /**
+     * @description The score.
+     *
+     * @example 99.91
+     *
      * @var string
      */
     public $score;
 
     /**
+     * @description The recommendation for review results. Valid values:
+     *
+     *   **block**
+     *   **review**
+     *   **pass**
+     *
+     * @example pass
+     *
      * @var string
      */
     public $suggestion;

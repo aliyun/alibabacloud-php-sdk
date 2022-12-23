@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class MoveAppResourceResponseBody extends Model
 {
     /**
+     * @description The ID of the resource that failed to be migrated.
+     *
      * @var string[]
      */
     public $failedResourceIds;
 
     /**
+     * @description The ID of the resource that was not found.
+     *
      * @var string[]
      */
     public $nonExistResourceIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 25818875-5F78-4A13-BEF6-****
+     *
      * @var string
      */
     public $requestId;

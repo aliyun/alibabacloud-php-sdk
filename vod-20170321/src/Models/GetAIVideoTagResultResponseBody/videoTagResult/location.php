@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class location extends Model
 {
     /**
+     * @description The tag string.
+     *
+     * @example Asia
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @description The points in time when the tags are displayed. Unit: milliseconds.
+     *
      * @var string[]
      */
     public $times;

@@ -10,21 +10,31 @@ use AlibabaCloud\Tea\Model;
 class GetUploadDetailsResponseBody extends Model
 {
     /**
+     * @description The IDs of the media files that cannot be accessed.
+     *
      * @var string[]
      */
     public $forbiddenMediaIds;
 
     /**
+     * @description The IDs of the media files that do not exist.
+     *
      * @var string[]
      */
     public $nonExistMediaIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 9E290613-04F4-47F4-795D30732077****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The upload details.
+     *
      * @var uploadDetails[]
      */
     public $uploadDetails;

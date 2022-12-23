@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class AIImageInfoList extends Model
 {
     /**
+     * @description The ID of the image information.
+     *
+     * @example b89a6aabf1b6197ebd6fe6cf29****
+     *
      * @var string
      */
     public $AIImageInfoId;
 
     /**
+     * @description The time when the file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2020-10-15T03:30:03Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The URL of the image file.
+     *
+     * @example http://example.aliyundoc.com/357a8748c5789d2726e6436aa****\/image/ai/b0a7612554d6400013-0****.gif?auth_key=1602745717-0-0-005ee05616c5925596d****
+     *
      * @var string
      */
     public $fileURL;
 
     /**
+     * @description The format of the image. Valid values: **gif** and **png**.
+     *
+     * @example gif
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @description The ID of the image AI processing job.
+     *
+     * @example cf08a2c6e11ee1711b738b9067****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description The score of the image.
+     *
+     * @example 5.035636554444242
+     *
      * @var string
      */
     public $score;
 
     /**
+     * @description The data version ID.
+     *
+     * @example b547f3f0e199c3b457369f3cf****
+     *
      * @var string
      */
     public $version;
 
     /**
+     * @description The ID of the video.
+     *
+     * @example 357a8748c5789d2726e6436aa****
+     *
      * @var string
      */
     public $videoId;

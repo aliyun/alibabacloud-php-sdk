@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class SearchEditingProjectResponseBody extends Model
 {
     /**
+     * @description The list of online editing projects.
+     *
      * @var projectList
      */
     public $projectList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 9262E3DA-07FA-48*****62-FCBB6BC61D08
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of online editing projects returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $total;

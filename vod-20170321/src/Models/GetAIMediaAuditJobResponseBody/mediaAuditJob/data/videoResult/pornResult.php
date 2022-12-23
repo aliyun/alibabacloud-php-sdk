@@ -11,31 +11,59 @@ use AlibabaCloud\Tea\Model;
 class pornResult extends Model
 {
     /**
+     * @description The average score of the images of the category that is indicated by Label. Valid values: `[0, 100]`. The value is accurate to 10 decimal places. The score is representative of the confidence.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $averageScore;
 
     /**
+     * @description The categories of the review results and the number of images.
+     *
      * @var counterList[]
      */
     public $counterList;
 
     /**
+     * @description The category of the review result. Valid values:
+     *
+     *   **porn**
+     *   **sexy**
+     *   **normal**
+     *
+     * @example porn
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The highest score of the image of the category that is indicated by Label. Valid values: `[0, 100]`. The value is accurate to 10 decimal places. The score is representative of the confidence.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $maxScore;
 
     /**
+     * @description The recommendation for review results. Valid values:
+     *
+     *   **block**: The content violates the regulations.
+     *   **review**: The content may violate the regulations.
+     *   **pass**: The content passes the review.
+     *
+     * @example pass
+     *
      * @var string
      */
     public $suggestion;
 
     /**
+     * @description The information about the image with the highest score of the category that is indicated by Label.
+     *
      * @var topList[]
      */
     public $topList;

@@ -9,61 +9,115 @@ use AlibabaCloud\Tea\Model;
 class mediaRefreshJobs extends Model
 {
     /**
+     * @description The error code. This parameter is returned if the refresh or prefetch task fails.
+     *
+     * @example PreloadQueueFull
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message. This parameter is returned if the refresh or prefetch task fails.
+     *
+     * @example Preload queue is full, please try again later!
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The filtering conditions for stream playback. The value is a JSON string. This parameter is used as a request parameter of the [RefreshMediaPlayUrls](~~RefreshMediaPlayUrls~~) operation.
+     *
+     * @example {"Formats":"mp4,m3u8", "Definitions":"HD,SD",  " StreamType":"video",  "ResultType":"Single",  " SliceFlag":false, "SliceCount": 3}
+     *
      * @var string
      */
     public $filterPolicy;
 
     /**
+     * @description The time when the task was created.
+     *
+     * @example 2022-05-20T08:23:22Z
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The time when the task was modified.
+     *
+     * @example 2022-05-21T08:23:22Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description The ID of the media file.
+     *
+     * @example ca3a8f6e4957b658067095869****
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @description The ID of the job.
+     *
+     * @example 41d465e31957****
+     *
      * @var string
      */
     public $mediaRefreshJobId;
 
     /**
+     * @description The status of the job. Valid values:
+     *
+     *   **success**
+     *   **fail**
+     *
+     * @example success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The playback URLs that were refreshed or prefetched.
+     *
+     * @example https://shenzhen.****.aliyuncdn.com/74401a4f546007bf845cd8840****.m3u8,https://shenzhen.****.aliyuncdn.com/24041e7d13582d86604d8****.m3u8
+     *
      * @var string
      */
     public $successPlayUrls;
 
     /**
+     * @description The IDs of the refresh or prefetch tasks for the playback URLs of media files. Only one URL can be refreshed or prefetched in a task. This value is used in the [DescribeVodRefreshTasks](~~DescribeVodRefreshTasks~~) operation, which queries the status of refresh or prefetch tasks for playback URLs of media files.
+     *
+     * @example 70422****,9524****
+     *
      * @var string
      */
     public $taskIds;
 
     /**
+     * @description The type of the job. Valid values:
+     *
+     *   **Refresh**
+     *   **Preload**
+     *
+     * @example Preload
+     *
      * @var string
      */
     public $taskType;
 
     /**
+     * @description The user data that you passed when you submit a refresh or prefetch task.
+     *
+     * @example {"MessageCallback":{"CallbackURL":"http://example.aliyundoc.com"}, "Extend":{"localId":"xxx","test":"www"}}
+     *
      * @var string
      */
     public $userData;

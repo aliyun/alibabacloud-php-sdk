@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetWatermarkRequest extends Model
 {
     /**
+     * @description The ID of the watermark.
+     *
+     * @example 9bcc8bfadb843f*****09a2671d0df97
+     *
      * @var string
      */
     public $watermarkId;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class storageDataItem extends Model
 {
     /**
+     * @description The outbound traffic. Unit: byte. The outbound traffic is generated when videos are directly downloaded or played from OSS buckets without Alibaba Cloud CDN acceleration.
+     *
+     * @example 111111
+     *
      * @var string
      */
     public $networkOut;
 
     /**
+     * @description The storage volume. Unit: byte.
+     *
+     * @example 111111
+     *
      * @var string
      */
     public $storageUtilization;
 
     /**
+     * @description The timestamp of the returned data. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-02-01T15:00:00Z
+     *
      * @var string
      */
     public $timeStamp;

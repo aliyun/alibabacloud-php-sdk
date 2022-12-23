@@ -10,16 +10,24 @@ use AlibabaCloud\Tea\Model;
 class GetAttachedMediaInfoResponseBody extends Model
 {
     /**
+     * @description The information about the media asset.
+     *
      * @var attachedMediaList[]
      */
     public $attachedMediaList;
 
     /**
+     * @description The IDs of the auxiliary media assets that do not exist.
+     *
      * @var string[]
      */
     public $nonExistMediaIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 221BCB57-B217-42BF-619BD13378F9****
+     *
      * @var string
      */
     public $requestId;

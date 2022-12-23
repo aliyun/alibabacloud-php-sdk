@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class ListAIJobResponseBody extends Model
 {
     /**
+     * @description The information about the jobs.
+     *
      * @var AIJobList
      */
     public $AIJobList;
 
     /**
+     * @description The IDs of the jobs that do not exist.
+     *
      * @var nonExistAIJobIds
      */
     public $nonExistAIJobIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 8233A0E4-E112-44*****58-2BCED1B88173
+     *
      * @var string
      */
     public $requestId;

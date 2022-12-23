@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetImageInfoResponseBody extends Model
 {
     /**
+     * @description The information about the image.
+     *
      * @var imageInfo
      */
     public $imageInfo;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example AB99D4DF-FAFA-49DC-9C548C1E261E****
+     *
      * @var string
      */
     public $requestId;

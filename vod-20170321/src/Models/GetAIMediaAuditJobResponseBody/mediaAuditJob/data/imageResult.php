@@ -10,26 +10,56 @@ use AlibabaCloud\Tea\Model;
 class imageResult extends Model
 {
     /**
+     * @description The category of the review result. Separate multiple values with commas (,). Valid values:
+     *
+     *   **porn**
+     *   **terrorism**
+     *   **ad**
+     *   **live**: undesirable scenes
+     *   **logo**
+     *   **audio**: audio anti-spam
+     *   **normal**
+     *
+     * @example normal
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description Details of image review results.
+     *
      * @var result[]
      */
     public $result;
 
     /**
+     * @description The recommendation for review results. Valid values:
+     *
+     *   **block**: The content violates the regulations.
+     *   **review**: The content may violate the regulations.
+     *   **pass**: The content passes the review.
+     *
+     * @example pass
+     *
      * @var string
      */
     public $suggestion;
 
     /**
+     * @description The type of the image. Valid value: **cover**.
+     *
+     * @example cover
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The URL of the image.
+     *
+     * @example http://www.test.com/****.jpg
+     *
      * @var string
      */
     public $url;

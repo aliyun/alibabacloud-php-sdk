@@ -10,16 +10,38 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodUserDomainsRequest extends Model
 {
     /**
+     * @description The domain name. The value of this parameter is used as a filter condition for a fuzzy match.
+     *
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The search method. Valid values:
+     *   **fuzzy_match**: fuzzy match. This is the default value.
+     *   **pre_match**: prefix match.
+     *   **suf_match**: suffix match.
+     *   **full_match**: exact match.
+     *
+     * @example fuzzy_match
+     *
      * @var string
      */
     public $domainSearchType;
 
     /**
+     * @description The status of the domain name. The value of this parameter is used as a condition to filter domain names. Value values:
+     *   **online**: indicates that the domain name is enabled.
+     *   **offline**: indicates that the domain name is disabled.
+     *   **configuring**: indicates that the domain name is being configured.
+     *   **configure_failed**: indicates that the domain name failed to be configured.
+     *   **checking**: indicates that the domain name is under review.
+     *   **check_failed**: indicates that the domain name failed the review.
+     *
+     * @example online
+     *
      * @var string
      */
     public $domainStatus;
@@ -30,11 +52,19 @@ class DescribeVodUserDomainsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**. Maximum value: **50**. Valid values: integers in the range of **1** to **50**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -45,6 +75,8 @@ class DescribeVodUserDomainsRequest extends Model
     public $securityToken;
 
     /**
+     * @description Tag.
+     *
      * @var tag[]
      */
     public $tag;

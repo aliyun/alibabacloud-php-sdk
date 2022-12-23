@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class ListAppPoliciesForIdentityResponseBody extends Model
 {
     /**
+     * @description The details of each policy.
+     *
+     * > A maximum of 100 entries can be returned.
      * @var appPolicyList[]
      */
     public $appPolicyList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C9F3E715-B3B8-4D*****27-3A70346F0E04
+     *
      * @var string
      */
     public $requestId;

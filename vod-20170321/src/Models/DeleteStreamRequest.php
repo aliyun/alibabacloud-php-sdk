@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteStreamRequest extends Model
 {
     /**
+     * @description The job IDs for deleting media streams.
+     *
+     *   Separate multiple IDs with commas (,). A maximum of 20 IDs can be specified for one video.
+     *   You can obtain job IDs from the PlayInfo parameter that is returned after you call the [GetPlayInfo](~~56124~~) operation. Each media stream has a unique job ID.
+     *
+     * @example 35eb4dbda18c49cc0025df374b46****
+     *
      * @var string
      */
     public $jobIds;
 
     /**
+     * @description The ID of the video.
+     *
+     * @example 95948ddba24446b6aed5db985e78****
+     *
      * @var string
      */
     public $videoId;

@@ -9,21 +9,67 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The category of the review result.
+     *
+     * Valid values if scene is **porn**:
+     *
+     *   **porn**
+     *   **sexy**
+     *   **normal**
+     *
+     * Valid values if scene is **terrorism**:
+     *
+     *   **normal**
+     *   **bloody**
+     *   **explosion**
+     *   **outfit**
+     *   **logo**
+     *   **weapon**
+     *   **politics**
+     *   **violence**
+     *   **crowd**
+     *   **parade**
+     *   **carcrash**
+     *   **flag**
+     *   **location**
+     *   **others**
+     *
+     * @example porn
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The review scenario. Valid values:
+     *
+     *   **terrorism**
+     *   **porn**
+     *
+     * @example porn
+     *
      * @var string
      */
     public $scene;
 
     /**
+     * @description The score of the image of the category that is indicated by Label.
+     *
+     * @example 100.00000
+     *
      * @var string
      */
     public $score;
 
     /**
+     * @description The recommendation for review results. Valid values:
+     *
+     *   **block**
+     *   **review**
+     *   **pass**
+     *
+     * @example pass
+     *
      * @var string
      */
     public $suggestion;

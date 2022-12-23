@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DecryptKMSDataKeyRequest extends Model
 {
     /**
+     * @description The ciphertext that you want to decrypt.
+     *
+     * @example DZhOWVmZDktM2QxNi00ODk0LWJkNGYtMWZjNDNmM2YyYWJmaaSl+TztSIMe43nbTH/Z1Wr4XfLftKhAciUmDQXuMRl4WTvKhxjMThjK****
+     *
      * @var string
      */
     public $cipherText;

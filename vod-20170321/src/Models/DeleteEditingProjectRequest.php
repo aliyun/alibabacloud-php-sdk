@@ -19,6 +19,10 @@ class DeleteEditingProjectRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the online editing project. Separate multiple IDs with commas (,).
+     *
+     * @example fb2101bf24bf41*****cb318787dc
+     *
      * @var string
      */
     public $projectIds;

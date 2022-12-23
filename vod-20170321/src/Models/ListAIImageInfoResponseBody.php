@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListAIImageInfoResponseBody extends Model
 {
     /**
+     * @description The image files that are uploaded for AI processing.
+     *
      * @var AIImageInfoList[]
      */
     public $AIImageInfoList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D73420CD-D221-9122-5B8FA995A511****
+     *
      * @var string
      */
     public $requestId;

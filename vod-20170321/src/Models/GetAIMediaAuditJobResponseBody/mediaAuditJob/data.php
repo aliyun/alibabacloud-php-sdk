@@ -13,36 +13,72 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The content that violates the regulations. Separate multiple values with commas (,). Valid values:
+     *
+     *   **video**: the video.
+     *   **image-cover**: the cover.
+     *   **text-title**: the title.
+     *
+     * @example video
+     *
      * @var string
      */
     public $abnormalModules;
 
     /**
+     * @description The results of audio review.
+     *
      * @var audioResult[]
      */
     public $audioResult;
 
     /**
+     * @description The results of image review.
+     *
      * @var imageResult[]
      */
     public $imageResult;
 
     /**
+     * @description The category of the review result. Separate multiple values with commas (,). Valid values:
+     *
+     *   **porn**
+     *   **terrorism**
+     *   **ad**
+     *   **live**: undesirable scenes
+     *   **logo**
+     *   **audio**: audio anti-spam
+     *   **normal**
+     *
+     * @example normal
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The recommendation for review results. Valid values:
+     *
+     *   **block**: The content violates the regulations.
+     *   **review**: The content may violate the regulations.
+     *   **pass**: The content passes the review.
+     *
+     * @example pass
+     *
      * @var string
      */
     public $suggestion;
 
     /**
+     * @description The results of text review.
+     *
      * @var textResult[]
      */
     public $textResult;
 
     /**
+     * @description The results of video review.
+     *
      * @var videoResult
      */
     public $videoResult;

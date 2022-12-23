@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class ProduceEditingProjectVideoResponseBody extends Model
 {
     /**
+     * @description The ID of the produced video.
+     *
+     * > *   This operation returns the ID of the produced video in synchronous mode.
+     * > *   If this operation returns the MediaId parameter, the video production task is being asynchronously processed.
+     * @example 006204a11bb386bb25491f95f****
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @description The ID of the online editing project.
+     *
+     * @example fb2101bf24b4cb318787dc****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 25818875-5F78-4AF6-D7393642CA58****
+     *
      * @var string
      */
     public $requestId;

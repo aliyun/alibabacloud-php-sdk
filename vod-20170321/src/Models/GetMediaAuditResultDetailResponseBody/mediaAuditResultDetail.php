@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class mediaAuditResultDetail extends Model
 {
     /**
+     * @description The review results returned.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description The total number of snapshots returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $total;

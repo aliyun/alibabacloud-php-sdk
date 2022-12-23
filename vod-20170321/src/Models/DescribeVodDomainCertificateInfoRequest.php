@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainCertificateInfoRequest extends Model
 {
     /**
+     * @description The domain name for CDN.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;

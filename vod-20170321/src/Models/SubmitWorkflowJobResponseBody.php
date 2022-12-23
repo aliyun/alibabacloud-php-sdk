@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class SubmitWorkflowJobResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example A01C8FF4-C106-4431-418F973DADB7****
+     *
      * @var string
      */
     public $requestId;

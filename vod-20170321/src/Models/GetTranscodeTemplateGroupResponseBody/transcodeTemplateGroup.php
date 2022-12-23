@@ -10,41 +10,75 @@ use AlibabaCloud\Tea\Model;
 class transcodeTemplateGroup extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example app-****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The time when the template group was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2018-12-12T10:20:51Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description Indicates whether the template group is the default one. Valid values:
+     *   **Default**: The template group is the default one.
+     *   **NotDefault**: The template group is not the default one.
+     *
+     * @example NotDefault
+     *
      * @var string
      */
     public $isDefault;
 
     /**
+     * @description Indicates whether the template group is locked. Valid values:
+     *   **Disabled**: The template group is not locked.
+     *   **Enabled**: The template group is locked.
+     *
+     * @example Enabled
+     *
      * @var string
      */
     public $locked;
 
     /**
+     * @description The time when the template group was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2018-12-12T11:20:51Z
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @description The name of the template group.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the transcoding template group.
+     *
+     * @example a59b11f697c716*****6ae1502142d0
+     *
      * @var string
      */
     public $transcodeTemplateGroupId;
 
     /**
+     * @description The configurations of the transcoding templates.
+     *
      * @var transcodeTemplateList[]
      */
     public $transcodeTemplateList;

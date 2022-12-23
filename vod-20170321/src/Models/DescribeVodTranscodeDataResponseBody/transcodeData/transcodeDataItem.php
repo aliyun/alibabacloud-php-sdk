@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class transcodeDataItem extends Model
 {
     /**
+     * @description The statistics on transcoding of different specifications.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The timestamp of the returned data. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-02-01T16:00:00Z
+     *
      * @var string
      */
     public $timeStamp;

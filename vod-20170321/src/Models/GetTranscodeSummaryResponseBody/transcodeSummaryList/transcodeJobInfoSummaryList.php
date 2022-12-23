@@ -9,76 +9,137 @@ use AlibabaCloud\Tea\Model;
 class transcodeJobInfoSummaryList extends Model
 {
     /**
+     * @description The average bitrate of the output video. Unit: Kbit/s.
+     *
+     * @example 749
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @description The time when the transcoding job was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-02-27T03:40:51Z
+     *
      * @var string
      */
     public $completeTime;
 
     /**
+     * @description The time when the transcoding job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-02-27T03:34:46Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The duration of the output video. Unit: seconds.
+     *
+     * @example 12
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The error code returned when the transcoding job failed.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned when the transcoding job failed.
+     *
+     * @example ErrorMessage
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The size of the output video. Unit: bytes.
+     *
+     * @example 1144259
+     *
      * @var int
      */
     public $filesize;
 
     /**
+     * @description The container format of the output video.
+     *
+     * @example mp4
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @description The frame rate of the output video. Unit: frames per second.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $fps;
 
     /**
+     * @description The height of the output video. Unit: pixels.
+     *
+     * @example 960
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @description The status of the transcoding job. Valid values:
+     *   **Transcoding**
+     *   **TranscodeSuccess**
+     *   **TranscodeFail**
+     *
+     * @example Transcoding
+     *
      * @var string
      */
     public $transcodeJobStatus;
 
     /**
+     * @description The transcoding progress. Valid values: `[0,100]`.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $transcodeProgress;
 
     /**
+     * @description The ID of the transcoding template.
+     *
+     * @example 57496724ae2*****0968d6e08acc8f6
+     *
      * @var string
      */
     public $transcodeTemplateId;
 
     /**
+     * @description The IDs of the watermarks that are applied to the output video.
+     *
      * @var string[]
      */
     public $watermarkIdList;
 
     /**
+     * @description The width of the output video. Unit: pixels.
+     *
+     * @example 544
+     *
      * @var string
      */
     public $width;

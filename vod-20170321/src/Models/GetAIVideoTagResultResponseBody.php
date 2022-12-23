@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetAIVideoTagResultResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 8829B4DB-AFD9-4FF6-12965DBFFA14****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The returned result.
+     *
      * @var videoTagResult
      */
     public $videoTagResult;

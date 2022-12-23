@@ -9,36 +9,67 @@ use AlibabaCloud\Tea\Model;
 class appPolicyList extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example app-****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The time when the application policy was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-01-01T01:01:01Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The description of the policy.
+     *
+     * @example App full access permission
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The last time when the application policy was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-01-01T01:08:01Z
+     *
      * @var string
      */
     public $modificationTime;
 
     /**
+     * @description The name of the policy.
+     *
+     * @example VODAppFullAccess
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @description The type of the policy. Valid values:
+     *
+     *   **System**
+     *   **Custom**
+     *
+     * @example System
+     *
      * @var string
      */
     public $policyType;
 
     /**
+     * @description The content of the policy.
+     *
+     * @example ****
+     *
      * @var string
      */
     public $policyValue;

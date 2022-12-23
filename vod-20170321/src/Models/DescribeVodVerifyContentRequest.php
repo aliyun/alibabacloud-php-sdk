@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodVerifyContentRequest extends Model
 {
     /**
+     * @description The domain name for which you want to query the ownership verification content. You can specify only one domain name in each call.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;

@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodStorageDataResponseBody extends Model
 {
     /**
+     * @description The time granularity at which the data was queried. Valid values:
+     *
+     *   **hour**
+     *   **day**
+     *
+     * @example day
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C370DAF1-C838-4288-****-9A87633D248E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The detailed usage of storage-related resources.
+     *
      * @var storageData
      */
     public $storageData;

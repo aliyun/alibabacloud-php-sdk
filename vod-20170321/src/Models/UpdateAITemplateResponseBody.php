@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UpdateAITemplateResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 25818875-5F78-4A13-BEF6-****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the template.
+     *
+     * @example 1706a0063dd733f6a823ef32e0a5****
+     *
      * @var string
      */
     public $templateId;

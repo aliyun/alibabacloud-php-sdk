@@ -9,41 +9,77 @@ use AlibabaCloud\Tea\Model;
 class watermarkInfos extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example app-****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The time when the watermark was added. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2018-11-07T09:05:52Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The Object Storage Service (OSS) URL or Content Delivery Network (CDN) URL of the watermark file. A text watermark does not have a file URL.
+     *
+     * @example https://outin-3262681cd*****89f4b3e7.oss-cn-shanghai.aliyuncs.com/image/cover/8CC8B715E6F8A72EC6B-6-2.png?Expires=1541600583&OSSAccessKeyId=****&Signature=gmf1eYMoDVg%2BHQCb4UGozB****
+     *
      * @var string
      */
     public $fileUrl;
 
     /**
+     * @description Indicates whether the watermark is the default one. Valid values:
+     *   **Default**: The watermark is the default one.
+     *   **NotDefault**: The watermark is not the default one.
+     *
+     * @example NotDefault
+     *
      * @var string
      */
     public $isDefault;
 
     /**
+     * @description The name of the watermark.
+     *
+     * @example watermark test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the watermark. Valid values:
+     *   **Image**
+     *   **Text**
+     *
+     * @example Text
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The configurations such as the position and effect of the text watermark or image watermark. The value is a JSON-formatted string. For more information about the data structure, see the "WatermarkConfig" section of the [Media processing parameters](~~98618~~) topic.
+     *
+     * @example {"FontColor": "Blue","FontSize": 80,"Content": "watermark test"}
+     *
      * @var string
      */
     public $watermarkConfig;
 
     /**
+     * @description The ID of the watermark.
+     *
+     * @example 9bcc8bfadb843*****109a2671d0df97
+     *
      * @var string
      */
     public $watermarkId;

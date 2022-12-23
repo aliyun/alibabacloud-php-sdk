@@ -10,21 +10,36 @@ use AlibabaCloud\Tea\Model;
 class GetAuditHistoryResponseBody extends Model
 {
     /**
+     * @description The review records.
+     *
      * @var histories[]
      */
     public $histories;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-43*****D7-6C044FE73368
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The manual review result. Valid values:
+     * - **Normal**: The video can be played.
+     * - **Blocked**: The video is blocked.
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The total number of review records.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $total;

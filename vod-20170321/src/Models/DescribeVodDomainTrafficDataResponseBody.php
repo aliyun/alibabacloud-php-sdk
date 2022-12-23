@@ -10,36 +10,62 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainTrafficDataResponseBody extends Model
 {
     /**
+     * @description The time interval between the returned entries. Unit: seconds.
+     *
+     * @example 3600
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The domain name for CDN.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-01-20T14:59:58Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D94E471F-1A27-442E-552D-D4D2000C****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-01-20T13:59:58Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The total traffic.
+     *
+     * @example 5906662826
+     *
      * @var string
      */
     public $totalTraffic;
 
     /**
+     * @description The network traffic data that is collected for each interval.
+     *
      * @var trafficDataPerInterval
      */
     public $trafficDataPerInterval;

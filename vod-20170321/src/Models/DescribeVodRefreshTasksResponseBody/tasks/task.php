@@ -9,36 +9,77 @@ use AlibabaCloud\Tea\Model;
 class task extends Model
 {
     /**
+     * @description The time when the task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2014-11-27T08:23:22Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The type of the error that was returned when the refresh or prefetch task failed. Valid values:
+     *
+     *   **Internal Error**: indicates that an internal error occurred.
+     *   **Origin Timeout**: indicates that the response from the origin server timed out.
+     *   **Origin Return StatusCode 5XX**: indicates that the origin server returned a 5XX error.
+     *
+     * @example Internal Error
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The URL of the object to which the refresh or prefetch task is applied.
+     *
+     * @example http://example.com/****.txt
+     *
      * @var string
      */
     public $objectPath;
 
     /**
+     * @description The type of the task. Valid values:
+     *
+     *   **file**: refreshes one or more files. This is the default value.
+     *   **directory**: refreshes the files under one or more directories.
+     *   **preload**: prefetches one or more files.
+     *
+     * @example file
+     *
      * @var string
      */
     public $objectType;
 
     /**
+     * @description The progress of the task, in percentage.
+     *
+     * @example 100%
+     *
      * @var string
      */
     public $process;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   **Complete**: indicates that the task is complete.
+     *   **Refreshing**: indicates that the task is in progress.
+     *   **Failed**: indicates that the task failed.
+     *   **Pending**: indicates that the task is pending.
+     *
+     * @example Complete
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 704225667
+     *
      * @var string
      */
     public $taskId;

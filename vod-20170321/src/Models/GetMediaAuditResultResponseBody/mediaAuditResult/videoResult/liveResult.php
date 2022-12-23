@@ -11,31 +11,56 @@ use AlibabaCloud\Tea\Model;
 class liveResult extends Model
 {
     /**
+     * @description The average score of the review results.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $averageScore;
 
     /**
+     * @description The statistics about tag frames.
+     *
      * @var counterList[]
      */
     public $counterList;
 
     /**
+     * @description The category of the review result. Valid values:
+     *
+     * - **live**: The content contains undesirable scenes.
+     * - **normal**: normal content.
+     * @example live
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The highest review score.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $maxScore;
 
     /**
+     * @description The recommendation for review results. Valid values:
+     *
+     * - **block**
+     * - **review**
+     * - **pass**
+     * @example block
+     *
      * @var string
      */
     public $suggestion;
 
     /**
+     * @description The information about the image with the highest score of the category that is indicated by Label.
+     *
      * @var topList[]
      */
     public $topList;

@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class GetVideoListResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 25818875-5F78-4AF6-D7393642CA58****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of videos.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $total;
 
     /**
+     * @description The information about the video. The information about a maximum of first 5,000 video records can be obtained in a single request.
+     *
      * @var videoList
      */
     public $videoList;

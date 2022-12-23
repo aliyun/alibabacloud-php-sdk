@@ -11,71 +11,132 @@ use AlibabaCloud\Tea\Model;
 class mezzanine extends Model
 {
     /**
+     * @description The information about the audio stream.
+     *
      * @var audioStreamList[]
      */
     public $audioStreamList;
 
     /**
+     * @description The bitrate of the file. Unit: Kbit/s.
+     *
+     * @example 771.2280
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @description The time when the file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2017-11-14T09:15:50Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The duration of the file. Unit: seconds.
+     *
+     * @example 42.4930
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The name of the file.
+     *
+     * @example 27ffc438-164h67f57ef-0005-6884-51a-1****.mp4
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @description The URL of the file.
+     *
+     * @example http://example-bucket-****.oss-cn-shanghai.aliyuncs.com/27ffc438-164h67f57ef-0005-6884-51a-1****.mp4
+     *
      * @var string
      */
     public $fileURL;
 
     /**
+     * @description The frame rate of the file. Unit: frames per second.
+     *
+     * @example 25.0000
+     *
      * @var string
      */
     public $fps;
 
     /**
+     * @description The height of the file. Unit: pixel.
+     *
+     * @example 540
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @description The type of the mezzanine file URL. Valid values:
+     *
+     * - **oss**: OSS URL
+     * - **cdn** (default): CDN URL
+     *
+     * > If you specify an OSS URL for the video stream, the video stream must be in the MP4 format.
+     * @example oss
+     *
      * @var string
      */
     public $outputType;
 
     /**
+     * @description The size of the file. Unit: byte.
+     *
+     * @example 4096477
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The status of the file. Valid values:
+     *
+     *   **Uploading**: The file is being uploaded. This is the initial status.
+     *   **Normal**: The file is uploaded.
+     *   **UploadFail**: The file fails to be uploaded.
+     *   **Deleted**: The file is deleted.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the video.
+     *
+     * @example 1f1a6fc03ca04814031b8a6559e****
+     *
      * @var string
      */
     public $videoId;
 
     /**
+     * @description The information about the video stream.
+     *
      * @var videoStreamList[]
      */
     public $videoStreamList;
 
     /**
+     * @description The width of the file. Unit: pixel.
+     *
+     * @example 960
+     *
      * @var int
      */
     public $width;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListAuditSecurityIpResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 664BBD08-C7DB-4E*****73-9D0958D9A899
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the review security group.
+     *
      * @var securityIpList[]
      */
     public $securityIpList;

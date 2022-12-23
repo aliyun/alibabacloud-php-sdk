@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetMediaRefreshJobsResponseBody extends Model
 {
     /**
+     * @description The media refresh or prefetch jobs.
+     *
      * @var mediaRefreshJobs[]
      */
     public $mediaRefreshJobs;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 25818875-5F78-4AF6-D7393642CA58****
+     *
      * @var string
      */
     public $requestId;

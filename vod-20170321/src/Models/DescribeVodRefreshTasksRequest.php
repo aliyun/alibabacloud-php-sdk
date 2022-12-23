@@ -9,21 +9,42 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodRefreshTasksRequest extends Model
 {
     /**
+     * @description The domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * @example 2017-01-01T12:30:20Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The object URL based on which the query is performed. The URL is used as a condition for an exact match.
+     *
+     * @example http://example.com/***.txt
+     *
      * @var string
      */
     public $objectPath;
 
     /**
+     * @description The type of the task. Valid values:
+     *
+     *   **file**: refreshes one or more files.
+     *   **directory**: refreshes the files under one or more directories.
+     *   **preload**: prefetches one or more files.
+     *
+     * > If you specify the DomainName or TaskStatus parameter, you must also specify the ObjectType parameter.
+     * @example file
+     *
      * @var string
      */
     public $objectType;
@@ -34,11 +55,19 @@ class DescribeVodRefreshTasksRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**. Maximum value: **50**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -49,16 +78,33 @@ class DescribeVodRefreshTasksRequest extends Model
     public $securityToken;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * > You can query data that is collected in the last three days.
+     * @example 2017-01-01T12:12:20Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   **Complete**: indicates that the task is complete.
+     *   **Refreshing**: indicates that the task is in progress.
+     *   **Failed**: indicates that the task failed.
+     *
+     * @example Complete
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The task ID based on which the query is performed.
+     *
+     * @example 70422****
+     *
      * @var string
      */
     public $taskId;

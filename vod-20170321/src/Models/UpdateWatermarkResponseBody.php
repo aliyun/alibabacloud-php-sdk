@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateWatermarkResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 25818875-5F78-4A*****F6-D7393642CA58
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the watermark.
+     *
      * @var watermarkInfo
      */
     public $watermarkInfo;

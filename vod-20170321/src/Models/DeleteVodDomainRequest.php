@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteVodDomainRequest extends Model
 {
     /**
+     * @description The domain name for CDN that you want to delete.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;

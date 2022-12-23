@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @description The volume of the network traffic in mainland China. Unit: byte.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $domesticValue;
 
     /**
+     * @description The volume of the HTTPS network traffic on L1 nodes in mainland China. Unit: byte.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $httpsDomesticValue;
 
     /**
+     * @description The volume of the HTTPS network traffic on L1 nodes outside mainland China. Unit: byte.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $httpsOverseasValue;
 
     /**
+     * @description The total volume of the HTTPS network traffic on L1 nodes. Unit: byte.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $httpsValue;
 
     /**
+     * @description The volume of the network traffic outside mainland China. Unit: byte.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $overseasValue;
 
     /**
+     * @description The timestamp of the returned data. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-01-15T19:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @description The total volume of the network traffic. Unit: byte.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $value;

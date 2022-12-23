@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetMediaAuditResultTimelineRequest extends Model
 {
     /**
+     * @description The ID of the video.
+     *
+     * @example 93ab850b4f6f*****54b6e91d24d81d4
+     *
      * @var string
      */
     public $mediaId;

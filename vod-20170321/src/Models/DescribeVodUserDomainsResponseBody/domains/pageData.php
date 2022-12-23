@@ -10,46 +10,89 @@ use AlibabaCloud\Tea\Model;
 class pageData extends Model
 {
     /**
+     * @description The canonical domain name that is assigned to the domain name for CDN.
+     *
+     * @example learn.developer.aliyundoc.com
+     *
      * @var string
      */
     public $cname;
 
     /**
+     * @description The remarks.
+     *
+     * @example Zhejiang ICP Filing No. ****
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The domain name for CDN.
+     *
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The status of the domain name for CDN. Valid values:
+     *
+     *   **online**: indicates that the domain name is enabled.
+     *   **offline**: indicates that the domain name is disabled.
+     *   **configuring**: indicates that the domain name is being configured.
+     *   **configure_failed**: indicates that the domain name failed to be configured.
+     *   **checking**: indicates that the domain name is under review.
+     *   **check_failed**: indicates that the domain name failed the review.
+     *
+     * @example online
+     *
      * @var string
      */
     public $domainStatus;
 
     /**
+     * @description The time when the domain name for CDN was added. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2017-08-29T08:40:53Z
+     *
      * @var string
      */
     public $gmtCreated;
 
     /**
+     * @description The last time when the domain name for CDN was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2017-12-29T09:24:12Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description Indicates whether the domain name for CDN is in a sandbox environment.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $sandbox;
 
     /**
+     * @description The information about the origin server.
+     *
      * @var sources
      */
     public $sources;
 
     /**
+     * @description Indicates whether HTTPS is enabled.
+     *
+     * - **on**: indicates that HTTPS is enabled.
+     * - **off**: indicates that HTTPS is disabled.
+     * @example on
+     *
      * @var string
      */
     public $sslProtocol;

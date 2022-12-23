@@ -9,101 +9,199 @@ use AlibabaCloud\Tea\Model;
 class audio extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example app-****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the audio file.
+     *
+     * @example a82a2cd7d4e147bbed6c1ee372****
+     *
      * @var string
      */
     public $audioId;
 
     /**
+     * @description The category ID of the audio file.
+     *
+     * @example 10000123
+     *
      * @var int
      */
     public $cateId;
 
     /**
+     * @description The name of the category.
+     *
+     * @example ceshi
+     *
      * @var string
      */
     public $cateName;
 
     /**
+     * @description The URL of the thumbnail.
+     *
+     * @example http://example.com/image04.jpg
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @description The time when the audio file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2018-07-19T03:45:25Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The description of the audio file.
+     *
+     * @example audio description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The download switch. The audio file can be downloaded offline only when the download switch is turned on. Valid values:
+     *
+     *   **on**
+     *   **off**
+     *
+     * @example on
+     *
      * @var string
      */
     public $downloadSwitch;
 
     /**
+     * @description The duration of the audio file.
+     *
+     * @example 123
+     *
      * @var float
      */
     public $duration;
 
     /**
+     * @description The source. Valid values:
+     *
+     *   **general**: The audio file is uploaded by using ApsaraVideo VOD.
+     *   **short_video**: The audio file is uploaded to ApsaraVideo VOD by using the short video SDK. For more information, see [Introduction](~~53407~~).
+     *   **editing**: The audio file is uploaded to ApsaraVideo VOD after online editing and production. For more information, see [ProduceEditingProjectVideo](~~68536~~).
+     *   **live**: The audio stream is recorded and uploaded as a file to ApsaraVideo VOD.
+     *
+     * @example general
+     *
      * @var string
      */
     public $mediaSource;
 
     /**
+     * @description The time when the audio file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2018-07-19T03:48:25Z
+     *
      * @var string
      */
     public $modificationTime;
 
     /**
+     * @description The preprocessing status. Only preprocessed videos can be used for live streaming in the production studio. Valid values:
+     *
+     *   **UnPreprocess**
+     *   **Preprocessing**
+     *   **PreprocessSucceed**
+     *   **PreprocessFailed**
+     *
+     * @example UnPreprocess
+     *
      * @var string
      */
     public $preprocessStatus;
 
     /**
+     * @description The size of the audio file.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The list of automatic snapshots.
+     *
      * @var string[]
      */
     public $snapshots;
 
     /**
+     * @description The list of sprite snapshots.
+     *
      * @var string[]
      */
     public $spriteSnapshots;
 
     /**
+     * @description The status of the audio file. Valid values:
+     *
+     *   **Uploading**
+     *   **Normal**
+     *   **UploadFail**
+     *   **Deleted**
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The endpoint of the OSS bucket in which the audio file is stored.
+     *
+     * @example outin-aaa*****aa.oss-cn-shanghai.aliyuncs.com
+     *
      * @var string
      */
     public $storageLocation;
 
     /**
+     * @description The tags of the audio file.
+     *
+     * @example tag1,tag2
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The title of the audio file.
+     *
+     * @example audio
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The transcoding mode. Default value: FastTranscode. Valid values:
+     *
+     *   **FastTranscode**: The audio file is immediately transcoded after it is uploaded. You cannot play the file before it is transcoded.
+     *   **NoTranscode**: The audio file can be played without being transcoded. You can immediately play the file after it is uploaded.
+     *   **AsyncTranscode**: The audio file can be immediately played and asynchronously transcoded after it is uploaded.
+     *
+     * @example FastTranscode
+     *
      * @var string
      */
     public $transcodeMode;

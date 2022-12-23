@@ -9,41 +9,76 @@ use AlibabaCloud\Tea\Model;
 class videoBase extends Model
 {
     /**
+     * @description The thumbnail URL of the audio or video file.
+     *
+     * @example http://example.aliyundoc.com/sample.jpg?auth_key=2333232-atb****
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @description The time when the audio or video file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2017-06-26T06:38:48Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The URL of the masked live comment data.
+     *
+     * @example http://example.aliyundoc.com/****?auth_key=abdf2123-6783232****
+     *
      * @var string
      */
     public $danMuURL;
 
     /**
+     * @description The duration of the audio or video file. Unit: seconds.
+     *
+     * @example 3.1667
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The type of the media file. Valid values:
+     *
+     *   **video**
+     *   **audio**
+     *
+     * @example video
+     *
      * @var string
      */
     public $mediaType;
 
     /**
+     * @description The status of the audio or video file. For more information about the value range and description, see the [Status](~~52839~~) table.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The title of the audio or video file.
+     *
+     * @example ApsaraVideo VOD
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The ID of the media file.
+     *
+     * @example 93ab850b4f654b6e91d24d81d44****
+     *
      * @var string
      */
     public $videoId;

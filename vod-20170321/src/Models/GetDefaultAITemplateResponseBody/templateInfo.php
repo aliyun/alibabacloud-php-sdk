@@ -9,41 +9,79 @@ use AlibabaCloud\Tea\Model;
 class templateInfo extends Model
 {
     /**
+     * @description The time when the AI template was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2020-07-08T06:50:45Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description Indicates whether the template is the default template. Valid values:
+     *
+     *   **Default**
+     *   **NotDefault**
+     *
+     * @example Default
+     *
      * @var string
      */
     public $isDefault;
 
     /**
+     * @description The time when the AI template was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2020-07-08T06:58:45Z
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @description The source of the AI template. Valid values:
+     *
+     *   **System**
+     *   **Custom**
+     *
+     * @example Custom
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The detailed configurations of the AI template. The value is a JSON string.
+     *
+     * @example {"AuditRange":["text-title","video"],"AuditContent":["screen"],"AuditItem":["terrorism","porn"],"AuditAutoBlock":"yes"}
+     *
      * @var string
      */
     public $templateConfig;
 
     /**
+     * @description The ID of the AI template.
+     *
+     * @example 1706a0063dd733f6a823ef32e0a5****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description The name of the AI template.
+     *
+     * @example DemoAITemplate
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description The type of the AI template. The value is **AIMediaAudit**, which indicates intelligent review.
+     *
+     * @example AIMediaAudit
+     *
      * @var string
      */
     public $templateType;

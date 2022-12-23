@@ -14,26 +14,36 @@ use AlibabaCloud\Tea\Model;
 class mediaAuditResultTimeline extends Model
 {
     /**
+     * @description The collection of ad timelines.
+     *
      * @var ad[]
      */
     public $ad;
 
     /**
+     * @description The collection of undesirable scene timelines.
+     *
      * @var live[]
      */
     public $live;
 
     /**
+     * @description The collection of logo timelines.
+     *
      * @var logo[]
      */
     public $logo;
 
     /**
+     * @description The collection of pornographic content timelines.
+     *
      * @var porn[]
      */
     public $porn;
 
     /**
+     * @description The collection of terrorist content timelines.
+     *
      * @var terrorism[]
      */
     public $terrorism;

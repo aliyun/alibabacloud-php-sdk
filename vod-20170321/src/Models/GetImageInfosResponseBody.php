@@ -10,16 +10,24 @@ use AlibabaCloud\Tea\Model;
 class GetImageInfosResponseBody extends Model
 {
     /**
+     * @description The image information.
+     *
      * @var imageInfo[]
      */
     public $imageInfo;
 
     /**
+     * @description The IDs of the images that do not exist.
+     *
      * @var string[]
      */
     public $nonExistImageIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 25818875-5F78-4AF6-D7393642CA58*****
+     *
      * @var string
      */
     public $requestId;

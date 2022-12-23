@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class AttachAppPolicyToIdentityResponseBody extends Model
 {
     /**
+     * @description The name of the policy that failed to be attached to the identity.
+     *
      * @var string[]
      */
     public $failedPolicyNames;
 
     /**
+     * @description The name of the policy that was not found.
+     *
      * @var string[]
      */
     public $nonExistPolicyNames;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 25818875-5F78-4A13-****-D7393642CA58
+     *
      * @var string
      */
     public $requestId;

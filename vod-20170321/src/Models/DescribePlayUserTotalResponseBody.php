@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribePlayUserTotalResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 1FAFB884-D5A7-47D1-****-8928AA9C8720
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The statistics on total playback each day.
+     *
      * @var userPlayStatisTotals
      */
     public $userPlayStatisTotals;

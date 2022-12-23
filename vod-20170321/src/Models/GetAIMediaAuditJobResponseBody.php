@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetAIMediaAuditJobResponseBody extends Model
 {
     /**
+     * @description The information about the intelligent review job.
+     *
      * @var mediaAuditJob
      */
     public $mediaAuditJob;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example EAA3E96A-02E2-41*****85-08E1D568ED3A
+     *
      * @var string
      */
     public $requestId;

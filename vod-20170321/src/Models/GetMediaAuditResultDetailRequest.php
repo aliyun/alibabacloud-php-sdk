@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetMediaAuditResultDetailRequest extends Model
 {
     /**
+     * @description The ID of the video.
+     *
+     * @example 93ab850b4f6f*****54b6e91d24d81d4
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @description The page number of the review result to return. The default value is **1**. A maximum of **20** records can be returned on each page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;

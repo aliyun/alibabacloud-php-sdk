@@ -10,46 +10,85 @@ use AlibabaCloud\Tea\Model;
 class mediaAuditJob extends Model
 {
     /**
+     * @description The error code. This parameter is returned if the value of Status is fail.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The time when the job is complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2017-01-11T13:00:00Z
+     *
      * @var string
      */
     public $completeTime;
 
     /**
+     * @description The time when the job started to run. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2017-01-11T12:00:00Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The job result data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the job.
+     *
+     * @example bdbc266af6894*****943a70176d92e9
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description The ID of the video.
+     *
+     * @example fe028d09441d*****d1afffb138cd7e
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @description The error message. This parameter is returned if the value of Status is fail.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The status of the job. Valid values:
+     *
+     *   **success**: The job is successful.
+     *   **fail**: The job failed.
+     *   **init**: The job is being initialized.
+     *   **Processing**: The job is in progress.
+     *
+     * @example success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description Only the job type is supported.
+     *
+     * @example AIMediaAudit
+     *
      * @var string
      */
     public $type;

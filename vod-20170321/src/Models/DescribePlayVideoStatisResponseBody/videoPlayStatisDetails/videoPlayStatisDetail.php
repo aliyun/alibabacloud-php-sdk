@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class videoPlayStatisDetail extends Model
 {
     /**
+     * @description The date when the statistics were generated. The date follows the *yyyy-MM-dd* format.
+     *
+     * @example 20170120
+     *
      * @var string
      */
     public $date;
 
     /**
+     * @description The playback duration. Unit: milliseconds.
+     *
+     * @example 967277
+     *
      * @var string
      */
     public $playDuration;
 
     /**
+     * @description The distribution of the playback duration.
+     *
+     * @example <=1m:79.2%;>1<=5m:16.7%;>5<=10m:4.2%
+     *
      * @var string
      */
     public $playRange;
 
     /**
+     * @description The title of the video.
+     *
+     * @example Four streams (one stream encrypted): LD-HLS + SD-MP4 + HD-HLS-encrypted + UHD-MP4
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The number of unique visitors.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $UV;
 
     /**
+     * @description The number of video views.
+     *
+     * @example 24
+     *
      * @var string
      */
     public $VV;

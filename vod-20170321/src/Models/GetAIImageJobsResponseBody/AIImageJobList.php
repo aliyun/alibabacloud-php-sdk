@@ -9,51 +9,100 @@ use AlibabaCloud\Tea\Model;
 class AIImageJobList extends Model
 {
     /**
+     * @description The Object Storage Service (OSS) URL of the image file.
+     *
+     * > This parameter does not include the complete authentication information. To obtain the authentication information, you must generate a signed URL. Alternatively, you can call the [ListAIImage](~~ListAIImage~~) operation to obtain the image information.
+     * @example [{"Score":5.035636554444242,"Url":"http://outin-*****.oss-cn-shanghai.aliyuncs.com/357a8748c577*****789d2726e6436aa/image/ai/b0a7612554d*****5cbe3-00001.gif"}]
+     *
      * @var string
      */
     public $AIImageResult;
 
     /**
+     * @description The error code.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The time when the image AI processing job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2020-10-15T03:30:03Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The ID of the image AI processing job.
+     *
+     * @example cf08a2c6e11e*****de1711b738b9067
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description The error message.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The status of the job. Valid values:
+     *
+     *   **success**
+     *   **fail**
+     *
+     * @example success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The configurations of the AI template that was used to submit the job.
+     *
+     * @example {"Format":"gif","SetDefaultCover":"true"}
+     *
      * @var string
      */
     public $templateConfig;
 
     /**
+     * @description The ID of the AI template.
+     *
+     * @example 5a86a00f15194*****d7fe7de1b4a173
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description The user data.
+     *
+     *   The value must be a JSON string.
+     *   The MessageCallback or Extend parameter is returned.
+     *   The value contains a maximum of 512 bytes.
+     *
+     * For more information, see the "UserData: specifies the custom configurations for media upload" section of the [Request parameters](~~86952~~) topic.
+     * @example {"Extend":{"localId":"****","test":"www"}}
+     *
      * @var string
      */
     public $userData;
 
     /**
+     * @description The ID of the video.
+     *
+     * @example 357a8748c577*****789d2726e6436aa
+     *
      * @var string
      */
     public $videoId;

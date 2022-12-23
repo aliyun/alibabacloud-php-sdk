@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetMediaDNAResultRequest extends Model
 {
     /**
+     * @description The ID of the video.
+     *
+     * @example 88c6ca184c0e*****a5b665e2a126797
+     *
      * @var string
      */
     public $mediaId;

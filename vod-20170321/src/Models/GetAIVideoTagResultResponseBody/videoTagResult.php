@@ -14,26 +14,36 @@ use AlibabaCloud\Tea\Model;
 class videoTagResult extends Model
 {
     /**
+     * @description The video categories.
+     *
      * @var category[]
      */
     public $category;
 
     /**
+     * @description The keyword tags.
+     *
      * @var keyword[]
      */
     public $keyword;
 
     /**
+     * @description The location tags.
+     *
      * @var location[]
      */
     public $location;
 
     /**
+     * @description The figure tags.
+     *
      * @var person[]
      */
     public $person;
 
     /**
+     * @description The time tags.
+     *
      * @var time[]
      */
     public $time;

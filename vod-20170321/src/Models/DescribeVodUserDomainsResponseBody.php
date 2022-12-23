@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodUserDomainsResponseBody extends Model
 {
     /**
+     * @description The detailed information about each domain name for CDN. The returned information is displayed in the format that is specified by the PageData parameter.
+     *
      * @var domains
      */
     public $domains;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E4EBD2BF-5EB0-4476-****-9D94E1B15267
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribePlayUserAvgResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 6C7F90B2-BDA4-4FAC-****-A38A121DFE19
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The statistics on average playback each day.
+     *
      * @var userPlayStatisAvgs
      */
     public $userPlayStatisAvgs;

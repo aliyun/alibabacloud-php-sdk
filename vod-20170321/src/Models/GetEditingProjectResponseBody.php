@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetEditingProjectResponseBody extends Model
 {
     /**
+     * @description The information about the online editing project.
+     *
      * @var project
      */
     public $project;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 63E8B7C7-4812-46*****AD-0FA56029AC86
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class snapshot extends Model
 {
     /**
+     * @description The index of the snapshot.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $index;
 
     /**
+     * @description The URL of the snapshot.
+     *
+     * @example http://example.aliyundoc.com/snapshot/sample00001****.jpg
+     *
      * @var string
      */
     public $url;

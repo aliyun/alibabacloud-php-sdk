@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteAIImageInfosRequest extends Model
 {
     /**
+     * @description The IDs of the images that are submitted for AI processing. You can obtain the value of AIImageInfoId from the response to the [ListAIImageInfo](~~ListAIImageInfo~~) operation.
+     *
+     * - Separate multiple IDs with commas (,).
+     * @example b89a6aabf144*****6197ebd6fe6cf29
+     *
      * @var string
      */
     public $AIImageInfoIds;

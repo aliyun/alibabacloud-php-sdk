@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateCategoryRequest extends Model
 {
     /**
+     * @description The ID of the category.
+     *
+     * @example 10020****
+     *
      * @var int
      */
     public $cateId;
 
     /**
+     * @description The name of the category.
+     *
+     *   The value can be up to 64 bytes in length.
+     *   The string must be encoded in the UTF-8 format.
+     *
+     * @example beauty
+     *
      * @var string
      */
     public $cateName;

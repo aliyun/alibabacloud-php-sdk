@@ -9,46 +9,82 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodRefreshQuotaResponseBody extends Model
 {
     /**
+     * @description The maximum number of Object Storage Service (OSS) buckets that can be refreshed each day.
+     *
+     * @example 500
+     *
      * @var string
      */
     public $blockQuota;
 
     /**
+     * @description The maximum number of directories of files that can be refreshed each day.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $dirQuota;
 
     /**
+     * @description The remaining number of directories of files that can be refreshed on the current day.
+     *
+     * @example 99
+     *
      * @var string
      */
     public $dirRemain;
 
     /**
+     * @description The maximum number of URLs of files that can be prefetched each day.
+     *
+     * @example 500
+     *
      * @var string
      */
     public $preloadQuota;
 
     /**
+     * @description The remaining number of URLs of files that can be prefetched on the current day.
+     *
+     * @example 500
+     *
      * @var string
      */
     public $preloadRemain;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 42E0554B-80F4-4921-****-ACFB22CAAAD0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The maximum number of URLs of files that can be refreshed each day.
+     *
+     * @example 2000
+     *
      * @var string
      */
     public $urlQuota;
 
     /**
+     * @description The remaining number of URLs of files that can be refreshed on the current day.
+     *
+     * @example 1996
+     *
      * @var string
      */
     public $urlRemain;
 
     /**
+     * @description The remaining number of OSS buckets that can be refreshed on the current day.
+     *
+     * @example 500
+     *
      * @var string
      */
     public $blockRemain;

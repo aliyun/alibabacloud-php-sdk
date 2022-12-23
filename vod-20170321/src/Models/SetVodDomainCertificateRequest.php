@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class SetVodDomainCertificateRequest extends Model
 {
     /**
+     * @description The name of the certificate.
+     *
+     * @example cert_name
+     *
      * @var string
      */
     public $certName;
 
     /**
+     * @description The domain name that is secured by the certificate. The domain name uses HTTPS acceleration.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -24,16 +32,31 @@ class SetVodDomainCertificateRequest extends Model
     public $ownerId;
 
     /**
+     * @description The private key. This parameter is required only if you enable the SSL certificate.
+     *
+     * @example ****
+     *
      * @var string
      */
     public $SSLPri;
 
     /**
+     * @description Specifies whether to enable the SSL certificate. Valid values:
+     *
+     *   **on**: enables the SSL certificate.
+     *   **off**: disables the SSL certificate. Default value: off.
+     *
+     * @example off
+     *
      * @var string
      */
     public $SSLProtocol;
 
     /**
+     * @description The content of the certificate. This parameter is required only if you enable the SSL certificate.
+     *
+     * @example ****
+     *
      * @var string
      */
     public $SSLPub;

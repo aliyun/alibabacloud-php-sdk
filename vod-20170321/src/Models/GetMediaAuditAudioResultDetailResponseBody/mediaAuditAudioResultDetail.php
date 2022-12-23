@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class mediaAuditAudioResultDetail extends Model
 {
     /**
+     * @description The list of results.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageTotal;
 
     /**
+     * @description The total number of pages returned.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $total;

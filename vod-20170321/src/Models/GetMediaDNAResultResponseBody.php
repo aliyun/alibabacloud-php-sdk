@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetMediaDNAResultResponseBody extends Model
 {
     /**
+     * @description The media fingerprinting results.
+     *
      * @var DNAResult
      */
     public $DNAResult;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 63FC4896-E956-4B*****7D-134FF1BC597A
+     *
      * @var string
      */
     public $requestId;

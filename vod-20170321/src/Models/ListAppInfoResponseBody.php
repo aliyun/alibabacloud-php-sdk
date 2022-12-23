@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListAppInfoResponseBody extends Model
 {
     /**
+     * @description The details of each application.
+     *
      * @var appInfoList[]
      */
     public $appInfoList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 25818875-5F78-4A13-4D5C-D7393642****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $total;

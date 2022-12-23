@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class UpdateVideoInfosResponseBody extends Model
 {
     /**
+     * @description The IDs of the videos that cannot be modified. Generally, videos cannot be modified if you do not have required [permissions](~~113600~~).
+     *
      * @var string[]
      */
     public $forbiddenVideoIds;
 
     /**
+     * @description The IDs of the videos that do not exist.
+     *
      * @var string[]
      */
     public $nonExistVideoIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 25818875-5F78-4AF6-D7393642CA58****
+     *
      * @var string
      */
     public $requestId;

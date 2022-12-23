@@ -11,86 +11,159 @@ use AlibabaCloud\Tea\Model;
 class material extends Model
 {
     /**
+     * @description The category ID of the material.
+     *
+     * @example 100005****
+     *
      * @var int
      */
     public $cateId;
 
     /**
+     * @description The category name of the material.
+     *
+     * @example test1
+     *
      * @var string
      */
     public $cateName;
 
     /**
+     * @description The thumbnail URL of the material.
+     *
+     * @example http://example.aliyundoc.com/aivideocover/46fa444aa34065cb9250f6c****\/image_01.jpg
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @description The time when the material was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2017-10-19 10:48:17
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The description of the material.
+     *
+     * @example test2
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The duration of the material. The value is rounded to four decimal places. Unit: seconds.
+     *
+     * @example 15.16
+     *
      * @var float
      */
     public $duration;
 
     /**
+     * @description The ID of the material.
+     *
+     * @example 85befc4118b84c6723e53b80b1****
+     *
      * @var string
      */
     public $materialId;
 
     /**
+     * @description The type of the material. Valid values:
+     *
+     *   **video**
+     *   **audio**
+     *   **image**
+     *
+     * @example video
+     *
      * @var string
      */
     public $materialType;
 
     /**
+     * @description The time when the material was last updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2017-10-19 10:48:17
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @description The size of the mezzanine file. Unit: byte.
+     *
+     * @example 1682694
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The URLs of material snapshots. The value is an array.
+     *
      * @var snapshots
      */
     public $snapshots;
 
     /**
+     * @description The source of the sprite.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The configuration of the sprite.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $spriteConfig;
 
     /**
+     * @description The URLs of material sprites. The value is an array.
+     *
      * @var sprites
      */
     public $sprites;
 
     /**
+     * @description The status of the material. Valid values:
+     *
+     *   **Normal**: The material is in draft.
+     *   **Producing**: The material is being produced.
+     *   **Produced**: The material was produced.
+     *   **ProduceFailed**: The material failed to be produced.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The tag of the material. Multiple tags are separated by commas (,).
+     *
+     * @example editing test
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The title of the material.
+     *
+     * @example test
+     *
      * @var string
      */
     public $title;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class AddEditingProjectRequest extends Model
 {
     /**
+     * @description The thumbnail URL of the online editing project. If you do not specify this parameter and the video track in the timeline has mezzanine files, the thumbnail of the first mezzanine file in the timeline is used.
+     *
+     * @example https://demo.aliyundoc.com/6AB4D0E1E1C74468883516C2349D1FC2-6-2.png
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @description The description of the online editing project.
+     *
+     * @example testtimeline001desciption
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The region where you want to create the online editing project.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $division;
@@ -44,11 +56,20 @@ class AddEditingProjectRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The timeline of the online editing project, in JSON format. For more information about the structure, see [Timeline](~~52839~~).
+     *
+     * If you do not specify this parameter, an empty timeline is created and the duration of the online editing project is zero.
+     * @example {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"cc3308ac5006aed55a54328bc3443****"},{"MediaId":"95948ddba24446b6aed5db985e78****"}]}]}
+     *
      * @var string
      */
     public $timeline;
 
     /**
+     * @description The title of the online editing project.
+     *
+     * @example testtimeline
+     *
      * @var string
      */
     public $title;

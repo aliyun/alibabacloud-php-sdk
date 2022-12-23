@@ -10,96 +10,180 @@ use AlibabaCloud\Tea\Model;
 class video extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example app-****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The review status of the video. Valid values:
+     *
+     *   **Normal**: pass
+     *   **Blocked**: failed
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $auditStatus;
 
     /**
+     * @description The category ID of the video.
+     *
+     * @example 781111****
+     *
      * @var int
      */
     public $cateId;
 
     /**
+     * @description The category of the video.
+     *
+     * @example category name
+     *
      * @var string
      */
     public $cateName;
 
     /**
+     * @description The thumbnail URL of the video.
+     *
+     * @example https://example.aliyundoc.com/****.jpg
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @description The time when the video was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2017-11-14T09:15:50Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The information about the custom media asset.
+     * > This parameter has been deprecated. This parameter is no longer returned when you call the API.
+     * @example {"aaa":"test"}
+     *
      * @var string
      */
     public $customMediaInfo;
 
     /**
+     * @description The description of the video.
+     *
+     * @example video description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The duration of the video. Unit: seconds.
+     *
+     * @example 135.6
+     *
      * @var float
      */
     public $duration;
 
     /**
+     * @description The time when the video was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2017-11-14T10:15:50Z
+     *
      * @var string
      */
     public $modificationTime;
 
     /**
+     * @description The region ID of the Object Storage Service (OSS) bucket.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The size of the source video file. Unit: byte.
+     *
+     * @example 10897890
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The URL array of video snapshots.
+     *
      * @var snapshots
      */
     public $snapshots;
 
     /**
+     * @description The video status. Valid values:
+     *   **Uploading**: The video is being uploaded.
+     *   **UploadFail**: The video failed to be uploaded.
+     *   **UploadSucc**: The video has been uploaded.
+     *   **Transcoding**: The video is being transcoded.
+     *   **TranscodeFail**: The video failed to be transcoded.
+     *   **Blocked**: The video failed the review.
+     *   **Normal**: The video passed the review.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The OSS bucket where the video is stored.
+     *
+     * @example out-201703232251****.oss-cn-shanghai.aliyuncs.com
+     *
      * @var string
      */
     public $storageLocation;
 
     /**
+     * @description The tags of the video. Separate multiple tags with commas (,).
+     *
+     * @example tag1,tag2
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The ID of the template group.
+     *
+     * @example 9ae2af636ca64835b0c10412f448****
+     *
      * @var string
      */
     public $templateGroupId;
 
     /**
+     * @description The title of the video.
+     *
+     * @example video title
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The ID of the video.
+     *
+     * @example 9b73864d75f1d231e9001cd5f8****
+     *
      * @var string
      */
     public $videoId;

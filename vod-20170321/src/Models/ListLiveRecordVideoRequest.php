@@ -9,41 +9,75 @@ use AlibabaCloud\Tea\Model;
 class ListLiveRecordVideoRequest extends Model
 {
     /**
+     * @description The name of the application that was used to record the live stream.
+     *
+     * @example testApp
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The domain name of the recorded live stream.
+     *
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range to query. The query is performed based on the time range during which the required live streams were recorded. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * @example 2017-01-11T13:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **100**. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The sorting rule of results. Valid values:
+     *   **CreationTime:Desc**: sorts the results based on the creation time in descending order. This is the default value.
+     *   **CreationTime:Asc**: sorts the results based on the creation time in ascending order.
+     *
+     * @example CreationTime:Desc
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @description The beginning of the time range to query. The query is performed based on the time range during which the required live streams were recorded. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * @example 2017-01-11T12:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The name of the recorded live stream.
+     *
+     * @example live-test
+     *
      * @var string
      */
     public $streamName;

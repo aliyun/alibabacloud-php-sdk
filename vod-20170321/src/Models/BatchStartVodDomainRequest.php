@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class BatchStartVodDomainRequest extends Model
 {
     /**
+     * @description The domain name for CDN. Separate multiple domain names with commas (,).
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainNames;

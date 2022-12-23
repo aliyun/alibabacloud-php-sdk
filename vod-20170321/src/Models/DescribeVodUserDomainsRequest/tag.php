@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The key of tag N. Valid values of N: **1** to **20**.
+     *
+     * If you do not specify this parameter, all tag keys are queried.
+     * @example key
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of tag N. Valid values of N: **1** to **20**.
+     *
+     * If you do not specify this parameter, all tag values are queried.
+     * @example value
+     *
      * @var string
      */
     public $value;

@@ -10,66 +10,124 @@ use AlibabaCloud\Tea\Model;
 class imageInfo extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example app-****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the category.
+     *
+     * @example 254766071
+     *
      * @var int
      */
     public $cateId;
 
     /**
+     * @description The name of the category.
+     *
+     * @example test name
+     *
      * @var string
      */
     public $cateName;
 
     /**
+     * @description The time when the image file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2018-11-21T02:37:23Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The description of the image.
+     *
+     * @example test description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the image.
+     *
+     * @example bbc65bba53f9*****ed90de118a7849
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The type of the image. Valid values:
+     *
+     * - **CoverSnapshot**: thumbnail snapshot.
+     * - **NormalSnapshot**: normal snapshot.
+     * - **SpriteSnapshot**: sprite snapshot.
+     * - **SpriteOriginSnapshot**: sprite source snapshot.
+     * - **All**: images of all the preceding types. If this parameter is not set to All, you can specify multiple types and separate them with commas (,).
+     * @example NormalSnapshot
+     *
      * @var string
      */
     public $imageType;
 
     /**
+     * @description The information about the image mezzanine file.
+     *
      * @var mezzanine
      */
     public $mezzanine;
 
     /**
+     * @description The status of the image. Valid values:
+     *
+     * - **Uploading**: The image is being uploaded. This is the initial status.
+     * - **Normal**: The image is uploaded.
+     * - **UploadFail**: The image fails to be uploaded.
+     * @example Uploading
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The OSS bucket where the image is stored.
+     *
+     * @example outin-****..oss-cn-shanghai.aliyuncs.com
+     *
      * @var string
      */
     public $storageLocation;
 
     /**
+     * @description The tag of the image. Multiple tags are separated by commas (,).
+     *
+     * @example tag1,tag2,tag3
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The title of the image.
+     *
+     * @example this is a sample
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The URL of the image. If a CDN domain name is specified, a CDN URL is returned. Otherwise, an OSS URL is returned.
+     *
+     * @example http://example.aliyundoc.com/image/default/****.gif?auth_key=****
+     *
      * @var string
      */
     public $URL;

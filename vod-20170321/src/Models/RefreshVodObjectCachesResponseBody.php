@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class RefreshVodObjectCachesResponseBody extends Model
 {
     /**
+     * @description The ID of the refresh task. Separate multiple task IDs with commas (,).
+     *
+     * @example 70422*****2904
+     *
      * @var string
      */
     public $refreshTaskId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D61E4801-EAFF-4A63-****-FBF6CE1CFD1C
+     *
      * @var string
      */
     public $requestId;

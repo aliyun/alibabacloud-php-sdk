@@ -9,26 +9,51 @@ use AlibabaCloud\Tea\Model;
 class source extends Model
 {
     /**
+     * @description The address of the origin server.
+     *
+     * @example ****.oss-cn-hangzhou.aliyuncs.com
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The status of the origin server. Valid values:
+     *   **online**: indicates that the origin server is enabled.
+     *   **offline**: indicates that the origin server is disabled.
+     *
+     * @example online
+     *
      * @var string
      */
     public $enabled;
 
     /**
+     * @description The port number. Valid values: 443 and 80.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The priority of the origin server.
+     *
+     * @example 50
+     *
      * @var string
      */
     public $priority;
 
     /**
+     * @description The type of the origin server. Valid values:
+     *   **ipaddr**: a server that you can access by using an IP address.
+     *   **domain**: a server that you can access by using a domain name.
+     *   **oss**: the URL of an Object Storage Service (OSS) bucket.
+     *
+     * @example oss
+     *
      * @var string
      */
     public $type;

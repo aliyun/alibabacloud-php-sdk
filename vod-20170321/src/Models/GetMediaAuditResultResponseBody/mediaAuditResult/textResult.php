@@ -9,31 +9,65 @@ use AlibabaCloud\Tea\Model;
 class textResult extends Model
 {
     /**
+     * @description The text content for review.
+     *
+     * @example hot line 123****
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The category of the review result. Valid values:
+     *
+     * - **spam**
+     * - **ad**
+     * - **abuse**
+     * - **flood**
+     * - **contraband**
+     * - **meaningless**
+     * - **normal**
+     * @example ad
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The review scenario. The value is **antispam**.
+     *
+     * @example antispam
+     *
      * @var string
      */
     public $scene;
 
     /**
+     * @description The score of the image of the category that is indicated by Label.
+     *
+     * @example 100.00000
+     *
      * @var string
      */
     public $score;
 
     /**
+     * @description The recommendation for review results. Valid values:
+     *
+     * - **block**
+     * - **review**
+     * - **pass**
+     * @example pass
+     *
      * @var string
      */
     public $suggestion;
 
     /**
+     * @description The type of the text. The value is **title**.
+     *
+     * @example title
+     *
      * @var string
      */
     public $type;

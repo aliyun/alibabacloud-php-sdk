@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class AddTranscodeTemplateGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 25818875-5F78-4AF6-D7393642CA58****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the transcoding template group.
+     *
+     * @example 34e908aa4024af7821c31f93a2a****
+     *
      * @var string
      */
     public $transcodeTemplateGroupId;

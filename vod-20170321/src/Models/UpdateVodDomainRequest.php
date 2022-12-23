@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateVodDomainRequest extends Model
 {
     /**
+     * @description The domain name for CDN.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -24,11 +28,19 @@ class UpdateVodDomainRequest extends Model
     public $securityToken;
 
     /**
+     * @description The information about the address of the origin server.
+     *
+     * @example [{"content":"1.1.1.1","type":"ipaddr","priority":"20","port":80}]
+     *
      * @var string
      */
     public $sources;
 
     /**
+     * @description The top-level domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $topLevelDomain;

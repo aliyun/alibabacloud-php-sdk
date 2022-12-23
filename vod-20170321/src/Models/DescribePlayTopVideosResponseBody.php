@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribePlayTopVideosResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4B0BCF9F-2FD5-4817-****-7BEBBE3AF90B"
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The daily playback statistics on each top video.
+     *
      * @var topPlayVideos
      */
     public $topPlayVideos;
 
     /**
+     * @description The total number of entries that were collected in playback statistics on top videos.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalNum;

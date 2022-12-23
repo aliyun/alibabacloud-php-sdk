@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class AddVodDomainRequest extends Model
 {
     /**
+     * @description The URL that is used for health checks.
+     *
+     * @example www.example.com/test.html
+     *
      * @var string
      */
     public $checkUrl;
 
     /**
+     * @description The domain name for CDN that you want to add to ApsaraVideo VOD. Wildcard domain names are supported. Start the domain name with a period (.). Example: .example.com.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -29,6 +37,13 @@ class AddVodDomainRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is applicable to users of level 3 or higher in mainland China and users outside mainland China. Valid values:
+     *
+     * - **domestic**: mainland China. This is the default value.
+     * - **overseas**: outside mainland China.
+     * - **global**: regions in and outside mainland China.
+     * @example domestic
+     *
      * @var string
      */
     public $scope;
@@ -39,11 +54,19 @@ class AddVodDomainRequest extends Model
     public $securityToken;
 
     /**
+     * @description The information about the address of the origin server. For more information about the Sources parameter, see the **Sources** section.
+     *
+     * @example [{"content":"1.1.1.1","type":"ipaddr","priority":"20","port":80}]
+     *
      * @var string
      */
     public $sources;
 
     /**
+     * @description The top-level domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $topLevelDomain;

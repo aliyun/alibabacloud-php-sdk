@@ -9,16 +9,36 @@ use AlibabaCloud\Tea\Model;
 class terrorism extends Model
 {
     /**
+     * @description The category of the review result. Valid values:
+     *
+     *   **terrorism**: terrorist content
+     *   **outfit**: special costume
+     *   **logo**: special logo
+     *   **weapon**: weapon
+     *   **politics**: politically sensitive content
+     *   **others**: other terrorist and politically sensitive content
+     *   **normal**: normal content
+     *
+     * @example normal
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The score of the review result category.
+     *
+     * @example 100.00
+     *
      * @var string
      */
     public $score;
 
     /**
+     * @description The position in the video. Unit: milliseconds.
+     *
+     * @example 3005
+     *
      * @var string
      */
     public $timestamp;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class VerifyVodDomainOwnerRequest extends Model
 {
     /**
+     * @description The domain name of which you want to verify the ownership. You can specify only one domain name in each call.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -19,6 +23,10 @@ class VerifyVodDomainOwnerRequest extends Model
     public $ownerId;
 
     /**
+     * @description The DNS verification method that is used to verify the ownership of the specified domain name.
+     *
+     * @example dnsCheck
+     *
      * @var string
      */
     public $verifyType;

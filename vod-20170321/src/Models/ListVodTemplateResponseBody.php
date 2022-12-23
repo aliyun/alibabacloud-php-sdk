@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListVodTemplateResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 2A56B75B-B7E6-48*****27-A9BEAA3E50A8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The snapshot templates.
+     *
      * @var vodTemplateInfoList[]
      */
     public $vodTemplateInfoList;

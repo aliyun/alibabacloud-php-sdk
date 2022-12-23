@@ -10,61 +10,123 @@ use AlibabaCloud\Tea\Model;
 class transcodeJobInfoList extends Model
 {
     /**
+     * @description The time when the transcoding job was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-02-26T08:30:16Z
+     *
      * @var string
      */
     public $completeTime;
 
     /**
+     * @description The time when the transcoding job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-02-26T08:27:16Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The video resolution. Valid values:
+     *
+     *   **LD**: low definition
+     *   **SD**: standard definition
+     *   **HD**: high definition
+     *   **FHD**: ultra high definition
+     *   **OD**: original definition
+     *   **2K**: 2K
+     *   **4K**: 4K
+     *   **SQ**: standard sound quality
+     *   **HQ**: high sound quality
+     *   **AUTO**: adaptive bitrate Adaptive bitrate streams are returned only if PackageSetting is set in the transcoding template. For more information, see [Basic structures](~~52839~~).
+     *
+     * > This parameter indicates the definition that is configured in the transcoding template and does not indicate the actual resolution of the output video.
+     * @example LD
+     *
      * @var string
      */
     public $definition;
 
     /**
+     * @description The error code returned when the transcoding job failed.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned when the transcoding job failed.
+     *
+     * @example ErrorMessage
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The Object Storage Service (OSS) URL of the input file.
+     *
+     * @example http://outin-40564*****e1403e7.oss-cn-shanghai.aliyuncs.com/customerTrans/5b95e568f8e*****47f38e/31f1184c-*****b2a2-f94-c213f.wmv
+     *
      * @var string
      */
     public $inputFileUrl;
 
     /**
+     * @description The information about the output file.
+     *
      * @var outputFile
      */
     public $outputFile;
 
     /**
+     * @description The priority of the transcoding job.
+     *
+     * @example 6
+     *
      * @var string
      */
     public $priority;
 
     /**
+     * @description The ID of the transcoding job.
+     *
+     * @example 38f0e513c88*****85515f9d50be188
+     *
      * @var string
      */
     public $transcodeJobId;
 
     /**
+     * @description The status of the transcoding job.
+     *
+     *   **Transcoding**
+     *   **TranscodeSuccess**
+     *   **TranscodeFail**
+     *
+     * @example Transcoding
+     *
      * @var string
      */
     public $transcodeJobStatus;
 
     /**
+     * @description The progress of the transcoding job. Valid values: `[0,100]`.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $transcodeProgress;
 
     /**
+     * @description The ID of the transcoding template.
+     *
+     * @example 174b0534fea3*****b51c8f0ad1374
+     *
      * @var string
      */
     public $transcodeTemplateId;

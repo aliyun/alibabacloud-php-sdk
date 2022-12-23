@@ -10,76 +10,142 @@ use AlibabaCloud\Tea\Model;
 class video extends Model
 {
     /**
+     * @description The ID of the application. Default value: **app-1000000**.
+     *
+     * @example app-1000000
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the video category.
+     *
+     * @example 781111
+     *
      * @var int
      */
     public $cateId;
 
     /**
+     * @description The name of the video category.
+     *
+     * @example category name
+     *
      * @var string
      */
     public $cateName;
 
     /**
+     * @description The URL of the video thumbnail.
+     *
+     * @example https://example.aliyundoc.com/****.jpg
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @description The time when the video file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2017-11-14T09:15:50Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The description of the video.
+     *
+     * @example video description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The duration of the video. Unit: seconds.
+     *
+     * @example 135.6
+     *
      * @var float
      */
     public $duration;
 
     /**
+     * @description The time when the video file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2017-11-14T09:16:50Z
+     *
      * @var string
      */
     public $modificationTime;
 
     /**
+     * @description The size of the video mezzanine file. Unit: byte.
+     *
+     * @example 10897890
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The URL array of video snapshots.
+     *
      * @var snapshots
      */
     public $snapshots;
 
     /**
+     * @description The status of the video. By default, videos in all states are returned. Multiple states are separated by commas (,). Valid values:
+     *
+     *   **Uploading**: The video is being uploaded.
+     *   **UploadFail**: The video fails to be uploaded.
+     *   **UploadSucc**: The video is uploaded.
+     *   **Transcoding**: The video is being transcoded.
+     *   **TranscodeFail**: The video fails to be transcoded.
+     *   **Blocked**: The video is blocked.
+     *   **Normal**: The video can be played.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The OSS bucket where the video file is stored.
+     *
+     * @example out-****.oss-cn-shanghai.aliyuncs.com
+     *
      * @var string
      */
     public $storageLocation;
 
     /**
+     * @description The tags of the video. Multiple tags are separated by commas (,).
+     *
+     * @example tag1,tag2
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The title of the video.
+     *
+     * @example video title
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The ID of the video.
+     *
+     * @example 9ae2af636ca6c10412f44891fc****
+     *
      * @var string
      */
     public $videoId;

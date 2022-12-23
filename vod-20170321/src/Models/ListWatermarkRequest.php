@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListWatermarkRequest extends Model
 {
     /**
+     * @description The ID of the application. Default value: **app-1000000**. For more information, see [Overview](~~113600~~).
+     *
+     * @example app-****
+     *
      * @var string
      */
     public $appId;

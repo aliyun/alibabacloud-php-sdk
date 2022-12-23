@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class SubmitAIJobResponseBody extends Model
 {
     /**
+     * @description The information about the AI jobs.
+     *
      * @var AIJobList
      */
     public $AIJobList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 25818875-5F78-4A13-BEF6-D73936****
+     *
      * @var string
      */
     public $requestId;

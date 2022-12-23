@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class SubmitDynamicImageJobResponseBody extends Model
 {
     /**
+     * @description The information about the animated image job.
+     *
      * @var dynamicImageJob
      */
     public $dynamicImageJob;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 25818875-5F78-74A6-BEF6-D7393642****
+     *
      * @var string
      */
     public $requestId;

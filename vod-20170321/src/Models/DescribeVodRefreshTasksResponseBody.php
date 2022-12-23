@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodRefreshTasksResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 174F6032-AA26-470D-****-36F0EB205BEE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the returned tasks.
+     *
      * @var tasks
      */
     public $tasks;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

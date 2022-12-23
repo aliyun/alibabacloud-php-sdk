@@ -10,16 +10,24 @@ use AlibabaCloud\Tea\Model;
 class GetVideoInfosResponseBody extends Model
 {
     /**
+     * @description The IDs of the videos that do not exist.
+     *
      * @var string[]
      */
     public $nonExistVideoIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 25818875-5F78-4AF6-D7393642CA58****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the video.
+     *
      * @var videoList[]
      */
     public $videoList;

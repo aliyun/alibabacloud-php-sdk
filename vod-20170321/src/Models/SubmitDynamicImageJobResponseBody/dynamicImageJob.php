@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class dynamicImageJob extends Model
 {
     /**
+     * @description The ID of the animated image job.
+     *
+     * @example ad90a501b1bfb72374ad0050746****
+     *
      * @var string
      */
     public $jobId;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class SubmitPreprocessJobsRequest extends Model
 {
     /**
+     * @description The preprocessing type. Set the value to **LivePreprocess**, which indicates that the video is preprocessed in the production studio.
+     *
+     * @example LivePreprocess
+     *
      * @var string
      */
     public $preprocessType;
 
     /**
+     * @description The ID of the video.
+     *
+     * @example d3e680e618708efbf2cae7cc9312****
+     *
      * @var string
      */
     public $videoId;

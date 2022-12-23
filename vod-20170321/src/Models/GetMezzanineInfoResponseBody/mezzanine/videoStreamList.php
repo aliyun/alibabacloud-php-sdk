@@ -9,121 +9,217 @@ use AlibabaCloud\Tea\Model;
 class videoStreamList extends Model
 {
     /**
+     * @description The average frame rate.
+     *
+     * @example 30.0
+     *
      * @var string
      */
     public $avgFPS;
 
     /**
+     * @description The bitrate of the file. Unit: Kbit/s.
+     *
+     * @example 500
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @description The full name of the codec format.
+     *
+     * @example H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
+     *
      * @var string
      */
     public $codecLongName;
 
     /**
+     * @description The short name of the codec format.
+     *
+     * @example h264
+     *
      * @var string
      */
     public $codecName;
 
     /**
+     * @description The tag of the codec format.
+     *
+     * @example 0x31637661
+     *
      * @var string
      */
     public $codecTag;
 
     /**
+     * @description The tag string of the codec format.
+     *
+     * @example avc1
+     *
      * @var string
      */
     public $codecTagString;
 
     /**
+     * @description The codec time base.
+     *
+     * @example 1/60
+     *
      * @var string
      */
     public $codecTimeBase;
 
     /**
+     * @description The display aspect ratio.
+     *
+     * @example 0:1
+     *
      * @var string
      */
     public $dar;
 
     /**
+     * @description The duration of the video stream.
+     *
+     * @example 3.166667
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The target frame rate.
+     *
+     * @example 30.0
+     *
      * @var string
      */
     public $fps;
 
     /**
+     * @description The HDR type.
+     *
+     * @example HDR
+     *
      * @var string
      */
     public $HDRType;
 
     /**
+     * @description Indicates whether the video stream contains bidirectional frames (B-frames).
+     *
+     * @example 0
+     *
      * @var string
      */
     public $hasBFrames;
 
     /**
+     * @description The height of the video resolution.
+     *
+     * @example 320
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @description The sequence number of the video stream, which indicates the position of the video stream in all video streams.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $index;
 
     /**
+     * @description The language.
+     *
+     * @example und
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The codec level.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description The total number of frames.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $numFrames;
 
     /**
+     * @description The pixel format.
+     *
+     * @example yuv420p
+     *
      * @var string
      */
     public $pixFmt;
 
     /**
+     * @description The codec profile.
+     *
+     * @example Main
+     *
      * @var string
      */
     public $profile;
 
     /**
+     * @description The rotation angle of the video. Valid values: **\[0, 360)**.
+     *
+     * @example 90
+     *
      * @var string
      */
     public $rotate;
 
     /**
+     * @description The sample aspect ratio.
+     *
+     * @example 0:1
+     *
      * @var string
      */
     public $sar;
 
     /**
+     * @description The beginning of the time range that was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2017-01-11T12:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The time base.
+     *
+     * @example 0.000000
+     *
      * @var string
      */
     public $timebase;
 
     /**
+     * @description The width of the video resolution.
+     *
+     * @example 568
+     *
      * @var string
      */
     public $width;

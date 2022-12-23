@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class userPlayStatisAvg extends Model
 {
     /**
+     * @description The average number of video views.
+     *
+     * @example 170
+     *
      * @var string
      */
     public $avgPlayCount;
 
     /**
+     * @description The average playback duration. Unit: milliseconds.
+     *
+     * @example 1035902.8
+     *
      * @var string
      */
     public $avgPlayDuration;
 
     /**
+     * @description The date when the statistics were generated. The date follows the *yyyy-MM-dd* format.
+     *
+     * @example 20170120
+     *
      * @var string
      */
     public $date;

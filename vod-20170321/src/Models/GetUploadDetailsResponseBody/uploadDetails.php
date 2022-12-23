@@ -9,66 +9,118 @@ use AlibabaCloud\Tea\Model;
 class uploadDetails extends Model
 {
     /**
+     * @description The time when the upload job was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-04-28T09:45:07Z
+     *
      * @var string
      */
     public $completionTime;
 
     /**
+     * @description The time when the upload job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-04-28T09:42:07Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The device model.
+     *
+     * @example Chrome
+     *
      * @var string
      */
     public $deviceModel;
 
     /**
+     * @description The size of the uploaded file. Unit: byte.
+     *
+     * @example 46
+     *
      * @var int
      */
     public $fileSize;
 
     /**
+     * @description The ID of the uploaded audio or video.
+     *
+     * @example 61ccbdb06fa83012be4d8083f6****
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @description The time when the information about the media file was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2019-04-28T09:43:12Z
+     *
      * @var string
      */
     public $modificationTime;
 
     /**
+     * @description The status of the video. For more information about the valid values and value description of the parameter, see the "Status: the status of a video" section of the [Basic structures](~~52839~~) topic.
+     *
+     * @example Uploading
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The title of the media file.
+     *
+     * @example Test details
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The IP address of the server that uploads the media file.
+     *
+     * @example 192.168.0.1
+     *
      * @var string
      */
     public $uploadIP;
 
     /**
+     * @description The upload ratio.
+     *
+     * @example 0.038
+     *
      * @var float
      */
     public $uploadRatio;
 
     /**
+     * @description The upload size. Unit: byte.
+     *
+     * @example 346
+     *
      * @var int
      */
     public $uploadSize;
 
     /**
+     * @description The method that is used to upload the media file.
+     *
+     * @example WebSDK
+     *
      * @var string
      */
     public $uploadSource;
 
     /**
+     * @description The status of the upload job. For more information about the valid values and value description of the parameter, see the "Status: the status of a URL-based upload job" section of the [Basic structures](~~52839~~) topic.
+     *
+     * @example Uploading
+     *
      * @var string
      */
     public $uploadStatus;

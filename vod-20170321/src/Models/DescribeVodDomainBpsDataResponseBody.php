@@ -10,41 +10,71 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainBpsDataResponseBody extends Model
 {
     /**
+     * @description The bandwidth data that is collected for each interval.
+     *
      * @var bpsDataPerInterval
      */
     public $bpsDataPerInterval;
 
     /**
+     * @description The time interval between the returned entries. Unit: seconds.
+     *
+     * @example 300
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The domain name for CDN.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2015-12-10T14:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The name of the ISP. By default, the data of all ISPs is returned.
+     *
+     * @example Alibaba
+     *
      * @var string
      */
     public $ispNameEn;
 
     /**
+     * @description The name of the region. By default, the data in all regions is returned.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $locationNameEn;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3C6CCEC4-6B88-4D4A-****-D47B3D92CF8F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2015-12-10T13:00:00Z
+     *
      * @var string
      */
     public $startTime;

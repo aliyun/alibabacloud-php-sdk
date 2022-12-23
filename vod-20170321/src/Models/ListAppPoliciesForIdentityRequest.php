@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class ListAppPoliciesForIdentityRequest extends Model
 {
     /**
+     * @description The ID of the application. Default value: **app-1000000**. For more information, see [Overview](~~113600~~).
+     *
+     * @example app-****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The name of the identity.
+     *
+     *   Specifies the ID of the RAM user when the IdentityType parameter is set to RamUser.
+     *   Specifies the name of the RAM role when the IdentityType parameter is set to RamRole.
+     *
+     * @example test****name
+     *
      * @var string
      */
     public $identityName;
 
     /**
+     * @description The type of the identity. Valid values:
+     *
+     *   **RamUser**: a RAM user.
+     *   **RamRole**: a RAM role.
+     *
+     * @example RamUser
+     *
      * @var string
      */
     public $identityType;

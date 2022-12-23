@@ -100,6 +100,10 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainDetailRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainDetailResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainLogRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainLogResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainSrcBpsDataRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainSrcBpsDataResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainSrcTrafficDataRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainSrcTrafficDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainTrafficDataRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainTrafficDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainUsageDataRequest;
@@ -387,10 +391,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param AddAITemplateRequest $request
-     * @param RuntimeOptions       $runtime
+     * Before you add an AI template for automated review and smart thumbnail tasks, make sure that [automated review](https://ai.aliyun.com/vi/censor) and [smart thumbnail](https://ai.aliyun.com/vi/cover) are enabled.
+     *   *
+     * @param AddAITemplateRequest $request AddAITemplateRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddAITemplateResponse
+     * @return AddAITemplateResponse AddAITemplateResponse
      */
     public function addAITemplateWithOptions($request, $runtime)
     {
@@ -424,9 +430,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param AddAITemplateRequest $request
+     * Before you add an AI template for automated review and smart thumbnail tasks, make sure that [automated review](https://ai.aliyun.com/vi/censor) and [smart thumbnail](https://ai.aliyun.com/vi/cover) are enabled.
+     *   *
+     * @param AddAITemplateRequest $request AddAITemplateRequest
      *
-     * @return AddAITemplateResponse
+     * @return AddAITemplateResponse AddAITemplateResponse
      */
     public function addAITemplate($request)
     {
@@ -436,10 +444,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param AddCategoryRequest $request
-     * @param RuntimeOptions     $runtime
+     * A maximum of three category levels can be created. Each category can contain up to 100 subcategories.
+     *   *
+     * @param AddCategoryRequest $request AddCategoryRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddCategoryResponse
+     * @return AddCategoryResponse AddCategoryResponse
      */
     public function addCategoryWithOptions($request, $runtime)
     {
@@ -473,9 +483,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param AddCategoryRequest $request
+     * A maximum of three category levels can be created. Each category can contain up to 100 subcategories.
+     *   *
+     * @param AddCategoryRequest $request AddCategoryRequest
      *
-     * @return AddCategoryResponse
+     * @return AddCategoryResponse AddCategoryResponse
      */
     public function addCategory($request)
     {
@@ -552,10 +564,17 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param AddTranscodeTemplateGroupRequest $request
-     * @param RuntimeOptions                   $runtime
+     * - You cannot perform custom operations on transcoding template groups that are **locked** in the ApsaraVideo VOD console. To manage these transcoding template groups, submit a ticket to contact Alibaba Cloud technical support.
+     *   * - An Object Storage Service (OSS) bucket is required to store files that are used for transcoding. You can create a transcoding template group only after ApsaraVideo VOD has allocated a bucket to you. You can activate the bucket on the Storage page in the ApsaraVideo VOD console.
+     *   * - You cannot add transcoding templates to the **No Transcoding** template group.
+     *   * - You can create a maximum of 20 transcoding template groups.
+     *   * - You can add a maximum of 20 transcoding templates to a transcoding template group.
+     *   * - If you need to generate an URL for adaptive bitrate streaming, you can add a maximum of 10 video packaging templates to a transcoding template group. If you add more than 10 video packaging templates, URLs of the video transcoded based on the video packaging templates are generated but the URL for adaptive bitrate streaming is not generated.
+     *   *
+     * @param AddTranscodeTemplateGroupRequest $request AddTranscodeTemplateGroupRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddTranscodeTemplateGroupResponse
+     * @return AddTranscodeTemplateGroupResponse AddTranscodeTemplateGroupResponse
      */
     public function addTranscodeTemplateGroupWithOptions($request, $runtime)
     {
@@ -592,9 +611,16 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param AddTranscodeTemplateGroupRequest $request
+     * - You cannot perform custom operations on transcoding template groups that are **locked** in the ApsaraVideo VOD console. To manage these transcoding template groups, submit a ticket to contact Alibaba Cloud technical support.
+     *   * - An Object Storage Service (OSS) bucket is required to store files that are used for transcoding. You can create a transcoding template group only after ApsaraVideo VOD has allocated a bucket to you. You can activate the bucket on the Storage page in the ApsaraVideo VOD console.
+     *   * - You cannot add transcoding templates to the **No Transcoding** template group.
+     *   * - You can create a maximum of 20 transcoding template groups.
+     *   * - You can add a maximum of 20 transcoding templates to a transcoding template group.
+     *   * - If you need to generate an URL for adaptive bitrate streaming, you can add a maximum of 10 video packaging templates to a transcoding template group. If you add more than 10 video packaging templates, URLs of the video transcoded based on the video packaging templates are generated but the URL for adaptive bitrate streaming is not generated.
+     *   *
+     * @param AddTranscodeTemplateGroupRequest $request AddTranscodeTemplateGroupRequest
      *
-     * @return AddTranscodeTemplateGroupResponse
+     * @return AddTranscodeTemplateGroupResponse AddTranscodeTemplateGroupResponse
      */
     public function addTranscodeTemplateGroup($request)
     {
@@ -604,10 +630,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param AddVodDomainRequest $request
-     * @param RuntimeOptions      $runtime
+     * *   This operation is available only in the **China (Shanghai)** region.
+     *   * *   Before you add a domain name for CDN, you must activate [ApsaraVideo VOD](~~51512~~) and apply for an Internet content provider (ICP) filing for domain name.
+     *   * *   If the content on the origin server is not stored on Alibaba Cloud, the content must be reviewed by Alibaba Cloud. The review will be complete by the end of the next business day after you submit an application.
+     *   *
+     * @param AddVodDomainRequest $request AddVodDomainRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddVodDomainResponse
+     * @return AddVodDomainResponse AddVodDomainResponse
      */
     public function addVodDomainWithOptions($request, $runtime)
     {
@@ -656,9 +686,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param AddVodDomainRequest $request
+     * *   This operation is available only in the **China (Shanghai)** region.
+     *   * *   Before you add a domain name for CDN, you must activate [ApsaraVideo VOD](~~51512~~) and apply for an Internet content provider (ICP) filing for domain name.
+     *   * *   If the content on the origin server is not stored on Alibaba Cloud, the content must be reviewed by Alibaba Cloud. The review will be complete by the end of the next business day after you submit an application.
+     *   *
+     * @param AddVodDomainRequest $request AddVodDomainRequest
      *
-     * @return AddVodDomainResponse
+     * @return AddVodDomainResponse AddVodDomainResponse
      */
     public function addVodDomain($request)
     {
@@ -668,10 +702,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param AddVodTemplateRequest $request
-     * @param RuntimeOptions        $runtime
+     * > *   After you create a snapshot template, you can specify the ID of the snapshot template in the request of the [SubmitSnapshotJob](~~72213~~) operation to take snapshots.
+     *   * > *   You can receive the [SnapshotComplete](~~57337~~) event notification by using an HTTP or HTTPS URL or in Message Service (MNS). For more information, see [Overview](~~55627~~).
+     *   *
+     * @param AddVodTemplateRequest $request AddVodTemplateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddVodTemplateResponse
+     * @return AddVodTemplateResponse AddVodTemplateResponse
      */
     public function addVodTemplateWithOptions($request, $runtime)
     {
@@ -708,9 +745,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param AddVodTemplateRequest $request
+     * > *   After you create a snapshot template, you can specify the ID of the snapshot template in the request of the [SubmitSnapshotJob](~~72213~~) operation to take snapshots.
+     *   * > *   You can receive the [SnapshotComplete](~~57337~~) event notification by using an HTTP or HTTPS URL or in Message Service (MNS). For more information, see [Overview](~~55627~~).
+     *   *
+     * @param AddVodTemplateRequest $request AddVodTemplateRequest
      *
-     * @return AddVodTemplateResponse
+     * @return AddVodTemplateResponse AddVodTemplateResponse
      */
     public function addVodTemplate($request)
     {
@@ -720,10 +760,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param AddWatermarkRequest $request
-     * @param RuntimeOptions      $runtime
+     * ApsaraVideo VOD supports static image watermarks such as PNG files and dynamic image watermarks such as GIF, APNG, and MOV files.
+     *   *
+     * @param AddWatermarkRequest $request AddWatermarkRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddWatermarkResponse
+     * @return AddWatermarkResponse AddWatermarkResponse
      */
     public function addWatermarkWithOptions($request, $runtime)
     {
@@ -763,9 +805,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param AddWatermarkRequest $request
+     * ApsaraVideo VOD supports static image watermarks such as PNG files and dynamic image watermarks such as GIF, APNG, and MOV files.
+     *   *
+     * @param AddWatermarkRequest $request AddWatermarkRequest
      *
-     * @return AddWatermarkResponse
+     * @return AddWatermarkResponse AddWatermarkResponse
      */
     public function addWatermark($request)
     {
@@ -775,10 +819,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param AttachAppPolicyToIdentityRequest $request
-     * @param RuntimeOptions                   $runtime
+     * > You can grant a maximum of 10 application permissions to a RAM user or RAM role.
+     *   *
+     * @param AttachAppPolicyToIdentityRequest $request AttachAppPolicyToIdentityRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachAppPolicyToIdentityResponse
+     * @return AttachAppPolicyToIdentityResponse AttachAppPolicyToIdentityResponse
      */
     public function attachAppPolicyToIdentityWithOptions($request, $runtime)
     {
@@ -815,9 +861,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param AttachAppPolicyToIdentityRequest $request
+     * > You can grant a maximum of 10 application permissions to a RAM user or RAM role.
+     *   *
+     * @param AttachAppPolicyToIdentityRequest $request AttachAppPolicyToIdentityRequest
      *
-     * @return AttachAppPolicyToIdentityResponse
+     * @return AttachAppPolicyToIdentityResponse AttachAppPolicyToIdentityResponse
      */
     public function attachAppPolicyToIdentity($request)
     {
@@ -827,10 +875,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param BatchSetVodDomainConfigsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * > This operation is available only in the **China (Shanghai)** region.
+     *   *
+     * @param BatchSetVodDomainConfigsRequest $request BatchSetVodDomainConfigsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchSetVodDomainConfigsResponse
+     * @return BatchSetVodDomainConfigsResponse BatchSetVodDomainConfigsResponse
      */
     public function batchSetVodDomainConfigsWithOptions($request, $runtime)
     {
@@ -870,9 +920,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param BatchSetVodDomainConfigsRequest $request
+     * > This operation is available only in the **China (Shanghai)** region.
+     *   *
+     * @param BatchSetVodDomainConfigsRequest $request BatchSetVodDomainConfigsRequest
      *
-     * @return BatchSetVodDomainConfigsResponse
+     * @return BatchSetVodDomainConfigsResponse BatchSetVodDomainConfigsResponse
      */
     public function batchSetVodDomainConfigs($request)
     {
@@ -882,10 +934,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param BatchStartVodDomainRequest $request
-     * @param RuntimeOptions             $runtime
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   If the domain name that you want to enable is invalid or your Alibaba Cloud account has overdue payments, you cannot call this operation to enable the domain name.
+     *   *
+     * @param BatchStartVodDomainRequest $request BatchStartVodDomainRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchStartVodDomainResponse
+     * @return BatchStartVodDomainResponse BatchStartVodDomainResponse
      */
     public function batchStartVodDomainWithOptions($request, $runtime)
     {
@@ -919,9 +974,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param BatchStartVodDomainRequest $request
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   If the domain name that you want to enable is invalid or your Alibaba Cloud account has overdue payments, you cannot call this operation to enable the domain name.
+     *   *
+     * @param BatchStartVodDomainRequest $request BatchStartVodDomainRequest
      *
-     * @return BatchStartVodDomainResponse
+     * @return BatchStartVodDomainResponse BatchStartVodDomainResponse
      */
     public function batchStartVodDomain($request)
     {
@@ -931,10 +989,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param BatchStopVodDomainRequest $request
-     * @param RuntimeOptions            $runtime
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   After you disable a domain name for CDN, the information about the domain name is retained. The system automatically reroutes all the requests that are destined for the domain name for CDN to the origin server.
+     *   *
+     * @param BatchStopVodDomainRequest $request BatchStopVodDomainRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchStopVodDomainResponse
+     * @return BatchStopVodDomainResponse BatchStopVodDomainResponse
      */
     public function batchStopVodDomainWithOptions($request, $runtime)
     {
@@ -968,9 +1029,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param BatchStopVodDomainRequest $request
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   After you disable a domain name for CDN, the information about the domain name is retained. The system automatically reroutes all the requests that are destined for the domain name for CDN to the origin server.
+     *   *
+     * @param BatchStopVodDomainRequest $request BatchStopVodDomainRequest
      *
-     * @return BatchStopVodDomainResponse
+     * @return BatchStopVodDomainResponse BatchStopVodDomainResponse
      */
     public function batchStopVodDomain($request)
     {
@@ -980,10 +1044,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param CancelUrlUploadJobsRequest $request
-     * @param RuntimeOptions             $runtime
+     * *   You can cancel only a URL-based upload job in the **Pending** state. You can query the status of a URL-based upload job by calling the [GetURLUploadInfos](~~106830~~) operation.
+     *   * *   You cannot cancel an upload job that already starts.
+     *   *
+     * @param CancelUrlUploadJobsRequest $request CancelUrlUploadJobsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelUrlUploadJobsResponse
+     * @return CancelUrlUploadJobsResponse CancelUrlUploadJobsResponse
      */
     public function cancelUrlUploadJobsWithOptions($request, $runtime)
     {
@@ -1014,9 +1081,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param CancelUrlUploadJobsRequest $request
+     * *   You can cancel only a URL-based upload job in the **Pending** state. You can query the status of a URL-based upload job by calling the [GetURLUploadInfos](~~106830~~) operation.
+     *   * *   You cannot cancel an upload job that already starts.
+     *   *
+     * @param CancelUrlUploadJobsRequest $request CancelUrlUploadJobsRequest
      *
-     * @return CancelUrlUploadJobsResponse
+     * @return CancelUrlUploadJobsResponse CancelUrlUploadJobsResponse
      */
     public function cancelUrlUploadJobs($request)
     {
@@ -1026,10 +1096,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param CreateAppInfoRequest $request
-     * @param RuntimeOptions       $runtime
+     * You can create a maximum of 10 applications within an Alibaba Cloud account. For more information, see [Overview](https://www.alibabacloud.com/help/en/apsaravideo-for-vod/latest/overview-1).
+     *   *
+     * @param CreateAppInfoRequest $request CreateAppInfoRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAppInfoResponse
+     * @return CreateAppInfoResponse CreateAppInfoResponse
      */
     public function createAppInfoWithOptions($request, $runtime)
     {
@@ -1060,9 +1132,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param CreateAppInfoRequest $request
+     * You can create a maximum of 10 applications within an Alibaba Cloud account. For more information, see [Overview](https://www.alibabacloud.com/help/en/apsaravideo-for-vod/latest/overview-1).
+     *   *
+     * @param CreateAppInfoRequest $request CreateAppInfoRequest
      *
-     * @return CreateAppInfoResponse
+     * @return CreateAppInfoResponse CreateAppInfoResponse
      */
     public function createAppInfo($request)
     {
@@ -1115,10 +1189,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param CreateUploadAttachedMediaRequest $request
-     * @param RuntimeOptions                   $runtime
+     * - The process of obtaining upload URLs and credentials is a core process in ApsaraVideo VOD and is required for each upload operation. ApsaraVideo VOD provides multiple upload methods. You can upload auxiliary media assets by using server upload SDKs, client upload SDKs, URLs of auxiliary media assets, Object Storage Service (OSS) API, or native OSS SDKs. Each upload method has different requirements for obtaining upload URLs and credentials. For more information, see the "Usage notes" section of the [Upload URLs and credentials](~~55397~~) topic.
+     *   * - If the upload credential expires, you can call this operation to obtain a new upload URL and credential. The default validity period of an upload credential is 3,000 seconds.
+     *   * - You can configure a callback to receive an [AttachedMediaUploadComplete](~~103250~~) event notification to determine whether the upload is successful.
+     *   *
+     * @param CreateUploadAttachedMediaRequest $request CreateUploadAttachedMediaRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUploadAttachedMediaResponse
+     * @return CreateUploadAttachedMediaResponse CreateUploadAttachedMediaResponse
      */
     public function createUploadAttachedMediaWithOptions($request, $runtime)
     {
@@ -1176,9 +1254,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param CreateUploadAttachedMediaRequest $request
+     * - The process of obtaining upload URLs and credentials is a core process in ApsaraVideo VOD and is required for each upload operation. ApsaraVideo VOD provides multiple upload methods. You can upload auxiliary media assets by using server upload SDKs, client upload SDKs, URLs of auxiliary media assets, Object Storage Service (OSS) API, or native OSS SDKs. Each upload method has different requirements for obtaining upload URLs and credentials. For more information, see the "Usage notes" section of the [Upload URLs and credentials](~~55397~~) topic.
+     *   * - If the upload credential expires, you can call this operation to obtain a new upload URL and credential. The default validity period of an upload credential is 3,000 seconds.
+     *   * - You can configure a callback to receive an [AttachedMediaUploadComplete](~~103250~~) event notification to determine whether the upload is successful.
+     *   *
+     * @param CreateUploadAttachedMediaRequest $request CreateUploadAttachedMediaRequest
      *
-     * @return CreateUploadAttachedMediaResponse
+     * @return CreateUploadAttachedMediaResponse CreateUploadAttachedMediaResponse
      */
     public function createUploadAttachedMedia($request)
     {
@@ -1188,10 +1270,16 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param CreateUploadImageRequest $request
-     * @param RuntimeOptions           $runtime
+     * ## Description
+     *   * *   You must obtain a URL and a credential before you upload a media file to ApsaraVideo VOD. ApsaraVideo VOD provides multiple upload methods. You can upload files by using server upload SDKs, client upload SDKs, URLs, Object Storage Service (OSS) API, or OSS SDKs. Each upload method has different requirements for obtaining upload URLs and credentials. For more information, see the "Usage notes" section of the [Upload URLs and credentials](~~55397~~) topic.
+     *   * *   The upload credential is not automatically updated when you upload an image. By default, an upload credential is valid for 3,000 seconds before it expires. If your credential expires, call this operation again to obtain the credential.
+     *   * *   You can call the [CreateUploadAttachedMedia](~~98467~~) operation to upload image watermarks.
+     *   * *   You can configure a callback for [ImageUploadComplete](~~91968~~) to receive notifications about the image upload status.
+     *   *
+     * @param CreateUploadImageRequest $request CreateUploadImageRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUploadImageResponse
+     * @return CreateUploadImageResponse CreateUploadImageResponse
      */
     public function createUploadImageWithOptions($request, $runtime)
     {
@@ -1246,9 +1334,15 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param CreateUploadImageRequest $request
+     * ## Description
+     *   * *   You must obtain a URL and a credential before you upload a media file to ApsaraVideo VOD. ApsaraVideo VOD provides multiple upload methods. You can upload files by using server upload SDKs, client upload SDKs, URLs, Object Storage Service (OSS) API, or OSS SDKs. Each upload method has different requirements for obtaining upload URLs and credentials. For more information, see the "Usage notes" section of the [Upload URLs and credentials](~~55397~~) topic.
+     *   * *   The upload credential is not automatically updated when you upload an image. By default, an upload credential is valid for 3,000 seconds before it expires. If your credential expires, call this operation again to obtain the credential.
+     *   * *   You can call the [CreateUploadAttachedMedia](~~98467~~) operation to upload image watermarks.
+     *   * *   You can configure a callback for [ImageUploadComplete](~~91968~~) to receive notifications about the image upload status.
+     *   *
+     * @param CreateUploadImageRequest $request CreateUploadImageRequest
      *
-     * @return CreateUploadImageResponse
+     * @return CreateUploadImageResponse CreateUploadImageResponse
      */
     public function createUploadImage($request)
     {
@@ -1258,10 +1352,16 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param CreateUploadVideoRequest $request
-     * @param RuntimeOptions           $runtime
+     * * You can call this operation to obtain upload URLs and credentials for both video and audio files. For more information, see [Upload URLs and credentials](~~55397~~).
+     *   * * The process of obtaining upload URLs and credentials is a core process in ApsaraVideo VOD and is required for each upload operation. ApsaraVideo VOD provides multiple upload methods. You can upload media files by using SDKs for upload from servers, SDKs for upload from clients, file URLs, Object Storage Service (OSS) API, or OSS SDKs. Each upload method has different requirements for obtaining upload URLs and credentials. For more information, see the "Usage notes" section of the [Upload URLs and credentials](~~55397~~) topic.
+     *   * * If the upload credential expires, you can call the [RefreshUploadVideo](~~55408~~) operation to obtain a new upload credential. The default validity period of an upload credential is 3,000 seconds.
+     *   * * You can configure a callback to receive an [event notification](~~55396~~) when an audio or video file is uploaded. Alternatively, after you upload an audio or video file, you can call the [GetMezzanineInfo](~~59624~~) operation to determine whether the upload is successful based on the value of the Status response parameter.
+     *   * * The value of the VideoId parameter that is returned after you call this operation can be used for media processing or the lifecycle management of media assets.
+     *   *
+     * @param CreateUploadVideoRequest $request CreateUploadVideoRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUploadVideoResponse
+     * @return CreateUploadVideoResponse CreateUploadVideoResponse
      */
     public function createUploadVideoWithOptions($request, $runtime)
     {
@@ -1322,9 +1422,15 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param CreateUploadVideoRequest $request
+     * * You can call this operation to obtain upload URLs and credentials for both video and audio files. For more information, see [Upload URLs and credentials](~~55397~~).
+     *   * * The process of obtaining upload URLs and credentials is a core process in ApsaraVideo VOD and is required for each upload operation. ApsaraVideo VOD provides multiple upload methods. You can upload media files by using SDKs for upload from servers, SDKs for upload from clients, file URLs, Object Storage Service (OSS) API, or OSS SDKs. Each upload method has different requirements for obtaining upload URLs and credentials. For more information, see the "Usage notes" section of the [Upload URLs and credentials](~~55397~~) topic.
+     *   * * If the upload credential expires, you can call the [RefreshUploadVideo](~~55408~~) operation to obtain a new upload credential. The default validity period of an upload credential is 3,000 seconds.
+     *   * * You can configure a callback to receive an [event notification](~~55396~~) when an audio or video file is uploaded. Alternatively, after you upload an audio or video file, you can call the [GetMezzanineInfo](~~59624~~) operation to determine whether the upload is successful based on the value of the Status response parameter.
+     *   * * The value of the VideoId parameter that is returned after you call this operation can be used for media processing or the lifecycle management of media assets.
+     *   *
+     * @param CreateUploadVideoRequest $request CreateUploadVideoRequest
      *
-     * @return CreateUploadVideoResponse
+     * @return CreateUploadVideoResponse CreateUploadVideoResponse
      */
     public function createUploadVideo($request)
     {
@@ -1389,10 +1495,16 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteAIImageInfosRequest $request
-     * @param RuntimeOptions            $runtime
+     * This operation deletes only information about images that are submitted for AI processing. The image files are not deleted.
+     *   * - The smart thumbnail feature is not supported. You cannot call this operation.
+     *   * - This operation deletes only information about images that are submitted for AI processing. The image files are not deleted.
+     *   * ### QPS limit
+     *   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+     *   *
+     * @param DeleteAIImageInfosRequest $request DeleteAIImageInfosRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAIImageInfosResponse
+     * @return DeleteAIImageInfosResponse DeleteAIImageInfosResponse
      */
     public function deleteAIImageInfosWithOptions($request, $runtime)
     {
@@ -1420,9 +1532,15 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteAIImageInfosRequest $request
+     * This operation deletes only information about images that are submitted for AI processing. The image files are not deleted.
+     *   * - The smart thumbnail feature is not supported. You cannot call this operation.
+     *   * - This operation deletes only information about images that are submitted for AI processing. The image files are not deleted.
+     *   * ### QPS limit
+     *   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+     *   *
+     * @param DeleteAIImageInfosRequest $request DeleteAIImageInfosRequest
      *
-     * @return DeleteAIImageInfosResponse
+     * @return DeleteAIImageInfosResponse DeleteAIImageInfosResponse
      */
     public function deleteAIImageInfos($request)
     {
@@ -1432,10 +1550,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteAITemplateRequest $request
-     * @param RuntimeOptions          $runtime
+     * You cannot delete an AI template that is set as the default template.
+     *   *
+     * @param DeleteAITemplateRequest $request DeleteAITemplateRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAITemplateResponse
+     * @return DeleteAITemplateResponse DeleteAITemplateResponse
      */
     public function deleteAITemplateWithOptions($request, $runtime)
     {
@@ -1463,9 +1583,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteAITemplateRequest $request
+     * You cannot delete an AI template that is set as the default template.
+     *   *
+     * @param DeleteAITemplateRequest $request DeleteAITemplateRequest
      *
-     * @return DeleteAITemplateResponse
+     * @return DeleteAITemplateResponse DeleteAITemplateResponse
      */
     public function deleteAITemplate($request)
     {
@@ -1475,10 +1597,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteAppInfoRequest $request
-     * @param RuntimeOptions       $runtime
+     * ## Usage note
+     *   * Application with resources can not be deleted.
+     *   *
+     * @param DeleteAppInfoRequest $request DeleteAppInfoRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAppInfoResponse
+     * @return DeleteAppInfoResponse DeleteAppInfoResponse
      */
     public function deleteAppInfoWithOptions($request, $runtime)
     {
@@ -1506,9 +1631,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteAppInfoRequest $request
+     * ## Usage note
+     *   * Application with resources can not be deleted.
+     *   *
+     * @param DeleteAppInfoRequest $request DeleteAppInfoRequest
      *
-     * @return DeleteAppInfoResponse
+     * @return DeleteAppInfoResponse DeleteAppInfoResponse
      */
     public function deleteAppInfo($request)
     {
@@ -1518,10 +1646,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteAttachedMediaRequest $request
-     * @param RuntimeOptions             $runtime
+     * This operation physically deletes auxiliary media assets. Deleted auxiliary media assets cannot be recovered. Exercise caution when you call this operation.
+     *   *
+     * @param DeleteAttachedMediaRequest $request DeleteAttachedMediaRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAttachedMediaResponse
+     * @return DeleteAttachedMediaResponse DeleteAttachedMediaResponse
      */
     public function deleteAttachedMediaWithOptions($request, $runtime)
     {
@@ -1549,9 +1679,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteAttachedMediaRequest $request
+     * This operation physically deletes auxiliary media assets. Deleted auxiliary media assets cannot be recovered. Exercise caution when you call this operation.
+     *   *
+     * @param DeleteAttachedMediaRequest $request DeleteAttachedMediaRequest
      *
-     * @return DeleteAttachedMediaResponse
+     * @return DeleteAttachedMediaResponse DeleteAttachedMediaResponse
      */
     public function deleteAttachedMedia($request)
     {
@@ -1561,10 +1693,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteCategoryRequest $request
-     * @param RuntimeOptions        $runtime
+     * > If a video category is deleted, its subcategories, including level 2 and level 3 categories, are also deleted. Exercise caution when you call this operation.
+     *   *
+     * @param DeleteCategoryRequest $request DeleteCategoryRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCategoryResponse
+     * @return DeleteCategoryResponse DeleteCategoryResponse
      */
     public function deleteCategoryWithOptions($request, $runtime)
     {
@@ -1592,9 +1726,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteCategoryRequest $request
+     * > If a video category is deleted, its subcategories, including level 2 and level 3 categories, are also deleted. Exercise caution when you call this operation.
+     *   *
+     * @param DeleteCategoryRequest $request DeleteCategoryRequest
      *
-     * @return DeleteCategoryResponse
+     * @return DeleteCategoryResponse DeleteCategoryResponse
      */
     public function deleteCategory($request)
     {
@@ -1604,10 +1740,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteDynamicImageRequest $request
-     * @param RuntimeOptions            $runtime
+     * > This operation deletes only the information about animated stickers, but not the animated stickers themselves.
+     *   *
+     * @param DeleteDynamicImageRequest $request DeleteDynamicImageRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDynamicImageResponse
+     * @return DeleteDynamicImageResponse DeleteDynamicImageResponse
      */
     public function deleteDynamicImageWithOptions($request, $runtime)
     {
@@ -1638,9 +1776,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteDynamicImageRequest $request
+     * > This operation deletes only the information about animated stickers, but not the animated stickers themselves.
+     *   *
+     * @param DeleteDynamicImageRequest $request DeleteDynamicImageRequest
      *
-     * @return DeleteDynamicImageResponse
+     * @return DeleteDynamicImageResponse DeleteDynamicImageResponse
      */
     public function deleteDynamicImage($request)
     {
@@ -1705,10 +1845,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteImageRequest $request
-     * @param RuntimeOptions     $runtime
+     * > This operation irreversibly deletes image mezzanine files. Deleted images cannot be recovered. If some images are cached in Content Delivery Network (CDN), the image URLs do not immediately become invalid.
+     *   *
+     * @param DeleteImageRequest $request DeleteImageRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteImageResponse
+     * @return DeleteImageResponse DeleteImageResponse
      */
     public function deleteImageWithOptions($request, $runtime)
     {
@@ -1748,9 +1890,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteImageRequest $request
+     * > This operation irreversibly deletes image mezzanine files. Deleted images cannot be recovered. If some images are cached in Content Delivery Network (CDN), the image URLs do not immediately become invalid.
+     *   *
+     * @param DeleteImageRequest $request DeleteImageRequest
      *
-     * @return DeleteImageResponse
+     * @return DeleteImageResponse DeleteImageResponse
      */
     public function deleteImage($request)
     {
@@ -1760,10 +1904,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteMessageCallbackRequest $request
-     * @param RuntimeOptions               $runtime
+     * > For more information, see [Overview](~~55627~~).
+     *   *
+     * @param DeleteMessageCallbackRequest $request DeleteMessageCallbackRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMessageCallbackResponse
+     * @return DeleteMessageCallbackResponse DeleteMessageCallbackResponse
      */
     public function deleteMessageCallbackWithOptions($request, $runtime)
     {
@@ -1794,9 +1940,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteMessageCallbackRequest $request
+     * > For more information, see [Overview](~~55627~~).
+     *   *
+     * @param DeleteMessageCallbackRequest $request DeleteMessageCallbackRequest
      *
-     * @return DeleteMessageCallbackResponse
+     * @return DeleteMessageCallbackResponse DeleteMessageCallbackResponse
      */
     public function deleteMessageCallback($request)
     {
@@ -1806,10 +1954,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteMezzaninesRequest $request
-     * @param RuntimeOptions          $runtime
+     * All media processing operations in ApsaraVideo VOD, such as transcoding, snapshot capture, and content moderation, are performed on mezzanine files. If you delete the mezzanine files, you cannot perform follow-up media processing operations. Exercise caution when you call this operation.
+     *   *
+     * @param DeleteMezzaninesRequest $request DeleteMezzaninesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMezzaninesResponse
+     * @return DeleteMezzaninesResponse DeleteMezzaninesResponse
      */
     public function deleteMezzaninesWithOptions($request, $runtime)
     {
@@ -1840,9 +1990,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteMezzaninesRequest $request
+     * All media processing operations in ApsaraVideo VOD, such as transcoding, snapshot capture, and content moderation, are performed on mezzanine files. If you delete the mezzanine files, you cannot perform follow-up media processing operations. Exercise caution when you call this operation.
+     *   *
+     * @param DeleteMezzaninesRequest $request DeleteMezzaninesRequest
      *
-     * @return DeleteMezzaninesResponse
+     * @return DeleteMezzaninesResponse DeleteMezzaninesResponse
      */
     public function deleteMezzanines($request)
     {
@@ -1852,10 +2004,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteMultipartUploadRequest $request
-     * @param RuntimeOptions               $runtime
+     * * In a multipart upload, fragments may be generated if the upload fails. In most cases, the fragments are automatically deleted after seven days. You can call this operation to delete the generated fragments after the upload is successful or fails.
+     *   * * This operation does not delete the source file or transcoded file, but deletes only the fragments generated during the upload.
+     *   * * If you call the [DeleteVideo](~~52837~~) operation, the entire video file is deleted, including the generated fragments.
+     *   *
+     * @param DeleteMultipartUploadRequest $request DeleteMultipartUploadRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMultipartUploadResponse
+     * @return DeleteMultipartUploadResponse DeleteMultipartUploadResponse
      */
     public function deleteMultipartUploadWithOptions($request, $runtime)
     {
@@ -1889,9 +2045,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteMultipartUploadRequest $request
+     * * In a multipart upload, fragments may be generated if the upload fails. In most cases, the fragments are automatically deleted after seven days. You can call this operation to delete the generated fragments after the upload is successful or fails.
+     *   * * This operation does not delete the source file or transcoded file, but deletes only the fragments generated during the upload.
+     *   * * If you call the [DeleteVideo](~~52837~~) operation, the entire video file is deleted, including the generated fragments.
+     *   *
+     * @param DeleteMultipartUploadRequest $request DeleteMultipartUploadRequest
      *
-     * @return DeleteMultipartUploadResponse
+     * @return DeleteMultipartUploadResponse DeleteMultipartUploadResponse
      */
     public function deleteMultipartUpload($request)
     {
@@ -1947,10 +2107,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteTranscodeTemplateGroupRequest $request
-     * @param RuntimeOptions                      $runtime
+     * *   You cannot remove the default transcoding template. You can remove it only after it is no longer specified as the default.
+     *   * *   For security purposes, you cannot add, modify, or remove transcoding templates in a transcoding template group that is locked in the ApsaraVideo VOD console. To manage such transcoding template groups, contact the ApsaraVideo VOD technical support.
+     *   * *   You can call the GetTranscodeTemplateGroup operation to query the configurations of a transcoding template group and check whether the transcoding template group is locked by using the response parameter Locked.
+     *   *
+     * @param DeleteTranscodeTemplateGroupRequest $request DeleteTranscodeTemplateGroupRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTranscodeTemplateGroupResponse
+     * @return DeleteTranscodeTemplateGroupResponse DeleteTranscodeTemplateGroupResponse
      */
     public function deleteTranscodeTemplateGroupWithOptions($request, $runtime)
     {
@@ -1984,9 +2148,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteTranscodeTemplateGroupRequest $request
+     * *   You cannot remove the default transcoding template. You can remove it only after it is no longer specified as the default.
+     *   * *   For security purposes, you cannot add, modify, or remove transcoding templates in a transcoding template group that is locked in the ApsaraVideo VOD console. To manage such transcoding template groups, contact the ApsaraVideo VOD technical support.
+     *   * *   You can call the GetTranscodeTemplateGroup operation to query the configurations of a transcoding template group and check whether the transcoding template group is locked by using the response parameter Locked.
+     *   *
+     * @param DeleteTranscodeTemplateGroupRequest $request DeleteTranscodeTemplateGroupRequest
      *
-     * @return DeleteTranscodeTemplateGroupResponse
+     * @return DeleteTranscodeTemplateGroupResponse DeleteTranscodeTemplateGroupResponse
      */
     public function deleteTranscodeTemplateGroup($request)
     {
@@ -1996,10 +2164,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteVideoRequest $request
-     * @param RuntimeOptions     $runtime
+     * *   This operation physically deletes videos. Deleted videos cannot be recovered. Exercise caution when you call this operation.
+     *   * *   You can call this operation to delete multiple videos at a time.
+     *   * *   When you delete a video, its source file, transcoded stream file, and thumbnail screenshot are also deleted. However, the Alibaba Cloud Content Delivery Network (CDN) cache is not refreshed simultaneously. You can use the refresh feature in the ApsaraVideo VOD console to clear garbage data on CDN nodes. For more information, see [Refresh and prefetch](~~86098~~).
+     *   *
+     * @param DeleteVideoRequest $request DeleteVideoRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVideoResponse
+     * @return DeleteVideoResponse DeleteVideoResponse
      */
     public function deleteVideoWithOptions($request, $runtime)
     {
@@ -2027,9 +2199,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteVideoRequest $request
+     * *   This operation physically deletes videos. Deleted videos cannot be recovered. Exercise caution when you call this operation.
+     *   * *   You can call this operation to delete multiple videos at a time.
+     *   * *   When you delete a video, its source file, transcoded stream file, and thumbnail screenshot are also deleted. However, the Alibaba Cloud Content Delivery Network (CDN) cache is not refreshed simultaneously. You can use the refresh feature in the ApsaraVideo VOD console to clear garbage data on CDN nodes. For more information, see [Refresh and prefetch](~~86098~~).
+     *   *
+     * @param DeleteVideoRequest $request DeleteVideoRequest
      *
-     * @return DeleteVideoResponse
+     * @return DeleteVideoResponse DeleteVideoResponse
      */
     public function deleteVideo($request)
     {
@@ -2039,10 +2215,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteVodDomainRequest $request
-     * @param RuntimeOptions         $runtime
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   After a domain name for CDN is removed from ApsaraVideo VOD, the domain name becomes unavailable. Proceed with caution. We recommend that you restore the A record at your DNS service provider before you remove the domain name for CDN.
+     *   * > *   After you call this operation to remove a domain name for CDN from ApsaraVideo VOD, all records that are related to the domain name are deleted. If you only want to disable a domain name for CDN, call the [BatchStopVodDomain](~~120208~~) operation.
+     *   *
+     * @param DeleteVodDomainRequest $request DeleteVodDomainRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVodDomainResponse
+     * @return DeleteVodDomainResponse DeleteVodDomainResponse
      */
     public function deleteVodDomainWithOptions($request, $runtime)
     {
@@ -2079,9 +2259,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteVodDomainRequest $request
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   After a domain name for CDN is removed from ApsaraVideo VOD, the domain name becomes unavailable. Proceed with caution. We recommend that you restore the A record at your DNS service provider before you remove the domain name for CDN.
+     *   * > *   After you call this operation to remove a domain name for CDN from ApsaraVideo VOD, all records that are related to the domain name are deleted. If you only want to disable a domain name for CDN, call the [BatchStopVodDomain](~~120208~~) operation.
+     *   *
+     * @param DeleteVodDomainRequest $request DeleteVodDomainRequest
      *
-     * @return DeleteVodDomainResponse
+     * @return DeleteVodDomainResponse DeleteVodDomainResponse
      */
     public function deleteVodDomain($request)
     {
@@ -2091,10 +2275,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteVodSpecificConfigRequest $request
-     * @param RuntimeOptions                 $runtime
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   After the configurations of a domain name for CDN are deleted, the domain name becomes unavailable. We recommend that you restore the A record at your DNS service provider before you delete the configurations of the domain name for CDN.
+     *   * > *   After you call this operation to delete the configurations of a domain name for CDN, all records that are related to the domain name are deleted. If you only want to disable a domain name for CDN, call the [BatchStopVodDomain](~~120208~~) operation.
+     *   *
+     * @param DeleteVodSpecificConfigRequest $request DeleteVodSpecificConfigRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVodSpecificConfigResponse
+     * @return DeleteVodSpecificConfigResponse DeleteVodSpecificConfigResponse
      */
     public function deleteVodSpecificConfigWithOptions($request, $runtime)
     {
@@ -2131,9 +2319,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteVodSpecificConfigRequest $request
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   After the configurations of a domain name for CDN are deleted, the domain name becomes unavailable. We recommend that you restore the A record at your DNS service provider before you delete the configurations of the domain name for CDN.
+     *   * > *   After you call this operation to delete the configurations of a domain name for CDN, all records that are related to the domain name are deleted. If you only want to disable a domain name for CDN, call the [BatchStopVodDomain](~~120208~~) operation.
+     *   *
+     * @param DeleteVodSpecificConfigRequest $request DeleteVodSpecificConfigRequest
      *
-     * @return DeleteVodSpecificConfigResponse
+     * @return DeleteVodSpecificConfigResponse DeleteVodSpecificConfigResponse
      */
     public function deleteVodSpecificConfig($request)
     {
@@ -2186,10 +2378,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteWatermarkRequest $request
-     * @param RuntimeOptions         $runtime
+     * > *   The default watermark cannot be deleted.
+     *   * > *   If you delete a watermark, its mezzanine file is also physically deleted and cannot be recovered.
+     *   *
+     * @param DeleteWatermarkRequest $request DeleteWatermarkRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteWatermarkResponse
+     * @return DeleteWatermarkResponse DeleteWatermarkResponse
      */
     public function deleteWatermarkWithOptions($request, $runtime)
     {
@@ -2217,9 +2412,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteWatermarkRequest $request
+     * > *   The default watermark cannot be deleted.
+     *   * > *   If you delete a watermark, its mezzanine file is also physically deleted and cannot be recovered.
+     *   *
+     * @param DeleteWatermarkRequest $request DeleteWatermarkRequest
      *
-     * @return DeleteWatermarkResponse
+     * @return DeleteWatermarkResponse DeleteWatermarkResponse
      */
     public function deleteWatermark($request)
     {
@@ -2229,10 +2427,16 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribePlayTopVideosRequest $request
-     * @param RuntimeOptions               $runtime
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   You can query playback statistics on top 1,000 videos at most on a specified day. By default, top videos are sorted in descending order based on video views.
+     *   * > *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
+     *   * > *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
+     *   * > *   You can query data that is generated since January 1, 2018. The maximum time range to query is 180 days.
+     *   *
+     * @param DescribePlayTopVideosRequest $request DescribePlayTopVideosRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePlayTopVideosResponse
+     * @return DescribePlayTopVideosResponse DescribePlayTopVideosResponse
      */
     public function describePlayTopVideosWithOptions($request, $runtime)
     {
@@ -2269,9 +2473,15 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribePlayTopVideosRequest $request
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   You can query playback statistics on top 1,000 videos at most on a specified day. By default, top videos are sorted in descending order based on video views.
+     *   * > *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
+     *   * > *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
+     *   * > *   You can query data that is generated since January 1, 2018. The maximum time range to query is 180 days.
+     *   *
+     * @param DescribePlayTopVideosRequest $request DescribePlayTopVideosRequest
      *
-     * @return DescribePlayTopVideosResponse
+     * @return DescribePlayTopVideosResponse DescribePlayTopVideosResponse
      */
     public function describePlayTopVideos($request)
     {
@@ -2281,10 +2491,15 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribePlayUserAvgRequest $request
-     * @param RuntimeOptions             $runtime
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
+     *   * > *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
+     *   * > *   You can query data that is generated since January 1, 2018. The maximum time range to query is 180 days.
+     *   *
+     * @param DescribePlayUserAvgRequest $request DescribePlayUserAvgRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePlayUserAvgResponse
+     * @return DescribePlayUserAvgResponse DescribePlayUserAvgResponse
      */
     public function describePlayUserAvgWithOptions($request, $runtime)
     {
@@ -2318,9 +2533,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribePlayUserAvgRequest $request
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
+     *   * > *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
+     *   * > *   You can query data that is generated since January 1, 2018. The maximum time range to query is 180 days.
+     *   *
+     * @param DescribePlayUserAvgRequest $request DescribePlayUserAvgRequest
      *
-     * @return DescribePlayUserAvgResponse
+     * @return DescribePlayUserAvgResponse DescribePlayUserAvgResponse
      */
     public function describePlayUserAvg($request)
     {
@@ -2330,10 +2550,15 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribePlayUserTotalRequest $request
-     * @param RuntimeOptions               $runtime
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
+     *   * > *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
+     *   * > *   You can query data that is generated since January 1, 2018. The maximum time range to query is 180 days.
+     *   *
+     * @param DescribePlayUserTotalRequest $request DescribePlayUserTotalRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePlayUserTotalResponse
+     * @return DescribePlayUserTotalResponse DescribePlayUserTotalResponse
      */
     public function describePlayUserTotalWithOptions($request, $runtime)
     {
@@ -2367,9 +2592,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribePlayUserTotalRequest $request
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
+     *   * > *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
+     *   * > *   You can query data that is generated since January 1, 2018. The maximum time range to query is 180 days.
+     *   *
+     * @param DescribePlayUserTotalRequest $request DescribePlayUserTotalRequest
      *
-     * @return DescribePlayUserTotalResponse
+     * @return DescribePlayUserTotalResponse DescribePlayUserTotalResponse
      */
     public function describePlayUserTotal($request)
     {
@@ -2379,10 +2609,15 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribePlayVideoStatisRequest $request
-     * @param RuntimeOptions                 $runtime
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
+     *   * > *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
+     *   * > *   You can query only data in the last 730 days. The maximum time range to query is 180 days.
+     *   *
+     * @param DescribePlayVideoStatisRequest $request DescribePlayVideoStatisRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePlayVideoStatisResponse
+     * @return DescribePlayVideoStatisResponse DescribePlayVideoStatisResponse
      */
     public function describePlayVideoStatisWithOptions($request, $runtime)
     {
@@ -2419,9 +2654,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribePlayVideoStatisRequest $request
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
+     *   * > *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
+     *   * > *   You can query only data in the last 730 days. The maximum time range to query is 180 days.
+     *   *
+     * @param DescribePlayVideoStatisRequest $request DescribePlayVideoStatisRequest
      *
-     * @return DescribePlayVideoStatisResponse
+     * @return DescribePlayVideoStatisResponse DescribePlayVideoStatisResponse
      */
     public function describePlayVideoStatis($request)
     {
@@ -2431,10 +2671,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodAIDataRequest $request
-     * @param RuntimeOptions           $runtime
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   If the time range to query is less than or equal to seven days, the system returns the statistics collected on an hourly basis. If the time range to query is greater than seven days, the system returns the statistics collected on a daily basis. The maximum time range that you can specify to query is 31 days.
+     *   *
+     * @param DescribeVodAIDataRequest $request DescribeVodAIDataRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodAIDataResponse
+     * @return DescribeVodAIDataResponse DescribeVodAIDataResponse
      */
     public function describeVodAIDataWithOptions($request, $runtime)
     {
@@ -2474,9 +2717,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodAIDataRequest $request
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   If the time range to query is less than or equal to seven days, the system returns the statistics collected on an hourly basis. If the time range to query is greater than seven days, the system returns the statistics collected on a daily basis. The maximum time range that you can specify to query is 31 days.
+     *   *
+     * @param DescribeVodAIDataRequest $request DescribeVodAIDataRequest
      *
-     * @return DescribeVodAIDataResponse
+     * @return DescribeVodAIDataResponse DescribeVodAIDataResponse
      */
     public function describeVodAIData($request)
     {
@@ -2486,10 +2732,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodCertificateListRequest $request
-     * @param RuntimeOptions                    $runtime
+     * > This operation is available only in the **China (Shanghai)** region.
+     *   *
+     * @param DescribeVodCertificateListRequest $request DescribeVodCertificateListRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodCertificateListResponse
+     * @return DescribeVodCertificateListResponse DescribeVodCertificateListResponse
      */
     public function describeVodCertificateListWithOptions($request, $runtime)
     {
@@ -2523,9 +2771,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodCertificateListRequest $request
+     * > This operation is available only in the **China (Shanghai)** region.
+     *   *
+     * @param DescribeVodCertificateListRequest $request DescribeVodCertificateListRequest
      *
-     * @return DescribeVodCertificateListResponse
+     * @return DescribeVodCertificateListResponse DescribeVodCertificateListResponse
      */
     public function describeVodCertificateList($request)
     {
@@ -2535,10 +2785,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodDomainBpsDataRequest $request
-     * @param RuntimeOptions                  $runtime
+     * If you specify neither the StartTime parameter nor the EndTime parameter, the data in the last 24 hours is queried. Alternatively, you can specify both the StartTime and EndTime parameters to query data that is generated in the specified duration. You can query data for the last 90 days at most.
+     *   *
+     * @param DescribeVodDomainBpsDataRequest $request DescribeVodDomainBpsDataRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodDomainBpsDataResponse
+     * @return DescribeVodDomainBpsDataResponse DescribeVodDomainBpsDataResponse
      */
     public function describeVodDomainBpsDataWithOptions($request, $runtime)
     {
@@ -2584,9 +2836,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodDomainBpsDataRequest $request
+     * If you specify neither the StartTime parameter nor the EndTime parameter, the data in the last 24 hours is queried. Alternatively, you can specify both the StartTime and EndTime parameters to query data that is generated in the specified duration. You can query data for the last 90 days at most.
+     *   *
+     * @param DescribeVodDomainBpsDataRequest $request DescribeVodDomainBpsDataRequest
      *
-     * @return DescribeVodDomainBpsDataResponse
+     * @return DescribeVodDomainBpsDataResponse DescribeVodDomainBpsDataResponse
      */
     public function describeVodDomainBpsData($request)
     {
@@ -2596,10 +2850,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodDomainCertificateInfoRequest $request
-     * @param RuntimeOptions                          $runtime
+     * > This operation is available only in the **China (Shanghai)** region.
+     *   *
+     * @param DescribeVodDomainCertificateInfoRequest $request DescribeVodDomainCertificateInfoRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodDomainCertificateInfoResponse
+     * @return DescribeVodDomainCertificateInfoResponse DescribeVodDomainCertificateInfoResponse
      */
     public function describeVodDomainCertificateInfoWithOptions($request, $runtime)
     {
@@ -2630,9 +2886,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodDomainCertificateInfoRequest $request
+     * > This operation is available only in the **China (Shanghai)** region.
+     *   *
+     * @param DescribeVodDomainCertificateInfoRequest $request DescribeVodDomainCertificateInfoRequest
      *
-     * @return DescribeVodDomainCertificateInfoResponse
+     * @return DescribeVodDomainCertificateInfoResponse DescribeVodDomainCertificateInfoResponse
      */
     public function describeVodDomainCertificateInfo($request)
     {
@@ -2642,10 +2900,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodDomainConfigsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * > This operation is available only in the **China (Shanghai)** region.
+     *   *
+     * @param DescribeVodDomainConfigsRequest $request DescribeVodDomainConfigsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodDomainConfigsResponse
+     * @return DescribeVodDomainConfigsResponse DescribeVodDomainConfigsResponse
      */
     public function describeVodDomainConfigsWithOptions($request, $runtime)
     {
@@ -2682,9 +2942,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodDomainConfigsRequest $request
+     * > This operation is available only in the **China (Shanghai)** region.
+     *   *
+     * @param DescribeVodDomainConfigsRequest $request DescribeVodDomainConfigsRequest
      *
-     * @return DescribeVodDomainConfigsResponse
+     * @return DescribeVodDomainConfigsResponse DescribeVodDomainConfigsResponse
      */
     public function describeVodDomainConfigs($request)
     {
@@ -2694,10 +2956,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodDomainDetailRequest $request
-     * @param RuntimeOptions                 $runtime
+     * > This operation is available only in the **China (Shanghai)** region.
+     *   *
+     * @param DescribeVodDomainDetailRequest $request DescribeVodDomainDetailRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodDomainDetailResponse
+     * @return DescribeVodDomainDetailResponse DescribeVodDomainDetailResponse
      */
     public function describeVodDomainDetailWithOptions($request, $runtime)
     {
@@ -2731,9 +2995,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodDomainDetailRequest $request
+     * > This operation is available only in the **China (Shanghai)** region.
+     *   *
+     * @param DescribeVodDomainDetailRequest $request DescribeVodDomainDetailRequest
      *
-     * @return DescribeVodDomainDetailResponse
+     * @return DescribeVodDomainDetailResponse DescribeVodDomainDetailResponse
      */
     public function describeVodDomainDetail($request)
     {
@@ -2743,10 +3009,16 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodDomainLogRequest $request
-     * @param RuntimeOptions              $runtime
+     * ## Usage note
+     *   * *   This operation is available only in the **China (Shanghai)** region.
+     *   * *   For more information about the log format and latency, see [Download logs](~~86099~~).
+     *   * *   If you specify neither the StartTime parameter nor the EndTime parameter, the log data in the last 24 hours is queried.
+     *   * *   You can specify both the StartTime and EndTime parameters to query the log data that is generated in the specified duration.
+     *   *
+     * @param DescribeVodDomainLogRequest $request DescribeVodDomainLogRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodDomainLogResponse
+     * @return DescribeVodDomainLogResponse DescribeVodDomainLogResponse
      */
     public function describeVodDomainLogWithOptions($request, $runtime)
     {
@@ -2789,9 +3061,15 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodDomainLogRequest $request
+     * ## Usage note
+     *   * *   This operation is available only in the **China (Shanghai)** region.
+     *   * *   For more information about the log format and latency, see [Download logs](~~86099~~).
+     *   * *   If you specify neither the StartTime parameter nor the EndTime parameter, the log data in the last 24 hours is queried.
+     *   * *   You can specify both the StartTime and EndTime parameters to query the log data that is generated in the specified duration.
+     *   *
+     * @param DescribeVodDomainLogRequest $request DescribeVodDomainLogRequest
      *
-     * @return DescribeVodDomainLogResponse
+     * @return DescribeVodDomainLogResponse DescribeVodDomainLogResponse
      */
     public function describeVodDomainLog($request)
     {
@@ -2801,10 +3079,122 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodDomainTrafficDataRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param DescribeVodDomainSrcBpsDataRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return DescribeVodDomainTrafficDataResponse
+     * @return DescribeVodDomainSrcBpsDataResponse
+     */
+    public function describeVodDomainSrcBpsDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodDomainSrcBpsData',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVodDomainSrcBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVodDomainSrcBpsDataRequest $request
+     *
+     * @return DescribeVodDomainSrcBpsDataResponse
+     */
+    public function describeVodDomainSrcBpsData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVodDomainSrcBpsDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVodDomainSrcTrafficDataRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeVodDomainSrcTrafficDataResponse
+     */
+    public function describeVodDomainSrcTrafficDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodDomainSrcTrafficData',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVodDomainSrcTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVodDomainSrcTrafficDataRequest $request
+     *
+     * @return DescribeVodDomainSrcTrafficDataResponse
+     */
+    public function describeVodDomainSrcTrafficData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVodDomainSrcTrafficDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * If you specify neither the StartTime parameter nor the EndTime parameter, the data in the last 24 hours is queried. Alternatively, you can specify both the StartTime and EndTime parameters to query data that is generated in the specified duration. You can query data for the last 90 days at most.
+     *   *
+     * @param DescribeVodDomainTrafficDataRequest $request DescribeVodDomainTrafficDataRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeVodDomainTrafficDataResponse DescribeVodDomainTrafficDataResponse
      */
     public function describeVodDomainTrafficDataWithOptions($request, $runtime)
     {
@@ -2850,9 +3240,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodDomainTrafficDataRequest $request
+     * If you specify neither the StartTime parameter nor the EndTime parameter, the data in the last 24 hours is queried. Alternatively, you can specify both the StartTime and EndTime parameters to query data that is generated in the specified duration. You can query data for the last 90 days at most.
+     *   *
+     * @param DescribeVodDomainTrafficDataRequest $request DescribeVodDomainTrafficDataRequest
      *
-     * @return DescribeVodDomainTrafficDataResponse
+     * @return DescribeVodDomainTrafficDataResponse DescribeVodDomainTrafficDataResponse
      */
     public function describeVodDomainTrafficData($request)
     {
@@ -2862,10 +3254,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodDomainUsageDataRequest $request
-     * @param RuntimeOptions                    $runtime
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   You can specify a maximum of 100 domain names for CDN at a time. Separate them with commas (,). If you do not specify a domain name for CDN, the data of all domain names for CDN within your Alibaba Cloud account is returned.
+     *   * > *   You can query data for the past one year at most and query data for a maximum of three months per request. If you query data for one to three days, the system returns the statistics collected on an hourly basis. If you query data for four days or more, the system returns the statistics collected on a daily basis.
+     *   *
+     * @param DescribeVodDomainUsageDataRequest $request DescribeVodDomainUsageDataRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodDomainUsageDataResponse
+     * @return DescribeVodDomainUsageDataResponse DescribeVodDomainUsageDataResponse
      */
     public function describeVodDomainUsageDataWithOptions($request, $runtime)
     {
@@ -2911,9 +3307,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodDomainUsageDataRequest $request
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   You can specify a maximum of 100 domain names for CDN at a time. Separate them with commas (,). If you do not specify a domain name for CDN, the data of all domain names for CDN within your Alibaba Cloud account is returned.
+     *   * > *   You can query data for the past one year at most and query data for a maximum of three months per request. If you query data for one to three days, the system returns the statistics collected on an hourly basis. If you query data for four days or more, the system returns the statistics collected on a daily basis.
+     *   *
+     * @param DescribeVodDomainUsageDataRequest $request DescribeVodDomainUsageDataRequest
      *
-     * @return DescribeVodDomainUsageDataResponse
+     * @return DescribeVodDomainUsageDataResponse DescribeVodDomainUsageDataResponse
      */
     public function describeVodDomainUsageData($request)
     {
@@ -2923,10 +3323,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodRefreshQuotaRequest $request
-     * @param RuntimeOptions                 $runtime
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   You can call the [RefreshVodObjectCaches](~~69215~~) operation to refresh content and the [PreloadVodObjectCaches](~~69211~~) operation to prefetch content.
+     *   *
+     * @param DescribeVodRefreshQuotaRequest $request DescribeVodRefreshQuotaRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodRefreshQuotaResponse
+     * @return DescribeVodRefreshQuotaResponse DescribeVodRefreshQuotaResponse
      */
     public function describeVodRefreshQuotaWithOptions($request, $runtime)
     {
@@ -2957,9 +3360,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodRefreshQuotaRequest $request
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   You can call the [RefreshVodObjectCaches](~~69215~~) operation to refresh content and the [PreloadVodObjectCaches](~~69211~~) operation to prefetch content.
+     *   *
+     * @param DescribeVodRefreshQuotaRequest $request DescribeVodRefreshQuotaRequest
      *
-     * @return DescribeVodRefreshQuotaResponse
+     * @return DescribeVodRefreshQuotaResponse DescribeVodRefreshQuotaResponse
      */
     public function describeVodRefreshQuota($request)
     {
@@ -2969,10 +3375,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodRefreshTasksRequest $request
-     * @param RuntimeOptions                 $runtime
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   If you specify neither the TaskId parameter nor the ObjectPath parameter, the data in the last three days on the first page is returned. By default, one page displays a maximum of 20 entries. You can specify the Taskid and Objectpath parameters at the same time.
+     *   *
+     * @param DescribeVodRefreshTasksRequest $request DescribeVodRefreshTasksRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodRefreshTasksResponse
+     * @return DescribeVodRefreshTasksResponse DescribeVodRefreshTasksResponse
      */
     public function describeVodRefreshTasksWithOptions($request, $runtime)
     {
@@ -3030,9 +3439,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodRefreshTasksRequest $request
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   If you specify neither the TaskId parameter nor the ObjectPath parameter, the data in the last three days on the first page is returned. By default, one page displays a maximum of 20 entries. You can specify the Taskid and Objectpath parameters at the same time.
+     *   *
+     * @param DescribeVodRefreshTasksRequest $request DescribeVodRefreshTasksRequest
      *
-     * @return DescribeVodRefreshTasksResponse
+     * @return DescribeVodRefreshTasksResponse DescribeVodRefreshTasksResponse
      */
     public function describeVodRefreshTasks($request)
     {
@@ -3042,10 +3454,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodStorageDataRequest $request
-     * @param RuntimeOptions                $runtime
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   If the time range to query is less than or equal to seven days, the system returns the statistics collected on an hourly basis. If the time range to query is greater than seven days, the system returns the statistics collected on a daily basis. The maximum time range that you can specify to query is 31 days.
+     *   *
+     * @param DescribeVodStorageDataRequest $request DescribeVodStorageDataRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodStorageDataResponse
+     * @return DescribeVodStorageDataResponse DescribeVodStorageDataResponse
      */
     public function describeVodStorageDataWithOptions($request, $runtime)
     {
@@ -3088,9 +3503,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodStorageDataRequest $request
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   If the time range to query is less than or equal to seven days, the system returns the statistics collected on an hourly basis. If the time range to query is greater than seven days, the system returns the statistics collected on a daily basis. The maximum time range that you can specify to query is 31 days.
+     *   *
+     * @param DescribeVodStorageDataRequest $request DescribeVodStorageDataRequest
      *
-     * @return DescribeVodStorageDataResponse
+     * @return DescribeVodStorageDataResponse DescribeVodStorageDataResponse
      */
     public function describeVodStorageData($request)
     {
@@ -3100,10 +3518,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodTranscodeDataRequest $request
-     * @param RuntimeOptions                  $runtime
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   If the time range to query is less than or equal to seven days, the system returns the statistics collected on an hourly basis. If the time range to query is greater than seven days, the system returns the statistics collected on a daily basis. The maximum time range that you can specify to query is 31 days.
+     *   *
+     * @param DescribeVodTranscodeDataRequest $request DescribeVodTranscodeDataRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodTranscodeDataResponse
+     * @return DescribeVodTranscodeDataResponse DescribeVodTranscodeDataResponse
      */
     public function describeVodTranscodeDataWithOptions($request, $runtime)
     {
@@ -3149,9 +3570,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodTranscodeDataRequest $request
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   If the time range to query is less than or equal to seven days, the system returns the statistics collected on an hourly basis. If the time range to query is greater than seven days, the system returns the statistics collected on a daily basis. The maximum time range that you can specify to query is 31 days.
+     *   *
+     * @param DescribeVodTranscodeDataRequest $request DescribeVodTranscodeDataRequest
      *
-     * @return DescribeVodTranscodeDataResponse
+     * @return DescribeVodTranscodeDataResponse DescribeVodTranscodeDataResponse
      */
     public function describeVodTranscodeData($request)
     {
@@ -3271,10 +3695,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DetachAppPolicyFromIdentityRequest $request
-     * @param RuntimeOptions                     $runtime
+     * You can grant a maximum of 10 application permissions to a RAM user or RAM role.
+     *   *
+     * @param DetachAppPolicyFromIdentityRequest $request DetachAppPolicyFromIdentityRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachAppPolicyFromIdentityResponse
+     * @return DetachAppPolicyFromIdentityResponse DetachAppPolicyFromIdentityResponse
      */
     public function detachAppPolicyFromIdentityWithOptions($request, $runtime)
     {
@@ -3311,9 +3737,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DetachAppPolicyFromIdentityRequest $request
+     * You can grant a maximum of 10 application permissions to a RAM user or RAM role.
+     *   *
+     * @param DetachAppPolicyFromIdentityRequest $request DetachAppPolicyFromIdentityRequest
      *
-     * @return DetachAppPolicyFromIdentityResponse
+     * @return DetachAppPolicyFromIdentityResponse DetachAppPolicyFromIdentityResponse
      */
     public function detachAppPolicyFromIdentity($request)
     {
@@ -3375,10 +3803,16 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetAIImageJobsRequest $request
-     * @param RuntimeOptions        $runtime
+     * Call the [SubmitAIImageJob](~~SubmitAIImageJob~~) operation to submit image AI processing jobs before you call this operation to query image AI processing jobs. You can query a maximum of 10 jobs of image AI processing in one request.
+     *   * - The smart thumbnail feature is not supported. You cannot call this operation.
+     *   * - Call the [SubmitAIImageJob](~~SubmitAIImageJob~~) operation to submit image AI processing jobs before you call this operation to query image AI processing jobs. You can query a maximum of 10 jobs of image AI processing in one request.
+     *   * ### QPS limit
+     *   * You can call this operation up to 30 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+     *   *
+     * @param GetAIImageJobsRequest $request GetAIImageJobsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAIImageJobsResponse
+     * @return GetAIImageJobsResponse GetAIImageJobsResponse
      */
     public function getAIImageJobsWithOptions($request, $runtime)
     {
@@ -3418,9 +3852,15 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetAIImageJobsRequest $request
+     * Call the [SubmitAIImageJob](~~SubmitAIImageJob~~) operation to submit image AI processing jobs before you call this operation to query image AI processing jobs. You can query a maximum of 10 jobs of image AI processing in one request.
+     *   * - The smart thumbnail feature is not supported. You cannot call this operation.
+     *   * - Call the [SubmitAIImageJob](~~SubmitAIImageJob~~) operation to submit image AI processing jobs before you call this operation to query image AI processing jobs. You can query a maximum of 10 jobs of image AI processing in one request.
+     *   * ### QPS limit
+     *   * You can call this operation up to 30 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+     *   *
+     * @param GetAIImageJobsRequest $request GetAIImageJobsRequest
      *
-     * @return GetAIImageJobsResponse
+     * @return GetAIImageJobsResponse GetAIImageJobsResponse
      */
     public function getAIImageJobs($request)
     {
@@ -3430,10 +3870,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetAIMediaAuditJobRequest $request
-     * @param RuntimeOptions            $runtime
+     * ApsaraVideo VOD stores the snapshots of the intelligent review results free of charge for two weeks. After this period, the snapshots are automatically deleted.
+     *   *
+     * @param GetAIMediaAuditJobRequest $request GetAIMediaAuditJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAIMediaAuditJobResponse
+     * @return GetAIMediaAuditJobResponse GetAIMediaAuditJobResponse
      */
     public function getAIMediaAuditJobWithOptions($request, $runtime)
     {
@@ -3461,9 +3903,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetAIMediaAuditJobRequest $request
+     * ApsaraVideo VOD stores the snapshots of the intelligent review results free of charge for two weeks. After this period, the snapshots are automatically deleted.
+     *   *
+     * @param GetAIMediaAuditJobRequest $request GetAIMediaAuditJobRequest
      *
-     * @return GetAIMediaAuditJobResponse
+     * @return GetAIMediaAuditJobResponse GetAIMediaAuditJobResponse
      */
     public function getAIMediaAuditJob($request)
     {
@@ -3473,10 +3917,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetAITemplateRequest $request
-     * @param RuntimeOptions       $runtime
+     * Before you call this operation to query the details of an AI template, you must obtain the ID of the AI template.
+     *   *
+     * @param GetAITemplateRequest $request GetAITemplateRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAITemplateResponse
+     * @return GetAITemplateResponse GetAITemplateResponse
      */
     public function getAITemplateWithOptions($request, $runtime)
     {
@@ -3504,9 +3950,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetAITemplateRequest $request
+     * Before you call this operation to query the details of an AI template, you must obtain the ID of the AI template.
+     *   *
+     * @param GetAITemplateRequest $request GetAITemplateRequest
      *
-     * @return GetAITemplateResponse
+     * @return GetAITemplateResponse GetAITemplateResponse
      */
     public function getAITemplate($request)
     {
@@ -3516,10 +3964,15 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetAIVideoTagResultRequest $request
-     * @param RuntimeOptions             $runtime
+     * - The smart tagging feature is not supported. You cannot call this operation.
+     *   * - You can obtain the smart tagging results by using the video ID.
+     *   * ### QPS limit
+     *   * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+     *   *
+     * @param GetAIVideoTagResultRequest $request GetAIVideoTagResultRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAIVideoTagResultResponse
+     * @return GetAIVideoTagResultResponse GetAIVideoTagResultResponse
      */
     public function getAIVideoTagResultWithOptions($request, $runtime)
     {
@@ -3559,9 +4012,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetAIVideoTagResultRequest $request
+     * - The smart tagging feature is not supported. You cannot call this operation.
+     *   * - You can obtain the smart tagging results by using the video ID.
+     *   * ### QPS limit
+     *   * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+     *   *
+     * @param GetAIVideoTagResultRequest $request GetAIVideoTagResultRequest
      *
-     * @return GetAIVideoTagResultResponse
+     * @return GetAIVideoTagResultResponse GetAIVideoTagResultResponse
      */
     public function getAIVideoTagResult($request)
     {
@@ -3571,10 +4029,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetAppInfosRequest $request
-     * @param RuntimeOptions     $runtime
+     * Supports batch query.
+     *   *
+     * @param GetAppInfosRequest $request GetAppInfosRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAppInfosResponse
+     * @return GetAppInfosResponse GetAppInfosResponse
      */
     public function getAppInfosWithOptions($request, $runtime)
     {
@@ -3602,9 +4062,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetAppInfosRequest $request
+     * Supports batch query.
+     *   *
+     * @param GetAppInfosRequest $request GetAppInfosRequest
      *
-     * @return GetAppInfosResponse
+     * @return GetAppInfosResponse GetAppInfosResponse
      */
     public function getAppInfos($request)
     {
@@ -3770,10 +4232,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetDefaultAITemplateRequest $request
-     * @param RuntimeOptions              $runtime
+     * You can query only the default AI template for intelligent review.
+     *   *
+     * @param GetDefaultAITemplateRequest $request GetDefaultAITemplateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDefaultAITemplateResponse
+     * @return GetDefaultAITemplateResponse GetDefaultAITemplateResponse
      */
     public function getDefaultAITemplateWithOptions($request, $runtime)
     {
@@ -3801,9 +4265,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetDefaultAITemplateRequest $request
+     * You can query only the default AI template for intelligent review.
+     *   *
+     * @param GetDefaultAITemplateRequest $request GetDefaultAITemplateRequest
      *
-     * @return GetDefaultAITemplateResponse
+     * @return GetDefaultAITemplateResponse GetDefaultAITemplateResponse
      */
     public function getDefaultAITemplate($request)
     {
@@ -3868,10 +4334,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetEditingProjectMaterialsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * During editing, you can add materials to the timeline, but some of them may not be used.
+     *   *
+     * @param GetEditingProjectMaterialsRequest $request GetEditingProjectMaterialsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetEditingProjectMaterialsResponse
+     * @return GetEditingProjectMaterialsResponse GetEditingProjectMaterialsResponse
      */
     public function getEditingProjectMaterialsWithOptions($request, $runtime)
     {
@@ -3917,9 +4385,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetEditingProjectMaterialsRequest $request
+     * During editing, you can add materials to the timeline, but some of them may not be used.
+     *   *
+     * @param GetEditingProjectMaterialsRequest $request GetEditingProjectMaterialsRequest
      *
-     * @return GetEditingProjectMaterialsResponse
+     * @return GetEditingProjectMaterialsResponse GetEditingProjectMaterialsResponse
      */
     public function getEditingProjectMaterials($request)
     {
@@ -3978,10 +4448,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetImageInfosRequest $request
-     * @param RuntimeOptions       $runtime
+     * You can call this operation to query the basic information about multiple images at a time, such as the image title, type, creation time, tags, and URL.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit on an API operation in ApsaraVideo Live](~~342790~~).
+     *   *
+     * @param GetImageInfosRequest $request GetImageInfosRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetImageInfosResponse
+     * @return GetImageInfosResponse GetImageInfosResponse
      */
     public function getImageInfosWithOptions($request, $runtime)
     {
@@ -4015,9 +4489,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetImageInfosRequest $request
+     * You can call this operation to query the basic information about multiple images at a time, such as the image title, type, creation time, tags, and URL.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit on an API operation in ApsaraVideo Live](~~342790~~).
+     *   *
+     * @param GetImageInfosRequest $request GetImageInfosRequest
      *
-     * @return GetImageInfosResponse
+     * @return GetImageInfosResponse GetImageInfosResponse
      */
     public function getImageInfos($request)
     {
@@ -4027,10 +4505,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetMediaAuditAudioResultDetailRequest $request
-     * @param RuntimeOptions                        $runtime
+     * If notifications for the [CreateAuditComplete](~~89576~~) event are configured, event notifications are sent to the callback URL after automated review is complete. You can call this operation to query the details of audio review results.
+     *   *
+     * @param GetMediaAuditAudioResultDetailRequest $request GetMediaAuditAudioResultDetailRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMediaAuditAudioResultDetailResponse
+     * @return GetMediaAuditAudioResultDetailResponse GetMediaAuditAudioResultDetailResponse
      */
     public function getMediaAuditAudioResultDetailWithOptions($request, $runtime)
     {
@@ -4073,9 +4553,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetMediaAuditAudioResultDetailRequest $request
+     * If notifications for the [CreateAuditComplete](~~89576~~) event are configured, event notifications are sent to the callback URL after automated review is complete. You can call this operation to query the details of audio review results.
+     *   *
+     * @param GetMediaAuditAudioResultDetailRequest $request GetMediaAuditAudioResultDetailRequest
      *
-     * @return GetMediaAuditAudioResultDetailResponse
+     * @return GetMediaAuditAudioResultDetailResponse GetMediaAuditAudioResultDetailResponse
      */
     public function getMediaAuditAudioResultDetail($request)
     {
@@ -4128,10 +4610,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetMediaAuditResultDetailRequest $request
-     * @param RuntimeOptions                   $runtime
+     * - By default, only details of snapshots that violate content regulations and potentially violate content regulations are returned.
+     *   * - ApsaraVideo VOD stores the snapshots in the automated review results free of charge for two weeks. After this period, the snapshots are automatically deleted.
+     *   *
+     * @param GetMediaAuditResultDetailRequest $request GetMediaAuditResultDetailRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMediaAuditResultDetailResponse
+     * @return GetMediaAuditResultDetailResponse GetMediaAuditResultDetailResponse
      */
     public function getMediaAuditResultDetailWithOptions($request, $runtime)
     {
@@ -4162,9 +4647,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetMediaAuditResultDetailRequest $request
+     * - By default, only details of snapshots that violate content regulations and potentially violate content regulations are returned.
+     *   * - ApsaraVideo VOD stores the snapshots in the automated review results free of charge for two weeks. After this period, the snapshots are automatically deleted.
+     *   *
+     * @param GetMediaAuditResultDetailRequest $request GetMediaAuditResultDetailRequest
      *
-     * @return GetMediaAuditResultDetailResponse
+     * @return GetMediaAuditResultDetailResponse GetMediaAuditResultDetailResponse
      */
     public function getMediaAuditResultDetail($request)
     {
@@ -4217,10 +4705,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetMediaDNAResultRequest $request
-     * @param RuntimeOptions           $runtime
+     * This operation is available only in the Singapore (Singapore) region.
+     *   * ### QPS limit
+     *   * You can call this operation up to 20 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](~~342790~~).
+     *   *
+     * @param GetMediaDNAResultRequest $request GetMediaDNAResultRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMediaDNAResultResponse
+     * @return GetMediaDNAResultResponse GetMediaDNAResultResponse
      */
     public function getMediaDNAResultWithOptions($request, $runtime)
     {
@@ -4260,9 +4752,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetMediaDNAResultRequest $request
+     * This operation is available only in the Singapore (Singapore) region.
+     *   * ### QPS limit
+     *   * You can call this operation up to 20 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](~~342790~~).
+     *   *
+     * @param GetMediaDNAResultRequest $request GetMediaDNAResultRequest
      *
-     * @return GetMediaDNAResultResponse
+     * @return GetMediaDNAResultResponse GetMediaDNAResultResponse
      */
     public function getMediaDNAResult($request)
     {
@@ -4272,10 +4768,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetMediaRefreshJobsRequest $request
-     * @param RuntimeOptions             $runtime
+     * You can query the information about all media files or a specific media file in a refresh or prefetch job.
+     *   * ### QPS limits
+     *   * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+     *   *
+     * @param GetMediaRefreshJobsRequest $request GetMediaRefreshJobsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMediaRefreshJobsResponse
+     * @return GetMediaRefreshJobsResponse GetMediaRefreshJobsResponse
      */
     public function getMediaRefreshJobsWithOptions($request, $runtime)
     {
@@ -4300,9 +4800,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetMediaRefreshJobsRequest $request
+     * You can query the information about all media files or a specific media file in a refresh or prefetch job.
+     *   * ### QPS limits
+     *   * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+     *   *
+     * @param GetMediaRefreshJobsRequest $request GetMediaRefreshJobsRequest
      *
-     * @return GetMediaRefreshJobsResponse
+     * @return GetMediaRefreshJobsResponse GetMediaRefreshJobsResponse
      */
     public function getMediaRefreshJobs($request)
     {
@@ -4312,10 +4816,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetMessageCallbackRequest $request
-     * @param RuntimeOptions            $runtime
+     * > For more information, see [Overview](~~55627~~).
+     *   *
+     * @param GetMessageCallbackRequest $request GetMessageCallbackRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMessageCallbackResponse
+     * @return GetMessageCallbackResponse GetMessageCallbackResponse
      */
     public function getMessageCallbackWithOptions($request, $runtime)
     {
@@ -4346,9 +4852,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetMessageCallbackRequest $request
+     * > For more information, see [Overview](~~55627~~).
+     *   *
+     * @param GetMessageCallbackRequest $request GetMessageCallbackRequest
      *
-     * @return GetMessageCallbackResponse
+     * @return GetMessageCallbackResponse GetMessageCallbackResponse
      */
     public function getMessageCallback($request)
     {
@@ -4358,10 +4866,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetMezzanineInfoRequest $request
-     * @param RuntimeOptions          $runtime
+     * > You can obtain the complete mezzanine file information only after a stream is transcoded.
+     *   *
+     * @param GetMezzanineInfoRequest $request GetMezzanineInfoRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMezzanineInfoResponse
+     * @return GetMezzanineInfoResponse GetMezzanineInfoResponse
      */
     public function getMezzanineInfoWithOptions($request, $runtime)
     {
@@ -4398,9 +4908,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetMezzanineInfoRequest $request
+     * > You can obtain the complete mezzanine file information only after a stream is transcoded.
+     *   *
+     * @param GetMezzanineInfoRequest $request GetMezzanineInfoRequest
      *
-     * @return GetMezzanineInfoResponse
+     * @return GetMezzanineInfoResponse GetMezzanineInfoResponse
      */
     public function getMezzanineInfo($request)
     {
@@ -4410,10 +4922,16 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetPlayInfoRequest $request
-     * @param RuntimeOptions     $runtime
+     * *   You can use the ID of a media file to query the playback URL of the file. After you integrate ApsaraVideo Player SDK for URL-based playback or a third-party player, you can use the obtained playback URLs to play audio and video files.
+     *   * *   Only videos in the Normal state can be played. The Status parameter in the response indicates the status of the video. For more information, see [Overview](~~57290~~).
+     *   * *   If video playback fails, you can call the [GetMezzanineInfo](~~GetMezzanineInfo~~) operation to check whether the video source information is correct.
+     *   * ### QPS limits
+     *   * You can call this operation up to 360 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit on API operations](~~342790~~).
+     *   *
+     * @param GetPlayInfoRequest $request GetPlayInfoRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPlayInfoResponse
+     * @return GetPlayInfoResponse GetPlayInfoResponse
      */
     public function getPlayInfoWithOptions($request, $runtime)
     {
@@ -4468,9 +4986,15 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetPlayInfoRequest $request
+     * *   You can use the ID of a media file to query the playback URL of the file. After you integrate ApsaraVideo Player SDK for URL-based playback or a third-party player, you can use the obtained playback URLs to play audio and video files.
+     *   * *   Only videos in the Normal state can be played. The Status parameter in the response indicates the status of the video. For more information, see [Overview](~~57290~~).
+     *   * *   If video playback fails, you can call the [GetMezzanineInfo](~~GetMezzanineInfo~~) operation to check whether the video source information is correct.
+     *   * ### QPS limits
+     *   * You can call this operation up to 360 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit on API operations](~~342790~~).
+     *   *
+     * @param GetPlayInfoRequest $request GetPlayInfoRequest
      *
-     * @return GetPlayInfoResponse
+     * @return GetPlayInfoResponse GetPlayInfoResponse
      */
     public function getPlayInfo($request)
     {
@@ -4480,10 +5004,15 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetTranscodeSummaryRequest $request
-     * @param RuntimeOptions             $runtime
+     * *   A media file may be transcoded multiple times. This operation returns only the latest transcoding summary.
+     *   * *   You can query transcoding summaries for a maximum of 10 media files in one request.
+     *   * *   You can call the [ListTranscodeTask](~~109120~~) operation to query historical transcoding tasks.
+     *   * *   **You can call this operation to query information only about transcoding tasks created within the past year.**.
+     *   *
+     * @param GetTranscodeSummaryRequest $request GetTranscodeSummaryRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTranscodeSummaryResponse
+     * @return GetTranscodeSummaryResponse GetTranscodeSummaryResponse
      */
     public function getTranscodeSummaryWithOptions($request, $runtime)
     {
@@ -4511,9 +5040,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetTranscodeSummaryRequest $request
+     * *   A media file may be transcoded multiple times. This operation returns only the latest transcoding summary.
+     *   * *   You can query transcoding summaries for a maximum of 10 media files in one request.
+     *   * *   You can call the [ListTranscodeTask](~~109120~~) operation to query historical transcoding tasks.
+     *   * *   **You can call this operation to query information only about transcoding tasks created within the past year.**.
+     *   *
+     * @param GetTranscodeSummaryRequest $request GetTranscodeSummaryRequest
      *
-     * @return GetTranscodeSummaryResponse
+     * @return GetTranscodeSummaryResponse GetTranscodeSummaryResponse
      */
     public function getTranscodeSummary($request)
     {
@@ -4523,10 +5057,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetTranscodeTaskRequest $request
-     * @param RuntimeOptions          $runtime
+     * You can call this operation to query only transcoding tasks created within the past year.
+     *   *
+     * @param GetTranscodeTaskRequest $request GetTranscodeTaskRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTranscodeTaskResponse
+     * @return GetTranscodeTaskResponse GetTranscodeTaskResponse
      */
     public function getTranscodeTaskWithOptions($request, $runtime)
     {
@@ -4554,9 +5090,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetTranscodeTaskRequest $request
+     * You can call this operation to query only transcoding tasks created within the past year.
+     *   *
+     * @param GetTranscodeTaskRequest $request GetTranscodeTaskRequest
      *
-     * @return GetTranscodeTaskResponse
+     * @return GetTranscodeTaskResponse GetTranscodeTaskResponse
      */
     public function getTranscodeTask($request)
     {
@@ -4566,10 +5104,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetTranscodeTemplateGroupRequest $request
-     * @param RuntimeOptions                   $runtime
+     * This operation returns the information about the specified transcoding template group and the configurations of all the transcoding templates in the group.
+     *   *
+     * @param GetTranscodeTemplateGroupRequest $request GetTranscodeTemplateGroupRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTranscodeTemplateGroupResponse
+     * @return GetTranscodeTemplateGroupResponse GetTranscodeTemplateGroupResponse
      */
     public function getTranscodeTemplateGroupWithOptions($request, $runtime)
     {
@@ -4597,9 +5137,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetTranscodeTemplateGroupRequest $request
+     * This operation returns the information about the specified transcoding template group and the configurations of all the transcoding templates in the group.
+     *   *
+     * @param GetTranscodeTemplateGroupRequest $request GetTranscodeTemplateGroupRequest
      *
-     * @return GetTranscodeTemplateGroupResponse
+     * @return GetTranscodeTemplateGroupResponse GetTranscodeTemplateGroupResponse
      */
     public function getTranscodeTemplateGroup($request)
     {
@@ -4609,10 +5151,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetURLUploadInfosRequest $request
-     * @param RuntimeOptions           $runtime
+     * You can query the information about a URL-based upload job by specifying the upload URL or using the job ID returned when you upload media files. The information includes the status of the upload job, custom configurations, the time when the job was created, and the time when the job was complete.
+     *   * If the upload fails, you can view the error code and error message. If the upload is successful, you can obtain the video ID.
+     *   *
+     * @param GetURLUploadInfosRequest $request GetURLUploadInfosRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetURLUploadInfosResponse
+     * @return GetURLUploadInfosResponse GetURLUploadInfosResponse
      */
     public function getURLUploadInfosWithOptions($request, $runtime)
     {
@@ -4643,9 +5188,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetURLUploadInfosRequest $request
+     * You can query the information about a URL-based upload job by specifying the upload URL or using the job ID returned when you upload media files. The information includes the status of the upload job, custom configurations, the time when the job was created, and the time when the job was complete.
+     *   * If the upload fails, you can view the error code and error message. If the upload is successful, you can obtain the video ID.
+     *   *
+     * @param GetURLUploadInfosRequest $request GetURLUploadInfosRequest
      *
-     * @return GetURLUploadInfosResponse
+     * @return GetURLUploadInfosResponse GetURLUploadInfosResponse
      */
     public function getURLUploadInfos($request)
     {
@@ -4655,10 +5203,20 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetUploadDetailsRequest $request
-     * @param RuntimeOptions          $runtime
+     * *   You can call this operation to obtain the upload details only about audio and video files.
+     *   * *   If you use the ApsaraVideo VOD console to upload audio and video files, you can call this operation to query information such as the upload ratio. If you use an upload SDK to upload audio and video files, make sure that the version of the [upload SDK](~~52200~~) meets one of the following requirements:
+     *   *     *   The version of the upload SDK for Java is 1.4.4 or later.
+     *   *     *   The version of the upload SDK for C++ is 1.0.0 or later.
+     *   *     *   The version of the upload SDK for PHP is 1.0.2 or later.
+     *   *     *   The version of the upload SDK for Python is 1.3.0 or later.
+     *   *     *   The version of the upload SDK for JavaScript is 1.4.0 or later.
+     *   *     *   The version of the upload SDK for Android is 1.5.0 or later.
+     *   *     *   The version of the upload SDK for iOS is 1.5.0 or later.
+     *   *
+     * @param GetUploadDetailsRequest $request GetUploadDetailsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUploadDetailsResponse
+     * @return GetUploadDetailsResponse GetUploadDetailsResponse
      */
     public function getUploadDetailsWithOptions($request, $runtime)
     {
@@ -4689,9 +5247,19 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetUploadDetailsRequest $request
+     * *   You can call this operation to obtain the upload details only about audio and video files.
+     *   * *   If you use the ApsaraVideo VOD console to upload audio and video files, you can call this operation to query information such as the upload ratio. If you use an upload SDK to upload audio and video files, make sure that the version of the [upload SDK](~~52200~~) meets one of the following requirements:
+     *   *     *   The version of the upload SDK for Java is 1.4.4 or later.
+     *   *     *   The version of the upload SDK for C++ is 1.0.0 or later.
+     *   *     *   The version of the upload SDK for PHP is 1.0.2 or later.
+     *   *     *   The version of the upload SDK for Python is 1.3.0 or later.
+     *   *     *   The version of the upload SDK for JavaScript is 1.4.0 or later.
+     *   *     *   The version of the upload SDK for Android is 1.5.0 or later.
+     *   *     *   The version of the upload SDK for iOS is 1.5.0 or later.
+     *   *
+     * @param GetUploadDetailsRequest $request GetUploadDetailsRequest
      *
-     * @return GetUploadDetailsResponse
+     * @return GetUploadDetailsResponse GetUploadDetailsResponse
      */
     public function getUploadDetails($request)
     {
@@ -4744,10 +5312,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetVideoInfosRequest $request
-     * @param RuntimeOptions       $runtime
+     * You can call this operation to obtain the basic information about multiple videos at a time based on video IDs. The basic information includes the title, description, duration, thumbnail URL, status, creation time, size, snapshots, category, and tags of each video.
+     *   *
+     * @param GetVideoInfosRequest $request GetVideoInfosRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetVideoInfosResponse
+     * @return GetVideoInfosResponse GetVideoInfosResponse
      */
     public function getVideoInfosWithOptions($request, $runtime)
     {
@@ -4775,9 +5345,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetVideoInfosRequest $request
+     * You can call this operation to obtain the basic information about multiple videos at a time based on video IDs. The basic information includes the title, description, duration, thumbnail URL, status, creation time, size, snapshots, category, and tags of each video.
+     *   *
+     * @param GetVideoInfosRequest $request GetVideoInfosRequest
      *
-     * @return GetVideoInfosResponse
+     * @return GetVideoInfosResponse GetVideoInfosResponse
      */
     public function getVideoInfos($request)
     {
@@ -4787,10 +5359,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetVideoListRequest $request
-     * @param RuntimeOptions      $runtime
+     * In a single request, you can obtain the information about a maximum of first **5,000** video records that meet the specified filter criteria, such as the video status and category. We recommend that you set the StartTime and EndTime parameters to narrow down the time range for queries and perform multiple queries. For more information about how to query the information about more videos or even all videos, see [SearchMedia](~~86044~~).
+     *   *
+     * @param GetVideoListRequest $request GetVideoListRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetVideoListResponse
+     * @return GetVideoListResponse GetVideoListResponse
      */
     public function getVideoListWithOptions($request, $runtime)
     {
@@ -4839,9 +5413,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetVideoListRequest $request
+     * In a single request, you can obtain the information about a maximum of first **5,000** video records that meet the specified filter criteria, such as the video status and category. We recommend that you set the StartTime and EndTime parameters to narrow down the time range for queries and perform multiple queries. For more information about how to query the information about more videos or even all videos, see [SearchMedia](~~86044~~).
+     *   *
+     * @param GetVideoListRequest $request GetVideoListRequest
      *
-     * @return GetVideoListResponse
+     * @return GetVideoListResponse GetVideoListResponse
      */
     public function getVideoList($request)
     {
@@ -4851,10 +5427,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetVideoPlayAuthRequest $request
-     * @param RuntimeOptions          $runtime
+     * *   You can call this operation to obtain a playback credential when you use ApsaraVideo Player SDK to play a media file based on PlayAuth. The credential is used to obtain the playback URL.
+     *   * *   You cannot obtain the playback URL of a video by using a credential that has expired. A new credential is required.
+     *   *
+     * @param GetVideoPlayAuthRequest $request GetVideoPlayAuthRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetVideoPlayAuthResponse
+     * @return GetVideoPlayAuthResponse GetVideoPlayAuthResponse
      */
     public function getVideoPlayAuthWithOptions($request, $runtime)
     {
@@ -4888,9 +5467,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetVideoPlayAuthRequest $request
+     * *   You can call this operation to obtain a playback credential when you use ApsaraVideo Player SDK to play a media file based on PlayAuth. The credential is used to obtain the playback URL.
+     *   * *   You cannot obtain the playback URL of a video by using a credential that has expired. A new credential is required.
+     *   *
+     * @param GetVideoPlayAuthRequest $request GetVideoPlayAuthRequest
      *
-     * @return GetVideoPlayAuthResponse
+     * @return GetVideoPlayAuthResponse GetVideoPlayAuthResponse
      */
     public function getVideoPlayAuth($request)
     {
@@ -4986,10 +5568,16 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param ListAIImageInfoRequest $request
-     * @param RuntimeOptions         $runtime
+     * You can call this operation to query AI processing results about images of a specified video. Images of different videos cannot be queried in one request.
+     *   * - The smart thumbnail feature is not supported. You cannot call this operation.
+     *   * - You can call this operation to query AI processing results about images of a specified video. Images of different videos cannot be queried in one request.
+     *   * ### QPS limit
+     *   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+     *   *
+     * @param ListAIImageInfoRequest $request ListAIImageInfoRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAIImageInfoResponse
+     * @return ListAIImageInfoResponse ListAIImageInfoResponse
      */
     public function listAIImageInfoWithOptions($request, $runtime)
     {
@@ -5017,9 +5605,15 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param ListAIImageInfoRequest $request
+     * You can call this operation to query AI processing results about images of a specified video. Images of different videos cannot be queried in one request.
+     *   * - The smart thumbnail feature is not supported. You cannot call this operation.
+     *   * - You can call this operation to query AI processing results about images of a specified video. Images of different videos cannot be queried in one request.
+     *   * ### QPS limit
+     *   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+     *   *
+     * @param ListAIImageInfoRequest $request ListAIImageInfoRequest
      *
-     * @return ListAIImageInfoResponse
+     * @return ListAIImageInfoResponse ListAIImageInfoResponse
      */
     public function listAIImageInfo($request)
     {
@@ -5029,10 +5623,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param ListAIJobRequest $request
-     * @param RuntimeOptions   $runtime
+     * You can call this operation to query video fingerprinting jobs and smart tagging jobs.
+     *   *
+     * @param ListAIJobRequest $request ListAIJobRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAIJobResponse
+     * @return ListAIJobResponse ListAIJobResponse
      */
     public function listAIJobWithOptions($request, $runtime)
     {
@@ -5072,9 +5668,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param ListAIJobRequest $request
+     * You can call this operation to query video fingerprinting jobs and smart tagging jobs.
+     *   *
+     * @param ListAIJobRequest $request ListAIJobRequest
      *
-     * @return ListAIJobResponse
+     * @return ListAIJobResponse ListAIJobResponse
      */
     public function listAIJob($request)
     {
@@ -5084,10 +5682,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param ListAITemplateRequest $request
-     * @param RuntimeOptions        $runtime
+     * ## Description
+     *   * You can call this operation to query AI templates of a specified type.
+     *   *
+     * @param ListAITemplateRequest $request ListAITemplateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAITemplateResponse
+     * @return ListAITemplateResponse ListAITemplateResponse
      */
     public function listAITemplateWithOptions($request, $runtime)
     {
@@ -5115,9 +5716,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param ListAITemplateRequest $request
+     * ## Description
+     *   * You can call this operation to query AI templates of a specified type.
+     *   *
+     * @param ListAITemplateRequest $request ListAITemplateRequest
      *
-     * @return ListAITemplateResponse
+     * @return ListAITemplateResponse ListAITemplateResponse
      */
     public function listAITemplate($request)
     {
@@ -5127,10 +5731,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param ListAppInfoRequest $request
-     * @param RuntimeOptions     $runtime
+     * Supports filtering queries by application status.
+     *   *
+     * @param ListAppInfoRequest $request ListAppInfoRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAppInfoResponse
+     * @return ListAppInfoResponse ListAppInfoResponse
      */
     public function listAppInfoWithOptions($request, $runtime)
     {
@@ -5164,9 +5770,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param ListAppInfoRequest $request
+     * Supports filtering queries by application status.
+     *   *
+     * @param ListAppInfoRequest $request ListAppInfoRequest
      *
-     * @return ListAppInfoResponse
+     * @return ListAppInfoResponse ListAppInfoResponse
      */
     public function listAppInfo($request)
     {
@@ -5176,10 +5784,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param ListAppPoliciesForIdentityRequest $request
-     * @param RuntimeOptions                    $runtime
+     * > The IdentityType and IdentityName parameters take effect only when an identity assumes the application administrator role to call this operation. Otherwise, only application policies that are attached to the current identity are returned.
+     *   *
+     * @param ListAppPoliciesForIdentityRequest $request ListAppPoliciesForIdentityRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAppPoliciesForIdentityResponse
+     * @return ListAppPoliciesForIdentityResponse ListAppPoliciesForIdentityResponse
      */
     public function listAppPoliciesForIdentityWithOptions($request, $runtime)
     {
@@ -5213,9 +5823,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param ListAppPoliciesForIdentityRequest $request
+     * > The IdentityType and IdentityName parameters take effect only when an identity assumes the application administrator role to call this operation. Otherwise, only application policies that are attached to the current identity are returned.
+     *   *
+     * @param ListAppPoliciesForIdentityRequest $request ListAppPoliciesForIdentityRequest
      *
-     * @return ListAppPoliciesForIdentityResponse
+     * @return ListAppPoliciesForIdentityResponse ListAppPoliciesForIdentityResponse
      */
     public function listAppPoliciesForIdentity($request)
     {
@@ -5311,10 +5923,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param ListLiveRecordVideoRequest $request
-     * @param RuntimeOptions             $runtime
+     * You can query a maximum of 5,000 videos based on the specified filter condition.
+     *   *
+     * @param ListLiveRecordVideoRequest $request ListLiveRecordVideoRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListLiveRecordVideoResponse
+     * @return ListLiveRecordVideoResponse ListLiveRecordVideoResponse
      */
     public function listLiveRecordVideoWithOptions($request, $runtime)
     {
@@ -5363,9 +5977,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param ListLiveRecordVideoRequest $request
+     * You can query a maximum of 5,000 videos based on the specified filter condition.
+     *   *
+     * @param ListLiveRecordVideoRequest $request ListLiveRecordVideoRequest
      *
-     * @return ListLiveRecordVideoResponse
+     * @return ListLiveRecordVideoResponse ListLiveRecordVideoResponse
      */
     public function listLiveRecordVideo($request)
     {
@@ -5375,10 +5991,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param ListSnapshotsRequest $request
-     * @param RuntimeOptions       $runtime
+     * If multiple snapshots of a video exist, the data of the latest snapshot is returned.
+     *   *
+     * @param ListSnapshotsRequest $request ListSnapshotsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSnapshotsResponse
+     * @return ListSnapshotsResponse ListSnapshotsResponse
      */
     public function listSnapshotsWithOptions($request, $runtime)
     {
@@ -5418,9 +6036,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param ListSnapshotsRequest $request
+     * If multiple snapshots of a video exist, the data of the latest snapshot is returned.
+     *   *
+     * @param ListSnapshotsRequest $request ListSnapshotsRequest
      *
-     * @return ListSnapshotsResponse
+     * @return ListSnapshotsResponse ListSnapshotsResponse
      */
     public function listSnapshots($request)
     {
@@ -5430,10 +6050,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param ListTranscodeTaskRequest $request
-     * @param RuntimeOptions           $runtime
+     * *   You can call the [GetTranscodeTask](~~109121~~) operation to query details about transcoding jobs.
+     *   * *   **You can call this operation to query only transcoding tasks created within the past year.**.
+     *   *
+     * @param ListTranscodeTaskRequest $request ListTranscodeTaskRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTranscodeTaskResponse
+     * @return ListTranscodeTaskResponse ListTranscodeTaskResponse
      */
     public function listTranscodeTaskWithOptions($request, $runtime)
     {
@@ -5473,9 +6096,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param ListTranscodeTaskRequest $request
+     * *   You can call the [GetTranscodeTask](~~109121~~) operation to query details about transcoding jobs.
+     *   * *   **You can call this operation to query only transcoding tasks created within the past year.**.
+     *   *
+     * @param ListTranscodeTaskRequest $request ListTranscodeTaskRequest
      *
-     * @return ListTranscodeTaskResponse
+     * @return ListTranscodeTaskResponse ListTranscodeTaskResponse
      */
     public function listTranscodeTask($request)
     {
@@ -5485,10 +6111,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param ListTranscodeTemplateGroupRequest $request
-     * @param RuntimeOptions                    $runtime
+     * > This operation does not return the configurations of transcoding templates in each transcoding template group. To query the configurations of transcoding templates in a specific transcoding template group, call the [GetTranscodeTemplateGroup](~~102670~~) operation.
+     *   *
+     * @param ListTranscodeTemplateGroupRequest $request ListTranscodeTemplateGroupRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTranscodeTemplateGroupResponse
+     * @return ListTranscodeTemplateGroupResponse ListTranscodeTemplateGroupResponse
      */
     public function listTranscodeTemplateGroupWithOptions($request, $runtime)
     {
@@ -5516,9 +6144,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param ListTranscodeTemplateGroupRequest $request
+     * > This operation does not return the configurations of transcoding templates in each transcoding template group. To query the configurations of transcoding templates in a specific transcoding template group, call the [GetTranscodeTemplateGroup](~~102670~~) operation.
+     *   *
+     * @param ListTranscodeTemplateGroupRequest $request ListTranscodeTemplateGroupRequest
      *
-     * @return ListTranscodeTemplateGroupResponse
+     * @return ListTranscodeTemplateGroupResponse ListTranscodeTemplateGroupResponse
      */
     public function listTranscodeTemplateGroup($request)
     {
@@ -5666,10 +6296,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param PreloadVodObjectCachesRequest $request
-     * @param RuntimeOptions                $runtime
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   You can submit a maximum of 500 requests to prefetch resources based on URLs each day by using an Alibaba Cloud account. You cannot prefetch resources based on directories.
+     *   * > *   You can call the [RefreshVodObjectCaches](~~69215~~) operation to refresh content and the [PreloadVodObjectCaches](~~69211~~l) operation to prefetch content.
+     *   *
+     * @param PreloadVodObjectCachesRequest $request PreloadVodObjectCachesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return PreloadVodObjectCachesResponse
+     * @return PreloadVodObjectCachesResponse PreloadVodObjectCachesResponse
      */
     public function preloadVodObjectCachesWithOptions($request, $runtime)
     {
@@ -5703,9 +6337,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param PreloadVodObjectCachesRequest $request
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   You can submit a maximum of 500 requests to prefetch resources based on URLs each day by using an Alibaba Cloud account. You cannot prefetch resources based on directories.
+     *   * > *   You can call the [RefreshVodObjectCaches](~~69215~~) operation to refresh content and the [PreloadVodObjectCaches](~~69211~~l) operation to prefetch content.
+     *   *
+     * @param PreloadVodObjectCachesRequest $request PreloadVodObjectCachesRequest
      *
-     * @return PreloadVodObjectCachesResponse
+     * @return PreloadVodObjectCachesResponse PreloadVodObjectCachesResponse
      */
     public function preloadVodObjectCaches($request)
     {
@@ -5715,10 +6353,19 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param ProduceEditingProjectVideoRequest $request
-     * @param RuntimeOptions                    $runtime
+     * *   This operation returns only the submission result of a video production task. When the submission result is returned, video production may still be in progress. After a video production task is submitted, the task is queued in the background for asynchronous processing.
+     *   * *   The mezzanine files that are referenced in the timeline of an online editing project can be materials from media assets or videos in the media library.
+     *   * *   Videos are produced based on the ProjectId and Timeline parameters. Take note of the following items when you specify the parameters:
+     *   * *   You must specify at least one of the ProjectId and Timeline parameters. Otherwise, video production fails.
+     *   * *   If you specify only the Timeline parameter, the system automatically creates an online editing project with the specified timeline. Then, the system obtains the mezzanine files that are referenced in the timeline and produces a video from the mezzanine files.
+     *   * *   If you specify only the ProjectId parameter, the system obtains the latest timeline of the specified project and produces a video based on the timeline.
+     *   *  *   If you specify both the ProjectId and Timeline parameters, the system produces a video based on the specified timeline and updates the timeline and mezzanine files for the specified online editing project. If you specify other parameters, the system also updates related settings for the online editing project.
+     *   *  *   You can apply effects to the video to be produced. For more information, see [Special effects](~~69082~~).
+     *   *
+     * @param ProduceEditingProjectVideoRequest $request ProduceEditingProjectVideoRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ProduceEditingProjectVideoResponse
+     * @return ProduceEditingProjectVideoResponse ProduceEditingProjectVideoResponse
      */
     public function produceEditingProjectVideoWithOptions($request, $runtime)
     {
@@ -5776,9 +6423,18 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param ProduceEditingProjectVideoRequest $request
+     * *   This operation returns only the submission result of a video production task. When the submission result is returned, video production may still be in progress. After a video production task is submitted, the task is queued in the background for asynchronous processing.
+     *   * *   The mezzanine files that are referenced in the timeline of an online editing project can be materials from media assets or videos in the media library.
+     *   * *   Videos are produced based on the ProjectId and Timeline parameters. Take note of the following items when you specify the parameters:
+     *   * *   You must specify at least one of the ProjectId and Timeline parameters. Otherwise, video production fails.
+     *   * *   If you specify only the Timeline parameter, the system automatically creates an online editing project with the specified timeline. Then, the system obtains the mezzanine files that are referenced in the timeline and produces a video from the mezzanine files.
+     *   * *   If you specify only the ProjectId parameter, the system obtains the latest timeline of the specified project and produces a video based on the timeline.
+     *   *  *   If you specify both the ProjectId and Timeline parameters, the system produces a video based on the specified timeline and updates the timeline and mezzanine files for the specified online editing project. If you specify other parameters, the system also updates related settings for the online editing project.
+     *   *  *   You can apply effects to the video to be produced. For more information, see [Special effects](~~69082~~).
+     *   *
+     * @param ProduceEditingProjectVideoRequest $request ProduceEditingProjectVideoRequest
      *
-     * @return ProduceEditingProjectVideoResponse
+     * @return ProduceEditingProjectVideoResponse ProduceEditingProjectVideoResponse
      */
     public function produceEditingProjectVideo($request)
     {
@@ -5788,10 +6444,16 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param RefreshMediaPlayUrlsRequest $request
-     * @param RuntimeOptions              $runtime
+     * - ApsaraVideo VOD allows you to refresh and prefetch resources. The refresh feature forces the point of presence (POP) to clear cached resources and retrieve the latest resources from origin servers. The prefetch feature allows the POP to retrieve frequently accessed resources from origin servers during off-peak hours. This increases the cache hit ratio.
+     *   * - You can call this operation to submit refresh or prefetch tasks based on the media ID. You can also specify the format and resolution of the media streams to refresh or prefetch based on your business requirements.
+     *   * - You can submit a maximum of 20 refresh or prefetch tasks at a time.
+     *   * ### QPS limits
+     *   * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+     *   *
+     * @param RefreshMediaPlayUrlsRequest $request RefreshMediaPlayUrlsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefreshMediaPlayUrlsResponse
+     * @return RefreshMediaPlayUrlsResponse RefreshMediaPlayUrlsResponse
      */
     public function refreshMediaPlayUrlsWithOptions($request, $runtime)
     {
@@ -5843,9 +6505,15 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param RefreshMediaPlayUrlsRequest $request
+     * - ApsaraVideo VOD allows you to refresh and prefetch resources. The refresh feature forces the point of presence (POP) to clear cached resources and retrieve the latest resources from origin servers. The prefetch feature allows the POP to retrieve frequently accessed resources from origin servers during off-peak hours. This increases the cache hit ratio.
+     *   * - You can call this operation to submit refresh or prefetch tasks based on the media ID. You can also specify the format and resolution of the media streams to refresh or prefetch based on your business requirements.
+     *   * - You can submit a maximum of 20 refresh or prefetch tasks at a time.
+     *   * ### QPS limits
+     *   * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+     *   *
+     * @param RefreshMediaPlayUrlsRequest $request RefreshMediaPlayUrlsRequest
      *
-     * @return RefreshMediaPlayUrlsResponse
+     * @return RefreshMediaPlayUrlsResponse RefreshMediaPlayUrlsResponse
      */
     public function refreshMediaPlayUrls($request)
     {
@@ -5855,10 +6523,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param RefreshUploadVideoRequest $request
-     * @param RuntimeOptions            $runtime
+     * If you want to overwrite a video or audio source file, you can obtain the upload URL of the source file by calling this operation. Then, you can upload a new source file without changing the video or audio ID. However, the file overwriting may automatically trigger transcoding and snapshot jobs if these jobs are configured. For more information, see [Upload URLs and credentials](~~55397~~).
+     *   *
+     * @param RefreshUploadVideoRequest $request RefreshUploadVideoRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefreshUploadVideoResponse
+     * @return RefreshUploadVideoResponse RefreshUploadVideoResponse
      */
     public function refreshUploadVideoWithOptions($request, $runtime)
     {
@@ -5895,9 +6565,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param RefreshUploadVideoRequest $request
+     * If you want to overwrite a video or audio source file, you can obtain the upload URL of the source file by calling this operation. Then, you can upload a new source file without changing the video or audio ID. However, the file overwriting may automatically trigger transcoding and snapshot jobs if these jobs are configured. For more information, see [Upload URLs and credentials](~~55397~~).
+     *   *
+     * @param RefreshUploadVideoRequest $request RefreshUploadVideoRequest
      *
-     * @return RefreshUploadVideoResponse
+     * @return RefreshUploadVideoResponse RefreshUploadVideoResponse
      */
     public function refreshUploadVideo($request)
     {
@@ -5907,10 +6579,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param RefreshVodObjectCachesRequest $request
-     * @param RuntimeOptions                $runtime
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   You can submit a maximum of 2,000 requests to refresh resources based on URLs and 100 requests to refresh resources based on directories each day by using an Alibaba Cloud account.
+     *   * > *   You can call the [RefreshVodObjectCaches](~~69215~~) operation to refresh content and the [PreloadVodObjectCaches](~~69211~~) operation to prefetch content.
+     *   *
+     * @param RefreshVodObjectCachesRequest $request RefreshVodObjectCachesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefreshVodObjectCachesResponse
+     * @return RefreshVodObjectCachesResponse RefreshVodObjectCachesResponse
      */
     public function refreshVodObjectCachesWithOptions($request, $runtime)
     {
@@ -5947,9 +6623,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param RefreshVodObjectCachesRequest $request
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     *   * > *   You can submit a maximum of 2,000 requests to refresh resources based on URLs and 100 requests to refresh resources based on directories each day by using an Alibaba Cloud account.
+     *   * > *   You can call the [RefreshVodObjectCaches](~~69215~~) operation to refresh content and the [PreloadVodObjectCaches](~~69211~~) operation to prefetch content.
+     *   *
+     * @param RefreshVodObjectCachesRequest $request RefreshVodObjectCachesRequest
      *
-     * @return RefreshVodObjectCachesResponse
+     * @return RefreshVodObjectCachesResponse RefreshVodObjectCachesResponse
      */
     public function refreshVodObjectCaches($request)
     {
@@ -5959,10 +6639,15 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param RegisterMediaRequest $request
-     * @param RuntimeOptions       $runtime
+     * After you store an audio or video file in an Object Storage Service (OSS) bucket that is used for ApsaraVideo VOD, you can call the RegisterMedia operation to register the media file. After the media file is registered, you can use the media ID associated with the media file to submit transcoding jobs and snapshot jobs in ApsaraVideo VOD. For more information, see [SubmitTranscodeJobs](~~68570~~) and [SubmitSnapshotJob](~~72213~~).
+     *   * > *   You can register up to 10 OSS media files that have the same storage location at a time.
+     *   * > *   If you use the ApsaraVideo VOD console to upload a media file and do not specify a transcoding template group ID, ApsaraVideo VOD uses the default transcoding template group to transcode the media file. However, if you do not specify a transcoding template group ID when you call the RegisterMedia operation, ApsaraVideo VOD does not automatically transcode the media file after the media file is registered. If you specify a transcoding template group ID, ApsaraVideo VOD uses the specified transcoding template group to transcode the media file.
+     *   * > *   If the media file that you want to register is registered before, this operation returns only the unique media ID that is associated with the media file. No further processing is performed.
+     *   *
+     * @param RegisterMediaRequest $request RegisterMediaRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return RegisterMediaResponse
+     * @return RegisterMediaResponse RegisterMediaResponse
      */
     public function registerMediaWithOptions($request, $runtime)
     {
@@ -5999,9 +6684,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param RegisterMediaRequest $request
+     * After you store an audio or video file in an Object Storage Service (OSS) bucket that is used for ApsaraVideo VOD, you can call the RegisterMedia operation to register the media file. After the media file is registered, you can use the media ID associated with the media file to submit transcoding jobs and snapshot jobs in ApsaraVideo VOD. For more information, see [SubmitTranscodeJobs](~~68570~~) and [SubmitSnapshotJob](~~72213~~).
+     *   * > *   You can register up to 10 OSS media files that have the same storage location at a time.
+     *   * > *   If you use the ApsaraVideo VOD console to upload a media file and do not specify a transcoding template group ID, ApsaraVideo VOD uses the default transcoding template group to transcode the media file. However, if you do not specify a transcoding template group ID when you call the RegisterMedia operation, ApsaraVideo VOD does not automatically transcode the media file after the media file is registered. If you specify a transcoding template group ID, ApsaraVideo VOD uses the specified transcoding template group to transcode the media file.
+     *   * > *   If the media file that you want to register is registered before, this operation returns only the unique media ID that is associated with the media file. No further processing is performed.
+     *   *
+     * @param RegisterMediaRequest $request RegisterMediaRequest
      *
-     * @return RegisterMediaResponse
+     * @return RegisterMediaResponse RegisterMediaResponse
      */
     public function registerMedia($request)
     {
@@ -6084,10 +6774,17 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SearchMediaRequest $request
-     * @param RuntimeOptions     $runtime
+     * The maximum number of data records that you can query is limited based on the method used to query the data. You can use the following methods to query data:
+     *   * *   Method 1: You must use the PageNo and PageSize parameters for the first 5,000 data records that meet the specified filter criteria. This allows you to traverse data page by page. If the number of data records that meet the specified filter criteria exceeds 5,000, use Method 2.
+     *   * *   Method 2: This method applies only to the data of video and audio files. To traverse all the data records that meet the specified filter criteria, you must set the PageNo, PageSize, and ScrollToken parameters to traverse data page by page. The total number of data records from the current page to the desired page cannot exceed 1,200. Assume that the PageSize parameter is set to **20**:
+     *   *     *   When the PageNo parameter is set to **1**, you can scroll forward to traverse data records from page 1 to page **60** at most.
+     *   *     *   When the PageNo parameter is set to **2**, you can scroll forward to traverse data records from page 2 to page **61** at most.
+     *   *     *   When the PageNo parameter is set to **61**, you can scroll backward to traverse data records from page 61 to page **2** at most or scroll forward to traverse data records from page 61 to page **120** at most.
+     *   *
+     * @param SearchMediaRequest $request SearchMediaRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchMediaResponse
+     * @return SearchMediaResponse SearchMediaResponse
      */
     public function searchMediaWithOptions($request, $runtime)
     {
@@ -6133,9 +6830,16 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SearchMediaRequest $request
+     * The maximum number of data records that you can query is limited based on the method used to query the data. You can use the following methods to query data:
+     *   * *   Method 1: You must use the PageNo and PageSize parameters for the first 5,000 data records that meet the specified filter criteria. This allows you to traverse data page by page. If the number of data records that meet the specified filter criteria exceeds 5,000, use Method 2.
+     *   * *   Method 2: This method applies only to the data of video and audio files. To traverse all the data records that meet the specified filter criteria, you must set the PageNo, PageSize, and ScrollToken parameters to traverse data page by page. The total number of data records from the current page to the desired page cannot exceed 1,200. Assume that the PageSize parameter is set to **20**:
+     *   *     *   When the PageNo parameter is set to **1**, you can scroll forward to traverse data records from page 1 to page **60** at most.
+     *   *     *   When the PageNo parameter is set to **2**, you can scroll forward to traverse data records from page 2 to page **61** at most.
+     *   *     *   When the PageNo parameter is set to **61**, you can scroll backward to traverse data records from page 61 to page **2** at most or scroll forward to traverse data records from page 61 to page **120** at most.
+     *   *
+     * @param SearchMediaRequest $request SearchMediaRequest
      *
-     * @return SearchMediaResponse
+     * @return SearchMediaResponse SearchMediaResponse
      */
     public function searchMedia($request)
     {
@@ -6145,10 +6849,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SetAuditSecurityIpRequest $request
-     * @param RuntimeOptions            $runtime
+     * > You can play videos in the Checking or Blocked state only from the IP addresses that are added to review security groups.
+     *   *
+     * @param SetAuditSecurityIpRequest $request SetAuditSecurityIpRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetAuditSecurityIpResponse
+     * @return SetAuditSecurityIpResponse SetAuditSecurityIpResponse
      */
     public function setAuditSecurityIpWithOptions($request, $runtime)
     {
@@ -6182,9 +6888,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SetAuditSecurityIpRequest $request
+     * > You can play videos in the Checking or Blocked state only from the IP addresses that are added to review security groups.
+     *   *
+     * @param SetAuditSecurityIpRequest $request SetAuditSecurityIpRequest
      *
-     * @return SetAuditSecurityIpResponse
+     * @return SetAuditSecurityIpResponse SetAuditSecurityIpResponse
      */
     public function setAuditSecurityIp($request)
     {
@@ -6194,10 +6902,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SetCrossdomainContentRequest $request
-     * @param RuntimeOptions               $runtime
+     * > After you use the cross-domain policy file to update the resources on the origin server, you must refresh the resources that are cached on Alibaba Cloud CDN nodes. You can use the ApsaraVideo VOD console to refresh resources. For more information, see [Refresh and prefetch](~~86098~~). Alternatively, you can call the [RefreshVodObjectCaches](~~69215~~) operation to refresh resources.
+     *   *
+     * @param SetCrossdomainContentRequest $request SetCrossdomainContentRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetCrossdomainContentResponse
+     * @return SetCrossdomainContentResponse SetCrossdomainContentResponse
      */
     public function setCrossdomainContentWithOptions($request, $runtime)
     {
@@ -6243,9 +6953,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SetCrossdomainContentRequest $request
+     * > After you use the cross-domain policy file to update the resources on the origin server, you must refresh the resources that are cached on Alibaba Cloud CDN nodes. You can use the ApsaraVideo VOD console to refresh resources. For more information, see [Refresh and prefetch](~~86098~~). Alternatively, you can call the [RefreshVodObjectCaches](~~69215~~) operation to refresh resources.
+     *   *
+     * @param SetCrossdomainContentRequest $request SetCrossdomainContentRequest
      *
-     * @return SetCrossdomainContentResponse
+     * @return SetCrossdomainContentResponse SetCrossdomainContentResponse
      */
     public function setCrossdomainContent($request)
     {
@@ -6255,10 +6967,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SetDefaultAITemplateRequest $request
-     * @param RuntimeOptions              $runtime
+     * Before you can call this operation to specify an AI template as the default template, you must obtain the ID of the AI template. You cannot delete an AI template after you specify it as the default template.
+     *   *
+     * @param SetDefaultAITemplateRequest $request SetDefaultAITemplateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDefaultAITemplateResponse
+     * @return SetDefaultAITemplateResponse SetDefaultAITemplateResponse
      */
     public function setDefaultAITemplateWithOptions($request, $runtime)
     {
@@ -6286,9 +7000,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SetDefaultAITemplateRequest $request
+     * Before you can call this operation to specify an AI template as the default template, you must obtain the ID of the AI template. You cannot delete an AI template after you specify it as the default template.
+     *   *
+     * @param SetDefaultAITemplateRequest $request SetDefaultAITemplateRequest
      *
-     * @return SetDefaultAITemplateResponse
+     * @return SetDefaultAITemplateResponse SetDefaultAITemplateResponse
      */
     public function setDefaultAITemplate($request)
     {
@@ -6442,10 +7158,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SetMessageCallbackRequest $request
-     * @param RuntimeOptions            $runtime
+     * ## Usage note
+     *   * ApsaraVideo VOD supports the HTTP and MNS callback methods. For more information, see [Event notification](~~55627~~).
+     *   *
+     * @param SetMessageCallbackRequest $request SetMessageCallbackRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetMessageCallbackResponse
+     * @return SetMessageCallbackResponse SetMessageCallbackResponse
      */
     public function setMessageCallbackWithOptions($request, $runtime)
     {
@@ -6497,9 +7216,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SetMessageCallbackRequest $request
+     * ## Usage note
+     *   * ApsaraVideo VOD supports the HTTP and MNS callback methods. For more information, see [Event notification](~~55627~~).
+     *   *
+     * @param SetMessageCallbackRequest $request SetMessageCallbackRequest
      *
-     * @return SetMessageCallbackResponse
+     * @return SetMessageCallbackResponse SetMessageCallbackResponse
      */
     public function setMessageCallback($request)
     {
@@ -6509,10 +7231,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SetVodDomainCertificateRequest $request
-     * @param RuntimeOptions                 $runtime
+     * > This operation is available only in the **China (Shanghai)** region.
+     *   *
+     * @param SetVodDomainCertificateRequest $request SetVodDomainCertificateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetVodDomainCertificateResponse
+     * @return SetVodDomainCertificateResponse SetVodDomainCertificateResponse
      */
     public function setVodDomainCertificateWithOptions($request, $runtime)
     {
@@ -6558,9 +7282,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SetVodDomainCertificateRequest $request
+     * > This operation is available only in the **China (Shanghai)** region.
+     *   *
+     * @param SetVodDomainCertificateRequest $request SetVodDomainCertificateRequest
      *
-     * @return SetVodDomainCertificateResponse
+     * @return SetVodDomainCertificateResponse SetVodDomainCertificateResponse
      */
     public function setVodDomainCertificate($request)
     {
@@ -6631,10 +7357,16 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SubmitAIImageJobRequest $request
-     * @param RuntimeOptions          $runtime
+     * After you call this operation, you can call the [GetAIImageJobs](~~GetAIImageJobs~~) operation to query the AI processing result of the job.
+     *   * - The smart thumbnail feature is not supported. You cannot call this operation.
+     *   * - After you call this operation, you can call the [GetAIImageJobs](~~GetAIImageJobs~~) operation to query the job execution result.
+     *   * ### QPS limit
+     *   * You can call this operation up to 30 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+     *   *
+     * @param SubmitAIImageJobRequest $request SubmitAIImageJobRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitAIImageJobResponse
+     * @return SubmitAIImageJobResponse SubmitAIImageJobResponse
      */
     public function submitAIImageJobWithOptions($request, $runtime)
     {
@@ -6683,9 +7415,15 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SubmitAIImageJobRequest $request
+     * After you call this operation, you can call the [GetAIImageJobs](~~GetAIImageJobs~~) operation to query the AI processing result of the job.
+     *   * - The smart thumbnail feature is not supported. You cannot call this operation.
+     *   * - After you call this operation, you can call the [GetAIImageJobs](~~GetAIImageJobs~~) operation to query the job execution result.
+     *   * ### QPS limit
+     *   * You can call this operation up to 30 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+     *   *
+     * @param SubmitAIImageJobRequest $request SubmitAIImageJobRequest
      *
-     * @return SubmitAIImageJobResponse
+     * @return SubmitAIImageJobResponse SubmitAIImageJobResponse
      */
     public function submitAIImageJob($request)
     {
@@ -6695,10 +7433,16 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SubmitAIJobRequest $request
-     * @param RuntimeOptions     $runtime
+     * *   AI jobs include smart tagging jobs and video fingerprinting jobs. You must activate the AI service before you call this operation to submit AI jobs.
+     *   * *   If this is the first time you use the video fingerprinting feature, you must submit a ticket to apply for using the media fingerprint library for free. Otherwise, the video fingerprinting feature will be affected.
+     *   * *   After you submit an AI job, ApsaraVideo VOD asynchronously processes the job. The operation may return a response before the job is complete.
+     *   * ### QPS limits
+     *   * You can call this operation up to 30 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+     *   *
+     * @param SubmitAIJobRequest $request SubmitAIJobRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitAIJobResponse
+     * @return SubmitAIJobResponse SubmitAIJobResponse
      */
     public function submitAIJobWithOptions($request, $runtime)
     {
@@ -6747,9 +7491,15 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SubmitAIJobRequest $request
+     * *   AI jobs include smart tagging jobs and video fingerprinting jobs. You must activate the AI service before you call this operation to submit AI jobs.
+     *   * *   If this is the first time you use the video fingerprinting feature, you must submit a ticket to apply for using the media fingerprint library for free. Otherwise, the video fingerprinting feature will be affected.
+     *   * *   After you submit an AI job, ApsaraVideo VOD asynchronously processes the job. The operation may return a response before the job is complete.
+     *   * ### QPS limits
+     *   * You can call this operation up to 30 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+     *   *
+     * @param SubmitAIJobRequest $request SubmitAIJobRequest
      *
-     * @return SubmitAIJobResponse
+     * @return SubmitAIJobResponse SubmitAIJobResponse
      */
     public function submitAIJob($request)
     {
@@ -6814,10 +7564,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SubmitDynamicImageJobRequest $request
-     * @param RuntimeOptions               $runtime
+     * *   You can capture a part of a video and generate animated images only when the video is in the **UploadSucces**, **Transcoding**, **Normal**, **Checking**, or **Blocked** state.
+     *   * *   The fee for generating animated images is included in the video transcoding fees. Both the services are charged by resolution and duration.
+     *   *
+     * @param SubmitDynamicImageJobRequest $request SubmitDynamicImageJobRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitDynamicImageJobResponse
+     * @return SubmitDynamicImageJobResponse SubmitDynamicImageJobResponse
      */
     public function submitDynamicImageJobWithOptions($request, $runtime)
     {
@@ -6851,9 +7604,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SubmitDynamicImageJobRequest $request
+     * *   You can capture a part of a video and generate animated images only when the video is in the **UploadSucces**, **Transcoding**, **Normal**, **Checking**, or **Blocked** state.
+     *   * *   The fee for generating animated images is included in the video transcoding fees. Both the services are charged by resolution and duration.
+     *   *
+     * @param SubmitDynamicImageJobRequest $request SubmitDynamicImageJobRequest
      *
-     * @return SubmitDynamicImageJobResponse
+     * @return SubmitDynamicImageJobResponse SubmitDynamicImageJobResponse
      */
     public function submitDynamicImageJob($request)
     {
@@ -6863,10 +7619,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SubmitMediaDNADeleteJobRequest $request
-     * @param RuntimeOptions                 $runtime
+     * This operation is available only in the Singapore (Singapore) region.
+     *   * ### QPS limit
+     *   * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see QPS limit.
+     *   *
+     * @param SubmitMediaDNADeleteJobRequest $request SubmitMediaDNADeleteJobRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitMediaDNADeleteJobResponse
+     * @return SubmitMediaDNADeleteJobResponse SubmitMediaDNADeleteJobResponse
      */
     public function submitMediaDNADeleteJobWithOptions($request, $runtime)
     {
@@ -6906,9 +7666,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SubmitMediaDNADeleteJobRequest $request
+     * This operation is available only in the Singapore (Singapore) region.
+     *   * ### QPS limit
+     *   * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see QPS limit.
+     *   *
+     * @param SubmitMediaDNADeleteJobRequest $request SubmitMediaDNADeleteJobRequest
      *
-     * @return SubmitMediaDNADeleteJobResponse
+     * @return SubmitMediaDNADeleteJobResponse SubmitMediaDNADeleteJobResponse
      */
     public function submitMediaDNADeleteJob($request)
     {
@@ -6918,10 +7682,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SubmitPreprocessJobsRequest $request
-     * @param RuntimeOptions              $runtime
+     * *   During video preprocessing, videos are transcoded to meet the playback requirements of the production studio. Therefore, you are **charged** for video preprocessing. You can submit a ticket for information about the **production studio** service.
+     *   *  *   You can obtain the preprocessing result in the [TranscodeComplete](~~55638~~) event notification. If the value of the **Preprocess** parameter is true in the event notification, the video is preprocessed.
+     *   *
+     * @param SubmitPreprocessJobsRequest $request SubmitPreprocessJobsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitPreprocessJobsResponse
+     * @return SubmitPreprocessJobsResponse SubmitPreprocessJobsResponse
      */
     public function submitPreprocessJobsWithOptions($request, $runtime)
     {
@@ -6952,9 +7719,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SubmitPreprocessJobsRequest $request
+     * *   During video preprocessing, videos are transcoded to meet the playback requirements of the production studio. Therefore, you are **charged** for video preprocessing. You can submit a ticket for information about the **production studio** service.
+     *   *  *   You can obtain the preprocessing result in the [TranscodeComplete](~~55638~~) event notification. If the value of the **Preprocess** parameter is true in the event notification, the video is preprocessed.
+     *   *
+     * @param SubmitPreprocessJobsRequest $request SubmitPreprocessJobsRequest
      *
-     * @return SubmitPreprocessJobsResponse
+     * @return SubmitPreprocessJobsResponse SubmitPreprocessJobsResponse
      */
     public function submitPreprocessJobs($request)
     {
@@ -6964,10 +7734,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SubmitSnapshotJobRequest $request
-     * @param RuntimeOptions           $runtime
+     * > *   Only snapshots in the JPG format are generated.
+     *   * > *   After a snapshot job is complete, ApsaraVideo VOD sends a [SnapshotComplete](~~57337~~) event notification that contains EventType=SnapshotComplete and SubType=SpecifiedTime.
+     *   *
+     * @param SubmitSnapshotJobRequest $request SubmitSnapshotJobRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitSnapshotJobResponse
+     * @return SubmitSnapshotJobResponse SubmitSnapshotJobResponse
      */
     public function submitSnapshotJobWithOptions($request, $runtime)
     {
@@ -7019,9 +7792,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SubmitSnapshotJobRequest $request
+     * > *   Only snapshots in the JPG format are generated.
+     *   * > *   After a snapshot job is complete, ApsaraVideo VOD sends a [SnapshotComplete](~~57337~~) event notification that contains EventType=SnapshotComplete and SubType=SpecifiedTime.
+     *   *
+     * @param SubmitSnapshotJobRequest $request SubmitSnapshotJobRequest
      *
-     * @return SubmitSnapshotJobResponse
+     * @return SubmitSnapshotJobResponse SubmitSnapshotJobResponse
      */
     public function submitSnapshotJob($request)
     {
@@ -7031,10 +7807,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SubmitTranscodeJobsRequest $request
-     * @param RuntimeOptions             $runtime
+     * *   You can transcode a video only in the UploadSucc, Normal, or Checking state.
+     *   *  *   You can obtain the transcoding result in the [StreamTranscodeComplete](~~55636~~) or [TranscodeComplete](~~55638~~) event notification.
+     *   *  *   If you initiate an HTTP Live Streaming (HLS) packaging task, you can call this operation to dynamically override the subtitle. If the packaging task does not contain subtitles, we recommend that you do not call this operation to initiate the packaging task. Instead, you can specify the ID of the specific template group when you upload the video. The packaging process is automatically initiated.
+     *   *
+     * @param SubmitTranscodeJobsRequest $request SubmitTranscodeJobsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitTranscodeJobsResponse
+     * @return SubmitTranscodeJobsResponse SubmitTranscodeJobsResponse
      */
     public function submitTranscodeJobsWithOptions($request, $runtime)
     {
@@ -7080,9 +7860,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SubmitTranscodeJobsRequest $request
+     * *   You can transcode a video only in the UploadSucc, Normal, or Checking state.
+     *   *  *   You can obtain the transcoding result in the [StreamTranscodeComplete](~~55636~~) or [TranscodeComplete](~~55638~~) event notification.
+     *   *  *   If you initiate an HTTP Live Streaming (HLS) packaging task, you can call this operation to dynamically override the subtitle. If the packaging task does not contain subtitles, we recommend that you do not call this operation to initiate the packaging task. Instead, you can specify the ID of the specific template group when you upload the video. The packaging process is automatically initiated.
+     *   *
+     * @param SubmitTranscodeJobsRequest $request SubmitTranscodeJobsRequest
      *
-     * @return SubmitTranscodeJobsResponse
+     * @return SubmitTranscodeJobsResponse SubmitTranscodeJobsResponse
      */
     public function submitTranscodeJobs($request)
     {
@@ -7092,10 +7876,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SubmitWorkflowJobRequest $request
-     * @param RuntimeOptions           $runtime
+     * You can call this operation to initiate a VOD workflow to process media files. For more information, see [Workflows](~~115347~~).
+     *   *
+     * @param SubmitWorkflowJobRequest $request SubmitWorkflowJobRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitWorkflowJobResponse
+     * @return SubmitWorkflowJobResponse SubmitWorkflowJobResponse
      */
     public function submitWorkflowJobWithOptions($request, $runtime)
     {
@@ -7126,9 +7912,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SubmitWorkflowJobRequest $request
+     * You can call this operation to initiate a VOD workflow to process media files. For more information, see [Workflows](~~115347~~).
+     *   *
+     * @param SubmitWorkflowJobRequest $request SubmitWorkflowJobRequest
      *
-     * @return SubmitWorkflowJobResponse
+     * @return SubmitWorkflowJobResponse SubmitWorkflowJobResponse
      */
     public function submitWorkflowJob($request)
     {
@@ -7138,10 +7926,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param UpdateAITemplateRequest $request
-     * @param RuntimeOptions          $runtime
+     * After you call the [AddAITemplate](~~102930~~) to add an AI template, you can call the UpdateAITemplate operation to modify the AI template.
+     *   *
+     * @param UpdateAITemplateRequest $request UpdateAITemplateRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAITemplateResponse
+     * @return UpdateAITemplateResponse UpdateAITemplateResponse
      */
     public function updateAITemplateWithOptions($request, $runtime)
     {
@@ -7175,9 +7965,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param UpdateAITemplateRequest $request
+     * After you call the [AddAITemplate](~~102930~~) to add an AI template, you can call the UpdateAITemplate operation to modify the AI template.
+     *   *
+     * @param UpdateAITemplateRequest $request UpdateAITemplateRequest
      *
-     * @return UpdateAITemplateResponse
+     * @return UpdateAITemplateResponse UpdateAITemplateResponse
      */
     public function updateAITemplate($request)
     {
@@ -7187,10 +7979,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param UpdateAppInfoRequest $request
-     * @param RuntimeOptions       $runtime
+     * ## QPS limit
+     *   * A single user can perform a maximum of 30 queries per second (QPS). Throttling is triggered when the number of calls per second exceeds the QPS limit. The throttling may affect your business. Thus, we recommend that you observe the QPS limit on this operation.
+     *   *
+     * @param UpdateAppInfoRequest $request UpdateAppInfoRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAppInfoResponse
+     * @return UpdateAppInfoResponse UpdateAppInfoResponse
      */
     public function updateAppInfoWithOptions($request, $runtime)
     {
@@ -7227,9 +8022,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param UpdateAppInfoRequest $request
+     * ## QPS limit
+     *   * A single user can perform a maximum of 30 queries per second (QPS). Throttling is triggered when the number of calls per second exceeds the QPS limit. The throttling may affect your business. Thus, we recommend that you observe the QPS limit on this operation.
+     *   *
+     * @param UpdateAppInfoRequest $request UpdateAppInfoRequest
      *
-     * @return UpdateAppInfoResponse
+     * @return UpdateAppInfoResponse UpdateAppInfoResponse
      */
     public function updateAppInfo($request)
     {
@@ -7239,10 +8037,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param UpdateAttachedMediaInfosRequest $request
-     * @param RuntimeOptions                  $runtime
+     * The specific parameter of an auxiliary media asset is updated only when a new value is passed in the parameter.
+     *   *
+     * @param UpdateAttachedMediaInfosRequest $request UpdateAttachedMediaInfosRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAttachedMediaInfosResponse
+     * @return UpdateAttachedMediaInfosResponse UpdateAttachedMediaInfosResponse
      */
     public function updateAttachedMediaInfosWithOptions($request, $runtime)
     {
@@ -7270,9 +8070,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param UpdateAttachedMediaInfosRequest $request
+     * The specific parameter of an auxiliary media asset is updated only when a new value is passed in the parameter.
+     *   *
+     * @param UpdateAttachedMediaInfosRequest $request UpdateAttachedMediaInfosRequest
      *
-     * @return UpdateAttachedMediaInfosResponse
+     * @return UpdateAttachedMediaInfosResponse UpdateAttachedMediaInfosResponse
      */
     public function updateAttachedMediaInfos($request)
     {
@@ -7438,10 +8240,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param UpdateTranscodeTemplateGroupRequest $request
-     * @param RuntimeOptions                      $runtime
+     * > *   You cannot add, modify, or remove transcoding templates in a transcoding template group that is locked in the ApsaraVideo VOD console. To manage such transcoding template groups, contact the ApsaraVideo VOD technical support.
+     *   * > *   You can call the GetTranscodeTemplateGroup operation to query the configurations of a transcoding template group and check whether the transcoding template group is locked by using the response parameter Locked.
+     *   *
+     * @param UpdateTranscodeTemplateGroupRequest $request UpdateTranscodeTemplateGroupRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTranscodeTemplateGroupResponse
+     * @return UpdateTranscodeTemplateGroupResponse UpdateTranscodeTemplateGroupResponse
      */
     public function updateTranscodeTemplateGroupWithOptions($request, $runtime)
     {
@@ -7478,9 +8283,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param UpdateTranscodeTemplateGroupRequest $request
+     * > *   You cannot add, modify, or remove transcoding templates in a transcoding template group that is locked in the ApsaraVideo VOD console. To manage such transcoding template groups, contact the ApsaraVideo VOD technical support.
+     *   * > *   You can call the GetTranscodeTemplateGroup operation to query the configurations of a transcoding template group and check whether the transcoding template group is locked by using the response parameter Locked.
+     *   *
+     * @param UpdateTranscodeTemplateGroupRequest $request UpdateTranscodeTemplateGroupRequest
      *
-     * @return UpdateTranscodeTemplateGroupResponse
+     * @return UpdateTranscodeTemplateGroupResponse UpdateTranscodeTemplateGroupResponse
      */
     public function updateTranscodeTemplateGroup($request)
     {
@@ -7490,10 +8298,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param UpdateVideoInfoRequest $request
-     * @param RuntimeOptions         $runtime
+     * The specific parameter of a video is updated only when a new value is passed in the parameter.
+     *   *
+     * @param UpdateVideoInfoRequest $request UpdateVideoInfoRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateVideoInfoResponse
+     * @return UpdateVideoInfoResponse UpdateVideoInfoResponse
      */
     public function updateVideoInfoWithOptions($request, $runtime)
     {
@@ -7536,9 +8346,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param UpdateVideoInfoRequest $request
+     * The specific parameter of a video is updated only when a new value is passed in the parameter.
+     *   *
+     * @param UpdateVideoInfoRequest $request UpdateVideoInfoRequest
      *
-     * @return UpdateVideoInfoResponse
+     * @return UpdateVideoInfoResponse UpdateVideoInfoResponse
      */
     public function updateVideoInfo($request)
     {
@@ -7548,10 +8360,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param UpdateVideoInfosRequest $request
-     * @param RuntimeOptions          $runtime
+     * The specific parameter of a video is updated only when a new value is passed in the parameter.
+     *   *
+     * @param UpdateVideoInfosRequest $request UpdateVideoInfosRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateVideoInfosResponse
+     * @return UpdateVideoInfosResponse UpdateVideoInfosResponse
      */
     public function updateVideoInfosWithOptions($request, $runtime)
     {
@@ -7579,9 +8393,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param UpdateVideoInfosRequest $request
+     * The specific parameter of a video is updated only when a new value is passed in the parameter.
+     *   *
+     * @param UpdateVideoInfosRequest $request UpdateVideoInfosRequest
      *
-     * @return UpdateVideoInfosResponse
+     * @return UpdateVideoInfosResponse UpdateVideoInfosResponse
      */
     public function updateVideoInfos($request)
     {
@@ -7591,10 +8407,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param UpdateVodDomainRequest $request
-     * @param RuntimeOptions         $runtime
+     * > This operation is available only in the **China (Shanghai)** region.
+     *   *
+     * @param UpdateVodDomainRequest $request UpdateVodDomainRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateVodDomainResponse
+     * @return UpdateVodDomainResponse UpdateVodDomainResponse
      */
     public function updateVodDomainWithOptions($request, $runtime)
     {
@@ -7634,9 +8452,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param UpdateVodDomainRequest $request
+     * > This operation is available only in the **China (Shanghai)** region.
+     *   *
+     * @param UpdateVodDomainRequest $request UpdateVodDomainRequest
      *
-     * @return UpdateVodDomainResponse
+     * @return UpdateVodDomainResponse UpdateVodDomainResponse
      */
     public function updateVodDomain($request)
     {
@@ -7695,10 +8515,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param UpdateWatermarkRequest $request
-     * @param RuntimeOptions         $runtime
+     * You can modify only the name and configurations of a watermark.
+     *   *
+     * @param UpdateWatermarkRequest $request UpdateWatermarkRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateWatermarkResponse
+     * @return UpdateWatermarkResponse UpdateWatermarkResponse
      */
     public function updateWatermarkWithOptions($request, $runtime)
     {
@@ -7732,9 +8554,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param UpdateWatermarkRequest $request
+     * You can modify only the name and configurations of a watermark.
+     *   *
+     * @param UpdateWatermarkRequest $request UpdateWatermarkRequest
      *
-     * @return UpdateWatermarkResponse
+     * @return UpdateWatermarkResponse UpdateWatermarkResponse
      */
     public function updateWatermark($request)
     {
@@ -7744,10 +8568,15 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param UploadMediaByURLRequest $request
-     * @param RuntimeOptions          $runtime
+     * - If a callback is configured, you can receive an [UploadByURLComplete](~~86326~~) event notification after the media file is uploaded. You can query the upload status by calling the [GetURLUploadInfos](~~106830~~) operation.
+     *   * - After an upload job is submitted, the job is asynchronously executed on the cloud. All submitted upload jobs are queued for execution. You can check the job status based on the URL and media file ID that are returned in the event notification.
+     *   * - You can call the UploadMediaByURL operation if the media file is not stored on a local server or terminal and needs to be uploaded by using a URL that can be accessed from the Internet.
+     *   * - You can call the UploadMediaByURL operation only in the **China (Shanghai)** region.
+     *   *
+     * @param UploadMediaByURLRequest $request UploadMediaByURLRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadMediaByURLResponse
+     * @return UploadMediaByURLResponse UploadMediaByURLResponse
      */
     public function uploadMediaByURLWithOptions($request, $runtime)
     {
@@ -7793,9 +8622,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param UploadMediaByURLRequest $request
+     * - If a callback is configured, you can receive an [UploadByURLComplete](~~86326~~) event notification after the media file is uploaded. You can query the upload status by calling the [GetURLUploadInfos](~~106830~~) operation.
+     *   * - After an upload job is submitted, the job is asynchronously executed on the cloud. All submitted upload jobs are queued for execution. You can check the job status based on the URL and media file ID that are returned in the event notification.
+     *   * - You can call the UploadMediaByURL operation if the media file is not stored on a local server or terminal and needs to be uploaded by using a URL that can be accessed from the Internet.
+     *   * - You can call the UploadMediaByURL operation only in the **China (Shanghai)** region.
+     *   *
+     * @param UploadMediaByURLRequest $request UploadMediaByURLRequest
      *
-     * @return UploadMediaByURLResponse
+     * @return UploadMediaByURLResponse UploadMediaByURLResponse
      */
     public function uploadMediaByURL($request)
     {
@@ -7805,10 +8639,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param UploadStreamByURLRequest $request
-     * @param RuntimeOptions           $runtime
+     * You can call this operation to upload transcoded streams to ApsaraVideo VOD from external storage. The following HDR types of transcoded streams are supported: HDR, HDR 10, HLG, Dolby Vision, HDR Vivid, and SDR+. You can call the [GetURLUploadInfos](~~106830~~) operation to query the upload status. After the upload is complete, the callback of the UploadByURLComplete event is returned.
+     *   * >  This operation is available only in the Singapore (Singapore) region.
+     *   *
+     * @param UploadStreamByURLRequest $request UploadStreamByURLRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadStreamByURLResponse
+     * @return UploadStreamByURLResponse UploadStreamByURLResponse
      */
     public function uploadStreamByURLWithOptions($request, $runtime)
     {
@@ -7851,9 +8688,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param UploadStreamByURLRequest $request
+     * You can call this operation to upload transcoded streams to ApsaraVideo VOD from external storage. The following HDR types of transcoded streams are supported: HDR, HDR 10, HLG, Dolby Vision, HDR Vivid, and SDR+. You can call the [GetURLUploadInfos](~~106830~~) operation to query the upload status. After the upload is complete, the callback of the UploadByURLComplete event is returned.
+     *   * >  This operation is available only in the Singapore (Singapore) region.
+     *   *
+     * @param UploadStreamByURLRequest $request UploadStreamByURLRequest
      *
-     * @return UploadStreamByURLResponse
+     * @return UploadStreamByURLResponse UploadStreamByURLResponse
      */
     public function uploadStreamByURL($request)
     {
