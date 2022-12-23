@@ -23,7 +23,7 @@ class data extends Model
     public $goodsId;
 
     /**
-     * @var string
+     * @var int
      */
     public $tagId;
 
