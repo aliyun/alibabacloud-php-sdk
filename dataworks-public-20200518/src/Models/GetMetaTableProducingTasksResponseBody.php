@@ -15,26 +15,36 @@ class GetMetaTableProducingTasksResponseBody extends Model
     public $data;
 
     /**
+     * @example "0"
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example 00000-00000-00000-00000
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

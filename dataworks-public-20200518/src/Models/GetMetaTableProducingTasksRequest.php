@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableProducingTasksRequest extends Model
 {
     /**
+     * @example C-A_SAMPLE_CLUSTER_ID
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example odps
+     *
      * @var string
      */
     public $dataSourceType;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @example myschema
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @example odps.sample_project.sample_table
+     *
      * @var string
      */
     public $tableGuid;
 
     /**
+     * @example sample_table
+     *
      * @var string
      */
     public $tableName;
