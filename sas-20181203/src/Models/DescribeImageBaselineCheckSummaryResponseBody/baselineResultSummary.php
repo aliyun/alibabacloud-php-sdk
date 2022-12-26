@@ -9,109 +9,56 @@ use AlibabaCloud\Tea\Model;
 class baselineResultSummary extends Model
 {
     /**
-     * @description The category of the baseline.
-     *
-     * @example Unauthorized access
-     *
      * @var string
      */
     public $baselineClassAlias;
 
     /**
-     * @description The keyword of the baseline category.
-     *
-     * @example hc_image_exploit
-     *
      * @var string
      */
     public $baselineClassKey;
 
     /**
-     * @description The name of the baseline.
-     *
-     * @example Unauthorized access
-     *
      * @var string
      */
     public $baselineNameAlias;
 
     /**
-     * @description The keyword of the baseline name.
-     *
-     * @example hc_image_exploit
-     *
      * @var string
      */
     public $baselineNameKey;
 
     /**
-     * @description The severity of the image baseline. Valid values:
-     *
-     *   **high**
-     *   **medium**
-     *   **low**
-     *
-     * @example high
-     *
      * @var string
      */
     public $baselineNameLevel;
 
     /**
-     * @description The timestamp when the first scan was performed. Unit: milliseconds.
-     *
-     * @example 1626628760000
-     *
      * @var int
      */
     public $firstScanTime;
 
     /**
-     * @description The number of images on which **high** baseline risks are detected.
-     *
-     * @example 15
-     *
      * @var int
      */
     public $highRiskImage;
 
     /**
-     * @description The timestamp when the last scan was performed. Unit: milliseconds.
-     *
-     * @example 1626628760000
-     *
      * @var int
      */
     public $lastScanTime;
 
     /**
-     * @description The number of images on which **low** baseline risks are detected.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $lowRiskImage;
 
     /**
-     * @description The number of images on which **medium** baseline risks are detected.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $middleRiskImage;
 
     /**
-     * @description The status of the baseline risks. Valid values:
-     *
-     *   **0**: unfixed
-     *   **1**: fixed
-     *   **2**: pending verification
-     *   **3**: fixing failed
-     *
-     * @example 0
-     *
      * @var int
      */
     public $status;

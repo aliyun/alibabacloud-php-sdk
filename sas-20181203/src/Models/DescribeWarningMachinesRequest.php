@@ -54,6 +54,11 @@ class DescribeWarningMachinesRequest extends Model
     public $currentPage;
 
     /**
+     * @var int
+     */
+    public $groupId;
+
+    /**
      * @description Specifies whether risks were detected. Valid values:
      *
      *   **1**: yes
@@ -148,6 +153,7 @@ class DescribeWarningMachinesRequest extends Model
         'containerFieldName'  => 'ContainerFieldName',
         'containerFieldValue' => 'ContainerFieldValue',
         'currentPage'         => 'CurrentPage',
+        'groupId'             => 'GroupId',
         'haveRisk'            => 'HaveRisk',
         'lang'                => 'Lang',
         'machineName'         => 'MachineName',
@@ -177,6 +183,9 @@ class DescribeWarningMachinesRequest extends Model
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->haveRisk) {
             $res['HaveRisk'] = $this->haveRisk;
@@ -228,6 +237,9 @@ class DescribeWarningMachinesRequest extends Model
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['HaveRisk'])) {
             $model->haveRisk = $map['HaveRisk'];

@@ -10,53 +10,31 @@ use AlibabaCloud\Tea\Model;
 class DescribeSuspEventsResponseBody extends Model
 {
     /**
-     * @description The number of entries returned on the current page.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The page number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 0D6E20E4-8326-1D03-A553-2182BE9E82F9
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description An array that consists of the information about the alert event.
-     *
      * @var suspEvents[]
      */
     public $suspEvents;
 
     /**
-     * @description The total number of alert events.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $totalCount;

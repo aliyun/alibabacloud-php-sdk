@@ -12,484 +12,256 @@ use AlibabaCloud\Tea\Model;
 class suspEvents extends Model
 {
     /**
-     * @description Indicates whether the alert was analyzed offline.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $advanced;
 
     /**
-     * @description The name of the alert event.
-     *
-     * @example login_common_location
-     *
      * @var string
      */
     public $alarmEventName;
 
     /**
-     * @description The description of the alert event to which the alert event is associated.
-     *
-     * @example Login with unusual location
-     *
      * @var string
      */
     public $alarmEventNameDisplay;
 
     /**
-     * @description The type of the alert event.
-     *
-     * @example Unusual Logon
-     *
      * @var string
      */
     public $alarmEventType;
 
     /**
-     * @description The type of the alert event.
-     *
-     * @example Unusual Logon
-     *
      * @var string
      */
     public $alarmEventTypeDisplay;
 
     /**
-     * @description The ID of the alert event.
-     *
-     * @example 8df914418f****
-     *
      * @var string
      */
     public $alarmUniqueInfo;
 
     /**
-     * @description The name of the application to which the alert event belongs.
-     *
-     * @example pro-deploy-tibasic
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description Indicates whether the exception is automatically blocked.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $autoBreaking;
 
     /**
-     * @description Indicates whether the online handling of the alert event is supported, such as quarantining the source file of the malicious process. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
-     *
-     * @example true
-     *
      * @var bool
      */
     public $canBeDealOnLine;
 
     /**
-     * @description Indicates whether you can cancel marking the alert event as a false positive.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $canCancelFault;
 
     /**
-     * @description Indicates whether the Safeguard Mode For Major Activities mode is enabled for the server. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
-     *
-     * @example false
-     *
      * @var bool
      */
     public $containHwMode;
 
     /**
-     * @description The ID of the container.
-     *
-     * @example container_1648601865161_14925_02_000****
-     *
      * @var string
      */
     public $containerId;
 
     /**
-     * @description The ID of the image to which the container belongs.
-     *
-     * @example sha256:2e5a3b0ae5f452b3cb458789a9a7542ef40035a84318469a8528c5e444db1****
-     *
      * @var string
      */
     public $containerImageId;
 
     /**
-     * @description The name of the container image.
-     *
-     * @example centos7_apache:v1.0.1
-     *
      * @var string
      */
     public $containerImageName;
 
     /**
-     * @description The source of data. This parameter can be ignored.
-     *
-     * @example aegis_suspicious_****
-     *
      * @var string
      */
     public $dataSource;
 
     /**
-     * @description The impact of the alert event.
-     *
-     * @example webshell
-     *
      * @var string
      */
     public $desc;
 
     /**
-     * @description The details of the alert event.
-     *
      * @var details[]
      */
     public $details;
 
     /**
-     * @description Indicates whether the exception can be detected by cloud sandbox. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
-     *
-     * @example true
-     *
      * @var bool
      */
     public $displaySandboxResult;
 
     /**
-     * @description An array that consists of the remarks on the exception.
-     *
      * @var eventNotes[]
      */
     public $eventNotes;
 
     /**
-     * @description The status of the alert event. Valid values:
-     *
-     *   **1**: pending handling
-     *   **2**: ignored
-     *   **4**: confirmed
-     *   **8**: marked as a false positive
-     *   **16**: being handled
-     *   **32**: handled
-     *   **64**: expired
-     *
-     * @example 1
-     *
      * @var int
      */
     public $eventStatus;
 
     /**
-     * @description The name of the alert event.
-     *
-     * @example login_common_location
-     *
      * @var string
      */
     public $eventSubType;
 
     /**
-     * @description Indicates whether the alert event has trace information. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
-     *
-     * @example true
-     *
      * @var bool
      */
     public $hasTraceInfo;
 
     /**
-     * @description The ID of the alert event.
-     *
-     * @example 1000
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The ID of the affected asset.
-     *
-     * @example i-9dp6dwsxdl9z5u1e2f****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The name of the associated instance.
-     *
-     * @example nginx
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description The public IP address of the associated instance.
-     *
-     * @example 1.2.XX.XX
-     *
      * @var string
      */
     public $internetIp;
 
     /**
-     * @description The private IP address of the associated instance.
-     *
-     * @example 100.100.XX.XX
-     *
      * @var string
      */
     public $intranetIp;
 
     /**
-     * @description The ID of the Kubernetes cluster.
-     *
-     * @example c517b37e1401e4961b3951863a49a****
-     *
      * @var string
      */
     public $k8sClusterId;
 
     /**
-     * @description The name of the Kubernetes cluster.
-     *
-     * @example k8s-daily
-     *
      * @var string
      */
     public $k8sClusterName;
 
     /**
-     * @description The namespace of the Kubernetes cluster.
-     *
-     * @example default
-     *
      * @var string
      */
     public $k8sNamespace;
 
     /**
-     * @description The ID of the Kubernetes cluster node.
-     *
-     * @example i-bp14a1ay8e0aa9t0****
-     *
      * @var string
      */
     public $k8sNodeId;
 
     /**
-     * @description The name of the Kubernetes cluster node.
-     *
-     * @example N/A
-     *
      * @var string
      */
     public $k8sNodeName;
 
     /**
-     * @description The name of the Kubernetes pod.
-     *
-     * @example myapp-pod
-     *
      * @var string
      */
     public $k8sPodName;
 
     /**
-     * @description The time when the alert event was last generated.
-     *
-     * @example 2018-09-26 01:51:01
-     *
      * @var string
      */
     public $lastTime;
 
     /**
-     * @description The timestamp when the exception was last detected. Unit: milliseconds.
-     *
-     * @example 1631699497000
-     *
      * @var int
      */
     public $lastTimeStamp;
 
     /**
-     * @description The severity of the alert event. Valid values:
-     *
-     *   **serious**
-     *   **suspicious**
-     *   **remind**
-     *
-     * @example serious
-     *
      * @var string
      */
     public $level;
 
     /**
-     * @description The status of the malicious behavior defense rule. Valid values:
-     *
-     *   **open**: enabled
-     *   **close**: disabled
-     *
-     * @example open
-     *
      * @var string
      */
     public $maliciousRuleStatus;
 
     /**
-     * @description The advanced whitelist rule.
-     *
-     * @example [{\"uuid\":\"ALL\",\"field\":\"gmtModified\",\"operate\":\"contains\",\"fieldValue\":\"222\"}]
-     *
      * @var string
      */
     public $markMisRules;
 
     /**
-     * @description The complete name of the alert event.
-     *
-     * @example Unusual Logon-Login with unusual location
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The time when the alert event was first detected.
-     *
-     * @example 2018-09-26 01:51:01
-     *
      * @var string
      */
     public $occurrenceTime;
 
     /**
-     * @description The timestamp when the exception was first detected. Unit: milliseconds.
-     *
-     * @example 1631699497000
-     *
      * @var int
      */
     public $occurrenceTimeStamp;
 
     /**
-     * @description The handling result code of the alert event.
-     *
-     * @example kill_and_quara.Success
-     *
      * @var string
      */
     public $operateErrorCode;
 
     /**
-     * @description The description of the handing result of the alert event.
-     *
-     * @example success
-     *
      * @var string
      */
     public $operateMsg;
 
     /**
-     * @description The handling timestamp of the alert event. Unit: milliseconds.
-     *
-     * @example 1631699497000
-     *
      * @var int
      */
     public $operateTime;
 
     /**
-     * @description The edition of Security Center in which the exception can be detected. Valid values:
-     *
-     *   **0**: Basic edition
-     *   **1**: Enterprise edition
-     *
-     * @example 1
-     *
      * @var string
      */
     public $saleVersion;
 
     /**
-     * @description The IDs of the associated alert events.
-     *
-     * @example 270789
-     *
      * @var string
      */
     public $securityEventIds;
 
     /**
-     * @description The stage at which the attack is detected.
-     *
-     * @example "["authority_maintenance"]"
-     *
      * @var string
      */
     public $stages;
 
     /**
-     * @description The display name of the attack stage.
-     *
      * @var tacticItems[]
      */
     public $tacticItems;
 
     /**
-     * @description The unique key of the alert.
-     *
-     * @example e17e****
-     *
      * @var string
      */
     public $uniqueInfo;
 
     /**
-     * @description The ID of the associated instance.
-     *
-     * @example bf6b30d3-eea8-4924-9f0a-****
-     *
      * @var string
      */
     public $uuid;
 
     /**
-     * @description The ID of the cluster.
-     *
-     * @example c2051775877374cccbf68af596e6****
-     *
      * @var string
      */
     public $clusterId;

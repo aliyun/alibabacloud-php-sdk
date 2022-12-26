@@ -10,26 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecureSuggestionResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 676F80E3-4B3F-43DA-9CBB-5FF79F202AA2
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description An array that consists of the unhandled security risks.
-     *
      * @var suggestions[]
      */
     public $suggestions;
 
     /**
-     * @description The total number of unhandled security risks.
-     *
-     * @example 15
-     *
      * @var int
      */
     public $totalCount;

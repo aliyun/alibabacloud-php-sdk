@@ -11,24 +11,16 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertySoftwareDetailResponseBody extends Model
 {
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The details of the software asset.
-     *
      * @var propertys[]
      */
     public $propertys;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 6AEE7412-0065-1135-B790-AE2C38BA68FB
-     *
      * @var string
      */
     public $requestId;

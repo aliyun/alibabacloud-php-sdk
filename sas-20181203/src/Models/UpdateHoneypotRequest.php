@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UpdateHoneypotRequest extends Model
 {
     /**
-     * @example 945607c2ae2a1a737c04599d6608065688bfc6048d9b9d306ce8dc8191c278b4
-     *
      * @var string
      */
     public $honeypotId;
 
     /**
-     * @example ExtMail
-     *
      * @var string
      */
     public $honeypotName;
 
     /**
-     * @example {\"burp\":\"open\",\"webshell\":\"open\",\"trojan_git\":\"close\",\"portrait_option\":\"true\"}
-     *
      * @var string
      */
     public $meta;

@@ -11,24 +11,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageBaselineCheckSummaryResponseBody extends Model
 {
     /**
-     * @description An array that consists of the check results of image baselines.
-     *
      * @var baselineResultSummary[]
      */
     public $baselineResultSummary;
 
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 5BD95679-D63A-4151-97D0-188432F4A57
-     *
      * @var string
      */
     public $requestId;

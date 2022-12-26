@@ -11,24 +11,16 @@ use AlibabaCloud\Tea\Model;
 class ListHoneypotAlarmEventsResponseBody extends Model
 {
     /**
-     * @description An array that consists of the alert events.
-     *
      * @var honeypotAlarmEvents[]
      */
     public $honeypotAlarmEvents;
 
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 513C9554-55A4-5504-B7C4-6E17EB4FC7A3
-     *
      * @var string
      */
     public $requestId;

@@ -189,6 +189,15 @@ class groupedFields extends Model
     public $testAssetCount;
 
     /**
+     * @description The number of simple application servers.
+     *
+     * @example 2
+     *
+     * @var int
+     */
+    public $tripartiteInstanceCount;
+
+    /**
      * @description The number of assets whose statuses are unknown.
      *
      * @example 1
@@ -235,6 +244,7 @@ class groupedFields extends Model
         'riskInstanceCount'         => 'RiskInstanceCount',
         'tencentInstanceCount'      => 'TencentInstanceCount',
         'testAssetCount'            => 'TestAssetCount',
+        'tripartiteInstanceCount'   => 'TripartiteInstanceCount',
         'unKnowStatusInstanceCount' => 'UnKnowStatusInstanceCount',
         'unprotectedInstanceCount'  => 'UnprotectedInstanceCount',
         'vpcCount'                  => 'VpcCount',
@@ -306,6 +316,9 @@ class groupedFields extends Model
         }
         if (null !== $this->testAssetCount) {
             $res['TestAssetCount'] = $this->testAssetCount;
+        }
+        if (null !== $this->tripartiteInstanceCount) {
+            $res['TripartiteInstanceCount'] = $this->tripartiteInstanceCount;
         }
         if (null !== $this->unKnowStatusInstanceCount) {
             $res['UnKnowStatusInstanceCount'] = $this->unKnowStatusInstanceCount;
@@ -387,6 +400,9 @@ class groupedFields extends Model
         }
         if (isset($map['TestAssetCount'])) {
             $model->testAssetCount = $map['TestAssetCount'];
+        }
+        if (isset($map['TripartiteInstanceCount'])) {
+            $model->tripartiteInstanceCount = $map['TripartiteInstanceCount'];
         }
         if (isset($map['UnKnowStatusInstanceCount'])) {
             $model->unKnowStatusInstanceCount = $map['UnKnowStatusInstanceCount'];

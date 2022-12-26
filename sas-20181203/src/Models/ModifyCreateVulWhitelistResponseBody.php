@@ -10,17 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyCreateVulWhitelistResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 6B23A612-D997-5176-8C3B-D640DFD65772
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description An array that consists of the information about the whitelist.
-     *
      * @var vulWhitelistList[]
      */
     public $vulWhitelistList;

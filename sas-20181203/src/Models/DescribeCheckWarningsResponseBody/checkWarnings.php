@@ -27,6 +27,11 @@ class checkWarnings extends Model
     public $checkWarningId;
 
     /**
+     * @var string
+     */
+    public $execErrorMessage;
+
+    /**
      * @description The fixing status of the check item. Valid values:
      *
      *   **0**: disabled
@@ -102,15 +107,16 @@ class checkWarnings extends Model
      */
     public $uuid;
     protected $_name = [
-        'checkId'        => 'CheckId',
-        'checkWarningId' => 'CheckWarningId',
-        'fixStatus'      => 'FixStatus',
-        'item'           => 'Item',
-        'level'          => 'Level',
-        'reason'         => 'Reason',
-        'status'         => 'Status',
-        'type'           => 'Type',
-        'uuid'           => 'Uuid',
+        'checkId'          => 'CheckId',
+        'checkWarningId'   => 'CheckWarningId',
+        'execErrorMessage' => 'ExecErrorMessage',
+        'fixStatus'        => 'FixStatus',
+        'item'             => 'Item',
+        'level'            => 'Level',
+        'reason'           => 'Reason',
+        'status'           => 'Status',
+        'type'             => 'Type',
+        'uuid'             => 'Uuid',
     ];
 
     public function validate()
@@ -125,6 +131,9 @@ class checkWarnings extends Model
         }
         if (null !== $this->checkWarningId) {
             $res['CheckWarningId'] = $this->checkWarningId;
+        }
+        if (null !== $this->execErrorMessage) {
+            $res['ExecErrorMessage'] = $this->execErrorMessage;
         }
         if (null !== $this->fixStatus) {
             $res['FixStatus'] = $this->fixStatus;
@@ -164,6 +173,9 @@ class checkWarnings extends Model
         }
         if (isset($map['CheckWarningId'])) {
             $model->checkWarningId = $map['CheckWarningId'];
+        }
+        if (isset($map['ExecErrorMessage'])) {
+            $model->execErrorMessage = $map['ExecErrorMessage'];
         }
         if (isset($map['FixStatus'])) {
             $model->fixStatus = $map['FixStatus'];

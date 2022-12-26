@@ -9,10 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UnbindAegisRequest extends Model
 {
     /**
-     * @description The UUID of the server that you want to unbind. Separate multiple UUIDs with commas (,).
-     * You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
-     * @example 4fe8e1cd-3c37-4851-b9de-124da32c****
-     *
      * @var string
      */
     public $uuids;

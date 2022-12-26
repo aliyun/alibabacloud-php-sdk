@@ -72,6 +72,15 @@ class strategy extends Model
     public $name;
 
     /**
+     * @description The subtype of the baselines.
+     *
+     * @example hc_nginx_linux,tomcat7,hc_mysql_ali,hc_docker
+     *
+     * @var string
+     */
+    public $riskSubTypeName;
+
+    /**
      * @description An array that consists of the whitelist of risk items.
      *
      * @var riskTypeWhiteListQueryResultList[]
@@ -117,6 +126,7 @@ class strategy extends Model
         'endTime'                          => 'EndTime',
         'id'                               => 'Id',
         'name'                             => 'Name',
+        'riskSubTypeName'                  => 'RiskSubTypeName',
         'riskTypeWhiteListQueryResultList' => 'RiskTypeWhiteListQueryResultList',
         'startTime'                        => 'StartTime',
         'targetType'                       => 'TargetType',
@@ -147,6 +157,9 @@ class strategy extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->riskSubTypeName) {
+            $res['RiskSubTypeName'] = $this->riskSubTypeName;
         }
         if (null !== $this->riskTypeWhiteListQueryResultList) {
             $res['RiskTypeWhiteListQueryResultList'] = [];
@@ -195,6 +208,9 @@ class strategy extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['RiskSubTypeName'])) {
+            $model->riskSubTypeName = $map['RiskSubTypeName'];
         }
         if (isset($map['RiskTypeWhiteListQueryResultList'])) {
             if (!empty($map['RiskTypeWhiteListQueryResultList'])) {

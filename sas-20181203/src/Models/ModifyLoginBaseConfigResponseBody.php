@@ -19,10 +19,6 @@ class ModifyLoginBaseConfigResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example AB96FDDF-ED29-52B1-9FAE-8203F2808F24
-     *
      * @var string
      */
     public $requestId;

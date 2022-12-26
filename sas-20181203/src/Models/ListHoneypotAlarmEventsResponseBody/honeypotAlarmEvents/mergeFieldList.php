@@ -9,37 +9,21 @@ use AlibabaCloud\Tea\Model;
 class mergeFieldList extends Model
 {
     /**
-     * @description The extended value that corresponds to the field key.
-     *
-     * @example dest_ip_ext
-     *
      * @var string
      */
     public $fieldExtInfo;
 
     /**
-     * @description The key of the field.
-     *
-     * @example dest_ip_count
-     *
      * @var string
      */
     public $fieldKey;
 
     /**
-     * @description The type of the field.
-     *
-     * @example level1_item3
-     *
      * @var string
      */
     public $fieldType;
 
     /**
-     * @description The value of the field key.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $fieldValue;

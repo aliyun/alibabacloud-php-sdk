@@ -95,6 +95,21 @@ class DescribeGroupedInstancesRequest extends Model
      * @var int
      */
     public $vendor;
+
+    /**
+     * @description The source of the server. Separate multiple sources with commas (,).Valid values:
+     *
+     *   **0**: an asset provided by Alibaba Cloud.
+     *   **1**: a third-party cloud server
+     *   **2**: a server in a data center
+     *   **3**, **4**, **5**, and **7**: other cloud asset
+     *   **8**: a lightweight asset
+     *
+     * @example 0,8
+     *
+     * @var string
+     */
+    public $vendors;
     protected $_name = [
         'currentPage'  => 'CurrentPage',
         'fieldValue'   => 'FieldValue',
@@ -104,6 +119,7 @@ class DescribeGroupedInstancesRequest extends Model
         'noPage'       => 'NoPage',
         'pageSize'     => 'PageSize',
         'vendor'       => 'Vendor',
+        'vendors'      => 'Vendors',
     ];
 
     public function validate()
@@ -136,6 +152,9 @@ class DescribeGroupedInstancesRequest extends Model
         }
         if (null !== $this->vendor) {
             $res['Vendor'] = $this->vendor;
+        }
+        if (null !== $this->vendors) {
+            $res['Vendors'] = $this->vendors;
         }
 
         return $res;
@@ -172,6 +191,9 @@ class DescribeGroupedInstancesRequest extends Model
         }
         if (isset($map['Vendor'])) {
             $model->vendor = $map['Vendor'];
+        }
+        if (isset($map['Vendors'])) {
+            $model->vendors = $map['Vendors'];
         }
 
         return $model;

@@ -51,6 +51,11 @@ class DescribeCheckWarningSummaryRequest extends Model
     public $currentPage;
 
     /**
+     * @var int
+     */
+    public $groupId;
+
+    /**
      * @description The language of the content within the request and the response. Valid values:
      *
      *   **zh**: Chinese
@@ -160,6 +165,7 @@ class DescribeCheckWarningSummaryRequest extends Model
         'containerFieldName'  => 'ContainerFieldName',
         'containerFieldValue' => 'ContainerFieldValue',
         'currentPage'         => 'CurrentPage',
+        'groupId'             => 'GroupId',
         'lang'                => 'Lang',
         'pageSize'            => 'PageSize',
         'riskName'            => 'RiskName',
@@ -190,6 +196,9 @@ class DescribeCheckWarningSummaryRequest extends Model
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -244,6 +253,9 @@ class DescribeCheckWarningSummaryRequest extends Model
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];

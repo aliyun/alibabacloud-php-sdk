@@ -9,91 +9,51 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertySoftwareDetailRequest extends Model
 {
     /**
-     * @description The number of the page to return. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description Specifies whether fuzzy search by software name is supported. If you want to use fuzzy search, set the parameter to 1. If you set the parameter to a different value or leave the parameter empty, fuzzy search is not supported.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $extend;
 
     /**
-     * @description The timestamp at which the software update ends. Unit: milliseconds.
-     *
-     * @example 1650012695000
-     *
      * @var int
      */
     public $installTimeEnd;
 
     /**
-     * @description The timestamp at which the software update starts. Unit: milliseconds.
-     *
-     * @example 1649321495000
-     *
      * @var int
      */
     public $installTimeStart;
 
     /**
-     * @description The name of the software.
-     *
-     * @example kernel
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The number of entries to return on each page. Default value: **10**.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The installation path of the software.
-     *
-     * @example /etc/test
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @description The name or IP address of the server.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $remark;
 
     /**
-     * @description The version of the software.
-     *
-     * @example 3.10.0
-     *
      * @var string
      */
     public $softwareVersion;
 
     /**
-     * @description The UUID of the server.
-     *
-     * @example 50d213b4-3a35-427a-b8a5-****
-     *
      * @var string
      */
     public $uuid;

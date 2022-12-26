@@ -11,24 +11,16 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyUserItemResponseBody extends Model
 {
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description An array that consists of the account information returned.
-     *
      * @var propertyItems[]
      */
     public $propertyItems;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 76068BE2-F9C4-4EDD-967B-F503B8CCDD3D
-     *
      * @var string
      */
     public $requestId;
