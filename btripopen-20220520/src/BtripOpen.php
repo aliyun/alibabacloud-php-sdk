@@ -60,6 +60,7 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CommonApplyQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CommonApplySyncHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CommonApplySyncRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CommonApplySyncResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CorpAuthLinkInfoQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CorpTokenHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CorpTokenRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CorpTokenResponse;
@@ -1579,6 +1580,43 @@ class BtripOpen extends OpenApiClient
         $headers = new CommonApplySyncHeaders([]);
 
         return $this->commonApplySyncWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return CorpAuthLinkInfoQueryResponse
+     */
+    public function corpAuthLinkInfoQueryWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'CorpAuthLinkInfoQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/corp-authority-link/v1/info',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CorpAuthLinkInfoQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return CorpAuthLinkInfoQueryResponse
+     */
+    public function corpAuthLinkInfoQuery()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->corpAuthLinkInfoQueryWithOptions($headers, $runtime);
     }
 
     /**
