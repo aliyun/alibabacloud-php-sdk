@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GenerateUserAccessTokenResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example DDEXEDAFWAGASDFWAEFFAWEFAWFWEAFWAFWAEF
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example Parameter.Invalid
+     *
      * @var string
      */
     public $message;
@@ -26,11 +32,15 @@ class GenerateUserAccessTokenResponseBody extends Model
     /**
      * @description Id of the request
      *
+     * @example E6988CE6-41CF-1103-9BEC-2B20D26C0B51
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

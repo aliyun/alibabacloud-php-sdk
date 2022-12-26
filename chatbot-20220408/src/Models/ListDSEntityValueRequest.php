@@ -9,49 +9,47 @@ use AlibabaCloud\Tea\Model;
 class ListDSEntityValueRequest extends Model
 {
     /**
-     * @description 业务空间key,不设置则访问默认业务空间，key值在主账号业务管理页面获取
+     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
      *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @description 实体ID
+     * @example 123
      *
      * @var int
      */
     public $entityId;
 
     /**
-     * @description 实体成员ID
+     * @example 234
      *
      * @var int
      */
     public $entityValueId;
 
     /**
-     * @description 机器人ID
+     * @example chatbot-cn-yjzbyrEvqd
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 实体成员名称搜索关键词
-     *
      * @var string
      */
     public $keyword;
 
     /**
-     * @description 页码
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页大小
+     * @example 10
      *
      * @var int
      */

@@ -10,21 +10,19 @@ use AlibabaCloud\Tea\Model;
 class NluResponseBody extends Model
 {
     /**
-     * @description 本条语言理解应答消息的ID
+     * @example 2828708A-2C7A-1BAE-B810-87DB9DA9C661
      *
      * @var string
      */
     public $messageId;
 
     /**
-     * @description 消息的列表
-     *
      * @var messages[]
      */
     public $messages;
 
     /**
-     * @description 请求id
+     * @example A6357C1B-1D79-1382-B259-BD9E80751B42
      *
      * @var string
      */

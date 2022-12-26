@@ -9,50 +9,46 @@ use AlibabaCloud\Tea\Model;
 class CreateFaqRequest extends Model
 {
     /**
-     * @description 业务空间key,不设置则访问默认业务空间，key值在主账号业务管理页面获取
+     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
      *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @description 知识的类目ID
+     * @example 1000053274
      *
      * @var int
      */
     public $categoryId;
 
     /**
-     * @description 失效时间
+     * @example 2030-12-31T16:00:00Z
      *
      * @var string
      */
     public $endDate;
 
     /**
-     * @description 默认答案内容
-     *
      * @var string
      */
     public $solutionContent;
 
     /**
-     * @description 默认答案类型
+     * @example 0
      *
      * @var int
      */
     public $solutionType;
 
     /**
-     * @description 生效时间
+     * @example 2022-05-25T16:28:36Z
      *
      * @var string
      */
     public $startDate;
 
     /**
-     * @description 知识标题
-     *
      * @var string
      */
     public $title;

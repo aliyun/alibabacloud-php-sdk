@@ -9,69 +9,63 @@ use AlibabaCloud\Tea\Model;
 class ChatRequest extends Model
 {
     /**
-     * @description 业务空间key,不设置则访问默认业务空间，key值在主账号业务管理页面获取
+     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
      *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @description 机器人实例ID。登录云小蜜控制台，机器人详情->会话接口，查看机器人实例信息，可获得该实例ID。
+     * @example chatbot-cn-mp90s2lrk00050
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 对话流中意图名称。 若指定此名称，机器人会直接进入此意图做问答
-     *
      * @var string
      */
     public $intentName;
 
     /**
-     * @description 知识库中知识标题的ID。若指定此ID，那么机器人会直接返回指定知识标题的答案
+     * @example 30002406051
      *
      * @var string
      */
     public $knowledgeId;
 
     /**
-     * @description 视角编码，用于调用同一知识标题下不同视角的答案。如：Perspective=["FZJBY3raWr"]。使用SDK时以SDK中定义的参数为准
-     *
      * @var string[]
      */
     public $perspective;
 
     /**
-     * @description 访问者ID。用于识别当前会话中的用户
+     * @example custumer_123456
      *
      * @var string
      */
     public $senderId;
 
     /**
-     * @description 当前会话中访问的昵称
-     *
      * @var string
      */
     public $senderNick;
 
     /**
-     * @description 会话ID，用于标识一个访问者的会话和保持上下文信息。对于一个新的访问者，首次调用Chat接口时无需传递此字段，机器人会开启一个会话，并在Chat接口的响应中返回该会话的SessionId。对于该访问者的后续轮次的会话，调用Chat接口时传递当前会话的SessionId，机器人即可基于SessionId继续该轮次会话。长度限制是64个字符
+     * @example 9c6ebdc6e66f46ecadab3434314f6959
      *
      * @var string
      */
     public $sessionId;
 
     /**
-     * @description 机器人访问者的输入
-     *
      * @var string
      */
     public $utterance;
 
     /**
+     * @example {"phone":123456789}
+     *
      * @var string
      */
     public $vendorParam;

@@ -9,39 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListUserSayRequest extends Model
 {
     /**
-     * @description 业务空间key,不设置则访问默认业务空间，key值在主账号业务管理页面获取
+     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
      *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @description 筛选用户话术
+     * @example 您做核酸了嘛
      *
      * @var string
      */
     public $content;
 
     /**
-     * @description 机器人ID
+     * @example chatbot-cn-yjzbyrEvqd
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 意图ID
+     * @example 232
      *
      * @var int
      */
     public $intentId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

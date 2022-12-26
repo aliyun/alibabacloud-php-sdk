@@ -6,24 +6,26 @@ namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribePerspectiveRequest extends Model
+class InitIMConnectRequest extends Model
 {
     /**
-     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
-     *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @example 3001
-     *
      * @var string
      */
-    public $perspectiveId;
+    public $from;
+
+    /**
+     * @var string
+     */
+    public $userAccessToken;
     protected $_name = [
-        'agentKey'      => 'AgentKey',
-        'perspectiveId' => 'PerspectiveId',
+        'agentKey'        => 'AgentKey',
+        'from'            => 'From',
+        'userAccessToken' => 'UserAccessToken',
     ];
 
     public function validate()
@@ -36,8 +38,11 @@ class DescribePerspectiveRequest extends Model
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
-        if (null !== $this->perspectiveId) {
-            $res['PerspectiveId'] = $this->perspectiveId;
+        if (null !== $this->from) {
+            $res['From'] = $this->from;
+        }
+        if (null !== $this->userAccessToken) {
+            $res['UserAccessToken'] = $this->userAccessToken;
         }
 
         return $res;
@@ -46,7 +51,7 @@ class DescribePerspectiveRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribePerspectiveRequest
+     * @return InitIMConnectRequest
      */
     public static function fromMap($map = [])
     {
@@ -54,8 +59,11 @@ class DescribePerspectiveRequest extends Model
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
-        if (isset($map['PerspectiveId'])) {
-            $model->perspectiveId = $map['PerspectiveId'];
+        if (isset($map['From'])) {
+            $model->from = $map['From'];
+        }
+        if (isset($map['UserAccessToken'])) {
+            $model->userAccessToken = $map['UserAccessToken'];
         }
 
         return $model;

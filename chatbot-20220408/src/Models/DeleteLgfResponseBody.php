@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteLgfResponseBody extends Model
 {
     /**
+     * @description LGF ID
+     *
+     * @example 2342424
+     *
      * @var int
      */
     public $lgfId;
 
     /**
+     * @example dgw2342424qw42
+     *
      * @var string
      */
     public $requestId;

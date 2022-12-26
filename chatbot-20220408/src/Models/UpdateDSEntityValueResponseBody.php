@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateDSEntityValueResponseBody extends Model
 {
     /**
+     * @example 2342377423
+     *
      * @var int
      */
     public $entityValueId;
 
     /**
+     * @example sDag3g43wesf2
+     *
      * @var string
      */
     public $requestId;

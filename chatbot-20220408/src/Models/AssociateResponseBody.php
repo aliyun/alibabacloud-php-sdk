@@ -10,28 +10,26 @@ use AlibabaCloud\Tea\Model;
 class AssociateResponseBody extends Model
 {
     /**
-     * @description 联想的列表
-     *
      * @var associate[]
      */
     public $associate;
 
     /**
-     * @description 本条会话应答消息的ID
+     * @example 5ADF0EBD-7C50-1922-A28B-43215B47CC1A
      *
      * @var string
      */
     public $messageId;
 
     /**
-     * @description 请求id
+     * @example 5C20F0D4-9721-178A-8236-3BF990634962
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 本次会话的ID
+     * @example 1531ded6b3df4afca4be63943f708bb7
      *
      * @var string
      */

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateLgfResponseBody extends Model
 {
     /**
+     * @example 2342556223532
+     *
      * @var int
      */
     public $lgfId;
 
     /**
+     * @example 289dfa131adf23wqe2r
+     *
      * @var string
      */
     public $requestId;

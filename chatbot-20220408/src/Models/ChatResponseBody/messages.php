@@ -12,50 +12,40 @@ use AlibabaCloud\Tea\Model;
 class messages extends Model
 {
     /**
-     * @description 当AnswerType为Recommend时，此字段表示推荐的答案来源
+     * @example KNOWLEDGE
      *
      * @var string
      */
     public $answerSource;
 
     /**
-     * @description 本条消息的类型
+     * @example Text
      *
      * @var string
      */
     public $answerType;
 
     /**
-     * @description 当AnswerType为Knowledge时，此字段包含机器人返回的Knowledge对象
-     *
      * @var knowledge
      */
     public $knowledge;
 
     /**
-     * @description 当AnswerType为Recommend时，此字段包含机器人返回的Recommend的列表
-     *
      * @var recommends[]
      */
     public $recommends;
 
     /**
-     * @description 当AnswerType为Text时，此字段包含机器人返回的Text对象
-     *
      * @var text
      */
     public $text;
 
     /**
-     * @description 当AnswerType为Recommend时，此字段表示推荐或者反问的标题话术
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @description 当AnswerType为Recommend时，并且问答的机器人为语音机器人，此字段表示列表型答案在语音场景渲染之后的答案内容
-     *
      * @var string
      */
     public $voiceTitle;

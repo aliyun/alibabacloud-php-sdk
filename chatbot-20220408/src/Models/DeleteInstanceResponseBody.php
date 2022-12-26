@@ -9,63 +9,59 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceResponseBody extends Model
 {
     /**
-     * @description 业务类型列表
-     *
      * @var string[]
      */
     public $bizTypeList;
 
     /**
-     * @description 任务创建的 UTC 时间
+     * @example 2021-09-11T09:26:14Z
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 任务创建人Id
+     * @example 9052
      *
      * @var int
      */
     public $createUserId;
 
     /**
-     * @description 任务创建人
+     * @example xuqiang_test
      *
      * @var string
      */
     public $createUserName;
 
     /**
-     * @description 错误信息
-     *
      * @var string
      */
     public $error;
 
     /**
-     * @description 任务id
+     * @example 8521
      *
      * @var int
      */
     public $id;
 
     /**
-     * @description 请求Id
+     * @example 5CBF0581-EAE7-1DC4-95C6-A089656A1E2D
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 任务id
+     * @example 8521
      *
      * @var int
      */
     public $response;
 
     /**
-     * @description 任务状态，可以在GetInstancePublishTaskState API 了解更多的状态
+     * @example FE_RUNNING
      *
      * @var string
      */

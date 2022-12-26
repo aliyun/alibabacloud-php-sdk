@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceRequest extends Model
 {
     /**
-     * @description 业务空间key,不设置则访问默认业务空间，key值在主账号业务管理页面获取
+     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
      *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @description 机器人备注，不超过50字
+     * @example 用于手机app的小蜜机器人
      *
      * @var string
      */
     public $introduction;
 
     /**
-     * @description 机器人服务的语言，如zh-cn、en-us，参考 http://www.lingoes.net/zh/translator/langcode.htm   入参全小写，当前只支持 zh-cn、en-us
+     * @example zh-cn
      *
      * @var string
      */
     public $languageCode;
 
     /**
-     * @description 机器人名称，不超过50字
+     * @example 小蜜机器人
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 机器人类型
+     * @example scenario_im
      *
      * @var string
      */

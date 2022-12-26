@@ -9,92 +9,86 @@ use AlibabaCloud\Tea\Model;
 class faqHits extends Model
 {
     /**
-     * @description 类目ID
+     * @example 30000055639
      *
      * @var int
      */
     public $categoryId;
 
     /**
-     * @description 创建时间（UTC时间）
+     * @example 2022-04-02T03:09:30Z
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 创建人ID
+     * @example 18453
      *
      * @var int
      */
     public $createUserId;
 
     /**
-     * @description 创建人
+     * @example test01
      *
      * @var string
      */
     public $createUserName;
 
     /**
-     * @description 知识生效状态,根据StartDate, EndDate计算出来: 20-生效中, 21-已失效, 22-待生效
+     * @example 20
      *
      * @var int
      */
     public $effectStatus;
 
     /**
-     * @description 命中的相似问
-     *
      * @var string[]
      */
     public $hitSimilarTitles;
 
     /**
-     * @description 命中的答案
-     *
      * @var string[]
      */
     public $hitSolutions;
 
     /**
-     * @description 知识ID
+     * @example 30002145804
      *
      * @var int
      */
     public $knowledgeId;
 
     /**
-     * @description 修改时间（UTC时间）
+     * @example 2022-04-02T03:09:30Z
      *
      * @var string
      */
     public $modifyTime;
 
     /**
-     * @description 修改人ID
+     * @example 18453
      *
      * @var int
      */
     public $modifyUserId;
 
     /**
-     * @description 修改人
+     * @example test01
      *
      * @var string
      */
     public $modifyUserName;
 
     /**
-     * @description 知识状态: -1-已删除未发布, 1-未发布, 2-已发布, 3-已更新未发布
+     * @example 3
      *
      * @var int
      */
     public $status;
 
     /**
-     * @description 标题
-     *
      * @var string
      */
     public $title;

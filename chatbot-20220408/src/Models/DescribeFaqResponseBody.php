@@ -12,104 +12,98 @@ use AlibabaCloud\Tea\Model;
 class DescribeFaqResponseBody extends Model
 {
     /**
-     * @description 类目ID
+     * @example 30000055617
      *
      * @var int
      */
     public $categoryId;
 
     /**
-     * @description 创建时间（UTC时间）
+     * @example 2020-11-30T03:03:37Z
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 创建人
+     * @example test01
      *
      * @var string
      */
     public $createUserName;
 
     /**
-     * @description 知识生效状态,根据StartDate, EndDate计算出来: 20-生效中, 21-已失效, 22-待生效
+     * @example 20
      *
      * @var int
      */
     public $effectStatus;
 
     /**
-     * @description 失效时间（UTC时间）
+     * @example 2023-04-27T06:08:54Z
      *
      * @var string
      */
     public $endDate;
 
     /**
-     * @description 知识ID
+     * @example 30001979424
      *
      * @var int
      */
     public $knowledgeId;
 
     /**
-     * @description 修改时间（UTC时间）
+     * @example 2020-12-02T06:35:50Z
      *
      * @var string
      */
     public $modifyTime;
 
     /**
-     * @description 修改人
+     * @example test01
      *
      * @var string
      */
     public $modifyUserName;
 
     /**
-     * @description 关联问列表
-     *
      * @var outlines[]
      */
     public $outlines;
 
     /**
+     * @example 8AD9FA10-7780-5E12-B701-13C928524F32
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 相似问列表
-     *
      * @var simQuestions[]
      */
     public $simQuestions;
 
     /**
-     * @description 答案列表
-     *
      * @var solutions[]
      */
     public $solutions;
 
     /**
-     * @description 生效时间（UTC时间）
+     * @example 2022-04-27T07:04:39Z
      *
      * @var string
      */
     public $startDate;
 
     /**
-     * @description 知识状态: -1-已删除未发布, 1-未发布, 2-已发布, 3-已更新未发布
+     * @example 3
      *
      * @var int
      */
     public $status;
 
     /**
-     * @description 标题
-     *
      * @var string
      */
     public $title;

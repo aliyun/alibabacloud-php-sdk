@@ -10,13 +10,13 @@ use AlibabaCloud\Tea\Model;
 class ListSimQuestionResponseBody extends Model
 {
     /**
+     * @example 15CD94CC-CBEB-4189-806C-A132D1F45D51
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 相似问列表
-     *
      * @var simQuestions[]
      */
     public $simQuestions;

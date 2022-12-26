@@ -14,21 +14,29 @@ class entityValues extends Model
     public $content;
 
     /**
+     * @example 2021-08-12T16:00:01Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 34313785463
+     *
      * @var int
      */
     public $entityId;
 
     /**
+     * @example 3467858234534534532
+     *
      * @var int
      */
     public $entityValueId;
 
     /**
+     * @example 2021-08-12T16:00:01Z
+     *
      * @var string
      */
     public $modifyTime;

@@ -11,15 +11,11 @@ use AlibabaCloud\Tea\Model;
 class dsNluInfo extends Model
 {
     /**
-     * @description 实体列表
-     *
      * @var entityList[]
      */
     public $entityList;
 
     /**
-     * @description 意图列表
-     *
      * @var intentList[]
      */
     public $intentList;

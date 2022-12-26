@@ -9,13 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateConnQuestionResponseBody extends Model
 {
     /**
-     * @description 关联关系ID
+     * @example 1000002123
      *
      * @var int
      */
     public $outlineId;
 
     /**
+     * @example C191B48B-9268-4FB1-A3C2-5143B4A91D0C
+     *
      * @var string
      */
     public $requestId;

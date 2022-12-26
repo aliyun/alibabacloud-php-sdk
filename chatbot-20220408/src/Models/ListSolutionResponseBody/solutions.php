@@ -9,49 +9,43 @@ use AlibabaCloud\Tea\Model;
 class solutions extends Model
 {
     /**
-     * @description 答案内容
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description 答案类型(0纯文本，1富文本）
+     * @example 1
      *
      * @var int
      */
     public $contentType;
 
     /**
-     * @description 创建时间(UTC 时间)
+     * @example 2022-03-29T03:55:04Z
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 修改时间(UTC 时间)
+     * @example 2022-03-29T06:23:53Z
      *
      * @var string
      */
     public $modifyTime;
 
     /**
-     * @description 视角code列表
-     *
      * @var string[]
      */
     public $perspectiveCodes;
 
     /**
-     * @description 答案纯文本内容
-     *
      * @var string
      */
     public $plainText;
 
     /**
-     * @description 答案ID
+     * @example 496
      *
      * @var int
      */

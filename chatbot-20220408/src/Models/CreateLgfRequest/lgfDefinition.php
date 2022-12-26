@@ -9,15 +9,13 @@ use AlibabaCloud\Tea\Model;
 class lgfDefinition extends Model
 {
     /**
-     * @description 意图ID
+     * @example 4675678567
      *
      * @var int
      */
     public $intentId;
 
     /**
-     * @description LGF配置
-     *
      * @var string
      */
     public $ruleText;

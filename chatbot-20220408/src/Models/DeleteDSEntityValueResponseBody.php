@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteDSEntityValueResponseBody extends Model
 {
     /**
+     * @example 3453453452
+     *
      * @var int
      */
     public $entityValueId;
 
     /**
+     * @example dfdf2t3rfvb45y
+     *
      * @var string
      */
     public $requestId;

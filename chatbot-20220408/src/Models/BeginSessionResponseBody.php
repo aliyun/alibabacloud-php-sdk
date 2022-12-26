@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class BeginSessionResponseBody extends Model
 {
     /**
-     * @description 请求id
+     * @example 149C7528-C104-1B50-A4F9-0C5907A8AD9D
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 欢迎语
+     * @example 智能对话机器人为您服务，请问有什么可以帮您？
      *
      * @var string
      */

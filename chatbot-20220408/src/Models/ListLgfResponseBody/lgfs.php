@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class lgfs extends Model
 {
     /**
-     * @description 创建时间
+     * @example 2021-08-12T16:00:01Z
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 意图ID
+     * @example 256756734345
      *
      * @var int
      */
@@ -25,20 +25,20 @@ class lgfs extends Model
     /**
      * @description LGF ID
      *
+     * @example 123
+     *
      * @var int
      */
     public $lgfId;
 
     /**
-     * @description 修改时间
+     * @example 2021-08-12T16:00:01Z
      *
      * @var string
      */
     public $modifyTime;
 
     /**
-     * @description LGF规则
-     *
      * @var string
      */
     public $ruleText;

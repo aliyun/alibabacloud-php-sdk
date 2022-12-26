@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class slotInfos extends Model
 {
     /**
-     * @description 槽位在意图话术中的结束下标（不含）
+     * @example 6
      *
      * @var int
      */
     public $endIndex;
 
     /**
-     * @description 划槽ID
+     * @example fb34adf2fv43f2
      *
      * @var string
      */
     public $slotId;
 
     /**
-     * @description 槽位在意图话术中的起始下标
+     * @example 4
      *
      * @var int
      */

@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class intentDefinition extends Model
 {
     /**
-     * @description 意图别名
-     *
      * @var string
      */
     public $aliasName;
 
     /**
-     * @description 意图名称
-     *
      * @var string
      */
     public $intentName;
 
     /**
-     * @description 槽位信息
-     *
      * @var slotInfos[]
      */
     public $slotInfos;

@@ -9,41 +9,39 @@ use AlibabaCloud\Tea\Model;
 class slotInfos extends Model
 {
     /**
-     * @description 是否数组
+     * @example false
      *
      * @var bool
      */
     public $array;
 
     /**
-     * @description 是否脱敏
+     * @example false
      *
      * @var bool
      */
     public $encrypt;
 
     /**
-     * @description 是否交互式
+     * @example false
      *
      * @var bool
      */
     public $interactive;
 
     /**
-     * @description 槽位名
-     *
      * @var string
      */
     public $name;
 
     /**
+     * @example fg452dfg3df23
+     *
      * @var string
      */
     public $slotId;
 
     /**
-     * @description 关联的实体名
-     *
      * @var string
      */
     public $value;

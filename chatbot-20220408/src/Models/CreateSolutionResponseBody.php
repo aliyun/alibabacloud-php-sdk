@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CreateSolutionResponseBody extends Model
 {
     /**
+     * @example F55D90C1-31BE-4B2A-AA3F-25EFC36F9419
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 答案ID
+     * @example 100001089003
      *
      * @var int
      */

@@ -9,15 +9,13 @@ use AlibabaCloud\Tea\Model;
 class relatedKnowledges extends Model
 {
     /**
-     * @description 知识关联知识的ID
+     * @example 735899
      *
      * @var string
      */
     public $knowledgeId;
 
     /**
-     * @description 知识的关联知识的标题
-     *
      * @var string
      */
     public $title;

@@ -15,26 +15,28 @@ class SearchFaqResponseBody extends Model
     public $faqHits;
 
     /**
-     * @description 页码 默认1
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 每页数量，默认10，最大500
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example E45491D5-7E0A-42C6-9B21-91D1066B1475
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 总条数
+     * @example 1075
      *
      * @var int
      */

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateUserSayResponseBody extends Model
 {
     /**
+     * @example 8g4n8bnd236fg79
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 46456176856
+     *
      * @var int
      */
     public $userSayId;

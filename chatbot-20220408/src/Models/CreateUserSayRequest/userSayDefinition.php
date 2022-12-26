@@ -10,22 +10,18 @@ use AlibabaCloud\Tea\Model;
 class userSayDefinition extends Model
 {
     /**
-     * @description 用户话术
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description 意图ID
+     * @example 123232
      *
      * @var int
      */
     public $intentId;
 
     /**
-     * @description 划槽信息
-     *
      * @var slotInfos[]
      */
     public $slotInfos;

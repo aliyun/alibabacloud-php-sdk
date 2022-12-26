@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class entities extends Model
 {
     /**
+     * @example 2021-08-12T16:00:01Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 123231
+     *
      * @var string
      */
     public $createUserId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $createUserName;
 
     /**
+     * @example 234564567445
+     *
      * @var int
      */
     public $entityId;
@@ -34,27 +42,35 @@ class entities extends Model
     public $entityName;
 
     /**
+     * @example synonyms
+     *
      * @var string
      */
     public $entityType;
 
     /**
+     * @example 2021-08-12T16:00:01Z
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @example 123231
+     *
      * @var string
      */
     public $modifyUserId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $modifyUserName;
 
     /**
-     * @description 系统实体code，如@sys.date
+     * @example @sys_date
      *
      * @var string
      */

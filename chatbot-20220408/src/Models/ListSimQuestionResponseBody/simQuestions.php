@@ -9,29 +9,27 @@ use AlibabaCloud\Tea\Model;
 class simQuestions extends Model
 {
     /**
-     * @description 创建时间(UTC 时间)
+     * @example 2022-05-30T02:08:33Z
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 修改时间(UTC 时间)
+     * @example 2022-05-13T03:49:28Z
      *
      * @var string
      */
     public $modifyTime;
 
     /**
-     * @description 相似问ID
+     * @example 30001979424
      *
      * @var int
      */
     public $simQuestionId;
 
     /**
-     * @description 相似问标题
-     *
      * @var string
      */
     public $title;

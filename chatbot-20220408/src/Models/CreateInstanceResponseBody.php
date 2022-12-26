@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceResponseBody extends Model
 {
     /**
-     * @description 机器人唯一标识
+     * @example chatbot-cn-mp90s2lrk00050
      *
      * @var string
      */
@@ -17,6 +17,8 @@ class CreateInstanceResponseBody extends Model
 
     /**
      * @description Id of the request
+     *
+     * @example F2E2C40D-AB09-45A1-B5C5-EB9F5C4E4E4A
      *
      * @var string
      */

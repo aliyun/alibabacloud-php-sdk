@@ -9,49 +9,49 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
-     * @description 机器人头像的URL
+     * @example /alimefe/meebot/robot/0.0.5/img/xxx-90-97.png
      *
      * @var string
      */
     public $avatar;
 
     /**
-     * @description 机器人创建的 UTC 时间
+     * @example 2021-08-12T16:00:01Z
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 机器人唯一标识
+     * @example chatbot-cn-mp90s2lrk00050
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 机器人备注
+     * @example 用于C端问答的机器人
      *
      * @var string
      */
     public $introduction;
 
     /**
-     * @description 机器人服务的语言
+     * @example zh-cn
      *
      * @var string
      */
     public $languageCode;
 
     /**
-     * @description 机器人名称
+     * @example 智能客服-小C
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 机器人类型
+     * @example scenario_im
      *
      * @var string
      */

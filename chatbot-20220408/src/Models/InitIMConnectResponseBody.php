@@ -6,30 +6,38 @@ namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetAsyncResultResponseBody extends Model
+class InitIMConnectResponseBody extends Model
 {
+    /**
+     * @var string
+     */
+    public $code;
+
     /**
      * @var string
      */
     public $data;
 
     /**
-     * @example F79E7305-5314-5069-A701-9591AD051902
-     *
+     * @var string
+     */
+    public $message;
+
+    /**
      * @var string
      */
     public $requestId;
 
     /**
-     * @example Success
-     *
-     * @var string
+     * @var bool
      */
-    public $status;
+    public $success;
     protected $_name = [
+        'code'      => 'Code',
         'data'      => 'Data',
+        'message'   => 'Message',
         'requestId' => 'RequestId',
-        'status'    => 'Status',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -39,14 +47,20 @@ class GetAsyncResultResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->data) {
             $res['Data'] = $this->data;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -55,19 +69,25 @@ class GetAsyncResultResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetAsyncResultResponseBody
+     * @return InitIMConnectResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

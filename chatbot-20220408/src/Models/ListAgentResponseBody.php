@@ -15,11 +15,15 @@ class ListAgentResponseBody extends Model
     public $data;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -27,11 +31,15 @@ class ListAgentResponseBody extends Model
     /**
      * @description Id of the request
      *
+     * @example F55D90C1-31BE-4B2A-AA3F-25EFC36F9419
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $totalCount;

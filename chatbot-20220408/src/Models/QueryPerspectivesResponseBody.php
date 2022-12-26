@@ -10,14 +10,12 @@ use AlibabaCloud\Tea\Model;
 class QueryPerspectivesResponseBody extends Model
 {
     /**
-     * @description 视角列表
-     *
      * @var perspectives[]
      */
     public $perspectives;
 
     /**
-     * @description 请求Id
+     * @example F285D735-D580-18A8-B97F-B2E72B00F101
      *
      * @var string
      */

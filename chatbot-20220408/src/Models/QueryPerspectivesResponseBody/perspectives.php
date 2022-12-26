@@ -9,49 +9,49 @@ use AlibabaCloud\Tea\Model;
 class perspectives extends Model
 {
     /**
-     * @description 创建时间 UTC时间
+     * @example 2022-04-12T06:30:17Z
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 修改时间 UTC时间
+     * @example 2022-04-29T03:38:54Z
      *
      * @var string
      */
     public $modifyTime;
 
     /**
-     * @description 视角名称
+     * @example 移动端视角
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 视角编码（用于问答api）
+     * @example FZJBY3raWr
      *
      * @var string
      */
     public $perspectiveCode;
 
     /**
-     * @description 视角主键（code_id）
+     * @example 3001
      *
      * @var string
      */
     public $perspectiveId;
 
     /**
-     * @description 是否自定义
+     * @example true
      *
      * @var bool
      */
     public $selfDefine;
 
     /**
-     * @description 数据状态：3：选中；1：未选中
+     * @example 1
      *
      * @var int
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateSimQuestionResponseBody extends Model
 {
     /**
+     * @example DFB71B34-4188-4EA2-9988-EF3014E75910
+     *
      * @var string
      */
     public $requestId;

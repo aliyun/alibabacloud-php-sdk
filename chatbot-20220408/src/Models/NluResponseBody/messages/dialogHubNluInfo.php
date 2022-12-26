@@ -11,15 +11,11 @@ use AlibabaCloud\Tea\Model;
 class dialogHubNluInfo extends Model
 {
     /**
-     * @description 全局名词列表
-     *
      * @var globalDictList[]
      */
     public $globalDictList;
 
     /**
-     * @description 全局敏感词列表
-     *
      * @var globalSensitiveWordList[]
      */
     public $globalSensitiveWordList;

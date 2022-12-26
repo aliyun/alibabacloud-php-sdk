@@ -9,56 +9,52 @@ use AlibabaCloud\Tea\Model;
 class CreatePublishTaskResponseBody extends Model
 {
     /**
-     * @description 业务类型列表
-     *
      * @var string[]
      */
     public $bizTypeList;
 
     /**
-     * @description 任务创建的 UTC 时间
+     * @example 2022-04-12T06:30:17Z
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description job失败信息
-     *
      * @var string
      */
     public $error;
 
     /**
-     * @description 任务Id
+     * @example 8522
      *
      * @var int
      */
     public $id;
 
     /**
-     * @description 任务修改的 UTC 时间
+     * @example 2022-04-12T06:30:33Z
      *
      * @var string
      */
     public $modifyTime;
 
     /**
-     * @description 请求Id
+     * @example 5CBF0581-EAE7-1DC4-95C6-A089656A1E2D
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 任务Id
+     * @example 8522
      *
      * @var string
      */
     public $response;
 
     /**
-     * @description 任务状态
+     * @example FE_RUNNING
      *
      * @var string
      */

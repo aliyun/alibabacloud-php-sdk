@@ -10,35 +10,33 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceResponseBody extends Model
 {
     /**
-     * @description 机器人列表信息
-     *
      * @var instances[]
      */
     public $instances;
 
     /**
-     * @description 分页-第几页
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页-页面大小
+     * @example 5
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 请求Id
+     * @example 92B81548-42B9-4B34-924B-4E778AEB412B
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 总条数
+     * @example 23
      *
      * @var int
      */

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 881
+     *
      * @var int
      */
     public $agentId;
 
     /**
+     * @example 4e7400028e6f4a7393ed3acf6a7b8927_p_beebot_public
+     *
      * @var string
      */
     public $agentKey;

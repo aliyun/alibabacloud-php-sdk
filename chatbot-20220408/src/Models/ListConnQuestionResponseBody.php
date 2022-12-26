@@ -15,6 +15,8 @@ class ListConnQuestionResponseBody extends Model
     public $outlines;
 
     /**
+     * @example 92B81548-42B9-4B34-924B-4E778AEB412B
+     *
      * @var string
      */
     public $requestId;

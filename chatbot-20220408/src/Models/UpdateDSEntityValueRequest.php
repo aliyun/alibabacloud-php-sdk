@@ -9,43 +9,39 @@ use AlibabaCloud\Tea\Model;
 class UpdateDSEntityValueRequest extends Model
 {
     /**
-     * @description 业务空间key,不设置则访问默认业务空间，key值在主账号业务管理页面获取
+     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
      *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @description 实体类型为synonyms时，表示实体归一化值；当实体类型为regex时，表示正则表达式文本
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description 实体ID，修改实体成员时可为空
+     * @example 223423423
      *
      * @var int
      */
     public $entityId;
 
     /**
-     * @description 实体成员ID，创建实体成员时为空
+     * @example 2342377423
      *
      * @var int
      */
     public $entityValueId;
 
     /**
-     * @description 机器人ID
+     * @example chatbot-cn-yjzbyrEvqd
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 实体同义词
-     *
      * @var string[]
      */
     public $synonyms;

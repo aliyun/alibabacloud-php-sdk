@@ -9,70 +9,66 @@ use AlibabaCloud\Tea\Model;
 class ContinueInstancePublishTaskResponseBody extends Model
 {
     /**
-     * @description 业务类型列表
-     *
      * @var string[]
      */
     public $bizTypeList;
 
     /**
-     * @description 任务创建的 UTC 时间
+     * @example 2022-04-12T06:30:17Z
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description job失败信息
-     *
      * @var string
      */
     public $error;
 
     /**
-     * @description 各子发布模块的错误信息，key是子发布模块，value是错误信息
+     * @example {}
      *
      * @var mixed[]
      */
     public $errors;
 
     /**
-     * @description 任务Id
+     * @example 8522
      *
      * @var int
      */
     public $id;
 
     /**
-     * @description 任务修改的 UTC 时间
+     * @example 2022-04-12T06:30:33Z
      *
      * @var string
      */
     public $modifyTime;
 
     /**
-     * @description 请求Id
+     * @example 5CBF0581-EAE7-1DC4-95C6-A089656A1E2D
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 任务Id
+     * @example 8522
      *
      * @var string
      */
     public $response;
 
     /**
-     * @description 任务状态
+     * @example FE_RUNNING
      *
      * @var string
      */
     public $status;
 
     /**
-     * @description 各子发布模块的警告信息，key是子发布模块，value是警告信息
+     * @example {         "category_bind_faq": [             "以下类目没有发布到正式环境: 项目交付信息汇总"         ]     }
      *
      * @var mixed[]
      */

@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class slotList extends Model
 {
     /**
-     * @description 实体名称
+     * @example @城市
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 实体原词（实体成员）
+     * @example 北京
      *
      * @var string
      */
     public $origin;
 
     /**
-     * @description 实体类型，当前只有text类型
+     * @example text
      *
      * @var string
      */
     public $type;
 
     /**
-     * @description 实体同义词
+     * @example 首都
      *
      * @var string
      */

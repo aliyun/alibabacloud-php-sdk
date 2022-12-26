@@ -99,6 +99,8 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\GetInstancePublishTaskStateRequest
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\GetInstancePublishTaskStateResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\GetPublishTaskStateRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\GetPublishTaskStateResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\InitIMConnectRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\InitIMConnectResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\LinkInstanceCategoryRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\LinkInstanceCategoryResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListAgentRequest;
@@ -158,7 +160,6 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateSolutionResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateUserSayRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateUserSayResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateUserSayShrinkRequest;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -918,7 +919,7 @@ class Chatbot extends OpenApiClient
         $request = new CreateIntentShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->intentDefinition)) {
-            $request->intentDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->intentDefinition), 'IntentDefinition', 'json');
+            $request->intentDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->intentDefinition, 'IntentDefinition', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->agentKey)) {
@@ -972,7 +973,7 @@ class Chatbot extends OpenApiClient
         $request = new CreateLgfShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->lgfDefinition)) {
-            $request->lgfDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->lgfDefinition), 'LgfDefinition', 'json');
+            $request->lgfDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lgfDefinition, 'LgfDefinition', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->agentKey)) {
@@ -1235,7 +1236,7 @@ class Chatbot extends OpenApiClient
         $request = new CreateUserSayShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->userSayDefinition)) {
-            $request->userSayDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userSayDefinition), 'UserSayDefinition', 'json');
+            $request->userSayDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userSayDefinition, 'UserSayDefinition', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->agentKey)) {
@@ -2412,6 +2413,55 @@ class Chatbot extends OpenApiClient
     }
 
     /**
+     * @param InitIMConnectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return InitIMConnectResponse
+     */
+    public function initIMConnectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->userAccessToken)) {
+            $query['UserAccessToken'] = $request->userAccessToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InitIMConnect',
+            'version'     => '2022-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InitIMConnectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InitIMConnectRequest $request
+     *
+     * @return InitIMConnectResponse
+     */
+    public function initIMConnect($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->initIMConnectWithOptions($request, $runtime);
+    }
+
+    /**
      * @param LinkInstanceCategoryRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -3583,7 +3633,7 @@ class Chatbot extends OpenApiClient
         $request = new UpdateIntentShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->intentDefinition)) {
-            $request->intentDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->intentDefinition), 'IntentDefinition', 'json');
+            $request->intentDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->intentDefinition, 'IntentDefinition', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->agentKey)) {
@@ -3640,7 +3690,7 @@ class Chatbot extends OpenApiClient
         $request = new UpdateLgfShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->lgfDefinition)) {
-            $request->lgfDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->lgfDefinition), 'LgfDefinition', 'json');
+            $request->lgfDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lgfDefinition, 'LgfDefinition', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->agentKey)) {
@@ -3854,7 +3904,7 @@ class Chatbot extends OpenApiClient
         $request = new UpdateUserSayShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->userSayDefinition)) {
-            $request->userSayDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userSayDefinition), 'UserSayDefinition', 'json');
+            $request->userSayDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userSayDefinition, 'UserSayDefinition', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->agentKey)) {

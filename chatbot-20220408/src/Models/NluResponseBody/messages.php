@@ -11,15 +11,11 @@ use AlibabaCloud\Tea\Model;
 class messages extends Model
 {
     /**
-     * @description 对话中控的nlu信息
-     *
      * @var dialogHubNluInfo
      */
     public $dialogHubNluInfo;
 
     /**
-     * @description 对话工厂的nlu信息
-     *
      * @var dsNluInfo
      */
     public $dsNluInfo;

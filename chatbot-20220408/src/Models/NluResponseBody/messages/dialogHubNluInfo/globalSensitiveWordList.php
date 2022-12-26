@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class globalSensitiveWordList extends Model
 {
     /**
-     * @description 名词
+     * @example 天气
      *
      * @var string
      */
     public $standardWord;
 
     /**
-     * @description 同义词
+     * @example 天气
      *
      * @var string
      */

@@ -15,16 +15,22 @@ class userSays extends Model
     public $content;
 
     /**
+     * @example 2021-08-12T16:00:01Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 235564564
+     *
      * @var int
      */
     public $intentId;
 
     /**
+     * @example 2021-08-12T16:00:01Z
+     *
      * @var string
      */
     public $modifyTime;
@@ -35,6 +41,8 @@ class userSays extends Model
     public $slotInfos;
 
     /**
+     * @example 3453452138
+     *
      * @var int
      */
     public $userSayId;

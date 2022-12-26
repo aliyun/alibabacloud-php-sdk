@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceRequest extends Model
 {
     /**
-     * @description 业务空间key,不设置则访问默认业务空间，key值在主账号业务管理页面获取
+     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
      *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @description 按机器人名称模糊搜索
+     * @example scenario_im
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 分页-第几页，默认1
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页-页面大小，默认10
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 按机器人类型筛选
+     * @example scenario_im
      *
      * @var string
      */

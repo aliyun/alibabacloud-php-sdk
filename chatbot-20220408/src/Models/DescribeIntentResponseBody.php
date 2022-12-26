@@ -15,21 +15,29 @@ class DescribeIntentResponseBody extends Model
     public $aliasName;
 
     /**
+     * @example 2021-08-12T16:00:01Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 123231
+     *
      * @var string
      */
     public $createUserId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $createUserName;
 
     /**
+     * @example 84243341
+     *
      * @var int
      */
     public $intentId;
@@ -40,21 +48,29 @@ class DescribeIntentResponseBody extends Model
     public $intentName;
 
     /**
+     * @example 2021-08-12T16:00:01Z
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @example 123231
+     *
      * @var string
      */
     public $modifyUserId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $modifyUserName;
 
     /**
+     * @example a22afaf2adfasf2gr345fga45ada
+     *
      * @var string
      */
     public $requestId;

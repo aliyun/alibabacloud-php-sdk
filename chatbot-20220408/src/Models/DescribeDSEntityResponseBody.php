@@ -9,63 +9,75 @@ use AlibabaCloud\Tea\Model;
 class DescribeDSEntityResponseBody extends Model
 {
     /**
+     * @example 2021-08-12T16:00:01Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 123231
+     *
      * @var string
      */
     public $createUserId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $createUserName;
 
     /**
-     * @description 实体ID
+     * @example 123
      *
      * @var int
      */
     public $entityId;
 
     /**
-     * @description 实体名称，仅支持中文、大小写字母、数字、下划线
-     *
      * @var string
      */
     public $entityName;
 
     /**
-     * @description 实体类型：详见:,EntityTypeEnum[synonyms(同义词),regex(正则)]
+     * @example synonyms
      *
      * @var string
      */
     public $entityType;
 
     /**
+     * @example 2021-08-12T16:00:01Z
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @example 123231
+     *
      * @var string
      */
     public $modifyUserId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $modifyUserName;
 
     /**
+     * @example ad23234dsf234fga
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 系统实体code，如@sys.date
+     * @example @sys.date
      *
      * @var string
      */

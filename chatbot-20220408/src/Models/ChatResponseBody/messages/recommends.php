@@ -9,29 +9,27 @@ use AlibabaCloud\Tea\Model;
 class recommends extends Model
 {
     /**
-     * @description 澄清来源的标识
+     * @example KNOWLEDGE
      *
      * @var string
      */
     public $answerSource;
 
     /**
-     * @description 澄清的知识id
+     * @example 4548
      *
      * @var string
      */
     public $knowledgeId;
 
     /**
-     * @description 推荐内容的分数，当AnswerSource为KNOWLEDGE时，此字段有值
+     * @example 0.46
      *
      * @var float
      */
     public $score;
 
     /**
-     * @description 澄清内容，可能是
-     * 表格问答的列值
      * @var string
      */
     public $title;

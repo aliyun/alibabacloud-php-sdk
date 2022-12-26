@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GenerateUserAccessTokenRequest extends Model
 {
     /**
+     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+     *
      * @var string
      */
     public $agentKey;
 
     /**
+     * @example a***bcx@gmail.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $expireTime;
@@ -29,6 +35,8 @@ class GenerateUserAccessTokenRequest extends Model
     public $extraInfo;
 
     /**
+     * @example 8882022040000000171
+     *
      * @var string
      */
     public $foreignId;
@@ -39,6 +47,8 @@ class GenerateUserAccessTokenRequest extends Model
     public $nick;
 
     /**
+     * @example 1381111****
+     *
      * @var string
      */
     public $telephone;

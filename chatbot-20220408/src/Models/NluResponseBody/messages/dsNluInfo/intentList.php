@@ -10,43 +10,41 @@ use AlibabaCloud\Tea\Model;
 class intentList extends Model
 {
     /**
-     * @description 意图id
+     * @example 724387
      *
      * @var int
      */
     public $intentId;
 
     /**
-     * @description 匹配详情（匹配过程）
+     * @example classifierType=Fewshot,from=Fewshot,content=[我要查北京的天气, 帮我查北京的天气, 北京天气怎么样, 北京今天下雨吗, 北京今天多少度]
      *
      * @var string
      */
     public $matchDetail;
 
     /**
-     * @description 匹配类型，其枚举值含义如下：  Similarity：query与意图通过意图话术相似度匹配 Lgf：query与意图通过LGF匹配 Classify：query与意图通过模型训练匹配 FewShotLearning：query与意图通过系统内置fewshot模型匹配 BuildIn： query与系统内置意图匹配
+     * @example FewShotLearning
      *
      * @var string
      */
     public $matchType;
 
     /**
-     * @description 意图名称
+     * @example 查天气意图
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 分数
+     * @example 0.995
      *
      * @var float
      */
     public $score;
 
     /**
-     * @description 命中意图的槽位列表
-     *
      * @var slotList[]
      */
     public $slotList;

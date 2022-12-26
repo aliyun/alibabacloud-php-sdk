@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class slotInfos extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $array;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $encrypt;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $interactive;
@@ -29,6 +35,8 @@ class slotInfos extends Model
     public $name;
 
     /**
+     * @example aa4d2a343a3ad4afad
+     *
      * @var string
      */
     public $slotId;

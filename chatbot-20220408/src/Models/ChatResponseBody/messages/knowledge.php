@@ -10,71 +10,59 @@ use AlibabaCloud\Tea\Model;
 class knowledge extends Model
 {
     /**
-     * @description 区分答案类型。
-     * KnowledgeBase:知识库条；
+     * @example KnowledgeBase
+     *
      * @var string
      */
     public $answerSource;
 
     /**
-     * @description 知识类目
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description 命中问题的内容
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description 纯文本/富文本答案的标示
+     * @example PLAIN_TEXT
      *
      * @var string
      */
     public $contentType;
 
     /**
-     * @description 命中语句
-     *
      * @var string
      */
     public $hitStatement;
 
     /**
-     * @description 命中问题在知识库中的ID
+     * @example 735898
      *
      * @var string
      */
     public $id;
 
     /**
-     * @description 关联知识列表
-     *
      * @var relatedKnowledges[]
      */
     public $relatedKnowledges;
 
     /**
-     * @description 分数
+     * @example 0.998
      *
      * @var float
      */
     public $score;
 
     /**
-     * @description 命中问题的简介
-     *
      * @var string
      */
     public $summary;
 
     /**
-     * @description 命中问题的标题
-     *
      * @var string
      */
     public $title;

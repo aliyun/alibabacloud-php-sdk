@@ -10,13 +10,13 @@ use AlibabaCloud\Tea\Model;
 class ListCategoryResponseBody extends Model
 {
     /**
-     * @description list结果
-     *
      * @var categories[]
      */
     public $categories;
 
     /**
+     * @example 9C5F8186-2D22-433E-9545-606D344F30B5
+     *
      * @var string
      */
     public $requestId;

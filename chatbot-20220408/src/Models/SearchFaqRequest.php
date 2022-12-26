@@ -9,119 +9,115 @@ use AlibabaCloud\Tea\Model;
 class SearchFaqRequest extends Model
 {
     /**
-     * @description 业务空间key,不设置则访问默认业务空间，key值在主账号业务管理页面获取
+     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
      *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @description 类目唯一标识
-     *
      * @var int[]
      */
     public $categoryIds;
 
     /**
-     * @description 创建开始时间
+     * @example 2022-04-02T03:09:30Z
      *
      * @var string
      */
     public $createTimeBegin;
 
     /**
-     * @description 创建结束时间
+     * @example 2022-05-02T03:09:30Z
      *
      * @var string
      */
     public $createTimeEnd;
 
     /**
-     * @description 创建人
+     * @example test01
      *
      * @var string
      */
     public $createUserName;
 
     /**
-     * @description 失效开始时间
+     * @example 2023-04-02T03:09:30Z
      *
      * @var string
      */
     public $endTimeBegin;
 
     /**
-     * @description 失效结束时间
+     * @example 2023-05-02T03:09:30Z
      *
      * @var string
      */
     public $endTimeEnd;
 
     /**
-     * @description 关键字
-     *
      * @var string
      */
     public $keyword;
 
     /**
-     * @description 修改开始时间
+     * @example 2023-04-02T03:09:30Z
      *
      * @var string
      */
     public $modifyTimeBegin;
 
     /**
-     * @description 修改结束时间
+     * @example 2023-05-02T03:09:30Z
      *
      * @var string
      */
     public $modifyTimeEnd;
 
     /**
-     * @description 修改人
+     * @example test01
      *
      * @var string
      */
     public $modifyUserName;
 
     /**
-     * @description 页码 默认1
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 每页数量，默认10，最大50
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 搜索范围： 1-搜索标题相似问, 2-搜索答案, 3-搜索全部
+     * @example 1
      *
      * @var int
      */
     public $searchScope;
 
     /**
-     * @description 生效开始时间
+     * @example 2022-04-02T03:09:30Z
      *
      * @var string
      */
     public $startTimeBegin;
 
     /**
-     * @description 生效结束时间
+     * @example 2022-04-03T03:09:30Z
      *
      * @var string
      */
     public $startTimeEnd;
 
     /**
-     * @description 知识状态: -1-已删除未发布, 1-未发布, 2-已发布, 3-已更新未发布
+     * @example 1
      *
      * @var int
      */

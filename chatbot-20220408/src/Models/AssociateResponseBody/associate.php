@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class associate extends Model
 {
     /**
-     * @description 附带信息
+     * @example {}
      *
      * @var string
      */
     public $meta;
 
     /**
-     * @description 关联问题的标题
+     * @example 公积金提取的政策
      *
      * @var string
      */

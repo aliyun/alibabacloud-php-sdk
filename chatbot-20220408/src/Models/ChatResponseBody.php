@@ -10,35 +10,31 @@ use AlibabaCloud\Tea\Model;
 class ChatResponseBody extends Model
 {
     /**
-     * @description 本条会话应答消息的ID
+     * @example A2315C4B-A872-5DEE-9DAD-D73B194A4AEC
      *
      * @var string
      */
     public $messageId;
 
     /**
-     * @description 消息的列表
-     *
      * @var messages[]
      */
     public $messages;
 
     /**
-     * @description query的分词结果，可能为空
-     *
      * @var string[]
      */
     public $querySegList;
 
     /**
-     * @description 请求id
+     * @example A2315C4B-A872-5DEE-9DAD-D73B194A4AEC
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 本次会话的ID
+     * @example a6f216a0685c4c8baa0e8beb6d5ec6db
      *
      * @var string
      */

@@ -10,13 +10,13 @@ use AlibabaCloud\Tea\Model;
 class ListSolutionResponseBody extends Model
 {
     /**
+     * @example 5B29DB5E-251D-5A73-84B5-A12DF795F231
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 答案列表
-     *
      * @var solutions[]
      */
     public $solutions;

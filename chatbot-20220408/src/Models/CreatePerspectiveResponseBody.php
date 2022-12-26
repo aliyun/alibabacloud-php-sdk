@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CreatePerspectiveResponseBody extends Model
 {
     /**
-     * @description 视角主键（code_id）
+     * @example 3001
      *
      * @var string
      */
     public $perspectiveId;
 
     /**
-     * @description 请求Id
+     * @example F285D735-D580-18A8-B97F-B2E72B00F101
      *
      * @var string
      */

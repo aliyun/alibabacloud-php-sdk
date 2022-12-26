@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteConnQuestionResponseBody extends Model
 {
     /**
+     * @example FC323352-3AD7-59A1-9088-A64470BAFC9D
+     *
      * @var string
      */
     public $requestId;

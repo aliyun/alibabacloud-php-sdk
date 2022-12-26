@@ -9,36 +9,34 @@ use AlibabaCloud\Tea\Model;
 class outlines extends Model
 {
     /**
-     * @description 关联知识ID
+     * @example 30001979424
      *
      * @var int
      */
     public $connQuestionId;
 
     /**
-     * @description 创建时间(UTC 时间)
+     * @example 2022-02-25T02:47:18Z
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 修改时间(UTC 时间)
+     * @example 2022-05-26T10:18:15Z
      *
      * @var string
      */
     public $modifyTime;
 
     /**
-     * @description 关联关系ID
+     * @example 797
      *
      * @var int
      */
     public $outlineId;
 
     /**
-     * @description 关联知识题目
-     *
      * @var string
      */
     public $title;

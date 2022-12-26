@@ -10,13 +10,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeCategoryResponseBody extends Model
 {
     /**
-     * @description 类目信息
-     *
      * @var category
      */
     public $category;
 
     /**
+     * @example 2B0304FD-3804-5C06-9A83-77F5523664AF
+     *
      * @var string
      */
     public $requestId;

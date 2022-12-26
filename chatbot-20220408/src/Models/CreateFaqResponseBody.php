@@ -9,13 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateFaqResponseBody extends Model
 {
     /**
-     * @description 知识ID
+     * @example 30001979424
      *
      * @var int
      */
     public $knowledgeId;
 
     /**
+     * @example 28805A7C-D695-548C-A31B-67E52C2C274F
+     *
      * @var string
      */
     public $requestId;

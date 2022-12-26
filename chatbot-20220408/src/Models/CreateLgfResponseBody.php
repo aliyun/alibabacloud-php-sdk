@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateLgfResponseBody extends Model
 {
     /**
+     * @description LGF ID
+     *
+     * @example 123453433453
+     *
      * @var int
      */
     public $lgfId;
 
     /**
+     * @example af5fg3sdf457j5
+     *
      * @var string
      */
     public $requestId;

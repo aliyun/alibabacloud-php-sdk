@@ -10,71 +10,57 @@ use AlibabaCloud\Tea\Model;
 class text extends Model
 {
     /**
-     * @description 区分答案类型
+     * @example BotFramework
      *
      * @var string
      */
     public $answerSource;
 
     /**
-     * @description 当AnswerSource为MACHINE_READ时，此字段返回命中文章标题
-     *
      * @var string
      */
     public $articleTitle;
 
     /**
-     * @description 指令参数，如转人工指令的转人工技能组
-     *
+     * @example {
+     * }
      * @var mixed[]
      */
     public $commands;
 
     /**
-     * @description 文本消息的内容
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description 纯文本/富文本答案的标示
+     * @example PLAIN_TEXT
      *
      * @var string
      */
     public $contentType;
 
     /**
-     * @description 当AnswerSource为BotFramework时，此字段返回对话单元名称
-     *
      * @var string
      */
     public $dialogName;
 
     /**
-     * @description 此字段返回透传参数
-     *
      * @var mixed[]
      */
     public $ext;
 
     /**
-     * @description 当AnswerSource为BotFramework时，此字段返回透传参数
-     *
      * @var mixed[]
      */
     public $externalFlags;
 
     /**
-     * @description 命中语句
-     *
      * @var string
      */
     public $hitStatement;
 
     /**
-     * @description 当AnswerSource为BotFramework时，此字段返回意图名称
-     *
      * @var string
      */
     public $intentName;
@@ -85,36 +71,37 @@ class text extends Model
     public $metaData;
 
     /**
-     * @description 当AnswerSource为BotFramework时，此字段返回节点Id
+     * @example 1410-c7a72a78.__city
      *
      * @var string
      */
     public $nodeId;
 
     /**
-     * @description 当AnswerSource为BotFramework时，此字段返回节点名称
-     *
      * @var string
      */
     public $nodeName;
 
     /**
-     * @description 分数
+     * @example SSML
+     *
+     * @var string
+     */
+    public $responseType;
+
+    /**
+     * @example 100.0
      *
      * @var float
      */
     public $score;
 
     /**
-     * @description 当AnswerSource为BotFramework时，此字段返回专有名词列表
-     *
      * @var slots[]
      */
     public $slots;
 
     /**
-     * @description 自定义闲聊主题title
-     *
      * @var string
      */
     public $userDefinedChatTitle;
@@ -132,6 +119,7 @@ class text extends Model
         'metaData'             => 'MetaData',
         'nodeId'               => 'NodeId',
         'nodeName'             => 'NodeName',
+        'responseType'         => 'ResponseType',
         'score'                => 'Score',
         'slots'                => 'Slots',
         'userDefinedChatTitle' => 'UserDefinedChatTitle',
@@ -182,6 +170,9 @@ class text extends Model
         }
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
+        }
+        if (null !== $this->responseType) {
+            $res['ResponseType'] = $this->responseType;
         }
         if (null !== $this->score) {
             $res['Score'] = $this->score;
@@ -248,6 +239,9 @@ class text extends Model
         }
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
+        }
+        if (isset($map['ResponseType'])) {
+            $model->responseType = $map['ResponseType'];
         }
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
