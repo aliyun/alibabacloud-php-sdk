@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class resourcePackageInfo extends Model
 {
     /**
+     * @example dcdnpaybag
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @example 10000000
+     *
      * @var string
      */
     public $currCapacity;
@@ -24,31 +28,43 @@ class resourcePackageInfo extends Model
     public $displayName;
 
     /**
+     * @example 2022-08-24T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 10000000
+     *
      * @var string
      */
     public $initCapacity;
 
     /**
+     * @example CDNFLOWBAG-cn-7pp2bihrb01ii0
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 2021-08-24T04:09:22Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example valid
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example FPT_dcdnpaybag_deadlineAcc_1541151058
+     *
      * @var string
      */
     public $templateName;

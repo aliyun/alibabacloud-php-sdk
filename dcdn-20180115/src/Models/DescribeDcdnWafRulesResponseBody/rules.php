@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @example custom_acl
+     *
      * @var string
      */
     public $defenseScene;
 
     /**
+     * @example 2021-12-29T17:08:45Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 200001
+     *
      * @var int
      */
     public $policyId;
 
     /**
+     * @example {\"action\":\"monitor\",\"actionExternal\":\"{}\",\"ccStatus\":1,\"conditions\":[{\"key\":\"URL\",\"opValue\":\"eq\",\"targetKey\":\"request_uri\",\"values\":\"/example\"},{\"key\":\"Header\",\"opValue\":\"eq\",\"subKey\":\"trt\",\"targetKey\":\"header.trt\",\"values\":\"3333\"}],\"effect\":\"service\",\"name\":\"aaa333\",\"origin\":\"custom\",\"ratelimit\":{\"interval\":5,\"status\":{\"code\":404,\"count\":2,\"stat\":{\"mode\":\"count\",\"value\":2.0}},\"target\":\"remote_addr\",\"threshold\":2,\"ttl\":1800}}
+     *
      * @var string
      */
     public $ruleConfig;
 
     /**
+     * @example 100001
+     *
      * @var int
      */
     public $ruleId;
 
     /**
+     * @example rule_1
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $ruleStatus;

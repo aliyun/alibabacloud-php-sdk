@@ -15,6 +15,8 @@ class DescribeDcdnWafScenesResponseBody extends Model
     public $defenseScenes;
 
     /**
+     * @example 3D7BB13C-DD84-5654-A835-B8E1385DE274
+     *
      * @var string
      */
     public $requestId;

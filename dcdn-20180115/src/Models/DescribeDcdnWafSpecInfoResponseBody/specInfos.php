@@ -15,6 +15,8 @@ class specInfos extends Model
     public $configs;
 
     /**
+     * @example custom_acl
+     *
      * @var string
      */
     public $defenseScene;

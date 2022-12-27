@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class slsInfo extends Model
 {
     /**
+     * @example cn-shanghai.log.*.com
+     *
      * @var string
      */
     public $endPoint;
 
     /**
+     * @example dcdn-edge-trlog
+     *
      * @var string
      */
     public $logStore;
 
     /**
+     * @example dcdn-edge-rtlog-cn-cfc7****
+     *
      * @var string
      */
     public $project;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;

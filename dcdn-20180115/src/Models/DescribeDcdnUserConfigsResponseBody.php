@@ -15,6 +15,8 @@ class DescribeDcdnUserConfigsResponseBody extends Model
     public $configs;
 
     /**
+     * @example 06D29681-B7CD-4034-A8CC-28AFFA213539
+     *
      * @var string
      */
     public $requestId;

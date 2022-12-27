@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class rows extends Model
 {
     /**
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example 264
+     *
      * @var int
      */
     public $drops;
@@ -29,11 +33,15 @@ class rows extends Model
     public $ruleName;
 
     /**
+     * @example robot
+     *
      * @var string
      */
     public $secFunc;
 
     /**
+     * @example 2021-01-31T15:04:04Z
+     *
      * @var string
      */
     public $tmStr;

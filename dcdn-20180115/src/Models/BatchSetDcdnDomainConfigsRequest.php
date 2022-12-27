@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BatchSetDcdnDomainConfigsRequest extends Model
 {
     /**
+     * @example example.com,example.org
+     *
      * @var string
      */
     public $domainNames;
 
     /**
+     * @example [{"functionArgs":[{"argName":"switch","argValue":"on"},{"argName":"region","argValue":"*"}],"functionName":"ipv6"}]
+     *
      * @var string
      */
     public $functions;

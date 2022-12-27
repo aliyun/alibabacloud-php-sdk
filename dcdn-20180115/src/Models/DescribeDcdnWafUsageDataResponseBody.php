@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafUsageDataResponseBody extends Model
 {
     /**
+     * @example 2018-10-01T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example CB1A380B-09F0-41BB-802B-72F8FD6DA2FE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2018-09-30T16:00:00Z",
+     *
      * @var string
      */
     public $startTime;

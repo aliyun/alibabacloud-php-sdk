@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class qpsModel extends Model
 {
     /**
+     * @example 1851.25
+     *
      * @var float
      */
     public $qps;
 
     /**
+     * @example 2018-01-02T11:26:00Z
+     *
      * @var string
      */
     public $timeStamp;

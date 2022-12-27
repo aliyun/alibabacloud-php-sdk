@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ispProportionData extends Model
 {
     /**
+     * @example 800019.0
+     *
      * @var string
      */
     public $avgObjectSize;
 
     /**
+     * @example 154.3345765545624
+     *
      * @var string
      */
     public $avgResponseRate;
 
     /**
+     * @example 5183.666666666667
+     *
      * @var string
      */
     public $avgResponseTime;
 
     /**
+     * @example 380.9614285714286
+     *
      * @var string
      */
     public $bps;
 
     /**
+     * @example 0.003544181046236794
+     *
      * @var string
      */
     public $bytesProportion;
@@ -39,26 +49,36 @@ class ispProportionData extends Model
     public $isp;
 
     /**
+     * @example unicom
+     *
      * @var string
      */
     public $ispEname;
 
     /**
+     * @example 0.01155980271270037
+     *
      * @var string
      */
     public $proportion;
 
     /**
+     * @example 5.9523809523809524E-5
+     *
      * @var string
      */
     public $qps;
 
     /**
+     * @example 2400057
+     *
      * @var string
      */
     public $totalBytes;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $totalQuery;

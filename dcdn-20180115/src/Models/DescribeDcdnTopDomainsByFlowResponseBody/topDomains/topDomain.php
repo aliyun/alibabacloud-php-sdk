@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class topDomain extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 22139626
+     *
      * @var int
      */
     public $maxBps;
 
     /**
+     * @example 2018-11-01T08:10:00Z
+     *
      * @var string
      */
     public $maxBpsTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $rank;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $totalAccess;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $totalTraffic;
 
     /**
+     * @example 21.686305274906182
+     *
      * @var string
      */
     public $trafficPercent;

@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserSecDropRequest extends Model
 {
     /**
+     * @example 20201203
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example 1day
+     *
      * @var string
      */
     public $metric;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
+     * @example waf
+     *
      * @var string
      */
     public $secFunc;
     protected $_name = [
         'data'    => 'Data',
         'metric'  => 'Metric',
-        'ownerId' => 'OwnerId',
         'secFunc' => 'SecFunc',
     ];
 
@@ -46,9 +46,6 @@ class DescribeDcdnUserSecDropRequest extends Model
         }
         if (null !== $this->metric) {
             $res['Metric'] = $this->metric;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->secFunc) {
             $res['SecFunc'] = $this->secFunc;
@@ -70,9 +67,6 @@ class DescribeDcdnUserSecDropRequest extends Model
         }
         if (isset($map['Metric'])) {
             $model->metric = $map['Metric'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SecFunc'])) {
             $model->secFunc = $map['SecFunc'];

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateDcdnWafPolicyRequest extends Model
 {
     /**
+     * @example waf_group
+     *
      * @var string
      */
     public $defenseScene;
 
     /**
+     * @example policy_test
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $policyStatus;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $policyType;

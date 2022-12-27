@@ -14,11 +14,15 @@ class fields extends Model
     public $description;
 
     /**
+     * @example unixtime
+     *
      * @var string
      */
     public $fieldName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $selected;

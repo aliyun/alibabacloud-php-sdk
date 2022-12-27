@@ -14,6 +14,8 @@ class CreateDcdnDeliverTaskRequest extends Model
     public $deliver;
 
     /**
+     * @example example.com,example.org
+     *
      * @var string
      */
     public $domainName;

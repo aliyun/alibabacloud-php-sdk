@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainByCertificateRequest extends Model
 {
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $SSLPub;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $SSLStatus;

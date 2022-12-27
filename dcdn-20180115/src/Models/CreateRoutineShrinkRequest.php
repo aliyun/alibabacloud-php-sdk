@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateRoutineShrinkRequest extends Model
 {
     /**
+     * @example the description of this routine
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example {"Staging":{"SpecName":"50ms"},"Production":{"SpecName":"50ms"}}
+     *
      * @var string
      */
     public $envConfShrink;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;

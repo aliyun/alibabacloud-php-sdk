@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafServiceResponseBody extends Model
 {
     /**
+     * @example dcdnwaf_afterpay
+     *
      * @var string
      */
     public $edition;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $enabled;
 
     /**
+     * @example 2021-09-26T16:00:00Z
+     *
      * @var string
      */
     public $openingTime;
 
     /**
+     * @example dcdn_waf_req
+     *
      * @var string
      */
     public $requestBillingType;
 
     /**
+     * @example 4A95CA90-E0F2-1BF6-99E0-8C1510CAF649
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example dcdn_waf_rule
+     *
      * @var string
      */
     public $ruleBillingType;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $status;

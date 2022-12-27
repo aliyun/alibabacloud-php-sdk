@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteDcdnSpecificStagingConfigRequest extends Model
 {
     /**
+     * @example 2317
+     *
      * @var string
      */
     public $configId;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;

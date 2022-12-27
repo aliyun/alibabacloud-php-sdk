@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyDCdnDomainSchdmByPropertyRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example {"coverage":"overseas"}
+     *
      * @var string
      */
     public $property;

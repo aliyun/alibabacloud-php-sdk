@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class specInfos extends Model
 {
     /**
+     * @example accurate_***
+     *
      * @var string
      */
     public $ruleCode;

@@ -19,6 +19,8 @@ class DescribeDcdnUserResourcePackageRequest extends Model
     public $securityToken;
 
     /**
+     * @example valid
+     *
      * @var string
      */
     public $status;

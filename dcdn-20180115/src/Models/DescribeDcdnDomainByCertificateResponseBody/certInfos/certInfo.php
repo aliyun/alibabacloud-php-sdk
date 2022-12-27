@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class certInfo extends Model
 {
     /**
+     * @example yes
+     *
      * @var string
      */
     public $certCaIsLegacy;
 
     /**
+     * @example Nov 29 00:00:00 2016 GMT
+     *
      * @var string
      */
     public $certExpireTime;
 
     /**
+     * @example yes
+     *
      * @var string
      */
     public $certExpired;
 
     /**
+     * @example Nov 29 23:59:59 2017 GMT
+     *
      * @var string
      */
     public $certStartTime;
 
     /**
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $certSubjectCommonName;
 
     /**
+     * @example RSA
+     *
      * @var string
      */
     public $certType;
 
     /**
+     * @example example.com,example.org
+     *
      * @var string
      */
     public $domainList;
 
     /**
+     * @example *.example.com,example.org
+     *
      * @var string
      */
     public $domainNames;
 
     /**
+     * @example C=US, O=Symantec Corporation, OU=Symantec Trust Network, OU=Domain Validated SSL, CN=Symantec Basic DV SSL CA - G1
+     *
      * @var string
      */
     public $issuer;

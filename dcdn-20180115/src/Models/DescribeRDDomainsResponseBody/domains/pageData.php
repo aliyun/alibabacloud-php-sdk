@@ -15,41 +15,57 @@ class pageData extends Model
     public $bizName;
 
     /**
+     * @example image.developer.aliyundoc.com
+     *
      * @var string
      */
     public $cname;
 
     /**
+     * @example audit failed
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example online
+     *
      * @var string
      */
     public $domainStatus;
 
     /**
+     * @example 2015-10-27T06:26:34Z
+     *
      * @var string
      */
     public $gmtCreated;
 
     /**
+     * @example 2015-10-23T09:30:00Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example abcd1234abcd1234
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example normal
+     *
      * @var string
      */
     public $sandbox;
@@ -65,6 +81,8 @@ class pageData extends Model
     public $sources;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $sslProtocol;

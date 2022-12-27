@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnReportListRequest extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $reportId;

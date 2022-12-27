@@ -9,41 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainUsageDataRequest extends Model
 {
     /**
+     * @example CN
+     *
      * @var string
      */
     public $area;
 
     /**
+     * @example all
+     *
      * @var string
      */
     public $dataProtocol;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2015-12-10T22:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example bps
+     *
      * @var string
      */
     public $field;
 
     /**
+     * @example 300
+     *
      * @var string
      */
     public $interval;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
+     * @example 2015-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;
@@ -54,7 +63,6 @@ class DescribeDcdnDomainUsageDataRequest extends Model
         'endTime'      => 'EndTime',
         'field'        => 'Field',
         'interval'     => 'Interval',
-        'ownerId'      => 'OwnerId',
         'startTime'    => 'StartTime',
     ];
 
@@ -82,9 +90,6 @@ class DescribeDcdnDomainUsageDataRequest extends Model
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -118,9 +123,6 @@ class DescribeDcdnDomainUsageDataRequest extends Model
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

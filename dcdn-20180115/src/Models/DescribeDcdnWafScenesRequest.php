@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafScenesRequest extends Model
 {
     /**
+     * @example waf_group,custom_acl,whitelist
+     *
      * @var string
      */
     public $defenseScenes;

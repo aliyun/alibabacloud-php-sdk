@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class pageInfos extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageIndex;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $total;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class functionArgs extends Model
 {
     /**
+     * @example source_group_name
+     *
      * @var string
      */
     public $argName;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $argValue;

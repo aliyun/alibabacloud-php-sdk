@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BatchDeleteDcdnDomainConfigsRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainNames;
 
     /**
+     * @example referer_white_list_set,https_force
+     *
      * @var string
      */
     public $functionNames;

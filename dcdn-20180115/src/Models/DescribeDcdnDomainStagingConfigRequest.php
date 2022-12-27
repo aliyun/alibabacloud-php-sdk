@@ -9,23 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainStagingConfigRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example aliauth
+     *
      * @var string
      */
     public $functionNames;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
     protected $_name = [
         'domainName'    => 'DomainName',
         'functionNames' => 'FunctionNames',
-        'ownerId'       => 'OwnerId',
     ];
 
     public function validate()
@@ -40,9 +38,6 @@ class DescribeDcdnDomainStagingConfigRequest extends Model
         }
         if (null !== $this->functionNames) {
             $res['FunctionNames'] = $this->functionNames;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -61,9 +56,6 @@ class DescribeDcdnDomainStagingConfigRequest extends Model
         }
         if (isset($map['FunctionNames'])) {
             $model->functionNames = $map['FunctionNames'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

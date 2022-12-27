@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BatchAddDcdnDomainRequest extends Model
 {
     /**
+     * @example www.example.com/test.html
+     *
      * @var string
      */
     public $checkUrl;
 
     /**
+     * @example example.com,example.org
+     *
      * @var string
      */
     public $domainName;
@@ -29,11 +33,15 @@ class BatchAddDcdnDomainRequest extends Model
     public $ownerId;
 
     /**
+     * @example testID
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example domestic
+     *
      * @var string
      */
     public $scope;
@@ -44,11 +52,15 @@ class BatchAddDcdnDomainRequest extends Model
     public $securityToken;
 
     /**
+     * @example [{"content":"10.10.10.10","type":"ipaddr","priority":"20","port":80,"weight":"15"}]
+     *
      * @var string
      */
     public $sources;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $topLevelDomain;

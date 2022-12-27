@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description CNAME。
+     *
+     * @example *.com
+     *
      * @var string
      */
     public $cname;
 
     /**
+     * @example .example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;

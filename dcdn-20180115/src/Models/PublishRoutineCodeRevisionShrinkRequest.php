@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class PublishRoutineCodeRevisionShrinkRequest extends Model
 {
     /**
+     * @example ["Production","Preset_Canary_Zhejiang"]
+     *
      * @var string
      */
     public $envsShrink;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1620876959997924701
+     *
      * @var string
      */
     public $selectCodeRevision;

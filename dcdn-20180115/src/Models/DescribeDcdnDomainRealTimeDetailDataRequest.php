@@ -9,46 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainRealTimeDetailDataRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2019-11-30T05:40:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example bps
+     *
      * @var string
      */
     public $field;
 
     /**
+     * @example unicom
+     *
      * @var string
      */
     public $ispNameEn;
 
     /**
+     * @example beijing
+     *
      * @var string
      */
     public $locationNameEn;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $merge;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $mergeLocIsp;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
+     * @example 2019-11-30T05:33:00Z
+     *
      * @var string
      */
     public $startTime;
@@ -60,7 +71,6 @@ class DescribeDcdnDomainRealTimeDetailDataRequest extends Model
         'locationNameEn' => 'LocationNameEn',
         'merge'          => 'Merge',
         'mergeLocIsp'    => 'MergeLocIsp',
-        'ownerId'        => 'OwnerId',
         'startTime'      => 'StartTime',
     ];
 
@@ -91,9 +101,6 @@ class DescribeDcdnDomainRealTimeDetailDataRequest extends Model
         }
         if (null !== $this->mergeLocIsp) {
             $res['MergeLocIsp'] = $this->mergeLocIsp;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -130,9 +137,6 @@ class DescribeDcdnDomainRealTimeDetailDataRequest extends Model
         }
         if (isset($map['MergeLocIsp'])) {
             $model->mergeLocIsp = $map['MergeLocIsp'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

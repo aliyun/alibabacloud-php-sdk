@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeRoutineSpecResponseBody extends Model
 {
     /**
+     * @example 5ms、50ms、100ms
+     *
      * @var mixed[]
      */
     public $content;
 
     /**
+     * @example AE4E1B80-D5F3-47DB-824A-DA98A21854C8
+     *
      * @var string
      */
     public $requestId;

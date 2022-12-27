@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class configs extends Model
 {
     /**
+     * @example enable
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @example equal
+     *
      * @var string
      */
     public $expr;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $value;

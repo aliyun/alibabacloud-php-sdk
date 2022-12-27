@@ -14,6 +14,8 @@ class regexp extends Model
     public $errMsg;
 
     /**
+     * @example ^\S+$
+     *
      * @var string
      */
     public $pattern;

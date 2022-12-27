@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class configs extends Model
 {
     /**
+     * @example allow_function
+     *
      * @var string
      */
     public $argName;
 
     /**
+     * @example {\"dcdn_allow\":[\"cc_rule\",\"ddos_dispatch\"]}
+     *
      * @var string
      */
     public $argValue;
 
     /**
+     * @example domain_business_control
+     *
      * @var string
      */
     public $functionName;

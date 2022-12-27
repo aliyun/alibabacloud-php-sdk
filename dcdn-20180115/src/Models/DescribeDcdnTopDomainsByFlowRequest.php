@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnTopDomainsByFlowRequest extends Model
 {
     /**
+     * @example 2016-03-14T07:34:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example 2016-03-01T04:00:00Z
+     *
      * @var string
      */
     public $startTime;

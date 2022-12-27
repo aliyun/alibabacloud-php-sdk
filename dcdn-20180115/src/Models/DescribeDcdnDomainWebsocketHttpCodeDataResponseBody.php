@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainWebsocketHttpCodeDataResponseBody extends Model
 {
     /**
+     * @example 3600
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2018-03-01T13:00:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -30,11 +36,15 @@ class DescribeDcdnDomainWebsocketHttpCodeDataResponseBody extends Model
     public $httpCodeDataPerInterval;
 
     /**
+     * @example 91FC2D9D-B042-4634-8A5C-7B8E7482C22D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2018-03-01T05:00:00Z
+     *
      * @var string
      */
     public $startTime;

@@ -213,14 +213,11 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnServiceRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnServiceResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSLSRealtimeLogDeliveryRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSLSRealtimeLogDeliveryResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSLSRealTimeLogTypeRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSLSRealTimeLogTypeResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSMCertificateDetailRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSMCertificateDetailResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSMCertificateListRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSMCertificateListResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnStagingIpResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSubListRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSubListResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnTagResourcesRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnTagResourcesResponse;
@@ -230,7 +227,6 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserBillHistoryRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserBillHistoryResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserBillTypeRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserBillTypeResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserCertificateExpireCountRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserCertificateExpireCountResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserConfigsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserConfigsResponse;
@@ -248,7 +244,6 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserSecDropByMinuteReques
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserSecDropByMinuteResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserSecDropRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserSecDropResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserTagsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserTagsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnVerifyContentRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnVerifyContentResponse;
@@ -262,6 +257,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafFilterInfoRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafFilterInfoResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafGeoInfoRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafGeoInfoResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafLogsRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafLogsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafPoliciesRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafPoliciesResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafPolicyDomainsRequest;
@@ -291,7 +288,6 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineCodeRevisionResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineSpecResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineUserInfoRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineUserInfoResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserDcdnIpaStatusRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserDcdnIpaStatusResponse;
@@ -333,8 +329,6 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainSMCertificateRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainSMCertificateResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainStagingConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainStagingConfigResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnFullDomainsBlockIPRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnFullDomainsBlockIPResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnUserConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnUserConfigResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetRoutineSubdomainRequest;
@@ -2527,9 +2521,6 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -2747,9 +2738,6 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2943,9 +2931,6 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->interval)) {
             $query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -3003,9 +2988,6 @@ class Dcdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -3068,9 +3050,6 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -3131,9 +3110,6 @@ class Dcdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -3251,9 +3227,6 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -3306,9 +3279,6 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -3357,9 +3327,6 @@ class Dcdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -3416,9 +3383,6 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -3471,9 +3435,6 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->interval)) {
             $query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -3525,9 +3486,6 @@ class Dcdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->interval)) {
             $query['Interval'] = $request->interval;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -3678,9 +3636,6 @@ class Dcdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -3918,9 +3873,6 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -4050,9 +4002,6 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -4108,9 +4057,6 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -4159,9 +4105,6 @@ class Dcdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -4212,9 +4155,6 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -4264,9 +4204,6 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -4315,9 +4252,6 @@ class Dcdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->functionNames)) {
             $query['FunctionNames'] = $request->functionNames;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4411,9 +4345,6 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->sortBy)) {
             $query['SortBy'] = $request->sortBy;
         }
@@ -4474,9 +4405,6 @@ class Dcdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -4539,9 +4467,6 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->interval)) {
             $query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -4590,9 +4515,6 @@ class Dcdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -4651,9 +4573,6 @@ class Dcdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -4771,9 +4690,6 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -4874,9 +4790,6 @@ class Dcdn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->keyword)) {
             $query['Keyword'] = $request->keyword;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -5319,9 +5232,6 @@ class Dcdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->taskId)) {
             $query['TaskId'] = $request->taskId;
         }
@@ -5499,9 +5409,6 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->isOverseas)) {
             $query['IsOverseas'] = $request->isOverseas;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->reportId)) {
             $query['ReportId'] = $request->reportId;
         }
@@ -5579,46 +5486,6 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDcdnReportListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDcdnSLSRealTimeLogTypeRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DescribeDcdnSLSRealTimeLogTypeResponse
-     */
-    public function describeDcdnSLSRealTimeLogTypeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDcdnSLSRealTimeLogType',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeDcdnSLSRealTimeLogTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDcdnSLSRealTimeLogTypeRequest $request
-     *
-     * @return DescribeDcdnSLSRealTimeLogTypeResponse
-     */
-    public function describeDcdnSLSRealTimeLogType($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDcdnSLSRealTimeLogTypeWithOptions($request, $runtime);
     }
 
     /**
@@ -5775,9 +5642,6 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->secFuncType)) {
             $query['SecFuncType'] = $request->secFuncType;
         }
@@ -5924,21 +5788,13 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeDcdnSubListRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeDcdnSubListResponse
      */
-    public function describeDcdnSubListWithOptions($request, $runtime)
+    public function describeDcdnSubListWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
+        $req    = new OpenApiRequest([]);
         $params = new Params([
             'action'      => 'DescribeDcdnSubList',
             'version'     => '2018-01-15',
@@ -5955,15 +5811,13 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeDcdnSubListRequest $request
-     *
      * @return DescribeDcdnSubListResponse
      */
-    public function describeDcdnSubList($request)
+    public function describeDcdnSubList()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeDcdnSubListWithOptions($request, $runtime);
+        return $this->describeDcdnSubListWithOptions($runtime);
     }
 
     /**
@@ -5976,9 +5830,6 @@ class Dcdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->resourceId)) {
             $query['ResourceId'] = $request->resourceId;
         }
@@ -6080,9 +5931,6 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -6129,9 +5977,6 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -6166,21 +6011,13 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeDcdnUserCertificateExpireCountRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeDcdnUserCertificateExpireCountResponse
      */
-    public function describeDcdnUserCertificateExpireCountWithOptions($request, $runtime)
+    public function describeDcdnUserCertificateExpireCountWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
+        $req    = new OpenApiRequest([]);
         $params = new Params([
             'action'      => 'DescribeDcdnUserCertificateExpireCount',
             'version'     => '2018-01-15',
@@ -6197,15 +6034,13 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeDcdnUserCertificateExpireCountRequest $request
-     *
      * @return DescribeDcdnUserCertificateExpireCountResponse
      */
-    public function describeDcdnUserCertificateExpireCount($request)
+    public function describeDcdnUserCertificateExpireCount()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeDcdnUserCertificateExpireCountWithOptions($request, $runtime);
+        return $this->describeDcdnUserCertificateExpireCountWithOptions($runtime);
     }
 
     /**
@@ -6220,9 +6055,6 @@ class Dcdn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->functionName)) {
             $query['FunctionName'] = $request->functionName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6351,9 +6183,6 @@ class Dcdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->funcId)) {
             $query['FuncId'] = $request->funcId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -6545,9 +6374,6 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->metric)) {
             $query['Metric'] = $request->metric;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->secFunc)) {
             $query['SecFunc'] = $request->secFunc;
         }
@@ -6649,21 +6475,13 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeDcdnUserTagsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeDcdnUserTagsResponse
      */
-    public function describeDcdnUserTagsWithOptions($request, $runtime)
+    public function describeDcdnUserTagsWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
+        $req    = new OpenApiRequest([]);
         $params = new Params([
             'action'      => 'DescribeDcdnUserTags',
             'version'     => '2018-01-15',
@@ -6680,15 +6498,13 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeDcdnUserTagsRequest $request
-     *
      * @return DescribeDcdnUserTagsResponse
      */
-    public function describeDcdnUserTags($request)
+    public function describeDcdnUserTags()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeDcdnUserTagsWithOptions($request, $runtime);
+        return $this->describeDcdnUserTagsWithOptions($runtime);
     }
 
     /**
@@ -6703,9 +6519,6 @@ class Dcdn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6749,9 +6562,6 @@ class Dcdn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -6842,9 +6652,6 @@ class Dcdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
@@ -6974,6 +6781,61 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDcdnWafLogsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDcdnWafLogsResponse
+     */
+    public function describeDcdnWafLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnWafLogs',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnWafLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnWafLogsRequest $request
+     *
+     * @return DescribeDcdnWafLogsResponse
+     */
+    public function describeDcdnWafLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnWafLogsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDcdnWafPoliciesRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -6983,9 +6845,6 @@ class Dcdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
@@ -7402,9 +7261,6 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->interval)) {
             $query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->splitBy)) {
             $query['SplitBy'] = $request->splitBy;
         }
@@ -7543,9 +7399,6 @@ class Dcdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
@@ -7591,17 +7444,12 @@ class Dcdn extends OpenApiClient
     public function describeRoutineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         $body = [];
         if (!Utils::isUnset($request->name)) {
             $body['Name'] = $request->name;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DescribeRoutine',
@@ -7743,21 +7591,13 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeRoutineUserInfoRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeRoutineUserInfoResponse
      */
-    public function describeRoutineUserInfoWithOptions($request, $runtime)
+    public function describeRoutineUserInfoWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
+        $req    = new OpenApiRequest([]);
         $params = new Params([
             'action'      => 'DescribeRoutineUserInfo',
             'version'     => '2018-01-15',
@@ -7774,15 +7614,13 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeRoutineUserInfoRequest $request
-     *
      * @return DescribeRoutineUserInfoResponse
      */
-    public function describeRoutineUserInfo($request)
+    public function describeRoutineUserInfo()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeRoutineUserInfoWithOptions($request, $runtime);
+        return $this->describeRoutineUserInfoWithOptions($runtime);
     }
 
     /**
@@ -8739,60 +8577,6 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param SetDcdnFullDomainsBlockIPRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return SetDcdnFullDomainsBlockIPResponse
-     */
-    public function setDcdnFullDomainsBlockIPWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->blockInterval)) {
-            $body['BlockInterval'] = $request->blockInterval;
-        }
-        if (!Utils::isUnset($request->IPList)) {
-            $body['IPList'] = $request->IPList;
-        }
-        if (!Utils::isUnset($request->operationType)) {
-            $body['OperationType'] = $request->operationType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'SetDcdnFullDomainsBlockIP',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SetDcdnFullDomainsBlockIPResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SetDcdnFullDomainsBlockIPRequest $request
-     *
-     * @return SetDcdnFullDomainsBlockIPResponse
-     */
-    public function setDcdnFullDomainsBlockIP($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setDcdnFullDomainsBlockIPWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SetDcdnUserConfigRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -9623,9 +9407,6 @@ class Dcdn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->verifyType)) {
             $query['VerifyType'] = $request->verifyType;

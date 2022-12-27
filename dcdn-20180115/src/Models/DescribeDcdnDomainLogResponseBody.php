@@ -15,11 +15,15 @@ class DescribeDcdnDomainLogResponseBody extends Model
     public $domainLogDetails;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 95594003-CAC5-5636-AF72-2A094364****
+     *
      * @var string
      */
     public $requestId;

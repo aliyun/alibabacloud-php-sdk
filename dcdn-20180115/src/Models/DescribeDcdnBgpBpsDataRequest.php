@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnBgpBpsDataRequest extends Model
 {
     /**
+     * @example devicename
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $devicePort;
 
     /**
+     * @example 2018-11-30T00:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 300
+     *
      * @var string
      */
     public $interval;
 
     /**
+     * @example cu
+     *
      * @var string
      */
     public $isp;
 
     /**
+     * @example 2018-11-29T00:00:00Z
+     *
      * @var string
      */
     public $startTime;

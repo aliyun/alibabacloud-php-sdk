@@ -14,6 +14,8 @@ class UploadRoutineCodeResponseBody extends Model
     public $content;
 
     /**
+     * @example DFA2027F-86C0-4421-9593-581A7993696C
+     *
      * @var string
      */
     public $requestId;

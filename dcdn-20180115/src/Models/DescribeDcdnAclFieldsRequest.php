@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnAclFieldsRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;

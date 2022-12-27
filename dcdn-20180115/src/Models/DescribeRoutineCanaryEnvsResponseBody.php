@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeRoutineCanaryEnvsResponseBody extends Model
 {
     /**
+     * @example Preset_Canary_***
+     *
      * @var mixed[]
      */
     public $content;
 
     /**
+     * @example CDCD94C0-F7FE-412F-B8F8-7E3C610C78E5
+     *
      * @var string
      */
     public $requestId;

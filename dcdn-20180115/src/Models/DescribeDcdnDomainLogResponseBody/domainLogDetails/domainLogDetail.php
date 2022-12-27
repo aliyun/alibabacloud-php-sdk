@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class domainLogDetail extends Model
 {
     /**
+     * @example 4
+     *
      * @var int
      */
     public $logCount;

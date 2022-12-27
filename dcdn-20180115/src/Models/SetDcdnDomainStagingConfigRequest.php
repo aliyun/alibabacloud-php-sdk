@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SetDcdnDomainStagingConfigRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example [{\"functionArgs\":[{\"argName\":\"enable\",\"argValue\":\"on\",\"argName\":\"pri\",\"argValue\":\"1\",\"argName\":\"rule\",\"argValue\":\"xxx\"}],\"functionName\":\"edge_function\"}]
+     *
      * @var string
      */
     public $functions;

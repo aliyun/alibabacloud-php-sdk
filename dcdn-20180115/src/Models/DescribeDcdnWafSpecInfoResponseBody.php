@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafSpecInfoResponseBody extends Model
 {
     /**
+     * @example dcdnwaf_afterpay
+     *
      * @var string
      */
     public $edition;
 
     /**
+     * @example 7281593a-f414-42c1-b7ba-2ce65e21cc00
+     *
      * @var string
      */
     public $requestId;

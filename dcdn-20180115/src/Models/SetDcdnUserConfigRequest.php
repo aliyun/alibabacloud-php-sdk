@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SetDcdnUserConfigRequest extends Model
 {
     /**
+     * @example \"argId\":12,\"argValue\":\"on\"
+     *
      * @var string
      */
     public $configs;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $functionId;

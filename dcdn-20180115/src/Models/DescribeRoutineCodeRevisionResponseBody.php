@@ -14,6 +14,8 @@ class DescribeRoutineCodeRevisionResponseBody extends Model
     public $content;
 
     /**
+     * @example D24F0C48-1B27-4C58-8B84-1A0C001A514E
+     *
      * @var string
      */
     public $requestId;

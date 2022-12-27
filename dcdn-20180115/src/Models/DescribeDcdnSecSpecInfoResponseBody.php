@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnSecSpecInfoResponseBody extends Model
 {
     /**
+     * @example 32f6cbb7-13e5-403a-9941-4d4e978dd227
+     *
      * @var string
      */
     public $requestId;
@@ -20,6 +22,8 @@ class DescribeDcdnSecSpecInfoResponseBody extends Model
     public $specInfos;
 
     /**
+     * @example enterprise
+     *
      * @var string
      */
     public $version;

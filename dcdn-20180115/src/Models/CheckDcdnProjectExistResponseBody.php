@@ -15,6 +15,8 @@ class CheckDcdnProjectExistResponseBody extends Model
     public $content;
 
     /**
+     * @example b021e538-9dde-46ed-a1f2-9469da8f3e77
+     *
      * @var string
      */
     public $requestId;

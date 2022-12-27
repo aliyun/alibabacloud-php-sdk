@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserSecDropByMinuteResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $len;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 8143fA8A-B2B2-4915-538D-546B538D25FA
+     *
      * @var string
      */
     public $requestId;
@@ -40,6 +50,8 @@ class DescribeDcdnUserSecDropByMinuteResponseBody extends Model
     public $rows;
 
     /**
+     * @example 5738
+     *
      * @var int
      */
     public $totalCount;

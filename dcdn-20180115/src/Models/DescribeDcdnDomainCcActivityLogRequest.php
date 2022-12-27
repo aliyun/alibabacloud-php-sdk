@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainCcActivityLogRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2015-12-10T21:05:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example test2
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @example 2015-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example IP
+     *
      * @var string
      */
     public $triggerObject;
 
     /**
+     * @example 10.10.10.10
+     *
      * @var string
      */
     public $value;

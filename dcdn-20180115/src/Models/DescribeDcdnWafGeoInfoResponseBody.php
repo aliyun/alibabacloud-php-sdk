@@ -15,6 +15,8 @@ class DescribeDcdnWafGeoInfoResponseBody extends Model
     public $content;
 
     /**
+     * @example 66A98669-CC6E-4F3E-80A6-3014697B11AE
+     *
      * @var string
      */
     public $requestId;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class billingDataItem extends Model
 {
     /**
+     * @example 4839
+     *
      * @var float
      */
     public $bandwidth;
 
     /**
+     * @example AP1
+     *
      * @var string
      */
     public $cdnRegion;
 
     /**
+     * @example DynamicHttp
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example 205624
+     *
      * @var float
      */
     public $count;
 
     /**
+     * @example 2456
+     *
      * @var float
      */
     public $flow;

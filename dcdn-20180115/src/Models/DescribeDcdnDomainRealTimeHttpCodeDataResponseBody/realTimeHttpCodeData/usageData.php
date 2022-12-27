@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class usageData extends Model
 {
     /**
+     * @example 2017-12-10T20:00:00Z
+     *
      * @var string
      */
     public $timeStamp;

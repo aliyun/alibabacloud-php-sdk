@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserCertificateExpireCountResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $expireWithin30DaysCount;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $expiredCount;
 
     /**
+     * @example F5E8DF64-7175-4186-9B06-F002C0BBD0C5
+     *
      * @var string
      */
     public $requestId;

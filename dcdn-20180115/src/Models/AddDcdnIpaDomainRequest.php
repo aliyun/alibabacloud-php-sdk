@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddDcdnIpaDomainRequest extends Model
 {
     /**
+     * @example example.com/image_01.png
+     *
      * @var string
      */
     public $checkUrl;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -29,16 +33,22 @@ class AddDcdnIpaDomainRequest extends Model
     public $ownerId;
 
     /**
+     * @example udp
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @example rg
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example domestic
+     *
      * @var string
      */
     public $scope;
@@ -49,11 +59,15 @@ class AddDcdnIpaDomainRequest extends Model
     public $securityToken;
 
     /**
+     * @example [{"content":"10.10.10.10","type":"ipaddr","priority":"20","port":80,"weight":"15"}]
+     *
      * @var string
      */
     public $sources;
 
     /**
+     * @example *.com
+     *
      * @var string
      */
     public $topLevelDomain;

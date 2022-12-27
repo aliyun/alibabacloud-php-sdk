@@ -9,31 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafUsageDataRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2018-10-01T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 300
+     *
      * @var string
      */
     public $interval;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
+     * @example domain
+     *
      * @var string
      */
     public $splitBy;
 
     /**
+     * @example 2018-09-30T16:00:00Z
+     *
      * @var string
      */
     public $startTime;
@@ -41,7 +46,6 @@ class DescribeDcdnWafUsageDataRequest extends Model
         'domainName' => 'DomainName',
         'endTime'    => 'EndTime',
         'interval'   => 'Interval',
-        'ownerId'    => 'OwnerId',
         'splitBy'    => 'SplitBy',
         'startTime'  => 'StartTime',
     ];
@@ -61,9 +65,6 @@ class DescribeDcdnWafUsageDataRequest extends Model
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->splitBy) {
             $res['SplitBy'] = $this->splitBy;
@@ -91,9 +92,6 @@ class DescribeDcdnWafUsageDataRequest extends Model
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SplitBy'])) {
             $model->splitBy = $map['SplitBy'];

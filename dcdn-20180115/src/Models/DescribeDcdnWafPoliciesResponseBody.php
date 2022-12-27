@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafPoliciesResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -25,11 +29,15 @@ class DescribeDcdnWafPoliciesResponseBody extends Model
     public $policies;
 
     /**
+     * @example 153ca2cd-3c01-44be-2e83-64dbc6c88630
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $totalCount;

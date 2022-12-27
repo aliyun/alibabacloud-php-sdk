@@ -9,26 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafDomainsRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example {"DomainName":"example.com"}
+     *
      * @var string
      */
     public $queryArgs;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'queryArgs'  => 'QueryArgs',
@@ -41,9 +41,6 @@ class DescribeDcdnWafDomainsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -65,9 +62,6 @@ class DescribeDcdnWafDomainsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }

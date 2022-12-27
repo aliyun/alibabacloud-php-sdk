@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserSecDropByMinuteRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2006-01-02T15:05:04Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example robot_fingerprint_ai
+     *
      * @var string
      */
     public $object;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example robot_ai
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @example robot
+     *
      * @var string
      */
     public $secFunc;
 
     /**
+     * @example 2006-01-02T15:04:04Z
+     *
      * @var string
      */
     public $startTime;

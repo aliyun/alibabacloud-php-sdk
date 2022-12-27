@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class policies extends Model
 {
     /**
+     * @example custom_acl
+     *
      * @var string
      */
     public $defenseScene;
 
     /**
+     * @example 22
+     *
      * @var int
      */
     public $domainCount;
 
     /**
+     * @example 2021-12-29T17:08:45Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 100001
+     *
      * @var int
      */
     public $policyId;
 
     /**
+     * @example policy_test
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $policyStatus;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $policyType;
 
     /**
+     * @example 9
+     *
      * @var int
      */
     public $ruleCount;

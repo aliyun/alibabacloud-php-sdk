@@ -9,27 +9,27 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafDomainRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example /
+     *
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
         'domainName'      => 'DomainName',
-        'ownerId'         => 'OwnerId',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
@@ -43,9 +43,6 @@ class DescribeDcdnWafDomainRequest extends Model
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -67,9 +64,6 @@ class DescribeDcdnWafDomainRequest extends Model
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

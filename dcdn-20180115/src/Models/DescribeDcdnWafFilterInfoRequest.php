@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafFilterInfoRequest extends Model
 {
     /**
+     * @example custom_acl
+     *
      * @var string
      */
     public $defenseScenes;
 
     /**
+     * @example cn
+     *
      * @var string
      */
     public $language;

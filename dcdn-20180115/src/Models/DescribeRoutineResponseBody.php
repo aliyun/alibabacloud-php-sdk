@@ -14,6 +14,8 @@ class DescribeRoutineResponseBody extends Model
     public $content;
 
     /**
+     * @example 4DBA68F5-04A9-406B-B1E4-F2CB635E103F
+     *
      * @var string
      */
     public $requestId;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class activityLog extends Model
 {
     /**
+     * @example deny
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example test2
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @example 2015-12-10T20:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @example IP
+     *
      * @var string
      */
     public $triggerObject;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $ttl;
 
     /**
+     * @example 10.10.10.10
+     *
      * @var string
      */
     public $value;

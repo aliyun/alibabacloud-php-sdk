@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainBpsDataByLayerRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2015-12-10T21:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 300
+     *
      * @var string
      */
     public $interval;
 
     /**
+     * @example telecom
+     *
      * @var string
      */
     public $ispNameEn;
 
     /**
+     * @example all
+     *
      * @var string
      */
     public $layer;
 
     /**
+     * @example hangzhou
+     *
      * @var string
      */
     public $locationNameEn;
 
     /**
+     * @example 2015-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;

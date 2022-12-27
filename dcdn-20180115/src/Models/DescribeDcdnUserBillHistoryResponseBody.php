@@ -15,6 +15,8 @@ class DescribeDcdnUserBillHistoryResponseBody extends Model
     public $billHistoryData;
 
     /**
+     * @example ED61C6C3-8241-4187-AAA7-5157AE175CEC
+     *
      * @var string
      */
     public $requestId;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class source extends Model
 {
     /**
+     * @example image.developer.aliyundoc.com
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $priority;
 
     /**
+     * @example oss
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $weight;

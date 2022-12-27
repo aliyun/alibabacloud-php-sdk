@@ -14,11 +14,15 @@ class UpdateDcdnDeliverTaskRequest extends Model
     public $deliver;
 
     /**
+     * @example 92
+     *
      * @var int
      */
     public $deliverId;
 
     /**
+     * @example www.example.com
+     *
      * @var string
      */
     public $domainName;

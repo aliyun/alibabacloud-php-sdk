@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class wafUsageDataItem extends Model
 {
     /**
+     * @example 600
+     *
      * @var int
      */
     public $accessCnt;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $blockCnt;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $observeCnt;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $secCu;
 
     /**
+     * @example 2018-09-30T16:00:00Z
+     *
      * @var string
      */
     public $timeStamp;

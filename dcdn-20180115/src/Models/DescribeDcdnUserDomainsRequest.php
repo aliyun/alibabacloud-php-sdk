@@ -10,36 +10,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserDomainsRequest extends Model
 {
     /**
+     * @example 2018-05-10T14:00:00Z
+     *
      * @var string
      */
     public $changeEndTime;
 
     /**
+     * @example 2018-05-10T12:00:00Z
+     *
      * @var string
      */
     public $changeStartTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $checkDomainShow;
 
     /**
+     * @example domestic
+     *
      * @var string
      */
     public $coverage;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example fuzzy_match
+     *
      * @var string
      */
     public $domainSearchType;
 
     /**
+     * @example online
+     *
      * @var string
      */
     public $domainStatus;
@@ -50,16 +64,22 @@ class DescribeDcdnUserDomainsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example rg-acfmv6jutt**
+     *
      * @var string
      */
     public $resourceGroupId;

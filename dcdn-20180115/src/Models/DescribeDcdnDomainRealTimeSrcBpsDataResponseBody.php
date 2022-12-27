@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainRealTimeSrcBpsDataResponseBody extends Model
 {
     /**
+     * @example 60
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2015-12-10T20:01:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -30,11 +36,15 @@ class DescribeDcdnDomainRealTimeSrcBpsDataResponseBody extends Model
     public $realTimeSrcBpsDataPerInterval;
 
     /**
+     * @example 7CBCD6AD-B016-42E5-AE0B-B3731DE8F755
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2015-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;

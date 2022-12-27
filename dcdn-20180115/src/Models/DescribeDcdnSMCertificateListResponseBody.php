@@ -15,6 +15,8 @@ class DescribeDcdnSMCertificateListResponseBody extends Model
     public $certificateListModel;
 
     /**
+     * @example DC0E34AC-0239-44A7-AB0E-800DE522C8DC
+     *
      * @var string
      */
     public $requestId;

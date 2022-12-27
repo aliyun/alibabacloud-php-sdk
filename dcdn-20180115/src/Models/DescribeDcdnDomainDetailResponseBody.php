@@ -15,6 +15,8 @@ class DescribeDcdnDomainDetailResponseBody extends Model
     public $domainDetail;
 
     /**
+     * @example 09ABE829-6CD3-4FE0-AFEE-556113E29727
+     *
      * @var string
      */
     public $requestId;

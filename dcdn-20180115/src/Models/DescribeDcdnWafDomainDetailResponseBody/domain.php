@@ -15,6 +15,8 @@ class domain extends Model
     public $defenseScenes;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;

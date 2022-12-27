@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cert extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $certId;
@@ -19,21 +21,29 @@ class cert extends Model
     public $certName;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $common;
 
     /**
+     * @example 0151xxxx
+     *
      * @var string
      */
     public $fingerprint;
 
     /**
+     * @example DigiCert
+     *
      * @var string
      */
     public $issuer;
 
     /**
+     * @example 1548065550
+     *
      * @var int
      */
     public $lastTime;

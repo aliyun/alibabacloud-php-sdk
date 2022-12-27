@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchDeleteDcdnWafRulesRequest extends Model
 {
     /**
+     * @example 20000001,20000002
+     *
      * @var string
      */
     public $ruleIds;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CommitStagingRoutineCodeResponseBody extends Model
 {
     /**
+     * @example 1620876959997924701
+     *
      * @var mixed[]
      */
     public $content;
 
     /**
+     * @example 5CC228B4-7A67-4016-9C9F-4A4133494A91
+     *
      * @var string
      */
     public $requestId;

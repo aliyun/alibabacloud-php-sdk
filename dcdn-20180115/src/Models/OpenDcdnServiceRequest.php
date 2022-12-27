@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OpenDcdnServiceRequest extends Model
 {
     /**
+     * @example PayByTraffic
+     *
      * @var string
      */
     public $billType;
@@ -24,6 +26,8 @@ class OpenDcdnServiceRequest extends Model
     public $securityToken;
 
     /**
+     * @example websockettraffic
+     *
      * @var string
      */
     public $websocketBillType;

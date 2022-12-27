@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class domainConfigs extends Model
 {
     /**
+     * @example 6295
+     *
      * @var int
      */
     public $configId;
@@ -20,16 +22,22 @@ class domainConfigs extends Model
     public $functionArgs;
 
     /**
+     * @example set_req_host_header
+     *
      * @var string
      */
     public $functionName;
 
     /**
+     * @example 1234567
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $status;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @example 189095
+     *
      * @var int
      */
     public $connections;
 
     /**
+     * @example example1.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example 2022-02-21T15:00:00+08:00
+     *
      * @var string
      */
     public $timeStamp;

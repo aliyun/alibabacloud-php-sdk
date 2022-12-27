@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @example 12
+     *
      * @var string
      */
     public $accDomesticValue;
 
     /**
+     * @example 44
+     *
      * @var string
      */
     public $accOverseasValue;
 
     /**
+     * @example 56
+     *
      * @var string
      */
     public $accValue;
 
     /**
+     * @example 0.12
+     *
      * @var string
      */
     public $domesticValue;
 
     /**
+     * @example 0.44
+     *
      * @var string
      */
     public $overseasValue;
 
     /**
+     * @example 2015-12-10T21:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @example 0.56
+     *
      * @var string
      */
     public $value;

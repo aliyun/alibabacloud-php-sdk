@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class trafficDataModule extends Model
 {
     /**
+     * @example CN
+     *
      * @var string
      */
     public $area;
 
     /**
+     * @example 11288111.1
+     *
      * @var float
      */
     public $bps;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example 2017-12-10T20:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @example Simple
+     *
      * @var string
      */
     public $type;

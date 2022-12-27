@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateDcdnDomainRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -19,6 +21,8 @@ class UpdateDcdnDomainRequest extends Model
     public $ownerId;
 
     /**
+     * @example rg-xxxxx
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -29,11 +33,15 @@ class UpdateDcdnDomainRequest extends Model
     public $securityToken;
 
     /**
+     * @example [{"content":"10.10.10.10","type":"ipaddr","priority":"20","port":80}]
+     *
      * @var string
      */
     public $sources;
 
     /**
+     * @example yourTopLevelDomain
+     *
      * @var string
      */
     public $topLevelDomain;

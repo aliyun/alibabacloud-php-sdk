@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @example custom_acl
+     *
      * @var string
      */
     public $defenseScene;

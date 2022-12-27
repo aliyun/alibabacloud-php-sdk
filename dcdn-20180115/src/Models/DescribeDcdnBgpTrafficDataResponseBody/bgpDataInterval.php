@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class bgpDataInterval extends Model
 {
     /**
+     * @example 318
+     *
      * @var int
      */
     public $in;
 
     /**
+     * @example 183
+     *
      * @var int
      */
     public $out;
 
     /**
+     * @example 2018-11-29T20:00:00Z
+     *
      * @var string
      */
     public $timeStamp;

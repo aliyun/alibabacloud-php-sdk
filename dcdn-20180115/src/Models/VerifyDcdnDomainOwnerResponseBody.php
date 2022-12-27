@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class VerifyDcdnDomainOwnerResponseBody extends Model
 {
     /**
+     * @example verify_dffeb6610035dcb77b413a59c32cd9**
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example 34AB41F1-04A5-496F-8C8D-634BDBE6A9FB
+     *
      * @var string
      */
     public $requestId;

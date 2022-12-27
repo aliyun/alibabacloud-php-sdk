@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class CreateDcdnSLSRealTimeLogDeliveryRequest extends Model
 {
     /**
+     * @example cdn_log_access_l1
+     *
      * @var string
      */
     public $businessType;
 
     /**
+     * @example cn
+     *
      * @var string
      */
     public $dataCenter;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example example
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example demo
+     *
      * @var string
      */
     public $SLSLogStore;
 
     /**
+     * @example aliyundoc
+     *
      * @var string
      */
     public $SLSProject;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $SLSRegion;
 
     /**
+     * @example 1.0
+     *
      * @var string
      */
     public $samplingRate;

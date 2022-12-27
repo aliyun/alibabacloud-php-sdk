@@ -15,21 +15,29 @@ class DescribeDcdnWafPolicyDomainsResponseBody extends Model
     public $domains;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 153ca2cd-3c01-44be-b480-64dbc6c88630
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

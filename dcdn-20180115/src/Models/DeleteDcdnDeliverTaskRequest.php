@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDcdnDeliverTaskRequest extends Model
 {
     /**
+     * @example 92
+     *
      * @var int
      */
     public $deliverId;

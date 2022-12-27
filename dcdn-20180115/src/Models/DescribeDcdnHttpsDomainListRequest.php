@@ -9,27 +9,27 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnHttpsDomainListRequest extends Model
 {
     /**
+     * @example cert
+     *
      * @var string
      */
     public $keyword;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'keyword'    => 'Keyword',
-        'ownerId'    => 'OwnerId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
     ];
@@ -43,9 +43,6 @@ class DescribeDcdnHttpsDomainListRequest extends Model
         $res = [];
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -67,9 +64,6 @@ class DescribeDcdnHttpsDomainListRequest extends Model
         $model = new self();
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

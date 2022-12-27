@@ -21,6 +21,8 @@ class DescribeDcdnRegionAndIspResponseBody extends Model
     public $regions;
 
     /**
+     * @example 2387C335-932C-4E1E-862C-1C4363B6DE72
+     *
      * @var string
      */
     public $requestId;

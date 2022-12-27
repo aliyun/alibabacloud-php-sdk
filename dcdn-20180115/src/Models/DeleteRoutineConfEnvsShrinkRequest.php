@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteRoutineConfEnvsShrinkRequest extends Model
 {
     /**
+     * @example ["Preset_Canary_ZheJiang"]
+     *
      * @var string
      */
     public $envsShrink;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;

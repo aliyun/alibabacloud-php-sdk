@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainUvDataResponseBody extends Model
 {
     /**
+     * @example 3600
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2015-11-30T00:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example E9D3257A-1B7C-414C-90C1-8D07AC47BCAC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2015-11-29T00:00:00Z
+     *
      * @var string
      */
     public $startTime;

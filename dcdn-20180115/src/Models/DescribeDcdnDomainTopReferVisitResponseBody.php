@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainTopReferVisitResponseBody extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 95994621-8382-464B-8762-C708E73568D1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2018-10-03T16:00:00Z
+     *
      * @var string
      */
     public $startTime;

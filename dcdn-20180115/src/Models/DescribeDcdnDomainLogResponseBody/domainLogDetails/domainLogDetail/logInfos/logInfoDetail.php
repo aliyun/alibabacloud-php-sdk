@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class logInfoDetail extends Model
 {
     /**
+     * @example 2021-11-07T18:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example example.com_2021_11_08_010000_020000.gz
+     *
      * @var string
      */
     public $logName;
 
     /**
+     * @example example.aliyundoc.com /v1.l1cache/105252530/example.com/2021_11_08/example.com_2021_11_08_010000_020000.gz?Expires=1636963354&OSSAccessKeyId=LTAIviCc6zy8****&Signature=u0V6foRfZniHE8i%2BHUdxGOhZsK****
+     *
      * @var string
      */
     public $logPath;
 
     /**
+     * @example 192
+     *
      * @var int
      */
     public $logSize;
 
     /**
+     * @example 2021-11-07T17:00:00Z
+     *
      * @var string
      */
     public $startTime;

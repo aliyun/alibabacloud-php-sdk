@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class pageData extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2015-10-28T11:05:52Z
+     *
      * @var string
      */
     public $gmtModified;

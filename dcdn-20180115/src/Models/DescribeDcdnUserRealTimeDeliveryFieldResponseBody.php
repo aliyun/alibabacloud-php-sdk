@@ -15,6 +15,8 @@ class DescribeDcdnUserRealTimeDeliveryFieldResponseBody extends Model
     public $content;
 
     /**
+     * @example 3EACD23C-F49F-4BF7-B9AD-C2CD3BA888C4
+     *
      * @var string
      */
     public $requestId;

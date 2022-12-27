@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @example 100
+     *
      * @var float
      */
     public $dynamicHttpOriginBps;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $dynamicHttpsOriginBps;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $originBps;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $staticHttpOriginBps;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $staticHttpsOriginBps;
 
     /**
+     * @example 2019-12-10T00:00:00Z
+     *
      * @var string
      */
     public $timeStamp;

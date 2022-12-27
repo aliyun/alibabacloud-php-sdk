@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @example 2015-12-10T21:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @example 110
+     *
      * @var string
      */
     public $totalValue;
 
     /**
+     * @example {"200": 10,"206": 100}
+     *
      * @var mixed[]
      */
     public $value;

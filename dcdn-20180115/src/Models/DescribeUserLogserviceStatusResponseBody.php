@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserLogserviceStatusResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $inDebt;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $inDebtOverdue;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $onService;
 
     /**
+     * @example 4F51E9C3-728F-4E35-952D-0ED87A06A8A1
+     *
      * @var string
      */
     public $requestId;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnBgpTrafficDataRequest extends Model
 {
     /**
+     * @example 2018-11-30T00:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 300
+     *
      * @var string
      */
     public $interval;
 
     /**
+     * @example cu
+     *
      * @var string
      */
     public $isp;
 
     /**
+     * @example 2018-11-29T00:00:00Z
+     *
      * @var string
      */
     public $startTime;

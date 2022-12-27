@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UntagDcdnResourcesRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $all;
 
     /**
+     * @example example.com
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @example DOMAIN
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example env
+     *
      * @var string[]
      */
     public $tagKey;

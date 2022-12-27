@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainRegionDataRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2015-12-07T12:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
+     * @example 2015-12-05T12:00:00Z
+     *
      * @var string
      */
     public $startTime;
     protected $_name = [
         'domainName' => 'DomainName',
         'endTime'    => 'EndTime',
-        'ownerId'    => 'OwnerId',
         'startTime'  => 'StartTime',
     ];
 
@@ -46,9 +46,6 @@ class DescribeDcdnDomainRegionDataRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -70,9 +67,6 @@ class DescribeDcdnDomainRegionDataRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

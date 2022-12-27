@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnErUsageDataRequest extends Model
 {
     /**
+     * @example 2018-10-31T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example routine1.test
+     *
      * @var string
      */
     public $routineID;
 
     /**
+     * @example 50ms
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @example routine
+     *
      * @var string
      */
     public $splitBy;
 
     /**
+     * @example 2018-10-30T16:00:00Z
+     *
      * @var string
      */
     public $startTime;

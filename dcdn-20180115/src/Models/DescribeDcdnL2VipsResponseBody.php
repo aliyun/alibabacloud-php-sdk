@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnL2VipsResponseBody extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 820E7900-5CA9-4AEF-B0DD-20ED5F64BE55
+     *
      * @var string
      */
     public $requestId;

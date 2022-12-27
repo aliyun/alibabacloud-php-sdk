@@ -15,11 +15,15 @@ class DescribeDcdnHttpsDomainListResponseBody extends Model
     public $certInfos;
 
     /**
+     * @example F5E8DF64-7175-4186-9B06-F002C0BBD0C5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $totalCount;

@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @example cdn_log_access_l1
+     *
      * @var string
      */
     public $businessType;
 
     /**
+     * @example cn
+     *
      * @var string
      */
     public $dataCenter;
 
     /**
+     * @example example.com,example.org
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example field1,field2
+     *
      * @var string
      */
     public $fieldName;
 
     /**
+     * @example example
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example example-cn
+     *
      * @var string
      */
     public $SLSLogStore;
 
     /**
+     * @example example-cn
+     *
      * @var string
      */
     public $SLSProject;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $SLSRegion;
 
     /**
+     * @example 1.0
+     *
      * @var string
      */
     public $samplingRate;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example SLS_POST
+     *
      * @var string
      */
     public $type;

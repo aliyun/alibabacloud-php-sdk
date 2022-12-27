@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class BatchSetDcdnWafDomainConfigsRequest extends Model
 {
     /**
+     * @example X-Forwarded-For
+     *
      * @var string
      */
     public $clientIpTag;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $defenseStatus;
 
     /**
+     * @example example.com,example2.com
+     *
      * @var string
      */
     public $domainNames;

@@ -14,6 +14,8 @@ class regions extends Model
     public $name;
 
     /**
+     * @example 110000
+     *
      * @var string
      */
     public $value;

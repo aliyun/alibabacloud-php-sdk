@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class erAccItem extends Model
 {
     /**
+     * @example 125
+     *
      * @var int
      */
     public $erAcc;
 
     /**
+     * @example routine1.test
+     *
      * @var string
      */
     public $routine;
 
     /**
+     * @example 50ms
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @example 2018-10-30T13:00:00Z
+     *
      * @var string
      */
     public $timeStamp;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class billHistoryDataItem extends Model
 {
     /**
+     * @example 2018-09-30T17:00:00Z
+     *
      * @var string
      */
     public $billTime;
 
     /**
+     * @example month_4th_day_bandwidth
+     *
      * @var string
      */
     public $billType;
@@ -25,6 +29,8 @@ class billHistoryDataItem extends Model
     public $billingData;
 
     /**
+     * @example vas
+     *
      * @var string
      */
     public $dimension;

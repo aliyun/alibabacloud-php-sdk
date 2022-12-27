@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainWebsocketHttpCodeDataRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2018-03-01T06:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 300
+     *
      * @var string
      */
     public $interval;
 
     /**
+     * @example unicom
+     *
      * @var string
      */
     public $ispNameEn;
 
     /**
+     * @example beijing
+     *
      * @var string
      */
     public $locationNameEn;
 
     /**
+     * @example 2018-03-01T05:00:00Z
+     *
      * @var string
      */
     public $startTime;

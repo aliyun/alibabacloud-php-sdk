@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetRoutineSubdomainShrinkRequest extends Model
 {
     /**
+     * @example ["subdomain-test"]
+     *
      * @var string
      */
     public $subdomainsShrink;

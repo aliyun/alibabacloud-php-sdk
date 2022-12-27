@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnIpInfoRequest extends Model
 {
     /**
+     * @example 10.10.10.10
+     *
      * @var string
      */
     public $IP;

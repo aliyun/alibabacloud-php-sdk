@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RefreshDcdnObjectCachesResponseBody extends Model
 {
     /**
+     * @example 95248880
+     *
      * @var string
      */
     public $refreshTaskId;
 
     /**
+     * @example E5BD4B50-7A02-493A-AE0B-97B9024B4135
+     *
      * @var string
      */
     public $requestId;

@@ -15,6 +15,8 @@ class DescribeRDDomainConfigResponseBody extends Model
     public $domainConfigs;
 
     /**
+     * @example C80705BF-0F76-41FA-BAD1-5B59296A4E59
+     *
      * @var string
      */
     public $requestId;

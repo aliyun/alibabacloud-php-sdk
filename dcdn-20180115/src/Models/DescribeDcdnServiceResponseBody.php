@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnServiceResponseBody extends Model
 {
     /**
+     * @example 2018-03-31T16:00:00Z
+     *
      * @var string
      */
     public $changingAffectTime;
 
     /**
+     * @example PayByBandwidth
+     *
      * @var string
      */
     public $changingChargeType;
 
     /**
+     * @example FP-mkqgwxxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example PayByTraffic
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example 2018-03-19T11:16:11Z
+     *
      * @var string
      */
     public $openingTime;
@@ -40,21 +50,29 @@ class DescribeDcdnServiceResponseBody extends Model
     public $operationLocks;
 
     /**
+     * @example EF2AEBC2-EDBD-41CF-BF64-7E095D42D6EF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2018-03-19T11:16:11Z
+     *
      * @var string
      */
     public $websocketChangingTime;
 
     /**
+     * @example websocketbps
+     *
      * @var string
      */
     public $websocketChangingType;
 
     /**
+     * @example websocketbps
+     *
      * @var string
      */
     public $websocketType;

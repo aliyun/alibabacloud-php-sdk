@@ -9,41 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnReportRequest extends Model
 {
     /**
+     * @example shanghai
+     *
      * @var string
      */
     public $area;
 
     /**
+     * @example www.example.com,www.example.org
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2021-07-02T01:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 2xx
+     *
      * @var string
      */
     public $httpCode;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $isOverseas;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
+     * @example 2
+     *
      * @var int
      */
     public $reportId;
 
     /**
+     * @example 2021-07-02T00:00:00Z
+     *
      * @var string
      */
     public $startTime;
@@ -53,7 +62,6 @@ class DescribeDcdnReportRequest extends Model
         'endTime'    => 'EndTime',
         'httpCode'   => 'HttpCode',
         'isOverseas' => 'IsOverseas',
-        'ownerId'    => 'OwnerId',
         'reportId'   => 'ReportId',
         'startTime'  => 'StartTime',
     ];
@@ -79,9 +87,6 @@ class DescribeDcdnReportRequest extends Model
         }
         if (null !== $this->isOverseas) {
             $res['IsOverseas'] = $this->isOverseas;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->reportId) {
             $res['ReportId'] = $this->reportId;
@@ -115,9 +120,6 @@ class DescribeDcdnReportRequest extends Model
         }
         if (isset($map['IsOverseas'])) {
             $model->isOverseas = $map['IsOverseas'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['ReportId'])) {
             $model->reportId = $map['ReportId'];

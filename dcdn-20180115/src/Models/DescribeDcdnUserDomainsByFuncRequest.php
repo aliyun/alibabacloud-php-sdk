@@ -9,36 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserDomainsByFuncRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example config
+     *
      * @var string
      */
     public $funcFilter;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $funcId;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example rg-acfmyuji4b6r4**
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -46,7 +53,6 @@ class DescribeDcdnUserDomainsByFuncRequest extends Model
         'domainName'      => 'DomainName',
         'funcFilter'      => 'FuncFilter',
         'funcId'          => 'FuncId',
-        'ownerId'         => 'OwnerId',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
@@ -67,9 +73,6 @@ class DescribeDcdnUserDomainsByFuncRequest extends Model
         }
         if (null !== $this->funcId) {
             $res['FuncId'] = $this->funcId;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -100,9 +103,6 @@ class DescribeDcdnUserDomainsByFuncRequest extends Model
         }
         if (isset($map['FuncId'])) {
             $model->funcId = $map['FuncId'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

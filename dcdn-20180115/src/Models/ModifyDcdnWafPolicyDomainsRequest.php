@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyDcdnWafPolicyDomainsRequest extends Model
 {
     /**
+     * @example example.com,example2.com
+     *
      * @var string
      */
     public $bindDomains;
 
     /**
+     * @example 1000001
+     *
      * @var int
      */
     public $policyId;
 
     /**
+     * @example example3.com
+     *
      * @var string
      */
     public $unbindDomains;

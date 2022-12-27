@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class requestDataModule extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example 1128
+     *
      * @var int
      */
     public $request;
 
     /**
+     * @example 2017-12-10T20:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @example DynamicHttp
+     *
      * @var string
      */
     public $type;

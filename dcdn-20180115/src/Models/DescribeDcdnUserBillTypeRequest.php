@@ -9,22 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserBillTypeRequest extends Model
 {
     /**
+     * @example 2018-10-31T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
+     * @example 2018-09-30T16:00:00Z
+     *
      * @var string
      */
     public $startTime;
     protected $_name = [
         'endTime'   => 'EndTime',
-        'ownerId'   => 'OwnerId',
         'startTime' => 'StartTime',
     ];
 
@@ -37,9 +35,6 @@ class DescribeDcdnUserBillTypeRequest extends Model
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -58,9 +53,6 @@ class DescribeDcdnUserBillTypeRequest extends Model
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

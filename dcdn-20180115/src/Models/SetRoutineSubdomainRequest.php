@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetRoutineSubdomainRequest extends Model
 {
     /**
+     * @example ["subdomain-test"]
+     *
      * @var mixed[]
      */
     public $subdomains;

@@ -15,6 +15,8 @@ class content extends Model
     public $continents;
 
     /**
+     * @example CN
+     *
      * @var string
      */
     public $type;

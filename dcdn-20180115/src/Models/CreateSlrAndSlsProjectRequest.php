@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateSlrAndSlsProjectRequest extends Model
 {
     /**
+     * @example cdn_log_access_l1
+     *
      * @var string
      */
     public $businessType;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;

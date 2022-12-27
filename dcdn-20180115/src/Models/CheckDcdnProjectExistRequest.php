@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckDcdnProjectExistRequest extends Model
 {
     /**
+     * @example example
+     *
      * @var string
      */
     public $projectName;

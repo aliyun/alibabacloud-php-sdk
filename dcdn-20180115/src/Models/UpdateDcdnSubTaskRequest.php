@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateDcdnSubTaskRequest extends Model
 {
     /**
+     * @example www.example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2021-06-17T00:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 2,4,6
+     *
      * @var string
      */
     public $reportIds;
 
     /**
+     * @example 2021-04-17T00:00:00Z
+     *
      * @var string
      */
     public $startTime;

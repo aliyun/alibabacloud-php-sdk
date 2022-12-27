@@ -15,21 +15,29 @@ class DescribeDcdnDomainCcActivityLogResponseBody extends Model
     public $activityLog;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageIndex;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 3C6CCEC4-6B88-4D4A-93E4-D47B3D92CF8F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $total;

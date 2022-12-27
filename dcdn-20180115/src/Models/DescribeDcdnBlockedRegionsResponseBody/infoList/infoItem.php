@@ -14,6 +14,8 @@ class infoItem extends Model
     public $continent;
 
     /**
+     * @example AE
+     *
      * @var string
      */
     public $countriesAndRegions;

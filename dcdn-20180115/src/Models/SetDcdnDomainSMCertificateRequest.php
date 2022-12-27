@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SetDcdnDomainSMCertificateRequest extends Model
 {
     /**
+     * @example 123-cn-hangzhou
+     *
      * @var string
      */
     public $certIdentifier;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -24,6 +28,8 @@ class SetDcdnDomainSMCertificateRequest extends Model
     public $ownerId;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $SSLProtocol;

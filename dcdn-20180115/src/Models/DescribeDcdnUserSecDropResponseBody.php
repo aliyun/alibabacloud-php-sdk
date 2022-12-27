@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserSecDropResponseBody extends Model
 {
     /**
+     * @example 233023208
+     *
      * @var int
      */
     public $drops;
 
     /**
+     * @example Found
+     *
      * @var string
      */
     public $msg;
 
     /**
+     * @example 4A1295C0-7A5C-4F27-8D70-C3A648E7037F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1day10811******6429wafDCDN
+     *
      * @var string
      */
     public $uuidStr;

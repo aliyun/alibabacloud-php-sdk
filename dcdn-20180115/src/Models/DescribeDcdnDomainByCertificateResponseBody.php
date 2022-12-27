@@ -15,6 +15,8 @@ class DescribeDcdnDomainByCertificateResponseBody extends Model
     public $certInfos;
 
     /**
+     * @example ASAF2FDS-12SADSA-DDSAE3D-DSADCD4C-CDADS2D
+     *
      * @var string
      */
     public $requestId;

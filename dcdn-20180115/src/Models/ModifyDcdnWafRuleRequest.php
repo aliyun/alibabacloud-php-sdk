@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyDcdnWafRuleRequest extends Model
 {
     /**
+     * @example {\"origin\":\"custom\",\"conditions\":[{\"opValue\":\"eq\",\"key\":\"URL\",\"values\":\"/example\"},{\"opValue\":\"eq\",\"key\":\"Header\",\"values\":\"3333\",\"subKey\":\"trt\"}],\"actionExternal\":{},\"action\":\"monitor\",\"ccStatus\":1,\"ratelimit\":{\"target\":\"remote_addr\",\"interval\":\"5\",\"threshold\":\"2\",\"effect\":\"rule\",\"status\":{\"code\":\"404\",\"count\":\"2\"},\"ttl\":\"1800\"}}\"
+     *
      * @var string
      */
     public $ruleConfig;
 
     /**
+     * @example 200001
+     *
      * @var int
      */
     public $ruleId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @example off
+     *
      * @var string
      */
     public $ruleStatus;

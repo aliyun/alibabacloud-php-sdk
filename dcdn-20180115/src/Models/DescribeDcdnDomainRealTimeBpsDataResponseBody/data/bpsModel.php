@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class bpsModel extends Model
 {
     /**
+     * @example 16710625.733333332
+     *
      * @var float
      */
     public $bps;
 
     /**
+     * @example 2018-01-02T11:05:00Z
+     *
      * @var string
      */
     public $timeStamp;

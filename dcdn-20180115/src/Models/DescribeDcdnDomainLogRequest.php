@@ -9,38 +9,42 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainLogRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2021-11-07T18:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2021-11-07T17:00:00Z
+     *
      * @var string
      */
     public $startTime;
     protected $_name = [
         'domainName' => 'DomainName',
         'endTime'    => 'EndTime',
-        'ownerId'    => 'OwnerId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'startTime'  => 'StartTime',
@@ -58,9 +62,6 @@ class DescribeDcdnDomainLogRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -88,9 +89,6 @@ class DescribeDcdnDomainLogRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

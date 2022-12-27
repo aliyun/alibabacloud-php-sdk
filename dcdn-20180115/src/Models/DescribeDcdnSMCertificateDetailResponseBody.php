@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnSMCertificateDetailResponseBody extends Model
 {
     /**
+     * @example 2022-08-31T09:42:28Z
+     *
      * @var string
      */
     public $certExpireTime;
 
     /**
+     * @example 648****-cn-hangzhou
+     *
      * @var string
      */
     public $certIdentifier;
 
     /**
+     * @example yourCertName
+     *
      * @var string
      */
     public $certName;
 
     /**
+     * @example DigiCert Inc
+     *
      * @var string
      */
     public $certOrg;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $commonName;
 
     /**
+     * @example --BEGIN CERTIFICATE-----***-----END CERTIFICATE--
+     *
      * @var string
      */
     public $encryptCertificate;
 
     /**
+     * @example A7C69682-7F88-40DD-A198-10D0309E439D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example ***.example.com
+     *
      * @var string
      */
     public $sans;
 
     /**
+     * @example --BEGIN CERTIFICATE-----***-----END CERTIFICATE--
+     *
      * @var string
      */
     public $signCertificate;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class PreloadDcdnObjectCachesRequest extends Model
 {
     /**
+     * @example domestic
+     *
      * @var string
      */
     public $area;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $l2Preload;
 
     /**
+     * @example example.com/examplefile.txt
+     *
      * @var string
      */
     public $objectPath;

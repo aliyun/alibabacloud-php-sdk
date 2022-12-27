@@ -15,6 +15,8 @@ class DescribeDcdnWafDomainDetailResponseBody extends Model
     public $domain;
 
     /**
+     * @example 153ca2cd-3c01-44be-82C0-64dbc6c88630
+     *
      * @var string
      */
     public $requestId;

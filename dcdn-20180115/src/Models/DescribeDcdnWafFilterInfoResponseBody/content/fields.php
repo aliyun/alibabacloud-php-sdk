@@ -20,6 +20,8 @@ class fields extends Model
     public $logicalSymbol;
 
     /**
+     * @example Header
+     *
      * @var string
      */
     public $matchField;

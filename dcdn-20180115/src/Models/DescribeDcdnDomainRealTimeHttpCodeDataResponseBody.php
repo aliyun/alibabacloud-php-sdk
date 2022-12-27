@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainRealTimeHttpCodeDataResponseBody extends Model
 {
     /**
+     * @example 60
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2017-12-10T21:00:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -30,11 +36,15 @@ class DescribeDcdnDomainRealTimeHttpCodeDataResponseBody extends Model
     public $realTimeHttpCodeData;
 
     /**
+     * @example B955107D-E658-4E77-B913-E0AC3D31693E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2017-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;

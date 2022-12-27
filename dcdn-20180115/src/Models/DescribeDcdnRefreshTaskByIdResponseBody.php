@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnRefreshTaskByIdResponseBody extends Model
 {
     /**
+     * @example E0C2EF95-B1EC-4C93-855E-2059A7DA2B7B
+     *
      * @var string
      */
     public $requestId;
@@ -20,6 +22,8 @@ class DescribeDcdnRefreshTaskByIdResponseBody extends Model
     public $tasks;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

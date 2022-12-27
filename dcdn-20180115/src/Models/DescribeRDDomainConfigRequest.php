@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeRDDomainConfigRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example source_group
+     *
      * @var string
      */
     public $functionName;

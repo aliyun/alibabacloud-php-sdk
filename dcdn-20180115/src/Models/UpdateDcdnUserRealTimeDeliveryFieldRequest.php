@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateDcdnUserRealTimeDeliveryFieldRequest extends Model
 {
     /**
+     * @example cdn_log_access_l1
+     *
      * @var string
      */
     public $businessType;
 
     /**
+     * @example body_bytes_sent,client_ip,content_type
+     *
      * @var string
      */
     public $fields;

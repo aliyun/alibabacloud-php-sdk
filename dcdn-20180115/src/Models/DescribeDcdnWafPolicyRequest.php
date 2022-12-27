@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafPolicyRequest extends Model
 {
     /**
+     * @example 1000001
+     *
      * @var int
      */
     public $policyId;

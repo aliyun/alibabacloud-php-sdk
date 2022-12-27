@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafGeoInfoRequest extends Model
 {
     /**
+     * @example cn
+     *
      * @var string
      */
     public $language;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UploadRoutineCodeRequest extends Model
 {
     /**
+     * @example Hello World
+     *
      * @var string
      */
     public $codeDescription;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;

@@ -9,41 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainHttpCodeDataByLayerRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2015-12-10T21:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 300
+     *
      * @var string
      */
     public $interval;
 
     /**
+     * @example telecom
+     *
      * @var string
      */
     public $ispNameEn;
 
     /**
+     * @example all
+     *
      * @var string
      */
     public $layer;
 
     /**
+     * @example hangzhou
+     *
      * @var string
      */
     public $locationNameEn;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
+     * @example 2015-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;
@@ -54,7 +63,6 @@ class DescribeDcdnDomainHttpCodeDataByLayerRequest extends Model
         'ispNameEn'      => 'IspNameEn',
         'layer'          => 'Layer',
         'locationNameEn' => 'LocationNameEn',
-        'ownerId'        => 'OwnerId',
         'startTime'      => 'StartTime',
     ];
 
@@ -82,9 +90,6 @@ class DescribeDcdnDomainHttpCodeDataByLayerRequest extends Model
         }
         if (null !== $this->locationNameEn) {
             $res['LocationNameEn'] = $this->locationNameEn;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -118,9 +123,6 @@ class DescribeDcdnDomainHttpCodeDataByLayerRequest extends Model
         }
         if (isset($map['LocationNameEn'])) {
             $model->locationNameEn = $map['LocationNameEn'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

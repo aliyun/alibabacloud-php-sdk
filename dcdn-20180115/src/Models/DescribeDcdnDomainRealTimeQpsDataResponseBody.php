@@ -15,6 +15,8 @@ class DescribeDcdnDomainRealTimeQpsDataResponseBody extends Model
     public $data;
 
     /**
+     * @example 32DC9806-E9F9-4490-BBDC-B3A9E32FCC1D
+     *
      * @var string
      */
     public $requestId;

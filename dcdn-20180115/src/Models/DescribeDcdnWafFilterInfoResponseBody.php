@@ -15,6 +15,8 @@ class DescribeDcdnWafFilterInfoResponseBody extends Model
     public $content;
 
     /**
+     * @example 153ca2cd-3c01-44be-204c-64dbc6c88630
+     *
      * @var string
      */
     public $requestId;

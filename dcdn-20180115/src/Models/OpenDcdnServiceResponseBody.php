@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OpenDcdnServiceResponseBody extends Model
 {
     /**
+     * @example 97C68796-EB7F-4D41-9D5B-12B909D76503
+     *
      * @var string
      */
     public $requestId;

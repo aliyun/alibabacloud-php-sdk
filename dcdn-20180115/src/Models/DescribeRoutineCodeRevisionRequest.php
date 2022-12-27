@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeRoutineCodeRevisionRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1611151912787121550
+     *
      * @var string
      */
     public $selectCodeRevision;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @example 0
+     *
      * @var float
      */
     public $dynamicHttpTraffic;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $dynamicHttpsTraffic;
 
     /**
+     * @example 123
+     *
      * @var float
      */
     public $staticHttpTraffic;
 
     /**
+     * @example 132
+     *
      * @var float
      */
     public $staticHttpsTraffic;
 
     /**
+     * @example 2017-12-10T20:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $traffic;

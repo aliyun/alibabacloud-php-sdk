@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainPvDataResponseBody extends Model
 {
     /**
+     * @example 3600
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2019-11-29T00:00:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -30,11 +36,15 @@ class DescribeDcdnDomainPvDataResponseBody extends Model
     public $pvDataInterval;
 
     /**
+     * @example BCD7D917-76F1-442F-BB75-C810DE34C761
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2019-11-28T00:00:00Z
+     *
      * @var string
      */
     public $startTime;

@@ -9,26 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainHitRateDataRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2018-03-02T15:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 300
+     *
      * @var string
      */
     public $interval;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
+     * @example 2018-03-02T12:00:00Z
+     *
      * @var string
      */
     public $startTime;
@@ -36,7 +39,6 @@ class DescribeDcdnDomainHitRateDataRequest extends Model
         'domainName' => 'DomainName',
         'endTime'    => 'EndTime',
         'interval'   => 'Interval',
-        'ownerId'    => 'OwnerId',
         'startTime'  => 'StartTime',
     ];
 
@@ -55,9 +57,6 @@ class DescribeDcdnDomainHitRateDataRequest extends Model
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -82,9 +81,6 @@ class DescribeDcdnDomainHitRateDataRequest extends Model
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

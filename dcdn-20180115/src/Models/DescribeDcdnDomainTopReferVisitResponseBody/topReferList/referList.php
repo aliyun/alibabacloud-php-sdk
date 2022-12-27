@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class referList extends Model
 {
     /**
+     * @example 460486880
+     *
      * @var string
      */
     public $flow;
 
     /**
+     * @example 0.35
+     *
      * @var float
      */
     public $flowProportion;
 
     /**
+     * @example 192.168.0.1
+     *
      * @var string
      */
     public $referDetail;
 
     /**
+     * @example 229567
+     *
      * @var string
      */
     public $visitData;
 
     /**
+     * @example 0.35
+     *
      * @var float
      */
     public $visitProportion;

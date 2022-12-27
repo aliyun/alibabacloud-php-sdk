@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
+     * @example 2021-05-10T08:54:23Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example Internal Error
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example http://example.com/image_01.png
+     *
      * @var string
      */
     public $objectPath;
 
     /**
+     * @example file
+     *
      * @var string
      */
     public $objectType;
 
     /**
+     * @example 100%
+     *
      * @var string
      */
     public $process;
 
     /**
+     * @example Complete
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 113681**
+     *
      * @var string
      */
     public $taskId;

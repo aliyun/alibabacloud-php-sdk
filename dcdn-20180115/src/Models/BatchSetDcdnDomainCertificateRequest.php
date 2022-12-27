@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class BatchSetDcdnDomainCertificateRequest extends Model
 {
     /**
+     * @example cert-te**.com
+     *
      * @var string
      */
     public $certName;
 
     /**
+     * @example cas
+     *
      * @var string
      */
     public $certType;
 
     /**
+     * @example **example**.com
+     *
      * @var string
      */
     public $domainName;
@@ -29,21 +35,29 @@ class BatchSetDcdnDomainCertificateRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example y****
+     *
      * @var string
      */
     public $SSLPri;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $SSLProtocol;
 
     /**
+     * @example x****
+     *
      * @var string
      */
     public $SSLPub;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainIpaConnDataRequest extends Model
 {
     /**
+     * @example example1.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2015-02-22T7:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example domain
+     *
      * @var string
      */
     public $splitBy;
 
     /**
+     * @example 2015-02-21T07:00:00Z
+     *
      * @var string
      */
     public $startTime;

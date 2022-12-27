@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafPolicyValidDomainsRequest extends Model
 {
     /**
+     * @example custom_acl
+     *
      * @var string
      */
     public $defenseScene;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainNameLike;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;

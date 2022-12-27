@@ -14,6 +14,8 @@ class fields extends Model
     public $description;
 
     /**
+     * @example unixtime
+     *
      * @var string
      */
     public $fieldName;

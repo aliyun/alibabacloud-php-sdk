@@ -9,36 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainQpsDataRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2017-12-10T21:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 300
+     *
      * @var string
      */
     public $interval;
 
     /**
+     * @example unicom
+     *
      * @var string
      */
     public $ispNameEn;
 
     /**
+     * @example beijing
+     *
      * @var string
      */
     public $locationNameEn;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
+     * @example 2017-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;
@@ -48,7 +55,6 @@ class DescribeDcdnDomainQpsDataRequest extends Model
         'interval'       => 'Interval',
         'ispNameEn'      => 'IspNameEn',
         'locationNameEn' => 'LocationNameEn',
-        'ownerId'        => 'OwnerId',
         'startTime'      => 'StartTime',
     ];
 
@@ -73,9 +79,6 @@ class DescribeDcdnDomainQpsDataRequest extends Model
         }
         if (null !== $this->locationNameEn) {
             $res['LocationNameEn'] = $this->locationNameEn;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -106,9 +109,6 @@ class DescribeDcdnDomainQpsDataRequest extends Model
         }
         if (isset($map['LocationNameEn'])) {
             $model->locationNameEn = $map['LocationNameEn'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

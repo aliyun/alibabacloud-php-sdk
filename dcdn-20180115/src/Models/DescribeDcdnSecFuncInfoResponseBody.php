@@ -15,21 +15,29 @@ class DescribeDcdnSecFuncInfoResponseBody extends Model
     public $content;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $httpStatus;
 
     /**
+     * @example 30A3A25A-86B3-4C1D-BAA8-12B8607A5CFD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $retCode;

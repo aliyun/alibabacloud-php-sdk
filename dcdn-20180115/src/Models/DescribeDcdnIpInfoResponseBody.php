@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnIpInfoResponseBody extends Model
 {
     /**
+     * @example True
+     *
      * @var string
      */
     public $dcdnIp;
@@ -19,6 +21,8 @@ class DescribeDcdnIpInfoResponseBody extends Model
     public $ISP;
 
     /**
+     * @example telecom
+     *
      * @var string
      */
     public $ispEname;
@@ -29,11 +33,15 @@ class DescribeDcdnIpInfoResponseBody extends Model
     public $region;
 
     /**
+     * @example China-Guizhou-guiyang
+     *
      * @var string
      */
     public $regionEname;
 
     /**
+     * @example 1B1D0EE7-9559-489D-BC4E-279495EB8FB8
+     *
      * @var string
      */
     public $requestId;

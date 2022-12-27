@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class tagResources extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $resourceId;

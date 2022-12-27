@@ -15,16 +15,22 @@ class DescribeDcdnDomainIpaConnDataResponseBody extends Model
     public $connectionDataPerInterval;
 
     /**
+     * @example 2015-02-22T15:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example A2A1EEF8-043E-43A1-807C-BEAC18EA1807
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2015-02-21T15:00:00Z
+     *
      * @var string
      */
     public $startTime;

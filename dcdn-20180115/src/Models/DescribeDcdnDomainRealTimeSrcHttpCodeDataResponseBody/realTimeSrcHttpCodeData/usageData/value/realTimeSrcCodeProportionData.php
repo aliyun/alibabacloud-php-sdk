@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class realTimeSrcCodeProportionData extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $count;
 
     /**
+     * @example 66.046511627907
+     *
      * @var string
      */
     public $proportion;

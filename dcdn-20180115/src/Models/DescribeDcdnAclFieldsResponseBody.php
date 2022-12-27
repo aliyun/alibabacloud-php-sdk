@@ -15,6 +15,8 @@ class DescribeDcdnAclFieldsResponseBody extends Model
     public $content;
 
     /**
+     * @example 30A3A25A-86B3-4C1D-BAA8-12B8607A5CFD
+     *
      * @var string
      */
     public $requestId;

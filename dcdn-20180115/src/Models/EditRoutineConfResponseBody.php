@@ -14,6 +14,8 @@ class EditRoutineConfResponseBody extends Model
     public $content;
 
     /**
+     * @example BAECB354-6D42-42C1-87DA-C9992EF1E7C8
+     *
      * @var string
      */
     public $requestId;

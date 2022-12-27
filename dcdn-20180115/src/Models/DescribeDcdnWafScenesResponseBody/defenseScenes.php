@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class defenseScenes extends Model
 {
     /**
+     * @example waf_group
+     *
      * @var string
      */
     public $defenseScene;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $policyCount;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $ruleCount;

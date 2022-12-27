@@ -9,17 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserConfigsRequest extends Model
 {
     /**
+     * @example domain_business_control
+     *
      * @var string
      */
     public $functionName;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
     protected $_name = [
         'functionName' => 'FunctionName',
-        'ownerId'      => 'OwnerId',
     ];
 
     public function validate()
@@ -31,9 +27,6 @@ class DescribeDcdnUserConfigsRequest extends Model
         $res = [];
         if (null !== $this->functionName) {
             $res['FunctionName'] = $this->functionName;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -49,9 +42,6 @@ class DescribeDcdnUserConfigsRequest extends Model
         $model = new self();
         if (isset($map['FunctionName'])) {
             $model->functionName = $map['FunctionName'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

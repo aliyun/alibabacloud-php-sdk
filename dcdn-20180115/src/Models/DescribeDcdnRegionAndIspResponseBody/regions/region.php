@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class region extends Model
 {
     /**
+     * @example liaoning
+     *
      * @var string
      */
     public $nameEn;

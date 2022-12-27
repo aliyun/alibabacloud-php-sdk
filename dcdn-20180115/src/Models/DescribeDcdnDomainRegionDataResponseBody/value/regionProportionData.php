@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class regionProportionData extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $avgObjectSize;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $avgResponseRate;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $avgResponseTime;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $bps;
 
     /**
+     * @example 0.003544181046236794
+     *
      * @var string
      */
     public $bytesProportion;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $proportion;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $qps;
@@ -49,16 +63,22 @@ class regionProportionData extends Model
     public $region;
 
     /**
+     * @example chongqing
+     *
      * @var string
      */
     public $regionEname;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $totalBytes;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $totalQuery;

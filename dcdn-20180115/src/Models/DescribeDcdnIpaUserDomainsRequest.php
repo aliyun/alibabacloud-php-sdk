@@ -10,31 +10,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnIpaUserDomainsRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $checkDomainShow;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example fuzzy_match
+     *
      * @var string
      */
     public $domainSearchType;
 
     /**
+     * @example online
+     *
      * @var string
      */
     public $domainStatus;
 
     /**
+     * @example config
+     *
      * @var string
      */
     public $funcFilter;
 
     /**
+     * @example 7
+     *
      * @var string
      */
     public $funcId;
@@ -45,16 +57,22 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example ResourceGroupId
+     *
      * @var string
      */
     public $resourceGroupId;

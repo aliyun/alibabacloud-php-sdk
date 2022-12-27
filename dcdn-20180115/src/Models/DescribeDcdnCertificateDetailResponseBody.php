@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnCertificateDetailResponseBody extends Model
 {
     /**
+     * @example -----BEGIN CERTIFICATE-----xxx-----END CERTIFICATE-----
+     *
      * @var string
      */
     public $cert;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $certId;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $certName;
 
     /**
+     * @example ak1htyxxxx
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example C7C69682-7F88-40DD-A198-10D0309E439B
+     *
      * @var string
      */
     public $requestId;

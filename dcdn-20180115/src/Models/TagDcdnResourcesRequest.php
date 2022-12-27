@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class TagDcdnResourcesRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @example DOMAIN
+     *
      * @var string
      */
     public $resourceType;

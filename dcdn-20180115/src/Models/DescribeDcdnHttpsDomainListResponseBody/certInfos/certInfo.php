@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class certInfo extends Model
 {
     /**
+     * @example *.com
+     *
      * @var string
      */
     public $certCommonName;
 
     /**
+     * @example 2018-12-26 14:45:09
+     *
      * @var string
      */
     public $certExpireTime;
 
     /**
+     * @example cert
+     *
      * @var string
      */
     public $certName;
 
     /**
+     * @example 2018-11-26 14:45:09
+     *
      * @var string
      */
     public $certStartTime;
 
     /**
+     * @example mismatch
+     *
      * @var string
      */
     public $certStatus;
 
     /**
+     * @example upload
+     *
      * @var string
      */
     public $certType;
 
     /**
+     * @example 2019-01-08 18:33:16
+     *
      * @var string
      */
     public $certUpdateTime;
 
     /**
+     * @example *.com
+     *
      * @var string
      */
     public $domainName;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class PublishDcdnStagingConfigToProductionRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example aliauth
+     *
      * @var string
      */
     public $functionName;

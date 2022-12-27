@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSlrAndSlsProjectResponseBody extends Model
 {
     /**
+     * @example fe33a379-5053-4f22-a73c-826e2b44355d
+     *
      * @var string
      */
     public $requestId;

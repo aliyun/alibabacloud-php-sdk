@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class UpdateDcdnSLSRealtimeLogDeliveryRequest extends Model
 {
     /**
+     * @example cn
+     *
      * @var string
      */
     public $dataCenter;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example example
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example example-cn
+     *
      * @var string
      */
     public $SLSLogStore;
 
     /**
+     * @example example-cn
+     *
      * @var string
      */
     public $SLSProject;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $SLSRegion;
 
     /**
+     * @example 1.0
+     *
      * @var string
      */
     public $samplingRate;

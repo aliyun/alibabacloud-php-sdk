@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BatchModifyDcdnWafRulesRequest extends Model
 {
     /**
+     * @example 10000001
+     *
      * @var int
      */
     public $policyId;
 
     /**
+     * @example [{"id":135,"type":"web_sdk","status":"on","config":{"mode":"automatic","crossDomain":"example.com"},"action":""},{"id":149,"type":"intelligence_fake_crawler","status":"on","config":{},"action":"deny"}]
+     *
      * @var string
      */
     public $ruleConfigs;

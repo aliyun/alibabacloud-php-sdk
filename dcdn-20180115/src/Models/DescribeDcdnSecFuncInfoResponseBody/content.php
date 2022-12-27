@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @example ai_defense
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @example ai_defense
+     *
      * @var string
      */
     public $value;

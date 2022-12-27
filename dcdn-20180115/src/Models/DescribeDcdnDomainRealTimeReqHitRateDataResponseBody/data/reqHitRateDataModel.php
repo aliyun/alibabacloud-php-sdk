@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class reqHitRateDataModel extends Model
 {
     /**
+     * @example 0.8956940476262277
+     *
      * @var float
      */
     public $reqHitRate;
 
     /**
+     * @example 2016-10-20T04:00:00Z
+     *
      * @var string
      */
     public $timeStamp;

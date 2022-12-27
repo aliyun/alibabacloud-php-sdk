@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnSLSRealtimeLogDeliveryRequest extends Model
 {
     /**
+     * @example example
+     *
      * @var string
      */
     public $projectName;

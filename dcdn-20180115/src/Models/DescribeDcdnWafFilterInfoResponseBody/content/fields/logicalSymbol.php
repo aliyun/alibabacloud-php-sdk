@@ -15,6 +15,8 @@ class logicalSymbol extends Model
     public $description;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $maxLength;
@@ -25,6 +27,8 @@ class logicalSymbol extends Model
     public $regexp;
 
     /**
+     * @example match-one
+     *
      * @var string
      */
     public $symbol;
@@ -35,6 +39,8 @@ class logicalSymbol extends Model
     public $tip;
 
     /**
+     * @example multi
+     *
      * @var string
      */
     public $type;

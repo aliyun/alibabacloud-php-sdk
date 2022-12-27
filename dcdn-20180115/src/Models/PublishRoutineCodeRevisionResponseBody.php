@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class PublishRoutineCodeRevisionResponseBody extends Model
 {
     /**
+     * @example "CodeRevision": "1620876959997924701"
+     *
      * @var mixed[]
      */
     public $content;
 
     /**
+     * @example A513734D-D17B-411E-864D-XXXX
+     *
      * @var string
      */
     public $requestId;

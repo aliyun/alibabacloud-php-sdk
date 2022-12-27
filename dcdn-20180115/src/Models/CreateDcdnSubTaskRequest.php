@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateDcdnSubTaskRequest extends Model
 {
     /**
+     * @example example.com,example.org
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2,4,6
+     *
      * @var string
      */
     public $reportIds;

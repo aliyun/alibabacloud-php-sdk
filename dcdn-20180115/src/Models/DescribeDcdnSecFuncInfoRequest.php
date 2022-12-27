@@ -9,22 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnSecFuncInfoRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
+     * @example RobotRuleName
+     *
      * @var string
      */
     public $secFuncType;
     protected $_name = [
         'lang'        => 'Lang',
-        'ownerId'     => 'OwnerId',
         'secFuncType' => 'SecFuncType',
     ];
 
@@ -37,9 +35,6 @@ class DescribeDcdnSecFuncInfoRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->secFuncType) {
             $res['SecFuncType'] = $this->secFuncType;
@@ -58,9 +53,6 @@ class DescribeDcdnSecFuncInfoRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SecFuncType'])) {
             $model->secFuncType = $map['SecFuncType'];

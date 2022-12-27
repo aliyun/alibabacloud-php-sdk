@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class domains extends Model
 {
     /**
+     * @example X-Forwarded-For
+     *
      * @var string
      */
     public $clientIpTag;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $policyCount;

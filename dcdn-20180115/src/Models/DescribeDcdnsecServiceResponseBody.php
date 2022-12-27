@@ -10,36 +10,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnsecServiceResponseBody extends Model
 {
     /**
+     * @example 2021-09-30T16:00:00Z
+     *
      * @var string
      */
     public $changingAffectTime;
 
     /**
+     * @example PayByBandwidth
+     *
      * @var string
      */
     public $changingChargeType;
 
     /**
+     * @example 130
+     *
      * @var string
      */
     public $domainNum;
 
     /**
+     * @example 2021-09-26T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example PayBySecTraffic
+     *
      * @var string
      */
     public $flowType;
 
     /**
+     * @example dcdn_dcdnsec_public_cn-123***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example PayByTraffic
+     *
      * @var string
      */
     public $internetChargeType;
@@ -50,21 +64,29 @@ class DescribeDcdnsecServiceResponseBody extends Model
     public $operationLocks;
 
     /**
+     * @example E20B46E1-9BCD-10E5-AAEF-6D7B737467A1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example PayBySecRequest
+     *
      * @var string
      */
     public $requestType;
 
     /**
+     * @example 2021-08-26T02:52:08Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example enterprise
+     *
      * @var string
      */
     public $version;

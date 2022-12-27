@@ -9,27 +9,27 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainTopUrlVisitRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
+     * @example pv
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example 2018-10-03T16:00:00Z
+     *
      * @var string
      */
     public $startTime;
     protected $_name = [
         'domainName' => 'DomainName',
-        'ownerId'    => 'OwnerId',
         'sortBy'     => 'SortBy',
         'startTime'  => 'StartTime',
     ];
@@ -43,9 +43,6 @@ class DescribeDcdnDomainTopUrlVisitRequest extends Model
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
@@ -67,9 +64,6 @@ class DescribeDcdnDomainTopUrlVisitRequest extends Model
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];

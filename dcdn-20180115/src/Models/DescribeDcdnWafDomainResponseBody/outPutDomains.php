@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class outPutDomains extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $aclStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ccStatus;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $wafStatus;
