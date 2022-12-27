@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainHttpCodeDataResponseBody extends Model
 {
     /**
+     * @description The interval at which the monitoring data is queried.
+     *
+     * @example 300
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The accelerated domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range that was queried.
+     *
+     * @example 2021-06-29T05:45:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The proportions of HTTP status codes at each time interval.
+     *
      * @var httpCodeData
      */
     public $httpCodeData;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BC858082-736F-4A25-867B-E5B67C85ACF7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range that was queried.
+     *
+     * @example 2021-06-29T05:30:00Z
+     *
      * @var string
      */
     public $startTime;

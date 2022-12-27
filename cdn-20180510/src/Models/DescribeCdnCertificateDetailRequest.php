@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnCertificateDetailRequest extends Model
 {
     /**
+     * @description The ID of the SSL certificate. You can query only one certificate at a time.
+     *
+     * @example cert-15480655xxxx
+     *
      * @var string
      */
     public $certName;

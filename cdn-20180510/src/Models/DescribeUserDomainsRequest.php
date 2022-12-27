@@ -10,41 +10,102 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserDomainsRequest extends Model
 {
     /**
+     * @description The type of workload accelerated by Alibaba Cloud CDN. Separate types with commas (,). Valid values:
+     *
+     *   **web**: images and small files
+     *   **download**: large files
+     *   **video**: on-demand video and audio streaming
+     *
+     * If you do not set this parameter, all service types are queried.
+     * @example download,web,video
+     *
      * @var string
      */
     public $cdnType;
 
     /**
+     * @description The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * >  The end time must be later than the start time.
+     * @example 2019-10-10T12:14:58Z
+     *
      * @var string
      */
     public $changeEndTime;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * @example 2019-10-10T12:14:55Z
+     *
      * @var string
      */
     public $changeStartTime;
 
     /**
+     * @description Specifies whether to display domain names that are under review, failed the review, or failed to be configured. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example false
+     *
      * @var bool
      */
     public $checkDomainShow;
 
     /**
+     * @description The accelerated region. By default, all accelerated regions are queried. Valid values:
+     *
+     *   **domestic**: Chinese mainland
+     *   **global**
+     *   **overseas**: global (excluding the Chinese mainland)
+     *
+     * @example domestic
+     *
      * @var string
      */
     public $coverage;
 
     /**
+     * @description The accelerated domain names. If you do not set this parameter, configurations of all domain names that match the conditions are returned.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The search mode. Valid values:
+     *
+     *   **fuzzy_match**: fuzzy match
+     *   **pre_match**: prefix match
+     *   **suf_match**: suffix match
+     *   **full_match** (default): exact match
+     *
+     * >  If you specify the domain names to query but do not set the DomainSearchType parameter, the exact match mode is used.
+     * @example fuzzy_match
+     *
      * @var string
      */
     public $domainSearchType;
 
     /**
+     * @description The status of the domain name. You can filter domain names by status. Valid values:
+     *
+     *   **online**: enabled
+     *   **offline**: disabled
+     *   **configuring**: being configured
+     *   **configure_failed**: failed to be configured
+     *   **checking**: under review
+     *   **check_failed**: failed the review
+     *   **stopping**: being disabled
+     *   **deleting**: deleting
+     *
+     * If you do not set this parameter, all states are queried.
+     * @example configure_failed
+     *
      * @var string
      */
     public $domainStatus;
@@ -55,16 +116,28 @@ class DescribeUserDomainsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Valid values: **1** to **100000**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **1 to 50**. Default value: **20**. Maximum value: **50**.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the resource group. By default, all IDs are queried.
+     *
+     * @example abcd1234abcd1234
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -75,11 +148,17 @@ class DescribeUserDomainsRequest extends Model
     public $securityToken;
 
     /**
+     * @description The information about the origin server.
+     *
+     * @example ***
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnUserConfigsResponseBody extends Model
 {
     /**
+     * @description The configurations of Alibaba Cloud CDN.
+     *
      * @var configs[]
      */
     public $configs;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 06D29681-B7CD-4034-A8CC-28AFFA213539
+     *
      * @var string
      */
     public $requestId;

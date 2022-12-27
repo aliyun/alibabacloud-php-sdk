@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainMax95BpsDataRequest extends Model
 {
     /**
+     * @example month
+     *
      * @var string
      */
     public $cycle;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2017-12-22T08:00:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -29,11 +35,15 @@ class DescribeDomainMax95BpsDataRequest extends Model
     public $ownerId;
 
     /**
+     * @example 2017-12-21T08:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 2017-12-21T10:00:00Z
+     *
      * @var string
      */
     public $timePoint;

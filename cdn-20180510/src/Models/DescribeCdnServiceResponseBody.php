@@ -10,36 +10,68 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnServiceResponseBody extends Model
 {
     /**
+     * @description The time when the next billing method takes effect. The time is displayed in GMT.
+     *
+     * @example 2019-11-27T16:00:00Z
+     *
      * @var string
      */
     public $changingAffectTime;
 
     /**
+     * @description The next billing method that Alibaba Cloud CDN will use. Valid values:
+     *
+     *   **PayByTraffic**: pay-by-data-transfer.
+     *   **PayByBandwidth**: pay-by-bandwidth.
+     *
+     * @example PayByTraffic
+     *
      * @var string
      */
     public $changingChargeType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example aliuidxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The current billing method of Alibaba Cloud CDN.
+     *
+     *   **PayByTraffic**: pay-by-data-transfer.
+     *   **PayByBandwidth**: pay-by-bandwidth.
+     *
+     * @example PayByTraffic
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @description The time when Alibaba Cloud CDN was activated. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mmZ format.
+     *
+     * @example 2019-02-28T13:11:49Z
+     *
      * @var string
      */
     public $openingTime;
 
     /**
+     * @description The lock status of Alibaba Cloud CDN.
+     *
      * @var operationLocks
      */
     public $operationLocks;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+     *
      * @var string
      */
     public $requestId;

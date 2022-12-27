@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnDeliverListRequest extends Model
 {
     /**
+     * @description The ID of the tracking task that you want to query. If you do not specify an ID, all tracking tasks are queried.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $deliverId;

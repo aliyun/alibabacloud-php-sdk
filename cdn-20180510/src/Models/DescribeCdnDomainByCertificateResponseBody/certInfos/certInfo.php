@@ -9,46 +9,88 @@ use AlibabaCloud\Tea\Model;
 class certInfo extends Model
 {
     /**
+     * @description Indicates whether the SSL certificate is obsolete. Valid values:
+     *
+     *   **yes**: The SSL certificate is obsolete.
+     *   **no**: The SSL certificate is working as expected.
+     *
+     * @example yes
+     *
      * @var string
      */
     public $certCaIsLegacy;
 
     /**
+     * @description The time when the SSL certificate expires.
+     *
+     * @example Nov 29 00:00:00 2016 GMT
+     *
      * @var string
      */
     public $certExpireTime;
 
     /**
+     * @description Indicates whether the SSL certificate is expired. Valid values:
+     *
+     *   **yes**: The SSL certificate is expired.
+     *   **no**: The SSL certificate is not expired.
+     *
+     * @example yes
+     *
      * @var string
      */
     public $certExpired;
 
     /**
+     * @description The time when the SSL certificate became effective.
+     *
+     * @example Nov 29 23:59:59 2017 GMT
+     *
      * @var string
      */
     public $certStartTime;
 
     /**
+     * @description The name of the SSL certificate owner.
+     *
+     * @example owner
+     *
      * @var string
      */
     public $certSubjectCommonName;
 
     /**
+     * @description The type of the certificate. Valid responses: **RSA**, **DSA**, and **ECDSA**.
+     *
+     * @example RSA
+     *
      * @var string
      */
     public $certType;
 
     /**
+     * @description If a value is returned, the value matches the SSL certificate. Multiple domain names are separated with commas (,).
+     *
+     * @example example.com,aliyundoc.com
+     *
      * @var string
      */
     public $domainList;
 
     /**
+     * @description The domain names (DNS fields) that match the SSL certificate. Multiple domain names are separated with commas (,).
+     *
+     * @example *.example.com,aliyundoc.com
+     *
      * @var string
      */
     public $domainNames;
 
     /**
+     * @description The certificate authority that issued the SSL certificate.
+     *
+     * @example C=US, O=Symantec Corporation, OU=Symantec Trust Network, OU=Domain Validated SSL, CN=Symantec Basic DV SSL CA - G1
+     *
      * @var string
      */
     public $issuer;

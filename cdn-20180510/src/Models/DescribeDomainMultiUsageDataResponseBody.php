@@ -11,26 +11,42 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainMultiUsageDataResponseBody extends Model
 {
     /**
+     * @description The end of the time range that was queried.
+     *
+     * @example 2017-12-10T21:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3C6CCEC4-6B88-4D4A-93E4-D47B3D92CF8F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about requests collected every 5 minutes.
+     *
      * @var requestPerInterval
      */
     public $requestPerInterval;
 
     /**
+     * @description The beginning of the time range that was queried.
+     *
+     * @example 2017-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The statistics about data transfer collected every 5 minutes.
+     *
      * @var trafficPerInterval
      */
     public $trafficPerInterval;

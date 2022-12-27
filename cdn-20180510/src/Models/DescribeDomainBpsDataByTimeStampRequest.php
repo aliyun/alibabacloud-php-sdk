@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainBpsDataByTimeStampRequest extends Model
 {
     /**
+     * @description The accelerated domain name. You can specify only one domain name in each query.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The names of the Internet service providers (ISPs). Separate multiple ISP names with commas (,).
+     *
+     * You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query regions.
+     * @example uni***,tele***
+     *
      * @var string
      */
     public $ispNames;
 
     /**
+     * @description The names of the regions. Separate multiple regions with commas (,).
+     *
+     * You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query regions.
+     * @example liaoning,guangxi
+     *
      * @var string
      */
     public $locationNames;
@@ -29,6 +43,11 @@ class DescribeDomainBpsDataByTimeStampRequest extends Model
     public $ownerId;
 
     /**
+     * @description The beginning of the time range that was queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+     *
+     * The data is collected at an interval of five minutes.
+     * @example 2019-11-30T05:40:00Z
+     *
      * @var string
      */
     public $timePoint;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListFCTriggerResponseBody extends Model
 {
     /**
+     * @description The information about the Function Compute trigger returned.
+     *
      * @var FCTriggers[]
      */
     public $FCTriggers;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example EC046C5D-8CB4-4B6B-B7F8-B335E51EF90E
+     *
      * @var string
      */
     public $requestId;

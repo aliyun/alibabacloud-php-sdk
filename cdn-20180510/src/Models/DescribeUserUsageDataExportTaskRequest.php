@@ -14,11 +14,20 @@ class DescribeUserUsageDataExportTaskRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Valid values: **1** to **100000**.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**. Maximum value: **50**.
+     *
+     * Valid values: **1** to **50**.
+     * @example 20
+     *
      * @var string
      */
     public $pageSize;

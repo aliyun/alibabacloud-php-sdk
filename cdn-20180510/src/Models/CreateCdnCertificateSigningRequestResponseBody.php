@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class CreateCdnCertificateSigningRequestResponseBody extends Model
 {
     /**
+     * @description The Common Name of the certificate.
+     *
+     * @example CommonName
+     *
      * @var string
      */
     public $commonName;
 
     /**
+     * @description The content of the CSR.
+     *
+     * @example CSRName
+     *
      * @var string
      */
     public $csr;
 
     /**
+     * @description The MD5 value of the certificate public key.
+     *
+     * @example 629bf4fd8104eda171135bcb0f77****
+     *
      * @var string
      */
     public $pubMd5;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+     *
      * @var string
      */
     public $requestId;

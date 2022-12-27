@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class cert extends Model
 {
     /**
+     * @description The ID of the certificate.
+     *
+     * @example yourCertldentifier
+     *
      * @var string
      */
     public $certIdentifier;
 
     /**
+     * @description The name of the certificate.
+     *
+     * @example yourCertName
+     *
      * @var string
      */
     public $certName;
 
     /**
+     * @description The common name of the certificate.
+     *
+     * @example yourCertCommon
+     *
      * @var string
      */
     public $common;
 
     /**
+     * @description The certificate authority (CA) that issued the certificate.
+     *
+     * @example yourCertIssuer
+     *
      * @var string
      */
     public $issuer;

@@ -10,41 +10,71 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainUsageDataResponseBody extends Model
 {
     /**
+     * @description The billable region where the usage information was collected.
+     *
+     * @example CN
+     *
      * @var string
      */
     public $area;
 
     /**
+     * @description The time interval between the data entries. Unit: seconds.
+     *
+     * @example 300
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The accelerated domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range that was queried.
+     *
+     * @example 2015-12-10T22:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B955107D-E658-4E77-B913-E0AC3D31693E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range that was queried.
+     *
+     * @example 2015-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The type of content based on which the usage information was collected.
+     *
+     * @example static
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The network traffic that was collected at each interval.
+     *
      * @var usageDataPerInterval
      */
     public $usageDataPerInterval;

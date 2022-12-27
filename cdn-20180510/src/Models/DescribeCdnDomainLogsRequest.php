@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnDomainLogsRequest extends Model
 {
     /**
+     * @description The accelerated domain name. You can specify only one domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range to query.
+     *
+     * >  The end time must be later than the start time.
+     * @example 2017-12-22T08:00:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -24,16 +33,29 @@ class DescribeCdnDomainLogsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Pages start from page **1**.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **300**. Maximum value: **1000**. Valid values: **1** to **1000**.
+     *
+     * @example 300
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+     * @example 2017-12-21T08:00:00Z
+     *
      * @var string
      */
     public $startTime;

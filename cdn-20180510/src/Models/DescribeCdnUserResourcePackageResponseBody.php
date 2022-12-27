@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnUserResourcePackageResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 84839536-2B7E-457D-9D8C-82E6C7D4E1A3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details about each resource plan. The details are organized in an array. The array consists of the subparameter values of the ResourcePackageInfo parameter.
+     *
      * @var resourcePackageInfos
      */
     public $resourcePackageInfos;

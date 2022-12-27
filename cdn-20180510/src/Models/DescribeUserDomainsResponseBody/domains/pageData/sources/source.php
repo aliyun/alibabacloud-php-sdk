@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class source extends Model
 {
     /**
+     * @description The address of the origin server.
+     *
+     * @example ***.oss-cn-hangzhou.aliyuncs.com
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The port of the origin server.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The priority of the origin server.
+     *
+     * @example 20
+     *
      * @var string
      */
     public $priority;
 
     /**
+     * @description The type of the origin server.
+     *
+     * @example oss
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The weight of the origin server if multiple origin servers are specified.
+     *
+     * @example 15
+     *
      * @var string
      */
     public $weight;

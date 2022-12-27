@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class usageDataPerPage extends Model
 {
     /**
+     * @description The description of the task.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The number of the page returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of the entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

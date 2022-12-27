@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class usageByDay extends Model
 {
     /**
+     * @description The cache hit ratio that is calculated based on bytes. The cache hit ratio is measured in percentage.
+     *
+     * @example 97.46250599529726
+     *
      * @var string
      */
     public $bytesHitRate;
 
     /**
+     * @description The peak bandwidth value. Unit: bit/s.
+     *
+     * @example 306747.76
+     *
      * @var string
      */
     public $maxBps;
 
     /**
+     * @description The time when the bandwidth reached the peak value.
+     *
+     * @example 2019-12-23 10:55:00
+     *
      * @var string
      */
     public $maxBpsTime;
 
     /**
+     * @description The peak bandwidth value during back-to-origin routing. Unit: bit/s.
+     *
+     * @example 72584.072
+     *
      * @var string
      */
     public $maxSrcBps;
 
     /**
+     * @description The time when the bandwidth during back-to-origin routing reached the peak value.
+     *
+     * @example 2019-12-23 11:45:00
+     *
      * @var string
      */
     public $maxSrcBpsTime;
 
     /**
+     * @description The number of queries per second (QPS).
+     *
+     * @example 7.466354166666667
+     *
      * @var string
      */
     public $qps;
 
     /**
+     * @description The cache hit ratio that is calculated based on requests. The cache hit ratio is measured in percentage.
+     *
+     * @example 70.24770071912111
+     *
      * @var string
      */
     public $requestHitRate;
 
     /**
+     * @description The timestamp of the data returned.
+     *
+     * @example 2019-12-22
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @description The total amount of requests.
+     *
+     * @example 645093
+     *
      * @var string
      */
     public $totalAccess;
 
     /**
+     * @description The total amount of network traffic. Unit: bytes.
+     *
+     * @example 564300099309
+     *
      * @var string
      */
     public $totalTraffic;

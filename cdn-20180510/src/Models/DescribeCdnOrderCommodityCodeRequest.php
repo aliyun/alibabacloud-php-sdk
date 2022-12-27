@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnOrderCommodityCodeRequest extends Model
 {
     /**
+     * @description The original commodity code.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $commodityCode;

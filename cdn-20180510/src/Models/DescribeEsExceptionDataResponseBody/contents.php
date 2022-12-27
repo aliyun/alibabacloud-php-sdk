@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class contents extends Model
 {
     /**
+     * @description The column names of the chart that shows the errors of the script and the time of each data entry.
+     *
      * @var string[]
      */
     public $columns;
 
     /**
+     * @description The name of the chart that shows the errors of the script.
+     *
+     * @example 401
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The value of each time and the column of each data entry.
+     *
      * @var string[]
      */
     public $points;

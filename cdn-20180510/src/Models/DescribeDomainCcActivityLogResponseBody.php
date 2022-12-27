@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainCcActivityLogResponseBody extends Model
 {
     /**
+     * @description The log entry of the event that triggered rate limiting.
+     *
      * @var activityLog[]
      */
     public $activityLog;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageIndex;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3C6CCEC4-6B88-4D4A-93E4-D47B3D92CF8F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $total;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class qpsModel extends Model
 {
     /**
+     * @description The number of queries per second.
+     *
+     * @example 1851.25
+     *
      * @var float
      */
     public $qps;
 
     /**
+     * @description The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2019-12-02T11:25:00Z
+     *
      * @var string
      */
     public $timeStamp;

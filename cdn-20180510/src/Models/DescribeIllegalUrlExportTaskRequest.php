@@ -14,6 +14,10 @@ class DescribeIllegalUrlExportTaskRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the task. You can call the [CreateIllegalUrlExportTask](~~156492~~) operation to query task IDs.
+     *
+     * @example tu_4b37ea97_a7fa_4d36_b363_061c1f****
+     *
      * @var string
      */
     public $taskId;

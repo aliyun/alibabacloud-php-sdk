@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class FCTriggers extends Model
 {
     /**
+     * @description The name of the event for which the Function Compute trigger is set.
+     *
+     * @example LogFileCreated
+     *
      * @var string
      */
     public $eventMetaName;
 
     /**
+     * @description The version of the event for which the Function Compute trigger is set.
+     *
+     * @example 1.0.0
+     *
      * @var string
      */
     public $eventMetaVersion;
 
     /**
+     * @description The remarks for the event.
+     *
+     * @example test
+     *
      * @var string
      */
     public $notes;
 
     /**
+     * @description The Resource Access Management (RAM) role.
+     *
+     * @example acs:ram:: 1234567890:role/aliyuncdneventnotificationrole
+     *
      * @var string
      */
     public $roleARN;
 
     /**
+     * @description The resources and filters for event listening.
+     *
+     * @example acs:cdn:*:1234567890:domain/example.com
+     *
      * @var string
      */
     public $sourceArn;
 
     /**
+     * @description The trigger corresponding to the Function Compute service.
+     *
+     * @example acs:fc:cn-beijing: 1234567890:services/FCTestService/functions/printEvent/triggers/testtrigger
+     *
      * @var string
      */
     public $triggerARN;

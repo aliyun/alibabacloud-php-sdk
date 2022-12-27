@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @description The bandwidth values of HTTPS requests.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $httpsValue;
 
     /**
+     * @description The timestamp of the data returned.
+     *
+     * @example 2019-12-10T20:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @description The bandwidth value.
+     *
+     * @example 500
+     *
      * @var string
      */
     public $value;

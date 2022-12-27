@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserVipsByDomainResponseBody extends Model
 {
     /**
+     * @description The domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 820E7900-5CA9-4AEF-B0DD-20ED5F64BE55
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description A list of virtual IP addresses.
+     *
      * @var vips
      */
     public $vips;

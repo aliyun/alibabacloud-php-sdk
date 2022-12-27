@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteSpecificConfigRequest extends Model
 {
     /**
+     * @description The configuration IDs. Separate configuration IDs with commas (,). For more information about ConfigId, see [Usage notes on ConfigId](~~388994~~).
+     *
+     * @example 2317
+     *
      * @var string
      */
     public $configId;
 
     /**
+     * @description The accelerated domain name. You can specify only one domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;

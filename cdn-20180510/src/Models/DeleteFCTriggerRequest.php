@@ -14,6 +14,10 @@ class DeleteFCTriggerRequest extends Model
     public $ownerId;
 
     /**
+     * @description The trigger that corresponds to the Function Compute service.
+     *
+     * @example acs:cdn:{RegionID}:{AccountID}:{Filter}
+     *
      * @var string
      */
     public $triggerARN;

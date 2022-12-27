@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateIllegalUrlExportTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 64D28B53-5902-409B-94F6-FD46680144FE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the export task. You can use task IDs to query tasks.
+     *
+     * @example tu_4b37ea97_a7fa_4d36_b363_061c1fxxxx
+     *
      * @var string
      */
     public $taskId;

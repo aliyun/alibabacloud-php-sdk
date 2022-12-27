@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @description The timestamp of the data returned.
+     *
+     * @example 2015-12-10T21:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @description The number of back-to-origin requests per second.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $value;

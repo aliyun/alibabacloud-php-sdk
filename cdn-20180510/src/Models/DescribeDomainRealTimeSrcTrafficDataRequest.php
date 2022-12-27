@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainRealTimeSrcTrafficDataRequest extends Model
 {
     /**
+     * @description You can specify multiple domain names and separate them with commas (,). You can specify at most 100 domain names in each call.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range to query.
+     *
+     * >  The end time must be later than the start time.
+     * @example 2019-12-10T20:01:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -24,6 +33,11 @@ class DescribeDomainRealTimeSrcTrafficDataRequest extends Model
     public $ownerId;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @example 2019-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;

@@ -14,6 +14,10 @@ class DeleteUserUsageDataExportTaskRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the export task that you want to delete.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $taskId;

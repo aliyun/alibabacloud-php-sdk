@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @description The amount of network traffic in the Chinese mainland.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $domesticValue;
 
     /**
+     * @description The amount of HTTPS network traffic on L1 edge nodes in the Chinese mainland.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $httpsDomesticValue;
 
     /**
+     * @description The amount of HTTPS network traffic on L1 edge nodes outside the Chinese mainland.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $httpsOverseasValue;
 
     /**
+     * @description The total amount of HTTPS network traffic on L1 edge nodes.
+     *
+     * @example 423304182
+     *
      * @var string
      */
     public $httpsValue;
 
     /**
+     * @description The amount of network traffic outside the Chinese mainland.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $overseasValue;
 
     /**
+     * @description The timestamp of the data returned.
+     *
+     * @example 2015-12-10T20:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @description The total amount of network traffic.
+     *
+     * @example 423304182
+     *
      * @var string
      */
     public $value;

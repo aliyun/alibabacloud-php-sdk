@@ -10,16 +10,33 @@ use AlibabaCloud\Tea\Model;
 class AddCdnDomainRequest extends Model
 {
     /**
+     * @description The workload type of the domain name. Valid values:
+     *
+     *   **web**: images and small files.
+     *   **download**: large files.
+     *   **video**: on-demand video and audio streaming.
+     *
+     * @example web
+     *
      * @var string
      */
     public $cdnType;
 
     /**
+     * @description The URL that is used for health checks.
+     *
+     * @example www.example.com/test.html
+     *
      * @var string
      */
     public $checkUrl;
 
     /**
+     * @description The domain names that you want to add to Alibaba Cloud CDN.
+     *
+     * Wildcard domain names are supported.A wildcard domain name must start with a period (.), such as .example.com.
+     * @example .example.com
+     *
      * @var string
      */
     public $domainName;
@@ -35,11 +52,25 @@ class AddCdnDomainRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * If you do not set this parameter, the system uses the ID of the default resource group.
+     * @example rg-acfmyuji4b6r4**
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The accelerated region. Valid values:
+     *
+     *   **domestic**: regions in mainland China.
+     *   **overseas**: regions outside mainland China.
+     *   **global**: regions inside and outside mainland China.
+     *
+     * Default value: **domestic**.
+     * @example domestic
+     *
      * @var string
      */
     public $scope;
@@ -50,16 +81,26 @@ class AddCdnDomainRequest extends Model
     public $securityToken;
 
     /**
+     * @description The information about the origin address.
+     *
+     * @example [{"content":"10.10.10.10","type":"ipaddr","priority":"20","port":80,"weight":"15"}]
+     *
      * @var string
      */
     public $sources;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The top-level domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $topLevelDomain;

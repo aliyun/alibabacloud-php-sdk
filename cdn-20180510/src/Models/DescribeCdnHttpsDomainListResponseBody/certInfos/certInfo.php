@@ -9,41 +9,82 @@ use AlibabaCloud\Tea\Model;
 class certInfo extends Model
 {
     /**
+     * @description The Common Name on the SSL certificate.
+     *
+     * @example example.org
+     *
      * @var string
      */
     public $certCommonName;
 
     /**
+     * @description The time when the SSL certificate expires.
+     *
+     * @example 2018-12-26 14:45:09
+     *
      * @var string
      */
     public $certExpireTime;
 
     /**
+     * @description The name of the SSL certificate.
+     *
+     * @example test
+     *
      * @var string
      */
     public $certName;
 
     /**
+     * @description The time when the SSL certificate became effective.
+     *
+     * @example 2018-11-26 14:45:09
+     *
      * @var string
      */
     public $certStartTime;
 
     /**
+     * @description The status of the SSL certificate. Valid values:
+     *
+     *   **ok**: The SSL certificate is working as expected.
+     *   **mismatch**: The SSL certificate does not match the specified domain name.
+     *   **expired**: The SSL certificate has expired.
+     *   **expire_soon**: The SSL certificate will expire soon.
+     *
+     * @example mismatch
+     *
      * @var string
      */
     public $certStatus;
 
     /**
+     * @description The type of the SSL certificate. Valid values:
+     *
+     *   **free**: a free SSL certificate.
+     *   **cas**: an SSL certificate purchased from Alibaba Cloud SSL Certificates Service.
+     *   **upload**: a user uploaded certificate.
+     *
+     * @example free
+     *
      * @var string
      */
     public $certType;
 
     /**
+     * @description The time when the certificate was renewed.
+     *
+     * @example 2019-01-08 18:33:16
+     *
      * @var string
      */
     public $certUpdateTime;
 
     /**
+     * @description The accelerated domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;

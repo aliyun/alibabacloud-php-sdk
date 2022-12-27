@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnReportListResponseBody extends Model
 {
     /**
+     * @description The information about the operations report.
+     *
+     * @example "data":[{"reportId":1,"deliver":{"report":{"title":"DomainPvUv","format":"chart","shape":"line","xAxis":"ds","yAxis":"cnt","legend":"cnt_type","header":["ds","cnt_type","cnt"]}}}
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
+     *
      * @var string
      */
     public $requestId;

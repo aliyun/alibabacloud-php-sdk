@@ -11,21 +11,33 @@ use AlibabaCloud\Tea\Model;
 class domainLogDetail extends Model
 {
     /**
+     * @description The accelerated domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The total number of entries returned on the current page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $logCount;
 
     /**
+     * @description The detailed log information, which is indicated by the LogInfoDetail parameter.
+     *
      * @var logInfos
      */
     public $logInfos;
 
     /**
+     * @description The detailed log information, which is indicated by the PageInfoDetail parameter.
+     *
      * @var pageInfos
      */
     public $pageInfos;

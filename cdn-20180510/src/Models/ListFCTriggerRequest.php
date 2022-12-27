@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListFCTriggerRequest extends Model
 {
     /**
+     * @description The name of the event for which the Function Compute trigger is set. You can specify only one name.
+     *
+     * @example LogFileCreated
+     *
      * @var string
      */
     public $eventMetaName;
 
     /**
+     * @description The version number of the event. You can specify only one version number.
+     *
+     * @example 1.0.0
+     *
      * @var string
      */
     public $eventMetaVersion;

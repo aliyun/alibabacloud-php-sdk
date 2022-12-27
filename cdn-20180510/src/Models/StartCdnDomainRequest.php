@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class StartCdnDomainRequest extends Model
 {
     /**
+     * @description The domain name that you want to enable. You can specify only one domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;

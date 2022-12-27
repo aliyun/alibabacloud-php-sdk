@@ -9,21 +9,42 @@ use AlibabaCloud\Tea\Model;
 class CreateUsageDetailDataExportTaskRequest extends Model
 {
     /**
+     * @description The accelerated domain names based on which the resource usage details are generated. If you do not specify a domain name group, resource usage details are exported based on this parameter.
+     *
+     * If you do not set this parameter, resource usage details are exported based on user accounts.
+     * @example example.com
+     *
      * @var string
      */
     public $domainNames;
 
     /**
+     * @description The end of the time range to query.
+     *
+     * >  The end time must be later than the start time.
+     * @example 2019-12-10T21:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The group of accelerated domain names based on which the resource usage details are generated. If you set this parameter, ignore the **DomainNames** parameter.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description The language of the exported file. Valid values:
+     *
+     *   **zh-cn**: Chinese. This is the default value.
+     *   **en-us**: English
+     *
+     * @example en-us
+     *
      * @var string
      */
     public $language;
@@ -34,16 +55,32 @@ class CreateUsageDetailDataExportTaskRequest extends Model
     public $ownerId;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+     * @example 2019-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The name of the task.
+     *
+     * @example refresh
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The type of content based on which the data is generated. Valid values:
+     *
+     *   **flow**: network traffic and bandwidth
+     *   **vas**: requests
+     *
+     * @example flow
+     *
      * @var string
      */
     public $type;

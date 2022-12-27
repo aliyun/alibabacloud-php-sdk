@@ -14,6 +14,11 @@ class DescribeRefreshTaskByIdRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the task that you want to query.
+     *
+     * You can specify up to 10 task IDs. Separate task IDs with commas (,).
+     * @example 12345678
+     *
      * @var string
      */
     public $taskId;

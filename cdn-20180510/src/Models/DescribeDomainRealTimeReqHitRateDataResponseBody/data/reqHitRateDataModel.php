@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class reqHitRateDataModel extends Model
 {
     /**
+     * @description The request hit ratio.
+     *
+     * @example 0.8956940476262277
+     *
      * @var float
      */
     public $reqHitRate;
 
     /**
+     * @description The timestamp. The time follows the ISO 8601 standard. The time is displayed in UTC.
+     *
+     * @example 2018-01-02T11:26:00Z
+     *
      * @var string
      */
     public $timeStamp;

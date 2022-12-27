@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainTopUrlVisitRequest extends Model
 {
     /**
+     * @description The accelerated domain name for which you want to query data. If you do not set this parameter, frequently requested URLs of all accelerated domain names of your Alibaba Cloud account are queried.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range to query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * >  The end time must be later than the start time. The difference between the end time and the start time cannot exceed seven days.
+     * @example 2019-10-04T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -24,11 +33,23 @@ class DescribeDomainTopUrlVisitRequest extends Model
     public $ownerId;
 
     /**
+     * @description The method that is used to sort the returned URLs.**** Valid values:
+     *
+     *   **traf**: network traffic
+     *   **pv**: by the number of page views. This is the default value.
+     *
+     * @example pv
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @description The start of the time range to query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * If you want to query data within a specific day, we recommend that you set the value in the yyyy-MM-ddT16:00:00Z format.
+     * @example 2019-10-04T00:00:00Z
+     *
      * @var string
      */
     public $startTime;

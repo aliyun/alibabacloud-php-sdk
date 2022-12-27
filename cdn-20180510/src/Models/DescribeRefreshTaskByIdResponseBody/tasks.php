@@ -9,36 +9,78 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
+     * @description The time when the task was created. The time is displayed in UTC.
+     *
+     * @example 2020-08-03T08:54:23Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The error returned when the refresh or prefetch task failed. Valid values:
+     *
+     *   **Internal Error**: An internal error occurred.
+     *   **Origin Timeout**: The response from the origin server timed out.
+     *   **Origin Return StatusCode 5XX**: The origin server returned a 5XX error.
+     *
+     * @example Internal Error
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The path of the object refreshed by the refresh task.
+     *
+     * @example http://example.com/abc.jpg
+     *
      * @var string
      */
     public $objectPath;
 
     /**
+     * @description The type of the task. Valid values:
+     *
+     *   **file**: refreshes an individual file.
+     *   **directory**: refreshes files under the specified directory.
+     *   **preload**: prefetches an individual file.
+     *   **regex**: refreshes content based on a regular expression.
+     *
+     * @example file
+     *
      * @var string
      */
     public $objectType;
 
     /**
+     * @description The progress of the task, in percentage.
+     *
+     * @example 100%
+     *
      * @var string
      */
     public $process;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   **Complete**: The task is complete.
+     *   **Pending**: The task is pending.
+     *   **Refreshing**: The task is running.
+     *   **Failed**: The task failed.
+     *
+     * @example Complete
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 24840
+     *
      * @var string
      */
     public $taskId;

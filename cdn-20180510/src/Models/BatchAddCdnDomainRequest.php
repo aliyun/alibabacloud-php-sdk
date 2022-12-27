@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class BatchAddCdnDomainRequest extends Model
 {
     /**
+     * @description The workload type of the domain name to be accelerated. Valid values:
+     *
+     *   **web**: images and small files.
+     *   **download**: large files.
+     *   **video**: on-demand video and audio streaming.
+     *
+     * @example web
+     *
      * @var string
      */
     public $cdnType;
 
     /**
+     * @description The URL that is used for health checks.
+     *
+     * @example url
+     *
      * @var string
      */
     public $checkUrl;
 
     /**
+     * @description The domain names that you want to add to Alibaba Cloud CDN. Separate domain names with commas (,).
+     *
+     * @example example.com,aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
@@ -34,11 +50,23 @@ class BatchAddCdnDomainRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group. If you do not set this parameter, the system uses the ID of the default resource group.
+     *
+     * @example rg-acfmyuji4b6r4**
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The accelerated region. Valid values:
+     *
+     *   **domestic**: mainland China only
+     *   **overseas**: global (excluding mainland China)
+     *   **global**: global
+     *
+     * @example domestic
+     *
      * @var string
      */
     public $scope;
@@ -49,11 +77,19 @@ class BatchAddCdnDomainRequest extends Model
     public $securityToken;
 
     /**
+     * @description The information about the addresses of the origin servers.
+     *
+     * @example [{"content":"1.1.1.1","type":"ipaddr","priority":"20","port":80,"weight":"15"}]
+     *
      * @var string
      */
     public $sources;
 
     /**
+     * @description The top-level domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $topLevelDomain;

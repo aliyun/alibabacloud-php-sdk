@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class domainConfigModel extends Model
 {
     /**
+     * @description The ID of the configuration.
+     *
+     * @example 1234567
+     *
      * @var int
      */
     public $configId;
 
     /**
+     * @description The domain name.
+     *
+     * @example www.example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The name of the feature.
+     *
+     * @example set_resp_header
+     *
      * @var string
      */
     public $functionName;

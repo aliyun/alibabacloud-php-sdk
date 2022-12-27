@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnDomainLogsResponseBody extends Model
 {
     /**
+     * @description The detailed log information, which is indicated by the DomainLogDetail parameter.
+     *
      * @var domainLogDetails
      */
     public $domainLogDetails;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+     *
      * @var string
      */
     public $requestId;

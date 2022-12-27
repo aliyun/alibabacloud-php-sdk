@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeTopDomainsByFlowResponseBody extends Model
 {
     /**
+     * @description The total number of accelerated domain names that belong to the current Alibaba Cloud account.
+     *
+     * @example 68
+     *
      * @var int
      */
     public $domainCount;
 
     /**
+     * @description The total number of accelerated domain names that are in the **Enabled** state within the current Alibaba Cloud account.
+     *
+     * @example 68
+     *
      * @var int
      */
     public $domainOnlineCount;
 
     /**
+     * @description The end of the time range during which data was queried.
+     *
+     * @example 2019-12-23T08:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4E09C5D7-E1CF-4CAA-A45E-8727F4C8FD70
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range during which data was queried.
+     *
+     * @example 2019-12-22T08:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The top N domain names ranked by network traffic.
+     *
      * @var topDomains
      */
     public $topDomains;

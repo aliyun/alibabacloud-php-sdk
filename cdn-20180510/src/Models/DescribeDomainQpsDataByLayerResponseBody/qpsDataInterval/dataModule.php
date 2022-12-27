@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @description The number of requests in the Chinese mainland.
+     *
+     * @example 12
+     *
      * @var string
      */
     public $accDomesticValue;
 
     /**
+     * @description The number of requests in the Chinese mainland.
+     *
+     * @example 44
+     *
      * @var string
      */
     public $accOverseasValue;
 
     /**
+     * @description The total number of requests.
+     *
+     * @example 56
+     *
      * @var string
      */
     public $accValue;
 
     /**
+     * @description The number of queries per second in the Chinese mainland.
+     *
+     * @example 0.12
+     *
      * @var string
      */
     public $domesticValue;
 
     /**
+     * @description The number of queries per second outside the Chinese mainland.
+     *
+     * @example 0.44
+     *
      * @var string
      */
     public $overseasValue;
 
     /**
+     * @description The timestamp of the data returned.
+     *
+     * @example 2015-12-10T21:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @description The total number of queries per second in all regions.
+     *
+     * @example 0.56
+     *
      * @var string
      */
     public $value;

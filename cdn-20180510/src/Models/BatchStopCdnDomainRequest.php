@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class BatchStopCdnDomainRequest extends Model
 {
     /**
+     * @description You can specify one or more domain names and separate them with commas (,).
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainNames;

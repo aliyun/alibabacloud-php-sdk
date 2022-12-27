@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class ipStatus extends Model
 {
     /**
+     * @description The IP address of the node.
+     *
+     * @example 10.10.10.10
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The status. Valid values:
+     *
+     *   **nonali**: The node is not an Alibaba Cloud CDN edge node.
+     *   **normal**: The node is an available Alibaba Cloud CDN edge node.
+     *   **abnormal**: The node is an unavailable Alibaba Cloud CDN edge node.
+     *
+     * @example abnormal
+     *
      * @var string
      */
     public $status;

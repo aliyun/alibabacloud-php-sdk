@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnUserQuotaResponseBody extends Model
 {
     /**
+     * @description The maximum number of URLs and directories that can be blocked.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $blockQuota;
 
     /**
+     * @description The remaining number of URLs and directories that can be blocked.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $blockRemain;
 
     /**
+     * @description The maximum number of accelerated domain names that can be added to Alibaba Cloud CDN.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $domainQuota;
 
     /**
+     * @description The maximum number of URLs that can be prefetched.
+     *
+     * @example 500
+     *
      * @var int
      */
     public $preloadQuota;
 
     /**
+     * @description The remaining number of URLs that can be prefetched.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $preloadRemain;
 
     /**
+     * @description The maximum number of directories that can be refreshed.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $refreshDirQuota;
 
     /**
+     * @description The remaining number of directories that can be refreshed.
+     *
+     * @example 500
+     *
      * @var int
      */
     public $refreshDirRemain;
 
     /**
+     * @description The maximum number of URLs that can be refreshed.
+     *
+     * @example 2000
+     *
      * @var int
      */
     public $refreshUrlQuota;
 
     /**
+     * @description The remaining number of URLs that can be refreshed.
+     *
+     * @example 2000
+     *
      * @var int
      */
     public $refreshUrlRemain;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example EF4F084A-2F49-4E1C-9CA0-DC85BCE7F391
+     *
      * @var string
      */
     public $requestId;

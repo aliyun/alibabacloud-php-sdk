@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class OpenCdnServiceRequest extends Model
 {
     /**
+     * @description The metering method of Alibaba Cloud CDN. A value of **PayByTraffic** indicates that the metering method is pay-by-data-transfer.
+     *
+     * @example PayByTraffic
+     *
      * @var string
      */
     public $internetChargeType;

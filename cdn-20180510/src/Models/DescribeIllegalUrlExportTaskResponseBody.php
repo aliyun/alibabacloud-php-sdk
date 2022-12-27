@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeIllegalUrlExportTaskResponseBody extends Model
 {
     /**
+     * @description The URL where you can download the file that contains invalid URLs. This parameter is valid only if the export task is successful.
+     *
+     * @example example.com/example_task.csv
+     *
      * @var string
      */
     public $downloadUrl;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 64D28B53-5902-409B-94F6-FD46680144FE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status of the export task. A value of **complete** indicates that the task is successful.
+     *
+     * @example complete
+     *
      * @var string
      */
     public $status;

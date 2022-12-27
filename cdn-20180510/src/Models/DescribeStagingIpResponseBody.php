@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeStagingIpResponseBody extends Model
 {
     /**
+     * @description The IPv4 addresses of the nodes.
+     *
      * @var IPV4s
      */
     public $IPV4s;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1B9E0E83-24AC-49F4-9EE0-BF5EB03E8381
+     *
      * @var string
      */
     public $requestId;

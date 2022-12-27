@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeVerifyContentRequest extends Model
 {
     /**
+     * @description The domain name of which the ownership was verified. You can specify only one domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;

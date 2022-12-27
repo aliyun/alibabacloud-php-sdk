@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class VerifyDomainOwnerResponseBody extends Model
 {
     /**
+     * @description The verification result.
+     *
+     * >  This parameter is returned if the operation fails. The verification result is returned if the operation succeeds.
+     * @example verify_dffeb6610035dcb77b413a59c32c****
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 34AB41F1-04A5-496F-8C8D-634BDBE6A9FB
+     *
      * @var string
      */
     public $requestId;

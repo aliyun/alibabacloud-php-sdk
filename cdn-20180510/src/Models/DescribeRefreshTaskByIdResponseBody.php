@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeRefreshTaskByIdResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example E0C2EF95-B1EC-4C93-855E-2059A7DA2B7B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The tasks.
+     *
      * @var tasks[]
      */
     public $tasks;
 
     /**
+     * @description The total number of tasks.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

@@ -10,66 +10,136 @@ use AlibabaCloud\Tea\Model;
 class pageData extends Model
 {
     /**
+     * @description The type of workload accelerated by Alibaba Cloud CDN. Valid values:
+     *
+     *   **web**: images and small files
+     *   **download**: large files
+     *   **video**: on-demand video and audio streaming
+     *
+     * @example download
+     *
      * @var string
      */
     public $cdnType;
 
     /**
+     * @description The CNAME assigned to the accelerated domain name.
+     *
+     * @example example.com.w.alikunlun.net
+     *
      * @var string
      */
     public $cname;
 
     /**
+     * @description The acceleration region. Valid values:
+     *
+     *   **domestic**: Chinese mainland
+     *   **global**
+     *   **overseas**: global (excluding the Chinese mainland)
+     *
+     * @example domestic
+     *
      * @var string
      */
     public $coverage;
 
     /**
+     * @description The information about the Internet Content Provider (ICP) number.
+     *
+     * @example filing description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the accelerated domain name.
+     *
+     * @example 11223344
+     *
      * @var int
      */
     public $domainId;
 
     /**
+     * @description The accelerated domain names.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The status of the accelerated domain name. Valid values:
+     *
+     *   **online**: enabled
+     *   **offline**: disabled
+     *   **configuring**: being configured
+     *   **configure_failed**: failed to be configured
+     *   **checking**: under review
+     *   **check_failed**: failed the review
+     *   **stopping**: being disabled
+     *   **deleting**: deleting
+     *
+     * @example configure_failed
+     *
      * @var string
      */
     public $domainStatus;
 
     /**
+     * @description The time when the accelerated domain name was added to Alibaba Cloud CDN.
+     *
+     * @example 2015-10-28T09:32:51Z
+     *
      * @var string
      */
     public $gmtCreated;
 
     /**
+     * @description The time when the accelerated domain name was last modified.
+     *
+     * @example 2015-10-28T11:05:52Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example abcd1234abcd1234
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description Indicates whether the accelerated domain name is in a sandbox.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $sandbox;
 
     /**
+     * @description The information about the origin server.
+     *
      * @var sources
      */
     public $sources;
 
     /**
+     * @description Indicates whether HTTPS is enabled. Valid values:
+     *
+     *   **on**: enabled
+     *   **off**: disabled
+     *
+     * @example on
+     *
      * @var string
      */
     public $sslProtocol;

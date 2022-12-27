@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainAverageResponseTimeResponseBody extends Model
 {
     /**
+     * @description The average response time collected at each time interval.
+     *
      * @var avgRTPerInterval
      */
     public $avgRTPerInterval;
 
     /**
+     * @description The time interval between the data entries returned.
+     *
+     * @example 300
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The accelerated domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range during which data was queried.
+     *
+     * @example 2019-11-30T05:40:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3C6CCEC4-6B88-4D4A-93E4-D47B3D92CF8F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range during which data was queried.
+     *
+     * @example 2019-11-30T05:33:00Z
+     *
      * @var string
      */
     public $startTime;

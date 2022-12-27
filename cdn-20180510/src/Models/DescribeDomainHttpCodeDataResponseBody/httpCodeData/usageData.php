@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class usageData extends Model
 {
     /**
+     * @description The timestamp of the data returned.
+     *
+     * @example 2021-06-29T05:40:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @description The proportions of HTTP status codes.
+     *
      * @var value
      */
     public $value;

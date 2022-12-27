@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class accData extends Model
 {
     /**
+     * @description The number of failed attempts to deliver log data to Log Service.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $failedNum;
 
     /**
+     * @description The number of successful deliveries of log data to Log Service.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $successNum;
 
     /**
+     * @description The timestamp of the data.
+     *
+     * @example 2018-09-03T06:00:00Z
+     *
      * @var string
      */
     public $timeStamp;

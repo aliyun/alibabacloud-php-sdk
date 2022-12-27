@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnDomainByCertificateResponseBody extends Model
 {
     /**
+     * @description The information about the SSL certificate.
+     *
      * @var certInfos
      */
     public $certInfos;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example ASAF2FDS-12SADSA-DDSAE3D-DSADCD4C-CDADS2D
+     *
      * @var string
      */
     public $requestId;

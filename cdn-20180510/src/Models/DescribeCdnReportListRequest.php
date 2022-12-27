@@ -14,6 +14,10 @@ class DescribeCdnReportListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the operations report that you want to query. If you do not specify an ID, all operations reports are queried.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $reportId;

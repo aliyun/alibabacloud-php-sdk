@@ -10,41 +10,71 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainPathDataResponseBody extends Model
 {
     /**
+     * @description The time interval between the data entries. Unit: seconds.
+     *
+     * @example 300
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The accelerated domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range that was queried.
+     *
+     * @example 2017-09-30T17:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The page number of the returned page. Pages start from page **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description A list of bandwidth values collected at each time interval.
+     *
      * @var pathDataPerInterval
      */
     public $pathDataPerInterval;
 
     /**
+     * @description The start of the time range that was queried.
+     *
+     * @example 2017-09-30T16:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The total count.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

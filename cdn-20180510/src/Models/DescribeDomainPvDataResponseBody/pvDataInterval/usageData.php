@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class usageData extends Model
 {
     /**
+     * @description The timestamp of the returned data.
+     *
+     * @example 2015-11-28T03:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @description The number of PVs.
+     *
+     * @example 9292
+     *
      * @var string
      */
     public $value;

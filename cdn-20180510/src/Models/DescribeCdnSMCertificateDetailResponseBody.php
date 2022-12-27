@@ -9,46 +9,82 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnSMCertificateDetailResponseBody extends Model
 {
     /**
+     * @description The time when the certificate expires. The time is displayed in UTC.
+     *
+     * @example 2022-08-31T09:42:28Z
+     *
      * @var string
      */
     public $certExpireTime;
 
     /**
+     * @description The ID of the certificate.
+     *
+     * @example 648****-cn-hangzhou
+     *
      * @var string
      */
     public $certIdentifier;
 
     /**
+     * @description The name of the certificate.
+     *
+     * @example yourCertName
+     *
      * @var string
      */
     public $certName;
 
     /**
+     * @description The certificate authority (CA) that issued the certificate.
+     *
+     * @example DigiCert Inc
+     *
      * @var string
      */
     public $certOrg;
 
     /**
+     * @description The top-level domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $commonName;
 
     /**
+     * @description The content of the encryption certificate.
+     *
+     * @example -BEGIN CERTIFICATE-----***-----END CERTIFICATE--
+     *
      * @var string
      */
     public $encryptCertificate;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A7C69682-7F88-40DD-A198-10D0309E439D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The subdomain name.
+     *
+     * @example ***.example.com
+     *
      * @var string
      */
     public $sans;
 
     /**
+     * @description The content of the signature certificate.
+     *
+     * @example --BEGIN CERTIFICATE-----***-----END CERTIFICATE--
+     *
      * @var string
      */
     public $signCertificate;

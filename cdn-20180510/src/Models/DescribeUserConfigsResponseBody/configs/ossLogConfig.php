@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ossLogConfig extends Model
 {
     /**
+     * @example Buckettest
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @example off
+     *
      * @var string
      */
     public $enable;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $prefix;

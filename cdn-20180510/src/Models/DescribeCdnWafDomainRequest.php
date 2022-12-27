@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnWafDomainRequest extends Model
 {
     /**
+     * @description The accelerated domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -19,11 +23,19 @@ class DescribeCdnWafDomainRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example 1234
+     *
      * @var string
      */
     public $resourceGroupId;

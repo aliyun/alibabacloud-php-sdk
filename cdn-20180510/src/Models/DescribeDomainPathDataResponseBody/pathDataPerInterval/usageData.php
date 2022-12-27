@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class usageData extends Model
 {
     /**
+     * @description The number of visits to the specified path.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $acc;
 
     /**
+     * @description The path.
+     *
+     * @example /path/
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @description The point in time.
+     *
+     * @example 2017-09-30T16:00:00Z
+     *
      * @var string
      */
     public $time;
 
     /**
+     * @description The amount of network traffic. Unit: bytes.
+     *
+     * @example 346
+     *
      * @var int
      */
     public $traffic;

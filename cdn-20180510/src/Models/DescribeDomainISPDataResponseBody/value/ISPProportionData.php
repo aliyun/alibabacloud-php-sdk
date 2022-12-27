@@ -9,61 +9,109 @@ use AlibabaCloud\Tea\Model;
 class ISPProportionData extends Model
 {
     /**
+     * @description The average response size. Unit: bytes.
+     *
+     * @example 7081884.7
+     *
      * @var string
      */
     public $avgObjectSize;
 
     /**
+     * @description The average response speed. Unit: byte/ms.
+     *
+     * @example 88.92594866772144
+     *
      * @var string
      */
     public $avgResponseRate;
 
     /**
+     * @description The average response time. Unit: milliseconds.
+     *
+     * @example 79638.0
+     *
      * @var string
      */
     public $avgResponseTime;
 
     /**
+     * @description The bandwidth value.
+     *
+     * @example 1311.4601296296296
+     *
      * @var string
      */
     public $bps;
 
     /**
+     * @description The proportion of network traffic.
+     *
+     * @example 0.012220518530445479
+     *
      * @var string
      */
     public $bytesProportion;
 
     /**
+     * @description The information about the ISP.
+     *
+     * @example chinanet
+     *
      * @var string
      */
     public $ISP;
 
     /**
+     * @description The name of the ISP.
+     *
+     * @example alibaba
+     *
      * @var string
      */
     public $ispEname;
 
     /**
+     * @description The proportion of the HTTP status code.
+     *
+     * @example 0.004509176173513099
+     *
      * @var string
      */
     public $proportion;
 
     /**
+     * @description The number of queries per second.
+     *
+     * @example 2.3148148148148147E-5
+     *
      * @var string
      */
     public $qps;
 
     /**
+     * @description The request error rate.
+     *
+     * @example 0.0
+     *
      * @var string
      */
     public $reqErrRate;
 
     /**
+     * @description The total amount of network traffic.
+     *
+     * @example 7081884
+     *
      * @var string
      */
     public $totalBytes;
 
     /**
+     * @description The total number of requests.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $totalQuery;

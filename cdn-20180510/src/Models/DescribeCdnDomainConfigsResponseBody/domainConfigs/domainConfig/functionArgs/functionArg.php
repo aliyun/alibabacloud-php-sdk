@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class functionArg extends Model
 {
     /**
+     * @description The parameter name, which is the configuration item of **functionName**. You can configure multiple configuration items.
+     *
+     * @example auth_type
+     *
      * @var string
      */
     public $argName;
 
     /**
+     * @description The parameter value, which is the value of the configuration item of **functionName**.
+     *
+     * @example req_auth
+     *
      * @var string
      */
     public $argValue;

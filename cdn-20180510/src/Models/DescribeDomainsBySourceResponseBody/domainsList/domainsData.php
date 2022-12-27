@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class domainsData extends Model
 {
     /**
+     * @description The detailed information about the domain name. The data is indicated by the domainInfo parameter. Data type: array.
+     *
      * @var domainInfos
      */
     public $domainInfos;
 
     /**
+     * @description The domain names that correspond to each origin server. The domain name is indicated by the domainNames parameter.
+     *
      * @var domains
      */
     public $domains;
 
     /**
+     * @description An origin server.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $source;

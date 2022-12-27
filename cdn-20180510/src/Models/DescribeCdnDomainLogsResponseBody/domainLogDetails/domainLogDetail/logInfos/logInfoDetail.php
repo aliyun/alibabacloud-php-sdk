@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class logInfoDetail extends Model
 {
     /**
+     * @description The end of the time range where the QPS data was queried.
+     *
+     * @example 2015-05-23T14:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The name of the log file.
+     *
+     * @example demo.aliyundoc.com_2015_05_23_2100_2200.gz
+     *
      * @var string
      */
     public $logName;
 
     /**
+     * @description The path of the log file.
+     *
+     * @example guide.aliyundoc.com-hangzhou.xxx
+     *
      * @var string
      */
     public $logPath;
 
     /**
+     * @description The size of the log file.
+     *
+     * @example 258
+     *
      * @var int
      */
     public $logSize;
 
     /**
+     * @description The start of the time range that was queried.
+     *
+     * @example 2015-05-23T13:00:00Z
+     *
      * @var string
      */
     public $startTime;

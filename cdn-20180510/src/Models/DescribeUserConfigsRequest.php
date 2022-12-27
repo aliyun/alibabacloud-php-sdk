@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserConfigsRequest extends Model
 {
     /**
+     * @example oss
+     *
      * @var string
      */
     public $config;

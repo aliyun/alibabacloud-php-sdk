@@ -14,6 +14,10 @@ class DeleteUsageDetailDataExportTaskRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the task. You can call the [DescribeUserUsageDataExportTask](~~91062~~) operation to query the most recent task list.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $taskId;

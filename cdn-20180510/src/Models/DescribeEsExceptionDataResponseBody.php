@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeEsExceptionDataResponseBody extends Model
 {
     /**
+     * @description The content of the script.
+     *
      * @var contents[]
      */
     public $contents;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 99D61AB3-6164-4CF2-A0DE-129C9B07618B
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserVipsByDomainRequest extends Model
 {
     /**
+     * @description Specifies whether to query the virtual IP addresses of only healthy CDN edge nodes. Valid values: Valid values:
+     *
+     *   **on**: healthy CDN edge nodes
+     *   **off**: all CDN edge nodes
+     *
+     * @example on
+     *
      * @var string
      */
     public $available;
 
     /**
+     * @description The accelerated domain name. You can specify only one domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;

@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpInfoResponseBody extends Model
 {
     /**
+     * @description Indicates whether the specified IP address is assigned to an Alibaba Cloud CDN node.
+     *
+     *   **True**: Yes
+     *   **False**: No
+     *
+     * @example True
+     *
      * @var string
      */
     public $cdnIp;
 
     /**
+     * @description The Chinese name of the Internet service provider (ISP).
+     *
+     * @example 电信
+     *
      * @var string
      */
     public $ISP;
 
     /**
+     * @description The English name of the ISP.
+     *
+     * @example telecom
+     *
      * @var string
      */
     public $ispEname;
 
     /**
+     * @description The Chinese name of the region.
+     *
+     * @example 中国-贵州省-贵阳市
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The English name of the region.
+     *
+     * @example China-Guizhou-guiyang
+     *
      * @var string
      */
     public $regionEname;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 123847FA-9A00-4426-83B8-B4B45D475930
+     *
      * @var string
      */
     public $requestId;

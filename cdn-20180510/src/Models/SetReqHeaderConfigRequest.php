@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class SetReqHeaderConfigRequest extends Model
 {
     /**
+     * @description The ID of the configuration.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $configId;
 
     /**
+     * @description The accelerated domain names. You can specify one or more domain names and separate them with commas (,).
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The parameter of the custom header.
+     *
+     * @example testkey
+     *
      * @var string
      */
     public $key;
@@ -34,6 +46,10 @@ class SetReqHeaderConfigRequest extends Model
     public $securityToken;
 
     /**
+     * @description The value of the custom parameter.
+     *
+     * @example testvalue
+     *
      * @var string
      */
     public $value;

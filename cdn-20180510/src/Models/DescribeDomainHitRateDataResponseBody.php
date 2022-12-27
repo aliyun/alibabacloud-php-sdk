@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainHitRateDataResponseBody extends Model
 {
     /**
+     * @description The time interval between the data entries returned. Unit: seconds.
+     *
+     * @example 300
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The accelerated domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range that was queried.
+     *
+     * @example 2019-12-30T08:10:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The byte hit ratio at each time interval. The byte hit ratio is measured in percentage.
+     *
      * @var hitRateInterval
      */
     public $hitRateInterval;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range that was queried.
+     *
+     * @example 2019-12-30T08:00:00Z
+     *
      * @var string
      */
     public $startTime;

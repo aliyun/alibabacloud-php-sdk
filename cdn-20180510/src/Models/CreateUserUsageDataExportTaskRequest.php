@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class CreateUserUsageDataExportTaskRequest extends Model
 {
     /**
+     * @description The end of the time range to query. The end time must be later than the start time.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+     * @example 2015-12-10T21:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The language of the exported file.
+     *
+     *   **zh-cn**: Chinese. This is the default value.
+     *   **en-us**: English.
+     *
+     * @example zh-cn
+     *
      * @var string
      */
     public $language;
@@ -24,11 +36,20 @@ class CreateUserUsageDataExportTaskRequest extends Model
     public $ownerId;
 
     /**
+     * @description The start of the time range to query. The time interval at which the specified data is collected is five minutes.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+     * @example 2015-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The name of the task.
+     *
+     * @example refresh
+     *
      * @var string
      */
     public $taskName;

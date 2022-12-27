@@ -10,26 +10,50 @@ use AlibabaCloud\Tea\Model;
 class domainConfig extends Model
 {
     /**
+     * @description The ID of the configuration.
+     *
+     * @example 6295
+     *
      * @var string
      */
     public $configId;
 
     /**
+     * @description The configuration of each feature.
+     *
      * @var functionArgs
      */
     public $functionArgs;
 
     /**
+     * @description The name of the feature.
+     *
+     * @example aliauth
+     *
      * @var string
      */
     public $functionName;
 
     /**
+     * @description The ID of the rule condition. This parameter is optional. To create a rule condition, you can configure the **condition** feature that is described in the [BatchSetCdnDomainConfig and SetCdnDomainStagingConfig](~~388460~~) topic. A rule condition can identify parameters that are included in requests and filter requests based on the identified parameters. Each rule condition has a [ConfigId](~~388994~~). You can use ConfigId as ParentId that is referenced by other features. This way, you can combine rule conditions and features for flexible configurations.
+     *
+     * For more information, see [BatchSetCdnDomainConfig](~~90915~~) or ParentId configuration example in this topic.
+     * @example 222728944812032
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @description The status of the configuration. Valid values:
+     *
+     *   **success**
+     *   **testing**
+     *   **failed**
+     *   **configuring**
+     *
+     * @example success
+     *
      * @var string
      */
     public $status;

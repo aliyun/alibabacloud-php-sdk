@@ -9,66 +9,118 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @description The number of requests in the Chinese mainland.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $accDomesticValue;
 
     /**
+     * @description The number of requests outside the Chinese mainland.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $accOverseasValue;
 
     /**
+     * @description The total number of requests.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $accValue;
 
     /**
+     * @description The number of queries per second in the Chinese mainland.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $domesticValue;
 
     /**
+     * @description The number of HTTPS requests sent to L1 edge nodes in the Chinese mainland.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $httpsAccDomesticValue;
 
     /**
+     * @description The number of HTTPS requests sent to L1 edge nodes outside the Chinese mainland.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $httpsAccOverseasValue;
 
     /**
+     * @description The total number of HTTPS requests sent to L1 edge nodes.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $httpsAccValue;
 
     /**
+     * @description The number of queries per second that is calculated based on the HTTPS requests sent to L1 edge nodes in the Chinese mainland.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $httpsDomesticValue;
 
     /**
+     * @description The number of queries per second that is calculated based on the HTTPS requests sent to L1 edge nodes outside the Chinese mainland.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $httpsOverseasValue;
 
     /**
+     * @description The number of queries per second that is calculated based on the HTTPS requests sent to L1 edge nodes.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $httpsValue;
 
     /**
+     * @description The number of queries per second outside the Chinese mainland.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $overseasValue;
 
     /**
+     * @description The timestamp of the data returned.
+     *
+     * @example 2019-11-30T05:40:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @description The total number of queries per second.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $value;

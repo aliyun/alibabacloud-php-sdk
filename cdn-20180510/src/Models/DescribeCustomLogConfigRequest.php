@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomLogConfigRequest extends Model
 {
     /**
+     * @description The ID of the custom configuration.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $configId;

@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainUvDataResponseBody extends Model
 {
     /**
+     * @description The time interval between the data entries. Unit: seconds.
+     *
+     * @example 3600
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The accelerated domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range that was queried.
+     *
+     * @example 2019-11-29T04:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E9D3257A-1B7C-414C-90C1-8D07AC47BCAC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range that was queried.
+     *
+     * @example 2019-11-29T00:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The number of UVs at each interval.
+     *
      * @var uvDataInterval
      */
     public $uvDataInterval;

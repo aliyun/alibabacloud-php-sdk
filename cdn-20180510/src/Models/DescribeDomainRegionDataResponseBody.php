@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainRegionDataResponseBody extends Model
 {
     /**
+     * @description The time interval between the data entries returned. Unit: seconds.
+     *
+     * @example 86400
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The accelerated domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range that was queried.
+     *
+     * @example 2015-12-07T12:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 2E5AD83F-BD7B-462E-8319-2E30E305519A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range that was queried.
+     *
+     * @example 2015-12-05T12:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The proportions of requests initiated from each area.
+     *
      * @var value
      */
     public $value;

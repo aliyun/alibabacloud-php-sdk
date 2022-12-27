@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @description The key of the tag.
+     *
+     * @example env
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The list of tag value.
+     *
      * @var string[]
      */
     public $value;

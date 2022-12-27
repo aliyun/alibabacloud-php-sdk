@@ -19,6 +19,13 @@ class DescribeCdnUserResourcePackageRequest extends Model
     public $securityToken;
 
     /**
+     * @description Resource plan status:
+     *
+     *   **valid**: valid
+     *   **closed**: invalid
+     *
+     * @example valid
+     *
      * @var string
      */
     public $status;

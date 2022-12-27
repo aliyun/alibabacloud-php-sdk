@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class CreateUserUsageDataExportTaskResponseBody extends Model
 {
     /**
+     * @description The end of the time range where the QPS data was queried.
+     *
+     * @example 2015-12-10T21:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example ED61C6C3-8241-4187-AAA7-5157AE175CEC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range that was queried.
+     *
+     * @example 2015-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 129456
+     *
      * @var string
      */
     public $taskId;

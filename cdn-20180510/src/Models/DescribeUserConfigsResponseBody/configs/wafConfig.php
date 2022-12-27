@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class wafConfig extends Model
 {
     /**
+     * @example on
+     *
      * @var string
      */
     public $enable;

@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @description If the **Field** parameter in the request is set to **bps**, this parameter returns the time of the peak bandwidth value. Otherwise, this parameter returns the same value as the **TimeStamp** parameter.
+     *
+     * @example 2015-12-10T21:30:00Z
+     *
      * @var string
      */
     public $peakTime;
 
     /**
+     * @description The data usage in a specific scenario.
+     *
+     * >  Indicates the data usage in a specific scenario. If no special billable item is specified, ignore this parameter.
+     * @example 423304182
+     *
      * @var string
      */
     public $specialValue;
 
     /**
+     * @description The timestamp of the data returned.
+     *
+     * >  The **TimeStamp** parameter may return multiple values.
+     * @example 2015-12-10T21:30:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @description The usage.
+     *
+     * >  Usage data includes network traffic (measured in bytes), bandwidth values (measured in bits/s), and the number of requests.
+     * @example 423304182
+     *
      * @var string
      */
     public $value;

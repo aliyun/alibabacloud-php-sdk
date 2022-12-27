@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class requestDataModule extends Model
 {
     /**
+     * @description The information about the accelerated domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The number of requests.
+     *
+     * @example 11288111
+     *
      * @var int
      */
     public $request;
 
     /**
+     * @description The timestamp of the data returned.
+     *
+     * @example 2017-12-10T20:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @description The type of data returned.
+     *
+     * >  For Alibaba Cloud CDN, the valid value is Simple.
+     * @example Simple
+     *
      * @var string
      */
     public $type;

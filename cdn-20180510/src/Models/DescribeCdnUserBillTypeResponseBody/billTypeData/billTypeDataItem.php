@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class billTypeDataItem extends Model
 {
     /**
+     * @example month_avg_day_bandwidth_overseas
+     *
      * @var string
      */
     public $billType;
 
     /**
+     * @example month
+     *
      * @var string
      */
     public $billingCycle;
 
     /**
+     * @example flow
+     *
      * @var string
      */
     public $dimension;
 
     /**
+     * @example 2018-10-31T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example cdn
+     *
      * @var string
      */
     public $product;
 
     /**
+     * @example 2018-10-30T16:00:00Z
+     *
      * @var string
      */
     public $startTime;

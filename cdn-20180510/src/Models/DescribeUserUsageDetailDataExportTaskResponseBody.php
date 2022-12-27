@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserUsageDetailDataExportTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example A91BE91F-0B34-4CBF-8E0F-A2977E15AA52
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The usage details returned per page.
+     *
      * @var usageDataPerPage
      */
     public $usageDataPerPage;

@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainSrcTrafficDataResponseBody extends Model
 {
     /**
+     * @description The time interval between the data entries returned. Unit: seconds.
+     *
+     * @example 300
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The accelerated domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range that was queried.
+     *
+     * @example 2015-12-10T21:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A666D44F-19D6-490E-97CF-1A64AB962C57
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The amount of back-to-origin network traffic at each time interval. Unit: bytes.
+     *
      * @var srcTrafficDataPerInterval
      */
     public $srcTrafficDataPerInterval;
 
     /**
+     * @description The beginning of the time range that was queried.
+     *
+     * @example 2015-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;

@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainsBySourceResponseBody extends Model
 {
     /**
+     * @description The domain names corresponding to each origin server. The data is indicated by the DomainsData parameter. Data type: array.
+     *
      * @var domainsList
      */
     public $domainsList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B0F074E5-A1AC-4B32-8EA2-6F450410D1E0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The origin servers.
+     *
+     * @example example.com,aliyundoc.com
+     *
      * @var string
      */
     public $sources;

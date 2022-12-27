@@ -10,36 +10,66 @@ use AlibabaCloud\Tea\Model;
 class dataItem extends Model
 {
     /**
+     * @description The time when the task was created.
+     *
+     * @example 2019-12-31T08:43:21Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The download URL.
+     *
+     * @example https://cdn-polaris.xxxx
+     *
      * @var string
      */
     public $downloadUrl;
 
     /**
+     * @description The status of the task.
+     *
+     *   created: The task is being created.
+     *   success: The task has been created.
+     *   failed: The creation of the task failed.
+     *
+     * @example success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The configurations of the task.
+     *
      * @var taskConfig
      */
     public $taskConfig;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example A91BE91F-0B34-4CBF-8E0F-A2977
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The name of the task.
+     *
+     * @example refresh
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The last time when the task was modified.
+     *
+     * @example 2019-12-31T08:45:02Z
+     *
      * @var string
      */
     public $updateTime;

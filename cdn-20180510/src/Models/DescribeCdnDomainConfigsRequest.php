@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnDomainConfigsRequest extends Model
 {
     /**
+     * @description The ID of the configuration. For more information about ConfigId, see [Usage notes on ConfigId](~~388994~~).
+     *
+     * @example 6295
+     *
      * @var string
      */
     public $configId;
 
     /**
+     * @description The accelerated domain name. You can specify only one domain name in each call.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The names of the features. Separate multiple feature names with commas (,). For more information, see [BatchSetCdnDomainConfig](~~388460~~).
+     *
+     * @example aliauth
+     *
      * @var string
      */
     public $functionNames;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class realtimeLogDeliveryInfos extends Model
 {
     /**
+     * @description The name of the Logstore that collects log data from Alibaba Cloud Content Delivery Network (CDN) in real time.
+     *
+     * @example LogstoreName
+     *
      * @var string
      */
     public $logstore;
 
     /**
+     * @description The name of the Log Service project that is used for real-time log delivery.
+     *
+     * @example ProjectName
+     *
      * @var string
      */
     public $project;
 
     /**
+     * @description The ID of the region where the Log Service project is deployed. For more information, see [Regions that support real-time log delivery](~~144883~~).
+     *
+     * @example ch-shanghai
+     *
      * @var string
      */
     public $region;

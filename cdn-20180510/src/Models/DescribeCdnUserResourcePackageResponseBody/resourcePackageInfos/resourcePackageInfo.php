@@ -9,46 +9,91 @@ use AlibabaCloud\Tea\Model;
 class resourcePackageInfo extends Model
 {
     /**
+     * @description The ID of the resource plan.
+     *
+     * @example cdnflowbag
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @description The remaining quota of the resource plan.
+     *
+     *   The total amount of data transfer provided by the resource plan. Unit: bytes.
+     *   The remaining number of requests provided by the resource plan.
+     *
+     * @example 10995089554629
+     *
      * @var string
      */
     public $currCapacity;
 
     /**
+     * @description The name of the resource plan.
+     *
+     * @example my_plan
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description The time when the resource plan expires.
+     *
+     * @example 2018-07-01T08:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The total quota of the resource plan.
+     *
+     *   The total amount of data transfer provided by the resource plan. Unit: bytes.
+     *   The total number of requests provided by the resource plan.
+     *
+     * @example 536870912000
+     *
      * @var string
      */
     public $initCapacity;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example FP-ilttxc23a
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The time when the resource plan took effect.
+     *
+     * @example 2017-12-05T19:10:58Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The status of the data transfer plan. Valid values:
+     *
+     *   **valid**: valid
+     *   **closed**: invalid
+     *
+     * @example valid
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The name of the template.
+     *
+     * @example my_template
+     *
      * @var string
      */
     public $templateName;

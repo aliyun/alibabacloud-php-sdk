@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserTagsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 34AB41F1-04A5-496F-8C8D-634BDBE6A9FB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of tags returned.
+     *
      * @var tags[]
      */
     public $tags;

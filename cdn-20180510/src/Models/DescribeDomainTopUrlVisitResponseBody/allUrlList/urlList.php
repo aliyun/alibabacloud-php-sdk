@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class urlList extends Model
 {
     /**
+     * @description The amount of network traffic. (Unit: bytes)
+     *
+     * @example 460486880
+     *
      * @var string
      */
     public $flow;
 
     /**
+     * @description The proportion of the amount of network traffic consumed for visiting the web page.
+     *
+     * @example 0.35
+     *
      * @var float
      */
     public $flowProportion;
 
     /**
+     * @description The complete URL.
+     *
+     * @example http://example.com/nn_live/nn_x64/a0.m3u8
+     *
      * @var string
      */
     public $urlDetail;
 
     /**
+     * @description The number of visits to the specified path.
+     *
+     * @example 161673
+     *
      * @var string
      */
     public $visitData;
 
     /**
+     * @description The proportion of visits to the web page.
+     *
+     * @example 0.35
+     *
      * @var float
      */
     public $visitProportion;

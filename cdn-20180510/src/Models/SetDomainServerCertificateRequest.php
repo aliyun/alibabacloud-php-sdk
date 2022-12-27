@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class SetDomainServerCertificateRequest extends Model
 {
     /**
+     * @description The name of the SSL certificate. You can specify only one name.
+     *
+     * @example myCert1
+     *
      * @var string
      */
     public $certName;
 
     /**
+     * @description The type of the SSL certificate. Valid values:
+     *
+     *   **upload**: a user-uploaded SSL certificate.
+     *   **cas**: an SSL certificate that is issued by Alibaba Cloud SSL Certificates Service.
+     *   **free**: a free SSL certificate.
+     *
+     * >  If this parameter is set to **cas**, the **PrivateKey** parameter is optional.
+     * @example cas
+     *
      * @var string
      */
     public $certType;
 
     /**
+     * @description The accelerated domain name for which you want to configure the SSL certificate. The type of request supported by the domain name must be HTTPS.
+     *
+     * You can specify one domain name in each call.
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description Specifies whether to check the certificate name for duplicates. If you set the value to 1, the system does not perform the check and overwrites the information of the existing certificate that uses the same name.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $forceSet;
@@ -34,6 +56,10 @@ class SetDomainServerCertificateRequest extends Model
     public $ownerId;
 
     /**
+     * @description The private key. Specify the private key only if you want to enable the SSL certificate.
+     *
+     * @example ----BEGIN RSA PRIVATE KEY-----QswCQ****----END RSA PRIVATE KEY-----
+     *
      * @var string
      */
     public $privateKey;
@@ -44,11 +70,22 @@ class SetDomainServerCertificateRequest extends Model
     public $securityToken;
 
     /**
+     * @description The content of the SSL certificate. Specify the content of the SSL certificate only if you want to enable the SSL certificate.
+     *
+     * @example ----BEGIN CERTIFICATE----- MIIFz****-----END CERTIFICATE-----
+     *
      * @var string
      */
     public $serverCertificate;
 
     /**
+     * @description Specifies whether to enable the SSL certificate. Valid values:
+     *
+     *   **on**: enables the SSL certificate.
+     *   **off**: disables the SSL certificate. This is the default value.
+     *
+     * @example on
+     *
      * @var string
      */
     public $serverCertificateStatus;

@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @description The bandwidth values in the Chinese mainland. When the bandwidth data is queried by ISP, no value is returned.
+     *
+     * @example 11286111
+     *
      * @var string
      */
     public $domesticValue;
 
     /**
+     * @description The bandwidth values for HTTPS requests in the Chinese mainland. When the bandwidth data is queried by ISP, no value is returned.
+     *
+     * @example 11286111
+     *
      * @var string
      */
     public $httpsDomesticValue;
 
     /**
+     * @description The bandwidth values for HTTPS requests in regions outside the Chinese mainland. When the bandwidth data is queried by ISP, no value is returned.
+     *
+     * @example 2000
+     *
      * @var string
      */
     public $httpsOverseasValue;
 
     /**
+     * @description The bandwidth values for HTTPS requests. Unit: bit/s.
+     *
+     * @example 11288111
+     *
      * @var string
      */
     public $httpsValue;
 
     /**
+     * @description The bandwidth values in regions outside the Chinese mainland. When the bandwidth data is queried by ISP, no value is returned.
+     *
+     * @example 2000
+     *
      * @var string
      */
     public $overseasValue;
 
     /**
+     * @description The timestamp of the data returned.
+     *
+     * @example 2015-12-10T20:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @description The bandwidth value. Unit: bit/s.
+     *
+     * @example 11288111
+     *
      * @var string
      */
     public $value;

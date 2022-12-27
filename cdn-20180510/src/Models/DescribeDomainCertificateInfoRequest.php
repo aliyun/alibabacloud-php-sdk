@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainCertificateInfoRequest extends Model
 {
     /**
+     * @description The accelerated domain name. You can specify only one domain name in each query.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;

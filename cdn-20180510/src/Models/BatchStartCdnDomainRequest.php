@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class BatchStartCdnDomainRequest extends Model
 {
     /**
+     * @description The domain names that you want to enable. Separate multiple domain names with commas (,).
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainNames;

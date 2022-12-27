@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnDomainStagingConfigRequest extends Model
 {
     /**
+     * @description The accelerated domain name. You can specify only one domain name in each call.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The list of feature names. Separate multiple values with commas (,). For more information, see [A list of features](~~388460~~).
+     *
+     * @example aliauth
+     *
      * @var string
      */
     public $functionNames;

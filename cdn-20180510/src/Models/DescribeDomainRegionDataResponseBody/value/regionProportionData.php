@@ -9,61 +9,109 @@ use AlibabaCloud\Tea\Model;
 class regionProportionData extends Model
 {
     /**
+     * @description The average response size. Unit: bytes.
+     *
+     * @example 800019.0
+     *
      * @var string
      */
     public $avgObjectSize;
 
     /**
+     * @description The average response speed. Unit: bit/s.
+     *
+     * @example 154.3345765545624
+     *
      * @var string
      */
     public $avgResponseRate;
 
     /**
+     * @description The average response time. Unit: milliseconds.
+     *
+     * @example 5183.666666666667
+     *
      * @var string
      */
     public $avgResponseTime;
 
     /**
+     * @description The bandwidth.
+     *
+     * @example 380.9614285714286
+     *
      * @var string
      */
     public $bps;
 
     /**
+     * @description The proportion of bytes transferred from each region. For example, a value of 90 indicates that 90% of the bytes are transferred from the specified area.
+     *
+     * @example 0.003544181046236794
+     *
      * @var string
      */
     public $bytesProportion;
 
     /**
+     * @description The proportion of visits from each region. For example, a value of 90 indicates that 90% of the visits are from the specified area.
+     *
+     * @example 0.01155980271270037
+     *
      * @var string
      */
     public $proportion;
 
     /**
+     * @description The number of queries per second.
+     *
+     * @example 5.9523809523809524E-5
+     *
      * @var string
      */
     public $qps;
 
     /**
+     * @description The information of the regions.
+     *
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The name of the region.
+     *
+     * @example japan
+     *
      * @var string
      */
     public $regionEname;
 
     /**
+     * @description The request error rate. A value of 90 indicates that 90% of the requests encountered errors.
+     *
+     * @example 0.0
+     *
      * @var string
      */
     public $reqErrRate;
 
     /**
+     * @description The total traffic. Unit: bytes.
+     *
+     * @example 2400057
+     *
      * @var string
      */
     public $totalBytes;
 
     /**
+     * @description The total number of requests.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $totalQuery;

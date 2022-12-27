@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainRealTimeDetailDataResponseBody extends Model
 {
     /**
+     * @description The data usage of each ISP and the number of visits in each region.
+     *
+     * @example {         "2019-11-30T05:40:00Z": {             "example.com": {                 "Guangdong": {                     "telecom": {                         "qps": 10.0,                         "http_code": {"200": 1, "304": 2}                     }                 },                 "Jiangsu": {                     "unicom": {                         "qps": 11.1,                         "http_code": {"200": 1, "304": 2, "403": 3}                     }                 }             }         }    }
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B49E6DDA-F413-422B-B58E-2FA23F286726
+     *
      * @var string
      */
     public $requestId;

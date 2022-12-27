@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class domains extends Model
 {
     /**
+     * @description The accelerated domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The status of the real-time log delivery feature. Valid values:
+     *
+     *   **online**: The feature is enabled.
+     *   **offline**: The feature is disabled.
+     *
+     * @example online
+     *
      * @var string
      */
     public $status;

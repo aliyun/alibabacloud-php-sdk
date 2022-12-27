@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeRealtimeDeliveryAccResponseBody extends Model
 {
     /**
+     * @description The information about real-time log delivery.
+     *
      * @var reatTimeDeliveryAccData
      */
     public $reatTimeDeliveryAccData;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 684306D2-2511-4977-991D-CE97E91FD7C0
+     *
      * @var string
      */
     public $requestId;

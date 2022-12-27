@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class clientIpList extends Model
 {
     /**
+     * @description The total number of requests.
+     *
+     * @example 256
+     *
      * @var int
      */
     public $acc;
 
     /**
+     * @description The client IP address returned. Only IPv4 addressed are supported.
+     *
+     * @example 1.1.xxx
+     *
      * @var string
      */
     public $clientIp;
 
     /**
+     * @description The ranking of the client IP address returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $rank;
 
     /**
+     * @description The total amount of network traffic consumed. Unit: bytes.
+     *
+     * @example 1024
+     *
      * @var int
      */
     public $traffic;

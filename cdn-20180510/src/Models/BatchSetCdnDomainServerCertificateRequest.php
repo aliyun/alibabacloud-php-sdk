@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class BatchSetCdnDomainServerCertificateRequest extends Model
 {
     /**
+     * @description The name of the certificate.
+     *
+     * @example yourCertName
+     *
      * @var string
      */
     public $certName;
 
     /**
+     * @description The type of the SSL certificate. Valid values:
+     *
+     *   **upload**: a user-uploaded SSL certificate.
+     *   **cas**: a certificate that is issued by SSL Certificates Service.
+     *
+     * @example cas
+     *
      * @var string
      */
     public $certType;
 
     /**
+     * @description The accelerated domain name to which the SSL certificate belongs. The type of request supported by the accelerated domain name must be HTTPS. You can specify multiple accelerated domain names and separate them with commas (,).
+     *
+     * >  You can manage the SSL certificates of up to 50 accelerated domain names in each call.
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description Specifies whether to check the certificate name for duplicates. If you set the value to 1, the system does not perform the check and overwrites the information about the existing certificate that uses the same name.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $forceSet;
@@ -34,21 +54,40 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region.
+     *
+     * @example your region
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The private key. Specify the private key only if you enable the SSL certificate.
+     *
+     * @example yourSSLPri
+     *
      * @var string
      */
     public $SSLPri;
 
     /**
+     * @description Specifies whether to enable the SSL certificate. Valid values:
+     *
+     *   **on**: enables the SSL certificate.
+     *   **off**: disables the SSL certificate. This is the default value.
+     *
+     * @example on
+     *
      * @var string
      */
     public $SSLProtocol;
 
     /**
+     * @description The content of the SSL certificate. Specify the content of the certificate only if you want to enable the SSL certificate.
+     *
+     * @example yourSSLPub
+     *
      * @var string
      */
     public $SSLPub;

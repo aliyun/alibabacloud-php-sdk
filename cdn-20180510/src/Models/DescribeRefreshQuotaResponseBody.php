@@ -9,66 +9,118 @@ use AlibabaCloud\Tea\Model;
 class DescribeRefreshQuotaResponseBody extends Model
 {
     /**
+     * @description The maximum number of URLs and directories that can be blocked on the current day.
+     *
+     * @example 300
+     *
      * @var string
      */
     public $blockQuota;
 
     /**
+     * @description The remaining number of URLs and directories that can be blocked on the current day.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $blockRemain;
 
     /**
+     * @description The maximum number of directories that can be refreshed on the current day.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $dirQuota;
 
     /**
+     * @description The remaining number of directories that can be refreshed on the current day.
+     *
+     * @example 99
+     *
      * @var string
      */
     public $dirRemain;
 
     /**
+     * @description The maximum number of times that you can prefetch content to L1 nodes on the current day.
+     *
+     * @example 20
+     *
      * @var string
      */
     public $preloadEdgeQuota;
 
     /**
+     * @description The remaining number of times that you can prefetch content to L1 nodes on the current day.
+     *
+     * @example 20
+     *
      * @var string
      */
     public $preloadEdgeRemain;
 
     /**
+     * @description The maximum number of times that you can prefetch content to L2 nodes on the current day.
+     *
+     * @example 500
+     *
      * @var string
      */
     public $preloadQuota;
 
     /**
+     * @description The remaining number of times that you can prefetch content to L2 nodes on the current day.
+     *
+     * @example 400
+     *
      * @var string
      */
     public $preloadRemain;
 
     /**
+     * @description The maximum number of times that you can use regular expressions to refresh directories or URLs on the current day.
+     *
+     * @example 20
+     *
      * @var string
      */
     public $regexQuota;
 
     /**
+     * @description The remaining number of times that you can use regular expressions to refresh directories or URLs on the current day.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $regexRemain;
 
     /**
+     * @description The ID of the request
+     *
+     * @example 42E0554B-80F4-4921-AED6-ACFB22CAAAD0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The maximum number of URLs that can be refreshed on the current day.
+     *
+     * @example 2000
+     *
      * @var string
      */
     public $urlQuota;
 
     /**
+     * @description The remaining number of URLs that can be refreshed on the current day.
+     *
+     * @example 1996
+     *
      * @var string
      */
     public $urlRemain;

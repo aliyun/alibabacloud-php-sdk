@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainBpsDataByTimeStampResponseBody extends Model
 {
     /**
+     * @description A list of bandwidth values queried by ISP and region.
+     *
      * @var bpsDataList
      */
     public $bpsDataList;
 
     /**
+     * @description The accelerated domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The timestamp of the data.
+     *
+     * @example 2019-11-30T05:40:00Z
+     *
      * @var string
      */
     public $timeStamp;

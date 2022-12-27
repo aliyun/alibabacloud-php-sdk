@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class BatchStopCdnDomainResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 324AEFFF-308C-4DA7-8CD3-01B277B98F28
+     *
      * @var string
      */
     public $requestId;

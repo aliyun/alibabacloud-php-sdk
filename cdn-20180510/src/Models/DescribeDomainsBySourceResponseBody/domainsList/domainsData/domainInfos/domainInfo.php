@@ -9,31 +9,67 @@ use AlibabaCloud\Tea\Model;
 class domainInfo extends Model
 {
     /**
+     * @description The workload type of the accelerated domain name. Valid values:
+     *
+     *   **web**: images and small files.
+     *   **download**: large files.
+     *   **video**: on-demand video and audio streaming.
+     *
+     * @example web
+     *
      * @var string
      */
     public $cdnType;
 
     /**
+     * @description The time when the domain name was added to Alibaba Cloud CDN.
+     *
+     * @example 2016-07-12T11:53:19+08:00
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The CNAME assigned to the domain name.
+     *
+     * @example ***.alikunlun.com
+     *
      * @var string
      */
     public $domainCname;
 
     /**
+     * @description The domain name.
+     *
+     * @example example.org
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The status of the accelerated domain name. Valid values:
+     *
+     *   **applying**: The domain name is under review.
+     *   **configure_failed**: The domain name failed the review.
+     *   **configuring**: The domain name is being configured.
+     *   **online**: The domain name is working as expected.
+     *   **stopping**: The domain name is being stopped.
+     *   **offline**: The domain name is disabled.
+     *   **disabling**: The domain name is being disabled.
+     *
+     * @example online
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The time when the configuration was updated.
+     *
+     * @example 2017-03-31T04:49:00+08:00
+     *
      * @var string
      */
     public $updateTime;

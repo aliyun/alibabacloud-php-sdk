@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class UpdateCdnDeliverTaskRequest extends Model
 {
     /**
+     * @description The method that is used to send operations reports. Operations reports are sent to you only by email. The settings must be escaped in JSON.
+     *
+     * @example {\"email\":{\"to\":[\"yewei@myhayo.com\"]}}
+     *
      * @var string
      */
     public $deliver;
 
     /**
+     * @description The ID of the tracking task that you want to update.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $deliverId;
 
     /**
+     * @description The domain name that you want to track. You can specify multiple domain names and separate them with commas (,). You can specify at most 500 domain names in each call.
+     *
+     * If you do not specify a domain name, the task collects data from all domain names that belong to your Alibaba Cloud account.
+     * @example www.example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The name of the tracking task.
+     *
+     * @example subscribe
+     *
      * @var string
      */
     public $name;
@@ -34,11 +51,19 @@ class UpdateCdnDeliverTaskRequest extends Model
     public $ownerId;
 
     /**
+     * @description The operations reports that are tracked by the task. The data must be escaped in JSON.
+     *
+     * @example [{\"reportId\":3},{\"reportId\":1}]
+     *
      * @var string
      */
     public $reports;
 
     /**
+     * @description The parameters that specify the time interval at which the tracking task sends operations reports. The settings must be escaped in JSON.
+     *
+     * @example {\"crontab\":\"00 00 08 * * ?\",\"frequency\":\"d\"}
+     *
      * @var string
      */
     public $schedule;

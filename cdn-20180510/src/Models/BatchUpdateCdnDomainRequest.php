@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class BatchUpdateCdnDomainRequest extends Model
 {
     /**
+     * @description The accelerated domain names. You can specify one or more accelerated domain names. Separate domain names with commas (,).
+     *
+     * @example example.com,example.org
+     *
      * @var string
      */
     public $domainName;
@@ -19,6 +23,10 @@ class BatchUpdateCdnDomainRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmyuji4b6r4**
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -29,11 +37,21 @@ class BatchUpdateCdnDomainRequest extends Model
     public $securityToken;
 
     /**
+     * @description The information about the addresses of origin servers.
+     *
+     * >  You can set only one of **Sources** and **TopLevelDomain**. If you set both **Sources** and **TopLevelDomain**, **TopLevelDomain** does not take effect.
+     * @example [{"content":"10.10.10.10","type":"ipaddr","priority":"20","port":80,"weight":"15"}]
+     *
      * @var string
      */
     public $sources;
 
     /**
+     * @description The top-level domain name.
+     *
+     * >  You can set only one of **Sources** and **TopLevelDomain**. If you set both **Sources** and **TopLevelDomain**, **TopLevelDomain** does not take effect.
+     * @example example.com
+     *
      * @var string
      */
     public $topLevelDomain;

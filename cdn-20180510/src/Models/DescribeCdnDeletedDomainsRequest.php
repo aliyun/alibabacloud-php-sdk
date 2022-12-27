@@ -14,11 +14,19 @@ class DescribeCdnDeletedDomainsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Pages start from page **1**. Valid values: **1** to **100000**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**. Valid values: **1** to **500**. The value must be an integer.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;

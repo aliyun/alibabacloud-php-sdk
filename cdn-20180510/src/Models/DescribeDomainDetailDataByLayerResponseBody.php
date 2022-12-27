@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainDetailDataByLayerResponseBody extends Model
 {
     /**
+     * @description The detailed data of the accelerated domain names.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;

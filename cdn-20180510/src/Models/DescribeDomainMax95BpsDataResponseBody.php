@@ -9,36 +9,54 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainMax95BpsDataResponseBody extends Model
 {
     /**
+     * @description The accelerated domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 16777590.28
+     *
      * @var string
      */
     public $domesticMax95Bps;
 
     /**
+     * @example 2015-12-11T21:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 16777590.28
+     *
      * @var string
      */
     public $max95Bps;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $overseasMax95Bps;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3C6CCEC4-6B88-4D4A-93E4-D47B3D92CF8F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2015-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;

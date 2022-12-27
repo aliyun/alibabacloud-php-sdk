@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpStatusResponseBody extends Model
 {
     /**
+     * @description The status of the node IP addresses.
+     *
      * @var ipStatus[]
      */
     public $ipStatus;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F61CDR30-E83C-4FDA-BF73-9A94CDD44229
+     *
      * @var string
      */
     public $requestId;

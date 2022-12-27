@@ -11,36 +11,60 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainsUsageByDayResponseBody extends Model
 {
     /**
+     * @description The time interval between the data entries. Unit: seconds.
+     *
+     * @example 86400
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The information about the accelerated domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range that was queried.
+     *
+     * @example 2019-12-23T09:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C88EF8ED-72F0-45EA-9E86-95114E224FC5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The start of the time range that was queried.
+     *
+     * @example 2019-12-22T08:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The monitoring data collected at each time interval.
+     *
      * @var usageByDays
      */
     public $usageByDays;
 
     /**
+     * @description The summarized monitoring data.
+     *
      * @var usageTotal
      */
     public $usageTotal;

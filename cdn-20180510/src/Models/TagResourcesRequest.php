@@ -15,16 +15,26 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The list of resource ID.
+     *
+     * @example 1
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The type of resource. The resource type. Set the value to **DOMAIN**.
+     *
+     * @example DOMAIN
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

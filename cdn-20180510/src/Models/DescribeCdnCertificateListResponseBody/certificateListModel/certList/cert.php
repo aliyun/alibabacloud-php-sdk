@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class cert extends Model
 {
     /**
+     * @description The ID of the SSL certificate.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $certId;
 
     /**
+     * @description The name of the SSL certificate.
+     *
+     * @example my_cert
+     *
      * @var string
      */
     public $certName;
 
     /**
+     * @description The Common Name (CN) attribute of the SSL certificate. In most cases, the value is a domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $common;
 
     /**
+     * @description The fingerprint of the SSL certificate.
+     *
+     * @example 2ED68FD33786C5B42950D40A6C50353575BB****
+     *
      * @var string
      */
     public $fingerprint;
 
     /**
+     * @description The certificate authority (CA) that issued the SSL certificate.
+     *
+     * @example CO****
+     *
      * @var string
      */
     public $issuer;
 
     /**
+     * @description The timestamp when the SSL certificate was issued.
+     *
+     * @example 1512388610
+     *
      * @var int
      */
     public $lastTime;

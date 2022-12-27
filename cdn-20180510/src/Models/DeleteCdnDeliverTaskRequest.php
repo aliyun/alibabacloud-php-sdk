@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteCdnDeliverTaskRequest extends Model
 {
     /**
+     * @description The IDs of the tracking tasks that you want to delete. You can call the [DescribeCdnDeliverList](~~270877~~) operation to query task IDs.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $deliverId;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeBlockedRegionsResponseBody extends Model
 {
     /**
+     * @description A list of countries and regions.
+     *
      * @var infoList
      */
     public $infoList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BFFCDFAD-DACC-484E-9BE6-0AF3B3A0DD23
+     *
      * @var string
      */
     public $requestId;

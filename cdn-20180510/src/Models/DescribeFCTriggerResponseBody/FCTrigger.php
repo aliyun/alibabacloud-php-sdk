@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class FCTrigger extends Model
 {
     /**
+     * @description The name of the event.
+     *
+     * @example LogFileCreated
+     *
      * @var string
      */
     public $eventMetaName;
 
     /**
+     * @description The version of the event.
+     *
+     * @example 1.0.0
+     *
      * @var string
      */
     public $eventMetaVersion;
 
     /**
+     * @description The remarks.
+     *
+     * @example test
+     *
      * @var string
      */
     public $notes;
 
     /**
+     * @description The assigned Resource Access Management (RAM) role.
+     *
+     * @example acs:ram:: 1234567890:role/aliyuncdneventnotificationrole
+     *
      * @var string
      */
     public $roleARN;
 
     /**
+     * @description The resources and filters for event listening.
+     *
+     * @example acs:cdn:*:1234567890:domain/example.com
+     *
      * @var string
      */
     public $sourceArn;
 
     /**
+     * @description The trigger that corresponds to the Function Compute service.
+     *
+     * @example acs:fc:cn-beijing: 1234567890:services/FCTestService/functions/printEvent/triggers/testtrigger
+     *
      * @var string
      */
     public $triggerARN;

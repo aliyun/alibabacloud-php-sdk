@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class SetWaitingRoomConfigRequest extends Model
 {
     /**
+     * @description The percentage of requests that are allowed to be redirected to the origin server. Valid values: **0** to **100**.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $allowPct;
 
     /**
+     * @description The accelerated domain name. You can specify only one domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The length of waiting time to skip after users exit the queue. Unit: seconds.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $gapTime;
 
     /**
+     * @description The maximum length of time that users need to wait in the queue. Unit: seconds.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $maxTimeWait;
@@ -34,11 +50,19 @@ class SetWaitingRoomConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @description The regular expression that is used to match URI strings for which the virtual waiting room feature is enabled.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $waitUri;
 
     /**
+     * @description The URL of the waiting page.
+     *
+     * @example WaitUrl
+     *
      * @var string
      */
     public $waitUrl;

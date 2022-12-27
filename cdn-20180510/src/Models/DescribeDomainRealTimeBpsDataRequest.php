@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainRealTimeBpsDataRequest extends Model
 {
     /**
+     * @description The accelerated domain names. You can specify multiple accelerated domain names and separate them with commas (,).
+     *
+     * >  You can specify at most 500 accelerated domain names in each call.
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range to query.
+     *
+     * >  The end time must be later than the start time.
+     * @example 2019-11-30T05:40:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The name of the Internet service provider (ISP) for your Alibaba Cloud CDN service.
+     *
+     * You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query the most recent ISP list. If you do not set this parameter, all ISPs are queried.
+     * @example telecom
+     *
      * @var string
      */
     public $ispNameEn;
 
     /**
+     * @description The name of the region.
+     *
+     * You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query the most recent region list. If you do not set this parameter, all regions are queried.
+     * @example beijing
+     *
      * @var string
      */
     public $locationNameEn;
@@ -34,6 +54,11 @@ class DescribeDomainRealTimeBpsDataRequest extends Model
     public $ownerId;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @example 2019-11-30T05:33:00Z
+     *
      * @var string
      */
     public $startTime;

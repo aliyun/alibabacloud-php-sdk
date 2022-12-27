@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainTopReferVisitResponseBody extends Model
 {
     /**
+     * @description The accelerated domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 95994621-8382-464B-8762-C708E73568D1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range that was queried.
+     *
+     * @example 2019-12-21T12:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The most frequently requested web pages.
+     *
      * @var topReferList
      */
     public $topReferList;

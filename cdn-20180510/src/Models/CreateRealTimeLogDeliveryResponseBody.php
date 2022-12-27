@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateRealTimeLogDeliveryResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example F32C57AA-7BF8-49AE-A2CC-9F42390F5A19
+     *
      * @var string
      */
     public $requestId;

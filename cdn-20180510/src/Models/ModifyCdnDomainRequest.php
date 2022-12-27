@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyCdnDomainRequest extends Model
 {
     /**
+     * @description The accelerated domain name. You can specify only one domain name in each call.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -19,6 +23,10 @@ class ModifyCdnDomainRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmyuji4b6r4**
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -29,11 +37,21 @@ class ModifyCdnDomainRequest extends Model
     public $securityToken;
 
     /**
+     * @description The list of origin URLs.
+     *
+     * >  You cannot set both the **Sources** and **TopLevelDomain** parameters in the same request. Otherwise, ********the **TopLevelDomain** parameter cannot take effect.
+     * @example [{"content":"1.1.1.1","type":"ipaddr","priority":"20","port":80,"weight":"15"}]
+     *
      * @var string
      */
     public $sources;
 
     /**
+     * @description The top-level domain name. To add a top-level domain name, set the parameter CDN_TOP_LEVEL_DOMAIN_GREY_USER_LIST. This feature is available to only selected users.
+     *
+     * >  You cannot set both the **Sources** and **TopLevelDomain** parameters in the same request. Otherwise, ****the **TopLevelDomain** parameter cannot take effect.
+     * @example aliyundoc.com
+     *
      * @var string
      */
     public $topLevelDomain;

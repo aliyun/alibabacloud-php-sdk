@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnOrderCommodityCodeResponseBody extends Model
 {
     /**
+     * @description The commodity code that includes the organization unit.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $orderCommodityCode;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BFFCDFAD-DACC-484E-9BE6-0AF3B3A0DD23
+     *
      * @var string
      */
     public $requestId;

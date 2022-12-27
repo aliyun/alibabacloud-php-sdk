@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagResourcesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 34AB41F1-04A5-496F-8C8D-634BDBE6A9FB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The tags that are attached to the specified resource.
+     *
      * @var tagResources[]
      */
     public $tagResources;

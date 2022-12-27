@@ -15,6 +15,10 @@ class DescribeUserConfigsResponseBody extends Model
     public $configs;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 9BCC7BAA-ACBE-45E5-83F0-98BF7E693E84
+     *
      * @var string
      */
     public $requestId;

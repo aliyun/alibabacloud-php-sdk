@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserDomainsResponseBody extends Model
 {
     /**
+     * @description The information about the accelerated domain name.
+     *
      * @var domains
      */
     public $domains;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BDA62CE4-3477-439A-B52E-D2D7C829D7C1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates the total number of entries returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

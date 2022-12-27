@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainRealtimeLogDeliveryRequest extends Model
 {
     /**
+     * @description The accelerated domain name for which real-time log delivery is enabled. Only one domain name is supported.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domain;

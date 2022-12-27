@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class pageData extends Model
 {
     /**
+     * @description The accelerated domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The last time when the accelerated domain name was modified. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC+0.
+     *
+     * @example 2015-10-28T11:05:52Z
+     *
      * @var string
      */
     public $gmtModified;

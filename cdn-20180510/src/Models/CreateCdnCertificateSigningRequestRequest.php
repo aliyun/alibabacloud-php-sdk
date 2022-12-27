@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class CreateCdnCertificateSigningRequestRequest extends Model
 {
     /**
+     * @description The city to which the organization belongs. Default value: Hangzhou.
+     *
+     * @example Hangzhou
+     *
      * @var string
      */
     public $city;
 
     /**
+     * @description The Common Name of the SSL certificate.
+     *
+     * @example CommonName
+     *
      * @var string
      */
     public $commonName;
 
     /**
+     * @description The country to which the organization belongs. Default value: CN.
+     *
+     * @example CN
+     *
      * @var string
      */
     public $country;
 
     /**
+     * @description The email address that can be used to contact the organization.
+     *
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @description The name of the organization. Default value: Alibaba Inc.
+     *
+     * @example Alibaba Inc
+     *
      * @var string
      */
     public $organization;
 
     /**
+     * @description The name of the organization unit. Default value: Aliyun CDN.
+     *
+     * @example Aliyun CDN
+     *
      * @var string
      */
     public $organizationUnit;
@@ -44,11 +68,19 @@ class CreateCdnCertificateSigningRequestRequest extends Model
     public $ownerId;
 
     /**
+     * @description The Subject Alternative Name (SAN) extension of the SSL certificate. This extension is used to add domain names to the certificate. Separate multiple domain names with commas (,).
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $SANs;
 
     /**
+     * @description The provincial district to which the organization belongs. Default value: Zhejiang.
+     *
+     * @example Zhejiang
+     *
      * @var string
      */
     public $state;

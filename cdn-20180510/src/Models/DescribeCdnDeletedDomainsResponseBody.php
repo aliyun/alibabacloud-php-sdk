@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnDeletedDomainsResponseBody extends Model
 {
     /**
+     * @description The information about the accelerated domain names.
+     *
      * @var domains
      */
     public $domains;
 
     /**
+     * @description The page number of the returned page. It corresponds to the request parameter **PageNumber**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page. It corresponds to the request parameter **PageSize**.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example AA75AADB-5E25-4970-B480-EAA1F5658483
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of domain names returned.
+     *
+     * @example 16
+     *
      * @var int
      */
     public $totalCount;
