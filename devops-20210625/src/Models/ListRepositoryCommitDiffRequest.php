@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class ListRepositoryCommitDiffRequest extends Model
 {
     /**
+     * @description accessToken
+     *
+     * @example f0b1e61db5961df5975a93f9129d2513
+     *
      * @var string
      */
     public $accessToken;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $contextLine;
 
     /**
+     * @example 60de7a6852743a5162b5f957
+     *
      * @var string
      */
     public $organizationId;

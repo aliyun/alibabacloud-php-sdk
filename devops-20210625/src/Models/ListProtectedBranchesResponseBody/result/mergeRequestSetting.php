@@ -20,36 +20,50 @@ class mergeRequestSetting extends Model
     public $defaultAssignees;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isAllowSelfApproval;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isRequireDiscussionProcessed;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isRequired;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isResetApprovalWhenNewPush;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $minimumApproval;
 
     /**
+     * @example general
+     *
      * @var string
      */
     public $mrMode;
 
     /**
+     * @example **.java
+     *
      * @var string
      */
     public $whiteList;

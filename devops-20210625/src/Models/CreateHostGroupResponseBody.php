@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateHostGroupResponseBody extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $hostGroupId;
 
     /**
+     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

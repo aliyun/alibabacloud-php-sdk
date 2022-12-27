@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class relatedPipelines extends Model
 {
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 流水线
+     *
      * @var string
      */
     public $name;

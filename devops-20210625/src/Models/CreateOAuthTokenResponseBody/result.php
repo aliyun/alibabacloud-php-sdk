@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 2aeb4cd012af879e54f0d37dfa526f51
+     *
      * @var string
      */
     public $accessToken;
 
     /**
+     * @description id
+     *
+     * @example 30815
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example read:repo
+     *
      * @var string
      */
     public $scope;
 
     /**
+     * @example code
+     *
      * @var string
      */
     public $tokenType;

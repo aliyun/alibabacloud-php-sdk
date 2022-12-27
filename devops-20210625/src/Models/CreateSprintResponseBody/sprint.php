@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class sprint extends Model
 {
     /**
+     * @example 19xx7043xxxxxxx914
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1623916393000
+     *
      * @var int
      */
     public $endDate;
 
     /**
+     * @example 1623916393000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1623916393000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example e8bxxxxxxxxxxxxxxxx23
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example 19xx7043xxxxxxx914
+     *
      * @var string
      */
     public $modifier;
 
     /**
+     * @example demo示例项目
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example public
+     *
      * @var string
      */
     public $scope;
 
     /**
+     * @example 5e70xxxxxxcd000xxxxe96
+     *
      * @var string
      */
     public $spaceIdentifier;
 
     /**
+     * @example 1638403200000
+     *
      * @var int
      */
     public $startDate;
 
     /**
+     * @example TODO
+     *
      * @var string
      */
     public $status;

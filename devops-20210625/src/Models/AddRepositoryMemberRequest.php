@@ -14,16 +14,22 @@ class AddRepositoryMemberRequest extends Model
     public $accessToken;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $accessLevel;
 
     /**
+     * @example 18745637472884
+     *
      * @var string
      */
     public $aliyunPks;
 
     /**
+     * @example 60de7a6852743a5162b5f957
+     *
      * @var string
      */
     public $organizationId;

@@ -10,31 +10,43 @@ use AlibabaCloud\Tea\Model;
 class ListVariableGroupsResponseBody extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example assassa
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $totalCount;

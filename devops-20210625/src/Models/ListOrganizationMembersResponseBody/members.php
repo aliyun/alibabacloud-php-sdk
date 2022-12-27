@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class members extends Model
 {
     /**
+     * @example 123456677888
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @example 1631845101798
+     *
      * @var int
      */
     public $birthday;
@@ -25,11 +29,15 @@ class members extends Model
     public $deptLists;
 
     /**
+     * @example 123@mail.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 1631845101798
+     *
      * @var int
      */
     public $hiredDate;
@@ -40,16 +48,22 @@ class members extends Model
     public $identities;
 
     /**
+     * @example 1631845101798
+     *
      * @var int
      */
     public $joinTime;
 
     /**
+     * @example 1631845101798
+     *
      * @var int
      */
     public $lastVisitTime;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $mobile;
@@ -60,6 +74,8 @@ class members extends Model
     public $organizationMemberName;
 
     /**
+     * @example 8fc0c9ff039711dd64acd000
+     *
      * @var string
      */
     public $organizationRoleId;
@@ -70,6 +86,8 @@ class members extends Model
     public $organizationRoleName;
 
     /**
+     * @example normal
+     *
      * @var string
      */
     public $state;

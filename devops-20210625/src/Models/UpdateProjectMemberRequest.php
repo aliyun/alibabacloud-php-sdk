@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateProjectMemberRequest extends Model
 {
     /**
+     * @example project.admin
+     *
      * @var string
      */
     public $roleIdentifier;
 
     /**
+     * @example 5e70xxxxxxcd000xxxxe96
+     *
      * @var string
      */
     public $targetIdentifier;
 
     /**
+     * @example Space
+     *
      * @var string
      */
     public $targetType;
 
     /**
+     * @example 19xx7043xxxxxxx914
+     *
      * @var string
      */
     public $userIdentifier;
 
     /**
+     * @example user
+     *
      * @var string
      */
     public $userType;

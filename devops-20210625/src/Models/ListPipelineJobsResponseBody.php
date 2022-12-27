@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListPipelineJobsResponseBody extends Model
 {
     /**
+     * @example ”“
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ”“
+     *
      * @var string
      */
     public $errorMessage;
@@ -25,11 +29,15 @@ class ListPipelineJobsResponseBody extends Model
     public $jobs;
 
     /**
+     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true 接口调用成功，false 接口调用失败
+     *
      * @var bool
      */
     public $success;

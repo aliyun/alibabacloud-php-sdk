@@ -15,46 +15,64 @@ class comment extends Model
     public $content;
 
     /**
+     * @example 1667205617061
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example MARKDOWN/RICHTEXT
+     *
      * @var string
      */
     public $formatType;
 
     /**
+     * @example 1964584
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example true/false
+     *
      * @var bool
      */
     public $isTop;
 
     /**
+     * @example 1646323200000
+     *
      * @var int
      */
     public $modifiedTime;
 
     /**
+     * @example 2684432
+     *
      * @var int
      */
     public $parentId;
 
     /**
+     * @example deafe5f33xxxxx6a259d8dafd
+     *
      * @var string
      */
     public $targetIdentifier;
 
     /**
+     * @example workitem
+     *
      * @var string
      */
     public $targetType;
 
     /**
+     * @example 1667205617089
+     *
      * @var int
      */
     public $topTime;

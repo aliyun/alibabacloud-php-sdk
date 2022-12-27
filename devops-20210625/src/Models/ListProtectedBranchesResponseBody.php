@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListProtectedBranchesResponseBody extends Model
 {
     /**
+     * @example SYSTEM_UNKNOWN_ERROR
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 313A1BF6-63B7-52D4-A098-952221A65254
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class ListProtectedBranchesResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

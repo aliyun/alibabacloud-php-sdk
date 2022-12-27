@@ -6,12 +6,18 @@ namespace AlibabaCloud\SDK\Devops\V20210625;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Devops\V20210625\Models\AddGroupMemberRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\AddGroupMemberResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\AddPipelineRelationsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\AddPipelineRelationsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\AddRepositoryMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\AddRepositoryMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\AddWebhookRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\AddWebhookResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateBranchRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateBranchResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateDeployKeyRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateDeployKeyResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateFileRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateFileResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateFlowTagGroupRequest;
@@ -28,6 +34,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProtectdBranchRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProtectdBranchResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateRepositoryGroupRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateRepositoryGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateRepositoryRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateRepositoryResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateResourceMemberRequest;
@@ -35,6 +43,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\CreateResourceMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateSprintRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateSprintResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateSshKeyResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateTagRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateTagResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateVariableGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateVariableGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemCommentRequest;
@@ -53,23 +63,35 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteFileRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteFileResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteFlowTagGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteFlowTagResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteGroupMemberRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteGroupMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteHostGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeletePipelineGroupResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeletePipelineRelationsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeletePipelineRelationsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeletePipelineResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteProtectedBranchRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteProtectedBranchResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteRepositoryGroupRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteRepositoryGroupResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteRepositoryMemberRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteRepositoryMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteRepositoryRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteRepositoryResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteRepositoryWebhookRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteRepositoryWebhookResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteResourceMemberResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteTagRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteTagResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteVariableGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteWorkitemAllCommentRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteWorkitemAllCommentResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteWorkitemCommentRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteWorkitemCommentResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\EnableDeployKeyRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\EnableDeployKeyResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\FrozenWorkspaceResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetBranchInfoRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetBranchInfoResponse;
@@ -82,6 +104,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\GetFileBlobsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetFileLastCommitRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetFileLastCommitResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetFlowTagGroupResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetGroupDetailRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetGroupDetailResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetHostGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetOrganizationMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineArtifactUrlRequest;
@@ -100,7 +124,11 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\GetRepositoryCommitRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetRepositoryCommitResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetRepositoryRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetRepositoryResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetRepositoryTagRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetRepositoryTagResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetSprintInfoResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetUserInfoRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetUserInfoResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetVariableGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetVMDeployOrderResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemActivityResponse;
@@ -115,10 +143,16 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkspaceResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\JoinPipelineGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\JoinPipelineGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListFlowTagGroupsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListGroupMemberRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListGroupMemberResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListGroupRepositoriesRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListGroupRepositoriesResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListHostGroupsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListHostGroupsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListOrganizationMembersRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListOrganizationMembersResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListOrganizationsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListOrganizationsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineGroupPipelinesRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineGroupPipelinesResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineGroupsRequest;
@@ -127,6 +161,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineJobHistorysRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineJobHistorysResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineJobsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineJobsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineRelationsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineRelationsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineRunsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineRunsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelinesRequest;
@@ -149,8 +185,12 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryCommitDiffRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryCommitDiffResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryCommitsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryCommitsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryGroupsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryGroupsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryMemberWithInheritedRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryMemberWithInheritedResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryTagsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryTagsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryTreeRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryTreeResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryWebhookRequest;
@@ -196,6 +236,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateFlowTagGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateFlowTagGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateFlowTagRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateFlowTagResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateGroupMemberRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateGroupMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateHostGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateHostGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineBaseInfoRequest;
@@ -258,17 +300,115 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                     $repositoryId
-     * @param AddRepositoryMemberRequest $request
+     * @param string                $groupId
+     * @param AddGroupMemberRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return AddRepositoryMemberResponse
+     * @return AddGroupMemberResponse
      */
-    public function addRepositoryMember($repositoryId, $request)
+    public function addGroupMemberWithOptions($groupId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->accessLevel)) {
+            $body['accessLevel'] = $request->accessLevel;
+        }
+        if (!Utils::isUnset($request->aliyunPks)) {
+            $body['aliyunPks'] = $request->aliyunPks;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddGroupMember',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/members/create',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                $groupId
+     * @param AddGroupMemberRequest $request
+     *
+     * @return AddGroupMemberResponse
+     */
+    public function addGroupMember($groupId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->addRepositoryMemberWithOptions($repositoryId, $request, $headers, $runtime);
+        return $this->addGroupMemberWithOptions($groupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                      $organizationId
+     * @param string                      $pipelineId
+     * @param AddPipelineRelationsRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return AddPipelineRelationsResponse
+     */
+    public function addPipelineRelationsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->relObjectIds)) {
+            $query['relObjectIds'] = $request->relObjectIds;
+        }
+        if (!Utils::isUnset($request->relObjectType)) {
+            $query['relObjectType'] = $request->relObjectType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddPipelineRelations',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRelations',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddPipelineRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                      $organizationId
+     * @param string                      $pipelineId
+     * @param AddPipelineRelationsRequest $request
+     *
+     * @return AddPipelineRelationsResponse
+     */
+    public function addPipelineRelations($organizationId, $pipelineId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->addPipelineRelationsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime);
     }
 
     /**
@@ -317,17 +457,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string            $repositoryId
-     * @param AddWebhookRequest $request
+     * @param string                     $repositoryId
+     * @param AddRepositoryMemberRequest $request
      *
-     * @return AddWebhookResponse
+     * @return AddRepositoryMemberResponse
      */
-    public function addWebhook($repositoryId, $request)
+    public function addRepositoryMember($repositoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->addWebhookWithOptions($repositoryId, $request, $headers, $runtime);
+        return $this->addRepositoryMemberWithOptions($repositoryId, $request, $headers, $runtime);
     }
 
     /**
@@ -394,17 +534,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string              $repositoryId
-     * @param CreateBranchRequest $request
+     * @param string            $repositoryId
+     * @param AddWebhookRequest $request
      *
-     * @return CreateBranchResponse
+     * @return AddWebhookResponse
      */
-    public function createBranch($repositoryId, $request)
+    public function addWebhook($repositoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createBranchWithOptions($repositoryId, $request, $headers, $runtime);
+        return $this->addWebhookWithOptions($repositoryId, $request, $headers, $runtime);
     }
 
     /**
@@ -453,17 +593,76 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string            $repositoryId
-     * @param CreateFileRequest $request
+     * @param string              $repositoryId
+     * @param CreateBranchRequest $request
      *
-     * @return CreateFileResponse
+     * @return CreateBranchResponse
      */
-    public function createFile($repositoryId, $request)
+    public function createBranch($repositoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createFileWithOptions($repositoryId, $request, $headers, $runtime);
+        return $this->createBranchWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                 $repositoryId
+     * @param CreateDeployKeyRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateDeployKeyResponse
+     */
+    public function createDeployKeyWithOptions($repositoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->key)) {
+            $body['key'] = $request->key;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $body['title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDeployKey',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/keys/create',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDeployKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                 $repositoryId
+     * @param CreateDeployKeyRequest $request
+     *
+     * @return CreateDeployKeyResponse
+     */
+    public function createDeployKey($repositoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createDeployKeyWithOptions($repositoryId, $request, $headers, $runtime);
     }
 
     /**
@@ -521,17 +720,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string               $organizationId
-     * @param CreateFlowTagRequest $request
+     * @param string            $repositoryId
+     * @param CreateFileRequest $request
      *
-     * @return CreateFlowTagResponse
+     * @return CreateFileResponse
      */
-    public function createFlowTag($organizationId, $request)
+    public function createFile($repositoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createFlowTagWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->createFileWithOptions($repositoryId, $request, $headers, $runtime);
     }
 
     /**
@@ -575,17 +774,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                    $organizationId
-     * @param CreateFlowTagGroupRequest $request
+     * @param string               $organizationId
+     * @param CreateFlowTagRequest $request
      *
-     * @return CreateFlowTagGroupResponse
+     * @return CreateFlowTagResponse
      */
-    public function createFlowTagGroup($organizationId, $request)
+    public function createFlowTag($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createFlowTagGroupWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->createFlowTagWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -623,17 +822,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                 $organizationId
-     * @param CreateHostGroupRequest $request
+     * @param string                    $organizationId
+     * @param CreateFlowTagGroupRequest $request
      *
-     * @return CreateHostGroupResponse
+     * @return CreateFlowTagGroupResponse
      */
-    public function createHostGroup($organizationId, $request)
+    public function createFlowTagGroup($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createHostGroupWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->createFlowTagGroupWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -698,16 +897,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param CreateOAuthTokenRequest $request
+     * @param string                 $organizationId
+     * @param CreateHostGroupRequest $request
      *
-     * @return CreateOAuthTokenResponse
+     * @return CreateHostGroupResponse
      */
-    public function createOAuthToken($request)
+    public function createHostGroup($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createOAuthTokenWithOptions($request, $headers, $runtime);
+        return $this->createHostGroupWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -759,17 +959,16 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                     $organizationId
-     * @param CreatePipelineGroupRequest $request
+     * @param CreateOAuthTokenRequest $request
      *
-     * @return CreatePipelineGroupResponse
+     * @return CreateOAuthTokenResponse
      */
-    public function createPipelineGroup($organizationId, $request)
+    public function createOAuthToken($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createPipelineGroupWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->createOAuthTokenWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -807,17 +1006,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string               $organizationId
-     * @param CreateProjectRequest $request
+     * @param string                     $organizationId
+     * @param CreatePipelineGroupRequest $request
      *
-     * @return CreateProjectResponse
+     * @return CreatePipelineGroupResponse
      */
-    public function createProject($organizationId, $request)
+    public function createPipelineGroup($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createProjectWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->createPipelineGroupWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -864,17 +1063,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                      $repositoryId
-     * @param CreateProtectdBranchRequest $request
+     * @param string               $organizationId
+     * @param CreateProjectRequest $request
      *
-     * @return CreateProtectdBranchResponse
+     * @return CreateProjectResponse
      */
-    public function createProtectdBranch($repositoryId, $request)
+    public function createProject($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createProtectdBranchWithOptions($repositoryId, $request, $headers, $runtime);
+        return $this->createProjectWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -941,16 +1140,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param CreateRepositoryRequest $request
+     * @param string                      $repositoryId
+     * @param CreateProtectdBranchRequest $request
      *
-     * @return CreateRepositoryResponse
+     * @return CreateProtectdBranchResponse
      */
-    public function createRepository($request)
+    public function createProtectdBranch($repositoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createRepositoryWithOptions($request, $headers, $runtime);
+        return $this->createProtectdBranchWithOptions($repositoryId, $request, $headers, $runtime);
     }
 
     /**
@@ -1049,19 +1249,85 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                      $organizationId
-     * @param string                      $resourceType
-     * @param string                      $resourceId
-     * @param CreateResourceMemberRequest $request
+     * @param CreateRepositoryRequest $request
      *
-     * @return CreateResourceMemberResponse
+     * @return CreateRepositoryResponse
      */
-    public function createResourceMember($organizationId, $resourceType, $resourceId, $request)
+    public function createRepository($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createResourceMemberWithOptions($organizationId, $resourceType, $resourceId, $request, $headers, $runtime);
+        return $this->createRepositoryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateRepositoryGroupRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateRepositoryGroupResponse
+     */
+    public function createRepositoryGroupWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->avatarUrl)) {
+            $body['avatarUrl'] = $request->avatarUrl;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->parentId)) {
+            $body['parentId'] = $request->parentId;
+        }
+        if (!Utils::isUnset($request->path)) {
+            $body['path'] = $request->path;
+        }
+        if (!Utils::isUnset($request->visibilityLevel)) {
+            $body['visibilityLevel'] = $request->visibilityLevel;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRepositoryGroup',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/groups/create',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRepositoryGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateRepositoryGroupRequest $request
+     *
+     * @return CreateRepositoryGroupResponse
+     */
+    public function createRepositoryGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createRepositoryGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1104,17 +1370,19 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string              $organizationId
-     * @param CreateSprintRequest $request
+     * @param string                      $organizationId
+     * @param string                      $resourceType
+     * @param string                      $resourceId
+     * @param CreateResourceMemberRequest $request
      *
-     * @return CreateSprintResponse
+     * @return CreateResourceMemberResponse
      */
-    public function createSprint($organizationId, $request)
+    public function createResourceMember($organizationId, $resourceType, $resourceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createSprintWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->createResourceMemberWithOptions($organizationId, $resourceType, $resourceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1164,16 +1432,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string $organizationId
+     * @param string              $organizationId
+     * @param CreateSprintRequest $request
      *
-     * @return CreateSshKeyResponse
+     * @return CreateSprintResponse
      */
-    public function createSshKey($organizationId)
+    public function createSprint($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createSshKeyWithOptions($organizationId, $headers, $runtime);
+        return $this->createSprintWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -1204,17 +1473,78 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                     $organizationId
-     * @param CreateVariableGroupRequest $request
+     * @param string $organizationId
      *
-     * @return CreateVariableGroupResponse
+     * @return CreateSshKeyResponse
      */
-    public function createVariableGroup($organizationId, $request)
+    public function createSshKey($organizationId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createVariableGroupWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->createSshKeyWithOptions($organizationId, $headers, $runtime);
+    }
+
+    /**
+     * @param string           $repositoryId
+     * @param CreateTagRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateTagResponse
+     */
+    public function createTagWithOptions($repositoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->message)) {
+            $body['message'] = $request->message;
+        }
+        if (!Utils::isUnset($request->ref)) {
+            $body['ref'] = $request->ref;
+        }
+        if (!Utils::isUnset($request->tagName)) {
+            $body['tagName'] = $request->tagName;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTag',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/tags/create',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string           $repositoryId
+     * @param CreateTagRequest $request
+     *
+     * @return CreateTagResponse
+     */
+    public function createTag($repositoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTagWithOptions($repositoryId, $request, $headers, $runtime);
     }
 
     /**
@@ -1258,17 +1588,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                $organizationId
-     * @param CreateWorkitemRequest $request
+     * @param string                     $organizationId
+     * @param CreateVariableGroupRequest $request
      *
-     * @return CreateWorkitemResponse
+     * @return CreateVariableGroupResponse
      */
-    public function createWorkitem($organizationId, $request)
+    public function createVariableGroup($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createWorkitemWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->createVariableGroupWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -1348,17 +1678,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                       $organizationId
-     * @param CreateWorkitemCommentRequest $request
+     * @param string                $organizationId
+     * @param CreateWorkitemRequest $request
      *
-     * @return CreateWorkitemCommentResponse
+     * @return CreateWorkitemResponse
      */
-    public function createWorkitemComment($organizationId, $request)
+    public function createWorkitem($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createWorkitemCommentWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->createWorkitemWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -1405,17 +1735,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                        $organizationId
-     * @param CreateWorkitemEstimateRequest $request
+     * @param string                       $organizationId
+     * @param CreateWorkitemCommentRequest $request
      *
-     * @return CreateWorkitemEstimateResponse
+     * @return CreateWorkitemCommentResponse
      */
-    public function createWorkitemEstimate($organizationId, $request)
+    public function createWorkitemComment($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createWorkitemEstimateWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->createWorkitemCommentWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -1465,17 +1795,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                      $organizationId
-     * @param CreateWorkitemRecordRequest $request
+     * @param string                        $organizationId
+     * @param CreateWorkitemEstimateRequest $request
      *
-     * @return CreateWorkitemRecordResponse
+     * @return CreateWorkitemEstimateResponse
      */
-    public function createWorkitemRecord($organizationId, $request)
+    public function createWorkitemEstimate($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createWorkitemRecordWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->createWorkitemEstimateWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -1531,16 +1861,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param CreateWorkspaceRequest $request
+     * @param string                      $organizationId
+     * @param CreateWorkitemRecordRequest $request
      *
-     * @return CreateWorkspaceResponse
+     * @return CreateWorkitemRecordResponse
      */
-    public function createWorkspace($request)
+    public function createWorkitemRecord($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createWorkspaceWithOptions($request, $headers, $runtime);
+        return $this->createWorkitemRecordWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -1598,17 +1929,16 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string              $repositoryId
-     * @param DeleteBranchRequest $request
+     * @param CreateWorkspaceRequest $request
      *
-     * @return DeleteBranchResponse
+     * @return CreateWorkspaceResponse
      */
-    public function deleteBranch($repositoryId, $request)
+    public function createWorkspace($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteBranchWithOptions($repositoryId, $request, $headers, $runtime);
+        return $this->createWorkspaceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1652,17 +1982,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string            $repositoryId
-     * @param DeleteFileRequest $request
+     * @param string              $repositoryId
+     * @param DeleteBranchRequest $request
      *
-     * @return DeleteFileResponse
+     * @return DeleteBranchResponse
      */
-    public function deleteFile($repositoryId, $request)
+    public function deleteBranch($repositoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteFileWithOptions($repositoryId, $request, $headers, $runtime);
+        return $this->deleteBranchWithOptions($repositoryId, $request, $headers, $runtime);
     }
 
     /**
@@ -1712,17 +2042,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string $organizationId
-     * @param string $id
+     * @param string            $repositoryId
+     * @param DeleteFileRequest $request
      *
-     * @return DeleteFlowTagResponse
+     * @return DeleteFileResponse
      */
-    public function deleteFlowTag($organizationId, $id)
+    public function deleteFile($repositoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteFlowTagWithOptions($organizationId, $id, $headers, $runtime);
+        return $this->deleteFileWithOptions($repositoryId, $request, $headers, $runtime);
     }
 
     /**
@@ -1757,14 +2087,14 @@ class Devops extends OpenApiClient
      * @param string $organizationId
      * @param string $id
      *
-     * @return DeleteFlowTagGroupResponse
+     * @return DeleteFlowTagResponse
      */
-    public function deleteFlowTagGroup($organizationId, $id)
+    public function deleteFlowTag($organizationId, $id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteFlowTagGroupWithOptions($organizationId, $id, $headers, $runtime);
+        return $this->deleteFlowTagWithOptions($organizationId, $id, $headers, $runtime);
     }
 
     /**
@@ -1799,14 +2129,73 @@ class Devops extends OpenApiClient
      * @param string $organizationId
      * @param string $id
      *
-     * @return DeleteHostGroupResponse
+     * @return DeleteFlowTagGroupResponse
      */
-    public function deleteHostGroup($organizationId, $id)
+    public function deleteFlowTagGroup($organizationId, $id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteHostGroupWithOptions($organizationId, $id, $headers, $runtime);
+        return $this->deleteFlowTagGroupWithOptions($organizationId, $id, $headers, $runtime);
+    }
+
+    /**
+     * @param string                   $groupId
+     * @param DeleteGroupMemberRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteGroupMemberResponse
+     */
+    public function deleteGroupMemberWithOptions($groupId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->aliyunPk)) {
+            $query['aliyunPk'] = $request->aliyunPk;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->memberType)) {
+            $body['memberType'] = $request->memberType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGroupMember',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/members/remove/aliyun_pk',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                   $groupId
+     * @param DeleteGroupMemberRequest $request
+     *
+     * @return DeleteGroupMemberResponse
+     */
+    public function deleteGroupMember($groupId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteGroupMemberWithOptions($groupId, $request, $headers, $runtime);
     }
 
     /**
@@ -1839,16 +2228,16 @@ class Devops extends OpenApiClient
 
     /**
      * @param string $organizationId
-     * @param string $pipelineId
+     * @param string $id
      *
-     * @return DeletePipelineResponse
+     * @return DeleteHostGroupResponse
      */
-    public function deletePipeline($organizationId, $pipelineId)
+    public function deleteHostGroup($organizationId, $id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deletePipelineWithOptions($organizationId, $pipelineId, $headers, $runtime);
+        return $this->deleteHostGroupWithOptions($organizationId, $id, $headers, $runtime);
     }
 
     /**
@@ -1881,16 +2270,16 @@ class Devops extends OpenApiClient
 
     /**
      * @param string $organizationId
-     * @param string $groupId
+     * @param string $pipelineId
      *
-     * @return DeletePipelineGroupResponse
+     * @return DeletePipelineResponse
      */
-    public function deletePipelineGroup($organizationId, $groupId)
+    public function deletePipeline($organizationId, $pipelineId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deletePipelineGroupWithOptions($organizationId, $groupId, $headers, $runtime);
+        return $this->deletePipelineWithOptions($organizationId, $pipelineId, $headers, $runtime);
     }
 
     /**
@@ -1922,17 +2311,70 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string               $organizationId
-     * @param DeleteProjectRequest $request
+     * @param string $organizationId
+     * @param string $groupId
      *
-     * @return DeleteProjectResponse
+     * @return DeletePipelineGroupResponse
      */
-    public function deleteProject($organizationId, $request)
+    public function deletePipelineGroup($organizationId, $groupId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteProjectWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->deletePipelineGroupWithOptions($organizationId, $groupId, $headers, $runtime);
+    }
+
+    /**
+     * @param string                         $organizationId
+     * @param string                         $pipelineId
+     * @param DeletePipelineRelationsRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeletePipelineRelationsResponse
+     */
+    public function deletePipelineRelationsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->relObjectId)) {
+            $query['relObjectId'] = $request->relObjectId;
+        }
+        if (!Utils::isUnset($request->relObjectType)) {
+            $query['relObjectType'] = $request->relObjectType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePipelineRelations',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRelations',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeletePipelineRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                         $organizationId
+     * @param string                         $pipelineId
+     * @param DeletePipelineRelationsRequest $request
+     *
+     * @return DeletePipelineRelationsResponse
+     */
+    public function deletePipelineRelations($organizationId, $pipelineId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deletePipelineRelationsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime);
     }
 
     /**
@@ -1970,18 +2412,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                       $repositoryId
-     * @param string                       $protectedBranchId
-     * @param DeleteProtectedBranchRequest $request
+     * @param string               $organizationId
+     * @param DeleteProjectRequest $request
      *
-     * @return DeleteProtectedBranchResponse
+     * @return DeleteProjectResponse
      */
-    public function deleteProtectedBranch($repositoryId, $protectedBranchId, $request)
+    public function deleteProject($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteProtectedBranchWithOptions($repositoryId, $protectedBranchId, $request, $headers, $runtime);
+        return $this->deleteProjectWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -2023,17 +2464,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                  $repositoryId
-     * @param DeleteRepositoryRequest $request
+     * @param string                       $repositoryId
+     * @param string                       $protectedBranchId
+     * @param DeleteProtectedBranchRequest $request
      *
-     * @return DeleteRepositoryResponse
+     * @return DeleteProtectedBranchResponse
      */
-    public function deleteRepository($repositoryId, $request)
+    public function deleteProtectedBranch($repositoryId, $protectedBranchId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteRepositoryWithOptions($repositoryId, $request, $headers, $runtime);
+        return $this->deleteProtectedBranchWithOptions($repositoryId, $protectedBranchId, $request, $headers, $runtime);
     }
 
     /**
@@ -2079,18 +2521,131 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                         $repositoryId
-     * @param string                         $hookId
-     * @param DeleteRepositoryWebhookRequest $request
+     * @param string                  $repositoryId
+     * @param DeleteRepositoryRequest $request
      *
-     * @return DeleteRepositoryWebhookResponse
+     * @return DeleteRepositoryResponse
      */
-    public function deleteRepositoryWebhook($repositoryId, $hookId, $request)
+    public function deleteRepository($repositoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteRepositoryWebhookWithOptions($repositoryId, $hookId, $request, $headers, $runtime);
+        return $this->deleteRepositoryWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                       $groupId
+     * @param DeleteRepositoryGroupRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteRepositoryGroupResponse
+     */
+    public function deleteRepositoryGroupWithOptions($groupId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->reason)) {
+            $body['reason'] = $request->reason;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRepositoryGroup',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/remove',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRepositoryGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                       $groupId
+     * @param DeleteRepositoryGroupRequest $request
+     *
+     * @return DeleteRepositoryGroupResponse
+     */
+    public function deleteRepositoryGroup($groupId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteRepositoryGroupWithOptions($groupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                        $repositoryId
+     * @param string                        $aliyunPk
+     * @param DeleteRepositoryMemberRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteRepositoryMemberResponse
+     */
+    public function deleteRepositoryMemberWithOptions($repositoryId, $aliyunPk, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->memberType)) {
+            $body['memberType'] = $request->memberType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRepositoryMember',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/members/delete/' . OpenApiUtilClient::getEncodeParam($aliyunPk) . '',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRepositoryMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                        $repositoryId
+     * @param string                        $aliyunPk
+     * @param DeleteRepositoryMemberRequest $request
+     *
+     * @return DeleteRepositoryMemberResponse
+     */
+    public function deleteRepositoryMember($repositoryId, $aliyunPk, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteRepositoryMemberWithOptions($repositoryId, $aliyunPk, $request, $headers, $runtime);
     }
 
     /**
@@ -2132,19 +2687,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string $organizationId
-     * @param string $resourceType
-     * @param string $resourceId
-     * @param string $accountId
+     * @param string                         $repositoryId
+     * @param string                         $hookId
+     * @param DeleteRepositoryWebhookRequest $request
      *
-     * @return DeleteResourceMemberResponse
+     * @return DeleteRepositoryWebhookResponse
      */
-    public function deleteResourceMember($organizationId, $resourceType, $resourceId, $accountId)
+    public function deleteRepositoryWebhook($repositoryId, $hookId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteResourceMemberWithOptions($organizationId, $resourceType, $resourceId, $accountId, $headers, $runtime);
+        return $this->deleteRepositoryWebhookWithOptions($repositoryId, $hookId, $request, $headers, $runtime);
     }
 
     /**
@@ -2179,16 +2733,72 @@ class Devops extends OpenApiClient
 
     /**
      * @param string $organizationId
-     * @param string $id
+     * @param string $resourceType
+     * @param string $resourceId
+     * @param string $accountId
      *
-     * @return DeleteVariableGroupResponse
+     * @return DeleteResourceMemberResponse
      */
-    public function deleteVariableGroup($organizationId, $id)
+    public function deleteResourceMember($organizationId, $resourceType, $resourceId, $accountId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteVariableGroupWithOptions($organizationId, $id, $headers, $runtime);
+        return $this->deleteResourceMemberWithOptions($organizationId, $resourceType, $resourceId, $accountId, $headers, $runtime);
+    }
+
+    /**
+     * @param string           $repositoryId
+     * @param DeleteTagRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteTagResponse
+     */
+    public function deleteTagWithOptions($repositoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->tagName)) {
+            $query['tagName'] = $request->tagName;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTag',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/tags/delete',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string           $repositoryId
+     * @param DeleteTagRequest $request
+     *
+     * @return DeleteTagResponse
+     */
+    public function deleteTag($repositoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteTagWithOptions($repositoryId, $request, $headers, $runtime);
     }
 
     /**
@@ -2220,17 +2830,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                          $organizationId
-     * @param DeleteWorkitemAllCommentRequest $request
+     * @param string $organizationId
+     * @param string $id
      *
-     * @return DeleteWorkitemAllCommentResponse
+     * @return DeleteVariableGroupResponse
      */
-    public function deleteWorkitemAllComment($organizationId, $request)
+    public function deleteVariableGroup($organizationId, $id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteWorkitemAllCommentWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->deleteVariableGroupWithOptions($organizationId, $id, $headers, $runtime);
     }
 
     /**
@@ -2268,17 +2878,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                       $organizationId
-     * @param DeleteWorkitemCommentRequest $request
+     * @param string                          $organizationId
+     * @param DeleteWorkitemAllCommentRequest $request
      *
-     * @return DeleteWorkitemCommentResponse
+     * @return DeleteWorkitemAllCommentResponse
      */
-    public function deleteWorkitemComment($organizationId, $request)
+    public function deleteWorkitemAllComment($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteWorkitemCommentWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->deleteWorkitemAllCommentWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -2319,16 +2929,70 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string $workspaceId
+     * @param string                       $organizationId
+     * @param DeleteWorkitemCommentRequest $request
      *
-     * @return FrozenWorkspaceResponse
+     * @return DeleteWorkitemCommentResponse
      */
-    public function frozenWorkspace($workspaceId)
+    public function deleteWorkitemComment($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->frozenWorkspaceWithOptions($workspaceId, $headers, $runtime);
+        return $this->deleteWorkitemCommentWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                 $repositoryId
+     * @param string                 $keyId
+     * @param EnableDeployKeyRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return EnableDeployKeyResponse
+     */
+    public function enableDeployKeyWithOptions($repositoryId, $keyId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableDeployKey',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/keys/' . OpenApiUtilClient::getEncodeParam($keyId) . '/enable',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableDeployKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                 $repositoryId
+     * @param string                 $keyId
+     * @param EnableDeployKeyRequest $request
+     *
+     * @return EnableDeployKeyResponse
+     */
+    public function enableDeployKey($repositoryId, $keyId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->enableDeployKeyWithOptions($repositoryId, $keyId, $request, $headers, $runtime);
     }
 
     /**
@@ -2359,17 +3023,16 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string               $repositoryId
-     * @param GetBranchInfoRequest $request
+     * @param string $workspaceId
      *
-     * @return GetBranchInfoResponse
+     * @return FrozenWorkspaceResponse
      */
-    public function getBranchInfo($repositoryId, $request)
+    public function frozenWorkspace($workspaceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getBranchInfoWithOptions($repositoryId, $request, $headers, $runtime);
+        return $this->frozenWorkspaceWithOptions($workspaceId, $headers, $runtime);
     }
 
     /**
@@ -2413,17 +3076,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                       $identity
-     * @param GetCodeupOrganizationRequest $request
+     * @param string               $repositoryId
+     * @param GetBranchInfoRequest $request
      *
-     * @return GetCodeupOrganizationResponse
+     * @return GetBranchInfoResponse
      */
-    public function getCodeupOrganization($identity, $request)
+    public function getBranchInfo($repositoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getCodeupOrganizationWithOptions($identity, $request, $headers, $runtime);
+        return $this->getBranchInfoWithOptions($repositoryId, $request, $headers, $runtime);
     }
 
     /**
@@ -2461,18 +3124,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                      $organizationId
-     * @param string                      $fieldId
-     * @param GetCustomFieldOptionRequest $request
+     * @param string                       $identity
+     * @param GetCodeupOrganizationRequest $request
      *
-     * @return GetCustomFieldOptionResponse
+     * @return GetCodeupOrganizationResponse
      */
-    public function getCustomFieldOption($organizationId, $fieldId, $request)
+    public function getCodeupOrganization($identity, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getCustomFieldOptionWithOptions($organizationId, $fieldId, $request, $headers, $runtime);
+        return $this->getCodeupOrganizationWithOptions($identity, $request, $headers, $runtime);
     }
 
     /**
@@ -2517,17 +3179,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string              $repositoryId
-     * @param GetFileBlobsRequest $request
+     * @param string                      $organizationId
+     * @param string                      $fieldId
+     * @param GetCustomFieldOptionRequest $request
      *
-     * @return GetFileBlobsResponse
+     * @return GetCustomFieldOptionResponse
      */
-    public function getFileBlobs($repositoryId, $request)
+    public function getCustomFieldOption($organizationId, $fieldId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getFileBlobsWithOptions($repositoryId, $request, $headers, $runtime);
+        return $this->getCustomFieldOptionWithOptions($organizationId, $fieldId, $request, $headers, $runtime);
     }
 
     /**
@@ -2580,17 +3243,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                   $repositoryId
-     * @param GetFileLastCommitRequest $request
+     * @param string              $repositoryId
+     * @param GetFileBlobsRequest $request
      *
-     * @return GetFileLastCommitResponse
+     * @return GetFileBlobsResponse
      */
-    public function getFileLastCommit($repositoryId, $request)
+    public function getFileBlobs($repositoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getFileLastCommitWithOptions($repositoryId, $request, $headers, $runtime);
+        return $this->getFileBlobsWithOptions($repositoryId, $request, $headers, $runtime);
     }
 
     /**
@@ -2640,17 +3303,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string $organizationId
-     * @param string $id
+     * @param string                   $repositoryId
+     * @param GetFileLastCommitRequest $request
      *
-     * @return GetFlowTagGroupResponse
+     * @return GetFileLastCommitResponse
      */
-    public function getFlowTagGroup($organizationId, $id)
+    public function getFileLastCommit($repositoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getFlowTagGroupWithOptions($organizationId, $id, $headers, $runtime);
+        return $this->getFileLastCommitWithOptions($repositoryId, $request, $headers, $runtime);
     }
 
     /**
@@ -2685,14 +3348,66 @@ class Devops extends OpenApiClient
      * @param string $organizationId
      * @param string $id
      *
-     * @return GetHostGroupResponse
+     * @return GetFlowTagGroupResponse
      */
-    public function getHostGroup($organizationId, $id)
+    public function getFlowTagGroup($organizationId, $id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getHostGroupWithOptions($organizationId, $id, $headers, $runtime);
+        return $this->getFlowTagGroupWithOptions($organizationId, $id, $headers, $runtime);
+    }
+
+    /**
+     * @param GetGroupDetailRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetGroupDetailResponse
+     */
+    public function getGroupDetailWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['groupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetGroupDetail',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/groups/get_detail',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetGroupDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetGroupDetailRequest $request
+     *
+     * @return GetGroupDetailResponse
+     */
+    public function getGroupDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getGroupDetailWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2725,16 +3440,16 @@ class Devops extends OpenApiClient
 
     /**
      * @param string $organizationId
-     * @param string $accountId
+     * @param string $id
      *
-     * @return GetOrganizationMemberResponse
+     * @return GetHostGroupResponse
      */
-    public function getOrganizationMember($organizationId, $accountId)
+    public function getHostGroup($organizationId, $id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getOrganizationMemberWithOptions($organizationId, $accountId, $headers, $runtime);
+        return $this->getHostGroupWithOptions($organizationId, $id, $headers, $runtime);
     }
 
     /**
@@ -2767,16 +3482,16 @@ class Devops extends OpenApiClient
 
     /**
      * @param string $organizationId
-     * @param string $pipelineId
+     * @param string $accountId
      *
-     * @return GetPipelineResponse
+     * @return GetOrganizationMemberResponse
      */
-    public function getPipeline($organizationId, $pipelineId)
+    public function getOrganizationMember($organizationId, $accountId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getPipelineWithOptions($organizationId, $pipelineId, $headers, $runtime);
+        return $this->getOrganizationMemberWithOptions($organizationId, $accountId, $headers, $runtime);
     }
 
     /**
@@ -2808,17 +3523,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                        $organizationId
-     * @param GetPipelineArtifactUrlRequest $request
+     * @param string $organizationId
+     * @param string $pipelineId
      *
-     * @return GetPipelineArtifactUrlResponse
+     * @return GetPipelineResponse
      */
-    public function getPipelineArtifactUrl($organizationId, $request)
+    public function getPipeline($organizationId, $pipelineId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getPipelineArtifactUrlWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->getPipelineWithOptions($organizationId, $pipelineId, $headers, $runtime);
     }
 
     /**
@@ -2859,21 +3574,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                            $organizationId
-     * @param string                            $emasJobInstanceId
-     * @param string                            $md5
-     * @param string                            $pipelineId
-     * @param string                            $pipelineRunId
-     * @param GetPipelineEmasArtifactUrlRequest $request
+     * @param string                        $organizationId
+     * @param GetPipelineArtifactUrlRequest $request
      *
-     * @return GetPipelineEmasArtifactUrlResponse
+     * @return GetPipelineArtifactUrlResponse
      */
-    public function getPipelineEmasArtifactUrl($organizationId, $emasJobInstanceId, $md5, $pipelineId, $pipelineRunId, $request)
+    public function getPipelineArtifactUrl($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getPipelineEmasArtifactUrlWithOptions($organizationId, $emasJobInstanceId, $md5, $pipelineId, $pipelineRunId, $request, $headers, $runtime);
+        return $this->getPipelineArtifactUrlWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -2915,17 +3626,21 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string $organizationId
-     * @param string $groupId
+     * @param string                            $organizationId
+     * @param string                            $emasJobInstanceId
+     * @param string                            $md5
+     * @param string                            $pipelineId
+     * @param string                            $pipelineRunId
+     * @param GetPipelineEmasArtifactUrlRequest $request
      *
-     * @return GetPipelineGroupResponse
+     * @return GetPipelineEmasArtifactUrlResponse
      */
-    public function getPipelineGroup($organizationId, $groupId)
+    public function getPipelineEmasArtifactUrl($organizationId, $emasJobInstanceId, $md5, $pipelineId, $pipelineRunId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getPipelineGroupWithOptions($organizationId, $groupId, $headers, $runtime);
+        return $this->getPipelineEmasArtifactUrlWithOptions($organizationId, $emasJobInstanceId, $md5, $pipelineId, $pipelineRunId, $request, $headers, $runtime);
     }
 
     /**
@@ -2958,17 +3673,16 @@ class Devops extends OpenApiClient
 
     /**
      * @param string $organizationId
-     * @param string $pipelineId
-     * @param string $pipelineRunId
+     * @param string $groupId
      *
-     * @return GetPipelineRunResponse
+     * @return GetPipelineGroupResponse
      */
-    public function getPipelineRun($organizationId, $pipelineId, $pipelineRunId)
+    public function getPipelineGroup($organizationId, $groupId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getPipelineRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $headers, $runtime);
+        return $this->getPipelineGroupWithOptions($organizationId, $groupId, $headers, $runtime);
     }
 
     /**
@@ -3001,17 +3715,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                          $organizationId
-     * @param GetPipelineScanReportUrlRequest $request
+     * @param string $organizationId
+     * @param string $pipelineId
+     * @param string $pipelineRunId
      *
-     * @return GetPipelineScanReportUrlResponse
+     * @return GetPipelineRunResponse
      */
-    public function getPipelineScanReportUrl($organizationId, $request)
+    public function getPipelineRun($organizationId, $pipelineId, $pipelineRunId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getPipelineScanReportUrlWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->getPipelineRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $headers, $runtime);
     }
 
     /**
@@ -3049,17 +3764,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string $organizationId
-     * @param string $projectId
+     * @param string                          $organizationId
+     * @param GetPipelineScanReportUrlRequest $request
      *
-     * @return GetProjectInfoResponse
+     * @return GetPipelineScanReportUrlResponse
      */
-    public function getProjectInfo($organizationId, $projectId)
+    public function getPipelineScanReportUrl($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getProjectInfoWithOptions($organizationId, $projectId, $headers, $runtime);
+        return $this->getPipelineScanReportUrlWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -3091,18 +3806,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                  $repositoryId
-     * @param string                  $aliyunPk
-     * @param GetProjectMemberRequest $request
+     * @param string $organizationId
+     * @param string $projectId
      *
-     * @return GetProjectMemberResponse
+     * @return GetProjectInfoResponse
      */
-    public function getProjectMember($repositoryId, $aliyunPk, $request)
+    public function getProjectInfo($organizationId, $projectId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getProjectMemberWithOptions($repositoryId, $aliyunPk, $request, $headers, $runtime);
+        return $this->getProjectInfoWithOptions($organizationId, $projectId, $headers, $runtime);
     }
 
     /**
@@ -3144,16 +3858,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param GetRepositoryRequest $request
+     * @param string                  $repositoryId
+     * @param string                  $aliyunPk
+     * @param GetProjectMemberRequest $request
      *
-     * @return GetRepositoryResponse
+     * @return GetProjectMemberResponse
      */
-    public function getRepository($request)
+    public function getProjectMember($repositoryId, $aliyunPk, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getRepositoryWithOptions($request, $headers, $runtime);
+        return $this->getProjectMemberWithOptions($repositoryId, $aliyunPk, $request, $headers, $runtime);
     }
 
     /**
@@ -3196,18 +3912,16 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                     $repositoryId
-     * @param string                     $sha
-     * @param GetRepositoryCommitRequest $request
+     * @param GetRepositoryRequest $request
      *
-     * @return GetRepositoryCommitResponse
+     * @return GetRepositoryResponse
      */
-    public function getRepositoryCommit($repositoryId, $sha, $request)
+    public function getRepository($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getRepositoryCommitWithOptions($repositoryId, $sha, $request, $headers, $runtime);
+        return $this->getRepositoryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3252,17 +3966,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string $organizationId
-     * @param string $sprintId
+     * @param string                     $repositoryId
+     * @param string                     $sha
+     * @param GetRepositoryCommitRequest $request
      *
-     * @return GetSprintInfoResponse
+     * @return GetRepositoryCommitResponse
      */
-    public function getSprintInfo($organizationId, $sprintId)
+    public function getRepositoryCommit($repositoryId, $sha, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getSprintInfoWithOptions($organizationId, $sprintId, $headers, $runtime);
+        return $this->getRepositoryCommitWithOptions($repositoryId, $sha, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                  $repositoryId
+     * @param GetRepositoryTagRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetRepositoryTagResponse
+     */
+    public function getRepositoryTagWithOptions($repositoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->tagName)) {
+            $query['tagName'] = $request->tagName;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRepositoryTag',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/tag/info',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRepositoryTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                  $repositoryId
+     * @param GetRepositoryTagRequest $request
+     *
+     * @return GetRepositoryTagResponse
+     */
+    public function getRepositoryTag($repositoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getRepositoryTagWithOptions($repositoryId, $request, $headers, $runtime);
     }
 
     /**
@@ -3295,17 +4064,62 @@ class Devops extends OpenApiClient
 
     /**
      * @param string $organizationId
-     * @param string $pipelineId
-     * @param string $deployOrderId
+     * @param string $sprintId
      *
-     * @return GetVMDeployOrderResponse
+     * @return GetSprintInfoResponse
      */
-    public function getVMDeployOrder($organizationId, $pipelineId, $deployOrderId)
+    public function getSprintInfo($organizationId, $sprintId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getVMDeployOrderWithOptions($organizationId, $pipelineId, $deployOrderId, $headers, $runtime);
+        return $this->getSprintInfoWithOptions($organizationId, $sprintId, $headers, $runtime);
+    }
+
+    /**
+     * @param GetUserInfoRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetUserInfoResponse
+     */
+    public function getUserInfoWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserInfo',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/users/current',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUserInfoRequest $request
+     *
+     * @return GetUserInfoResponse
+     */
+    public function getUserInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getUserInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3339,16 +4153,17 @@ class Devops extends OpenApiClient
 
     /**
      * @param string $organizationId
-     * @param string $id
+     * @param string $pipelineId
+     * @param string $deployOrderId
      *
-     * @return GetVariableGroupResponse
+     * @return GetVMDeployOrderResponse
      */
-    public function getVariableGroup($organizationId, $id)
+    public function getVMDeployOrder($organizationId, $pipelineId, $deployOrderId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getVariableGroupWithOptions($organizationId, $id, $headers, $runtime);
+        return $this->getVMDeployOrderWithOptions($organizationId, $pipelineId, $deployOrderId, $headers, $runtime);
     }
 
     /**
@@ -3381,16 +4196,16 @@ class Devops extends OpenApiClient
 
     /**
      * @param string $organizationId
-     * @param string $workitemId
+     * @param string $id
      *
-     * @return GetWorkItemActivityResponse
+     * @return GetVariableGroupResponse
      */
-    public function getWorkItemActivity($organizationId, $workitemId)
+    public function getVariableGroup($organizationId, $id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getWorkItemActivityWithOptions($organizationId, $workitemId, $headers, $runtime);
+        return $this->getVariableGroupWithOptions($organizationId, $id, $headers, $runtime);
     }
 
     /**
@@ -3425,14 +4240,14 @@ class Devops extends OpenApiClient
      * @param string $organizationId
      * @param string $workitemId
      *
-     * @return GetWorkItemInfoResponse
+     * @return GetWorkItemActivityResponse
      */
-    public function getWorkItemInfo($organizationId, $workitemId)
+    public function getWorkItemActivity($organizationId, $workitemId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getWorkItemInfoWithOptions($organizationId, $workitemId, $headers, $runtime);
+        return $this->getWorkItemActivityWithOptions($organizationId, $workitemId, $headers, $runtime);
     }
 
     /**
@@ -3464,18 +4279,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                         $organizationId
-     * @param string                         $workitemId
-     * @param GetWorkItemWorkFlowInfoRequest $request
+     * @param string $organizationId
+     * @param string $workitemId
      *
-     * @return GetWorkItemWorkFlowInfoResponse
+     * @return GetWorkItemInfoResponse
      */
-    public function getWorkItemWorkFlowInfo($organizationId, $workitemId, $request)
+    public function getWorkItemInfo($organizationId, $workitemId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getWorkItemWorkFlowInfoWithOptions($organizationId, $workitemId, $request, $headers, $runtime);
+        return $this->getWorkItemInfoWithOptions($organizationId, $workitemId, $headers, $runtime);
     }
 
     /**
@@ -3514,17 +4328,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string $organizationId
-     * @param string $workitemId
+     * @param string                         $organizationId
+     * @param string                         $workitemId
+     * @param GetWorkItemWorkFlowInfoRequest $request
      *
-     * @return GetWorkitemCommentListResponse
+     * @return GetWorkItemWorkFlowInfoResponse
      */
-    public function getWorkitemCommentList($organizationId, $workitemId)
+    public function getWorkItemWorkFlowInfo($organizationId, $workitemId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getWorkitemCommentListWithOptions($organizationId, $workitemId, $headers, $runtime);
+        return $this->getWorkItemWorkFlowInfoWithOptions($organizationId, $workitemId, $request, $headers, $runtime);
     }
 
     /**
@@ -3556,18 +4371,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                      $organizationId
-     * @param string                      $workitemId
-     * @param GetWorkitemRelationsRequest $request
+     * @param string $organizationId
+     * @param string $workitemId
      *
-     * @return GetWorkitemRelationsResponse
+     * @return GetWorkitemCommentListResponse
      */
-    public function getWorkitemRelations($organizationId, $workitemId, $request)
+    public function getWorkitemCommentList($organizationId, $workitemId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getWorkitemRelationsWithOptions($organizationId, $workitemId, $request, $headers, $runtime);
+        return $this->getWorkitemCommentListWithOptions($organizationId, $workitemId, $headers, $runtime);
     }
 
     /**
@@ -3606,16 +4420,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string $organizationId
+     * @param string                      $organizationId
+     * @param string                      $workitemId
+     * @param GetWorkitemRelationsRequest $request
      *
-     * @return GetWorkitemTimeTypeListResponse
+     * @return GetWorkitemRelationsResponse
      */
-    public function getWorkitemTimeTypeList($organizationId)
+    public function getWorkitemRelations($organizationId, $workitemId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getWorkitemTimeTypeListWithOptions($organizationId, $headers, $runtime);
+        return $this->getWorkitemRelationsWithOptions($organizationId, $workitemId, $request, $headers, $runtime);
     }
 
     /**
@@ -3646,16 +4462,16 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string $workspaceId
+     * @param string $organizationId
      *
-     * @return GetWorkspaceResponse
+     * @return GetWorkitemTimeTypeListResponse
      */
-    public function getWorkspace($workspaceId)
+    public function getWorkitemTimeTypeList($organizationId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getWorkspaceWithOptions($workspaceId, $headers, $runtime);
+        return $this->getWorkitemTimeTypeListWithOptions($organizationId, $headers, $runtime);
     }
 
     /**
@@ -3686,17 +4502,16 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                   $organizationId
-     * @param JoinPipelineGroupRequest $request
+     * @param string $workspaceId
      *
-     * @return JoinPipelineGroupResponse
+     * @return GetWorkspaceResponse
      */
-    public function joinPipelineGroup($organizationId, $request)
+    public function getWorkspace($workspaceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->joinPipelineGroupWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->getWorkspaceWithOptions($workspaceId, $headers, $runtime);
     }
 
     /**
@@ -3737,16 +4552,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string $organizationId
+     * @param string                   $organizationId
+     * @param JoinPipelineGroupRequest $request
      *
-     * @return ListFlowTagGroupsResponse
+     * @return JoinPipelineGroupResponse
      */
-    public function listFlowTagGroups($organizationId)
+    public function joinPipelineGroup($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listFlowTagGroupsWithOptions($organizationId, $headers, $runtime);
+        return $this->joinPipelineGroupWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -3777,17 +4593,127 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                $organizationId
-     * @param ListHostGroupsRequest $request
+     * @param string $organizationId
      *
-     * @return ListHostGroupsResponse
+     * @return ListFlowTagGroupsResponse
      */
-    public function listHostGroups($organizationId, $request)
+    public function listFlowTagGroups($organizationId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listHostGroupsWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->listFlowTagGroupsWithOptions($organizationId, $headers, $runtime);
+    }
+
+    /**
+     * @param string                 $groupId
+     * @param ListGroupMemberRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListGroupMemberResponse
+     */
+    public function listGroupMemberWithOptions($groupId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGroupMember',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/list',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                 $groupId
+     * @param ListGroupMemberRequest $request
+     *
+     * @return ListGroupMemberResponse
+     */
+    public function listGroupMember($groupId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listGroupMemberWithOptions($groupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                       $groupId
+     * @param ListGroupRepositoriesRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListGroupRepositoriesResponse
+     */
+    public function listGroupRepositoriesWithOptions($groupId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->search)) {
+            $query['search'] = $request->search;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGroupRepositories',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/projects',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListGroupRepositoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                       $groupId
+     * @param ListGroupRepositoriesRequest $request
+     *
+     * @return ListGroupRepositoriesResponse
+     */
+    public function listGroupRepositories($groupId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listGroupRepositoriesWithOptions($groupId, $request, $headers, $runtime);
     }
 
     /**
@@ -3849,17 +4775,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                         $organizationId
-     * @param ListOrganizationMembersRequest $request
+     * @param string                $organizationId
+     * @param ListHostGroupsRequest $request
      *
-     * @return ListOrganizationMembersResponse
+     * @return ListHostGroupsResponse
      */
-    public function listOrganizationMembers($organizationId, $request)
+    public function listHostGroups($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listOrganizationMembersWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->listHostGroupsWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -3918,18 +4844,66 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                            $organizationId
-     * @param string                            $groupId
-     * @param ListPipelineGroupPipelinesRequest $request
+     * @param string                         $organizationId
+     * @param ListOrganizationMembersRequest $request
      *
-     * @return ListPipelineGroupPipelinesResponse
+     * @return ListOrganizationMembersResponse
      */
-    public function listPipelineGroupPipelines($organizationId, $groupId, $request)
+    public function listOrganizationMembers($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listPipelineGroupPipelinesWithOptions($organizationId, $groupId, $request, $headers, $runtime);
+        return $this->listOrganizationMembersWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListOrganizationsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListOrganizationsResponse
+     */
+    public function listOrganizationsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessLevel)) {
+            $query['accessLevel'] = $request->accessLevel;
+        }
+        if (!Utils::isUnset($request->minAccessLevel)) {
+            $query['minAccessLevel'] = $request->minAccessLevel;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOrganizations',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organizations/list',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListOrganizationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListOrganizationsRequest $request
+     *
+     * @return ListOrganizationsResponse
+     */
+    public function listOrganizations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listOrganizationsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3989,17 +4963,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                    $organizationId
-     * @param ListPipelineGroupsRequest $request
+     * @param string                            $organizationId
+     * @param string                            $groupId
+     * @param ListPipelineGroupPipelinesRequest $request
      *
-     * @return ListPipelineGroupsResponse
+     * @return ListPipelineGroupPipelinesResponse
      */
-    public function listPipelineGroups($organizationId, $request)
+    public function listPipelineGroupPipelines($organizationId, $groupId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listPipelineGroupsWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->listPipelineGroupPipelinesWithOptions($organizationId, $groupId, $request, $headers, $runtime);
     }
 
     /**
@@ -4040,18 +5015,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                         $organizationId
-     * @param string                         $pipelineId
-     * @param ListPipelineJobHistorysRequest $request
+     * @param string                    $organizationId
+     * @param ListPipelineGroupsRequest $request
      *
-     * @return ListPipelineJobHistorysResponse
+     * @return ListPipelineGroupsResponse
      */
-    public function listPipelineJobHistorys($organizationId, $pipelineId, $request)
+    public function listPipelineGroups($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listPipelineJobHistorysWithOptions($organizationId, $pipelineId, $request, $headers, $runtime);
+        return $this->listPipelineGroupsWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -4099,18 +5073,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                  $organizationId
-     * @param string                  $pipelineId
-     * @param ListPipelineJobsRequest $request
+     * @param string                         $organizationId
+     * @param string                         $pipelineId
+     * @param ListPipelineJobHistorysRequest $request
      *
-     * @return ListPipelineJobsResponse
+     * @return ListPipelineJobHistorysResponse
      */
-    public function listPipelineJobs($organizationId, $pipelineId, $request)
+    public function listPipelineJobHistorys($organizationId, $pipelineId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listPipelineJobsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime);
+        return $this->listPipelineJobHistorysWithOptions($organizationId, $pipelineId, $request, $headers, $runtime);
     }
 
     /**
@@ -4151,16 +5125,66 @@ class Devops extends OpenApiClient
     /**
      * @param string                  $organizationId
      * @param string                  $pipelineId
-     * @param ListPipelineRunsRequest $request
+     * @param ListPipelineJobsRequest $request
      *
-     * @return ListPipelineRunsResponse
+     * @return ListPipelineJobsResponse
      */
-    public function listPipelineRuns($organizationId, $pipelineId, $request)
+    public function listPipelineJobs($organizationId, $pipelineId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listPipelineRunsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime);
+        return $this->listPipelineJobsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                       $organizationId
+     * @param string                       $pipelineId
+     * @param ListPipelineRelationsRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListPipelineRelationsResponse
+     */
+    public function listPipelineRelationsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->relObjectType)) {
+            $query['relObjectType'] = $request->relObjectType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPipelineRelations',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRelations',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPipelineRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                       $organizationId
+     * @param string                       $pipelineId
+     * @param ListPipelineRelationsRequest $request
+     *
+     * @return ListPipelineRelationsResponse
+     */
+    public function listPipelineRelations($organizationId, $pipelineId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPipelineRelationsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime);
     }
 
     /**
@@ -4214,17 +5238,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string               $organizationId
-     * @param ListPipelinesRequest $request
+     * @param string                  $organizationId
+     * @param string                  $pipelineId
+     * @param ListPipelineRunsRequest $request
      *
-     * @return ListPipelinesResponse
+     * @return ListPipelineRunsResponse
      */
-    public function listPipelines($organizationId, $request)
+    public function listPipelineRuns($organizationId, $pipelineId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listPipelinesWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->listPipelineRunsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime);
     }
 
     /**
@@ -4289,18 +5314,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                    $organizationId
-     * @param string                    $projectId
-     * @param ListProjectMembersRequest $request
+     * @param string               $organizationId
+     * @param ListPipelinesRequest $request
      *
-     * @return ListProjectMembersResponse
+     * @return ListPipelinesResponse
      */
-    public function listProjectMembers($organizationId, $projectId, $request)
+    public function listPipelines($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listProjectMembersWithOptions($organizationId, $projectId, $request, $headers, $runtime);
+        return $this->listPipelinesWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -4339,17 +5363,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                      $organizationId
-     * @param ListProjectTemplatesRequest $request
+     * @param string                    $organizationId
+     * @param string                    $projectId
+     * @param ListProjectMembersRequest $request
      *
-     * @return ListProjectTemplatesResponse
+     * @return ListProjectMembersResponse
      */
-    public function listProjectTemplates($organizationId, $request)
+    public function listProjectMembers($organizationId, $projectId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listProjectTemplatesWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->listProjectMembersWithOptions($organizationId, $projectId, $request, $headers, $runtime);
     }
 
     /**
@@ -4387,18 +5412,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                          $organizationId
-     * @param string                          $projectId
-     * @param ListProjectWorkitemTypesRequest $request
+     * @param string                      $organizationId
+     * @param ListProjectTemplatesRequest $request
      *
-     * @return ListProjectWorkitemTypesResponse
+     * @return ListProjectTemplatesResponse
      */
-    public function listProjectWorkitemTypes($organizationId, $projectId, $request)
+    public function listProjectTemplates($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listProjectWorkitemTypesWithOptions($organizationId, $projectId, $request, $headers, $runtime);
+        return $this->listProjectTemplatesWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -4440,17 +5464,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string              $organizationId
-     * @param ListProjectsRequest $request
+     * @param string                          $organizationId
+     * @param string                          $projectId
+     * @param ListProjectWorkitemTypesRequest $request
      *
-     * @return ListProjectsResponse
+     * @return ListProjectWorkitemTypesResponse
      */
-    public function listProjects($organizationId, $request)
+    public function listProjectWorkitemTypes($organizationId, $projectId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listProjectsWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->listProjectWorkitemTypesWithOptions($organizationId, $projectId, $request, $headers, $runtime);
     }
 
     /**
@@ -4503,17 +5528,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                       $repositoryId
-     * @param ListProtectedBranchesRequest $request
+     * @param string              $organizationId
+     * @param ListProjectsRequest $request
      *
-     * @return ListProtectedBranchesResponse
+     * @return ListProjectsResponse
      */
-    public function listProtectedBranches($repositoryId, $request)
+    public function listProjects($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listProtectedBranchesWithOptions($repositoryId, $request, $headers, $runtime);
+        return $this->listProjectsWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -4554,16 +5579,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListRepositoriesRequest $request
+     * @param string                       $repositoryId
+     * @param ListProtectedBranchesRequest $request
      *
-     * @return ListRepositoriesResponse
+     * @return ListProtectedBranchesResponse
      */
-    public function listRepositories($request)
+    public function listProtectedBranches($repositoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listRepositoriesWithOptions($request, $headers, $runtime);
+        return $this->listProtectedBranchesWithOptions($repositoryId, $request, $headers, $runtime);
     }
 
     /**
@@ -4621,17 +5647,16 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                        $repositoryId
-     * @param ListRepositoryBranchesRequest $request
+     * @param ListRepositoriesRequest $request
      *
-     * @return ListRepositoryBranchesResponse
+     * @return ListRepositoriesResponse
      */
-    public function listRepositoryBranches($repositoryId, $request)
+    public function listRepositories($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listRepositoryBranchesWithOptions($repositoryId, $request, $headers, $runtime);
+        return $this->listRepositoriesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4684,18 +5709,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                          $repositoryId
-     * @param string                          $sha
-     * @param ListRepositoryCommitDiffRequest $request
+     * @param string                        $repositoryId
+     * @param ListRepositoryBranchesRequest $request
      *
-     * @return ListRepositoryCommitDiffResponse
+     * @return ListRepositoryBranchesResponse
      */
-    public function listRepositoryCommitDiff($repositoryId, $sha, $request)
+    public function listRepositoryBranches($repositoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listRepositoryCommitDiffWithOptions($repositoryId, $sha, $request, $headers, $runtime);
+        return $this->listRepositoryBranchesWithOptions($repositoryId, $request, $headers, $runtime);
     }
 
     /**
@@ -4740,17 +5764,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                       $repositoryId
-     * @param ListRepositoryCommitsRequest $request
+     * @param string                          $repositoryId
+     * @param string                          $sha
+     * @param ListRepositoryCommitDiffRequest $request
      *
-     * @return ListRepositoryCommitsResponse
+     * @return ListRepositoryCommitDiffResponse
      */
-    public function listRepositoryCommits($repositoryId, $request)
+    public function listRepositoryCommitDiff($repositoryId, $sha, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listRepositoryCommitsWithOptions($repositoryId, $request, $headers, $runtime);
+        return $this->listRepositoryCommitDiffWithOptions($repositoryId, $sha, $request, $headers, $runtime);
     }
 
     /**
@@ -4818,17 +5843,87 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                                   $repositoryId
-     * @param ListRepositoryMemberWithInheritedRequest $request
+     * @param string                       $repositoryId
+     * @param ListRepositoryCommitsRequest $request
      *
-     * @return ListRepositoryMemberWithInheritedResponse
+     * @return ListRepositoryCommitsResponse
      */
-    public function listRepositoryMemberWithInherited($repositoryId, $request)
+    public function listRepositoryCommits($repositoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listRepositoryMemberWithInheritedWithOptions($repositoryId, $request, $headers, $runtime);
+        return $this->listRepositoryCommitsWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListRepositoryGroupsRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListRepositoryGroupsResponse
+     */
+    public function listRepositoryGroupsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->includePersonal)) {
+            $query['includePersonal'] = $request->includePersonal;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['orderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->parentId)) {
+            $query['parentId'] = $request->parentId;
+        }
+        if (!Utils::isUnset($request->search)) {
+            $query['search'] = $request->search;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['sort'] = $request->sort;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRepositoryGroups',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/groups/get/all',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRepositoryGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListRepositoryGroupsRequest $request
+     *
+     * @return ListRepositoryGroupsResponse
+     */
+    public function listRepositoryGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listRepositoryGroupsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4869,17 +5964,80 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                    $repositoryId
-     * @param ListRepositoryTreeRequest $request
+     * @param string                                   $repositoryId
+     * @param ListRepositoryMemberWithInheritedRequest $request
      *
-     * @return ListRepositoryTreeResponse
+     * @return ListRepositoryMemberWithInheritedResponse
      */
-    public function listRepositoryTree($repositoryId, $request)
+    public function listRepositoryMemberWithInherited($repositoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listRepositoryTreeWithOptions($repositoryId, $request, $headers, $runtime);
+        return $this->listRepositoryMemberWithInheritedWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                    $repositoryId
+     * @param ListRepositoryTagsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListRepositoryTagsResponse
+     */
+    public function listRepositoryTagsWithOptions($repositoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->search)) {
+            $query['search'] = $request->search;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['sort'] = $request->sort;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRepositoryTags',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/tag/list',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRepositoryTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                    $repositoryId
+     * @param ListRepositoryTagsRequest $request
+     *
+     * @return ListRepositoryTagsResponse
+     */
+    public function listRepositoryTags($repositoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listRepositoryTagsWithOptions($repositoryId, $request, $headers, $runtime);
     }
 
     /**
@@ -4929,17 +6087,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                       $repositoryId
-     * @param ListRepositoryWebhookRequest $request
+     * @param string                    $repositoryId
+     * @param ListRepositoryTreeRequest $request
      *
-     * @return ListRepositoryWebhookResponse
+     * @return ListRepositoryTreeResponse
      */
-    public function listRepositoryWebhook($repositoryId, $request)
+    public function listRepositoryTree($repositoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listRepositoryWebhookWithOptions($repositoryId, $request, $headers, $runtime);
+        return $this->listRepositoryTreeWithOptions($repositoryId, $request, $headers, $runtime);
     }
 
     /**
@@ -4986,18 +6144,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string $organizationId
-     * @param string $resourceType
-     * @param string $resourceId
+     * @param string                       $repositoryId
+     * @param ListRepositoryWebhookRequest $request
      *
-     * @return ListResourceMembersResponse
+     * @return ListRepositoryWebhookResponse
      */
-    public function listResourceMembers($organizationId, $resourceType, $resourceId)
+    public function listRepositoryWebhook($repositoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listResourceMembersWithOptions($organizationId, $resourceType, $resourceId, $headers, $runtime);
+        return $this->listRepositoryWebhookWithOptions($repositoryId, $request, $headers, $runtime);
     }
 
     /**
@@ -5030,17 +6187,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                        $organizationId
-     * @param ListServiceConnectionsRequest $request
+     * @param string $organizationId
+     * @param string $resourceType
+     * @param string $resourceId
      *
-     * @return ListServiceConnectionsResponse
+     * @return ListResourceMembersResponse
      */
-    public function listServiceConnections($organizationId, $request)
+    public function listResourceMembers($organizationId, $resourceType, $resourceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listServiceConnectionsWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->listResourceMembersWithOptions($organizationId, $resourceType, $resourceId, $headers, $runtime);
     }
 
     /**
@@ -5078,17 +6236,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string             $organizationId
-     * @param ListSprintsRequest $request
+     * @param string                        $organizationId
+     * @param ListServiceConnectionsRequest $request
      *
-     * @return ListSprintsResponse
+     * @return ListServiceConnectionsResponse
      */
-    public function listSprints($organizationId, $request)
+    public function listServiceConnections($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listSprintsWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->listServiceConnectionsWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -5135,17 +6293,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                    $organizationId
-     * @param ListVariableGroupsRequest $request
+     * @param string             $organizationId
+     * @param ListSprintsRequest $request
      *
-     * @return ListVariableGroupsResponse
+     * @return ListSprintsResponse
      */
-    public function listVariableGroups($organizationId, $request)
+    public function listSprints($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listVariableGroupsWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->listSprintsWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -5192,17 +6350,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                       $organizationId
-     * @param ListWorkItemAllFieldsRequest $request
+     * @param string                    $organizationId
+     * @param ListVariableGroupsRequest $request
      *
-     * @return ListWorkItemAllFieldsResponse
+     * @return ListVariableGroupsResponse
      */
-    public function listWorkItemAllFields($organizationId, $request)
+    public function listVariableGroups($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listWorkItemAllFieldsWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->listVariableGroupsWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -5246,17 +6404,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                            $organizationId
-     * @param ListWorkItemWorkFlowStatusRequest $request
+     * @param string                       $organizationId
+     * @param ListWorkItemAllFieldsRequest $request
      *
-     * @return ListWorkItemWorkFlowStatusResponse
+     * @return ListWorkItemAllFieldsResponse
      */
-    public function listWorkItemWorkFlowStatus($organizationId, $request)
+    public function listWorkItemAllFields($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listWorkItemWorkFlowStatusWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->listWorkItemAllFieldsWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -5303,17 +6461,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string $organizationId
-     * @param string $workitemId
+     * @param string                            $organizationId
+     * @param ListWorkItemWorkFlowStatusRequest $request
      *
-     * @return ListWorkitemTimeResponse
+     * @return ListWorkItemWorkFlowStatusResponse
      */
-    public function listWorkitemTime($organizationId, $workitemId)
+    public function listWorkItemWorkFlowStatus($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listWorkitemTimeWithOptions($organizationId, $workitemId, $headers, $runtime);
+        return $this->listWorkItemWorkFlowStatusWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -5345,17 +6503,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string               $organizationId
-     * @param ListWorkitemsRequest $request
+     * @param string $organizationId
+     * @param string $workitemId
      *
-     * @return ListWorkitemsResponse
+     * @return ListWorkitemTimeResponse
      */
-    public function listWorkitems($organizationId, $request)
+    public function listWorkitemTime($organizationId, $workitemId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listWorkitemsWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->listWorkitemTimeWithOptions($organizationId, $workitemId, $headers, $runtime);
     }
 
     /**
@@ -5420,16 +6578,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListWorkspacesRequest $request
+     * @param string               $organizationId
+     * @param ListWorkitemsRequest $request
      *
-     * @return ListWorkspacesResponse
+     * @return ListWorkitemsResponse
      */
-    public function listWorkspaces($request)
+    public function listWorkitems($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listWorkspacesWithOptions($request, $headers, $runtime);
+        return $this->listWorkitemsWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -5483,19 +6642,16 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string $organizationId
-     * @param string $pipelineId
-     * @param string $jobId
-     * @param string $pipelineRunId
+     * @param ListWorkspacesRequest $request
      *
-     * @return LogPipelineJobRunResponse
+     * @return ListWorkspacesResponse
      */
-    public function logPipelineJobRun($organizationId, $pipelineId, $jobId, $pipelineRunId)
+    public function listWorkspaces($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->logPipelineJobRunWithOptions($organizationId, $pipelineId, $jobId, $pipelineRunId, $headers, $runtime);
+        return $this->listWorkspacesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5531,17 +6687,17 @@ class Devops extends OpenApiClient
     /**
      * @param string $organizationId
      * @param string $pipelineId
-     * @param string $deployOrderId
-     * @param string $machineSn
+     * @param string $jobId
+     * @param string $pipelineRunId
      *
-     * @return LogVMDeployMachineResponse
+     * @return LogPipelineJobRunResponse
      */
-    public function logVMDeployMachine($organizationId, $pipelineId, $deployOrderId, $machineSn)
+    public function logPipelineJobRun($organizationId, $pipelineId, $jobId, $pipelineRunId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->logVMDeployMachineWithOptions($organizationId, $pipelineId, $deployOrderId, $machineSn, $headers, $runtime);
+        return $this->logPipelineJobRunWithOptions($organizationId, $pipelineId, $jobId, $pipelineRunId, $headers, $runtime);
     }
 
     /**
@@ -5577,17 +6733,17 @@ class Devops extends OpenApiClient
     /**
      * @param string $organizationId
      * @param string $pipelineId
-     * @param string $pipelineRunId
-     * @param string $jobId
+     * @param string $deployOrderId
+     * @param string $machineSn
      *
-     * @return PassPipelineValidateResponse
+     * @return LogVMDeployMachineResponse
      */
-    public function passPipelineValidate($organizationId, $pipelineId, $pipelineRunId, $jobId)
+    public function logVMDeployMachine($organizationId, $pipelineId, $deployOrderId, $machineSn)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->passPipelineValidateWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime);
+        return $this->logVMDeployMachineWithOptions($organizationId, $pipelineId, $deployOrderId, $machineSn, $headers, $runtime);
     }
 
     /**
@@ -5626,14 +6782,14 @@ class Devops extends OpenApiClient
      * @param string $pipelineRunId
      * @param string $jobId
      *
-     * @return RefusePipelineValidateResponse
+     * @return PassPipelineValidateResponse
      */
-    public function refusePipelineValidate($organizationId, $pipelineId, $pipelineRunId, $jobId)
+    public function passPipelineValidate($organizationId, $pipelineId, $pipelineRunId, $jobId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->refusePipelineValidateWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime);
+        return $this->passPipelineValidateWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime);
     }
 
     /**
@@ -5667,16 +6823,19 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string $workspaceId
+     * @param string $organizationId
+     * @param string $pipelineId
+     * @param string $pipelineRunId
+     * @param string $jobId
      *
-     * @return ReleaseWorkspaceResponse
+     * @return RefusePipelineValidateResponse
      */
-    public function releaseWorkspace($workspaceId)
+    public function refusePipelineValidate($organizationId, $pipelineId, $pipelineRunId, $jobId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->releaseWorkspaceWithOptions($workspaceId, $headers, $runtime);
+        return $this->refusePipelineValidateWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime);
     }
 
     /**
@@ -5707,16 +6866,16 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string $organizationId
+     * @param string $workspaceId
      *
-     * @return ResetSshKeyResponse
+     * @return ReleaseWorkspaceResponse
      */
-    public function resetSshKey($organizationId)
+    public function releaseWorkspace($workspaceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->resetSshKeyWithOptions($organizationId, $headers, $runtime);
+        return $this->releaseWorkspaceWithOptions($workspaceId, $headers, $runtime);
     }
 
     /**
@@ -5748,17 +6907,15 @@ class Devops extends OpenApiClient
 
     /**
      * @param string $organizationId
-     * @param string $pipelineId
-     * @param string $deployOrderId
      *
-     * @return ResumeVMDeployOrderResponse
+     * @return ResetSshKeyResponse
      */
-    public function resumeVMDeployOrder($organizationId, $pipelineId, $deployOrderId)
+    public function resetSshKey($organizationId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->resumeVMDeployOrderWithOptions($organizationId, $pipelineId, $deployOrderId, $headers, $runtime);
+        return $this->resetSshKeyWithOptions($organizationId, $headers, $runtime);
     }
 
     /**
@@ -5793,17 +6950,16 @@ class Devops extends OpenApiClient
     /**
      * @param string $organizationId
      * @param string $pipelineId
-     * @param string $pipelineRunId
-     * @param string $jobId
+     * @param string $deployOrderId
      *
-     * @return RetryPipelineJobRunResponse
+     * @return ResumeVMDeployOrderResponse
      */
-    public function retryPipelineJobRun($organizationId, $pipelineId, $pipelineRunId, $jobId)
+    public function resumeVMDeployOrder($organizationId, $pipelineId, $deployOrderId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->retryPipelineJobRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime);
+        return $this->resumeVMDeployOrderWithOptions($organizationId, $pipelineId, $deployOrderId, $headers, $runtime);
     }
 
     /**
@@ -5839,17 +6995,17 @@ class Devops extends OpenApiClient
     /**
      * @param string $organizationId
      * @param string $pipelineId
-     * @param string $deployOrderId
-     * @param string $machineSn
+     * @param string $pipelineRunId
+     * @param string $jobId
      *
-     * @return RetryVMDeployMachineResponse
+     * @return RetryPipelineJobRunResponse
      */
-    public function retryVMDeployMachine($organizationId, $pipelineId, $deployOrderId, $machineSn)
+    public function retryPipelineJobRun($organizationId, $pipelineId, $pipelineRunId, $jobId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->retryVMDeployMachineWithOptions($organizationId, $pipelineId, $deployOrderId, $machineSn, $headers, $runtime);
+        return $this->retryPipelineJobRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime);
     }
 
     /**
@@ -5885,17 +7041,17 @@ class Devops extends OpenApiClient
     /**
      * @param string $organizationId
      * @param string $pipelineId
-     * @param string $pipelineRunId
-     * @param string $jobId
+     * @param string $deployOrderId
+     * @param string $machineSn
      *
-     * @return SkipPipelineJobRunResponse
+     * @return RetryVMDeployMachineResponse
      */
-    public function skipPipelineJobRun($organizationId, $pipelineId, $pipelineRunId, $jobId)
+    public function retryVMDeployMachine($organizationId, $pipelineId, $deployOrderId, $machineSn)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->skipPipelineJobRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime);
+        return $this->retryVMDeployMachineWithOptions($organizationId, $pipelineId, $deployOrderId, $machineSn, $headers, $runtime);
     }
 
     /**
@@ -5931,17 +7087,17 @@ class Devops extends OpenApiClient
     /**
      * @param string $organizationId
      * @param string $pipelineId
-     * @param string $deployOrderId
-     * @param string $machineSn
+     * @param string $pipelineRunId
+     * @param string $jobId
      *
-     * @return SkipVMDeployMachineResponse
+     * @return SkipPipelineJobRunResponse
      */
-    public function skipVMDeployMachine($organizationId, $pipelineId, $deployOrderId, $machineSn)
+    public function skipPipelineJobRun($organizationId, $pipelineId, $pipelineRunId, $jobId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->skipVMDeployMachineWithOptions($organizationId, $pipelineId, $deployOrderId, $machineSn, $headers, $runtime);
+        return $this->skipPipelineJobRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime);
     }
 
     /**
@@ -5975,18 +7131,19 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                  $organizationId
-     * @param string                  $pipelineId
-     * @param StartPipelineRunRequest $request
+     * @param string $organizationId
+     * @param string $pipelineId
+     * @param string $deployOrderId
+     * @param string $machineSn
      *
-     * @return StartPipelineRunResponse
+     * @return SkipVMDeployMachineResponse
      */
-    public function startPipelineRun($organizationId, $pipelineId, $request)
+    public function skipVMDeployMachine($organizationId, $pipelineId, $deployOrderId, $machineSn)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->startPipelineRunWithOptions($organizationId, $pipelineId, $request, $headers, $runtime);
+        return $this->skipVMDeployMachineWithOptions($organizationId, $pipelineId, $deployOrderId, $machineSn, $headers, $runtime);
     }
 
     /**
@@ -6025,19 +7182,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string $organizationId
-     * @param string $pipelineId
-     * @param string $pipelineRunId
-     * @param string $jobId
+     * @param string                  $organizationId
+     * @param string                  $pipelineId
+     * @param StartPipelineRunRequest $request
      *
-     * @return StopPipelineJobRunResponse
+     * @return StartPipelineRunResponse
      */
-    public function stopPipelineJobRun($organizationId, $pipelineId, $pipelineRunId, $jobId)
+    public function startPipelineRun($organizationId, $pipelineId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->stopPipelineJobRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime);
+        return $this->startPipelineRunWithOptions($organizationId, $pipelineId, $request, $headers, $runtime);
     }
 
     /**
@@ -6074,15 +7230,16 @@ class Devops extends OpenApiClient
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $pipelineRunId
+     * @param string $jobId
      *
-     * @return StopPipelineRunResponse
+     * @return StopPipelineJobRunResponse
      */
-    public function stopPipelineRun($organizationId, $pipelineId, $pipelineRunId)
+    public function stopPipelineJobRun($organizationId, $pipelineId, $pipelineRunId, $jobId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->stopPipelineRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $headers, $runtime);
+        return $this->stopPipelineJobRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime);
     }
 
     /**
@@ -6117,16 +7274,16 @@ class Devops extends OpenApiClient
     /**
      * @param string $organizationId
      * @param string $pipelineId
-     * @param string $deployOrderId
+     * @param string $pipelineRunId
      *
-     * @return StopVMDeployOrderResponse
+     * @return StopPipelineRunResponse
      */
-    public function stopVMDeployOrder($organizationId, $pipelineId, $deployOrderId)
+    public function stopPipelineRun($organizationId, $pipelineId, $pipelineRunId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->stopVMDeployOrderWithOptions($organizationId, $pipelineId, $deployOrderId, $headers, $runtime);
+        return $this->stopPipelineRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $headers, $runtime);
     }
 
     /**
@@ -6159,17 +7316,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                             $repositoryId
-     * @param TriggerRepositoryMirrorSyncRequest $request
+     * @param string $organizationId
+     * @param string $pipelineId
+     * @param string $deployOrderId
      *
-     * @return TriggerRepositoryMirrorSyncResponse
+     * @return StopVMDeployOrderResponse
      */
-    public function triggerRepositoryMirrorSync($repositoryId, $request)
+    public function stopVMDeployOrder($organizationId, $pipelineId, $deployOrderId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->triggerRepositoryMirrorSyncWithOptions($repositoryId, $request, $headers, $runtime);
+        return $this->stopVMDeployOrderWithOptions($organizationId, $pipelineId, $deployOrderId, $headers, $runtime);
     }
 
     /**
@@ -6216,17 +7374,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string            $repositoryId
-     * @param UpdateFileRequest $request
+     * @param string                             $repositoryId
+     * @param TriggerRepositoryMirrorSyncRequest $request
      *
-     * @return UpdateFileResponse
+     * @return TriggerRepositoryMirrorSyncResponse
      */
-    public function updateFile($repositoryId, $request)
+    public function triggerRepositoryMirrorSync($repositoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateFileWithOptions($repositoryId, $request, $headers, $runtime);
+        return $this->triggerRepositoryMirrorSyncWithOptions($repositoryId, $request, $headers, $runtime);
     }
 
     /**
@@ -6287,18 +7445,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string               $organizationId
-     * @param string               $id
-     * @param UpdateFlowTagRequest $request
+     * @param string            $repositoryId
+     * @param UpdateFileRequest $request
      *
-     * @return UpdateFlowTagResponse
+     * @return UpdateFileResponse
      */
-    public function updateFlowTag($organizationId, $id, $request)
+    public function updateFile($repositoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateFlowTagWithOptions($organizationId, $id, $request, $headers, $runtime);
+        return $this->updateFileWithOptions($repositoryId, $request, $headers, $runtime);
     }
 
     /**
@@ -6343,18 +7500,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                    $organizationId
-     * @param string                    $id
-     * @param UpdateFlowTagGroupRequest $request
+     * @param string               $organizationId
+     * @param string               $id
+     * @param UpdateFlowTagRequest $request
      *
-     * @return UpdateFlowTagGroupResponse
+     * @return UpdateFlowTagResponse
      */
-    public function updateFlowTagGroup($organizationId, $id, $request)
+    public function updateFlowTag($organizationId, $id, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateFlowTagGroupWithOptions($organizationId, $id, $request, $headers, $runtime);
+        return $this->updateFlowTagWithOptions($organizationId, $id, $request, $headers, $runtime);
     }
 
     /**
@@ -6393,18 +7550,80 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                 $organizationId
-     * @param string                 $id
-     * @param UpdateHostGroupRequest $request
+     * @param string                    $organizationId
+     * @param string                    $id
+     * @param UpdateFlowTagGroupRequest $request
      *
-     * @return UpdateHostGroupResponse
+     * @return UpdateFlowTagGroupResponse
      */
-    public function updateHostGroup($organizationId, $id, $request)
+    public function updateFlowTagGroup($organizationId, $id, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateHostGroupWithOptions($organizationId, $id, $request, $headers, $runtime);
+        return $this->updateFlowTagGroupWithOptions($organizationId, $id, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                   $groupId
+     * @param UpdateGroupMemberRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateGroupMemberResponse
+     */
+    public function updateGroupMemberWithOptions($groupId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->aliyunPk)) {
+            $query['aliyunPk'] = $request->aliyunPk;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->accessLevel)) {
+            $body['accessLevel'] = $request->accessLevel;
+        }
+        if (!Utils::isUnset($request->memberType)) {
+            $body['memberType'] = $request->memberType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGroupMember',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/members/update/aliyun_pk',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                   $groupId
+     * @param UpdateGroupMemberRequest $request
+     *
+     * @return UpdateGroupMemberResponse
+     */
+    public function updateGroupMember($groupId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateGroupMemberWithOptions($groupId, $request, $headers, $runtime);
     }
 
     /**
@@ -6470,18 +7689,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                        $organizationId
-     * @param string                        $pipelineId
-     * @param UpdatePipelineBaseInfoRequest $request
+     * @param string                 $organizationId
+     * @param string                 $id
+     * @param UpdateHostGroupRequest $request
      *
-     * @return UpdatePipelineBaseInfoResponse
+     * @return UpdateHostGroupResponse
      */
-    public function updatePipelineBaseInfo($organizationId, $pipelineId, $request)
+    public function updateHostGroup($organizationId, $id, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updatePipelineBaseInfoWithOptions($organizationId, $pipelineId, $request, $headers, $runtime);
+        return $this->updateHostGroupWithOptions($organizationId, $id, $request, $headers, $runtime);
     }
 
     /**
@@ -6526,18 +7745,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                     $organizationId
-     * @param string                     $groupId
-     * @param UpdatePipelineGroupRequest $request
+     * @param string                        $organizationId
+     * @param string                        $pipelineId
+     * @param UpdatePipelineBaseInfoRequest $request
      *
-     * @return UpdatePipelineGroupResponse
+     * @return UpdatePipelineBaseInfoResponse
      */
-    public function updatePipelineGroup($organizationId, $groupId, $request)
+    public function updatePipelineBaseInfo($organizationId, $pipelineId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updatePipelineGroupWithOptions($organizationId, $groupId, $request, $headers, $runtime);
+        return $this->updatePipelineBaseInfoWithOptions($organizationId, $pipelineId, $request, $headers, $runtime);
     }
 
     /**
@@ -6577,17 +7796,17 @@ class Devops extends OpenApiClient
 
     /**
      * @param string                     $organizationId
-     * @param string                     $projectId
-     * @param UpdateProjectMemberRequest $request
+     * @param string                     $groupId
+     * @param UpdatePipelineGroupRequest $request
      *
-     * @return UpdateProjectMemberResponse
+     * @return UpdatePipelineGroupResponse
      */
-    public function updateProjectMember($organizationId, $projectId, $request)
+    public function updatePipelineGroup($organizationId, $groupId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateProjectMemberWithOptions($organizationId, $projectId, $request, $headers, $runtime);
+        return $this->updatePipelineGroupWithOptions($organizationId, $groupId, $request, $headers, $runtime);
     }
 
     /**
@@ -6638,18 +7857,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                         $repositoryId
-     * @param string                         $id
-     * @param UpdateProtectedBranchesRequest $request
+     * @param string                     $organizationId
+     * @param string                     $projectId
+     * @param UpdateProjectMemberRequest $request
      *
-     * @return UpdateProtectedBranchesResponse
+     * @return UpdateProjectMemberResponse
      */
-    public function updateProtectedBranches($repositoryId, $id, $request)
+    public function updateProjectMember($organizationId, $projectId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateProtectedBranchesWithOptions($repositoryId, $id, $request, $headers, $runtime);
+        return $this->updateProjectMemberWithOptions($organizationId, $projectId, $request, $headers, $runtime);
     }
 
     /**
@@ -6717,17 +7936,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                  $repositoryId
-     * @param UpdateRepositoryRequest $request
+     * @param string                         $repositoryId
+     * @param string                         $id
+     * @param UpdateProtectedBranchesRequest $request
      *
-     * @return UpdateRepositoryResponse
+     * @return UpdateProtectedBranchesResponse
      */
-    public function updateRepository($repositoryId, $request)
+    public function updateProtectedBranches($repositoryId, $id, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateRepositoryWithOptions($repositoryId, $request, $headers, $runtime);
+        return $this->updateProtectedBranchesWithOptions($repositoryId, $id, $request, $headers, $runtime);
     }
 
     /**
@@ -6821,18 +8041,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                        $repositoryId
-     * @param string                        $aliyunPk
-     * @param UpdateRepositoryMemberRequest $request
+     * @param string                  $repositoryId
+     * @param UpdateRepositoryRequest $request
      *
-     * @return UpdateRepositoryMemberResponse
+     * @return UpdateRepositoryResponse
      */
-    public function updateRepositoryMember($repositoryId, $aliyunPk, $request)
+    public function updateRepository($repositoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateRepositoryMemberWithOptions($repositoryId, $aliyunPk, $request, $headers, $runtime);
+        return $this->updateRepositoryWithOptions($repositoryId, $request, $headers, $runtime);
     }
 
     /**
@@ -6891,20 +8110,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                      $organizationId
-     * @param string                      $resourceType
-     * @param string                      $resourceId
-     * @param string                      $accountId
-     * @param UpdateResourceMemberRequest $request
+     * @param string                        $repositoryId
+     * @param string                        $aliyunPk
+     * @param UpdateRepositoryMemberRequest $request
      *
-     * @return UpdateResourceMemberResponse
+     * @return UpdateRepositoryMemberResponse
      */
-    public function updateResourceMember($organizationId, $resourceType, $resourceId, $accountId, $request)
+    public function updateRepositoryMember($repositoryId, $aliyunPk, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateResourceMemberWithOptions($organizationId, $resourceType, $resourceId, $accountId, $request, $headers, $runtime);
+        return $this->updateRepositoryMemberWithOptions($repositoryId, $aliyunPk, $request, $headers, $runtime);
     }
 
     /**
@@ -6945,18 +8162,20 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                     $organizationId
-     * @param string                     $id
-     * @param UpdateVariableGroupRequest $request
+     * @param string                      $organizationId
+     * @param string                      $resourceType
+     * @param string                      $resourceId
+     * @param string                      $accountId
+     * @param UpdateResourceMemberRequest $request
      *
-     * @return UpdateVariableGroupResponse
+     * @return UpdateResourceMemberResponse
      */
-    public function updateVariableGroup($organizationId, $id, $request)
+    public function updateResourceMember($organizationId, $resourceType, $resourceId, $accountId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateVariableGroupWithOptions($organizationId, $id, $request, $headers, $runtime);
+        return $this->updateResourceMemberWithOptions($organizationId, $resourceType, $resourceId, $accountId, $request, $headers, $runtime);
     }
 
     /**
@@ -7001,17 +8220,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                $organizationId
-     * @param UpdateWorkItemRequest $request
+     * @param string                     $organizationId
+     * @param string                     $id
+     * @param UpdateVariableGroupRequest $request
      *
-     * @return UpdateWorkItemResponse
+     * @return UpdateVariableGroupResponse
      */
-    public function updateWorkItem($organizationId, $request)
+    public function updateVariableGroup($organizationId, $id, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateWorkItemWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->updateVariableGroupWithOptions($organizationId, $id, $request, $headers, $runtime);
     }
 
     /**
@@ -7058,17 +8278,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                       $organizationId
-     * @param UpdateWorkitemCommentRequest $request
+     * @param string                $organizationId
+     * @param UpdateWorkItemRequest $request
      *
-     * @return UpdateWorkitemCommentResponse
+     * @return UpdateWorkItemResponse
      */
-    public function updateWorkitemComment($organizationId, $request)
+    public function updateWorkItem($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateWorkitemCommentWithOptions($organizationId, $request, $headers, $runtime);
+        return $this->updateWorkItemWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -7112,5 +8332,19 @@ class Devops extends OpenApiClient
         ]);
 
         return UpdateWorkitemCommentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                       $organizationId
+     * @param UpdateWorkitemCommentRequest $request
+     *
+     * @return UpdateWorkitemCommentResponse
+     */
+    public function updateWorkitemComment($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateWorkitemCommentWithOptions($organizationId, $request, $headers, $runtime);
     }
 }

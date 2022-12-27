@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListRepositoryBranchesRequest extends Model
 {
     /**
+     * @example f0b1e61db5961df5975a93f9129d2513
+     *
      * @var string
      */
     public $accessToken;
 
     /**
+     * @example 60de7a6852743a5162b5f957
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example Demo
+     *
      * @var string
      */
     public $search;
 
     /**
+     * @example desc
+     *
      * @var string
      */
     public $sort;

@@ -11,36 +11,50 @@ use AlibabaCloud\Tea\Model;
 class pipeline extends Model
 {
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 112222122
+     *
      * @var string
      */
     public $creatorAccountId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $envId;
 
     /**
+     * @example 日常环境
+     *
      * @var string
      */
     public $envName;
 
     /**
+     * @example 1111
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @example 112222122
+     *
      * @var string
      */
     public $modifierAccountId;
 
     /**
+     * @example 流水线
+     *
      * @var string
      */
     public $name;
@@ -56,6 +70,8 @@ class pipeline extends Model
     public $tagList;
 
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $updateTime;

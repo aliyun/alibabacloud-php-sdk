@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example master
+     *
      * @var string
      */
     public $branch;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $commint;
 
     /**
+     * @example http://codeup.aliyun.com/a.git
+     *
      * @var string
      */
     public $repo;

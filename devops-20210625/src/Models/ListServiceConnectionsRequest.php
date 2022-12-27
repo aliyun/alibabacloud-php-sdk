@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListServiceConnectionsRequest extends Model
 {
     /**
+     * @example codeup
+     *
      * @var string
      */
     public $sericeConnectionType;

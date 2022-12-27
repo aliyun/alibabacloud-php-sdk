@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetPipelineScanReportUrlRequest extends Model
 {
     /**
+     * @example /test/test/test.html
+     *
      * @var string
      */
     public $reportPath;

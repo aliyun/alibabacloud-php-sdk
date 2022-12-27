@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListWorkItemWorkFlowStatusRequest extends Model
 {
     /**
+     * @example 例：5e70xxxxxxcd000xxxxe96
+     *
      * @var string
      */
     public $spaceIdentifier;
 
     /**
+     * @example Project
+     *
      * @var string
      */
     public $spaceType;
 
     /**
+     * @example Req
+     *
      * @var string
      */
     public $workitemCategoryIdentifier;
 
     /**
+     * @example 例：5e7xxxxb3cd3711dd6xxx2c
+     *
      * @var string
      */
     public $workitemTypeIdentifier;

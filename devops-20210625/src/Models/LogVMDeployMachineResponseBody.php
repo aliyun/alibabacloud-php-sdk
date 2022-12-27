@@ -15,21 +15,29 @@ class LogVMDeployMachineResponseBody extends Model
     public $deployMachineLog;
 
     /**
+     * @example ”“
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ”“
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true 接口调用成功，false 接口调用失败
+     *
      * @var bool
      */
     public $success;

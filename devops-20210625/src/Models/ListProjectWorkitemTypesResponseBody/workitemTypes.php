@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class workitemTypes extends Model
 {
     /**
+     * @example 用户阿里云pk，例如19xxxx31947xxxx
+     *
      * @var string
      */
     public $addUser;
 
     /**
+     * @example Req
+     *
      * @var string
      */
     public $categoryIdentifier;
 
     /**
+     * @example 用户阿里云pk，例如19xxxx31947xxxx
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @example true或者false
+     *
      * @var bool
      */
     public $defaultType;
 
     /**
+     * @example 该类型的具体信息
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example true或者false
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @example 1641870287000
+     *
      * @var int
      */
     public $gmtAdd;
 
     /**
+     * @example 1620455467000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example dfexxxxxf4fee18xxxxx36
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example 例：业务类需求
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 例：Business Requirement
+     *
      * @var string
      */
     public $nameEn;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $systemDefault;

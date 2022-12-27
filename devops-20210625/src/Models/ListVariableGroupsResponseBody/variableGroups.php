@@ -11,31 +11,43 @@ use AlibabaCloud\Tea\Model;
 class variableGroups extends Model
 {
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 13232343434343
+     *
      * @var string
      */
     public $creatorAccountId;
 
     /**
+     * @example 变量组
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 12234
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 13232343434343
+     *
      * @var string
      */
     public $modifierAccountId;
 
     /**
+     * @example 变量组
+     *
      * @var string
      */
     public $name;
@@ -46,6 +58,8 @@ class variableGroups extends Model
     public $relatedPipelines;
 
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $updateTime;

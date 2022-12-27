@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class ListRepositoriesRequest extends Model
 {
     /**
+     * @example 146dd344827fe2444f952e931e51xxxx
+     *
      * @var string
      */
     public $accessToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $archived;
 
     /**
+     * @example created_at
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @example 5ebbc0228123212b59xxxxx
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $perPage;
 
     /**
+     * @example Demo
+     *
      * @var string
      */
     public $search;
 
     /**
+     * @example desc
+     *
      * @var string
      */
     public $sort;

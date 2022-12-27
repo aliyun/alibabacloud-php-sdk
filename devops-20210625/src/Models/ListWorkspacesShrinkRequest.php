@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListWorkspacesShrinkRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example beb1eff55bf03a13cf321a395dxxxxxx
+     *
      * @var string
      */
     public $nextToken;

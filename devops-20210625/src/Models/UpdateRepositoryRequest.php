@@ -11,31 +11,43 @@ use AlibabaCloud\Tea\Model;
 class UpdateRepositoryRequest extends Model
 {
     /**
+     * @example c3c09f1230187a879678da43c973d069
+     *
      * @var string
      */
     public $accessToken;
 
     /**
+     * @example Java
+     *
      * @var string
      */
     public $adminSettingLanguage;
 
     /**
+     * @example https://xxxx
+     *
      * @var string
      */
     public $avatar;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $buildsEnabled;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $checkEmail;
 
     /**
+     * @example master
+     *
      * @var string
      */
     public $defaultBranch;
@@ -46,31 +58,43 @@ class UpdateRepositoryRequest extends Model
     public $description;
 
     /**
+     * @example 2080398
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $issuesEnabled;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $mergeRequestsEnabled;
 
     /**
+     * @example codeup
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $openCloneDownloadControl;
 
     /**
+     * @example codeup/codeup-demo
+     *
      * @var string
      */
     public $path;
@@ -86,21 +110,29 @@ class UpdateRepositoryRequest extends Model
     public $projectCloneDownloadRoleList;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $snippetsEnabled;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $visibilityLevel;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $wikiEnabled;
 
     /**
+     * @example 60de7a6852743a5162b5f957
+     *
      * @var string
      */
     public $organizationId;

@@ -10,36 +10,50 @@ use AlibabaCloud\Tea\Model;
 class ListWorkspacesResponseBody extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example beb1eff55bf03a13cf321a395dxxxxxx
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example F7B85D1B-D1C2-140F-A039-341859F130B9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

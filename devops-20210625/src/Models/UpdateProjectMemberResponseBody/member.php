@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class member extends Model
 {
     /**
+     * @example 1623916393000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1623916393000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example 1124382
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example project.admin
+     *
      * @var string
      */
     public $roleIdentifier;
 
     /**
+     * @example 5e70xxxxxxcd000xxxxe96
+     *
      * @var string
      */
     public $targetIdentifier;
 
     /**
+     * @example Space
+     *
      * @var string
      */
     public $targetType;
 
     /**
+     * @example 19xx7043xxxxxxx914
+     *
      * @var string
      */
     public $userIdentifier;
 
     /**
+     * @example user
+     *
      * @var string
      */
     public $userType;

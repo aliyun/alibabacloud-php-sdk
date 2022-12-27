@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class ListWorkitemTimeResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example Openapi.RequestError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example error
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

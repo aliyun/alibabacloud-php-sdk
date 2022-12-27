@@ -10,61 +10,85 @@ use AlibabaCloud\Tea\Model;
 class repository extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $archive;
 
     /**
+     * @example https://tcs-devops.aliyuncs.com/thumbnail/112afcb7a6a35c3f67f1bea827c4/w/100/h/100
+     *
      * @var string
      */
     public $avatarUrl;
 
     /**
+     * @example 2020-06-19T04:02:00.744Z
+     *
      * @var string
      */
     public $createdAt;
 
     /**
+     * @example 19258
+     *
      * @var int
      */
     public $creatorId;
 
     /**
+     * @example master
+     *
      * @var string
      */
     public $defaultBranch;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $demoProjectStatus;
 
     /**
+     * @example repo desc
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example https://codeup.aliyun.com/xxx/test/test.git
+     *
      * @var string
      */
     public $httpUrlToRepository;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 2020-06-19T04:02:00.744Z
+     *
      * @var string
      */
     public $lastActivityAt;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example test / test
+     *
      * @var string
      */
     public $nameWithNamespace;
@@ -75,26 +99,36 @@ class repository extends Model
     public $namespace;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example test/test
+     *
      * @var string
      */
     public $pathWithNamespace;
 
     /**
+     * @example git@codeup.aliyun.com:xxx/test/test.git
+     *
      * @var string
      */
     public $sshUrlToRepository;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $visibilityLevel;
 
     /**
+     * @example https://codeup.aliyun.com/xxx/test/test
+     *
      * @var string
      */
     public $webUrl;

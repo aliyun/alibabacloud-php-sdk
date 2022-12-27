@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class valueList extends Model
 {
     /**
+     * @example 2022-02-01 00:00:00
+     *
      * @var string
      */
     public $displayValue;
 
     /**
+     * @example 2022-02-01 00:00:00
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $level;
 
     /**
+     * @example 2022-02-01 00:00:00
+     *
      * @var string
      */
     public $value;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $valueEn;

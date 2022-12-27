@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class CreateWorkspaceRequest extends Model
 {
     /**
+     * @example git@codeup.aliyun.com:demo/Codeup-Demo.git
+     *
      * @var string
      */
     public $codeUrl;
 
     /**
+     * @example master
+     *
      * @var string
      */
     public $codeVersion;
 
     /**
+     * @example src/Test.java
+     *
      * @var string
      */
     public $filePath;
 
     /**
+     * @example Demo
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example fc
+     *
      * @var string
      */
     public $requestFrom;
 
     /**
+     * @example acs:fc:cn-shenzhen:XXX:services/demo.LATEST/functions/demo
+     *
      * @var string
      */
     public $resourceIdentifier;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $reuse;
 
     /**
+     * @example all-in-one
+     *
      * @var string
      */
     public $workspaceTemplate;

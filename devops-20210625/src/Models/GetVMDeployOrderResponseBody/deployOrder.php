@@ -16,16 +16,22 @@ class deployOrder extends Model
     public $actions;
 
     /**
+     * @example 111111111111
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example ssaassa
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $currentBatch;
@@ -36,6 +42,8 @@ class deployOrder extends Model
     public $deployMachineInfo;
 
     /**
+     * @example 11111
+     *
      * @var string
      */
     public $deployOrderId;
@@ -46,16 +54,22 @@ class deployOrder extends Model
     public $exceptionCode;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $totalBatch;
 
     /**
+     * @example 11111111111
+     *
      * @var int
      */
     public $updateTime;

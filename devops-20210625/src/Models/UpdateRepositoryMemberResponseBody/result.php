@@ -9,76 +9,108 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 40
+     *
      * @var int
      */
     public $accessLevel;
 
     /**
+     * @example https://tcs-devops.aliyuncs.com/thumbnail/112afcb7a6a35c3f67f1bea827c4/w/100/h/100
+     *
      * @var string
      */
     public $avatarUrl;
 
     /**
+     * @example test@alibaba.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 2020-08-08 08:08:08
+     *
      * @var string
      */
     public $expireAt;
 
     /**
+     * @example 5f969843cd2214ba0e24327d
+     *
      * @var string
      */
     public $externUid;
 
     /**
+     * @example 30815
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example test_memeber_name
+     *
      * @var string
      */
     public $memberName;
 
     /**
+     * @example USERS
+     *
      * @var string
      */
     public $memberType;
 
     /**
+     * @example codeup
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 223241
+     *
      * @var int
      */
     public $sourceId;
 
     /**
+     * @example Project
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @example normal
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example sweadsajojiwe
+     *
      * @var string
      */
     public $tbUserId;
 
     /**
+     * @example codeup-test
+     *
      * @var string
      */
     public $username;
 
     /**
+     * @description web url
+     *
+     * @example ""
+     *
      * @var string
      */
     public $webUrl;

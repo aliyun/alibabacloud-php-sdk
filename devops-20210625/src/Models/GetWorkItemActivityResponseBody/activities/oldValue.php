@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class oldValue extends Model
 {
     /**
+     * @example Sprint-221124
+     *
      * @var string
      */
     public $displayValue;
 
     /**
+     * @example bed1cca179badeb501a72d1194
+     *
      * @var string
      */
     public $plainValue;
 
     /**
+     * @example Sprint
+     *
      * @var string
      */
     public $resourceType;

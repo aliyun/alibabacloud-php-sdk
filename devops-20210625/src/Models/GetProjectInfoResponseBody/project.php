@@ -9,81 +9,113 @@ use AlibabaCloud\Tea\Model;
 class project extends Model
 {
     /**
+     * @example null
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example Project
+     *
      * @var string
      */
     public $categoryIdentifier;
 
     /**
+     * @example 19xx7043xxxxxxx914
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @example OJAY
+     *
      * @var string
      */
     public $customCode;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1623916393000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1623916393000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example https://xxxxxx.png
+     *
      * @var string
      */
     public $icon;
 
     /**
+     * @example https://xxxxxx.png
+     *
      * @var string
      */
     public $iconBig;
 
     /**
+     * @example {"small":"https://xxxxxx.png","big":"https://img.yyyyyy.png"}
+     *
      * @var string
      */
     public $iconGroup;
 
     /**
+     * @example https://img.yyyyyy.png
+     *
      * @var string
      */
     public $iconSmall;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example e8bxxxxxxxxxxxxxxxx23
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example e8b2xxxxxx2abdxxxxxxxx23
+     *
      * @var string
      */
     public $identifierPath;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $logicalStatus;
 
     /**
+     * @example 19xx7043xxxxxxx914
+     *
      * @var string
      */
     public $modifier;
@@ -94,36 +126,50 @@ class project extends Model
     public $name;
 
     /**
+     * @example 5e70xxxxxxcd000xxxxe96
+     *
      * @var string
      */
     public $organizationIdentifier;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $parentIdentifier;
 
     /**
+     * @example public
+     *
      * @var string
      */
     public $scope;
 
     /**
+     * @example 8a40xxxxxxxxxxxxx64
+     *
      * @var string
      */
     public $statusIdentifier;
 
     /**
+     * @example 8a4058a71159b68254......
+     *
      * @var string
      */
     public $statusStageIdentifier;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $subType;
 
     /**
+     * @example CustomProject
+     *
      * @var string
      */
     public $typeIdentifier;

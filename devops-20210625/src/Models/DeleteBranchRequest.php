@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteBranchRequest extends Model
 {
     /**
+     * @example f0b1e61db5961df5975a93f9129d2513
+     *
      * @var string
      */
     public $accessToken;
 
     /**
+     * @example deleteBranch
+     *
      * @var string
      */
     public $branchName;
 
     /**
+     * @example 619b80042f595dbd1b9b0de2
+     *
      * @var string
      */
     public $organizationId;

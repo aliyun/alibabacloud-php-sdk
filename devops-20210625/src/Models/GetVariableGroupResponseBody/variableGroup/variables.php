@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class variables extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isEncrypted;
 
     /**
+     * @example name1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example value1
+     *
      * @var string
      */
     public $value;

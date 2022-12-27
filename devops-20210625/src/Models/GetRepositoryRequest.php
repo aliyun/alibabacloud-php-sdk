@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetRepositoryRequest extends Model
 {
     /**
+     * @example f0b1e61db5961df5975a93f9129d2513
+     *
      * @var string
      */
     public $accessToken;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $identity;
 
     /**
+     * @example 60de7a6852743a5162b5f957
+     *
      * @var string
      */
     public $organizationId;

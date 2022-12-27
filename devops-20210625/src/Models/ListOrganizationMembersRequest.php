@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListOrganizationMembersRequest extends Model
 {
     /**
+     * @example 1236666
+     *
      * @var string
      */
     public $externUid;
 
     /**
+     * @example 1631845101798
+     *
      * @var int
      */
     public $joinTimeFrom;
 
     /**
+     * @example 1631845101798
+     *
      * @var int
      */
     public $joinTimeTo;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $nextToken;
@@ -39,11 +49,15 @@ class ListOrganizationMembersRequest extends Model
     public $organizationMemberName;
 
     /**
+     * @example Dingtalk
+     *
      * @var string
      */
     public $provider;
 
     /**
+     * @example normal
+     *
      * @var string
      */
     public $state;

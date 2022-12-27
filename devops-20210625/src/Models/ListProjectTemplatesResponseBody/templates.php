@@ -9,76 +9,106 @@ use AlibabaCloud\Tea\Model;
 class templates extends Model
 {
     /**
+     * @example null
+     *
      * @var string
      */
     public $copyFrom;
 
     /**
+     * @example 19xx7043xxxxxxx914
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @example 迭代的具体信息
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1623916393000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1623916393000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example https://img.xxxx.png
+     *
      * @var string
      */
     public $icon;
 
     /**
+     * @example e8bxxxxxxxxxxxxxxxx23
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example 19xx7043xxxxxxx914
+     *
      * @var string
      */
     public $modifier;
 
     /**
+     * @example 专用模板
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example Test Template
+     *
      * @var string
      */
     public $nameEn;
 
     /**
+     * @example Project
+     *
      * @var string
      */
     public $resourceCategory;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $spaceIdentifier;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $spaceType;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $type;

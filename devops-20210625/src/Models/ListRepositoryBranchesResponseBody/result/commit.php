@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class commit extends Model
 {
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $authorEmail;
 
     /**
+     * @example test-codeup
+     *
      * @var string
      */
     public $authorName;
 
     /**
+     * @example 2022-03-18 10:00:00
+     *
      * @var string
      */
     public $authoredDate;
 
     /**
+     * @example 2022-03-18 11:00:00
+     *
      * @var string
      */
     public $committedDate;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $committerEmail;
 
     /**
+     * @example commit-codeup
+     *
      * @var string
      */
     public $committerName;
 
     /**
+     * @example 2022-03-18 10:00:00
+     *
      * @var string
      */
     public $createdAt;
 
     /**
+     * @example de02b625ba8488f92eb204bcb3773a40c1b4ddac
+     *
      * @var string
      */
     public $id;
@@ -59,6 +75,8 @@ class commit extends Model
     public $parentIds;
 
     /**
+     * @example e0297d8f
+     *
      * @var string
      */
     public $shortId;

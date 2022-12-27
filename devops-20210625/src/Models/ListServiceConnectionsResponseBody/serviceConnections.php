@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class serviceConnections extends Model
 {
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 张三的oss服务连接
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1212123212121212
+     *
      * @var int
      */
     public $ownerAccountId;
 
     /**
+     * @example oss
+     *
      * @var string
      */
     public $type;

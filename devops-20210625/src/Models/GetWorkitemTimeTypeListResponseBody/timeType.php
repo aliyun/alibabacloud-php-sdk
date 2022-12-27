@@ -14,11 +14,15 @@ class timeType extends Model
     public $description;
 
     /**
+     * @example deploy
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example 67fb001005aac8d3d2a3372416
+     *
      * @var string
      */
     public $identifier;
@@ -29,6 +33,8 @@ class timeType extends Model
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $position;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class workspace extends Model
 {
     /**
+     * @example 1628564442000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 1470227819xxxxxx
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @example 6ed82817-ab75-4563-865d-81e60dxxxxxx
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example Demo
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example all-in-one
+     *
      * @var string
      */
     public $template;

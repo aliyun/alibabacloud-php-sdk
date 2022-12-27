@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class CreateRepositoryResponseBody extends Model
 {
     /**
+     * @example 401
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example SYSTEM_UNAUTHORIZED_ERROR
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example F590C9D8-E908-5B6C-95AC-56B7E8011FFA
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class CreateRepositoryResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateProjectResponseBody extends Model
 {
     /**
+     * @example Openapi.RequestError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example error
+     *
      * @var string
      */
     public $errorMsg;
@@ -25,11 +29,15 @@ class CreateProjectResponseBody extends Model
     public $project;
 
     /**
+     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

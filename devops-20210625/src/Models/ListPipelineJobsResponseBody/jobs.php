@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class jobs extends Model
 {
     /**
+     * @example ss_saxsxsxs
+     *
      * @var string
      */
     public $identifier;
@@ -19,11 +21,15 @@ class jobs extends Model
     public $jobName;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $lastJobId;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $lastJobParams;

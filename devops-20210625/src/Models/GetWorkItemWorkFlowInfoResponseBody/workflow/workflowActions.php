@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class workflowActions extends Model
 {
     /**
+     * @example 16274887
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 100011
+     *
      * @var string
      */
     public $nextWorkflowStatusIdentifier;
 
     /**
+     * @example fd0xxxxxd00d355b05dxxxx26
+     *
      * @var string
      */
     public $workflowIdentifier;
 
     /**
+     * @example 100005
+     *
      * @var string
      */
     public $workflowStatusIdentifier;

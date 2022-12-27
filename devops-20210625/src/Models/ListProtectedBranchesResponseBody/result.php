@@ -43,16 +43,22 @@ class result extends Model
     public $allowPushUsers;
 
     /**
+     * @example protectedBranch
+     *
      * @var string
      */
     public $branch;
 
     /**
+     * @example 2022-03-18 14:24:54
+     *
      * @var string
      */
     public $createdAt;
 
     /**
+     * @example 19285
+     *
      * @var int
      */
     public $id;
@@ -73,6 +79,8 @@ class result extends Model
     public $testSettingDTO;
 
     /**
+     * @example 2022-03-18 14:24:54
+     *
      * @var string
      */
     public $updatedAt;

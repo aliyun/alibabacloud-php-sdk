@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ListHostGroupsRequest extends Model
 {
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $createEndTime;
 
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $createStartTime;
 
     /**
+     * @example 1112122121,3223332
+     *
      * @var string
      */
     public $creatorAccountIds;
 
     /**
+     * @example 121,1212121232
+     *
      * @var string
      */
     public $ids;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example 主机组
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 221212221
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example DESC
+     *
      * @var string
      */
     public $pageOrder;
 
     /**
+     * @example ID
+     *
      * @var string
      */
     public $pageSort;

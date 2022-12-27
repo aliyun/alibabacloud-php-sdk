@@ -11,31 +11,43 @@ use AlibabaCloud\Tea\Model;
 class members extends Model
 {
     /**
+     * @example null
+     *
      * @var string
      */
     public $account;
 
     /**
+     * @example https://xxxxxx.png
+     *
      * @var string
      */
     public $avatar;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $dingTalkId;
 
     /**
+     * @example 名称
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example mingcheng
+     *
      * @var string
      */
     public $displayNickName;
 
     /**
+     * @example 名称
+     *
      * @var string
      */
     public $displayRealName;
@@ -46,36 +58,50 @@ class members extends Model
     public $division;
 
     /**
+     * @example accountsxxxx@mail.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $gender;
 
     /**
+     * @example 19xxxx31947xxxx
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example 135xxxxxxxxx
+     *
      * @var string
      */
     public $mobile;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $nameEn;
 
     /**
+     * @example 昵称
+     *
      * @var string
      */
     public $nickName;
 
     /**
+     * @example nicheng
+     *
      * @var string
      */
     public $nickNamePinyin;
@@ -86,21 +112,29 @@ class members extends Model
     public $organizationUserInfo;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $realName;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $realNamePinyin;
 
     /**
+     * @example User
+     *
      * @var string
      */
     public $stamp;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $tbRoleId;

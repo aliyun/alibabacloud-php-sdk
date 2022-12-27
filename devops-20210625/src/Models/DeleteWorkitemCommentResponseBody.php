@@ -9,26 +9,38 @@ use AlibabaCloud\Tea\Model;
 class DeleteWorkitemCommentResponseBody extends Model
 {
     /**
+     * @example true/false
+     *
      * @var bool
      */
     public $deleteFlag;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example error
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description Id of the request
+     *
+     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;

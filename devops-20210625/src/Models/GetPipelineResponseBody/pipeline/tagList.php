@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class tagList extends Model
 {
     /**
+     * @example 22
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 标签1
+     *
      * @var string
      */
     public $name;

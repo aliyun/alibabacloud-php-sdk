@@ -10,21 +10,31 @@ use AlibabaCloud\Tea\Model;
 class GetWorkitemTimeTypeListResponseBody extends Model
 {
     /**
+     * @example Invalid.IdNotFound
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example error
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description Id of the request
+     *
+     * @example HC93CE1A-8D7A-13A9-8306-7465DE2E5C0F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;

@@ -10,31 +10,43 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $archived;
 
     /**
+     * @example https://tcs-devops.aliyuncs.com/thumbnail/112afcb7a6a35c3f67f1bea827c4/w/100/h/100
+     *
      * @var string
      */
     public $avatarUrl;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $buildsEnabled;
 
     /**
+     * @example 2022-03-18 14:24:54
+     *
      * @var string
      */
     public $createdAt;
 
     /**
+     * @example 19238
+     *
      * @var int
      */
     public $creatorId;
 
     /**
+     * @example master
+     *
      * @var string
      */
     public $defaultBranch;
@@ -45,31 +57,43 @@ class result extends Model
     public $description;
 
     /**
+     * @example https://codeup.aliyun.com/xxx/test/test.git
+     *
      * @var string
      */
     public $httpUrlToRepo;
 
     /**
+     * @example 2825387
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $issuesEnabled;
 
     /**
+     * @example 2022-03-20 14:24:54
+     *
      * @var string
      */
     public $lastActivityAt;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $mergeRequestsEnabled;
 
     /**
+     * @example codeup
+     *
      * @var string
      */
     public $name;
@@ -85,36 +109,50 @@ class result extends Model
     public $namespace;
 
     /**
+     * @example codeup
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example codeup-test-org / codeup
+     *
      * @var string
      */
     public $pathWithNamespace;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $snippetsEnabled;
 
     /**
+     * @example git@codeup.aliyun.com:xxx/test/test.git
+     *
      * @var string
      */
     public $sshUrlToRepo;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $visibilityLevel;
 
     /**
+     * @example https://codeup.aliyun.com/xxx/test/test
+     *
      * @var string
      */
     public $webUrl;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $wikiEnabled;

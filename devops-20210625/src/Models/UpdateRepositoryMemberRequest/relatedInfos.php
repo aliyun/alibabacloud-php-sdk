@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class relatedInfos extends Model
 {
     /**
+     * @example 10011
+     *
      * @var string
      */
     public $relatedId;
 
     /**
+     * @example 24790
+     *
      * @var int
      */
     public $sourceId;
 
     /**
+     * @example Project
+     *
      * @var string
      */
     public $sourceType;

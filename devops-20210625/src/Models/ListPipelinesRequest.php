@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class ListPipelinesRequest extends Model
 {
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $createEndTime;
 
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $createStartTime;
 
     /**
+     * @example 112122121
+     *
      * @var string
      */
     public $creatorAccountIds;
 
     /**
+     * @example 1111111
+     *
      * @var string
      */
     public $executeAccountIds;
 
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $executeEndTime;
 
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $executeStartTime;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example aaaaaaaaaa
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 流水线
+     *
      * @var string
      */
     public $pipelineName;
 
     /**
+     * @example RUNNING,SUCCESS
+     *
      * @var string
      */
     public $statusList;

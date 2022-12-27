@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class hostGroup extends Model
 {
     /**
+     * @example cn-bejing
+     *
      * @var string
      */
     public $aliyunRegion;
 
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 111111
+     *
      * @var string
      */
     public $creatorAccountId;
@@ -30,16 +36,22 @@ class hostGroup extends Model
     public $description;
 
     /**
+     * @example ecs
+     *
      * @var string
      */
     public $ecsLabelKey;
 
     /**
+     * @example ecs
+     *
      * @var string
      */
     public $ecsLabelValue;
 
     /**
+     * @example ECS_ALIYUN
+     *
      * @var string
      */
     public $ecsType;
@@ -50,16 +62,22 @@ class hostGroup extends Model
     public $hostInfos;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $hostNum;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 11111
+     *
      * @var string
      */
     public $modifierAccountId;
@@ -70,16 +88,22 @@ class hostGroup extends Model
     public $name;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $serviceConnectionId;
 
     /**
+     * @example ECS
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $upateTIme;

@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteRepositoryResponseBody extends Model
 {
     /**
+     * @example SYSTEM_UNKNOWN_ERROR
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ”“
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example A7586FEB-E48D-5579-983F-74981FBFF627
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class DeleteRepositoryResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

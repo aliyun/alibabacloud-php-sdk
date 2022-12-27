@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class TriggerRepositoryMirrorSyncRequest extends Model
 {
     /**
+     * @example f0b1e61db5961df5975a93f9129d2513
+     *
      * @var string
      */
     public $accessToken;
 
     /**
+     * @example test-account
+     *
      * @var string
      */
     public $account;
 
     /**
+     * @example 60de7a6852743a5162b5f957
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @example 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
+     *
      * @var string
      */
     public $token;

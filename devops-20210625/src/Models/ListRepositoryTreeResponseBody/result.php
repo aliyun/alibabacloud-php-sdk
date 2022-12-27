@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 76c3f251f414ac31f2e01faf6f2008a9d756a437
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isLFS;
 
     /**
+     * @example 100644
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @example test-codeup
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example test-codeup
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example blob
+     *
      * @var string
      */
     public $type;

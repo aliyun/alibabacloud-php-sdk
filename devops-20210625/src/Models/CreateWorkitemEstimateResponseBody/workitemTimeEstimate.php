@@ -15,6 +15,8 @@ class workitemTimeEstimate extends Model
     public $description;
 
     /**
+     * @example deafe5f33xxxxx6a259d8dafd
+     *
      * @var string
      */
     public $identifier;
@@ -25,16 +27,22 @@ class workitemTimeEstimate extends Model
     public $recordUser;
 
     /**
+     * @example 11
+     *
      * @var int
      */
     public $spentTime;
 
     /**
+     * @example 9144ef6b72d8exxxxx9e61a4d0
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 1e9903d8b3f1xxxxxf9286ef5
+     *
      * @var string
      */
     public $workitemIdentifier;

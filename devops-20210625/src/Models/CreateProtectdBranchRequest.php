@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class CreateProtectdBranchRequest extends Model
 {
     /**
+     * @example f0b1e61db5961df5975a93f9129d2513
+     *
      * @var string
      */
     public $accessToken;
@@ -36,11 +38,15 @@ class CreateProtectdBranchRequest extends Model
     public $allowPushUserIds;
 
     /**
+     * @example protectBranch
+     *
      * @var string
      */
     public $branch;
 
     /**
+     * @example --
+     *
      * @var int
      */
     public $id;
@@ -56,6 +62,8 @@ class CreateProtectdBranchRequest extends Model
     public $testSettingDTO;
 
     /**
+     * @example 60de7a6852743a5162b5f957
+     *
      * @var string
      */
     public $organizationId;

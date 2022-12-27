@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class recordUser extends Model
 {
     /**
+     * @example 1316458xxxxx41068
+     *
      * @var string
      */
     public $account;
 
     /**
+     * @example https://tcs-devops.aliyuncs.com/thumbnail/112m7150e256dbba0d6456bafbb65c81f90d/w/200/h/200
+     *
      * @var string
      */
     public $avatar;
 
     /**
+     * @example xx12322
+     *
      * @var string
      */
     public $dingTalkId;
@@ -39,6 +45,8 @@ class recordUser extends Model
     public $displayRealName;
 
     /**
+     * @example xxx@xxx.com
+     *
      * @var string
      */
     public $email;
@@ -49,11 +57,15 @@ class recordUser extends Model
     public $gender;
 
     /**
+     * @example deafe5f33xxxxx6a259d8dafd
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example true/false
+     *
      * @var bool
      */
     public $isDisabled;
@@ -64,6 +76,8 @@ class recordUser extends Model
     public $mobile;
 
     /**
+     * @example wangwu
+     *
      * @var string
      */
     public $nameEn;
@@ -74,6 +88,8 @@ class recordUser extends Model
     public $nickName;
 
     /**
+     * @example wangwu
+     *
      * @var string
      */
     public $nickNamePinyin;
@@ -84,6 +100,8 @@ class recordUser extends Model
     public $realName;
 
     /**
+     * @example wangwu
+     *
      * @var string
      */
     public $realNamePinyin;
@@ -94,6 +112,8 @@ class recordUser extends Model
     public $stamp;
 
     /**
+     * @example 1e9903d8b3f1xxxxxf9286ef5
+     *
      * @var string
      */
     public $tbRoleId;

@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class ListWorkitemsRequest extends Model
 {
     /**
+     * @example Req
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example {"conditionGroups":[]}
+     *
      * @var string
      */
     public $conditions;
 
     /**
+     * @example {"conditionGroups":[]}
+     *
      * @var string
      */
     public $extraConditions;
 
     /**
+     * @example {"fieldIdentifier":"tag","className":"tag","format":"multiList","value":["c76e0e4bf64801cfad73......"],"operator":"EQUALS"}
+     *
      * @var string
      */
     public $groupCondition;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $maxResults;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example {"fieldIdentifier":"status","format":"list","order":"desc","className":"status"}
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @example LIST
+     *
      * @var string
      */
     public $searchType;
 
     /**
+     * @example 8fb83debd69a6c7c6626......
+     *
      * @var string
      */
     public $spaceIdentifier;
 
     /**
+     * @example Project
+     *
      * @var string
      */
     public $spaceType;

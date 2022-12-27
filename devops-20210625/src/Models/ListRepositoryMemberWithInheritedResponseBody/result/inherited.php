@@ -9,36 +9,52 @@ use AlibabaCloud\Tea\Model;
 class inherited extends Model
 {
     /**
+     * @description id
+     *
+     * @example 123
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example codeup
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example test/codeup
+     *
      * @var string
      */
     public $nameWithNamespace;
 
     /**
+     * @example codeup
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example test / codeup
+     *
      * @var string
      */
     public $pathWithNamespace;
 
     /**
+     * @example GROUP
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $visibilityLevel;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListRepositoryCommitsRequest extends Model
 {
     /**
+     * @example f0b1e61db5961df5975a93f9129d2513
+     *
      * @var string
      */
     public $accessToken;
 
     /**
+     * @example 2022-08-18 08:00:00
+     *
      * @var string
      */
     public $end;
 
     /**
+     * @example 60de7a6852743a5162b5f957
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example src/cpp/main.cpp
+     *
      * @var string
      */
     public $path;
@@ -44,21 +56,29 @@ class ListRepositoryCommitsRequest extends Model
     public $refName;
 
     /**
+     * @example search
+     *
      * @var string
      */
     public $search;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $showCommentsCount;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $showSignature;
 
     /**
+     * @example 2022-03-18 08:00:00
+     *
      * @var string
      */
     public $start;

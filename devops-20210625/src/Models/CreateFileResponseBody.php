@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class CreateFileResponseBody extends Model
 {
     /**
+     * @example SYSTEM_UNKNOWN_ERROR
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ”“
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example F8053E32-9623-511F-8B46-F0E5FD206524
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class CreateFileResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

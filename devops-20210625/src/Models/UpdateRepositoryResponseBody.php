@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateRepositoryResponseBody extends Model
 {
     /**
+     * @example SYSTEM_UNKNOWN_ERROR
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example “”
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example EAE03103-5497-58D1-9169-E524DDE8604C
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class UpdateRepositoryResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

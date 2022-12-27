@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListHostGroupsResponseBody extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorMessage;
@@ -25,21 +29,29 @@ class ListHostGroupsResponseBody extends Model
     public $hostGroups;
 
     /**
+     * @example asassasassa
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $totalCount;

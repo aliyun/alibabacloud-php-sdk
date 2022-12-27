@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class workitemTime extends Model
 {
     /**
+     * @example 1
+     *
      * @var float
      */
     public $actualTime;
 
     /**
+     * @example 开发代码等
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1653235200000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1653235200000
+     *
      * @var int
      */
     public $gmtEnd;
 
     /**
+     * @example 1653235200000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example 1653235200000
+     *
      * @var int
      */
     public $gmtStart;
 
     /**
+     * @example a4ac3a81e90217db32b7......
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example 1967043931......
+     *
      * @var string
      */
     public $recordUser;
 
     /**
+     * @example 研发
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 5daa9a15c7fd55523996......
+     *
      * @var string
      */
     public $workitemIdentifier;

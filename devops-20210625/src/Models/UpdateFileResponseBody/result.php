@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example master
+     *
      * @var string
      */
     public $branchName;
 
     /**
+     * @example src/main/update.txt
+     *
      * @var string
      */
     public $filePath;

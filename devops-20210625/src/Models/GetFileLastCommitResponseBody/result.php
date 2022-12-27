@@ -45,6 +45,8 @@ class result extends Model
     public $createdAt;
 
     /**
+     * @description Commit ID
+     *
      * @var string
      */
     public $id;

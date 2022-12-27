@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class statuses extends Model
 {
     /**
+     * @example 用户阿里云pk，例如19xxxx31947xxxx
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @example 该状态的具体信息
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1620455467000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1641870287000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example dfexxxxxf4fee18xxxxx36
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example 用户阿里云pk，例如19xxxx31947xxxx
+     *
      * @var string
      */
     public $modifier;
 
     /**
+     * @example 例：待处理
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example Workitem
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example system
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example 例如：1
+     *
      * @var string
      */
     public $workflowStageIdentifier;
 
     /**
+     * @example 例：确认阶段
+     *
      * @var string
      */
     public $workflowStageName;

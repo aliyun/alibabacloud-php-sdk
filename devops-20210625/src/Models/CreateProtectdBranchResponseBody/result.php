@@ -31,11 +31,15 @@ class result extends Model
     public $allowPushUserIds;
 
     /**
+     * @example protectBranch
+     *
      * @var string
      */
     public $branch;
 
     /**
+     * @example 5240
+     *
      * @var int
      */
     public $id;

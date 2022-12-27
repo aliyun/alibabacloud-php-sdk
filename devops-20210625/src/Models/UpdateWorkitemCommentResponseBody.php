@@ -15,21 +15,31 @@ class UpdateWorkitemCommentResponseBody extends Model
     public $comment;
 
     /**
+     * @example InvalidParam.NotFound
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example error
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description Id of the request
+     *
+     * @example F7B85D1B-D1C2-140F-A039-341859F130B9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;

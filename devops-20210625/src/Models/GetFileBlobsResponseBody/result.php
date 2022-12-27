@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example 65535
+     *
      * @var int
      */
     public $totalLines;

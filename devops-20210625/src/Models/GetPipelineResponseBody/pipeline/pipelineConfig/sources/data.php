@@ -9,26 +9,42 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example master
+     *
      * @var string
      */
     public $branch;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $cloneDepth;
 
     /**
+     * @description Credential Id
+     *
+     * @example 222
+     *
      * @var int
      */
     public $credentialId;
 
     /**
+     * @description Credential Label
+     *
+     * @example 企业公钥
+     *
      * @var string
      */
     public $credentialLabel;
 
     /**
+     * @description Credential Type
+     *
+     * @example region-ssh
+     *
      * @var string
      */
     public $credentialType;
@@ -39,51 +55,71 @@ class data extends Model
     public $events;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isBranchMode;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isCloneDepth;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isSubmodule;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isTrigger;
 
     /**
+     * @example cdup/ss
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @example asasasas
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @example https://codeup.aliyun.com/test.git
+     *
      * @var string
      */
     public $repo;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $serviceConnectionId;
 
     /**
+     * @example .*
+     *
      * @var string
      */
     public $triggerFilter;
 
     /**
+     * @example https://flow.aliyun/webhook/asassasa
+     *
      * @var string
      */
     public $webhook;

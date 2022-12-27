@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class jobs extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $executeNumber;
 
     /**
+     * @example 10_xaxxsxa
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $jobId;
@@ -29,26 +35,36 @@ class jobs extends Model
     public $jobName;
 
     /**
+     * @example ssaasssa
+     *
      * @var string
      */
     public $operatorAccountId;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $pipelineId;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $pipelineRunId;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $sources;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class deployMachineLog extends Model
 {
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $aliyunRegion;
 
     /**
+     * @example 11111111111
+     *
      * @var int
      */
     public $deployBeginTime;
 
     /**
+     * @example 12222222
+     *
      * @var int
      */
     public $deployEndTime;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $deployLog;
 
     /**
+     * @example /tmp/log
+     *
      * @var string
      */
     public $deployLogPath;

@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class GetWorkItemInfoResponseBody extends Model
 {
     /**
+     * @example Openapi.RequestError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateProtectedBranchesRequest extends Model
 {
     /**
+     * @example f0b1e61db5961df5975a93f9129d2513
+     *
      * @var string
      */
     public $accessToken;
@@ -36,11 +38,15 @@ class UpdateProtectedBranchesRequest extends Model
     public $allowPushUserIds;
 
     /**
+     * @example master
+     *
      * @var string
      */
     public $branch;
 
     /**
+     * @example 19224
+     *
      * @var int
      */
     public $id;
@@ -56,6 +62,8 @@ class UpdateProtectedBranchesRequest extends Model
     public $testSettingDTO;
 
     /**
+     * @example f0b1e61db5961df5975a93f9129d2513
+     *
      * @var string
      */
     public $organizationId;

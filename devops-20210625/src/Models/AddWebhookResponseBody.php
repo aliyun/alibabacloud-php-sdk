@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class AddWebhookResponseBody extends Model
 {
     /**
+     * @example SYSTEM_NOT_FOUND_ERROR
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example “”
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 6177543A-8D54-5736-A93B-E0195A1512CB
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class AddWebhookResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

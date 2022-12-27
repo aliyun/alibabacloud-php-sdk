@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteProtectedBranchRequest extends Model
 {
     /**
+     * @example f0b1e61db5961df5975a93f9129d2513
+     *
      * @var string
      */
     public $accessToken;
 
     /**
+     * @example 611b75680fc7bf0dbe1dce55
+     *
      * @var string
      */
     public $organizationId;

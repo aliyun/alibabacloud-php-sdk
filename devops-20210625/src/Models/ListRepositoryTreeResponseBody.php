@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListRepositoryTreeResponseBody extends Model
 {
     /**
+     * @example SYSTEM_UNKNOWN_ERROR
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 6557983C-FB08-51A9-AC5A-A7A0D0950A07
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class ListRepositoryTreeResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

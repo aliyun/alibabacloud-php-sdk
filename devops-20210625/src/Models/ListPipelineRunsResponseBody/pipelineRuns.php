@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class pipelineRuns extends Model
 {
     /**
+     * @example 1222222222
+     *
      * @var string
      */
     public $creatorAccountId;
 
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $pipelineId;
 
     /**
+     * @example 11
+     *
      * @var int
      */
     public $pipelineRunId;
 
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example 状态 FAIL 运行失败 SUCCESS 运行成功 RUNNING 运行中
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $triggerMode;

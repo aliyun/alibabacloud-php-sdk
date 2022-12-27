@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 40
+     *
      * @var int
      */
     public $accessLevel;
 
     /**
+     * @example https://tcs-devops.aliyuncs.com/thumbnail/112afcb7a6a35c3f67f1bea827c4/w/100/h/100
+     *
      * @var string
      */
     public $avatarUrl;
 
     /**
+     * @example yunxiao-test@aliyun.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 5f969843cd2214ba0e24327d
+     *
      * @var string
      */
     public $externUserId;
 
     /**
+     * @example 19946
+     *
      * @var int
      */
     public $id;
@@ -40,16 +50,22 @@ class result extends Model
     public $inherited;
 
     /**
+     * @example codeup
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example yunxiao
+     *
      * @var string
      */
     public $username;

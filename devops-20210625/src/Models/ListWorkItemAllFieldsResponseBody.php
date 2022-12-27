@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListWorkItemAllFieldsResponseBody extends Model
 {
     /**
+     * @example Openapi.RequestError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example error
+     *
      * @var string
      */
     public $errorMsg;
@@ -25,11 +29,15 @@ class ListWorkItemAllFieldsResponseBody extends Model
     public $fields;
 
     /**
+     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

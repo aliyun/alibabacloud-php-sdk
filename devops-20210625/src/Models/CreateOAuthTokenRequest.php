@@ -9,31 +9,47 @@ use AlibabaCloud\Tea\Model;
 class CreateOAuthTokenRequest extends Model
 {
     /**
+     * @description clientId
+     *
+     * @example dc7e0b3c00a3e58f46
+     *
      * @var string
      */
     public $clientId;
 
     /**
+     * @description client_secret
+     *
+     * @example a433294edea39cae7e7870
+     *
      * @var string
      */
     public $clientSecret;
 
     /**
+     * @example 86df532f74454e189740d100ac97f4b9
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example code
+     *
      * @var string
      */
     public $grantType;
 
     /**
+     * @example username
+     *
      * @var string
      */
     public $login;
 
     /**
+     * @example read:repo
+     *
      * @var string
      */
     public $scope;

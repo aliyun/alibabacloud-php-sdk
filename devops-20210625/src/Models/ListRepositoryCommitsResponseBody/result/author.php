@@ -14,16 +14,22 @@ class author extends Model
     public $avatarUrl;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 5f969843cd2214ba0e24327d
+     *
      * @var string
      */
     public $externUid;
 
     /**
+     * @example 7914
+     *
      * @var int
      */
     public $id;
@@ -34,21 +40,29 @@ class author extends Model
     public $name;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example 5f969843cd2214ba0e24327d
+     *
      * @var string
      */
     public $tbUserId;
 
     /**
+     * @example nickname
+     *
      * @var string
      */
     public $username;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $websiteUrl;

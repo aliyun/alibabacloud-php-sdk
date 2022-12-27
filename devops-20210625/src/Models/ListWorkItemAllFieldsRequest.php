@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListWorkItemAllFieldsRequest extends Model
 {
     /**
+     * @example e8bxxxxxxxxxxxxxxxx23
+     *
      * @var string
      */
     public $spaceIdentifier;
 
     /**
+     * @example Project
+     *
      * @var string
      */
     public $spaceType;
 
     /**
+     * @example dfexxxxxf4fee18xxxxx36
+     *
      * @var string
      */
     public $workitemTypeIdentifier;

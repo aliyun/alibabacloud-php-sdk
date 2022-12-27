@@ -17,26 +17,36 @@ class result extends Model
     public $author;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $authorEmail;
 
     /**
+     * @example test-codeup
+     *
      * @var string
      */
     public $authorName;
 
     /**
+     * @example 2022-03-18 15:00:00
+     *
      * @var string
      */
     public $authoredDate;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $commentsCount;
 
     /**
+     * @example 2022-03-18 16:00:00
+     *
      * @var string
      */
     public $committedDate;
@@ -47,21 +57,29 @@ class result extends Model
     public $committer;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $committerEmail;
 
     /**
+     * @example committer-codeup
+     *
      * @var string
      */
     public $committerName;
 
     /**
+     * @example 2022-03-18 14:24:54
+     *
      * @var string
      */
     public $createdAt;
 
     /**
+     * @example de02b625ba8488f92eb204bcb3773a40c1b4ddac
+     *
      * @var string
      */
     public $id;
@@ -77,6 +95,8 @@ class result extends Model
     public $parentIds;
 
     /**
+     * @example de02b625
+     *
      * @var string
      */
     public $shortId;

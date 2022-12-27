@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class pipelineGroups extends Model
 {
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 111
+     *
      * @var int
      */
     public $id;

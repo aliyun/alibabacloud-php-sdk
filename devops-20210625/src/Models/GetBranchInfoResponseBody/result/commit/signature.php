@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class signature extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $gpgKeyId;
 
     /**
+     * @example verified
+     *
      * @var string
      */
     public $verificationStatus;

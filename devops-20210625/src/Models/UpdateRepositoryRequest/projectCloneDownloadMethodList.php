@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class projectCloneDownloadMethodList extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $allowed;
 
     /**
+     * @example project:download
+     *
      * @var string
      */
     public $permissionCode;

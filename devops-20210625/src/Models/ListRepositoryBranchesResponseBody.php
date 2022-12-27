@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListRepositoryBranchesResponseBody extends Model
 {
     /**
+     * @example Openapi.RequestError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 1F4F342D-493A-5B2C-B133-BA78B30FF834
+     *
      * @var string
      */
     public $requestId;
@@ -30,11 +36,15 @@ class ListRepositoryBranchesResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $total;

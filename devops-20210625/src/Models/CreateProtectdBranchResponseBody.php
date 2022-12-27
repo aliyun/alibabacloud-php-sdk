@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class CreateProtectdBranchResponseBody extends Model
 {
     /**
+     * @example Openapi.RequestError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example C2F153F6-BB43-50C4-9F4F-40593203E19A
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class CreateProtectdBranchResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

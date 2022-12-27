@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class workitem extends Model
 {
     /**
+     * @example 19xx7043xxxxxxx914
+     *
      * @var string
      */
     public $assignedTo;
 
     /**
+     * @example Req
+     *
      * @var string
      */
     public $categoryIdentifier;
 
     /**
+     * @example 19xx7043xxxxxxx914
+     *
      * @var string
      */
     public $creator;
@@ -30,36 +36,50 @@ class workitem extends Model
     public $customFields;
 
     /**
+     * @example html格式
+     *
      * @var string
      */
     public $document;
 
     /**
+     * @example 1640850318000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1640850318000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example e8bxxxxxxxxxxxxxxxx23
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $logicalStatus;
 
     /**
+     * @example 19xx7043xxxxxxx914
+     *
      * @var string
      */
     public $modifier;
 
     /**
+     * @example e8bxxxxxxxxxxxxxxxx24
+     *
      * @var string
      */
     public $parentIdentifier;
@@ -70,21 +90,29 @@ class workitem extends Model
     public $participant;
 
     /**
+     * @example ABCD-1
+     *
      * @var string
      */
     public $serialNumber;
 
     /**
+     * @example e8b26xxxxx6e76aa20xxxxx23
+     *
      * @var string
      */
     public $spaceIdentifier;
 
     /**
+     * @example 需求项目
+     *
      * @var string
      */
     public $spaceName;
 
     /**
+     * @example Project
+     *
      * @var string
      */
     public $spaceType;
@@ -95,21 +123,29 @@ class workitem extends Model
     public $sprint;
 
     /**
+     * @example 待处理
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 例：100005
+     *
      * @var string
      */
     public $statusIdentifier;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $statusStageIdentifier;
 
     /**
+     * @example 测试工作项
+     *
      * @var string
      */
     public $subject;
@@ -125,6 +161,8 @@ class workitem extends Model
     public $tracker;
 
     /**
+     * @example 1640850328000
+     *
      * @var int
      */
     public $updateStatusAt;
@@ -135,6 +173,8 @@ class workitem extends Model
     public $verifier;
 
     /**
+     * @example 9uxxxxxxre573f5xxxxxx0
+     *
      * @var string
      */
     public $workitemTypeIdentifier;

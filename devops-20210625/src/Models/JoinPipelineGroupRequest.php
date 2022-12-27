@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class JoinPipelineGroupRequest extends Model
 {
     /**
+     * @example 11
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @example 122,122
+     *
      * @var string
      */
     public $pipelineIds;

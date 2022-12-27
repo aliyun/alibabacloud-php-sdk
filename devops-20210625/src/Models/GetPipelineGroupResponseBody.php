@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetPipelineGroupResponseBody extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorMessage;
@@ -25,11 +29,15 @@ class GetPipelineGroupResponseBody extends Model
     public $pipelineGroup;
 
     /**
+     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

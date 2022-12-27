@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateWorkitemCommentRequest extends Model
 {
     /**
+     * @example 1964584
+     *
      * @var int
      */
     public $commentId;
@@ -19,11 +21,15 @@ class UpdateWorkitemCommentRequest extends Model
     public $content;
 
     /**
+     * @example MARKDOWN/RICHTEXT
+     *
      * @var string
      */
     public $formatType;
 
     /**
+     * @example 9144ef6b72d8exxxxx9e61a4d0
+     *
      * @var string
      */
     public $workitemIdentifier;

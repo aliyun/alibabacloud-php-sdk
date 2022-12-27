@@ -10,36 +10,50 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $importFromSvn;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $archived;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $avatarUrl;
 
     /**
+     * @example 2022-01-14T21:08:26+08:00
+     *
      * @var string
      */
     public $createdAt;
 
     /**
+     * @example 1233
+     *
      * @var int
      */
     public $creatorId;
 
     /**
+     * @example master
+     *
      * @var string
      */
     public $defaultBranch;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $demoProject;
@@ -50,26 +64,38 @@ class result extends Model
     public $description;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $httpUrlToRepo;
 
     /**
+     * @description id
+     *
+     * @example 2959
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 2022-01-14T21:08:26+08:00
+     *
      * @var string
      */
     public $lastActivityAt;
 
     /**
+     * @example codeupTest
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example codeup-test-org / test-codeup
+     *
      * @var string
      */
     public $nameWithNamespace;
@@ -80,26 +106,38 @@ class result extends Model
     public $namespace;
 
     /**
+     * @example test-codeup
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example codeup-test-org/test-codeup
+     *
      * @var string
      */
     public $pathWithNamespace;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $sshUrlToRepo;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $visibilityLevel;
 
     /**
+     * @description web url
+     *
+     * @example ""
+     *
      * @var string
      */
     public $webUrl;

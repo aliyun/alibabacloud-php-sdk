@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $buildEvents;
 
     /**
+     * @example 2022-03-18 14:24:54
+     *
      * @var string
      */
     public $createdAt;
@@ -24,61 +28,85 @@ class result extends Model
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableSslVerification;
 
     /**
+     * @example 524836
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $issuesEvents;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $lastTestResult;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $mergeRequestsEvents;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $noteEvents;
 
     /**
+     * @example 2369234
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $pushEvents;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $secretToken;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $tagPushEvents;
 
     /**
+     * @example ProjectHook
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example https://xxxxx
+     *
      * @var string
      */
     public $url;

@@ -15,36 +15,50 @@ class deployMachines extends Model
     public $actions;
 
     /**
+     * @example 22
+     *
      * @var int
      */
     public $batchNum;
 
     /**
+     * @example ok
+     *
      * @var string
      */
     public $clientStatus;
 
     /**
+     * @example 1111111111
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @example sasssasa
+     *
      * @var string
      */
     public $machineSn;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 11111111
+     *
      * @var int
      */
     public $updateTime;

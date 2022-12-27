@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListProjectWorkitemTypesRequest extends Model
 {
     /**
+     * @example Req
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example Project
+     *
      * @var string
      */
     public $spaceType;

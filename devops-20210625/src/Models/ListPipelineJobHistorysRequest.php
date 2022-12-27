@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListPipelineJobHistorysRequest extends Model
 {
     /**
+     * @example DEPLOY
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example 10_ssasasa
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example xsaxsa
+     *
      * @var string
      */
     public $nextToken;

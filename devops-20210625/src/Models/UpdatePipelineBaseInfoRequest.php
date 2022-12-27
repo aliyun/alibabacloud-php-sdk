@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdatePipelineBaseInfoRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $envId;
@@ -19,6 +21,8 @@ class UpdatePipelineBaseInfoRequest extends Model
     public $pipelineName;
 
     /**
+     * @example "11,222,33"
+     *
      * @var string
      */
     public $tagList;

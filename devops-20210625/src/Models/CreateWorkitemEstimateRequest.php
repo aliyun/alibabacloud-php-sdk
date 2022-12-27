@@ -14,21 +14,29 @@ class CreateWorkitemEstimateRequest extends Model
     public $description;
 
     /**
+     * @example 1316458xxxxx41068
+     *
      * @var string
      */
     public $recordUserIdentifier;
 
     /**
+     * @example 21
+     *
      * @var string
      */
     public $spentTime;
 
     /**
+     * @example 9144ef6b72d8exxxxx9e61a4d0
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 1e9903d8b3f1xxxxxf9286ef5
+     *
      * @var string
      */
     public $workitemIdentifier;

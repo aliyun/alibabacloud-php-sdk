@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetCustomFieldOptionRequest extends Model
 {
     /**
+     * @example e8bxxxxxxxxxxxxxxxx23
+     *
      * @var string
      */
     public $spaceIdentifier;
 
     /**
+     * @example Project
+     *
      * @var string
      */
     public $spaceType;
 
     /**
+     * @example 9uyxxxx1re573f561dxxxxx
+     *
      * @var string
      */
     public $workitemTypeIdentifier;

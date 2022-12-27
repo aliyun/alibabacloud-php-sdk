@@ -10,71 +10,99 @@ use AlibabaCloud\Tea\Model;
 class fields extends Model
 {
     /**
+     * @example 例：date
+     *
      * @var string
      */
     public $className;
 
     /**
+     * @example 19xx7043xxxxxxx914
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $defaultValue;
 
     /**
+     * @example 字段的具体信息
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example list
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @example 1623916393000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1623916393000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example e8bxxxxxxxxxxxxxxxx23
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isRequired;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isShowWhenCreate;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isSystemRequired;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $linkWithService;
 
     /**
+     * @example 19xx7043xxxxxxx914
+     *
      * @var string
      */
     public $modifier;
 
     /**
+     * @example 负责人
+     *
      * @var string
      */
     public $name;
@@ -85,11 +113,15 @@ class fields extends Model
     public $options;
 
     /**
+     * @example 例：Workitem
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example NativeField
+     *
      * @var string
      */
     public $type;

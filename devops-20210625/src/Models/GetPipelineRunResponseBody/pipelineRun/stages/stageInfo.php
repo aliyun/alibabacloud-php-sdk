@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class stageInfo extends Model
 {
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $endTime;
@@ -20,16 +22,22 @@ class stageInfo extends Model
     public $jobs;
 
     /**
+     * @example Java构建
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $status;

@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class hostInfos extends Model
 {
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $aliyunRegionId;
 
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 11111
+     *
      * @var string
      */
     public $creatorAccountId;
 
     /**
+     * @example ceshi
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @example 1ssasa
+     *
      * @var string
      */
     public $machineSn;
 
     /**
+     * @example 11111111111
+     *
      * @var string
      */
     public $modifierAccountId;
 
     /**
+     * @example MachineInfo
+     *
      * @var string
      */
     public $objectType;
 
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $updateTime;

@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListPipelineRunsResponseBody extends Model
 {
     /**
+     * @example ”“
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ”“
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example xzxsasasaas
+     *
      * @var string
      */
     public $nextToken;
@@ -30,16 +36,22 @@ class ListPipelineRunsResponseBody extends Model
     public $pipelineRuns;
 
     /**
+     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $totalCount;

@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class CreateWorkitemRequest extends Model
 {
     /**
+     * @example 19xxxx31947xxxx
+     *
      * @var string
      */
     public $assignedTo;
 
     /**
+     * @example Req
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example 测试内容
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example RICHTEXT
+     *
      * @var string
      */
     public $descriptionFormat;
@@ -35,6 +43,8 @@ class CreateWorkitemRequest extends Model
     public $fieldValueList;
 
     /**
+     * @example 3a0c9cdd24ae1e1995b8...
+     *
      * @var string
      */
     public $parent;
@@ -45,16 +55,22 @@ class CreateWorkitemRequest extends Model
     public $participant;
 
     /**
+     * @example asd345xxxxx9q9845xxxxx34
+     *
      * @var string
      */
     public $space;
 
     /**
+     * @example asd345xxxxx9q9845xxxxx34
+     *
      * @var string
      */
     public $spaceIdentifier;
 
     /**
+     * @example Project
+     *
      * @var string
      */
     public $spaceType;
@@ -65,6 +81,8 @@ class CreateWorkitemRequest extends Model
     public $sprint;
 
     /**
+     * @example 测试工作项
+     *
      * @var string
      */
     public $subject;
@@ -80,6 +98,8 @@ class CreateWorkitemRequest extends Model
     public $verifier;
 
     /**
+     * @example 9uyxxxxxre573f561dxxn40
+     *
      * @var string
      */
     public $workitemType;

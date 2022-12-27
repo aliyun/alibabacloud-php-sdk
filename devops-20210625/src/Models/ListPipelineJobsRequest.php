@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListPipelineJobsRequest extends Model
 {
     /**
+     * @example DEPLOY
+     *
      * @var string
      */
     public $category;

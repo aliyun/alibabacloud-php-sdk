@@ -10,16 +10,24 @@ use AlibabaCloud\Tea\Model;
 class ListRepositoryCommitDiffResponseBody extends Model
 {
     /**
+     * @example success
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description Id of the request
+     *
+     * @example 0EE38A4E-8991-532A-8E8B-5C22B5D2E058
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +38,8 @@ class ListRepositoryCommitDiffResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

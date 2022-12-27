@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ReleaseWorkspaceResponseBody extends Model
 {
     /**
+     * @example Forbidden.AccessDenied
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example The user is not authorized to perform the operation.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example F7B85D1B-D1C2-140F-A039-341859F130B9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

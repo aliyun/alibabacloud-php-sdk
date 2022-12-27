@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetWorkitemRelationsResponseBody extends Model
 {
     /**
+     * @example InvalidGroup.IdNotFound
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example error
+     *
      * @var string
      */
     public $errorMsg;
@@ -25,11 +29,17 @@ class GetWorkitemRelationsResponseBody extends Model
     public $relationList;
 
     /**
+     * @description Id of the request
+     *
+     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

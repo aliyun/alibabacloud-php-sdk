@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 100644
+     *
      * @var string
      */
     public $aMode;
 
     /**
+     * @example 100755
+     *
      * @var string
      */
     public $bMode;
@@ -24,6 +28,8 @@ class result extends Model
     public $deletedFile;
 
     /**
+     * @example --- /dev/null\n+++ b/src/test/java/com/aliyun/codeupdemo/CodeupDemoApplicationTests.java\n@@ -0,0 +1,13 @@\n+package com.aliyun.codeupdemo;\n+\n+import org.junit.jupiter.api.Test;\n+import org.springframework.boot.test.context.SpringBootTest;\n+\n+@SpringBootTest\n+class CodeupDemoApplicationTest {\n+\n+ @Test\n+ void contextLoads() {\n+ }\n+\n+}\n
+     *
      * @var string
      */
     public $diff;
@@ -49,21 +55,29 @@ class result extends Model
     public $newFile;
 
     /**
+     * @example 6c268061a546378276559c713d0ad377d4xxxxxx
+     *
      * @var string
      */
     public $newId;
 
     /**
+     * @example src/test/java/com/aliyun/codeupdemo/CodeupDemoApplicationTests.java
+     *
      * @var string
      */
     public $newPath;
 
     /**
+     * @example 0000000000000000000000000000000000000000
+     *
      * @var string
      */
     public $oldId;
 
     /**
+     * @example src/test/java/com/aliyun/codeupdemo/CodeupDemoApplicationTests.java
+     *
      * @var string
      */
     public $oldPath;

@@ -15,31 +15,43 @@ class jobs extends Model
     public $actions;
 
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 21212
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example java构建
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $params;
 
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $status;

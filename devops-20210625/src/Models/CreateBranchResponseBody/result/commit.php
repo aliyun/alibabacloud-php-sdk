@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class commit extends Model
 {
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $authorEmail;
@@ -19,16 +21,22 @@ class commit extends Model
     public $authorName;
 
     /**
+     * @example 2022-03-18 09:00:00
+     *
      * @var string
      */
     public $authoredDate;
 
     /**
+     * @example 2022-03-18 10:00:00
+     *
      * @var string
      */
     public $committedDate;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $committerEmail;
@@ -39,16 +47,22 @@ class commit extends Model
     public $committerName;
 
     /**
+     * @example 2022-03-18 10:00:00
+     *
      * @var string
      */
     public $createdAt;
 
     /**
+     * @example ff4fb5ac6d1f44f452654336d2dba468ae6c8d04
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example create branch
+     *
      * @var string
      */
     public $message;
@@ -59,6 +73,8 @@ class commit extends Model
     public $parentIds;
 
     /**
+     * @example ff4fb5ac
+     *
      * @var string
      */
     public $shortId;

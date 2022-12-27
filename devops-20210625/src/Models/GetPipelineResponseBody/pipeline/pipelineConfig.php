@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class pipelineConfig extends Model
 {
     /**
+     * @example schema: tb pipeline:   - name: 执行命令     stages:       - driven: AUTO         jobs:           - displayName: 执行命令             task: execution-component-production@10             identifier: \"10_1626147407245\"             templateType: task             templateSign: \"\"             templateBatchUpdate: \"N\"             extraInfo: \"\"             params:               version1: pre-jdk1.62               steps:                 - name: 执行命令                   stepType: exec-shell                   stepIdentifier: \"10_1626147407245__11_1626147407249\"                   command: |                     # input your command here                     echo hello,world!                   ARTIFACTS: \"\"                   JSONEncoding: true                   freeInTaskGroupModeFields:                     - ARTIFACTS                   source: 132504-sss_ddd_3mvJ               ENGINE_PIPELINE_NAME: \"${INPUTS.ENGINE_PIPELINE_NAME}\"               ENGINE_PIPELINE_ID: \"${INPUTS.ENGINE_PIPELINE_ID}\"               ENGINE_PIPELINE_INST_ID: \"${INPUTS.ENGINE_PIPELINE_INST_ID}\"               ENGINE_PIPELINE_INST_NUMBER: \"${INPUTS.ENGINE_PIPELINE_INST_NUMBER}\"               buildNodeGroup: K8S-4             plugins: []             output: []             freeInTaskGroupModeFields: []
+     *
      * @var string
      */
     public $flow;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $settings;

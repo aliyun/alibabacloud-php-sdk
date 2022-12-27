@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateFileRequest extends Model
 {
     /**
+     * @example 0cf2c8458ac44d9481aab2dd6ec10596v3
+     *
      * @var string
      */
     public $accessToken;
 
     /**
+     * @example master
+     *
      * @var string
      */
     public $branchName;
@@ -29,21 +33,29 @@ class UpdateFileRequest extends Model
     public $content;
 
     /**
+     * @example text
+     *
      * @var string
      */
     public $encoding;
 
     /**
+     * @example src/main/update.txt
+     *
      * @var string
      */
     public $newPath;
 
     /**
+     * @example src/main/update.txt
+     *
      * @var string
      */
     public $oldPath;
 
     /**
+     * @example 60de7a6852743a5162b5f957
+     *
      * @var string
      */
     public $organizationId;

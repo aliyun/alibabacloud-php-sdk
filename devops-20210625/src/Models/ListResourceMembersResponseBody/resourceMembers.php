@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class resourceMembers extends Model
 {
     /**
+     * @example 22212212
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @example admin
+     *
      * @var string
      */
     public $roleName;
 
     /**
+     * @example 张三
+     *
      * @var string
      */
     public $username;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetOrganizationMemberResponseBody extends Model
 {
     /**
+     * @example null
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example error info
+     *
      * @var string
      */
     public $errorMessage;
@@ -25,11 +29,15 @@ class GetOrganizationMemberResponseBody extends Model
     public $member;
 
     /**
+     * @example HC93CE1A-8D7A-13A9-8306-7465DE2E5C0F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

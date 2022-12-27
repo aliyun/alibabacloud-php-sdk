@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetPipelineEmasArtifactUrlResponseBody extends Model
 {
     /**
+     * @example ”“
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ”“
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example http://aliyun.com
+     *
      * @var string
      */
     public $fileUrl;
 
     /**
+     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true 接口调用成功，false 接口调用失败
+     *
      * @var bool
      */
     public $success;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListOrganizationMembersResponseBody extends Model
 {
     /**
+     * @example null
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example error info
+     *
      * @var string
      */
     public $errorMessage;
@@ -25,21 +29,29 @@ class ListOrganizationMembersResponseBody extends Model
     public $members;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example FC93CE1A-8D7A-13A9-8306-7465DE2E5C0F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $totalCount;

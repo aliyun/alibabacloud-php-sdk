@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class namespace_ extends Model
 {
     /**
+     * @example https://xxx
+     *
      * @var string
      */
     public $avatar;
 
     /**
+     * @example 2022-02-18 14:24:54
+     *
      * @var string
      */
     public $createdAt;
@@ -24,16 +28,22 @@ class namespace_ extends Model
     public $description;
 
     /**
+     * @example 29322
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example codeup
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 19238
+     *
      * @var int
      */
     public $ownerId;
@@ -44,11 +54,15 @@ class namespace_ extends Model
     public $path;
 
     /**
+     * @example 2022-03-18 14:24:54
+     *
      * @var string
      */
     public $updatedAt;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $visibilityLevel;

@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class CreateSshKeyResponseBody extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class CreateSshKeyResponseBody extends Model
     public $sshKey;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

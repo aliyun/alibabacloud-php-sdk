@@ -12,21 +12,29 @@ use AlibabaCloud\Tea\Model;
 class activities extends Model
 {
     /**
+     * @example update
+     *
      * @var string
      */
     public $actionType;
 
     /**
+     * @example 3201131
+     *
      * @var int
      */
     public $eventId;
 
     /**
+     * @example 1640867079624
+     *
      * @var int
      */
     public $eventTime;
 
     /**
+     * @example workitem.updated
+     *
      * @var string
      */
     public $eventType;
@@ -42,21 +50,29 @@ class activities extends Model
     public $oldValue;
 
     /**
+     * @example 19xx7043xxxxxxx914
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @example 3201132
+     *
      * @var int
      */
     public $parentEventId;
 
     /**
+     * @example public
+     *
      * @var property
      */
     public $property;
 
     /**
+     * @example e8bxxxxxxxxxxxxxxxx23
+     *
      * @var string
      */
     public $resourceIdentifier;

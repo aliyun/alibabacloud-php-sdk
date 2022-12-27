@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class ListProjectWorkitemTypesResponseBody extends Model
 {
     /**
+     * @example 例：Openapi.RequestError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example errormessage
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true或者false
+     *
      * @var bool
      */
     public $success;

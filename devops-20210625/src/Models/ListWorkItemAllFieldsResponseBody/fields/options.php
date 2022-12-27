@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class options extends Model
 {
     /**
+     * @example 重复的缺陷
+     *
      * @var string
      */
     public $displayValue;
 
     /**
+     * @example e8bxxxxxxxxxxxxxxxx23
+     *
      * @var string
      */
     public $fieldIdentifier;
 
     /**
+     * @example 重复的缺陷
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $level;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $position;
 
     /**
+     * @example 重复的缺陷
+     *
      * @var string
      */
     public $value;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $valueEn;

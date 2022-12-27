@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class pipelineGroup extends Model
 {
     /**
+     * @example 111
+     *
      * @var int
      */
     public $id;

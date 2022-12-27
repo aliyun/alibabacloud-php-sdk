@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class log extends Model
 {
     /**
+     * @example success
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $more;

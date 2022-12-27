@@ -14,16 +14,22 @@ class CreateWorkitemCommentRequest extends Model
     public $content;
 
     /**
+     * @example RICHTEXT/MARKDOWN
+     *
      * @var string
      */
     public $formatType;
 
     /**
+     * @example 26842
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @example 1e9903d8b3f12xxxxxf9286ef5
+     *
      * @var string
      */
     public $workitemIdentifier;

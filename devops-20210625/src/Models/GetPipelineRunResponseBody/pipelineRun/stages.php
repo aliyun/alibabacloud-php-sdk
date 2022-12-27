@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class stages extends Model
 {
     /**
+     * @example Java构建
+     *
      * @var string
      */
     public $name;

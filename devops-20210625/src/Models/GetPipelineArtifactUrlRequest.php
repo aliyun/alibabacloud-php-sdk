@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetPipelineArtifactUrlRequest extends Model
 {
     /**
+     * @example test.tgz
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example /test/test/test.tgz
+     *
      * @var string
      */
     public $filePath;

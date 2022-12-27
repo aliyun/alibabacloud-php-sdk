@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class GetFileBlobsRequest extends Model
 {
     /**
+     * @example f0b1e61db5961df5975a93f9129d2513
+     *
      * @var string
      */
     public $accessToken;
 
     /**
+     * @example src/Test.java
+     *
      * @var string
      */
     public $filePath;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $from;
 
     /**
+     * @example 60de7a6852743a5162b5f957
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @example master  / tag1.0 /  ecykhdd
+     *
      * @var string
      */
     public $ref;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $to;

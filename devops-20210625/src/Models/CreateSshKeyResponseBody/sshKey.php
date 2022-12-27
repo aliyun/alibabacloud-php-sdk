@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class sshKey extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example assssssssssss
+     *
      * @var string
      */
     public $publicKey;

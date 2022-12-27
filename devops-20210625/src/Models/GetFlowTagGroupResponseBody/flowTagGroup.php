@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class flowTagGroup extends Model
 {
     /**
+     * @example 1111111111111
+     *
      * @var string
      */
     public $creatorAccountId;
@@ -20,11 +22,15 @@ class flowTagGroup extends Model
     public $flowTagList;
 
     /**
+     * @example 1111
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 1111111111111
+     *
      * @var string
      */
     public $modiferAccountId;

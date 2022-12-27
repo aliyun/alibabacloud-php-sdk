@@ -19,36 +19,50 @@ class AddWebhookRequest extends Model
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableSslVerification;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $mergeRequestsEvents;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $noteEvents;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $pushEvents;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $secretToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $tagPushEvents;
 
     /**
+     * @example https://xxxxx
+     *
      * @var string
      */
     public $url;

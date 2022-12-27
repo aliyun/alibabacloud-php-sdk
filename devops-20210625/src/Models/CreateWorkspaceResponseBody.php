@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class CreateWorkspaceResponseBody extends Model
 {
     /**
+     * @example WorkspaceQuotaExceeded
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example The maximum number of workspace per user is exceeded.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example F7B85D1B-D1C2-140F-A039-341859F130B9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

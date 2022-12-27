@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class TriggerRepositoryMirrorSyncResponseBody extends Model
 {
     /**
+     * @example SYSTEM_ILLEGAL_ARGUMENT_ERROR
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example 企业不存在
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 37294673-00CA-5B8B-914F-A8B35511E90A
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class TriggerRepositoryMirrorSyncResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class workitemTime extends Model
 {
     /**
+     * @example 12
+     *
      * @var int
      */
     public $actualTime;
@@ -20,16 +22,22 @@ class workitemTime extends Model
     public $description;
 
     /**
+     * @example 1667205617089
+     *
      * @var int
      */
     public $gmtEnd;
 
     /**
+     * @example 1667205617061
+     *
      * @var int
      */
     public $gmtStart;
 
     /**
+     * @example deafe5f33xxxxx6a259d8dafd
+     *
      * @var string
      */
     public $identifier;
@@ -40,11 +48,15 @@ class workitemTime extends Model
     public $recordUser;
 
     /**
+     * @example deafe5f33xxxxx6a259d8dafd
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 9144ef6b72d8exxxxx9e61a4d0
+     *
      * @var string
      */
     public $workitemIdentifier;

@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class workspaces extends Model
 {
     /**
+     * @example https://codeup.aliyun.com/demo/group/Codeup-Demo.git
+     *
      * @var string
      */
     public $codeUrl;
 
     /**
+     * @example master
+     *
      * @var string
      */
     public $codeVersion;
 
     /**
+     * @example 1628564442000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 6ed82817-ab75-4563-865d-81e60dxxxxxx
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example Demo
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 2::4::60
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example all-in-one
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @example 1470227819xxxxxx
+     *
      * @var string
      */
     public $userId;

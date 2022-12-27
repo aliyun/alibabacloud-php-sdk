@@ -17,6 +17,8 @@ class commit extends Model
     public $author;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $authorEmail;
@@ -27,16 +29,22 @@ class commit extends Model
     public $authorName;
 
     /**
+     * @example 2022-03-18 08:00:00
+     *
      * @var string
      */
     public $authoredDate;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $commentsCount;
 
     /**
+     * @example 2022-03-18 09:00:00
+     *
      * @var string
      */
     public $committedDate;
@@ -47,6 +55,8 @@ class commit extends Model
     public $committer;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $committerEmail;
@@ -57,11 +67,15 @@ class commit extends Model
     public $committerName;
 
     /**
+     * @example 2022-03-18 10:00:00
+     *
      * @var string
      */
     public $createdAt;
 
     /**
+     * @example e0297d8fb0393c833a8531e7cc8832739e3cba6d
+     *
      * @var string
      */
     public $id;
@@ -77,6 +91,8 @@ class commit extends Model
     public $parentIds;
 
     /**
+     * @example e0297d8f
+     *
      * @var string
      */
     public $shortId;

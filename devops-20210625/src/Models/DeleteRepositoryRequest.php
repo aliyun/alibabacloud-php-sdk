@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRepositoryRequest extends Model
 {
     /**
+     * @example f0b1e61db5961df5975a93f9129d2513
+     *
      * @var string
      */
     public $accessToken;
@@ -19,6 +21,8 @@ class DeleteRepositoryRequest extends Model
     public $reason;
 
     /**
+     * @example 6082a9b0c7972588ac363793
+     *
      * @var string
      */
     public $organizationId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class user extends Model
 {
     /**
+     * @example 1316458xxxxx41068
+     *
      * @var string
      */
     public $account;
 
     /**
+     * @example https://tcs-devops.aliyuncs.com/thumbnail/112m7150e256dbba0d6456bafbb65c81f90d/w/200/h/200
+     *
      * @var string
      */
     public $avatar;
@@ -24,6 +28,8 @@ class user extends Model
     public $displayName;
 
     /**
+     * @example 9144ef6b72d8exxxxx9e61a4d0
+     *
      * @var string
      */
     public $identifier;

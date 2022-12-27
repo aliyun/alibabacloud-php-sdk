@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListSprintsRequest extends Model
 {
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example e8bxxxxxxxxxxxxxxxx23
+     *
      * @var string
      */
     public $spaceIdentifier;
 
     /**
+     * @example Project
+     *
      * @var string
      */
     public $spaceType;

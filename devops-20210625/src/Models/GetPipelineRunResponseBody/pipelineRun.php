@@ -11,26 +11,36 @@ use AlibabaCloud\Tea\Model;
 class pipelineRun extends Model
 {
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 1111111111
+     *
      * @var string
      */
     public $creatorAccountId;
 
     /**
+     * @example 11111111111
+     *
      * @var string
      */
     public $modifierAccountId;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $pipelineId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pipelineRunId;
@@ -51,16 +61,22 @@ class pipelineRun extends Model
     public $stages;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $triggerMode;
 
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $updateTime;

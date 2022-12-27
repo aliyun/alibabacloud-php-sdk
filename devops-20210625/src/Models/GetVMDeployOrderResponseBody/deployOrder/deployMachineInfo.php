@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class deployMachineInfo extends Model
 {
     /**
+     * @example 11
+     *
      * @var int
      */
     public $batchNum;
@@ -20,6 +22,8 @@ class deployMachineInfo extends Model
     public $deployMachines;
 
     /**
+     * @example 1111
+     *
      * @var int
      */
     public $hostGroupId;

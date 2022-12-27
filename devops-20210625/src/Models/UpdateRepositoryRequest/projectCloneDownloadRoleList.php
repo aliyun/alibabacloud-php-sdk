@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class projectCloneDownloadRoleList extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $allowed;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $roleCode;

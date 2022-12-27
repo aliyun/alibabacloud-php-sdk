@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourceMemberRequest extends Model
 {
     /**
+     * @example admin
+     *
      * @var string
      */
     public $roleName;

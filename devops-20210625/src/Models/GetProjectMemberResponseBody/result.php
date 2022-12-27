@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 30
+     *
      * @var int
      */
     public $accessLevel;
 
     /**
+     * @example https://tcs-devops.aliyuncs.com/thumbnail/112afcb7a6a35c4ef67f1bea827c4/w/100/h/100
+     *
      * @var string
      */
     public $avatarUrl;
 
     /**
+     * @example 5f969843cd2214ba0e24327d
+     *
      * @var string
      */
     public $externUserId;
 
     /**
+     * @example 2959
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example codeup
+     *
      * @var string
      */
     public $name;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateHostGroupRequest extends Model
 {
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $aliyunRegion;
 
     /**
+     * @example ecs
+     *
      * @var string
      */
     public $ecsLabelKey;
 
     /**
+     * @example ecs
+     *
      * @var string
      */
     public $ecsLabelValue;
 
     /**
+     * @example ECS_ALIYUN
+     *
      * @var string
      */
     public $ecsType;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $envId;
 
     /**
+     * @example [{"aliyunRegionId":"cn-beijing","machineSn":"i-sssssss","instanceName":"ceshi","ip":"120.0.0.0"}]
+     *
      * @var string
      */
     public $machineInfos;
@@ -44,16 +56,22 @@ class CreateHostGroupRequest extends Model
     public $name;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $serviceConnectionId;
 
     /**
+     * @example 12,234
+     *
      * @var string
      */
     public $tagIds;
 
     /**
+     * @example ECS
+     *
      * @var string
      */
     public $type;

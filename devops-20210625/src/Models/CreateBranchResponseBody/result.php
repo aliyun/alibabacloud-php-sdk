@@ -15,11 +15,15 @@ class result extends Model
     public $commit;
 
     /**
+     * @example createBranch
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $protected;

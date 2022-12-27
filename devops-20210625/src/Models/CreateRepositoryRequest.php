@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateRepositoryRequest extends Model
 {
     /**
+     * @example f0b1e61db5961df5975a93f9129d2513
+     *
      * @var string
      */
     public $accessToken;
 
     /**
+     * @example https://tcs-devops.aliyuncs.com/thumbnail/112afcb7a6a35c3f67f1bea827c4/w/100/h/100
+     *
      * @var string
      */
     public $avatarUrl;
@@ -24,51 +28,71 @@ class CreateRepositoryRequest extends Model
     public $description;
 
     /**
+     * @example Java
+     *
      * @var string
      */
     public $gitignoreType;
 
     /**
+     * @example codeup-test
+     *
      * @var string
      */
     public $importAccount;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $importDemoProject;
 
     /**
+     * @example GIT
+     *
      * @var string
      */
     public $importRepoType;
 
     /**
+     * @example xxxxx
+     *
      * @var string
      */
     public $importToken;
 
     /**
+     * @example text
+     *
      * @var string
      */
     public $importTokenEncrypted;
 
     /**
+     * @example https://github.com/a/b.git
+     *
      * @var string
      */
     public $importUrl;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $initStandardService;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isCryptoEnabled;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $localImportUrl;
@@ -79,36 +103,50 @@ class CreateRepositoryRequest extends Model
     public $name;
 
     /**
+     * @example 2022
+     *
      * @var int
      */
     public $namespaceId;
 
     /**
+     * @example a/b/c
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example USER_GUIDE
+     *
      * @var string
      */
     public $readmeType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $visibilityLevel;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $createParentPath;
 
     /**
+     * @example 60de7a6852743a5162b5f957
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $sync;

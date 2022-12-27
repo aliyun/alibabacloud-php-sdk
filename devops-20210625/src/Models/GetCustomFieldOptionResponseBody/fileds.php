@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class fileds extends Model
 {
     /**
+     * @example 223
+     *
      * @var string
      */
     public $displayValue;
 
     /**
+     * @example e8bxxxxxxxxxxxxxxxx23
+     *
      * @var string
      */
     public $fieldIdentifier;
 
     /**
+     * @example 3345
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $level;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $position;
 
     /**
+     * @example 223
+     *
      * @var string
      */
     public $value;
 
     /**
+     * @example 223
+     *
      * @var string
      */
     public $valueEn;

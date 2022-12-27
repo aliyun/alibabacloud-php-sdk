@@ -15,11 +15,15 @@ class sources extends Model
     public $data;
 
     /**
+     * @example assaaaaaasasasa
+     *
      * @var string
      */
     public $sign;
 
     /**
+     * @example Codeup
+     *
      * @var string
      */
     public $type;

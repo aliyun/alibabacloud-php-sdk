@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class flowTagList extends Model
 {
     /**
+     * @example #1F9AEF
+     *
      * @var string
      */
     public $color;
 
     /**
+     * @example 1111111111111
+     *
      * @var string
      */
     public $creatorAccountId;
 
     /**
+     * @example 111
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 1111111111111
+     *
      * @var string
      */
     public $modiferAccountId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListPipelineGroupsRequest extends Model
 {
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example aaaaaaaaaa
+     *
      * @var string
      */
     public $nextToken;

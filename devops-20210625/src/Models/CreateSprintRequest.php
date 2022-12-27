@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateSprintRequest extends Model
 {
     /**
+     * @example 2021-12-02
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example asd345xxxxx9q9845xxxxx34
+     *
      * @var string
      */
     public $spaceIdentifier;
@@ -29,6 +35,8 @@ class CreateSprintRequest extends Model
     public $staffIds;
 
     /**
+     * @example 2021-12-01
+     *
      * @var string
      */
     public $startDate;

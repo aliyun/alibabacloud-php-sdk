@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateWorkItemRequest extends Model
 {
     /**
+     * @example subject
+     *
      * @var string
      */
     public $fieldType;
 
     /**
+     * @example e8b2xxxxxx2abdxxxxxxxx23
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example subject
+     *
      * @var string
      */
     public $propertyKey;
 
     /**
+     * @example newValue
+     *
      * @var string
      */
     public $propertyValue;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class relationList extends Model
 {
     /**
+     * @example aliyun_1384605
+     *
      * @var string
      */
     public $assignedTo;
 
     /**
+     * @example Req
+     *
      * @var string
      */
     public $categoryIdentifier;
 
     /**
+     * @example 1667205617061
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 1667205617089
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example deafe5f33xxxxx6a259d8dafd
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example 2b856dxxxxxxb61d93676255ba
+     *
      * @var string
      */
     public $spaceIdentifier;
@@ -44,6 +56,8 @@ class relationList extends Model
     public $subject;
 
     /**
+     * @example 9uy29901re573f561d69jn40
+     *
      * @var string
      */
     public $workitemTypeIdentifier;

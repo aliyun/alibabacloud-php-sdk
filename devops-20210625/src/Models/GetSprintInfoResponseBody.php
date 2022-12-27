@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class GetSprintInfoResponseBody extends Model
 {
     /**
+     * @example Openapi.RequestError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class GetSprintInfoResponseBody extends Model
     public $sprint;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

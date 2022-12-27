@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListRepositoryTreeRequest extends Model
 {
     /**
+     * @example f0b1e61db5961df5975a93f9129d2513
+     *
      * @var string
      */
     public $accessToken;
 
     /**
+     * @example 624666bd54d036291ae13a36
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @example module
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example master / tag1.0 / sjjfssa
+     *
      * @var string
      */
     public $refName;
 
     /**
+     * @example RECURSIVE
+     *
      * @var string
      */
     public $type;

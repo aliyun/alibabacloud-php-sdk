@@ -9,81 +9,113 @@ use AlibabaCloud\Tea\Model;
 class project extends Model
 {
     /**
+     * @example Project
+     *
      * @var string
      */
     public $categoryIdentifier;
 
     /**
+     * @example 19xx7043xxxxxxx914
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @example OJAY
+     *
      * @var string
      */
     public $customCode;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1623916393000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1623916393000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example https://xxxxxx.png
+     *
      * @var string
      */
     public $icon;
 
     /**
+     * @example e8bxxxxxxxxxxxxxxxx23
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $logicalStatus;
 
     /**
+     * @example 19xx7043xxxxxxx914
+     *
      * @var string
      */
     public $modifier;
 
     /**
+     * @example demo示例项目
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 5e70xxxxxxcd000xxxxe96
+     *
      * @var string
      */
     public $organizationIdentifier;
 
     /**
+     * @example public
+     *
      * @var string
      */
     public $scope;
 
     /**
+     * @example 8a40xxxxxxxxxxxxx64
+     *
      * @var string
      */
     public $statusIdentifier;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $statusStageIdentifier;
 
     /**
+     * @example CustomProject
+     *
      * @var string
      */
     public $typeIdentifier;

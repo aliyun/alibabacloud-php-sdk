@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class FrozenWorkspaceResponseBody extends Model
 {
     /**
+     * @example InvalidWorkspace.NotFound
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example The workspace is not found.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example F7B85D1B-D1C2-140F-A039-341859F130B9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

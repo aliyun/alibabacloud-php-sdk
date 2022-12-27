@@ -9,51 +9,73 @@ use AlibabaCloud\Tea\Model;
 class namespace_ extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $avatar;
 
     /**
+     * @example 2022-01-14T21:08:26+08:00
+     *
      * @var string
      */
     public $createdAt;
 
     /**
+     * @example codeup repo description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description id
+     *
+     * @example 3194
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example codeup
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @example codeup
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $public;
 
     /**
+     * @example 2022-01-14T21:08:26+08:00
+     *
      * @var string
      */
     public $updatedAt;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $visibilityLevel;

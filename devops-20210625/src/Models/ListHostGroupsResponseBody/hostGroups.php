@@ -9,71 +9,101 @@ use AlibabaCloud\Tea\Model;
 class hostGroups extends Model
 {
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $aliyunRegion;
 
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 2222222222222
+     *
      * @var string
      */
     public $creatorAccountId;
 
     /**
+     * @example 主机组
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example ecs
+     *
      * @var string
      */
     public $ecsLabelKey;
 
     /**
+     * @example value
+     *
      * @var string
      */
     public $ecsLabelValue;
 
     /**
+     * @example ECS_ALIYUN
+     *
      * @var string
      */
     public $ecsType;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $hostNum;
 
     /**
+     * @description 323232
+     *
+     * @example 部署组Id
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 211111111
+     *
      * @var string
      */
     public $modifierAccountId;
 
     /**
+     * @example 部署组
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1212122
+     *
      * @var int
      */
     public $serviceConnectionId;
 
     /**
+     * @example ECS
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $updateTime;

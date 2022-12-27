@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class committer extends Model
 {
     /**
+     * @example https://tcs-devops.aliyuncs.com/thumbnail/112afcb7a6a35c3f67f1bea827c4/w/100/h/100
+     *
      * @var string
      */
     public $avatarUrl;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 62c795c9cf51ade33b468af8
+     *
      * @var string
      */
     public $externUid;
 
     /**
+     * @example 5035
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example codeup-commit
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example 62c795c9cf51ade33b468af8
+     *
      * @var string
      */
     public $tbUserId;
 
     /**
+     * @example commitcommit
+     *
      * @var string
      */
     public $username;

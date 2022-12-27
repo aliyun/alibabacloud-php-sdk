@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListPipelineRunsRequest extends Model
 {
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example aaaaaa
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $triggerMode;

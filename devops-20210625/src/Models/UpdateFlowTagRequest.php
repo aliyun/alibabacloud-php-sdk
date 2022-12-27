@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateFlowTagRequest extends Model
 {
     /**
+     * @example #1F9AEF
+     *
      * @var string
      */
     public $color;
 
     /**
+     * @example 11
+     *
      * @var int
      */
     public $flowTagGroupId;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $accessLevel;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $archive;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $avatarUrl;
 
     /**
+     * @example 2022-01-14T21:08:26+08:00
+     *
      * @var string
      */
     public $createdAt;
@@ -39,61 +49,85 @@ class result extends Model
     public $description;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $importStatus;
 
     /**
+     * @example 2022-01-14T21:08:26+08:00
+     *
      * @var string
      */
     public $lastActivityAt;
 
     /**
+     * @example codeupTest
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example codeup-test-org / test-codeup
+     *
      * @var string
      */
     public $nameWithNamespace;
 
     /**
+     * @example 745
+     *
      * @var int
      */
     public $namespaceId;
 
     /**
+     * @example test-codeup
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example codeup-test-org/test-codeup
+     *
      * @var string
      */
     public $pathWithNamespace;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $star;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $starCount;
 
     /**
+     * @example 2022-01-14T21:08:26+08:00
+     *
      * @var string
      */
     public $updatedAt;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $visibilityLevel;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $webUrl;

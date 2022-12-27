@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetBranchInfoRequest extends Model
 {
     /**
+     * @example f0b1e61db5961df5975a93f9129d2513
+     *
      * @var string
      */
     public $accessToken;
 
     /**
+     * @example master
+     *
      * @var string
      */
     public $branchName;
 
     /**
+     * @example 5fbe3118672533690be72b12
+     *
      * @var string
      */
     public $organizationId;

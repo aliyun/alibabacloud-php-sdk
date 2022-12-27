@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetFileLastCommitRequest extends Model
 {
     /**
+     * @example f0b1e61db5961df5975a93f9129d2513
+     *
      * @var string
      */
     public $accessToken;
 
     /**
+     * @example src/main/java/Main.java
+     *
      * @var string
      */
     public $filePath;
 
     /**
+     * @example 60de7a6852743a5162b5f957
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @example master
+     *
      * @var string
      */
     public $sha;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $showSignature;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class division extends Model
 {
     /**
+     * @example 1345xxxxxxx947xxxx
+     *
      * @var string
      */
     public $identifier;

@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateRepositoryMemberRequest extends Model
 {
     /**
+     * @example f0b1e61db5961df5975a93f9129d2513
+     *
      * @var string
      */
     public $accessToken;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $accessLevel;
 
     /**
+     * @example 2020-08-08 08:08:08
+     *
      * @var string
      */
     public $expireAt;
 
     /**
+     * @example USERS
+     *
      * @var string
      */
     public $memberType;
 
     /**
+     * @example 10010
+     *
      * @var string
      */
     public $relatedId;
@@ -40,6 +50,8 @@ class UpdateRepositoryMemberRequest extends Model
     public $relatedInfos;
 
     /**
+     * @example 60de7a6852743a5162b5f957
+     *
      * @var string
      */
     public $organizationId;

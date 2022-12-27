@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class identities extends Model
 {
     /**
+     * @example 1236666
+     *
      * @var string
      */
     public $externUid;
 
     /**
+     * @example Dingtalk
+     *
      * @var string
      */
     public $provider;

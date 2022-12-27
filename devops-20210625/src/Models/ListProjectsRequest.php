@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListProjectsRequest extends Model
 {
     /**
+     * @example Project
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description {"conditionGroups":[[]]}
+     *
      * @var string
      */
     public $conditions;
@@ -24,16 +28,22 @@ class ListProjectsRequest extends Model
     public $extraConditions;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example public
+     *
      * @var string
      */
     public $scope;

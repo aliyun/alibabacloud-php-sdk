@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class commentList extends Model
 {
     /**
+     * @example 066961
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example 1667205617061
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example RICHTEXT/MARKDOWN
+     *
      * @var string
      */
     public $formatType;
 
     /**
+     * @example 6573
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example true/false
+     *
      * @var bool
      */
     public $isTop;
 
     /**
+     * @example 1646323200000
+     *
      * @var int
      */
     public $modifiedTime;
 
     /**
+     * @example 1013131897677566
+     *
      * @var int
      */
     public $parentId;
 
     /**
+     * @example 9144ef6b72d8exxxxx9e61a4d0
+     *
      * @var string
      */
     public $targetIdentifier;
 
     /**
+     * @example workitem
+     *
      * @var string
      */
     public $targetType;
 
     /**
+     * @example 1667205617089
+     *
      * @var int
      */
     public $topTime;

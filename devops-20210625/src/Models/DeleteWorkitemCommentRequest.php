@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteWorkitemCommentRequest extends Model
 {
     /**
+     * @example 12xx34
+     *
      * @var int
      */
     public $commentId;
 
     /**
+     * @example e8b2xxxxxx2abdxxxxxxxx23
+     *
      * @var string
      */
     public $identifier;

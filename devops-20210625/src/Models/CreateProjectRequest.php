@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateProjectRequest extends Model
 {
     /**
+     * @example ABCD
+     *
      * @var string
      */
     public $customCode;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example public
+     *
      * @var string
      */
     public $scope;
 
     /**
+     * @example 704eaxxxx5efede61xxx5
+     *
      * @var string
      */
     public $templateIdentifier;

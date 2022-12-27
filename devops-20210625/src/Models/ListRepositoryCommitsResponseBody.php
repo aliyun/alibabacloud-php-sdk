@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListRepositoryCommitsResponseBody extends Model
 {
     /**
+     * @example OpenApi.error
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example F1138237-CF7F-56BF-95D4-9AA937CCE8E5
+     *
      * @var string
      */
     public $requestId;
@@ -30,11 +36,15 @@ class ListRepositoryCommitsResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 145
+     *
      * @var int
      */
     public $total;

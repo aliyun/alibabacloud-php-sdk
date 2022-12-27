@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class pipelines extends Model
 {
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 22121222
+     *
      * @var string
      */
     public $creatorAccountId;
@@ -24,11 +28,15 @@ class pipelines extends Model
     public $groupId;
 
     /**
+     * @example 124
+     *
      * @var int
      */
     public $pipelineId;
 
     /**
+     * @example 流水线
+     *
      * @var string
      */
     public $pipelineName;

@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteFileResponseBody extends Model
 {
     /**
+     * @example SYSTEM_UNKNOWN_ERROR
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 7EFAD5FB-2296-5D52-BC60-FCC992A40767
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class DeleteFileResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

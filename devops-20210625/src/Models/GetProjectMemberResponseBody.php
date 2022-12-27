@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class GetProjectMemberResponseBody extends Model
 {
     /**
+     * @example SYSTEM_UNKNOWN_ERROR
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 30C99C69-A340-5E2E-ACE4-8888FF50CF52
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class GetProjectMemberResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

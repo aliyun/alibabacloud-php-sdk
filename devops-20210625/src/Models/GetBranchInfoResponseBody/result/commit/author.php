@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class author extends Model
 {
     /**
+     * @example https://tcs-devops.aliyuncs.com/thumbnail/112afcb7a6a35c3f67f1bea827c4/w/100/h/100
+     *
      * @var string
      */
     public $avatarUrl;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 5f969843cd2214ba0e24327d
+     *
      * @var string
      */
     public $externUid;
 
     /**
+     * @example 28056
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example codeup-test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example 5f969843cd2214ba0e24327d
+     *
      * @var string
      */
     public $tbUserId;
 
     /**
+     * @example testtest
+     *
      * @var string
      */
     public $username;

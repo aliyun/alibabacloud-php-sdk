@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class comment extends Model
 {
     /**
+     * @example 26842
+     *
      * @var int
      */
     public $id;
@@ -20,41 +22,57 @@ class comment extends Model
     public $content;
 
     /**
+     * @example 1667202662000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example RICHTEXT/MARKDOWN
+     *
      * @var string
      */
     public $formatType;
 
     /**
+     * @example true/false
+     *
      * @var bool
      */
     public $isTop;
 
     /**
+     * @example 1637995553000
+     *
      * @var int
      */
     public $modifiedTime;
 
     /**
+     * @example 26842
+     *
      * @var int
      */
     public $parentId;
 
     /**
+     * @example 79d523806bdxxxxx95612a5154
+     *
      * @var string
      */
     public $targetIdentifier;
 
     /**
+     * @example workitem
+     *
      * @var string
      */
     public $targetType;
 
     /**
+     * @example 1667202662000
+     *
      * @var int
      */
     public $topTime;

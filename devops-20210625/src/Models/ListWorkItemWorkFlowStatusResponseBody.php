@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListWorkItemWorkFlowStatusResponseBody extends Model
 {
     /**
+     * @example 例：Openapi.RequestError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example errormessage
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class ListWorkItemWorkFlowStatusResponseBody extends Model
     public $statuses;
 
     /**
+     * @example true或者false
+     *
      * @var bool
      */
     public $success;

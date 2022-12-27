@@ -10,36 +10,50 @@ use AlibabaCloud\Tea\Model;
 class customFields extends Model
 {
     /**
+     * @example 例如：date
+     *
      * @var string
      */
     public $fieldClassName;
 
     /**
+     * @example 例：input
+     *
      * @var string
      */
     public $fieldFormat;
 
     /**
+     * @example 例：80
+     *
      * @var string
      */
     public $fieldIdentifier;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $level;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $objectValue;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $position;
 
     /**
+     * @example 例：2022-01-06 00:00:00
+     *
      * @var string
      */
     public $value;
@@ -50,6 +64,8 @@ class customFields extends Model
     public $valueList;
 
     /**
+     * @example 5daa9a15c7fd55523996......
+     *
      * @var string
      */
     public $workitemIdentifier;

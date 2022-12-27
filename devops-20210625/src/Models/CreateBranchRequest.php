@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateBranchRequest extends Model
 {
     /**
+     * @example 0cf2c8458ac44d9481aab2dd6ec10596v3
+     *
      * @var string
      */
     public $accessToken;
 
     /**
+     * @example createBranch
+     *
      * @var string
      */
     public $branchName;
 
     /**
+     * @example master
+     *
      * @var string
      */
     public $ref;
 
     /**
+     * @example 60de7a6852743a5162b5f957
+     *
      * @var string
      */
     public $organizationId;

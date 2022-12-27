@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateWorkitemRecordRequest extends Model
 {
     /**
+     * @example 12
+     *
      * @var string
      */
     public $actualTime;
@@ -19,26 +21,36 @@ class CreateWorkitemRecordRequest extends Model
     public $description;
 
     /**
+     * @example 1646323200000
+     *
      * @var string
      */
     public $gmtEnd;
 
     /**
+     * @example 1667205617061
+     *
      * @var string
      */
     public $gmtStart;
 
     /**
+     * @example 1316458xxxxx41068
+     *
      * @var string
      */
     public $recordUserIdentifier;
 
     /**
+     * @example deafe5f33xxxxx6a259d8dafd
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 9144ef6b72d8exxxxx9e61a4d0
+     *
      * @var string
      */
     public $workitemIdentifier;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class actions extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $disable;
 
     /**
+     * @example {}
+     *
      * @var mixed
      */
     public $params;
 
     /**
+     * @example RetryVMDeployMachine
+     *
      * @var string
      */
     public $type;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateVariableGroupRequest extends Model
 {
     /**
+     * @example 变量组
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 变量组
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example [{"isEncrypted":true,"name":"name1","value":"vaue1"}]
+     *
      * @var string
      */
     public $variables;
