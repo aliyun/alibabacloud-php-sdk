@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class tokenInfo extends Model
 {
     /**
+     * @example agag****
+     *
      * @var string
      */
     public $accessToken;
 
     /**
+     * @example aweghd****
+     *
      * @var string
      */
     public $jwtToken;

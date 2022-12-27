@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class sceneBillingList extends Model
 {
     /**
+     * @example 74
+     *
      * @var string
      */
     public $add;
 
     /**
+     * @example 1.48
+     *
      * @var string
      */
     public $amount;
@@ -29,6 +33,8 @@ class sceneBillingList extends Model
     public $itemName;
 
     /**
+     * @example FC100000038194004
+     *
      * @var string
      */
     public $sceneCode;
@@ -39,6 +45,8 @@ class sceneBillingList extends Model
     public $sceneName;
 
     /**
+     * @example 0.02
+     *
      * @var string
      */
     public $singlePrice;

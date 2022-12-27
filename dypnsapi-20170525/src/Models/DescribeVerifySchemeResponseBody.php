@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeVerifySchemeResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 0C5380A7-2032-5F7D-9614-1BF8B54D16CB
+     *
      * @var string
      */
     public $requestId;

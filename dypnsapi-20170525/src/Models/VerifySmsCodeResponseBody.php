@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class VerifySmsCodeResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
@@ -24,6 +28,8 @@ class VerifySmsCodeResponseBody extends Model
     public $message;
 
     /**
+     * @example 8906582E-6722
+     *
      * @var string
      */
     public $requestId;

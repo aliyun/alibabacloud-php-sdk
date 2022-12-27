@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetMobileRequest extends Model
 {
     /**
+     * @example Dfafdafad5422****
+     *
      * @var string
      */
     public $accessToken;
 
     /**
+     * @example 22345****
+     *
      * @var string
      */
     public $outId;

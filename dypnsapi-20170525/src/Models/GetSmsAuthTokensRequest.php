@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetSmsAuthTokensRequest extends Model
 {
     /**
+     * @example 12345****
+     *
      * @var string
      */
     public $bundleId;
 
     /**
+     * @example 900
+     *
      * @var int
      */
     public $expire;
 
     /**
+     * @example Android
+     *
      * @var string
      */
     public $osType;
@@ -29,6 +35,8 @@ class GetSmsAuthTokensRequest extends Model
     public $ownerId;
 
     /**
+     * @example com.aliqin.mytel.test
+     *
      * @var string
      */
     public $packageName;
@@ -44,21 +52,29 @@ class GetSmsAuthTokensRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example FC100000134840112
+     *
      * @var string
      */
     public $sceneCode;
 
     /**
+     * @example 47fcc6615485e83b4100433****
+     *
      * @var string
      */
     public $signName;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $smsCodeExpire;
 
     /**
+     * @example SMS_13987****
+     *
      * @var string
      */
     public $smsTemplateCode;

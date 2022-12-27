@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryGateVerifyStatisticPublicRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $authenticationType;
 
     /**
+     * @example 20220106
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @example Android
+     *
      * @var string
      */
     public $osType;
@@ -34,11 +40,15 @@ class QueryGateVerifyStatisticPublicRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @example FC100000038194004
+     *
      * @var string
      */
     public $sceneCode;
 
     /**
+     * @example 20220101
+     *
      * @var string
      */
     public $startDate;

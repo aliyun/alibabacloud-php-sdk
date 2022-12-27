@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class dayStatistic extends Model
 {
     /**
+     * @example 20220103
+     *
      * @var string
      */
     public $statisticDateStr;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $totalFail;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalSuccess;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalUnknown;

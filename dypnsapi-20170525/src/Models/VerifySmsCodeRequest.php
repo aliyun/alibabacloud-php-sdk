@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class VerifySmsCodeRequest extends Model
 {
     /**
+     * @example 1321111****
+     *
      * @var string
      */
     public $phoneNumber;
 
     /**
+     * @example 12****
+     *
      * @var string
      */
     public $smsCode;
 
     /**
+     * @example sddsbvdbvjd****
+     *
      * @var string
      */
     public $smsToken;

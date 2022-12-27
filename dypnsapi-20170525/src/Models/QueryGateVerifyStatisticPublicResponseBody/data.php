@@ -15,21 +15,29 @@ class data extends Model
     public $dayStatistic;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $total;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $totalFail;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalSuccess;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalUnknown;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteVerifySchemeResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example E3754956-D0B1-5947-962A-AE767D354F01
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;

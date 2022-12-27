@@ -16,8 +16,6 @@ use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetAuthorizationUrlRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetAuthorizationUrlResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetAuthTokenRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetAuthTokenResponse;
-use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetCertifyResultRequest;
-use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetCertifyResultResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetMobileRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetMobileResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetPhoneWithTokenRequest;
@@ -392,58 +390,6 @@ class Dypnsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAuthorizationUrlWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetCertifyResultRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetCertifyResultResponse
-     */
-    public function getCertifyResultWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->token)) {
-            $query['Token'] = $request->token;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetCertifyResult',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetCertifyResultResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetCertifyResultRequest $request
-     *
-     * @return GetCertifyResultResponse
-     */
-    public function getCertifyResult($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getCertifyResultWithOptions($request, $runtime);
     }
 
     /**

@@ -19,6 +19,8 @@ class CreateVerifySchemeRequest extends Model
     public $authType;
 
     /**
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $bundleId;
@@ -54,6 +56,8 @@ class CreateVerifySchemeRequest extends Model
     public $origin;
 
     /**
+     * @example iOS
+     *
      * @var string
      */
     public $osType;
@@ -64,11 +68,15 @@ class CreateVerifySchemeRequest extends Model
     public $ownerId;
 
     /**
+     * @example com.aliyun
+     *
      * @var string
      */
     public $packName;
 
     /**
+     * @example 123aliyun
+     *
      * @var string
      */
     public $packSign;

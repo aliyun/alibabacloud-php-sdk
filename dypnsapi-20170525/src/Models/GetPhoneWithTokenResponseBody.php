@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetPhoneWithTokenResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -25,6 +27,8 @@ class GetPhoneWithTokenResponseBody extends Model
     public $message;
 
     /**
+     * @example 0F335F48-****-****-****-CA7914FE5D77
+     *
      * @var string
      */
     public $requestId;

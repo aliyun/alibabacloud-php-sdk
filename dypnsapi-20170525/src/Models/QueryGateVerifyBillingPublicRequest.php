@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryGateVerifyBillingPublicRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $authenticationType;
 
     /**
+     * @example 202111
+     *
      * @var string
      */
     public $month;

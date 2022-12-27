@@ -14,6 +14,8 @@ class VerifyPhoneWithTokenRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1380000****
+     *
      * @var string
      */
     public $phoneNumber;
@@ -29,6 +31,8 @@ class VerifyPhoneWithTokenRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example Dfafdafad542****
+     *
      * @var string
      */
     public $spToken;

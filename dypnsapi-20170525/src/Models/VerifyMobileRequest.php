@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class VerifyMobileRequest extends Model
 {
     /**
+     * @example Dfafdafad542****
+     *
      * @var string
      */
     public $accessCode;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $outId;
@@ -24,6 +28,8 @@ class VerifyMobileRequest extends Model
     public $ownerId;
 
     /**
+     * @example 13800****00
+     *
      * @var string
      */
     public $phoneNumber;

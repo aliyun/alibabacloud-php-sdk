@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAuthorizationUrlRequest extends Model
 {
     /**
+     * @example 2020–12–28
+     *
      * @var string
      */
     public $endDate;
@@ -19,6 +21,8 @@ class GetAuthorizationUrlRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $phoneNo;
@@ -34,6 +38,8 @@ class GetAuthorizationUrlRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 234****
+     *
      * @var int
      */
     public $schemeId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class gateVerifySchemeDTO extends Model
 {
     /**
+     * @example FC10001287****
+     *
      * @var string
      */
     public $schemeCode;

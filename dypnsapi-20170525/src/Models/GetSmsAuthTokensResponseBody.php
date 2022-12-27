@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetSmsAuthTokensResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -25,6 +27,8 @@ class GetSmsAuthTokensResponseBody extends Model
     public $message;
 
     /**
+     * @example 8906582E-6722
+     *
      * @var string
      */
     public $requestId;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVerifySchemeResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -30,6 +32,8 @@ class CreateVerifySchemeResponseBody extends Model
     public $message;
 
     /**
+     * @example 8906582E6722
+     *
      * @var string
      */
     public $requestId;

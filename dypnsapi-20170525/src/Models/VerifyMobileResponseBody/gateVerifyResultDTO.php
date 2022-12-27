@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class gateVerifyResultDTO extends Model
 {
     /**
+     * @example 121343241
+     *
      * @var string
      */
     public $verifyId;
 
     /**
+     * @example PASS
+     *
      * @var string
      */
     public $verifyResult;

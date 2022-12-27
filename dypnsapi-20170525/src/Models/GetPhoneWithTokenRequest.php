@@ -24,6 +24,8 @@ class GetPhoneWithTokenRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example Dfafdafad542****
+     *
      * @var string
      */
     public $spToken;

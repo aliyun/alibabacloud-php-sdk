@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryGateVerifyBillingPublicResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,11 +22,15 @@ class QueryGateVerifyBillingPublicResponseBody extends Model
     public $data;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 8906582E-6722
+     *
      * @var string
      */
     public $requestId;
