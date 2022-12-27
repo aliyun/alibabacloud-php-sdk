@@ -17,11 +17,15 @@ class DescribeEpnInstanceAttributeResponseBody extends Model
     public $confVersions;
 
     /**
+     * @example epn-xxxx
+     *
      * @var string
      */
     public $EPNInstanceId;
 
     /**
+     * @example epn-test
+     *
      * @var string
      */
     public $EPNInstanceName;
@@ -32,11 +36,15 @@ class DescribeEpnInstanceAttributeResponseBody extends Model
     public $instances;
 
     /**
+     * @example SpeedUp
+     *
      * @var string
      */
     public $networkingModel;
 
     /**
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;

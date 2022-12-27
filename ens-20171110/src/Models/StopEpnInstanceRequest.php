@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StopEpnInstanceRequest extends Model
 {
     /**
+     * @example epn-20201014152822q2S9tQ
+     *
      * @var string
      */
     public $EPNInstanceId;

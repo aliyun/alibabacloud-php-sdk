@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeEpnBandwitdhByInternetChargeTypeResponseBody extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $bandwidthValue;
 
     /**
+     * @example BandwidthByDay
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example 216BCED0-E055-5DDB-8E06-4084A62A4A44
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2019-10-12T05:45:00Z
+     *
      * @var string
      */
     public $timeStamp;

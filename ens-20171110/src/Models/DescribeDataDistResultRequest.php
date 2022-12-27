@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataDistResultRequest extends Model
 {
     /**
+     * @example e76f8985-7965-41fc-925b-9648bb6bf650
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example cloudgame-shanghai/deploy_app/20220215/1644895216305ACG_M21B-ota-1.1.2-D-0215.0628_V1_0002-pre-weiduan.zip
+     *
      * @var string
      */
     public $dataNames;
 
     /**
+     * @example 4885
+     *
      * @var string
      */
     public $dataVersions;
 
     /**
+     * @example i-7ecpqvkicnchxccozrp,i-6ecpqvkicnchxccozrp
+     *
      * @var string
      */
     public $instanceIds;
 
     /**
+     * @example 2022-02-01
+     *
      * @var string
      */
     public $maxDate;
 
     /**
+     * @example 2022-01-02
+     *
      * @var string
      */
     public $minDate;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class mountTargets extends Model
 {
     /**
+     * @example *.*.*.*:/${FileSystemName}/{MountTargetName}
+     *
      * @var string
      */
     public $mountTargetDomain;
 
     /**
+     * @example target1
+     *
      * @var string
      */
     public $mountTargetName;
 
     /**
+     * @example n-****
+     *
      * @var string
      */
     public $netWorkId;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $status;

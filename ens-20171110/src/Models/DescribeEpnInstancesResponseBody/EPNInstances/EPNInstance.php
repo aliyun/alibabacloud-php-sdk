@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class EPNInstance extends Model
 {
     /**
+     * @example 2019-11-01T06:08:46Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example epn****
+     *
      * @var string
      */
     public $EPNInstanceId;
 
     /**
+     * @example ens_test_epn
+     *
      * @var string
      */
     public $EPNInstanceName;
 
     /**
+     * @example EdgeToEdge
+     *
      * @var string
      */
     public $EPNInstanceType;
 
     /**
+     * @example 2019-11-01T06:08:46Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $internetMaxBandwidthOut;
 
     /**
+     * @example 2019-11-01T06:08:46Z
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @example SpeedUp
+     *
      * @var string
      */
     public $networkingModel;
 
     /**
+     * @example 2019-11-01T06:08:46Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;

@@ -15,21 +15,29 @@ class DescribeEpnInstancesResponseBody extends Model
     public $EPNInstances;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example A1707FC0-430C-423A-B624-284046B20399
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

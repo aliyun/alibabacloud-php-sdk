@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnsEipAddressesRequest extends Model
 {
     /**
+     * @example eip-5q9uwkd9bznjpxz8hr6cirnjk
+     *
      * @var string
      */
     public $allocationId;
 
     /**
+     * @example lb-5t18quoohsrc3xkf86spmnu77
+     *
      * @var string
      */
     public $associatedInstanceId;
 
     /**
+     * @example SlbInstance
+     *
      * @var string
      */
     public $associatedInstanceType;
 
     /**
+     * @example 192.168.0.1
+     *
      * @var string
      */
     public $eipAddress;
 
     /**
+     * @example cn-chengdu-telecom
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;

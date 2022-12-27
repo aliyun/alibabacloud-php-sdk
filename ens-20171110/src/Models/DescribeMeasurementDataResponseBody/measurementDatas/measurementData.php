@@ -17,21 +17,29 @@ class measurementData extends Model
     public $bandWidthFeeDatas;
 
     /**
+     * @example ChargeByGrade
+     *
      * @var string
      */
     public $chargeModel;
 
     /**
+     * @example 2019-07-30
+     *
      * @var string
      */
     public $costCycle;
 
     /**
+     * @example 2019-07-30T16:00:00Z
+     *
      * @var string
      */
     public $costEndTime;
 
     /**
+     * @example 2019-07-29T16:00:00Z
+     *
      * @var string
      */
     public $costStartTime;

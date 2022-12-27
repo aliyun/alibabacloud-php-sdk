@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class loadBalancer extends Model
 {
     /**
+     * @example 10.10.10.10
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @example ipv4
+     *
      * @var string
      */
     public $addressIPVersion;
 
     /**
+     * @example 2021-05-06T11:13:41Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example cn-wuhan-telecom
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example lb-5snthcyu1x10g7tywj7iu****
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @example example
+     *
      * @var string
      */
     public $loadBalancerName;
 
     /**
+     * @example InActive
+     *
      * @var string
      */
     public $loadBalancerStatus;
 
     /**
+     * @example n-5rz0rj1caexauilpsjx0w****
+     *
      * @var string
      */
     public $networkId;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example vsw-5rllcjb3ol6duzjdnbm1om****
+     *
      * @var string
      */
     public $vSwitchId;

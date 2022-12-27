@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateVSwitchResponseBody extends Model
 {
     /**
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example vsw-5****
+     *
      * @var string
      */
     public $vSwitchId;

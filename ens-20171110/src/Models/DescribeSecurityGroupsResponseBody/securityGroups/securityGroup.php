@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class securityGroup extends Model
 {
     /**
+     * @example 2019-11-01T06:08:46Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example TestDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $instanceCount;
 
     /**
+     * @example sg-bp67acfmxazb4ph***
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example DocTest
+     *
      * @var string
      */
     public $securityGroupName;

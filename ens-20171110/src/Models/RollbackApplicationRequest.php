@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class RollbackApplicationRequest extends Model
 {
     /**
+     * @example 474bdef0-d149-4695-abfb-52912d9143f0
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example v2-1
+     *
      * @var string
      */
     public $fromAppVersion;
 
     /**
+     * @example 1800
+     *
      * @var int
      */
     public $timeout;
 
     /**
+     * @example v2
+     *
      * @var string
      */
     public $toAppVersion;

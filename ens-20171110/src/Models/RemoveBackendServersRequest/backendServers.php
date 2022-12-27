@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class backendServers extends Model
 {
     /**
+     * @example 192.168.0.1
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example i-5uf68ts0fqexe1a4n****
+     *
      * @var string
      */
     public $serverId;
 
     /**
+     * @example ens
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $weight;

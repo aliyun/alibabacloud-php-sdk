@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ReInitDiskResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example 4DD66F05-3116-4BAA-B588-52EB2E7F431D
+     *
      * @var string
      */
     public $requestId;

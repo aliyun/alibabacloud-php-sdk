@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class StartLoadBalancerListenerRequest extends Model
 {
     /**
+     * @example 8080
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @example tcp
+     *
      * @var string
      */
     public $listenerProtocol;
 
     /**
+     * @example lb-5saivuir6b1mupxjfbhmk****
+     *
      * @var string
      */
     public $loadBalancerId;

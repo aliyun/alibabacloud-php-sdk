@@ -9,66 +9,92 @@ use AlibabaCloud\Tea\Model;
 class eipAddress extends Model
 {
     /**
+     * @example eip-5sainglpw7qfem3icir4s****
+     *
      * @var string
      */
     public $allocationId;
 
     /**
+     * @example 1624885274000
+     *
      * @var string
      */
     public $allocationTime;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example example
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example cn-xian-telecom
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example lb-5sc3kum2e0sz34wbqrws9****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example SlbInstance
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example 95BandwidthByMonth
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example 10.10.10
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @example cmcc
+     *
      * @var string
      */
     public $isp;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;

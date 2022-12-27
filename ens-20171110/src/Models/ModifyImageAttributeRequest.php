@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyImageAttributeRequest extends Model
 {
     /**
+     * @example m-5t4xwkfkbs0uxv0kymdb6uip7
+     *
      * @var string
      */
     public $imageId;
@@ -19,6 +21,10 @@ class ModifyImageAttributeRequest extends Model
     public $imageName;
 
     /**
+     * @description 2017-11-10
+     *
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $version;

@@ -15,11 +15,17 @@ class RescaleDeviceServiceResponseBody extends Model
     public $deviceIds;
 
     /**
+     * @example b3b5bb9a-4e0b-4cac-8ebf-e5e015726723
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description Id of the request
+     *
+     * @example 3F3F3570-E721-53F6-853F-37B7725AC6CB
+     *
      * @var string
      */
     public $requestId;

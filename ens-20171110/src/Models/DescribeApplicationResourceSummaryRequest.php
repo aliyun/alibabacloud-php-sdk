@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeApplicationResourceSummaryRequest extends Model
 {
     /**
+     * @example National
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @example BareMetal-Arm
+     *
      * @var string
      */
     public $resourceType;

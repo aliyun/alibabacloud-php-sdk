@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationsRequest extends Model
 {
     /**
+     * @example v1,v2
+     *
      * @var string
      */
     public $appVersions;
 
     /**
+     * @example poc,pre
+     *
      * @var string
      */
     public $clusterNames;
 
     /**
+     * @example National
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @example 2022-02-20
+     *
      * @var string
      */
     public $maxDate;
 
     /**
+     * @example 2022-02-15
+     *
      * @var string
      */
     public $minDate;
 
     /**
+     * @example {\"appInfo\":true,\"detailStat\": true, \"appVersionStat\": true, \"districtStat\":true ,\"instanceStat\": true, \"podCountStat\": true}
+     *
      * @var string
      */
     public $outAppInfoParams;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

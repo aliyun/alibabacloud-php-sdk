@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class supportIpv6Info extends Model
 {
     /**
+     * @example cn-chengdu-xxxx-4
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $supportIpv6;

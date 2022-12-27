@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class LeaveSecurityGroupRequest extends Model
 {
     /**
+     * @example i-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example sg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $version;

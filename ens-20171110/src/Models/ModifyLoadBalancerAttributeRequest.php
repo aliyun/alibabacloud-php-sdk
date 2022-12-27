@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyLoadBalancerAttributeRequest extends Model
 {
     /**
+     * @example lb-5q73cv04zeyh43lh74lp4gtm8
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $loadBalancerName;

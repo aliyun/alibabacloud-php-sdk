@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class assignedPrivateIpAddressesSet extends Model
 {
     /**
+     * @example eni-uf620pb4d19ljnu4a64m
+     *
      * @var string
      */
     public $networkInterfaceId;

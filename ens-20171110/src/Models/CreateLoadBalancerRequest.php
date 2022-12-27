@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateLoadBalancerRequest extends Model
 {
     /**
+     * @example cn-chengdu-telecom
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example gcs-pre-websocket-eslb-telecom
+     *
      * @var string
      */
     public $loadBalancerName;
 
     /**
+     * @example elb.s2.medium
+     *
      * @var string
      */
     public $loadBalancerSpec;
 
     /**
+     * @example n-5sax03dh2eyagujgsn7z9****
+     *
      * @var string
      */
     public $networkId;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example vsw-5s78haoys9oylle6ln71m****
+     *
      * @var string
      */
     public $vSwitchId;

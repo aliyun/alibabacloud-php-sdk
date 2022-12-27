@@ -15,11 +15,15 @@ class monitorData extends Model
     public $bandWidthMonitorData;
 
     /**
+     * @example 16817468
+     *
      * @var int
      */
     public $maxDownBandWidth;
 
     /**
+     * @example 231008
+     *
      * @var int
      */
     public $maxUpBandWidth;

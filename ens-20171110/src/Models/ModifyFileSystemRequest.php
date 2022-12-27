@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyFileSystemRequest extends Model
 {
     /**
+     * @example fileSystemTest
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example cn-beijing-cmcc
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example c50f8*****
+     *
      * @var string
      */
     public $fileSystemId;

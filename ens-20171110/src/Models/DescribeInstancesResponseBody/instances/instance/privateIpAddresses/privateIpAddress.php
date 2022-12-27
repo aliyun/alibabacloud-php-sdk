@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class privateIpAddress extends Model
 {
     /**
+     * @example 119.147.xx.xx
+     *
      * @var string
      */
     public $gateWay;
 
     /**
+     * @example 119.147.xx.xx
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @example cmcc
+     *
      * @var string
      */
     public $isp;

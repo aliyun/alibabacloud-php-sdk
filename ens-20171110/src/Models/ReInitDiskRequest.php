@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class ReInitDiskRequest extends Model
 {
     /**
+     * @example d-5r7v69e0bejrnzger09w71yjv
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @example m-5rz3i231o531s4p4ozanxmgx7
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description 2017-11-10
+     *
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $version;

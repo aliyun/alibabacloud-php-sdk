@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RenewARMServerInstanceRequest extends Model
 {
     /**
+     * @example yourInstance ID
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;

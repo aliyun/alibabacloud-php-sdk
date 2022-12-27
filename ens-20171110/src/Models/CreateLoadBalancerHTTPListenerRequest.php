@@ -9,96 +9,134 @@ use AlibabaCloud\Tea\Model;
 class CreateLoadBalancerHTTPListenerRequest extends Model
 {
     /**
+     * @example 监听说明
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $forwardPort;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $healthCheck;
 
     /**
+     * @example 30040
+     *
      * @var int
      */
     public $healthCheckConnectPort;
 
     /**
+     * @example www.aliyundoc.com
+     *
      * @var string
      */
     public $healthCheckDomain;
 
     /**
+     * @example http_2xx
+     *
      * @var string
      */
     public $healthCheckHttpCode;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $healthCheckInterval;
 
     /**
+     * @example head
+     *
      * @var string
      */
     public $healthCheckMethod;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $healthCheckTimeout;
 
     /**
+     * @example /checkpreload.htm
+     *
      * @var string
      */
     public $healthCheckURI;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $healthyThreshold;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $idleTimeout;
 
     /**
+     * @example off
+     *
      * @var string
      */
     public $listenerForward;
 
     /**
+     * @example 8080
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @example lb-5s7crik3yo3bp03gqrbp5****
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $requestTimeout;
 
     /**
+     * @example wrr
+     *
      * @var string
      */
     public $scheduler;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $unhealthyThreshold;
 
     /**
+     * @example off
+     *
      * @var string
      */
     public $XForwardedFor;

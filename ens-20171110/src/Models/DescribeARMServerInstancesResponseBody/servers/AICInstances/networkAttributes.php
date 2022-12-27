@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class networkAttributes extends Model
 {
     /**
+     * @example 192.168.1.1
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @example n-*****
+     *
      * @var string
      */
     public $networkId;
 
     /**
+     * @example vsw-****
+     *
      * @var string
      */
     public $vSwitchId;

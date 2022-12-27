@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkAclRequest extends Model
 {
     /**
+     * @example This is my NetworkAcl.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example acl-1
+     *
      * @var string
      */
     public $networkAclName;

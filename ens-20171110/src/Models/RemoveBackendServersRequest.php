@@ -15,6 +15,8 @@ class RemoveBackendServersRequest extends Model
     public $backendServers;
 
     /**
+     * @example lb-5ovkn1piwqmoqrfjdyhq4****
+     *
      * @var string
      */
     public $loadBalancerId;

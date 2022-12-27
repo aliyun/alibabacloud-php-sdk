@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribePrePaidInstanceStockResponseBody extends Model
 {
     /**
+     * @example 84
+     *
      * @var int
      */
     public $avaliableCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $cores;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $dataDiskSize;
 
     /**
+     * @example cn-suzhou-telecom
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example ens.sn1.stiny
+     *
      * @var string
      */
     public $instanceSpec;
 
     /**
+     * @example 2048
+     *
      * @var int
      */
     public $memory;
 
     /**
+     * @example 007833C8-E819-4122-B636-0D48D7BF6DFB
+     *
      * @var string
      */
     public $requestId;
@@ -49,6 +63,8 @@ class DescribePrePaidInstanceStockResponseBody extends Model
     public $resourceGap;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $systemDiskSize;

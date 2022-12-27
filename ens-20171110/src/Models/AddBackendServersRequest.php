@@ -15,6 +15,8 @@ class AddBackendServersRequest extends Model
     public $backendServers;
 
     /**
+     * @example lb-5qzdmxefgrpxd7oz2mefonvtx
+     *
      * @var string
      */
     public $loadBalancerId;

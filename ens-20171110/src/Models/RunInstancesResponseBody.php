@@ -14,11 +14,15 @@ class RunInstancesResponseBody extends Model
     public $instanceIds;
 
     /**
+     * @example 213177957850399
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 91E4AFBE-4E35-5D2A-A886-BB477C9953D2
+     *
      * @var string
      */
     public $requestId;

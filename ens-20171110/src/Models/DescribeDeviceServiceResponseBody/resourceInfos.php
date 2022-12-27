@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class resourceInfos extends Model
 {
     /**
+     * @example v1
+     *
      * @var string
      */
     public $appVersion;
 
     /**
+     * @example 410800
+     *
      * @var string
      */
     public $areaCode;
@@ -27,6 +31,8 @@ class resourceInfos extends Model
     public $areaName;
 
     /**
+     * @example 2019-10-02T08:26Z
+     *
      * @var string
      */
     public $createTime;
@@ -37,11 +43,15 @@ class resourceInfos extends Model
     public $deviceInfos;
 
     /**
+     * @example i-5s9boobrmh5000kv4jmi0oeai
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $instanceStatus;
@@ -57,11 +67,15 @@ class resourceInfos extends Model
     public $publicIps;
 
     /**
+     * @example cn-jiaozuo-2
+     *
      * @var string
      */
     public $regionCode;
 
     /**
+     * @example cn-jiaozuo-2
+     *
      * @var string
      */
     public $regionId;

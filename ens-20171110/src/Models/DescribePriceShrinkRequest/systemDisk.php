@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class systemDisk extends Model
 {
     /**
+     * @example 20
+     *
      * @var int
      */
     public $size;

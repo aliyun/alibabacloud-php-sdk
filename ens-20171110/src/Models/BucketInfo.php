@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class BucketInfo extends Model
 {
     /**
+     * @example private
+     *
      * @var string
      */
     public $bucketAcl;
 
     /**
+     * @example bucket001
+     *
      * @var string
      */
     public $bucketName;
 
     /**
+     * @example this is a bucket
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @example 2011-12-01T12:27:13.000Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example LRS
+     *
      * @var string
      */
     public $dataRedundancyType;
 
     /**
+     * @example global
+     *
      * @var string
      */
     public $dispatcherType;
 
     /**
+     * @example eos.aliyuncs.com
+     *
      * @var string
      */
     public $endpoint;
@@ -49,16 +63,22 @@ class BucketInfo extends Model
     public $ensRegionId;
 
     /**
+     * @example 2011-12-01T12:27:13.000Z
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @example general
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example Standard
+     *
      * @var string
      */
     public $storageClass;

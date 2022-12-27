@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeApplicationRequest extends Model
 {
     /**
+     * @example a2bac6f4-75dc-455e-8389-2dc8e47526d3
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example v1,v2
+     *
      * @var string
      */
     public $appVersions;
 
     /**
+     * @example National
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @example {\"appInfo\":true,\"detailStat\": true, \"appVersionStat\": true, \"districtStat\":true ,\"instanceStat\": true, \"podCountStat\": true}
+     *
      * @var string
      */
     public $outDetailStatParams;

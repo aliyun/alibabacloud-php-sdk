@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class regionId extends Model
 {
     /**
+     * @example cn-wuxi-5
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 2021-12-28T16:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $statusDescrip;
 
     /**
+     * @example 2021-12-07T02:37:10Z
+     *
      * @var string
      */
     public $updateTime;

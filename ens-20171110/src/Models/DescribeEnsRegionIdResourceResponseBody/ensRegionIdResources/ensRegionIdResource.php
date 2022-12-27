@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ensRegionIdResource extends Model
 {
     /**
+     * @example West
+     *
      * @var string
      */
     public $area;
 
     /**
+     * @example 300100
+     *
      * @var string
      */
     public $areaCode;
 
     /**
+     * @example 2019-10-30
+     *
      * @var string
      */
     public $bizDate;
 
     /**
+     * @example cn-hangzhou-telecom
+     *
      * @var string
      */
     public $ensRegionId;
@@ -34,21 +42,29 @@ class ensRegionIdResource extends Model
     public $ensRegionIdName;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $instanceCount;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $internetBandwidth;
 
     /**
+     * @example cmcc
+     *
      * @var string
      */
     public $isp;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $VCpu;

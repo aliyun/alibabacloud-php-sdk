@@ -9,81 +9,113 @@ use AlibabaCloud\Tea\Model;
 class SetLoadBalancerHTTPListenerAttributeRequest extends Model
 {
     /**
+     * @example 监听说明
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $healthCheck;
 
     /**
+     * @example 65500
+     *
      * @var int
      */
     public $healthCheckConnectPort;
 
     /**
+     * @example www.aliyundoc.com
+     *
      * @var string
      */
     public $healthCheckDomain;
 
     /**
+     * @example http_2xx
+     *
      * @var string
      */
     public $healthCheckHttpCode;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $healthCheckInterval;
 
     /**
+     * @example head
+     *
      * @var string
      */
     public $healthCheckMethod;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $healthCheckTimeout;
 
     /**
+     * @example /checkpreload.htm
+     *
      * @var string
      */
     public $healthCheckURI;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $healthyThreshold;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $idleTimeout;
 
     /**
+     * @example 8080
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @example lb-5snthcyu1x10g7tywj7iu****
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $requestTimeout;
 
     /**
+     * @example wrr
+     *
      * @var string
      */
     public $scheduler;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $unhealthyThreshold;

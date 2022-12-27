@@ -14,6 +14,8 @@ class RemoveBackendServersShrinkRequest extends Model
     public $backendServersShrink;
 
     /**
+     * @example lb-5ovkn1piwqmoqrfjdyhq4****
+     *
      * @var string
      */
     public $loadBalancerId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudDiskTypesRequest extends Model
 {
     /**
+     * @description A short description of struct
+     *
+     * @example cn-chongqing-cmcc
+     *
      * @var string
      */
     public $ensRegionId;

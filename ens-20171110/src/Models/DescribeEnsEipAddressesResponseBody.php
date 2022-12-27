@@ -15,21 +15,29 @@ class DescribeEnsEipAddressesResponseBody extends Model
     public $eipAddresses;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 8629F679-B51D-4194-A1CC-5D8F504C362B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $totalCount;

@@ -15,36 +15,50 @@ class RunServiceScheduleResponseBody extends Model
     public $commandResults;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $index;
 
     /**
+     * @example i-5qvji3mom4ec013dyygmtxlkj
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 172.16.246.11
+     *
      * @var string
      */
     public $instanceIp;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $instancePort;
 
     /**
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $requestRepeated;
 
     /**
+     * @example "80-88"
+     *
      * @var bool
      */
     public $tcpPorts;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class isps extends Model
 {
     /**
+     * @example cmcc
+     *
      * @var string
      */
     public $code;

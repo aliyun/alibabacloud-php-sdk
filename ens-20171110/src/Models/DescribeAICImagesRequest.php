@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeAICImagesRequest extends Model
 {
     /**
+     * @example m-ad0ddaddc2d54adeaa09b7c0f1e****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example ****.alibaba-inc.com/aic/socimage:test
+     *
      * @var string
      */
     public $imageUrl;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;

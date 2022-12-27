@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class images extends Model
 {
     /**
+     * @example 2022-09-22 10:54:34
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example m-ad0ddaddc2d54adeaa09b7c0f1e****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example ****.alibaba-inc.com/aic/socimage:test
+     *
      * @var string
      */
     public $imageUrl;
 
     /**
+     * @example available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example user
+     *
      * @var string
      */
     public $user;

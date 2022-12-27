@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnsRouteEntryListRequest extends Model
 {
     /**
+     * @example 11.0.0.0/16
+     *
      * @var string
      */
     public $destinationCidrBlock;
 
     /**
+     * @example i-2zecshuv3axtr2gc4noa
+     *
      * @var string
      */
     public $nextHopId;
 
     /**
+     * @example Instance
+     *
      * @var string
      */
     public $nextHopType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example rte-8vbdw66evgv44u2u7v3hx
+     *
      * @var string
      */
     public $routeEntryId;
 
     /**
+     * @example test0
+     *
      * @var string
      */
     public $routeEntryName;
 
     /**
+     * @example Custom
+     *
      * @var string
      */
     public $routeEntryType;
 
     /**
+     * @example vtb-hp3wdhynneo7fsclox8hs
+     *
      * @var string
      */
     public $routeTableId;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ResetDeviceInstanceRequest extends Model
 {
     /**
+     * @example d0639abf-789a-4527-b420-031d2cd9ad9b
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example m-5si16wo6simkt267p8b7hcmy3
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example i-5sfdblzjqf3zvjnr7oh0bhhj2
+     *
      * @var string
      */
     public $instanceId;

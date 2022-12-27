@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteKeyPairsRequest extends Model
 {
     /**
+     * @example TestKeyPairName
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $version;

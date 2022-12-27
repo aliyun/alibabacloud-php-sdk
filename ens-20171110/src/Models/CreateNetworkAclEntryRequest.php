@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkAclEntryRequest extends Model
 {
     /**
+     * @example 10.0.0.0/24
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @example This is my NetworkAcl.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example ingress
+     *
      * @var string
      */
     public $direction;
 
     /**
+     * @example acl-1
+     *
      * @var string
      */
     public $networkAclEntryName;
 
     /**
+     * @example nacl-bp1lhl0taikrbgnh****
+     *
      * @var string
      */
     public $networkAclId;
 
     /**
+     * @example accept
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @example -1/-1
+     *
      * @var string
      */
     public $portRange;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example all
+     *
      * @var string
      */
     public $protocol;

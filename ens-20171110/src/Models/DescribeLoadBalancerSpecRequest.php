@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerSpecRequest extends Model
 {
     /**
+     * @example elb.s2.small
+     *
      * @var string
      */
     public $loadBalancerSpec;

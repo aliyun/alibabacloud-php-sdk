@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityGroupAttributeRequest extends Model
 {
     /**
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example sg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example example
+     *
      * @var string
      */
     public $securityGroupName;

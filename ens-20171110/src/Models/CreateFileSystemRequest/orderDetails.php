@@ -9,41 +9,59 @@ use AlibabaCloud\Tea\Model;
 class orderDetails extends Model
 {
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example cn-suzhou-telecom
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example nasFile
+     *
      * @var string
      */
     public $fileSystemName;
 
     /**
+     * @example nasMount
+     *
      * @var string
      */
     public $mountTargetDomain;
 
     /**
+     * @example vpc-xxx
+     *
      * @var string
      */
     public $networkId;
 
     /**
+     * @description BUY。
+     *
+     * @example BUY
+     *
      * @var string
      */
     public $orderType;
 
     /**
+     * @example nfs
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @example capacity
+     *
      * @var string
      */
     public $storgeType;

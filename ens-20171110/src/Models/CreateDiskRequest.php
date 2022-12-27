@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateDiskRequest extends Model
 {
     /**
+     * @example cloud_efficiency
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example cn-chengdu-telecom
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $size;

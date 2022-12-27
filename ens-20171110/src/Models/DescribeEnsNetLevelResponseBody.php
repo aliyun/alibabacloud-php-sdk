@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnsNetLevelResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
@@ -20,6 +22,8 @@ class DescribeEnsNetLevelResponseBody extends Model
     public $ensNetLevels;
 
     /**
+     * @example 86A6D421-A0C7-4C01-8648-47377CA6A2CE
+     *
      * @var string
      */
     public $requestId;

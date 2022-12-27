@@ -18,11 +18,15 @@ class supportResource extends Model
     public $bandwidthTypes;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $dataDiskMaxSize;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $dataDiskMinSize;
@@ -43,11 +47,15 @@ class supportResource extends Model
     public $instanceSpeces;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $systemDiskMaxSize;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $systemDiskMinSize;

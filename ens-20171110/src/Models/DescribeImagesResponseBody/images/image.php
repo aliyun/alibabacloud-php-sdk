@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class image extends Model
 {
     /**
+     * @example x86_64
+     *
      * @var string
      */
     public $architecture;
 
     /**
+     * @example 2017-12-08T12:10:03Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example centos_6_08_64_20G_alibase_20171208
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example Ubuntu_16.04
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @example system
+     *
      * @var string
      */
     public $imageOwnerAlias;
 
     /**
+     * @example 40
+     *
      * @var string
      */
     public $imageSize;
 
     /**
+     * @example centos
+     *
      * @var string
      */
     public $platform;

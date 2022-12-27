@@ -9,101 +9,141 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerTCPListenerAttributeResponseBody extends Model
 {
     /**
+     * @example 8080
+     *
      * @var int
      */
     public $backendServerPort;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example example
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $eipTransmit;
 
     /**
+     * @example 500
+     *
      * @var int
      */
     public $establishedTimeout;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $healthCheck;
 
     /**
+     * @example 8000
+     *
      * @var int
      */
     public $healthCheckConnectPort;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $healthCheckConnectTimeout;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $healthCheckDomain;
 
     /**
+     * @example http_2xx
+     *
      * @var string
      */
     public $healthCheckHttpCode;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $healthCheckInterval;
 
     /**
+     * @example tcp
+     *
      * @var string
      */
     public $healthCheckType;
 
     /**
+     * @example /example/index.html
+     *
      * @var string
      */
     public $healthCheckURI;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $healthyThreshold;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $persistenceTimeout;
 
     /**
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example wrr
+     *
      * @var string
      */
     public $scheduler;
 
     /**
+     * @example Stopped
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $unhealthyThreshold;

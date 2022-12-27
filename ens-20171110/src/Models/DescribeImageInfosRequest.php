@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageInfosRequest extends Model
 {
     /**
+     * @example linux
+     *
      * @var string
      */
     public $osType;
 
     /**
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $version;

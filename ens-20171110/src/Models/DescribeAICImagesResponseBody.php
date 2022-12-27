@@ -15,6 +15,8 @@ class DescribeAICImagesResponseBody extends Model
     public $images;
 
     /**
+     * @example 72DC6C0A-D9A8-5345-A2BE-FE354CC728A0
+     *
      * @var string
      */
     public $requestId;

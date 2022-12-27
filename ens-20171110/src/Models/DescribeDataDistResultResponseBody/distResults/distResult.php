@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class distResult extends Model
 {
     /**
+     * @example gcs-prod-websocket-eip-unicom
+     *
      * @var string
      */
     public $name;
@@ -20,6 +22,8 @@ class distResult extends Model
     public $statusStats;
 
     /**
+     * @example standard
+     *
      * @var string
      */
     public $version;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateForwardEntryRequest extends Model
 {
     /**
+     * @example 121.11.36.28
+     *
      * @var string
      */
     public $externalIp;
 
     /**
+     * @example 22
+     *
      * @var string
      */
     public $externalPort;
 
     /**
+     * @example test0
+     *
      * @var string
      */
     public $forwardEntryName;
@@ -29,21 +35,29 @@ class CreateForwardEntryRequest extends Model
     public $healthCheckPort;
 
     /**
+     * @example 10.0.0.13
+     *
      * @var string
      */
     public $internalIp;
 
     /**
+     * @example 22
+     *
      * @var string
      */
     public $internalPort;
 
     /**
+     * @example Any
+     *
      * @var string
      */
     public $ipProtocol;
 
     /**
+     * @example nat-5t7nh1cfm6kxiszlttr383xpo
+     *
      * @var string
      */
     public $natGatewayId;

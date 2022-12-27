@@ -9,86 +9,120 @@ use AlibabaCloud\Tea\Model;
 class CreateLoadBalancerTCPListenerRequest extends Model
 {
     /**
+     * @example 8080
+     *
      * @var int
      */
     public $backendServerPort;
 
     /**
+     * @example example
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $eipTransmit;
 
     /**
+     * @example 500
+     *
      * @var int
      */
     public $establishedTimeout;
 
     /**
+     * @example 8080
+     *
      * @var int
      */
     public $healthCheckConnectPort;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $healthCheckConnectTimeout;
 
     /**
+     * @example www.aliyundoc.com
+     *
      * @var string
      */
     public $healthCheckDomain;
 
     /**
+     * @example http_2xx
+     *
      * @var string
      */
     public $healthCheckHttpCode;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $healthCheckInterval;
 
     /**
+     * @example tcp
+     *
      * @var string
      */
     public $healthCheckType;
 
     /**
+     * @example /checkpreload.htm
+     *
      * @var string
      */
     public $healthCheckURI;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $healthyThreshold;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @example lb-5ovkn1piwqmoqrfjdyhq4****
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $persistenceTimeout;
 
     /**
+     * @example wrr
+     *
      * @var string
      */
     public $scheduler;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $unhealthyThreshold;

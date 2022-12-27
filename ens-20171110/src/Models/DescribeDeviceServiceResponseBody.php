@@ -23,6 +23,10 @@ class DescribeDeviceServiceResponseBody extends Model
     public $appStatus;
 
     /**
+     * @description Id of the request
+     *
+     * @example 3A535110-3EE3-5EC5-B1ED-10B7067A1FC8
+     *
      * @var string
      */
     public $requestId;

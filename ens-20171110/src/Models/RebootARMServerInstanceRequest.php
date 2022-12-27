@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RebootARMServerInstanceRequest extends Model
 {
     /**
+     * @example cas-instance****
+     *
      * @var string
      */
     public $serverId;

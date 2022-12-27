@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class JoinVSwitchesToEpnInstanceRequest extends Model
 {
     /**
+     * @example epn-xxxx
+     *
      * @var string
      */
     public $EPNInstanceId;
 
     /**
+     * @example [{"VSwitchId":"vs-ixxxx"},{"VSwitchId":"vs-ixxxx"}]
+     *
      * @var string
      */
     public $vSwitchesInfo;

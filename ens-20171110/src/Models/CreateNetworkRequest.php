@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkRequest extends Model
 {
     /**
+     * @example 192.168.0.0/24
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @example this is my first network
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example cn-beijing-telecom
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $networkName;

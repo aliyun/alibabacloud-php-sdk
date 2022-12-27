@@ -15,6 +15,8 @@ class routeEntrys extends Model
     public $description;
 
     /**
+     * @example 101.0.45.0/24
+     *
      * @var string
      */
     public $destinationCidrBlock;
@@ -25,26 +27,36 @@ class routeEntrys extends Model
     public $nextHops;
 
     /**
+     * @example rte-2zeksx7h436f5unk349m1
+     *
      * @var string
      */
     public $routeEntryId;
 
     /**
+     * @example test0
+     *
      * @var string
      */
     public $routeEntryName;
 
     /**
+     * @example vtb-uf62p9o5cn35fi8xgurnm
+     *
      * @var string
      */
     public $routeTableId;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example Custom
+     *
      * @var string
      */
     public $type;

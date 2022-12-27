@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeReservedResourceResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
@@ -21,6 +23,8 @@ class DescribeReservedResourceResponseBody extends Model
     public $images;
 
     /**
+     * @example 6666C5A5-75ED-422E-A022-7121FA18C968
+     *
      * @var string
      */
     public $requestId;

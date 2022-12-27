@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class statusStat extends Model
 {
     /**
+     * @example 10
+     *
      * @var string
      */
     public $instanceCount;
@@ -20,6 +22,8 @@ class statusStat extends Model
     public $instances;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;

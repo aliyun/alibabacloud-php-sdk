@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDisksResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
@@ -20,21 +22,29 @@ class DescribeDisksResponseBody extends Model
     public $disks;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 13
+     *
      * @var int
      */
     public $totalCount;

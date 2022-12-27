@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagesRequest extends Model
 {
     /**
+     * @example cn-dalian-unicom
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example m-5qm2r6xo7njrpdkx04q1oxb4z
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example centos_6_08_64_20G_a****
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @example 50
+     *
      * @var string
      */
     public $pageSize;
@@ -39,6 +49,8 @@ class DescribeImagesRequest extends Model
     public $status;
 
     /**
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $version;

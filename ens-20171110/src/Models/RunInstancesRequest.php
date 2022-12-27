@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class RunInstancesRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $amount;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @example telecom
+     *
      * @var string
      */
     public $carrier;
@@ -31,101 +37,141 @@ class RunInstancesRequest extends Model
     public $dataDisk;
 
     /**
+     * @example cn-foshan-telecom
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example test-HostName
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @example m-5si16wo6simkt267p8b7hcmy3
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @example TestName
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example ens.sn1.small
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example BandwidthByDay：日峰值带宽 95BandwidthByMonth：月95峰值带宽
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $internetMaxBandwidthOut;
 
     /**
+     * @example wx2-jumpserver
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @example 350000
+     *
      * @var string
      */
     public $netDistrictCode;
 
     /**
+     * @example net-id
+     *
      * @var string
      */
     public $netWorkId;
 
     /**
+     * @example testPassword
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example 1-9，12
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @example 10.0.0.120
+     *
      * @var string
      */
     public $privateIpAddress;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $publicIpIdentification;
 
     /**
+     * @example Region
+     *
      * @var string
      */
     public $scheduleAreaLevel;
 
     /**
+     * @example PriceHighPriority：优先高价 PriceLowPriority：优先低价
+     *
      * @var string
      */
     public $schedulingPriceStrategy;
 
     /**
+     * @example concentrate
+     *
      * @var string
      */
     public $schedulingStrategy;
 
     /**
+     * @example sg-test
+     *
      * @var string
      */
     public $securityId;
@@ -136,16 +182,22 @@ class RunInstancesRequest extends Model
     public $systemDisk;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $uniqueSuffix;
 
     /**
+     * @example ZWtest
+     *
      * @var string
      */
     public $userData;
 
     /**
+     * @example vsw-5sagnw7m613oulalkd10nv0ob
+     *
      * @var string
      */
     public $vSwitchId;

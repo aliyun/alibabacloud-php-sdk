@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AttachDiskResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example 916777D9-42D3-5928-92CE-373B1874B674
+     *
      * @var string
      */
     public $requestId;

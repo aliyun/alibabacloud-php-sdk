@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class resourceDetailInfos extends Model
 {
     /**
+     * @example h-uf6009zoa6hdbjyqxcn1
+     *
      * @var string
      */
     public $ID;
 
     /**
+     * @example 10.152.196.36
+     *
      * @var string
      */
     public $IP;
 
     /**
+     * @example telecom
+     *
      * @var string
      */
     public $ISP;
 
     /**
+     * @example 24:0B:88:04:71:E0
+     *
      * @var string
      */
     public $mac;
 
     /**
+     * @example cn-chongqing-1
+     *
      * @var string
      */
     public $regionID;
 
     /**
+     * @example ens-nc2
+     *
      * @var string
      */
     public $server;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example ens.ac6.large
+     *
      * @var string
      */
     public $type;

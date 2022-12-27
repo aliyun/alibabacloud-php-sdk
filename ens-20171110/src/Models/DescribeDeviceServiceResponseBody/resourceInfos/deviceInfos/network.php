@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class network extends Model
 {
     /**
+     * @example 10000-10010
+     *
      * @var string
      */
     public $containerPorts;
 
     /**
+     * @example 39.105.62.120
+     *
      * @var string
      */
     public $externalIp;
 
     /**
+     * @example 80-8080
+     *
      * @var string
      */
     public $hostPorts;
 
     /**
+     * @example TCP
+     *
      * @var string
      */
     public $protocol;

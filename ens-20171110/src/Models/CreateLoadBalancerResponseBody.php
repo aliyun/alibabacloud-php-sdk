@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateLoadBalancerResponseBody extends Model
 {
     /**
+     * @example lb-5s7crik3yo3bp03gqrbp5****
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @example gcs-pre-websocket-****
+     *
      * @var string
      */
     public $loadBalancerName;
 
     /**
+     * @example n-5sax03dh2eyagujgsn7z9****
+     *
      * @var string
      */
     public $networkId;
 
     /**
+     * @example 1ECC937A-AE0E-4626-BE51-DED1D6D1C888
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example vsw-5savh5ngxh8sbj14bu7n****
+     *
      * @var string
      */
     public $vSwitchId;

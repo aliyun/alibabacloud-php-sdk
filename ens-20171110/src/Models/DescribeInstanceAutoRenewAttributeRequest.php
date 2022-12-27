@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceAutoRenewAttributeRequest extends Model
 {
     /**
+     * @example i-5ci7l7k1m9m2zmhp4iw3o****
+     *
      * @var string
      */
     public $instanceIds;
@@ -19,6 +21,8 @@ class DescribeInstanceAutoRenewAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $version;

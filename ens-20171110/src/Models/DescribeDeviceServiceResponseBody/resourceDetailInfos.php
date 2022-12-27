@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class resourceDetailInfos extends Model
 {
     /**
+     * @example 5JhF100NEgdBcpNren32
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example h-uf6009zoaexs5pefypbo
+     *
      * @var string
      */
     public $ID;
 
     /**
+     * @example 120.27.219.219
+     *
      * @var string
      */
     public $IP;
 
     /**
+     * @example cmcc
+     *
      * @var string
      */
     public $ISP;
 
     /**
+     * @example m-2ze40oyhjorpyw61k7be
+     *
      * @var string
      */
     public $imageID;
 
     /**
+     * @example AA:BB:77:88:99:03
+     *
      * @var string
      */
     public $mac;
 
     /**
+     * @example cn-jiaozuo-2
+     *
      * @var string
      */
     public $regionID;
 
     /**
+     * @example ens-nc2
+     *
      * @var string
      */
     public $server;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example ens.ac6.large
+     *
      * @var string
      */
     public $type;

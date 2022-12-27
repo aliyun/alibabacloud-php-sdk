@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateEpnInstanceRequest extends Model
 {
     /**
+     * @example test EPNInstanceName
+     *
      * @var string
      */
     public $EPNInstanceName;
 
     /**
+     * @example EdgeToEdge
+     *
      * @var string
      */
     public $EPNInstanceType;
 
     /**
+     * @example BandwidthByDay
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $internetMaxBandwidthOut;
 
     /**
+     * @example SpeedUp
+     *
      * @var string
      */
     public $networkingModel;

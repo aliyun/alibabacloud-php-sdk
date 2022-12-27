@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateSnatEntryResponseBody extends Model
 {
     /**
+     * @example 018EED6A-69CA-58C8-A345-498927D5D34E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example snat-5tc08qfj5ecblfdn2rqr9****
+     *
      * @var string
      */
     public $snatEntryId;

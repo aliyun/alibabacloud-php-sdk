@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class distResult extends Model
 {
     /**
+     * @example gcs-prod-websocket-eip-unicom
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 400
+     *
      * @var int
      */
     public $resultCode;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $resultDescrip;
 
     /**
+     * @example standard
+     *
      * @var string
      */
     public $version;

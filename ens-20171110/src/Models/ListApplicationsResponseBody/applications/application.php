@@ -15,6 +15,8 @@ class application extends Model
     public $appList;
 
     /**
+     * @example ay-ads-hz-h
+     *
      * @var string
      */
     public $clusterName;

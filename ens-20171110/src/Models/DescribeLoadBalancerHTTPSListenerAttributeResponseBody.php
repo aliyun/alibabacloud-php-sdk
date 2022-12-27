@@ -9,106 +9,148 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
 {
     /**
+     * @example 50
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $forwardPort;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $healthCheck;
 
     /**
+     * @example 9902
+     *
      * @var int
      */
     public $healthCheckConnectPort;
 
     /**
+     * @example www.test.com
+     *
      * @var string
      */
     public $healthCheckDomain;
 
     /**
+     * @example http_2xx
+     *
      * @var string
      */
     public $healthCheckHttpCode;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $healthCheckInterval;
 
     /**
+     * @example head
+     *
      * @var string
      */
     public $healthCheckMethod;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $healthCheckTimeout;
 
     /**
+     * @example /checkpreload.htm
+     *
      * @var string
      */
     public $healthCheckURI;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $healthyThreshold;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $idleTimeout;
 
     /**
+     * @example off
+     *
      * @var string
      */
     public $listenerForward;
 
     /**
+     * @example 8080
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $requestTimeout;
 
     /**
+     * @example wrr
+     *
      * @var string
      */
     public $scheduler;
 
     /**
+     * @example 6027667
+     *
      * @var string
      */
     public $serverCertificateId;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $unhealthyThreshold;

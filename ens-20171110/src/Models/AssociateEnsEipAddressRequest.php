@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AssociateEnsEipAddressRequest extends Model
 {
     /**
+     * @example eip-5sc1sgcrsrwgwdvx44hru3p63
+     *
      * @var string
      */
     public $allocationId;
 
     /**
+     * @example lb-5saivuir6b1mupxjfbhmk1xkb
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example SlbInstance
+     *
      * @var string
      */
     public $instanceType;

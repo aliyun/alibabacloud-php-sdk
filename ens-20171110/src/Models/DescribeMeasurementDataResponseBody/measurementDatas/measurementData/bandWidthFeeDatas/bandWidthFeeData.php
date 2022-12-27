@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class bandWidthFeeData extends Model
 {
     /**
+     * @example cn-cmcc-1
+     *
      * @var string
      */
     public $costCode;
@@ -19,6 +21,8 @@ class bandWidthFeeData extends Model
     public $costName;
 
     /**
+     * @example 16486
+     *
      * @var int
      */
     public $costVal;

@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeVSwitchesRequest extends Model
 {
     /**
+     * @example cn-xian-unicom
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example vpc-25cdvfeq58pl****
+     *
      * @var string
      */
     public $networkId;
 
     /**
+     * @example {"EnsRegionId":"desc"}
+     *
      * @var string
      */
     public $orderByParams;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example vsw-5m9xhlq8oh***
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example testVSwitchName
+     *
      * @var string
      */
     public $vSwitchName;
 
     /**
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $version;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RestartDeviceInstanceRequest extends Model
 {
     /**
+     * @example f829265e-2f6f-4088-a4be-c1fb95ab45f9
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example i-5slvdwcxf6ch81nl4r7p04j5q
+     *
      * @var string
      */
     public $instanceId;

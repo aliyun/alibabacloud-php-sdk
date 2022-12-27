@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class networkInfo extends Model
 {
     /**
+     * @example 39.105.62.120
+     *
      * @var string
      */
     public $externalIp;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $externalPort;
 
     /**
+     * @example cmcc
+     *
      * @var string
      */
     public $ISP;
 
     /**
+     * @example 10.0.0.49
+     *
      * @var string
      */
     public $internalIp;
 
     /**
+     * @example 2020/2025
+     *
      * @var string
      */
     public $internalPort;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;

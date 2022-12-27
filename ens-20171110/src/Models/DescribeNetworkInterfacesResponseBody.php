@@ -15,21 +15,29 @@ class DescribeNetworkInterfacesResponseBody extends Model
     public $networkInterfaceSets;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 708AF9CE-FF92-5DF9-93F8-B7754AB1061A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 49
+     *
      * @var int
      */
     public $totalCount;

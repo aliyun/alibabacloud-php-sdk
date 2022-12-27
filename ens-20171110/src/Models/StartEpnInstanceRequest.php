@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartEpnInstanceRequest extends Model
 {
     /**
+     * @example epn-****
+     *
      * @var string
      */
     public $EPNInstanceId;

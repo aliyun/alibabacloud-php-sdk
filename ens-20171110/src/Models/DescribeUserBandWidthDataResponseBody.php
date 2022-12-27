@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserBandWidthDataResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
@@ -20,6 +22,8 @@ class DescribeUserBandWidthDataResponseBody extends Model
     public $monitorData;
 
     /**
+     * @example 50373E71-7710-4620-8AAB-133CCE49451C
+     *
      * @var string
      */
     public $requestId;

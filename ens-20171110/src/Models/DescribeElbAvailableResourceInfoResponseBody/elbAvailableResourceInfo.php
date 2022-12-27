@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class elbAvailableResourceInfo extends Model
 {
     /**
+     * @example SouthEast
+     *
      * @var string
      */
     public $area;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $canBuyCount;
 
     /**
+     * @example cn-guangdong-10
+     *
      * @var string
      */
     public $enName;
 
     /**
+     * @example cn-guangdong-10
+     *
      * @var string
      */
     public $ensRegionId;
@@ -34,11 +42,15 @@ class elbAvailableResourceInfo extends Model
     public $loadBalancerSpec;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example Shanghai
+     *
      * @var string
      */
     public $province;

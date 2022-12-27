@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DetachDiskRequest extends Model
 {
     /**
+     * @example d-5r7v69e0bejrnzger09w71yjv
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @example i-5inkeimcipxk26yqtzm4q****
+     *
      * @var string
      */
     public $instanceId;

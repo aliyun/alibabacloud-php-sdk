@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class RevokeSecurityGroupEgressRequest extends Model
 {
     /**
+     * @example 10.0.0.0/8
+     *
      * @var string
      */
     public $destCidrIp;
 
     /**
+     * @example all
+     *
      * @var string
      */
     public $ipProtocol;
 
     /**
+     * @example accept
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @example 22/22
+     *
      * @var string
      */
     public $portRange;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example sg-bp67acfmxazb4ph***
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example 22/22
+     *
      * @var string
      */
     public $sourcePortRange;
 
     /**
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $version;

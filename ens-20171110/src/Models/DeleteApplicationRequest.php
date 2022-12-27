@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteApplicationRequest extends Model
 {
     /**
+     * @example d0639abf-789a-4527-b420-031d2cd9ad9b
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 1800
+     *
      * @var int
      */
     public $timeout;

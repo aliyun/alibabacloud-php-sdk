@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class serverList extends Model
 {
     /**
+     * @example 1.1.1.1:8080
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example cn-chenzhou-5
+     *
      * @var string
      */
     public $regionId;

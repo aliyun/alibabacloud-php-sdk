@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UnassignPrivateIpAddressesResponseBody extends Model
 {
     /**
+     * @description Id of the request
+     *
+     * @example 1ECC937A-AE0E-4626-BE51-DED1D6D1C888
+     *
      * @var string
      */
     public $requestId;

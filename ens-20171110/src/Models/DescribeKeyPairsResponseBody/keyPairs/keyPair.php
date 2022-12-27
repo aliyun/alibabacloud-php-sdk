@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class keyPair extends Model
 {
     /**
+     * @example 2020-04-26T15:38:27Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example fdaf8ff7a756ef843814fc****
+     *
      * @var string
      */
     public $keyPairFingerPrint;
 
     /**
+     * @example TestKeyPairName
+     *
      * @var string
      */
     public $keyPairName;

@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class RunServiceScheduleRequest extends Model
 {
     /**
+     * @example 474bdef0-d149-4695-abfb-52912d9143f0
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 180.166.45.146
+     *
      * @var string
      */
     public $clientIp;
 
     /**
+     * @example [\"/data/app01\", \"/data/user\"]
+     *
      * @var string
      */
     public $directorys;
 
     /**
+     * @example android
+     *
      * @var string
      */
     public $podConfigName;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $preLockedTimeout;
 
     /**
+     * @example {\"selectLevel\": \"RegionId\", \"values\": [\"cn-chengdu-telecom-2\"]  }
+     *
      * @var string
      */
     public $scheduleStrategy;
 
     /**
+     * @example Start
+     *
      * @var string
      */
     public $serviceAction;
 
     /**
+     * @example [{\"containerName\": \"android\",       \"commands\":[\"cat /tmp/token.json\"]    },    {      \"commands\":[\"ls -l /data/data\"]    }]
+     *
      * @var string
      */
     public $serviceCommands;
 
     /**
+     * @example hdm_d4f1059a8e1afc0956bd71b497faa433
+     *
      * @var string
      */
     public $uuid;

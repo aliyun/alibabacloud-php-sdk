@@ -15,21 +15,29 @@ class DescribeKeyPairsResponseBody extends Model
     public $keyPairs;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 37B52F33-6879-49D0-A39B-22966B01449E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $totalCount;

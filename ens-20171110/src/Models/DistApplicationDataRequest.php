@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DistApplicationDataRequest extends Model
 {
     /**
+     * @example e76f8985-7965-41fc-925b-9648bb6bf650
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example [{\"name\":\"app01\",        \"version\":\"1.0\",        \"destPath\":\"/root/installed\",        \"decompress\":true,        \"targetDirName\":\"target01\",        \"fileMode\":755,        \"timeout\":1000    },    {        \"name\":\"app02\",        \"version\":\"1.1\",        \"destPath\":\"/tmp/test.txt\",        \"decompress\":false    }]
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example {\"name\":\"ScheduleToAllByMatchExpressions\",\"parameters\":{\"match_expressions\":[{\"key\":\"region_id\",\"operator\":\"In\",\"values\":[\"cn-wuhan-telecom_unicom_cmcc-2\"]}]}}
+     *
      * @var string
      */
     public $distStrategy;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class appStatus extends Model
 {
     /**
+     * @example CREATING
+     *
      * @var string
      */
     public $phase;
@@ -19,6 +21,8 @@ class appStatus extends Model
     public $statusDescrip;
 
     /**
+     * @example 2021-01-26T05:04Z
+     *
      * @var string
      */
     public $updateTime;

@@ -15,26 +15,36 @@ class DescribeImageSharePermissionResponseBody extends Model
     public $accounts;
 
     /**
+     * @example m-5qkf6jv9a0tzd5ipwx5fi8u1c
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example A44EE357-6174-5E37-A801-48F5790F9ACE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnsNetDistrictResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
@@ -20,6 +22,8 @@ class DescribeEnsNetDistrictResponseBody extends Model
     public $ensNetDistricts;
 
     /**
+     * @example F3B261DD-3858-4D3C-877D-303ADF374600
+     *
      * @var string
      */
     public $requestId;

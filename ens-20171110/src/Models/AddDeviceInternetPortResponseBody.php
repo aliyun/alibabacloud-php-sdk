@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddDeviceInternetPortResponseBody extends Model
 {
     /**
+     * @example 0F9185F6-B6FA-514C-9E05-FFD5F0D7D156
+     *
      * @var string
      */
     public $requestId;

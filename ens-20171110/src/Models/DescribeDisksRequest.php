@@ -9,66 +9,92 @@ use AlibabaCloud\Tea\Model;
 class DescribeDisksRequest extends Model
 {
     /**
+     * @example local_ssd
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example prepay
+     *
      * @var string
      */
     public $diskChargeType;
 
     /**
+     * @example d-5soak1gqa507lyfzvz0xoy9ko
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @example [\"d-wz99njena32z90kiy7sp\"]
+     *
      * @var string
      */
     public $diskIds;
 
     /**
+     * @example DiskName
+     *
      * @var string
      */
     public $diskName;
 
     /**
+     * @example PostPayDisk
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @example cn-kunming-telecom
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example ["cn-suzhou-telecom","cn-chengdu-telecom"]
+     *
      * @var string
      */
     public $ensRegionIds;
 
     /**
+     * @example {"EnsRegionId":"desc"}
+     *
      * @var string
      */
     public $orderByParams;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example system
+     *
      * @var string
      */
     public $type;

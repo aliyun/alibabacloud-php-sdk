@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateKeyPairResponseBody extends Model
 {
     /**
+     * @example 7880c1ad4687fdbf7a6da2131****
+     *
      * @var string
      */
     public $keyPairFingerPrint;
 
     /**
+     * @example ssh-5lywanlkih1zo9yl8eg****
+     *
      * @var string
      */
     public $keyPairId;
 
     /**
+     * @example TestKeyPairName
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @example -----BEGIN RSA PRIVATE KEY-----\nMIIEogIBAAKCAQE****
+     *
      * @var string
      */
     public $privateKeyBody;

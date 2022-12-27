@@ -9,41 +9,59 @@ use AlibabaCloud\Tea\Model;
 class AuthorizeSecurityGroupRequest extends Model
 {
     /**
+     * @example all
+     *
      * @var string
      */
     public $ipProtocol;
 
     /**
+     * @example accept
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @example 22/22
+     *
      * @var string
      */
     public $portRange;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example sg-bp67acfmxazb4ph***
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example 10.0.XX.XX/8
+     *
      * @var string
      */
     public $sourceCidrIp;
 
     /**
+     * @example 22/22
+     *
      * @var string
      */
     public $sourcePortRange;
 
     /**
+     * @description 2017-11-10
+     *
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $version;

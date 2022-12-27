@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class RescaleApplicationRequest extends Model
 {
     /**
+     * @example 474bdef0-d149-4695-abfb-52912d9143f0
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example RegionId
+     *
      * @var string
      */
     public $rescaleLevel;
 
     /**
+     * @example Add
+     *
      * @var string
      */
     public $rescaleType;
 
     /**
+     * @example [{\"regionCode\": \"cn-wuxi-telecom_unicom_cmcc-3\",    \"ispCode\": \"telecom\",    \"count\": 2	},{    \"regionCode\": \"cn-shanghai-cmcc\",    \"count\": 4	}]
+     *
      * @var string
      */
     public $resourceSelector;
 
     /**
+     * @example 1800
+     *
      * @var int
      */
     public $timeout;
 
     /**
+     * @example v2
+     *
      * @var string
      */
     public $toAppVersion;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateNatGatewayRequest extends Model
 {
     /**
+     * @example cn-suzhou-telecom
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example enat.default
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example n-5qj7ykuxmjn7k96l090sp****
+     *
      * @var string
      */
     public $networkId;
 
     /**
+     * @example vsw-5savh5ngxh8sbj14bu7n****
+     *
      * @var string
      */
     public $vSwitchId;

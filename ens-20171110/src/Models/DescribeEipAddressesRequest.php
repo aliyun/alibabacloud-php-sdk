@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeEipAddressesRequest extends Model
 {
     /**
+     * @example [\"eip-5rd9i3pftfgbavl4y1b7hm4a3\"]
+     *
      * @var string
      */
     public $eips;
 
     /**
+     * @example cn-nanjing-cmcc
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $version;

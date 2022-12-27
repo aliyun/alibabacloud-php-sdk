@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeCreatePrePaidInstanceResultRequest extends Model
 {
     /**
+     * @example i-6ecpqvkicnchxccozrp****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $version;

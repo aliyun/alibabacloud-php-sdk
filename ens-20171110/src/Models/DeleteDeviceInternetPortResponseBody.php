@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDeviceInternetPortResponseBody extends Model
 {
     /**
+     * @example 51F57D60-7946-5EE1-A973-A3CCCCF2EF5B
+     *
      * @var string
      */
     public $requestId;

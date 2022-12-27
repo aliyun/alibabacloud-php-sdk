@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ensRegions extends Model
 {
     /**
+     * @example NorthEastChina
+     *
      * @var string
      */
     public $area;
 
     /**
+     * @example NorthChina
+     *
      * @var string
      */
     public $enName;
 
     /**
+     * @example cn-dalian-unicom
+     *
      * @var string
      */
     public $ensRegionId;

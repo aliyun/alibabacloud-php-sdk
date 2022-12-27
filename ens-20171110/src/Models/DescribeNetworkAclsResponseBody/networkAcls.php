@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class networkAcls extends Model
 {
     /**
+     * @example 2019-11-01T06:08:46Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example This is my NetworkAcl.
+     *
      * @var string
      */
     public $description;
@@ -32,11 +36,15 @@ class networkAcls extends Model
     public $ingressAclEntries;
 
     /**
+     * @example nacl-a2do9e413e0spxscd****
+     *
      * @var string
      */
     public $networkAclId;
 
     /**
+     * @example acl-8
+     *
      * @var string
      */
     public $networkAclName;
@@ -47,6 +55,8 @@ class networkAcls extends Model
     public $resources;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;

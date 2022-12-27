@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class bandWidthMonitorData extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $downBandWidth;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $internetRX;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $internetTX;
 
     /**
+     * @example 2019-10-12T05:45:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $upBandWidth;

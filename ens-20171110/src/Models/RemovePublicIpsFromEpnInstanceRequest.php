@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RemovePublicIpsFromEpnInstanceRequest extends Model
 {
     /**
+     * @example epn-xxxx
+     *
      * @var string
      */
     public $EPNInstanceId;
 
     /**
+     * @example [{"PublicIpAddress":"2.230.XX.XX"},{"PublicIpAddress":"2.230.XX.XX"}]
+     *
      * @var string
      */
     public $instanceInfos;

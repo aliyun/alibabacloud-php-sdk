@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyForwardEntryRequest extends Model
 {
     /**
+     * @example dnat-5tfjp3537mi6iokl59g5c****
+     *
      * @var string
      */
     public $forwardEntryId;
 
     /**
+     * @example test0
+     *
      * @var string
      */
     public $forwardEntryName;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $healthCheckPort;

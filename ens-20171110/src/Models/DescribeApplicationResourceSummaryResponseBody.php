@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeApplicationResourceSummaryResponseBody extends Model
 {
     /**
+     * @example {
+     * }
      * @var string
      */
     public $applicationResource;
 
     /**
+     * @example 50373E71-7710-4620-8AAB-133CCE49451C
+     *
      * @var string
      */
     public $requestId;

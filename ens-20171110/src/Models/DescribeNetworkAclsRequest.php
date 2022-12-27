@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkAclsRequest extends Model
 {
     /**
+     * @example nacl-bp1lhl0taikrbgnh****
+     *
      * @var string
      */
     public $networkAclId;
 
     /**
+     * @example acl-1
+     *
      * @var string
      */
     public $networkAclName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @example n-5****
+     *
      * @var string
      */
     public $resourceId;

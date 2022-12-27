@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RemoveVSwitchesFromEpnInstanceRequest extends Model
 {
     /**
+     * @example epn-****
+     *
      * @var string
      */
     public $EPNInstanceId;
 
     /**
+     * @example VSwitchesInfo=[{"VSwitchId":"vs-ixxxx"},{"VSwitchId":"vs-ixxxx"}]
+     *
      * @var string
      */
     public $vSwitchesInfo;

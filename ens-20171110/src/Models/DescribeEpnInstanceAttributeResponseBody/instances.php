@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @example cn-chengdu-telecom-4
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example epn-xxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example epn-test
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example cmcc
+     *
      * @var string
      */
     public $isp;
 
     /**
+     * @example 192.168.1.12
+     *
      * @var string
      */
     public $privateIpAddress;
 
     /**
+     * @example 20.3.XX.XX
+     *
      * @var string
      */
     public $publicIpAddress;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;

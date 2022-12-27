@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class statusStat extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $regionIdCount;
@@ -20,6 +22,8 @@ class statusStat extends Model
     public $regionIds;
 
     /**
+     * @example FAILED
+     *
      * @var string
      */
     public $status;

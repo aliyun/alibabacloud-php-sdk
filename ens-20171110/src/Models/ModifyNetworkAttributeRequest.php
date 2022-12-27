@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyNetworkAttributeRequest extends Model
 {
     /**
+     * @example this is my first network
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example n-****
+     *
      * @var string
      */
     public $networkId;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $networkName;

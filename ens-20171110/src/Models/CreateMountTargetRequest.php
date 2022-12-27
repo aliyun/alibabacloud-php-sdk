@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateMountTargetRequest extends Model
 {
     /**
+     * @example cn-beijing-cmcc
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example c50f8*****
+     *
      * @var string
      */
     public $fileSystemId;
 
     /**
+     * @example TestMountPath
+     *
      * @var string
      */
     public $mountTargetName;
 
     /**
+     * @example n-*****
+     *
      * @var string
      */
     public $netWorkId;

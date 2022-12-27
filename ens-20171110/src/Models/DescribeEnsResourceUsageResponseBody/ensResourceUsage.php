@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class ensResourceUsage extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $computeResourceCount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $cpuSum;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $diskCount;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $downCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $expiredCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $expiringCount;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $gpuSum;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $instanceCount;
 
     /**
+     * @example 19
+     *
      * @var int
      */
     public $runningCount;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $serviceType;
 
     /**
+     * @example 5000
+     *
      * @var int
      */
     public $storageSum;

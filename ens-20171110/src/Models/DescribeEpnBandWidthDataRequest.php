@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class DescribeEpnBandWidthDataRequest extends Model
 {
     /**
+     * @example epn-20200825134537VyK81T
+     *
      * @var string
      */
     public $EPNInstanceId;
 
     /**
+     * @example 2021-12-16T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example cn-beijing-cmcc
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example i-5sg1owx0g4ojy66ab2tez77r2
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cmcc
+     *
      * @var string
      */
     public $isp;
 
     /**
+     * @example SpeedUp
+     *
      * @var string
      */
     public $networkingModel;
 
     /**
+     * @example 300
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @example 2021-12-15T16:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $version;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteNetworkAclEntryRequest extends Model
 {
     /**
+     * @example nae-5****
+     *
      * @var string
      */
     public $networkAclEntryId;

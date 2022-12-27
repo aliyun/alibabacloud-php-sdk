@@ -14,26 +14,36 @@ class ensNetDistrict extends Model
     public $ensRegionIdCount;
 
     /**
+     * @example {                         "count":2,                         "code":"multiCarrier"                     }
+     *
      * @var string
      */
     public $instanceCount;
 
     /**
+     * @example 100101
+     *
      * @var string
      */
     public $netDistrictCode;
 
     /**
+     * @example northEast
+     *
      * @var string
      */
     public $netDistrictEnName;
 
     /**
+     * @example 100000
+     *
      * @var string
      */
     public $netDistrictFatherCode;
 
     /**
+     * @example Big
+     *
      * @var string
      */
     public $netDistrictLevel;

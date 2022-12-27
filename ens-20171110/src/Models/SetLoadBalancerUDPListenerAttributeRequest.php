@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class SetLoadBalancerUDPListenerAttributeRequest extends Model
 {
     /**
+     * @example example
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $eipTransmit;
 
     /**
+     * @example 8080
+     *
      * @var int
      */
     public $healthCheckConnectPort;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $healthCheckConnectTimeout;
 
     /**
+     * @example ok
+     *
      * @var string
      */
     public $healthCheckExp;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $healthCheckInterval;
 
     /**
+     * @example hello
+     *
      * @var string
      */
     public $healthCheckReq;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $healthyThreshold;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @example lb-5pzipr2fszqtl2xf64uy5****
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @example wrr
+     *
      * @var string
      */
     public $scheduler;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $unhealthyThreshold;

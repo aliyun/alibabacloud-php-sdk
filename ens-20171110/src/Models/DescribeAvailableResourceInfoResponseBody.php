@@ -16,6 +16,8 @@ class DescribeAvailableResourceInfoResponseBody extends Model
     public $images;
 
     /**
+     * @example 8629F679-B51D-4194-A1CC-5D8F504C362B
+     *
      * @var string
      */
     public $requestId;

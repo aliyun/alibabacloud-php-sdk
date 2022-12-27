@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class AICInstances extends Model
 {
     /**
+     * @example 120
+     *
      * @var int
      */
     public $frequency;
 
     /**
+     * @example m-****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example aic-instance****
+     *
      * @var string
      */
     public $instanceId;
@@ -30,21 +36,29 @@ class AICInstances extends Model
     public $networkAttributes;
 
     /**
+     * @example 1920*1080
+     *
      * @var string
      */
     public $resolution;
 
     /**
+     * @example aic.cf53r.c2.np
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @example running
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $status;

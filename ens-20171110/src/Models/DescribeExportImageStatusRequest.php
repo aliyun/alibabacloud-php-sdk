@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeExportImageStatusRequest extends Model
 {
     /**
+     * @example centos_6_08_64_20G_alibase_****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $version;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityGroupAttributeResponseBody extends Model
 {
     /**
+     * @example testDescription1
+     *
      * @var string
      */
     public $description;
@@ -20,16 +22,22 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
     public $permissions;
 
     /**
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example sg-bp1gxw6bznjjvhu3****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example testSecurityGroupName2
+     *
      * @var string
      */
     public $securityGroupName;

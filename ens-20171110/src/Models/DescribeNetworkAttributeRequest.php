@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkAttributeRequest extends Model
 {
     /**
+     * @example n-****
+     *
      * @var string
      */
     public $networkId;

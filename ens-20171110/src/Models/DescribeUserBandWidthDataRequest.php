@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserBandWidthDataRequest extends Model
 {
     /**
+     * @example 2019-05-21T12:22:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example cn-taiyuan-telecom
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example i-5inkeimcipxk26yqtzm4q****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cmcc
+     *
      * @var string
      */
     public $isp;
 
     /**
+     * @example 300
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @example 2019-05-21T10:22:00Z
+     *
      * @var string
      */
     public $startTime;

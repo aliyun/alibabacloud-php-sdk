@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpgradeAICInstanceImageShrinkRequest extends Model
 {
     /**
+     * @example m-****
+     *
      * @var string
      */
     public $imageId;
@@ -19,6 +21,8 @@ class UpgradeAICInstanceImageShrinkRequest extends Model
     public $serverIdsShrink;
 
     /**
+     * @example 1800
+     *
      * @var int
      */
     public $timeout;

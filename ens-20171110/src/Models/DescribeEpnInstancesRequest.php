@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeEpnInstancesRequest extends Model
 {
     /**
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $EPNInstanceId;
 
     /**
+     * @example testEPNInstanceName
+     *
      * @var string
      */
     public $EPNInstanceName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

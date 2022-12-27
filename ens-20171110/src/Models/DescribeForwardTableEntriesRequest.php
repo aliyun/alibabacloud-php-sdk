@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeForwardTableEntriesRequest extends Model
 {
     /**
+     * @example 36.XXX.XXX.72
+     *
      * @var string
      */
     public $externalIp;
 
     /**
+     * @example fwd-5tfi6f0rutmd00xrhkag7****
+     *
      * @var string
      */
     public $forwardEntryId;
 
     /**
+     * @example test0
+     *
      * @var string
      */
     public $forwardEntryName;
 
     /**
+     * @example 10.XXX.XXX.50
+     *
      * @var string
      */
     public $internalIp;
 
     /**
+     * @example TCP
+     *
      * @var string
      */
     public $ipProtocol;
 
     /**
+     * @example nat-5t7nh1cfm6kxiszlttr38****
+     *
      * @var string
      */
     public $natGatewayId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

@@ -15,21 +15,29 @@ class DescribeEnsRegionIdResourceResponseBody extends Model
     public $ensRegionIdResources;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 476600B1-C9E2-4245-A26F-DC7EA8071425
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 58
+     *
      * @var int
      */
     public $totalCount;

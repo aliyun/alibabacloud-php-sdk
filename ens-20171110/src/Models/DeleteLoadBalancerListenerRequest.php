@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteLoadBalancerListenerRequest extends Model
 {
     /**
+     * @example 8080
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @example tcp
+     *
      * @var string
      */
     public $listenerProtocol;
 
     /**
+     * @example lb-5snthcyu1x10g7tywj7iu****
+     *
      * @var string
      */
     public $loadBalancerId;

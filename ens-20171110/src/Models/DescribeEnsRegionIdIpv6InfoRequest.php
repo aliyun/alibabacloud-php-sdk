@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnsRegionIdIpv6InfoRequest extends Model
 {
     /**
+     * @example cn-chengdu-xxxx-4
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $version;

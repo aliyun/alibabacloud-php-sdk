@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteEnsRouteEntryRequest extends Model
 {
     /**
+     * @example rte-8vbmb2890wiret5maqq25
+     *
      * @var string
      */
     public $routeEntryId;

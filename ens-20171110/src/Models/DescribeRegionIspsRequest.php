@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionIspsRequest extends Model
 {
     /**
+     * @example cn-dalian-unicom
+     *
      * @var string
      */
     public $ensRegionId;

@@ -15,21 +15,29 @@ class DescribeFileSystemsResponseBody extends Model
     public $fileSystems;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 762DD527-358B-1E48-8005-CCE3ED4EB9E0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

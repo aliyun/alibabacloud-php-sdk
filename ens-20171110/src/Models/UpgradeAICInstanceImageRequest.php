@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpgradeAICInstanceImageRequest extends Model
 {
     /**
+     * @example m-****
+     *
      * @var string
      */
     public $imageId;
@@ -19,6 +21,8 @@ class UpgradeAICInstanceImageRequest extends Model
     public $serverIds;
 
     /**
+     * @example 1800
+     *
      * @var int
      */
     public $timeout;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateEipInstanceRequest extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example cn-suzhou-telecom
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @example 95BandwidthByMonth
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example cmcc
+     *
      * @var string
      */
     public $isp;
 
     /**
+     * @example EIP1
+     *
      * @var string
      */
     public $name;

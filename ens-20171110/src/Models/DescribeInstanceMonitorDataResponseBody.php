@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceMonitorDataResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
@@ -20,6 +22,8 @@ class DescribeInstanceMonitorDataResponseBody extends Model
     public $monitorData;
 
     /**
+     * @example C8B26B44-0189-443E-9816-D951F59623A9
+     *
      * @var string
      */
     public $requestId;

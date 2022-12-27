@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ExportBillDetailDataRequest extends Model
 {
     /**
+     * @example 2020-08-30T00:00:00Z
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @example 2020-06-01T00:00:00Z
+     *
      * @var string
      */
     public $startDate;

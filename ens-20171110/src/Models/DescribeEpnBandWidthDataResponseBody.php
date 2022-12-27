@@ -15,6 +15,8 @@ class DescribeEpnBandWidthDataResponseBody extends Model
     public $monitorData;
 
     /**
+     * @example 1D289DAA-F6DA-5FC4-AE47-F5C8B6277BFC
+     *
      * @var string
      */
     public $requestId;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceMonitorDataRequest extends Model
 {
     /**
+     * @example 2019-10-30T08:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example yourInstance ID
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 60
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @example 2019-10-29T23:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $version;

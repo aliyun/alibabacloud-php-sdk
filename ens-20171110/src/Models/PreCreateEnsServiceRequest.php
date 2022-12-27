@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PreCreateEnsServiceRequest extends Model
 {
     /**
+     * @example 95BandwidthByMonth
+     *
      * @var string
      */
     public $bandwidthType;
@@ -19,61 +21,85 @@ class PreCreateEnsServiceRequest extends Model
     public $buyResourcesDetail;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $dataDiskSize;
 
     /**
+     * @example testName
+     *
      * @var string
      */
     public $ensServiceName;
 
     /**
+     * @example centos_6_09_64_20G_alibase_****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example 40
+     *
      * @var string
      */
     public $instanceBandwithdLimit;
 
     /**
+     * @example ens.sn1.stiny
+     *
      * @var string
      */
     public $instanceSpec;
 
     /**
+     * @example TestKeyPairName
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @example Big
+     *
      * @var string
      */
     public $netLevel;
 
     /**
+     * @example testPassword123
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example PriceLowPriority
+     *
      * @var string
      */
     public $schedulingPriceStrategy;
 
     /**
+     * @example Disperse
+     *
      * @var string
      */
     public $schedulingStrategy;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $systemDiskSize;
 
     /**
+     * @example #!/bin/sh  echo "Hello World.  The time is now $(date -R)!" | tee /root/output.txt
+     *
      * @var string
      */
     public $userData;

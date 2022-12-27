@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagesResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
@@ -20,21 +22,29 @@ class DescribeImagesResponseBody extends Model
     public $images;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 8331AA01-C16D-5481-BB47-D19CEBAA811E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $totalCount;

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateEnsRouteEntryResponseBody extends Model
 {
     /**
+     * @description Id of the request
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example rte-5vb5q8sk0lyoscx8539ds
+     *
      * @var string
      */
     public $routeEntryId;

@@ -15,36 +15,50 @@ class servers extends Model
     public $AICInstances;
 
     /**
+     * @example 2022-05-07 11:59:09
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example cn-hanghzou-27
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example String	2027-05-07 11:59:09
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @example cas-******
+     *
      * @var string
      */
     public $serverId;
 
     /**
+     * @example cas.cf53r
+     *
      * @var string
      */
     public $specName;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example running
+     *
      * @var string
      */
     public $status;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetDeviceInternetPortRequest extends Model
 {
     /**
+     * @example i-5s6xbnx9srb3vm6tp9hg9o64e
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example DNAT
+     *
      * @var string
      */
     public $natType;
 
     /**
+     * @example snat-5ref5fc1l1xgqnpjzrtw1hw5a
+     *
      * @var string
      */
     public $ruleId;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class appMetaData extends Model
 {
     /**
+     * @example 97a32f2a-aa2c-436a-b19c-05b20d258618
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example iotx-api-admin
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $appStableVersion;
 
     /**
+     * @example Common
+     *
      * @var string
      */
     public $appType;
 
     /**
+     * @example poc
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @example 2022-03-03T03:42:11
+     *
      * @var string
      */
     public $createTime;

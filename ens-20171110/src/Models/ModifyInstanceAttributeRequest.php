@@ -11,14 +11,25 @@ class ModifyInstanceAttributeRequest extends Model
     /**
      * @var string
      */
+    public $hostName;
+
+    /**
+     * @example i-instanc****
+     *
+     * @var string
+     */
     public $instanceId;
 
     /**
+     * @example i-instanceidname
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example yourPassword
+     *
      * @var string
      */
     public $password;
@@ -26,12 +37,13 @@ class ModifyInstanceAttributeRequest extends Model
     /**
      * @var string
      */
-    public $version;
+    public $userData;
     protected $_name = [
+        'hostName'     => 'HostName',
         'instanceId'   => 'InstanceId',
         'instanceName' => 'InstanceName',
         'password'     => 'Password',
-        'version'      => 'Version',
+        'userData'     => 'UserData',
     ];
 
     public function validate()
@@ -41,6 +53,9 @@ class ModifyInstanceAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->hostName) {
+            $res['HostName'] = $this->hostName;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -50,8 +65,8 @@ class ModifyInstanceAttributeRequest extends Model
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -65,6 +80,9 @@ class ModifyInstanceAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HostName'])) {
+            $model->hostName = $map['HostName'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -74,8 +92,8 @@ class ModifyInstanceAttributeRequest extends Model
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;

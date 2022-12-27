@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityGroupAttributeRequest extends Model
 {
     /**
+     * @example sg-bp67acfmxazb4ph***
+     *
      * @var string
      */
     public $securityGroupId;

@@ -14,6 +14,8 @@ class CreateApplicationRequest extends Model
     public $template;
 
     /**
+     * @example 1800
+     *
      * @var int
      */
     public $timeout;

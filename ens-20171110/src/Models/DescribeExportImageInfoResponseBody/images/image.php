@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class image extends Model
 {
     /**
+     * @example x86_64
+     *
      * @var string
      */
     public $architecture;
 
     /**
+     * @example 2017-12-08T12:10:03Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example https://user_defined_bucket.oss-cn-beijing.aliyuncs.com/m-xxxxxxxxx1.qcow2
+     *
      * @var string
      */
     public $exportedImageURL;
 
     /**
+     * @example Exported
+     *
      * @var string
      */
     public $imageExportStatus;
 
     /**
+     * @example m-xxxxxxxxx1
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example m-xxxxxxxxx1
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @example system
+     *
      * @var string
      */
     public $imageOwnerAlias;
 
     /**
+     * @example centos
+     *
      * @var string
      */
     public $platform;

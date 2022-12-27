@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class AddDeviceInternetPortRequest extends Model
 {
     /**
+     * @example telecom
+     *
      * @var string
      */
     public $ISP;
 
     /**
+     * @example i-5saiou41t6ude2ia56ri902ke
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 10.0.0.50
+     *
      * @var string
      */
     public $internalIp;
 
     /**
+     * @example 12022/12022
+     *
      * @var string
      */
     public $internalPort;
 
     /**
+     * @example DNAT
+     *
      * @var string
      */
     public $natType;
 
     /**
+     * @example cn-wuxi-5
+     *
      * @var string
      */
     public $regionId;

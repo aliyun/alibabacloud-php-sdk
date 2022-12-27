@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyVSwitchAttributeRequest extends Model
 {
     /**
+     * @example this is my first network
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example n-****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example Test-switch
+     *
      * @var string
      */
     public $vSwitchName;

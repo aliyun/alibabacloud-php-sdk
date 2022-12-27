@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ensNetLevel extends Model
 {
     /**
+     * @example Big
+     *
      * @var string
      */
     public $ensNetLevelCode;

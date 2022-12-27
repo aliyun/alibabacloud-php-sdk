@@ -15,21 +15,29 @@ class DescribeNetworkAclsResponseBody extends Model
     public $networkAcls;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @example A1707FC0-430C-423A-B624-284046B20399
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $totalCount;

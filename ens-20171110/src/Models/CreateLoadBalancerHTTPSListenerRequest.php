@@ -9,111 +9,155 @@ use AlibabaCloud\Tea\Model;
 class CreateLoadBalancerHTTPSListenerRequest extends Model
 {
     /**
+     * @example example
+     *
      * @var string
      */
     public $cookie;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $cookieTimeout;
 
     /**
+     * @example 监听说明
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $forwardPort;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $healthCheck;
 
     /**
+     * @example 11
+     *
      * @var int
      */
     public $healthCheckConnectPort;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $healthCheckDomain;
 
     /**
+     * @example http_2xx
+     *
      * @var string
      */
     public $healthCheckHttpCode;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $healthCheckInterval;
 
     /**
+     * @example head
+     *
      * @var string
      */
     public $healthCheckMethod;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $healthCheckTimeout;
 
     /**
+     * @example /checkpreload.htm
+     *
      * @var string
      */
     public $healthCheckURI;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $healthyThreshold;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $idleTimeout;
 
     /**
+     * @example off
+     *
      * @var string
      */
     public $listenerForward;
 
     /**
+     * @example 8080
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @example lb-5s8w63yydi59w7klaikam****
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $requestTimeout;
 
     /**
+     * @example wrr
+     *
      * @var string
      */
     public $scheduler;
 
     /**
+     * @example 6027667
+     *
      * @var string
      */
     public $serverCertificateId;
 
     /**
+     * @example insert
+     *
      * @var string
      */
     public $stickySessionType;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $unhealthyThreshold;

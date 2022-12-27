@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ResetAICInstanceRequest extends Model
 {
     /**
+     * @example aic-instance****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cas-instance****
+     *
      * @var string
      */
     public $serverId;

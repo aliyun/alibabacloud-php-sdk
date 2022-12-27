@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceAutoRenewAttributeResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
@@ -20,6 +22,8 @@ class DescribeInstanceAutoRenewAttributeResponseBody extends Model
     public $instanceRenewAttributes;
 
     /**
+     * @example 4DD66F05-3116-4BAA-B588-52EB2E7F431D
+     *
      * @var string
      */
     public $requestId;

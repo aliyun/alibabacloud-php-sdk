@@ -15,6 +15,8 @@ class DescribeElbAvailableResourceInfoResponseBody extends Model
     public $elbAvailableResourceInfo;
 
     /**
+     * @example 25AAD194-4A37-51CF-B1CA-1E86FDAC23A6
+     *
      * @var string
      */
     public $requestId;

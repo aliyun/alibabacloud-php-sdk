@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class loadBalancerSpecs extends Model
 {
     /**
+     * @example elb.s1.small
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example elb.s1.small
+     *
      * @var string
      */
     public $loadBalancerSpec;

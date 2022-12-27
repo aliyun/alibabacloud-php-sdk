@@ -14,21 +14,29 @@ class DescribeBandWithdChargeTypeResponseBody extends Model
     public $bandWithTypeInfo;
 
     /**
+     * @example ChargeByGrade
+     *
      * @var string
      */
     public $chargeContractType;
 
     /**
+     * @example {null}
+     *
      * @var string
      */
     public $chargeCycleInfo;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example 791049FD-49CE-4667-BD6C-F23094DEDA7A
+     *
      * @var string
      */
     public $requestId;

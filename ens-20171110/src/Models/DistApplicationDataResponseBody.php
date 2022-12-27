@@ -16,6 +16,8 @@ class DistApplicationDataResponseBody extends Model
     public $distInstanceIds;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $distInstanceTotalCount;
@@ -26,6 +28,8 @@ class DistApplicationDataResponseBody extends Model
     public $distResults;
 
     /**
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;

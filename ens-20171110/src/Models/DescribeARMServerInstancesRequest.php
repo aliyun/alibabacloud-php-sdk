@@ -14,11 +14,15 @@ class DescribeARMServerInstancesRequest extends Model
     public $ensRegionIds;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

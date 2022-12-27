@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class supportResource extends Model
 {
     /**
+     * @example cloud_efficiency
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example cn-guangzhou-10
+     *
      * @var string
      */
     public $ensRegionId;

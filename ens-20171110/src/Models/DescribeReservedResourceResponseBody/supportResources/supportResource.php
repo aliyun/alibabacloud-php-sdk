@@ -16,16 +16,22 @@ class supportResource extends Model
     public $dataDiskSizes;
 
     /**
+     * @example cn-beijing-cmcc
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example ens.sn1.stiny
+     *
      * @var string
      */
     public $instanceSpec;
 
     /**
+     * @example 9
+     *
      * @var string
      */
     public $supportResourcesCount;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class image extends Model
 {
     /**
+     * @example centos_6_08_64_20G_a****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example centos_6_08_64_20G_a****
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $imageSize;

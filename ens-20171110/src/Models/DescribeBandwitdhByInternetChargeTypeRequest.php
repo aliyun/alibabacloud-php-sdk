@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeBandwitdhByInternetChargeTypeRequest extends Model
 {
     /**
+     * @example 2022-01-18T09:39:54Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example cn-hangzhou-cbn-2
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example unicom
+     *
      * @var string
      */
     public $isp;
 
     /**
+     * @example 2021-11-15T16:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $version;

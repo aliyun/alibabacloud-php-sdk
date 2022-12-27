@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instanceSpec extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $core;
@@ -19,11 +21,15 @@ class instanceSpec extends Model
     public $displayName;
 
     /**
+     * @example ens.sn1.stiny
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example 2048
+     *
      * @var string
      */
     public $memory;

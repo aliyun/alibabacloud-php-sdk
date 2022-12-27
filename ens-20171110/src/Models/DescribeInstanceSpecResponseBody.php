@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSpecResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $bandwidthLimit;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example 20015
+     *
      * @var int
      */
     public $dataDiskMaxSize;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $dataDiskMinSize;
@@ -35,11 +43,15 @@ class DescribeInstanceSpecResponseBody extends Model
     public $instanceSpecs;
 
     /**
+     * @example 1ECC937A-AE0E-4626-BE51-DED1D6D1C888
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $systemDiskMaxSize;

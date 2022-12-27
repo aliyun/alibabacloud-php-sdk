@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkAclResponseBody extends Model
 {
     /**
+     * @example String	nacl-5p1fg655nh68xyz9i****
+     *
      * @var string
      */
     public $networkAclId;
 
     /**
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+     *
      * @var string
      */
     public $requestId;

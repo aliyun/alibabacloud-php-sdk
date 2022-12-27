@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeServcieScheduleResponseBody extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $index;
 
     /**
+     * @example i-5myukg7hnpbto7m024002w8qd
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 120.26.79.96
+     *
      * @var string
      */
     public $instanceIp;
 
     /**
+     * @example 3306
+     *
      * @var int
      */
     public $instancePort;
@@ -35,16 +43,22 @@ class DescribeServcieScheduleResponseBody extends Model
     public $podAbstractInfo;
 
     /**
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $requestRepeated;
 
     /**
+     * @example 80-88
+     *
      * @var string
      */
     public $tcpPorts;

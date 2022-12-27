@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @example i-5qzje8f5un1wmi341m2yetaxv
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 2021-11-19T07:24:52Z
+     *
      * @var string
      */
     public $startTime;
@@ -24,6 +28,8 @@ class instance extends Model
     public $statusDescrip;
 
     /**
+     * @example 2021-10-11T02:38:19Z
+     *
      * @var string
      */
     public $updateTime;

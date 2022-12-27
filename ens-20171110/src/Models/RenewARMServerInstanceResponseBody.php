@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RenewARMServerInstanceResponseBody extends Model
 {
     /**
+     * @example 370E61E0-6E6E-50FE-9259-EE706C55ABF1
+     *
      * @var string
      */
     public $requestId;

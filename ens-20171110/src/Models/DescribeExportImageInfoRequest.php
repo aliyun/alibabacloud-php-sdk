@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeExportImageInfoRequest extends Model
 {
     /**
+     * @example m-xxxxx
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example testImageName
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

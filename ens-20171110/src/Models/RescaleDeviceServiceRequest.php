@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class RescaleDeviceServiceRequest extends Model
 {
     /**
+     * @example 7aedc50b-b1cb-4a7c-9e3d-4cf3c9ee55a4
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example m-5rynw9g1ow1e928lb83bqmbnf
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ipType;
 
     /**
+     * @example RegionId
+     *
      * @var string
      */
     public $rescaleLevel;
 
     /**
+     * @example Add
+     *
      * @var string
      */
     public $rescaleType;
 
     /**
+     * @example {\"imageId\":\"m-5s4z4c10avgwvwtn33gl2vgob\",\"ipType\":2,\"specName\":\"ens.pfb-c3m7.medium\"}
+     *
      * @var string
      */
     public $resourceInfo;
 
     /**
+     * @example [{\"regionCode\": \"cn-wuxi-telecom_unicom_cmcc-3\",    \"ispCode\": \"telecom\",    \"count\": 2	},{    \"regionCode\": \"cn-shanghai-cmcc\",    \"count\": 4	}]
+     *
      * @var string
      */
     public $resourceSelector;
 
     /**
+     * @example ens.a6e.large
+     *
      * @var string
      */
     public $resourceSpec;
 
     /**
+     * @example service-01c6dd6e93f040698566
+     *
      * @var string
      */
     public $serviceId;
 
     /**
+     * @example 1800
+     *
      * @var int
      */
     public $timeout;

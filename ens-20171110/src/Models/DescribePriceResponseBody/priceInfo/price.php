@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class price extends Model
 {
     /**
+     * @example USD
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @example 1
+     *
      * @var float
      */
     public $discountPrice;
 
     /**
+     * @example 16125.00
+     *
      * @var float
      */
     public $originalPrice;
 
     /**
+     * @example 126.75
+     *
      * @var float
      */
     public $tradePrice;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageSharePermissionRequest extends Model
 {
     /**
+     * @example 1717104080918005
+     *
      * @var int
      */
     public $aliyunId;
 
     /**
+     * @example m-5s7qotzavwbrnzaqh4unm7lt7
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;

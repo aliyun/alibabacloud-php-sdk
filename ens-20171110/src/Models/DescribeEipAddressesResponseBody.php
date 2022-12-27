@@ -15,6 +15,8 @@ class DescribeEipAddressesResponseBody extends Model
     public $eipAddresses;
 
     /**
+     * @example CCFD3F24-44AF-5508-B18D-5100BFC68602
+     *
      * @var string
      */
     public $requestId;

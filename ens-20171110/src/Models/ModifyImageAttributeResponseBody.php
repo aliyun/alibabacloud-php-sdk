@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyImageAttributeResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example AC66B8F3-0B0A-5FB1-9EA2-DC03B2CD5B04
+     *
      * @var string
      */
     public $requestId;

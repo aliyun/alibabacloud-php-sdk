@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateClassicNetworkRequest extends Model
 {
     /**
+     * @example 10.0.0.0/16
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @example This is my vswitch.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example cn-chengdu-xxxx-4
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example example
+     *
      * @var string
      */
     public $networkName;

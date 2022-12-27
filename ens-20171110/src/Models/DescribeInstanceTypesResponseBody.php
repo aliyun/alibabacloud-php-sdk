@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceTypesResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
@@ -20,6 +22,8 @@ class DescribeInstanceTypesResponseBody extends Model
     public $instanceTypes;
 
     /**
+     * @example D452D190-BADF-5D09-910D-599B96D42AAA
+     *
      * @var string
      */
     public $requestId;

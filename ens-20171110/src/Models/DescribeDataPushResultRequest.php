@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataPushResultRequest extends Model
 {
     /**
+     * @example e76f8985-7965-41fc-925b-9648bb6bf650
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 159828628258496/mirror_file/game-2553efe7-7bf8-40fb-a6e7-09c9c00a992a.tar
+     *
      * @var string
      */
     public $dataNames;
 
     /**
+     * @example 90396
+     *
      * @var string
      */
     public $dataVersions;
 
     /**
+     * @example 2022-02-20
+     *
      * @var string
      */
     public $maxDate;
 
     /**
+     * @example 2022-02-15
+     *
      * @var string
      */
     public $minDate;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-wuhan-telecom_unicom_cmcc-2,cn-jiaozuo-2
+     *
      * @var string
      */
     public $regionIds;

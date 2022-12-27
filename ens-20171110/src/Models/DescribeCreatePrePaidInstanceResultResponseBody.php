@@ -15,6 +15,8 @@ class DescribeCreatePrePaidInstanceResultResponseBody extends Model
     public $instanceCreateResult;
 
     /**
+     * @example AAE90880-4970-4D81-A534-A6C0F3631F74
+     *
      * @var string
      */
     public $requestId;

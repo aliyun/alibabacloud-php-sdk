@@ -15,6 +15,8 @@ class SetBackendServersRequest extends Model
     public $backendServers;
 
     /**
+     * @example lb-5s7crik3yo3bp03gqrbp5****
+     *
      * @var string
      */
     public $loadBalancerId;

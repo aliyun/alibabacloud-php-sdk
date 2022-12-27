@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class AccosicateNetworkAclRequest extends Model
 {
     /**
+     * @example nacl-a2do9e413e0sp****
+     *
      * @var string
      */
     public $networkAclId;

@@ -14,11 +14,15 @@ class CreateARMServerInstancesResponseBody extends Model
     public $instanceIds;
 
     /**
+     * @example 212630314490***
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+     *
      * @var string
      */
     public $requestId;

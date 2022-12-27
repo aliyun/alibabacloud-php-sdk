@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnsRegionIdResourceRequest extends Model
 {
     /**
+     * @example 2020-06-16T06:33:15
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example cmcc
+     *
      * @var string
      */
     public $isp;
 
     /**
+     * @example InstanceCount：desc
+     *
      * @var string
      */
     public $orderByParams;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @example 2020-06-16T06:33:15Z
+     *
      * @var string
      */
     public $startTime;

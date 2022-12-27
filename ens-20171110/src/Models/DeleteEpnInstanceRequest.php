@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteEpnInstanceRequest extends Model
 {
     /**
+     * @example epn-****
+     *
      * @var string
      */
     public $EPNInstanceId;

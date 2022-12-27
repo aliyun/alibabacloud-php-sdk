@@ -15,21 +15,29 @@ class DescribeNatGatewaysResponseBody extends Model
     public $natGateways;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2818A8F4-5E2B-5611-8732-5ACF7B677059
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 49
+     *
      * @var int
      */
     public $totalCount;

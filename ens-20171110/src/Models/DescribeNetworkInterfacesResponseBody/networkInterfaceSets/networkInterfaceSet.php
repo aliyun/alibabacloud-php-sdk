@@ -10,36 +10,50 @@ use AlibabaCloud\Tea\Model;
 class networkInterfaceSet extends Model
 {
     /**
+     * @example 2022-02-22T03:53:25Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example id-jakarta-1
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example i-5siavnr3
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 00:16:3e:08:60:0a
+     *
      * @var string
      */
     public $macAddress;
 
     /**
+     * @example eni-uf686a5
+     *
      * @var string
      */
     public $networkInterfaceId;
 
     /**
+     * @example 12.23.3.4
+     *
      * @var string
      */
     public $primaryIp;
 
     /**
+     * @example private
+     *
      * @var string
      */
     public $primaryIpType;
@@ -50,11 +64,15 @@ class networkInterfaceSet extends Model
     public $privateIpSets;
 
     /**
+     * @example In_use
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example vsw-5rqswx1trlsj9
+     *
      * @var string
      */
     public $vSwitchId;

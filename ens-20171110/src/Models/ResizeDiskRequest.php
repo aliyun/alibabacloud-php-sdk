@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ResizeDiskRequest extends Model
 {
     /**
+     * @example d-5tzm9wnhzlhjzcbtxo465****
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $newSize;

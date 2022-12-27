@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteVSwitchRequest extends Model
 {
     /**
+     * @example vsw-5m9xhl****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $version;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerUDPListenerAttributeRequest extends Model
 {
     /**
+     * @example 80
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @example lb-5pzipr2fszqtl2xf64uy5****
+     *
      * @var string
      */
     public $loadBalancerId;

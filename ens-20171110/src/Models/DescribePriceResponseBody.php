@@ -15,6 +15,8 @@ class DescribePriceResponseBody extends Model
     public $priceInfo;
 
     /**
+     * @example 694EB8FF-446C-5B1E-8146-9629E492551F
+     *
      * @var string
      */
     public $requestId;

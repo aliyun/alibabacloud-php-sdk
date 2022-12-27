@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeNatGatewaysRequest extends Model
 {
     /**
+     * @example cn-wuxi-9
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example test0
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example nat-5t7nh1cfm6kxiszlttr38****
+     *
      * @var string
      */
     public $natGatewayId;
 
     /**
+     * @example n-2zeuphj08tt7q3brd****
+     *
      * @var string
      */
     public $networkId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example vsw-5rllcjb3ol6duzjdnbm1o****
+     *
      * @var string
      */
     public $vSwitchId;

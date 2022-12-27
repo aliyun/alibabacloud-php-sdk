@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class permission extends Model
 {
     /**
+     * @example 2018-12-12T07:28:38Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example testDescription1
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 0.0.0.0/0
+     *
      * @var string
      */
     public $destCidrIp;
 
     /**
+     * @example ingress
+     *
      * @var string
      */
     public $direction;
 
     /**
+     * @example TCP
+     *
      * @var string
      */
     public $ipProtocol;
 
     /**
+     * @example Accept
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @example 80/80
+     *
      * @var string
      */
     public $portRange;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example 0.0.0.0/0
+     *
      * @var string
      */
     public $sourceCidrIp;
 
     /**
+     * @example 22/22
+     *
      * @var string
      */
     public $sourcePortRange;

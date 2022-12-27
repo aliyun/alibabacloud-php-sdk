@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateNatGatewayResponseBody extends Model
 {
     /**
+     * @example nat-5t7nh1cfm6kxiszlttr38****
+     *
      * @var string
      */
     public $natGatewayId;
 
     /**
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;

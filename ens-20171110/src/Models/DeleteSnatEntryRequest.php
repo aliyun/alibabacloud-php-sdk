@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteSnatEntryRequest extends Model
 {
     /**
+     * @example snat-5tfi6f8gds82mjmlofeym****
+     *
      * @var string
      */
     public $snatEntryId;

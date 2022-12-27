@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeMountTargetsRequest extends Model
 {
     /**
+     * @example cn-beijing-cmcc
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example c50f8*****
+     *
      * @var string
      */
     public $fileSystemId;
 
     /**
+     * @example TestMountPath
+     *
      * @var string
      */
     public $mountTargetName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class publicIpAddress extends Model
 {
     /**
+     * @example 119.147.xx.xx
+     *
      * @var string
      */
     public $gateWay;
 
     /**
+     * @example 119.147.xx.xx
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @example unicom
+     *
      * @var string
      */
     public $isp;

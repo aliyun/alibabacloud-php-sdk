@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class containerStatus extends Model
 {
     /**
+     * @example container_e79_1638372147094_158091_02_000001
+     *
      * @var string
      */
     public $containerId;
 
     /**
+     * @example nginx
+     *
      * @var string
      */
     public $name;

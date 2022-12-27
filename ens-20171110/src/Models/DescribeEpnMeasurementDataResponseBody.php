@@ -15,6 +15,8 @@ class DescribeEpnMeasurementDataResponseBody extends Model
     public $measurementDatas;
 
     /**
+     * @example A6328C33-6304-5291-8641-0A00A99D0DD0
+     *
      * @var string
      */
     public $requestId;

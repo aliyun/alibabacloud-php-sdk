@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetDeviceInternetPortResponseBody extends Model
 {
     /**
+     * @example i-5sadvk2xnylvra9kyejcnevi6
+     *
      * @var string
      */
     public $instanceId;
@@ -20,6 +22,8 @@ class GetDeviceInternetPortResponseBody extends Model
     public $networkInfo;
 
     /**
+     * @example 36311833-83FC-57C3-A7DD-768F61F65555
+     *
      * @var string
      */
     public $requestId;

@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class CreateARMServerInstancesRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $amount;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @example cn-guiyang-12
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $frequency;
 
     /**
+     * @example yourImage ID
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example aic.cf53r.c6.np
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example TestKeyPairName
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @example PrePaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @example 720*1280
+     *
      * @var string
      */
     public $resolution;
 
     /**
+     * @example cas.cf53r
+     *
      * @var string
      */
     public $serverType;

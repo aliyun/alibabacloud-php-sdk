@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyEpnInstanceRequest extends Model
 {
     /**
+     * @example epn-****
+     *
      * @var string
      */
     public $EPNInstanceId;
 
     /**
+     * @example ens_test_epn
+     *
      * @var string
      */
     public $EPNInstanceName;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $internetMaxBandwidthOut;
 
     /**
+     * @example SpeedUp
+     *
      * @var string
      */
     public $networkingModel;

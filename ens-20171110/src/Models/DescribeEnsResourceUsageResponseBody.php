@@ -15,6 +15,8 @@ class DescribeEnsResourceUsageResponseBody extends Model
     public $ensResourceUsage;
 
     /**
+     * @description Id of the request
+     *
      * @var string
      */
     public $requestId;

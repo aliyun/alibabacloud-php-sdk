@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeKeyPairsRequest extends Model
 {
     /**
+     * @example TestKeyPairName
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $version;

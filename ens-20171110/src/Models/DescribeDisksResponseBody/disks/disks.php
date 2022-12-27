@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class disks extends Model
 {
     /**
+     * @example local_ssd
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example 2021-11-11T14:34:55+08:00
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example prepaid
+     *
      * @var string
      */
     public $diskChargeType;
 
     /**
+     * @example d-5svum1dx1w4a4spr54lgrnoaa
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @example fvt-ecs-5cf009f6
+     *
      * @var string
      */
     public $diskName;
 
     /**
+     * @example cn-guangzhou-10
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example i-5t77rb0yoz79m28ku60sxuhn4
+     *
      * @var string
      */
     public $instanceId;
@@ -49,21 +63,29 @@ class disks extends Model
     public $instanceName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $portable;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $type;

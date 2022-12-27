@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribePrePaidInstanceStockRequest extends Model
 {
     /**
+     * @example 20
+     *
      * @var int
      */
     public $dataDiskSize;
 
     /**
+     * @example cn-suzhou-telecom
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example ens.sn1.stiny
+     *
      * @var string
      */
     public $instanceSpec;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $systemDiskSize;

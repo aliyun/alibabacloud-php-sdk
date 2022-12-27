@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnAssociateEnsEipAddressRequest extends Model
 {
     /**
+     * @example eip-5sqa431nx3vee8heqxfxp4e4r
+     *
      * @var string
      */
     public $allocationId;

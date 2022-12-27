@@ -15,21 +15,29 @@ class DescribeDataDistResultResponseBody extends Model
     public $distResults;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 50373E71-7710-4620-8AAB-133CCE49451C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 49
+     *
      * @var int
      */
     public $totalCount;

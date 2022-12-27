@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnsNetDistrictRequest extends Model
 {
     /**
+     * @example 100106
+     *
      * @var string
      */
     public $netDistrictCode;
 
     /**
+     * @example Big
+     *
      * @var string
      */
     public $netLevelCode;
 
     /**
+     * @example 2017-07-10
+     *
      * @var string
      */
     public $version;

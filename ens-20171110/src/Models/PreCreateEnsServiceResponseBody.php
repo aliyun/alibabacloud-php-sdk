@@ -14,21 +14,29 @@ class PreCreateEnsServiceResponseBody extends Model
     public $buyResourcesDetail;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example ens-20190806****
+     *
      * @var string
      */
     public $ensServiceId;
 
     /**
+     * @example Small
+     *
      * @var string
      */
     public $netLevel;
 
     /**
+     * @example 9AF02B43-2D08-49D3-8AAF-65B9C792ED14
+     *
      * @var string
      */
     public $requestId;

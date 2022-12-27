@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkAttributeResponseBody extends Model
 {
     /**
+     * @example 10.0.0.0/24
+     *
      * @var string
      */
     public $cidrBlock;
@@ -21,16 +23,22 @@ class DescribeNetworkAttributeResponseBody extends Model
     public $cloudResources;
 
     /**
+     * @example 2019-06-01T00:00:00Z
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $ensRegionId;
@@ -41,26 +49,36 @@ class DescribeNetworkAttributeResponseBody extends Model
     public $networkAclId;
 
     /**
+     * @example n-5***
+     *
      * @var string
      */
     public $networkId;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $networkName;
 
     /**
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example rtb-5***
+     *
      * @var string
      */
     public $routerTableId;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;

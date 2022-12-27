@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class natGateways extends Model
 {
     /**
+     * @example 2021-11-22T07:03:32Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example cn-xiangyang-5
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example test0
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example nat-5t7nh1cfm6kxiszlttr38****
+     *
      * @var string
      */
     public $natGatewayId;
 
     /**
+     * @example n-5s2ml1olj0kzaws9n1yrj****
+     *
      * @var string
      */
     public $networkId;
 
     /**
+     * @example enat.default
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @example vsw-5szpp1os9m55myirbflfw****
+     *
      * @var string
      */
     public $vSwitchId;

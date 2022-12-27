@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceAutoRenewAttributeRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var string
      */
     public $autoRenew;
 
     /**
+     * @example 12
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example instance-test
+     *
      * @var string
      */
     public $instanceIds;
@@ -29,6 +35,8 @@ class ModifyInstanceAutoRenewAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $renewalStatus;

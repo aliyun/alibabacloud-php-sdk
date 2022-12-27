@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RebootInstanceRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var string
      */
     public $forceStop;
 
     /**
+     * @example i-instanceid****
+     *
      * @var string
      */
     public $instanceId;

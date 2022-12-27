@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerAttributeResponseBody extends Model
 {
     /**
+     * @example 192.168.0.1
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @example ipv4
+     *
      * @var string
      */
     public $addressIPVersion;
@@ -26,21 +30,29 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
     public $backendServers;
 
     /**
+     * @example 2000
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example 2019-05-21T12:22:00Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2020-05-21T12:22:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example cn-chengdu-telecom
+     *
      * @var string
      */
     public $ensRegionId;
@@ -56,41 +68,57 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
     public $listenerPortsAndProtocols;
 
     /**
+     * @example lb-5rcvo1n1t3hykfhhjwjgqp****
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @example example
+     *
      * @var string
      */
     public $loadBalancerName;
 
     /**
+     * @example elb.s2.medium
+     *
      * @var string
      */
     public $loadBalancerSpec;
 
     /**
+     * @example Active
+     *
      * @var string
      */
     public $loadBalancerStatus;
 
     /**
+     * @example n-5rwbi3g9zvgxcsiufwhw8****
+     *
      * @var string
      */
     public $networkId;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example vsw-5s78m2pdr9osa0j64bn78****
+     *
      * @var string
      */
     public $vSwitchId;

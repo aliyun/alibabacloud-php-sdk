@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class privateIpSet extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $primary;
 
     /**
+     * @example 192.168.0.130
+     *
      * @var string
      */
     public $privateIpAddress;

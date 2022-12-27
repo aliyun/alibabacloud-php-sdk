@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeARMServerInstancesResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class DescribeARMServerInstancesResponseBody extends Model
     public $servers;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

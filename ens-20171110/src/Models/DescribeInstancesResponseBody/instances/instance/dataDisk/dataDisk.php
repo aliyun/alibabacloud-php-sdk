@@ -9,46 +9,66 @@ use AlibabaCloud\Tea\Model;
 class dataDisk extends Model
 {
     /**
+     * @example file
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example d-5ip4c2dhmas0vjd5u1r****
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @example DiskName
+     *
      * @var string
      */
     public $diskName;
 
     /**
+     * @example 51200
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example pangu
+     *
      * @var string
      */
     public $deviceType;
 
     /**
+     * @example system
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 20480
+     *
      * @var int
      */
     public $storage;
 
     /**
+     * @description UUID。
+     *
+     * @example d-5itef1wtxj961mbff8xe9****
+     *
      * @var string
      */
     public $uuid;

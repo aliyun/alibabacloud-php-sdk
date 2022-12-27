@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ensNetDistrict extends Model
 {
     /**
+     * @example 2
+     *
      * @var string
      */
     public $ensRegionIdCount;
 
     /**
+     * @example 100106
+     *
      * @var string
      */
     public $netDistrictCode;
 
     /**
+     * @example southWest
+     *
      * @var string
      */
     public $netDistrictEnName;
 
     /**
+     * @example 100000
+     *
      * @var string
      */
     public $netDistrictFatherCode;
 
     /**
+     * @example Big
+     *
      * @var string
      */
     public $netDistrictLevel;

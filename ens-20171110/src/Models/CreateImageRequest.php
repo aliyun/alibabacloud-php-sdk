@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateImageRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var string
      */
     public $deleteAfterImageUpload;
@@ -19,11 +21,15 @@ class CreateImageRequest extends Model
     public $imageName;
 
     /**
+     * @example i-5rr1bnyrc4tswr8cq3w6y1fjw
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example DAILY_FORECAST_15D
+     *
      * @var string
      */
     public $product;

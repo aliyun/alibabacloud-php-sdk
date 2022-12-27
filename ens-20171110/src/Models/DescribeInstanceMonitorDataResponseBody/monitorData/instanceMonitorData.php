@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class instanceMonitorData extends Model
 {
     /**
+     * @example 0.02
+     *
      * @var string
      */
     public $CPU;
 
     /**
+     * @example yourInstance ID
+     *
      * @var string
      */
     public $instanceId;

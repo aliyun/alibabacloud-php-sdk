@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeExportImageStatusResponseBody extends Model
 {
     /**
+     * @example Exporting
+     *
      * @var string
      */
     public $imageExportStatus;
 
     /**
+     * @example 14BBB3A0-3DBE-54F5-AEC8-01D3F6B1EBE2
+     *
      * @var string
      */
     public $requestId;

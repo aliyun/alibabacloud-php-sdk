@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateEnsRouteEntryRequest extends Model
 {
     /**
+     * @example example
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 0.0.0.0/0
+     *
      * @var string
      */
     public $destinationCidrBlock;
 
     /**
+     * @example i-5vb7leks9z4mxy1ay258
+     *
      * @var string
      */
     public $nextHopId;
 
     /**
+     * @example Instance
+     *
      * @var string
      */
     public $nextHopType;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $routeEntryName;
 
     /**
+     * @example vtb-bp1cifr72dioje82lse2j
+     *
      * @var string
      */
     public $routeTableId;

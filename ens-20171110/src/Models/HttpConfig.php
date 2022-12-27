@@ -14,6 +14,8 @@ class HttpConfig extends Model
     public $cookie;
 
     /**
+     * @example 500
+     *
      * @var int
      */
     public $cookieTimeout;
@@ -44,11 +46,15 @@ class HttpConfig extends Model
     public $stickySession;
 
     /**
+     * @example insert
+     *
      * @var string
      */
     public $stickySessionType;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $XForwardedFor;

@@ -227,6 +227,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeMountTargetsRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeMountTargetsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNatGatewaysRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNatGatewaysResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNCInformationRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNCInformationResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkAclsRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkAclsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkAttributeRequest;
@@ -242,8 +244,12 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribePriceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribePriceShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeRegionIspsRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeRegionIspsResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeRegionResourceRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeRegionResourceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeReservedResourceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeReservedResourceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeResourceTimelineRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeResourceTimelineResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSecurityGroupAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSecurityGroupAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSecurityGroupsRequest;
@@ -320,10 +326,16 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\RebootARMServerInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RebootARMServerInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RebootInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RebootInstanceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RebootInstancesRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RebootInstancesResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RebootInstancesShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReInitDiskRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReInitDiskResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReinitInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReinitInstanceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ReinitInstancesRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ReinitInstancesResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ReinitInstancesShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReleaseARMServerInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReleaseARMServerInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReleaseInstanceRequest;
@@ -383,12 +395,18 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\StartEpnInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StartEpnInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StartInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StartInstanceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\StartInstancesRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\StartInstancesResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\StartInstancesShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StartLoadBalancerListenerRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StartLoadBalancerListenerResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopEpnInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopEpnInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopInstanceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\StopInstancesRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\StopInstancesResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\StopInstancesShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopLoadBalancerListenerRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopLoadBalancerListenerResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnassignPrivateIpAddressesRequest;
@@ -4478,10 +4496,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsRegionIdResourceRequest $request
-     * @param RuntimeOptions                     $runtime
+     * ****
+     *   *
+     * @param DescribeEnsRegionIdResourceRequest $request DescribeEnsRegionIdResourceRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEnsRegionIdResourceResponse
+     * @return DescribeEnsRegionIdResourceResponse DescribeEnsRegionIdResourceResponse
      */
     public function describeEnsRegionIdResourceWithOptions($request, $runtime)
     {
@@ -4524,9 +4544,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsRegionIdResourceRequest $request
+     * ****
+     *   *
+     * @param DescribeEnsRegionIdResourceRequest $request DescribeEnsRegionIdResourceRequest
      *
-     * @return DescribeEnsRegionIdResourceResponse
+     * @return DescribeEnsRegionIdResourceResponse DescribeEnsRegionIdResourceResponse
      */
     public function describeEnsRegionIdResource($request)
     {
@@ -6106,6 +6128,46 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param DescribeNCInformationRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeNCInformationResponse
+     */
+    public function describeNCInformationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNCInformation',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeNCInformationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeNCInformationRequest $request
+     *
+     * @return DescribeNCInformationResponse
+     */
+    public function describeNCInformation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNCInformationWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeNatGatewaysRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -6506,6 +6568,46 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param DescribeRegionResourceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeRegionResourceResponse
+     */
+    public function describeRegionResourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRegionResource',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRegionResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRegionResourceRequest $request
+     *
+     * @return DescribeRegionResourceResponse
+     */
+    public function describeRegionResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRegionResourceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeReservedResourceRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -6546,6 +6648,46 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeReservedResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeResourceTimelineRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeResourceTimelineResponse
+     */
+    public function describeResourceTimelineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeResourceTimeline',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeResourceTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeResourceTimelineRequest $request
+     *
+     * @return DescribeResourceTimelineResponse
+     */
+    public function describeResourceTimeline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeResourceTimelineWithOptions($request, $runtime);
     }
 
     /**
@@ -7844,6 +7986,9 @@ class Ens extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->hostName)) {
+            $query['HostName'] = $request->hostName;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -7853,8 +7998,8 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->password)) {
             $query['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -8490,6 +8635,54 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param RebootInstancesRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RebootInstancesResponse
+     */
+    public function rebootInstancesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RebootInstancesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'simple');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RebootInstances',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RebootInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RebootInstancesRequest $request
+     *
+     * @return RebootInstancesResponse
+     */
+    public function rebootInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rebootInstancesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ReinitInstanceRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -8536,6 +8729,60 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->reinitInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ReinitInstancesRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ReinitInstancesResponse
+     */
+    public function reinitInstancesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ReinitInstancesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'simple');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReinitInstances',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReinitInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReinitInstancesRequest $request
+     *
+     * @return ReinitInstancesResponse
+     */
+    public function reinitInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->reinitInstancesWithOptions($request, $runtime);
     }
 
     /**
@@ -9982,10 +10229,14 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param SetLoadBalancerUDPListenerAttributeRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return SetLoadBalancerUDPListenerAttributeResponse
+     * @param SetLoadBalancerUDPListenerAttributeRequest $request SetLoadBalancerUDPListenerAttributeRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SetLoadBalancerUDPListenerAttributeResponse SetLoadBalancerUDPListenerAttributeResponse
      */
     public function setLoadBalancerUDPListenerAttributeWithOptions($request, $runtime)
     {
@@ -10046,9 +10297,13 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param SetLoadBalancerUDPListenerAttributeRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return SetLoadBalancerUDPListenerAttributeResponse
+     * @param SetLoadBalancerUDPListenerAttributeRequest $request SetLoadBalancerUDPListenerAttributeRequest
+     *
+     * @return SetLoadBalancerUDPListenerAttributeResponse SetLoadBalancerUDPListenerAttributeResponse
      */
     public function setLoadBalancerUDPListenerAttribute($request)
     {
@@ -10141,6 +10396,54 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartInstancesRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return StartInstancesResponse
+     */
+    public function startInstancesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new StartInstancesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'simple');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartInstances',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartInstancesRequest $request
+     *
+     * @return StartInstancesResponse
+     */
+    public function startInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startInstancesWithOptions($request, $runtime);
     }
 
     /**
@@ -10282,6 +10585,54 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopInstancesRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return StopInstancesResponse
+     */
+    public function stopInstancesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new StopInstancesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'simple');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopInstances',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StopInstancesRequest $request
+     *
+     * @return StopInstancesResponse
+     */
+    public function stopInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopInstancesWithOptions($request, $runtime);
     }
 
     /**

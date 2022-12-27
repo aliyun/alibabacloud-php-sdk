@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class nextHops extends Model
 {
     /**
+     * @example i-bp1111yup9991890woxq
+     *
      * @var string
      */
     public $nextHopId;
 
     /**
+     * @example Instance
+     *
      * @var string
      */
     public $nextHopType;

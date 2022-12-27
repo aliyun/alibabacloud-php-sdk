@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateEnsServiceRequest extends Model
 {
     /**
+     * @example ens-20190806****
+     *
      * @var string
      */
     public $ensServiceId;
 
     /**
+     * @example Buy
+     *
      * @var string
      */
     public $orderType;
 
     /**
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $version;

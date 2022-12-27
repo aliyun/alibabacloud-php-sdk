@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateSnatEntryRequest extends Model
 {
     /**
+     * @example nat-5tawjw5j7sgd2deujxuk0****
+     *
      * @var string
      */
     public $natGatewayId;
 
     /**
+     * @example test0
+     *
      * @var string
      */
     public $snatEntryName;
 
     /**
+     * @example 120.XXX.XXX.71
+     *
      * @var string
      */
     public $snatIp;
 
     /**
+     * @example 10.0.0.0/24
+     *
      * @var string
      */
     public $sourceCIDR;
 
     /**
+     * @example n-2zeuphj08tt7q3brd****
+     *
      * @var string
      */
     public $sourceNetworkId;
 
     /**
+     * @example vsw-bp1hwx7gi495q260p****
+     *
      * @var string
      */
     public $sourceVSwitchId;

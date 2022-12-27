@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ImportKeyPairRequest extends Model
 {
     /**
+     * @example TestKeyPairName
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @example ssh-rsa AAAAB****
+     *
      * @var string
      */
     public $publicKeyBody;
 
     /**
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $version;

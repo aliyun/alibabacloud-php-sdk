@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateImageResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example m-5xxgg
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example 8BEF0D72-9901-5D43-B7D3-8B42AC26C516
+     *
      * @var string
      */
     public $requestId;

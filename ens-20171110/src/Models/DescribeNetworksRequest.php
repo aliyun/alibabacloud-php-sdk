@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworksRequest extends Model
 {
     /**
+     * @example cn-beijing-telecom
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example n-5***
+     *
      * @var string
      */
     public $networkId;
 
     /**
+     * @example example
+     *
      * @var string
      */
     public $networkName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

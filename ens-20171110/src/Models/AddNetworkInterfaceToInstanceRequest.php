@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AddNetworkInterfaceToInstanceRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoStart;
 
     /**
+     * @example yourInstance ID
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example [{"ipType": "public", "ipAddressType": "ipv6" }]
+     *
      * @var string
      */
     public $networks;

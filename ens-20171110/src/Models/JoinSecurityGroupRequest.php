@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class JoinSecurityGroupRequest extends Model
 {
     /**
+     * @example i-bp67acfmxazb4ph***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example sg-bp67acfmxazb4ph***
+     *
      * @var string
      */
     public $securityGroupId;

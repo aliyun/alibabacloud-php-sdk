@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ExportImageRequest extends Model
 {
     /**
+     * @example m-5ragaz3s74b7go8ks7jp9rch1
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example whxyl
+     *
      * @var string
      */
     public $OSSBucket;
 
     /**
+     * @example dataCenter/9724208/
+     *
      * @var string
      */
     public $OSSPrefix;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $OSSRegionId;
 
     /**
+     * @example AliyunMNSLoggingRole
+     *
      * @var string
      */
     public $roleName;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class confVersions extends Model
 {
     /**
+     * @example 2017-10-11
+     *
      * @var string
      */
     public $confVersion;
 
     /**
+     * @example cn-chengdu-telecom
+     *
      * @var string
      */
     public $ensRegionId;

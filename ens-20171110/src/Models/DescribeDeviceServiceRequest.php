@@ -9,31 +9,45 @@ use AlibabaCloud\Tea\Model;
 class DescribeDeviceServiceRequest extends Model
 {
     /**
+     * @example a2bac6f4-75dc-455e-8389-2dc8e47526d3
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example cn-chongqing-10
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example i-5sg1owx0g4ojy66ab2tez77r2
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 2661b1dd-3453-418d-8182-bb34f79e8d3c
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example cn-chongqing-11
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Service ID
+     *
+     * @example s-cxxxxx
+     *
      * @var string
      */
     public $serviceId;

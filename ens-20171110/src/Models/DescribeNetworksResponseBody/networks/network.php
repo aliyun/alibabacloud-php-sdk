@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class network extends Model
 {
     /**
+     * @example 10.0.xx.xx/24
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @example 2020-06-16T06:33:15Z
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @example exampleDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $ensRegionId;
@@ -35,21 +43,29 @@ class network extends Model
     public $networkAclId;
 
     /**
+     * @example n-5***
+     *
      * @var string
      */
     public $networkId;
 
     /**
+     * @example example
+     *
      * @var string
      */
     public $networkName;
 
     /**
+     * @example rtb-5**
+     *
      * @var string
      */
     public $routerTableId;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;

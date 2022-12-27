@@ -14,11 +14,15 @@ class CreateDiskResponseBody extends Model
     public $instanceIds;
 
     /**
+     * @example 211456，32124
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 7030AB96-57CF-1C68-9FEE-D60E547FD79C
+     *
      * @var string
      */
     public $requestId;

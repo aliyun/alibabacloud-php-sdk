@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesRequest extends Model
 {
     /**
+     * @example cn-beijing-cmcc
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example ["cn-suzhou-telecom","cn-chengdu-telecom"]
+     *
      * @var string
      */
     public $ensRegionIds;
 
     /**
+     * @example ens-20190730202316s****
+     *
      * @var string
      */
     public $ensServiceId;
 
     /**
+     * @example centos_6_08_64_20G_alibase_****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example i-5iqczfxps7csjrxeca****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example ["i-5iqczfxps7csjrxeca07****", "i-5iqczfxps7csjrxeca07****"]]
+     *
      * @var string
      */
     public $instanceIds;
 
     /**
+     * @example TestName
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example EnsService
+     *
      * @var string
      */
     public $instanceResourceType;
@@ -54,41 +70,57 @@ class DescribeInstancesRequest extends Model
     public $intranetIp;
 
     /**
+     * @example n-2zeuphj08tt7q3brd****
+     *
      * @var string
      */
     public $networkId;
 
     /**
+     * @example {"InstanceNameSort":"asc","ExpireTimeSort":"asc","CreationTimeSort":"desc"}}
+     *
      * @var string
      */
     public $orderByParams;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @example Joshua
+     *
      * @var string
      */
     public $searchKey;
 
     /**
+     * @example sg-5kyicq2kfcapxrdds6tar7jqb
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example vsw-2zeh0r1pabwtg6wcs****
+     *
      * @var string
      */
     public $vSwitchId;

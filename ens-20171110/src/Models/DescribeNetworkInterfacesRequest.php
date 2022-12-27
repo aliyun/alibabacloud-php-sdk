@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkInterfacesRequest extends Model
 {
     /**
+     * @example cn-tianjin-cmcc
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example i-5t7z99n32gplriv
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @example 50
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @example ***
+     *
      * @var string
      */
     public $primaryIpAddress;
 
     /**
+     * @example vsw-12345
+     *
      * @var string
      */
     public $vSwitchId;

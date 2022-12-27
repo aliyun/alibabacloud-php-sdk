@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeBandWithdChargeTypeRequest extends Model
 {
     /**
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $version;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AttachEnsInstancesRequest extends Model
 {
     /**
+     * @example testInstacneId
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example wget d2dldCBodHRwOi8vYWxpYWNzLWs4cy1jbxxxx
+     *
      * @var string
      */
     public $scripts;

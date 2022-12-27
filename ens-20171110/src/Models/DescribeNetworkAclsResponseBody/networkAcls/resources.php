@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @example cn-fuzhou-telecom
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example n-****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example Network
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example BINDING
+     *
      * @var string
      */
     public $status;

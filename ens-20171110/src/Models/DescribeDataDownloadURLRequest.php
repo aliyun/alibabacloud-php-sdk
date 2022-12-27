@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataDownloadURLRequest extends Model
 {
     /**
+     * @example 474bdef0-d149-4695-abfb-52912d9143f0
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example mirror_file/pk-1642597182026-878199448832413.tar
+     *
      * @var string
      */
     public $dataName;
 
     /**
+     * @example 7895
+     *
      * @var string
      */
     public $dataVersion;
 
     /**
+     * @example 600
+     *
      * @var int
      */
     public $expireTimeout;
 
     /**
+     * @example {\"name\": \"ScheduleToRegionId\",\"parameters\":{\"operator\": \"In\",\"values\": [\"cn-shijiazhuang-telecom_unicom_cmcc\"]}}
+     *
      * @var string
      */
     public $serverFilterStrategy;

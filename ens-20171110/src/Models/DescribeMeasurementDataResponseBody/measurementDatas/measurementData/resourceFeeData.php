@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class resourceFeeData extends Model
 {
     /**
+     * @example 24
+     *
      * @var int
      */
     public $memory;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $storage;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $vcpu;

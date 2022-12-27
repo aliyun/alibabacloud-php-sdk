@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnsResourceUsageRequest extends Model
 {
     /**
+     * @example 2018-06-15T09:07:23Z
+     *
      * @var string
      */
     public $expiredEndTime;
 
     /**
+     * @example 2018-06-15T09:07:23Z
+     *
      * @var string
      */
     public $expiredStartTime;

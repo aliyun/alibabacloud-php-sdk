@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class internalIps extends Model
 {
     /**
+     * @example 10.0.2.3
+     *
      * @var string
      */
     public $ip;

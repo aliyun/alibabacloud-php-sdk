@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeFileSystemsRequest extends Model
 {
     /**
+     * @example cn-beijing-cmcc
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example c50f8*****
+     *
      * @var string
      */
     public $fileSystemId;
 
     /**
+     * @example FileSystem1
+     *
      * @var string
      */
     public $fileSystemName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class vSwitch extends Model
 {
     /**
+     * @example 10.21.224.0/22
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @example 2020-06-16T06:33:15Z
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @example VSwitchDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example cn-xian-unicom
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $freeIpCount;
 
     /**
+     * @example vpc-25cdvfeq58pl****
+     *
      * @var string
      */
     public $networkId;
 
     /**
+     * @example Pending
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example vsw-5m9xhlq8oh***
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example testVSwitchName
+     *
      * @var string
      */
     public $vSwitchName;

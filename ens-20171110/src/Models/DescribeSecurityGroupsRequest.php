@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityGroupsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example sg-bp67acfmxazb4ph***
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example DocTest
+     *
      * @var string
      */
     public $securityGroupName;
 
     /**
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $version;

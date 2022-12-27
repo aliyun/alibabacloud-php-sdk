@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class listenerPortsAndProtocols extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $forwardPort;
 
     /**
+     * @example off
+     *
      * @var string
      */
     public $listenerForward;
 
     /**
+     * @example 8080
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @example tcp
+     *
      * @var string
      */
     public $listenerProtocol;

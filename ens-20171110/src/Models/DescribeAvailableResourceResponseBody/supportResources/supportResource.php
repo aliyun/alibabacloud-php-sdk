@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class supportResource extends Model
 {
     /**
+     * @example 500
+     *
      * @var string
      */
     public $dataDiskSize;
 
     /**
+     * @example cn-beijing-cmcc
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example ens.sn1.stiny
+     *
      * @var string
      */
     public $instanceSpec;
 
     /**
+     * @example 9
+     *
      * @var string
      */
     public $supportResourcesCount;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $systemDiskSize;

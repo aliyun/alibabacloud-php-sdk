@@ -21,51 +21,71 @@ class CreateInstanceRequest extends Model
     public $systemDisk;
 
     /**
+     * @example True
+     *
      * @var string
      */
     public $autoRenew;
 
     /**
+     * @example 12
+     *
      * @var string
      */
     public $autoRenewPeriod;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example test-HostName
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @example yourImage ID
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example test：Instance_Name.1-2
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example ens.se1.tiny
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example 95BandwidthByMonth
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example ipv4
+     *
      * @var string
      */
     public $ipType;
 
     /**
+     * @example TestKeyPairName
+     *
      * @var string
      */
     public $keyPairName;
@@ -76,51 +96,71 @@ class CreateInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @example yourPassword:1
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $passwordInherit;
 
     /**
+     * @example Subscription
+     *
      * @var string
      */
     public $paymentType;
 
     /**
+     * @example 12
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @example 10.10.10.10
+     *
      * @var string
      */
     public $privateIpAddress;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $publicIpIdentification;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $quantity;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $uniqueSuffix;
 
     /**
+     * @example #!/bin/sh  echo "Hello World.  The time is now $(date -R)!" | tee /home/output.txt
+     *
      * @var string
      */
     public $userData;
 
     /**
+     * @example YourVSwitchId
+     *
      * @var string
      */
     public $vSwitchId;

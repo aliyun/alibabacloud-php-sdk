@@ -17,11 +17,15 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @example 2
+     *
      * @var string
      */
     public $cpu;
 
     /**
+     * @example 2019-07-26T06:40:43Z
+     *
      * @var string
      */
     public $creationTime;
@@ -32,26 +36,36 @@ class instance extends Model
     public $dataDisk;
 
     /**
+     * @example 71680
+     *
      * @var int
      */
     public $disk;
 
     /**
+     * @example cn-hangzhou-telecom
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example 2119-07-13T02:38:57Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @example testHostName
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @example m-****
+     *
      * @var string
      */
     public $imageId;
@@ -62,16 +76,22 @@ class instance extends Model
     public $innerIpAddress;
 
     /**
+     * @example i-instanc****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example i-5itef0f28t17bcdw9deu6meub
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example EnsService
+     *
      * @var string
      */
     public $instanceResourceType;
@@ -82,26 +102,36 @@ class instance extends Model
     public $instanceTypeFamily;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $internetMaxBandwidthIn;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $internetMaxBandwidthOut;
 
     /**
+     * @example 2048
+     *
      * @var int
      */
     public $memory;
 
     /**
+     * @description Schema of Response
+     *
      * @var networkAttributes
      */
     public $networkAttributes;
 
     /**
+     * @example centos 6.8 x86_64
+     *
      * @var string
      */
     public $OSName;
@@ -127,16 +157,22 @@ class instance extends Model
     public $securityGroupIds;
 
     /**
+     * @example ens.sn1.stiny
+     *
      * @var string
      */
     public $specName;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description Schema of Response
+     *
      * @var systemDisk
      */
     public $systemDisk;

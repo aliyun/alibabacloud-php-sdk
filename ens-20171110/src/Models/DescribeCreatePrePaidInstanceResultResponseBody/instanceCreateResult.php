@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class instanceCreateResult extends Model
 {
     /**
+     * @example Successed
+     *
      * @var string
      */
     public $instanceCreateStatus;
 
     /**
+     * @example i-6ecpqvkicnchxccozrpxxxx
+     *
      * @var string
      */
     public $instanceId;

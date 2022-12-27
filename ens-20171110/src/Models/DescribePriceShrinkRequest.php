@@ -26,31 +26,43 @@ class DescribePriceShrinkRequest extends Model
     public $dataDisksShrink;
 
     /**
+     * @example cn-shanghai-unicom
+     *
      * @var string
      */
     public $ensRegionId;
 
     /**
+     * @example ens.sn1.tiny
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example 95BandwidthByMonth
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $quantity;

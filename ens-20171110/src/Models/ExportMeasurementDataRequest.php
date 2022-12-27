@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ExportMeasurementDataRequest extends Model
 {
     /**
+     * @example 2021-10-30T16:00:00Z
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @example 2019-06-01T00:00:00Z
+     *
      * @var string
      */
     public $startDate;
