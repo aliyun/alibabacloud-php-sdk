@@ -907,10 +907,35 @@ class Elasticsearch extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
+        $body = [];
+        if (!Utils::isUnset($request->collectorPaths)) {
+            $body['collectorPaths'] = $request->collectorPaths;
+        }
+        if (!Utils::isUnset($request->configs)) {
+            $body['configs'] = $request->configs;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['dryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->extendConfigs)) {
+            $body['extendConfigs'] = $request->extendConfigs;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->resType)) {
+            $body['resType'] = $request->resType;
+        }
+        if (!Utils::isUnset($request->resVersion)) {
+            $body['resVersion'] = $request->resVersion;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $body['vpcId'] = $request->vpcId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateCollector',
@@ -1155,10 +1180,29 @@ class Elasticsearch extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
+        $body = [];
+        if (!Utils::isUnset($request->dataStream)) {
+            $body['dataStream'] = $request->dataStream;
+        }
+        if (!Utils::isUnset($request->ilmPolicy)) {
+            $body['ilmPolicy'] = $request->ilmPolicy;
+        }
+        if (!Utils::isUnset($request->indexPatterns)) {
+            $body['indexPatterns'] = $request->indexPatterns;
+        }
+        if (!Utils::isUnset($request->indexTemplate)) {
+            $body['indexTemplate'] = $request->indexTemplate;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $body['priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->template)) {
+            $body['template'] = $request->template;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateIndexTemplate',

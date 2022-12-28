@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CreateIndexTemplateRequest\template;
 use AlibabaCloud\Tea\Model;
 
 class CreateIndexTemplateRequest extends Model
@@ -16,12 +17,48 @@ class CreateIndexTemplateRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $dataStream;
+
+    /**
+     * @example policy-1
+     *
      * @var string
      */
-    public $body;
+    public $ilmPolicy;
+
+    /**
+     * @var string[]
+     */
+    public $indexPatterns;
+
+    /**
+     * @example index-template
+     *
+     * @var string
+     */
+    public $indexTemplate;
+
+    /**
+     * @example 100
+     *
+     * @var int
+     */
+    public $priority;
+
+    /**
+     * @var template
+     */
+    public $template;
     protected $_name = [
-        'clientToken' => 'ClientToken',
-        'body'        => 'body',
+        'clientToken'   => 'ClientToken',
+        'dataStream'    => 'dataStream',
+        'ilmPolicy'     => 'ilmPolicy',
+        'indexPatterns' => 'indexPatterns',
+        'indexTemplate' => 'indexTemplate',
+        'priority'      => 'priority',
+        'template'      => 'template',
     ];
 
     public function validate()
@@ -34,8 +71,23 @@ class CreateIndexTemplateRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
+        if (null !== $this->dataStream) {
+            $res['dataStream'] = $this->dataStream;
+        }
+        if (null !== $this->ilmPolicy) {
+            $res['ilmPolicy'] = $this->ilmPolicy;
+        }
+        if (null !== $this->indexPatterns) {
+            $res['indexPatterns'] = $this->indexPatterns;
+        }
+        if (null !== $this->indexTemplate) {
+            $res['indexTemplate'] = $this->indexTemplate;
+        }
+        if (null !== $this->priority) {
+            $res['priority'] = $this->priority;
+        }
+        if (null !== $this->template) {
+            $res['template'] = null !== $this->template ? $this->template->toMap() : null;
         }
 
         return $res;
@@ -52,8 +104,25 @@ class CreateIndexTemplateRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
+        if (isset($map['dataStream'])) {
+            $model->dataStream = $map['dataStream'];
+        }
+        if (isset($map['ilmPolicy'])) {
+            $model->ilmPolicy = $map['ilmPolicy'];
+        }
+        if (isset($map['indexPatterns'])) {
+            if (!empty($map['indexPatterns'])) {
+                $model->indexPatterns = $map['indexPatterns'];
+            }
+        }
+        if (isset($map['indexTemplate'])) {
+            $model->indexTemplate = $map['indexTemplate'];
+        }
+        if (isset($map['priority'])) {
+            $model->priority = $map['priority'];
+        }
+        if (isset($map['template'])) {
+            $model->template = template::fromMap($map['template']);
         }
 
         return $model;
