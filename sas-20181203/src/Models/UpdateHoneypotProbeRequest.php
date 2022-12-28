@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class UpdateHoneypotProbeRequest extends Model
 {
     /**
-     * @example false
-     *
      * @var bool
      */
     public $arp;
 
     /**
-     * @example svwsx-vpc-4430
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $ping;
 
     /**
-     * @example bbe7e382-956f-473e-beed-bc73a2587900
-     *
      * @var string
      */
     public $probeId;

@@ -14,29 +14,21 @@ class ListSystemClientRulesRequest extends Model
     public $aggregationIds;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $isContainer;
 
     /**
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
@@ -52,8 +44,6 @@ class ListSystemClientRulesRequest extends Model
     public $ruleTypes;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $systemType;

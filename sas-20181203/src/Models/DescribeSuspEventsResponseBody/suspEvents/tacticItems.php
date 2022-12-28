@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tacticItems extends Model
 {
     /**
+     * @description The tactic name of ATT\&CK.
+     *
+     * @example Malicious scripts-Malicious script code execution
+     *
      * @var string
      */
     public $tacticDisplayName;
 
     /**
+     * @description The stage information about ATT\&CK.
+     *
+     * @example TA0001
+     *
      * @var string
      */
     public $tacticId;

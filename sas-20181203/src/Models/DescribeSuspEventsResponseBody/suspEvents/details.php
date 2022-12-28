@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class details extends Model
 {
     /**
+     * @description The display name of the alert event.
+     *
+     * @example Login with unusual location
+     *
      * @var string
      */
     public $nameDisplay;
 
     /**
+     * @description The type of the alert event.
+     *
+     * @example text
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The path of the alert event.
+     *
+     * @example /etc/crontab
+     *
      * @var string
      */
     public $value;
 
     /**
+     * @description The display path of the alert event.
+     *
+     * @example /etc/crontab
+     *
      * @var string
      */
     public $valueDisplay;

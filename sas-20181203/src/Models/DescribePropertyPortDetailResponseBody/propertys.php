@@ -9,61 +9,109 @@ use AlibabaCloud\Tea\Model;
 class propertys extends Model
 {
     /**
+     * @description The IP address that is bound to the listening port.
+     *
+     * @example 0.0.X.X
+     *
      * @var string
      */
     public $bindIp;
 
     /**
+     * @description The timestamp of the last fingerprint collection. Unit: milliseconds.
+     *
+     * @example 1649149566000
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The ID of the server.
+     *
+     * @example i-hp35tftuh52wbp1g****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the server.
+     *
+     * @example hc-host-****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The public IP address of the server.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The private IP address of the server.
+     *
+     * @example 100.104.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @description The IP address of the network interface controller (NIC) that is bound to the listening port.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The ID of the server process that listens on the port.
+     *
+     * @example 522
+     *
      * @var string
      */
     public $pid;
 
     /**
+     * @description The listening port.
+     *
+     * @example 22
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The name of the server process.
+     *
+     * @example sshd
+     *
      * @var string
      */
     public $procName;
 
     /**
+     * @description The network protocol that is used by the listening port.
+     *
+     * @example tcp
+     *
      * @var string
      */
     public $proto;
 
     /**
+     * @description The UUID of the server.
+     *
+     * @example 162eb349-c2d9-4f8b-805c-75b43d4c****
+     *
      * @var string
      */
     public $uuid;

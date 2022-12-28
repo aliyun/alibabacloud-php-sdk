@@ -14,36 +14,50 @@ class list_ extends Model
     public $count;
 
     /**
+     * @example test_ecs
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example 8.210.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @example 172.25.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @example cron
+     *
      * @var string
      */
     public $processName;
 
     /**
+     * @example /usr/sbin/cron
+     *
      * @var string
      */
     public $processPath;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 49e25e0f-bb51-4a5a-a1b3-13a4ddaa****
+     *
      * @var string
      */
     public $uuid;

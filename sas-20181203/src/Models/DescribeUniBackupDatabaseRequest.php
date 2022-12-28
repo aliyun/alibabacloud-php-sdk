@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeUniBackupDatabaseRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example MYSQL
+     *
      * @var string
      */
     public $databaseType;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example create
+     *
      * @var string
      */
     public $queryType;
 
     /**
+     * @example cn-hongkong
+     *
      * @var string
      */
     public $uniRegionId;

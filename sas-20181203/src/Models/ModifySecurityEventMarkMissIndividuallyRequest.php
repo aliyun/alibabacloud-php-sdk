@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityEventMarkMissIndividuallyRequest extends Model
 {
     /**
-     * @example [{\"field\":\"loginSourceIp\",\"operate\":\"contains\",\"eventType\":\"SIL_AI_ALERT\",\"eventName\":\"login_common_ip\",\"fieldValue\":\"10.12.XX.XX\",\"uuids\":\"\"}]
-     *
      * @var string
      */
     public $deleteMarkMissParam;
 
     /**
-     * @example sas
-     *
      * @var string
      */
     public $from;
 
     /**
-     * @example [{\"field\":\"location\",\"operate\":\"contains\",\"eventType\":\"SIL_AI_ALERT\",\"eventName\":\"login_common_ip\",\"fieldValue\":\"xx\",\"uuids\":\"4296ee47-bf19-4fa4-a4a6-6bxxxxxxxxx\"}]
-     *
      * @var string
      */
     public $insertMarkMissParam;
 
     /**
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @example 127.0.XX.XX
-     *
      * @var string
      */
     public $sourceIp;

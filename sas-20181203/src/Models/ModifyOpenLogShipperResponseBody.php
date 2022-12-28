@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyOpenLogShipperResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 25EC270F-5783-4416-AD7C-1EDF063A039C
+     *
      * @var string
      */
     public $requestId;

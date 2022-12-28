@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockProcessListRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cron
+     *
      * @var string
      */
     public $processName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;

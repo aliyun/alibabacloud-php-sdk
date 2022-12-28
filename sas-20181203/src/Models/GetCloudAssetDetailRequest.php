@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetCloudAssetDetailRequest extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $assetSubType;
 
     /**
-     * @example 14
-     *
      * @var int
      */
     public $assetType;
@@ -29,8 +25,6 @@ class GetCloudAssetDetailRequest extends Model
     public $cloudAssetInstances;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $vendor;

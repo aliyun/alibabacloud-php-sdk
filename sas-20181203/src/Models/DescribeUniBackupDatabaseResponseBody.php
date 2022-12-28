@@ -21,6 +21,8 @@ class DescribeUniBackupDatabaseResponseBody extends Model
     public $pageInfo;
 
     /**
+     * @example 09969D2C-4FAD-429E-BFBF-9A60DEF8****
+     *
      * @var string
      */
     public $requestId;

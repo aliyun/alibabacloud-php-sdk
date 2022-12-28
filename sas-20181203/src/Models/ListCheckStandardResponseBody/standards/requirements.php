@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class requirements extends Model
 {
     /**
-     * @example 11
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $riskCheckCount;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyNoticeConfigRequest extends Model
 {
     /**
+     * @example yundun_webguard_event
+     *
      * @var string
      */
     public $project;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $route;
 
     /**
+     * @example 42.178.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $timeLimit;

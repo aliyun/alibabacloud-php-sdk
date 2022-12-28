@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class propertyItems extends Model
 {
     /**
+     * @example 23
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example localhost
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example alihids
+     *
      * @var string
      */
     public $moduleName;
 
     /**
+     * @example C:/Program Files/****
+     *
      * @var string
      */
     public $path;

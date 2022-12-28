@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class RemoveCheckResultWhiteListResponseBody extends Model
 {
     /**
-     * @example 200
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example successful
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example 98C82076-E0D5-51DA-99F2-513F4XXXXXX
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;

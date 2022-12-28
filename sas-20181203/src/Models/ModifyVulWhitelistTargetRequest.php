@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyVulWhitelistTargetRequest extends Model
 {
     /**
+     * @description The ID of the whitelist.
+     *
+     * >  You can call the [DescribeVulWhitelist](~~DescribeVulWhitelist~~) operation to query the IDs of whitelists.
      * @example 2533681
      *
      * @var int
@@ -16,6 +19,8 @@ class ModifyVulWhitelistTargetRequest extends Model
     public $id;
 
     /**
+     * @description The reason why you add the server to the whitelist.
+     *
      * @example 1221
      *
      * @var string
@@ -23,6 +28,8 @@ class ModifyVulWhitelistTargetRequest extends Model
     public $reason;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 42.120.75.150
      *
      * @var string
@@ -30,6 +37,18 @@ class ModifyVulWhitelistTargetRequest extends Model
     public $sourceIp;
 
     /**
+     * @description The applicable scope of the whitelist. The value of this parameter is in the JSON format and contains the following fields:
+     *
+     *   **type**: the type of the applicable scope. Valid values:
+     *
+     *   **GroupId**: the ID of a server group
+     *   **Uuid**: the UUID of a server
+     *
+     *   **uuids**: the UUIDs of servers
+     *
+     *   **groupIds**: the IDs of server groups
+     *
+     * >  If you leave this parameter empty, all servers are added to the whitelist. If you set the **type** field to **GroupId**, you must also specify the **groupIds** field. If you set the **type** field to **Uuid**, you must also specify the **uuids** field.
      * @example {
      * }
      * @var string

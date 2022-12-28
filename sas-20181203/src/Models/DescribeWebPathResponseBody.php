@@ -15,26 +15,36 @@ class DescribeWebPathResponseBody extends Model
     public $configList;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example B37C9052-A73E-4707-A024-92477028****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

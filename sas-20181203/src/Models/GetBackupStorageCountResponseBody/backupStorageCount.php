@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class backupStorageCount extends Model
 {
     /**
+     * @description The anti-ransomware capacity that you purchased. Unit: bytes.
+     *
+     * @example 2276332666880
+     *
      * @var int
      */
     public $buyStorageByte;
 
     /**
+     * @description The storage capacity that is occupied by the backup data of your servers. Unit: bytes.
+     *
+     * @example 817262417803
+     *
      * @var int
      */
     public $ecsUsageStorageByte;
 
     /**
+     * @description Indicates whether the anti-ransomware capacity that is used exceeds the anti-ransomware capacity that you purchased. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
+     * @example 0
+     *
      * @var int
      */
     public $overflow;
 
     /**
+     * @description The storage capacity that is occupied by the backup data of your databases. Unit: bytes.
+     *
+     * @example 7453049350
+     *
      * @var int
      */
     public $uniUsageStorageByte;
 
     /**
+     * @description The total anti-ransomware capacity that is used. Unit: bytes.
+     *
+     * @example 839621565853
+     *
      * @var int
      */
     public $usageStorageByte;

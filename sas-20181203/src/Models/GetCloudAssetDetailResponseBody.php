@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GetCloudAssetDetailResponseBody extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $count;
@@ -22,8 +20,6 @@ class GetCloudAssetDetailResponseBody extends Model
     public $instances;
 
     /**
-     * @example CB45CAED-31C3-517A-8619-10F632D3****
-     *
      * @var string
      */
     public $requestId;

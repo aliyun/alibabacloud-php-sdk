@@ -9,51 +9,93 @@ use AlibabaCloud\Tea\Model;
 class imageInfos extends Model
 {
     /**
+     * @description The image digest.
+     *
+     * @example v005
+     *
      * @var string
      */
     public $digest;
 
     /**
+     * @description The UNIX timestamp of when the first scan was performed. Unit: milliseconds.
+     *
+     * @example 1649814050000
+     *
      * @var int
      */
     public $firstScanTime;
 
     /**
+     * @description The ID of the image instance.
+     *
+     * @example cri-a595qp31knh9****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The UNIX timestamp of when the last scan was performed. Unit: milliseconds.
+     *
+     * @example 1649814050000
+     *
      * @var int
      */
     public $lastScanTime;
 
     /**
+     * @description The region ID of the image instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the image repository.
+     *
+     * @example opa-test
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The namespace to which the image repository belongs.
+     *
+     * @example libssh2
+     *
      * @var string
      */
     public $repoNamespace;
 
     /**
+     * @description The risk level. Valid values:
+     * - **high**
+     * - **medium**
+     * - **low**
+     * @example low
+     *
      * @var string
      */
     public $riskLevel;
 
     /**
+     * @description The tag that is added to the image.
+     *
+     * @example nuxeo6
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @description The UUID of the image.
+     *
+     * @example f58681174f944623345379e23b7b****
+     *
      * @var string
      */
     public $uuid;

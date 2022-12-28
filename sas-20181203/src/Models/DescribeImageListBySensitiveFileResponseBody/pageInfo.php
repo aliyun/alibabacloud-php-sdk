@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The key of the last data entry.
+     *
+     * @example CAESGgoSChAKDGNvbXBsZXRlVGltZRABCgQiAggAGAAiQAoJAGYXFWIAAAAACjMDLgAAADFTNzMyZDMwMzAzMDM1Mzc3Njc4MzA2ODY5NmI2YTY1Nzg2NTcxNjE2NDc4NjE=
+     *
      * @var string
      */
     public $lastRowKey;
 
     /**
+     * @description The number of entries returned per page. Default value: 20.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 83
+     *
      * @var int
      */
     public $totalCount;

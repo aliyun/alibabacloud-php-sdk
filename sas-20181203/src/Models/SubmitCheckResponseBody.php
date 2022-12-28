@@ -15,11 +15,15 @@ class SubmitCheckResponseBody extends Model
     public $data;
 
     /**
+     * @example CE8369A6-A843-5E1B-A613-78E6920D****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 5fe3f65d-4012-455d-8232-2a98a858****
+     *
      * @var string
      */
     public $taskId;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockProcessListResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -20,16 +22,22 @@ class DescribeWebLockProcessListResponseBody extends Model
     public $list;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 028CF634-5268-5660-9575-48C9ED6BF880
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $totalCount;

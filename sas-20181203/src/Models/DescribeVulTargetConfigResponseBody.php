@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulTargetConfigResponseBody extends Model
 {
     /**
+     * @example 9FBC6E47-7508-58C9-9E76-528E118CB1CC
+     *
      * @var string
      */
     public $requestId;
@@ -20,6 +22,8 @@ class DescribeVulTargetConfigResponseBody extends Model
     public $targetConfigs;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

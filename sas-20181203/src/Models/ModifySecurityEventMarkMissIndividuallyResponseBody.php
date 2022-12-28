@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityEventMarkMissIndividuallyResponseBody extends Model
 {
     /**
-     * @example 200
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @example successful
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example A37B852F-E346-5FF2-82BD-D1F1DXXXXXX
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $timeCost;

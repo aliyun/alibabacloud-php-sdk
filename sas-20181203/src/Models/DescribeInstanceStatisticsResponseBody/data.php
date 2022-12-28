@@ -81,6 +81,15 @@ class data extends Model
     public $cmsNum;
 
     /**
+     * @description The number of CSPM risks detected on the asset.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $cspmNum;
+
+    /**
      * @description The number of common vulnerabilities detected on the asset.
      *
      * @example 1
@@ -178,6 +187,7 @@ class data extends Model
         'agentlessVulSca'    => 'AgentlessVulSca',
         'appNum'             => 'AppNum',
         'cmsNum'             => 'CmsNum',
+        'cspmNum'            => 'CspmNum',
         'cveNum'             => 'CveNum',
         'emgNum'             => 'EmgNum',
         'health'             => 'Health',
@@ -220,6 +230,9 @@ class data extends Model
         }
         if (null !== $this->cmsNum) {
             $res['CmsNum'] = $this->cmsNum;
+        }
+        if (null !== $this->cspmNum) {
+            $res['CspmNum'] = $this->cspmNum;
         }
         if (null !== $this->cveNum) {
             $res['CveNum'] = $this->cveNum;
@@ -286,6 +299,9 @@ class data extends Model
         }
         if (isset($map['CmsNum'])) {
             $model->cmsNum = $map['CmsNum'];
+        }
+        if (isset($map['CspmNum'])) {
+            $model->cspmNum = $map['CspmNum'];
         }
         if (isset($map['CveNum'])) {
             $model->cveNum = $map['CveNum'];

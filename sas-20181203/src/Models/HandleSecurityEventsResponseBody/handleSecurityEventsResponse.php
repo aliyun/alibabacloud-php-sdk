@@ -9,10 +9,6 @@ use AlibabaCloud\Tea\Model;
 class handleSecurityEventsResponse extends Model
 {
     /**
-     * @description The ID of the task to handle the alert events.
-     *
-     * @example 15411
-     *
      * @var int
      */
     public $taskId;

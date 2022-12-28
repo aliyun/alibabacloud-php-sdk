@@ -14,6 +14,8 @@ class JoinWebLockProcessWhiteListRequest extends Model
     public $processPaths;
 
     /**
+     * @example 0c1714dc-f7a3-4265-8364-7aa3fce8****,1cc45e7d-7698-4b2c-89d8-e8cba407****
+     *
      * @var string
      */
     public $uuids;

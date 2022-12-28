@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class aggregationTypeList extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $id;

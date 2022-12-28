@@ -9,10 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceAntiBruteForceRuleRequest extends Model
 {
     /**
-     * @description The ID of the defense rule.
-     *
-     * @example 65767
-     *
      * @var int
      */
     public $newRuleId;
@@ -23,19 +19,11 @@ class ModifyInstanceAntiBruteForceRuleRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The source IP address of the request.
-     *
-     * @example 1.2.XX.XX
-     *
      * @var string
      */
     public $sourceIp;
 
     /**
-     * @description The UUID of the server for which you want to modify the defense rule. You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
-     *
-     * @example 7cc91747-2845-40d4-bb69-c077597f****
-     *
      * @var string
      */
     public $uuid;

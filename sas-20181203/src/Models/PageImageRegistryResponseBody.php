@@ -21,6 +21,8 @@ class PageImageRegistryResponseBody extends Model
     public $pageInfo;
 
     /**
+     * @example FDA9E37C-6114-5945-8FF1-E3D4D397****
+     *
      * @var string
      */
     public $requestId;

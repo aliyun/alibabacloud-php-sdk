@@ -9,99 +9,71 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
-     * @example NO
-     *
      * @var string
      */
     public $alarmStatus;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $assetSubType;
 
     /**
-     * @example INSTANCE
-     *
      * @var string
      */
     public $assetSubTypeName;
 
     /**
-     * @example 3
-     *
      * @var int
      */
     public $assetType;
 
     /**
-     * @example RDS
-     *
      * @var string
      */
     public $assetTypeName;
 
     /**
-     * @example 1607365213000
-     *
      * @var int
      */
     public $createdTime;
 
     /**
-     * @example https://rdsnext.console.aliyun.com/detail/rm-uf6t6u05n6g48****\/basicInfo?region=cn-shanghai
-     *
      * @var string
      */
     public $detailLink;
 
     /**
-     * @example rm-uf6t6u05n6g48****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example yztest-l***
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @example 1.2.XX.XX
-     *
      * @var string
      */
     public $internetIp;
 
     /**
-     * @example cn-hanghzou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example NO
-     *
      * @var string
      */
     public $riskStatus;
 
     /**
-     * @example {\"seriousNum\":0,\"appNum\":0,\"baselineMedium\":0,\"remindNum\":0,\"imageVulNntf\":0,\"cveNum\":0,\"vul\":0,\"uuid\":\"rm-uf6t6u05n6g485o70\",\"emgNum\":0,\"weakPWNum\":0,\"imageMaliciousFileRemind\":0,\"imageBaselineMedium\":0,\"laterVulCount\":0,\"cmsNum\":0,\"imageMaliciousFileSerious\":0,\"agentlessMalicious\":0,\"suspNum\":0,\"imageBaselineHigh\":0,\"asapVulCount\":0,\"imageVulLater\":0,\"agentlessAll\":0,\"sysNum\":0,\"containerLater\":0,\"containerSuspicious\":0,\"imageBaselineNum\":0,\"newSuspicious\":0,\"nntfVulCount\":0,\"scaNum\":0,\"containerNntf\":0,\"health\":0,\"trojan\":0,\"suspicious\":0,\"imageMaliciousFileSuspicious\":0,\"containerRemind\":0,\"baselineLow\":0,\"imageVulAsap\":0,\"imageBaselineLow\":0,\"containerAsap\":0,\"agentlessBaseline\":0,\"agentlessVulSca\":0,\"agentlessVulCve\":0,\"containerSerious\":0,\"baselineHigh\":0,\"account\":0,\"baselineNum\":6}
-     *
      * @var string
      */
     public $securityInfo;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $vendor;

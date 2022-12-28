@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRisksResponseBody extends Model
 {
     /**
+     * @example EA54FE21-B006-5DFF-8D64-C4FFECDA****
+     *
      * @var string
      */
     public $requestId;
@@ -20,6 +22,8 @@ class DescribeRisksResponseBody extends Model
     public $risks;
 
     /**
+     * @example 23
+     *
      * @var int
      */
     public $totalCount;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SaveImageBaselineStrategyResponseBody extends Model
 {
     /**
-     * @example 9AB5D3DE-6E0F-5633-AA71-4B90C724****
-     *
      * @var string
      */
     public $requestId;

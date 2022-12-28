@@ -10,22 +10,11 @@ use AlibabaCloud\Tea\Model;
 class securityEventOperationStatusResponse extends Model
 {
     /**
-     * @description An array consisting of the status of the alert events handled by the task.
-     *
      * @var securityEventOperationStatuses[]
      */
     public $securityEventOperationStatuses;
 
     /**
-     * @description The status of the task that handles the alert events. Valid values:
-     *
-     *   **Processing**: The task is running.
-     *   **Success**: The task is successful.
-     *   **Failure**: The task failed.
-     *   **Pending**: The task is pending.
-     *
-     * @example Success
-     *
      * @var string
      */
     public $taskStatus;

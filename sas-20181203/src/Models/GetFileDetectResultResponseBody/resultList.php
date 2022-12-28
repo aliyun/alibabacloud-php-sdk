@@ -9,36 +9,92 @@ use AlibabaCloud\Tea\Model;
 class resultList extends Model
 {
     /**
+     * @description The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The extended information about the file detection result.
+     *
+     * @example {"HighLight":[[23245,23212]]}
+     *
      * @var string
      */
     public $ext;
 
     /**
+     * @description The identifier of the file. Only MD5 hash values are supported.
+     *
+     * @example 0a212417e65c26ff133cfff28f6c****
+     *
      * @var string
      */
     public $hashKey;
 
     /**
+     * @description The error message returned.
+     *
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The file detection result. Valid values:
+     *
+     *   **0**: normal file.
+     *   **1**: suspicious file.
+     *   **3**: The detection is in progress.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $result;
 
     /**
+     * @description The score of file detection result.
+     *
+     * >  A higher score indicates a more suspicious file.
+     * @example 100
+     *
      * @var int
      */
     public $score;
 
     /**
+     * @description The type of virus. Valid values:
+     *
+     *   **Trojan**: self-mutating trojan
+     *   **WebShell**: webshell
+     *   **Backdoor**: backdoor program
+     *   **RansomWare**: ransomware
+     *   **Scanner**: scanner
+     *   **Stealer**: tool that is used to steal information
+     *   **Malbaseware**: tainted basic software
+     *   **Hacktool**: attacker tool
+     *   **Engtest**: engine test program
+     *   **Downloader**: trojan downloader
+     *   **Virus**: infectious virus
+     *   **Miner**: mining program
+     *   **Worm**: worm
+     *   **DDoS**: DDoS trojan
+     *   **Malware**: malicious program
+     *   **Backdoor**: reverse shell
+     *   **RiskWare**: software that has risks
+     *   **Proxytool**: proxy
+     *   **Suspicious**: suspicious program
+     *   **MalScript**: malicious script
+     *   **Rootkit**: rootkit
+     *   **Exploit**: exploit
+     *
+     * @example WEBSHELL
+     *
      * @var string
      */
     public $virusType;

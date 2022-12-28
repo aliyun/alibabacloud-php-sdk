@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListSystemRuleAggregationTypesRequest extends Model
 {
     /**
-     * @example zh
-     *
      * @var string
      */
     public $lang;

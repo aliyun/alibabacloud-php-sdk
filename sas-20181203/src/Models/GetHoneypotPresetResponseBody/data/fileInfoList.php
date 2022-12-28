@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class fileInfoList extends Model
 {
     /**
+     * @example HONEYPOT_FILE/1766185894104675_1670401282333
+     *
      * @var string
      */
     public $fileId;
@@ -19,6 +21,8 @@ class fileInfoList extends Model
     public $fileName;
 
     /**
+     * @example http://aegis-update-static-file.oss-cn-hangzhou.aliyuncs.com/HONEYPOT_FILE/1766185894104675_1670401282333?Expires=1670402201***
+     *
      * @var string
      */
     public $ossUrl;

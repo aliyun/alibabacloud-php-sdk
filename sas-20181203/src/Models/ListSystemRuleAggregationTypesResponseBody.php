@@ -15,8 +15,6 @@ class ListSystemRuleAggregationTypesResponseBody extends Model
     public $aggregationTypeList;
 
     /**
-     * @example 1427F3BE-8A7E-57F9-BD4E-590B00D2****
-     *
      * @var string
      */
     public $requestId;

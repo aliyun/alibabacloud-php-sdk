@@ -10,26 +10,16 @@ use AlibabaCloud\Tea\Model;
 class riskTypes extends Model
 {
     /**
-     * @description The alias of the baseline type.
-     *
-     * @example Redis unauthorized access high exploit vulnerability risk
-     *
      * @var string
      */
     public $alias;
 
     /**
-     * @description An array that consists of the information about baseline subtypes.
-     *
      * @var subTypes[]
      */
     public $subTypes;
 
     /**
-     * @description The name of the baseline type.
-     *
-     * @example hc_exploit
-     *
      * @var string
      */
     public $typeName;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example managerNodename
+     *
      * @var string
      */
     public $controlNodeName;
@@ -20,36 +22,50 @@ class data extends Model
     public $fileInfoList;
 
     /**
+     * @example RuoYi
+     *
      * @var string
      */
     public $honeypotImageDisplayName;
 
     /**
+     * @example ruoyi
+     *
      * @var string
      */
     public $honeypotImageName;
 
     /**
+     * @example 94fd8805-d178-4361-84d3-de47fb4e3b97
+     *
      * @var string
      */
     public $honeypotPresetId;
 
     /**
+     * @example {\"trojan_git\":\"zip\",\"burp\":\"open\",\"portrait_option\":\"true\"}
+     *
      * @var string
      */
     public $meta;
 
     /**
+     * @example a882e590-b87b-45a6-87b9-d0a3e5a0****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @example ssh
+     *
      * @var string
      */
     public $presetName;
 
     /**
+     * @example CUSTOM
+     *
      * @var string
      */
     public $presetType;

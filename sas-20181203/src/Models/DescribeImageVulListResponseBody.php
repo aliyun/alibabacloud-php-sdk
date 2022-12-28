@@ -10,44 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageVulListResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The number of entries returned per page. Default value: **10**.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example D6B20156-49B0-5CF0-B14D-7ECA4B50DAAB
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @description An array that consists of the vulnerabilities.
-     *
      * @var vulRecords[]
      */
     public $vulRecords;

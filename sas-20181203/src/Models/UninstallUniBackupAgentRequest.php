@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UninstallUniBackupAgentRequest extends Model
 {
     /**
-     * @example 123
-     *
      * @var int
      */
     public $policyId;

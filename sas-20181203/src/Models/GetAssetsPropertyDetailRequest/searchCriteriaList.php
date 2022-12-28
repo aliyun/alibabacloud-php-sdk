@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class searchCriteriaList extends Model
 {
     /**
+     * @example remarkItemName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example virtio
+     *
      * @var string
      */
     public $value;

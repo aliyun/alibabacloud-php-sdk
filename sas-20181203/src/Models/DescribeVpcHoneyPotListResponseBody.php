@@ -11,24 +11,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcHoneyPotListResponseBody extends Model
 {
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 4FEC7F58-FCDA-415F-AE25-CD8BC0931DF2
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description An array that consists of the honeypots.
-     *
      * @var vpcHoneyPotDTOList[]
      */
     public $vpcHoneyPotDTOList;

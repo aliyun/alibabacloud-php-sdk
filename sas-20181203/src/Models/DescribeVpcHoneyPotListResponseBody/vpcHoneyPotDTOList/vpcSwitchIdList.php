@@ -9,28 +9,16 @@ use AlibabaCloud\Tea\Model;
 class vpcSwitchIdList extends Model
 {
     /**
-     * @description The ID of the vSwitch.
-     *
-     * @example vsw-p0wdnyv4wzp6jkuu4****
-     *
      * @var string
      */
     public $vpcSwitchId;
 
     /**
-     * @description The name of the vSwitch.
-     *
-     * @example abc01
-     *
      * @var string
      */
     public $vpcSwitchName;
 
     /**
-     * @description The zone ID of the vSwitch.
-     *
-     * @example ap-southeast-2b
-     *
      * @var string
      */
     public $zoneId;

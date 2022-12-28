@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyNoticeConfigResponseBody extends Model
 {
     /**
+     * @example 5989D067-621F-51E2-A636-D94D1388****
+     *
      * @var string
      */
     public $requestId;

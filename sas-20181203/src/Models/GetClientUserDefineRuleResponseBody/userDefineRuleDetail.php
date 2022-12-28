@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class userDefineRuleDetail extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $actionType;
 
     /**
+     * @example /usr/sbin/s****
+     *
      * @var string
      */
     public $cmdline;
 
     /**
+     * @example /etc/pam****
+     *
      * @var string
      */
     public $filePath;
 
     /**
+     * @example 167118088****
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 167118088****
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example 10.240.XX.XX
+     *
      * @var string
      */
     public $IP;
 
     /**
+     * @example 200****
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 0c9045b5bec90f9825f1f3f64dd4****
+     *
      * @var string
      */
     public $md5List;
@@ -54,51 +70,71 @@ class userDefineRuleDetail extends Model
     public $name;
 
     /**
+     * @example /etc/pam****
+     *
      * @var string
      */
     public $newFilePath;
 
     /**
+     * @example /usr/sbin/s****
+     *
      * @var string
      */
     public $parentCmdline;
 
     /**
+     * @example c:/windows/system32/i****
+     *
      * @var string
      */
     public $parentProcPath;
 
     /**
+     * @example linux
+     *
      * @var string
      */
     public $platform;
 
     /**
+     * @example 22
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example 80
+     *
      * @var string
      */
     public $portStr;
 
     /**
+     * @example c:/windows/system32/i****
+     *
      * @var string
      */
     public $procPath;
 
     /**
+     * @example *SECOH-QAD.exe*
+     *
      * @var string
      */
     public $registryContent;
 
     /**
+     * @example HKEY_DYN_****
+     *
      * @var string
      */
     public $registryKey;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;

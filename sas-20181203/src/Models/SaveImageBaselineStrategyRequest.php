@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class SaveImageBaselineStrategyRequest extends Model
 {
     /**
-     * @example ak_leak
-     *
      * @var string
      */
     public $baselineItemList;
 
     /**
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @example 8639
-     *
      * @var int
      */
     public $strategyId;
 
     /**
-     * @example default
-     *
      * @var string
      */
     public $strategyName;

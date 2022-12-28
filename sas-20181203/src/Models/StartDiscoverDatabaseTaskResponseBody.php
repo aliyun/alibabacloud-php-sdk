@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class StartDiscoverDatabaseTaskResponseBody extends Model
 {
     /**
+     * @example 48bced6d-2aee-4fa2-9aba-b846b77b****
+     *
      * @var string
      */
     public $createMark;
 
     /**
+     * @example F46921AF-CC55-5971-92C9-7E09E160****
+     *
      * @var string
      */
     public $requestId;

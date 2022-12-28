@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockFileChangeStatisticsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;

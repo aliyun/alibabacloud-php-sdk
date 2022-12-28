@@ -9,10 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceAntiBruteForceRuleResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 4BE468CE-47A0-54F0-98A1-E253546E6A2C
-     *
      * @var string
      */
     public $requestId;

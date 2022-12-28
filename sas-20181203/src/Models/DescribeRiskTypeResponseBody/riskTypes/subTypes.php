@@ -10,26 +10,16 @@ use AlibabaCloud\Tea\Model;
 class subTypes extends Model
 {
     /**
-     * @description The alias of the baseline subtype.
-     *
-     * @example Redis unauthorized access high exploit vulnerability risk
-     *
      * @var string
      */
     public $alias;
 
     /**
-     * @description An array that consists of the check details about the baseline subtype.
-     *
      * @var checkDetails[]
      */
     public $checkDetails;
 
     /**
-     * @description The name of the baseline subtype.
-     *
-     * @example hc_exploit_redis
-     *
      * @var string
      */
     public $typeName;

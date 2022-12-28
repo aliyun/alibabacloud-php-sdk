@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyAutoDelConfigResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 19635D33-E7B8-4134-97F1-9CBC7F8934B9
+     *
      * @var string
      */
     public $requestId;

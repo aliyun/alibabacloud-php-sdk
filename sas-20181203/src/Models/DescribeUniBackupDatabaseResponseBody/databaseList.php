@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class databaseList extends Model
 {
     /**
+     * @example INSTALLED
+     *
      * @var string
      */
     public $agentStatus;
 
     /**
+     * @example AEGIS
+     *
      * @var string
      */
     public $createdByProduct;
 
     /**
+     * @example apns_tt180
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @example MYSQL
+     *
      * @var string
      */
     public $databaseType;
 
     /**
+     * @example 12.0.4100.1
+     *
      * @var string
      */
     public $databaseVersion;
 
     /**
+     * @example i-bp15aho9hhftvmhw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example sql-test-001
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example 85878b284df911ec800000163e19****
+     *
      * @var string
      */
     public $instanceUuid;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $policyId;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;

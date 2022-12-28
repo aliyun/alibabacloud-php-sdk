@@ -15,11 +15,15 @@ class GetCheckConfigResponseBody extends Model
     public $cycleDays;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 5A3D5C8F-2A42-5477-BDD8-27E64B5F1739
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +34,8 @@ class GetCheckConfigResponseBody extends Model
     public $standards;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $startTime;

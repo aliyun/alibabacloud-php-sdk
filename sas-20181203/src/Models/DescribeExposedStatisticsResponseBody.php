@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedStatisticsResponseBody extends Model
 {
     /**
+     * @description The total number of high-risk vulnerabilities that are exposed on the Internet and can be exploited by attackers.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $exposedAsapVulCount;
 
     /**
+     * @description The total number of system components that are exposed on the Internet. The components include OpenSSL and OpenSSH.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $exposedComponentCount;
 
     /**
+     * @description The total number of servers that are exposed on the Internet.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $exposedInstanceCount;
 
     /**
+     * @description The total number of IP addresses that are exposed on the Internet.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $exposedIpCount;
 
     /**
+     * @description The total number of medium-risk vulnerabilities that are exposed on the Internet and can be exploited by attackers.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $exposedLaterVulCount;
 
     /**
+     * @description The total number of low-risk vulnerabilities that are exposed on the Internet and can be exploited by attackers.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $exposedNntfVulCount;
 
     /**
+     * @description The total number of ports that are exposed on the Internet.
+     *
+     * @example 6
+     *
      * @var int
      */
     public $exposedPortCount;
 
     /**
+     * @description The total number of system keys that are detected on your servers and are exposed on the Internet.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $exposedWeekPasswordMachineCount;
 
     /**
+     * @description The total number of gateway assets that are exposed on the Internet. The gateway assets include NAT gateways and Server Load Balancer (SLB) instances.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $gatewayAssetCount;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 4B897D10-B3CD-4A93-A5FA-591F3ED12A86
+     *
      * @var string
      */
     public $requestId;

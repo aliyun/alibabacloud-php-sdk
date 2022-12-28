@@ -9,10 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupPolicyStatusResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example E342452B-4401-5F74-9A1B-D24479851173
-     *
      * @var string
      */
     public $requestId;

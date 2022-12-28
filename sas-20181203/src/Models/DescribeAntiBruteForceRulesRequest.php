@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntiBruteForceRulesRequest extends Model
 {
     /**
+     * @description The ID of the defense rule.
+     * >  You can call the [DescribeAntiBruteForceRules](~~DescribeAntiBruteForceRules~~) operation to obtain the ID of the defense rule against brute-force attacks.
+     * @example 1141****
+     *
      * @var int
      */
     public $id;

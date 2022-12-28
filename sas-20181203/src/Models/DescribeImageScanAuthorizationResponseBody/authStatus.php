@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class authStatus extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $status;

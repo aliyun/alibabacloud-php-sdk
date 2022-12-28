@@ -16,8 +16,6 @@ class ListSystemClientRulesResponseBody extends Model
     public $pageInfo;
 
     /**
-     * @example C43CA30F-EF67-51BB-8C95-F31B8303****
-     *
      * @var string
      */
     public $requestId;

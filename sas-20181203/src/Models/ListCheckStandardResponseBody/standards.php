@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class standards extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $id;
@@ -27,8 +25,6 @@ class standards extends Model
     public $showName;
 
     /**
-     * @example IDENTITY_PERMISSION
-     *
      * @var string
      */
     public $type;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 9bf8cd373112263d4bc102fc5dba9d9f812ee05d4d35c487d330d52e937f****
+     *
      * @var string
      */
     public $honeypotId;
 
     /**
+     * @example Webmin
+     *
      * @var string
      */
     public $honeypotImageDisplayName;
 
     /**
+     * @example webpage
+     *
      * @var string
      */
     public $honeypotImageName;
 
     /**
+     * @example hyl-phpmyadmin
+     *
      * @var string
      */
     public $honeypotName;
 
     /**
+     * @example a882e590-b87b-45a6-87b9-d0a3e5a0****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @example 868a7579-00b5-4a74-999d-8bd3f411e8a3
+     *
      * @var string
      */
     public $presetId;
