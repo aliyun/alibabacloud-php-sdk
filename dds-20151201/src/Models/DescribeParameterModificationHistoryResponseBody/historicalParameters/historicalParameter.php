@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class historicalParameter extends Model
 {
     /**
+     * @description The time when the parameter was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-03-12T07:58:24Z
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @description The parameter value after modification.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $newParameterValue;
 
     /**
+     * @description The parameter value before modification.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $oldParameterValue;
 
     /**
+     * @description The name of the modified parameter.
+     *
+     * @example operationProfiling.slowOpThresholdMs
+     *
      * @var string
      */
     public $parameterName;

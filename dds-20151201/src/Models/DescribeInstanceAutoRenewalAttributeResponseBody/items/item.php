@@ -9,26 +9,54 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @description Indicates whether auto-renewal is enabled for the instance. Valid values:
+     *
+     *   **true**: Auto-renewal is enabled for the instance.
+     *   **false**: Auto-renewal is disabled for the instance.
+     *
+     * @example true
+     *
      * @var string
      */
     public $autoRenew;
 
     /**
+     * @description The category of the instance. Valid values:
+     *
+     *   **replicate**: the standalone or replica set instance
+     *   **sharding**: the sharded cluster instance
+     *
+     * @example replicate
+     *
      * @var string
      */
     public $DBInstanceType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bp2568*****
+     *
      * @var string
      */
     public $dbInstanceId;
 
     /**
+     * @description The auto-renewal period. Unit: months.
+     *
+     * > * This parameter is ruturned only when the returned value of the **AutoRenew** parameter is **true**.
+     * > * You can call the [ModifyInstanceAutoRenewalAttribute](~~145979~~) operation to modify the auto-renewal period.
+     * @example 1
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

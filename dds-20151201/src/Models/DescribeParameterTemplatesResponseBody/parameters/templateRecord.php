@@ -9,31 +9,61 @@ use AlibabaCloud\Tea\Model;
 class templateRecord extends Model
 {
     /**
+     * @description The value range of modifiable parameters.
+     *
+     * @example [0-65536]
+     *
      * @var string
      */
     public $checkingCode;
 
     /**
+     * @description Indicates whether the parameter is modifiable.
+     *
+     *   **false**: The parameter cannot be modified.
+     *   **true**: The parameter can be modified.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $forceModify;
 
     /**
+     * @description Indicates whether a restart is required for parameter modifications to take effect.
+     *
+     *   **false**: A restart is not required. Parameter modifications immediately take effect.
+     *   **true**: A restart is required for parameter modifications to take effect.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $forceRestart;
 
     /**
+     * @description The description of the parameter.
+     *
+     * @example The threshold in milliseconds at which the database profiler considers a query slow, default is 100.
+     *
      * @var string
      */
     public $parameterDescription;
 
     /**
+     * @description The name of the parameter.
+     *
+     * @example net.compression.compressors
+     *
      * @var string
      */
     public $parameterName;
 
     /**
+     * @description The default value of the parameter.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $parameterValue;

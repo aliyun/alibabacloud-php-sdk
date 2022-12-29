@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceNetExpireTimeRequest extends Model
 {
     /**
+     * @description The retention period of the original classic network address. Valid values: **14**, **30**, **60**, and** 120**. Unit: day.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $classicExpendExpiredDays;
 
     /**
+     * @description The connection string of the instance
+     *
+     * @example dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bpxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;

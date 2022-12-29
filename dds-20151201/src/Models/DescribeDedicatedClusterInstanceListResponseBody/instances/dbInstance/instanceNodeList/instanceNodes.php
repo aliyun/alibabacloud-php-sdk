@@ -9,41 +9,76 @@ use AlibabaCloud\Tea\Model;
 class instanceNodes extends Model
 {
     /**
+     * @description The ID of the host to which the instances in a dedicated cluster belong.
+     *
+     * @example ch-t4n**************
+     *
      * @var string
      */
     public $dedicatedHostName;
 
     /**
+     * @description The name of the shard.
+     *
+     * @example xr-dhgi-mongo-21
+     *
      * @var string
      */
     public $insName;
 
     /**
+     * @description The ID of the node.
+     *
+     * @example 4068
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @description The IP address of the node.
+     *
+     * @example 192.168.0.2
+     *
      * @var string
      */
     public $nodeIp;
 
     /**
+     * @description The type of the node.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $nodeType;
 
     /**
+     * @description The port number corresponding to the node.
+     *
+     * @example 3002
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The role of the node. Valid values:
+     *
+     *   **master**: a primary node.
+     *   **slave**: a secondary node.
+     *
+     * @example master
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @description The zone ID of the instance.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;

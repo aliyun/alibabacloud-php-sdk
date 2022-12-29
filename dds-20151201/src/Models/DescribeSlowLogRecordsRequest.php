@@ -9,26 +9,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowLogRecordsRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * >  If you specify this parameter to the ID of a sharded cluster instance, you must also specify the `NodeId` parameter.
+     * @example dds-bp1fc7e65108****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The name of the database.
+     *
+     * @example mongodbtest
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     *
+     * > * The end time must be later than the start time.
+     * > * The end time must be within 24 hours from the start time. Otherwise, the query fails.
+     * @example 2021-08-16T14:13Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the shard node.
+     *
+     * >  This parameter is required only when you specify the `DBInstanceId` parameter to the ID of a sharded cluster instance.
+     * @example d-bp18b06ebc21****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The order of time in which the log entries to return are sorted. Valid values:
+     *
+     *   asc: The log entries are sorted by time in ascending order.
+     *   desc: The log entries are sorted by time in descending order.
+     *
+     * @example asc
+     *
      * @var string
      */
     public $orderType;
@@ -44,16 +71,28 @@ class DescribeSlowLogRecordsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **30** to **100**.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmyiu4ekp****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -74,6 +113,10 @@ class DescribeSlowLogRecordsRequest extends Model
     public $securityToken;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     *
+     * @example 2021-08-15T14:13Z
+     *
      * @var string
      */
     public $startTime;

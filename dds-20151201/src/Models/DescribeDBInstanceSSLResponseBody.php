@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceSSLResponseBody extends Model
 {
     /**
+     * @description The name of the SSL certificate.
+     *
+     * @example dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $certCommonName;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 36BB1BC2-789C-4BBA-A519-C5B388E4B0D4
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The time when the SSL certificate expires. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2020-03-11T02:28:25Z
+     *
      * @var string
      */
     public $SSLExpiredTime;
 
     /**
+     * @description The status of the SSL feature. Valid values:
+     *
+     *   **Open**: The SSL feature is enabled.
+     *   **Closed**: The SSL feature is disabled.
+     *
+     * @example Open
+     *
      * @var string
      */
     public $SSLStatus;

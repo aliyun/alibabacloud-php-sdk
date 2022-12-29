@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class MigrateToOtherZoneRequest extends Model
 {
     /**
+     * @description The time when the instance is migrated to the destination zone. Valid values:
+     *
+     *   **Immediately**: The instance is immediately migrated to the destination zone.
+     *   **MaintainTime**: The instance is migrated during the maintenance period of the instance.
+     *
+     * Default value: **Immediately**.
+     * @example Immediately
+     *
      * @var string
      */
     public $effectiveTime;
 
     /**
+     * @description The ID of the instance.
+     *
+     * >  If the network type of the instance is VPC, you must specify the **Vswitch** parameter .
+     * @example dds-bp2658****
+     *
      * @var string
      */
     public $instanceId;
@@ -39,11 +52,22 @@ class MigrateToOtherZoneRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the vSwitch in the destination zone.
+     *
+     * >  This parameter is valid and required only when the network type of the instance is VPC.
+     * @example vsw-bp67ac****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the destination zone to which you want to migrate the ApsaraDB for MongoDB instance.
+     *
+     * > * The destination and source zones must be in one region.
+     * > * You can call [DescribeRegions](~~61933~~) to query the zone IDs.
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

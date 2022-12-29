@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceMonitorRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bp1143f90ff3****
+     *
      * @var string
      */
     public $DBInstanceId;

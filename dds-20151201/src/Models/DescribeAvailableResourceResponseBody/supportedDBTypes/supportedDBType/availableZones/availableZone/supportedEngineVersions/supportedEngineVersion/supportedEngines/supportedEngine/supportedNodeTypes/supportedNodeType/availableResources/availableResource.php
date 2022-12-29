@@ -10,16 +10,24 @@ use AlibabaCloud\Tea\Model;
 class availableResource extends Model
 {
     /**
+     * @description The storage capacity range of the instance.
+     *
      * @var DBInstanceStorageRange
      */
     public $DBInstanceStorageRange;
 
     /**
+     * @description The instance class.
+     *
+     * @example mdb.shard.2x.xlarge.d
+     *
      * @var string
      */
     public $instanceClass;
 
     /**
+     * @description The instance type.
+     *
      * @var string
      */
     public $instanceClassRemark;

@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class logRecords extends Model
 {
     /**
+     * @description The username of the database account that performs the operation.
+     *
+     * @example root
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The name of the database.
+     *
+     * @example mongodbtest
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The number of documents that are scanned during the operation.
+     *
+     * @example 1000000
+     *
      * @var int
      */
     public $docsExamined;
 
     /**
+     * @description The start time of the operation. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-02-25T 01:41:28Z
+     *
      * @var string
      */
     public $executionStartTime;
 
     /**
+     * @description The host IP address that is used to connect to the database.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $hostAddress;
 
     /**
+     * @description The data entries that are scanned during indexing.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $keysExamined;
 
     /**
+     * @description The execution time of the statement. Unit: milliseconds.
+     *
+     * @example 600
+     *
      * @var string
      */
     public $queryTimes;
 
     /**
+     * @description The number of entries returned.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $returnRowCounts;
 
     /**
+     * @description The SQL statement that is executed during the slow operation.
+     *
+     * @example {\"op\":\"query\",\"ns\":\"mongodbtest.customer\",\"query\":{\"find\":\"customer\",\"filter\":{\"name\":\"jack\"}}}
+     *
      * @var string
      */
     public $SQLText;
 
     /**
+     * @description The name of the collection.
+     *
+     * @example C1
+     *
      * @var string
      */
     public $tableName;

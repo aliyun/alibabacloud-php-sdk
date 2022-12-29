@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyResourceGroupRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bp1366caac83****
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -24,11 +28,19 @@ class ModifyResourceGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group. For more information, see [View basic information of a resource group](~~151181~~).
+     *
+     * @example rg-acfmyiu4ekp****
+     *
      * @var string
      */
     public $resourceGroupId;

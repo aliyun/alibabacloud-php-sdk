@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ResetAccountPasswordRequest extends Model
 {
     /**
+     * @description The account for which you want to reset the password. Set the value to **root**.
+     *
+     * @example root
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The new password.
+     *
+     *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include `! # $ % ^ & * ( ) _ + - =`
+     *   The password must be 8 to 32 characters in length.
+     *
+     * @example Ali!123456
+     *
      * @var string
      */
     public $accountPassword;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bpxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;

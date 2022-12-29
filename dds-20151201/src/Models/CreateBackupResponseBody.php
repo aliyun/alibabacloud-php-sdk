@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateBackupResponseBody extends Model
 {
     /**
+     * @description The ID of the backup set.
+     *
+     * @example 5664****
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7016B12F-7F64-40A4-BAFF-013F02AC82FC
+     *
      * @var string
      */
     public $requestId;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeAuditRecordsResponseBody extends Model
 {
     /**
+     * @description An array that consists of the information of audit log entries.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The maximum number of entries on the current page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3278BEB8-503B-4E46-8F7E-D26E040C9769
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries.
+     *
+     * @example 40
+     *
      * @var int
      */
     public $totalRecordCount;

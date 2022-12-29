@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class MigrateAvailableZoneResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 0FDDC511-7252-4A4A-ADDA-5CB1BF63****
+     *
      * @var string
      */
     public $requestId;

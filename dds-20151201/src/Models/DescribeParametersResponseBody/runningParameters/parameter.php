@@ -9,31 +9,61 @@ use AlibabaCloud\Tea\Model;
 class parameter extends Model
 {
     /**
+     * @description The valid values of the parameter.
+     *
+     * @example [33554432-268435456]
+     *
      * @var string
      */
     public $checkingCode;
 
     /**
+     * @description Indicates whether a restart is required for parameter modifications to take effect.
+     *
+     *   **false**: A restart is not required. Modifications take effect immediately.
+     *   **true**: A restart is required for modifications to take effect.
+     *
+     * @example false
+     *
      * @var string
      */
     public $forceRestart;
 
     /**
+     * @description Indicates whether the parameter is modifiable.
+     *
+     *   **false**: The parameter is not modifiable.
+     *   **true**: The parameter is modifiable.
+     *
+     * @example true
+     *
      * @var string
      */
     public $modifiableStatus;
 
     /**
+     * @description The description of the parameter.
+     *
+     * @example The maximum memory bytes that sort stage may use, default is 33554432(i.e. 32MB)
+     *
      * @var string
      */
     public $parameterDescription;
 
     /**
+     * @description The name of the parameter.
+     *
+     * @example setParameter.internalQueryExecMaxBlockingSortBytes
+     *
      * @var string
      */
     public $parameterName;
 
     /**
+     * @description The value of the parameter.
+     *
+     * @example 33554432
+     *
      * @var string
      */
     public $parameterValue;

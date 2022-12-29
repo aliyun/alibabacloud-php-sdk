@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBInstanceRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCzxxxxxxxxxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bpxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;

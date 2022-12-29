@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class SwitchDBInstanceHAResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 26BD4E5F-BDB4-47BA-B232-413AA78CFA8F
+     *
      * @var string
      */
     public $requestId;

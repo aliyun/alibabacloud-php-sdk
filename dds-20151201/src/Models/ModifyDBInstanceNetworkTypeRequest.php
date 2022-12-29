@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceNetworkTypeRequest extends Model
 {
     /**
+     * @description The retention period of the original classic network address when you change the network type to VPC. Valid values: **14**, **30**, **60**, and **120**. Unit: days.
+     *
+     * >  This parameter is required when the **NetworkType** parameter is set to **VPC** and the **RetainClassic** parameter is set to **True**.
+     * @example 30
+     *
      * @var int
      */
     public $classicExpiredDays;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bp11483712c1****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The network type to switch to. Valid values:
+     *
+     *   **VPC**
+     *   **Classic**
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;
@@ -44,6 +60,15 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies whether to retain the original classic network address when you change the network type to VPC. Valid values:
+     *
+     * - **True**: retains the original classic network address.
+     * - **False**: does not retain the original classic network address.
+     *
+     * > * This parameter is required when the **NetworkType** parameter is set to **VPC**.
+     * > * If you set this parameter to **True**, you must also specify the **ClassicExpiredDays** parameter.
+     * @example False
+     *
      * @var string
      */
     public $retainClassic;
@@ -54,11 +79,21 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * >  This parameter is required when the **NetworkType** parameter is set to **VPC**.
+     * @example vsw-bp1vj604nj5a9zz74****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
+     * >  This parameter is required when the **NetworkType** parameter is set to **VPC**.
+     * @example vpc-bp1n3i15v90el48nx****
+     *
      * @var string
      */
     public $vpcId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityGroupConfigurationRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bpxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;

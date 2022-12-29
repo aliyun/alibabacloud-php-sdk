@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDBInstanceKernelVersionRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bp2235****
+     *
      * @var string
      */
     public $DBInstanceId;

@@ -9,56 +9,117 @@ use AlibabaCloud\Tea\Model;
 class ModifyNodeSpecRequest extends Model
 {
     /**
+     * @description Specifies whether to enable automatic payment. Default value: true. Valid values:
+     *
+     *   **true**: enables automatic payment. Make sure that you have sufficient balance within your account.
+     *   **false**: disables automatic payment. In this case, you must manually pay for the instance.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @description The business information. This is an additional parameter.
+     *
+     * @example {“ActivityId":"000000000"}
+     *
      * @var string
      */
     public $businessInfo;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCz****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The coupon code. Default value: `youhuiquan_promotion_option_id_for_blank`.
+     *
+     * @example youhuiquan_promotion_option_id_for_blank
+     *
      * @var string
      */
     public $couponNo;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bp1c0b990184****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The time when the changed configurations take effect. Default value: Immediately. Valid values:
+     *
+     *   **Immediately**: The new configurations immediately take effect
+     *   **MaintainTime**: The new configurations take effect during the maintenance window of the instance.
+     *
+     * @example Immediately
+     *
      * @var string
      */
     public $effectiveTime;
 
     /**
+     * @description The source of the request. Valid values:
+     *
+     *   **OpenApi**: the ApsaraDB for MongoDB API
+     *   **mongo_buy**: the ApsaraDB for MongoDB console
+     *
+     * @example OpenApi
+     *
      * @var string
      */
     public $fromApp;
 
     /**
+     * @description The instance type of the shard or mongos node. For more information, see [Instance types](~~57141~~).
+     *
+     * @example dds.mongos.standard
+     *
      * @var string
      */
     public $nodeClass;
 
     /**
+     * @description The ID of the shard or mongos node in the sharded cluster instance. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the node ID.
+     *
+     * >  If you set this parameter to the ID of a shard node, you must also specify the **NodeStorage** parameter.
+     * @example s-bp143e1b1637****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The storage capacity of the shard node. Unit: GB.
+     *
+     *   Valid values are **10** to **2000** if the instance uses local SSDs.
+     *   Valid values are **20** to **16000** if the instance uses enhanced SSDs (ESSDs) at PL1.
+     *
+     * >  The value must be a multiple of 10.
+     * @example 20
+     *
      * @var int
      */
     public $nodeStorage;
 
     /**
+     * @description The order type. Valid values:
+     *
+     *   **UPGRADE**
+     *   **DOWNGRADE**
+     *
+     * @example UPGRADE
+     *
      * @var string
      */
     public $orderType;
@@ -74,6 +135,11 @@ class ModifyNodeSpecRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of read-only nodes in the shard node.
+     *
+     * Valid values: **0** to **5**. The value must be an integer. Default value: **0**.
+     * @example 5
+     *
      * @var int
      */
     public $readonlyReplicas;
@@ -94,6 +160,10 @@ class ModifyNodeSpecRequest extends Model
     public $securityToken;
 
     /**
+     * @description The execution time. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * @example 2022-01-05T03:18:53Z
+     *
      * @var string
      */
     public $switchTime;

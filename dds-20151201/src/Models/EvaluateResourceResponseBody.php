@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class EvaluateResourceResponseBody extends Model
 {
     /**
+     * @description Indicates whether the resources are sufficient in the region. Valid values:
+     *
+     *   **1**: The resources are sufficient.
+     *   **0**: The resources are insufficient.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $DBInstanceAvailable;
 
     /**
+     * @description The database engine of the instance. The returned value is MongoDB.
+     *
+     * @example MongoDB
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The database engine version of the instance.
+     *
+     * @example 4.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example AE2DE465-E45F-481F-ABD8-37D64173****
+     *
      * @var string
      */
     public $requestId;

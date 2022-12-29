@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceSpecResponseBody extends Model
 {
     /**
+     * @description The ID of the order.
+     *
+     * @example 21012408824****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1E9F1104-19E7-59F0-AB7F-F4EBFDEA****
+     *
      * @var string
      */
     public $requestId;

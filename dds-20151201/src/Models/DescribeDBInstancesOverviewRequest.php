@@ -9,36 +9,81 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancesOverviewRequest extends Model
 {
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   **PrePaid**: subscription
+     *   **PostPaid**: pay-as-you-go
+     *
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The database engine version of the instance. Valid values: **5.0**, **4.4**, **4.2**, **4.0**, and **3.4**.
+     *
+     * @example 4.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The instance type of the instance. The instance type varies based on the instance architecture. For more information about instance types supported by different instance architectures, see the following topics:
+     *
+     *   [Standalone instance types](~~311407~~)
+     *   [Replica set instance types](~~311410~~)
+     *   [Sharded cluster instance types](~~311414~~)
+     *
+     * @example dds.mongo.2xlarge
+     *
      * @var string
      */
     public $instanceClass;
 
     /**
+     * @description The ID of the instance for which you want to query the overview information.
+     *
+     * > * If you do not specify this parameter, the overview information of all instances under this account is queried.
+     * > * Separate the instance IDs with commas (,).
+     * @example dds-bp12c5b040dc****
+     *
      * @var string
      */
     public $instanceIds;
 
     /**
+     * @description The state of the instance. For more information about valid values, see [Instance states](~~63870~~).
+     *
+     * @example Running
+     *
      * @var string
      */
     public $instanceStatus;
 
     /**
+     * @description The category of the instance. Valid values:
+     *
+     * - **sharding**: sharded cluster instance
+     * - **replicate**: replica set or standalone instance
+     *
+     * > * To query the overview information of a sharded cluster instance, you must set the parameter to **sharding**.
+     * > * If you do not specify this parameter, the overview information of all instances under this account is queried.
+     * @example replicate
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   **Classic**
+     *   **VPC**
+     *
+     * @example Classic
+     *
      * @var string
      */
     public $networkType;
@@ -54,11 +99,19 @@ class DescribeDBInstancesOverviewRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group. For more information, see [View basic information of a resource group](~~151181~~).
+     *
+     * @example rg-acfmyiu4ekp****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -79,16 +132,28 @@ class DescribeDBInstancesOverviewRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-bp1e7clcw529l773d****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
+     * @example vpc-bp1nme44gek34slfc****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The ID of the zone.
+     *
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

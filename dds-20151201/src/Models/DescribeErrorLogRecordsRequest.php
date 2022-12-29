@@ -9,21 +9,39 @@ use AlibabaCloud\Tea\Model;
 class DescribeErrorLogRecordsRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+     * @example dds-bp12c5b040dc****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The name of the database.
+     *
+     * @example mongodbtest
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The end of the time range to query. The end time must be later than the start time and within 24 hours from the start time. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     *
+     * @example 2019-01-02T12:10Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the mongos node or shard node whose error logs you want to query in the instance. If the instance is a sharded cluster instance, you must specify this parameter.
+     *
+     * >  This parameter is valid only when **DBInstanceId** is set to the ID of a sharded cluster instance.
+     * @example d-bp128a003436****
+     *
      * @var string
      */
     public $nodeId;
@@ -39,16 +57,28 @@ class DescribeErrorLogRecordsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **30** to **100**.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the resource group. For more information, see [View basic information of a resource group](~~151181~~).
+     *
+     * @example rg-acfmyiu4ekp****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -64,6 +94,14 @@ class DescribeErrorLogRecordsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The role of the node whose error logs you want to query in the instance. Valid values:
+     *
+     *   **primary**
+     *   **secondary**
+     *
+     * >  If you set the **NodeId** parameter to the ID of a mongos node, the RoleType parameter must be set to **primary**.
+     * @example primary
+     *
      * @var string
      */
     public $roleType;
@@ -74,6 +112,10 @@ class DescribeErrorLogRecordsRequest extends Model
     public $securityToken;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     *
+     * @example 2019-01-01T12:10Z
+     *
      * @var string
      */
     public $startTime;

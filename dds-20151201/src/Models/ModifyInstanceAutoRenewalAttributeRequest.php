@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceAutoRenewalAttributeRequest extends Model
 {
     /**
+     * @description Specifies whether to enable auto-renewal. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * >  If this parameter is set to **true**, you must set the **Duration** parameter.
+     * @example true
+     *
      * @var string
      */
     public $autoRenew;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bp15da1923e3****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The auto-renewal period. Valid values: **1** to **12**. Unit: month.
+     *
+     * >  This parameter is valid only when **AutoRenew** is set to **true**.
+     * @example 1
+     *
      * @var string
      */
     public $duration;
@@ -34,6 +51,10 @@ class ModifyInstanceAutoRenewalAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

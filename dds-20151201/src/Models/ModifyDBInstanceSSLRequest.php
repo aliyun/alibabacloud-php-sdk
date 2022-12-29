@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceSSLRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bp2235****
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -34,6 +38,14 @@ class ModifyDBInstanceSSLRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The operation on the SSL feature. Valid values: Valid values:
+     *
+     *   **Open**: enables SSL encryption.
+     *   **Close**: disables SSL encryption.
+     *   **Update**: updates the SSL certificate.
+     *
+     * @example Open
+     *
      * @var string
      */
     public $SSLAction;

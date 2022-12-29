@@ -10,101 +10,181 @@ use AlibabaCloud\Tea\Model;
 class dbInstance extends Model
 {
     /**
+     * @description The type of the ApsaraDB for MongoDB instance. Valid value: **normal**.
+     *
+     **normal**: a replica set instance.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $characterType;
 
     /**
+     * @description The ID of the dedicated cluster to which the instance belongs.
+     *
+     * @example dhg-2x7*************
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The name of the dedicated cluster to which the instance belongs.
+     *
+     * @example TestCluster
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description The time when the instance was created. The time is displayed in the *yyyy*-*MM*-*dd*T*HH*:*mm*:*ss*Z format.
+     *
+     * @example 2020-10-09T06:12:04Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The instance ID of the backend O\&M platform.
+     *
+     * @example 123456789
+     *
      * @var string
      */
     public $customId;
 
     /**
+     * @description The database engine. Valid value: **MongoDB**.
+     *
+     * @example MongoDB
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The version number of the database engine. Valid value: **4.2**.
+     *
+     * @example 4.2
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The instance type. For more information, see **Table 1. Standalone or replica set instance types** in [Instance types](~~57141~~).
+     *
+     * @example mdb.shard.2x.small.s
+     *
      * @var string
      */
     public $instanceClass;
 
     /**
+     * @description The ID of the ApsaraDB for MongoDB instance.
+     *
+     * @example dds-t4n*************
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the ApsaraDB for MongoDB instance.
+     *
+     * @example TestInstance
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description Details about the instance nodes.
+     *
      * @var instanceNodeList
      */
     public $instanceNodeList;
 
     /**
+     * @description The status of the instance. More details of status, please see [instance status list](~~190071~~).
+     *
+     * @example 1
+     *
      * @var string
      */
     public $instanceStatus;
 
     /**
+     * @description The end time of the maintenance window. The time is in the *HH:mmZ* format. The time is displayed in UTC.
+     *
+     * @example 22:00Z
+     *
      * @var string
      */
     public $maintainEndTime;
 
     /**
+     * @description The start time of the maintenance window. The time is in the *HH:mm*Z format. The time is displayed in UTC.
+     *
+     * @example 18:00Z
+     *
      * @var string
      */
     public $maintainStartTime;
 
     /**
+     * @description The region where the instance is deployed.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The ID of the region where the instance is deployed.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of the storage.
+     *
+     * @example CLOUD_ESSD
+     *
      * @var string
      */
     public $storageType;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-bpxxxxxxxx
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The vSwitch ID of the VPC.
+     *
+     * @example vsw-bpxxxxxxxx
+     *
      * @var string
      */
     public $vswitchId;
 
     /**
+     * @description The zone ID of the instance.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;

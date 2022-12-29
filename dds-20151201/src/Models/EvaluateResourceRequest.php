@@ -9,21 +9,44 @@ use AlibabaCloud\Tea\Model;
 class EvaluateResourceRequest extends Model
 {
     /**
+     * @description The instance type.
+     *
+     * >  This parameter is required when you check whether resources are sufficient for creating or upgrading a replica set instance. For more information about instance types, see [Instance types](~~57141~~).
+     * @example dds.mongo.mid
+     *
      * @var string
      */
     public $DBInstanceClass;
 
     /**
+     * @description The ID of the instance. This parameter is required when you check whether resources are sufficient for upgrading an instance.
+     *
+     * @example dds-bp14bf67a76d****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The database engine of the instance. Set the value to **MongoDB**.
+     *
+     * @example MongoDB
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The database engine version of the instance. Valid values:
+     *
+     *   **5.0**
+     *   **4.4**
+     *   **4.2**
+     *   **4.0**
+     *   **3.4**
+     *
+     * @example 4.0
+     *
      * @var string
      */
     public $engineVersion;
@@ -39,16 +62,31 @@ class EvaluateResourceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of read-only nodes. Valid values: **1** to **5**.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $readonlyReplicas;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The number of nodes in the instance.
+     *
+     *   Valid values for standalone instances: **1**
+     *   Valid values for replica set instances: **3**, **5**, and **7**
+     *
+     * @example 3
+     *
      * @var string
      */
     public $replicationFactor;
@@ -69,11 +107,38 @@ class EvaluateResourceRequest extends Model
     public $securityToken;
 
     /**
+     * @description The node information. This parameter is required when you check whether resources are sufficient for creating or upgrading a sharded cluster instance.
+     *
+     *   To check whether resources are sufficient for creating a sharded cluster instance, specify the specifications of each node in the instance. The value must be a JSON string. Example:
+     *
+     * Parameters in the example:
+     *
+     *   ConfigSvrs: the Configserver node.
+     *   Mongos: the mongos node.
+     *   Shards: the shard node.
+     *   Storage: the storage space of the node.
+     *   DBInstanceClass: the instance type of the node. For more information, see [Instance types](~~57141~~).
+     *
+     *   To check whether resources are sufficient for upgrading a node of a sharded cluster instance, specify only the information of the node to be upgraded. The value must be a JSON string. Example:
+     *
+     * {
+     * "NodeId": "d-bp147c4d9ca7****", "NodeClass": "dds.shard.standard"
+     * Parameters in the example:
+     *
+     *   NodeId: the ID of the node. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the node ID.
+     *   NodeClass: the instance type of the node. For more information, see [Instance types](~~57141~~).
+     *
+     * @example {"NodeId": "d-bp147c4d9ca7****", "NodeClass": "dds.shard.standard"}
+     *
      * @var string
      */
     public $shardsInfo;
 
     /**
+     * @description The zone ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent zone list.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;

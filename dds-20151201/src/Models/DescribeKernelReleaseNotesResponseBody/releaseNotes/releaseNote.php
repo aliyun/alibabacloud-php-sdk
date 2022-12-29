@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class releaseNote extends Model
 {
     /**
+     * @description The version number.
+     *
+     * @example mongodb_20180619_0.4.9
+     *
      * @var string
      */
     public $kernelVersion;
 
     /**
+     * @description Publishes the log.
+     *
+     * @example test release note.
+     *
      * @var string
      */
     public $releaseNote;

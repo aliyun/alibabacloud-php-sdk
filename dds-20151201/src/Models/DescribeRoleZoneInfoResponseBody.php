@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeRoleZoneInfoResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 728B9A96-E262-4AE5-915E-3A51CCE2FDA9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array that consists of information of nodes in the zone.
+     *
      * @var zoneInfos
      */
     public $zoneInfos;

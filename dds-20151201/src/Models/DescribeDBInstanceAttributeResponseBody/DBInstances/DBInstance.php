@@ -14,211 +14,462 @@ use AlibabaCloud\Tea\Model;
 class DBInstance extends Model
 {
     /**
+     * @description The I/O throughput consumed by the instance.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $capacityUnit;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   **PrePaid**: subscription
+     *   **PostPaid**: pay-as-you-go
+     *
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description Details of the Configserver nodes.
+     *
+     * >  This parameter is returned if the instance is a sharded cluster instance.
      * @var configserverList
      */
     public $configserverList;
 
     /**
+     * @description The time when the instance was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2022-01-02T07:43:59Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The minor version of the current database in the instance.
+     *
+     * @example 5.0.5-20220721143518_0
+     *
      * @var string
      */
     public $currentKernelVersion;
 
     /**
+     * @description The instance type.
+     *
+     * @example dds.mongo.mid
+     *
      * @var string
      */
     public $DBInstanceClass;
 
     /**
+     * @description The name of the instance.
+     *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bp11483712c1****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description Indicates whether release protection is enabled for the instance. Valid values:
+     *
+     *   **true**: Release protection is enabled.
+     *   **false**: Release protection is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $DBInstanceReleaseProtection;
 
     /**
+     * @description The state of the instance. For more information, see [Instance states](~~63870~~).
+     *
+     * @example Running
+     *
      * @var string
      */
     public $DBInstanceStatus;
 
     /**
+     * @description The storage capacity of the instance.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $DBInstanceStorage;
 
     /**
+     * @description The architecture of the instance. Valid values:
+     *
+     *   **replicate**: replica set instance
+     *   **sharding**: sharded cluster instance
+     *
+     * @example replicate
+     *
      * @var string
      */
     public $DBInstanceType;
 
     /**
+     * @description The database engine of the instance.
+     *
+     * @example MongoDB
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The database engine version of the instance. Valid values:
+     *
+     *   **5.0**
+     *   **4.4**
+     *   **4.2**
+     *   **4.0**
+     *   **3.4**
+     *
+     * @example 4.4
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The time when the subscription instance expires. The time is in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+     *
+     * >  This parameter is returned if the instance is a subscription instance.
+     * @example 2022-02-05T16:00Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description The ID of the secondary zone 2 of the instance. Valid values:
+     *
+     *   **cn-hangzhou-g**: Hangzhou Zone G
+     *   **cn-hangzhou-h**: Hangzhou Zone H
+     *   **cn-hangzhou-i**: Hangzhou Zone I
+     *   **cn-hongkong-b**: Hongkong Zone B
+     *   **cn-hongkong-c**: Hongkong Zone C
+     *   **cn-hongkong-d**: Hongkong Zone D
+     *   **cn-wulanchabu-a**: Ulanqab Zone A
+     *   **cn-wulanchabu-b**: Ulanqab Zone B
+     *   **cn-wulanchabu-c**: Ulanqab Zone C
+     *   **ap-southeast-1a**: Singapore Zone A
+     *   **ap-southeast-1b**: Singapore Zone B
+     *   **ap-southeast-1c**: Singapore Zone C
+     *   **ap-southeast-5a**: Jakarta Zone A
+     *   **ap-southeast-5b**: Jakarta Zone B
+     *   **ap-southeast-5c**: Jakarta Zone C
+     *   **eu-central-1a**: Frankfurt Zone A
+     *   **eu-central-1b**: Frankfurt Zone B
+     *   **eu-central-1c**: Frankfurt Zone C
+     *
+     * >
+     *   This parameter is returned if the instance is a replica set or sharded cluster instance that runs MongoDB 4.4 or 5.0 and uses multi-zone deployment.
+     *   This parameter is returned only if you use the Chine site (aliyun.com).
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $hiddenZoneId;
 
     /**
+     * @description The kind code of the instance. Valid values:
+     *
+     *   **0**: physical machine
+     *   **1**: Elastic Compute Service (ECS) instance
+     *   **2**: Docker cluster
+     *   **18**: Kubernetes cluster
+     *
+     * @example 1
+     *
      * @var string
      */
     public $kindCode;
 
     /**
+     * @description The date when the last downgrade operation was performed.
+     *
+     * @example 2022-01-08
+     *
      * @var string
      */
     public $lastDowngradeTime;
 
     /**
+     * @description The lock state of the instance. Valid values:
+     *
+     *   **Unlock**: The instance is not locked.
+     *   **ManualLock**: The instance is manually locked.
+     *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
+     *   **LockByRestoration**: The instance is automatically locked before it is rolled back.
+     *   **LockByDiskQuota**: The instance is automatically locked due to exhausted storage capacity.
+     *   **Released**: The instance is released.
+     *
+     * @example Unlock
+     *
      * @var string
      */
     public $lockMode;
 
     /**
+     * @description The end time of the maintenance window of the instance.
+     *
+     * @example 03:00Z
+     *
      * @var string
      */
     public $maintainEndTime;
 
     /**
+     * @description The start time of the maintenance window. The time is in the *HH:mm*Z format. The time is displayed in UTC.
+     *
+     * @example 18:00Z
+     *
      * @var string
      */
     public $maintainStartTime;
 
     /**
+     * @description The maximum number of connections to the instance.
+     *
+     * @example 500
+     *
      * @var int
      */
     public $maxConnections;
 
     /**
+     * @description The maximum IOPS of the instance.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $maxIOPS;
 
     /**
+     * @description Details of the mongos nodes.
+     *
+     * >  This parameter is returned if the instance is a sharded cluster instance.
      * @var mongosList
      */
     public $mongosList;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   **Classic**: classic network
+     *   **VPC**: VPC
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The access protocol type of the instance. Valid values:
+     *
+     * - **mongodb**: the MongoDB protocol
+     * - **dynamodb**: the DynamoDB protocol
+     *
+     * >  This parameter is returned if the instance is a sharded cluster instance.
+     * @example mongodb
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @description The number of read-only nodes in the instance.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $readonlyReplicas;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The logical ID of the replica instance.
+     *
+     * >  ApsaraDB for MongoDB does not support new instances of this type. This parameter applies only to previous-version replica instances.
+     * @example bls-m****
+     *
      * @var string
      */
     public $replacateId;
 
     /**
+     * @description The name of the replica set instance.
+     *
+     * >  This parameter is returned if the instance is a replica set instance.
+     * @example mgset-10ace****
+     *
      * @var string
      */
     public $replicaSetName;
 
     /**
+     * @description Details of the replica set instance.
+     *
+     * >  This parameter is returned if the instance is a replica set instance.
      * @var replicaSets
      */
     public $replicaSets;
 
     /**
+     * @description The number of nodes in the instance.
+     *
+     * >  This parameter is returned if the instance is a replica set instance.
+     * @example 3
+     *
      * @var string
      */
     public $replicationFactor;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * >  This parameter is returned only if you use the Chine site (aliyun.com).
+     * @example rg-acfmyiu4ekp****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The ID of the secondary zone 1 of the instance. Valid values:
+     *
+     *   **cn-hangzhou-g**: Hangzhou Zone G
+     *   **cn-hangzhou-h**: Hangzhou Zone H
+     *   **cn-hangzhou-i**: Hangzhou Zone I
+     *   **cn-hongkong-b**: Hongkong Zone B
+     *   **cn-hongkong-c**: Hongkong Zone C
+     *   **cn-hongkong-d**: Hongkong Zone D
+     *   **cn-wulanchabu-a**: Ulanqab Zone A
+     *   **cn-wulanchabu-b**: Ulanqab Zone B
+     *   **cn-wulanchabu-c**: Ulanqab Zone C
+     *   **ap-southeast-1a**: Singapore Zone A
+     *   **ap-southeast-1b**: Singapore Zone B
+     *   **ap-southeast-1c**: Singapore Zone C
+     *   **ap-southeast-5a**: Jakarta Zone A
+     *   **ap-southeast-5b**: Jakarta Zone B
+     *   **ap-southeast-5c**: Jakarta Zone C
+     *   **eu-central-1a**: Frankfurt Zone A
+     *   **eu-central-1b**: Frankfurt Zone B
+     *   **eu-central-1c**: Frankfurt Zone C
+     *
+     * >
+     *   This parameter is returned if the instance is a replica set or sharded cluster instance that runs MongoDB 4.4 or 5.0 and uses multi-zone deployment.
+     *   This parameter is returned only if you use the Chine site (aliyun.com).
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $secondaryZoneId;
 
     /**
+     * @description Details of the shard nodes.
+     *
+     * >  This parameter is returned if the instance is a sharded cluster instance.
      * @var shardList
      */
     public $shardList;
 
     /**
+     * @description The storage engine of the instance.
+     *
+     * @example WiredTiger
+     *
      * @var string
      */
     public $storageEngine;
 
     /**
+     * @description Details of the instance tags.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The ID of the instance.
+     *
+     * >  This parameter is returned if the network type of the instance is VPC.
+     * @example dds-bp11483712c1****
+     *
      * @var string
      */
     public $VPCCloudInstanceIds;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * >  This parameter is returned if the network type of the instance is VPC.
+     * @example vpc-bp1n3i15v90el48nx****
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * >  This parameter is returned if the network type of the instance is VPC.
+     * @example vsw-bp1oo2a7isyrb8igf****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description Indicates whether password-free access within the VPC is enabled. Valid values:
+     *
+     * - **Open**: Password-free access is enabled.
+     * - **Close**: Password-free access is disabled, and you must use a password for access.
+     * - **NotSupport**: Password-free access is not supported.
+     * @example Open
+     *
      * @var string
      */
     public $vpcAuthMode;
 
     /**
+     * @description The zone ID of the instance.
+     *
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

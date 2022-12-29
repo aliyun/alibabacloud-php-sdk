@@ -9,36 +9,72 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedClusterInstanceListRequest extends Model
 {
     /**
+     * @description The ID of the dedicated cluster to which the instance belongs.
+     *
+     * >  Separate multiple IDs with commas (,).
+     * @example dhg-****************
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The name of the dedicated host.
+     *
+     * >  Separate multiple names with commas (,).
+     * @example ch-****************
+     *
      * @var string
      */
     public $dedicatedHostName;
 
     /**
+     * @description The database engine. Set the value to MongoDB.
+     *
+     * @example MongoDB
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The version number of the database engine. Set the value to **4.2**.
+     *
+     * @example 4.2
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The ID of the ApsaraDB for MongoDB instance.
+     *
+     * >  Separate multiple IDs with commas (,).
+     * @example dds-t4n**********
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   0: The instance is connected over the Internet.
+     *   1: The instance is connected over an internal network.
+     *   2\. The instance is deployed in a VPC.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var string
      */
     public $instanceNetType;
 
     /**
+     * @description The status of the instance. For information about the valid values of this parameter, see [Valid values of the InstanceStatus parameter for DescribeDedicatedClusterInstanceList](~~190071~~).
+     *
+     * @example 1
+     *
      * @var string
      */
     public $instanceStatus;
@@ -54,16 +90,28 @@ class DescribeDedicatedClusterInstanceListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Valid values: any non-zero positive integer. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -84,6 +132,10 @@ class DescribeDedicatedClusterInstanceListRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the zone. You can call [DescribeZones](~~61933~~) to query the zone ID.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;

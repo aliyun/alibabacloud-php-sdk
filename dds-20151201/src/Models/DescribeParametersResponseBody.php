@@ -11,26 +11,42 @@ use AlibabaCloud\Tea\Model;
 class DescribeParametersResponseBody extends Model
 {
     /**
+     * @description The list of instance parameters in the configuration template.
+     *
      * @var configParameters
      */
     public $configParameters;
 
     /**
+     * @description The database engine. Default value: **mongodb**.
+     *
+     * @example mongodb
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The version number of the database.
+     *
+     * @example 4.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3ADD0C7D-2D2A-4F15-88FF-E7AC9B9FDCC8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of instance parameters that have taken effect.
+     *
      * @var runningParameters
      */
     public $runningParameters;

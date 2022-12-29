@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CreateDBInstanceResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bp144a7f2db8****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The ID of the order.
+     *
+     * @example 21077576248****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D8F1D721-6439-4257-A89C-F1E8E9C9****
+     *
      * @var string
      */
     public $requestId;

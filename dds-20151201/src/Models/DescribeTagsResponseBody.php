@@ -10,16 +10,27 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagsResponseBody extends Model
 {
     /**
+     * @description The token used to start the next query.
+     *
+     * >  If not all results are returned in the first query, this parameter is returned. You can pass in the value of this parameter in the next query.
+     * @example 212db86****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example EEDBE38F-5CF5-4316-AAC2-35817BA60D68
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Details about the tags.
+     *
      * @var tags[]
      */
     public $tags;

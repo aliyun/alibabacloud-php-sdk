@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class TransformToPrePaidResponseBody extends Model
 {
     /**
+     * @description The ID of the order.
+     *
+     * @example 21022019252****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 2F42BB4E-461F-5B55-A37C-53B1141C****
+     *
      * @var string
      */
     public $requestId;

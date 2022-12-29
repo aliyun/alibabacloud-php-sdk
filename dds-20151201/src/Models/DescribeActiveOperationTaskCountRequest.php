@@ -19,6 +19,10 @@ class DescribeActiveOperationTaskCountRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example sg-bp5689ac****
+     *
      * @var string
      */
     public $resourceGroupId;

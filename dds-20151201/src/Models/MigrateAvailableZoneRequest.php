@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class MigrateAvailableZoneRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * >  If the instance is deployed in a VPC, you must specify the **Vswitch** parameter.
+     * @example dds-bp1ece71ff2f****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The time when the instance is migrated to the destination zone. Valid values:
+     *
+     *   **Immediately**: The instance is immediately migrated to the destination zone.
+     *   **MaintainTime**: The instance is migrated to the destination zone during the maintenance window of the instance.
+     *
+     * Default value: **Immediately**.
+     * @example Immediately
+     *
      * @var string
      */
     public $effectiveTime;
@@ -39,11 +52,22 @@ class MigrateAvailableZoneRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the vSwitch in the destination zone.
+     *
+     * >  If the instance is deployed in a VPC, you must specify this parameter.
+     * @example vsw-bp1buy0h9myt5i9e7****
+     *
      * @var string
      */
     public $vswitch;
 
     /**
+     * @description The ID of the destination zone.
+     *
+     * > * The source zone and the destination zone belong to the same region.
+     * > * You can call the [DescribeRegions](~~61933~~) operation to query the most recent zone list.
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

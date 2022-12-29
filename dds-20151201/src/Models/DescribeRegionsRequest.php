@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsRequest extends Model
 {
     /**
+     * @description Specifies the language of the returned **RegionName** and **ZoneName** values. Default value: zh. Valid values:
+     *
+     *   **zh**: Chinese.
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
@@ -24,6 +31,11 @@ class DescribeRegionsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region.
+     *
+     * >  If you do not specify this parameter, all supported regions are queried.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDBInstanceEngineVersionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example C4907B00-A208-4E0C-A636-AA85140E406C
+     *
      * @var string
      */
     public $requestId;

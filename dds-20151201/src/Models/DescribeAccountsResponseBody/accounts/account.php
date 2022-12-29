@@ -9,26 +9,53 @@ use AlibabaCloud\Tea\Model;
 class account extends Model
 {
     /**
+     * @description The description of the account.
+     *
      * @var string
      */
     public $accountDescription;
 
     /**
+     * @description The name of the account.
+     *
+     * @example root
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The status of the account.
+     *
+     *   Unavailable
+     *   Available
+     *
+     * @example Available
+     *
      * @var string
      */
     public $accountStatus;
 
     /**
+     * @description The role of the account. Valid values:
+     *
+     *   db: shard
+     *   cs: Configserver
+     *   mongos: mongos
+     *   logic: sharded cluster instance
+     *   normal: replica set instance
+     *
+     * @example mongos
+     *
      * @var string
      */
     public $characterType;
 
     /**
+     * @description The name of the instance to which the account belongs.
+     *
+     * @example dds-bp1fd530f271****
+     *
      * @var string
      */
     public $DBInstanceId;

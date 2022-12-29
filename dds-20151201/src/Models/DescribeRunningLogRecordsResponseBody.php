@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeRunningLogRecordsResponseBody extends Model
 {
     /**
+     * @description The database engine.
+     *
+     * @example MongoDB
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description Details about the operational log entries.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 45D2B592-DEBA-4347-BBF3-47FF6C97DBBC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalRecordCount;

@@ -10,61 +10,141 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancesRequest extends Model
 {
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   **PrePaid**: subscription
+     *   **PostPaid**: pay-as-you-go
+     *
+     * @example PrePaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The endpoint of the node. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the endpoint of the node.
+     *
+     * @example dds-bp1ea17b41abecf43****.mongodb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionDomain;
 
     /**
+     * @description The instance type. For more information about valid values, see [Instance types](~~57141~~).
+     *
+     * @example dds.mongo.mid
+     *
      * @var string
      */
     public $DBInstanceClass;
 
     /**
+     * @description The name of the instance. Valid values:
+     *
+     *   The name must start with a letter.
+     *   The name can contain digits, letters, underscores (\_), and hyphens (-).
+     *   The name must be 2 to 256 characters in length.
+     *
+     * @example test database
+     *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bp199659b178****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The state of the instance. For more information about valid values, see [Instance states](~~63870~~).
+     *
+     * @example Running
+     *
      * @var string
      */
     public $DBInstanceStatus;
 
     /**
+     * @description The architecture of the instance. Default value: replicate. Valid values:
+     *
+     *   **sharding**: sharded cluster instance
+     *   **replicate**: replica set or standalone instance
+     *
+     * @example sharding
+     *
      * @var string
      */
     public $DBInstanceType;
 
     /**
+     * @description Used to filter standard instances or test instances
+     *
+     * 3. Default (showing all instances): default
+     * @example default
+     *
+     * @var string
+     */
+    public $DBNodeType;
+
+    /**
+     * @description The database engine of the instance. Set the value to **MongoDB**.
+     *
+     * @example MongoDB
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The database engine version of the instance. Valid values:
+     *
+     * **5.0**
+     * **4.4**
+     * **4.2**
+     * **4.0**
+     * **3.4**
+     *
+     * @example 4.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The time when the instance expires.
+     *
+     * @example 2019-12-26T16:00Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description Specifies whether the instance has expired. Valid values:
+     *
+     *   **true**: The instance has expired.
+     *   **false**: The instance has not expired.
+     *
+     * @example true
+     *
      * @var string
      */
     public $expired;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   **Classic**: classic network
+     *   **VPC**: Virtual Private Cloud (VPC)
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;
@@ -80,26 +160,54 @@ class DescribeDBInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. The value of this parameter must be an integer that is greater than 0. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 30. Valid values:
+     *
+     *   **30**
+     *   **50**
+     *   **100**
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The number of nodes in the replica set instance. Valid values:
+     *
+     *   **3**
+     *   **5**
+     *   **7**
+     *
+     * @example 3
+     *
      * @var string
      */
     public $replicationFactor;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmyiu4ekp****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -120,21 +228,35 @@ class DescribeDBInstancesRequest extends Model
     public $securityToken;
 
     /**
+     * @description The tags of instances.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-bp1vj604nj5a9zz74****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-bp1n3i15v90el48nx****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The zone ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent zone list.
+     *
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;
@@ -146,6 +268,7 @@ class DescribeDBInstancesRequest extends Model
         'DBInstanceId'          => 'DBInstanceId',
         'DBInstanceStatus'      => 'DBInstanceStatus',
         'DBInstanceType'        => 'DBInstanceType',
+        'DBNodeType'            => 'DBNodeType',
         'engine'                => 'Engine',
         'engineVersion'         => 'EngineVersion',
         'expireTime'            => 'ExpireTime',
@@ -194,6 +317,9 @@ class DescribeDBInstancesRequest extends Model
         }
         if (null !== $this->DBInstanceType) {
             $res['DBInstanceType'] = $this->DBInstanceType;
+        }
+        if (null !== $this->DBNodeType) {
+            $res['DBNodeType'] = $this->DBNodeType;
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
@@ -290,6 +416,9 @@ class DescribeDBInstancesRequest extends Model
         }
         if (isset($map['DBInstanceType'])) {
             $model->DBInstanceType = $map['DBInstanceType'];
+        }
+        if (isset($map['DBNodeType'])) {
+            $model->DBNodeType = $map['DBNodeType'];
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];

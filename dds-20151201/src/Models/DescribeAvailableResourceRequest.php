@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableResourceRequest extends Model
 {
     /**
+     * @description The architecture of the instance. Valid values:
+     *
+     *   **normal**: replica set instance
+     *   **sharding**: sharded cluster instance
+     *
+     * @example sharding
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @description The billing method of the instance. Default value: PrePaid. Valid values:
+     *
+     *   **PrePaid**: subscription
+     *   **PostPaid**: pay-as-you-go
+     *
+     * @example PrePaid
+     *
      * @var string
      */
     public $instanceChargeType;
@@ -29,11 +43,19 @@ class DescribeAvailableResourceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmyiu4ekp****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -54,6 +76,10 @@ class DescribeAvailableResourceRequest extends Model
     public $securityToken;
 
     /**
+     * @description The zone ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent zone list.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class securityIpGroup extends Model
 {
     /**
+     * @description The attribute of the IP whitelist. This parameter is empty by default.
+     *
+     * @example hidden
+     *
      * @var string
      */
     public $securityIpGroupAttribute;
 
     /**
+     * @description The name of the IP whitelist.
+     *
+     * @example default
+     *
      * @var string
      */
     public $securityIpGroupName;
 
     /**
+     * @description The IP addresses in the whitelist.
+     *
+     * @example 47.xxx.xxx.xx,100.xxx.xxx.0/24
+     *
      * @var string
      */
     public $securityIpList;

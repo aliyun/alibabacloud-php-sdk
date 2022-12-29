@@ -9,31 +9,61 @@ use AlibabaCloud\Tea\Model;
 class parameter extends Model
 {
     /**
+     * @description The valid values of the parameter.
+     *
+     * @example [0-65536]
+     *
      * @var string
      */
     public $checkingCode;
 
     /**
+     * @description Indicates whether a restart is required for parameter modifications to take effect.
+     *
+     *   **false**: A restart is not required. Modifications take effect immediately.
+     *   **true**: A restart is required for modifications to take effect.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $forceRestart;
 
     /**
+     * @description Indicates whether the parameter is modifiable.
+     *
+     *   **false**: The parameter is not modifiable.
+     *   **true**: The parameter is modifiable.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $modifiableStatus;
 
     /**
+     * @description The description of the parameter.
+     *
+     * @example The threshold in milliseconds at which the database profiler considers a query slow, default is 100.
+     *
      * @var string
      */
     public $parameterDescription;
 
     /**
+     * @description The name of the parameter.
+     *
+     * @example operationProfiling.slowOpThresholdMs
+     *
      * @var string
      */
     public $parameterName;
 
     /**
+     * @description The value of the parameter.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $parameterValue;

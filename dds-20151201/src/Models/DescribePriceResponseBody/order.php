@@ -11,31 +11,54 @@ use AlibabaCloud\Tea\Model;
 class order extends Model
 {
     /**
+     * @description Details about the coupons.
+     *
      * @var coupons
      */
     public $coupons;
 
     /**
+     * @description The type of the currency. Valid values:
+     *
+     *   USD: United States dollar
+     *   JPY: Japanese Yen.
+     *
+     * @example USD
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @description The discount amount of the order.
+     *
+     * @example 322.4
+     *
      * @var string
      */
     public $discountAmount;
 
     /**
+     * @description The original price of the order.
+     *
+     * @example 322.4
+     *
      * @var string
      */
     public $originalAmount;
 
     /**
+     * @description The list of one or more promotion rule IDs.
+     *
      * @var ruleIds
      */
     public $ruleIds;
 
     /**
+     * @description The actual price of the order.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $tradeAmount;

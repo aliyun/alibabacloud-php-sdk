@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceConnectionStringRequest extends Model
 {
     /**
+     * @description The current connection string, which is to be modified.
+     *
+     * @example s-bpxxxxxxxx.mongodb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $currentConnectionString;
 
     /**
+     * @description The ID of the instance.
+     *
+     * >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+     * @example dds-bpxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The new connection string. It must be 8 to 64 characters in length and can contain letters and digits. It must start with a lowercase letter.
+     *
+     * >  You need only to specify the prefix of the connection string. The content other than the prefix cannot be modified.
+     * @example aliyuntest111
+     *
      * @var string
      */
     public $newConnectionString;
 
     /**
+     * @description The ID of the mongos in the specified sharded cluster instance. Only one mongos ID can be specified in each call.
+     *
+     * >  This parameter is valid only if you set the **DBInstanceId** parameter to the ID of a sharded cluster instance.
+     * @example s-bpxxxxxxxx
+     *
      * @var string
      */
     public $nodeId;

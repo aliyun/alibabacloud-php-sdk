@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceAttributeRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bp11483712c1****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The database engine of the instance. The value is set to **MongoDB**.
+     *
+     * @example MongoDB
+     *
      * @var string
      */
     public $engine;
@@ -29,6 +37,11 @@ class DescribeDBInstanceAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group. For more information, see [View basic information of a resource group](~~151181~~).
+     *
+     * >  This parameter is available only if you use the China site (aliyun.com).
+     * @example rg-acfmyiu4ekp****
+     *
      * @var string
      */
     public $resourceGroupId;

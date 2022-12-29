@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeReplicaSetRoleResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bpxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description Details about the replica set roles.
+     *
      * @var replicaSets
      */
     public $replicaSets;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DB4A0595-FCA9-437F-B2BB-25DBFC009D3E
+     *
      * @var string
      */
     public $requestId;

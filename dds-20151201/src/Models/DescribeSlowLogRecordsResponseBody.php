@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowLogRecordsResponseBody extends Model
 {
     /**
+     * @description The database engine.
+     *
+     * @example MongoDB
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description Details about the slow query logs.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The page number of the returned page. The value must be an integer that is greater than 0. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of slow query log entries returned on the page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 8076C4BA-DDBD-529C-BFF4-D8620C3F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalRecordCount;

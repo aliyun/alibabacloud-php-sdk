@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DeleteNodeResponseBody extends Model
 {
     /**
+     * @description The order ID of the instance.
+     *
+     * @example 111111111111111
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 9F9BDE64-BF30-41F3-BD29-C19CE4AB3404
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 111111111
+     *
      * @var int
      */
     public $taskId;

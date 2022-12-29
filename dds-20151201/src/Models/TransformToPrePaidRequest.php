@@ -9,26 +9,54 @@ use AlibabaCloud\Tea\Model;
 class TransformToPrePaidRequest extends Model
 {
     /**
+     * @description Specifies whether to enable automatic payment. Valid values:
+     *
+     *   **true**: enables automatic payment.
+     *   **false**: disables automatic payment. For more information, see [Renew an ApsaraDB for MongoDB subscription instance](~~85052~~).
+     *
+     * >  Default value: **true**.
+     * @example true
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @description Specifies whether to enable auto-renewal for the instance. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * >  Default value: **false**.
+     * @example true
+     *
      * @var string
      */
     public $autoRenew;
 
     /**
+     * @description The business information. This is an additional parameter.
+     *
+     * @example {“ActivityId":"000000000"}
+     *
      * @var string
      */
     public $businessInfo;
 
     /**
+     * @description The coupon code. Default value: `youhuiquan_promotion_option_id_for_blank`.
+     *
+     * @example youhuiquan_promotion_option_id_for_blank
+     *
      * @var string
      */
     public $couponNo;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bp1366caac83****
+     *
      * @var string
      */
     public $instanceId;
@@ -44,6 +72,10 @@ class TransformToPrePaidRequest extends Model
     public $ownerId;
 
     /**
+     * @description The subscription duration of the instance. Unit: months. Valid values: **1, 2, 3, 4, 5, 6, 7, 8, 9******, **12**, **24**, and **36**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $period;

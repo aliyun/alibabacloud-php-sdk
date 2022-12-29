@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class mongosAttribute extends Model
 {
     /**
+     * @description The type of the mongos node.
+     *
+     * @example dds.mongos.standard
+     *
      * @var string
      */
     public $nodeClass;
 
     /**
+     * @description The description of the mongos node.
+     *
+     * @example mongos1
+     *
      * @var string
      */
     public $nodeDescription;
 
     /**
+     * @description The ID of the mongos node.
+     *
+     * @example s-bp10e3b0d02f****
+     *
      * @var string
      */
     public $nodeId;

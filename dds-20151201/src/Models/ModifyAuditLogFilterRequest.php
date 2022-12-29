@@ -9,11 +9,27 @@ use AlibabaCloud\Tea\Model;
 class ModifyAuditLogFilterRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bp12c5b040dc****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The type of the audit log entries to be collected. Valid values:
+     *
+     *   **admin**: O\&M and management operations
+     *   **slow**: slow query logs
+     *   **query**: query operations
+     *   **insert**: insert operations
+     *   **update**: update operations
+     *   **delete**: delete operations
+     *   **command**: protocol commands such as the aggregate method
+     *
+     * @example insert,query,update,delete
+     *
      * @var string
      */
     public $filter;
@@ -39,6 +55,13 @@ class ModifyAuditLogFilterRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The role of the node in the instance. Valid values:
+     *
+     *   **primary**
+     *   **secondary**
+     *
+     * @example primary
+     *
      * @var string
      */
     public $roleType;

@@ -12,31 +12,49 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceResponseBody extends Model
 {
     /**
+     * @description The list of orders.
+     *
      * @var order
      */
     public $order;
 
     /**
+     * @description The order parameters. This parameter is returned if the `OrderParamOut` parameter is set to `true`.
+     *
+     * @example {\"autoPay\":false}"
+     *
      * @var string
      */
     public $orderParams;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 27227A3D-6B86-56F3-9E03-9E60F001CE12
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Details about the promotion rules.
+     *
      * @var rules
      */
     public $rules;
 
     /**
+     * @description Details about the rules that match the coupon.
+     *
      * @var subOrders
      */
     public $subOrders;
 
     /**
+     * @description The ID of the trace.
+     *
+     * @example 27227A3D-6B87-56F3-9E03-9E60F001****
+     *
      * @var string
      */
     public $traceId;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeKernelReleaseNotesResponseBody extends Model
 {
     /**
+     * @description The list of version release notes.
+     *
      * @var releaseNotes
      */
     public $releaseNotes;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F01D4DDA-CB72-4083-B399-AF4642294FE6
+     *
      * @var string
      */
     public $requestId;

@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityIpsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example FC724D23-2962-479E-ABB1-606C935AE7FD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array that consists of the information of IP whitelists.
+     *
      * @var securityIpGroups
      */
     public $securityIpGroups;
 
     /**
+     * @description The IP addresses in the default whitelist.
+     *
+     * @example 47.xxx.xxx.xx,100.xxx.xxx.0/24
+     *
      * @var string
      */
     public $securityIps;

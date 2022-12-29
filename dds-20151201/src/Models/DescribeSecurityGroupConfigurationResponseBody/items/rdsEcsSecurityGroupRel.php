@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class rdsEcsSecurityGroupRel extends Model
 {
     /**
+     * @description The network type of the ECS security group. Valid values:
+     *
+     *   **vpc**
+     *   **classic**
+     *
+     * @example vpc
+     *
      * @var string
      */
     public $netType;
 
     /**
+     * @description The region ID of the ECS security group.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the ECS security group.
+     *
+     * @example sg-bpxxxxxxxx
+     *
      * @var string
      */
     public $securityGroupId;

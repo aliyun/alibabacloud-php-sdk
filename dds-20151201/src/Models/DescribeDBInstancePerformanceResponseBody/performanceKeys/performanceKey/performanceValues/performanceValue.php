@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class performanceValue extends Model
 {
     /**
+     * @description The date and time when the metric value was generated.
+     *
+     * @example 2022-06-13T10:58:00Z
+     *
      * @var string
      */
     public $date;
 
     /**
+     * @description The value of the performance metric.
+     *
+     * @example 0.23
+     *
      * @var string
      */
     public $value;

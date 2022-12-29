@@ -9,36 +9,70 @@ use AlibabaCloud\Tea\Model;
 class compatibleConnection extends Model
 {
     /**
+     * @description The remaining duration of the classic network address. Unit: seconds.
+     *
+     * @example 2591963
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The IP address of the instance.
+     *
+     * @example 10.140.xxx.xx
+     *
      * @var string
      */
     public $IPAddress;
 
     /**
+     * @description The endpoint of the instance.
+     *
+     * @example dds-bpxxxxxxxxxxxxxx.mongodb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $networkAddress;
 
     /**
+     * @description The network type. Valid values:
+     *
+     *   **VPC**
+     *   **Classic**
+     *   **Public**: pubic endpoint
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The port number.
+     *
+     * @example 3717
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * >  This parameter is returned when the network type is **VPC**.
+     * @example vpc-bpxxxxxxxx
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @description The vSwitch ID of the VPC.
+     *
+     * >  This parameter is returned when the network type is **VPC**.
+     * @example vsw-bpxxxxxxxx
+     *
      * @var string
      */
     public $vswitchId;

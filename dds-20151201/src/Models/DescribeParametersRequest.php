@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeParametersRequest extends Model
 {
     /**
+     * @description The type of the database account. Valid values:
+     *
+     *   mongos: an account that can be used to log on to mongos
+     *   shard: an account that can be used to log on to shards
+     *
+     * @example mongos
+     *
      * @var string
      */
     public $characterType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+     * @example dds-bpxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The ID of the mongos or shard in the specified sharded cluster instance.
+     *
+     * >  This parameter is valid only if you set the **DBInstanceId** parameter to the ID of a sharded cluster instance.
+     * @example d-bpxxxxxxxx
+     *
      * @var string
      */
     public $nodeId;

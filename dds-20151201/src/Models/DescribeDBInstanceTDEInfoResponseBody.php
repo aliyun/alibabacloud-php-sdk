@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceTDEInfoResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example F4DD0E29-361B-42F2-9301-B0048CCCE5D6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The TDE status. Valid values:
+     *
+     *   **enabled**
+     *   **disabled**
+     *
+     * @example enabled
+     *
      * @var string
      */
     public $TDEStatus;

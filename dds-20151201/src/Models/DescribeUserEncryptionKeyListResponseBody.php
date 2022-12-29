@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserEncryptionKeyListResponseBody extends Model
 {
     /**
+     * @description The list of custom keys.
+     *
      * @var keyIds
      */
     public $keyIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7CD51DA4-A499-43CE-B9B5-20CD4FDC648E
+     *
      * @var string
      */
     public $requestId;

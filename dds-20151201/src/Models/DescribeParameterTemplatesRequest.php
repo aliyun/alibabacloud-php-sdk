@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class DescribeParameterTemplatesRequest extends Model
 {
     /**
+     * @description The database engine of the instance. Set the value to **MongoDB**.
+     *
+     * @example mongodb
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The database engine version of the instance. Valid values:
+     *
+     *   **5.0**
+     *   **4.4**
+     *   **4.2**
+     *   **4.0**
+     *   **3.4**
+     *
+     * @example 5.0
+     *
      * @var string
      */
     public $engineVersion;
@@ -29,6 +43,10 @@ class DescribeParameterTemplatesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

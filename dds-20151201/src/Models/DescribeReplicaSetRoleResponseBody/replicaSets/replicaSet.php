@@ -9,31 +9,62 @@ use AlibabaCloud\Tea\Model;
 class replicaSet extends Model
 {
     /**
+     * @description The endpoint of the node.
+     *
+     * @example dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionDomain;
 
     /**
+     * @description The port of the node.
+     *
+     * @example 3717
+     *
      * @var string
      */
     public $connectionPort;
 
     /**
+     * @description The remaining duration of the classic network endpoint. Unit: seconds.
+     *
+     * @example 1209582
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The network type. Valid values:
+     *
+     *   **VPC**
+     *   **Classic**
+     *   **Public**
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The role of the node in the replica set.
+     *
+     *   **Primary**
+     *   **Secondary**
+     *
+     * @example Primary
+     *
      * @var string
      */
     public $replicaSetRole;
 
     /**
+     * @description The role ID of the node.
+     *
+     * @example 651xxxxx
+     *
      * @var string
      */
     public $roleId;

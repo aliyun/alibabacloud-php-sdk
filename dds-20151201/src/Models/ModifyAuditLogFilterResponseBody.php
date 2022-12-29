@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyAuditLogFilterResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example E209BE2B-F264-4B9D-81F6-A5A5FB1FBF28
+     *
      * @var string
      */
     public $requestId;

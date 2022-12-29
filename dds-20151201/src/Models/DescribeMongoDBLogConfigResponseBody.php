@@ -9,61 +9,121 @@ use AlibabaCloud\Tea\Model;
 class DescribeMongoDBLogConfigResponseBody extends Model
 {
     /**
+     * @description Indicates whether to enable the audit log feature is enabled.
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableAudit;
 
     /**
+     * @description Indicates whether a rule to distribute logs to Logtail is created. For more information, see [Logtail overview](~~28979~~). Valid values:
+     *
+     *   **1**: A rule to distribute logs to Logtail is created.
+     *   **0** or **null**: A rule to distribute logs to Logtail is not created.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $isEtlMetaExist;
 
     /**
+     * @description Indicates whether a Log Service project exists in the current region. Valid values:
+     *
+     *   **1**: A Log Service project exists in the current region.
+     *   **0** or **null**: A Log Service project does not exist in the current region.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $isUserProjectLogstoreExist;
 
     /**
+     * @description The maximum storage space for the formal edition of the audit log feature. If the value is **-1**, no maximum is set.
+     *
+     * @example -1
+     *
      * @var int
      */
     public $preserveStorageForStandard;
 
     /**
+     * @description The maximum storage space for the free trial edition of the audit log feature. Unit: bytes. You can set the maximum up to 107,374,182,400 bytes.
+     *
+     * @example 107374182400
+     *
      * @var int
      */
     public $preserveStorageForTrail;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 664ECE26-658A-47C5-88F6-870B0132E8D2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The type of the audit log feature. Valid values:
+     *
+     *   **Trail**: the free trial edition
+     *   **Standard**: the official edition
+     *
+     * @example Standard
+     *
      * @var string
      */
     public $serviceType;
 
     /**
+     * @description The retention period for the official edition of the audit log feature. Valid values: 1 to 365 days.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $ttlForStandard;
 
     /**
+     * @description The retention period for the free trial edition of the audit log feature.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $ttlForTrail;
 
     /**
+     * @description The used storage space for the formal edition of the audit log feature. Unit: bytes.
+     *
+     * @example 20163
+     *
      * @var int
      */
     public $usedStorageForStandard;
 
     /**
+     * @description The used storage space for the free trial edition of the audit log feature. Unit: bytes.
+     *
+     * @example 12548178759
+     *
      * @var int
      */
     public $usedStorageForTrail;
 
     /**
+     * @description The name of the Log Service project.
+     *
+     * @example nosql-176498472570****-cn-hangzhou
+     *
      * @var string
      */
     public $userProjectName;

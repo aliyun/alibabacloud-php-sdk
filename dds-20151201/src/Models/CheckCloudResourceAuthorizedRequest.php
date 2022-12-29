@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CheckCloudResourceAuthorizedRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bp18f7d6b6a7****
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -39,6 +43,10 @@ class CheckCloudResourceAuthorizedRequest extends Model
     public $securityToken;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $targetRegionId;

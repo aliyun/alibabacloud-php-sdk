@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class supportedNodeType extends Model
 {
     /**
+     * @description Details about the available resources.
+     *
      * @var availableResources
      */
     public $availableResources;
 
     /**
+     * @description The network type of the instance.
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $networkTypes;
 
     /**
+     * @description The number of nodes in the instance.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $nodeType;

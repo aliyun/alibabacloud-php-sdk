@@ -9,35 +9,45 @@ use AlibabaCloud\Tea\Model;
 class logRecords extends Model
 {
     /**
+     * @description The category of the log entry. Valid values:
+     *
+     * @example NETWORK
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The connection information of the log entry.
+     *
+     * @example conn18xxxxxx
+     *
      * @var string
      */
     public $connInfo;
 
     /**
+     * @description The content of the log entry.
+     *
+     * @example end connection 11.xxx.xxx.xx:3xxxx (0 connections now open)\n
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The time when the log entry was generated. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-02-26T12:09:34Z
+     *
      * @var string
      */
     public $createTime;
-
-    /**
-     * @var int
-     */
-    public $id;
     protected $_name = [
         'category'   => 'Category',
         'connInfo'   => 'ConnInfo',
         'content'    => 'Content',
         'createTime' => 'CreateTime',
-        'id'         => 'Id',
     ];
 
     public function validate()
@@ -58,9 +68,6 @@ class logRecords extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -85,9 +92,6 @@ class logRecords extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
 
         return $model;

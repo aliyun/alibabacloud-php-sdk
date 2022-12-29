@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityGroupConfigurationRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bpxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -34,6 +38,12 @@ class ModifySecurityGroupConfigurationRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the ECS security group.
+     *
+     * > * You can bind up to 10 ECS security groups to an ApsaraDB for MongoDB instance.
+     * > * You can call the [DescribeSecurityGroup](~~25556~~) operation of ECS to query the security groups in the specified region.
+     * @example sg-bpxxxxxxxx
+     *
      * @var string
      */
     public $securityGroupId;

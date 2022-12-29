@@ -20,16 +20,28 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmyiu4ekp****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The resource IDs.
+     *
+     * @example dds-bpxxxxxxxx
+     *
      * @var string[]
      */
     public $resourceId;
@@ -45,11 +57,17 @@ class TagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The resource type. Set the value to **INSTANCE**.
+     *
+     * @example INSTANCE
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The list of tags that you want to associate with the resources. You can specify up to 20 tags.
+     *
      * @var tag[]
      */
     public $tag;

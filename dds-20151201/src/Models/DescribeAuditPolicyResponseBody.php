@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DescribeAuditPolicyResponseBody extends Model
 {
     /**
+     * @description Indicates whether the log audit feature is enabled. Valid values:
+     *
+     *   Enable
+     *   Disabled
+     *
+     * Default value: Disabled.
+     * @example Enable
+     *
      * @var string
      */
     public $logAuditStatus;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 111E7B16-0A87-4CBA-B271-F34AD61E099F
+     *
      * @var string
      */
     public $requestId;

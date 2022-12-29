@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class shardAttribute extends Model
 {
     /**
+     * @description The endpoint of the shard node.
+     *
+     * @example d-bp1af0680a9c6d3****.mongodb.rds.aliyuncs.com:****
+     *
      * @var string
      */
     public $connectString;
 
     /**
+     * @description The maximum number of connections to the shard node.
+     *
+     * @example 8000
+     *
      * @var int
      */
     public $maxConnections;
 
     /**
+     * @description The maximum IOPS of the shard node.
+     *
+     * @example 8000
+     *
      * @var int
      */
     public $maxIOPS;
 
     /**
+     * @description The type of the shard node.
+     *
+     * @example dds.shard.mid
+     *
      * @var string
      */
     public $nodeClass;
 
     /**
+     * @description The name of the shard node.
+     *
+     * @example testshard
+     *
      * @var string
      */
     public $nodeDescription;
 
     /**
+     * @description The ID of the shard node.
+     *
+     * @example d-bp16e09d9c5d****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The storage capacity of the shard node.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $nodeStorage;
 
     /**
+     * @description The port number that is used to connect to the shard node.
+     *
+     * @example 3717
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The number of read-only nodes in the shard node. Valid values: **0** to **5**. The value must be an integer.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $readonlyReplicas;
 
     /**
+     * @description The state of the shard node. For more information, see [Instance states](~~63870~~).
+     *
+     * @example Running
+     *
      * @var string
      */
     public $status;

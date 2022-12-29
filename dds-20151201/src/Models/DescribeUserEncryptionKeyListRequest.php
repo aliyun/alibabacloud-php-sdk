@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserEncryptionKeyListRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bpxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -39,6 +43,10 @@ class DescribeUserEncryptionKeyListRequest extends Model
     public $securityToken;
 
     /**
+     * @description The zone ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent zone list.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $targetRegionId;

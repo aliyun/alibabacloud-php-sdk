@@ -9,31 +9,70 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceRequest extends Model
 {
     /**
+     * @description The business information. This is an additional parameter.
+     *
+     * @example {"AccountPassword":"Pw123456","DBInstanceDescription":"test"}
+     *
      * @var string
      */
     public $businessInfo;
 
     /**
+     * @description The code of the cluster. Valid values:
+     *
+     *   dds: a replica set instance that uses the pay-as-you-go billing method
+     *   badds: a replica set instance that uses the subscription billing method
+     *   dds_sharding: a sharded cluster instance that uses the pay-as-you-go billing method
+     *   badds_sharding: a sharded cluster instance that uses the subscription billing method
+     *   badds_sharding_intl: a sharded cluster instance that uses the subscription billing method and is available on the International site (alibabacloud.com)
+     *   badds_sharding_jp: a sharded cluster instance that uses the subscription billing method and is available on the Japan site (jp.alibabacloud.com)
+     *
+     * @example badds
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @description The coupon code. Default value: **youhuiquan_promotion_option_id_for_blank**.
+     *
+     * @example youhuiquan_promotion_option_id_for_blank
+     *
      * @var string
      */
     public $couponNo;
 
     /**
+     * @description A JSON string that contains the details of the ApsaraDB for MongoDB instance. For more information, see Details of the [DBInstances](~~197291~~) parameter in the DescribePrice operation.
+     *
+     * @example [ { "DBInstanceId":"dds-bp1b6e54e7cc****", "RegionId":"cn-hangzhou", "ZoneId":"cn-hangzhou-h", "Engine":"MongoDB", "EngineVersion":" 5.0", "DBInstanceClass":"mdb.shard.2x.xlarge.d", "DBInstanceStorage":30, "ChargeType":"PrePaid", "Period":1, "StorageType":"cloud_essd1" } ]
+     *
      * @var string
      */
     public $DBInstances;
 
     /**
+     * @description Specifies whether to return the parameters about the order. Valid values:
+     *
+     *   false
+     *   true
+     *
+     * Default value: **false**.
+     * @example true
+     *
      * @var string
      */
     public $orderParamOut;
 
     /**
+     * @description The type of the order. Valid values:
+     *
+     *   BUY: instance creation
+     *   UPGRADE: instance configuration change
+     *   RENEW: instance renewal
+     *
+     * @example BUY
+     *
      * @var string
      */
     public $orderType;
@@ -49,16 +88,28 @@ class DescribePriceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The code of the service to which the instance belongs. Default value: **dds**.
+     *
+     * @example dds
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group. For more information, see [View basic information of a resource group](~~151181~~).
+     *
+     * @example rg-acfmyiu4ekp****
+     *
      * @var string
      */
     public $resourceGroupId;

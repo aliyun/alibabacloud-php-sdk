@@ -9,36 +9,73 @@ use AlibabaCloud\Tea\Model;
 class replicaSet extends Model
 {
     /**
+     * @description The endpoint of the node.
+     *
+     * @example dds-bp11483712c1****.mongodb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionDomain;
 
     /**
+     * @description The port number that is used to connect to the node.
+     *
+     * @example 3717
+     *
      * @var string
      */
     public $connectionPort;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   **Classic**: classic network
+     *   **VPC**: VPC
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The role of the node. Valid values:
+     *
+     *   **Primary**
+     *   **Secondary**
+     *
+     * @example Primary
+     *
      * @var string
      */
     public $replicaSetRole;
 
     /**
+     * @description The ID of the instance.
+     *
+     * >  This parameter is returned if the network type of the instance is VPC.
+     * @example dds-bp11483712c1****
+     *
      * @var string
      */
     public $VPCCloudInstanceId;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * >  This parameter is returned if the network type of the instance is VPC.
+     * @example vpc-bp1jk5vwkcri27qme****
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * >  This parameter is returned if the network type of the instance is Virtual Private Cloud (VPC).
+     * @example vpc-bp1jk5vwkcri27qme****
+     *
      * @var string
      */
     public $vSwitchId;

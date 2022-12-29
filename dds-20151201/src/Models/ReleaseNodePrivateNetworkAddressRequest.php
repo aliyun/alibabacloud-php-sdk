@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ReleaseNodePrivateNetworkAddressRequest extends Model
 {
     /**
+     * @description The ID of the sharded cluster instance.
+     *
+     * @example dds-bp1a7009eb24****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The network type of the internal endpoint. Valid values:
+     *
+     *   **VPC**
+     *   **Classic**
+     *
+     * >  You can call the [DescribeShardingNetworkAddress](~~62135~~) operation to query the network type of the internal endpoint.
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The ID of the shard or Configserver node.
+     *
+     * >  You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the ID of the shard or Configserver node.
+     * @example d-bp128a003436****
+     *
      * @var string
      */
     public $nodeId;

@@ -9,46 +9,82 @@ use AlibabaCloud\Tea\Model;
 class configserverAttribute extends Model
 {
     /**
+     * @description The endpoint of the Configserver node.
+     *
+     * @example dds-bp18b0934e7053e4-cs****.mongodb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectString;
 
     /**
+     * @description The maximum number of connections to the Configserver node.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $maxConnections;
 
     /**
+     * @description The maximum IOPS of the Configserver node.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $maxIOPS;
 
     /**
+     * @description The type of the Configserver node.
+     *
+     * @example dds.cs.mid
+     *
      * @var string
      */
     public $nodeClass;
 
     /**
+     * @description The name of the Configserver node.
+     *
+     * @example testConfigserver
+     *
      * @var string
      */
     public $nodeDescription;
 
     /**
+     * @description The ID of the Configserver node.
+     *
+     * @example dds-bp11483712c1****-cs
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The storage capacity of the Configserver node.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $nodeStorage;
 
     /**
+     * @description The port number that is used to connect to the Configserver node.
+     *
+     * @example 3717
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The state of the Configserver node. For more information, see [Instance states](~~63870~~).
+     *
+     * @example Running
+     *
      * @var string
      */
     public $status;

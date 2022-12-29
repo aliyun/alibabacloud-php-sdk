@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class zone extends Model
 {
     /**
+     * @description Indicates whether a virtual private cloud (VPC) is supported. Valid values:
+     *
+     *   **true**: VPC is supported.
+     *   **false**: VPC is not supported.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $vpcEnabled;
 
     /**
+     * @description The ID of the zone.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;
 
     /**
+     * @description The name of the zone.
+     *
+     * The return value of the LocalName parameter is in the language that is specified by the **AcceptLanguage** parameter.
      * @var string
      */
     public $zoneName;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityGroupConfigurationResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example E062C482-1A4B-469E-938C-96D28CFAE42E
+     *
      * @var string
      */
     public $requestId;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableResourceResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 344EE51D-8850-4935-B68B-58A8F4DCE3BD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The available database types.
+     *
      * @var supportedDBTypes
      */
     public $supportedDBTypes;

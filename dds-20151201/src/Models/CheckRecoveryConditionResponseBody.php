@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class CheckRecoveryConditionResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bp1378****
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @description Indicates whether the recovery conditions are met. Valid values:
+     *
+     *   **true**: The recovery conditions are met.
+     *   **false**: The recovery conditions are not met.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isValid;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D563A3E7-6010-45FE-A0CD-9283414C9657
+     *
      * @var string
      */
     public $requestId;

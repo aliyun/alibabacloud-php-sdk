@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceAutoRenewalAttributeRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bp567b****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The category of the instance. Valid values:
+     *
+     *   **replicate**: the standalone or replica set instance
+     *   **sharding**: the sharded cluster instance
+     *
+     * Default value: **replicate**.
+     * @example replicate
+     *
      * @var string
      */
     public $DBInstanceType;
@@ -29,16 +41,29 @@ class DescribeInstanceAutoRenewalAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. The value must be a positive integer that does not exceed the maximum value of the Integer parameter. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **30**, **50**, and **100**.
+     *
+     * >  Default value: **30**.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

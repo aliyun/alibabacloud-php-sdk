@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeShardingNetworkAddressResponseBody extends Model
 {
     /**
+     * @description An array that consists of the endpoints of DynamoDB instances.
+     *
      * @var compatibleConnections
      */
     public $compatibleConnections;
 
     /**
+     * @description An array that consists of the endpoints of ApsaraDB for MongoDB instances.
+     *
      * @var networkAddresses
      */
     public $networkAddresses;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 18D8AAFD-6BEB-420F-8164-810CB0C0AA39
+     *
      * @var string
      */
     public $requestId;

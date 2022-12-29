@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupDBsRequest extends Model
 {
     /**
+     * @description The ID of the backup set.
+     *
+     * > * You can call the [DescribeBackups](~~62172~~) operation to query the backup ID.
+     * > * You must specify one of the **RestoreTime** and BackupId parameters.
+     * @example 5664****
+     *
      * @var string
      */
     public $backupId;
@@ -24,16 +30,28 @@ class DescribeBackupDBsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. The value of this parameter must be an integer that is greater than 0. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 30. Valid values: **30**, **50**, and **100**.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-ax68****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -49,6 +67,12 @@ class DescribeBackupDBsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The point in time to which the instance is restored. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * > * The time can be a point in time within the past seven days. The time must be earlier than the current time, but later than the time when the instance was created.
+     * > * You must specify one of the RestoreTime and **BackupId** parameters.
+     * @example 2019-08-22T12:00:00Z
+     *
      * @var string
      */
     public $restoreTime;
@@ -59,6 +83,10 @@ class DescribeBackupDBsRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the source instance.
+     *
+     * @example dds-bp2286****
+     *
      * @var string
      */
     public $sourceDBInstance;

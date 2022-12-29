@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class supportedEngine extends Model
 {
     /**
+     * @description The storage engine of the instance.
+     *
+     * @example WiredTiger
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The available node types.
+     *
      * @var supportedNodeTypes
      */
     public $supportedNodeTypes;

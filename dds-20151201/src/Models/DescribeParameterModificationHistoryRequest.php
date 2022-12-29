@@ -9,21 +9,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeParameterModificationHistoryRequest extends Model
 {
     /**
+     * @description The role of the instance. Valid values:
+     *
+     *   **db**: shard
+     *   **cs**: Configserver
+     *   **mongos**: mongos
+     *   **logic**: sharded cluster instance
+     *
+     * @example mongos
+     *
      * @var string
      */
     public $characterType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+     * @example dds-bp2235****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * @example 2019-01-02T12:10:10Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the mongos node or shard node whose parameter modification records you want to query in the instance. If the instance is a sharded cluster instance, you must specify this parameter.
+     *
+     * >  This parameter is valid only when **DBInstanceId** is set to the ID of a sharded cluster instance.
+     * @example d-bp1158****
+     *
      * @var string
      */
     public $nodeId;
@@ -54,6 +77,10 @@ class DescribeParameterModificationHistoryRequest extends Model
     public $securityToken;
 
     /**
+     * @description The beginning of the time range to query. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-01-01T12:10:10Z
+     *
      * @var string
      */
     public $startTime;

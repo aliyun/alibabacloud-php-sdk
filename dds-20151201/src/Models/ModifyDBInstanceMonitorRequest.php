@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceMonitorRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bpxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The collection frequency of monitoring data. Valid values: **1** or **300**. Unit: seconds.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $granularity;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ReleasePublicNetworkAddressResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 1D6AFE36-1AF5-4DE4-A954-672159D4CC69
+     *
      * @var string
      */
     public $requestId;

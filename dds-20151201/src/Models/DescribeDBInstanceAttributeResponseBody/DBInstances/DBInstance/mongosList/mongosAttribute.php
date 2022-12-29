@@ -9,56 +9,102 @@ use AlibabaCloud\Tea\Model;
 class mongosAttribute extends Model
 {
     /**
+     * @description The endpoint of the mongos node.
+     *
+     * @example s-bp1d8c262a15****.mongodb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectSting;
 
     /**
+     * @description The maximum number of connections to the mongos node.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $maxConnections;
 
     /**
+     * @description The maximum IOPS of the mongos node.
+     *
+     * @example 800
+     *
      * @var int
      */
     public $maxIOPS;
 
     /**
+     * @description The type of the mongos node.
+     *
+     * @example dds.mongos.mid
+     *
      * @var string
      */
     public $nodeClass;
 
     /**
+     * @description The name of the mongos node.
+     *
+     * @example mongos1
+     *
      * @var string
      */
     public $nodeDescription;
 
     /**
+     * @description The ID of the mongos node.
+     *
+     * @example s-bp1d8c262a15****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The port number that is used to connect to the mongos node.
+     *
+     * @example 3717
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The state of the mongos node. For more information, see [Instance states](~~63870~~).
+     *
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * >  This parameter is returned if the network type of the instance is VPC.
+     * @example vpc-bp1n3i15v90el48nx****
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * >  This parameter is returned if the network type of the instance is VPC.
+     * @example vsw-bp1vj604nj5a9zz74****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the mongos node.
+     *
+     * @example s-bp1d8c262a158****
+     *
      * @var string
      */
     public $vpcCloudInstanceId;

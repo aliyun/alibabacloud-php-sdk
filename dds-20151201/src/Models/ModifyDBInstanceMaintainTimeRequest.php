@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceMaintainTimeRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bpac2345****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The end time of the maintenance window. Specify the time in the *HH:mmZ* format. The time must be in UTC.
+     *
+     * >  The end time must be later than the start time of the maintenance window.
+     * @example 02:00Z
+     *
      * @var string
      */
     public $maintainEndTime;
 
     /**
+     * @description The start time of the maintenance window. Specify the time in the *HH:mm*Z format. The time must be in UTC.
+     *
+     * @example 01:00Z
+     *
      * @var string
      */
     public $maintainStartTime;

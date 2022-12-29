@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeRenewalPriceRequest extends Model
 {
     /**
+     * @description The business information. This is an additional parameter.
+     *
+     * @example {“ActivityId":"000000000"}
+     *
      * @var string
      */
     public $businessInfo;
 
     /**
+     * @description The coupon code. Default value: **youhuiquan_promotion_option_id_for_blank**.
+     *
+     * @example youhuiquan_promotion_option_id_for_blank
+     *
      * @var string
      */
     public $couponNo;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bp12c5b040dc****
+     *
      * @var string
      */
     public $DBInstanceId;

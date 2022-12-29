@@ -9,46 +9,85 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceEncryptionKeyResponseBody extends Model
 {
     /**
+     * @description The UID of the key creator.
+     *
+     * @example 123456
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @description The scheduled time when the key for the instance will be deleted. If the value is empty, the key will not be deleted.
+     *
+     * @example 2020-07-06T18:22:03Z
+     *
      * @var string
      */
     public $deleteDate;
 
     /**
+     * @description The description of the key for the instance.
+     *
+     * @example key description example
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The key for the instance.
+     *
+     * @example 2axxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+     *
      * @var string
      */
     public $encryptionKey;
 
     /**
+     * @description Indicates whether the key for the instance is enabled. Valid values:
+     *
+     *   **Enabled**
+     *   **Disabled**
+     *
+     * @example Enabled
+     *
      * @var string
      */
     public $encryptionKeyStatus;
 
     /**
+     * @description The purpose of the key for the instance.
+     *
+     * @example ENCRYPT/DECRYPT
+     *
      * @var string
      */
     public $keyUsage;
 
     /**
+     * @description The expiration time of the key for the instance. The time is displayed in UTC. If the value is empty, the key for the instance will not expire.
+     *
+     * @example 2020-07-06T18:22:03Z
+     *
      * @var string
      */
     public $materialExpireTime;
 
     /**
+     * @description The source of the key for the instance.
+     *
+     * @example Aliyun_KMS
+     *
      * @var string
      */
     public $origin;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 783C2062-A2D3-4EA8-88AD-E43F990C23BB
+     *
      * @var string
      */
     public $requestId;

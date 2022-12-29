@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CreateNodeResponseBody extends Model
 {
     /**
+     * @description The ID of the node.
+     *
+     * @example d-bp1b234bf7a4****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The ID of the order.
+     *
+     * @example 20951063702****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7D48FB19-20CA-4725-A870-3D8F5CE6****
+     *
      * @var string
      */
     public $requestId;

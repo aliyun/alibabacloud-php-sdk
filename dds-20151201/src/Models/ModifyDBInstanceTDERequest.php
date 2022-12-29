@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceTDERequest extends Model
 {
     /**
+     * @description The ID of an instance.
+     *
+     * @example dds-bpxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The custom key.
+     *
+     * @example 749c1df7-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+     *
      * @var string
      */
     public $encryptionKey;
 
     /**
+     * @description The encryption method. Set the value to **AES-256-CBC**.
+     *
+     * >  This parameter is valid only when you specify the **TEDStatus** parameter to **enabled**.
+     * @example aes-256-cbc
+     *
      * @var string
      */
     public $encryptorName;
@@ -44,6 +57,12 @@ class ModifyDBInstanceTDERequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ARN of the role. It is in the format of `acs:ram::$accountID:role/$roleName`.
+     *
+     * > * `$accountID`: indicates the ID of the Alibaba Cloud account that owns the RAM role. To view the account ID, log on to the Alibaba Cloud Management Console, move your pointer over your profile picture in the upper-right corner, and then click Security Settings.
+     * > * `$roleName`: indicates the name of the RAM role. To view the RAM role name, perform the following steps: Log on to the RAM console. In the left-side navigation pane, click RAM Roles. In the RAM Role Name column on the page that appears, you can view the name of the RAM role.
+     * @example acs:ram::123456789012****:role/adminrole
+     *
      * @var string
      */
     public $roleARN;
@@ -54,6 +73,11 @@ class ModifyDBInstanceTDERequest extends Model
     public $securityToken;
 
     /**
+     * @description The TDE status. Set the value to **Enabled**.
+     *
+     * >  Exercise caution when enabling TDE. After TDE is enabled, it cannot be disabled.
+     * @example enabled
+     *
      * @var string
      */
     public $TDEStatus;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeParameterTemplatesResponseBody extends Model
 {
     /**
+     * @description The database engine of the instance.
+     *
+     * @example mongodb
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The database engine version of the instance.
+     *
+     * @example 5.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The number of parameters that are supported by the instance.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $parameterCount;
 
     /**
+     * @description Details about the parameter templates.
+     *
      * @var parameters
      */
     public $parameters;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BDA54203-9D61-54A3-A568-D281F785****
+     *
      * @var string
      */
     public $requestId;

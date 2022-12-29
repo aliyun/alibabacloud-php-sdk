@@ -10,16 +10,25 @@ use AlibabaCloud\Tea\Model;
 class ddsRegion extends Model
 {
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the region.
+     *
+     * The return value of the LocalName parameter is in the language that is specified by the **AcceptLanguage** parameter.
      * @var string
      */
     public $regionName;
 
     /**
+     * @description Details about the zones.
+     *
      * @var zones
      */
     public $zones;

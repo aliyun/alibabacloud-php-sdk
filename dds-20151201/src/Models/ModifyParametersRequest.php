@@ -9,16 +9,35 @@ use AlibabaCloud\Tea\Model;
 class ModifyParametersRequest extends Model
 {
     /**
+     * @description The role of the instance. Valid values:
+     *
+     *   **db**: a shard node
+     *   **cs**: a Configserver node
+     *   **mongos**: a mongos node
+     *   **logic**: a sharded cluster instance
+     *
+     * @example db
+     *
      * @var string
      */
     public $characterType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the NodeId parameter.
+     * @example dds-bp19f409d75****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The ID of the mongos or shard node in the specified sharded cluster instance.
+     *
+     * >  This parameter is valid only when DBInstanceId is set to the ID of a sharded cluster instance.
+     * @example d-bp1b7bb3bbe****
+     *
      * @var string
      */
     public $nodeId;
@@ -34,11 +53,20 @@ class ModifyParametersRequest extends Model
     public $ownerId;
 
     /**
+     * @description The instance parameters that you want to modify and their values. Specify this parameter in a JSON string. Sample format: {"ParameterName1":"ParameterValue1","ParameterName2":"ParameterValue2"}.
+     *
+     * >  You can call the [DescribeParameterTemplates](~~67618~~) operation to query a list of default parameter templates.
+     * @example {"operationProfiling.mode":"all","operationProfiling.slowOpThresholdMs":"200"}
+     *
      * @var string
      */
     public $parameters;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

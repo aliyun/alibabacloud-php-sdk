@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DestroyInstanceResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 65BDA532-28AF-4122-AA39-B382721E****
+     *
      * @var string
      */
     public $requestId;

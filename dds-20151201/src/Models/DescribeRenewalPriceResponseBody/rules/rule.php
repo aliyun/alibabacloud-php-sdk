@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class rule extends Model
 {
     /**
+     * @description The name of the rule.
+     *
+     * @example demoname
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the rule.
+     *
+     * @example 11111111
+     *
      * @var int
      */
     public $ruleDescId;
 
     /**
+     * @description The title of the rule.
+     *
+     * @example demo
+     *
      * @var string
      */
     public $title;

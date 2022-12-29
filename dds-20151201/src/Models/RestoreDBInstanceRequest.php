@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class RestoreDBInstanceRequest extends Model
 {
     /**
+     * @description The ID of the backup.
+     *
+     * >  You can call the [DescribeBackups](~~62172~~) operation to query the backup ID.
+     * @example 22536****
+     *
      * @var int
      */
     public $backupId;
 
     /**
+     * @description The ID of an instance.
+     *
+     * @example dds-bp2356****
+     *
      * @var string
      */
     public $DBInstanceId;

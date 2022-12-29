@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CreateShardingDBInstanceResponseBody extends Model
 {
     /**
+     * @description Instance IDs.
+     *
+     * @example dds-bp114f14849d****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The ID of the order.
+     *
+     * @example 21010996721****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D8F1D721-6439-4257-A89C-F1E8E9C9****
+     *
      * @var string
      */
     public $requestId;

@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class typeList extends Model
 {
     /**
+     * @description The number of pending tasks.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The type of the task. Valid values:
+     *
+     *   **rds_apsaradb_transfer**: instance migration
+     *   **rds_apsaradb_upgrade**: minor version update
+     *
+     * @example rds_apsaradb_upgrade
+     *
      * @var string
      */
     public $taskType;
 
     /**
+     * @description The task type (English).
+     *
      * @var string
      */
     public $taskTypeInfoEn;
 
     /**
+     * @description The task type (Chinese).
+     *
+     * @example rds_apsaradb_upgrade
+     *
      * @var string
      */
     public $taskTypeInfoZh;

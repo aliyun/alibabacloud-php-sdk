@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableEngineVersionResponseBody extends Model
 {
     /**
+     * @description The list of one or more engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
+     *
+     * >  An empty string is returned if the latest version is being used.
      * @var engineVersions
      */
     public $engineVersions;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 52507B6B-003B-47A3-A0A3-9FE992C7A243
+     *
      * @var string
      */
     public $requestId;

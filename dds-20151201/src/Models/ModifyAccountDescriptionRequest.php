@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountDescriptionRequest extends Model
 {
     /**
+     * @description The description of the account.
+     *
+     *   It cannot start with http:// or https://.
+     *   It must start with a letter.
+     *   It must be 2 to 256 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-).
+     *
+     * @example superadmin
+     *
      * @var string
      */
     public $accountDescription;
 
     /**
+     * @description The name of the account for which you want to modify the description.
+     *
+     * @example root
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bp2356****
+     *
      * @var string
      */
     public $DBInstanceId;

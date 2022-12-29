@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ModifyAuditPolicyRequest extends Model
 {
     /**
+     * @description The request source for the audit log feature. Set the value to **Console**.
+     *
+     * @example Console
+     *
      * @var string
      */
     public $auditLogSwitchSource;
 
     /**
+     * @description Specifies whether the audit log feature is enabled. Valid values:
+     *
+     *   **enable**
+     *   **disabled**
+     *
+     * @example enable
+     *
      * @var string
      */
     public $auditStatus;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example dds-bp1785659e3f****
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -49,11 +64,23 @@ class ModifyAuditPolicyRequest extends Model
     public $securityToken;
 
     /**
+     * @description The type of the audit log feature. Valid values:
+     *
+     *   **Trail**: the free trial edition
+     *   **Standard**: the official edition
+     *
+     * >  Default value: **Trial**. Starting from January 6, 2022, the official edition of the audit log feature has been launched in all regions, and new applications for the free trial edition have ended. We recommend that you set this parameter to **Standard**.
+     * @example Standard
+     *
      * @var string
      */
     public $serviceType;
 
     /**
+     * @description The log retention period. Valid values: 1 to 365 days. Default value: 30 days.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $storagePeriod;

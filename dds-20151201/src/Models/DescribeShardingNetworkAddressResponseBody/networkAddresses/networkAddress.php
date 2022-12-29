@@ -9,51 +9,100 @@ use AlibabaCloud\Tea\Model;
 class networkAddress extends Model
 {
     /**
+     * @description The remaining duration of the classic network address. Unit: seconds.
+     *
+     * @example 2591963
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The IP address of the instance.
+     *
+     * @example 10.140.xxx.xx
+     *
      * @var string
      */
     public $IPAddress;
 
     /**
+     * @description The endpoint of the instance.
+     *
+     * @example s-bpxxxxxxxx.mongodb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $networkAddress;
 
     /**
+     * @description The network type. Valid values:
+     *
+     * - **VPC**
+     * - **Classic**
+     * - **Public**: pubic endpoint
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The ID of the mongos.
+     *
+     * @example s-bpxxxxxxxx
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The type of the node. Valid values:
+     *
+     * - **mongos**
+     * - **shard**
+     * - **configserver**
+     * @example mongos
+     *
      * @var string
      */
     public $nodeType;
 
     /**
+     * @description The port number.
+     *
+     * @example 3717
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The role of the node. Valid values:
+     *
+     * - Secondary
+     * @example Primary
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * >  This parameter is returned when the network type is **VPC**.
+     * @example vpc-bpxxxxxxxx
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @description The vSwitch ID of the VPC.
+     *
+     * >  This parameter is returned when the network type is **VPC**.
+     * @example vsw-bpxxxxxxxx
+     *
      * @var string
      */
     public $vswitchId;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveOperationTaskTypeResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example C7EE83BF-7BA8-5087-BAC9-ED85ED54****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of tasks.
+     *
      * @var typeList[]
      */
     public $typeList;

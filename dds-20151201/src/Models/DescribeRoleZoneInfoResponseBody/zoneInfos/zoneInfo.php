@@ -9,26 +9,56 @@ use AlibabaCloud\Tea\Model;
 class zoneInfo extends Model
 {
     /**
+     * @description The ID of the node.
+     *
+     * @example dds-bpxxxxxxxx
+     *
      * @var string
      */
     public $insName;
 
     /**
+     * @description The type of the node. Valid values:
+     *
+     *   **normal**
+     *   **configServer**
+     *   **shard**
+     *   **mongos**
+     *
+     * >  Valid value for replica set instances: **normal**. Valid values for replica set instances: **configServer**, **shard**, and **mongos**.
+     * @example normal
+     *
      * @var string
      */
     public $nodeType;
 
     /**
+     * @description The ID of the role.
+     *
+     * @example 83xxxxx
+     *
      * @var string
      */
     public $roleId;
 
     /**
+     * @description The role of the node. Valid values:
+     *
+     *   **Primary**
+     *   **Secondary**
+     *   **Hidden**
+     *
+     * @example Primary
+     *
      * @var string
      */
     public $roleType;
 
     /**
+     * @description The zone ID.
+     *
+     * @example cn-hangzhou-e
+     *
      * @var string
      */
     public $zoneId;
