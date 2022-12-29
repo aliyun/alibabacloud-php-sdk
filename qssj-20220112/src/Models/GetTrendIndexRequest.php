@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetTrendIndexRequest extends Model
 {
     /**
+     * @example [1623]
+     *
      * @var string
      */
     public $cateIds;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $monthNum;

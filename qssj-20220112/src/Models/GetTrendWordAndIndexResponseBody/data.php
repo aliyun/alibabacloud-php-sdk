@@ -2,65 +2,87 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Qssj\V20220112\Models\GetTrendIndexResponseBody;
+namespace AlibabaCloud\SDK\Qssj\V20220112\Models\GetTrendWordAndIndexResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 0.80329525
+     * @example 1.0023898331
      *
      * @var float
      */
     public $brandIndex;
 
     /**
-     * @example 4.5877037
+     * @example 1623
+     *
+     * @var int
+     */
+    public $cateId;
+
+    /**
+     * @var string
+     */
+    public $cateName;
+
+    /**
+     * @example 1.236972369
      *
      * @var float
      */
-    public $ECommerceIndex;
+    public $ecommerceIndex;
 
     /**
-     * @example 0.81578285
+     * @example 0.438129369
      *
      * @var float
      */
     public $institutionalIndex;
 
     /**
-     * @example 0.80389094
+     * @example 0.9732739173
      *
      * @var float
      */
     public $mediaIndex;
 
     /**
-     * @example 0.84380144
+     * @example 1.6200038123
      *
      * @var float
      */
     public $socialIndex;
 
     /**
+     * @example 1.000000730
+     *
      * @var float
      */
     public $trendIndex;
 
     /**
-     * @example 202111
+     * @var string
+     */
+    public $trendWord;
+
+    /**
+     * @example "202205"
      *
      * @var string
      */
     public $yearMonth;
     protected $_name = [
         'brandIndex'         => 'BrandIndex',
-        'ECommerceIndex'     => 'ECommerceIndex',
+        'cateId'             => 'CateId',
+        'cateName'           => 'CateName',
+        'ecommerceIndex'     => 'EcommerceIndex',
         'institutionalIndex' => 'InstitutionalIndex',
         'mediaIndex'         => 'MediaIndex',
         'socialIndex'        => 'SocialIndex',
         'trendIndex'         => 'TrendIndex',
+        'trendWord'          => 'TrendWord',
         'yearMonth'          => 'YearMonth',
     ];
 
@@ -74,8 +96,14 @@ class data extends Model
         if (null !== $this->brandIndex) {
             $res['BrandIndex'] = $this->brandIndex;
         }
-        if (null !== $this->ECommerceIndex) {
-            $res['ECommerceIndex'] = $this->ECommerceIndex;
+        if (null !== $this->cateId) {
+            $res['CateId'] = $this->cateId;
+        }
+        if (null !== $this->cateName) {
+            $res['CateName'] = $this->cateName;
+        }
+        if (null !== $this->ecommerceIndex) {
+            $res['EcommerceIndex'] = $this->ecommerceIndex;
         }
         if (null !== $this->institutionalIndex) {
             $res['InstitutionalIndex'] = $this->institutionalIndex;
@@ -88,6 +116,9 @@ class data extends Model
         }
         if (null !== $this->trendIndex) {
             $res['TrendIndex'] = $this->trendIndex;
+        }
+        if (null !== $this->trendWord) {
+            $res['TrendWord'] = $this->trendWord;
         }
         if (null !== $this->yearMonth) {
             $res['YearMonth'] = $this->yearMonth;
@@ -107,8 +138,14 @@ class data extends Model
         if (isset($map['BrandIndex'])) {
             $model->brandIndex = $map['BrandIndex'];
         }
-        if (isset($map['ECommerceIndex'])) {
-            $model->ECommerceIndex = $map['ECommerceIndex'];
+        if (isset($map['CateId'])) {
+            $model->cateId = $map['CateId'];
+        }
+        if (isset($map['CateName'])) {
+            $model->cateName = $map['CateName'];
+        }
+        if (isset($map['EcommerceIndex'])) {
+            $model->ecommerceIndex = $map['EcommerceIndex'];
         }
         if (isset($map['InstitutionalIndex'])) {
             $model->institutionalIndex = $map['InstitutionalIndex'];
@@ -121,6 +158,9 @@ class data extends Model
         }
         if (isset($map['TrendIndex'])) {
             $model->trendIndex = $map['TrendIndex'];
+        }
+        if (isset($map['TrendWord'])) {
+            $model->trendWord = $map['TrendWord'];
         }
         if (isset($map['YearMonth'])) {
             $model->yearMonth = $map['YearMonth'];

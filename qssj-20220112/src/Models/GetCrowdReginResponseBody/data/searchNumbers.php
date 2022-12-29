@@ -14,6 +14,8 @@ class searchNumbers extends Model
     public $name;
 
     /**
+     * @example 40578
+     *
      * @var int
      */
     public $value;

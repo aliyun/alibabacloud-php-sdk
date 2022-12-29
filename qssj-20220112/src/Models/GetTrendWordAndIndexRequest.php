@@ -6,13 +6,8 @@ namespace AlibabaCloud\SDK\Qssj\V20220112\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetPriceRangeRequest extends Model
+class GetTrendWordAndIndexRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $brandNames;
-
     /**
      * @example [1623]
      *
@@ -21,30 +16,29 @@ class GetPriceRangeRequest extends Model
     public $cateIds;
 
     /**
+     * @example 202202
+     *
      * @var string
      */
     public $endingDate;
 
     /**
+     * @example 1
+     *
      * @var int
      */
-    public $section;
+    public $pageIndex;
 
     /**
-     * @var string
-     */
-    public $shopIds;
-
-    /**
+     * @example 202201
+     *
      * @var string
      */
     public $startDate;
     protected $_name = [
-        'brandNames' => 'BrandNames',
         'cateIds'    => 'CateIds',
         'endingDate' => 'EndingDate',
-        'section'    => 'Section',
-        'shopIds'    => 'ShopIds',
+        'pageIndex'  => 'PageIndex',
         'startDate'  => 'StartDate',
     ];
 
@@ -55,20 +49,14 @@ class GetPriceRangeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->brandNames) {
-            $res['BrandNames'] = $this->brandNames;
-        }
         if (null !== $this->cateIds) {
             $res['CateIds'] = $this->cateIds;
         }
         if (null !== $this->endingDate) {
             $res['EndingDate'] = $this->endingDate;
         }
-        if (null !== $this->section) {
-            $res['Section'] = $this->section;
-        }
-        if (null !== $this->shopIds) {
-            $res['ShopIds'] = $this->shopIds;
+        if (null !== $this->pageIndex) {
+            $res['PageIndex'] = $this->pageIndex;
         }
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
@@ -80,25 +68,19 @@ class GetPriceRangeRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetPriceRangeRequest
+     * @return GetTrendWordAndIndexRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BrandNames'])) {
-            $model->brandNames = $map['BrandNames'];
-        }
         if (isset($map['CateIds'])) {
             $model->cateIds = $map['CateIds'];
         }
         if (isset($map['EndingDate'])) {
             $model->endingDate = $map['EndingDate'];
         }
-        if (isset($map['Section'])) {
-            $model->section = $map['Section'];
-        }
-        if (isset($map['ShopIds'])) {
-            $model->shopIds = $map['ShopIds'];
+        if (isset($map['PageIndex'])) {
+            $model->pageIndex = $map['PageIndex'];
         }
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 26-30
+     *
      * @var string
      */
     public $ageRange;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $saleNumbers;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $searchNumbers;

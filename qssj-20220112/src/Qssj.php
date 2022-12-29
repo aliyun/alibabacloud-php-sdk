@@ -9,6 +9,8 @@ use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Qssj\V20220112\Models\GetAgeDistributionRequest;
 use AlibabaCloud\SDK\Qssj\V20220112\Models\GetAgeDistributionResponse;
 use AlibabaCloud\SDK\Qssj\V20220112\Models\GetAllTrendCategoryResponse;
+use AlibabaCloud\SDK\Qssj\V20220112\Models\GetCrowdDataRequest;
+use AlibabaCloud\SDK\Qssj\V20220112\Models\GetCrowdDataResponse;
 use AlibabaCloud\SDK\Qssj\V20220112\Models\GetCrowdLabelRequest;
 use AlibabaCloud\SDK\Qssj\V20220112\Models\GetCrowdLabelResponse;
 use AlibabaCloud\SDK\Qssj\V20220112\Models\GetCrowdReginRequest;
@@ -23,6 +25,8 @@ use AlibabaCloud\SDK\Qssj\V20220112\Models\GetStoreSalesVolumeTopRequest;
 use AlibabaCloud\SDK\Qssj\V20220112\Models\GetStoreSalesVolumeTopResponse;
 use AlibabaCloud\SDK\Qssj\V20220112\Models\GetStoreSearchTopRequest;
 use AlibabaCloud\SDK\Qssj\V20220112\Models\GetStoreSearchTopResponse;
+use AlibabaCloud\SDK\Qssj\V20220112\Models\GetStyleOnlineRequest;
+use AlibabaCloud\SDK\Qssj\V20220112\Models\GetStyleOnlineResponse;
 use AlibabaCloud\SDK\Qssj\V20220112\Models\GetStyleTopRequest;
 use AlibabaCloud\SDK\Qssj\V20220112\Models\GetStyleTopResponse;
 use AlibabaCloud\SDK\Qssj\V20220112\Models\GetTrendImageDetailRequest;
@@ -35,6 +39,8 @@ use AlibabaCloud\SDK\Qssj\V20220112\Models\GetTrendSearchRecordRequest;
 use AlibabaCloud\SDK\Qssj\V20220112\Models\GetTrendSearchRecordResponse;
 use AlibabaCloud\SDK\Qssj\V20220112\Models\GetTrendStatisticRequest;
 use AlibabaCloud\SDK\Qssj\V20220112\Models\GetTrendStatisticResponse;
+use AlibabaCloud\SDK\Qssj\V20220112\Models\GetTrendWordAndIndexRequest;
+use AlibabaCloud\SDK\Qssj\V20220112\Models\GetTrendWordAndIndexResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -86,6 +92,12 @@ class Qssj extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->cateIds)) {
             $query['CateIds'] = $request->cateIds;
+        }
+        if (!Utils::isUnset($request->endingDate)) {
+            $query['EndingDate'] = $request->endingDate;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -151,6 +163,58 @@ class Qssj extends OpenApiClient
     }
 
     /**
+     * @param GetCrowdDataRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetCrowdDataResponse
+     */
+    public function getCrowdDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->cateIds)) {
+            $body['CateIds'] = $request->cateIds;
+        }
+        if (!Utils::isUnset($request->endingDate)) {
+            $body['EndingDate'] = $request->endingDate;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $body['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCrowdData',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCrowdDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCrowdDataRequest $request
+     *
+     * @return GetCrowdDataResponse
+     */
+    public function getCrowdData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCrowdDataWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetCrowdLabelRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -162,6 +226,12 @@ class Qssj extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->cateIds)) {
             $body['CateIds'] = $request->cateIds;
+        }
+        if (!Utils::isUnset($request->endingDate)) {
+            $body['EndingDate'] = $request->endingDate;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -205,6 +275,12 @@ class Qssj extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->cateIds)) {
             $query['CateIds'] = $request->cateIds;
+        }
+        if (!Utils::isUnset($request->endingDate)) {
+            $query['EndingDate'] = $request->endingDate;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -292,8 +368,23 @@ class Qssj extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->brandNames)) {
+            $body['BrandNames'] = $request->brandNames;
+        }
         if (!Utils::isUnset($request->cateIds)) {
             $body['CateIds'] = $request->cateIds;
+        }
+        if (!Utils::isUnset($request->endingDate)) {
+            $body['EndingDate'] = $request->endingDate;
+        }
+        if (!Utils::isUnset($request->section)) {
+            $body['Section'] = $request->section;
+        }
+        if (!Utils::isUnset($request->shopIds)) {
+            $body['ShopIds'] = $request->shopIds;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -338,6 +429,12 @@ class Qssj extends OpenApiClient
         if (!Utils::isUnset($request->cateIds)) {
             $query['CateIds'] = $request->cateIds;
         }
+        if (!Utils::isUnset($request->endingDate)) {
+            $query['EndingDate'] = $request->endingDate;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -378,8 +475,35 @@ class Qssj extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->brandNames)) {
+            $body['BrandNames'] = $request->brandNames;
+        }
         if (!Utils::isUnset($request->cateIds)) {
             $body['CateIds'] = $request->cateIds;
+        }
+        if (!Utils::isUnset($request->endingDate)) {
+            $body['EndingDate'] = $request->endingDate;
+        }
+        if (!Utils::isUnset($request->endingPrice)) {
+            $body['EndingPrice'] = $request->endingPrice;
+        }
+        if (!Utils::isUnset($request->endingSalesVolume)) {
+            $body['EndingSalesVolume'] = $request->endingSalesVolume;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $body['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->shopIds)) {
+            $body['ShopIds'] = $request->shopIds;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->startPrice)) {
+            $body['StartPrice'] = $request->startPrice;
+        }
+        if (!Utils::isUnset($request->startSalesVolume)) {
+            $body['StartSalesVolume'] = $request->startSalesVolume;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -421,8 +545,35 @@ class Qssj extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->brandNames)) {
+            $body['BrandNames'] = $request->brandNames;
+        }
         if (!Utils::isUnset($request->cateIds)) {
             $body['CateIds'] = $request->cateIds;
+        }
+        if (!Utils::isUnset($request->endingDate)) {
+            $body['EndingDate'] = $request->endingDate;
+        }
+        if (!Utils::isUnset($request->endingPrice)) {
+            $body['EndingPrice'] = $request->endingPrice;
+        }
+        if (!Utils::isUnset($request->endingSalesVolume)) {
+            $body['EndingSalesVolume'] = $request->endingSalesVolume;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $body['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->shopIds)) {
+            $body['ShopIds'] = $request->shopIds;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->startPrice)) {
+            $body['StartPrice'] = $request->startPrice;
+        }
+        if (!Utils::isUnset($request->startSalesVolume)) {
+            $body['StartSalesVolume'] = $request->startSalesVolume;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -455,6 +606,64 @@ class Qssj extends OpenApiClient
     }
 
     /**
+     * @param GetStyleOnlineRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetStyleOnlineResponse
+     */
+    public function getStyleOnlineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->brandNames)) {
+            $query['BrandNames'] = $request->brandNames;
+        }
+        if (!Utils::isUnset($request->cateIds)) {
+            $query['CateIds'] = $request->cateIds;
+        }
+        if (!Utils::isUnset($request->endingDate)) {
+            $query['EndingDate'] = $request->endingDate;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->shopIds)) {
+            $query['ShopIds'] = $request->shopIds;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetStyleOnline',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetStyleOnlineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetStyleOnlineRequest $request
+     *
+     * @return GetStyleOnlineResponse
+     */
+    public function getStyleOnline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStyleOnlineWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetStyleTopRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -464,14 +673,32 @@ class Qssj extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->brandNames)) {
+            $body['BrandNames'] = $request->brandNames;
+        }
         if (!Utils::isUnset($request->cateIds)) {
             $body['CateIds'] = $request->cateIds;
+        }
+        if (!Utils::isUnset($request->endingDate)) {
+            $body['EndingDate'] = $request->endingDate;
+        }
+        if (!Utils::isUnset($request->endingPrice)) {
+            $body['EndingPrice'] = $request->endingPrice;
         }
         if (!Utils::isUnset($request->pageIndex)) {
             $body['PageIndex'] = $request->pageIndex;
         }
+        if (!Utils::isUnset($request->shopIds)) {
+            $body['ShopIds'] = $request->shopIds;
+        }
         if (!Utils::isUnset($request->sortOrder)) {
             $body['SortOrder'] = $request->sortOrder;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->startPrice)) {
+            $body['StartPrice'] = $request->startPrice;
         }
         if (!Utils::isUnset($request->timeDisplay)) {
             $body['TimeDisplay'] = $request->timeDisplay;
@@ -694,8 +921,20 @@ class Qssj extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->brandNames)) {
+            $body['BrandNames'] = $request->brandNames;
+        }
         if (!Utils::isUnset($request->cateIds)) {
             $body['CateIds'] = $request->cateIds;
+        }
+        if (!Utils::isUnset($request->endingDate)) {
+            $body['EndingDate'] = $request->endingDate;
+        }
+        if (!Utils::isUnset($request->shopIds)) {
+            $body['ShopIds'] = $request->shopIds;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -725,5 +964,57 @@ class Qssj extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTrendStatisticWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTrendWordAndIndexRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetTrendWordAndIndexResponse
+     */
+    public function getTrendWordAndIndexWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->cateIds)) {
+            $body['CateIds'] = $request->cateIds;
+        }
+        if (!Utils::isUnset($request->endingDate)) {
+            $body['EndingDate'] = $request->endingDate;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $body['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTrendWordAndIndex',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTrendWordAndIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTrendWordAndIndexRequest $request
+     *
+     * @return GetTrendWordAndIndexResponse
+     */
+    public function getTrendWordAndIndex($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTrendWordAndIndexWithOptions($request, $runtime);
     }
 }

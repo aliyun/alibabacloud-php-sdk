@@ -14,21 +14,29 @@ class data extends Model
     public $cateName;
 
     /**
+     * @example 0.59
+     *
      * @var float
      */
     public $opportunityIndex;
 
     /**
+     * @example 0.99
+     *
      * @var float
      */
     public $relativeCommodity;
 
     /**
+     * @example 0.75
+     *
      * @var float
      */
     public $relativeDischarge;
 
     /**
+     * @example 202201
+     *
      * @var string
      */
     public $timeUnit;

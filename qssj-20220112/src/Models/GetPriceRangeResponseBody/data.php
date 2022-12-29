@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 20220518
+     *
      * @var string
      */
     public $closingDate;
 
     /**
+     * @example 1092707
+     *
      * @var int
      */
     public $goodsSales;
 
     /**
+     * @example 0~100
+     *
      * @var string
      */
     public $priceRange;
 
     /**
+     * @example 35840300.33
+     *
      * @var float
      */
     public $salesVolume;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class searchNumbers extends Model
 {
     /**
+     * @example M
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 45474
+     *
      * @var int
      */
     public $value;

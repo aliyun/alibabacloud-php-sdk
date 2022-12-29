@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class saleNumbers extends Model
 {
     /**
+     * @example M
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 2665206
+     *
      * @var int
      */
     public $value;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTrendImageListRequest extends Model
 {
     /**
+     * @example [1623]
+     *
      * @var string
      */
     public $cateIds;

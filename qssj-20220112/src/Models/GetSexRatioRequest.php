@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class GetSexRatioRequest extends Model
 {
     /**
+     * @example [1623]
+     *
      * @var string
      */
     public $cateIds;
+
+    /**
+     * @var string
+     */
+    public $endingDate;
+
+    /**
+     * @var string
+     */
+    public $startDate;
     protected $_name = [
-        'cateIds' => 'CateIds',
+        'cateIds'    => 'CateIds',
+        'endingDate' => 'EndingDate',
+        'startDate'  => 'StartDate',
     ];
 
     public function validate()
@@ -25,6 +39,12 @@ class GetSexRatioRequest extends Model
         $res = [];
         if (null !== $this->cateIds) {
             $res['CateIds'] = $this->cateIds;
+        }
+        if (null !== $this->endingDate) {
+            $res['EndingDate'] = $this->endingDate;
+        }
+        if (null !== $this->startDate) {
+            $res['StartDate'] = $this->startDate;
         }
 
         return $res;
@@ -40,6 +60,12 @@ class GetSexRatioRequest extends Model
         $model = new self();
         if (isset($map['CateIds'])) {
             $model->cateIds = $map['CateIds'];
+        }
+        if (isset($map['EndingDate'])) {
+            $model->endingDate = $map['EndingDate'];
+        }
+        if (isset($map['StartDate'])) {
+            $model->startDate = $map['StartDate'];
         }
 
         return $model;

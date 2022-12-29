@@ -4,29 +4,29 @@
 
 namespace AlibabaCloud\SDK\Qssj\V20220112\Models;
 
-use AlibabaCloud\SDK\Qssj\V20220112\Models\GetCrowdReginResponseBody\data;
+use AlibabaCloud\SDK\Qssj\V20220112\Models\GetTrendWordAndIndexResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class GetCrowdReginResponseBody extends Model
+class GetTrendWordAndIndexResponseBody extends Model
 {
     /**
-     * @example OK
+     * @example "OK"
      *
      * @var string
      */
     public $code;
 
     /**
-     * @var data
+     * @var data[]
      */
     public $data;
 
     /**
-     * @example success
+     * @example “success”
      *
      * @var string
      */
-    public $message;
+    public $massage;
 
     /**
      * @example 33d70ec3-6bbe-47b7-9c23-cd31075ddc1f
@@ -36,15 +36,15 @@ class GetCrowdReginResponseBody extends Model
     public $requestId;
 
     /**
-     * @example true
+     * @example “true”
      *
-     * @var bool
+     * @var string
      */
     public $successResponse;
     protected $_name = [
         'code'            => 'Code',
         'data'            => 'Data',
-        'message'         => 'Message',
+        'massage'         => 'Massage',
         'requestId'       => 'RequestId',
         'successResponse' => 'SuccessResponse',
     ];
@@ -60,10 +60,16 @@ class GetCrowdReginResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
+        if (null !== $this->massage) {
+            $res['Massage'] = $this->massage;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -78,7 +84,7 @@ class GetCrowdReginResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetCrowdReginResponseBody
+     * @return GetTrendWordAndIndexResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -87,10 +93,16 @@ class GetCrowdReginResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                $n           = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                }
+            }
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
+        if (isset($map['Massage'])) {
+            $model->massage = $map['Massage'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

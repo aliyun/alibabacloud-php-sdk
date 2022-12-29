@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 20220518
+     *
      * @var string
      */
     public $closingDate;
@@ -19,16 +21,22 @@ class data extends Model
     public $labelName;
 
     /**
+     * @example 51263.16
+     *
      * @var float
      */
     public $orderAmount;
 
     /**
+     * @example 591.33
+     *
      * @var float
      */
     public $purchaseAmount;
 
     /**
+     * @example 27036.0
+     *
      * @var float
      */
     public $searchVolume;

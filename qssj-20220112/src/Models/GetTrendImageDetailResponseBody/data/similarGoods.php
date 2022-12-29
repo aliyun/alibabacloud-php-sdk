@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class similarGoods extends Model
 {
     /**
+     * @example "https://img.alicdn.com/imgextra/O1CN01hmx9pJ2MhTW9iEJd9_!!2638679859.jpg"
+     *
      * @var string
      */
     public $aiImgUrl;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $goodsSales;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $searchVolume;

@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Qssj\V20220112\Models;
 
-use AlibabaCloud\SDK\Qssj\V20220112\Models\GetCrowdReginResponseBody\data;
+use AlibabaCloud\SDK\Qssj\V20220112\Models\GetCrowdDataResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class GetCrowdReginResponseBody extends Model
+class GetCrowdDataResponseBody extends Model
 {
     /**
      * @example OK
@@ -17,12 +17,12 @@ class GetCrowdReginResponseBody extends Model
     public $code;
 
     /**
-     * @var data
+     * @var data[]
      */
     public $data;
 
     /**
-     * @example success
+     * @example “success”
      *
      * @var string
      */
@@ -36,9 +36,9 @@ class GetCrowdReginResponseBody extends Model
     public $requestId;
 
     /**
-     * @example true
+     * @example “true”
      *
-     * @var bool
+     * @var string
      */
     public $successResponse;
     protected $_name = [
@@ -60,7 +60,13 @@ class GetCrowdReginResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -78,7 +84,7 @@ class GetCrowdReginResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetCrowdReginResponseBody
+     * @return GetCrowdDataResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -87,7 +93,13 @@ class GetCrowdReginResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                $n           = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

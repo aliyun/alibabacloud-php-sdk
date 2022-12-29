@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Qssj\V20220112\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetPriceRangeRequest extends Model
+class GetStyleOnlineRequest extends Model
 {
     /**
      * @var string
@@ -21,21 +21,29 @@ class GetPriceRangeRequest extends Model
     public $cateIds;
 
     /**
+     * @example 20220201
+     *
      * @var string
      */
     public $endingDate;
 
     /**
+     * @example 1
+     *
      * @var int
      */
-    public $section;
+    public $pageIndex;
 
     /**
+     * @example [571926]
+     *
      * @var string
      */
     public $shopIds;
 
     /**
+     * @example 20220101
+     *
      * @var string
      */
     public $startDate;
@@ -43,7 +51,7 @@ class GetPriceRangeRequest extends Model
         'brandNames' => 'BrandNames',
         'cateIds'    => 'CateIds',
         'endingDate' => 'EndingDate',
-        'section'    => 'Section',
+        'pageIndex'  => 'PageIndex',
         'shopIds'    => 'ShopIds',
         'startDate'  => 'StartDate',
     ];
@@ -64,8 +72,8 @@ class GetPriceRangeRequest extends Model
         if (null !== $this->endingDate) {
             $res['EndingDate'] = $this->endingDate;
         }
-        if (null !== $this->section) {
-            $res['Section'] = $this->section;
+        if (null !== $this->pageIndex) {
+            $res['PageIndex'] = $this->pageIndex;
         }
         if (null !== $this->shopIds) {
             $res['ShopIds'] = $this->shopIds;
@@ -80,7 +88,7 @@ class GetPriceRangeRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetPriceRangeRequest
+     * @return GetStyleOnlineRequest
      */
     public static function fromMap($map = [])
     {
@@ -94,8 +102,8 @@ class GetPriceRangeRequest extends Model
         if (isset($map['EndingDate'])) {
             $model->endingDate = $map['EndingDate'];
         }
-        if (isset($map['Section'])) {
-            $model->section = $map['Section'];
+        if (isset($map['PageIndex'])) {
+            $model->pageIndex = $map['PageIndex'];
         }
         if (isset($map['ShopIds'])) {
             $model->shopIds = $map['ShopIds'];

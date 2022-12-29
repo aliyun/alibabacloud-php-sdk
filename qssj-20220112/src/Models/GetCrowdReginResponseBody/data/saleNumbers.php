@@ -14,6 +14,8 @@ class saleNumbers extends Model
     public $name;
 
     /**
+     * @example 4709889
+     *
      * @var int
      */
     public $value;

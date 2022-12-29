@@ -11,19 +11,43 @@ class data extends Model
     /**
      * @var int
      */
+    public $brandCount;
+
+    /**
+     * @example 66417189
+     *
+     * @var int
+     */
     public $commodityCount;
 
     /**
+     * @var int
+     */
+    public $exposureValue;
+
+    /**
+     * @var int
+     */
+    public $hits;
+
+    /**
+     * @example 3145796461.2734184
+     *
      * @var float
      */
     public $sales;
 
     /**
+     * @example 1936264
+     *
      * @var int
      */
     public $shopCount;
     protected $_name = [
+        'brandCount'     => 'BrandCount',
         'commodityCount' => 'CommodityCount',
+        'exposureValue'  => 'ExposureValue',
+        'hits'           => 'Hits',
         'sales'          => 'Sales',
         'shopCount'      => 'ShopCount',
     ];
@@ -35,8 +59,17 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->brandCount) {
+            $res['BrandCount'] = $this->brandCount;
+        }
         if (null !== $this->commodityCount) {
             $res['CommodityCount'] = $this->commodityCount;
+        }
+        if (null !== $this->exposureValue) {
+            $res['ExposureValue'] = $this->exposureValue;
+        }
+        if (null !== $this->hits) {
+            $res['Hits'] = $this->hits;
         }
         if (null !== $this->sales) {
             $res['Sales'] = $this->sales;
@@ -56,8 +89,17 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BrandCount'])) {
+            $model->brandCount = $map['BrandCount'];
+        }
         if (isset($map['CommodityCount'])) {
             $model->commodityCount = $map['CommodityCount'];
+        }
+        if (isset($map['ExposureValue'])) {
+            $model->exposureValue = $map['ExposureValue'];
+        }
+        if (isset($map['Hits'])) {
+            $model->hits = $map['Hits'];
         }
         if (isset($map['Sales'])) {
             $model->sales = $map['Sales'];

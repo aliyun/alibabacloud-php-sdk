@@ -9,11 +9,41 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var int
+     */
+    public $commodityQuantity;
+
+    /**
+     * @var int
+     */
+    public $salesVolume;
+
+    /**
+     * @var int
+     */
+    public $searchVolume;
+
+    /**
+     * @var int
+     */
+    public $shopId;
+
+    /**
      * @var string
      */
     public $shopName;
+
+    /**
+     * @var float
+     */
+    public $totalSales;
     protected $_name = [
-        'shopName' => 'ShopName',
+        'commodityQuantity' => 'CommodityQuantity',
+        'salesVolume'       => 'SalesVolume',
+        'searchVolume'      => 'SearchVolume',
+        'shopId'            => 'ShopId',
+        'shopName'          => 'ShopName',
+        'totalSales'        => 'TotalSales',
     ];
 
     public function validate()
@@ -23,8 +53,23 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->commodityQuantity) {
+            $res['CommodityQuantity'] = $this->commodityQuantity;
+        }
+        if (null !== $this->salesVolume) {
+            $res['SalesVolume'] = $this->salesVolume;
+        }
+        if (null !== $this->searchVolume) {
+            $res['SearchVolume'] = $this->searchVolume;
+        }
+        if (null !== $this->shopId) {
+            $res['ShopId'] = $this->shopId;
+        }
         if (null !== $this->shopName) {
             $res['ShopName'] = $this->shopName;
+        }
+        if (null !== $this->totalSales) {
+            $res['TotalSales'] = $this->totalSales;
         }
 
         return $res;
@@ -38,8 +83,23 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CommodityQuantity'])) {
+            $model->commodityQuantity = $map['CommodityQuantity'];
+        }
+        if (isset($map['SalesVolume'])) {
+            $model->salesVolume = $map['SalesVolume'];
+        }
+        if (isset($map['SearchVolume'])) {
+            $model->searchVolume = $map['SearchVolume'];
+        }
+        if (isset($map['ShopId'])) {
+            $model->shopId = $map['ShopId'];
+        }
         if (isset($map['ShopName'])) {
             $model->shopName = $map['ShopName'];
+        }
+        if (isset($map['TotalSales'])) {
+            $model->totalSales = $map['TotalSales'];
         }
 
         return $model;

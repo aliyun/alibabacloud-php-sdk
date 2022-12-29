@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Qssj\V20220112\Models\GetStyleTopResponseBody;
+namespace AlibabaCloud\SDK\Qssj\V20220112\Models\GetStyleOnlineResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
@@ -34,6 +34,8 @@ class data extends Model
     public $color;
 
     /**
+     * @example 1379
+     *
      * @var int
      */
     public $exposureValue;
@@ -49,6 +51,8 @@ class data extends Model
     public $material;
 
     /**
+     * @example 464
+     *
      * @var float
      */
     public $price;
@@ -75,6 +79,8 @@ class data extends Model
     public $searchVolume;
 
     /**
+     * @example 5367123
+     *
      * @var int
      */
     public $shopId;

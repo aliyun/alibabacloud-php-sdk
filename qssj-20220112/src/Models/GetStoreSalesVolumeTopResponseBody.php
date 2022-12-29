@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetStoreSalesVolumeTopResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class GetStoreSalesVolumeTopResponseBody extends Model
     public $data;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 33d70ec3-6bbe-47b7-9c23-cd31075ddc1f
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $successResponse;

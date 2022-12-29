@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetOpportunityMarketRequest extends Model
 {
     /**
+     * @example [1623]
+     *
      * @var string
      */
     public $cateIds;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $timeDisplay;

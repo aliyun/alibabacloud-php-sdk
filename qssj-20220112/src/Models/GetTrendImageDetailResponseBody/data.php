@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example f93f34271c93c026aba75ca1b9f9fd2b
+     *
      * @var string
      */
     public $aiImgId;
@@ -25,6 +27,8 @@ class data extends Model
     public $multiPictUrl;
 
     /**
+     * @example -1
+     *
      * @var string
      */
     public $population;
