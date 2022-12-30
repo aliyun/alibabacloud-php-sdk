@@ -4,21 +4,12 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\SDK\Mse\V20190531\Models\GetServiceListenersResponseBody\data;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListNamingTrackResponseBody\traces;
 use AlibabaCloud\Tea\Model;
 
-class GetServiceListenersResponseBody extends Model
+class ListNamingTrackResponseBody extends Model
 {
     /**
-     * @description The returned data.
-     *
-     * @var data[]
-     */
-    public $data;
-
-    /**
-     * @description The error code returned if the request failed.
-     *
      * @example mse-100-000
      *
      * @var string
@@ -26,29 +17,18 @@ class GetServiceListenersResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The HTTP status code returned.
-     *
-     * @example 202
+     * @example 200
      *
      * @var string
      */
     public $httpCode;
 
     /**
-     * @description The message returned.
-     *
-     *   If the request is successful, a success message is returned.
-     *   If the request fails, an error message is returned.
-     *
-     * @example success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The page number of the returned page.
-     *
      * @example 1
      *
      * @var int
@@ -56,8 +36,6 @@ class GetServiceListenersResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
-     *
      * @example 10
      *
      * @var int
@@ -65,20 +43,13 @@ class GetServiceListenersResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 54973C90-F379-4372-9AA5-053A3F7****
+     * @example 9916CBED-B2D5-5685-9129-4592FE1*****
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   `true`: The request was successful.
-     *   `false`: The request failed.
-     *
      * @example true
      *
      * @var bool
@@ -86,15 +57,17 @@ class GetServiceListenersResponseBody extends Model
     public $success;
 
     /**
-     * @description The number of listeners that are queried.
-     *
-     * @example 2
+     * @example 7
      *
      * @var int
      */
     public $totalCount;
+
+    /**
+     * @var traces[]
+     */
+    public $traces;
     protected $_name = [
-        'data'       => 'Data',
         'errorCode'  => 'ErrorCode',
         'httpCode'   => 'HttpCode',
         'message'    => 'Message',
@@ -103,6 +76,7 @@ class GetServiceListenersResponseBody extends Model
         'requestId'  => 'RequestId',
         'success'    => 'Success',
         'totalCount' => 'TotalCount',
+        'traces'     => 'Traces',
     ];
 
     public function validate()
@@ -112,15 +86,6 @@ class GetServiceListenersResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->data) {
-            $res['Data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
@@ -145,6 +110,15 @@ class GetServiceListenersResponseBody extends Model
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+        if (null !== $this->traces) {
+            $res['Traces'] = [];
+            if (null !== $this->traces && \is_array($this->traces)) {
+                $n = 0;
+                foreach ($this->traces as $item) {
+                    $res['Traces'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -152,20 +126,11 @@ class GetServiceListenersResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetServiceListenersResponseBody
+     * @return ListNamingTrackResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = [];
-                $n           = 0;
-                foreach ($map['Data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
@@ -189,6 +154,15 @@ class GetServiceListenersResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['Traces'])) {
+            if (!empty($map['Traces'])) {
+                $model->traces = [];
+                $n             = 0;
+                foreach ($map['Traces'] as $item) {
+                    $model->traces[$n++] = null !== $item ? traces::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

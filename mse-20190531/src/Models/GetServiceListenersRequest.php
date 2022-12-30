@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetServiceListenersRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,9 @@ class GetServiceListenersRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The ID of the MSE instance to which the service belongs.
+     *
+     * > You must specify InstanceId or ClusterId.
      * @example mse-09k1q11****
      *
      * @var string
@@ -23,6 +31,9 @@ class GetServiceListenersRequest extends Model
     public $clusterId;
 
     /**
+     * @description The name of the cluster to which the service belongs.
+     *
+     * > The cluster is a concept for Nacos services and does not refer to a Microservices Engine (MSE) instance.
      * @example DEFAULT
      *
      * @var string
@@ -30,6 +41,8 @@ class GetServiceListenersRequest extends Model
     public $clusterName;
 
     /**
+     * @description The group to which the service belongs.
+     *
      * @example WEB_GROUP
      *
      * @var string
@@ -37,6 +50,8 @@ class GetServiceListenersRequest extends Model
     public $groupName;
 
     /**
+     * @description A reserved parameter.
+     *
      * @example none
      *
      * @var string
@@ -44,6 +59,9 @@ class GetServiceListenersRequest extends Model
     public $hasIpCount;
 
     /**
+     * @description The ID of the instance to which the service belongs.
+     *
+     * > You must specify InstanceId or ClusterId.
      * @example mse_prepaid_public_cn-tl32odtt20j
      *
      * @var string
@@ -51,6 +69,8 @@ class GetServiceListenersRequest extends Model
     public $instanceId;
 
     /**
+     * @description The namespace to which the service belongs.
+     *
      * @example ddaf8f12-****-b1c1-86e7c72e266b
      *
      * @var string
@@ -58,6 +78,8 @@ class GetServiceListenersRequest extends Model
     public $namespaceId;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -65,6 +87,8 @@ class GetServiceListenersRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var int
@@ -72,6 +96,8 @@ class GetServiceListenersRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -79,6 +105,8 @@ class GetServiceListenersRequest extends Model
     public $regionId;
 
     /**
+     * @description The extended request parameters in the JSON format.
+     *
      * @example {}
      *
      * @var string
@@ -86,6 +114,8 @@ class GetServiceListenersRequest extends Model
     public $requestPars;
 
     /**
+     * @description The name of the service whose listeners you want to query.
+     *
      * @example zeekr-orderboss
      *
      * @var string

@@ -4,13 +4,17 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateMigrationTaskResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class TagResourcesResponseBody extends Model
+class UpdateMigrationTaskResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request failed.
-     *
+     * @var data
+     */
+    public $data;
+
+    /**
      * @example mse-100-000
      *
      * @var string
@@ -18,36 +22,34 @@ class TagResourcesResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The message returned.
+     * @example 200
      *
-     * @example The request was successfully processed.
-     *
+     * @var string
+     */
+    public $httpCode;
+
+    /**
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example E0A79810-9396-521C-A09D-E757B3E2BAF4
+     * @example AF21683A-29C7-4853-AC0F-B5ADEE4****
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   `true`: The request was successful.
-     *   `false`: The request failed.
-     *
      * @example true
      *
      * @var bool
      */
     public $success;
     protected $_name = [
+        'data'      => 'Data',
         'errorCode' => 'ErrorCode',
+        'httpCode'  => 'HttpCode',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
@@ -60,8 +62,14 @@ class TagResourcesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->httpCode) {
+            $res['HttpCode'] = $this->httpCode;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -79,13 +87,19 @@ class TagResourcesResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return TagResourcesResponseBody
+     * @return UpdateMigrationTaskResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
+        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['HttpCode'])) {
+            $model->httpCode = $map['HttpCode'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

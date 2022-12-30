@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -17,6 +22,8 @@ class TagResourcesRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -24,11 +31,23 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the instance.
+     *
+     * > This parameter specifies the instance ID that is passed. Examples:
+     *
+     *   **ResourceId.1** indicates the ID of the first instance.
+     *   **ResourceId.2** indicates the ID of the second instance.
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The type of the resources. Valid values:
+     *
+     *   CLUSTER: MSE instance
+     *   GATEWAY: cloud-native gateway
+     *
      * @example CLUSTER
      *
      * @var string
@@ -36,6 +55,8 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The list of tags. You can specify a maximum of 20 tags.
+     *
      * @var tag[]
      */
     public $tag;

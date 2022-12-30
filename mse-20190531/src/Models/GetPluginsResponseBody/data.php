@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The directory of the plug-in.
+     * @description The type of the plug-in. Valid values:
      *
      * 5: traffic observation
      * @example 0
@@ -19,9 +19,9 @@ class data extends Model
     public $category;
 
     /**
-     * @description The information about the configuration check.
+     * @description The information about the plug-in configuration used for checking.
      *
-     * @example \# Configure to check required fields for the plug-in, such as name, age, and friends. Sample configuration: name: John age: 18 friends: - David - Anne
+     * @example \# The configuration includes the fields required for checking, such as name, age, and friends. Sample configuration: name: John age: 18 friends: - David - Anne
      *
      * @var string
      */
@@ -61,7 +61,7 @@ class data extends Model
     public $newVersionPublishingFlag;
 
     /**
-     * @description The plug-in execution stage.
+     * @description The execution stage of the plug-in.
      *
      *   0: default stage
      *   1: authorization stage
@@ -84,7 +84,7 @@ class data extends Model
     public $primaryUser;
 
     /**
-     * @description The plug-in execution priority. A larger value indicates a higher priority.
+     * @description The execution priority of the plug-in. A larger value indicates a higher priority.
      *
      * @example 1
      *
@@ -132,7 +132,7 @@ class data extends Model
     public $version;
 
     /**
-     * @description The Object Storage Service (OSS) of the WebAssembly plug-in.
+     * @description The URL of the Object Storage Service (OSS) bucket that stores the WebAssembly plug-in.
      *
      * @example https://mse-shared-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/cfg/import/1917515******\/gw-0adf3ad751284cc69fcf9669fba*****\/2022/11/02/4d390496-2c17-4b42-a479-f9068ba****\/16673573***5.wasm
      *
@@ -141,7 +141,7 @@ class data extends Model
     public $wasmFile;
 
     /**
-     * @description The WebAssembly language.
+     * @description The WebAssembly language. Valid values:
      *
      *   0: C++
      *   1: TinyGo

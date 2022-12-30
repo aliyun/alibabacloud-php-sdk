@@ -19,10 +19,10 @@ class GetPluginsRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The plug-in directory.
+     * @description The type of the plug-in. Valid values:
      *
-     *   0: user-defined
-     *   1: permission authentication
+     *   0: custom
+     *   1: permission authorization
      *   2: security protection
      *   3: transmission protocol
      *   4: traffic control

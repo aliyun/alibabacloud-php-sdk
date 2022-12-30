@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\SDK\Mse\V20190531\Models\AddAuthResourceRequest\authResourceHeaderList;
 use AlibabaCloud\Tea\Model;
 
-class AddAuthResourceRequest extends Model
+class AddAuthResourceShrinkRequest extends Model
 {
     /**
      * @example zh
@@ -26,9 +25,9 @@ class AddAuthResourceRequest extends Model
     public $authId;
 
     /**
-     * @var authResourceHeaderList[]
+     * @var string
      */
-    public $authResourceHeaderList;
+    public $authResourceHeaderListShrink;
 
     /**
      * @description The ID of the domain name.
@@ -67,14 +66,14 @@ class AddAuthResourceRequest extends Model
      */
     public $path;
     protected $_name = [
-        'acceptLanguage'         => 'AcceptLanguage',
-        'authId'                 => 'AuthId',
-        'authResourceHeaderList' => 'AuthResourceHeaderList',
-        'domainId'               => 'DomainId',
-        'gatewayUniqueId'        => 'GatewayUniqueId',
-        'ignoreCase'             => 'IgnoreCase',
-        'matchType'              => 'MatchType',
-        'path'                   => 'Path',
+        'acceptLanguage'               => 'AcceptLanguage',
+        'authId'                       => 'AuthId',
+        'authResourceHeaderListShrink' => 'AuthResourceHeaderList',
+        'domainId'                     => 'DomainId',
+        'gatewayUniqueId'              => 'GatewayUniqueId',
+        'ignoreCase'                   => 'IgnoreCase',
+        'matchType'                    => 'MatchType',
+        'path'                         => 'Path',
     ];
 
     public function validate()
@@ -90,14 +89,8 @@ class AddAuthResourceRequest extends Model
         if (null !== $this->authId) {
             $res['AuthId'] = $this->authId;
         }
-        if (null !== $this->authResourceHeaderList) {
-            $res['AuthResourceHeaderList'] = [];
-            if (null !== $this->authResourceHeaderList && \is_array($this->authResourceHeaderList)) {
-                $n = 0;
-                foreach ($this->authResourceHeaderList as $item) {
-                    $res['AuthResourceHeaderList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->authResourceHeaderListShrink) {
+            $res['AuthResourceHeaderList'] = $this->authResourceHeaderListShrink;
         }
         if (null !== $this->domainId) {
             $res['DomainId'] = $this->domainId;
@@ -121,7 +114,7 @@ class AddAuthResourceRequest extends Model
     /**
      * @param array $map
      *
-     * @return AddAuthResourceRequest
+     * @return AddAuthResourceShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -133,13 +126,7 @@ class AddAuthResourceRequest extends Model
             $model->authId = $map['AuthId'];
         }
         if (isset($map['AuthResourceHeaderList'])) {
-            if (!empty($map['AuthResourceHeaderList'])) {
-                $model->authResourceHeaderList = [];
-                $n                             = 0;
-                foreach ($map['AuthResourceHeaderList'] as $item) {
-                    $model->authResourceHeaderList[$n++] = null !== $item ? authResourceHeaderList::fromMap($item) : $item;
-                }
-            }
+            $model->authResourceHeaderListShrink = $map['AuthResourceHeaderList'];
         }
         if (isset($map['DomainId'])) {
             $model->domainId = $map['DomainId'];

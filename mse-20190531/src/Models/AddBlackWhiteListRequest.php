@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddBlackWhiteListRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -34,7 +39,7 @@ class AddBlackWhiteListRequest extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description Specifies whether to enable the whitelist mode for authorization.
+     * @description Specifies whether to create a whitelist.
      *
      * @example false
      *
@@ -43,16 +48,28 @@ class AddBlackWhiteListRequest extends Model
     public $isWhite;
 
     /**
+     * @description The name.
+     *
+     * @example name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The description.
+     *
+     * @example this is a note
+     *
      * @var string
      */
     public $note;
 
     /**
+     * @description The resource IDs in the JSON format.
+     *
+     * @example [123]
+     *
      * @var string
      */
     public $resourceIdJsonList;
@@ -68,6 +85,9 @@ class AddBlackWhiteListRequest extends Model
 
     /**
      * @description The status of the blacklist.
+     *
+     *   on: enabled
+     *   off: disabled
      *
      * @example off
      *

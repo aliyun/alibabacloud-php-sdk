@@ -8,6 +8,7 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddAuthResourceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddAuthResourceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\AddAuthResourceShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddBlackWhiteListRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddBlackWhiteListResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayDomainRequest;
@@ -76,6 +77,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayServiceVersionRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayServiceVersionResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewaySlbRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewaySlbResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteMigrationTaskRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteMigrationTaskResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosConfigsRequest;
@@ -173,6 +176,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListClusterTypesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListClusterTypesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListClusterVersionsRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListClusterVersionsResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListConfigTrackRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListConfigTrackResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListEngineNamespacesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListEngineNamespacesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListEurekaInstancesRequest;
@@ -198,10 +203,14 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListListenersByConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListListenersByConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListListenersByIpRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListListenersByIpResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListMigrationTaskRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListMigrationTaskResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNacosConfigsRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNacosConfigsResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNacosHistoryConfigsRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNacosHistoryConfigsResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListNamingTrackRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListNamingTrackResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListSecurityGroupRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListSecurityGroupResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListSecurityGroupRuleRequest;
@@ -315,6 +324,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateImageResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateMessageQueueRouteRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateMessageQueueRouteResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateMessageQueueRouteShrinkRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateMigrationTaskRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateMigrationTaskResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateNacosClusterRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateNacosClusterResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateNacosConfigRequest;
@@ -375,14 +386,19 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddAuthResourceRequest $request
+     * @param AddAuthResourceRequest $tmpReq
      * @param RuntimeOptions         $runtime
      *
      * @return AddAuthResourceResponse
      */
-    public function addAuthResourceWithOptions($request, $runtime)
+    public function addAuthResourceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new AddAuthResourceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->authResourceHeaderList)) {
+            $request->authResourceHeaderListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->authResourceHeaderList, 'AuthResourceHeaderList', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
@@ -390,11 +406,17 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->authId)) {
             $query['AuthId'] = $request->authId;
         }
+        if (!Utils::isUnset($request->authResourceHeaderListShrink)) {
+            $query['AuthResourceHeaderList'] = $request->authResourceHeaderListShrink;
+        }
         if (!Utils::isUnset($request->domainId)) {
             $query['DomainId'] = $request->domainId;
         }
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->ignoreCase)) {
+            $query['IgnoreCase'] = $request->ignoreCase;
         }
         if (!Utils::isUnset($request->matchType)) {
             $query['MatchType'] = $request->matchType;
@@ -2583,6 +2605,55 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteGatewaySlbWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteMigrationTaskRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteMigrationTaskResponse
+     */
+    public function deleteMigrationTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->requestPars)) {
+            $query['RequestPars'] = $request->requestPars;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMigrationTask',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteMigrationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteMigrationTaskRequest $request
+     *
+     * @return DeleteMigrationTaskResponse
+     */
+    public function deleteMigrationTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMigrationTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -5108,6 +5179,46 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param ListConfigTrackRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListConfigTrackResponse
+     */
+    public function listConfigTrackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListConfigTrack',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListConfigTrackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListConfigTrackRequest $request
+     *
+     * @return ListConfigTrackResponse
+     */
+    public function listConfigTrack($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listConfigTrackWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListEngineNamespacesRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -5688,6 +5799,46 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param ListMigrationTaskRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListMigrationTaskResponse
+     */
+    public function listMigrationTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMigrationTask',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMigrationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListMigrationTaskRequest $request
+     *
+     * @return ListMigrationTaskResponse
+     */
+    public function listMigrationTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMigrationTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
      *   *
      * @param ListNacosConfigsRequest $request ListNacosConfigsRequest
@@ -5833,6 +5984,46 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listNacosHistoryConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListNamingTrackRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListNamingTrackResponse
+     */
+    public function listNamingTrackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListNamingTrack',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListNamingTrackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListNamingTrackRequest $request
+     *
+     * @return ListNamingTrackResponse
+     */
+    public function listNamingTrack($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNamingTrackWithOptions($request, $runtime);
     }
 
     /**
@@ -8685,6 +8876,79 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateMessageQueueRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateMigrationTaskRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateMigrationTaskResponse
+     */
+    public function updateMigrationTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['ClusterType'] = $request->clusterType;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->originInstanceAddress)) {
+            $query['OriginInstanceAddress'] = $request->originInstanceAddress;
+        }
+        if (!Utils::isUnset($request->originInstanceName)) {
+            $query['OriginInstanceName'] = $request->originInstanceName;
+        }
+        if (!Utils::isUnset($request->originInstanceNamespace)) {
+            $query['OriginInstanceNamespace'] = $request->originInstanceNamespace;
+        }
+        if (!Utils::isUnset($request->projectDesc)) {
+            $query['ProjectDesc'] = $request->projectDesc;
+        }
+        if (!Utils::isUnset($request->requestPars)) {
+            $query['RequestPars'] = $request->requestPars;
+        }
+        if (!Utils::isUnset($request->targetClusterName)) {
+            $query['TargetClusterName'] = $request->targetClusterName;
+        }
+        if (!Utils::isUnset($request->targetClusterUrl)) {
+            $query['TargetClusterUrl'] = $request->targetClusterUrl;
+        }
+        if (!Utils::isUnset($request->targetInstanceId)) {
+            $query['TargetInstanceId'] = $request->targetInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMigrationTask',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateMigrationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateMigrationTaskRequest $request
+     *
+     * @return UpdateMigrationTaskResponse
+     */
+    public function updateMigrationTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMigrationTaskWithOptions($request, $runtime);
     }
 
     /**

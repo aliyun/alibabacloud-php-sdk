@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
-     * @description The error code returned.
+     * @description The error code returned if the request failed.
      *
      * @example mse-100-000
      *
@@ -21,7 +21,7 @@ class ListTagResourcesResponseBody extends Model
     /**
      * @description The message returned.
      *
-     * @example The request is successfully processed.
+     * @example The request was successfully processed.
      *
      * @var string
      */

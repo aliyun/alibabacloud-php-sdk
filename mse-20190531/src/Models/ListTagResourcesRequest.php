@@ -31,7 +31,7 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
