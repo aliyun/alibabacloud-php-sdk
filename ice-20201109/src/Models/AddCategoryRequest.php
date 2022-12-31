@@ -14,11 +14,15 @@ class AddCategoryRequest extends Model
     public $cateName;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $parentId;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $type;

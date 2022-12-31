@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ListLiveTranscodeJobsRequest extends Model
 {
     /**
+     * @example 24ecbb5c-4f98-4194-9400-f17102e27fc5
+     *
      * @var string
      */
     public $keyWord;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example asc
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $startMode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example normal
+     *
      * @var string
      */
     public $type;

@@ -23,6 +23,8 @@ class mediaInfoList extends Model
     public $aiRoughData;
 
     /**
+     * @description FileInfos。
+     *
      * @var fileInfoList[]
      */
     public $fileInfoList;
@@ -33,6 +35,8 @@ class mediaInfoList extends Model
     public $mediaBasicInfo;
 
     /**
+     * @example 3b187b3620c8490886cfc2a9578c3ce6
+     *
      * @var string
      */
     public $mediaId;

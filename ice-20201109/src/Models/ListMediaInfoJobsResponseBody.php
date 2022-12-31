@@ -15,11 +15,15 @@ class ListMediaInfoJobsResponseBody extends Model
     public $jobs;
 
     /**
+     * @example 019daf5780f74831b0e1a767c9f1c178
+     *
      * @var string
      */
     public $nextPageToken;
 
     /**
+     * @example 31E30781-9495-5E2D-A84D-759B0A01E262
+     *
      * @var string
      */
     public $requestId;

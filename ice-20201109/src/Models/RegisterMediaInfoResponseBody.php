@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RegisterMediaInfoResponseBody extends Model
 {
     /**
+     * @example ******b48fb04483915d4f2cd8******
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @example ******5A-CAAC-4850-A3AF-B74606******
+     *
      * @var string
      */
     public $requestId;

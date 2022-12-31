@@ -10,31 +10,43 @@ use AlibabaCloud\Tea\Model;
 class audio extends Model
 {
     /**
+     * @example 128
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $channels;
 
     /**
+     * @example AAC
+     *
      * @var string
      */
     public $codec;
 
     /**
+     * @example aac_low
+     *
      * @var string
      */
     public $profile;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $remove;
 
     /**
+     * @example 44100
+     *
      * @var string
      */
     public $samplerate;

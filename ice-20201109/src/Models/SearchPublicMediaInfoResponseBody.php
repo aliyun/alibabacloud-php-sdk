@@ -15,11 +15,15 @@ class SearchPublicMediaInfoResponseBody extends Model
     public $publicMediaInfos;
 
     /**
+     * @example ****3CFB-2767-54FD-B311-BD15A4C1****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

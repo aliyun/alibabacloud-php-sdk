@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class UploadMediaByURLRequest extends Model
 {
     /**
+     * @example app-1000000
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example d67281da3c8743b8823ad12976187***
+     *
      * @var string
      */
     public $entityId;
 
     /**
+     * @example [{"SourceURL":"https://example.aliyundoc.com/video01.mp4","Title":"urlUploadTest"}]
+     *
      * @var string
      */
     public $mediaMetaData;
 
     /**
+     * @example {"ProcessType": "Workflow","ProcessID":"b72a06c6beeb4dcdb898feef067b1***"}
+     *
      * @var string
      */
     public $postProcessConfig;
 
     /**
+     * @example {"StorageType":"oss","StorageLocation":"outin-***.oss-cn-shanghai.aliyuncs.com"}
+     *
      * @var string
      */
     public $uploadTargetConfig;
 
     /**
+     * @example https://diffurl.mp4
+     *
      * @var string
      */
     public $uploadURLs;
 
     /**
+     * @example {"MessageCallback":{"CallbackURL":"http://example.aliyundoc.com"},"Extend":{"localId":"xxx","test":"www"}}
+     *
      * @var string
      */
     public $userData;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class streamInput extends Model
 {
     /**
+     * @example rtmp://mydomain/app/stream1
+     *
      * @var string
      */
     public $inputUrl;
 
     /**
+     * @example rtmp
+     *
      * @var string
      */
     public $type;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class transcodeOutput extends Model
 {
     /**
+     * @example mydomain
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example LiveCenter
+     *
      * @var string
      */
     public $type;

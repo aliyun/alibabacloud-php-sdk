@@ -14,6 +14,8 @@ class DeleteLiveRecordFilesRequest extends Model
     public $recordIds;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $removeFile;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class censorResult extends Model
 {
     /**
+     * @example normal
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $rate;
 
     /**
+     * @example porn
+     *
      * @var string
      */
     public $scene;
 
     /**
+     * @example block
+     *
      * @var string
      */
     public $suggestion;

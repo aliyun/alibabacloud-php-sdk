@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $relatedMediaidFlag;
 
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $templateId;

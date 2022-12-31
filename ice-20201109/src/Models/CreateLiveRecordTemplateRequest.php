@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateLiveRecordTemplateRequest extends Model
 {
     /**
+     * @description 代表资源名称的资源属性字段
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 录制格式
+     *
      * @var recordFormat[]
      */
     public $recordFormat;

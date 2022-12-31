@@ -15,6 +15,10 @@ class CreateEditingProjectResponseBody extends Model
     public $project;
 
     /**
+     * @description Id of the request
+     *
+     * @example ******3B-0E1A-586A-AC29-742247******
+     *
      * @var string
      */
     public $requestId;

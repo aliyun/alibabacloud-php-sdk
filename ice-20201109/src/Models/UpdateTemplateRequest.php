@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class UpdateTemplateRequest extends Model
 {
     /**
+     * @example 参见模板Config文档
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/cover.jpg
+     *
      * @var string
      */
     public $coverUrl;
 
     /**
+     * @example 视频添加水印模板
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $previewMedia;
 
     /**
+     * @example {"video":["******c04f1d4a06996144cc1a******","******cb7db64841b159b4f2ea******"],"audio":["******c04f1d4a06996144cc1a******"],"image":["******c04f1d4a06996144cc1a******"]}
+     *
      * @var string
      */
     public $relatedMediaids;
 
     /**
+     * @example OpenAPI
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $templateId;

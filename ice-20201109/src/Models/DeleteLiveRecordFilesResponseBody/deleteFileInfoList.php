@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class deleteFileInfoList extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 13cbb83e-043c-4728-ac35-*****
+     *
      * @var string
      */
     public $recordId;

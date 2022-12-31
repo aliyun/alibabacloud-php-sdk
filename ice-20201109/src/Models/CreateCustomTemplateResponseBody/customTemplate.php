@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class customTemplate extends Model
 {
     /**
+     * @example 2022-04-19T02:04:31Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isDefault;
 
     /**
+     * @example 2022-04-19T02:04:31Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example Remux
+     *
      * @var string
      */
     public $subtype;
 
     /**
+     * @example {"Container":{"Format":"flv"},"Video":{},"Audio":{}}
+     *
      * @var string
      */
     public $templateConfig;
 
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example test-template
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @example TranscodeTemplate
+     *
      * @var string
      */
     public $typeName;

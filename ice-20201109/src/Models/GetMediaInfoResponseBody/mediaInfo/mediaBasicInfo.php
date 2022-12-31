@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class mediaBasicInfo extends Model
 {
     /**
+     * @example ICE
+     *
      * @var string
      */
     public $biz;
 
     /**
+     * @example general
+     *
      * @var string
      */
     public $businessType;
 
     /**
+     * @example 3048
+     *
      * @var int
      */
     public $cateId;
 
     /**
+     * @example cateName
+     *
      * @var string
      */
     public $cateName;
@@ -34,16 +42,22 @@ class mediaBasicInfo extends Model
     public $category;
 
     /**
+     * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @example 2020-12-26T04:11:08Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2020-12-26T04:11:15Z
+     *
      * @var string
      */
     public $deletedTime;
@@ -54,11 +68,17 @@ class mediaBasicInfo extends Model
     public $description;
 
     /**
+     * @example https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
+     *
      * @var string
      */
     public $inputURL;
 
     /**
+     * @description MediaId
+     *
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $mediaId;
@@ -69,31 +89,43 @@ class mediaBasicInfo extends Model
     public $mediaTags;
 
     /**
+     * @example video
+     *
      * @var string
      */
     public $mediaType;
 
     /**
+     * @example 2020-12-26T04:11:10Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example 123-1234
+     *
      * @var string
      */
     public $referenceId;
 
     /**
+     * @example oss
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example [{"bucket":"example-bucket","count":"32","iceJobId":"******83ec44d58b2069def2e******","location":"oss-cn-shanghai","snapshotRegular":"example/example-{Count}.jpg","spriteRegular":"example/example-{TileCount}.jpg","templateId":"******e438b14ff39293eaec25******","tileCount":"1"}]
+     *
      * @var string
      */
     public $spriteImages;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $status;
@@ -104,11 +136,15 @@ class mediaBasicInfo extends Model
     public $title;
 
     /**
+     * @example general
+     *
      * @var string
      */
     public $uploadSource;
 
     /**
+     * @example userDataTest
+     *
      * @var string
      */
     public $userData;

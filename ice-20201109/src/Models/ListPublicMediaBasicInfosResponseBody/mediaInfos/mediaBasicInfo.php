@@ -9,71 +9,101 @@ use AlibabaCloud\Tea\Model;
 class mediaBasicInfo extends Model
 {
     /**
+     * @example general
+     *
      * @var string
      */
     public $businessType;
 
     /**
+     * @example video
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @example 2021-01-08T16:52:04Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2021-01-08T16:52:04Z
+     *
      * @var string
      */
     public $deletedTime;
 
     /**
+     * @example description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
+     *
      * @var string
      */
     public $inputURL;
 
     /**
+     * @description MediaId
+     *
+     * @example ****019b82e24b37a1c2958dec38****
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @example sticker-daily
+     *
      * @var string
      */
     public $mediaTags;
 
     /**
+     * @example video
+     *
      * @var string
      */
     public $mediaType;
 
     /**
+     * @example 2021-01-08T16:52:04Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $snapshots;
 
     /**
+     * @example oss
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $status;
@@ -84,11 +114,15 @@ class mediaBasicInfo extends Model
     public $title;
 
     /**
+     * @example Init
+     *
      * @var string
      */
     public $transcodeStatus;
 
     /**
+     * @example userData
+     *
      * @var string
      */
     public $userData;

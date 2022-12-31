@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ListSnapshotJobsRequest extends Model
 {
     /**
+     * @example 2022-07-14T00:00:00Z
+     *
      * @var string
      */
     public $endOfCreateTime;
 
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $nextPageToken;
 
     /**
+     * @example CreateTimeDesc
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2022-07-12T00:00:00Z
+     *
      * @var string
      */
     public $startOfCreateTime;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $status;

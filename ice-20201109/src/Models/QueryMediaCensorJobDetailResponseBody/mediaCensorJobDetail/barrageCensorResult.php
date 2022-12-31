@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class barrageCensorResult extends Model
 {
     /**
+     * @example normal
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @example 99.91
+     *
      * @var string
      */
     public $rate;
 
     /**
+     * @example antispam
+     *
      * @var string
      */
     public $scene;
 
     /**
+     * @example pass
+     *
      * @var string
      */
     public $suggestion;

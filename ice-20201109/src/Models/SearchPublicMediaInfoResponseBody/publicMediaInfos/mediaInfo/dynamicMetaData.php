@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class dynamicMetaData extends Model
 {
     /**
+     * @example "{\"AuditionUrl\": \"http://xxx\", \"AuditionCount\": 3...}"
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example system
+     *
      * @var string
      */
     public $type;

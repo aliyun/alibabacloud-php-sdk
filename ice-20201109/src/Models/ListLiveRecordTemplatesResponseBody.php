@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListLiveRecordTemplatesResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -25,16 +29,22 @@ class ListLiveRecordTemplatesResponseBody extends Model
     public $recordTemplateList;
 
     /**
+     * @example BEA98A0C-7870-15FE-B96F-8880BB600A2C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example desc
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $totalCount;

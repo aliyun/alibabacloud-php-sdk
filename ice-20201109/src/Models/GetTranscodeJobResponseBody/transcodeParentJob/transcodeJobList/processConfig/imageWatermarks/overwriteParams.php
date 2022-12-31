@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class overwriteParams extends Model
 {
     /**
+     * @example 10
+     *
      * @var string
      */
     public $dx;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $dy;
@@ -26,11 +30,15 @@ class overwriteParams extends Model
     public $file;
 
     /**
+     * @example 32
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @example TopLeft
+     *
      * @var string
      */
     public $referPos;
@@ -41,6 +49,8 @@ class overwriteParams extends Model
     public $timeline;
 
     /**
+     * @example 32
+     *
      * @var string
      */
     public $width;

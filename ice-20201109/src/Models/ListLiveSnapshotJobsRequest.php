@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListLiveSnapshotJobsRequest extends Model
 {
     /**
+     * @example 2022-02-02T23:59:59Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example ****a046-263c-3560-978a-fb287782****
+     *
      * @var string
      */
     public $searchKeyWord;
 
     /**
+     * @example desc
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example 2022-02-02T00:00:00Z
+     *
      * @var string
      */
     public $startTime;

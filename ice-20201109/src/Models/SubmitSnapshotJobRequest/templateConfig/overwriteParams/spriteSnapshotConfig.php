@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class spriteSnapshotConfig extends Model
 {
     /**
+     * @example 480
+     *
      * @var int
      */
     public $cellHeight;
 
     /**
+     * @example 720
+     *
      * @var int
      */
     public $cellWidth;
 
     /**
+     * @example #000000
+     *
      * @var string
      */
     public $color;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $columns;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $lines;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $margin;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $padding;

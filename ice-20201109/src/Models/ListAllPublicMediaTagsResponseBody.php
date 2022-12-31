@@ -15,6 +15,8 @@ class ListAllPublicMediaTagsResponseBody extends Model
     public $mediaTagList;
 
     /**
+     * @example B45F83B7-7F87-4792-BFE9-63CD2137CAF0
+     *
      * @var string
      */
     public $requestId;

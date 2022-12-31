@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class ListMediaBasicInfosRequest extends Model
 {
     /**
+     * @example opening
+     *
      * @var string
      */
     public $businessType;
 
     /**
+     * @example 2020-12-20T13:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $includeFileBasicInfo;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example ****019b82e24b37a1c2958dec38****
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @example video
+     *
      * @var string
      */
     public $mediaType;
 
     /**
+     * @example pSa1SQ0wCe5pzVrQ6mWZEw==
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example desc
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example oss
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example 2020-12-20T12:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $status;

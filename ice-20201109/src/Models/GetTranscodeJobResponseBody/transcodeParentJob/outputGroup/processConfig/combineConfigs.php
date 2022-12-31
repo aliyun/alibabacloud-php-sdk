@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class combineConfigs extends Model
 {
     /**
+     * @example 0 或 exclude
+     *
      * @var string
      */
     public $audioIndex;
 
     /**
+     * @example 20.0
+     *
      * @var float
      */
     public $duration;
 
     /**
+     * @example 0.0
+     *
      * @var float
      */
     public $start;
 
     /**
+     * @example 0 或 exclude
+     *
      * @var string
      */
     public $videoIndex;

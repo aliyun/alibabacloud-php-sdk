@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateEditingProjectRequest extends Model
 {
     /**
+     * @example { "OutputMediaConfig" : { "StorageLocation": "test-bucket.oss-cn-shanghai.aliyuncs.com", "Path": "test-path" }, "OutputMediaTarget": "oss-object", "ReservationTime": "2021-06-21T08:05:00Z" }
+     *
      * @var string
      */
     public $businessConfig;
@@ -19,36 +21,50 @@ class CreateEditingProjectRequest extends Model
     public $clipsParam;
 
     /**
+     * @example https://example.com/example.png
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @example 描述
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example {"video":"*****2e057304fcd9b145c5cafc*****", "image":"****8021a8d493da643c8acd98*****,*****cb6307a4edea614d8b3f3c*****", "liveStream": "[{\"appName\":\"testrecord\",\"domainName\":\"test.alivecdn.com\",\"liveUrl\":\"rtmp://test.alivecdn.com/testrecord/teststream\",\"streamName\":\"teststream\"}]", "editingProject": "*****9b145c5cafc2e057304fcd*****"}
+     *
      * @var string
      */
     public $materialMaps;
 
     /**
+     * @example LiveEditingProject
+     *
      * @var string
      */
     public $projectType;
 
     /**
+     * @example ****96e8864746a0b6f3****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****4d7cf14dc7b83b0e801c****"},{"MediaId":"****4d7cf14dc7b83b0e801c****"}]}]}
+     *
      * @var string
      */
     public $timeline;
 
     /**
+     * @example example
+     *
      * @var string
      */
     public $title;

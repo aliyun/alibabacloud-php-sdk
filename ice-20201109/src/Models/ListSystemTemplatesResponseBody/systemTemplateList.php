@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class systemTemplateList extends Model
 {
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $subtype;
 
     /**
+     * @example Remux
+     *
      * @var string
      */
     public $subtypeName;
 
     /**
+     * @example {"Container":{"Format":"flv"},"Video":{},"Audio":{}}
+     *
      * @var string
      */
     public $templateConfig;
 
     /**
+     * @example S00000001-000000
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example FLV-COPY
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @example TranscodeTemplate
+     *
      * @var string
      */
     public $typeName;

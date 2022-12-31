@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateLiveTranscodeJobShrinkRequest extends Model
 {
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example mytest3
+     *
      * @var string
      */
     public $name;

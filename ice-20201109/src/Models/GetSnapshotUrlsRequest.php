@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetSnapshotUrlsRequest extends Model
 {
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example Asc
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $timeout;

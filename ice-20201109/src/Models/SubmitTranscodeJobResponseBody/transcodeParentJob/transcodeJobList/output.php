@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class output extends Model
 {
     /**
+     * @example oss://bucket/path/to/video.mp4
+     *
      * @var string
      */
     public $media;
 
     /**
+     * @example oss://bucket/path/to/{MediaId}/{JobId}.mp4
+     *
      * @var string
      */
     public $outputUrl;
 
     /**
+     * @example OSS
+     *
      * @var string
      */
     public $type;

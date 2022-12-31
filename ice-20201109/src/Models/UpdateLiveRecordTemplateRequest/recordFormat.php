@@ -9,26 +9,44 @@ use AlibabaCloud\Tea\Model;
 class recordFormat extends Model
 {
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $cycleDuration;
 
     /**
+     * @description 格式
+     *
+     * @example m3u8
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @description Oss对象名，不包含后缀
+     *
+     * @example record/{JobId}/{Sequence}_{EscapedStartTime}_{EscapedEndTime}
+     *
      * @var string
      */
     public $ossObjectPrefix;
 
     /**
+     * @description 切片时长
+     *
+     * @example 30
+     *
      * @var int
      */
     public $sliceDuration;
 
     /**
+     * @description 切片Oss对象名，不包含后缀
+     *
+     * @example record/{JobId}/{UnixTimestamp}_{Sequence}
+     *
      * @var string
      */
     public $sliceOssObjectPrefix;

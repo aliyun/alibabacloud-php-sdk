@@ -17,6 +17,8 @@ class SubmitPackageJobRequest extends Model
     public $inputs;
 
     /**
+     * @example job-name
+     *
      * @var string
      */
     public $name;
@@ -32,6 +34,8 @@ class SubmitPackageJobRequest extends Model
     public $scheduleConfig;
 
     /**
+     * @example {"param": "value"}
+     *
      * @var string
      */
     public $userData;

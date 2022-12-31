@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class mediaTagList extends Model
 {
     /**
+     * @example sticker-gif
+     *
      * @var string
      */
     public $mediaTagId;
 
     /**
+     * @example Gif
+     *
      * @var string
      */
     public $mediaTagNameChinese;

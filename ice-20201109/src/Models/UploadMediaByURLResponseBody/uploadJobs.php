@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class uploadJobs extends Model
 {
     /**
+     * @example 20ce1e05dba64576b96e9683879f0***
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example f476988629f54a7b8a4ba90d1a6c7***
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @example http://example****.mp4
+     *
      * @var string
      */
     public $sourceURL;

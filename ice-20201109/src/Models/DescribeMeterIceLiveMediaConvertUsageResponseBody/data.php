@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example H265 LD
+     *
      * @var string
      */
     public $specification;
 
     /**
+     * @example 1656950400
+     *
      * @var int
      */
     public $time;

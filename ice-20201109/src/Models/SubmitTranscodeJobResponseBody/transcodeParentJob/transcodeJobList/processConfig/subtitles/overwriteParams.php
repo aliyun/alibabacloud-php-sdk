@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class overwriteParams extends Model
 {
     /**
+     * @example UTF-8
+     *
      * @var string
      */
     public $charEnc;
@@ -20,6 +22,8 @@ class overwriteParams extends Model
     public $file;
 
     /**
+     * @example vtt
+     *
      * @var string
      */
     public $format;

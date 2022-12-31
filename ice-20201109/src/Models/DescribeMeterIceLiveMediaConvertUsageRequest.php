@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeMeterIceLiveMediaConvertUsageRequest extends Model
 {
     /**
+     * @example 1656995036
+     *
      * @var int
      */
     public $endTs;
 
     /**
+     * @example cn-shanghai
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @example 86400
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example 1654403036
+     *
      * @var int
      */
     public $startTs;

@@ -9,116 +9,162 @@ use AlibabaCloud\Tea\Model;
 class videoStreamInfoList extends Model
 {
     /**
+     * @example 25.0
+     *
      * @var string
      */
     public $avgFps;
 
     /**
+     * @example 888.563
+     *
      * @var string
      */
     public $bitRate;
 
     /**
+     * @example H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
+     *
      * @var string
      */
     public $codecLongName;
 
     /**
+     * @example h264
+     *
      * @var string
      */
     public $codecName;
 
     /**
+     * @example 0x001b
+     *
      * @var string
      */
     public $codecTag;
 
     /**
+     * @example [27][0][0][0]
+     *
      * @var string
      */
     public $codecTagString;
 
     /**
+     * @example 1/50
+     *
      * @var string
      */
     public $codecTimeBase;
 
     /**
+     * @example 16:9
+     *
      * @var string
      */
     public $dar;
 
     /**
+     * @example 403.039989
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example 25.0
+     *
      * @var string
      */
     public $fps;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $hasBFrames;
 
     /**
+     * @example 478
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $index;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 31
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @example 10040
+     *
      * @var string
      */
     public $numFrames;
 
     /**
+     * @example yuv420p
+     *
      * @var string
      */
     public $pixFmt;
 
     /**
+     * @example High
+     *
      * @var string
      */
     public $profile;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $rotate;
 
     /**
+     * @example 478:477
+     *
      * @var string
      */
     public $sar;
 
     /**
+     * @example 1.473556
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 1/90000
+     *
      * @var string
      */
     public $timeBase;
 
     /**
+     * @example 848
+     *
      * @var string
      */
     public $width;

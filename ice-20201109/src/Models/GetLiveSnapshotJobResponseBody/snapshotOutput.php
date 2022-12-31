@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class snapshotOutput extends Model
 {
     /**
+     * @example testbucket
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @example oss-cn-shanghai.aliyuncs.com
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @example oss
+     *
      * @var string
      */
     public $storageType;

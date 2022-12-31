@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class jobs extends Model
 {
     /**
+     * @example 2022-07-12T16:17:54Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2022-07-12T16:30:54Z
+     *
      * @var string
      */
     public $finishTime;
@@ -26,16 +30,22 @@ class jobs extends Model
     public $input;
 
     /**
+     * @example ****cdb3e74639973036bc84****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 2022-07-12T16:30:54Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example SampleJob
+     *
      * @var string
      */
     public $name;
@@ -46,26 +56,36 @@ class jobs extends Model
     public $output;
 
     /**
+     * @example ****cdb3e74639973036bc84****
+     *
      * @var string
      */
     public $pipelineId;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 2022-07-12T16:17:54Z
+     *
      * @var string
      */
     public $submitTime;
 
     /**
+     * @example ****cdb3e74639973036bc84****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example API
+     *
      * @var string
      */
     public $triggerSource;

@@ -15,11 +15,15 @@ class ListLiveSnapshotFilesResponseBody extends Model
     public $fileList;
 
     /**
+     * @example 2022-02-02T22:22:22Z
+     *
      * @var string
      */
     public $nextStartTime;
 
     /**
+     * @example ******11-DB8D-4A9A-875B-275798******
+     *
      * @var string
      */
     public $requestId;

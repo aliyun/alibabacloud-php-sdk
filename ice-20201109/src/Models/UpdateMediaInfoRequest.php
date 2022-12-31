@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class UpdateMediaInfoRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $appendTags;
 
     /**
+     * @example video
+     *
      * @var string
      */
     public $businessType;
 
     /**
+     * @example 3048
+     *
      * @var int
      */
     public $cateId;
 
     /**
+     * @example defaultCategory
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @example defaultDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
+     *
      * @var string
      */
     public $inputURL;
 
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @example updateTags1,updateTags2
+     *
      * @var string
      */
     public $mediaTags;
 
     /**
+     * @example 123-123
+     *
      * @var string
      */
     public $referenceId;
 
     /**
+     * @example defaultTitle
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @example userData
+     *
      * @var string
      */
     public $userData;

@@ -15,6 +15,8 @@ class GetDynamicImageJobResponseBody extends Model
     public $dynamicImageJob;
 
     /**
+     * @example ******36-3C1E-4417-BDB2-1E034F******
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetUrlUploadInfosRequest extends Model
 {
     /**
+     * @example df2ac80b481346daa1db6a7c40edc7f8
+     *
      * @var string
      */
     public $jobIds;
 
     /**
+     * @example https://media.w3.org/2010/05/sintel/trailer.mp4
+     *
      * @var string
      */
     public $uploadURLs;

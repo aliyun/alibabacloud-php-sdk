@@ -9,41 +9,59 @@ use AlibabaCloud\Tea\Model;
 class mediaBasicInfo extends Model
 {
     /**
+     * @example general
+     *
      * @var string
      */
     public $businessType;
 
     /**
+     * @example video
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example http://sample-bucket.oss-cn-shanghai.aliyuncs.com/sample-corver.jpg?Expires=1628670610&OSSAccessKeyId=AK&Signature=signature
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @example 2020-12-26T04:11:08Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2020-12-26T04:11:08Z
+     *
      * @var string
      */
     public $deletedTime;
 
     /**
+     * @example sample_description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example http://bucket.oss-cn-shanghai.aliyuncs.com/file.mp4
+     *
      * @var string
      */
     public $inputURL;
 
     /**
+     * @description MediaId
+     *
+     * @example *****64623a94eca8516569c8f*****
+     *
      * @var string
      */
     public $mediaId;
@@ -54,46 +72,64 @@ class mediaBasicInfo extends Model
     public $mediaTags;
 
     /**
+     * @example video
+     *
      * @var string
      */
     public $mediaType;
 
     /**
+     * @example 2020-12-26T04:11:08Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $snapshots;
 
     /**
+     * @example oss
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $spriteImages;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example file.mp4
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @example Init
+     *
      * @var string
      */
     public $transcodeStatus;
 
     /**
+     * @example userData
+     *
      * @var string
      */
     public $userData;

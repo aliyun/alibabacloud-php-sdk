@@ -15,11 +15,15 @@ class ListLiveTranscodeJobsResponseBody extends Model
     public $jobList;
 
     /**
+     * @example ******3B-0E1A-586A-AC29-742247******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

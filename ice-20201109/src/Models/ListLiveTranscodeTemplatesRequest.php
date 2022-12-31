@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ListLiveTranscodeTemplatesRequest extends Model
 {
     /**
+     * @example customized
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example my_template
+     *
      * @var string
      */
     public $keyWord;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example asc
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example normal
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example H.264
+     *
      * @var string
      */
     public $videoCodec;

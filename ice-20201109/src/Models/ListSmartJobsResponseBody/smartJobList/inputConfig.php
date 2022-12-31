@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class inputConfig extends Model
 {
     /**
+     * @example oss://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
+     *
      * @var string
      */
     public $inputFile;
 
     /**
+     * @example 测试关键词
+     *
      * @var string
      */
     public $keyword;

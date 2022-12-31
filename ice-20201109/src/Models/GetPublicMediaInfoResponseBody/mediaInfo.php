@@ -17,16 +17,22 @@ class mediaInfo extends Model
     public $dynamicMetaData;
 
     /**
+     * @description FileInfos
+     *
      * @var fileInfoList[]
      */
     public $fileInfoList;
 
     /**
+     * @description BasicInfo
+     *
      * @var mediaBasicInfo
      */
     public $mediaBasicInfo;
 
     /**
+     * @example icepublic-****14e501538aeef0a3140176f6****
+     *
      * @var string
      */
     public $mediaId;

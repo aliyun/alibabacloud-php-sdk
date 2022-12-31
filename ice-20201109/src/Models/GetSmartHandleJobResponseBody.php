@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class GetSmartHandleJobResponseBody extends Model
 {
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $output;
 
     /**
+     * @example ******11-DB8D-4A9A-875B-275798******
+     *
      * @var string
      */
     public $requestId;
@@ -30,11 +36,15 @@ class GetSmartHandleJobResponseBody extends Model
     public $smartJobInfo;
 
     /**
+     * @example Finished
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example {"user":"data"}
+     *
      * @var string
      */
     public $userData;

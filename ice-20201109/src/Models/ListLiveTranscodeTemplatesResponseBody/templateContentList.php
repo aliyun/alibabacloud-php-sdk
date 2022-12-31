@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class templateContentList extends Model
 {
     /**
+     * @example system
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example 2022-07-20T03:26:36Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example my_template
+     *
      * @var string
      */
     public $name;
@@ -30,11 +36,15 @@ class templateContentList extends Model
     public $templateConfig;
 
     /**
+     * @example 9b1571b513cb44f7a1ba6ae561ff46f7
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example normal
+     *
      * @var string
      */
     public $type;

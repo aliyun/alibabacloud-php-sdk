@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteLiveRecordTemplateResponseBody extends Model
 {
     /**
+     * @example 3E5330CF-B4C8-5BEF-AA6B-8E70BD20FAEE
+     *
      * @var string
      */
     public $requestId;

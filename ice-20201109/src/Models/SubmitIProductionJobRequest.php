@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitIProductionJobRequest extends Model
 {
     /**
+     * @example Cover
+     *
      * @var string
      */
     public $functionName;
@@ -22,6 +24,8 @@ class SubmitIProductionJobRequest extends Model
     public $input;
 
     /**
+     * @example {"Model":"gif"}
+     *
      * @var string
      */
     public $jobParams;
@@ -42,11 +46,15 @@ class SubmitIProductionJobRequest extends Model
     public $scheduleConfig;
 
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example {"test":1}
+     *
      * @var string
      */
     public $userData;

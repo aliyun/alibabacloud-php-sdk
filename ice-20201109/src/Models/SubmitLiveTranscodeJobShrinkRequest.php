@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SubmitLiveTranscodeJobShrinkRequest extends Model
 {
     /**
+     * @example task1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $startMode;
@@ -24,6 +28,8 @@ class SubmitLiveTranscodeJobShrinkRequest extends Model
     public $streamInputShrink;
 
     /**
+     * @example ****96e8864746a0b6f3****
+     *
      * @var string
      */
     public $templateId;

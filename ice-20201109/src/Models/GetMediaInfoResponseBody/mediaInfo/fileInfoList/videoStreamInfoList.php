@@ -9,121 +9,169 @@ use AlibabaCloud\Tea\Model;
 class videoStreamInfoList extends Model
 {
     /**
+     * @example 24.0
+     *
      * @var string
      */
     public $avgFPS;
 
     /**
+     * @example 1001.594
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @example H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
+     *
      * @var string
      */
     public $codecLongName;
 
     /**
+     * @example h264
+     *
      * @var string
      */
     public $codecName;
 
     /**
+     * @example 0x0000
+     *
      * @var string
      */
     public $codecTag;
 
     /**
+     * @example [0][0][0][0]
+     *
      * @var string
      */
     public $codecTagString;
 
     /**
+     * @example 1/48
+     *
      * @var string
      */
     public $codecTimeBase;
 
     /**
+     * @example 0:1
+     *
      * @var string
      */
     public $dar;
 
     /**
+     * @example 216.206706
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example 24.0
+     *
      * @var string
      */
     public $fps;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $hasBFrames;
 
     /**
+     * @example 540
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $index;
 
     /**
+     * @example und
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 30
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @example 5184
+     *
      * @var string
      */
     public $nbFrames;
 
     /**
+     * @example 5184
+     *
      * @var string
      */
     public $numFrames;
 
     /**
+     * @example yuv420p
+     *
      * @var string
      */
     public $pixFmt;
 
     /**
+     * @example High
+     *
      * @var string
      */
     public $profile;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $rotate;
 
     /**
+     * @example 0:1
+     *
      * @var string
      */
     public $sar;
 
     /**
+     * @example 0.081706
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 1/12288
+     *
      * @var string
      */
     public $timebase;
 
     /**
+     * @example 960
+     *
      * @var string
      */
     public $width;

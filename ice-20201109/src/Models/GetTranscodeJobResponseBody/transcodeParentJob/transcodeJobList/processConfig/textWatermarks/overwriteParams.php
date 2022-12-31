@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class overwriteParams extends Model
 {
     /**
+     * @example false
+     *
      * @var string
      */
     public $adaptive;
 
     /**
+     * @example #006400
+     *
      * @var string
      */
     public $borderColor;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $borderWidth;
 
     /**
+     * @example 测试水印
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example 1.0
+     *
      * @var string
      */
     public $fontAlpha;
 
     /**
+     * @example #006400
+     *
      * @var string
      */
     public $fontColor;
 
     /**
+     * @example SimSun
+     *
      * @var string
      */
     public $fontName;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $fontSize;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $left;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $top;

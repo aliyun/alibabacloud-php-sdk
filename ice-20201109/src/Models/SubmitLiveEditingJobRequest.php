@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SubmitLiveEditingJobRequest extends Model
 {
     /**
+     * @example [{\"StartTime\": \" 2021-06-21T08:01:00Z\",  \"EndTime\": \" 2021-06-21T08:03:00Z\" ,  "AppName": "app", "DomainName": "domain.com", "StreamName": "stream"},  {\"StartTime\": \" 2021-06-21T08:05:00Z\",  \"EndTime\": \" 2021-06-21T08:09:00Z\" }]
+     *
      * @var string
      */
     public $clips;
 
     /**
+     * @example { "AppName": "app", "DomainName": "domain.com", "StreamName": "stream"  }
+     *
      * @var string
      */
     public $liveStreamConfig;
 
     /**
+     * @example { "Mode": "AccurateFast"}
+     *
      * @var string
      */
     public $mediaProduceConfig;
@@ -34,11 +40,15 @@ class SubmitLiveEditingJobRequest extends Model
     public $outputMediaTarget;
 
     /**
+     * @example ****fddd7748b58bf1d47e95****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example {"key": "value"}
+     *
      * @var string
      */
     public $userData;

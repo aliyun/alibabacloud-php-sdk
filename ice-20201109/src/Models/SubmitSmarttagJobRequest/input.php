@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class input extends Model
 {
     /**
+     * @example c5c62d8f0361337cab312dce8e77dc6d
+     *
      * @var string
      */
     public $media;
 
     /**
+     * @example Media
+     *
      * @var string
      */
     public $type;

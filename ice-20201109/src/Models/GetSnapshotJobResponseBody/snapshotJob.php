@@ -11,26 +11,36 @@ use AlibabaCloud\Tea\Model;
 class snapshotJob extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $async;
 
     /**
+     * @example ResourceNotFound
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example 2022-07-12T16:17:54Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2022-07-12T16:30:54Z
+     *
      * @var string
      */
     public $finishTime;
@@ -41,16 +51,22 @@ class snapshotJob extends Model
     public $input;
 
     /**
+     * @example ****d80e4e4044975745c14b****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example The specified resource for "Pipeline" could not be found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 2022-07-12T16:30:54Z
+     *
      * @var string
      */
     public $modifiedTime;
@@ -66,41 +82,57 @@ class snapshotJob extends Model
     public $output;
 
     /**
+     * @example ****d80e4e4044975745c14b****
+     *
      * @var string
      */
     public $pipelineId;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 2022-07-12T16:17:54Z
+     *
      * @var string
      */
     public $submitTime;
 
     /**
+     * @example {"Type":"Normal","FrameType":"normal","Time":0,"Count":10}
+     *
      * @var string
      */
     public $templateConfig;
 
     /**
+     * @example ****d80e4e4044975745c14b****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example API
+     *
      * @var string
      */
     public $triggerSource;
 
     /**
+     * @example Sprite
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example {"test parameter": "test value"}
+     *
      * @var string
      */
     public $userData;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetLiveRecordJobResponseBody extends Model
 {
     /**
+     * @description 录制任务
+     *
      * @var recordJob
      */
     public $recordJob;
 
     /**
+     * @example B57A046C-CE33-5FBB-B57A-D2B89ACF6907
+     *
      * @var string
      */
     public $requestId;

@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class AddTemplateResponseBody extends Model
 {
     /**
+     * @description Id of the request
+     *
+     * @example ****2876-6263-4B75-8F2C-CD0F7FCF****
+     *
      * @var string
      */
     public $requestId;

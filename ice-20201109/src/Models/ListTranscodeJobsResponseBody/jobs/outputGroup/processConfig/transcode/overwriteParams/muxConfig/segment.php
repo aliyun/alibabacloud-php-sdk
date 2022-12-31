@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class segment extends Model
 {
     /**
+     * @example 10
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example 2,3
+     *
      * @var string
      */
     public $forceSegTime;

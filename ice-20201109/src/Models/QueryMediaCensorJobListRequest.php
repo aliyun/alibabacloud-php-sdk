@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QueryMediaCensorJobListRequest extends Model
 {
     /**
+     * @example 2022-02-14T02:16:07Z
+     *
      * @var string
      */
     public $endOfJobCreatedTimeRange;
 
     /**
+     * @example fa9c34be3bcf42919ac4d1775239****,78dc866518b843259669df58ed30****
+     *
      * @var string
      */
     public $jobIds;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maximumPageSize;
 
     /**
+     * @example 79aff3eee82242e092899db5f669
+     *
      * @var string
      */
     public $nextPageToken;
@@ -39,6 +47,8 @@ class QueryMediaCensorJobListRequest extends Model
     public $ownerId;
 
     /**
+     * @example c5b30b7c0d0e4a0abde1d5f9e751****
+     *
      * @var string
      */
     public $pipelineId;
@@ -54,11 +64,15 @@ class QueryMediaCensorJobListRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 2021-12-22T03:48:05Z
+     *
      * @var string
      */
     public $startOfJobCreatedTimeRange;
 
     /**
+     * @example All
+     *
      * @var string
      */
     public $state;

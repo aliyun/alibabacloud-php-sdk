@@ -16,6 +16,8 @@ class GetCategoriesResponseBody extends Model
     public $category;
 
     /**
+     * @example ******3B-0E1A-586A-AC29-742247******
+     *
      * @var string
      */
     public $requestId;
@@ -26,6 +28,8 @@ class GetCategoriesResponseBody extends Model
     public $subCategories;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $subTotal;

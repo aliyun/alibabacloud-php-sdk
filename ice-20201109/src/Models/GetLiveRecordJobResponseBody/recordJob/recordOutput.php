@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class recordOutput extends Model
 {
     /**
+     * @example imsbucket1
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @example oss-cn-shanghai.aliyuncs.com
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @example oss
+     *
      * @var string
      */
     public $type;

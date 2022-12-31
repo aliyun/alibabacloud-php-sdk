@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetSnapshotUrlsResponseBody extends Model
 {
     /**
+     * @example ******11-DB8D-4A9A-875B-275798******
+     *
      * @var string
      */
     public $requestId;
@@ -19,11 +21,15 @@ class GetSnapshotUrlsResponseBody extends Model
     public $snapshotUrls;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $total;
 
     /**
+     * @example http://test-bucket.oss-cn-shanghai.aliyuncs.com/ouoput.vtt
+     *
      * @var string
      */
     public $webVTTUrl;

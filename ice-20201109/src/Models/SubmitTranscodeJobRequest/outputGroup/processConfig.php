@@ -30,6 +30,8 @@ class processConfig extends Model
     public $imageWatermarks;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isInheritTags;

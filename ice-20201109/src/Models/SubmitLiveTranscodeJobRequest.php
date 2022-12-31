@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class SubmitLiveTranscodeJobRequest extends Model
 {
     /**
+     * @example task1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $startMode;
@@ -27,6 +31,8 @@ class SubmitLiveTranscodeJobRequest extends Model
     public $streamInput;
 
     /**
+     * @example ****96e8864746a0b6f3****
+     *
      * @var string
      */
     public $templateId;

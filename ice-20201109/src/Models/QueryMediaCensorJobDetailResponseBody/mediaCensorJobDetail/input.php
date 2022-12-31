@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class input extends Model
 {
     /**
+     * @example bucket-test-in-****
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @example oss-cn-shanghai
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example test/ai/censor/test-****.mp4
+     *
      * @var string
      */
     public $object;

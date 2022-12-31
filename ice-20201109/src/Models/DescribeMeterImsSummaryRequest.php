@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeMeterImsSummaryRequest extends Model
 {
     /**
+     * @example 1656995036
+     *
      * @var int
      */
     public $endTs;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example 1654403036
+     *
      * @var int
      */
     public $startTs;

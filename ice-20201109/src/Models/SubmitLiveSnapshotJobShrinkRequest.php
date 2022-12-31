@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitLiveSnapshotJobShrinkRequest extends Model
 {
     /**
+     * @example http://www.aliyun.com/snapshot/callback
+     *
      * @var string
      */
     public $callbackUrl;
@@ -29,6 +31,8 @@ class SubmitLiveSnapshotJobShrinkRequest extends Model
     public $streamInputShrink;
 
     /**
+     * @example ****a046-263c-3560-978a-fb287782****
+     *
      * @var string
      */
     public $templateId;

@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class SearchEditingProjectRequest extends Model
 {
     /**
+     * @example WebSDK
+     *
      * @var string
      */
     public $createSource;
 
     /**
+     * @example 2017-01-11T12:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example CBB6BC61D08
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example EditingProject
+     *
      * @var string
      */
     public $projectType;
 
     /**
+     * @example CreationTime:Desc
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example 2017-01-11T12:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example Producing
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example Timeline
+     *
      * @var string
      */
     public $templateType;

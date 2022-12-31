@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class systemTemplate extends Model
 {
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $subtype;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $subtypeName;
 
     /**
+     * @example {"Container":{"Format":"m3u8"},"TransConfig":{"TransMode":"onepass"},"Video":{"Codec":"H.264","Maxrate":8000,"Preset":"medium","PixFmt":"yuv420p","Width":2048,"Bitrate":3500},"Audio":{"Codec":"aac","Bitrate":160,"Samplerate":44100,"Channels":2}}
+     *
      * @var string
      */
     public $templateConfig;
 
     /**
+     * @example S00000001-100060
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example M3U8-2K
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @example TranscodeTemplate
+     *
      * @var string
      */
     public $typeName;

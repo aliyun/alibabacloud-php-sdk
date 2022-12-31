@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetPackageJobRequest extends Model
 {
     /**
+     * @example ab4802364a2e49208c99efab82dfa8e8
+     *
      * @var string
      */
     public $jobId;

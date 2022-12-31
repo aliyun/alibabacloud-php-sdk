@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class QueryIProductionJobResponseBody extends Model
 {
     /**
+     * @example 2022-07-07T07:16:11Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2021-11-26T14:50:25Z
+     *
      * @var string
      */
     public $finishTime;
 
     /**
+     * @example Cover
+     *
      * @var string
      */
     public $functionName;
@@ -32,11 +38,15 @@ class QueryIProductionJobResponseBody extends Model
     public $input;
 
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example {"Model":"gif"}
+     *
      * @var string
      */
     public $jobParams;
@@ -67,6 +77,8 @@ class QueryIProductionJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $result;
@@ -77,16 +89,22 @@ class QueryIProductionJobResponseBody extends Model
     public $scheduleConfig;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example ****96e8864746a0b6f3****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example {"test":1}
+     *
      * @var string
      */
     public $userData;

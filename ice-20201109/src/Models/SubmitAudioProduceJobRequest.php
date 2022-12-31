@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class SubmitAudioProduceJobRequest extends Model
 {
     /**
+     * @example 任务描述  长度不超过1024字节  UTF8编码
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example {"voice":"Siqi","format":"MP3","volume":50}
+     *
      * @var string
      */
     public $editingConfig;
 
     /**
+     * @example 测试文本
+     *
      * @var string
      */
     public $inputConfig;
 
     /**
+     * @example {"bucket":"bucket","object":"object"}
+     *
      * @var string
      */
     public $outputConfig;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $overwrite;
 
     /**
+     * @example 任务标题。若不提供，根据日期自动生成默认title  长度不超过128字节  UTF8编码
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @example {"user":"data"}
+     *
      * @var string
      */
     public $userData;

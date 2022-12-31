@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class videoParams extends Model
 {
     /**
+     * @example 2500
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @example H.264
+     *
      * @var string
      */
     public $codec;
 
     /**
+     * @example 30
+     *
      * @var string
      */
     public $fps;
 
     /**
+     * @example 1000
+     *
      * @var string
      */
     public $gop;
 
     /**
+     * @example 720
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $profile;
 
     /**
+     * @example 1280
+     *
      * @var string
      */
     public $width;

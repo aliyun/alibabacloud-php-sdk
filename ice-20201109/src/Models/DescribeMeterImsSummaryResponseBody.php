@@ -15,6 +15,8 @@ class DescribeMeterImsSummaryResponseBody extends Model
     public $data;
 
     /**
+     * @example BEA98A0C-7870-15FE-B96F-8880BB600A2C
+     *
      * @var string
      */
     public $requestId;

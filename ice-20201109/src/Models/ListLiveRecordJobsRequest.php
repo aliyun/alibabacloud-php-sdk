@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ListLiveRecordJobsRequest extends Model
 {
     /**
+     * @example 2022-07-11T08:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example ab0e3e76-1e9d-11ed-ba64-0c42a1b73d66
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example desc
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example 2022-07-15T08:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example started
+     *
      * @var string
      */
     public $status;

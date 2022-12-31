@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class input extends Model
 {
     /**
+     * @example oss://bucket/object.mp4
+     *
      * @var string
      */
     public $media;
 
     /**
+     * @example OSS
+     *
      * @var string
      */
     public $type;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class scheduleConfig extends Model
 {
     /**
+     * @example 5246b8d12a62433ab77845074039c3dc
+     *
      * @var string
      */
     public $pipelineId;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $priority;

@@ -9,91 +9,127 @@ use AlibabaCloud\Tea\Model;
 class video extends Model
 {
     /**
+     * @example 6000
+     *
      * @var string
      */
     public $abrMax;
 
     /**
+     * @example 3000
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @example 6000
+     *
      * @var string
      */
     public $bufsize;
 
     /**
+     * @example H.264
+     *
      * @var string
      */
     public $codec;
 
     /**
+     * @example 23
+     *
      * @var string
      */
     public $crf;
 
     /**
+     * @example 1280:800:0:140
+     *
      * @var string
      */
     public $crop;
 
     /**
+     * @example 25
+     *
      * @var string
      */
     public $fps;
 
     /**
+     * @example 250
+     *
      * @var string
      */
     public $gop;
 
     /**
+     * @example 1080
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $longShortMode;
 
     /**
+     * @example 9000
+     *
      * @var string
      */
     public $maxrate;
 
     /**
+     * @example 1280:800:0:140
+     *
      * @var string
      */
     public $pad;
 
     /**
+     * @example yuv420p
+     *
      * @var string
      */
     public $pixFmt;
 
     /**
+     * @example medium
+     *
      * @var string
      */
     public $preset;
 
     /**
+     * @example Main
+     *
      * @var string
      */
     public $profile;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $remove;
 
     /**
+     * @example progressive
+     *
      * @var string
      */
     public $scanMode;
 
     /**
+     * @example 1920
+     *
      * @var string
      */
     public $width;

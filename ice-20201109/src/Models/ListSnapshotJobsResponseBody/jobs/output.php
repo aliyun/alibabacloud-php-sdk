@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class output extends Model
 {
     /**
+     * @example http://test-bucket.oss-cn-shanghai.aliyuncs.com/output-{Count}.jpg
+     *
      * @var string
      */
     public $media;
 
     /**
+     * @example OSS
+     *
      * @var string
      */
     public $type;

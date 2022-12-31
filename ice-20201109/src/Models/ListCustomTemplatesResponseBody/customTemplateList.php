@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class customTemplateList extends Model
 {
     /**
+     * @example 2022-07-12T16:17:54Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isDefault;
 
     /**
+     * @example 2022-07-12T16:17:54Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $subtype;
 
     /**
+     * @example AudioTranscode
+     *
      * @var string
      */
     public $subtypeName;
 
     /**
+     * @example {"Container":{"Format":"mp3"},"Audio":{"Codec":"mp3","Bitrate":"64","Samplerate":"22050","Channels":"2"}}
+     *
      * @var string
      */
     public $templateConfig;
 
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example test-template
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @example TranscodeTemplate
+     *
      * @var string
      */
     public $typeName;

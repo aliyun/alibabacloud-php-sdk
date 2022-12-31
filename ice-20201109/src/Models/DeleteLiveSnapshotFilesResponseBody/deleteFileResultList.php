@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class deleteFileResultList extends Model
 {
     /**
+     * @example 1660638613798
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $result;

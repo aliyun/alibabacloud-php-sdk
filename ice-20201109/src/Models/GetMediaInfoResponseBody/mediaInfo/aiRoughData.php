@@ -11,6 +11,16 @@ class aiRoughData extends Model
     /**
      * @var string
      */
+    public $aiCategory;
+
+    /**
+     * @var string
+     */
+    public $aiJobId;
+
+    /**
+     * @var string
+     */
     public $result;
 
     /**
@@ -23,9 +33,11 @@ class aiRoughData extends Model
      */
     public $status;
     protected $_name = [
-        'result'   => 'Result',
-        'saveType' => 'SaveType',
-        'status'   => 'Status',
+        'aiCategory' => 'AiCategory',
+        'aiJobId'    => 'AiJobId',
+        'result'     => 'Result',
+        'saveType'   => 'SaveType',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -35,6 +47,12 @@ class aiRoughData extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aiCategory) {
+            $res['AiCategory'] = $this->aiCategory;
+        }
+        if (null !== $this->aiJobId) {
+            $res['AiJobId'] = $this->aiJobId;
+        }
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
@@ -56,6 +74,12 @@ class aiRoughData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AiCategory'])) {
+            $model->aiCategory = $map['AiCategory'];
+        }
+        if (isset($map['AiJobId'])) {
+            $model->aiJobId = $map['AiJobId'];
+        }
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }

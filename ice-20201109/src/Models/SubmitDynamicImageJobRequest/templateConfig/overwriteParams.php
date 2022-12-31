@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class overwriteParams extends Model
 {
     /**
+     * @example gif
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $fps;
 
     /**
+     * @example 720
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $longShortMode;
 
     /**
+     * @example progressive
+     *
      * @var string
      */
     public $scanMode;
@@ -40,6 +50,8 @@ class overwriteParams extends Model
     public $timeSpan;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $width;

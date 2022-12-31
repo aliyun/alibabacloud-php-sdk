@@ -9,36 +9,52 @@ use AlibabaCloud\Tea\Model;
 class mediaBasicInfo extends Model
 {
     /**
+     * @example general
+     *
      * @var string
      */
     public $businessType;
 
     /**
+     * @example category
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @example 2020-12-26T04:11:08Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2020-12-26T04:11:15Z
+     *
      * @var string
      */
     public $deletedTime;
 
     /**
+     * @example description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description MediaId
+     *
+     * @example icepublic-****14e501538aeef0a3140176f6****
+     *
      * @var string
      */
     public $mediaId;
@@ -49,36 +65,50 @@ class mediaBasicInfo extends Model
     public $mediaTags;
 
     /**
+     * @example video
+     *
      * @var string
      */
     public $mediaType;
 
     /**
+     * @example 2020-12-26T04:11:10Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example oss
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example [{"bucket":"example-bucket","count":"32","iceJobId":"******83ec44d58b2069def2e******","location":"oss-cn-shanghai","snapshotRegular":"example/example-{Count}.jpg","spriteRegular":"example/example-{TileCount}.jpg","templateId":"******e438b14ff39293eaec25******","tileCount":"1"}]
+     *
      * @var string
      */
     public $spriteImages;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example title
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @example {"key":"value"}
+     *
      * @var string
      */
     public $userData;

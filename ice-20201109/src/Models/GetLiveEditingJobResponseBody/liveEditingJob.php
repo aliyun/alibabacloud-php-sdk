@@ -12,26 +12,36 @@ use AlibabaCloud\Tea\Model;
 class liveEditingJob extends Model
 {
     /**
+     * @example [{\"StartTime\": \" 2021-06-21T08:01:00Z\",  \"EndTime\": \" 2021-06-21T08:03:00Z\" }]
+     *
      * @var string
      */
     public $clips;
 
     /**
+     * @example InvalidParameter
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 2020-12-23T13:33:52Z
+     *
      * @var string
      */
     public $completeTime;
 
     /**
+     * @example 2020-12-23T13:33:40Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example ****cdb3e74639973036bc84****
+     *
      * @var string
      */
     public $jobId;
@@ -42,6 +52,8 @@ class liveEditingJob extends Model
     public $liveStreamConfig;
 
     /**
+     * @example ****0cc6ba49eab379332c5b****
+     *
      * @var string
      */
     public $mediaId;
@@ -52,16 +64,22 @@ class liveEditingJob extends Model
     public $mediaProduceConfig;
 
     /**
+     * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example2.mp4
+     *
      * @var string
      */
     public $mediaURL;
 
     /**
+     * @example The specific parameter LiveStreamConfig is not valid.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 2020-12-23T13:33:49Z
+     *
      * @var string
      */
     public $modifiedTime;
@@ -72,16 +90,22 @@ class liveEditingJob extends Model
     public $outputMediaConfig;
 
     /**
+     * @example ****fddd7748b58bf1d47e95****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example {"key": "value\"}
+     *
      * @var string
      */
     public $userData;

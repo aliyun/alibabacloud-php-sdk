@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SubmitSmarttagJobResponseBody extends Model
 {
     /**
+     * @example ****d80e4e4044975745c14b****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example ******11-DB8D-4A9A-875B-275798******
+     *
      * @var string
      */
     public $requestId;

@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class template extends Model
 {
     /**
+     * @example 参见Timeline模板Config文档
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/cover.jpg
+     *
      * @var string
      */
     public $coverUrl;
 
     /**
+     * @example OpenAPI
+     *
      * @var string
      */
     public $createSource;
 
     /**
+     * @example OpenAPI
+     *
      * @var string
      */
     public $modifiedSource;
 
     /**
+     * @example 视频添加水印模板
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example ****01bf24bf41c78b2754cb3187****
+     *
      * @var string
      */
     public $previewMedia;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example ****01bf24bf41c78b2754cb3187****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example Timeline
+     *
      * @var string
      */
     public $type;

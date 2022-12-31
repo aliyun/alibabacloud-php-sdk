@@ -14,6 +14,8 @@ class SubmitDynamicImageJobShrinkRequest extends Model
     public $inputShrink;
 
     /**
+     * @example SampleJob
+     *
      * @var string
      */
     public $name;
@@ -34,6 +36,8 @@ class SubmitDynamicImageJobShrinkRequest extends Model
     public $templateConfigShrink;
 
     /**
+     * @example {"SampleKey": "SampleValue"}
+     *
      * @var string
      */
     public $userData;

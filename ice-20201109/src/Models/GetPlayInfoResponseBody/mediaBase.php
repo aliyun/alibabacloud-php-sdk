@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class mediaBase extends Model
 {
     /**
+     * @example https://***.oss-cn-shanghai.aliyuncs.com/cover/281c64d6-b5fb-4c57-97cd-84da56a8b151_large_cover_url.jpg
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @example 2021-09-22T10:07:31+08:00
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example 2eea77a61c7b4ddd95bec34a6f65b***
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @example video
+     *
      * @var string
      */
     public $mediaType;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example testTitle
+     *
      * @var string
      */
     public $title;

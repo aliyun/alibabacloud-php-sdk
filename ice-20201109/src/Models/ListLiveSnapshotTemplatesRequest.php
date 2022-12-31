@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListLiveSnapshotTemplatesRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example ****a046-263c-3560-978a-fb287782****
+     *
      * @var string
      */
     public $searchKeyWord;
 
     /**
+     * @example desc
+     *
      * @var string
      */
     public $sortBy;
@@ -34,6 +42,8 @@ class ListLiveSnapshotTemplatesRequest extends Model
     public $templateIds;
 
     /**
+     * @example custom
+     *
      * @var string
      */
     public $type;

@@ -14,6 +14,8 @@ class SubmitSnapshotJobShrinkRequest extends Model
     public $inputShrink;
 
     /**
+     * @example SampleJob
+     *
      * @var string
      */
     public $name;
@@ -34,6 +36,8 @@ class SubmitSnapshotJobShrinkRequest extends Model
     public $templateConfigShrink;
 
     /**
+     * @example {"test parameter": "test value"}
+     *
      * @var string
      */
     public $userData;

@@ -9,76 +9,106 @@ use AlibabaCloud\Tea\Model;
 class mediaProducingJob extends Model
 {
     /**
+     * @example {"VideoArray":["****05512043f49f697f7425****","****05512043f49f697f7425****","****05512043f49f697f7425****"]}
+     *
      * @var string
      */
     public $clipsParam;
 
     /**
+     * @example ExceededMaximumValue
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 2020-12-23T13:33:52Z
+     *
      * @var string
      */
     public $completeTime;
 
     /**
+     * @example 2020-12-23T13:33:40Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 30.500000
+     *
      * @var float
      */
     public $duration;
 
     /**
+     * @example ****cdb3e74639973036bc84****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example ****0cc6ba49eab379332c5b****
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example2.mp4
+     *
      * @var string
      */
     public $mediaURL;
 
     /**
+     * @example The specified "Width_Height" has exceeded maximum value.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 2020-12-23T13:33:49Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example ****fddd7748b58bf1d47e95****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example Failed
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example ****6e76134d739cc3e85d3e****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****4d7cf14dc7b83b0e801c****"},{"MediaId":"****4d7cf14dc7b83b0e801c****"}]}]}
+     *
      * @var string
      */
     public $timeline;
 
     /**
+     * @example ****332c5b0cc6ba49eab379****
+     *
      * @var string
      */
     public $vodMediaId;

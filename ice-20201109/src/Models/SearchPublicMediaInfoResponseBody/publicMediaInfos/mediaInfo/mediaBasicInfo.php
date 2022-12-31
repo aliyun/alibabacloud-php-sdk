@@ -9,36 +9,52 @@ use AlibabaCloud\Tea\Model;
 class mediaBasicInfo extends Model
 {
     /**
+     * @example general
+     *
      * @var string
      */
     public $businessType;
 
     /**
+     * @example category
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @example 2020-12-26T06:04:49Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2020-12-29T06:04:49Z
+     *
      * @var string
      */
     public $deletedTime;
 
     /**
+     * @example description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description MediaId
+     *
+     * @example icepublic-****87b921bb4a55908a72a0537e****
+     *
      * @var string
      */
     public $mediaId;
@@ -49,36 +65,50 @@ class mediaBasicInfo extends Model
     public $mediaTags;
 
     /**
+     * @example audio
+     *
      * @var string
      */
     public $mediaType;
 
     /**
+     * @example 2020-12-26T06:04:50Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example oss
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example [{"bucket":"example-bucket","count":"32","iceJobId":"******83ec44d58b2069def2e******","location":"oss-cn-shanghai","snapshotRegular":"example/example-{Count}.jpg","spriteRegular":"example/example-{TileCount}.jpg","templateId":"******e438b14ff39293eaec25******","tileCount":"1"}]
+     *
      * @var string
      */
     public $spriteImages;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example title
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @example userDataTest
+     *
      * @var string
      */
     public $userData;

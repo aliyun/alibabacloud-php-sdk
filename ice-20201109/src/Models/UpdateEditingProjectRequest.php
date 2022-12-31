@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateEditingProjectRequest extends Model
 {
     /**
+     * @example Reserving
+     *
      * @var string
      */
     public $businessStatus;
@@ -19,31 +21,43 @@ class UpdateEditingProjectRequest extends Model
     public $clipsParam;
 
     /**
+     * @example https://****.com/6AB4D0E1E1C7446888****.png
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @example testtimeline001desciption
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example ****4ee4b97e27b525142a6b2****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example ****96e8864746a0b6f3****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****cc3308ac500ca54328bc3443****"},{"MediaId":"****da87a9cff64*d88bc6d8326e4****"}]}]}
+     *
      * @var string
      */
     public $timeline;
 
     /**
+     * @example testtimeline
+     *
      * @var string
      */
     public $title;

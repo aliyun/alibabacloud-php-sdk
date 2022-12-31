@@ -14,6 +14,8 @@ class SubmitMediaInfoJobShrinkRequest extends Model
     public $inputShrink;
 
     /**
+     * @example job-name
+     *
      * @var string
      */
     public $name;
@@ -24,6 +26,8 @@ class SubmitMediaInfoJobShrinkRequest extends Model
     public $scheduleConfigShrink;
 
     /**
+     * @example user-data
+     *
      * @var string
      */
     public $userData;

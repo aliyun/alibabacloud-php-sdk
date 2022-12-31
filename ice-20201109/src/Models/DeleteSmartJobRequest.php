@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteSmartJobRequest extends Model
 {
     /**
+     * @example ******b48fb04483915d4f2cd8******,******042d5e4db6866f6289d1******
+     *
      * @var string
      */
     public $jobId;

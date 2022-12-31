@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class packageJobs extends Model
 {
     /**
+     * @example InvalidParameter
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 2022-07-07T14:00:32Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2022-07-07T15:00:32Z
+     *
      * @var string
      */
     public $finishTime;
@@ -31,21 +37,29 @@ class packageJobs extends Model
     public $inputs;
 
     /**
+     * @example 7b38a5d86f1e47838927b6e7ccb11cbe
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example Resource content bad.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 2022-07-07T15:00:32Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example job-name
+     *
      * @var string
      */
     public $name;
@@ -56,31 +70,43 @@ class packageJobs extends Model
     public $output;
 
     /**
+     * @example 5b40833e4c3e4d4e95a866abb9a42510
+     *
      * @var string
      */
     public $pipelineId;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 2022-07-07T14:00:32Z
+     *
      * @var string
      */
     public $submitTime;
 
     /**
+     * @example API
+     *
      * @var string
      */
     public $triggerSource;
 
     /**
+     * @example {"param": "value"}
+     *
      * @var string
      */
     public $userData;

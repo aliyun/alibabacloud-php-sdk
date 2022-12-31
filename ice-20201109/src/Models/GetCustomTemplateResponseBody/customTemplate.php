@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class customTemplate extends Model
 {
     /**
+     * @example 2022-01-01T10:00:00Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isDefault;
 
     /**
+     * @example 2022-01-01T11:00:00Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $subtype;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $subtypeName;
 
     /**
+     * @example {"Type":"Normal","FrameType":"normal","Time":0,"Count":10}
+     *
      * @var string
      */
     public $templateConfig;
 
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example 测试转码模板
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @example SnapshotTemplate
+     *
      * @var string
      */
     public $typeName;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class liveStreamConfig extends Model
 {
     /**
+     * @example app
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example domain.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example streamName
+     *
      * @var string
      */
     public $streamName;

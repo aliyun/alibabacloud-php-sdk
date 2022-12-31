@@ -11,11 +11,19 @@ use AlibabaCloud\Tea\Model;
 class SubmitLiveRecordJobRequest extends Model
 {
     /**
+     * @description 代表资源名称的资源属性字段
+     *
+     * @example live stream record 1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 回调地址
+     *
+     * @example https://example.com/imsnotify
+     *
      * @var string
      */
     public $notifyUrl;
@@ -31,6 +39,10 @@ class SubmitLiveRecordJobRequest extends Model
     public $streamInput;
 
     /**
+     * @description 录制模板ID
+     *
+     * @example 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
+     *
      * @var string
      */
     public $templateId;

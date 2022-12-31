@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetLiveSnapshotJobRequest extends Model
 {
     /**
+     * @example ****a046-263c-3560-978a-fb287782****
+     *
      * @var string
      */
     public $jobId;

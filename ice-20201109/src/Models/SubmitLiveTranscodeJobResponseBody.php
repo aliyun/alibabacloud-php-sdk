@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SubmitLiveTranscodeJobResponseBody extends Model
 {
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example ******3B-0E1A-586A-AC29-742247******
+     *
      * @var string
      */
     public $requestId;

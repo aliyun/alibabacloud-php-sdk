@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class GetLiveSnapshotTemplateResponseBody extends Model
 {
     /**
+     * @example 2022-02-02T22:22:22Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2022-02-02T22:22:22Z
+     *
      * @var string
      */
     public $lastModified;
 
     /**
+     * @example snapshot/{JobId}.jpg
+     *
      * @var string
      */
     public $overwriteFormat;
 
     /**
+     * @example ******11-DB8D-4A9A-875B-275798******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example snapshot/{JobId}/{UnixTimestamp}.jpg
+     *
      * @var string
      */
     public $sequenceFormat;
 
     /**
+     * @example ****a046-263c-3560-978a-fb287782****
+     *
      * @var string
      */
     public $templateId;
@@ -44,11 +56,15 @@ class GetLiveSnapshotTemplateResponseBody extends Model
     public $templateName;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $timeInterval;
 
     /**
+     * @example custom
+     *
      * @var string
      */
     public $type;

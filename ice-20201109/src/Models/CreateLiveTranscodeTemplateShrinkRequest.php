@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateLiveTranscodeTemplateShrinkRequest extends Model
 {
     /**
+     * @example my template
+     *
      * @var string
      */
     public $name;
@@ -19,6 +21,8 @@ class CreateLiveTranscodeTemplateShrinkRequest extends Model
     public $templateConfigShrink;
 
     /**
+     * @example normal
+     *
      * @var string
      */
     public $type;

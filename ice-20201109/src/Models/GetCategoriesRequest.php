@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetCategoriesRequest extends Model
 {
     /**
+     * @example 33
+     *
      * @var int
      */
     public $cateId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example CreationTime:Desc
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $type;

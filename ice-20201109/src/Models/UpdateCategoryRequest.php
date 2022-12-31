@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateCategoryRequest extends Model
 {
     /**
+     * @example 43
+     *
      * @var int
      */
     public $cateId;

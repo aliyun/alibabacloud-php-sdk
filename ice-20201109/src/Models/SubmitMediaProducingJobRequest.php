@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitMediaProducingJobRequest extends Model
 {
     /**
+     * @example ****12e8864746a0a398****
+     *
      * @var string
      */
     public $clientToken;
@@ -19,21 +21,29 @@ class SubmitMediaProducingJobRequest extends Model
     public $clipsParam;
 
     /**
+     * @example { 	"AutoRegisterInputVodMedia": "true", 	"OutputWebmTransparentChannel": "true" }
+     *
      * @var string
      */
     public $editingProduceConfig;
 
     /**
+     * @example {"MediaURL":"https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4"}
+     *
      * @var string
      */
     public $outputMediaConfig;
 
     /**
+     * @example oss-object
+     *
      * @var string
      */
     public $outputMediaTarget;
 
     /**
+     * @example xxxxxfb2101cb318xxxxx
+     *
      * @var string
      */
     public $projectId;
@@ -44,16 +54,22 @@ class SubmitMediaProducingJobRequest extends Model
     public $projectMetadata;
 
     /**
+     * @example OPENAPI
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example ****96e8864746a0b6f3****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****4d7cf14dc7b83b0e801c****"},{"MediaId":"****4d7cf14dc7b83b0e801c****"}]}]}
+     *
      * @var string
      */
     public $timeline;

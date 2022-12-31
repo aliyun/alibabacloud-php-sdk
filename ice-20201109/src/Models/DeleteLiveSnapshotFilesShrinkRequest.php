@@ -14,11 +14,15 @@ class DeleteLiveSnapshotFilesShrinkRequest extends Model
     public $createTimestampListShrink;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $deleteOriginalFile;
 
     /**
+     * @example ****a046-263c-3560-978a-fb287782****
+     *
      * @var string
      */
     public $jobId;

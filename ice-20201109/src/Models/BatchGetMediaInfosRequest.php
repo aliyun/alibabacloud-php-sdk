@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BatchGetMediaInfosRequest extends Model
 {
     /**
+     * @example FileInfo,DynamicMetaData
+     *
      * @var string
      */
     public $additionType;
 
     /**
+     * @example ******b48fb04483915d4f2cd8******,******c48fb37407365d4f2cd8******
+     *
      * @var string
      */
     public $mediaIds;

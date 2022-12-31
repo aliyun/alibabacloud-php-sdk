@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeMeterIceEditUsageRequest extends Model
 {
     /**
+     * @example 1656995036
+     *
      * @var int
      */
     public $endTs;
 
     /**
+     * @example 86400
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example 1654403036
+     *
      * @var int
      */
     public $startTs;

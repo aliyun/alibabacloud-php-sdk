@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 8722
+     *
      * @var string
      */
     public $editingDuration;
@@ -29,21 +31,29 @@ class data extends Model
     public $liveSnapshotCount;
 
     /**
+     * @example 12356
+     *
      * @var int
      */
     public $liveTranscodeDuration;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $mpsAiDuration;
 
     /**
+     * @example 17337
+     *
      * @var int
      */
     public $mpsTranscodeDuration;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $mpsTranscodeUHDDuration;

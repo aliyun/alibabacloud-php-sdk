@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class dynamicMetaData extends Model
 {
     /**
+     * @example {"AuditionUrl": "http://example-bucket.cdn.domain.com/example.mp4", "AuditionCount": 3}
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example system
+     *
      * @var string
      */
     public $type;

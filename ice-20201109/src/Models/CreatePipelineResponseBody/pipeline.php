@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class pipeline extends Model
 {
     /**
+     * @example 2022-07-12T16:17:54Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2022-07-12T16:17:54Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example test-pipeline
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $pipelineId;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example Standard
+     *
      * @var string
      */
     public $speed;
 
     /**
+     * @example Active
+     *
      * @var string
      */
     public $status;

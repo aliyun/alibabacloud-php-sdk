@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class AddTemplateRequest extends Model
 {
     /**
+     * @example 参见Timeline模板Config文档
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/cover.jpg
+     *
      * @var string
      */
     public $coverUrl;
 
     /**
+     * @example 视频添加水印模板
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example ****01bf24bf41c78b2754cb3187****
+     *
      * @var string
      */
     public $previewMedia;
 
     /**
+     * @example {"video":["1805a0c6ca544fb395a06ca683619655"]}
+     *
      * @var string
      */
     public $relatedMediaids;
 
     /**
+     * @example OpenAPI
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example Timeline
+     *
      * @var string
      */
     public $type;

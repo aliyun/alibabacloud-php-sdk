@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SetDefaultStorageLocationResponseBody extends Model
 {
     /**
+     * @example ******5A-CAAC-4850-A3AF-B74606******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

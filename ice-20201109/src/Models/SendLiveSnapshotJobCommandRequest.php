@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SendLiveSnapshotJobCommandRequest extends Model
 {
     /**
+     * @example start
+     *
      * @var string
      */
     public $command;
 
     /**
+     * @example ****a046-263c-3560-978a-fb287782****
+     *
      * @var string
      */
     public $jobId;

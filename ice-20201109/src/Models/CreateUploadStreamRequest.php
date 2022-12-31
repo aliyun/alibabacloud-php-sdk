@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateUploadStreamRequest extends Model
 {
     /**
+     * @example HD
+     *
      * @var string
      */
     public $definition;
 
     /**
+     * @example MP4
+     *
      * @var string
      */
     public $fileExtension;
 
     /**
+     * @example HDR10
+     *
      * @var string
      */
     public $HDRType;
 
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @example {"MessageCallback":{"CallbackURL":"http://aliyundoc.com"}, "Extend":{"localId":"xxx","test":"www"}}
+     *
      * @var string
      */
     public $userData;

@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class smartJobList extends Model
 {
     /**
+     * @example 2020-12-26T04:11:10Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 测试描述
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example {"AudioConfig":{},"InputConfig":""}
+     *
      * @var string
      */
     public $editingConfig;
@@ -31,21 +37,29 @@ class smartJobList extends Model
     public $inputConfig;
 
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example Finished
+     *
      * @var string
      */
     public $jobState;
 
     /**
+     * @example ASR
+     *
      * @var string
      */
     public $jobType;
 
     /**
+     * @example 2020-12-26T04:11:10Z
+     *
      * @var string
      */
     public $modifiedTime;
@@ -56,16 +70,22 @@ class smartJobList extends Model
     public $outputConfig;
 
     /**
+     * @example 测试标题
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @example {"user":"data"}
+     *
      * @var string
      */
     public $userData;
 
     /**
+     * @example 1084506228******
+     *
      * @var int
      */
     public $userId;

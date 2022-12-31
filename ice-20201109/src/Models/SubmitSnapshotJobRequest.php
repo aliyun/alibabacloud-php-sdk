@@ -18,6 +18,8 @@ class SubmitSnapshotJobRequest extends Model
     public $input;
 
     /**
+     * @example SampleJob
+     *
      * @var string
      */
     public $name;
@@ -38,6 +40,8 @@ class SubmitSnapshotJobRequest extends Model
     public $templateConfig;
 
     /**
+     * @example {"test parameter": "test value"}
+     *
      * @var string
      */
     public $userData;

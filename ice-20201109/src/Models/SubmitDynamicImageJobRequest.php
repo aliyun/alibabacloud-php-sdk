@@ -18,6 +18,8 @@ class SubmitDynamicImageJobRequest extends Model
     public $input;
 
     /**
+     * @example SampleJob
+     *
      * @var string
      */
     public $name;
@@ -38,6 +40,8 @@ class SubmitDynamicImageJobRequest extends Model
     public $templateConfig;
 
     /**
+     * @example {"SampleKey": "SampleValue"}
+     *
      * @var string
      */
     public $userData;

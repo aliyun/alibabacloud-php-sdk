@@ -11,7 +11,7 @@ class aiRoughData extends Model
     /**
      * @var string
      */
-    public $aiCategoryLevel1;
+    public $aiCategory;
 
     /**
      * @var string
@@ -33,11 +33,11 @@ class aiRoughData extends Model
      */
     public $status;
     protected $_name = [
-        'aiCategoryLevel1' => 'AiCategoryLevel1',
-        'aiJobId'          => 'AiJobId',
-        'result'           => 'Result',
-        'saveType'         => 'SaveType',
-        'status'           => 'Status',
+        'aiCategory' => 'AiCategory',
+        'aiJobId'    => 'AiJobId',
+        'result'     => 'Result',
+        'saveType'   => 'SaveType',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -47,8 +47,8 @@ class aiRoughData extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->aiCategoryLevel1) {
-            $res['AiCategoryLevel1'] = $this->aiCategoryLevel1;
+        if (null !== $this->aiCategory) {
+            $res['AiCategory'] = $this->aiCategory;
         }
         if (null !== $this->aiJobId) {
             $res['AiJobId'] = $this->aiJobId;
@@ -74,8 +74,8 @@ class aiRoughData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AiCategoryLevel1'])) {
-            $model->aiCategoryLevel1 = $map['AiCategoryLevel1'];
+        if (isset($map['AiCategory'])) {
+            $model->aiCategory = $map['AiCategory'];
         }
         if (isset($map['AiJobId'])) {
             $model->aiJobId = $map['AiJobId'];

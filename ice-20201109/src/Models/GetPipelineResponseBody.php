@@ -15,6 +15,8 @@ class GetPipelineResponseBody extends Model
     public $pipeline;
 
     /**
+     * @example ******11-DB8D-4A9A-875B-275798******
+     *
      * @var string
      */
     public $requestId;

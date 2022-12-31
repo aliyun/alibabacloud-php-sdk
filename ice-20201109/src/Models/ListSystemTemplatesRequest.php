@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ListSystemTemplatesRequest extends Model
 {
     /**
+     * @example SampleTemplate
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $subtype;
 
     /**
+     * @example ****96e8864746a0b6f3****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example 1,2
+     *
      * @var string
      */
     public $type;

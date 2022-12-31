@@ -15,11 +15,15 @@ class ListSnapshotJobsResponseBody extends Model
     public $jobs;
 
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $nextPageToken;
 
     /**
+     * @example ******11-DB8D-4A9A-875B-275798******
+     *
      * @var string
      */
     public $requestId;

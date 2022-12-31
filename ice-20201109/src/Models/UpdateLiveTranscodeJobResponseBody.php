@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateLiveTranscodeJobResponseBody extends Model
 {
     /**
+     * @example ******3B-0E1A-586A-AC29-742247******
+     *
      * @var string
      */
     public $requestId;

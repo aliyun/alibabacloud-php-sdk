@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteMediaInfosRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $deletePhysicalFiles;
@@ -19,6 +21,8 @@ class DeleteMediaInfosRequest extends Model
     public $inputURLs;
 
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****,****15d4a4b0448391508f2cb486****
+     *
      * @var string
      */
     public $mediaIds;

@@ -14,11 +14,15 @@ use AlibabaCloud\Tea\Model;
 class transcodeJobList extends Model
 {
     /**
+     * @example 2022-01-12T08:49:41Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2022-01-12T08:49:41Z
+     *
      * @var string
      */
     public $finishTime;
@@ -29,16 +33,22 @@ class transcodeJobList extends Model
     public $inputGroup;
 
     /**
+     * @example 7d6a7e0d4db2457a8d45ff5d43e1bf0a
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $jobIndex;
 
     /**
+     * @example transcode-job
+     *
      * @var string
      */
     public $name;
@@ -54,6 +64,8 @@ class transcodeJobList extends Model
     public $output;
 
     /**
+     * @example 8b2198504dd340b7b3c9842a74fc9baa
+     *
      * @var string
      */
     public $parentJobId;
@@ -64,6 +76,8 @@ class transcodeJobList extends Model
     public $processConfig;
 
     /**
+     * @example 31E30781-9495-5E2D-A84D-759B0A01E262
+     *
      * @var string
      */
     public $requestId;
@@ -74,21 +88,29 @@ class transcodeJobList extends Model
     public $scheduleConfig;
 
     /**
+     * @example Init
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example {}
+     *
      * @var mixed[]
      */
     public $submitResultJson;
 
     /**
+     * @example 2022-01-12T08:49:41Z
+     *
      * @var string
      */
     public $submitTime;
 
     /**
+     * @example user-data
+     *
      * @var string
      */
     public $userData;

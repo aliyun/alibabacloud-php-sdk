@@ -15,6 +15,8 @@ class GetLiveTranscodeJobResponseBody extends Model
     public $job;
 
     /**
+     * @example ******3B-0E1A-586A-AC29-742247******
+     *
      * @var string
      */
     public $requestId;

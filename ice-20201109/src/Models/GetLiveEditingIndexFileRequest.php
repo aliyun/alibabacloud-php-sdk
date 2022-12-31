@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetLiveEditingIndexFileRequest extends Model
 {
     /**
+     * @example testrecord
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example test.alivecdn.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example *****cb6307a4edea614d8b3f3c*****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example teststream
+     *
      * @var string
      */
     public $streamName;

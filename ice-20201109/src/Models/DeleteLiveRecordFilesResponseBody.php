@@ -15,11 +15,17 @@ class DeleteLiveRecordFilesResponseBody extends Model
     public $deleteFileInfoList;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Id of the request
+     *
+     * @example 13cbb83e-043c-4728-ac35-*****
+     *
      * @var string
      */
     public $requestId;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class input extends Model
 {
     /**
+     * @example oss://test-bucket/object.mp4
+     *
      * @var string
      */
     public $media;
@@ -20,6 +22,8 @@ class input extends Model
     public $ossFile;
 
     /**
+     * @example OSS
+     *
      * @var string
      */
     public $type;

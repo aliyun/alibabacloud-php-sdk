@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SetDefaultStorageLocationRequest extends Model
 {
     /**
+     * @example oss-test-bucket
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @example ims/dir
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example user_oss_bucket
+     *
      * @var string
      */
     public $storageType;

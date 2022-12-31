@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class fileBasicInfo extends Model
 {
     /**
+     * @example 192.0
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @example 16.2
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example example.mp4
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example 27007
+     *
      * @var string
      */
     public $fileSize;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $fileStatus;
 
     /**
+     * @example source_file
+     *
      * @var string
      */
     public $fileType;
 
     /**
+     * @example http://example-bucket.cdn.domain.com/example.mp4
+     *
      * @var string
      */
     public $fileUrl;
 
     /**
+     * @example mp4
+     *
      * @var string
      */
     public $formatName;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $width;

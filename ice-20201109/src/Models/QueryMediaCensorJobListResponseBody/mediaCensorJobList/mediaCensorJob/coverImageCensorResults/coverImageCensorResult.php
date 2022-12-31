@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class coverImageCensorResult extends Model
 {
     /**
+     * @example example-Bucket-****
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @example oss-cn-shanghai
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example test/ai/censor/v2/vme-****.jpg
+     *
      * @var string
      */
     public $object;

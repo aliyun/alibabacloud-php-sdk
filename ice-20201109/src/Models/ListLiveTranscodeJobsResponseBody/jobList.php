@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class jobList extends Model
 {
     /**
+     * @example 2022-07-20T02:48:58Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example ****a046-263c-3560-978a-fb287782****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example mytask
+     *
      * @var string
      */
     public $name;
@@ -31,11 +37,15 @@ class jobList extends Model
     public $outputStream;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $startMode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
@@ -46,6 +56,8 @@ class jobList extends Model
     public $streamInput;
 
     /**
+     * @example ****a046-263c-3560-978a-fb287666****
+     *
      * @var string
      */
     public $templateId;
@@ -56,6 +68,8 @@ class jobList extends Model
     public $templateName;
 
     /**
+     * @example normal
+     *
      * @var string
      */
     public $templateType;

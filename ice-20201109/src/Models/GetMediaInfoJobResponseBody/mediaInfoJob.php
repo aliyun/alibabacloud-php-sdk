@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class mediaInfoJob extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $async;
 
     /**
+     * @example 2022-01-12T08:49:41Z
+     *
      * @var string
      */
     public $finishTime;
@@ -27,6 +31,8 @@ class mediaInfoJob extends Model
     public $input;
 
     /**
+     * @example ab4802364a2e49208c99efab82dfa8e8
+     *
      * @var string
      */
     public $jobId;
@@ -37,11 +43,15 @@ class mediaInfoJob extends Model
     public $mediaInfoProperty;
 
     /**
+     * @example job-name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 4879B9DE-E4B6-19DC-91F5-9D5F4DCE4168
+     *
      * @var string
      */
     public $requestId;
@@ -52,6 +62,8 @@ class mediaInfoJob extends Model
     public $scheduleConfig;
 
     /**
+     * @example Init
+     *
      * @var string
      */
     public $status;
@@ -62,16 +74,22 @@ class mediaInfoJob extends Model
     public $submitResultJson;
 
     /**
+     * @example 2022-01-12T08:49:41Z
+     *
      * @var string
      */
     public $submitTime;
 
     /**
+     * @example API
+     *
      * @var string
      */
     public $triggerSource;
 
     /**
+     * @example user-data
+     *
      * @var string
      */
     public $userData;

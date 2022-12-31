@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateLiveSnapshotTemplateRequest extends Model
 {
     /**
+     * @example snapshot/{JobId}.jpg
+     *
      * @var string
      */
     public $overwriteFormat;
 
     /**
+     * @example snapshot/{JobId}/{UnixTimestamp}.jpg
+     *
      * @var string
      */
     public $sequenceFormat;
 
     /**
+     * @example ****a046-263c-3560-978a-fb287782****
+     *
      * @var string
      */
     public $templateId;
@@ -29,6 +35,8 @@ class UpdateLiveSnapshotTemplateRequest extends Model
     public $templateName;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $timeInterval;

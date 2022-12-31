@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ListPackageJobsRequest extends Model
 {
     /**
+     * @example 2022-07-15T00:00:00Z
+     *
      * @var string
      */
     public $endOfCreateTime;
 
     /**
+     * @example 7b38a5d86f1e47838927b6e7ccb11cbe
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example ab4802364a2e49208c99efab82dfa8e8
+     *
      * @var string
      */
     public $nextPageToken;
 
     /**
+     * @example CreateTimeDesc
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2022-07-01T00:00:00Z
+     *
      * @var string
      */
     public $startOfCreateTime;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $status;

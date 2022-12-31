@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class mediaProduceConfig extends Model
 {
     /**
+     * @example Accurate
+     *
      * @var string
      */
     public $mode;

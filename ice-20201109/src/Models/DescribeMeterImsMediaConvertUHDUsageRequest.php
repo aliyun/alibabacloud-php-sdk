@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeMeterImsMediaConvertUHDUsageRequest extends Model
 {
     /**
+     * @example 1656995036
+     *
      * @var int
      */
     public $endTs;
 
     /**
+     * @example 3600
+     *
      * @var string
      */
     public $interval;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 1654403036
+     *
      * @var int
      */
     public $startTs;

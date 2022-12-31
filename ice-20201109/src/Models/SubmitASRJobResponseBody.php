@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SubmitASRJobResponseBody extends Model
 {
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example ******11-DB8D-4A9A-875B-275798******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example Finished
+     *
      * @var string
      */
     public $state;

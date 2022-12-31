@@ -14,11 +14,15 @@ class options extends Model
     public $optionChineseName;
 
     /**
+     * @example Angry
+     *
      * @var string
      */
     public $optionEnglishName;
 
     /**
+     * @example Angry
+     *
      * @var string
      */
     public $optionId;

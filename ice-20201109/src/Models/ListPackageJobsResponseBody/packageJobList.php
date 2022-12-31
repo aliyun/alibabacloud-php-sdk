@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class packageJobList extends Model
 {
     /**
+     * @example 019daf5780f74831b0e1a767c9f1c178
+     *
      * @var string
      */
     public $nextPageToken;

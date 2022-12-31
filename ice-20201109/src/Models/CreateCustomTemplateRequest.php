@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomTemplateRequest extends Model
 {
     /**
+     * @example test-template
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $subtype;
 
     /**
+     * @example {"Container":{"Format":"flv"},"Video":{},"Audio":{}}
+     *
      * @var string
      */
     public $templateConfig;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;

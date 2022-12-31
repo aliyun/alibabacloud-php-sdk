@@ -15,6 +15,8 @@ class DescribeMeterImsMediaConvertUsageResponseBody extends Model
     public $data;
 
     /**
+     * @example FBBB5210-2B78-58FB-A6FE-9DD887BB2C61
+     *
      * @var string
      */
     public $requestId;

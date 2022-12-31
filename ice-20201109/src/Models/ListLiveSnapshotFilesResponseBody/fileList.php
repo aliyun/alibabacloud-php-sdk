@@ -9,31 +9,45 @@ use AlibabaCloud\Tea\Model;
 class fileList extends Model
 {
     /**
+     * @example 2022-02-02T22:22:22Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 1619503516000
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isOverlay;
 
     /**
+     * @description OSS bucket。
+     *
+     * @example testbucket
+     *
      * @var string
      */
     public $ossBucket;
 
     /**
+     * @example oss-cn-shanghai.aliyuncs.com
+     *
      * @var string
      */
     public $ossEndpoint;
 
     /**
+     * @example snapshot/****a046-263c-3560-978a-fb287782****\/1660638613798.jpg
+     *
      * @var string
      */
     public $ossObject;

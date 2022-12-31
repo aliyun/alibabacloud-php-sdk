@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreatePipelineRequest extends Model
 {
     /**
+     * @example test-pipeline
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example Standard
+     *
      * @var string
      */
     public $speed;

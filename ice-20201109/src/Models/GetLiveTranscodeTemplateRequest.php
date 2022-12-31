@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetLiveTranscodeTemplateRequest extends Model
 {
     /**
+     * @example ****a046-263c-3560-978a-fb287666****
+     *
      * @var string
      */
     public $templateId;

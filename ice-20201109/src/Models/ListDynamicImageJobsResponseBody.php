@@ -15,11 +15,15 @@ class ListDynamicImageJobsResponseBody extends Model
     public $jobs;
 
     /**
+     * @example ****cdb3e74639973036bc84****
+     *
      * @var string
      */
     public $nextPageToken;
 
     /**
+     * @example ******11-DB8D-4A9A-875B-275798******
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetMediaInfoRequest extends Model
 {
     /**
+     * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
+     *
      * @var string
      */
     public $inputURL;
 
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @example cdn
+     *
      * @var string
      */
     public $outputType;

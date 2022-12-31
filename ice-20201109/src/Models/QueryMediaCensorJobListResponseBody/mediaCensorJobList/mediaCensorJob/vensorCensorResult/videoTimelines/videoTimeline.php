@@ -15,11 +15,15 @@ class videoTimeline extends Model
     public $censorResults;
 
     /**
+     * @example output{Count}.jpg
+     *
      * @var string
      */
     public $object;
 
     /**
+     * @example 00:02:59.999
+     *
      * @var string
      */
     public $timestamp;

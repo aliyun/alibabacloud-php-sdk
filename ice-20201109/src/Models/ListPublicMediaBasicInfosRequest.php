@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListPublicMediaBasicInfosRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $includeFileBasicInfo;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example ticker-atmosphere
+     *
      * @var string
      */
     public $mediaTagId;
 
     /**
+     * @example pSa1SQ0wCe5pzVrQ6mWZEw==
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

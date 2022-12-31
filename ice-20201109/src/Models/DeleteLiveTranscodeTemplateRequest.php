@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteLiveTranscodeTemplateRequest extends Model
 {
     /**
+     * @example ****d80e4e4044975745c14b****
+     *
      * @var string
      */
     public $templateId;

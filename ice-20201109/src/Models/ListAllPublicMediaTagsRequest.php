@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListAllPublicMediaTagsRequest extends Model
 {
     /**
+     * @example "sticker"
+     *
      * @var string
      */
     public $businessType;
 
     /**
+     * @example Copyright_Music
+     *
      * @var string
      */
     public $entityId;

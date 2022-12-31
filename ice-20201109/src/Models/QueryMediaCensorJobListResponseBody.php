@@ -16,6 +16,8 @@ class QueryMediaCensorJobListResponseBody extends Model
     public $mediaCensorJobList;
 
     /**
+     * @example 9b1a42bc6e8d46e6a1383b7e7f01****
+     *
      * @var string
      */
     public $nextPageToken;
@@ -26,6 +28,8 @@ class QueryMediaCensorJobListResponseBody extends Model
     public $nonExistIds;
 
     /**
+     * @example D1D5C080-8E2F-5030-8AB4-13092F17631B
+     *
      * @var string
      */
     public $requestId;

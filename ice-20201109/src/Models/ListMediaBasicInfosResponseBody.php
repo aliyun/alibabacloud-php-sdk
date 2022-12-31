@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListMediaBasicInfosResponseBody extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $maxResults;
@@ -20,16 +22,22 @@ class ListMediaBasicInfosResponseBody extends Model
     public $mediaInfos;
 
     /**
+     * @example 8EqYpQbZ6Eh7+Zz8DxVYoQ==
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example ******B7-7F87-4792-BFE9-63CD21******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $totalCount;

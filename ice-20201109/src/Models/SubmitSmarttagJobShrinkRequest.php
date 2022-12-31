@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class SubmitSmarttagJobShrinkRequest extends Model
 {
     /**
+     * @example example content ****
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example http://123.com/testVideo.mp4
+     *
      * @var string
      */
     public $contentAddr;
 
     /**
+     * @example application/zip
+     *
      * @var string
      */
     public $contentType;
 
     /**
+     * @description input
+     *
      * @var string
      */
     public $inputShrink;
 
     /**
+     * @example https://example.com/endpoint/aliyun/ai?id=76401125000***
+     *
      * @var string
      */
     public $notifyUrl;
 
     /**
+     * @example {"needAsrData":true, "needOcrData":false}
+     *
      * @var string
      */
     public $params;
 
     /**
+     * @description scheduleConfig
+     *
      * @var string
      */
     public $scheduleConfigShrink;
 
     /**
+     * @example 39f8e0bc005e4f309379701645f4
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example example-title-****
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @example {“a”:"test"}
+     *
      * @var string
      */
     public $userData;

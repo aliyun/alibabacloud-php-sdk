@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SearchMediaResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class SearchMediaResponseBody extends Model
     public $mediaInfoList;
 
     /**
+     * @example 6F61C357-ACC0-57FB-876E-D58795335E59
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var string
      */
     public $success;
 
     /**
+     * @example 163
+     *
      * @var int
      */
     public $total;

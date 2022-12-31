@@ -9,66 +9,92 @@ use AlibabaCloud\Tea\Model;
 class files extends Model
 {
     /**
+     * @example 2016-05-27T09:40:56Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 100.0
+     *
      * @var float
      */
     public $duration;
 
     /**
+     * @example 2015-12-01T07:36:10Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example m3u8
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @example 640
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example c4d7f0a4-b506-43f9-8de3-07732c3f****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example LiveRecordJob***
+     *
      * @var string
      */
     public $jobName;
 
     /**
+     * @example c4d7f0a4-b506-43f9-8de3-07732c3f****
+     *
      * @var string
      */
     public $recordId;
 
     /**
+     * @example { "Type": "oss", "Endpoint":"oss-cn-shanghai.aliyuncs.com", "Bucket": "test-bucket" }
+     *
      * @var string
      */
     public $recordOutput;
 
     /**
+     * @example http://****\/atestObject****.m3u8
+     *
      * @var string
      */
     public $recordUrl;
 
     /**
+     * @example 2015-12-01T07:36:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example LiveStream***
+     *
      * @var string
      */
     public $streamUrl;
 
     /**
+     * @example 480
+     *
      * @var int
      */
     public $width;

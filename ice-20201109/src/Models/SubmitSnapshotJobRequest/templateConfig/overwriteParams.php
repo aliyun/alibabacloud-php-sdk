@@ -10,36 +10,50 @@ use AlibabaCloud\Tea\Model;
 class overwriteParams extends Model
 {
     /**
+     * @example 30
+     *
      * @var int
      */
     public $blackLevel;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example intra
+     *
      * @var string
      */
     public $frameType;
 
     /**
+     * @example 480
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isSptFrag;
 
     /**
+     * @example 70
+     *
      * @var int
      */
     public $pixelBlackThreshold;
@@ -50,16 +64,22 @@ class overwriteParams extends Model
     public $spriteSnapshotConfig;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $time;
 
     /**
+     * @example Sprite
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 720
+     *
      * @var int
      */
     public $width;

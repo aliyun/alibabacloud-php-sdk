@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class fileBasicInfo extends Model
 {
     /**
+     * @example 888.563
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @example 403.039999
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example file.m3u8
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example 31737
+     *
      * @var string
      */
     public $fileSize;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $fileStatus;
 
     /**
+     * @example source_file
+     *
      * @var string
      */
     public $fileType;
 
     /**
+     * @example http://bucket.oss-cn-shanghai.aliyuncs.com/path/to/file.m3u8
+     *
      * @var string
      */
     public $fileUrl;
 
     /**
+     * @example hls,applehttp
+     *
      * @var string
      */
     public $formatName;
 
     /**
+     * @example 478
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @example e520090207114cc7a392d44f0b211574
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example 848
+     *
      * @var string
      */
     public $width;

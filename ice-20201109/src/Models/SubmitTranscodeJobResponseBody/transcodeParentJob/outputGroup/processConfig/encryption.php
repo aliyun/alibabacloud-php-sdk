@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class encryption extends Model
 {
     /**
+     * @example MTYi00NDU0LTg5O****
+     *
      * @var string
      */
     public $cipherText;
 
     /**
+     * @example https://sample.com/path?CipherText=MTYi00NDU0LTg5O****
+     *
      * @var string
      */
     public $decryptKeyUri;
 
     /**
+     * @example PrivateEncryption
+     *
      * @var string
      */
     public $encryptType;

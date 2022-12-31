@@ -15,6 +15,8 @@ class DeleteLiveSnapshotFilesResponseBody extends Model
     public $deleteFileResultList;
 
     /**
+     * @example ****2876-6263-4B75-8F2C-CD0F7FCF****
+     *
      * @var string
      */
     public $requestId;

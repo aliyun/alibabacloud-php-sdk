@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class SearchPublicMediaInfoRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $authorized;
 
     /**
+     * @example "ApprovalStatus=\"Available\"&amp;MaterialBags=\"boutiquemusic\"&amp;Mood=\"Nervous\""
+     *
      * @var string
      */
     public $dynamicMetaDataMatchFields;
 
     /**
+     * @example Copyright_Music
+     *
      * @var string
      */
     public $entityId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $favorite;
 
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****,****15d4a4b0448391508f2cb486****
+     *
      * @var string
      */
     public $mediaIds;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example UsageCount:Desc,UnitPrice:Asc
+     *
      * @var string
      */
     public $sortBy;

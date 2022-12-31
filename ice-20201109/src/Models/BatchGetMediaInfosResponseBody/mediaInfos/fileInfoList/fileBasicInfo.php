@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class fileBasicInfo extends Model
 {
     /**
+     * @example 1132.68
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example example
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example 30611502
+     *
      * @var string
      */
     public $fileSize;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $fileStatus;
 
     /**
+     * @example source_file
+     *
      * @var string
      */
     public $fileType;
 
     /**
+     * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
+     *
      * @var string
      */
     public $fileUrl;
 
     /**
+     * @example mov,mp4,m4a,3gp,3g2,mj2
+     *
      * @var string
      */
     public $formatName;
 
     /**
+     * @example 1080
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example 1920
+     *
      * @var string
      */
     public $width;

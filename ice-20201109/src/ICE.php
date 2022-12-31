@@ -3333,6 +3333,9 @@ class ICE extends OpenApiClient
         if (!Utils::isUnset($request->projectId)) {
             $query['ProjectId'] = $request->projectId;
         }
+        if (!Utils::isUnset($request->requestSource)) {
+            $query['RequestSource'] = $request->requestSource;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -7404,10 +7407,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitSubtitleProduceJobRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return SubmitSubtitleProduceJobResponse
+     * @param SubmitSubtitleProduceJobRequest $request SubmitSubtitleProduceJobRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitSubtitleProduceJobResponse SubmitSubtitleProduceJobResponse
      */
     public function submitSubtitleProduceJobWithOptions($request, $runtime)
     {
@@ -7456,9 +7463,13 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitSubtitleProduceJobRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return SubmitSubtitleProduceJobResponse
+     * @param SubmitSubtitleProduceJobRequest $request SubmitSubtitleProduceJobRequest
+     *
+     * @return SubmitSubtitleProduceJobResponse SubmitSubtitleProduceJobResponse
      */
     public function submitSubtitleProduceJob($request)
     {
@@ -8110,10 +8121,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateSmartJobRequest $request
-     * @param RuntimeOptions        $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return UpdateSmartJobResponse
+     * @param UpdateSmartJobRequest $request UpdateSmartJobRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateSmartJobResponse UpdateSmartJobResponse
      */
     public function updateSmartJobWithOptions($request, $runtime)
     {
@@ -8144,9 +8159,13 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateSmartJobRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return UpdateSmartJobResponse
+     * @param UpdateSmartJobRequest $request UpdateSmartJobRequest
+     *
+     * @return UpdateSmartJobResponse UpdateSmartJobResponse
      */
     public function updateSmartJob($request)
     {

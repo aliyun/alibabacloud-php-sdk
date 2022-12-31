@@ -16,6 +16,8 @@ class vensorCensorResult extends Model
     public $censorResults;
 
     /**
+     * @example ea04afcca7cd4e80b9ece8fbb251****
+     *
      * @var string
      */
     public $nextPageToken;

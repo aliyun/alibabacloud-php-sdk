@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetLiveRecordTemplateResponseBody extends Model
 {
     /**
+     * @description 录制模板
+     *
      * @var recordTemplate
      */
     public $recordTemplate;
 
     /**
+     * @example C892855F-95DF-50D6-A28C-279ABDB76810
+     *
      * @var string
      */
     public $requestId;

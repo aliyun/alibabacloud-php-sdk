@@ -9,66 +9,92 @@ use AlibabaCloud\Tea\Model;
 class fileBasicInfo extends Model
 {
     /**
+     * @example 1912.13
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @example 2022-05-30T02:02:17Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 60.00000
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example 164265080291300080527050.wav
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example 324784
+     *
      * @var string
      */
     public $fileSize;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $fileStatus;
 
     /**
+     * @example source_file
+     *
      * @var string
      */
     public $fileType;
 
     /**
+     * @example https://outin-d3f4681ddfd911ec99a600163e1403e7.oss-cn-shanghai.aliyuncs.com/sv/23d5cdd1-18180984899/23d5cdd1-18180984899.mp4
+     *
      * @var string
      */
     public $fileUrl;
 
     /**
+     * @example mov,mp4,m4a,3gp,3g2,mj2
+     *
      * @var string
      */
     public $formatName;
 
     /**
+     * @example 480
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @example 2021-12-10T12:19Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example 1920
+     *
      * @var string
      */
     public $width;

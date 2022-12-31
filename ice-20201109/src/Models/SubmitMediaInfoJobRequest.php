@@ -16,6 +16,8 @@ class SubmitMediaInfoJobRequest extends Model
     public $input;
 
     /**
+     * @example job-name
+     *
      * @var string
      */
     public $name;
@@ -26,6 +28,8 @@ class SubmitMediaInfoJobRequest extends Model
     public $scheduleConfig;
 
     /**
+     * @example user-data
+     *
      * @var string
      */
     public $userData;

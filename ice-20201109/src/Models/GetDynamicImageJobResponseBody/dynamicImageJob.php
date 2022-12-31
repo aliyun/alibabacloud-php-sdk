@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class dynamicImageJob extends Model
 {
     /**
+     * @example ResourceNotFound
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 2022-07-12T16:17:54Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2022-07-12T16:30:54Z
+     *
      * @var string
      */
     public $finishTime;
@@ -31,21 +37,29 @@ class dynamicImageJob extends Model
     public $input;
 
     /**
+     * @example ****d80e4e4044975745c14b****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example The specified resource for "CustomTemplate" could not be found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 2022-07-12T16:30:54Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example SampleJob
+     *
      * @var string
      */
     public $name;
@@ -56,41 +70,57 @@ class dynamicImageJob extends Model
     public $output;
 
     /**
+     * @example http://test-bucket.oss-cn-shanghai.aliyuncs.com/output.gif
+     *
      * @var string
      */
     public $outputUrl;
 
     /**
+     * @example ****d80e4e4044975745c14b****
+     *
      * @var string
      */
     public $pipelineId;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 2022-07-12T16:17:54Z
+     *
      * @var string
      */
     public $submitTime;
 
     /**
+     * @example {"Format":"gif","Fps":5,"Height":1080,"Width":1920}
+     *
      * @var string
      */
     public $templateConfig;
 
     /**
+     * @example ****d80e4e4044975745c14b****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example API
+     *
      * @var string
      */
     public $triggerSource;
 
     /**
+     * @example {"sampleParam": "sampleValue"}
+     *
      * @var string
      */
     public $userData;

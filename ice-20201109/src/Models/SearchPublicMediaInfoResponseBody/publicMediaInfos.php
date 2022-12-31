@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class publicMediaInfos extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $authorized;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $favorite;
@@ -25,6 +29,8 @@ class publicMediaInfos extends Model
     public $mediaInfo;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $remainingAuthTime;

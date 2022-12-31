@@ -14,6 +14,8 @@ class GetLiveEditingIndexFileResponseBody extends Model
     public $indexFile;
 
     /**
+     * @example 4E84BE44-58A7-****-****-FBEBEA16EF94
+     *
      * @var string
      */
     public $requestId;

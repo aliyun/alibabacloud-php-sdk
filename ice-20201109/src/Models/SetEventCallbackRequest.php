@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class SetEventCallbackRequest extends Model
 {
     /**
+     * @example TestKey001
+     *
      * @var string
      */
     public $authKey;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $authSwitch;
 
     /**
+     * @example ice-callback-queue
+     *
      * @var string
      */
     public $callbackQueueName;
 
     /**
+     * @example HTTP
+     *
      * @var string
      */
     public $callbackType;
 
     /**
+     * @example http://xxx.yyy/callback
+     *
      * @var string
      */
     public $callbackURL;
 
     /**
+     * @example ProduceMediaComplete
+     *
      * @var string
      */
     public $eventTypeList;

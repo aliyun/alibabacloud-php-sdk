@@ -15,26 +15,36 @@ class ListLiveRecordJobsResponseBody extends Model
     public $liveRecordJobs;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example A27DFFA4-F272-5563-8363-CB0BC42740BA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example desc
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example 180
+     *
      * @var int
      */
     public $totalCount;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SubmitMediaCensorJobResponseBody extends Model
 {
     /**
+     * @example 88c6ca184c0e47098a5b665e2****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 25818875-5F78-4A13-BEF6-D7393642CA58
+     *
      * @var string
      */
     public $requestId;

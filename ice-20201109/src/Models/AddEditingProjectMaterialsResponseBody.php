@@ -21,16 +21,22 @@ class AddEditingProjectMaterialsResponseBody extends Model
     public $mediaInfos;
 
     /**
+     * @example *****67ae06542b9b93e0d1c387*****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example *****9b145c5cafc2e057304fcd*****
+     *
      * @var string[]
      */
     public $projectMaterials;
 
     /**
+     * @example *****ACB-44F2-5F2D-88D7-1283E70*****
+     *
      * @var string
      */
     public $requestId;

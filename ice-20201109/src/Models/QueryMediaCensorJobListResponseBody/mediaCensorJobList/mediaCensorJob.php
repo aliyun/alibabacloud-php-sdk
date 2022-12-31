@@ -21,6 +21,8 @@ class mediaCensorJob extends Model
     public $barrageCensorResult;
 
     /**
+     * @example InvalidParameter.ResourceNotFound
+     *
      * @var string
      */
     public $code;
@@ -31,6 +33,8 @@ class mediaCensorJob extends Model
     public $coverImageCensorResults;
 
     /**
+     * @example 2021-11-04T07:25:48Z
+     *
      * @var string
      */
     public $creationTime;
@@ -41,6 +45,8 @@ class mediaCensorJob extends Model
     public $descCensorResult;
 
     /**
+     * @example 2021-11-04T07:25:50Z
+     *
      * @var string
      */
     public $finishTime;
@@ -51,26 +57,36 @@ class mediaCensorJob extends Model
     public $input;
 
     /**
+     * @example f8f166eea7a44e9bb0a4aecf9543
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example The resource operated cannot be found
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example c5b30b7c0d0e4a0abde1d5f9e751****
+     *
      * @var string
      */
     public $pipelineId;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example pass
+     *
      * @var string
      */
     public $suggestion;
@@ -81,6 +97,8 @@ class mediaCensorJob extends Model
     public $titleCensorResult;
 
     /**
+     * @example example userdata ****
+     *
      * @var string
      */
     public $userData;

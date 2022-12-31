@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class liveMaterials extends Model
 {
     /**
+     * @example testrecord
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example test.alivecdn.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example rtmp://test.alivecdn.com/testrecord/teststream
+     *
      * @var string
      */
     public $liveUrl;
 
     /**
+     * @example testrecord
+     *
      * @var string
      */
     public $streamName;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ListSmartJobsRequest extends Model
 {
     /**
+     * @example Finished
+     *
      * @var string
      */
     public $jobState;
 
     /**
+     * @example ASR
+     *
      * @var string
      */
     public $jobType;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example ****73f33c91-d59383e8280b****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example CreationTime:Desc
+     *
      * @var string
      */
     public $sortBy;

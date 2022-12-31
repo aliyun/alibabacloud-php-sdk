@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class UpdateLiveRecordTemplateRequest extends Model
 {
     /**
+     * @description 代表资源名称的资源属性字段
+     *
+     * @example test template
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 录制格式
+     *
      * @var recordFormat[]
      */
     public $recordFormat;
 
     /**
+     * @description 代表资源一级ID的资源属性字段
+     *
+     * @example 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
+     *
      * @var string
      */
     public $templateId;

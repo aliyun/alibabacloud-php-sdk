@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListLiveRecordTemplatesRequest extends Model
 {
     /**
+     * @example test template
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example desc
+     *
      * @var string
      */
     public $sortBy;
@@ -34,6 +42,8 @@ class ListLiveRecordTemplatesRequest extends Model
     public $templateIds;
 
     /**
+     * @example custom
+     *
      * @var string
      */
     public $type;

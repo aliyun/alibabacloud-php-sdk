@@ -14,6 +14,8 @@ class SubmitTranscodeJobShrinkRequest extends Model
     public $inputGroupShrink;
 
     /**
+     * @example job-name
+     *
      * @var string
      */
     public $name;
@@ -24,11 +26,15 @@ class SubmitTranscodeJobShrinkRequest extends Model
     public $outputGroupShrink;
 
     /**
+     * @example job-name
+     *
      * @var string
      */
     public $scheduleConfigShrink;
 
     /**
+     * @example user-data
+     *
      * @var string
      */
     public $userData;

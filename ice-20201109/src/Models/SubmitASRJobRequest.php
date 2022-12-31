@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class SubmitASRJobRequest extends Model
 {
     /**
+     * @example 测试描述
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 00:00:10
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example oss://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4 或 ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $inputFile;
 
     /**
+     * @example 00:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 测试标题
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @example {"your-key":"your-value"}
+     *
      * @var string
      */
     public $userData;

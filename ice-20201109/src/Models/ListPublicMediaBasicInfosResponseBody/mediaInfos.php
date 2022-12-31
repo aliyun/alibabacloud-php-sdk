@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class mediaInfos extends Model
 {
     /**
+     * @description FileInfos
+     *
      * @var fileInfoList[]
      */
     public $fileInfoList;
 
     /**
+     * @description BasicInfo
+     *
      * @var mediaBasicInfo
      */
     public $mediaBasicInfo;
 
     /**
+     * @example ****019b82e24b37a1c2958dec38****
+     *
      * @var string
      */
     public $mediaId;

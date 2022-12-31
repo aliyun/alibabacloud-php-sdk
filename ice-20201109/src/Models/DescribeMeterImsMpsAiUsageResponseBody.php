@@ -15,6 +15,8 @@ class DescribeMeterImsMpsAiUsageResponseBody extends Model
     public $data;
 
     /**
+     * @example 0622C702-41BE-467E-AF2E-883D4517962E
+     *
      * @var string
      */
     public $requestId;

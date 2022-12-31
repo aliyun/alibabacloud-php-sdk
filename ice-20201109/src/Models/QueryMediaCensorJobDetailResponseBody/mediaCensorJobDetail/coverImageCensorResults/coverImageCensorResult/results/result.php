@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $rate;
 
     /**
+     * @example Antispam
+     *
      * @var string
      */
     public $scene;
 
     /**
+     * @example pass
+     *
      * @var string
      */
     public $suggestion;

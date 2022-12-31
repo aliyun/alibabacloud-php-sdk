@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListSmartJobsResponseBody extends Model
 {
     /**
+     * @example 10
+     *
      * @var string
      */
     public $maxResults;
 
     /**
+     * @example CBB6BC61D08
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example ****9262E3DA-07FA-4862-FCBB6BC61D08*****
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class ListSmartJobsResponseBody extends Model
     public $smartJobList;
 
     /**
+     * @example 110
+     *
      * @var string
      */
     public $totalCount;

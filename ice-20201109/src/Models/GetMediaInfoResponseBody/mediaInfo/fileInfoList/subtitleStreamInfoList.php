@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class subtitleStreamInfoList extends Model
 {
     /**
+     * @example SubRip Text
+     *
      * @var string
      */
     public $codecLongName;
 
     /**
+     * @example srt
+     *
      * @var string
      */
     public $codecName;
 
     /**
+     * @example unicode
+     *
      * @var string
      */
     public $codecTag;
 
     /**
+     * @example unicode
+     *
      * @var string
      */
     public $codecTagString;
 
     /**
+     * @example 29.97
+     *
      * @var string
      */
     public $codecTimeBase;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $index;
 
     /**
+     * @example und
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 30
+     *
      * @var string
      */
     public $timebase;

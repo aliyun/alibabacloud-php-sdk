@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class videoCensorConfig extends Model
 {
     /**
+     * @example common
+     *
      * @var string
      */
     public $bizType;
@@ -20,6 +22,8 @@ class videoCensorConfig extends Model
     public $outputFile;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $videoCensor;

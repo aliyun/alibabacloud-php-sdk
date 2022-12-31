@@ -14,11 +14,15 @@ class RegisterMediaStreamRequest extends Model
     public $inputURL;
 
     /**
+     * @example 5e778ec0027b71ed80a8909598506***
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @example {"MessageCallback":{"CallbackURL":"http://test.test.com"}, "Extend":{"localId":"xxx","test":"www"}}
+     *
      * @var string
      */
     public $userData;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SendLiveTranscodeJobCommandRequest extends Model
 {
     /**
+     * @example stop
+     *
      * @var string
      */
     public $command;
 
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $jobId;

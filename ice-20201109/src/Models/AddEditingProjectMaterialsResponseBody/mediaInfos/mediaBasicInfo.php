@@ -9,91 +9,127 @@ use AlibabaCloud\Tea\Model;
 class mediaBasicInfo extends Model
 {
     /**
+     * @example general
+     *
      * @var string
      */
     public $businessType;
 
     /**
+     * @example audio
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @example 2020-12-23T03:32:59Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2020-12-23T03:32:59Z
+     *
      * @var string
      */
     public $deletedTime;
 
     /**
+     * @example sample_description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example http://bucket.oss-cn-shanghai.aliyuncs.com/file.mp4
+     *
      * @var string
      */
     public $inputURL;
 
     /**
+     * @example *****5cb2e35433198daae94a72*****
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @example sample_tag
+     *
      * @var string
      */
     public $mediaTags;
 
     /**
+     * @example Video
+     *
      * @var string
      */
     public $mediaType;
 
     /**
+     * @example 2020-12-23T03:32:59Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $snapshots;
 
     /**
+     * @example oss
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example http://outin-example.oss-cn-shanghai.aliyuncs.com/test.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
+     *
      * @var string
      */
     public $spriteImages;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example default_title_2020-12-23T03:32:59Z
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @example Init
+     *
      * @var string
      */
     public $transcodeStatus;
 
     /**
+     * @example userData
+     *
      * @var string
      */
     public $userData;

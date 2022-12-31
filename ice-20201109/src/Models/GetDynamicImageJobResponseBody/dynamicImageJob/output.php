@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class output extends Model
 {
     /**
+     * @example ****d80e4e4044975745c14b****
+     *
      * @var string
      */
     public $media;
@@ -20,6 +22,8 @@ class output extends Model
     public $ossFile;
 
     /**
+     * @example Media
+     *
      * @var string
      */
     public $type;

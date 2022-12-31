@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdatePipelineRequest extends Model
 {
     /**
+     * @example test-pipeline
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example ****d80e4e4044975745c14b****
+     *
      * @var string
      */
     public $pipelineId;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example Paused
+     *
      * @var string
      */
     public $status;

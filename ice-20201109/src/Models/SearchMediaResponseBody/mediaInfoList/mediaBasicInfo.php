@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class mediaBasicInfo extends Model
 {
     /**
+     * @example IMS
+     *
      * @var string
      */
     public $biz;
 
     /**
+     * @example opening
+     *
      * @var string
      */
     public $businessType;
 
     /**
+     * @example 44
+     *
      * @var int
      */
     public $cateId;
@@ -29,21 +35,29 @@ class mediaBasicInfo extends Model
     public $cateName;
 
     /**
+     * @example image
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example https://dtlive-bj.oss-cn-beijing.aliyuncs.com/cover/e694372e-4f5b-4821-ae09-efd064f27b63_large_cover_url.jpg
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @example 2020-12-01T19:48Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2020-12-01T19:48Z
+     *
      * @var string
      */
     public $deletedTime;
@@ -54,51 +68,71 @@ class mediaBasicInfo extends Model
     public $description;
 
     /**
+     * @example oss://clipres/longvideo/material/voice/prod/20220418/07d7c799f6054dc3bbef250854cf84981650248140427
+     *
      * @var string
      */
     public $inputURL;
 
     /**
+     * @example 132bd600fc3c71ec99476732a78f6402
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @example tags,tags2
+     *
      * @var string
      */
     public $mediaTags;
 
     /**
+     * @example video
+     *
      * @var string
      */
     public $mediaType;
 
     /**
+     * @example 2020-12-01T19:48Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example 123-123
+     *
      * @var string
      */
     public $referenceId;
 
     /**
+     * @example [{"bucket":"example-bucket","count":"3","iceJobId":"******f48f0e4154976b2b8c45******","location":"oss-cn-beijing","snapshotRegular":"example.jpg","templateId":"******e6a6440b29eb60bd7c******"}]
+     *
      * @var string
      */
     public $snapshots;
 
     /**
+     * @example oss
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example [{"bucket":"example-bucket","count":"32","iceJobId":"******83ec44d58b2069def2e******","location":"oss-cn-shanghai","snapshotRegular":"example/example-{Count}.jpg","spriteRegular":"example/example-{TileCount}.jpg","templateId":"******e438b14ff39293eaec25******","tileCount":"1"}]
+     *
      * @var string
      */
     public $spriteImages;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $status;
@@ -109,16 +143,22 @@ class mediaBasicInfo extends Model
     public $title;
 
     /**
+     * @example Init
+     *
      * @var string
      */
     public $transcodeStatus;
 
     /**
+     * @example general
+     *
      * @var string
      */
     public $uploadSource;
 
     /**
+     * @example userData
+     *
      * @var string
      */
     public $userData;

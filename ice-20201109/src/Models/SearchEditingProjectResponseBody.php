@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class SearchEditingProjectResponseBody extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $nextToken;
@@ -25,11 +29,15 @@ class SearchEditingProjectResponseBody extends Model
     public $projectList;
 
     /**
+     * @example ****9262E3DA-07FA-4862-FCBB6BC61D08*****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 110
+     *
      * @var int
      */
     public $totalCount;

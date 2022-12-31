@@ -22,11 +22,15 @@ class mediaInfo extends Model
     public $fileInfoList;
 
     /**
+     * @description BasicInfo
+     *
      * @var mediaBasicInfo
      */
     public $mediaBasicInfo;
 
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $mediaId;

@@ -14,6 +14,8 @@ class GetPlayInfoRequest extends Model
     public $inputURL;
 
     /**
+     * @example 86434e152b7d4f20be480574439fe***
+     *
      * @var string
      */
     public $mediaId;

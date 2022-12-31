@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class project extends Model
 {
     /**
+     * @example { "OutputMediaConfig" : { "StorageLocation": "test-bucket.oss-cn-shanghai.aliyuncs.com", "Path": "test-path" }, "OutputMediaTarget": "oss-object", "ReservationTime": "2021-06-21T08:05:00Z" }
+     *
      * @var string
      */
     public $businessConfig;
 
     /**
+     * @example Reserving
+     *
      * @var string
      */
     public $businessStatus;
@@ -24,16 +28,22 @@ class project extends Model
     public $clipsParam;
 
     /**
+     * @example oss://example-bucket/example.jpg
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @example OpenAPI
+     *
      * @var string
      */
     public $createSource;
 
     /**
+     * @example 2020-12-20T12:00:00Z
+     *
      * @var string
      */
     public $createTime;
@@ -44,46 +54,64 @@ class project extends Model
     public $description;
 
     /**
+     * @example 24.120000
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example OpenAPI
+     *
      * @var string
      */
     public $modifiedSource;
 
     /**
+     * @example 2020-12-20T13:00:00Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example ****fb2101bf24b2754cb318787dc****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example EditingProject
+     *
      * @var string
      */
     public $projectType;
 
     /**
+     * @example Editing
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example ****96e8864746a0b6f3****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example Timeline
+     *
      * @var string
      */
     public $templateType;
 
     /**
+     * @example {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****9b4d7cf14dc7b83b0e801cbe****"},{"MediaId":"****9b4d7cf14dc7b83b0e801cbe****"},{"MediaId":"****1656bca4474999c961a6d2a2****"}]}]}
+     *
      * @var string
      */
     public $timeline;
@@ -91,25 +119,37 @@ class project extends Model
     /**
      * @var string
      */
+    public $timelineConvertErrorMessage;
+
+    /**
+     * @var string
+     */
+    public $timelineConvertStatus;
+
+    /**
+     * @var string
+     */
     public $title;
     protected $_name = [
-        'businessConfig' => 'BusinessConfig',
-        'businessStatus' => 'BusinessStatus',
-        'clipsParam'     => 'ClipsParam',
-        'coverURL'       => 'CoverURL',
-        'createSource'   => 'CreateSource',
-        'createTime'     => 'CreateTime',
-        'description'    => 'Description',
-        'duration'       => 'Duration',
-        'modifiedSource' => 'ModifiedSource',
-        'modifiedTime'   => 'ModifiedTime',
-        'projectId'      => 'ProjectId',
-        'projectType'    => 'ProjectType',
-        'status'         => 'Status',
-        'templateId'     => 'TemplateId',
-        'templateType'   => 'TemplateType',
-        'timeline'       => 'Timeline',
-        'title'          => 'Title',
+        'businessConfig'              => 'BusinessConfig',
+        'businessStatus'              => 'BusinessStatus',
+        'clipsParam'                  => 'ClipsParam',
+        'coverURL'                    => 'CoverURL',
+        'createSource'                => 'CreateSource',
+        'createTime'                  => 'CreateTime',
+        'description'                 => 'Description',
+        'duration'                    => 'Duration',
+        'modifiedSource'              => 'ModifiedSource',
+        'modifiedTime'                => 'ModifiedTime',
+        'projectId'                   => 'ProjectId',
+        'projectType'                 => 'ProjectType',
+        'status'                      => 'Status',
+        'templateId'                  => 'TemplateId',
+        'templateType'                => 'TemplateType',
+        'timeline'                    => 'Timeline',
+        'timelineConvertErrorMessage' => 'TimelineConvertErrorMessage',
+        'timelineConvertStatus'       => 'TimelineConvertStatus',
+        'title'                       => 'Title',
     ];
 
     public function validate()
@@ -166,6 +206,12 @@ class project extends Model
         }
         if (null !== $this->timeline) {
             $res['Timeline'] = $this->timeline;
+        }
+        if (null !== $this->timelineConvertErrorMessage) {
+            $res['TimelineConvertErrorMessage'] = $this->timelineConvertErrorMessage;
+        }
+        if (null !== $this->timelineConvertStatus) {
+            $res['TimelineConvertStatus'] = $this->timelineConvertStatus;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
@@ -229,6 +275,12 @@ class project extends Model
         }
         if (isset($map['Timeline'])) {
             $model->timeline = $map['Timeline'];
+        }
+        if (isset($map['TimelineConvertErrorMessage'])) {
+            $model->timelineConvertErrorMessage = $map['TimelineConvertErrorMessage'];
+        }
+        if (isset($map['TimelineConvertStatus'])) {
+            $model->timelineConvertStatus = $map['TimelineConvertStatus'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];

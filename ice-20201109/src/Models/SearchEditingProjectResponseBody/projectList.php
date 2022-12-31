@@ -9,86 +9,120 @@ use AlibabaCloud\Tea\Model;
 class projectList extends Model
 {
     /**
+     * @example { "OutputMediaConfig" : { "StorageLocation": "test-bucket.oss-cn-shanghai.aliyuncs.com", "Path": "test-path" }, "OutputMediaTarget": "oss-object", "ReservationTime": "2021-06-21T08:05:00Z" }
+     *
      * @var string
      */
     public $businessConfig;
 
     /**
+     * @example Reserving
+     *
      * @var string
      */
     public $businessStatus;
 
     /**
+     * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example-cover.jpg
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @example OpenAPI
+     *
      * @var string
      */
     public $createSource;
 
     /**
+     * @example 2017-01-11T12:00:00Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example sample description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 30.100000
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example InvalidParameter
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example "EventTime":"2021-08-12T10:04:15Z","ErrorCode":"InvalidParameter","ErrorMessage":"The specified parameter \"LiveStreamConfig\" is not valid. specified parameter example is not valid.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 2017-01-11T12:00:00Z
+     *
      * @var string
      */
     public $modifiedSource;
 
     /**
+     * @example 2017-01-11T12:00:00Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example ****fddd7748b58bf1d47e95****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example EditingProject
+     *
      * @var string
      */
     public $projectType;
 
     /**
+     * @example PRODUCE_FAILED
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example Timeline
+     *
      * @var string
      */
     public $templateType;
 
     /**
+     * @example {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****4d7cf14dc7b83b0e801c****"},{"MediaId":"****4d7cf14dc7b83b0e801c****"}]}]}
+     *
      * @var string
      */
     public $timeline;
 
     /**
+     * @example title
+     *
      * @var string
      */
     public $title;

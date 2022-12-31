@@ -17,6 +17,8 @@ class SubmitTranscodeJobRequest extends Model
     public $inputGroup;
 
     /**
+     * @example job-name
+     *
      * @var string
      */
     public $name;
@@ -27,11 +29,15 @@ class SubmitTranscodeJobRequest extends Model
     public $outputGroup;
 
     /**
+     * @example job-name
+     *
      * @var scheduleConfig
      */
     public $scheduleConfig;
 
     /**
+     * @example user-data
+     *
      * @var string
      */
     public $userData;

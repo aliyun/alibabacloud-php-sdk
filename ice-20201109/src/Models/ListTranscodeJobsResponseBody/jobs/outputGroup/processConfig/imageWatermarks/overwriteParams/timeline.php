@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class timeline extends Model
 {
     /**
+     * @example ToEND
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example 00:00:05
+     *
      * @var string
      */
     public $start;

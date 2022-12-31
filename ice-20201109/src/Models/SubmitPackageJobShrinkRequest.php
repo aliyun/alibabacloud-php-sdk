@@ -14,6 +14,8 @@ class SubmitPackageJobShrinkRequest extends Model
     public $inputsShrink;
 
     /**
+     * @example job-name
+     *
      * @var string
      */
     public $name;
@@ -29,6 +31,8 @@ class SubmitPackageJobShrinkRequest extends Model
     public $scheduleConfigShrink;
 
     /**
+     * @example {"param": "value"}
+     *
      * @var string
      */
     public $userData;

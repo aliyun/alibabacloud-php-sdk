@@ -9,71 +9,99 @@ use AlibabaCloud\Tea\Model;
 class template extends Model
 {
     /**
+     * @example {"Media1":"mediaId","Text1":"text"}
+     *
      * @var string
      */
     public $clipsParam;
 
     /**
+     * @example 参考Timeline模板配置详解
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/cover.jpg
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @example OpenAPI
+     *
      * @var string
      */
     public $createSource;
 
     /**
+     * @example 2020-12-26T04:11:10Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example OpenAPI
+     *
      * @var string
      */
     public $modifiedSource;
 
     /**
+     * @example 2020-12-26T04:11:10Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example 视频添加水印模板
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $previewMedia;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $previewMediaStatus;
 
     /**
+     * @example {"video":["******c04f1d4a06996144cc1a******"],"audio":["******c04f1d4a06996144cc1a******"],"image":["******c04f1d4a06996144cc1a******"]}
+     *
      * @var string
      */
     public $relatedMediaids;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example Timeline
+     *
      * @var string
      */
     public $type;

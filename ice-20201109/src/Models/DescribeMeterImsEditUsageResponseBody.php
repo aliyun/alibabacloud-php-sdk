@@ -15,6 +15,8 @@ class DescribeMeterImsEditUsageResponseBody extends Model
     public $data;
 
     /**
+     * @example 7F3AE2C6-5CC6-5712-BAC5-5A735A157687
+     *
      * @var string
      */
     public $requestId;

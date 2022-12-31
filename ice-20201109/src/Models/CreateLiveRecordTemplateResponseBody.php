@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateLiveRecordTemplateResponseBody extends Model
 {
     /**
+     * @example 0622C702-41BE-467E-AF2E-883D4517962E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description 代表资源一级ID的资源属性字段
+     *
+     * @example ****96e8864746a0b6f3****
+     *
      * @var string
      */
     public $templateId;

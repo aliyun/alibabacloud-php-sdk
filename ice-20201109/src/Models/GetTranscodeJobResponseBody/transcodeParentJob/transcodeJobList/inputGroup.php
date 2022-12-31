@@ -14,11 +14,15 @@ class inputGroup extends Model
     public $inputUrl;
 
     /**
+     * @example oss://bucket/path/to/video.mp4
+     *
      * @var string
      */
     public $media;
 
     /**
+     * @example OSS
+     *
      * @var string
      */
     public $type;

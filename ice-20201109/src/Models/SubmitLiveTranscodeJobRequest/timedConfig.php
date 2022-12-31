@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class timedConfig extends Model
 {
     /**
+     * @example 2022-07-20T08:20:32Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 2022-02-21T00:00:00Z
+     *
      * @var string
      */
     public $startTime;

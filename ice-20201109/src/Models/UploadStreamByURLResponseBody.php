@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UploadStreamByURLResponseBody extends Model
 {
     /**
+     * @example http://outin-***.oss-cn-shanghai.aliyuncs.com/stream/48555e8b-181dd5a8c07/48555e8b-181dd5a8c07.mp4
+     *
      * @var string
      */
     public $fileURL;
 
     /**
+     * @example ****cdb3e74639973036bc84****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 411bed50018971edb60b0764a0ec6***
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @example ******89-C21D-4B78-AE24-3788B8******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example https://example.com/sample-stream.mp4
+     *
      * @var string
      */
     public $sourceURL;

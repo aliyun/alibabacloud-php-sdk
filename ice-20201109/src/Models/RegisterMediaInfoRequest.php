@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class RegisterMediaInfoRequest extends Model
 {
     /**
+     * @example opening
+     *
      * @var string
      */
     public $businessType;
 
     /**
+     * @example 3048
+     *
      * @var int
      */
     public $cateId;
 
     /**
+     * @example ****0311a423d11a5f7dee713535****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @example defaultDescription
+     *
      * @var string
      */
     public $description;
@@ -39,41 +49,57 @@ class RegisterMediaInfoRequest extends Model
     public $inputURL;
 
     /**
+     * @example tag1,tag2
+     *
      * @var string
      */
     public $mediaTags;
 
     /**
+     * @example video
+     *
      * @var string
      */
     public $mediaType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $overwrite;
 
     /**
+     * @example 123-123
+     *
      * @var string
      */
     public $referenceId;
 
     /**
+     * @example {"NeedSprite": "false"}
+     *
      * @var string
      */
     public $registerConfig;
 
     /**
+     * @example defaultTitle
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @example userData
+     *
      * @var string
      */
     public $userData;
 
     /**
+     * @example ******b4fb044839815d4f2cd8******
+     *
      * @var string
      */
     public $workflowId;

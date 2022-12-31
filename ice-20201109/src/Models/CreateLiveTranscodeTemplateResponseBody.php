@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateLiveTranscodeTemplateResponseBody extends Model
 {
     /**
+     * @example ******3B-0E1A-586A-AC29-742247******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $templateId;

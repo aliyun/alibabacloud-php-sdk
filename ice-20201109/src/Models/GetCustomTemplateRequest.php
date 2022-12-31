@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetCustomTemplateRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $subtype;
 
     /**
+     * @example ****96e8864746a0b6f3****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;

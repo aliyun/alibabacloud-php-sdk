@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class SubmitMediaCensorJobRequest extends Model
 {
     /**
+     * @example hello world
+     *
      * @var string
      */
     public $barrages;
 
     /**
+     * @example [{"Bucket":"example-bucket-****","Location":"oss-cn-shanghai","Object":"example-****.jpeg","RoleArn":"acs:ram::1997018457688683:role/AliyunICEDefaultRole"}]
+     *
      * @var string
      */
     public $coverImages;
 
     /**
+     * @example example description
+     *
      * @var string
      */
     public $description;
@@ -31,11 +37,15 @@ class SubmitMediaCensorJobRequest extends Model
     public $input;
 
     /**
+     * @example mns://125340688170****.oss-cn-shanghai.aliyuncs.com/queues/example-pipeline
+     *
      * @var string
      */
     public $notifyUrl;
 
     /**
+     * @example oss://sashimi-cn-shanghai/censor/snapshot-{Count}.jpg
+     *
      * @var string
      */
     public $output;
@@ -46,16 +56,22 @@ class SubmitMediaCensorJobRequest extends Model
     public $scheduleConfig;
 
     /**
+     * @example S00000001-100060
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example Hello World
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @example UserDatatestid-001-****
+     *
      * @var string
      */
     public $userData;

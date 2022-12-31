@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class SubmitMediaProducingJobResponseBody extends Model
 {
     /**
+     * @example ****d80e4e4044975745c14b****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example ****c469e944b5a856828dc2****
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @example ****b4549d46c88681030f6e****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example ****36-3C1E-4417-BDB2-1E034F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example ****d8s4h75ci975745c14b****
+     *
      * @var string
      */
     public $vodMediaId;

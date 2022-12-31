@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCategoryRequest extends Model
 {
     /**
+     * @example 46
+     *
      * @var int
      */
     public $cateId;

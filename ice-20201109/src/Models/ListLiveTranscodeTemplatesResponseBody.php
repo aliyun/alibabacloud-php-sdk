@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListLiveTranscodeTemplatesResponseBody extends Model
 {
     /**
+     * @example ******3B-0E1A-586A-AC29-742247******
+     *
      * @var string
      */
     public $requestId;
@@ -20,6 +22,8 @@ class ListLiveTranscodeTemplatesResponseBody extends Model
     public $templateContentList;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

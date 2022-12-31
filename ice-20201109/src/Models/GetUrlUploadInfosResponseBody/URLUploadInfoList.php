@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class URLUploadInfoList extends Model
 {
     /**
+     * @example 2021-11-26 21:47:37
+     *
      * @var string
      */
     public $completeTime;
 
     /**
+     * @example 2021-11-07T10:03:37Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 64610
+     *
      * @var string
      */
     public $fileSize;
 
     /**
+     * @example 3829500c0fef429fa4ec1680b122d***
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 5014ca70f08171ecbf940764a0fd6***
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example http://****.mp4
+     *
      * @var string
      */
     public $uploadURL;
 
     /**
+     * @example {"MessageCallback":"{"CallbackURL":"http://example.aliyundoc.com"}", "Extend":"{"localId":"***", "test":"www"}"}
+     *
      * @var string
      */
     public $userData;

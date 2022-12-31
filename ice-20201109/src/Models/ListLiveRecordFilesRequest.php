@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListLiveRecordFilesRequest extends Model
 {
     /**
+     * @example 2017-12-22T08:00:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -19,26 +21,36 @@ class ListLiveRecordFilesRequest extends Model
     public $jobIds;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example m3u8
+     *
      * @var string
      */
     public $recordFormat;
 
     /**
+     * @example asc
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example 2017-12-21T08:00:01Z
+     *
      * @var string
      */
     public $startTime;

@@ -15,26 +15,36 @@ class ListLiveRecordFilesResponseBody extends Model
     public $files;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @example DE24625C-7C0F-4020-8448-****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example asc
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $totalCount;

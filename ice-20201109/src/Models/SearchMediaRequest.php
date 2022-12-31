@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SearchMediaRequest extends Model
 {
     /**
+     * @example 2d3bf1e35a1e42b5ab338d701efa7603
+     *
      * @var string
      */
     public $entityId;
@@ -19,16 +21,22 @@ class SearchMediaRequest extends Model
     public $match;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example utcCreate:Desc, utcModified:Desc
+     *
      * @var string
      */
     public $sortBy;

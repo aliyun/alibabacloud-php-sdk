@@ -9,91 +9,127 @@ use AlibabaCloud\Tea\Model;
 class audioStreamInfoList extends Model
 {
     /**
+     * @example 192.0
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @example stereo
+     *
      * @var string
      */
     public $channelLayout;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $channels;
 
     /**
+     * @example AAC (Advanced Audio Coding)
+     *
      * @var string
      */
     public $codecLongName;
 
     /**
+     * @example aac
+     *
      * @var string
      */
     public $codecName;
 
     /**
+     * @example 0x6134706d
+     *
      * @var string
      */
     public $codecTag;
 
     /**
+     * @example mp4a
+     *
      * @var string
      */
     public $codecTagString;
 
     /**
+     * @example 1/44100
+     *
      * @var string
      */
     public $codecTimeBase;
 
     /**
+     * @example 16.2
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $fps;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $index;
 
     /**
+     * @example und
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 162
+     *
      * @var string
      */
     public $numFrames;
 
     /**
+     * @example High
+     *
      * @var string
      */
     public $profile;
 
     /**
+     * @example fltp
+     *
      * @var string
      */
     public $sampleFmt;
 
     /**
+     * @example 44100
+     *
      * @var string
      */
     public $sampleRate;
 
     /**
+     * @example 0.000000
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 1/44100
+     *
      * @var string
      */
     public $timebase;

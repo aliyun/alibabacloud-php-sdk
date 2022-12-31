@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class outputMediaConfig extends Model
 {
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $bitrate;
 
     /**
+     * @example test.mp4
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example 480
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example https://testice-testbucket.oss-cn-shanghai.aliyuncs.com/test.mp4
+     *
      * @var string
      */
     public $mediaURL;
 
     /**
+     * @example outin-xxxxxx.oss-cn-shanghai.aliyuncs.com
+     *
      * @var string
      */
     public $storageLocation;
 
     /**
+     * @example VOD_NO_TRANSCODE
+     *
      * @var string
      */
     public $vodTemplateGroupId;
 
     /**
+     * @example 640
+     *
      * @var int
      */
     public $width;

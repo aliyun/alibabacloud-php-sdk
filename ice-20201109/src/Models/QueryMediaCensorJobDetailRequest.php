@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryMediaCensorJobDetailRequest extends Model
 {
     /**
+     * @example 2288c6ca184c0e47098a5b665e2a12****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $maximumPageSize;
 
     /**
+     * @example ae0fd49c0840e14daf0d66a75b83****
+     *
      * @var string
      */
     public $nextPageToken;

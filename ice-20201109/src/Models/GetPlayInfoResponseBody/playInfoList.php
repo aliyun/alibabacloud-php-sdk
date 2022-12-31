@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class playInfoList extends Model
 {
     /**
+     * @example 8
+     *
      * @var int
      */
     public $bitDepth;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @example 2022-05-10T02:28:49Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example HD
+     *
      * @var string
      */
     public $definition;
 
     /**
+     * @example 9.0464
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $encrypt;
 
     /**
+     * @example AliyunVoDEncryption
+     *
      * @var string
      */
     public $encryptType;
 
     /**
+     * @example http://outin-***.oss-cn-shanghai.aliyuncs.com/sv/43a68ee9-181809b6aba/43a68ee9-181809b6aba.mpeg
+     *
      * @var string
      */
     public $fileURL;
 
     /**
+     * @example mp4
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @example 25
+     *
      * @var string
      */
     public $fps;
 
     /**
+     * @example HDR
+     *
      * @var string
      */
     public $HDRType;
 
     /**
+     * @example 1080
+     *
      * @var int
      */
     public $height;
@@ -71,24 +95,39 @@ class playInfoList extends Model
     /**
      * @var string
      */
+    public $jobId;
+
+    /**
+     * @example 2022-05-13T11:39:41.714+08:00
+     *
+     * @var string
+     */
     public $modificationTime;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $narrowBandType;
 
     /**
+     * @example https://***.aliyuncdn.com/sv/756bee1-17f980f0945/756bee1-17f980f0945.mp4
+     *
      * @var string
      */
     public $playURL;
 
     /**
+     * @example 418112
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $status;
@@ -99,21 +138,29 @@ class playInfoList extends Model
     public $streamTags;
 
     /**
+     * @example video
+     *
      * @var string
      */
     public $streamType;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $transTemplateType;
 
     /**
+     * @example 5bed88672b1e2520ead228935ed51***
+     *
      * @var string
      */
     public $watermarkId;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $width;
@@ -130,6 +177,7 @@ class playInfoList extends Model
         'fps'               => 'Fps',
         'HDRType'           => 'HDRType',
         'height'            => 'Height',
+        'jobId'             => 'JobId',
         'modificationTime'  => 'ModificationTime',
         'narrowBandType'    => 'NarrowBandType',
         'playURL'           => 'PlayURL',
@@ -184,6 +232,9 @@ class playInfoList extends Model
         }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
         if (null !== $this->modificationTime) {
             $res['ModificationTime'] = $this->modificationTime;
@@ -262,6 +313,9 @@ class playInfoList extends Model
         }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
         if (isset($map['ModificationTime'])) {
             $model->modificationTime = $map['ModificationTime'];

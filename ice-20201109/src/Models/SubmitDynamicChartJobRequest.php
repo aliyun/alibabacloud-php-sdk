@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SubmitDynamicChartJobRequest extends Model
 {
     /**
+     * @example {"FontFile":"Microsoft YaHei","XAxisFontSize":"30","YAxisFontSize":"30","XAxisFontInterval":"30","AxisColor":"30"}
+     *
      * @var string
      */
     public $axisParams;
 
     /**
+     * @example {"Color":"#000000","ImageUrl":"http://your-bucket.oss-cn-shanghai.aliyuncs.com/obj.jpg"}
+     *
      * @var string
      */
     public $background;
 
     /**
+     * @example {"Style":"Normal","TitleStartTime":"3000","ChartStartTime":"3000","VideoDuration":"15000"}
+     *
      * @var string
      */
     public $chartConfig;
@@ -29,6 +35,8 @@ class SubmitDynamicChartJobRequest extends Model
     public $chartTitle;
 
     /**
+     * @example Line
+     *
      * @var string
      */
     public $chartType;
@@ -44,11 +52,15 @@ class SubmitDynamicChartJobRequest extends Model
     public $description;
 
     /**
+     * @example {"XlsFile":"https://your-bucket.oss-cn-shanghai.aliyuncs.com/obj.xls"}
+     *
      * @var string
      */
     public $input;
 
     /**
+     * @example {"MediaURL":"https://your-bucket.oss-cn-shanghai.aliyuncs.com/obj.mp4","Bitrate":2000,"Width":800,"Height":680}
+     *
      * @var string
      */
     public $outputConfig;
@@ -69,6 +81,8 @@ class SubmitDynamicChartJobRequest extends Model
     public $unit;
 
     /**
+     * @example {"user":"data"}
+     *
      * @var string
      */
     public $userData;
