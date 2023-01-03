@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\DBFS\V20200418\Models\GetDbfsResponseBody;
 
 use AlibabaCloud\SDK\DBFS\V20200418\Models\GetDbfsResponseBody\DBFSInfo\ebsList;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\GetDbfsResponseBody\DBFSInfo\ecsList;
+use AlibabaCloud\SDK\DBFS\V20200418\Models\GetDbfsResponseBody\DBFSInfo\snapshotInfo;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\GetDbfsResponseBody\DBFSInfo\tags;
 use AlibabaCloud\Tea\Model;
 
@@ -155,6 +156,11 @@ class DBFSInfo extends Model
     public $sizeG;
 
     /**
+     * @var snapshotInfo
+     */
+    public $snapshotInfo;
+
+    /**
      * @example attached
      *
      * @var string
@@ -201,6 +207,7 @@ class DBFSInfo extends Model
         'raidStrip'        => 'RaidStrip',
         'regionId'         => 'RegionId',
         'sizeG'            => 'SizeG',
+        'snapshotInfo'     => 'SnapshotInfo',
         'status'           => 'Status',
         'tags'             => 'Tags',
         'usedScene'        => 'UsedScene',
@@ -288,6 +295,9 @@ class DBFSInfo extends Model
         }
         if (null !== $this->sizeG) {
             $res['SizeG'] = $this->sizeG;
+        }
+        if (null !== $this->snapshotInfo) {
+            $res['SnapshotInfo'] = null !== $this->snapshotInfo ? $this->snapshotInfo->toMap() : null;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -393,6 +403,9 @@ class DBFSInfo extends Model
         }
         if (isset($map['SizeG'])) {
             $model->sizeG = $map['SizeG'];
+        }
+        if (isset($map['SnapshotInfo'])) {
+            $model->snapshotInfo = snapshotInfo::fromMap($map['SnapshotInfo']);
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
