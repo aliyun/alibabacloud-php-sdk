@@ -90,6 +90,11 @@ class data extends Model
     public $configSecretSupported;
 
     /**
+     * @var bool
+     */
+    public $extendedTypesEnable;
+
+    /**
      * @description The maximum connection duration of the instance. This parameter is valid for ZooKeeper instances. Unit: seconds.
      *
      * @example 100
@@ -285,6 +290,7 @@ class data extends Model
         'configContentLimit'           => 'ConfigContentLimit',
         'configSecretEnabled'          => 'ConfigSecretEnabled',
         'configSecretSupported'        => 'ConfigSecretSupported',
+        'extendedTypesEnable'          => 'ExtendedTypesEnable',
         'initLimit'                    => 'InitLimit',
         'juteMaxbuffer'                => 'JuteMaxbuffer',
         'jvmFlagsCustom'               => 'JvmFlagsCustom',
@@ -336,6 +342,9 @@ class data extends Model
         }
         if (null !== $this->configSecretSupported) {
             $res['ConfigSecretSupported'] = $this->configSecretSupported;
+        }
+        if (null !== $this->extendedTypesEnable) {
+            $res['ExtendedTypesEnable'] = $this->extendedTypesEnable;
         }
         if (null !== $this->initLimit) {
             $res['InitLimit'] = $this->initLimit;
@@ -429,6 +438,9 @@ class data extends Model
         }
         if (isset($map['ConfigSecretSupported'])) {
             $model->configSecretSupported = $map['ConfigSecretSupported'];
+        }
+        if (isset($map['ExtendedTypesEnable'])) {
+            $model->extendedTypesEnable = $map['ExtendedTypesEnable'];
         }
         if (isset($map['InitLimit'])) {
             $model->initLimit = $map['InitLimit'];

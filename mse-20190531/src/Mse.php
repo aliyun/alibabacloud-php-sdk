@@ -7843,6 +7843,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->configType)) {
             $query['ConfigType'] = $request->configType;
         }
+        if (!Utils::isUnset($request->extendedTypesEnable)) {
+            $query['ExtendedTypesEnable'] = $request->extendedTypesEnable;
+        }
         if (!Utils::isUnset($request->initLimit)) {
             $query['InitLimit'] = $request->initLimit;
         }

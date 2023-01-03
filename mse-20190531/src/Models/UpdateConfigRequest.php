@@ -83,6 +83,11 @@ class UpdateConfigRequest extends Model
     public $configType;
 
     /**
+     * @var string
+     */
+    public $extendedTypesEnable;
+
+    /**
      * @description The maximum connection duration of the instance. This parameter is valid for ZooKeeper instances. Unit: seconds.
      *
      * @example 100
@@ -237,6 +242,7 @@ class UpdateConfigRequest extends Model
         'configAuthEnabled'        => 'ConfigAuthEnabled',
         'configSecretEnabled'      => 'ConfigSecretEnabled',
         'configType'               => 'ConfigType',
+        'extendedTypesEnable'      => 'ExtendedTypesEnable',
         'initLimit'                => 'InitLimit',
         'instanceId'               => 'InstanceId',
         'juteMaxbuffer'            => 'JuteMaxbuffer',
@@ -281,6 +287,9 @@ class UpdateConfigRequest extends Model
         }
         if (null !== $this->configType) {
             $res['ConfigType'] = $this->configType;
+        }
+        if (null !== $this->extendedTypesEnable) {
+            $res['ExtendedTypesEnable'] = $this->extendedTypesEnable;
         }
         if (null !== $this->initLimit) {
             $res['InitLimit'] = $this->initLimit;
@@ -359,6 +368,9 @@ class UpdateConfigRequest extends Model
         }
         if (isset($map['ConfigType'])) {
             $model->configType = $map['ConfigType'];
+        }
+        if (isset($map['ExtendedTypesEnable'])) {
+            $model->extendedTypesEnable = $map['ExtendedTypesEnable'];
         }
         if (isset($map['InitLimit'])) {
             $model->initLimit = $map['InitLimit'];
