@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDistributionMallRequest extends Model
 {
     /**
+     * @example 113428528
+     *
      * @var string
      */
     public $channelSupplierId;
@@ -29,21 +31,29 @@ class ListDistributionMallRequest extends Model
     public $distributorId;
 
     /**
+     * @example 2021-10-26 10:29:13
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2021-10-24 15:29:38
+     *
      * @var string
      */
     public $startDate;

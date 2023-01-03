@@ -1,3 +1,6 @@
+2023-01-03 Version: 1.0.9
+- Modify ListDistributionItem.
+
 2022-12-09 Version: 1.0.8
 - Modify QueryItemGuideRetailPrice.
 

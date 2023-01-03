@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryOrderDetail4DistributionResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class QueryOrderDetail4DistributionResponseBody extends Model
     public $logsId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -30,36 +34,52 @@ class QueryOrderDetail4DistributionResponseBody extends Model
     public $model;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description pageSize
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example BA157565-3358-5D80-9330-************
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1004
+     *
      * @var string
      */
     public $subCode;
 
     /**
+     * @example 1004
+     *
      * @var string
      */
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

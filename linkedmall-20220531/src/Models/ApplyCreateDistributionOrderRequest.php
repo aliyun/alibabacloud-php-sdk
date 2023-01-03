@@ -25,16 +25,22 @@ class ApplyCreateDistributionOrderRequest extends Model
     public $distributionOutTradeId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $distributionSupplierId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $distributorId;
 
     /**
+     * @example {"key":"value"}
+     *
      * @var string
      */
     public $extInfo;

@@ -108,6 +108,11 @@ class skuList extends Model
      * @var string
      */
     public $tips;
+
+    /**
+     * @var string[]
+     */
+    public $lmSkuAttributeMap;
     protected $_name = [
         'canSell'                => 'CanSell',
         'customizedAttributeMap' => 'CustomizedAttributeMap',
@@ -129,6 +134,7 @@ class skuList extends Model
         'skuTitle'               => 'SkuTitle',
         'status'                 => 'Status',
         'tips'                   => 'Tips',
+        'lmSkuAttributeMap'      => 'lmSkuAttributeMap',
     ];
 
     public function validate()
@@ -203,6 +209,9 @@ class skuList extends Model
         }
         if (null !== $this->tips) {
             $res['Tips'] = $this->tips;
+        }
+        if (null !== $this->lmSkuAttributeMap) {
+            $res['lmSkuAttributeMap'] = $this->lmSkuAttributeMap;
         }
 
         return $res;
@@ -281,6 +290,9 @@ class skuList extends Model
         }
         if (isset($map['Tips'])) {
             $model->tips = $map['Tips'];
+        }
+        if (isset($map['lmSkuAttributeMap'])) {
+            $model->lmSkuAttributeMap = $map['lmSkuAttributeMap'];
         }
 
         return $model;

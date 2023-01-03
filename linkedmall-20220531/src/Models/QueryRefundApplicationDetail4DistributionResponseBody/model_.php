@@ -21,6 +21,8 @@ class model_ extends Model
     public $applyReason;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $bizClaimType;
@@ -41,36 +43,50 @@ class model_ extends Model
     public $disputeEndTime;
 
     /**
+     * @example 155816643598654055
+     *
      * @var int
      */
     public $disputeId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $disputeStatus;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $disputeType;
 
     /**
+     * @example 123498124
+     *
      * @var string
      */
     public $distributionOrderId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $orderLogisticsStatus;
 
     /**
+     * @example 2900
+     *
      * @var int
      */
     public $realRefundFee;
 
     /**
+     * @example 2900
+     *
      * @var int
      */
     public $refundFee;
@@ -101,11 +117,15 @@ class model_ extends Model
     public $refunderZipCode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $returnGoodCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $returnGoodLogisticsStatus;
@@ -126,6 +146,8 @@ class model_ extends Model
     public $sellerRefuseReason;
 
     /**
+     * @example 12131234
+     *
      * @var string
      */
     public $subDistributionOrderId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class skuModels extends Model
 {
     /**
+     * @example NULL
+     *
      * @var string
      */
     public $canNotBeSoldCode;
 
     /**
+     * @example NULL
+     *
      * @var string
      */
     public $canNotBeSoldMassage;
@@ -24,16 +28,22 @@ class skuModels extends Model
     public $customizedAttributeMap;
 
     /**
+     * @example 401e6c8****39b05797ac841907ca
+     *
      * @var string
      */
     public $distributionMallId;
 
     /**
+     * @example {\"outShopId\":\"3163****7\"}
+     *
      * @var string
      */
     public $extJson;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hasQuantity;
@@ -44,11 +54,15 @@ class skuModels extends Model
     public $invoiceType;
 
     /**
+     * @example 56090358****
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @example 10026053-67222490****
+     *
      * @var string
      */
     public $lmItemId;
@@ -59,16 +73,22 @@ class skuModels extends Model
     public $lmSkuAttributeMap;
 
     /**
+     * @example 3990
+     *
      * @var int
      */
     public $priceCent;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @example 788
+     *
      * @var int
      */
     public $reservePrice;
@@ -79,16 +99,22 @@ class skuModels extends Model
     public $simpleQuantity;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $skuId;
 
     /**
+     * @example img/12344***.jpg
+     *
      * @var string
      */
     public $skuPicUrl;
 
     /**
+     * @example 1627207:28320;5919063:6536025;12304035:75366283;122216431:27772
+     *
      * @var string
      */
     public $skuPvs;
@@ -99,11 +125,15 @@ class skuModels extends Model
     public $skuTitle;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 9900
+     *
      * @var int
      */
     public $supplierPrice;

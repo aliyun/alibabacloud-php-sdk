@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
+     * @example 19e690e*****07a29c8
+     *
      * @var string
      */
     public $distributionMallId;
 
     /**
+     * @example 1000~2000
+     *
      * @var string
      */
     public $guideRetailPriceScope;
 
     /**
+     * @example 65******0310
+     *
      * @var int
      */
     public $itemId;
@@ -30,6 +36,8 @@ class model_ extends Model
     public $itemTitle;
 
     /**
+     * @example 1000****-630292****
+     *
      * @var string
      */
     public $lmItemId;
@@ -40,11 +48,15 @@ class model_ extends Model
     public $lowGuideRetailPriceScope;
 
     /**
+     * @example 2000
+     *
      * @var int
      */
     public $reservedPrice;
 
     /**
+     * @example 1000~2000
+     *
      * @var string
      */
     public $reservedPriceScope;

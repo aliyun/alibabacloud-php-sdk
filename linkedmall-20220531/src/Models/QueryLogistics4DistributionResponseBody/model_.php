@@ -26,6 +26,8 @@ class model_ extends Model
     public $goods;
 
     /**
+     * @example SF
+     *
      * @var string
      */
     public $logisticsCompanyCode;
@@ -41,6 +43,8 @@ class model_ extends Model
     public $logisticsDetailList;
 
     /**
+     * @example SF124142********
+     *
      * @var string
      */
     public $mailNo;

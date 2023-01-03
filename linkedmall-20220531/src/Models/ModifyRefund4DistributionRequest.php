@@ -10,36 +10,50 @@ use AlibabaCloud\Tea\Model;
 class ModifyRefund4DistributionRequest extends Model
 {
     /**
+     * @example 500325
+     *
      * @var int
      */
     public $applyReasonTextId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $applyRefundCount;
 
     /**
+     * @example 790
+     *
      * @var int
      */
     public $applyRefundFee;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $bizClaimType;
 
     /**
+     * @example 14244******33071
+     *
      * @var int
      */
     public $disputeId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $distributorId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $goodsStatus;
@@ -55,6 +69,8 @@ class ModifyRefund4DistributionRequest extends Model
     public $leavePictureLists;
 
     /**
+     * @example 1530*********
+     *
      * @var string
      */
     public $subDistributionOrderId;

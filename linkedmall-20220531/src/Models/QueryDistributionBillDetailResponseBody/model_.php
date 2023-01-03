@@ -14,16 +14,22 @@ class model_ extends Model
     public $data;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 685
+     *
      * @var int
      */
     public $total;

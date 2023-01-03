@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
+     * @example 5001****
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $leaf;
@@ -24,6 +28,8 @@ class model_ extends Model
     public $name;
 
     /**
+     * @example 1041577**
+     *
      * @var int
      */
     public $parentId;

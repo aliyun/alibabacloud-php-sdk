@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SubmitReturnGoodLogistics4DistributionRequest extends Model
 {
     /**
+     * @example SF
+     *
      * @var string
      */
     public $cpCode;
 
     /**
+     * @example 14244******33071
+     *
      * @var int
      */
     public $disputeId;
@@ -24,6 +28,8 @@ class SubmitReturnGoodLogistics4DistributionRequest extends Model
     public $distributorId;
 
     /**
+     * @example SF131*****7061
+     *
      * @var string
      */
     public $logisticsNo;

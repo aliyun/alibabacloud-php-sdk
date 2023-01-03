@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class skuPropertys extends Model
 {
     /**
+     * @example 44042249****
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 162720***
+     *
      * @var string
      */
     public $text;

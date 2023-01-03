@@ -35,6 +35,8 @@ class model_ extends Model
     public $orderAmount;
 
     /**
+     * @example 6
+     *
      * @var string
      */
     public $orderStatus;

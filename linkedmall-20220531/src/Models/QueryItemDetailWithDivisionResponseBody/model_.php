@@ -11,21 +11,29 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
+     * @example NULL
+     *
      * @var string
      */
     public $canNotBeSoldCode;
 
     /**
+     * @example NULL
+     *
      * @var string
      */
     public $canNotBeSoldMassage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $canSell;
 
     /**
+     * @example 50011****
+     *
      * @var int
      */
     public $categoryId;
@@ -41,6 +49,8 @@ class model_ extends Model
     public $city;
 
     /**
+     * @example 2020-01-01 00:00:00
+     *
      * @var string
      */
     public $current;
@@ -51,16 +61,22 @@ class model_ extends Model
     public $customizedAttributeMap;
 
     /**
+     * @example <img>pic/edf8d848fa80b1cac055c94652*****.jpg</img>
+     *
      * @var string
      */
     public $descOption;
 
     /**
+     * @example pic/edf8d848fa80b1cac055c94652*****.jpg
+     *
      * @var string
      */
     public $descPath;
 
     /**
+     * @example 122889******114694
+     *
      * @var string
      */
     public $distributionMallId;
@@ -71,6 +87,8 @@ class model_ extends Model
     public $features;
 
     /**
+     * @example pic/edf8d848fa80b1cac055c94652*****.jpg
+     *
      * @var string
      */
     public $firstPicUrl;
@@ -86,11 +104,15 @@ class model_ extends Model
     public $iforestProps;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $invoiceType;
 
     /**
+     * @example 65******0310
+     *
      * @var int
      */
     public $itemId;
@@ -111,6 +133,8 @@ class model_ extends Model
     public $itemTotalSimpleValue;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $itemTotalValue;
@@ -121,21 +145,29 @@ class model_ extends Model
     public $lmItemAttributeMap;
 
     /**
+     * @example entity
+     *
      * @var string
      */
     public $lmItemCategory;
 
     /**
+     * @example 10000**-630292***
+     *
      * @var string
      */
     public $lmItemId;
 
     /**
+     * @example pic/edf8d848fa80b1cac055c94652*****.jpg
+     *
      * @var string
      */
     public $mainPicUrl;
 
     /**
+     * @example 3900
+     *
      * @var int
      */
     public $minPrice;
@@ -151,21 +183,29 @@ class model_ extends Model
     public $prov;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @example 3900
+     *
      * @var int
      */
     public $reservePrice;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $securedTransactions;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $sellerPayPostfee;
@@ -176,6 +216,8 @@ class model_ extends Model
     public $simpleQuantity;
 
     /**
+     * @description sku list
+     *
      * @var skuModels[]
      */
     public $skuModels;
@@ -186,6 +228,8 @@ class model_ extends Model
     public $skuPropertys;
 
     /**
+     * @example 44042249****
+     *
      * @var string
      */
     public $thirdPartyItemId;
@@ -196,21 +240,29 @@ class model_ extends Model
     public $thirdPartyName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $userType;
 
     /**
+     * @example pic/edf8d848fa80b1cac055c94652*****.jpg
+     *
      * @var string
      */
     public $videoPicUrl;
 
     /**
+     * @example video/edf8d848fa80b1cac055c94652******.mp4
+     *
      * @var string
      */
     public $videoUrl;
 
     /**
+     * @example cardRoll
+     *
      * @var string
      */
     public $virtualItemType;

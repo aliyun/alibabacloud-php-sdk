@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CancelDistributionTradeRequest extends Model
 {
     /**
+     * @example 15303515*******
+     *
      * @var string
      */
     public $distributionTradeId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $distributorId;

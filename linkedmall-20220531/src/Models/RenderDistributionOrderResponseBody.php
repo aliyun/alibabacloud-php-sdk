@@ -35,6 +35,8 @@ class RenderDistributionOrderResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description pageSize
+     *
      * @var int
      */
     public $pageSize;

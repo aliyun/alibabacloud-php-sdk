@@ -19,6 +19,8 @@ class goods extends Model
     public $itemId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $quantity;

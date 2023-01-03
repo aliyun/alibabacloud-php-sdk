@@ -14,6 +14,8 @@ class model_ extends Model
     public $channelSupplierId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $distributionMallId;
@@ -24,26 +26,36 @@ class model_ extends Model
     public $distributionMallName;
 
     /**
+     * @example SaaS
+     *
      * @var string
      */
     public $distributionMallType;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $distributorId;
 
     /**
+     * @example 2022-10-31 23:59:59
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @example 2021-12-10 00:00:00
+     *
      * @var string
      */
     public $startDate;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $status;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QueryMallCategoryListRequest extends Model
 {
     /**
+     * @example 5001****
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @example 122889******114694
+     *
      * @var string
      */
     public $distributionMallId;
 
     /**
+     * @example 75547******9212928
+     *
      * @var string
      */
     public $distributorId;
 
     /**
+     * @example 18******263
+     *
      * @var string
      */
     public $tenantId;

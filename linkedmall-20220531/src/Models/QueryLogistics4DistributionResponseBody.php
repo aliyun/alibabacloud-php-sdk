@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class QueryLogistics4DistributionResponseBody extends Model
 {
     /**
+     * @example 0000
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $logsId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -30,36 +36,52 @@ class QueryLogistics4DistributionResponseBody extends Model
     public $model;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description pageSize
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example A7BE4356-7F92-533E-A31B-2EBF2D67****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1004
+     *
      * @var string
      */
     public $subCode;
 
     /**
+     * @example 1004
+     *
      * @var string
      */
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $totalCount;

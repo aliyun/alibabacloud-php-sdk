@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class QueryItemGuideRetailPriceResponseBody extends Model
 {
     /**
+     * @example 0000
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $logsId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -30,21 +36,29 @@ class QueryItemGuideRetailPriceResponseBody extends Model
     public $model;
 
     /**
+     * @example E090F1A0-7454-5F36-933C-E6332CE2****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $subCode;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

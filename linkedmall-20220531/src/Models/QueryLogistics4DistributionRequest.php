@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryLogistics4DistributionRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $distributorId;
 
     /**
+     * @example 123498124
+     *
      * @var string
      */
     public $mainDistributionOrderId;

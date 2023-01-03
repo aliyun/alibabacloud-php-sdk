@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class refundReasonList extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $proofRequired;
 
     /**
+     * @example 12323
+     *
      * @var string
      */
     public $reasonTextId;
@@ -24,6 +28,8 @@ class refundReasonList extends Model
     public $reasonTips;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $refundDescRequired;

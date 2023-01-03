@@ -19,11 +19,15 @@ class QueryOrderList4DistributionRequest extends Model
     public $filterOption;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;

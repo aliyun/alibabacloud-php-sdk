@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class QueryItemDetailWithDivisionRequest extends Model
 {
     /**
+     * @example 1339d4e******46ea9d126df506af8d2b
+     *
      * @var string
      */
     public $distributionMallId;
 
     /**
+     * @example 75547******9212928
+     *
      * @var string
      */
     public $distributorId;
 
     /**
+     * @example 410503006
+     *
      * @var string
      */
     public $divisionCode;
 
     /**
+     * @example 10000035-61936646****
+     *
      * @var string
      */
     public $lmItemId;
 
     /**
+     * @example 18******263
+     *
      * @var string
      */
     public $tenantId;

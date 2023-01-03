@@ -15,16 +15,22 @@ class QueryItemDetailResponseBody extends Model
     public $bizViewData;
 
     /**
+     * @example 0000
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $logsId;
 
     /**
+     * @example BizItemGroup [LMALL20210830****] has not the item [65728655****].
+     *
      * @var string
      */
     public $message;
@@ -35,36 +41,52 @@ class QueryItemDetailResponseBody extends Model
     public $model;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description pageSize
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example E46C790E-B1F2-51EF-B6F8-B52404B5****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $subCode;
 
     /**
+     * @example 1004
+     *
      * @var string
      */
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $totalCount;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelRefund4DistributionRequest extends Model
 {
     /**
+     * @example 14244******33071
+     *
      * @var int
      */
     public $disputeId;

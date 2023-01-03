@@ -35,6 +35,8 @@ class ModifyRefund4DistributionResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description pageSize
+     *
      * @var int
      */
     public $pageSize;

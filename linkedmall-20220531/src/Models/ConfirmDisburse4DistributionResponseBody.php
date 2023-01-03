@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ConfirmDisburse4DistributionResponseBody extends Model
 {
     /**
+     * @example 0000
+     *
      * @var string
      */
     public $code;
@@ -19,41 +21,59 @@ class ConfirmDisburse4DistributionResponseBody extends Model
     public $logsId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description pageSize
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1718921E-C8D4-55E1-B8D4-114AE537C1B7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1004
+     *
      * @var string
      */
     public $subCode;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $totalCount;

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Linkedmall\V20220531\Models\ListDistributionItemResponseBody;
 
 use AlibabaCloud\SDK\Linkedmall\V20220531\Models\ListDistributionItemResponseBody\model\categoryChain;
+use AlibabaCloud\SDK\Linkedmall\V20220531\Models\ListDistributionItemResponseBody\model\lmAttributeModels;
 use AlibabaCloud\SDK\Linkedmall\V20220531\Models\ListDistributionItemResponseBody\model\skuList;
 use AlibabaCloud\Tea\Model;
 
@@ -84,6 +85,16 @@ class model_ extends Model
      * @var string
      */
     public $itemTitle;
+
+    /**
+     * @var string[]
+     */
+    public $lmAttributeMap;
+
+    /**
+     * @var lmAttributeModels[]
+     */
+    public $lmAttributeModels;
 
     /**
      * @var string
@@ -170,6 +181,8 @@ class model_ extends Model
         'itemImages'              => 'ItemImages',
         'itemName'                => 'ItemName',
         'itemTitle'               => 'ItemTitle',
+        'lmAttributeMap'          => 'LmAttributeMap',
+        'lmAttributeModels'       => 'LmAttributeModels',
         'lmItemId'                => 'LmItemId',
         'mainPicUrl'              => 'MainPicUrl',
         'picUrl'                  => 'PicUrl',
@@ -243,6 +256,18 @@ class model_ extends Model
         }
         if (null !== $this->itemTitle) {
             $res['ItemTitle'] = $this->itemTitle;
+        }
+        if (null !== $this->lmAttributeMap) {
+            $res['LmAttributeMap'] = $this->lmAttributeMap;
+        }
+        if (null !== $this->lmAttributeModels) {
+            $res['LmAttributeModels'] = [];
+            if (null !== $this->lmAttributeModels && \is_array($this->lmAttributeModels)) {
+                $n = 0;
+                foreach ($this->lmAttributeModels as $item) {
+                    $res['LmAttributeModels'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->lmItemId) {
             $res['LmItemId'] = $this->lmItemId;
@@ -356,6 +381,18 @@ class model_ extends Model
         }
         if (isset($map['ItemTitle'])) {
             $model->itemTitle = $map['ItemTitle'];
+        }
+        if (isset($map['LmAttributeMap'])) {
+            $model->lmAttributeMap = $map['LmAttributeMap'];
+        }
+        if (isset($map['LmAttributeModels'])) {
+            if (!empty($map['LmAttributeModels'])) {
+                $model->lmAttributeModels = [];
+                $n                        = 0;
+                foreach ($map['LmAttributeModels'] as $item) {
+                    $model->lmAttributeModels[$n++] = null !== $item ? lmAttributeModels::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['LmItemId'])) {
             $model->lmItemId = $map['LmItemId'];

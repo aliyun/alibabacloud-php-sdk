@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ApplyRefund4DistributionShrinkRequest extends Model
 {
     /**
+     * @example 500325
+     *
      * @var int
      */
     public $applyReasonTextId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $applyRefundCount;
 
     /**
+     * @example 790
+     *
      * @var int
      */
     public $applyRefundFee;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $bizClaimType;
@@ -34,6 +42,8 @@ class ApplyRefund4DistributionShrinkRequest extends Model
     public $distributorId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $goodsStatus;

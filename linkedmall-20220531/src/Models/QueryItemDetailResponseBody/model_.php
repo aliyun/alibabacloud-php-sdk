@@ -21,6 +21,8 @@ class model_ extends Model
     public $canNotBeSoldMessage;
 
     /**
+     * @example 50011982
+     *
      * @var int
      */
     public $categoryId;
@@ -46,6 +48,8 @@ class model_ extends Model
     public $customizedAttributeMap;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $descOption;
@@ -66,6 +70,8 @@ class model_ extends Model
     public $features;
 
     /**
+     * @example http://yicaivodcache.oss-cn-shanghai.aliyuncs.com/vms-test/vms3/pic/edf8d848fa80b1cac055c94652f*****.jpg
+     *
      * @var string
      */
     public $firstPicUrl;
@@ -96,6 +102,8 @@ class model_ extends Model
     public $isSellerPayPostfee;
 
     /**
+     * @example 65******0310
+     *
      * @var int
      */
     public $itemId;
@@ -126,6 +134,8 @@ class model_ extends Model
     public $lmItemAttributeMap;
 
     /**
+     * @example entity
+     *
      * @var string
      */
     public $lmItemCategory;
@@ -171,6 +181,8 @@ class model_ extends Model
     public $simpleQuantity;
 
     /**
+     * @description sku list
+     *
      * @var skuModels[]
      */
     public $skuModels;
@@ -191,11 +203,15 @@ class model_ extends Model
     public $thirdPartyName;
 
     /**
+     * @example http://yicaivodcache.oss-cn-shanghai.aliyuncs.com/vms-test/vms3/pic/edf8d848fa80b1cac055c94652*****.jpg
+     *
      * @var string
      */
     public $videoPicUrl;
 
     /**
+     * @example http://yicaivodcache.oss-cn-shanghai.aliyuncs.com/vms-test/vms3/video/edf8d848fa80b1cac055c94652******.mp4
+     *
      * @var string
      */
     public $videoUrl;

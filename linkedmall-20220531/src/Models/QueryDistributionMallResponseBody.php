@@ -15,16 +15,22 @@ class QueryDistributionMallResponseBody extends Model
     public $bizViewData;
 
     /**
+     * @example 0000
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $logsId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -35,36 +41,52 @@ class QueryDistributionMallResponseBody extends Model
     public $model;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description pageSize
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 539E5C68-D8B5-57EC-9D9B-58AFD9E0****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $subCode;
 
     /**
+     * @example 1004
+     *
      * @var string
      */
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

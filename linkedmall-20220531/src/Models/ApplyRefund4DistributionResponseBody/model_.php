@@ -14,11 +14,15 @@ class model_ extends Model
     public $disputeId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $disputeStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $disputeType;

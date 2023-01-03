@@ -40,21 +40,29 @@ class subOrderList extends Model
     public $mainDistributionOrderId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $number;
 
     /**
+     * @example 6
+     *
      * @var string
      */
     public $orderStatus;
 
     /**
+     * @example 4961467806350
+     *
      * @var string
      */
     public $skuId;
 
     /**
+     * @example 500g
+     *
      * @var string
      */
     public $skuName;

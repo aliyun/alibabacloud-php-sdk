@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class QueryMallCategoryListResponseBody extends Model
 {
     /**
+     * @example 0000
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $logsId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -30,21 +36,29 @@ class QueryMallCategoryListResponseBody extends Model
     public $model;
 
     /**
+     * @example 7152F15C-7298-5531-9A76-2ED2C331****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $subCode;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

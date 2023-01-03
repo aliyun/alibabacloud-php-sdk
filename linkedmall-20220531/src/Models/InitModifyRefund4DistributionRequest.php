@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class InitModifyRefund4DistributionRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $bizClaimType;
 
     /**
+     * @example 14244******33071
+     *
      * @var int
      */
     public $disputeId;

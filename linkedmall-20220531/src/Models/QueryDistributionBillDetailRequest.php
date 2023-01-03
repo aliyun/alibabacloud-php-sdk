@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryDistributionBillDetailRequest extends Model
 {
     /**
+     * @example 10000007371****
+     *
      * @var string
      */
     public $billId;
 
     /**
+     * @example 2022-11
+     *
      * @var string
      */
     public $billPeriod;
@@ -24,6 +28,8 @@ class QueryDistributionBillDetailRequest extends Model
     public $billStatus;
 
     /**
+     * @example 122889******114694
+     *
      * @var string
      */
     public $distributionMallId;
@@ -34,21 +40,29 @@ class QueryDistributionBillDetailRequest extends Model
     public $distributionMallName;
 
     /**
+     * @example 75547******9212928
+     *
      * @var string
      */
     public $distributorId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 18******263
+     *
      * @var string
      */
     public $tenantId;

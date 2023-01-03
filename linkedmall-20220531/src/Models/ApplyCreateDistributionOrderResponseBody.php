@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ApplyCreateDistributionOrderResponseBody extends Model
 {
     /**
+     * @example 0000
+     *
      * @var string
      */
     public $code;
@@ -19,6 +21,8 @@ class ApplyCreateDistributionOrderResponseBody extends Model
     public $logsId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -29,36 +33,52 @@ class ApplyCreateDistributionOrderResponseBody extends Model
     public $model;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description pageSize
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 7152F15C-7298-5531-9A76-2ED2C331****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1004
+     *
      * @var string
      */
     public $subCode;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

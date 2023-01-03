@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class skuModels extends Model
 {
     /**
+     * @example 39cc1****5c7211005187c
+     *
      * @var string
      */
     public $distributionMallId;
 
     /**
+     * @example 7960
+     *
      * @var int
      */
     public $guideRetailPrice;
 
     /**
+     * @example 6487****621
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @example 10***642-6831****869
+     *
      * @var string
      */
     public $lmItemId;
@@ -34,16 +42,22 @@ class skuModels extends Model
     public $lowGuideRetailPrice;
 
     /**
+     * @example 7960
+     *
      * @var int
      */
     public $priceCent;
 
     /**
+     * @example 8000
+     *
      * @var int
      */
     public $reservedPrice;
 
     /**
+     * @example 488****548894
+     *
      * @var int
      */
     public $skuId;
@@ -54,6 +68,8 @@ class skuModels extends Model
     public $skuTitle;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
