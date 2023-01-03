@@ -9,36 +9,69 @@ use AlibabaCloud\Tea\Model;
 class ListChatappTemplateShrinkRequest extends Model
 {
     /**
+     * @description The review status of the message template. Valid values:
+     *
+     *   **pass**: The message template is approved.
+     *   **fail**: The message template is rejected.
+     *   **auditing**: The message template is being reviewed.
+     *   **unaudit**: The review is suspended.
+     *
+     * @example pass
+     *
      * @var string
      */
     public $auditStatus;
 
     /**
+     * @example 293483938849493
+     *
      * @var string
      */
     public $custSpaceId;
 
     /**
+     * @description The unique identifier of the WhatsApp account that you register.
+     *
+     * @example 65921621816****
+     *
+     * @deprecated
+     *
      * @var string
      */
     public $custWabaId;
 
     /**
+     * @description Assigned by ISV for RAM user authentication and authorization.
+     *
+     * @example skdi3kksloslikdkkdk
+     *
      * @var string
      */
     public $isvCode;
 
     /**
+     * @description The language that is used in the message template.
+     *
+     * @example en
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @description The name of the message template.
+     *
+     * @example hello_whatsapp
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The paging settings.
+     *
+     * @example "page": "{\"index\": 1,\"size\": 20}
+     *
      * @var string
      */
     public $pageShrink;

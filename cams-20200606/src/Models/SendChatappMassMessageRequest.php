@@ -10,56 +10,103 @@ use AlibabaCloud\Tea\Model;
 class SendChatappMassMessageRequest extends Model
 {
     /**
+     * @description The type of the message channel. Valid values:
+     *
+     *   **whatsapp**
+     *   viber (under development)
+     *   line (under development)
+     *
+     * @example whatsapp
+     *
      * @var string
      */
     public $channelType;
 
     /**
+     * @example 293483938849493
+     *
      * @var string
      */
     public $custSpaceId;
 
     /**
+     * @description The unique identifier of the WhatsApp account that you register.
+     *
+     * @example 65921621816****
+     *
+     * @deprecated
+     *
      * @var string
      */
     public $custWabaId;
 
     /**
+     * @description Fallback message content.
+     *
+     * @example This is a fallback message.
+     *
      * @var string
      */
     public $fallBackContent;
 
     /**
+     * @description Fallback strategy id. Fallback Strategy can be created on the ChatApp console.
+     *
+     * @example S00001
+     *
      * @var string
      */
     public $fallBackId;
 
     /**
+     * @description The mobile phone number of the message sender.
+     *
+     * <notice>You can specify a mobile phone number that is registered for a WhatsApp account and is approved in the ChatApp console.</notice>
+     * @example 861387777****
+     *
      * @var string
      */
     public $from;
 
     /**
+     * @description Assigned by ISV for RAM user authentication and authorization.
+     *
+     * @example skdi3kksloslikdkkdk
+     *
      * @var string
      */
     public $isvCode;
 
     /**
+     * @description The language that is used in the message template.
+     *
+     * @example en
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @description Target number and parameter list.
+     *
      * @var senderList[]
      */
     public $senderList;
 
     /**
+     * @description User-define ID to identify a single batch of messages.
+     *
+     * @example 100000001
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The code of the message template.
+     *
+     * @example 744c4b5c79c9432497a075bdfca36bf5
+     *
      * @var string
      */
     public $templateCode;

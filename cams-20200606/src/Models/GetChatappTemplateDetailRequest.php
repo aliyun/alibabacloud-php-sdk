@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class GetChatappTemplateDetailRequest extends Model
 {
     /**
+     * @example 293483938849493
+     *
      * @var string
      */
     public $custSpaceId;
 
     /**
+     * @description The unique identifier of the WhatsApp account that you register.
+     *
+     * @example 65921621816****
+     *
+     * @deprecated
+     *
      * @var string
      */
     public $custWabaId;
 
     /**
+     * @description Assigned by ISV for RAM user authentication and authorization.
+     *
+     * @example skdi3kksloslikdkkdk
+     *
      * @var string
      */
     public $isvCode;
 
     /**
+     * @description The language that is used in the message template.
+     *
+     * @example en
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @description The code of the message template.
+     *
+     * @example ****4b5c79c9432497a075bdfca36bf5
+     *
      * @var string
      */
     public $templateCode;

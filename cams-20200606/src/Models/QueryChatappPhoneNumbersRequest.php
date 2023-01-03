@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class QueryChatappPhoneNumbersRequest extends Model
 {
     /**
+     * @description The space ID of the user under the ISV account.
+     *
+     * @example 293483938849493
+     *
      * @var string
      */
     public $custSpaceId;
 
     /**
+     * @description The ISV verification code, which is used to verify whether the user is authorized by ISV.
+     *
+     * @example aksik93kdkkxmwol93939
+     *
      * @var string
      */
     public $isvCode;

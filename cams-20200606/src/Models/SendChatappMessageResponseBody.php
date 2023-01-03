@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class SendChatappMessageResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned.
+     *
+     *   A code of OK indicates that the call is successful.
+     *   Other codes indicate that the call fails. For more information, see [Error codes](~~196974~~).
+     *
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The error message returned.
+     *
+     * @example None
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the message.
+     *
+     * @example 61851ccb2f1365b16aee****
+     *
      * @var string
      */
     public $messageId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 90E63D28-E31D-1EB2-8939-A94866411B2O
+     *
      * @var string
      */
     public $requestId;

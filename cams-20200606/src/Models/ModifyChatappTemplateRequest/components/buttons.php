@@ -9,26 +9,53 @@ use AlibabaCloud\Tea\Model;
 class buttons extends Model
 {
     /**
+     * @description The phone number.
+     *
+     * @example +8613888887889
+     *
      * @var string
      */
     public $phoneNumber;
 
     /**
+     * @description The text of the message to be sent.
+     *
+     * @example phone-button-text
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @description The type of the button.
+     *
+     *   **PHONE_NUMBER**: the phone call button
+     *   **URL**: the URL button
+     *   **QUICK_REPLY**: the quick reply button
+     *
+     * @example PHONE_NUMBER
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The URL to be visited after clicking the button.
+     *
+     * @example https://www.website.com/
+     *
      * @var string
      */
     public $url;
 
     /**
+     * @description The type of the URL. Valid values:
+     *
+     *   **static**: the static URL
+     *   **dynamic**: the dynamic URL
+     *
+     * @example dynamic
+     *
      * @var string
      */
     public $urlType;

@@ -10,46 +10,70 @@ use AlibabaCloud\Tea\Model;
 class knowledge extends Model
 {
     /**
+     * @description The source of the answer.
+     *
+     * @example KnowledgeBase
+     *
      * @var string
      */
     public $answerSource;
 
     /**
+     * @description The category of the knowledge.
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The content of the hit question.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description Indicates whether the answer is in plain text or rich text.
+     *
+     * @example PLAIN_TEXT
+     *
      * @var string
      */
     public $contentType;
 
     /**
+     * @description The hit text.
+     *
      * @var string
      */
     public $hitStatement;
 
     /**
+     * @description The ID of the hit problem in the knowledge base.
+     *
+     * @example 735898
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The list of the related knowledge.
+     *
      * @var relatedKnowledges[]
      */
     public $relatedKnowledges;
 
     /**
+     * @description The summary to the hit question.
+     *
      * @var string
      */
     public $summary;
 
     /**
+     * @description The title of the hit question.
+     *
      * @var string
      */
     public $title;

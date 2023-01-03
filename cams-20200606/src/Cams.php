@@ -75,10 +75,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param BeeBotAssociateRequest $tmpReq
-     * @param RuntimeOptions         $runtime
+     * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param BeeBotAssociateRequest $tmpReq  BeeBotAssociateRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return BeeBotAssociateResponse
+     * @return BeeBotAssociateResponse BeeBotAssociateResponse
      */
     public function beeBotAssociateWithOptions($tmpReq, $runtime)
     {
@@ -129,9 +131,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param BeeBotAssociateRequest $request
+     * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param BeeBotAssociateRequest $request BeeBotAssociateRequest
      *
-     * @return BeeBotAssociateResponse
+     * @return BeeBotAssociateResponse BeeBotAssociateResponse
      */
     public function beeBotAssociate($request)
     {
@@ -141,10 +145,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param BeeBotChatRequest $tmpReq
-     * @param RuntimeOptions    $runtime
+     * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param BeeBotChatRequest $tmpReq  BeeBotChatRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return BeeBotChatResponse
+     * @return BeeBotChatResponse BeeBotChatResponse
      */
     public function beeBotChatWithOptions($tmpReq, $runtime)
     {
@@ -210,9 +216,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param BeeBotChatRequest $request
+     * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param BeeBotChatRequest $request BeeBotChatRequest
      *
-     * @return BeeBotChatResponse
+     * @return BeeBotChatResponse BeeBotChatResponse
      */
     public function beeBotChat($request)
     {
@@ -222,10 +230,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param CreateChatappTemplateRequest $tmpReq
-     * @param RuntimeOptions               $runtime
+     * ### QPS limit
+     *   * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *   *
+     * @param CreateChatappTemplateRequest $tmpReq  CreateChatappTemplateRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateChatappTemplateResponse
+     * @return CreateChatappTemplateResponse CreateChatappTemplateResponse
      */
     public function createChatappTemplateWithOptions($tmpReq, $runtime)
     {
@@ -287,9 +298,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param CreateChatappTemplateRequest $request
+     * ### QPS limit
+     *   * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *   *
+     * @param CreateChatappTemplateRequest $request CreateChatappTemplateRequest
      *
-     * @return CreateChatappTemplateResponse
+     * @return CreateChatappTemplateResponse CreateChatappTemplateResponse
      */
     public function createChatappTemplate($request)
     {
@@ -299,10 +313,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param DeleteChatappTemplateRequest $request
-     * @param RuntimeOptions               $runtime
+     * ### QPS limit
+     *   * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *   *
+     * @param DeleteChatappTemplateRequest $request DeleteChatappTemplateRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteChatappTemplateResponse
+     * @return DeleteChatappTemplateResponse DeleteChatappTemplateResponse
      */
     public function deleteChatappTemplateWithOptions($request, $runtime)
     {
@@ -339,9 +356,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param DeleteChatappTemplateRequest $request
+     * ### QPS limit
+     *   * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *   *
+     * @param DeleteChatappTemplateRequest $request DeleteChatappTemplateRequest
      *
-     * @return DeleteChatappTemplateResponse
+     * @return DeleteChatappTemplateResponse DeleteChatappTemplateResponse
      */
     public function deleteChatappTemplate($request)
     {
@@ -351,10 +371,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param GetChatappTemplateDetailRequest $request
-     * @param RuntimeOptions                  $runtime
+     * ### QPS limit
+     *   * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *   *
+     * @param GetChatappTemplateDetailRequest $request GetChatappTemplateDetailRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetChatappTemplateDetailResponse
+     * @return GetChatappTemplateDetailResponse GetChatappTemplateDetailResponse
      */
     public function getChatappTemplateDetailWithOptions($request, $runtime)
     {
@@ -394,9 +417,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param GetChatappTemplateDetailRequest $request
+     * ### QPS limit
+     *   * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *   *
+     * @param GetChatappTemplateDetailRequest $request GetChatappTemplateDetailRequest
      *
-     * @return GetChatappTemplateDetailResponse
+     * @return GetChatappTemplateDetailResponse GetChatappTemplateDetailResponse
      */
     public function getChatappTemplateDetail($request)
     {
@@ -406,10 +432,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param ListChatappTemplateRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * ### QPS limit
+     *   * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *   *
+     * @param ListChatappTemplateRequest $tmpReq  ListChatappTemplateRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListChatappTemplateResponse
+     * @return ListChatappTemplateResponse ListChatappTemplateResponse
      */
     public function listChatappTemplateWithOptions($tmpReq, $runtime)
     {
@@ -460,9 +489,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param ListChatappTemplateRequest $request
+     * ### QPS limit
+     *   * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *   *
+     * @param ListChatappTemplateRequest $request ListChatappTemplateRequest
      *
-     * @return ListChatappTemplateResponse
+     * @return ListChatappTemplateResponse ListChatappTemplateResponse
      */
     public function listChatappTemplate($request)
     {
@@ -541,10 +573,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param QueryChatappBindWabaRequest $request
-     * @param RuntimeOptions              $runtime
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param QueryChatappBindWabaRequest $request QueryChatappBindWabaRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryChatappBindWabaResponse
+     * @return QueryChatappBindWabaResponse QueryChatappBindWabaResponse
      */
     public function queryChatappBindWabaWithOptions($request, $runtime)
     {
@@ -575,9 +609,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param QueryChatappBindWabaRequest $request
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param QueryChatappBindWabaRequest $request QueryChatappBindWabaRequest
      *
-     * @return QueryChatappBindWabaResponse
+     * @return QueryChatappBindWabaResponse QueryChatappBindWabaResponse
      */
     public function queryChatappBindWaba($request)
     {
@@ -587,10 +623,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param QueryChatappPhoneNumbersRequest $request
-     * @param RuntimeOptions                  $runtime
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param QueryChatappPhoneNumbersRequest $request QueryChatappPhoneNumbersRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryChatappPhoneNumbersResponse
+     * @return QueryChatappPhoneNumbersResponse QueryChatappPhoneNumbersResponse
      */
     public function queryChatappPhoneNumbersWithOptions($request, $runtime)
     {
@@ -621,9 +659,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param QueryChatappPhoneNumbersRequest $request
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param QueryChatappPhoneNumbersRequest $request QueryChatappPhoneNumbersRequest
      *
-     * @return QueryChatappPhoneNumbersResponse
+     * @return QueryChatappPhoneNumbersResponse QueryChatappPhoneNumbersResponse
      */
     public function queryChatappPhoneNumbers($request)
     {
@@ -633,10 +673,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param SendChatappMassMessageRequest $tmpReq
-     * @param RuntimeOptions                $runtime
+     * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *   * Can support up to 1,000 numbers per request.
+     *   *
+     * @param SendChatappMassMessageRequest $tmpReq  SendChatappMassMessageRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendChatappMassMessageResponse
+     * @return SendChatappMassMessageResponse SendChatappMassMessageResponse
      */
     public function sendChatappMassMessageWithOptions($tmpReq, $runtime)
     {
@@ -699,9 +742,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param SendChatappMassMessageRequest $request
+     * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *   * Can support up to 1,000 numbers per request.
+     *   *
+     * @param SendChatappMassMessageRequest $request SendChatappMassMessageRequest
      *
-     * @return SendChatappMassMessageResponse
+     * @return SendChatappMassMessageResponse SendChatappMassMessageResponse
      */
     public function sendChatappMassMessage($request)
     {
@@ -711,10 +757,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param SendChatappMessageRequest $tmpReq
-     * @param RuntimeOptions            $runtime
+     * You can call this operation up to 200 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *   *
+     * @param SendChatappMessageRequest $tmpReq  SendChatappMessageRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendChatappMessageResponse
+     * @return SendChatappMessageResponse SendChatappMessageResponse
      */
     public function sendChatappMessageWithOptions($tmpReq, $runtime)
     {
@@ -738,6 +786,9 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($request->channelType)) {
             $body['ChannelType'] = $request->channelType;
         }
+        if (!Utils::isUnset($request->contextMessageId)) {
+            $body['ContextMessageId'] = $request->contextMessageId;
+        }
         if (!Utils::isUnset($request->custSpaceId)) {
             $body['CustSpaceId'] = $request->custSpaceId;
         }
@@ -756,11 +807,17 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($request->isvCode)) {
             $body['IsvCode'] = $request->isvCode;
         }
+        if (!Utils::isUnset($request->label)) {
+            $body['Label'] = $request->label;
+        }
         if (!Utils::isUnset($request->language)) {
             $body['Language'] = $request->language;
         }
         if (!Utils::isUnset($request->messageType)) {
             $body['MessageType'] = $request->messageType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $body['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->templateCode)) {
             $body['TemplateCode'] = $request->templateCode;
@@ -770,6 +827,12 @@ class Cams extends OpenApiClient
         }
         if (!Utils::isUnset($request->to)) {
             $body['To'] = $request->to;
+        }
+        if (!Utils::isUnset($request->trackingData)) {
+            $body['TrackingData'] = $request->trackingData;
+        }
+        if (!Utils::isUnset($request->ttl)) {
+            $body['Ttl'] = $request->ttl;
         }
         if (!Utils::isUnset($request->type)) {
             $body['Type'] = $request->type;
@@ -794,9 +857,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param SendChatappMessageRequest $request
+     * You can call this operation up to 200 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *   *
+     * @param SendChatappMessageRequest $request SendChatappMessageRequest
      *
-     * @return SendChatappMessageResponse
+     * @return SendChatappMessageResponse SendChatappMessageResponse
      */
     public function sendChatappMessage($request)
     {

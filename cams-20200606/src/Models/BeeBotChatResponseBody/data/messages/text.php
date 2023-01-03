@@ -10,66 +10,98 @@ use AlibabaCloud\Tea\Model;
 class text extends Model
 {
     /**
+     * @description The source of the answer.
+     *
+     * @example BotFramework
+     *
      * @var string
      */
     public $answerSource;
 
     /**
+     * @description The content of the text message.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description Indicates whether the answer is in plain text or rich text.
+     *
+     * @example PLAIN_TEXT
+     *
      * @var string
      */
     public $contentType;
 
     /**
+     * @description When the AnswerSource parameter is set to BotFramework, the value of this parameter is returned.
+     *
      * @var string
      */
     public $dialogName;
 
     /**
+     * @description The passthrough parameters are returned.
+     *
      * @var mixed[]
      */
     public $ext;
 
     /**
+     * @description When the AnswerSource parameter is set to BotFramework, the value of this parameter is returned.
+     *
      * @var mixed[]
      */
     public $externalFlags;
 
     /**
+     * @description The hit text.
+     *
      * @var string
      */
     public $hitStatement;
 
     /**
+     * @description When the AnswerSource parameter is set to BotFramework, the value of this parameter is returned.
+     *
      * @var string
      */
     public $intentName;
 
     /**
+     * @description The metadata.
+     *
      * @var string
      */
     public $metaData;
 
     /**
+     * @description When the AnswerSource parameter is set to BotFramework, the value of this parameter is returned.
+     *
+     * @example 1410-c7a72a78.__city
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description When the AnswerSource parameter is set to BotFramework, the value of this parameter is returned.
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description The list of slots.
+     *
      * @var slots[]
      */
     public $slots;
 
     /**
+     * @description The title of the chitchat.
+     *
      * @var string
      */
     public $userDefinedChatTitle;

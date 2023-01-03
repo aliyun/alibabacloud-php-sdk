@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class SendChatappMassMessageResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned.
+     *
+     *   A code of OK indicates that the call is successful.
+     *   Other codes indicate that the call fails. For more information, see [Error codes](~~196974~~).
+     *
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Batch send message ID.
+     *
+     * @example 890000010002****
+     *
      * @var string
      */
     public $groupMessageId;
 
     /**
+     * @description The error message returned.
+     *
+     * @example None
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 90E63D28-E31D-1EB2-8939-A9486641****
+     *
      * @var string
      */
     public $requestId;

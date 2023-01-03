@@ -10,36 +10,74 @@ use AlibabaCloud\Tea\Model;
 class components extends Model
 {
     /**
+     * @description The list of buttons, which applies only to the **BUTTONS** component.
+     *
      * @var buttons[]
      */
     public $buttons;
 
     /**
+     * @description The description.
+     *
+     * >  When the Type parameter is set to **HEADER** and the Format parameter is set to **IMAGE/DOCUMENT/VIDEO**, you can specify the description.
+     * @example This is a video.
+     *
      * @var string
      */
     public $caption;
 
     /**
+     * @description The name of the file.
+     *
+     * > : When the Type parameter is set to **HEADER** and the Format parameter is set to **DOCUMENT**, you can specify a name of the file.
+     * @example Video
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @description The type of the media resource.
+     *
+     *   **TEXT**: text
+     *   **IMAGE**: image
+     *   **DOCUMENT**: document
+     *   **VIDEO**: video
+     *
+     * @example TEXT
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @description The text of the message to be sent.
+     *
+     * @example hello chatapp
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @description The type of the component.
+     *
+     *   **BODY**
+     *   **HEADER**
+     *   **FOOTER**
+     *   **BUTTONS**
+     *
+     * @example BODY
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The URL of the material.
+     *
+     * @example "https://img.tukuppt.com/png_preview/00/10/24/1GygxVK3F4.jpg
+     *
      * @var string
      */
     public $url;

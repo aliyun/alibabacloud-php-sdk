@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The list of associated recommendations.
+     *
      * @var associate[]
      */
     public $associate;
 
     /**
+     * @description The ID of the response message.
+     *
+     * @example 1eb47d7a1706429081e90c83c62c2f00
+     *
      * @var string
      */
     public $messageId;
 
     /**
+     * @description The ID of the session.
+     *
+     * @example 93f11165a2a24289a6f869760e8cb3f3
+     *
      * @var string
      */
     public $sessionId;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class page extends Model
 {
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $index;
 
     /**
+     * @description The number of message templates to return on each page. Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $size;

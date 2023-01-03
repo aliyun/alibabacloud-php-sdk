@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DeleteChatappTemplateRequest extends Model
 {
     /**
+     * @example 293483938849493
+     *
      * @var string
      */
     public $custSpaceId;
 
     /**
+     * @description The unique identifier of the WhatsApp account that you register.
+     *
+     * @example 65921621816****
+     *
+     * @deprecated
+     *
      * @var string
      */
     public $custWabaId;
 
     /**
+     * @description Assigned by ISV for RAM user authentication and authorization.
+     *
+     * @example skdi3kksloslikdkkdk
+     *
      * @var string
      */
     public $isvCode;
 
     /**
+     * @description The code of the message template.
+     *
+     * @example 744c4b5c79c9432497a075bdfca3****
+     *
      * @var string
      */
     public $templateCode;

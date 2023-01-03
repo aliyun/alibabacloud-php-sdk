@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The code of the message template.
+     *
+     * @example SMS_232907****
+     *
      * @var string
      */
     public $templateCode;
 
     /**
+     * @description The name of the message template.
+     *
+     * @example hello_whatsapp
+     *
      * @var string
      */
     public $templateName;

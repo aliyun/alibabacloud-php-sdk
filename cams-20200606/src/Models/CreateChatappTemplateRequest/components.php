@@ -10,36 +10,73 @@ use AlibabaCloud\Tea\Model;
 class components extends Model
 {
     /**
+     * @description This parameter applies only to components of the **BUTTONS** type.
+     *
      * @var buttons[]
      */
     public $buttons;
 
     /**
+     * @description The description of the file.
+     *
+     * @example This is a video.
+     *
      * @var string
      */
     public $caption;
 
     /**
+     * @description The name of the file.
+     *
+     * @example Express video
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @description The format of the message.
+     *
+     *   **TEXT**: text
+     *   **IMGAGE**: image
+     *   **DOCUMENT**: document
+     *   **VIDEO**: video
+     *
+     * @example TEXT
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @description The text of the message to be sent.
+     *
+     * @example hello whatsapp
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @description The type of the component. Valid values:
+     *
+     *   **BODY**
+     *   **HEADER**
+     *   **FOOTER**
+     *   **BUTTONS**
+     *
+     * > A component of the **BODY** type cannot exceed 1,024 characters in length. A component of the **HEADER** or **FOOTER** type cannot exceed 60 characters in length.
+     * @example BODY
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The URL of the material.
+     *
+     * @example https://image.developer.aliyundoc.com
+     *
      * @var string
      */
     public $url;

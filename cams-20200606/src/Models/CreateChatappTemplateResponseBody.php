@@ -10,21 +10,40 @@ use AlibabaCloud\Tea\Model;
 class CreateChatappTemplateResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned.
+     *
+     *   A code of OK indicates that the call is successful.
+     *   Other codes indicate that the call fails. For more information, see [Error codes](~~196974~~).
+     *
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The data returned.
+     *
+     * @example {"templateCode": "****4b5c79c9432497a075bdfca36bf5"，"templateName": "hello_whatsapp"}
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned.
+     *
+     * @example None
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 90E63D28-E31D-1EB2-8939-A94866411B2D
+     *
      * @var string
      */
     public $requestId;

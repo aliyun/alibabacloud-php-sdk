@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class senderList extends Model
 {
     /**
+     * @description Payload list.
+     *
      * @var string[]
      */
     public $payload;
 
     /**
+     * @description Template parameters.
+     *
      * @var string[]
      */
     public $templateParams;
 
     /**
+     * @description Target number.
+     *
+     * @example 861388988****
+     *
      * @var string
      */
     public $to;

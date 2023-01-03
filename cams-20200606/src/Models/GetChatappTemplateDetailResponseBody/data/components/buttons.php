@@ -9,26 +9,61 @@ use AlibabaCloud\Tea\Model;
 class buttons extends Model
 {
     /**
+     * @description The mobile phone number. This parameter is valid only if the Type parameter is set to **PHONE_NUMBER**.
+     *
+     * @example 861398745****
+     *
      * @var string
      */
     public $phoneNumber;
 
     /**
+     * @description The display name of the button.
+     *
+     * @example Call
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @description The type of the button. Valid values:
+     *
+     *   **PHONE_NUMBER**: a phone call button
+     *   **URL**: a URL button
+     *   **QUICK_REPLY**: a quick reply button
+     *
+     **
+     *
+     **Note**
+     *
+     *   A quick reply button cannot coexist with a phone call button or a URL button in a message template.
+     *
+     *   You can add a combination of two URL buttons or a combination of a URL button and a phone call button to a message template.
+     *
+     * @example PHONE_NUMBER
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The URL to be accessed when you click the URL button.
+     *
+     * @example https://example.com
+     *
      * @var string
      */
     public $url;
 
     /**
+     * @description The type of the URL. Valid values:
+     *
+     *   **static**: a static URL
+     *   **dynamic**: a dynamic URL
+     *
+     * @example static
+     *
      * @var string
      */
     public $urlType;

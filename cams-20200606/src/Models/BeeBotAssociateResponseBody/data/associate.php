@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class associate extends Model
 {
     /**
+     * @description The additional information.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $meta;
 
     /**
+     * @description The title of the associated question.
+     *
+     * @example test title
+     *
      * @var string
      */
     public $title;

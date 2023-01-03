@@ -9,46 +9,94 @@ use AlibabaCloud\Tea\Model;
 class CreateChatappTemplateShrinkRequest extends Model
 {
     /**
+     * @description The category of the message template. Valid values:
+     *
+     *   **ACCOUNT_UPDATE**: account update
+     *   **PAYMENT_UPDATE**: payment update
+     *   **PERSONAL_FINANCE\_UPDATE**: personal finance update
+     *   **SHIPPING_UPDATE**: traffic update
+     *   **RESERVATION_UPDATE**: reservation update
+     *   **ISSUE_RESOLUTION**: issue resolution
+     *   **APPOINTMENT_UPDATE**: appointment update
+     *   **TRANSPORTATION_UPDATE**: logistics information update
+     *   **TICKET_UPDATE**: ticket update
+     *   **ALERT_UPDATE**: alert update
+     *   **AUTO_REPLY**: auto reply
+     *
+     * @example ACCOUNT_UPDATE
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The components of the message template.
+     *
      * @var string
      */
     public $componentsShrink;
 
     /**
+     * @example 293483938849493
+     *
      * @var string
      */
     public $custSpaceId;
 
     /**
+     * @description The unique identifier of the WhatsApp account that you register.
+     *
+     * @example 65921621816****
+     *
+     * @deprecated
+     *
      * @var string
      */
     public $custWabaId;
 
     /**
+     * @description The examples of variables that are used when you create the message template.
+     *
      * @var string
      */
     public $exampleShrink;
 
     /**
+     * @description Assigned by ISV for RAM user authentication and authorization.
+     *
+     * @example skdi3kksloslikdkkdk
+     *
      * @var string
      */
     public $isvCode;
 
     /**
+     * @description The language that is used in the message template.
+     *
+     * @example en
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @description The name of the message template.
+     *
+     * @example hello_whatsapp
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the message template. Valid values:
+     *
+     *   **WHATSAPP**
+     *   VIBER (under development)
+     *   LINE (under development)
+     *
+     * @example WHATSAPP
+     *
      * @var string
      */
     public $templateType;

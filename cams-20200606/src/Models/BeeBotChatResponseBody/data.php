@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the response message.
+     *
+     * @example ab6be8af-cee4-40c3-9919-2ac7461d7d98
+     *
      * @var string
      */
     public $messageId;
 
     /**
+     * @description The list of the message.
+     *
      * @var messages[]
      */
     public $messages;
 
     /**
+     * @description The ID of the session.
+     *
+     * @example 1234
+     *
      * @var string
      */
     public $sessionId;

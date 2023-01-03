@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class slots extends Model
 {
     /**
+     * @description Indicates whether the slot is hit.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $hit;
 
     /**
+     * @description The name of the slot.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The original value.
+     *
      * @var string
      */
     public $origin;
 
     /**
+     * @description The specific value.
+     *
      * @var string
      */
     public $value;

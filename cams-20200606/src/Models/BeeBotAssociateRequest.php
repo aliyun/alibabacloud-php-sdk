@@ -9,36 +9,60 @@ use AlibabaCloud\Tea\Model;
 class BeeBotAssociateRequest extends Model
 {
     /**
+     * @description The ID of chatbot instance.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $chatBotInstanceId;
 
     /**
+     * @example 293483938849493
+     *
      * @var string
      */
     public $custSpaceId;
 
     /**
+     * @description ISV verification code, which is used to verify whether the sub-account is authorized by ISV.
+     *
+     * @example ksiekdki39ksks93939
+     *
      * @var string
      */
     public $isvCode;
 
     /**
+     * @description The list of codes for answers from different perspectives.
+     *
      * @var string[]
      */
     public $perspective;
 
     /**
+     * @description The number of recommended questions, which ranges from 1 to 10.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $recommendNum;
 
     /**
+     * @description The ID of the session, which identifies the session and context information of the visitor.
+     *
+     * @example 2334324234
+     *
      * @var string
      */
     public $sessionId;
 
     /**
+     * @description The input of the visitor.
+     *
+     * @example Hello
+     *
      * @var string
      */
     public $utterance;
