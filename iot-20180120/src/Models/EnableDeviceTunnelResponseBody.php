@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class EnableDeviceTunnelResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 577F07AF-7EFE-4B98-AEA2-634ED864BA01
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

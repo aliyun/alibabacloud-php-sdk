@@ -11,6 +11,11 @@ class RRpcRequest extends Model
     /**
      * @var string
      */
+    public $contentType;
+
+    /**
+     * @var string
+     */
     public $deviceName;
 
     /**
@@ -38,6 +43,7 @@ class RRpcRequest extends Model
      */
     public $topic;
     protected $_name = [
+        'contentType'       => 'ContentType',
         'deviceName'        => 'DeviceName',
         'iotInstanceId'     => 'IotInstanceId',
         'productKey'        => 'ProductKey',
@@ -53,6 +59,9 @@ class RRpcRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->contentType) {
+            $res['ContentType'] = $this->contentType;
+        }
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
@@ -83,6 +92,9 @@ class RRpcRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContentType'])) {
+            $model->contentType = $map['ContentType'];
+        }
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
         }

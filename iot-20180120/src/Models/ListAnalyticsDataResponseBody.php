@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListAnalyticsDataResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -25,11 +27,15 @@ class ListAnalyticsDataResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 7EC5B624-AF1B-4C4D-BA82-A02BA1******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $success;

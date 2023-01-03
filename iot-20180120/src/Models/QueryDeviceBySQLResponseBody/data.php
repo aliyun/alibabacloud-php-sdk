@@ -12,21 +12,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 2020-04-04 16:38:18.607
+     *
      * @var string
      */
     public $activeTime;
 
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example 2020-04-04 16:38:17.000
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2020-04-04 16:38:19.000
+     *
      * @var string
      */
     public $gmtModified;
@@ -37,6 +45,8 @@ class data extends Model
     public $groups;
 
     /**
+     * @example Q7uOhVRdZRRlDnTLv****00100
+     *
      * @var string
      */
     public $iotId;
@@ -52,11 +62,15 @@ class data extends Model
     public $OTAModules;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example ONLINE
+     *
      * @var string
      */
     public $status;

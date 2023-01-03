@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example a12******
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example www.aliyun.test.com
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example 1573
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example YES
+     *
      * @var string
      */
     public $isBeian;
 
     /**
+     * @example a12*******
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example https
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @example C70B541046F64EAABE3*******
+     *
      * @var string
      */
     public $tenantId;

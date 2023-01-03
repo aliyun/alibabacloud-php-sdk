@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QuerySummarySceneRuleLogResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class QuerySummarySceneRuleLogResponseBody extends Model
     public $data;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 2279A994-3E7D-4EC6-BD17-FA0D0EC2EC77
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

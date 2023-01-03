@@ -10,76 +10,106 @@ use AlibabaCloud\Tea\Model;
 class CreateOTADynamicUpgradeJobRequest extends Model
 {
     /**
+     * @example HTTPS
+     *
      * @var string
      */
     public $downloadProtocol;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $dynamicMode;
 
     /**
+     * @example nx3xxVvFdwvn6dim50PY03****
+     *
      * @var string
      */
     public $firmwareId;
 
     /**
+     * @example IwOwQj7DJ***
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example LINK_PLATFORM_DYNAMIC
+     *
      * @var string
      */
     public $groupType;
 
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $maximumPerMinute;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $multiModuleMode;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $needConfirm;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $needPush;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $overwriteMode;
 
     /**
+     * @example a1Le6d0****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $retryCount;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $retryInterval;
 
     /**
+     * @example V1.0.1
+     *
      * @var string[]
      */
     public $srcVersion;
@@ -90,6 +120,8 @@ class CreateOTADynamicUpgradeJobRequest extends Model
     public $tag;
 
     /**
+     * @example 1440
+     *
      * @var int
      */
     public $timeoutInMinutes;

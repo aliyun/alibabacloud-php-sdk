@@ -31,6 +31,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\BatchCheckDeviceNamesRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchCheckDeviceNamesResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchCheckImportDeviceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchCheckImportDeviceResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\BatchCheckVehicleDeviceRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\BatchCheckVehicleDeviceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchClearEdgeInstanceDeviceConfigRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchClearEdgeInstanceDeviceConfigResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchCreateSoundCodeLabelRequest;
@@ -59,6 +61,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\BatchGetEdgeInstanceDriverConfigsReque
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchGetEdgeInstanceDriverConfigsResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchImportDeviceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchImportDeviceResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\BatchImportVehicleDeviceRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\BatchImportVehicleDeviceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchPubRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchPubResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchQueryDeviceDetailRequest;
@@ -651,6 +655,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\QueryTopicReverseRouteTableRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryTopicReverseRouteTableResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryTopicRouteTableRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryTopicRouteTableResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryVehicleDeviceRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryVehicleDeviceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ReBindLicenseDeviceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ReBindLicenseDeviceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\RecognizeCarNumRequest;
@@ -1493,6 +1499,55 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param BatchCheckVehicleDeviceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return BatchCheckVehicleDeviceResponse
+     */
+    public function batchCheckVehicleDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceList)) {
+            $query['DeviceList'] = $request->deviceList;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchCheckVehicleDevice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchCheckVehicleDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchCheckVehicleDeviceRequest $request
+     *
+     * @return BatchCheckVehicleDeviceResponse
+     */
+    public function batchCheckVehicleDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchCheckVehicleDeviceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param BatchClearEdgeInstanceDeviceConfigRequest $request
      * @param RuntimeOptions                            $runtime
      *
@@ -2188,6 +2243,55 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchImportDeviceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BatchImportVehicleDeviceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return BatchImportVehicleDeviceResponse
+     */
+    public function batchImportVehicleDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceList)) {
+            $query['DeviceList'] = $request->deviceList;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchImportVehicleDevice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchImportVehicleDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchImportVehicleDeviceRequest $request
+     *
+     * @return BatchImportVehicleDeviceResponse
+     */
+    public function batchImportVehicleDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchImportVehicleDeviceWithOptions($request, $runtime);
     }
 
     /**
@@ -17769,6 +17873,55 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param QueryVehicleDeviceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryVehicleDeviceResponse
+     */
+    public function queryVehicleDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryVehicleDevice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryVehicleDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryVehicleDeviceRequest $request
+     *
+     * @return QueryVehicleDeviceResponse
+     */
+    public function queryVehicleDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryVehicleDeviceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RRpcRequest    $request
      * @param RuntimeOptions $runtime
      *
@@ -17778,6 +17931,9 @@ class Iot extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->contentType)) {
+            $query['ContentType'] = $request->contentType;
+        }
         if (!Utils::isUnset($request->deviceName)) {
             $query['DeviceName'] = $request->deviceName;
         }

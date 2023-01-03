@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RerunJobResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -19,11 +21,15 @@ class RerunJobResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example A6BEAB33-03E6-4CE0-A94F-9E24C5512BAD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $deviceActive;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $deviceCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $deviceOnline;
 
     /**
+     * @example product_key = "a1***" and name LIKE "test%"
+     *
      * @var string
      */
     public $dynamicGroupExpression;
 
     /**
+     * @example usefulGroup
+     *
      * @var string
      */
     public $groupDesc;
 
     /**
+     * @example tDQvBJqbUyHs****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example aliyun
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example 2018-09-14T14:35:51.000Z
+     *
      * @var string
      */
     public $utcCreate;

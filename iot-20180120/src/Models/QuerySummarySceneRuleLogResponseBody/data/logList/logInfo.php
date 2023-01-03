@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class logInfo extends Model
 {
     /**
+     * @example 1582373706
+     *
      * @var int
      */
     public $logTime;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @example a6a5b5df1582373508176121******
+     *
      * @var string
      */
     public $traceId;

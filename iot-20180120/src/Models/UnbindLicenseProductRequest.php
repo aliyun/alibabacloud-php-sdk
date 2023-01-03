@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UnbindLicenseProductRequest extends Model
 {
     /**
+     * @example iot-s3***
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 480P
+     *
      * @var string
      */
     public $licenseCode;
 
     /**
+     * @example gq62z***
+     *
      * @var string
      */
     public $productKey;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetParserDataSourceRequest extends Model
 {
     /**
+     * @example 1001
+     *
      * @var int
      */
     public $dataSourceId;
 
     /**
+     * @example iot-2w****
+     *
      * @var string
      */
     public $iotInstanceId;

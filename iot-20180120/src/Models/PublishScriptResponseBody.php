@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PublishScriptResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -19,16 +21,22 @@ class PublishScriptResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example E4C0FF92-2A86-41DB-92D3-73B60310D25E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example script doesn\"t contains transmit function
+     *
      * @var string
      */
     public $syntaxErrorMsg;

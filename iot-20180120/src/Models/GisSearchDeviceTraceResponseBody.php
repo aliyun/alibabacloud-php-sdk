@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GisSearchDeviceTraceResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class GisSearchDeviceTraceResponseBody extends Model
     public $data;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 4C717018-B6D4-5EB0-8495-2A4FF08D58CA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class points extends Model
 {
     /**
+     * @example 1645071254000
+     *
      * @var int
      */
     public $locateTime;
 
     /**
+     * @example 120.0,30.0
+     *
      * @var string
      */
     public $location;

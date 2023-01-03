@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceServiceDataRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $asc;
 
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example 1579249499000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example Set
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example Q7uOhVRdZRRlDnTLv****00100
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example 1579249499000
+     *
      * @var int
      */
     public $startTime;

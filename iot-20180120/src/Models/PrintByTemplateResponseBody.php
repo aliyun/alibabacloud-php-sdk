@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class PrintByTemplateResponseBody extends Model
 {
     /**
+     * @example iot.printservice.NotSigned
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class PrintByTemplateResponseBody extends Model
     public $data;
 
     /**
+     * @example print service not open
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 66FF51D3-***-49F1-B1A2-***
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

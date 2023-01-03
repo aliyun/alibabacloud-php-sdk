@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RerunJobRequest extends Model
 {
     /**
+     * @example iot-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 450407b***
+     *
      * @var string
      */
     public $jobId;

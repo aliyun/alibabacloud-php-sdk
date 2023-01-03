@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SetStudioProjectCooperationRequest extends Model
 {
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $status;

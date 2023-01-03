@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class domainInfo extends Model
 {
     /**
+     * @example a12*******
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 1619598445000
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 1619598445000
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example 1548
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example YES
+     *
      * @var string
      */
     public $isBeian;
 
     /**
+     * @example a123********
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example https
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @example C70B541046F64EAAB*********
+     *
      * @var string
      */
     public $tenantId;

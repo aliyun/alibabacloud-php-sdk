@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class GisSearchDeviceTraceRequest extends Model
 {
     /**
+     * @example mock_device_name
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example 1645071254000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example iot-a****13l
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $mapMatch;
 
     /**
+     * @example g3r****Vjta
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example 1645071254000
+     *
      * @var int
      */
     public $startTime;

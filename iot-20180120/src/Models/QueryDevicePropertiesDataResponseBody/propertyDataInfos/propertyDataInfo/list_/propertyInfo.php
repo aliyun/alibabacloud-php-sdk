@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class propertyInfo extends Model
 {
     /**
+     * @example 1579249499000
+     *
      * @var int
      */
     public $time;
 
     /**
+     * @example 21.3
+     *
      * @var string
      */
     public $value;

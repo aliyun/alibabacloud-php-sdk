@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateProductResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -25,16 +27,22 @@ class CreateProductResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example a1FlqIQ****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example E55E50B7-40EE-4B6B-8BBE-D3ED55CCF565
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

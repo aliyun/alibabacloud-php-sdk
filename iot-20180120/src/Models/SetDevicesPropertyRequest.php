@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SetDevicesPropertyRequest extends Model
 {
     /**
+     * @example light
+     *
      * @var string[]
      */
     public $deviceName;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example {"Switch":1,"Color":"blue"}
+     *
      * @var string
      */
     public $items;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;

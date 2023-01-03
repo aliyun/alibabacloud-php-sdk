@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class topoAddItem extends Model
 {
     /**
+     * @example a1BwAGV****device1
+     *
      * @var string
      */
     public $clientId;
 
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example C1C1606D61884C5F16C9EA6622E5****
+     *
      * @var string
      */
     public $sign;
 
     /**
+     * @example hmacMd5
+     *
      * @var string
      */
     public $signMethod;
 
     /**
+     * @example 1579335899000
+     *
      * @var string
      */
     public $timestamp;

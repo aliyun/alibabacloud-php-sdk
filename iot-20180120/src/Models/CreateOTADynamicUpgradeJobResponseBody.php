@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateOTADynamicUpgradeJobResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -25,11 +27,15 @@ class CreateOTADynamicUpgradeJobResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 9F41D14E-CB5F-4CCE-939C-057F39E688F5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

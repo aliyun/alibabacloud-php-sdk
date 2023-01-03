@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class simpleDeviceInfo extends Model
 {
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example sLefbFmN9SYfnWLJTePG893XNuRV****
+     *
      * @var string
      */
     public $deviceSecret;
 
     /**
+     * @example 2021-02-18 10:46:32
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2021-02-18 10:46:32
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example Av8NGHGtwPrH9BYGLMBi00****
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example SensorInShanghai
+     *
      * @var string
      */
     public $nickname;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example ONLINE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 2021-02-18T02:46:32.000Z
+     *
      * @var string
      */
     public $utcCreate;
 
     /**
+     * @example 2021-02-18T02:46:32.000Z
+     *
      * @var string
      */
     public $utcModified;

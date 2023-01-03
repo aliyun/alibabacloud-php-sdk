@@ -15,21 +15,29 @@ class PubRequest extends Model
     public $contentType;
 
     /**
+     * @example aGVsbG8****
+     *
      * @var string
      */
     public $correlationData;
 
     /**
+     * @example device1
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example eyJ0ZXN0IjoidGFzayBwdWIgYnJvYWRjYXN0In0=
+     *
      * @var string
      */
     public $messageContent;
@@ -40,21 +48,29 @@ class PubRequest extends Model
     public $payloadFormatIndicator;
 
     /**
+     * @example a1Q5XoY****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $qos;
 
     /**
+     * @example /a1Q5XoY****\/device1/user/update
+     *
      * @var string
      */
     public $responseTopic;
 
     /**
+     * @example /a1Q5XoY****\/device1/user/get
+     *
      * @var string
      */
     public $topicFullName;

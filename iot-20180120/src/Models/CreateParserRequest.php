@@ -14,11 +14,15 @@ class CreateParserRequest extends Model
     public $description;
 
     /**
+     * @example iot-n8t***
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example DataParser
+     *
      * @var string
      */
     public $name;

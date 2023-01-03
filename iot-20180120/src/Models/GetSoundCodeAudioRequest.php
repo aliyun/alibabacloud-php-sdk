@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetSoundCodeAudioRequest extends Model
 {
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example Md3ZiTL888K9llXDy7890***********
+     *
      * @var string[]
      */
     public $soundCodeList;

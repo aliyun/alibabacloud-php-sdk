@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ReupgradeOTATaskRequest extends Model
 {
     /**
+     * @example iot-v64***
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 7glPHmaDYLAYMD1HHutT02****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example y3tOmCDNgpR8F9jnVEzC01****
+     *
      * @var string[]
      */
     public $taskId;

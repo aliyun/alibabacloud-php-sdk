@@ -15,11 +15,15 @@ class BatchUnbindProjectDevicesRequest extends Model
     public $devices;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a12******
+     *
      * @var string
      */
     public $projectId;

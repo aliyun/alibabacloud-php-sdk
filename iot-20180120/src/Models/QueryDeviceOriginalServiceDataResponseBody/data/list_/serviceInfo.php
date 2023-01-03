@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class serviceInfo extends Model
 {
     /**
+     * @example Set
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example {\"code\":200,\"data\":{},\"id\":\"100686\",\"message\":\"success\",\"version\":\"1.0\"}
+     *
      * @var string
      */
     public $inputData;
@@ -24,11 +28,15 @@ class serviceInfo extends Model
     public $name;
 
     /**
+     * @example {\"LightAdjustLevel\":123}
+     *
      * @var string
      */
     public $outputData;
 
     /**
+     * @example 1579249499000
+     *
      * @var string
      */
     public $time;

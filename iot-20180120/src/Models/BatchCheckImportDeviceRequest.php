@@ -15,11 +15,15 @@ class BatchCheckImportDeviceRequest extends Model
     public $deviceList;
 
     /**
+     * @example iot-1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;

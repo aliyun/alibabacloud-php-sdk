@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example iothub_senior
+     *
      * @var string
      */
     public $aliyunCommodityCode;
 
     /**
+     * @example secret
+     *
      * @var string
      */
     public $authType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $dataFormat;
 
     /**
+     * @example Product test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $id2;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $nodeType;
 
     /**
+     * @example a1FlqIQ****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example Test
+     *
      * @var string
      */
     public $productName;
 
     /**
+     * @example U5tW7i44uilc****
+     *
      * @var string
      */
     public $productSecret;
 
     /**
+     * @example modbus
+     *
      * @var string
      */
     public $protocolType;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListDataSourceItemRequest extends Model
 {
     /**
+     * @example 1001
+     *
      * @var int
      */
     public $dataSourceId;
 
     /**
+     * @example iot-0pp1n8t***
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example thing
+     *
      * @var string
      */
     public $searchName;

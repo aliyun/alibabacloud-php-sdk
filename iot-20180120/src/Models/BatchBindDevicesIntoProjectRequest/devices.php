@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class devices extends Model
 {
     /**
+     * @example Ee2******
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;

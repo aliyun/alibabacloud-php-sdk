@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetStudioAppTokenOpenRequest extends Model
 {
     /**
+     * @example a12******
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a123*******
+     *
      * @var string
      */
     public $projectId;

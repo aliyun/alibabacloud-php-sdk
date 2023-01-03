@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example mock_device_name
+     *
      * @var string
      */
     public $deviceName;
@@ -20,6 +22,8 @@ class data extends Model
     public $points;
 
     /**
+     * @example g3r****Vjta
+     *
      * @var string
      */
     public $productKey;

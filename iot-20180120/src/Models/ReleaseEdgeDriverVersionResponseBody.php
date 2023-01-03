@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ReleaseEdgeDriverVersionResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 3E56BFDF-3F00-495F-89A1-F891930DDB51
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

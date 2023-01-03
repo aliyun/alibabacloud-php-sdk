@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 2
+     *
      * @var string
      */
     public $deviceErrorCode;
 
     /**
+     * @example no paper
+     *
      * @var string
      */
     public $deviceErrorMessage;
 
     /**
+     * @example NyWh5lw3*****RfL9LJUivhOhQV*****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $maxRetryCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $retryCount;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

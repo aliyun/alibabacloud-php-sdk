@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateParserResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -19,16 +21,22 @@ class CreateParserResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 100*
+     *
      * @var int
      */
     public $parserId;
 
     /**
+     * @example 291438BA-6E10-4C4C-B761-243B9A0D324F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

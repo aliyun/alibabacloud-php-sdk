@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UnbindLicenseProductResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
@@ -24,11 +28,15 @@ class UnbindLicenseProductResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example E4F94B97-1D64-4080-BFD2-67461667AA43
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

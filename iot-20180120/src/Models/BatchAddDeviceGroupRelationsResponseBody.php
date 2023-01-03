@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BatchAddDeviceGroupRelationsResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $alreadyRelatedGroupDeviceCount;
 
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -24,26 +28,36 @@ class BatchAddDeviceGroupRelationsResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $exceedTenGroupDeviceCount;
 
     /**
+     * @example 671D0F8F-FDC7-4B12-93FA-336C079C965A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $successAddedDeviceCount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $validDeviceCount;

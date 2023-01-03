@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example XUbmsMHmkqv0PiAG****010001
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 2019-05-10T02:18:53.000Z
+     *
      * @var string
      */
     public $utcCreate;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetSpeechVoiceResponseBody extends Model
 {
     /**
+     * @example iot.speechsolution.NotSigned
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class GetSpeechVoiceResponseBody extends Model
     public $data;
 
     /**
+     * @example speech solution has not been signed
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example F94F72A5-82F0-496F-9AC2-3DBCFF77608A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

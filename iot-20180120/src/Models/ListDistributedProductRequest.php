@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListDistributedProductRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example iot-060***
+     *
      * @var string
      */
     public $sourceInstanceId;
 
     /**
+     * @example iot-cn-6ja***
+     *
      * @var string
      */
     public $targetInstanceId;
 
     /**
+     * @example 198***
+     *
      * @var string
      */
     public $targetUid;

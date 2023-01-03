@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example 1581595942
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example iot-cn-6ja***
+     *
      * @var string
      */
     public $sourceInstanceId;
 
     /**
+     * @example myproInstance
+     *
      * @var string
      */
     public $sourceInstanceName;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $sourceRegion;
 
     /**
+     * @example 198***
+     *
      * @var string
      */
     public $sourceUid;
 
     /**
+     * @example io****@example.com
+     *
      * @var string
      */
     public $targetAliyunId;
 
     /**
+     * @example iot-cn-09k***
+     *
      * @var string
      */
     public $targetInstanceId;
 
     /**
+     * @example newinstance
+     *
      * @var string
      */
     public $targetInstanceName;
 
     /**
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $targetRegion;
 
     /**
+     * @example 198***
+     *
      * @var string
      */
     public $targetUid;

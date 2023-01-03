@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class QueryStudioAppPageListOpenRequest extends Model
 {
     /**
+     * @example a12*******
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isRelease;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example a12******
+     *
      * @var string
      */
     public $projectId;

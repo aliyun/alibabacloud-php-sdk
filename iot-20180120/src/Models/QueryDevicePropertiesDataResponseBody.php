@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDevicePropertiesDataResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -20,11 +22,15 @@ class QueryDevicePropertiesDataResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 1579249499000
+     *
      * @var int
      */
     public $nextTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $nextValid;
@@ -35,11 +41,15 @@ class QueryDevicePropertiesDataResponseBody extends Model
     public $propertyDataInfos;
 
     /**
+     * @example E55E50B7-40EE-4B6B-8BBE-D3ED55CCF565
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

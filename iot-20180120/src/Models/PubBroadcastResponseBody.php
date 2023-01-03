@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PubBroadcastResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -19,16 +21,22 @@ class PubBroadcastResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 1234291569964771840
+     *
      * @var int
      */
     public $messageId;
 
     /**
+     * @example BB71E443-4447-4024-A000-EDE09922891E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

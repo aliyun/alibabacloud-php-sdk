@@ -15,11 +15,15 @@ class data extends Model
     public $list;
 
     /**
+     * @example Bo***x44Qx
+     *
      * @var string
      */
     public $nextPageToken;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $nextValid;

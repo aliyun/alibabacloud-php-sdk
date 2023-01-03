@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateOTAStaticUpgradeJobResponseBody extends Model
 {
     /**
+     * @example MissingFirmwareId
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class CreateOTAStaticUpgradeJobResponseBody extends Model
     public $data;
 
     /**
+     * @example FirmwareId is mandatory for this action.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 29EC7245-0FA4-4BB6-B4F5-5F04818FDFB1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

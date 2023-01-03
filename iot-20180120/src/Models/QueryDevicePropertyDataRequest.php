@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class QueryDevicePropertyDataRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $asc;
 
     /**
+     * @example airconditioning
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example 1579249499000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example temperature
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example Q7uOhVRdZRRlDnTLv****00100
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example 1579249499000
+     *
      * @var int
      */
     public $startTime;

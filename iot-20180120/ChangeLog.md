@@ -1,3 +1,10 @@
+2023-01-03 Version: 3.0.13
+- Pub Support MessageExpiryInterval and Retained.
+- Rrpc Support ContentType.
+- BatchImportVehicleDevice batch create device by jt808 protocol.
+- BatchCheckVehicleDevice batch check device by jt808 protocol.
+- QueryVehicleDevice query jt808 device information.
+
 2022-12-02 Version: 3.0.12
 - Pub Support PayloadFormatIndicator and ContentType.
 

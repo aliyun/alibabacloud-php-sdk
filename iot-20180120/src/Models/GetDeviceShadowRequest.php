@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetDeviceShadowRequest extends Model
 {
     /**
+     * @example device1
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1T27vz****
+     *
      * @var string
      */
     public $productKey;

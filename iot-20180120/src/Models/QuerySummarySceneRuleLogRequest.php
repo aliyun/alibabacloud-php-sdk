@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class QuerySummarySceneRuleLogRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example 1582373873
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example fec565038d7544978d9aed5c1a******
+     *
      * @var string
      */
     public $ruleId;
 
     /**
+     * @example 1582372973
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $status;

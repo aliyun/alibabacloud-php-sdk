@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class PubBroadcastRequest extends Model
 {
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example aGVsbG93b3JsZA
+     *
      * @var string
      */
     public $messageContent;
 
     /**
+     * @example aldeji3*****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example /broadcast/UPqSxj2vXXX/xxx
+     *
      * @var string
      */
     public $topicFullName;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 123***
+     *
      * @var string
      */
     public $checkProgressId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $failSum;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $progress;
 
     /**
+     * @example http://***
+     *
      * @var string
      */
     public $resultCsvFile;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $successSum;

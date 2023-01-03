@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteDestinationRequest extends Model
 {
     /**
+     * @example 1003
+     *
      * @var int
      */
     public $destinationId;
 
     /**
+     * @example iot-2w****
+     *
      * @var string
      */
     public $iotInstanceId;

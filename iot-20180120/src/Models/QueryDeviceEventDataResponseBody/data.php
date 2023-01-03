@@ -15,11 +15,15 @@ class data extends Model
     public $list;
 
     /**
+     * @example 1579163099000
+     *
      * @var int
      */
     public $nextTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $nextValid;

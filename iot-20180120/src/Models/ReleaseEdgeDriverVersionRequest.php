@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ReleaseEdgeDriverVersionRequest extends Model
 {
     /**
+     * @example fec565038d7544978d9aed5c1a******
+     *
      * @var string
      */
     public $driverId;
 
     /**
+     * @example 1.2.0
+     *
      * @var string
      */
     public $driverVersion;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;

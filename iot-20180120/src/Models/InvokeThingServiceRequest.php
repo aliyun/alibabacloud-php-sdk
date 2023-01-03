@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class InvokeThingServiceRequest extends Model
 {
     /**
+     * @example {"param1":1}
+     *
      * @var string
      */
     public $args;
 
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example Set
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example Q7uOhVRdZRRlDnTLv****00100
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;

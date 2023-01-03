@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class dataSource extends Model
 {
     /**
+     * @example 11111111000000111
+     *
      * @var int
      */
     public $createUserId;
 
     /**
+     * @example 1001
+     *
      * @var int
      */
     public $dataSourceId;
@@ -24,11 +28,15 @@ class dataSource extends Model
     public $description;
 
     /**
+     * @example DataSource
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 2022-03-27T12:45:43.000Z
+     *
      * @var string
      */
     public $utcCreated;

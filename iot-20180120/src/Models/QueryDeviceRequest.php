@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example TGlzdFJlc291cm***
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;

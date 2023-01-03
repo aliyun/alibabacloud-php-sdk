@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SaveScriptRequest extends Model
 {
     /**
+     * @example iot-n8t***
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 1001
+     *
      * @var int
      */
     public $parserId;
 
     /**
+     * @example var data = payload("json")
+     *
      * @var string
      */
     public $scriptDraft;

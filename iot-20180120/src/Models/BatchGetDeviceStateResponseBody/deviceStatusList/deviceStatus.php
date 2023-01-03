@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class deviceStatus extends Model
 {
     /**
+     * @example 192.0.2.1
+     *
      * @var string
      */
     public $asAddress;
 
     /**
+     * @example dwnS41bhNxjslDAI****
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example dwnS41bhNxjslDAI****000100
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example 2020-01-17 16:19:11
+     *
      * @var string
      */
     public $lastOnlineTime;
 
     /**
+     * @example OFFLINE
+     *
      * @var string
      */
     public $status;

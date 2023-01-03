@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1003
+     *
      * @var int
      */
     public $dataSourceId;
@@ -19,36 +21,50 @@ class data extends Model
     public $description;
 
     /**
+     * @example DataParser
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1001
+     *
      * @var int
      */
     public $parserId;
 
     /**
+     * @example var data = payload("json"); var h = data.items.Humidity.value; var t = data.items.Temperature.value; writeTsdb(1000,timestamp(),"temperature", t , {"deviceName":deviceName()}); writeTsdb(1000,timestamp(),"humidity", h , {"deviceName":deviceName()});
+     *
      * @var string
      */
     public $script;
 
     /**
+     * @example var data = payload("json"); var h = data.items.Humidity.value; var t = data.items.Temperature.value; writeTsdb(1000,timestamp(),"temperature", t , {"deviceName":deviceName()}); writeTsdb(1000,timestamp(),"humidity", h , {"deviceName":deviceName()});
+     *
      * @var string
      */
     public $scriptDraft;
 
     /**
+     * @example STOP
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 2022-03-27T12:45:43.000Z
+     *
      * @var string
      */
     public $utcCreated;
 
     /**
+     * @example 2022-04-27T12:45:43.000Z
+     *
      * @var string
      */
     public $utcModified;

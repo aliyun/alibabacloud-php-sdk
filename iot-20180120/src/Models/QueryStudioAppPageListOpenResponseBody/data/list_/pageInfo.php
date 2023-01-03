@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
+     * @example 2020-12-25T16:21Z
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2021-05-08T17:18Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 49739
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isHidden;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isHome;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isLoginPage;
 
     /**
+     * @example test1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 44920
+     *
      * @var string
      */
     public $pageId;
 
     /**
+     * @example /page/44920
+     *
      * @var string
      */
     public $path;

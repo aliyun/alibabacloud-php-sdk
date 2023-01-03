@@ -15,6 +15,8 @@ class items extends Model
     public $label;
 
     /**
+     * @example tongyong
+     *
      * @var string
      */
     public $value;

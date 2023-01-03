@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDestinationRequest extends Model
 {
     /**
+     * @example {"topic":"/a1POX0c****\/device1/user/get","topicType":1}
+     *
      * @var string
      */
     public $configuration;
@@ -19,16 +21,22 @@ class CreateDestinationRequest extends Model
     public $description;
 
     /**
+     * @example iot-2w****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example DataPurpose
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example REPUBLISH
+     *
      * @var string
      */
     public $type;

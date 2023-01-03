@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataSourceItem extends Model
 {
     /**
+     * @example 129322
+     *
      * @var int
      */
     public $dataSourceItemId;
@@ -29,6 +31,8 @@ class dataSourceItem extends Model
     public $scopeType;
 
     /**
+     * @example /gyh***z/+/thing/event/property/post
+     *
      * @var string
      */
     public $topic;

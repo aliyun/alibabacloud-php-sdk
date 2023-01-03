@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class projectInfo extends Model
 {
     /**
+     * @example This is a test project.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1611819839000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1611819860000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example test1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example a123********
+     *
      * @var string
      */
     public $projectId;

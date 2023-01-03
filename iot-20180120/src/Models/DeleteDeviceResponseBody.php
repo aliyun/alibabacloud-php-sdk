@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDeviceResponseBody extends Model
 {
     /**
+     * @example iot.prod.NullProductKey
+     *
      * @var string
      */
     public $code;
@@ -19,11 +21,15 @@ class DeleteDeviceResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 57b144cf-09fc-4916-a272-a62902d5b207
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $success;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class StartParserRequest extends Model
 {
     /**
+     * @example iot-n8t***
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 1001
+     *
      * @var int
      */
     public $parserId;

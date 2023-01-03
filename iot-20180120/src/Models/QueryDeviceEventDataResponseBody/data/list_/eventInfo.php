@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class eventInfo extends Model
 {
     /**
+     * @example info
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @example PowerOff
+     *
      * @var string
      */
     public $identifier;
@@ -24,11 +28,15 @@ class eventInfo extends Model
     public $name;
 
     /**
+     * @example {"structArgs":{"structchildFLOATf71c20e":1.23}}
+     *
      * @var string
      */
     public $outputData;
 
     /**
+     * @example 1579163099000
+     *
      * @var string
      */
     public $time;
