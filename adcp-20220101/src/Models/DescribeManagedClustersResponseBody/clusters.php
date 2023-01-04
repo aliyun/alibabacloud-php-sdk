@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class clusters extends Model
 {
     /**
+     * @description The name of the master instance.
+     *
      * @var cluster
      */
     public $cluster;
 
     /**
+     * @description The status of the association between the clusters and Service Mesh (ASM).
+     *
      * @var meshStatus
      */
     public $meshStatus;
 
     /**
+     * @description The status of the association between the clusters and the master instance.
+     *
      * @var status
      */
     public $status;

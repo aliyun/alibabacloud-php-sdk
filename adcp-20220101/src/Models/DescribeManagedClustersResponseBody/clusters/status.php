@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class status extends Model
 {
     /**
+     * @description The status information.
+     *
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The status of the association between the clusters and the master instance. Valid values: - Installing: The clusters are being associated with the master instance. - Successed: The clusters are associated with the master instance. - Failed: The clusters failed to be associated with the master instance. - Deleting: The clusters are being disassociated from the master instance. - Deleted: The clusters are disassociated from the master instance.
+     *
+     * @example Successed
+     *
      * @var string
      */
     public $state;

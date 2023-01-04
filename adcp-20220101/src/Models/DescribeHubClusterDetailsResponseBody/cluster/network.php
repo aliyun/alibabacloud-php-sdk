@@ -9,26 +9,42 @@ use AlibabaCloud\Tea\Model;
 class network extends Model
 {
     /**
+     * @description The domain name of the master instance.
+     *
+     * @example cluster.local
+     *
      * @var string
      */
     public $clusterDomain;
 
     /**
+     * @description The IP version that is supported by the master instance. Valid values: - ipv4: IPv4. - ipv6: IPv6. - dual: IPv4 and IPv6.
+     *
+     * @example ipv4
+     *
      * @var string
      */
     public $IPStack;
 
     /**
+     * @description The ID of the associated security group.
+     *
      * @var string[]
      */
     public $securityGroupIDs;
 
     /**
+     * @description A list of the vSwitches that are used by the master instance.
+     *
      * @var string[]
      */
     public $vSwitches;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) in which the master instance resides.
+     *
+     * @example vpc-f8ziib1019r9o0hdv2***
+     *
      * @var string
      */
     public $vpcId;

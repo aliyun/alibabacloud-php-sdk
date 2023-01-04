@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeHubClusterDetailsResponseBody extends Model
 {
     /**
+     * @description The details about the master instance.
+     *
      * @var cluster
      */
     public $cluster;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 52C1B7DF-96C1-5214-97B6-1B0859FEAFE5
+     *
      * @var string
      */
     public $requestId;

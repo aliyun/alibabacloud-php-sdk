@@ -9,71 +9,127 @@ use AlibabaCloud\Tea\Model;
 class cluster extends Model
 {
     /**
+     * @description The ID of the master instance.
+     *
+     * @example c2f41fd4599454a9c9ad8b3daafe873ad
+     *
      * @var string
      */
     public $clusterID;
 
     /**
+     * @description The specification of the master instance. Valid values: - ack.pro.small: ACK Pro.
+     *
+     * @example ack.pro.small
+     *
      * @var string
      */
     public $clusterSpec;
 
     /**
+     * @description The type of the master instance.
+     *
+     * @example One
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @description The time when the master instance was created.
+     *
+     * @example 2022-03-23T06:22:28Z
+     *
      * @var string
      */
     public $created;
 
     /**
+     * @description The current Kubernetes version of the master instance.
+     *
+     * @example 1.22.3-aliyun.1
+     *
      * @var string
      */
     public $currentVersion;
 
     /**
+     * @description The original Kubernetes version of the master instance.
+     *
+     * @example 1.20.4-aliyun.1
+     *
      * @var string
      */
     public $initVersion;
 
     /**
+     * @description The name of the master instance.
+     *
+     * @example ackone-heyuan
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The name of the master instance.
+     *
+     * @example Default
+     *
      * @var string
      */
     public $profile;
 
     /**
+     * @description The region in which the master instance resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmx7o7ewyqcby
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The status of the associated clusters. Valid values: - initial: The associated clusters are being initialized. - failed: The associated clustersfailed to be created. - running: The associated clusters are running. - inactive: The associated clusters are inactive. - deleting: The associated clusters are being deleted. - deleted: The associated clusters are deleted.
+     *
+     * @example running
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The time when the master instance was updated.
+     *
+     * @example 2022-03-23T06:22:28Z
+     *
      * @var string
      */
     public $updated;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-m5e0pbkgmhvzecf7enfym
+     *
      * @var string
      */
     public $vSwitchID;
 
     /**
+     * @description VPC ID.
+     *
+     * @example vpc-bp1fhizs9fxuvit06zeb9
+     *
      * @var string
      */
     public $vpcID;

@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Adcp\V20220101\Models;
 
-use AlibabaCloud\SDK\Adcp\V20220101\Models\UpdateHubClusterFeatureRequest\units;
 use AlibabaCloud\Tea\Model;
 
-class UpdateHubClusterFeatureRequest extends Model
+class UpdateHubClusterFeatureShrinkRequest extends Model
 {
     /**
      * @description The ID of the EIP.
@@ -103,9 +102,9 @@ class UpdateHubClusterFeatureRequest extends Model
     public $serverEnabled;
 
     /**
-     * @var units[]
+     * @var string
      */
-    public $units;
+    public $unitsShrink;
     protected $_name = [
         'apiServerEipId'         => 'ApiServerEipId',
         'auditLogEnabled'        => 'AuditLogEnabled',
@@ -119,7 +118,7 @@ class UpdateHubClusterFeatureRequest extends Model
         'publicApiServerEnabled' => 'PublicApiServerEnabled',
         'scheduleMode'           => 'ScheduleMode',
         'serverEnabled'          => 'ServerEnabled',
-        'units'                  => 'Units',
+        'unitsShrink'            => 'Units',
     ];
 
     public function validate()
@@ -165,14 +164,8 @@ class UpdateHubClusterFeatureRequest extends Model
         if (null !== $this->serverEnabled) {
             $res['ServerEnabled'] = $this->serverEnabled;
         }
-        if (null !== $this->units) {
-            $res['Units'] = [];
-            if (null !== $this->units && \is_array($this->units)) {
-                $n = 0;
-                foreach ($this->units as $item) {
-                    $res['Units'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->unitsShrink) {
+            $res['Units'] = $this->unitsShrink;
         }
 
         return $res;
@@ -181,7 +174,7 @@ class UpdateHubClusterFeatureRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateHubClusterFeatureRequest
+     * @return UpdateHubClusterFeatureShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -223,13 +216,7 @@ class UpdateHubClusterFeatureRequest extends Model
             $model->serverEnabled = $map['ServerEnabled'];
         }
         if (isset($map['Units'])) {
-            if (!empty($map['Units'])) {
-                $model->units = [];
-                $n            = 0;
-                foreach ($map['Units'] as $item) {
-                    $model->units[$n++] = null !== $item ? units::fromMap($item) : $item;
-                }
-            }
+            $model->unitsShrink = $map['Units'];
         }
 
         return $model;

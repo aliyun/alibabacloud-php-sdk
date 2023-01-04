@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeHubClusterDetailsRequest extends Model
 {
     /**
+     * @description The ID of the master instance.
+     *
+     * @example c676decda7b8148d69a9aba751877b9d3
+     *
      * @var string
      */
     public $clusterId;

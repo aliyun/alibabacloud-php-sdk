@@ -28,6 +28,7 @@ use AlibabaCloud\SDK\Adcp\V20220101\Models\DetachClusterFromHubRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DetachClusterFromHubResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\UpdateHubClusterFeatureRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\UpdateHubClusterFeatureResponse;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\UpdateHubClusterFeatureShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -564,14 +565,19 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param UpdateHubClusterFeatureRequest $request
+     * @param UpdateHubClusterFeatureRequest $tmpReq
      * @param RuntimeOptions                 $runtime
      *
      * @return UpdateHubClusterFeatureResponse
      */
-    public function updateHubClusterFeatureWithOptions($request, $runtime)
+    public function updateHubClusterFeatureWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new UpdateHubClusterFeatureShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->units)) {
+            $request->unitsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->units, 'Units', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->apiServerEipId)) {
             $query['ApiServerEipId'] = $request->apiServerEipId;
@@ -591,11 +597,26 @@ class Adcp extends OpenApiClient
         if (!Utils::isUnset($request->enableMesh)) {
             $query['EnableMesh'] = $request->enableMesh;
         }
+        if (!Utils::isUnset($request->enabled)) {
+            $query['Enabled'] = $request->enabled;
+        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
+        if (!Utils::isUnset($request->priceLimit)) {
+            $query['PriceLimit'] = $request->priceLimit;
+        }
         if (!Utils::isUnset($request->publicApiServerEnabled)) {
             $query['PublicApiServerEnabled'] = $request->publicApiServerEnabled;
+        }
+        if (!Utils::isUnset($request->scheduleMode)) {
+            $query['ScheduleMode'] = $request->scheduleMode;
+        }
+        if (!Utils::isUnset($request->serverEnabled)) {
+            $query['ServerEnabled'] = $request->serverEnabled;
+        }
+        if (!Utils::isUnset($request->unitsShrink)) {
+            $query['Units'] = $request->unitsShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

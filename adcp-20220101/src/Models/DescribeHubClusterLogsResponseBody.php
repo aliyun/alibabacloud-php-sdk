@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeHubClusterLogsResponseBody extends Model
 {
     /**
+     * @description Brief information about operation logs.
+     *
      * @var logs[]
      */
     public $logs;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 661192D7-25A6-54C2-B643-1129CB7D2768
+     *
      * @var string
      */
     public $requestId;

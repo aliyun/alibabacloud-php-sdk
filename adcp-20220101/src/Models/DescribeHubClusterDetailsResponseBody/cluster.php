@@ -16,36 +16,50 @@ use AlibabaCloud\Tea\Model;
 class cluster extends Model
 {
     /**
+     * @description Information about the API server of the master instance.
+     *
      * @var apiServer
      */
     public $apiServer;
 
     /**
+     * @description The details about the master instance.
+     *
      * @var clusterInfo
      */
     public $clusterInfo;
 
     /**
+     * @description 集群删除条件信息列表
+     *
      * @var conditions[]
      */
     public $conditions;
 
     /**
+     * @description The endpoint of the master instance.
+     *
      * @var endpoints
      */
     public $endpoints;
 
     /**
+     * @description The logging configuration.
+     *
      * @var logConfig
      */
     public $logConfig;
 
     /**
+     * @description The Service Mesh (ASM) configurations.
+     *
      * @var meshConfig
      */
     public $meshConfig;
 
     /**
+     * @description The network configurations of the master instance.
+     *
      * @var network
      */
     public $network;

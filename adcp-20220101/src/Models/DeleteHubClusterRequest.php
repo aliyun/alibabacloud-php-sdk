@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteHubClusterRequest extends Model
 {
     /**
+     * @description The ID of the master instance.
+     *
+     * @example cd90dd24a86fd42f895a1b77df620****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description Specifies whether to forcefully delete the master instance. Valid values: - true: forcefully delete the master instance. - false: does not forcefully delete the master instance. Default value: false.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $force;

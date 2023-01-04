@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class meshConfig extends Model
 {
     /**
+     * @description Indicates whether ASM is enabled. Valid values: - true: ASM is enabled. - false: ASM is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableMesh;
 
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example cb09fda0dc2f94a8397c76638c7ecf***
+     *
      * @var string
      */
     public $meshId;

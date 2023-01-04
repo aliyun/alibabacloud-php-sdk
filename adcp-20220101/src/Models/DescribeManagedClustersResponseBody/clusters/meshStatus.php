@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class meshStatus extends Model
 {
     /**
+     * @description Indicates whether the clusters are associated with ASM instances. Valid values: - true: The clusters are associated with ASM instances. - false: The clusters are not associated with ASM instances.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $inMesh;

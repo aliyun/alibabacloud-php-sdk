@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DetachClusterFromHubRequest extends Model
 {
     /**
+     * @description The ID of the master instance.
+     *
+     * @example cb09fda0dc2f94a8397c76638c7ec****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description A JSON string that can be parsed into a string array. The string specifies the clusters that you want to disassociate from the master instance.
+     *
+     * @example ["c1c731554c1ec4a1ca9bb690ff9ed****"]
+     *
      * @var string
      */
     public $clusterIds;
 
     /**
+     * @description Specifies whether to only disassociate the clusters from Service Mesh (ASM) instances. Valid values: - true: only disassociates the clusters from ASM instances. - false: disassociates the clusters from the master instance and ASM instances.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $detachFromMesh;

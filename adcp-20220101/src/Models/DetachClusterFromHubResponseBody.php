@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class DetachClusterFromHubResponseBody extends Model
 {
     /**
+     * @description The ID of the master instance.
+     *
+     * @example cc490b1e67ccc43a784727f29f33e****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The IDs of the clusters that are disassociated from the master instance.
+     *
      * @var string[]
      */
     public $managedClusterIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4412F213-DBCD-5D1B-A9A1-F6C26C6C19D9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example T-623a96b7bbeaac074b00****
+     *
      * @var string
      */
     public $taskId;

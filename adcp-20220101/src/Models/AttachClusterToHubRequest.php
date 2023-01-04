@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class AttachClusterToHubRequest extends Model
 {
     /**
+     * @description Specifies whether to associate the clusters with Service Mesh (ASM) instances. Valid values:
+     *
+     * @example true
+     *
      * @var bool
      */
     public $attachToMesh;
 
     /**
+     * @description The ID of the master instance.
+     *
+     * @example cd08d62e6506a4fa5a8c44c19d0fc****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description A JSON string that can be parsed into a string array. The string specifies the clusters that you want to associate with the master instance.
+     *
+     * @example ["cdea10134be464ba4acb36cc831a6****"]
+     *
      * @var string
      */
     public $clusterIds;

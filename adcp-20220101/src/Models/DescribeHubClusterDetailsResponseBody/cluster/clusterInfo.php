@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class clusterInfo extends Model
 {
     /**
+     * @description The ID of the master instance.
+     *
+     * @example cb09fda0dc2f94a8397c76638c7ecf***
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The specification of the master instance. Valid values: - ack.pro.small: ACK Pro
+     *
+     * @example ack.pro.small
+     *
      * @var string
      */
     public $clusterSpec;
 
     /**
+     * @description The time when the master instance was created.
+     *
+     * @example 2022-03-23T06:22:28Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The error message that is returned when the system fails to create the master instance.
+     *
+     * @example The specified product does not exist.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The name of the master instance.
+     *
+     * @example ackone-heyuan
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The configurations of the master instance.
+     *
+     * @example Default
+     *
      * @var string
      */
     public $profile;
 
     /**
+     * @description The ID of the region in which the master instance resides.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The status of the master instance. Valid values: - initial: The master instance is being initialized. - failed: The master instance failed to be created. - running: The master instance is running. - inactive: The master instance is inactive. - deleting: The master instance is being deleted. - delete_failed: The master instance failed to be deleted. - deleted: The master instance is deleted.
+     *
+     * @example running
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The time when the master instance was updated.
+     *
+     * @example 2022-03-21T02:51:35.542Z
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @description The Kubernetes version of the master instance.
+     *
+     * @example 1.22.3-aliyun.1
+     *
      * @var string
      */
     public $version;

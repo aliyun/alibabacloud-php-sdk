@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class conditions extends Model
 {
     /**
+     * @description 删除条件错误信息
+     *
+     * @example Successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description 删除条件原因
+     *
+     * @example Successful
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @description 删除条件状态，取值
+     * - Unknow 未知
+     * @example True
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description 删除条件类型
+     *
+     * @example DeletionProtection
+     *
      * @var string
      */
     public $type;

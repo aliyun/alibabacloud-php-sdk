@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class apiServer extends Model
 {
     /**
+     * @description The ID of the elastic IP address (EIP).
+     *
+     * @example eip-abc
+     *
      * @var string
      */
     public $apiServerEipId;
 
     /**
+     * @description Indicates whether a public endpoint is used to expose the API server. Valid values: - true: a public endpoint is used to expose the API server. - false: no public endpoint is used to expose the API server.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enabledPublic;
 
     /**
+     * @description The ID of the Server Load Balancer (SLB) instance.
+     *
+     * @example lb-hp3ioqbfeq37h13rwe***
+     *
      * @var string
      */
     public $loadBalancerId;

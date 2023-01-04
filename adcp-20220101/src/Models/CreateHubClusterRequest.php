@@ -9,41 +9,74 @@ use AlibabaCloud\Tea\Model;
 class CreateHubClusterRequest extends Model
 {
     /**
+     * @description Specifies whether to use a public IP address to expose the API server. Valid values: - true: uses a public IP address to expose the API server. - true: uses an internal IP address to expose the API server.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $apiServerPublicEip;
 
     /**
+     * @description Specifies whether to enable audit logs. Valid values: - true: enables audit logs. - false: disables audit logs.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $auditLogEnabled;
 
     /**
+     * @description Specifies whether the security group is an advanced security group.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isEnterpriseSecurityGroup;
 
     /**
+     * @description The name of the master instance.
+     *
+     * @example ack-demo
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description Scenario-oriented master control type. The value can be:
+     *
+     * Default Value: `Default`.
+     * @example Default
+     *
      * @var string
      */
     public $profile;
 
     /**
+     * @description The ID of the region. You can call the DescribeRegions operation to query available regions.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example ["vsw-2zeaijsas4zkzz81xm***"]
+     *
      * @var string
      */
     public $vSwitches;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the master instance belongs. You can call the DescribeVpcs operation to query available VPCs.
+     *
+     * @example vpc-f8zin0jscsr84s96tg***
+     *
      * @var string
      */
     public $vpcId;
