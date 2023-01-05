@@ -61,9 +61,14 @@ class data extends Model
     public $productLink;
 
     /**
+     * @var float
+     */
+    public $sales;
+
+    /**
      * @example 736
      *
-     * @var float
+     * @var int
      */
     public $salesVolume;
 
@@ -104,6 +109,7 @@ class data extends Model
         'material'         => 'Material',
         'price'            => 'Price',
         'productLink'      => 'ProductLink',
+        'sales'            => 'Sales',
         'salesVolume'      => 'SalesVolume',
         'searchVolume'     => 'SearchVolume',
         'shopId'           => 'ShopId',
@@ -148,6 +154,9 @@ class data extends Model
         }
         if (null !== $this->productLink) {
             $res['ProductLink'] = $this->productLink;
+        }
+        if (null !== $this->sales) {
+            $res['Sales'] = $this->sales;
         }
         if (null !== $this->salesVolume) {
             $res['SalesVolume'] = $this->salesVolume;
@@ -210,6 +219,9 @@ class data extends Model
         }
         if (isset($map['ProductLink'])) {
             $model->productLink = $map['ProductLink'];
+        }
+        if (isset($map['Sales'])) {
+            $model->sales = $map['Sales'];
         }
         if (isset($map['SalesVolume'])) {
             $model->salesVolume = $map['SalesVolume'];
