@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RecognizeFoodRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imagerecog/RecognizeFood/RecognizeFood5.jpg
+     *
      * @var string
      */
     public $imageURL;

@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeFoodAdvanceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imagerecog/RecognizeFood/RecognizeFood5.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;

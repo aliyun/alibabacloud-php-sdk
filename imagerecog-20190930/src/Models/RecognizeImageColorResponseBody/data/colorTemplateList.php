@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class colorTemplateList extends Model
 {
     /**
+     * @example 270315
+     *
      * @var string
      */
     public $color;
 
     /**
+     * @example red
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @example 0.459527
+     *
      * @var float
      */
     public $percentage;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class elements extends Model
 {
     /**
+     * @example false
+     *
      * @var string
      */
     public $pass;
 
     /**
+     * @example 0.06514739990234375
+     *
      * @var string
      */
     public $score;
 
     /**
+     * @example lackoffront
+     *
      * @var string
      */
     public $value;

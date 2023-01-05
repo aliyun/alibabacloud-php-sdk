@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeImageColorAdvanceRequest extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $colorCount;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imagerecog/RecognizeImageColor/RecognizeImageColor1.jpg
+     *
      * @var Stream
      */
     public $urlObject;

@@ -15,6 +15,8 @@ class ClassifyingRubbishResponseBody extends Model
     public $data;
 
     /**
+     * @example 1619647E-92ED-5641-A1D9-F05C33FD294A
+     *
      * @var string
      */
     public $requestId;

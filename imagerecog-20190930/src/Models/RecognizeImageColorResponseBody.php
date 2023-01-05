@@ -15,6 +15,8 @@ class RecognizeImageColorResponseBody extends Model
     public $data;
 
     /**
+     * @example CCC7C1D9-8C0F-58AD-ADE3-C331B83BD6F2
+     *
      * @var string
      */
     public $requestId;

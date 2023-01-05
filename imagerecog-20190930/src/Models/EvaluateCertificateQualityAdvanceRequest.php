@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class EvaluateCertificateQualityAdvanceRequest extends Model
 {
     /**
+     * @example https://viapi-doc.oss-cn-shanghai.aliyuncs.com/imagerecog/xxxxx.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;
 
     /**
+     * @example BusinessLicense
+     *
      * @var string
      */
     public $type;

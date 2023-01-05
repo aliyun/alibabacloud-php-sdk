@@ -14,6 +14,8 @@ class elements extends Model
     public $category;
 
     /**
+     * @example 0.9406
+     *
      * @var float
      */
     public $categoryScore;
@@ -24,6 +26,8 @@ class elements extends Model
     public $rubbish;
 
     /**
+     * @example 0.9406
+     *
      * @var float
      */
     public $rubbishScore;

@@ -15,6 +15,8 @@ class GetAsyncJobResultResponseBody extends Model
     public $data;
 
     /**
+     * @example 572974F0-1014-5C60-97EE-DBFFC0FF7616
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RecognizeVehicleTypeRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imagerecog/RecognizeVehicleType/RecognizeVehicleType5.jpg
+     *
      * @var string
      */
     public $imageURL;

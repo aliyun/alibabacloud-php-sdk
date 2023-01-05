@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class EvaluateCertificateQualityRequest extends Model
 {
     /**
+     * @example https://viapi-doc.oss-cn-shanghai.aliyuncs.com/imagerecog/xxxxx.jpg
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example BusinessLicense
+     *
      * @var string
      */
     public $type;

@@ -15,6 +15,8 @@ class DetectImageElementsResponseBody extends Model
     public $data;
 
     /**
+     * @example 7EE82437-AEC4-5AAF-819F-AB28C23EE0FC
+     *
      * @var string
      */
     public $requestId;

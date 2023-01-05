@@ -15,6 +15,8 @@ class RecognizeVehicleTypeResponseBody extends Model
     public $data;
 
     /**
+     * @example DC2DD4F6-524F-461E-99E0-79A51A6C457B
+     *
      * @var string
      */
     public $requestId;

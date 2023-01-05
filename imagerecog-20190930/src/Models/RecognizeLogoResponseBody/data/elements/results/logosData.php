@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class logosData extends Model
 {
     /**
+     * @example 106
+     *
      * @var float
      */
     public $h;
@@ -19,21 +21,29 @@ class logosData extends Model
     public $name;
 
     /**
+     * @example TV
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 124
+     *
      * @var float
      */
     public $w;
 
     /**
+     * @example 107
+     *
      * @var float
      */
     public $x;
 
     /**
+     * @example 59
+     *
      * @var float
      */
     public $y;

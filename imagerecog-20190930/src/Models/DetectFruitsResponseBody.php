@@ -15,6 +15,8 @@ class DetectFruitsResponseBody extends Model
     public $data;
 
     /**
+     * @example AFD9185D-4966-476C-8BED-5DABB7A0AFB5
+     *
      * @var string
      */
     public $requestId;

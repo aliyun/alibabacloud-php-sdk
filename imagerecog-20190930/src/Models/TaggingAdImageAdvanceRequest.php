@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class TaggingAdImageAdvanceRequest extends Model
 {
     /**
+     * @example https://viapi-demo.oss-cn-shanghai.aliyuncs.com/viapi-demo/images/DetectImageElements/xxxx.png
+     *
      * @var Stream
      */
     public $imageURLObject;

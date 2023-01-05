@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example InvalidParameter
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example paramsIllegal
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 72CFDC08-3FEF-56AA-91E5-B14DE31C09C2
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example {\"tags\":[{\"confidence\":-1,\"value\":\"{\\\"tagInfo\\\": {\\\"humanInfo\\\": [[{\\\"category\\\": \\\"human-real-normal\\\", \\\"score\\\": 0.9690580798778683, \\\"bbox\\\": [77, 280, 431, 569], \\\"cloth_category\\\": \\\"modern\\\", \\\"cloth_category_score\\\": 0.7393399477005005}]], \\\"sceneInfo\\\": [[{\\\"category\\\": \\\"gamescreen-gameeffect\\\", \\\"score\\\": 0.44200169294841274}]], \\\"objectInfo\\\": [null]}}\"}]}
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @example PROCESS_SUCCESS
+     *
      * @var string
      */
     public $status;

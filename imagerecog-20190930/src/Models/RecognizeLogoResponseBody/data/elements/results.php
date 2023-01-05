@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @example TV
+     *
      * @var string
      */
     public $label;
@@ -20,11 +22,15 @@ class results extends Model
     public $logosData;
 
     /**
+     * @example 99.86
+     *
      * @var float
      */
     public $rate;
 
     /**
+     * @example pass
+     *
      * @var string
      */
     public $suggestion;

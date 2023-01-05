@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ClassifyingRubbishRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imagerecog/ClassifyingRubbish/ClassifyingRubbish6.jpg
+     *
      * @var string
      */
     public $imageURL;

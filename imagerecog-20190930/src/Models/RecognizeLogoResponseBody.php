@@ -15,6 +15,8 @@ class RecognizeLogoResponseBody extends Model
     public $data;
 
     /**
+     * @example 915D534B-F2AF-47A1-B6ED-398AEEC22AD3
+     *
      * @var string
      */
     public $requestId;

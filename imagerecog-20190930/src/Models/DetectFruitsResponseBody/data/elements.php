@@ -19,6 +19,8 @@ class elements extends Model
     public $name;
 
     /**
+     * @example 0.7757113575935364
+     *
      * @var float
      */
     public $score;

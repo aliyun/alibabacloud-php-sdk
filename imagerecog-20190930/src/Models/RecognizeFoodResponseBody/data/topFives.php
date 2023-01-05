@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class topFives extends Model
 {
     /**
+     * @example 208
+     *
      * @var string
      */
     public $calorie;
@@ -19,6 +21,8 @@ class topFives extends Model
     public $category;
 
     /**
+     * @example 0.2083740234375
+     *
      * @var float
      */
     public $score;

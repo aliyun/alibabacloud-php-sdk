@@ -15,6 +15,8 @@ class data extends Model
     public $elements;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $sensitive;

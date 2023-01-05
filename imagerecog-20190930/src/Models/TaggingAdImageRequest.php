@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TaggingAdImageRequest extends Model
 {
     /**
+     * @example https://viapi-demo.oss-cn-shanghai.aliyuncs.com/viapi-demo/images/DetectImageElements/xxxx.png
+     *
      * @var string
      */
     public $imageURL;

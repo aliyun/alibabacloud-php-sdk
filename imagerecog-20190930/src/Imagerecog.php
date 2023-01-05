@@ -1077,7 +1077,7 @@ class Imagerecog extends OpenApiClient
         $recognizeLogoReq = new RecognizeLogoRequest([]);
         OpenApiUtilClient::convert($request, $recognizeLogoReq);
         if (!Utils::isUnset($request->tasks)) {
-            $i = 0;
+            $i0 = 0;
             foreach ($request->tasks as $item0) {
                 if (!Utils::isUnset($item0->imageURLObject)) {
                     $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
@@ -1102,15 +1102,14 @@ class Imagerecog extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp           = @$recognizeLogoReq->tasks[${$i}];
+                    $tmp           = @$recognizeLogoReq->tasks[$i0];
                     $tmp->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
-                    $i             = $i + 1;
+                    $i0            = $i0 + 1;
                 }
             }
         }
-        $recognizeLogoResp = $this->recognizeLogoWithOptions($recognizeLogoReq, $runtime);
 
-        return $recognizeLogoResp;
+        return $this->recognizeLogoWithOptions($recognizeLogoReq, $runtime);
     }
 
     /**

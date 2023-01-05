@@ -15,6 +15,8 @@ class EvaluateCertificateQualityResponseBody extends Model
     public $data;
 
     /**
+     * @example 656318DC-3856-43E3-9147-859532721AD6
+     *
      * @var string
      */
     public $requestId;

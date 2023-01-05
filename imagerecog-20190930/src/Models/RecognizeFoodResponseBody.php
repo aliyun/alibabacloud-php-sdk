@@ -15,6 +15,8 @@ class RecognizeFoodResponseBody extends Model
     public $data;
 
     /**
+     * @example 4C2369C5-54E0-4B9F-8ACB-80C4F50AD2DB
+     *
      * @var string
      */
     public $requestId;

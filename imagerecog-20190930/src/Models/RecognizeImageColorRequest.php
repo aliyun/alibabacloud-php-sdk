@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RecognizeImageColorRequest extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $colorCount;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imagerecog/RecognizeImageColor/RecognizeImageColor1.jpg
+     *
      * @var string
      */
     public $url;

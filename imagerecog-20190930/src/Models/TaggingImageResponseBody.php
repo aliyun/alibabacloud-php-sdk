@@ -15,6 +15,8 @@ class TaggingImageResponseBody extends Model
     public $data;
 
     /**
+     * @example 70ED13B0-BC22-576D-9CCF-1CC12FEAC477
+     *
      * @var string
      */
     public $requestId;

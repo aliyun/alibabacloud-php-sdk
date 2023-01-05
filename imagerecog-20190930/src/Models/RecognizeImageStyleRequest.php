@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RecognizeImageStyleRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imagerecog/RecognizeImageStyle/RecognizeImageStyle1.jpg
+     *
      * @var string
      */
     public $url;

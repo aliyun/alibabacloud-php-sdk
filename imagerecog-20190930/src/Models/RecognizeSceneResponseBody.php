@@ -15,6 +15,8 @@ class RecognizeSceneResponseBody extends Model
     public $data;
 
     /**
+     * @example AC79F887-5CCB-42BE-8AC3-4D455EFEDB94
+     *
      * @var string
      */
     public $requestId;

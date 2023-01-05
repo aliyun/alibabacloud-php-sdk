@@ -15,6 +15,8 @@ class data extends Model
     public $elements;
 
     /**
+     * @example 0.9952
+     *
      * @var float
      */
     public $threshold;
