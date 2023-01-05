@@ -9,6 +9,8 @@ use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\CancelVideoTaskRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\CancelVideoTaskResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\CancelVideoTaskShrinkRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\CloseTimedResetOperateRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\CloseTimedResetOperateResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\DuplexDecisionRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\DuplexDecisionResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\DuplexDecisionShrinkRequest;
@@ -18,12 +20,16 @@ use AlibabaCloud\SDK\Avatar\V20220130\Models\GetVideoTaskInfoShrinkRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryRunningInstanceRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryRunningInstanceResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryRunningInstanceShrinkRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryTimedResetOperateStatusRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryTimedResetOperateStatusResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SendMessageRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SendMessageResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SendMessageShrinkRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\StartInstanceRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\StartInstanceResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\StartInstanceShrinkRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\StartTimedResetOperateRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\StartTimedResetOperateResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\StopInstanceRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\StopInstanceResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextTo2DAvatarVideoTaskRequest;
@@ -126,6 +132,52 @@ class Avatar extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelVideoTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CloseTimedResetOperateRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CloseTimedResetOperateResponse
+     */
+    public function closeTimedResetOperateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CloseTimedResetOperate',
+            'version'     => '2022-01-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CloseTimedResetOperateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CloseTimedResetOperateRequest $request
+     *
+     * @return CloseTimedResetOperateResponse
+     */
+    public function closeTimedResetOperate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->closeTimedResetOperateWithOptions($request, $runtime);
     }
 
     /**
@@ -306,6 +358,52 @@ class Avatar extends OpenApiClient
     }
 
     /**
+     * @param QueryTimedResetOperateStatusRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return QueryTimedResetOperateStatusResponse
+     */
+    public function queryTimedResetOperateStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryTimedResetOperateStatus',
+            'version'     => '2022-01-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryTimedResetOperateStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryTimedResetOperateStatusRequest $request
+     *
+     * @return QueryTimedResetOperateStatusResponse
+     */
+    public function queryTimedResetOperateStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryTimedResetOperateStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SendMessageRequest $tmpReq
      * @param RuntimeOptions     $runtime
      *
@@ -432,6 +530,52 @@ class Avatar extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartTimedResetOperateRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return StartTimedResetOperateResponse
+     */
+    public function startTimedResetOperateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartTimedResetOperate',
+            'version'     => '2022-01-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartTimedResetOperateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartTimedResetOperateRequest $request
+     *
+     * @return StartTimedResetOperateResponse
+     */
+    public function startTimedResetOperate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startTimedResetOperateWithOptions($request, $runtime);
     }
 
     /**
