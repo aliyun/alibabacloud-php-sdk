@@ -12,6 +12,7 @@ use AlibabaCloud\SDK\Adcp\V20220101\Models\CreateHubClusterRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\CreateHubClusterResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DeleteHubClusterRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DeleteHubClusterResponse;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DeleteHubClusterShrinkRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterDetailsRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterDetailsResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterKubeconfigRequest;
@@ -210,20 +211,28 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DeleteHubClusterRequest $request
+     * @param DeleteHubClusterRequest $tmpReq
      * @param RuntimeOptions          $runtime
      *
      * @return DeleteHubClusterResponse
      */
-    public function deleteHubClusterWithOptions($request, $runtime)
+    public function deleteHubClusterWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new DeleteHubClusterShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->retainResources)) {
+            $request->retainResourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->retainResources, 'RetainResources', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
         }
         if (!Utils::isUnset($request->force)) {
             $query['Force'] = $request->force;
+        }
+        if (!Utils::isUnset($request->retainResourcesShrink)) {
+            $query['RetainResources'] = $request->retainResourcesShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Adcp\V20220101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteHubClusterRequest extends Model
+class DeleteHubClusterShrinkRequest extends Model
 {
     /**
      * @description The ID of the master instance.
@@ -27,13 +27,13 @@ class DeleteHubClusterRequest extends Model
     public $force;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $retainResources;
+    public $retainResourcesShrink;
     protected $_name = [
-        'clusterId'       => 'ClusterId',
-        'force'           => 'Force',
-        'retainResources' => 'RetainResources',
+        'clusterId'             => 'ClusterId',
+        'force'                 => 'Force',
+        'retainResourcesShrink' => 'RetainResources',
     ];
 
     public function validate()
@@ -49,8 +49,8 @@ class DeleteHubClusterRequest extends Model
         if (null !== $this->force) {
             $res['Force'] = $this->force;
         }
-        if (null !== $this->retainResources) {
-            $res['RetainResources'] = $this->retainResources;
+        if (null !== $this->retainResourcesShrink) {
+            $res['RetainResources'] = $this->retainResourcesShrink;
         }
 
         return $res;
@@ -59,7 +59,7 @@ class DeleteHubClusterRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteHubClusterRequest
+     * @return DeleteHubClusterShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -71,9 +71,7 @@ class DeleteHubClusterRequest extends Model
             $model->force = $map['Force'];
         }
         if (isset($map['RetainResources'])) {
-            if (!empty($map['RetainResources'])) {
-                $model->retainResources = $map['RetainResources'];
-            }
+            $model->retainResourcesShrink = $map['RetainResources'];
         }
 
         return $model;
