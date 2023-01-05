@@ -9,29 +9,37 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
-     */
-    public $params;
-
-    /**
+     * @example TestCustomUserId
+     *
      * @var string
      */
     public $customUserId;
 
     /**
-     * @var string
-     */
-    public $userId;
-
-    /**
+     * @example TestName
+     *
      * @var string
      */
     public $name;
+
+    /**
+     * @example {"age":28, "sex":"male"}
+     *
+     * @var string
+     */
+    public $params;
+
+    /**
+     * @example TestUserId
+     *
+     * @var string
+     */
+    public $userId;
     protected $_name = [
-        'params'       => 'Params',
         'customUserId' => 'CustomUserId',
-        'userId'       => 'UserId',
         'name'         => 'Name',
+        'params'       => 'Params',
+        'userId'       => 'UserId',
     ];
 
     public function validate()
@@ -41,17 +49,17 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->params) {
-            $res['Params'] = $this->params;
-        }
         if (null !== $this->customUserId) {
             $res['CustomUserId'] = $this->customUserId;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->params) {
+            $res['Params'] = $this->params;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -65,17 +73,17 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Params'])) {
-            $model->params = $map['Params'];
-        }
         if (isset($map['CustomUserId'])) {
             $model->customUserId = $map['CustomUserId'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Params'])) {
+            $model->params = $map['Params'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

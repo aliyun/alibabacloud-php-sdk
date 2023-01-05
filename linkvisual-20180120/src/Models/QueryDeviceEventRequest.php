@@ -9,59 +9,77 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceEventRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
-    public $iotId;
-
-    /**
-     * @var int
-     */
-    public $eventType;
-
-    /**
+     * @example 1539507310000
+     *
      * @var int
      */
     public $beginTime;
 
     /**
-     * @var int
-     */
-    public $endTime;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example camera1
+     *
+     * @var string
+     */
+    public $deviceName;
+
+    /**
+     * @example 1539607310000
+     *
+     * @var int
+     */
+    public $endTime;
+
+    /**
+     * @example 0
+     *
+     * @var int
+     */
+    public $eventType;
+
+    /**
+     * @example zLZyi6aOLyOSHa9hsPyD00****
+     *
+     * @var string
+     */
+    public $iotId;
+
+    /**
+     * @example iot-cn-n6w1y****
+     *
+     * @var string
+     */
+    public $iotInstanceId;
+
+    /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
-    public $iotInstanceId;
+    public $productKey;
     protected $_name = [
-        'apiProduct'    => 'ApiProduct',
-        'apiRevision'   => 'ApiRevision',
-        'iotId'         => 'IotId',
-        'eventType'     => 'EventType',
         'beginTime'     => 'BeginTime',
-        'endTime'       => 'EndTime',
         'currentPage'   => 'CurrentPage',
-        'pageSize'      => 'PageSize',
+        'deviceName'    => 'DeviceName',
+        'endTime'       => 'EndTime',
+        'eventType'     => 'EventType',
+        'iotId'         => 'IotId',
         'iotInstanceId' => 'IotInstanceId',
+        'pageSize'      => 'PageSize',
+        'productKey'    => 'ProductKey',
     ];
 
     public function validate()
@@ -71,32 +89,32 @@ class QueryDeviceEventRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
-        if (null !== $this->iotId) {
-            $res['IotId'] = $this->iotId;
-        }
-        if (null !== $this->eventType) {
-            $res['EventType'] = $this->eventType;
-        }
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->deviceName) {
+            $res['DeviceName'] = $this->deviceName;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->eventType) {
+            $res['EventType'] = $this->eventType;
+        }
+        if (null !== $this->iotId) {
+            $res['IotId'] = $this->iotId;
         }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
         }
 
         return $res;
@@ -110,32 +128,32 @@ class QueryDeviceEventRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
-        if (isset($map['IotId'])) {
-            $model->iotId = $map['IotId'];
-        }
-        if (isset($map['EventType'])) {
-            $model->eventType = $map['EventType'];
-        }
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['DeviceName'])) {
+            $model->deviceName = $map['DeviceName'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['EventType'])) {
+            $model->eventType = $map['EventType'];
+        }
+        if (isset($map['IotId'])) {
+            $model->iotId = $map['IotId'];
         }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
         }
 
         return $model;

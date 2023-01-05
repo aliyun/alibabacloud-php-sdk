@@ -9,29 +9,45 @@ use AlibabaCloud\Tea\Model;
 class DeleteEventRecordPlanDeviceRequest extends Model
 {
     /**
+     * @example camera1
+     *
      * @var string
      */
-    public $apiProduct;
+    public $deviceName;
 
     /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
+     * @example zLZyi6aOLyOSHa9hsPyD00****
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example iot-cn-n6w1y59****
+     *
+     * @var string
+     */
+    public $iotInstanceId;
+
+    /**
+     * @example a1BwAGV****
+     *
+     * @var string
+     */
+    public $productKey;
+
+    /**
+     * @example 0
+     *
      * @var int
      */
     public $streamType;
     protected $_name = [
-        'apiProduct'  => 'ApiProduct',
-        'apiRevision' => 'ApiRevision',
-        'iotId'       => 'IotId',
-        'streamType'  => 'StreamType',
+        'deviceName'    => 'DeviceName',
+        'iotId'         => 'IotId',
+        'iotInstanceId' => 'IotInstanceId',
+        'productKey'    => 'ProductKey',
+        'streamType'    => 'StreamType',
     ];
 
     public function validate()
@@ -41,14 +57,17 @@ class DeleteEventRecordPlanDeviceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
+        if (null !== $this->deviceName) {
+            $res['DeviceName'] = $this->deviceName;
         }
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
+        }
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
         }
         if (null !== $this->streamType) {
             $res['StreamType'] = $this->streamType;
@@ -65,14 +84,17 @@ class DeleteEventRecordPlanDeviceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
+        if (isset($map['DeviceName'])) {
+            $model->deviceName = $map['DeviceName'];
         }
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
+        }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
         }
         if (isset($map['StreamType'])) {
             $model->streamType = $map['StreamType'];

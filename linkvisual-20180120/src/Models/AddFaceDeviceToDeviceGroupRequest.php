@@ -9,47 +9,45 @@ use AlibabaCloud\Tea\Model;
 class AddFaceDeviceToDeviceGroupRequest extends Model
 {
     /**
+     * @example kvjyhurc
+     *
      * @var string
      */
-    public $apiProduct;
+    public $deviceGroupId;
 
     /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
-    public $isolationId;
-
-    /**
-     * @var string
-     */
-    public $iotInstanceId;
-
-    /**
-     * @var string
-     */
-    public $productKey;
-
-    /**
+     * @example TestDevice
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example TestInstanceId
+     *
      * @var string
      */
-    public $deviceGroupId;
+    public $iotInstanceId;
+
+    /**
+     * @example TestIsolationId
+     *
+     * @var string
+     */
+    public $isolationId;
+
+    /**
+     * @example a1Tp7KYZHHK
+     *
+     * @var string
+     */
+    public $productKey;
     protected $_name = [
-        'apiProduct'    => 'ApiProduct',
-        'apiRevision'   => 'ApiRevision',
-        'isolationId'   => 'IsolationId',
-        'iotInstanceId' => 'IotInstanceId',
-        'productKey'    => 'ProductKey',
-        'deviceName'    => 'DeviceName',
         'deviceGroupId' => 'DeviceGroupId',
+        'deviceName'    => 'DeviceName',
+        'iotInstanceId' => 'IotInstanceId',
+        'isolationId'   => 'IsolationId',
+        'productKey'    => 'ProductKey',
     ];
 
     public function validate()
@@ -59,26 +57,20 @@ class AddFaceDeviceToDeviceGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
-        if (null !== $this->isolationId) {
-            $res['IsolationId'] = $this->isolationId;
-        }
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
+        if (null !== $this->deviceGroupId) {
+            $res['DeviceGroupId'] = $this->deviceGroupId;
         }
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
-        if (null !== $this->deviceGroupId) {
-            $res['DeviceGroupId'] = $this->deviceGroupId;
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
+        }
+        if (null !== $this->isolationId) {
+            $res['IsolationId'] = $this->isolationId;
+        }
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
         }
 
         return $res;
@@ -92,26 +84,20 @@ class AddFaceDeviceToDeviceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
-        if (isset($map['IsolationId'])) {
-            $model->isolationId = $map['IsolationId'];
-        }
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
+        if (isset($map['DeviceGroupId'])) {
+            $model->deviceGroupId = $map['DeviceGroupId'];
         }
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
         }
-        if (isset($map['DeviceGroupId'])) {
-            $model->deviceGroupId = $map['DeviceGroupId'];
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
+        }
+        if (isset($map['IsolationId'])) {
+            $model->isolationId = $map['IsolationId'];
+        }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
         }
 
         return $model;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class userGroupList extends Model
 {
     /**
+     * @example 2020-05-12 17:12:37
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example TestUserGroupId
+     *
      * @var string
      */
     public $userGroupId;
 
     /**
+     * @example TestUserGroupName
+     *
      * @var string
      */
     public $userGroupName;

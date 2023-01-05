@@ -9,29 +9,29 @@ use AlibabaCloud\Tea\Model;
 class BindPictureSearchAppWithDevicesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
+     * @example 5a502d3fbab8410e8fd4be9037c7****
+     *
      * @var string
      */
     public $appInstanceId;
 
     /**
+     * @example VrJwPGjC1sJlqPjZA3cxg4****
+     *
      * @var string[]
      */
     public $deviceIotIds;
+
+    /**
+     * @example iot-060a****
+     *
+     * @var string
+     */
+    public $iotInstanceId;
     protected $_name = [
-        'apiProduct'    => 'ApiProduct',
-        'apiRevision'   => 'ApiRevision',
         'appInstanceId' => 'AppInstanceId',
         'deviceIotIds'  => 'DeviceIotIds',
+        'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
@@ -41,17 +41,14 @@ class BindPictureSearchAppWithDevicesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->appInstanceId) {
             $res['AppInstanceId'] = $this->appInstanceId;
         }
         if (null !== $this->deviceIotIds) {
             $res['DeviceIotIds'] = $this->deviceIotIds;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
 
         return $res;
@@ -65,12 +62,6 @@ class BindPictureSearchAppWithDevicesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['AppInstanceId'])) {
             $model->appInstanceId = $map['AppInstanceId'];
         }
@@ -78,6 +69,9 @@ class BindPictureSearchAppWithDevicesRequest extends Model
             if (!empty($map['DeviceIotIds'])) {
                 $model->deviceIotIds = $map['DeviceIotIds'];
             }
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
 
         return $model;

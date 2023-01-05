@@ -15,18 +15,22 @@ class data extends Model
     public $list;
 
     /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
+
+    /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $pageSize;
     protected $_name = [
         'list'     => 'List',
-        'pageSize' => 'PageSize',
         'page'     => 'Page',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()
@@ -45,11 +49,11 @@ class data extends Model
                 }
             }
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->page) {
             $res['Page'] = $this->page;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -72,11 +76,11 @@ class data extends Model
                 }
             }
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

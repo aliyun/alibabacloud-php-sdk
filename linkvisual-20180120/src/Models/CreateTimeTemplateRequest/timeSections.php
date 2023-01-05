@@ -9,22 +9,28 @@ use AlibabaCloud\Tea\Model;
 class timeSections extends Model
 {
     /**
-     * @var int
-     */
-    public $dayOfWeek;
-
-    /**
+     * @example 20000
+     *
      * @var int
      */
     public $begin;
 
     /**
+     * @example 0
+     *
+     * @var int
+     */
+    public $dayOfWeek;
+
+    /**
+     * @example 60000
+     *
      * @var int
      */
     public $end;
     protected $_name = [
-        'dayOfWeek' => 'DayOfWeek',
         'begin'     => 'Begin',
+        'dayOfWeek' => 'DayOfWeek',
         'end'       => 'End',
     ];
 
@@ -35,11 +41,11 @@ class timeSections extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dayOfWeek) {
-            $res['DayOfWeek'] = $this->dayOfWeek;
-        }
         if (null !== $this->begin) {
             $res['Begin'] = $this->begin;
+        }
+        if (null !== $this->dayOfWeek) {
+            $res['DayOfWeek'] = $this->dayOfWeek;
         }
         if (null !== $this->end) {
             $res['End'] = $this->end;
@@ -56,11 +62,11 @@ class timeSections extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DayOfWeek'])) {
-            $model->dayOfWeek = $map['DayOfWeek'];
-        }
         if (isset($map['Begin'])) {
             $model->begin = $map['Begin'];
+        }
+        if (isset($map['DayOfWeek'])) {
+            $model->dayOfWeek = $map['DayOfWeek'];
         }
         if (isset($map['End'])) {
             $model->end = $map['End'];

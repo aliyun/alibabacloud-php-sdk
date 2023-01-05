@@ -9,71 +9,93 @@ use AlibabaCloud\Tea\Model;
 class QueryRecordRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
-    public $iotId;
-
-    /**
-     * @var int
-     */
-    public $streamType;
-
-    /**
+     * @example 1508200012
+     *
      * @var int
      */
     public $beginTime;
 
     /**
-     * @var int
-     */
-    public $endTime;
-
-    /**
-     * @var int
-     */
-    public $recordType;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @var int
+     * @example camera1
+     *
+     * @var string
      */
-    public $pageSize;
+    public $deviceName;
 
     /**
+     * @example 1582420940
+     *
+     * @var int
+     */
+    public $endTime;
+
+    /**
+     * @example C47T6xwp6ms4bNlkHRWCg4****
+     *
+     * @var string
+     */
+    public $iotId;
+
+    /**
+     * @example iot-060a****
+     *
+     * @var string
+     */
+    public $iotInstanceId;
+
+    /**
+     * @example true
+     *
      * @var bool
      */
     public $needSnapshot;
 
     /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
-    public $iotInstanceId;
+    public $productKey;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $recordType;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $streamType;
     protected $_name = [
-        'apiProduct'    => 'ApiProduct',
-        'apiRevision'   => 'ApiRevision',
-        'iotId'         => 'IotId',
-        'streamType'    => 'StreamType',
         'beginTime'     => 'BeginTime',
-        'endTime'       => 'EndTime',
-        'recordType'    => 'RecordType',
         'currentPage'   => 'CurrentPage',
-        'pageSize'      => 'PageSize',
-        'needSnapshot'  => 'NeedSnapshot',
+        'deviceName'    => 'DeviceName',
+        'endTime'       => 'EndTime',
+        'iotId'         => 'IotId',
         'iotInstanceId' => 'IotInstanceId',
+        'needSnapshot'  => 'NeedSnapshot',
+        'pageSize'      => 'PageSize',
+        'productKey'    => 'ProductKey',
+        'recordType'    => 'RecordType',
+        'streamType'    => 'StreamType',
     ];
 
     public function validate()
@@ -83,38 +105,38 @@ class QueryRecordRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
-        if (null !== $this->iotId) {
-            $res['IotId'] = $this->iotId;
-        }
-        if (null !== $this->streamType) {
-            $res['StreamType'] = $this->streamType;
-        }
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->recordType) {
-            $res['RecordType'] = $this->recordType;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->deviceName) {
+            $res['DeviceName'] = $this->deviceName;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->iotId) {
+            $res['IotId'] = $this->iotId;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->needSnapshot) {
             $res['NeedSnapshot'] = $this->needSnapshot;
         }
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
+        }
+        if (null !== $this->recordType) {
+            $res['RecordType'] = $this->recordType;
+        }
+        if (null !== $this->streamType) {
+            $res['StreamType'] = $this->streamType;
         }
 
         return $res;
@@ -128,38 +150,38 @@ class QueryRecordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
-        if (isset($map['IotId'])) {
-            $model->iotId = $map['IotId'];
-        }
-        if (isset($map['StreamType'])) {
-            $model->streamType = $map['StreamType'];
-        }
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['RecordType'])) {
-            $model->recordType = $map['RecordType'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['DeviceName'])) {
+            $model->deviceName = $map['DeviceName'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['IotId'])) {
+            $model->iotId = $map['IotId'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['NeedSnapshot'])) {
             $model->needSnapshot = $map['NeedSnapshot'];
         }
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
+        }
+        if (isset($map['RecordType'])) {
+            $model->recordType = $map['RecordType'];
+        }
+        if (isset($map['StreamType'])) {
+            $model->streamType = $map['StreamType'];
         }
 
         return $model;

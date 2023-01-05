@@ -10,35 +10,43 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @var timeSectionList[]
-     */
-    public $timeSectionList;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $allDay;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $default;
 
     /**
+     * @example exampleName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example adxxx
+     *
      * @var string
      */
     public $templateId;
+
+    /**
+     * @var timeSectionList[]
+     */
+    public $timeSectionList;
     protected $_name = [
-        'timeSectionList' => 'TimeSectionList',
         'allDay'          => 'AllDay',
         'default'         => 'Default',
         'name'            => 'Name',
         'templateId'      => 'TemplateId',
+        'timeSectionList' => 'TimeSectionList',
     ];
 
     public function validate()
@@ -48,15 +56,6 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timeSectionList) {
-            $res['TimeSectionList'] = [];
-            if (null !== $this->timeSectionList && \is_array($this->timeSectionList)) {
-                $n = 0;
-                foreach ($this->timeSectionList as $item) {
-                    $res['TimeSectionList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->allDay) {
             $res['AllDay'] = $this->allDay;
         }
@@ -69,6 +68,15 @@ class list_ extends Model
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
+        if (null !== $this->timeSectionList) {
+            $res['TimeSectionList'] = [];
+            if (null !== $this->timeSectionList && \is_array($this->timeSectionList)) {
+                $n = 0;
+                foreach ($this->timeSectionList as $item) {
+                    $res['TimeSectionList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -76,20 +84,11 @@ class list_ extends Model
     /**
      * @param array $map
      *
-     * @return list
+     * @return list_
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TimeSectionList'])) {
-            if (!empty($map['TimeSectionList'])) {
-                $model->timeSectionList = [];
-                $n                      = 0;
-                foreach ($map['TimeSectionList'] as $item) {
-                    $model->timeSectionList[$n++] = null !== $item ? timeSectionList::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['AllDay'])) {
             $model->allDay = $map['AllDay'];
         }
@@ -101,6 +100,15 @@ class list_ extends Model
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TimeSectionList'])) {
+            if (!empty($map['TimeSectionList'])) {
+                $model->timeSectionList = [];
+                $n                      = 0;
+                foreach ($map['TimeSectionList'] as $item) {
+                    $model->timeSectionList[$n++] = null !== $item ? timeSectionList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

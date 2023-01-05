@@ -9,41 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ClearFaceDeviceDBRequest extends Model
 {
     /**
+     * @example TestDevice_1
+     *
      * @var string
      */
-    public $apiProduct;
+    public $deviceName;
 
     /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
-    public $isolationId;
-
-    /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example ZheJiangHZ
+     *
+     * @var string
+     */
+    public $isolationId;
+
+    /**
+     * @example a1Wmy******
+     *
      * @var string
      */
     public $productKey;
-
-    /**
-     * @var string
-     */
-    public $deviceName;
     protected $_name = [
-        'apiProduct'    => 'ApiProduct',
-        'apiRevision'   => 'ApiRevision',
-        'isolationId'   => 'IsolationId',
-        'iotInstanceId' => 'IotInstanceId',
-        'productKey'    => 'ProductKey',
         'deviceName'    => 'DeviceName',
+        'iotInstanceId' => 'IotInstanceId',
+        'isolationId'   => 'IsolationId',
+        'productKey'    => 'ProductKey',
     ];
 
     public function validate()
@@ -53,23 +49,17 @@ class ClearFaceDeviceDBRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
-        if (null !== $this->isolationId) {
-            $res['IsolationId'] = $this->isolationId;
+        if (null !== $this->deviceName) {
+            $res['DeviceName'] = $this->deviceName;
         }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+        if (null !== $this->isolationId) {
+            $res['IsolationId'] = $this->isolationId;
+        }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
-        }
-        if (null !== $this->deviceName) {
-            $res['DeviceName'] = $this->deviceName;
         }
 
         return $res;
@@ -83,23 +73,17 @@ class ClearFaceDeviceDBRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
-        if (isset($map['IsolationId'])) {
-            $model->isolationId = $map['IsolationId'];
+        if (isset($map['DeviceName'])) {
+            $model->deviceName = $map['DeviceName'];
         }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+        if (isset($map['IsolationId'])) {
+            $model->isolationId = $map['IsolationId'];
+        }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
-        }
-        if (isset($map['DeviceName'])) {
-            $model->deviceName = $map['DeviceName'];
         }
 
         return $model;

@@ -9,35 +9,45 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example ni1iyxqry0j03plv
+     *
      * @var string
      */
-    public $deviceGroupId;
+    public $controlId;
 
     /**
-     * @var string
-     */
-    public $modifiedTime;
-
-    /**
+     * @example SYNC_INFO_PICTURE
+     *
      * @var string
      */
     public $controlType;
 
     /**
+     * @example TestDeviceGroupId
+     *
+     * @var string
+     */
+    public $deviceGroupId;
+
+    /**
+     * @example 2020-05-12 17:12:37
+     *
+     * @var string
+     */
+    public $modifiedTime;
+
+    /**
+     * @example TestUserGroupId
+     *
      * @var string
      */
     public $userGroupId;
-
-    /**
-     * @var string
-     */
-    public $controlId;
     protected $_name = [
+        'controlId'     => 'ControlId',
+        'controlType'   => 'ControlType',
         'deviceGroupId' => 'DeviceGroupId',
         'modifiedTime'  => 'ModifiedTime',
-        'controlType'   => 'ControlType',
         'userGroupId'   => 'UserGroupId',
-        'controlId'     => 'ControlId',
     ];
 
     public function validate()
@@ -47,20 +57,20 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->controlId) {
+            $res['ControlId'] = $this->controlId;
+        }
+        if (null !== $this->controlType) {
+            $res['ControlType'] = $this->controlType;
+        }
         if (null !== $this->deviceGroupId) {
             $res['DeviceGroupId'] = $this->deviceGroupId;
         }
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
         }
-        if (null !== $this->controlType) {
-            $res['ControlType'] = $this->controlType;
-        }
         if (null !== $this->userGroupId) {
             $res['UserGroupId'] = $this->userGroupId;
-        }
-        if (null !== $this->controlId) {
-            $res['ControlId'] = $this->controlId;
         }
 
         return $res;
@@ -74,20 +84,20 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ControlId'])) {
+            $model->controlId = $map['ControlId'];
+        }
+        if (isset($map['ControlType'])) {
+            $model->controlType = $map['ControlType'];
+        }
         if (isset($map['DeviceGroupId'])) {
             $model->deviceGroupId = $map['DeviceGroupId'];
         }
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
         }
-        if (isset($map['ControlType'])) {
-            $model->controlType = $map['ControlType'];
-        }
         if (isset($map['UserGroupId'])) {
             $model->userGroupId = $map['UserGroupId'];
-        }
-        if (isset($map['ControlId'])) {
-            $model->controlId = $map['ControlId'];
         }
 
         return $model;

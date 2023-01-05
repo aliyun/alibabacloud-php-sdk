@@ -9,17 +9,21 @@ use AlibabaCloud\Tea\Model;
 class cryptoKey extends Model
 {
     /**
-     * @var string
-     */
-    public $key;
-
-    /**
+     * @example MDEyMzQ1Njc4********0+Pw==
+     *
      * @var string
      */
     public $iv;
+
+    /**
+     * @example bPvz6tnfonP1E+********v2Q==
+     *
+     * @var string
+     */
+    public $key;
     protected $_name = [
-        'key' => 'Key',
         'iv'  => 'Iv',
+        'key' => 'Key',
     ];
 
     public function validate()
@@ -29,11 +33,11 @@ class cryptoKey extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
-        }
         if (null !== $this->iv) {
             $res['Iv'] = $this->iv;
+        }
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
         }
 
         return $res;
@@ -47,11 +51,11 @@ class cryptoKey extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
-        }
         if (isset($map['Iv'])) {
             $model->iv = $map['Iv'];
+        }
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
         }
 
         return $model;

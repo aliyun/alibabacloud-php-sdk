@@ -9,47 +9,61 @@ use AlibabaCloud\Tea\Model;
 class TriggerRecordRequest extends Model
 {
     /**
+     * @example camera1
+     *
      * @var string
      */
-    public $apiProduct;
+    public $deviceName;
 
     /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
+     * @example zLZyi6aOLyOSHa****yD000100
+     *
      * @var string
      */
     public $iotId;
 
     /**
-     * @var int
+     * @example iot-cn-n6w1y5****0t
+     *
+     * @var string
      */
-    public $streamType;
+    public $iotInstanceId;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $preRecordDuration;
 
     /**
+     * @example a1BwAGV****
+     *
+     * @var string
+     */
+    public $productKey;
+
+    /**
+     * @example 60
+     *
      * @var int
      */
     public $recordDuration;
 
     /**
-     * @var string
+     * @example 0
+     *
+     * @var int
      */
-    public $iotInstanceId;
+    public $streamType;
     protected $_name = [
-        'apiProduct'        => 'ApiProduct',
-        'apiRevision'       => 'ApiRevision',
+        'deviceName'        => 'DeviceName',
         'iotId'             => 'IotId',
-        'streamType'        => 'StreamType',
-        'preRecordDuration' => 'PreRecordDuration',
-        'recordDuration'    => 'RecordDuration',
         'iotInstanceId'     => 'IotInstanceId',
+        'preRecordDuration' => 'PreRecordDuration',
+        'productKey'        => 'ProductKey',
+        'recordDuration'    => 'RecordDuration',
+        'streamType'        => 'StreamType',
     ];
 
     public function validate()
@@ -59,26 +73,26 @@ class TriggerRecordRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
+        if (null !== $this->deviceName) {
+            $res['DeviceName'] = $this->deviceName;
         }
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
         }
-        if (null !== $this->streamType) {
-            $res['StreamType'] = $this->streamType;
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->preRecordDuration) {
             $res['PreRecordDuration'] = $this->preRecordDuration;
         }
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
+        }
         if (null !== $this->recordDuration) {
             $res['RecordDuration'] = $this->recordDuration;
         }
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
+        if (null !== $this->streamType) {
+            $res['StreamType'] = $this->streamType;
         }
 
         return $res;
@@ -92,26 +106,26 @@ class TriggerRecordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
+        if (isset($map['DeviceName'])) {
+            $model->deviceName = $map['DeviceName'];
         }
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];
         }
-        if (isset($map['StreamType'])) {
-            $model->streamType = $map['StreamType'];
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['PreRecordDuration'])) {
             $model->preRecordDuration = $map['PreRecordDuration'];
         }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
+        }
         if (isset($map['RecordDuration'])) {
             $model->recordDuration = $map['RecordDuration'];
         }
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
+        if (isset($map['StreamType'])) {
+            $model->streamType = $map['StreamType'];
         }
 
         return $model;

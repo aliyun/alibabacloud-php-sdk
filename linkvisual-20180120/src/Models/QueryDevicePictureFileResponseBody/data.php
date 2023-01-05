@@ -9,35 +9,45 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1CJ0***kQi1000000
+     *
      * @var string
      */
-    public $picUrl;
+    public $iotId;
 
     /**
+     * @example 1632453652222
+     *
      * @var int
      */
     public $picCreateTime;
 
     /**
+     * @example R****bVhsNCjMjIy
+     *
      * @var string
      */
     public $picId;
 
     /**
+     * @example https://link-vision-picture-sh.oss-cn-shanghai.aliyuncs.com/E***3D
+     *
+     * @var string
+     */
+    public $picUrl;
+
+    /**
+     * @example https://link-vision-picture-sh.oss-cn-shanghai.aliyuncs.com/E***2Cq_90
+     *
      * @var string
      */
     public $thumbUrl;
-
-    /**
-     * @var string
-     */
-    public $iotId;
     protected $_name = [
-        'picUrl'        => 'PicUrl',
+        'iotId'         => 'IotId',
         'picCreateTime' => 'PicCreateTime',
         'picId'         => 'PicId',
+        'picUrl'        => 'PicUrl',
         'thumbUrl'      => 'ThumbUrl',
-        'iotId'         => 'IotId',
     ];
 
     public function validate()
@@ -47,8 +57,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->picUrl) {
-            $res['PicUrl'] = $this->picUrl;
+        if (null !== $this->iotId) {
+            $res['IotId'] = $this->iotId;
         }
         if (null !== $this->picCreateTime) {
             $res['PicCreateTime'] = $this->picCreateTime;
@@ -56,11 +66,11 @@ class data extends Model
         if (null !== $this->picId) {
             $res['PicId'] = $this->picId;
         }
+        if (null !== $this->picUrl) {
+            $res['PicUrl'] = $this->picUrl;
+        }
         if (null !== $this->thumbUrl) {
             $res['ThumbUrl'] = $this->thumbUrl;
-        }
-        if (null !== $this->iotId) {
-            $res['IotId'] = $this->iotId;
         }
 
         return $res;
@@ -74,8 +84,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PicUrl'])) {
-            $model->picUrl = $map['PicUrl'];
+        if (isset($map['IotId'])) {
+            $model->iotId = $map['IotId'];
         }
         if (isset($map['PicCreateTime'])) {
             $model->picCreateTime = $map['PicCreateTime'];
@@ -83,11 +93,11 @@ class data extends Model
         if (isset($map['PicId'])) {
             $model->picId = $map['PicId'];
         }
+        if (isset($map['PicUrl'])) {
+            $model->picUrl = $map['PicUrl'];
+        }
         if (isset($map['ThumbUrl'])) {
             $model->thumbUrl = $map['ThumbUrl'];
-        }
-        if (isset($map['IotId'])) {
-            $model->iotId = $map['IotId'];
         }
 
         return $model;

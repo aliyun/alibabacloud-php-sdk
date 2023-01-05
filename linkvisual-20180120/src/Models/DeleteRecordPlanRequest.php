@@ -9,23 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DeleteRecordPlanRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
+     * @example 6c5a397bc17c4b48ace86f0f0c30****
+     *
      * @var string
      */
     public $planId;
     protected $_name = [
-        'apiProduct'  => 'ApiProduct',
-        'apiRevision' => 'ApiRevision',
-        'planId'      => 'PlanId',
+        'planId' => 'PlanId',
     ];
 
     public function validate()
@@ -35,12 +25,6 @@ class DeleteRecordPlanRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->planId) {
             $res['PlanId'] = $this->planId;
         }
@@ -56,12 +40,6 @@ class DeleteRecordPlanRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['PlanId'])) {
             $model->planId = $map['PlanId'];
         }

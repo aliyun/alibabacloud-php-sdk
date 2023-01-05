@@ -9,17 +9,21 @@ use AlibabaCloud\Tea\Model;
 class pageData extends Model
 {
     /**
-     * @var string
-     */
-    public $nickName;
-
-    /**
+     * @example VrJwPGjC1sJlqPjZA3cxg4****
+     *
      * @var string
      */
     public $iotId;
+
+    /**
+     * @example camera1
+     *
+     * @var string
+     */
+    public $nickName;
     protected $_name = [
-        'nickName' => 'NickName',
         'iotId'    => 'IotId',
+        'nickName' => 'NickName',
     ];
 
     public function validate()
@@ -29,11 +33,11 @@ class pageData extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nickName) {
-            $res['NickName'] = $this->nickName;
-        }
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
+        }
+        if (null !== $this->nickName) {
+            $res['NickName'] = $this->nickName;
         }
 
         return $res;
@@ -47,11 +51,11 @@ class pageData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NickName'])) {
-            $model->nickName = $map['NickName'];
-        }
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];
+        }
+        if (isset($map['NickName'])) {
+            $model->nickName = $map['NickName'];
         }
 
         return $model;

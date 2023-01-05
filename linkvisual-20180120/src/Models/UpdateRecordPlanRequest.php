@@ -9,35 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateRecordPlanRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
-    public $planId;
-
-    /**
+     * @example test1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 6c5a397bc17c4b48ace86f0f0c30****
+     *
+     * @var string
+     */
+    public $planId;
+
+    /**
+     * @example 36f06322442e4e3f85a5ae8862c9****
+     *
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'apiProduct'  => 'ApiProduct',
-        'apiRevision' => 'ApiRevision',
-        'planId'      => 'PlanId',
-        'name'        => 'Name',
-        'templateId'  => 'TemplateId',
+        'name'       => 'Name',
+        'planId'     => 'PlanId',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()
@@ -47,17 +41,11 @@ class UpdateRecordPlanRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->planId) {
             $res['PlanId'] = $this->planId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
@@ -74,17 +62,11 @@ class UpdateRecordPlanRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['PlanId'])) {
             $model->planId = $map['PlanId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];

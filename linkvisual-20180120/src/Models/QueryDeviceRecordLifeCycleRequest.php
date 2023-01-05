@@ -9,23 +9,13 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceRecordLifeCycleRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
+     * @example ["C47T6xwp6ms4bNlkHRWCg4****", "d7XmBoJhAr88C6PelXDF00****"]
+     *
      * @var string[]
      */
     public $deviceList;
     protected $_name = [
-        'apiProduct'  => 'ApiProduct',
-        'apiRevision' => 'ApiRevision',
-        'deviceList'  => 'DeviceList',
+        'deviceList' => 'DeviceList',
     ];
 
     public function validate()
@@ -35,12 +25,6 @@ class QueryDeviceRecordLifeCycleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->deviceList) {
             $res['DeviceList'] = $this->deviceList;
         }
@@ -56,12 +40,6 @@ class QueryDeviceRecordLifeCycleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['DeviceList'])) {
             if (!empty($map['DeviceList'])) {
                 $model->deviceList = $map['DeviceList'];

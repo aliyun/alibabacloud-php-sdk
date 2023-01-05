@@ -9,28 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DeleteEventRecordPlanDeviceResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example tenant auth error
+     *
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @example 06DC77A0-4622-42DB-9EE0-25FIOHS82JK1
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'errorMessage' => 'ErrorMessage',
         'code'         => 'Code',
+        'errorMessage' => 'ErrorMessage',
+        'requestId'    => 'RequestId',
         'success'      => 'Success',
     ];
 
@@ -41,14 +49,14 @@ class DeleteEventRecordPlanDeviceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -65,14 +73,14 @@ class DeleteEventRecordPlanDeviceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

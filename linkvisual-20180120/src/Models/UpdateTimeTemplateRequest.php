@@ -10,40 +10,34 @@ use AlibabaCloud\Tea\Model;
 class UpdateTimeTemplateRequest extends Model
 {
     /**
-     * @var string
+     * @example 0
+     *
+     * @var int
      */
-    public $apiProduct;
+    public $allDay;
 
     /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
-    public $templateId;
-
-    /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
-     * @var int
+     * @example fc82774fa749485bad7d719f9670****
+     *
+     * @var string
      */
-    public $allDay;
+    public $templateId;
 
     /**
      * @var timeSections[]
      */
     public $timeSections;
     protected $_name = [
-        'apiProduct'   => 'ApiProduct',
-        'apiRevision'  => 'ApiRevision',
-        'templateId'   => 'TemplateId',
-        'name'         => 'Name',
         'allDay'       => 'AllDay',
+        'name'         => 'Name',
+        'templateId'   => 'TemplateId',
         'timeSections' => 'TimeSections',
     ];
 
@@ -54,20 +48,14 @@ class UpdateTimeTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
+        if (null !== $this->allDay) {
+            $res['AllDay'] = $this->allDay;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->allDay) {
-            $res['AllDay'] = $this->allDay;
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
         if (null !== $this->timeSections) {
             $res['TimeSections'] = [];
@@ -90,20 +78,14 @@ class UpdateTimeTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
+        if (isset($map['AllDay'])) {
+            $model->allDay = $map['AllDay'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['AllDay'])) {
-            $model->allDay = $map['AllDay'];
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
         if (isset($map['TimeSections'])) {
             if (!empty($map['TimeSections'])) {

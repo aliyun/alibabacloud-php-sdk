@@ -9,35 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QueryEventRecordPlanDeviceByPlanRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
-    public $planId;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @example 5b60bf0dd55944c19d7817442bc9****
+     *
+     * @var string
+     */
+    public $planId;
     protected $_name = [
-        'apiProduct'  => 'ApiProduct',
-        'apiRevision' => 'ApiRevision',
-        'planId'      => 'PlanId',
         'currentPage' => 'CurrentPage',
         'pageSize'    => 'PageSize',
+        'planId'      => 'PlanId',
     ];
 
     public function validate()
@@ -47,20 +41,14 @@ class QueryEventRecordPlanDeviceByPlanRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
-        if (null !== $this->planId) {
-            $res['PlanId'] = $this->planId;
-        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->planId) {
+            $res['PlanId'] = $this->planId;
         }
 
         return $res;
@@ -74,20 +62,14 @@ class QueryEventRecordPlanDeviceByPlanRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
-        if (isset($map['PlanId'])) {
-            $model->planId = $map['PlanId'];
-        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['PlanId'])) {
+            $model->planId = $map['PlanId'];
         }
 
         return $model;

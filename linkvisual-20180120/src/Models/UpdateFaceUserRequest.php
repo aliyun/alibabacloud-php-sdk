@@ -9,53 +9,53 @@ use AlibabaCloud\Tea\Model;
 class UpdateFaceUserRequest extends Model
 {
     /**
+     * @example 52242819650301xxxx
+     *
      * @var string
      */
-    public $apiProduct;
+    public $customUserId;
 
     /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
-    public $isolationId;
-
-    /**
-     * @var string
-     */
-    public $userId;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $params;
-
-    /**
+     * @example https://test.com/test.jpg
+     *
      * @var string
      */
     public $facePicUrl;
 
     /**
+     * @example TestIsolati****
+     *
      * @var string
      */
-    public $customUserId;
+    public $isolationId;
+
+    /**
+     * @example ZhangSan
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @example {"age":28, "sex":"male"}
+     *
+     * @var string
+     */
+    public $params;
+
+    /**
+     * @example tibce3fsgqel****
+     *
+     * @var string
+     */
+    public $userId;
     protected $_name = [
-        'apiProduct'   => 'ApiProduct',
-        'apiRevision'  => 'ApiRevision',
+        'customUserId' => 'CustomUserId',
+        'facePicUrl'   => 'FacePicUrl',
         'isolationId'  => 'IsolationId',
-        'userId'       => 'UserId',
         'name'         => 'Name',
         'params'       => 'Params',
-        'facePicUrl'   => 'FacePicUrl',
-        'customUserId' => 'CustomUserId',
+        'userId'       => 'UserId',
     ];
 
     public function validate()
@@ -65,17 +65,14 @@ class UpdateFaceUserRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
+        if (null !== $this->customUserId) {
+            $res['CustomUserId'] = $this->customUserId;
         }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
+        if (null !== $this->facePicUrl) {
+            $res['FacePicUrl'] = $this->facePicUrl;
         }
         if (null !== $this->isolationId) {
             $res['IsolationId'] = $this->isolationId;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -83,11 +80,8 @@ class UpdateFaceUserRequest extends Model
         if (null !== $this->params) {
             $res['Params'] = $this->params;
         }
-        if (null !== $this->facePicUrl) {
-            $res['FacePicUrl'] = $this->facePicUrl;
-        }
-        if (null !== $this->customUserId) {
-            $res['CustomUserId'] = $this->customUserId;
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -101,17 +95,14 @@ class UpdateFaceUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
+        if (isset($map['CustomUserId'])) {
+            $model->customUserId = $map['CustomUserId'];
         }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
+        if (isset($map['FacePicUrl'])) {
+            $model->facePicUrl = $map['FacePicUrl'];
         }
         if (isset($map['IsolationId'])) {
             $model->isolationId = $map['IsolationId'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -119,11 +110,8 @@ class UpdateFaceUserRequest extends Model
         if (isset($map['Params'])) {
             $model->params = $map['Params'];
         }
-        if (isset($map['FacePicUrl'])) {
-            $model->facePicUrl = $map['FacePicUrl'];
-        }
-        if (isset($map['CustomUserId'])) {
-            $model->customUserId = $map['CustomUserId'];
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

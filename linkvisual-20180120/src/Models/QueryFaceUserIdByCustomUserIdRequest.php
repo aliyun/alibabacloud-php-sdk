@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class QueryFaceUserIdByCustomUserIdRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
-    public $isolationId;
-
-    /**
+     * @example TestCustomUserId
+     *
      * @var string
      */
     public $customUserId;
+
+    /**
+     * @example TestIsolationId
+     *
+     * @var string
+     */
+    public $isolationId;
     protected $_name = [
-        'apiProduct'   => 'ApiProduct',
-        'apiRevision'  => 'ApiRevision',
-        'isolationId'  => 'IsolationId',
         'customUserId' => 'CustomUserId',
+        'isolationId'  => 'IsolationId',
     ];
 
     public function validate()
@@ -41,17 +33,11 @@ class QueryFaceUserIdByCustomUserIdRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
+        if (null !== $this->customUserId) {
+            $res['CustomUserId'] = $this->customUserId;
         }
         if (null !== $this->isolationId) {
             $res['IsolationId'] = $this->isolationId;
-        }
-        if (null !== $this->customUserId) {
-            $res['CustomUserId'] = $this->customUserId;
         }
 
         return $res;
@@ -65,17 +51,11 @@ class QueryFaceUserIdByCustomUserIdRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
+        if (isset($map['CustomUserId'])) {
+            $model->customUserId = $map['CustomUserId'];
         }
         if (isset($map['IsolationId'])) {
             $model->isolationId = $map['IsolationId'];
-        }
-        if (isset($map['CustomUserId'])) {
-            $model->customUserId = $map['CustomUserId'];
         }
 
         return $model;

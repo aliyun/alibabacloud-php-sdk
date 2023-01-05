@@ -9,47 +9,45 @@ use AlibabaCloud\Tea\Model;
 class CheckFaceUserDoExistOnDeviceRequest extends Model
 {
     /**
+     * @example TestDeviceName
+     *
      * @var string
      */
-    public $apiProduct;
+    public $deviceName;
 
     /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
-    public $isolationId;
-
-    /**
+     * @example TestIotInstanceId
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a103lZ86ovStDMnU
+     *
      * @var string
      */
-    public $userId;
+    public $isolationId;
 
     /**
+     * @example a1654Sr4Y3f
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example tibce3fsgqelezk8
+     *
      * @var string
      */
-    public $deviceName;
+    public $userId;
     protected $_name = [
-        'apiProduct'    => 'ApiProduct',
-        'apiRevision'   => 'ApiRevision',
-        'isolationId'   => 'IsolationId',
-        'iotInstanceId' => 'IotInstanceId',
-        'userId'        => 'UserId',
-        'productKey'    => 'ProductKey',
         'deviceName'    => 'DeviceName',
+        'iotInstanceId' => 'IotInstanceId',
+        'isolationId'   => 'IsolationId',
+        'productKey'    => 'ProductKey',
+        'userId'        => 'UserId',
     ];
 
     public function validate()
@@ -59,26 +57,20 @@ class CheckFaceUserDoExistOnDeviceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
-        if (null !== $this->isolationId) {
-            $res['IsolationId'] = $this->isolationId;
+        if (null !== $this->deviceName) {
+            $res['DeviceName'] = $this->deviceName;
         }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->isolationId) {
+            $res['IsolationId'] = $this->isolationId;
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
-        if (null !== $this->deviceName) {
-            $res['DeviceName'] = $this->deviceName;
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -92,26 +84,20 @@ class CheckFaceUserDoExistOnDeviceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
-        if (isset($map['IsolationId'])) {
-            $model->isolationId = $map['IsolationId'];
+        if (isset($map['DeviceName'])) {
+            $model->deviceName = $map['DeviceName'];
         }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['IsolationId'])) {
+            $model->isolationId = $map['IsolationId'];
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }
-        if (isset($map['DeviceName'])) {
-            $model->deviceName = $map['DeviceName'];
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

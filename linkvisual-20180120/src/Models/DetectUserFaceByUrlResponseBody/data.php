@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Linkvisual\V20180120\Models\DetectUserFaceByUrlResponseBody;
 
-use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DetectUserFaceByUrlResponseBody\data\data;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @var data[]
+     * @var \AlibabaCloud\SDK\Linkvisual\V20180120\Models\DetectUserFaceByUrlResponseBody\data\data[]
      */
     public $data;
     protected $_name = [
@@ -50,7 +49,7 @@ class data extends Model
                 $model->data = [];
                 $n           = 0;
                 foreach ($map['data'] as $item) {
-                    $model->data[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->data[$n++] = null !== $item ? \AlibabaCloud\SDK\Linkvisual\V20180120\Models\DetectUserFaceByUrlResponseBody\data\data::fromMap($item) : $item;
                 }
             }
         }

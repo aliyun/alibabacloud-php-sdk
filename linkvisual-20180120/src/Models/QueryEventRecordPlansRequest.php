@@ -9,27 +9,19 @@ use AlibabaCloud\Tea\Model;
 class QueryEventRecordPlansRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'apiProduct'  => 'ApiProduct',
-        'apiRevision' => 'ApiRevision',
         'currentPage' => 'CurrentPage',
         'pageSize'    => 'PageSize',
     ];
@@ -41,12 +33,6 @@ class QueryEventRecordPlansRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -65,12 +51,6 @@ class QueryEventRecordPlansRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }

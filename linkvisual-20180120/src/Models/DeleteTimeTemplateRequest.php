@@ -9,23 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DeleteTimeTemplateRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
+     * @example 36f06322442e4e3f85a5ae8862c9****
+     *
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'apiProduct'  => 'ApiProduct',
-        'apiRevision' => 'ApiRevision',
-        'templateId'  => 'TemplateId',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()
@@ -35,12 +25,6 @@ class DeleteTimeTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -56,12 +40,6 @@ class DeleteTimeTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

@@ -15,30 +15,38 @@ class data extends Model
     public $list;
 
     /**
+     * @example 1
+     *
      * @var int
      */
-    public $pageSize;
+    public $page;
 
     /**
-     * @var int
-     */
-    public $total;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $pageCount;
 
     /**
+     * @example 10
+     *
      * @var int
      */
-    public $page;
+    public $pageSize;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $total;
     protected $_name = [
         'list'      => 'List',
+        'page'      => 'Page',
+        'pageCount' => 'PageCount',
         'pageSize'  => 'PageSize',
         'total'     => 'Total',
-        'pageCount' => 'PageCount',
-        'page'      => 'Page',
     ];
 
     public function validate()
@@ -57,17 +65,17 @@ class data extends Model
                 }
             }
         }
+        if (null !== $this->page) {
+            $res['Page'] = $this->page;
+        }
+        if (null !== $this->pageCount) {
+            $res['PageCount'] = $this->pageCount;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
-        }
-        if (null !== $this->pageCount) {
-            $res['PageCount'] = $this->pageCount;
-        }
-        if (null !== $this->page) {
-            $res['Page'] = $this->page;
         }
 
         return $res;
@@ -90,17 +98,17 @@ class data extends Model
                 }
             }
         }
+        if (isset($map['Page'])) {
+            $model->page = $map['Page'];
+        }
+        if (isset($map['PageCount'])) {
+            $model->pageCount = $map['PageCount'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
-        }
-        if (isset($map['PageCount'])) {
-            $model->pageCount = $map['PageCount'];
-        }
-        if (isset($map['Page'])) {
-            $model->page = $map['Page'];
         }
 
         return $model;

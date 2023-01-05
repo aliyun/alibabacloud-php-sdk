@@ -10,29 +10,35 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
-     */
-    public $planId;
-
-    /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
-     * @var templateInfo
+     * @example 5b60bf0dd55944c19d7817442bc9****
+     *
+     * @var string
      */
-    public $templateInfo;
+    public $planId;
 
     /**
+     * @example 693e244a038f4255bb2f5db32874****
+     *
      * @var string
      */
     public $templateId;
+
+    /**
+     * @var templateInfo
+     */
+    public $templateInfo;
     protected $_name = [
-        'planId'       => 'PlanId',
         'name'         => 'Name',
-        'templateInfo' => 'TemplateInfo',
+        'planId'       => 'PlanId',
         'templateId'   => 'TemplateId',
+        'templateInfo' => 'TemplateInfo',
     ];
 
     public function validate()
@@ -42,17 +48,17 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->planId) {
-            $res['PlanId'] = $this->planId;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->templateInfo) {
-            $res['TemplateInfo'] = null !== $this->templateInfo ? $this->templateInfo->toMap() : null;
+        if (null !== $this->planId) {
+            $res['PlanId'] = $this->planId;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->templateInfo) {
+            $res['TemplateInfo'] = null !== $this->templateInfo ? $this->templateInfo->toMap() : null;
         }
 
         return $res;
@@ -66,17 +72,17 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PlanId'])) {
-            $model->planId = $map['PlanId'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['TemplateInfo'])) {
-            $model->templateInfo = templateInfo::fromMap($map['TemplateInfo']);
+        if (isset($map['PlanId'])) {
+            $model->planId = $map['PlanId'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateInfo'])) {
+            $model->templateInfo = templateInfo::fromMap($map['TemplateInfo']);
         }
 
         return $model;

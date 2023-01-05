@@ -10,9 +10,11 @@ use AlibabaCloud\Tea\Model;
 class QueryRecordByRecordIdResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
-    public $requestId;
+    public $code;
 
     /**
      * @var data[]
@@ -20,24 +22,30 @@ class QueryRecordByRecordIdResponseBody extends Model
     public $data;
 
     /**
+     * @example RecordId is mandatory for this action.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example F46E12A5-633D-4761-80F2-285752A052D5
+     *
      * @var string
      */
-    public $code;
+    public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'code'         => 'Code',
         'data'         => 'Data',
         'errorMessage' => 'ErrorMessage',
-        'code'         => 'Code',
+        'requestId'    => 'RequestId',
         'success'      => 'Success',
     ];
 
@@ -48,8 +56,8 @@ class QueryRecordByRecordIdResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
             $res['Data'] = [];
@@ -63,8 +71,8 @@ class QueryRecordByRecordIdResponseBody extends Model
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -81,8 +89,8 @@ class QueryRecordByRecordIdResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
@@ -96,8 +104,8 @@ class QueryRecordByRecordIdResponseBody extends Model
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

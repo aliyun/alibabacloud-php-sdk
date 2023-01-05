@@ -9,35 +9,29 @@ use AlibabaCloud\Tea\Model;
 class AddFaceUserToUserGroupRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
+     * @example ZheJiangHZ
+     *
      * @var string
      */
     public $isolationId;
 
     /**
-     * @var string
-     */
-    public $userId;
-
-    /**
+     * @example kvjy****
+     *
      * @var string
      */
     public $userGroupId;
+
+    /**
+     * @example 3mtjaqebeq4d****
+     *
+     * @var string
+     */
+    public $userId;
     protected $_name = [
-        'apiProduct'  => 'ApiProduct',
-        'apiRevision' => 'ApiRevision',
         'isolationId' => 'IsolationId',
-        'userId'      => 'UserId',
         'userGroupId' => 'UserGroupId',
+        'userId'      => 'UserId',
     ];
 
     public function validate()
@@ -47,20 +41,14 @@ class AddFaceUserToUserGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->isolationId) {
             $res['IsolationId'] = $this->isolationId;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->userGroupId) {
             $res['UserGroupId'] = $this->userGroupId;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -74,20 +62,14 @@ class AddFaceUserToUserGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['IsolationId'])) {
             $model->isolationId = $map['IsolationId'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['UserGroupId'])) {
             $model->userGroupId = $map['UserGroupId'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

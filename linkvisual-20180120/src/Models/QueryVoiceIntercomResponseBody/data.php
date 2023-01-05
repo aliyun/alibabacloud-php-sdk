@@ -15,6 +15,8 @@ class data extends Model
     public $cryptoKey;
 
     /**
+     * @example rtmp://106.15.xxx.xxx:8000/talk?token=xxxxxxx
+     *
      * @var string
      */
     public $url;

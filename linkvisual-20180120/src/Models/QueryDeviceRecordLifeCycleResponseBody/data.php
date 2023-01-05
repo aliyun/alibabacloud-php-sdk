@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 7
+     *
      * @var int
      */
     public $day;
 
     /**
+     * @example C47T6xwp6ms4bNlkHRWCg4****
+     *
      * @var string
      */
     public $iotId;

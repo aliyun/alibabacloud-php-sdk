@@ -9,35 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QueryPictureSearchDevicesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
+     * @example 5a502d3fbab8410e8fd4be9037c7****
+     *
      * @var string
      */
     public $appInstanceId;
 
     /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
+
+    /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $pageSize;
     protected $_name = [
-        'apiProduct'    => 'ApiProduct',
-        'apiRevision'   => 'ApiRevision',
         'appInstanceId' => 'AppInstanceId',
-        'pageSize'      => 'PageSize',
         'currentPage'   => 'CurrentPage',
+        'pageSize'      => 'PageSize',
     ];
 
     public function validate()
@@ -47,20 +41,14 @@ class QueryPictureSearchDevicesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->appInstanceId) {
             $res['AppInstanceId'] = $this->appInstanceId;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -74,20 +62,14 @@ class QueryPictureSearchDevicesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['AppInstanceId'])) {
             $model->appInstanceId = $map['AppInstanceId'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

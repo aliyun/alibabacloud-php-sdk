@@ -9,45 +9,43 @@ use AlibabaCloud\Tea\Model;
 class AddFaceUserRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
-    public $isolationId;
-
-    /**
-     * @var string
-     */
-    public $facePicUrl;
-
-    /**
+     * @example 1234567890
+     *
      * @var string
      */
     public $customUserId;
 
     /**
+     * @example https://example.com/test.jpeg
+     *
+     * @var string
+     */
+    public $facePicUrl;
+
+    /**
+     * @example ZheJiangHZ
+     *
+     * @var string
+     */
+    public $isolationId;
+
+    /**
+     * @example Tony
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example {"key1":"value1", "key2":"value2"}
+     *
      * @var string
      */
     public $params;
     protected $_name = [
-        'apiProduct'   => 'ApiProduct',
-        'apiRevision'  => 'ApiRevision',
-        'isolationId'  => 'IsolationId',
-        'facePicUrl'   => 'FacePicUrl',
         'customUserId' => 'CustomUserId',
+        'facePicUrl'   => 'FacePicUrl',
+        'isolationId'  => 'IsolationId',
         'name'         => 'Name',
         'params'       => 'Params',
     ];
@@ -59,20 +57,14 @@ class AddFaceUserRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
-        if (null !== $this->isolationId) {
-            $res['IsolationId'] = $this->isolationId;
+        if (null !== $this->customUserId) {
+            $res['CustomUserId'] = $this->customUserId;
         }
         if (null !== $this->facePicUrl) {
             $res['FacePicUrl'] = $this->facePicUrl;
         }
-        if (null !== $this->customUserId) {
-            $res['CustomUserId'] = $this->customUserId;
+        if (null !== $this->isolationId) {
+            $res['IsolationId'] = $this->isolationId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -92,20 +84,14 @@ class AddFaceUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
-        if (isset($map['IsolationId'])) {
-            $model->isolationId = $map['IsolationId'];
+        if (isset($map['CustomUserId'])) {
+            $model->customUserId = $map['CustomUserId'];
         }
         if (isset($map['FacePicUrl'])) {
             $model->facePicUrl = $map['FacePicUrl'];
         }
-        if (isset($map['CustomUserId'])) {
-            $model->customUserId = $map['CustomUserId'];
+        if (isset($map['IsolationId'])) {
+            $model->isolationId = $map['IsolationId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

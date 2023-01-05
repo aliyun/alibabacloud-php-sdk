@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class AddFaceDeviceGroupRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
-    public $isolationId;
-
-    /**
+     * @example TestDeviceGroup
+     *
      * @var string
      */
     public $deviceGroupName;
+
+    /**
+     * @example ZheJiangHZ
+     *
+     * @var string
+     */
+    public $isolationId;
     protected $_name = [
-        'apiProduct'      => 'ApiProduct',
-        'apiRevision'     => 'ApiRevision',
-        'isolationId'     => 'IsolationId',
         'deviceGroupName' => 'DeviceGroupName',
+        'isolationId'     => 'IsolationId',
     ];
 
     public function validate()
@@ -41,17 +33,11 @@ class AddFaceDeviceGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
+        if (null !== $this->deviceGroupName) {
+            $res['DeviceGroupName'] = $this->deviceGroupName;
         }
         if (null !== $this->isolationId) {
             $res['IsolationId'] = $this->isolationId;
-        }
-        if (null !== $this->deviceGroupName) {
-            $res['DeviceGroupName'] = $this->deviceGroupName;
         }
 
         return $res;
@@ -65,17 +51,11 @@ class AddFaceDeviceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
+        if (isset($map['DeviceGroupName'])) {
+            $model->deviceGroupName = $map['DeviceGroupName'];
         }
         if (isset($map['IsolationId'])) {
             $model->isolationId = $map['IsolationId'];
-        }
-        if (isset($map['DeviceGroupName'])) {
-            $model->deviceGroupName = $map['DeviceGroupName'];
         }
 
         return $model;

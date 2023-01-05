@@ -15,30 +15,38 @@ class data extends Model
     public $list;
 
     /**
+     * @example 1
+     *
      * @var int
      */
-    public $pageSize;
+    public $page;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageCount;
 
     /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @example 2
+     *
      * @var int
      */
     public $total;
-
-    /**
-     * @var int
-     */
-    public $page;
     protected $_name = [
         'list'      => 'List',
-        'pageSize'  => 'PageSize',
-        'pageCount' => 'PageCount',
-        'total'     => 'Total',
         'page'      => 'Page',
+        'pageCount' => 'PageCount',
+        'pageSize'  => 'PageSize',
+        'total'     => 'Total',
     ];
 
     public function validate()
@@ -57,17 +65,17 @@ class data extends Model
                 }
             }
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->page) {
+            $res['Page'] = $this->page;
         }
         if (null !== $this->pageCount) {
             $res['PageCount'] = $this->pageCount;
         }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
-        }
-        if (null !== $this->page) {
-            $res['Page'] = $this->page;
         }
 
         return $res;
@@ -90,17 +98,17 @@ class data extends Model
                 }
             }
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['Page'])) {
+            $model->page = $map['Page'];
         }
         if (isset($map['PageCount'])) {
             $model->pageCount = $map['PageCount'];
         }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
-        }
-        if (isset($map['Page'])) {
-            $model->page = $map['Page'];
         }
 
         return $model;

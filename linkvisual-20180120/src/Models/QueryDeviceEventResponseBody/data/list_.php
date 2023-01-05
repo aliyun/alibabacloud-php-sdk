@@ -9,24 +9,11 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example {}
+     *
      * @var string
      */
-    public $eventId;
-
-    /**
-     * @var string
-     */
-    public $eventTime;
-
-    /**
-     * @var int
-     */
-    public $eventType;
-
-    /**
-     * @var string
-     */
-    public $eventPicId;
+    public $eventData;
 
     /**
      * @var string
@@ -34,16 +21,39 @@ class list_ extends Model
     public $eventDesc;
 
     /**
+     * @example ae6b74f1dc7d****85d32c210185967f_16080****9471
+     *
      * @var string
      */
-    public $eventData;
+    public $eventId;
+
+    /**
+     * @example aEtMSm9****ORTFxcGpTbDZ****6eTk0
+     *
+     * @var string
+     */
+    public $eventPicId;
+
+    /**
+     * @example 2020-12-15 20:40:49
+     *
+     * @var string
+     */
+    public $eventTime;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $eventType;
     protected $_name = [
+        'eventData'  => 'EventData',
+        'eventDesc'  => 'EventDesc',
         'eventId'    => 'EventId',
+        'eventPicId' => 'EventPicId',
         'eventTime'  => 'EventTime',
         'eventType'  => 'EventType',
-        'eventPicId' => 'EventPicId',
-        'eventDesc'  => 'EventDesc',
-        'eventData'  => 'EventData',
     ];
 
     public function validate()
@@ -53,23 +63,23 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->eventData) {
+            $res['EventData'] = $this->eventData;
+        }
+        if (null !== $this->eventDesc) {
+            $res['EventDesc'] = $this->eventDesc;
+        }
         if (null !== $this->eventId) {
             $res['EventId'] = $this->eventId;
+        }
+        if (null !== $this->eventPicId) {
+            $res['EventPicId'] = $this->eventPicId;
         }
         if (null !== $this->eventTime) {
             $res['EventTime'] = $this->eventTime;
         }
         if (null !== $this->eventType) {
             $res['EventType'] = $this->eventType;
-        }
-        if (null !== $this->eventPicId) {
-            $res['EventPicId'] = $this->eventPicId;
-        }
-        if (null !== $this->eventDesc) {
-            $res['EventDesc'] = $this->eventDesc;
-        }
-        if (null !== $this->eventData) {
-            $res['EventData'] = $this->eventData;
         }
 
         return $res;
@@ -78,28 +88,28 @@ class list_ extends Model
     /**
      * @param array $map
      *
-     * @return list
+     * @return list_
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EventData'])) {
+            $model->eventData = $map['EventData'];
+        }
+        if (isset($map['EventDesc'])) {
+            $model->eventDesc = $map['EventDesc'];
+        }
         if (isset($map['EventId'])) {
             $model->eventId = $map['EventId'];
+        }
+        if (isset($map['EventPicId'])) {
+            $model->eventPicId = $map['EventPicId'];
         }
         if (isset($map['EventTime'])) {
             $model->eventTime = $map['EventTime'];
         }
         if (isset($map['EventType'])) {
             $model->eventType = $map['EventType'];
-        }
-        if (isset($map['EventPicId'])) {
-            $model->eventPicId = $map['EventPicId'];
-        }
-        if (isset($map['EventDesc'])) {
-            $model->eventDesc = $map['EventDesc'];
-        }
-        if (isset($map['EventData'])) {
-            $model->eventData = $map['EventData'];
         }
 
         return $model;

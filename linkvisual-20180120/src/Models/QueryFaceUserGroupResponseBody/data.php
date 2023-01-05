@@ -10,29 +10,35 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @var userGroupList[]
-     */
-    public $userGroupList;
-
-    /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $total;
+
+    /**
+     * @var userGroupList[]
+     */
+    public $userGroupList;
     protected $_name = [
         'pageNo'        => 'PageNo',
-        'userGroupList' => 'UserGroupList',
         'pageSize'      => 'PageSize',
         'total'         => 'Total',
+        'userGroupList' => 'UserGroupList',
     ];
 
     public function validate()
@@ -45,6 +51,12 @@ class data extends Model
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
+        }
         if (null !== $this->userGroupList) {
             $res['UserGroupList'] = [];
             if (null !== $this->userGroupList && \is_array($this->userGroupList)) {
@@ -53,12 +65,6 @@ class data extends Model
                     $res['UserGroupList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -75,6 +81,12 @@ class data extends Model
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
+        }
         if (isset($map['UserGroupList'])) {
             if (!empty($map['UserGroupList'])) {
                 $model->userGroupList = [];
@@ -83,12 +95,6 @@ class data extends Model
                     $model->userGroupList[$n++] = null !== $item ? userGroupList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
         }
 
         return $model;

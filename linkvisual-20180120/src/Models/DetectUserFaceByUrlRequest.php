@@ -9,23 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DetectUserFaceByUrlRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
+     * @example http://xxx.xxx.com/xxx/face/1.jpg
+     *
      * @var string
      */
     public $facePicUrl;
     protected $_name = [
-        'apiProduct'  => 'ApiProduct',
-        'apiRevision' => 'ApiRevision',
-        'facePicUrl'  => 'FacePicUrl',
+        'facePicUrl' => 'FacePicUrl',
     ];
 
     public function validate()
@@ -35,12 +25,6 @@ class DetectUserFaceByUrlRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->facePicUrl) {
             $res['FacePicUrl'] = $this->facePicUrl;
         }
@@ -56,12 +40,6 @@ class DetectUserFaceByUrlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['FacePicUrl'])) {
             $model->facePicUrl = $map['FacePicUrl'];
         }

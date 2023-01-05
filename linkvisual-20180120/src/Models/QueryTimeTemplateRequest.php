@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class QueryTimeTemplateRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
+
+    /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $pageSize;
     protected $_name = [
-        'apiProduct'  => 'ApiProduct',
-        'apiRevision' => 'ApiRevision',
-        'pageSize'    => 'PageSize',
         'currentPage' => 'CurrentPage',
+        'pageSize'    => 'PageSize',
     ];
 
     public function validate()
@@ -41,17 +33,11 @@ class QueryTimeTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
         }
 
         return $res;
@@ -65,17 +51,11 @@ class QueryTimeTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
         }
 
         return $model;

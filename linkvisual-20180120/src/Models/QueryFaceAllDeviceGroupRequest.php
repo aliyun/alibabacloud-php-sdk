@@ -9,41 +9,37 @@ use AlibabaCloud\Tea\Model;
 class QueryFaceAllDeviceGroupRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
-    public $isolationId;
-
-    /**
+     * @example TestIotInstanceId
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @var int
+     * @example TestIsolationId
+     *
+     * @var string
      */
-    public $pageSize;
+    public $isolationId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
+
+    /**
+     * @example 20
+     *
+     * @var int
+     */
+    public $pageSize;
     protected $_name = [
-        'apiProduct'    => 'ApiProduct',
-        'apiRevision'   => 'ApiRevision',
-        'isolationId'   => 'IsolationId',
         'iotInstanceId' => 'IotInstanceId',
-        'pageSize'      => 'PageSize',
+        'isolationId'   => 'IsolationId',
         'pageNo'        => 'PageNo',
+        'pageSize'      => 'PageSize',
     ];
 
     public function validate()
@@ -53,23 +49,17 @@ class QueryFaceAllDeviceGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->isolationId) {
             $res['IsolationId'] = $this->isolationId;
         }
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
         }
 
         return $res;
@@ -83,23 +73,17 @@ class QueryFaceAllDeviceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['IsolationId'])) {
             $model->isolationId = $map['IsolationId'];
         }
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
         }
 
         return $model;

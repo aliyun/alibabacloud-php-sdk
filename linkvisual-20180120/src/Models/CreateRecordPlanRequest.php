@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateRecordPlanRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
+     * @example plan1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 36f06322442e4e3f85a5ae8862c9****
+     *
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'apiProduct'  => 'ApiProduct',
-        'apiRevision' => 'ApiRevision',
-        'name'        => 'Name',
-        'templateId'  => 'TemplateId',
+        'name'       => 'Name',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()
@@ -41,12 +33,6 @@ class CreateRecordPlanRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -65,12 +51,6 @@ class CreateRecordPlanRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

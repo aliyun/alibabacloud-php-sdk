@@ -9,47 +9,45 @@ use AlibabaCloud\Tea\Model;
 class AddFaceUserGroupAndDeviceGroupRelationRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
-    public $isolationId;
-
-    /**
-     * @var string
-     */
-    public $iotInstanceId;
-
-    /**
-     * @var string
-     */
-    public $userGroupId;
-
-    /**
+     * @example kvjyhurc
+     *
      * @var string
      */
     public $deviceGroupId;
 
     /**
+     * @example TestInstanceId
+     *
+     * @var string
+     */
+    public $iotInstanceId;
+
+    /**
+     * @example TestIsolationId
+     *
+     * @var string
+     */
+    public $isolationId;
+
+    /**
+     * @example SYNC_INFO_PICTURE
+     *
      * @var string
      */
     public $relation;
+
+    /**
+     * @example avjyxurd
+     *
+     * @var string
+     */
+    public $userGroupId;
     protected $_name = [
-        'apiProduct'    => 'ApiProduct',
-        'apiRevision'   => 'ApiRevision',
-        'isolationId'   => 'IsolationId',
-        'iotInstanceId' => 'IotInstanceId',
-        'userGroupId'   => 'UserGroupId',
         'deviceGroupId' => 'DeviceGroupId',
+        'iotInstanceId' => 'IotInstanceId',
+        'isolationId'   => 'IsolationId',
         'relation'      => 'Relation',
+        'userGroupId'   => 'UserGroupId',
     ];
 
     public function validate()
@@ -59,26 +57,20 @@ class AddFaceUserGroupAndDeviceGroupRelationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
-        if (null !== $this->isolationId) {
-            $res['IsolationId'] = $this->isolationId;
+        if (null !== $this->deviceGroupId) {
+            $res['DeviceGroupId'] = $this->deviceGroupId;
         }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
-        if (null !== $this->userGroupId) {
-            $res['UserGroupId'] = $this->userGroupId;
-        }
-        if (null !== $this->deviceGroupId) {
-            $res['DeviceGroupId'] = $this->deviceGroupId;
+        if (null !== $this->isolationId) {
+            $res['IsolationId'] = $this->isolationId;
         }
         if (null !== $this->relation) {
             $res['Relation'] = $this->relation;
+        }
+        if (null !== $this->userGroupId) {
+            $res['UserGroupId'] = $this->userGroupId;
         }
 
         return $res;
@@ -92,26 +84,20 @@ class AddFaceUserGroupAndDeviceGroupRelationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
-        if (isset($map['IsolationId'])) {
-            $model->isolationId = $map['IsolationId'];
+        if (isset($map['DeviceGroupId'])) {
+            $model->deviceGroupId = $map['DeviceGroupId'];
         }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
-        if (isset($map['UserGroupId'])) {
-            $model->userGroupId = $map['UserGroupId'];
-        }
-        if (isset($map['DeviceGroupId'])) {
-            $model->deviceGroupId = $map['DeviceGroupId'];
+        if (isset($map['IsolationId'])) {
+            $model->isolationId = $map['IsolationId'];
         }
         if (isset($map['Relation'])) {
             $model->relation = $map['Relation'];
+        }
+        if (isset($map['UserGroupId'])) {
+            $model->userGroupId = $map['UserGroupId'];
         }
 
         return $model;

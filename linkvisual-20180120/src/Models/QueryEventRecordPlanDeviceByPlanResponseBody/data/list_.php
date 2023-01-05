@@ -9,17 +9,21 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @var int
-     */
-    public $streamType;
-
-    /**
+     * @example P7WqhWvhplhHlWPO9Op5g4****
+     *
      * @var string
      */
     public $iotId;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $streamType;
     protected $_name = [
-        'streamType' => 'StreamType',
         'iotId'      => 'IotId',
+        'streamType' => 'StreamType',
     ];
 
     public function validate()
@@ -29,11 +33,11 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->streamType) {
-            $res['StreamType'] = $this->streamType;
-        }
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
+        }
+        if (null !== $this->streamType) {
+            $res['StreamType'] = $this->streamType;
         }
 
         return $res;
@@ -42,16 +46,16 @@ class list_ extends Model
     /**
      * @param array $map
      *
-     * @return list
+     * @return list_
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StreamType'])) {
-            $model->streamType = $map['StreamType'];
-        }
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];
+        }
+        if (isset($map['StreamType'])) {
+            $model->streamType = $map['StreamType'];
         }
 
         return $model;

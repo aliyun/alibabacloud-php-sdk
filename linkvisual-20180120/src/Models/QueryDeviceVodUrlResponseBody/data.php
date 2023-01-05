@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example {"iv": "MDEy****OTo7PD0+Pw==","key": "eA2r****fHjOmnyBfQ=="}
+     *
+     * @var string
+     */
+    public $decryptKey;
+
+    /**
+     * @example rtmp://***\/***.mp4
+     *
      * @var string
      */
     public $vodUrl;
     protected $_name = [
-        'vodUrl' => 'VodUrl',
+        'decryptKey' => 'DecryptKey',
+        'vodUrl'     => 'VodUrl',
     ];
 
     public function validate()
@@ -23,6 +33,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->decryptKey) {
+            $res['DecryptKey'] = $this->decryptKey;
+        }
         if (null !== $this->vodUrl) {
             $res['VodUrl'] = $this->vodUrl;
         }
@@ -38,6 +51,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DecryptKey'])) {
+            $model->decryptKey = $map['DecryptKey'];
+        }
         if (isset($map['VodUrl'])) {
             $model->vodUrl = $map['VodUrl'];
         }

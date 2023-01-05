@@ -9,27 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteFaceUserGroupRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
+     * @example ZheJiangHZ
+     *
      * @var string
      */
     public $isolationId;
 
     /**
+     * @example kvjy****
+     *
      * @var string
      */
     public $userGroupId;
     protected $_name = [
-        'apiProduct'  => 'ApiProduct',
-        'apiRevision' => 'ApiRevision',
         'isolationId' => 'IsolationId',
         'userGroupId' => 'UserGroupId',
     ];
@@ -41,12 +33,6 @@ class DeleteFaceUserGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->isolationId) {
             $res['IsolationId'] = $this->isolationId;
         }
@@ -65,12 +51,6 @@ class DeleteFaceUserGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['IsolationId'])) {
             $model->isolationId = $map['IsolationId'];
         }

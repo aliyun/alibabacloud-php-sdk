@@ -9,23 +9,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example jvkv****
+     *
      * @var string
      */
     public $deviceGroupId;
 
     /**
-     * @var string
-     */
-    public $modifiedTime;
-
-    /**
+     * @example TestDeviceGroup
+     *
      * @var string
      */
     public $deviceGroupName;
+
+    /**
+     * @example 2020-11-20 18:59:01
+     *
+     * @var string
+     */
+    public $modifiedTime;
     protected $_name = [
         'deviceGroupId'   => 'DeviceGroupId',
-        'modifiedTime'    => 'ModifiedTime',
         'deviceGroupName' => 'DeviceGroupName',
+        'modifiedTime'    => 'ModifiedTime',
     ];
 
     public function validate()
@@ -38,11 +44,11 @@ class data extends Model
         if (null !== $this->deviceGroupId) {
             $res['DeviceGroupId'] = $this->deviceGroupId;
         }
-        if (null !== $this->modifiedTime) {
-            $res['ModifiedTime'] = $this->modifiedTime;
-        }
         if (null !== $this->deviceGroupName) {
             $res['DeviceGroupName'] = $this->deviceGroupName;
+        }
+        if (null !== $this->modifiedTime) {
+            $res['ModifiedTime'] = $this->modifiedTime;
         }
 
         return $res;
@@ -59,11 +65,11 @@ class data extends Model
         if (isset($map['DeviceGroupId'])) {
             $model->deviceGroupId = $map['DeviceGroupId'];
         }
-        if (isset($map['ModifiedTime'])) {
-            $model->modifiedTime = $map['ModifiedTime'];
-        }
         if (isset($map['DeviceGroupName'])) {
             $model->deviceGroupName = $map['DeviceGroupName'];
+        }
+        if (isset($map['ModifiedTime'])) {
+            $model->modifiedTime = $map['ModifiedTime'];
         }
 
         return $model;

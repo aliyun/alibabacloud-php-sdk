@@ -10,6 +10,15 @@ use AlibabaCloud\Tea\Model;
 class facePicList extends Model
 {
     /**
+     * @example TestFaceMd5
+     *
+     * @var string
+     */
+    public $faceMd5;
+
+    /**
+     * @example https://test.com/xxx.jpg
+     *
      * @var string
      */
     public $faceUrl;
@@ -18,15 +27,10 @@ class facePicList extends Model
      * @var featureDTOList[]
      */
     public $featureDTOList;
-
-    /**
-     * @var string
-     */
-    public $faceMd5;
     protected $_name = [
+        'faceMd5'        => 'FaceMd5',
         'faceUrl'        => 'FaceUrl',
         'featureDTOList' => 'FeatureDTOList',
-        'faceMd5'        => 'FaceMd5',
     ];
 
     public function validate()
@@ -36,6 +40,9 @@ class facePicList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->faceMd5) {
+            $res['FaceMd5'] = $this->faceMd5;
+        }
         if (null !== $this->faceUrl) {
             $res['FaceUrl'] = $this->faceUrl;
         }
@@ -47,9 +54,6 @@ class facePicList extends Model
                     $res['FeatureDTOList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->faceMd5) {
-            $res['FaceMd5'] = $this->faceMd5;
         }
 
         return $res;
@@ -63,6 +67,9 @@ class facePicList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FaceMd5'])) {
+            $model->faceMd5 = $map['FaceMd5'];
+        }
         if (isset($map['FaceUrl'])) {
             $model->faceUrl = $map['FaceUrl'];
         }
@@ -74,9 +81,6 @@ class facePicList extends Model
                     $model->featureDTOList[$n++] = null !== $item ? featureDTOList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['FaceMd5'])) {
-            $model->faceMd5 = $map['FaceMd5'];
         }
 
         return $model;

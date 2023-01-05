@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DeleteFaceUserGroupAndDeviceGroupRelationRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
-    public $isolationId;
-
-    /**
+     * @example qcb2yea4ha4d****
+     *
      * @var string
      */
     public $controlId;
+
+    /**
+     * @example ZheJiangHZ
+     *
+     * @var string
+     */
+    public $isolationId;
     protected $_name = [
-        'apiProduct'  => 'ApiProduct',
-        'apiRevision' => 'ApiRevision',
-        'isolationId' => 'IsolationId',
         'controlId'   => 'ControlId',
+        'isolationId' => 'IsolationId',
     ];
 
     public function validate()
@@ -41,17 +33,11 @@ class DeleteFaceUserGroupAndDeviceGroupRelationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
+        if (null !== $this->controlId) {
+            $res['ControlId'] = $this->controlId;
         }
         if (null !== $this->isolationId) {
             $res['IsolationId'] = $this->isolationId;
-        }
-        if (null !== $this->controlId) {
-            $res['ControlId'] = $this->controlId;
         }
 
         return $res;
@@ -65,17 +51,11 @@ class DeleteFaceUserGroupAndDeviceGroupRelationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
+        if (isset($map['ControlId'])) {
+            $model->controlId = $map['ControlId'];
         }
         if (isset($map['IsolationId'])) {
             $model->isolationId = $map['IsolationId'];
-        }
-        if (isset($map['ControlId'])) {
-            $model->controlId = $map['ControlId'];
         }
 
         return $model;

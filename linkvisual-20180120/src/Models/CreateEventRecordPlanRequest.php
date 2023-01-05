@@ -9,44 +9,42 @@ use AlibabaCloud\Tea\Model;
 class CreateEventRecordPlanRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
+     * @example 1
+     *
      * @var string
      */
     public $eventTypes;
 
     /**
+     * @example plan1
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @example 5
+     *
      * @var int
      */
     public $preRecordDuration;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $recordDuration;
 
     /**
+     * @example fc82774fa749485bad7d719f9670****
+     *
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'apiProduct'        => 'ApiProduct',
-        'apiRevision'       => 'ApiRevision',
-        'name'              => 'Name',
         'eventTypes'        => 'EventTypes',
+        'name'              => 'Name',
         'preRecordDuration' => 'PreRecordDuration',
         'recordDuration'    => 'RecordDuration',
         'templateId'        => 'TemplateId',
@@ -59,17 +57,11 @@ class CreateEventRecordPlanRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
+        if (null !== $this->eventTypes) {
+            $res['EventTypes'] = $this->eventTypes;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->eventTypes) {
-            $res['EventTypes'] = $this->eventTypes;
         }
         if (null !== $this->preRecordDuration) {
             $res['PreRecordDuration'] = $this->preRecordDuration;
@@ -92,17 +84,11 @@ class CreateEventRecordPlanRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
+        if (isset($map['EventTypes'])) {
+            $model->eventTypes = $map['EventTypes'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['EventTypes'])) {
-            $model->eventTypes = $map['EventTypes'];
         }
         if (isset($map['PreRecordDuration'])) {
             $model->preRecordDuration = $map['PreRecordDuration'];

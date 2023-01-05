@@ -9,29 +9,45 @@ use AlibabaCloud\Tea\Model;
 class StopTriggeredRecordRequest extends Model
 {
     /**
+     * @example camera1
+     *
      * @var string
      */
-    public $apiProduct;
+    public $deviceName;
 
     /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
+     * @example C47T6xwp6ms4bNlkHRWCg4****
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example iot-cn-n6w1y59****
+     *
+     * @var string
+     */
+    public $iotInstanceId;
+
+    /**
+     * @example a1BwAGV****
+     *
+     * @var string
+     */
+    public $productKey;
+
+    /**
+     * @example fc82774fa749485bad7d719f9670****
+     *
      * @var string
      */
     public $recordId;
     protected $_name = [
-        'apiProduct'  => 'ApiProduct',
-        'apiRevision' => 'ApiRevision',
-        'iotId'       => 'IotId',
-        'recordId'    => 'RecordId',
+        'deviceName'    => 'DeviceName',
+        'iotId'         => 'IotId',
+        'iotInstanceId' => 'IotInstanceId',
+        'productKey'    => 'ProductKey',
+        'recordId'      => 'RecordId',
     ];
 
     public function validate()
@@ -41,14 +57,17 @@ class StopTriggeredRecordRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
+        if (null !== $this->deviceName) {
+            $res['DeviceName'] = $this->deviceName;
         }
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
+        }
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
         }
         if (null !== $this->recordId) {
             $res['RecordId'] = $this->recordId;
@@ -65,14 +84,17 @@ class StopTriggeredRecordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
+        if (isset($map['DeviceName'])) {
+            $model->deviceName = $map['DeviceName'];
         }
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
+        }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
         }
         if (isset($map['RecordId'])) {
             $model->recordId = $map['RecordId'];

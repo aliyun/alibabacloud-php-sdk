@@ -10,9 +10,18 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageCount;
 
     /**
      * @var pageData[]
@@ -20,25 +29,24 @@ class data extends Model
     public $pageData;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $total;
-
-    /**
-     * @var int
-     */
-    public $pageCount;
     protected $_name = [
         'currentPage' => 'CurrentPage',
+        'pageCount'   => 'PageCount',
         'pageData'    => 'PageData',
         'pageSize'    => 'PageSize',
         'total'       => 'Total',
-        'pageCount'   => 'PageCount',
     ];
 
     public function validate()
@@ -50,6 +58,9 @@ class data extends Model
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->pageCount) {
+            $res['PageCount'] = $this->pageCount;
         }
         if (null !== $this->pageData) {
             $res['PageData'] = [];
@@ -66,9 +77,6 @@ class data extends Model
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
-        if (null !== $this->pageCount) {
-            $res['PageCount'] = $this->pageCount;
-        }
 
         return $res;
     }
@@ -84,6 +92,9 @@ class data extends Model
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+        if (isset($map['PageCount'])) {
+            $model->pageCount = $map['PageCount'];
+        }
         if (isset($map['PageData'])) {
             if (!empty($map['PageData'])) {
                 $model->pageData = [];
@@ -98,9 +109,6 @@ class data extends Model
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
-        }
-        if (isset($map['PageCount'])) {
-            $model->pageCount = $map['PageCount'];
         }
 
         return $model;

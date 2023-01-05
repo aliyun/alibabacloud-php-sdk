@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $doExist;
