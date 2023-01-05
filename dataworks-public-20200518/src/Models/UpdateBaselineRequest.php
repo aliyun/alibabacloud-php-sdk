@@ -46,6 +46,11 @@ class UpdateBaselineRequest extends Model
     public $enabled;
 
     /**
+     * @var string
+     */
+    public $nodeIds;
+
+    /**
      * @var overtimeSettings[]
      */
     public $overtimeSettings;
@@ -68,12 +73,7 @@ class UpdateBaselineRequest extends Model
     /**
      * @var string
      */
-    public $removeTaskIds;
-
-    /**
-     * @var string
-     */
-    public $taskIds;
+    public $removeNodeIds;
     protected $_name = [
         'alertEnabled'         => 'AlertEnabled',
         'alertMarginThreshold' => 'AlertMarginThreshold',
@@ -82,12 +82,12 @@ class UpdateBaselineRequest extends Model
         'baselineName'         => 'BaselineName',
         'baselineType'         => 'BaselineType',
         'enabled'              => 'Enabled',
+        'nodeIds'              => 'NodeIds',
         'overtimeSettings'     => 'OvertimeSettings',
         'owner'                => 'Owner',
         'priority'             => 'Priority',
         'projectId'            => 'ProjectId',
-        'removeTaskIds'        => 'RemoveTaskIds',
-        'taskIds'              => 'TaskIds',
+        'removeNodeIds'        => 'RemoveNodeIds',
     ];
 
     public function validate()
@@ -124,6 +124,9 @@ class UpdateBaselineRequest extends Model
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+        if (null !== $this->nodeIds) {
+            $res['NodeIds'] = $this->nodeIds;
+        }
         if (null !== $this->overtimeSettings) {
             $res['OvertimeSettings'] = [];
             if (null !== $this->overtimeSettings && \is_array($this->overtimeSettings)) {
@@ -142,11 +145,8 @@ class UpdateBaselineRequest extends Model
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->removeTaskIds) {
-            $res['RemoveTaskIds'] = $this->removeTaskIds;
-        }
-        if (null !== $this->taskIds) {
-            $res['TaskIds'] = $this->taskIds;
+        if (null !== $this->removeNodeIds) {
+            $res['RemoveNodeIds'] = $this->removeNodeIds;
         }
 
         return $res;
@@ -187,6 +187,9 @@ class UpdateBaselineRequest extends Model
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+        if (isset($map['NodeIds'])) {
+            $model->nodeIds = $map['NodeIds'];
+        }
         if (isset($map['OvertimeSettings'])) {
             if (!empty($map['OvertimeSettings'])) {
                 $model->overtimeSettings = [];
@@ -205,11 +208,8 @@ class UpdateBaselineRequest extends Model
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['RemoveTaskIds'])) {
-            $model->removeTaskIds = $map['RemoveTaskIds'];
-        }
-        if (isset($map['TaskIds'])) {
-            $model->taskIds = $map['TaskIds'];
+        if (isset($map['RemoveNodeIds'])) {
+            $model->removeNodeIds = $map['RemoveNodeIds'];
         }
 
         return $model;

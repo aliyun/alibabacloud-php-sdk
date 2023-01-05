@@ -398,6 +398,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTableThemeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTableThemeResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTopicsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTopicsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\MountDirectoryRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\MountDirectoryResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\OfflineNodeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\OfflineNodeResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\PublishDataServiceApiRequest;
@@ -456,6 +458,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TopTenElapsedTimeInstanceR
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TopTenElapsedTimeInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TopTenErrorTimesInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TopTenErrorTimesInstanceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UmountDirectoryRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UmountDirectoryResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateBaselineRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateBaselineResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateBaselineShrinkRequest;
@@ -1054,6 +1058,9 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->baselineType)) {
             $body['BaselineType'] = $request->baselineType;
         }
+        if (!Utils::isUnset($request->nodeIds)) {
+            $body['NodeIds'] = $request->nodeIds;
+        }
         if (!Utils::isUnset($request->overtimeSettings)) {
             $body['OvertimeSettings'] = $request->overtimeSettings;
         }
@@ -1065,9 +1072,6 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->projectId)) {
             $body['ProjectId'] = $request->projectId;
-        }
-        if (!Utils::isUnset($request->taskIds)) {
-            $body['TaskIds'] = $request->taskIds;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -10993,6 +10997,52 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param MountDirectoryRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return MountDirectoryResponse
+     */
+    public function mountDirectoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->targetId)) {
+            $body['TargetId'] = $request->targetId;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $body['TargetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'MountDirectory',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MountDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MountDirectoryRequest $request
+     *
+     * @return MountDirectoryResponse
+     */
+    public function mountDirectory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->mountDirectoryWithOptions($request, $runtime);
+    }
+
+    /**
      * @param OfflineNodeRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -12498,6 +12548,52 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param UmountDirectoryRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UmountDirectoryResponse
+     */
+    public function umountDirectoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->targetId)) {
+            $body['TargetId'] = $request->targetId;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $body['TargetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UmountDirectory',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UmountDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UmountDirectoryRequest $request
+     *
+     * @return UmountDirectoryResponse
+     */
+    public function umountDirectory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->umountDirectoryWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateBaselineRequest $tmpReq
      * @param RuntimeOptions        $runtime
      *
@@ -12536,6 +12632,9 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->enabled)) {
             $body['Enabled'] = $request->enabled;
         }
+        if (!Utils::isUnset($request->nodeIds)) {
+            $body['NodeIds'] = $request->nodeIds;
+        }
         if (!Utils::isUnset($request->overtimeSettingsShrink)) {
             $body['OvertimeSettings'] = $request->overtimeSettingsShrink;
         }
@@ -12548,11 +12647,8 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->projectId)) {
             $body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->removeTaskIds)) {
-            $body['RemoveTaskIds'] = $request->removeTaskIds;
-        }
-        if (!Utils::isUnset($request->taskIds)) {
-            $body['TaskIds'] = $request->taskIds;
+        if (!Utils::isUnset($request->removeNodeIds)) {
+            $body['RemoveNodeIds'] = $request->removeNodeIds;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),

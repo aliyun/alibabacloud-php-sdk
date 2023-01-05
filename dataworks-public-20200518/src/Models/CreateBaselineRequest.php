@@ -25,6 +25,11 @@ class CreateBaselineRequest extends Model
     public $baselineType;
 
     /**
+     * @var string
+     */
+    public $nodeIds;
+
+    /**
      * @var overtimeSettings[]
      */
     public $overtimeSettings;
@@ -43,20 +48,15 @@ class CreateBaselineRequest extends Model
      * @var int
      */
     public $projectId;
-
-    /**
-     * @var string
-     */
-    public $taskIds;
     protected $_name = [
         'alertMarginThreshold' => 'AlertMarginThreshold',
         'baselineName'         => 'BaselineName',
         'baselineType'         => 'BaselineType',
+        'nodeIds'              => 'NodeIds',
         'overtimeSettings'     => 'OvertimeSettings',
         'owner'                => 'Owner',
         'priority'             => 'Priority',
         'projectId'            => 'ProjectId',
-        'taskIds'              => 'TaskIds',
     ];
 
     public function validate()
@@ -75,6 +75,9 @@ class CreateBaselineRequest extends Model
         if (null !== $this->baselineType) {
             $res['BaselineType'] = $this->baselineType;
         }
+        if (null !== $this->nodeIds) {
+            $res['NodeIds'] = $this->nodeIds;
+        }
         if (null !== $this->overtimeSettings) {
             $res['OvertimeSettings'] = [];
             if (null !== $this->overtimeSettings && \is_array($this->overtimeSettings)) {
@@ -92,9 +95,6 @@ class CreateBaselineRequest extends Model
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->taskIds) {
-            $res['TaskIds'] = $this->taskIds;
         }
 
         return $res;
@@ -117,6 +117,9 @@ class CreateBaselineRequest extends Model
         if (isset($map['BaselineType'])) {
             $model->baselineType = $map['BaselineType'];
         }
+        if (isset($map['NodeIds'])) {
+            $model->nodeIds = $map['NodeIds'];
+        }
         if (isset($map['OvertimeSettings'])) {
             if (!empty($map['OvertimeSettings'])) {
                 $model->overtimeSettings = [];
@@ -134,9 +137,6 @@ class CreateBaselineRequest extends Model
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['TaskIds'])) {
-            $model->taskIds = $map['TaskIds'];
         }
 
         return $model;

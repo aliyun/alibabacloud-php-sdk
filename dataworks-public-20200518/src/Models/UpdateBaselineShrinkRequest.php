@@ -46,6 +46,11 @@ class UpdateBaselineShrinkRequest extends Model
     /**
      * @var string
      */
+    public $nodeIds;
+
+    /**
+     * @var string
+     */
     public $overtimeSettingsShrink;
 
     /**
@@ -66,12 +71,7 @@ class UpdateBaselineShrinkRequest extends Model
     /**
      * @var string
      */
-    public $removeTaskIds;
-
-    /**
-     * @var string
-     */
-    public $taskIds;
+    public $removeNodeIds;
     protected $_name = [
         'alertEnabled'           => 'AlertEnabled',
         'alertMarginThreshold'   => 'AlertMarginThreshold',
@@ -80,12 +80,12 @@ class UpdateBaselineShrinkRequest extends Model
         'baselineName'           => 'BaselineName',
         'baselineType'           => 'BaselineType',
         'enabled'                => 'Enabled',
+        'nodeIds'                => 'NodeIds',
         'overtimeSettingsShrink' => 'OvertimeSettings',
         'owner'                  => 'Owner',
         'priority'               => 'Priority',
         'projectId'              => 'ProjectId',
-        'removeTaskIds'          => 'RemoveTaskIds',
-        'taskIds'                => 'TaskIds',
+        'removeNodeIds'          => 'RemoveNodeIds',
     ];
 
     public function validate()
@@ -116,6 +116,9 @@ class UpdateBaselineShrinkRequest extends Model
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+        if (null !== $this->nodeIds) {
+            $res['NodeIds'] = $this->nodeIds;
+        }
         if (null !== $this->overtimeSettingsShrink) {
             $res['OvertimeSettings'] = $this->overtimeSettingsShrink;
         }
@@ -128,11 +131,8 @@ class UpdateBaselineShrinkRequest extends Model
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->removeTaskIds) {
-            $res['RemoveTaskIds'] = $this->removeTaskIds;
-        }
-        if (null !== $this->taskIds) {
-            $res['TaskIds'] = $this->taskIds;
+        if (null !== $this->removeNodeIds) {
+            $res['RemoveNodeIds'] = $this->removeNodeIds;
         }
 
         return $res;
@@ -167,6 +167,9 @@ class UpdateBaselineShrinkRequest extends Model
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+        if (isset($map['NodeIds'])) {
+            $model->nodeIds = $map['NodeIds'];
+        }
         if (isset($map['OvertimeSettings'])) {
             $model->overtimeSettingsShrink = $map['OvertimeSettings'];
         }
@@ -179,11 +182,8 @@ class UpdateBaselineShrinkRequest extends Model
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['RemoveTaskIds'])) {
-            $model->removeTaskIds = $map['RemoveTaskIds'];
-        }
-        if (isset($map['TaskIds'])) {
-            $model->taskIds = $map['TaskIds'];
+        if (isset($map['RemoveNodeIds'])) {
+            $model->removeNodeIds = $map['RemoveNodeIds'];
         }
 
         return $model;
