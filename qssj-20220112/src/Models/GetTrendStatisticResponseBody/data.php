@@ -38,6 +38,11 @@ class data extends Model
     public $sales;
 
     /**
+     * @var int
+     */
+    public $salesVolume;
+
+    /**
      * @example 1936264
      *
      * @var int
@@ -49,6 +54,7 @@ class data extends Model
         'exposureValue'  => 'ExposureValue',
         'hits'           => 'Hits',
         'sales'          => 'Sales',
+        'salesVolume'    => 'SalesVolume',
         'shopCount'      => 'ShopCount',
     ];
 
@@ -73,6 +79,9 @@ class data extends Model
         }
         if (null !== $this->sales) {
             $res['Sales'] = $this->sales;
+        }
+        if (null !== $this->salesVolume) {
+            $res['SalesVolume'] = $this->salesVolume;
         }
         if (null !== $this->shopCount) {
             $res['ShopCount'] = $this->shopCount;
@@ -103,6 +112,9 @@ class data extends Model
         }
         if (isset($map['Sales'])) {
             $model->sales = $map['Sales'];
+        }
+        if (isset($map['SalesVolume'])) {
+            $model->salesVolume = $map['SalesVolume'];
         }
         if (isset($map['ShopCount'])) {
             $model->shopCount = $map['ShopCount'];
