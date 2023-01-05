@@ -15,6 +15,8 @@ class DetectCardScreenshotResponseBody extends Model
     public $data;
 
     /**
+     * @example 1BF3BA27-10BE-403D-AEAA-FAC26B3D2AA3
+     *
      * @var string
      */
     public $requestId;

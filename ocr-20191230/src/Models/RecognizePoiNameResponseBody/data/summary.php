@@ -14,6 +14,8 @@ class summary extends Model
     public $brand;
 
     /**
+     * @example 0.9765625
+     *
      * @var float
      */
     public $score;

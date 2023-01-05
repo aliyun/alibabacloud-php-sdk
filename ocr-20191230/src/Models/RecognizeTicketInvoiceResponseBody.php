@@ -15,6 +15,8 @@ class RecognizeTicketInvoiceResponseBody extends Model
     public $data;
 
     /**
+     * @example 063C0178-7EA3-4754-96FB-C0C9AE6B9AAE
+     *
      * @var string
      */
     public $requestId;

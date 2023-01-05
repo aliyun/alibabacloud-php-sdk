@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class stamp extends Model
 {
     /**
+     * @example 154
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 650
+     *
      * @var int
      */
     public $left;
 
     /**
+     * @example 1030
+     *
      * @var int
      */
     public $top;
 
     /**
+     * @example 154
+     *
      * @var int
      */
     public $width;

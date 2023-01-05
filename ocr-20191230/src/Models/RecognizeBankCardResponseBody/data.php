@@ -14,11 +14,15 @@ class data extends Model
     public $bankName;
 
     /**
+     * @example 6212262315007683105
+     *
      * @var string
      */
     public $cardNumber;
 
     /**
+     * @example 07/26
+     *
      * @var string
      */
     public $validDate;

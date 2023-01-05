@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class tasks extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/ocr/RecognizeQrCode/RecognizeQrCode6.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;

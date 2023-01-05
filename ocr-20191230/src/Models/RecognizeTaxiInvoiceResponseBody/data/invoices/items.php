@@ -15,6 +15,8 @@ class items extends Model
     public $itemRoi;
 
     /**
+     * @example 86655664
+     *
      * @var string
      */
     public $text;

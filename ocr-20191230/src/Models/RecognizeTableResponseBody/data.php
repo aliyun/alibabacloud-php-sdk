@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example UEsDBBQAAAAIAAAAIQBukMk4WAIAA****
+     *
      * @var string
      */
     public $fileContent;

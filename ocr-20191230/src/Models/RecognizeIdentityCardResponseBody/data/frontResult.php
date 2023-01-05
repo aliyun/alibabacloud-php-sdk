@@ -17,6 +17,8 @@ class frontResult extends Model
     public $address;
 
     /**
+     * @example 19960111
+     *
      * @var string
      */
     public $birthDate;
@@ -42,6 +44,8 @@ class frontResult extends Model
     public $gender;
 
     /**
+     * @example 310228199601115411
+     *
      * @var string
      */
     public $IDNumber;

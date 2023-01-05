@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class wordsInfo extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $angle;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $height;
@@ -25,6 +29,8 @@ class wordsInfo extends Model
     public $positions;
 
     /**
+     * @example 205
+     *
      * @var int
      */
     public $width;
@@ -35,11 +41,15 @@ class wordsInfo extends Model
     public $word;
 
     /**
+     * @example 863
+     *
      * @var int
      */
     public $x;
 
     /**
+     * @example 46
+     *
      * @var int
      */
     public $y;

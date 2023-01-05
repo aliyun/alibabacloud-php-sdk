@@ -15,6 +15,8 @@ class RecognizePdfResponseBody extends Model
     public $data;
 
     /**
+     * @example CD9A9659-ABEE-4A7D-837F-9FDF40879A97
+     *
      * @var string
      */
     public $requestId;

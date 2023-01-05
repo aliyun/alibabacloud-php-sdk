@@ -15,6 +15,8 @@ class RecognizeQuotaInvoiceResponseBody extends Model
     public $data;
 
     /**
+     * @example BC4C12D0-7FD3-419A-B997-A91212DF6D82
+     *
      * @var string
      */
     public $requestId;

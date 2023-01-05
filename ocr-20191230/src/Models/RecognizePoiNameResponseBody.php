@@ -15,6 +15,8 @@ class RecognizePoiNameResponseBody extends Model
     public $data;
 
     /**
+     * @example 76D4FAB5-4BFE-5A4F-B2EC-9DB2155F1AF7
+     *
      * @var string
      */
     public $requestId;

@@ -10,31 +10,43 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $angle;
 
     /**
+     * @example 788
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 610
+     *
      * @var int
      */
     public $orgHeight;
 
     /**
+     * @example 394
+     *
      * @var int
      */
     public $orgWidth;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageIndex;
 
     /**
+     * @example 1220
+     *
      * @var int
      */
     public $width;

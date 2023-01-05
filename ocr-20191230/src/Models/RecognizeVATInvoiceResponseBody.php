@@ -15,6 +15,8 @@ class RecognizeVATInvoiceResponseBody extends Model
     public $data;
 
     /**
+     * @example 56A10D65-ECE0-59DE-9775-F6494D2AF13B
+     *
      * @var string
      */
     public $requestId;

@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeVerificationcodeAdvanceRequest extends Model
 {
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/verificationcode.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;

@@ -15,6 +15,8 @@ class RecognizeVerificationcodeResponseBody extends Model
     public $data;
 
     /**
+     * @example 12F2C1FF-16D6-4B71-B957-F6C4B4761E95
+     *
      * @var string
      */
     public $requestId;

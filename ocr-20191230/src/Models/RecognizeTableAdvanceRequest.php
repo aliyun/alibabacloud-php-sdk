@@ -10,31 +10,43 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeTableAdvanceRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $assureDirection;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $hasLine;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/ocr/RecognizeTable/RecognizeTable4.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;
 
     /**
+     * @example json
+     *
      * @var string
      */
     public $outputFormat;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $skipDetection;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useFinanceModel;

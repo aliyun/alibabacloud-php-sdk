@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isBlur;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isCard;

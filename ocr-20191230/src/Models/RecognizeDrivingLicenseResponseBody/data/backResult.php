@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class backResult extends Model
 {
     /**
+     * @example 300
+     *
      * @var string
      */
     public $approvedLoad;
 
     /**
+     * @example 5
+     *
      * @var string
      */
     public $approvedPassengerCapacity;
 
     /**
+     * @example -
+     *
      * @var string
      */
     public $energyType;
@@ -29,6 +35,8 @@ class backResult extends Model
     public $fileNumber;
 
     /**
+     * @example 2205
+     *
      * @var string
      */
     public $grossMass;
@@ -39,6 +47,8 @@ class backResult extends Model
     public $inspectionRecord;
 
     /**
+     * @example 4945x1845x1480
+     *
      * @var string
      */
     public $overallDimension;
@@ -49,11 +59,15 @@ class backResult extends Model
     public $plateNumber;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $tractionMass;
 
     /**
+     * @example 2000
+     *
      * @var string
      */
     public $unladenMass;

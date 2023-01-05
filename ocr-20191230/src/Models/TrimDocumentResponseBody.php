@@ -20,6 +20,8 @@ class TrimDocumentResponseBody extends Model
     public $message;
 
     /**
+     * @example E700C1C1-57E4-413A-9987-56A5A0443CE4
+     *
      * @var string
      */
     public $requestId;

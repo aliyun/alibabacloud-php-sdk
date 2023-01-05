@@ -15,6 +15,8 @@ class RecognizeAccountPageResponseBody extends Model
     public $data;
 
     /**
+     * @example 8D588F22-3E14-4674-9EAE-49AE1BA10EA2
+     *
      * @var string
      */
     public $requestId;

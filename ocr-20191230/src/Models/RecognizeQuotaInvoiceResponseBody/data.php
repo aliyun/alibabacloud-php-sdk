@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $angle;
@@ -21,6 +23,8 @@ class data extends Model
     public $content;
 
     /**
+     * @example 624
+     *
      * @var int
      */
     public $height;
@@ -31,16 +35,22 @@ class data extends Model
     public $keyValueInfos;
 
     /**
+     * @example 610
+     *
      * @var int
      */
     public $orgHeight;
 
     /**
+     * @example 855
+     *
      * @var int
      */
     public $orgWidth;
 
     /**
+     * @example 865
+     *
      * @var int
      */
     public $width;

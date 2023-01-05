@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class invalidStampAreas extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $left;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $top;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $width;

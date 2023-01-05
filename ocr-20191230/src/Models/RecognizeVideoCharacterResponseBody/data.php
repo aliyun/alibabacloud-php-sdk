@@ -15,16 +15,22 @@ class data extends Model
     public $frames;
 
     /**
+     * @example 1080
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example oss://my-bucket/a/b/c.mp4
+     *
      * @var string
      */
     public $inputFile;
 
     /**
+     * @example 1920
+     *
      * @var int
      */
     public $width;

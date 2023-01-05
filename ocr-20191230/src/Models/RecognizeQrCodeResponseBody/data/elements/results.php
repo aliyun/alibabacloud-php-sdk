@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @example qrcode
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description 1
+     *
      * @var string[]
      */
     public $qrCodesData;
 
     /**
+     * @example 99.91
+     *
      * @var float
      */
     public $rate;
 
     /**
+     * @example review
+     *
      * @var string
      */
     public $suggestion;

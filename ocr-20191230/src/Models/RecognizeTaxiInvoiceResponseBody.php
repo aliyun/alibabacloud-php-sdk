@@ -15,6 +15,8 @@ class RecognizeTaxiInvoiceResponseBody extends Model
     public $data;
 
     /**
+     * @example B2BBBD26-1D3E-4CFA-A80B-6A9266B8D125
+     *
      * @var string
      */
     public $requestId;

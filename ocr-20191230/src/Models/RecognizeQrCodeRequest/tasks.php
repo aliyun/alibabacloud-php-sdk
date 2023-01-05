@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/ocr/RecognizeQrCode/RecognizeQrCode6.jpg
+     *
      * @var string
      */
     public $imageURL;

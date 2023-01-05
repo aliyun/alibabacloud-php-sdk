@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QRCode extends Model
 {
     /**
+     * @example 132
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 156
+     *
      * @var int
      */
     public $left;
 
     /**
+     * @example 914
+     *
      * @var int
      */
     public $top;
 
     /**
+     * @example 126
+     *
      * @var int
      */
     public $width;

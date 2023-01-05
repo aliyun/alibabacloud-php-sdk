@@ -15,6 +15,8 @@ class RecognizeLicensePlateResponseBody extends Model
     public $data;
 
     /**
+     * @example 3F10DAC3-CF4A-487C-BF33-3B8EB9AA12F2
+     *
      * @var string
      */
     public $requestId;

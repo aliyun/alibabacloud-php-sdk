@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class textRectangles extends Model
 {
     /**
+     * @example -65
+     *
      * @var int
      */
     public $angle;
 
     /**
+     * @example 409
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 511
+     *
      * @var int
      */
     public $left;
 
     /**
+     * @example 150
+     *
      * @var int
      */
     public $top;
 
     /**
+     * @example 77
+     *
      * @var int
      */
     public $width;

@@ -14,21 +14,29 @@ class regions extends Model
     public $bandBoxes;
 
     /**
+     * @example POCHNZHANG<<SAN<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example 0.59131116
+     *
      * @var float
      */
     public $detectionScore;
 
     /**
+     * @example mrz1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 0.9916993379592896
+     *
      * @var float
      */
     public $recognitionScore;

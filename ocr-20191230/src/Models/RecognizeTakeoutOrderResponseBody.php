@@ -15,6 +15,8 @@ class RecognizeTakeoutOrderResponseBody extends Model
     public $data;
 
     /**
+     * @example CFB676F0-45D9-520F-BB27-232B90409F87
+     *
      * @var string
      */
     public $requestId;

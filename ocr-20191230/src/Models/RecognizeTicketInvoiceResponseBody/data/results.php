@@ -17,6 +17,8 @@ class results extends Model
     public $content;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $index;

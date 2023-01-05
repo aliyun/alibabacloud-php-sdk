@@ -15,6 +15,8 @@ class RecognizeChinapassportResponseBody extends Model
     public $data;
 
     /**
+     * @example 1DCA8C4A-DF5A-4402-8220-836C5DFC4221
+     *
      * @var string
      */
     public $requestId;

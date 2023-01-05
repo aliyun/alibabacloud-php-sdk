@@ -14,11 +14,15 @@ class data extends Model
     public $authority;
 
     /**
+     * @example 19880820
+     *
      * @var string
      */
     public $birthDate;
 
     /**
+     * @example 880820
+     *
      * @var string
      */
     public $birthDay;
@@ -34,21 +38,29 @@ class data extends Model
     public $birthPlaceRaw;
 
     /**
+     * @example CHN
+     *
      * @var string
      */
     public $country;
 
     /**
+     * @example 20231018
+     *
      * @var string
      */
     public $expiryDate;
 
     /**
+     * @example 231018
+     *
      * @var string
      */
     public $expiryDay;
 
     /**
+     * @example 20131019
+     *
      * @var string
      */
     public $issueDate;
@@ -64,16 +76,22 @@ class data extends Model
     public $issuePlaceRaw;
 
     /**
+     * @example POCHNLI<<SI<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+     *
      * @var string
      */
     public $lineOne;
 
     /**
+     * @example E203545580CHN8610304M2305019MNPELOLIOKLPA938
+     *
      * @var string
      */
     public $lineZero;
 
     /**
+     * @example LI.SI
+     *
      * @var string
      */
     public $name;
@@ -89,31 +107,43 @@ class data extends Model
     public $nameChineseRaw;
 
     /**
+     * @example E20354xxxx
+     *
      * @var string
      */
     public $passportNo;
 
     /**
+     * @example MNPELOLIOKLPA9
+     *
      * @var string
      */
     public $personId;
 
     /**
+     * @example F
+     *
      * @var string
      */
     public $sex;
 
     /**
+     * @example CHN
+     *
      * @var string
      */
     public $sourceCountry;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example P0
+     *
      * @var string
      */
     public $type;

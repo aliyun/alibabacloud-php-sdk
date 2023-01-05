@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @example 0.99
+     *
      * @var float
      */
     public $probability;

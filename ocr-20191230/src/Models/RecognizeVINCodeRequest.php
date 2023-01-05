@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RecognizeVINCodeRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/ocr/RecognizeVINCode/vin1.jpg
+     *
      * @var string
      */
     public $imageURL;

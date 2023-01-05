@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class titleArea extends Model
 {
     /**
+     * @example 30
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 205
+     *
      * @var int
      */
     public $left;
 
     /**
+     * @example 17
+     *
      * @var int
      */
     public $top;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $width;

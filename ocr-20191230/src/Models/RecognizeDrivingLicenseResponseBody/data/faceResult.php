@@ -14,11 +14,15 @@ class faceResult extends Model
     public $address;
 
     /**
+     * @example 111111
+     *
      * @var string
      */
     public $engineNumber;
 
     /**
+     * @example 20180313
+     *
      * @var string
      */
     public $issueDate;
@@ -39,6 +43,8 @@ class faceResult extends Model
     public $plateNumber;
 
     /**
+     * @example 20180312
+     *
      * @var string
      */
     public $registerDate;
@@ -54,6 +60,8 @@ class faceResult extends Model
     public $vehicleType;
 
     /**
+     * @example SSVUDDTT2J2022555
+     *
      * @var string
      */
     public $vin;

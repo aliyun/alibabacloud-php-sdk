@@ -15,6 +15,8 @@ class RecognizeVINCodeResponseBody extends Model
     public $data;
 
     /**
+     * @example 911FC8CF-CC27-477E-BE3B-7ED77DF4DFE0
+     *
      * @var string
      */
     public $requestId;

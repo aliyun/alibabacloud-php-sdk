@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RecognizePoiNameRequest extends Model
 {
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/xuhan/October/RecognizePoiName9.jpeg
+     *
      * @var string
      */
     public $imageURL;

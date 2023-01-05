@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class resultMap extends Model
 {
     /**
+     * @example 99.99965944391533
+     *
      * @var float
      */
     public $screenScore;
 
     /**
+     * @example 90
+     *
      * @var float
      */
     public $screenThreshold;

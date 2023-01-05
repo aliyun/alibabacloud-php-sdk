@@ -34,11 +34,15 @@ class data extends Model
     public $name;
 
     /**
+     * @example G7350
+     *
      * @var string
      */
     public $number;
 
     /**
+     * @example 104.5
+     *
      * @var float
      */
     public $price;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example InvalidParameter
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example paramsIllegal
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 49E2CC28-ED1D-4CC5-854D-7D0AE2B20976
+     *
      * @var string
      */
     public $jobId;
@@ -29,6 +35,8 @@ class data extends Model
     public $result;
 
     /**
+     * @example PROCESS_SUCCESS
+     *
      * @var string
      */
     public $status;

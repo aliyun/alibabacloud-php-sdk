@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RecognizePdfRequest extends Model
 {
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/ocr/xxxx.pdf
+     *
      * @var string
      */
     public $fileURL;

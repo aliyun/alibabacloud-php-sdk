@@ -15,6 +15,8 @@ class keyValueInfos extends Model
     public $key;
 
     /**
+     * @example 044031860107
+     *
      * @var string
      */
     public $value;
@@ -25,6 +27,8 @@ class keyValueInfos extends Model
     public $valuePositions;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $valueScore;

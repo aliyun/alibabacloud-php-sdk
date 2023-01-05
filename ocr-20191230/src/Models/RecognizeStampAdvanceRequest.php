@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeStampAdvanceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/ocr/RecognizeStamp/RecognizeStamp1.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;

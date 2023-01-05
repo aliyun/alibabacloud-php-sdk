@@ -14,6 +14,8 @@ class faceResult extends Model
     public $address;
 
     /**
+     * @example 20190201
+     *
      * @var string
      */
     public $endDate;
@@ -24,6 +26,8 @@ class faceResult extends Model
     public $gender;
 
     /**
+     * @example 20130208
+     *
      * @var string
      */
     public $issueDate;
@@ -34,6 +38,8 @@ class faceResult extends Model
     public $issueUnit;
 
     /**
+     * @example 210288898898898888
+     *
      * @var string
      */
     public $licenseNumber;
@@ -44,11 +50,15 @@ class faceResult extends Model
     public $name;
 
     /**
+     * @example 20130208
+     *
      * @var string
      */
     public $startDate;
 
     /**
+     * @example C1
+     *
      * @var string
      */
     public $vehicleType;

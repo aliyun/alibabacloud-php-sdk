@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @example 02702870934284730434
+     *
      * @var string
      */
     public $antiFakeCode;
@@ -24,26 +26,36 @@ class content extends Model
     public $clerk;
 
     /**
+     * @example 200.00
+     *
      * @var string
      */
     public $invoiceAmount;
 
     /**
+     * @example 031001600311
+     *
      * @var string
      */
     public $invoiceCode;
 
     /**
+     * @example 20190415
+     *
      * @var string
      */
     public $invoiceDate;
 
     /**
+     * @example 03753869
+     *
      * @var string
      */
     public $invoiceNo;
 
     /**
+     * @description 1
+     *
      * @var string[]
      */
     public $itemName;
@@ -69,6 +81,8 @@ class content extends Model
     public $payeeName;
 
     /**
+     * @example 91420200000123403
+     *
      * @var string
      */
     public $payeeRegisterNo;
@@ -79,6 +93,8 @@ class content extends Model
     public $payerAddress;
 
     /**
+     * @example 6221************1234
+     *
      * @var string
      */
     public $payerBankName;
@@ -89,21 +105,29 @@ class content extends Model
     public $payerName;
 
     /**
+     * @example 91420200000123403
+     *
      * @var string
      */
     public $payerRegisterNo;
 
     /**
+     * @example 87
+     *
      * @var string
      */
     public $sumAmount;
 
     /**
+     * @example 9.52
+     *
      * @var string
      */
     public $taxAmount;
 
     /**
+     * @example 190.48
+     *
      * @var string
      */
     public $withoutTaxAmount;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class valuePositions extends Model
 {
     /**
+     * @example 544
+     *
      * @var int
      */
     public $x;
 
     /**
+     * @example 387
+     *
      * @var int
      */
     public $y;

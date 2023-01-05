@@ -15,6 +15,8 @@ class RecognizeQrCodeResponseBody extends Model
     public $data;
 
     /**
+     * @example A53DC437-F883-4968-86D5-EB21FB044692
+     *
      * @var string
      */
     public $requestId;

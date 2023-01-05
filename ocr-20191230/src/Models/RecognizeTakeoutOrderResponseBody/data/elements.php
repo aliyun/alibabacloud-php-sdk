@@ -14,16 +14,22 @@ class elements extends Model
     public $boxes;
 
     /**
+     * @example delivery_fee
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 0.68
+     *
      * @var float
      */
     public $score;
 
     /**
+     * @example 4.00
+     *
      * @var string
      */
     public $value;

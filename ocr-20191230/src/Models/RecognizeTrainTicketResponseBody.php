@@ -15,6 +15,8 @@ class RecognizeTrainTicketResponseBody extends Model
     public $data;
 
     /**
+     * @example BE4B73EA-30A0-4573-A548-3A101B34641A
+     *
      * @var string
      */
     public $requestId;

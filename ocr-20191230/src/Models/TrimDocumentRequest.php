@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class TrimDocumentRequest extends Model
 {
     /**
+     * @example pdf
+     *
      * @var string
      */
     public $fileType;
 
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/ocr/TrimDocument/TrimDocument1.pdf
+     *
      * @var string
      */
     public $fileURL;
 
     /**
+     * @example html
+     *
      * @var string
      */
     public $outputType;

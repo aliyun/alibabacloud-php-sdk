@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RecognizeAccountPageRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/ocr/RecognizeAccountPage/hky1.jpg
+     *
      * @var string
      */
     public $imageURL;

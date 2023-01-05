@@ -15,6 +15,8 @@ class RecognizeCharacterResponseBody extends Model
     public $data;
 
     /**
+     * @example 7A9BC7FE-2D42-57AF-93BC-09A229DD2F1D
+     *
      * @var string
      */
     public $requestId;

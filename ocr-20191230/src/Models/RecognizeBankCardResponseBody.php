@@ -15,6 +15,8 @@ class RecognizeBankCardResponseBody extends Model
     public $data;
 
     /**
+     * @example D9C7521-0367-42EE-9646-FD066CCADB26
+     *
      * @var string
      */
     public $requestId;

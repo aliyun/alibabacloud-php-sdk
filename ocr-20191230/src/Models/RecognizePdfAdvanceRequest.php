@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizePdfAdvanceRequest extends Model
 {
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/ocr/xxxx.pdf
+     *
      * @var Stream
      */
     public $fileURLObject;

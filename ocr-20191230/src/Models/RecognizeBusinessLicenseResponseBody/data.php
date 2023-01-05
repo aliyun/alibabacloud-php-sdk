@@ -18,6 +18,8 @@ class data extends Model
     public $address;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $angle;
@@ -38,6 +40,8 @@ class data extends Model
     public $emblem;
 
     /**
+     * @example 20150504
+     *
      * @var string
      */
     public $establishDate;
@@ -58,6 +62,8 @@ class data extends Model
     public $QRCode;
 
     /**
+     * @example 91500108320423****
+     *
      * @var string
      */
     public $registerNumber;
@@ -78,6 +84,8 @@ class data extends Model
     public $type;
 
     /**
+     * @example 29991231
+     *
      * @var string
      */
     public $validPeriod;

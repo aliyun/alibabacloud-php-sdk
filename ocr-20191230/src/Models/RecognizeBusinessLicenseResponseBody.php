@@ -15,6 +15,8 @@ class RecognizeBusinessLicenseResponseBody extends Model
     public $data;
 
     /**
+     * @example F34D031B-02BD-4A59-BA35-EE068DD6F6E6
+     *
      * @var string
      */
     public $requestId;

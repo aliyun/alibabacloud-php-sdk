@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RecognizeChinapassportRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/ocr/RecognizeChinapassport/hz1.jpg
+     *
      * @var string
      */
     public $imageURL;

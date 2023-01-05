@@ -15,6 +15,8 @@ class RecognizeBusinessCardResponseBody extends Model
     public $data;
 
     /**
+     * @example 0068957A-C493-481F-BA14-C3F89BF75BD4
+     *
      * @var string
      */
     public $requestId;

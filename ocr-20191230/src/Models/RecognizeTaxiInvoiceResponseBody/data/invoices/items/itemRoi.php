@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class itemRoi extends Model
 {
     /**
+     * @example -90
+     *
      * @var float
      */
     public $angle;

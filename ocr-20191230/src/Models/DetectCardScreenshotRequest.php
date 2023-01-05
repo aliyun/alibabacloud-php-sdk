@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DetectCardScreenshotRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/ocr/DetectCardScreenshot/DetectCardScreenshot3.jpg
+     *
      * @var string
      */
     public $imageURL;

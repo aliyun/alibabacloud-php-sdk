@@ -10,16 +10,22 @@ use GuzzleHttp\Psr7\Stream;
 class TrimDocumentAdvanceRequest extends Model
 {
     /**
+     * @example pdf
+     *
      * @var string
      */
     public $fileType;
 
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/ocr/TrimDocument/TrimDocument1.pdf
+     *
      * @var Stream
      */
     public $fileURLObject;
 
     /**
+     * @example html
+     *
      * @var string
      */
     public $outputType;

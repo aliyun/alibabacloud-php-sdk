@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RecognizeDrivingLicenseRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/ocr/RecognizeDrivingLicense/xsz2.jpg
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example face
+     *
      * @var string
      */
     public $side;

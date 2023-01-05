@@ -20,6 +20,8 @@ class RecognizeVideoCharacterResponseBody extends Model
     public $message;
 
     /**
+     * @example D3F5BA69-79C4-46A4-B02B-58C4EEBC4C33
+     *
      * @var string
      */
     public $requestId;

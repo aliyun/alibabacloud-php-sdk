@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizePassportMRZAdvanceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/ocr/RecognizeChinapassport/hz2.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;

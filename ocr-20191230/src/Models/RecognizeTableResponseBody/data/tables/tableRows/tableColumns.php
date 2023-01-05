@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class tableColumns extends Model
 {
     /**
+     * @example 4
+     *
      * @var int
      */
     public $endColumn;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $endRow;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $startColumn;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $startRow;
@@ -39,6 +49,8 @@ class tableColumns extends Model
     public $texts;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $width;

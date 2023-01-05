@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RecognizeCharacterRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/ocr/RecognizeCharacter/RecognizeCharacter5.jpg
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $minHeight;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $outputProbability;

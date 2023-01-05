@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class invoiceRoi extends Model
 {
     /**
+     * @example 3625
+     *
      * @var float
      */
     public $h;
 
     /**
+     * @example 1773
+     *
      * @var float
      */
     public $w;
 
     /**
+     * @example 513
+     *
      * @var float
      */
     public $x;
 
     /**
+     * @example 302
+     *
      * @var float
      */
     public $y;

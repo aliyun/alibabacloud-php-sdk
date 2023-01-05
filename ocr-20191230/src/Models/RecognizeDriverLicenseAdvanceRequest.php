@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeDriverLicenseAdvanceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/ocr/RecognizeDriverLicense/jsz2.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;
 
     /**
+     * @example face
+     *
      * @var string
      */
     public $side;

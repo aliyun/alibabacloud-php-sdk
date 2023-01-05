@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class spoofResult extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isSpoof;

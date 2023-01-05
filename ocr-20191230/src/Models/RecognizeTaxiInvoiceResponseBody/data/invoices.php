@@ -21,6 +21,8 @@ class invoices extends Model
     public $items;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $rotateType;

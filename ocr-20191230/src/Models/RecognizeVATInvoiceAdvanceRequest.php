@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeVATInvoiceAdvanceRequest extends Model
 {
     /**
+     * @example jpg
+     *
      * @var string
      */
     public $fileType;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/ocr/RecognizeVATInvoice/RecognizeVATInvoice3.jpg
+     *
      * @var Stream
      */
     public $fileURLObject;

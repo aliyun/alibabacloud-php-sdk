@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example LVBB2FAF777999888
+     *
      * @var string
      */
     public $vinCode;

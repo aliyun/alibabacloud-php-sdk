@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RecognizeTicketInvoiceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/ocr/RecognizeTicketInvoice/RecognizeTicketInvoice1.png
+     *
      * @var string
      */
     public $imageURL;

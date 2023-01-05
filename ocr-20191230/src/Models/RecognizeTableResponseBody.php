@@ -15,6 +15,8 @@ class RecognizeTableResponseBody extends Model
     public $data;
 
     /**
+     * @example CBC36BE6-2A18-5256-82BD-8B5477E5D058
+     *
      * @var string
      */
     public $requestId;

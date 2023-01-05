@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizePoiNameAdvanceRequest extends Model
 {
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/xuhan/October/RecognizePoiName9.jpeg
+     *
      * @var Stream
      */
     public $imageURLObject;

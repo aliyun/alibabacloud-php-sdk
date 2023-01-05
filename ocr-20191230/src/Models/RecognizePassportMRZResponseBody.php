@@ -15,6 +15,8 @@ class RecognizePassportMRZResponseBody extends Model
     public $data;
 
     /**
+     * @example DC6370E9-4BE5-56A7-9BD9-E1BF538CDD23
+     *
      * @var string
      */
     public $requestId;

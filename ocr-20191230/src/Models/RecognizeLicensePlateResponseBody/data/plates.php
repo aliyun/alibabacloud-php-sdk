@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class plates extends Model
 {
     /**
+     * @example 0.99745339155197144
+     *
      * @var float
      */
     public $confidence;
@@ -26,6 +28,8 @@ class plates extends Model
     public $plateType;
 
     /**
+     * @example 1
+     *
      * @var float
      */
     public $plateTypeConfidence;

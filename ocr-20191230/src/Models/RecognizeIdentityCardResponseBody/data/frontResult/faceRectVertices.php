@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class faceRectVertices extends Model
 {
     /**
+     * @example 429.46124267578125
+     *
      * @var float
      */
     public $x;
 
     /**
+     * @example 164.23321533203125
+     *
      * @var float
      */
     public $y;

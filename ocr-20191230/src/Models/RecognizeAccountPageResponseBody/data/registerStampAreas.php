@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class registerStampAreas extends Model
 {
     /**
+     * @example 138
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 330
+     *
      * @var int
      */
     public $left;
 
     /**
+     * @example 2215
+     *
      * @var int
      */
     public $top;
 
     /**
+     * @example 152
+     *
      * @var int
      */
     public $width;

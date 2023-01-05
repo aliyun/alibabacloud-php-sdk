@@ -14,6 +14,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 0
+     *
      * @var float
      */
     public $angle;
@@ -34,6 +36,8 @@ class data extends Model
     public $gender;
 
     /**
+     * @example 513437200212271325
+     *
      * @var string
      */
     public $IDNumber;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class emblem extends Model
 {
     /**
+     * @example 163
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 366
+     *
      * @var int
      */
     public $left;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $top;
 
     /**
+     * @example 162
+     *
      * @var int
      */
     public $width;

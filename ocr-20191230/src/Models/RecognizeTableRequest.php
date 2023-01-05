@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class RecognizeTableRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $assureDirection;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $hasLine;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/ocr/RecognizeTable/RecognizeTable4.jpg
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example json
+     *
      * @var string
      */
     public $outputFormat;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $skipDetection;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useFinanceModel;

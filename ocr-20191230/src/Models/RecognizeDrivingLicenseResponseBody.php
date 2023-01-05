@@ -15,6 +15,8 @@ class RecognizeDrivingLicenseResponseBody extends Model
     public $data;
 
     /**
+     * @example 1DD989C1-4E08-4E04-9D5D-314901E91226
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @example 10
+     *
      * @var string
      */
     public $invoiceAmount;
 
     /**
+     * @example 144031800103
+     *
      * @var string
      */
     public $invoiceCode;
@@ -24,6 +28,8 @@ class content extends Model
     public $invoiceDetails;
 
     /**
+     * @example 40637706
+     *
      * @var string
      */
     public $invoiceNo;

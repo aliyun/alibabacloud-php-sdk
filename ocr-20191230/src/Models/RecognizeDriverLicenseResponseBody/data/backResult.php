@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class backResult extends Model
 {
     /**
+     * @example 130601473955
+     *
      * @var string
      */
     public $archiveNumber;
 
     /**
+     * @example 210288898898898888
+     *
      * @var string
      */
     public $cardNumber;

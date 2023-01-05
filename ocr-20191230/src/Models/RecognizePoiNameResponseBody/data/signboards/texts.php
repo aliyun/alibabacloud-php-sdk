@@ -19,16 +19,22 @@ class texts extends Model
     public $points;
 
     /**
+     * @example 0.9994
+     *
      * @var float
      */
     public $score;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @example text
+     *
      * @var string
      */
     public $type;

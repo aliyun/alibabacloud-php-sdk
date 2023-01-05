@@ -9,101 +9,141 @@ use AlibabaCloud\Tea\Model;
 class box extends Model
 {
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $checkers;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $clerks;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $invoiceAmounts;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $invoiceCodes;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $invoiceDates;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $invoiceFakeCodes;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $invoiceNoes;
 
     /**
+     * @description 1
+     *
      * @var int[]
      */
     public $itemNames;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $payeeAddresses;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $payeeBankNames;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $payeeNames;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $payeeRegisterNoes;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $payees;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $payerAddresses;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $payerBankNames;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $payerNames;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $payerRegisterNoes;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $sumAmounts;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $taxAmounts;
 
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $withoutTaxAmounts;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class cardAreas extends Model
 {
     /**
+     * @example 40
+     *
      * @var float
      */
     public $x;
 
     /**
+     * @example 81
+     *
      * @var float
      */
     public $y;

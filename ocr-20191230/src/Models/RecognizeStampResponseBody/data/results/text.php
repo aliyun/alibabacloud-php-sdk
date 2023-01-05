@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class text extends Model
 {
     /**
+     * @example 0.9978633522987366
+     *
      * @var float
      */
     public $confidence;
