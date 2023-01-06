@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetSAMLProviderResponseBody extends Model
 {
     /**
+     * @example BAADB995-0C7A-476D-B293-7E94568EEDFB
+     *
      * @var string
      */
     public $requestId;

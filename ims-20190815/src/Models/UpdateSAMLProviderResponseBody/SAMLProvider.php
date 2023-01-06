@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class SAMLProvider extends Model
 {
     /**
+     * @example acs:ram::177242285274****:saml-provider/test-provider
+     *
      * @var string
      */
     public $arn;
 
     /**
+     * @example 2020-10-22T02:37:05Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example This is a new provider.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example test-provider
+     *
      * @var string
      */
     public $SAMLProviderName;
 
     /**
+     * @example 2020-10-22T02:51:20Z
+     *
      * @var string
      */
     public $updateDate;

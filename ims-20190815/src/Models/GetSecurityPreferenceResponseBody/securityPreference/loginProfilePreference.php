@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class loginProfilePreference extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $allowUserToChangePassword;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableSaveMFATicket;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enforceMFAForLogin;
 
     /**
+     * @example 10.0.0.0/8
+     *
      * @var string
      */
     public $loginNetworkMasks;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $loginSessionDuration;

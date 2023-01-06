@@ -4,36 +4,49 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\CreateUserResponseBody;
 
+use AlibabaCloud\SDK\Ims\V20190815\Models\CreateUserResponseBody\user\tags;
 use AlibabaCloud\Tea\Model;
 
 class user extends Model
 {
     /**
+     * @example This is a cloud computing engineer.
+     *
      * @var string
      */
     public $comments;
 
     /**
+     * @example 2020-10-12T09:12:00Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example alice@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 2020-10-12T09:12:00Z
+     *
      * @var string
      */
     public $lastLoginDate;
 
     /**
+     * @example 86-1868888****
+     *
      * @var string
      */
     public $mobilePhone;
@@ -41,14 +54,30 @@ class user extends Model
     /**
      * @var string
      */
+    public $provisionType;
+
+    /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
+     * @example 2020-10-12T09:12:00Z
+     *
+     * @var string
+     */
     public $updateDate;
 
     /**
+     * @example 20732900249392****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example test@example.onaliyun.com
+     *
      * @var string
      */
     public $userPrincipalName;
@@ -59,6 +88,8 @@ class user extends Model
         'email'             => 'Email',
         'lastLoginDate'     => 'LastLoginDate',
         'mobilePhone'       => 'MobilePhone',
+        'provisionType'     => 'ProvisionType',
+        'tags'              => 'Tags',
         'updateDate'        => 'UpdateDate',
         'userId'            => 'UserId',
         'userPrincipalName' => 'UserPrincipalName',
@@ -88,6 +119,12 @@ class user extends Model
         }
         if (null !== $this->mobilePhone) {
             $res['MobilePhone'] = $this->mobilePhone;
+        }
+        if (null !== $this->provisionType) {
+            $res['ProvisionType'] = $this->provisionType;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->updateDate) {
             $res['UpdateDate'] = $this->updateDate;
@@ -127,6 +164,12 @@ class user extends Model
         }
         if (isset($map['MobilePhone'])) {
             $model->mobilePhone = $map['MobilePhone'];
+        }
+        if (isset($map['ProvisionType'])) {
+            $model->provisionType = $map['ProvisionType'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['UpdateDate'])) {
             $model->updateDate = $map['UpdateDate'];

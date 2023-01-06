@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateAccessKeyResponseBody extends Model
 {
     /**
+     * @example B9AF80E4-1565-42D9-9256-0B8B0D9FD3EC
+     *
      * @var string
      */
     public $requestId;

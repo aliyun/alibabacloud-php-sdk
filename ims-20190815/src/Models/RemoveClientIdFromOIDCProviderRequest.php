@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RemoveClientIdFromOIDCProviderRequest extends Model
 {
     /**
+     * @example 498469743454717****
+     *
      * @var string
      */
     public $clientId;
 
     /**
+     * @example TestOIDCProvider
+     *
      * @var string
      */
     public $OIDCProviderName;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GenerateCredentialReportResponseBody extends Model
 {
     /**
+     * @example BBCCA90A-A1F0-4B16-B355-692247197805
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example STARTED
+     *
      * @var string
      */
     public $state;

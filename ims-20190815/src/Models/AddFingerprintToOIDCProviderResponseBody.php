@@ -15,6 +15,8 @@ class AddFingerprintToOIDCProviderResponseBody extends Model
     public $OIDCProvider;
 
     /**
+     * @example 4B809BBC-0E78-544A-A91A-648926412E3E
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class personalInfoPreference extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $allowUserToManagePersonalDingTalk;

@@ -14,11 +14,15 @@ class CreateGroupRequest extends Model
     public $comments;
 
     /**
+     * @example Dev-Team
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example Dev-Team
+     *
      * @var string
      */
     public $groupName;

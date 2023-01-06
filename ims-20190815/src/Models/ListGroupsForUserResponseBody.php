@@ -15,6 +15,8 @@ class ListGroupsForUserResponseBody extends Model
     public $groups;
 
     /**
+     * @example 7158A935-FB5E-49A7-8E52-FDA5B2B67247
+     *
      * @var string
      */
     public $requestId;

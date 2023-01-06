@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddFingerprintToOIDCProviderRequest extends Model
 {
     /**
+     * @example 902ef2deeb3c5b13ea4c3d5193629309e231****
+     *
      * @var string
      */
     public $fingerprint;
 
     /**
+     * @example TestOIDCProvider
+     *
      * @var string
      */
     public $OIDCProviderName;

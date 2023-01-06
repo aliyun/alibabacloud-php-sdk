@@ -15,6 +15,8 @@ class CreateAppSecretResponseBody extends Model
     public $appSecret;
 
     /**
+     * @example EE46FC3C-3BDE-4771-B531-27B7B6EB533D
+     *
      * @var string
      */
     public $requestId;

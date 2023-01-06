@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetAccountMFAInfoResponseBody extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isMFAEnable;
 
     /**
+     * @example 4BE83135-0B08-467C-B3A2-27B312FD0F57
+     *
      * @var string
      */
     public $requestId;

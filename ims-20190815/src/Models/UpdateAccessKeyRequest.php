@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateAccessKeyRequest extends Model
 {
     /**
+     * @example Active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example LTAI4GFTgcR8m8cZQDTH****
+     *
      * @var string
      */
     public $userAccessKeyId;
 
     /**
+     * @example test@example.onaliyun.com
+     *
      * @var string
      */
     public $userPrincipalName;

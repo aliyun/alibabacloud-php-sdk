@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class OIDCProvider extends Model
 {
     /**
+     * @example acs:ram::177242285274****:oidc-provider/TestOIDCProvider
+     *
      * @var string
      */
     public $arn;
 
     /**
+     * @example 0oa4u6l8x5WoaVbd****
+     *
      * @var string
      */
     public $clientIds;
 
     /**
+     * @example 2021-11-11T06:56:03Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example This is a new OIDC Provider.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 5938fd4d98bab03faadb97b34396831e3780****
+     *
      * @var string
      */
     public $fingerprints;
 
     /**
+     * @example 1636613763000
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 1636706309000
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example https://dev-xxxxxx.okta.com
+     *
      * @var string
      */
     public $issuerUrl;
 
     /**
+     * @example TestOIDCProvider
+     *
      * @var string
      */
     public $OIDCProviderName;
 
     /**
+     * @example 2021-11-12T08:38:29Z
+     *
      * @var string
      */
     public $updateDate;

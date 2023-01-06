@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteAppSecretRequest extends Model
 {
     /**
+     * @example 472457090344041****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 2efd5004-005c-4f05-83c6-5b1dd176****
+     *
      * @var string
      */
     public $appSecretId;

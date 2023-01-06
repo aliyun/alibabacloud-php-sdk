@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVirtualMFADeviceResponseBody extends Model
 {
     /**
+     * @example C609CC97-10FE-43EB-BE32-BDC219D8F1E4
+     *
      * @var string
      */
     public $requestId;

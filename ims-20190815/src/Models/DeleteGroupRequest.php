@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteGroupRequest extends Model
 {
     /**
+     * @example Dev-Team
+     *
      * @var string
      */
     public $groupName;

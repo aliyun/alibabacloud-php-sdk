@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetAccessKeyLastUsedRequest extends Model
 {
     /**
+     * @example LTAI4GFTgcR8m8cZQDTH****
+     *
      * @var string
      */
     public $userAccessKeyId;
 
     /**
+     * @example test@example.onaliyun.com
+     *
      * @var string
      */
     public $userPrincipalName;

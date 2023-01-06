@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateOIDCProviderRequest extends Model
 {
     /**
+     * @example 498469743454717****
+     *
      * @var string
      */
     public $clientIds;
 
     /**
+     * @example This is an OIDC Provider.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 902ef2deeb3c5b13ea4c3d5193629309e231****
+     *
      * @var string
      */
     public $fingerprints;
 
     /**
+     * @example https://dev-xxxxxx.okta.com
+     *
      * @var string
      */
     public $issuerUrl;
 
     /**
+     * @example TestOIDCProvider
+     *
      * @var string
      */
     public $OIDCProviderName;

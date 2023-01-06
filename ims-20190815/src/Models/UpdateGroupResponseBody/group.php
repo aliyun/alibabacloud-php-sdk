@@ -14,26 +14,36 @@ class group extends Model
     public $comments;
 
     /**
+     * @example 2020-10-19T16:15:17Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example Test-Team
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example 740317625433843****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example Test-Team
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example 2020-10-20T03:44:27Z
+     *
      * @var string
      */
     public $updateDate;

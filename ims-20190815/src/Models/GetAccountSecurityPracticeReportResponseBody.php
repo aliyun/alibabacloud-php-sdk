@@ -15,6 +15,8 @@ class GetAccountSecurityPracticeReportResponseBody extends Model
     public $accountSecurityPracticeInfo;
 
     /**
+     * @example ABA822EE-85C2-4418-9577-A1831FC8466D
+     *
      * @var string
      */
     public $requestId;

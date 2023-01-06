@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVirtualMFADeviceRequest extends Model
 {
     /**
+     * @example device001
+     *
      * @var string
      */
     public $virtualMFADeviceName;

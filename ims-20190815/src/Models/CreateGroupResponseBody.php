@@ -15,6 +15,8 @@ class CreateGroupResponseBody extends Model
     public $group;
 
     /**
+     * @example 3C38192B-7BF8-45DA-8F0A-E670EA51426C
+     *
      * @var string
      */
     public $requestId;

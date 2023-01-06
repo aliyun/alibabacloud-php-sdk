@@ -15,6 +15,8 @@ class GetOIDCProviderResponseBody extends Model
     public $OIDCProvider;
 
     /**
+     * @example E5E1A300-279D-5FBD-A8CF-F4EDC20C4896
+     *
      * @var string
      */
     public $requestId;

@@ -11,31 +11,43 @@ use AlibabaCloud\Tea\Model;
 class application extends Model
 {
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $accessTokenValidity;
 
     /**
+     * @example 177242285274****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @example 441442900344560****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example myapp
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example WebApp
+     *
      * @var string
      */
     public $appType;
 
     /**
+     * @example 2020-10-23T09:33:22Z
+     *
      * @var string
      */
     public $createDate;
@@ -46,11 +58,15 @@ class application extends Model
     public $delegatedScope;
 
     /**
+     * @example myapp
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isMultiTenant;
@@ -61,16 +77,22 @@ class application extends Model
     public $redirectUris;
 
     /**
+     * @example 7776000
+     *
      * @var int
      */
     public $refreshTokenValidity;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $secretRequired;
 
     /**
+     * @example 2020-10-23T09:33:22Z
+     *
      * @var string
      */
     public $updateDate;

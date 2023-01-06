@@ -15,6 +15,8 @@ class ListApplicationsResponseBody extends Model
     public $applications;
 
     /**
+     * @example CE458B58-8C40-46F7-A9D4-CB85136B0C06
+     *
      * @var string
      */
     public $requestId;

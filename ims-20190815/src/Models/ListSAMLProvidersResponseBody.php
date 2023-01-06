@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListSAMLProvidersResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isTruncated;
 
     /**
+     * @example EXAMPLE
+     *
      * @var string
      */
     public $marker;
 
     /**
+     * @example 2D8B70D3-E194-41C9-93C5-F6A10D716D24
+     *
      * @var string
      */
     public $requestId;

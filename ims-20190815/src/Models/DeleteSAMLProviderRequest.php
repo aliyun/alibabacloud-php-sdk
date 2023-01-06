@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteSAMLProviderRequest extends Model
 {
     /**
+     * @example test-provider
+     *
      * @var string
      */
     public $SAMLProviderName;

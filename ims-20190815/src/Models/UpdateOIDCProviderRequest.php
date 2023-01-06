@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateOIDCProviderRequest extends Model
 {
     /**
+     * @example 498469743454717****
+     *
      * @var string
      */
     public $clientIds;
 
     /**
+     * @example This is a new OIDC Provider.
+     *
      * @var string
      */
     public $newDescription;
 
     /**
+     * @example TestOIDCProvider
+     *
      * @var string
      */
     public $OIDCProviderName;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class accessKey extends Model
 {
     /**
+     * @example 0wNEpMMlzy7s****
+     *
      * @var string
      */
     public $accessKeyId;
 
     /**
+     * @example 2020-10-13T12:33:18Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example Active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 2020-10-13T12:33:18Z
+     *
      * @var string
      */
     public $updateDate;

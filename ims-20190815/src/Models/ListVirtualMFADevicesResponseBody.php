@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListVirtualMFADevicesResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isTruncated;
 
     /**
+     * @example EXAMPLE
+     *
      * @var string
      */
     public $marker;
 
     /**
+     * @example 32272612-DF82-485E-8BA9-AFA4E0C3D0BA
+     *
      * @var string
      */
     public $requestId;

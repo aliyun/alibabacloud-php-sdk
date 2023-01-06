@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateSAMLProviderRequest extends Model
 {
     /**
+     * @example This is a provider.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example PD94bWwgdmVy****
+     *
      * @var string
      */
     public $encodedSAMLMetadataDocument;
 
     /**
+     * @example test-provider
+     *
      * @var string
      */
     public $SAMLProviderName;

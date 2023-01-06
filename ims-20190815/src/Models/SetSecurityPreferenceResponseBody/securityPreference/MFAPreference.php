@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MFAPreference extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $allowUserToManageMFADevices;

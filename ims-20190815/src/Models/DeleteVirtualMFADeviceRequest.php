@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteVirtualMFADeviceRequest extends Model
 {
     /**
+     * @example acs:ram::123456789012****:mfa/device002
+     *
      * @var string
      */
     public $serialNumber;

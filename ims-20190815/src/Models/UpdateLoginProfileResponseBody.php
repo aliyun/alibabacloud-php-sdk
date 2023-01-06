@@ -15,6 +15,8 @@ class UpdateLoginProfileResponseBody extends Model
     public $loginProfile;
 
     /**
+     * @example BCDB6A7F-2199-41D9-B577-4FA536A5ADE1
+     *
      * @var string
      */
     public $requestId;

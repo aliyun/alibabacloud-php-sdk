@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetDefaultDomainResponseBody extends Model
 {
     /**
+     * @example examplecompany.onaliyun.com
+     *
      * @var string
      */
     public $defaultDomainName;
 
     /**
+     * @example 66815255-7CCE-4759-AC37-9755794C3626
+     *
      * @var string
      */
     public $requestId;

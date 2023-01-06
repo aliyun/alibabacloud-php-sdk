@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserRequest extends Model
 {
     /**
+     * @example 20732900249392****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example test@example.onaliyun.com
+     *
      * @var string
      */
     public $userPrincipalName;

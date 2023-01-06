@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetAccountSummaryResponseBody extends Model
 {
     /**
+     * @example 81313F5E-3C85-478F-BCC9-E1B70E4556DB
+     *
      * @var string
      */
     public $requestId;

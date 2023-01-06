@@ -15,16 +15,22 @@ class ListGroupsResponseBody extends Model
     public $groups;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isTruncated;
 
     /**
+     * @example EXAMPLE
+     *
      * @var string
      */
     public $marker;
 
     /**
+     * @example 065527AA-2F2E-AD7C-7484-F2626CFE4934
+     *
      * @var string
      */
     public $requestId;

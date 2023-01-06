@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class UpdateApplicationRequest extends Model
 {
     /**
+     * @example 472457090344041****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $newAccessTokenValidity;
 
     /**
+     * @example NewApp
+     *
      * @var string
      */
     public $newDisplayName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $newIsMultiTenant;
 
     /**
+     * @example openid
+     *
      * @var string
      */
     public $newPredefinedScopes;
 
     /**
+     * @example https://www.example.com
+     *
      * @var string
      */
     public $newRedirectUris;
 
     /**
+     * @example 7776000
+     *
      * @var int
      */
     public $newRefreshTokenValidity;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $newSecretRequired;

@@ -15,6 +15,8 @@ class accountSecurityPracticeInfo extends Model
     public $accountSecurityPracticeUserInfo;
 
     /**
+     * @example 63
+     *
      * @var int
      */
     public $score;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListUsersForGroupRequest extends Model
 {
     /**
+     * @example Test-Team
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example EXAMPLE
+     *
      * @var string
      */
     public $marker;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $maxItems;

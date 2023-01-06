@@ -15,6 +15,8 @@ class UpdateGroupResponseBody extends Model
     public $group;
 
     /**
+     * @example CDA656E3-3CE9-4A03-A8A3-B42A0C3C3287
+     *
      * @var string
      */
     public $requestId;

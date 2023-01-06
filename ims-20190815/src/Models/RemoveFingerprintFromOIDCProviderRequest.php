@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RemoveFingerprintFromOIDCProviderRequest extends Model
 {
     /**
+     * @example 6938fd4d98bab03faadb97b34396831e3780****
+     *
      * @var string
      */
     public $fingerprint;
 
     /**
+     * @example TestOIDCProvider
+     *
      * @var string
      */
     public $OIDCProviderName;

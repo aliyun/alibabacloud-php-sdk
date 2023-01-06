@@ -9,106 +9,148 @@ use AlibabaCloud\Tea\Model;
 class summaryMap extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $accessKeysPerUserQuota;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $attachedPoliciesPerGroupQuota;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $attachedPoliciesPerRoleQuota;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $attachedPoliciesPerUserQuota;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $attachedSystemPoliciesPerGroupQuota;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $attachedSystemPoliciesPerRoleQuota;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $attachedSystemPoliciesPerUserQuota;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $groups;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $groupsPerUserQuota;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $groupsQuota;
 
     /**
+     * @example 13
+     *
      * @var int
      */
     public $MFADevices;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $MFADevicesInUse;
 
     /**
+     * @example 13
+     *
      * @var int
      */
     public $policies;
 
     /**
+     * @example 1500
+     *
      * @var int
      */
     public $policiesQuota;
 
     /**
+     * @example 2048
+     *
      * @var int
      */
     public $policySizeQuota;
 
     /**
+     * @example 19
+     *
      * @var int
      */
     public $roles;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $rolesQuota;
 
     /**
+     * @example 9
+     *
      * @var int
      */
     public $users;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $usersQuota;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $versionsPerPolicyQuota;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $virtualMFADevicesQuota;

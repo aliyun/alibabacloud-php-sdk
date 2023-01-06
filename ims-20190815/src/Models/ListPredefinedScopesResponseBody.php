@@ -15,6 +15,8 @@ class ListPredefinedScopesResponseBody extends Model
     public $predefinedScopes;
 
     /**
+     * @example 955C096D-EC99-480B-AF37-3921109107D0
+     *
      * @var string
      */
     public $requestId;

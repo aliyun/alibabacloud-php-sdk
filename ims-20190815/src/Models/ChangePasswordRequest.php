@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ChangePasswordRequest extends Model
 {
     /**
+     * @example newpassword
+     *
      * @var string
      */
     public $newPassword;
 
     /**
+     * @example mypassword
+     *
      * @var string
      */
     public $oldPassword;

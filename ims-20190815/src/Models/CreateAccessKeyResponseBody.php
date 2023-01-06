@@ -15,6 +15,8 @@ class CreateAccessKeyResponseBody extends Model
     public $accessKey;
 
     /**
+     * @example 19DDD9F7-AFCC-4D72-8CBA-CCE5A142E7AB
+     *
      * @var string
      */
     public $requestId;

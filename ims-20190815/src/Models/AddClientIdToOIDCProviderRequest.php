@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddClientIdToOIDCProviderRequest extends Model
 {
     /**
+     * @example 598469743454717****
+     *
      * @var string
      */
     public $clientId;
 
     /**
+     * @example TestOIDCProvider
+     *
      * @var string
      */
     public $OIDCProviderName;

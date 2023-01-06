@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class passwordPolicy extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $hardExpire;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxLoginAttemps;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxPasswordAge;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $minimumPasswordDifferentCharacter;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $minimumPasswordLength;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $passwordNotContainUserName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $passwordReusePrevention;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $requireLowercaseCharacters;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $requireNumbers;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $requireSymbols;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $requireUppercaseCharacters;

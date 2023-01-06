@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class virtualMFADevice extends Model
 {
     /**
+     * @example 2020-10-16T06:02:09Z
+     *
      * @var string
      */
     public $activateDate;
 
     /**
+     * @example acs:ram::177242285274****:mfa/test
+     *
      * @var string
      */
     public $serialNumber;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteApplicationRequest extends Model
 {
     /**
+     * @example 472457090344041****
+     *
      * @var string
      */
     public $appId;

@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListUserBasicInfosResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isTruncated;
 
     /**
+     * @example EXAMPLE
+     *
      * @var string
      */
     public $marker;
 
     /**
+     * @example EF2B25FD-CADE-445B-BE4D-E082E0FF1A0F
+     *
      * @var string
      */
     public $requestId;

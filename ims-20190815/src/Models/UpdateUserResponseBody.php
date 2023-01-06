@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserResponseBody extends Model
 {
     /**
+     * @example 1B56DD42-6962-4F89-A19C-079EED1F0FE3
+     *
      * @var string
      */
     public $requestId;

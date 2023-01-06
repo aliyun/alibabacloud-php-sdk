@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListUsersForGroupResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isTruncated;
 
     /**
+     * @example EXAMPLE
+     *
      * @var string
      */
     public $marker;
 
     /**
+     * @example 789FF581-B3C8-43A8-9115-54304B46D05C
+     *
      * @var string
      */
     public $requestId;

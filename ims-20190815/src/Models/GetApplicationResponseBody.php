@@ -15,6 +15,8 @@ class GetApplicationResponseBody extends Model
     public $application;
 
     /**
+     * @example 6616F09B-2768-4C11-8866-A8EE4C4A583E
+     *
      * @var string
      */
     public $requestId;

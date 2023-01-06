@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddUserToGroupRequest extends Model
 {
     /**
+     * @example Test-Team
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example test@example.onaliyun.com
+     *
      * @var string
      */
     public $userPrincipalName;

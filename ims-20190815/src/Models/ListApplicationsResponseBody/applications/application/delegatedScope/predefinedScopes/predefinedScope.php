@@ -14,6 +14,8 @@ class predefinedScope extends Model
     public $description;
 
     /**
+     * @example openid
+     *
      * @var string
      */
     public $name;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RemoveUserFromGroupRequest extends Model
 {
     /**
+     * @example Test-Team
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example alice@example.onaliyun.com
+     *
      * @var string
      */
     public $userPrincipalName;

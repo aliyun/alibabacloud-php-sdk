@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class loginProfile extends Model
 {
     /**
+     * @example 2020-10-14T07:25:25Z
+     *
      * @var string
      */
     public $lastLoginTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $MFABindRequired;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $passwordResetRequired;
 
     /**
+     * @example Active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 2020-10-14T06:56:45Z
+     *
      * @var string
      */
     public $updateDate;
 
     /**
+     * @example test@example.onaliyun.com
+     *
      * @var string
      */
     public $userPrincipalName;

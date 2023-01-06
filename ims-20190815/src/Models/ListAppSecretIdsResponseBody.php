@@ -15,6 +15,8 @@ class ListAppSecretIdsResponseBody extends Model
     public $appSecrets;
 
     /**
+     * @example 5F2FD500-7173-47D6-BD2F-EB60879B4F16
+     *
      * @var string
      */
     public $requestId;

@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class CreateApplicationRequest extends Model
 {
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $accessTokenValidity;
 
     /**
+     * @example myapp
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example WebApp
+     *
      * @var string
      */
     public $appType;
 
     /**
+     * @example myapp
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isMultiTenant;
 
     /**
+     * @example aliuid
+     *
      * @var string
      */
     public $predefinedScopes;
 
     /**
+     * @example https://www.example.com
+     *
      * @var string
      */
     public $redirectUris;
 
     /**
+     * @example 2592000
+     *
      * @var int
      */
     public $refreshTokenValidity;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $secretRequired;

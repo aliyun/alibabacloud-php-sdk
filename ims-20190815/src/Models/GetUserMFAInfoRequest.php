@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetUserMFAInfoRequest extends Model
 {
     /**
+     * @example test@example.onaliyun.com
+     *
      * @var string
      */
     public $userPrincipalName;

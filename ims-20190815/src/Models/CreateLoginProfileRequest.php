@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateLoginProfileRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $MFABindRequired;
 
     /**
+     * @example mypassword
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $passwordResetRequired;
 
     /**
+     * @example Active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example test@example.onaliyun.com
+     *
      * @var string
      */
     public $userPrincipalName;

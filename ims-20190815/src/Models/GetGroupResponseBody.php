@@ -15,6 +15,8 @@ class GetGroupResponseBody extends Model
     public $group;
 
     /**
+     * @example 86ECEC3C-7262-4C3C-94B4-A98F7CC1F060
+     *
      * @var string
      */
     public $requestId;

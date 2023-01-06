@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserRequest extends Model
 {
     /**
+     * @example This is a cloud computing engineer.
+     *
      * @var string
      */
     public $newComments;
 
     /**
+     * @example new
+     *
      * @var string
      */
     public $newDisplayName;
 
     /**
+     * @example alice@example.com
+     *
      * @var string
      */
     public $newEmail;
 
     /**
+     * @example 86-1868888****
+     *
      * @var string
      */
     public $newMobilePhone;
 
     /**
+     * @example new@example.onaliyun.com
+     *
      * @var string
      */
     public $newUserPrincipalName;
 
     /**
+     * @example 20732900249392****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example test@example.onaliyun.com
+     *
      * @var string
      */
     public $userPrincipalName;

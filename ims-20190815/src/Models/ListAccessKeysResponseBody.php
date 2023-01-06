@@ -15,6 +15,8 @@ class ListAccessKeysResponseBody extends Model
     public $accessKeys;
 
     /**
+     * @example 4B450CA1-36E8-4AA2-8461-86B42BF4CC4E
+     *
      * @var string
      */
     public $requestId;

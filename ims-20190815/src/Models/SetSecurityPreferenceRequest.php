@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class SetSecurityPreferenceRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $allowUserToChangePassword;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $allowUserToManageAccessKeys;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $allowUserToManageMFADevices;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $allowUserToManagePersonalDingTalk;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableSaveMFATicket;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enforceMFAForLogin;
 
     /**
+     * @example 10.0.0.0/8
+     *
      * @var string
      */
     public $loginNetworkMasks;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $loginSessionDuration;

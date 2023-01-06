@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteOIDCProviderRequest extends Model
 {
     /**
+     * @example TestOIDCProvider
+     *
      * @var string
      */
     public $OIDCProviderName;

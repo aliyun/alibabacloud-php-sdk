@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class BindMFADeviceRequest extends Model
 {
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $authenticationCode1;
 
     /**
+     * @example 654321
+     *
      * @var string
      */
     public $authenticationCode2;
 
     /**
+     * @example acs:ram::177242285274****:mfa/device001
+     *
      * @var string
      */
     public $serialNumber;
 
     /**
+     * @example test@example.onaliyun.com
+     *
      * @var string
      */
     public $userPrincipalName;

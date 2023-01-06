@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListPredefinedScopesRequest extends Model
 {
     /**
+     * @example WebApp
+     *
      * @var string
      */
     public $appType;

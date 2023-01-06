@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateSAMLProviderRequest extends Model
 {
     /**
+     * @example This is a new provider.
+     *
      * @var string
      */
     public $newDescription;
 
     /**
+     * @example PD94bWwgdmVy****
+     *
      * @var string
      */
     public $newEncodedSAMLMetadataDocument;
 
     /**
+     * @example test-provider
+     *
      * @var string
      */
     public $SAMLProviderName;

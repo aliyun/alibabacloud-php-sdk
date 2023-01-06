@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class userSsoSettings extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $auxiliaryDomain;
 
     /**
+     * @example PD94bWwgdmVy****
+     *
      * @var string
      */
     public $metadataDocument;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $ssoEnabled;

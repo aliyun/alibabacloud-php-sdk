@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateGroupRequest extends Model
 {
     /**
+     * @example Dev-Team
+     *
      * @var string
      */
     public $groupName;
@@ -19,11 +21,15 @@ class UpdateGroupRequest extends Model
     public $newComments;
 
     /**
+     * @example Test-Team
+     *
      * @var string
      */
     public $newDisplayName;
 
     /**
+     * @example Test-Team
+     *
      * @var string
      */
     public $newGroupName;

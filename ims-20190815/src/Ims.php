@@ -792,6 +792,9 @@ class Ims extends OpenApiClient
         if (!Utils::isUnset($request->mobilePhone)) {
             $query['MobilePhone'] = $request->mobilePhone;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->userPrincipalName)) {
             $query['UserPrincipalName'] = $request->userPrincipalName;
         }
@@ -2362,6 +2365,9 @@ class Ims extends OpenApiClient
         if (!Utils::isUnset($request->maxItems)) {
             $query['MaxItems'] = $request->maxItems;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2407,6 +2413,9 @@ class Ims extends OpenApiClient
         }
         if (!Utils::isUnset($request->maxItems)) {
             $query['MaxItems'] = $request->maxItems;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

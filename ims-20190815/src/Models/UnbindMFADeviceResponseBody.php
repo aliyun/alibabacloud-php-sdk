@@ -15,6 +15,8 @@ class UnbindMFADeviceResponseBody extends Model
     public $MFADevice;
 
     /**
+     * @example A26CB3E9-1021-452A-AC57-3134B3BA0E4C
+     *
      * @var string
      */
     public $requestId;

@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class accountSecurityPracticeUserInfo extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $bindMfa;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $oldAkNum;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $rootWithAccessKey;
 
     /**
+     * @example 9
+     *
      * @var int
      */
     public $subUser;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $subUserBindMfa;
 
     /**
+     * @example low
+     *
      * @var string
      */
     public $subUserPwdLevel;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $subUserWithOldAccessKey;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $subUserWithUnusedAccessKey;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $unusedAkNum;

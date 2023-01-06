@@ -15,6 +15,8 @@ class GetPasswordPolicyResponseBody extends Model
     public $passwordPolicy;
 
     /**
+     * @example BDAA8408-E67C-428B-BFF0-1B2AC05C9610
+     *
      * @var string
      */
     public $requestId;

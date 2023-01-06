@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetCredentialReportResponseBody extends Model
 {
     /**
+     * @example OVZWK4RMOVZW****
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example 2020-10-19T15:06:52Z
+     *
      * @var string
      */
     public $generatedTime;
 
     /**
+     * @example 7A01826E-7601-44B0-B4DF-2B0C509836DE
+     *
      * @var string
      */
     public $requestId;

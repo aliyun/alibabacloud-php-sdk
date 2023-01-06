@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListOIDCProvidersResponseBody extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isTruncated;
 
     /**
+     * @example EXAMPLE
+     *
      * @var string
      */
     public $marker;
@@ -25,6 +29,8 @@ class ListOIDCProvidersResponseBody extends Model
     public $OIDCProviders;
 
     /**
+     * @example D2148337-B86A-57F0-8B31-EB7BE0125226
+     *
      * @var string
      */
     public $requestId;

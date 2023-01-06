@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetUserMFAInfoResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isMFAEnable;
@@ -20,6 +22,8 @@ class GetUserMFAInfoResponseBody extends Model
     public $MFADevice;
 
     /**
+     * @example FCF7322A-20A9-4F68-8B7F-F86958839BC0
+     *
      * @var string
      */
     public $requestId;

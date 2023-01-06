@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class appSecret extends Model
 {
     /**
+     * @example 472457090344041****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 2efd5004-005c-4f05-83c6-5b1dd176****
+     *
      * @var string
      */
     public $appSecretId;
 
     /**
+     * @example ai78ZmmxnlUG1jXlBZRDFKos9DIjY4m17Q7dCpMwn1rqXsTGb1X1XmrmveMp****
+     *
      * @var string
      */
     public $appSecretValue;
 
     /**
+     * @example 2020-10-26T02:52:31Z
+     *
      * @var string
      */
     public $createDate;

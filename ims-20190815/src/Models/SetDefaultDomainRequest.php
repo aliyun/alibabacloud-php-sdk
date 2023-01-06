@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetDefaultDomainRequest extends Model
 {
     /**
+     * @example examplecompany.onaliyun.com
+     *
      * @var string
      */
     public $defaultDomainName;

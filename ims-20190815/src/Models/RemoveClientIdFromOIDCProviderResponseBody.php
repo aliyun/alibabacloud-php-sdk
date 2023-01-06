@@ -15,6 +15,8 @@ class RemoveClientIdFromOIDCProviderResponseBody extends Model
     public $OIDCProvider;
 
     /**
+     * @example EC9A8F3B-AFA5-5C8F-999D-F97BC7CF1FC5
+     *
      * @var string
      */
     public $requestId;

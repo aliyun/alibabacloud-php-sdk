@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetSAMLProviderRequest extends Model
 {
     /**
+     * @example test-provider
+     *
      * @var string
      */
     public $SAMLProviderName;

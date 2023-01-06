@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListSAMLProvidersRequest extends Model
 {
     /**
+     * @example EXAMPLE
+     *
      * @var string
      */
     public $marker;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $maxItems;
