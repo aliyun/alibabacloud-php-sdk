@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\Adcp\V20220101\Models\AttachClusterToHubRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\AttachClusterToHubResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\CreateHubClusterRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\CreateHubClusterResponse;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\CreateHubClusterShrinkRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DeleteHubClusterRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DeleteHubClusterResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DeleteHubClusterShrinkRequest;
@@ -147,14 +148,23 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param CreateHubClusterRequest $request
+     * @param CreateHubClusterRequest $tmpReq
      * @param RuntimeOptions          $runtime
      *
      * @return CreateHubClusterResponse
      */
-    public function createHubClusterWithOptions($request, $runtime)
+    public function createHubClusterWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateHubClusterShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->clusterConfiguration)) {
+            $request->clusterConfigurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->clusterConfiguration, 'ClusterConfiguration', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->clusterConfigurationShrink)) {
+            $query['ClusterConfiguration'] = $request->clusterConfigurationShrink;
+        }
         $body = [];
         if (!Utils::isUnset($request->apiServerPublicEip)) {
             $body['ApiServerPublicEip'] = $request->apiServerPublicEip;
@@ -181,7 +191,8 @@ class Adcp extends OpenApiClient
             $body['VpcId'] = $request->vpcId;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateHubCluster',

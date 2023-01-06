@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Adcp\V20220101\Models;
 
-use AlibabaCloud\SDK\Adcp\V20220101\Models\CreateHubClusterRequest\clusterConfiguration;
 use AlibabaCloud\Tea\Model;
 
-class CreateHubClusterRequest extends Model
+class CreateHubClusterShrinkRequest extends Model
 {
     /**
      * @description Specifies whether to use a public IP address to expose the API server. Valid values: - true: uses a public IP address to expose the API server. - true: uses an internal IP address to expose the API server.
@@ -28,9 +27,9 @@ class CreateHubClusterRequest extends Model
     public $auditLogEnabled;
 
     /**
-     * @var clusterConfiguration
+     * @var string
      */
-    public $clusterConfiguration;
+    public $clusterConfigurationShrink;
 
     /**
      * @description Specifies whether the security group is an advanced security group.
@@ -87,15 +86,15 @@ class CreateHubClusterRequest extends Model
      */
     public $vpcId;
     protected $_name = [
-        'apiServerPublicEip'        => 'ApiServerPublicEip',
-        'auditLogEnabled'           => 'AuditLogEnabled',
-        'clusterConfiguration'      => 'ClusterConfiguration',
-        'isEnterpriseSecurityGroup' => 'IsEnterpriseSecurityGroup',
-        'name'                      => 'Name',
-        'profile'                   => 'Profile',
-        'regionId'                  => 'RegionId',
-        'vSwitches'                 => 'VSwitches',
-        'vpcId'                     => 'VpcId',
+        'apiServerPublicEip'         => 'ApiServerPublicEip',
+        'auditLogEnabled'            => 'AuditLogEnabled',
+        'clusterConfigurationShrink' => 'ClusterConfiguration',
+        'isEnterpriseSecurityGroup'  => 'IsEnterpriseSecurityGroup',
+        'name'                       => 'Name',
+        'profile'                    => 'Profile',
+        'regionId'                   => 'RegionId',
+        'vSwitches'                  => 'VSwitches',
+        'vpcId'                      => 'VpcId',
     ];
 
     public function validate()
@@ -111,8 +110,8 @@ class CreateHubClusterRequest extends Model
         if (null !== $this->auditLogEnabled) {
             $res['AuditLogEnabled'] = $this->auditLogEnabled;
         }
-        if (null !== $this->clusterConfiguration) {
-            $res['ClusterConfiguration'] = null !== $this->clusterConfiguration ? $this->clusterConfiguration->toMap() : null;
+        if (null !== $this->clusterConfigurationShrink) {
+            $res['ClusterConfiguration'] = $this->clusterConfigurationShrink;
         }
         if (null !== $this->isEnterpriseSecurityGroup) {
             $res['IsEnterpriseSecurityGroup'] = $this->isEnterpriseSecurityGroup;
@@ -139,7 +138,7 @@ class CreateHubClusterRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateHubClusterRequest
+     * @return CreateHubClusterShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -151,7 +150,7 @@ class CreateHubClusterRequest extends Model
             $model->auditLogEnabled = $map['AuditLogEnabled'];
         }
         if (isset($map['ClusterConfiguration'])) {
-            $model->clusterConfiguration = clusterConfiguration::fromMap($map['ClusterConfiguration']);
+            $model->clusterConfigurationShrink = $map['ClusterConfiguration'];
         }
         if (isset($map['IsEnterpriseSecurityGroup'])) {
             $model->isEnterpriseSecurityGroup = $map['IsEnterpriseSecurityGroup'];
