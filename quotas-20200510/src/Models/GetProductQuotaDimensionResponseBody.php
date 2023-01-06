@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetProductQuotaDimensionResponseBody extends Model
 {
     /**
+     * @description The details about the quota dimension.
+     *
      * @var quotaDimension
      */
     public $quotaDimension;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1FA5F0E2-368E-4BA4-A8D0-6060FC6BB8F3
+     *
      * @var string
      */
     public $requestId;

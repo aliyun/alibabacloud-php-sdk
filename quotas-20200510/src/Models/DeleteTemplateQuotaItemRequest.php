@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteTemplateQuotaItemRequest extends Model
 {
     /**
+     * @description The ID of the quota template.
+     *
+     * @example 1****
+     *
      * @var string
      */
     public $id;

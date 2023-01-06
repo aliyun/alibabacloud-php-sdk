@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class dimensions extends Model
 {
     /**
+     * @description The dimension keys.
+     *
+     * > This parameter is required if you set the ProductCode parameter to ecs, ecs-spec, actiontrail, or ess.
+     * @example regionId
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The dimension values.
+     *
+     * > This parameter is required if you set the ProductCode parameter to ecs, ecs-spec, actiontrail, or ess.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $value;

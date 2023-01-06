@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class period extends Model
 {
     /**
+     * @description The unit of the calculation cycle of the quota. Valid values:
+     *
+     *   second
+     *   minute
+     *   hour
+     *   day
+     *   week
+     *
+     * @example second
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @description The value of the calculation cycle of the quota.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $periodValue;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListProductDimensionGroupsResponseBody extends Model
 {
     /**
+     * @description The dimension groups.
+     *
      * @var dimensionGroups[]
      */
     public $dimensionGroups;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that marks the position at which the query ends. An empty value indicates that all data is returned.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 057D210F-F2FC-5329-A536-26C16628BB09
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of records that are returned for the query.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

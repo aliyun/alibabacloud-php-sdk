@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetQuotaApplicationRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example d314d6ae-867d-484c-9009-3d421a80****
+     *
      * @var string
      */
     public $applicationId;

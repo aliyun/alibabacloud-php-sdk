@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ListDependentQuotasRequest extends Model
 {
     /**
+     * @description The abbreviation of the cloud service name.
+     *
+     * >  For more information about the Alibaba Cloud services that support Quota Center, see [Alibaba Cloud services that support Quota Center](~~182368~~).
+     * @example csk
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The ID of the quota.
+     *
+     * @example q_i5uzm3
+     *
      * @var string
      */
     public $quotaActionCode;

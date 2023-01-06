@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetQuotaTemplateServiceStatusRequest extends Model
 {
     /**
+     * @description The ID of the resource directory.
+     *
+     * @example rd-pG****
+     *
      * @var string
      */
     public $resourceDirectoryId;

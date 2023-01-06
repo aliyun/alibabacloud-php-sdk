@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListAlarmHistoriesResponseBody extends Model
 {
     /**
+     * @description The details of the alert records.
+     *
      * @var alarmHistories[]
      */
     public $alarmHistories;
 
     /**
+     * @description The maximum number of records returned for the query.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to mark the location where the query is ended. An empty value indicates that all the data is queried.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CB38DDF9-B1E0-48C1-9966-19C443C2841E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of records returned for the query.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $totalCount;

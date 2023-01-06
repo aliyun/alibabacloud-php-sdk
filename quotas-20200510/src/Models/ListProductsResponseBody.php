@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListProductsResponseBody extends Model
 {
     /**
+     * @description The maximum number of records returned for the query.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to mark the location where the query is ended. An empty value indicates that all the data is queried.
+     *
+     * @example 4
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The information of the cloud service.
+     *
      * @var productInfo[]
      */
     public $productInfo;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1DA9C136-11BC-4C39-ADC6-B86276128072
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of records returned for the query.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

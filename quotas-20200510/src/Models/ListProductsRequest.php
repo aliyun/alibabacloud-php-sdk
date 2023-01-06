@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ListProductsRequest extends Model
 {
     /**
+     * @description The maximum number of records to be returned for the query.
+     *
+     * Valid values: 1 to 200. Default value: 30.
+     * @example 4
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to mark the location where the query is started. An empty value indicates that the query is executed from the start.
+     *
+     * @example 4
+     *
      * @var string
      */
     public $nextToken;

@@ -11,46 +11,97 @@ use AlibabaCloud\Tea\Model;
 class quota extends Model
 {
     /**
+     * @description Indicates whether the quota is adjustable. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $adjustable;
 
     /**
+     * @description The range of the quota value, for example, `[802,10000]`.
+     *
      * @var float[]
      */
     public $applicableRange;
 
     /**
+     * @description The type of the adjustable value. Valid values:
+     *
+     *   continuous
+     *   discontinuous
+     *
+     * @example continuous
+     *
      * @var string
      */
     public $applicableType;
 
     /**
+     * @description Indicates whether the system shows the used value of the quota. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $consumable;
 
     /**
+     * @description The quota dimensions. Format: `{"regionId":"Region"}`.
+     *
+     * @example {"regionId":"cn-hangzhou"}
+     *
      * @var mixed[]
      */
     public $dimensions;
 
     /**
+     * @var string
+     */
+    public $effectiveTime;
+
+    /**
+     * @var string
+     */
+    public $expireTime;
+
+    /**
+     * @description The calculation cycle of the quota.
+     *
      * @var period
      */
     public $period;
 
     /**
+     * @description The abbreviation of the Alibaba Cloud service name.
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The ID of the quota.
+     *
+     * @example q_security-groups
+     *
      * @var string
      */
     public $quotaActionCode;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the quota.
+     *
+     * @example acs:quotas:cn-hangzhou:120886317861****:quota/ecs/q_security-groups/
+     *
      * @var string
      */
     public $quotaArn;
@@ -58,39 +109,85 @@ class quota extends Model
     /**
      * @var string
      */
+    public $quotaCategory;
+
+    /**
+     * @description The description of the quota.
+     *
+     * @example quota description.
+     *
+     * @var string
+     */
     public $quotaDescription;
 
     /**
+     * @description The details about the quota.
+     *
      * @var quotaItems[]
      */
     public $quotaItems;
 
     /**
+     * @description The name of the quota.
+     *
      * @var string
      */
     public $quotaName;
 
     /**
+     * @description The type of the quota. Valid values:
+     *
+     * - normal (default value)
+     * @example normal
+     *
      * @var string
      */
     public $quotaType;
 
     /**
+     * @description The unit of the quota.
+     *
+     * >  The unit of each quota is unique. For example, the quota whose ID is `q_cbdch3` represents the maximum number of Container Service for Kubernetes (ACK) clusters. The unit of this quota is clusters. The quota whose ID is `q_security-groups` represents the maximum number of security groups. The unit of this quota is security groups.
      * @var string
      */
     public $quotaUnit;
 
     /**
+     * @description The range of the quota value that can be requested for the current quota item. When you configure a quota template, you can use the range as a reference.
+     *
+     * - If the value of the ApplicableType parameter is discontinuous and the value of the ApplicableRange parameter is [10,20,50,100], the quota value is 10, 20, 50, or 100.
+     * @var float[]
+     */
+    public $supportedRange;
+
+    /**
+     * @description The value of the quota.
+     *
+     * @example 801
+     *
      * @var float
      */
     public $totalQuota;
 
     /**
+     * @description The used quota.
+     *
+     * @example 26
+     *
      * @var float
      */
     public $totalUsage;
 
     /**
+     * @description The reason why the quota is not adjustable. Valid values:
+     *
+     *   nonactivated: The service is not activated.
+     *   applicationProcess: The application is being processed.
+     *   limitReached: The quota limit is reached.
+     *   supportTicketRequired: The quota can be increased only by submitting a ticket.
+     *
+     * @example limitReached
+     *
      * @var string
      */
     public $unadjustableDetail;
@@ -100,15 +197,19 @@ class quota extends Model
         'applicableType'     => 'ApplicableType',
         'consumable'         => 'Consumable',
         'dimensions'         => 'Dimensions',
+        'effectiveTime'      => 'EffectiveTime',
+        'expireTime'         => 'ExpireTime',
         'period'             => 'Period',
         'productCode'        => 'ProductCode',
         'quotaActionCode'    => 'QuotaActionCode',
         'quotaArn'           => 'QuotaArn',
+        'quotaCategory'      => 'QuotaCategory',
         'quotaDescription'   => 'QuotaDescription',
         'quotaItems'         => 'QuotaItems',
         'quotaName'          => 'QuotaName',
         'quotaType'          => 'QuotaType',
         'quotaUnit'          => 'QuotaUnit',
+        'supportedRange'     => 'SupportedRange',
         'totalQuota'         => 'TotalQuota',
         'totalUsage'         => 'TotalUsage',
         'unadjustableDetail' => 'UnadjustableDetail',
@@ -136,6 +237,12 @@ class quota extends Model
         if (null !== $this->dimensions) {
             $res['Dimensions'] = $this->dimensions;
         }
+        if (null !== $this->effectiveTime) {
+            $res['EffectiveTime'] = $this->effectiveTime;
+        }
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
+        }
         if (null !== $this->period) {
             $res['Period'] = null !== $this->period ? $this->period->toMap() : null;
         }
@@ -147,6 +254,9 @@ class quota extends Model
         }
         if (null !== $this->quotaArn) {
             $res['QuotaArn'] = $this->quotaArn;
+        }
+        if (null !== $this->quotaCategory) {
+            $res['QuotaCategory'] = $this->quotaCategory;
         }
         if (null !== $this->quotaDescription) {
             $res['QuotaDescription'] = $this->quotaDescription;
@@ -168,6 +278,9 @@ class quota extends Model
         }
         if (null !== $this->quotaUnit) {
             $res['QuotaUnit'] = $this->quotaUnit;
+        }
+        if (null !== $this->supportedRange) {
+            $res['SupportedRange'] = $this->supportedRange;
         }
         if (null !== $this->totalQuota) {
             $res['TotalQuota'] = $this->totalQuota;
@@ -207,6 +320,12 @@ class quota extends Model
         if (isset($map['Dimensions'])) {
             $model->dimensions = $map['Dimensions'];
         }
+        if (isset($map['EffectiveTime'])) {
+            $model->effectiveTime = $map['EffectiveTime'];
+        }
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
+        }
         if (isset($map['Period'])) {
             $model->period = period::fromMap($map['Period']);
         }
@@ -218,6 +337,9 @@ class quota extends Model
         }
         if (isset($map['QuotaArn'])) {
             $model->quotaArn = $map['QuotaArn'];
+        }
+        if (isset($map['QuotaCategory'])) {
+            $model->quotaCategory = $map['QuotaCategory'];
         }
         if (isset($map['QuotaDescription'])) {
             $model->quotaDescription = $map['QuotaDescription'];
@@ -239,6 +361,11 @@ class quota extends Model
         }
         if (isset($map['QuotaUnit'])) {
             $model->quotaUnit = $map['QuotaUnit'];
+        }
+        if (isset($map['SupportedRange'])) {
+            if (!empty($map['SupportedRange'])) {
+                $model->supportedRange = $map['SupportedRange'];
+            }
         }
         if (isset($map['TotalQuota'])) {
             $model->totalQuota = $map['TotalQuota'];

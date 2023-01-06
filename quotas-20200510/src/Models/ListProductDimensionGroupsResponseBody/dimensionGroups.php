@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class dimensionGroups extends Model
 {
     /**
+     * @description The keys of the dimension group.
+     *
      * @var string[]
      */
     public $dimensionKeys;
 
     /**
+     * @description The code of the dimension group.
+     *
+     * @example oss_wf1ngqmd7q
+     *
      * @var string
      */
     public $groupCode;
 
     /**
+     * @description The name of the dimension group.
+     *
+     * @example OSS_Group
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The service code.
+     *
+     * @example oss
+     *
      * @var string
      */
     public $productCode;

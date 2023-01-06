@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetQuotaTemplateServiceStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example D47B3A10-CDAC-5412-B2EE-EC9A3DBE9053
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status of the quota template.
+     *
      * @var templateServiceStatus
      */
     public $templateServiceStatus;

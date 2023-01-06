@@ -9,76 +9,141 @@ use AlibabaCloud\Tea\Model;
 class quotaAlarms extends Model
 {
     /**
+     * @description The ID of the quota alert.
+     *
+     * @example a2efa7fc-832f-47bb-8054-39e28012****
+     *
      * @var string
      */
     public $alarmId;
 
     /**
+     * @description The name of the quota alert.
+     *
      * @var string
      */
     public $alarmName;
 
     /**
+     * @description The time when the quota alert was created.
+     *
+     * @example 2020-11-27T07:23:34Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description Indicates whether the alert threshold was reached. Valid values:
+     *
+     *   false
+     *   true
+     *
+     * @example false
+     *
      * @var bool
      */
     public $exceedThreshold;
 
     /**
+     * @description The notification method. Valid values:
+     *
+     *   sms: SMS messages
+     *   email: emails
+     *
      * @var string[]
      */
     public $notifyChannels;
 
     /**
+     * @description The alert contact. Valid value: accountContact.
+     *
+     * @example accountContact
+     *
      * @var string
      */
     public $notifyTarget;
 
     /**
+     * @description The abbreviation of the cloud service name.
+     *
+     * @example config
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The ID of the quota.
+     *
+     * @example q_hvnoqv
+     *
      * @var string
      */
     public $quotaActionCode;
 
     /**
+     * @description The quota dimensions.
+     *
+     * @example {"regionId":"cn-hangzhou"}
+     *
      * @var mixed[]
      */
     public $quotaDimensions;
 
     /**
+     * @description The used quota.
+     *
+     * @example 73
+     *
      * @var float
      */
     public $quotaUsage;
 
     /**
+     * @description The value of the quota.
+     *
+     * @example 200
+     *
      * @var float
      */
     public $quotaValue;
 
     /**
+     * @description The numeric value of the alert threshold.
+     *
+     * @example 160
+     *
      * @var float
      */
     public $threshold;
 
     /**
+     * @description The percentage of the alert threshold.
+     *
+     * @example 80
+     *
      * @var float
      */
     public $thresholdPercent;
 
     /**
+     * @description The type of the quota alert. Valid values:
+     *
+     *   used: The alert is created for the used quota.
+     *   usable: The alert is created for the available quota.
+     *
+     * @example used
+     *
      * @var string
      */
     public $thresholdType;
 
     /**
+     * @description The webhook URL.
+     *
+     * @example https://www.aliyun.com/webhook
+     *
      * @var string
      */
     public $webHook;

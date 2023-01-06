@@ -9,59 +9,106 @@ use AlibabaCloud\Tea\Model;
 class productInfo extends Model
 {
     /**
+     * @description Indicates whether the cloud service supports general quotas. Valid values:
+     *
+     *   support: The cloud service supports general quotas.
+     *   unsupport: The cloud service does not support general quotas.
+     *
+     * @example support
+     *
      * @var string
      */
     public $commonQuotaSupport;
 
     /**
+     * @description Indicates whether the cloud service supports dynamic quota adjustment. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dynamic;
 
     /**
+     * @description Indicates whether the cloud service supports API rate limits. Valid values:
+     *
+     *   support: The cloud service supports API rate limits.
+     *   unsupport: The cloud service does not support API rate limits.
+     *
+     * @example unsupport
+     *
      * @var string
      */
     public $flowControlSupport;
 
     /**
+     * @description The abbreviation of the cloud service name.
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The name of the cloud service.
+     *
      * @var string
      */
     public $productName;
 
     /**
+     * @description The name of the cloud service.
+     *
+     * @example Elastic Compute Service
+     *
      * @var string
      */
     public $productNameEn;
 
     /**
+     * @description The ID of the service category.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $secondCategoryId;
 
     /**
+     * @description The name of the service category.
+     *
      * @var string
      */
     public $secondCategoryName;
 
     /**
+     * @description The name of the service category.
+     *
+     * @example Elastic Compute
+     *
      * @var string
      */
     public $secondCategoryNameEn;
+
+    /**
+     * @var string
+     */
+    public $whiteListLabelQuotaSupport;
     protected $_name = [
-        'commonQuotaSupport'   => 'CommonQuotaSupport',
-        'dynamic'              => 'Dynamic',
-        'flowControlSupport'   => 'FlowControlSupport',
-        'productCode'          => 'ProductCode',
-        'productName'          => 'ProductName',
-        'productNameEn'        => 'ProductNameEn',
-        'secondCategoryId'     => 'SecondCategoryId',
-        'secondCategoryName'   => 'SecondCategoryName',
-        'secondCategoryNameEn' => 'SecondCategoryNameEn',
+        'commonQuotaSupport'         => 'CommonQuotaSupport',
+        'dynamic'                    => 'Dynamic',
+        'flowControlSupport'         => 'FlowControlSupport',
+        'productCode'                => 'ProductCode',
+        'productName'                => 'ProductName',
+        'productNameEn'              => 'ProductNameEn',
+        'secondCategoryId'           => 'SecondCategoryId',
+        'secondCategoryName'         => 'SecondCategoryName',
+        'secondCategoryNameEn'       => 'SecondCategoryNameEn',
+        'whiteListLabelQuotaSupport' => 'WhiteListLabelQuotaSupport',
     ];
 
     public function validate()
@@ -97,6 +144,9 @@ class productInfo extends Model
         }
         if (null !== $this->secondCategoryNameEn) {
             $res['SecondCategoryNameEn'] = $this->secondCategoryNameEn;
+        }
+        if (null !== $this->whiteListLabelQuotaSupport) {
+            $res['WhiteListLabelQuotaSupport'] = $this->whiteListLabelQuotaSupport;
         }
 
         return $res;
@@ -136,6 +186,9 @@ class productInfo extends Model
         }
         if (isset($map['SecondCategoryNameEn'])) {
             $model->secondCategoryNameEn = $map['SecondCategoryNameEn'];
+        }
+        if (isset($map['WhiteListLabelQuotaSupport'])) {
+            $model->whiteListLabelQuotaSupport = $map['WhiteListLabelQuotaSupport'];
         }
 
         return $model;

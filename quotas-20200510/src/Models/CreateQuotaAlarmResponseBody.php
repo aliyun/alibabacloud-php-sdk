@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateQuotaAlarmResponseBody extends Model
 {
     /**
+     * @description The ID of the alert.
+     *
+     * @example 18b3be23-b7b0-4d45-91bc-d0c331aa****
+     *
      * @var string
      */
     public $alarmId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BD219E2B-E687-45EE-B5F3-61FB730551B1
+     *
      * @var string
      */
     public $requestId;

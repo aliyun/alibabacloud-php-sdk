@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class ListAlarmHistoriesRequest extends Model
 {
     /**
+     * @description The end of the time range to query.
+     *
+     * @example 20201024
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The keyword that is used to execute the query.
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @description The maximum number of records to be returned for the query.
+     *
+     * Valid values: 1 to 200. Default value: 30.
+     * @example 30
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to mark the location where the query is started. An empty value indicates that the query is executed from the start.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The abbreviation of the cloud service name.
+     *
+     * >  For more information about the Alibaba Cloud services that support Quota Center, see [Alibaba Cloud services that support Quota Center](~~182368~~).
+     * @example ecs
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The start of the time range to query.
+     *
+     * @example 20201020
+     *
      * @var int
      */
     public $startTime;

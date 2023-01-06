@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class quotas extends Model
 {
     /**
+     * @description The dimensions of a quota on which the specified quota depends.
+     *
      * @var dimensions[]
      */
     public $dimensions;
 
     /**
+     * @description The abbreviation of the cloud service name.
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The ID of the quota.
+     *
+     * @example q_elastic-network-interfaces
+     *
      * @var string
      */
     public $quotaActionCode;
 
     /**
+     * @description The relationship percentage between the specified quota and the quotas on which the specified quota depends.
+     *
+     * @example 50
+     *
      * @var float
      */
     public $scale;

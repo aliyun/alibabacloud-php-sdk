@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListQuotaApplicationsResponseBody extends Model
 {
     /**
+     * @description The number of records that are returned for the query.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that marks the position at which the query ends. An empty value indicates that all data is returned.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The details about the applications.
+     *
      * @var quotaApplications[]
      */
     public $quotaApplications;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 730925FB-0BD0-40AC-AF3A-A6C6E9716879
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of applications.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

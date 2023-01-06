@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListProductQuotaDimensionsResponseBody extends Model
 {
     /**
+     * @description The number of records returned for the query.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that marks the position where the query ends. An empty value indicates that all the data is returned.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The quota dimensions.
+     *
      * @var quotaDimensions[]
      */
     public $quotaDimensions;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7ED584FB-ECBF-4A2A-969D-F54D25EFABF9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of records returned for the query.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

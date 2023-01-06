@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class dimensionValueDetail extends Model
 {
     /**
+     * @description The name of the dimension value.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The dimension value.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $value;

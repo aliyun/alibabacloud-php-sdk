@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class ListProductDimensionGroupsRequest extends Model
 {
     /**
+     * @description The maximum number of records that can be returned for the query.
+     *
+     * Valid values: 1 to 200. Default value: 30.
+     * @example 30
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that marks the position from which you want to start the query. If you leave this parameter empty, the query starts from the beginning.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The service code.
+     *
+     * >  For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
+     * @example oss
+     *
      * @var string
      */
     public $productCode;

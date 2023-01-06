@@ -10,26 +10,45 @@ use AlibabaCloud\Tea\Model;
 class ListQuotaAlarmsResponseBody extends Model
 {
     /**
+     * @description The maximum number of records that are returned for the query.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that marks the position at which the query ends.
+     *
+     * >  If an empty value is returned, all data is queried.
+     * @example 1
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The details about the quota alert.
+     *
      * @var quotaAlarms[]
      */
     public $quotaAlarms;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 87F3B755-3BD2-4C76-B36A-93247002918C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of quota alerts.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

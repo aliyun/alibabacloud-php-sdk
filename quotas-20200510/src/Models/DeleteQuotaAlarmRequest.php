@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteQuotaAlarmRequest extends Model
 {
     /**
+     * @description The ID of the quota alert.
+     *
+     * @example 6b512ab7-da3a-4142-b529-2b2a9294****
+     *
      * @var string
      */
     public $alarmId;

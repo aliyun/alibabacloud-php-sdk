@@ -10,35 +10,75 @@ use AlibabaCloud\Tea\Model;
 class ListQuotaApplicationTemplatesRequest extends Model
 {
     /**
+     * @description The quota dimensions.
+     *
      * @var dimensions[]
      */
     public $dimensions;
 
     /**
+     * @description The ID of the quota item.
+     *
+     * @example 1****
+     *
+     * @var string
+     */
+    public $id;
+
+    /**
+     * @description The maximum number of records that can be returned for the query. Valid values: 1 to 100. Default value: 30.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that marks the position from which you want to start the query.
+     *
+     * > An empty value indicates that the query starts from the beginning.
+     * @example 1
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The abbreviation of the Alibaba Cloud service name.
+     *
+     * > For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
+     * @example ecs
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The ID of the quota.
+     *
+     * @example q_security-groups
+     *
      * @var string
      */
     public $quotaActionCode;
+
+    /**
+     * @description 配额种类。取值：
+     * - WhiteListLabel：权益配额。
+     * @example CommonQuota
+     *
+     * @var string
+     */
+    public $quotaCategory;
     protected $_name = [
         'dimensions'      => 'Dimensions',
+        'id'              => 'Id',
         'maxResults'      => 'MaxResults',
         'nextToken'       => 'NextToken',
         'productCode'     => 'ProductCode',
         'quotaActionCode' => 'QuotaActionCode',
+        'quotaCategory'   => 'QuotaCategory',
     ];
 
     public function validate()
@@ -57,6 +97,9 @@ class ListQuotaApplicationTemplatesRequest extends Model
                 }
             }
         }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
@@ -68,6 +111,9 @@ class ListQuotaApplicationTemplatesRequest extends Model
         }
         if (null !== $this->quotaActionCode) {
             $res['QuotaActionCode'] = $this->quotaActionCode;
+        }
+        if (null !== $this->quotaCategory) {
+            $res['QuotaCategory'] = $this->quotaCategory;
         }
 
         return $res;
@@ -90,6 +136,9 @@ class ListQuotaApplicationTemplatesRequest extends Model
                 }
             }
         }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
@@ -101,6 +150,9 @@ class ListQuotaApplicationTemplatesRequest extends Model
         }
         if (isset($map['QuotaActionCode'])) {
             $model->quotaActionCode = $map['QuotaActionCode'];
+        }
+        if (isset($map['QuotaCategory'])) {
+            $model->quotaCategory = $map['QuotaCategory'];
         }
 
         return $model;

@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class GetProductQuotaRequest extends Model
 {
     /**
+     * @description The details of dimensions.
+     *
+     * @example {\"regionId\":\"cn-beijing\"}
+     *
      * @var dimensions[]
      */
     public $dimensions;
 
     /**
+     * @description The abbreviation of the cloud service name.
+     *
+     * >  For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
+     * @example ecs
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The ID of the quota.
+     *
+     * @example q_security-groups
+     *
      * @var string
      */
     public $quotaActionCode;

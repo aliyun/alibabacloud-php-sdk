@@ -10,47 +10,115 @@ use AlibabaCloud\Tea\Model;
 class ModifyTemplateQuotaItemRequest extends Model
 {
     /**
+     * @description The requested value of the quota.
+     *
+     * @example 804
+     *
      * @var float
      */
     public $desireValue;
 
     /**
+     * @description The quota dimensions.
+     *
      * @var dimensions[]
      */
     public $dimensions;
 
     /**
+     * @description The start time of the validity period of the quota. Specify the value in UTC. This parameter is valid only if you set the QuotaCategory parameter to WhiteListLabel.
+     *
+     * > If you do not specify this parameter, the quota takes effect immediately.
+     * @example 2021-01-19T09:25:56Z
+     *
+     * @var string
+     */
+    public $effectiveTime;
+
+    /**
+     * @description The language of the quota alert notification. Valid values:
+     *
+     *   zh (default value): Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $envLanguage;
 
     /**
+     * @description The end time of the validity period of the quota. Specify the value in UTC. This parameter is valid only if you set the QuotaCategory parameter to WhiteListLabel.
+     *
+     * > If the value of this parameter is empty, no end time is specified.
+     * @example 2021-01-20T09:25:56Z
+     *
+     * @var string
+     */
+    public $expireTime;
+
+    /**
+     * @description The ID of the quota template. For more information about how to obtain the ID of a quota template, see [ListQuotaApplicationTemplates](~~450403~~).
+     *
+     * @example 1****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description Specifies whether to send a notification about the application result. Valid values:
+     *
+     *   0 (default value): no
+     *   3: yes
+     *
+     * @example 0
+     *
      * @var int
      */
     public $noticeType;
 
     /**
+     * @description The abbreviation of the Alibaba Cloud service name.
+     *
+     * > For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
+     * @example ecs
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The ID of the quota.
+     *
+     * @example q_security-groups
+     *
      * @var string
      */
     public $quotaActionCode;
+
+    /**
+     * @description The type of the quota. Valid values:
+     *
+     *   CommonQuota: general quota
+     *   WhiteListLabel: whitelist quota
+     *
+     * @example CommonQuota
+     *
+     * @var string
+     */
+    public $quotaCategory;
     protected $_name = [
         'desireValue'     => 'DesireValue',
         'dimensions'      => 'Dimensions',
+        'effectiveTime'   => 'EffectiveTime',
         'envLanguage'     => 'EnvLanguage',
+        'expireTime'      => 'ExpireTime',
         'id'              => 'Id',
         'noticeType'      => 'NoticeType',
         'productCode'     => 'ProductCode',
         'quotaActionCode' => 'QuotaActionCode',
+        'quotaCategory'   => 'QuotaCategory',
     ];
 
     public function validate()
@@ -72,8 +140,14 @@ class ModifyTemplateQuotaItemRequest extends Model
                 }
             }
         }
+        if (null !== $this->effectiveTime) {
+            $res['EffectiveTime'] = $this->effectiveTime;
+        }
         if (null !== $this->envLanguage) {
             $res['EnvLanguage'] = $this->envLanguage;
+        }
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -86,6 +160,9 @@ class ModifyTemplateQuotaItemRequest extends Model
         }
         if (null !== $this->quotaActionCode) {
             $res['QuotaActionCode'] = $this->quotaActionCode;
+        }
+        if (null !== $this->quotaCategory) {
+            $res['QuotaCategory'] = $this->quotaCategory;
         }
 
         return $res;
@@ -111,8 +188,14 @@ class ModifyTemplateQuotaItemRequest extends Model
                 }
             }
         }
+        if (isset($map['EffectiveTime'])) {
+            $model->effectiveTime = $map['EffectiveTime'];
+        }
         if (isset($map['EnvLanguage'])) {
             $model->envLanguage = $map['EnvLanguage'];
+        }
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
@@ -125,6 +208,9 @@ class ModifyTemplateQuotaItemRequest extends Model
         }
         if (isset($map['QuotaActionCode'])) {
             $model->quotaActionCode = $map['QuotaActionCode'];
+        }
+        if (isset($map['QuotaCategory'])) {
+            $model->quotaCategory = $map['QuotaCategory'];
         }
 
         return $model;

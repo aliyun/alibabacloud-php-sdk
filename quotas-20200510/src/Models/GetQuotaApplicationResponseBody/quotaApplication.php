@@ -9,86 +9,154 @@ use AlibabaCloud\Tea\Model;
 class quotaApplication extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example d314d6ae-867d-484c-9009-3d421a80****
+     *
      * @var string
      */
     public $applicationId;
 
     /**
+     * @description The time when the application was submitted.
+     *
+     * @example 2021-01-19T09:25:56Z
+     *
      * @var string
      */
     public $applyTime;
 
     /**
+     * @description The approved quota value.
+     *
+     * @example 10
+     *
      * @var float
      */
     public $approveValue;
 
     /**
+     * @description The result of the application.
+     *
      * @var string
      */
     public $auditReason;
 
     /**
+     * @description The quota for which you apply.
+     *
+     * @example 804
+     *
      * @var int
      */
     public $desireValue;
 
     /**
+     * @description The quota dimensions.
+     *
+     * Format: `{"regionId":"Region"}`.
+     * @example ["cn-shanghai","cn-hangzhou"]
+     *
      * @var mixed[]
      */
     public $dimension;
 
     /**
+     * @description The time when the quota took effect.
+     *
+     * @example 2021-01-19 15:30:00
+     *
      * @var string
      */
     public $effectiveTime;
 
     /**
+     * @description The time when the quota expired.
+     *
+     * @example 2023-06-29 15:30:00
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description The notification method. Valid values:
+     *
+     *   0: Quota Center does not send a notification.
+     *   1: Quota Center sends an email notification.
+     *   2: Quota Center sends an SMS notification.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $noticeType;
 
     /**
+     * @description The abbreviation of the cloud service name.
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The ID of the quota.
+     *
+     * @example q_security-groups
+     *
      * @var string
      */
     public $quotaActionCode;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the quota.
+     *
+     * @example acs:quotas:cn-hangzhou:120886317861****:quota/ecs/q_security-groups/
+     *
      * @var string
      */
     public $quotaArn;
 
     /**
+     * @description The description of the quota.
+     *
      * @var string
      */
     public $quotaDescription;
 
     /**
+     * @description The name of the quota.
+     *
      * @var string
      */
     public $quotaName;
 
     /**
+     * @description The unit of the quota.
+     *
      * @var string
      */
     public $quotaUnit;
 
     /**
+     * @description The reason for the application.
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @description The status of the application. Valid values:
+     *
+     *   Disagree: The application is rejected.
+     *   Agree: The application is approved.
+     *   Process: The application is pending approval.
+     *   Cancel: The application is closed.
+     *
+     * @example Agree
+     *
      * @var string
      */
     public $status;

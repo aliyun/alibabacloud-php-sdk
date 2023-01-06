@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ModifyQuotaTemplateServiceStatusRequest extends Model
 {
     /**
+     * @description The status of the quota template. Valid values:
+     *
+     *   \-1: disabled
+     *   1: enabled
+     *
+     * @example 1
+     *
      * @var int
      */
     public $serviceStatus;

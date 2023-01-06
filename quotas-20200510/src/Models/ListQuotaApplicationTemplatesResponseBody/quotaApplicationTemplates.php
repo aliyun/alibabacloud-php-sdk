@@ -9,56 +9,135 @@ use AlibabaCloud\Tea\Model;
 class quotaApplicationTemplates extends Model
 {
     /**
+     * @description None
+     *
      * @var float[]
      */
     public $applicableRange;
 
     /**
+     * @description The type of the adjustable value. Valid values:
+     *
+     *   continuous
+     *   discontinuous
+     *
+     * @example continuous
+     *
      * @var string
      */
     public $applicableType;
 
     /**
+     * @description The requested value of the quota.
+     *
+     * @example 802
+     *
      * @var float
      */
     public $desireValue;
 
     /**
+     * @description The quota dimensions.
+     *
+     * Format: {"regionId":"Region"}.
+     * @example {"regionId":"cn-hangzhou"}
+     *
      * @var mixed[]
      */
     public $dimensions;
 
     /**
+     * @description 配额生效的UTC时间。
+     *
+     * @example 2022-09-28T06:07:00Z
+     *
+     * @var string
+     */
+    public $effectiveTime;
+
+    /**
+     * @description The language of the quota alert notification. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $envLanguage;
 
     /**
+     * @description 配额失效的UTC时间。
+     *
+     * @example 2022-09-29T06:07:00Z
+     *
+     * @var string
+     */
+    public $expireTime;
+
+    /**
+     * @description The ID of the quota template.
+     *
+     * @example 1****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description Indicates whether Quota Center sends a notification about the application result. Valid values:
+     *
+     *   0: no
+     *   3: yes
+     *
+     * @example 0
+     *
      * @var int
      */
     public $noticeType;
 
     /**
+     * @description The abbreviation of the Alibaba Cloud service name.
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The ID of the quota.
+     *
+     * @example q_security-groups
+     *
      * @var string
      */
     public $quotaActionCode;
 
     /**
+     * @description 配额类型。
+     * - WhiteListLabel：权益配额。
+     * @example CommonQuota
+     *
+     * @var string
+     */
+    public $quotaCategory;
+
+    /**
+     * @description The description of the quota.
+     *
+     * @example The maximum number of security groups that can be created by the current account.
+     *
      * @var string
      */
     public $quotaDescription;
 
     /**
+     * @description The name of the quota.
+     *
+     * @example Maximum Number of Security Groups
+     *
      * @var string
      */
     public $quotaName;
@@ -67,11 +146,14 @@ class quotaApplicationTemplates extends Model
         'applicableType'   => 'ApplicableType',
         'desireValue'      => 'DesireValue',
         'dimensions'       => 'Dimensions',
+        'effectiveTime'    => 'EffectiveTime',
         'envLanguage'      => 'EnvLanguage',
+        'expireTime'       => 'ExpireTime',
         'id'               => 'Id',
         'noticeType'       => 'NoticeType',
         'productCode'      => 'ProductCode',
         'quotaActionCode'  => 'QuotaActionCode',
+        'quotaCategory'    => 'QuotaCategory',
         'quotaDescription' => 'QuotaDescription',
         'quotaName'        => 'QuotaName',
     ];
@@ -95,8 +177,14 @@ class quotaApplicationTemplates extends Model
         if (null !== $this->dimensions) {
             $res['Dimensions'] = $this->dimensions;
         }
+        if (null !== $this->effectiveTime) {
+            $res['EffectiveTime'] = $this->effectiveTime;
+        }
         if (null !== $this->envLanguage) {
             $res['EnvLanguage'] = $this->envLanguage;
+        }
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -109,6 +197,9 @@ class quotaApplicationTemplates extends Model
         }
         if (null !== $this->quotaActionCode) {
             $res['QuotaActionCode'] = $this->quotaActionCode;
+        }
+        if (null !== $this->quotaCategory) {
+            $res['QuotaCategory'] = $this->quotaCategory;
         }
         if (null !== $this->quotaDescription) {
             $res['QuotaDescription'] = $this->quotaDescription;
@@ -142,8 +233,14 @@ class quotaApplicationTemplates extends Model
         if (isset($map['Dimensions'])) {
             $model->dimensions = $map['Dimensions'];
         }
+        if (isset($map['EffectiveTime'])) {
+            $model->effectiveTime = $map['EffectiveTime'];
+        }
         if (isset($map['EnvLanguage'])) {
             $model->envLanguage = $map['EnvLanguage'];
+        }
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
@@ -156,6 +253,9 @@ class quotaApplicationTemplates extends Model
         }
         if (isset($map['QuotaActionCode'])) {
             $model->quotaActionCode = $map['QuotaActionCode'];
+        }
+        if (isset($map['QuotaCategory'])) {
+            $model->quotaCategory = $map['QuotaCategory'];
         }
         if (isset($map['QuotaDescription'])) {
             $model->quotaDescription = $map['QuotaDescription'];

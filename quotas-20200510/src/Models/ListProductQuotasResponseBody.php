@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListProductQuotasResponseBody extends Model
 {
     /**
+     * @description The maximum number of records that are returned for the query.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that marks the position at which the query ends. An empty value indicates that all data is returned.
+     *
+     * @example AAAAAd98/tlL5GF2aM7UMKQGM8LZesIPr0CbfxASQvHV/pwcmVKNfdBbW8OPld3NvG9Cy8+dNcyFzyUttQA3IONfBhRGpXFyiVoTgK+dupBsP2mX
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The details of the quotas.
+     *
      * @var quotas[]
      */
     public $quotas;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D0131FD5-5397-44FE-BF5A-4B7165B813CC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of records that are returned for the query.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $totalCount;

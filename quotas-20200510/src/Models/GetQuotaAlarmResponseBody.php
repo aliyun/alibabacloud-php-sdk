@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetQuotaAlarmResponseBody extends Model
 {
     /**
+     * @description The details of the quota alert.
+     *
      * @var quotaAlarm
      */
     public $quotaAlarm;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 81B9D511-F3DD-43B1-9A81-1795DDB52ADF
+     *
      * @var string
      */
     public $requestId;

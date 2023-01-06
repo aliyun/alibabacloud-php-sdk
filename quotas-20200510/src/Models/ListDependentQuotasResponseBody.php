@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListDependentQuotasResponseBody extends Model
 {
     /**
+     * @description The list of quotas on which the specified quota depends.
+     *
      * @var quotas[]
      */
     public $quotas;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 920D8A47-26BB-49FA-A09F-F98D7DAA55F3
+     *
      * @var string
      */
     public $requestId;

@@ -10,26 +10,45 @@ use AlibabaCloud\Tea\Model;
 class quotaDimension extends Model
 {
     /**
+     * @description The quota dimensions that are supported by the cloud service.
+     *
      * @var string[]
      */
     public $dependentDimensions;
 
     /**
+     * @description The dimension key. Valid values:
+     *
+     *   regionId: region ID
+     *   zoneId: zone ID
+     *   chargeType: billing method
+     *   networkType: network type
+     *
+     * @example regionId
+     *
      * @var string
      */
     public $dimensionKey;
 
     /**
+     * @description The details about the dimension value.
+     *
      * @var dimensionValueDetail[]
      */
     public $dimensionValueDetail;
 
     /**
+     * @description The dimension values.
+     *
      * @var string[]
      */
     public $dimensionValues;
 
     /**
+     * @description The name of the dimension.
+     *
+     * @example region
+     *
      * @var string
      */
     public $name;

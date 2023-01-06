@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class templateServiceStatus extends Model
 {
     /**
+     * @description The ID of the resource directory.
+     *
+     * @example rd-pG****
+     *
      * @var string
      */
     public $resourceDirectoryId;
 
     /**
+     * @description The status of the quota template. Valid values:
+     *
+     *   \-1: disabled
+     *   1: enabled
+     *
+     * @example 1
+     *
      * @var int
      */
     public $serviceStatus;

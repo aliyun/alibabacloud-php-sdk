@@ -10,16 +10,27 @@ use AlibabaCloud\Tea\Model;
 class GetProductQuotaDimensionRequest extends Model
 {
     /**
+     * @description The dimension details that are supported by the cloud service.
+     *
      * @var dependentDimensions[]
      */
     public $dependentDimensions;
 
     /**
+     * @description The dimension key.
+     *
+     * @example regionId
+     *
      * @var string
      */
     public $dimensionKey;
 
     /**
+     * @description The abbreviation of the cloud service name.
+     *
+     * >  For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
+     * @example ecs-spec
+     *
      * @var string
      */
     public $productCode;
