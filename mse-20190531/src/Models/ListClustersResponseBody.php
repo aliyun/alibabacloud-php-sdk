@@ -17,7 +17,7 @@ class ListClustersResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The error code returned if the request failed.
      *
      * @example mse-100-000
      *
@@ -26,7 +26,7 @@ class ListClustersResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status code returned.
      *
      * @example 202
      *
@@ -83,7 +83,7 @@ class ListClustersResponseBody extends Model
     public $success;
 
     /**
-     * @description The total number of instances.
+     * @description The total number of returned instances.
      *
      * @example 7
      *

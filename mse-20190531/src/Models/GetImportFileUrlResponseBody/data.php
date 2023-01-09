@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The upload URL of the configuration file.
+     * @description The URL that is used to upload the configuration file.
      *
      * @example http://xxxxxxx
      *

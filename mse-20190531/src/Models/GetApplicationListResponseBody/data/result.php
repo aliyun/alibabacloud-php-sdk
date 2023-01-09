@@ -63,7 +63,12 @@ class result extends Model
     public $licenseKey;
 
     /**
-     * @description The region ID.
+     * @var string
+     */
+    public $namespace;
+
+    /**
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *
@@ -104,6 +109,7 @@ class result extends Model
         'instancesNumber' => 'InstancesNumber',
         'language'        => 'Language',
         'licenseKey'      => 'LicenseKey',
+        'namespace'       => 'Namespace',
         'regionId'        => 'RegionId',
         'source'          => 'Source',
         'status'          => 'Status',
@@ -134,6 +140,9 @@ class result extends Model
         }
         if (null !== $this->licenseKey) {
             $res['LicenseKey'] = $this->licenseKey;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -176,6 +185,9 @@ class result extends Model
         }
         if (isset($map['LicenseKey'])) {
             $model->licenseKey = $map['LicenseKey'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

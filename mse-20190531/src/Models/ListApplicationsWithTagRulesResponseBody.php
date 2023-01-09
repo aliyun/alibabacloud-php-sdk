@@ -35,9 +35,11 @@ class ListApplicationsWithTagRulesResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The message returned. Valid values:
+     * @description The message returned.
      *
-     * - If the request fails, an error message is returned.
+     *   If the request is successful, a success message is returned.
+     *   If the request fails, an error message is returned.
+     *
      * @example success
      *
      * @var string
@@ -54,7 +56,7 @@ class ListApplicationsWithTagRulesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values: -[unk]true[unk]: The request is successful. -[unk]false[unk]: The request fails.
+     * @description Indicates whether the request is successful. Valid values: -\[unk]true\[unk]: The request is successful. -\[unk]false\[unk]: The request fails.
      *
      * @example true
      *

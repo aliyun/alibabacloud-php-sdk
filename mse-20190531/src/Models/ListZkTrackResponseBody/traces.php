@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class traces extends Model
 {
     /**
-     * @description ACL。
+     * @description The access control list (ACL).
      *
      * @example world:anyone:cdrwa
      *
@@ -18,6 +18,11 @@ class traces extends Model
     public $acl;
 
     /**
+     * @description The data type. Valid values:
+     *
+     *   persist
+     *   ephemeral
+     *
      * @example persist
      *
      * @var string
@@ -25,6 +30,13 @@ class traces extends Model
     public $dataType;
 
     /**
+     * @description The type of the event. For trajectory of the notify type:
+     *
+     *   NodeCreated
+     *   NodeDeleted
+     *   NodeDataChanged
+     *   NodeChildrenChanged
+     *
      * @example NodeCreated
      *
      * @var string
@@ -32,6 +44,8 @@ class traces extends Model
     public $eventType;
 
     /**
+     * @description Indicates whether the transaction ended.
+     *
      * @example true
      *
      * @var bool
@@ -39,6 +53,8 @@ class traces extends Model
     public $finished;
 
     /**
+     * @description The recorded time.
+     *
      * @example 2022-11-28 15:09:15,606
      *
      * @var string
@@ -46,6 +62,8 @@ class traces extends Model
     public $logDate;
 
     /**
+     * @description The transaction size.
+     *
      * @example 3
      *
      * @var int
@@ -53,6 +71,20 @@ class traces extends Model
     public $multiSize;
 
     /**
+     * @description The operation type. For trajectory of the push type:
+     *
+     *   Create
+     *   Update
+     *   Delete
+     *   SetAcl
+     *   Multi
+     *
+     * For trajectory of the pull type:
+     *
+     *   GetData
+     *   GetChild
+     *   GetStat
+     *
      * @example Create
      *
      * @var string
@@ -60,6 +92,8 @@ class traces extends Model
     public $opType;
 
     /**
+     * @description The path.
+     *
      * @example /path
      *
      * @var string
@@ -67,6 +101,8 @@ class traces extends Model
     public $path;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -74,7 +110,7 @@ class traces extends Model
     public $result;
 
     /**
-     * @description SessionId。
+     * @description The session ID.
      *
      * @example 0x301fdfbdbf00***
      *
@@ -83,6 +119,8 @@ class traces extends Model
     public $sessionId;
 
     /**
+     * @description The timestamp (not available).
+     *
      * @example 1669619383000
      *
      * @var string
@@ -90,6 +128,12 @@ class traces extends Model
     public $timestamp;
 
     /**
+     * @description The type of the trajectory. Valid values:
+     *
+     *   Push
+     *   Pull
+     *   Notify
+     *
      * @example Push
      *
      * @var string
@@ -97,7 +141,7 @@ class traces extends Model
     public $traceType;
 
     /**
-     * @description TTL。
+     * @description The time to live (TTL).
      *
      * @example 0
      *
@@ -106,6 +150,8 @@ class traces extends Model
     public $ttl;
 
     /**
+     * @description Indicates whether to enable the listener.
+     *
      * @example true
      *
      * @var bool

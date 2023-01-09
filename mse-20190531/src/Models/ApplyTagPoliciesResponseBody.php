@@ -19,7 +19,7 @@ class ApplyTagPoliciesResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned data.
+     * @description The details of the data.
      *
      * @var data[]
      */

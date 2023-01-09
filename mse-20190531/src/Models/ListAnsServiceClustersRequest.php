@@ -11,7 +11,9 @@ class ListAnsServiceClustersRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -19,8 +21,9 @@ class ListAnsServiceClustersRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the MSE cluster.
      *
+     * > The MSE cluster is different from the cluster of the Nacos service.
      * @example mse-09k1q110q01
      *
      * @var string
@@ -37,9 +40,9 @@ class ListAnsServiceClustersRequest extends Model
     public $clusterName;
 
     /**
-     * @description The name of the contact group.
+     * @description The name of the group.
      *
-     * @example test
+     * @example DEFAULT_GROUP
      *
      * @var string
      */
@@ -93,7 +96,7 @@ class ListAnsServiceClustersRequest extends Model
     /**
      * @description The name of the service.
      *
-     * @example test
+     * @example nacos.test.3
      *
      * @var string
      */

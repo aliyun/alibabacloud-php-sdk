@@ -30,7 +30,7 @@ class DeleteAuthResourceRequest extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The ID of the authorization record.
+     * @description The destination ID.
      *
      * @example 36
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateEngineNamespaceResponseBody extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the instance.
      *
      * @example mse-892k****
      *
@@ -26,7 +26,7 @@ class CreateEngineNamespaceResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The error code returned if the request failed.
      *
      * @example mse-100-000
      *

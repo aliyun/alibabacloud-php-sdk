@@ -72,7 +72,7 @@ class routeServices extends Model
     public $serviceName;
 
     /**
-     * @description The service port.
+     * @description The service port number.
      *
      * @example 20880
      *

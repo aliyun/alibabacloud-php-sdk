@@ -11,7 +11,9 @@ class UpdateGatewayRouteHTTPRewriteRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -39,7 +41,7 @@ class UpdateGatewayRouteHTTPRewriteRequest extends Model
     /**
      * @description The information about the rewrite policy. The JSON format is supported.
      *
-     * @example {"HTTPRewrite":"{\"pathType\":\"PRE\",\"path\":\"/\",\"status\":\"on\"}"}
+     * @example {"pathType":"PRE","path":"/","status":"off"}
      *
      * @var string
      */

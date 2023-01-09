@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteGatewayServiceVersionResponseBody extends Model
 {
     /**
-     * @description The status code returned.
+     * @description The response code returned.
      *
      * @example 1
      *
@@ -38,15 +38,17 @@ class DeleteGatewayServiceVersionResponseBody extends Model
     /**
      * @description The message returned.
      *
-     * - If the request fails, an error message is returned, such as the "TaskId not found" message.
-     * @example The request is processed successfully.
+     *   If the request is successful, a success message is returned.
+     *   If the request fails, an error message is returned, such as the "TaskId not found" message.
+     *
+     * @example The request is successfully processed.
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 29D52777-BE96-563E-BC6B-796ACE47A7A5
      *
@@ -55,9 +57,11 @@ class DeleteGatewayServiceVersionResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     * - `false`: The request fails.
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

@@ -21,7 +21,7 @@ class UpdateClusterRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The alias of the cluster.
+     * @description The alias of the instance.
      *
      * @example cluster-1
      *
@@ -39,7 +39,7 @@ class UpdateClusterRequest extends Model
     public $instanceId;
 
     /**
-     * @description The extended request parameter in the JSON format.
+     * @description The extended request parameters in the JSON format.
      *
      * @example {}
      *

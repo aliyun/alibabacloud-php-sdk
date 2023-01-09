@@ -11,7 +11,9 @@ class GetGovernanceKubernetesClusterRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -19,7 +21,7 @@ class GetGovernanceKubernetesClusterRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the instance.
      *
      * @example cd23228b3c80c4d4f9ad7af1d87cc****
      *
@@ -28,7 +30,7 @@ class GetGovernanceKubernetesClusterRequest extends Model
     public $clusterId;
 
     /**
-     * @description The ID of the region in which the cluster resides.
+     * @description The ID of the region in which the instance resides. The region is supported by MSE.
      *
      * @example cn-hangzhou
      *

@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ImportServicesResponseBody extends Model
 {
     /**
-     * @description Indicates whether the request is successful. Valid values:
+     * @description The status code returned.
      *
-     * - `false`: The request fails.
      * @example 200
      *
      * @var int
@@ -19,7 +18,7 @@ class ImportServicesResponseBody extends Model
     public $code;
 
     /**
-     * @description Import services
+     * @description The result returned.
      *
      * @example true
      *
@@ -28,7 +27,7 @@ class ImportServicesResponseBody extends Model
     public $data;
 
     /**
-     * @description The message returned.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -37,16 +36,16 @@ class ImportServicesResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The request is processed successfully.
+     * @description The message returned.
      *
-     * @example The status code returned.
+     * @example The request is successfully processed.
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The ID of the request.
      *
      * @example 0F0FBA7D-5AC5-5DC4-A1E9-E9656BFAE1B9
      *
@@ -55,7 +54,10 @@ class ImportServicesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The returned results.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
      *
      * @example true
      *

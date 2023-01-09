@@ -33,7 +33,7 @@ class ListClusterTypesRequest extends Model
     public $connectType;
 
     /**
-     * @description The edition of the MSE instance that you want to activate.
+     * @description The edition of the MSE instance that you want to purchase.
      *
      *   mse_pro: Professional Edition
      *   mse_dev: Developer Edition
@@ -45,7 +45,7 @@ class ListClusterTypesRequest extends Model
     public $mseVersion;
 
     /**
-     * @description The ID of the region in which the instance resides. The region is supported by Microservices Engine (MSE).
+     * @description The ID of the region in which the instance resides. The region is supported by MSE.
      *
      * @example cn-hangzhou
      *

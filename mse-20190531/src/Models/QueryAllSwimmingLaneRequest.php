@@ -11,7 +11,9 @@ class QueryAllSwimmingLaneRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string

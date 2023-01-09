@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class services extends Model
 {
     /**
+     * @description The type of the protocol. Valid values:
+     *
+     * @example DUBBO
+     *
      * @var string
      */
     public $agreementType;
@@ -24,12 +28,14 @@ class services extends Model
     public $groupName;
 
     /**
+     * @description The transcoder of the Dubbo protocol.
+     *
      * @var httpDubboTranscoder
      */
     public $httpDubboTranscoder;
 
     /**
-     * @description The name of the service.
+     * @description The name.
      *
      * @example web
      *
@@ -47,7 +53,7 @@ class services extends Model
     public $namespace;
 
     /**
-     * @description The weight in the form of a percentage value.
+     * @description The percentage.
      *
      * @example 80
      *
@@ -65,12 +71,16 @@ class services extends Model
     public $serviceId;
 
     /**
+     * @description The Dubbo port number.
+     *
+     * @example 20880
+     *
      * @var int
      */
     public $servicePort;
 
     /**
-     * @description The source type of the service.
+     * @description The type of the service source.
      *
      * @example MSE
      *

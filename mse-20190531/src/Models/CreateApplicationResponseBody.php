@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateApplicationResponseBody extends Model
 {
     /**
-     * @description The status code returned.
+     * @description The response code returned.
      *
      * @example 200
      *
@@ -19,7 +19,7 @@ class CreateApplicationResponseBody extends Model
     public $code;
 
     /**
-     * @description The details of the data.
+     * @description The data of the node.
      *
      * @example data
      *
@@ -55,9 +55,11 @@ class CreateApplicationResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     * - `false`: The request fails.
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var string

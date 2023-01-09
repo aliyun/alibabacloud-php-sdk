@@ -18,7 +18,7 @@ class UpdateClusterSpecResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
+     * @description A reserved parameter.
      *
      * @example null
      *
@@ -45,7 +45,7 @@ class UpdateClusterSpecResponseBody extends Model
     public $message;
 
     /**
-     * @description ID of the Request.
+     * @description The ID of the request.
      *
      * @example 5B170A0D-2C5D-4CF8-B808-03966B86****
      *
@@ -54,10 +54,10 @@ class UpdateClusterSpecResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   `true`: The call was successful.
-     *   `false`: The call failed.
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
      *
      * @example true
      *

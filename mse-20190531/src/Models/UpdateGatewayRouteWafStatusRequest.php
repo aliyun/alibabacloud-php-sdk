@@ -21,7 +21,7 @@ class UpdateGatewayRouteWafStatusRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description Specifies whether to enable Web Application Firewall (WAF).
+     * @description Specifies whether to activate Web Application Firewall (WAF).
      *
      * @example true
      *
@@ -39,7 +39,7 @@ class UpdateGatewayRouteWafStatusRequest extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The ID of the route entry.
+     * @description The ID of the route.
      *
      * @example 645
      *

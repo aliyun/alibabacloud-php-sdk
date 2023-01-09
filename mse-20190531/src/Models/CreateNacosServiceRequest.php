@@ -21,8 +21,9 @@ class CreateNacosServiceRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The ID of the cluster. This operation contains both the InstanceId and ClusterId parameters. You must configure either InstanceId or ClusterId.
+     * @description The ID of the instance.
      *
+     * > This operation contains both the InstanceId and ClusterId parameters. You must specify one of them.
      * @example mse-3691a080
      *
      * @var string
@@ -30,7 +31,7 @@ class CreateNacosServiceRequest extends Model
     public $clusterId;
 
     /**
-     * @description Specifies whether the instance is a temporary node. Valid values:
+     * @description Specifies whether the instance is marked as a temporary node. Valid values:
      *
      *   `true`: yes
      *   `false`: no
@@ -53,7 +54,7 @@ class CreateNacosServiceRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * > This operation contains both the InstanceId and ClusterId parameters. You must configure either InstanceId or ClusterId.
+     * > This operation contains both the InstanceId and ClusterId parameters. You must specify one of them.
      * @example mse-cn-st21ri2****
      *
      * @var string

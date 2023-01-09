@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description Indicates whether pass-through is enabled.
+     * @description Indicates whether the field is the primary key.
      *
      * @example true
      *
@@ -20,7 +20,9 @@ class data extends Model
     /**
      * @description Indicates whether the routing rule is enabled.
      *
-     * - `false`: disabled
+     *   `true`: enabled
+     *   `false`: disabled
+     *
      * @example true
      *
      * @var bool
@@ -46,7 +48,7 @@ class data extends Model
     public $instanceNum;
 
     /**
-     * @description The name of the routing rule.
+     * @description The policy name.
      *
      * @example test
      *
@@ -80,7 +82,7 @@ class data extends Model
     public $rules;
 
     /**
-     * @description The status of the routing rule.
+     * @description The status.
      *
      * @example 1
      *

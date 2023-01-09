@@ -70,7 +70,10 @@ class AddGatewayDomainRequest extends Model
     public $name;
 
     /**
-     * @description The type of the protocol.
+     * @description The type of the protocol. Valid values:
+     *
+     *   `HTTP`
+     *   `HTTPS`
      *
      * @example HTTP
      *

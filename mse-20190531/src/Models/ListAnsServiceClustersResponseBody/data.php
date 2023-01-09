@@ -10,15 +10,18 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The information about clusters.
+     * @description The information about the clusters.
      *
      * @var clusters[]
      */
     public $clusters;
 
     /**
-     * @description Indicates whether the service is marked as a temporary node. Valid values:
-     * - `false`
+     * @description Indicates whether the service is a temporary service. Valid values:
+     *
+     *   `true`: The service is a temporary service.
+     *   `false`: The service is not a temporary service.
+     *
      * @example true
      *
      * @var bool
@@ -35,7 +38,7 @@ class data extends Model
     public $groupName;
 
     /**
-     * @description The metadata.
+     * @description The metadata of the service.
      *
      * @example 111
      *
@@ -46,7 +49,7 @@ class data extends Model
     /**
      * @description The name of the service.
      *
-     * @example DEFAULT
+     * @example nacos.test.3
      *
      * @var string
      */

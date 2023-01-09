@@ -39,7 +39,7 @@ class QueryMonitorRequest extends Model
     public $instanceId;
 
     /**
-     * @description The metric type. The following metrics are supported:
+     * @description The metric type. The following metric types are supported:
      *
      * \[Basic system metrics]
      *
@@ -54,18 +54,18 @@ class QueryMonitorRequest extends Model
      *   serviceCount
      *   writeCostTime
      *   readCostTime
-     *   regCenterTps
-     *   regCenterQps
+     *   TPS regCenterTps
+     *   QPS regCenterQps
      *
      * \[Nacos configuration center]
      *
      *   publish
      *   getConfig
      *
-     * \[Zookeeper]
+     * \[zookeeper]
      *
-     *   zk_TpsCount
-     *   zk_QpsCount
+     *   TPS zk_TpsCount
+     *   QPS zk_QpsCount
      *   zookeeper_AvgRequestLatency
      *
      * @example regCenterQps

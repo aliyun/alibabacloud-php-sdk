@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The number of configurations.
+     * @description The quota value.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $configCount;
 
     /**
-     * @description The name of the namespace.
+     * @description The namespace.
      *
      * @example DEFAULT
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $namespaceDesc;
 
     /**
-     * @description The display name of the namespace.
+     * @description The name of the namespace.
      *
      * @example public
      *
@@ -64,7 +64,11 @@ class data extends Model
 
     /**
      * @description The type of the namespace. Valid values:
-     * - `2`: custom namespace
+     *
+     *   `0`: global configuration
+     *   `1`: default namespace
+     *   `2`: custom namespace
+     *
      * @example 0
      *
      * @var int

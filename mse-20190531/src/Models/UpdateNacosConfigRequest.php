@@ -11,7 +11,9 @@ class UpdateNacosConfigRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -57,7 +59,7 @@ class UpdateNacosConfigRequest extends Model
     /**
      * @description The description of the configuration.
      *
-     * @example Basic configuration
+     * @example Basic Settings
      *
      * @var string
      */
@@ -73,7 +75,7 @@ class UpdateNacosConfigRequest extends Model
     public $encryptedDataKey;
 
     /**
-     * @description The name of the group.
+     * @description The group.
      *
      * @example resource
      *
@@ -109,7 +111,7 @@ class UpdateNacosConfigRequest extends Model
     public $namespaceId;
 
     /**
-     * @description The tags of the configuration.
+     * @description The list of tags.
      *
      * @example 2021-10-20
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayRouteTimeoutResponseBody extends Model
 {
     /**
-     * @description The status code returned.
+     * @description The return value.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class UpdateGatewayRouteTimeoutResponseBody extends Model
     public $code;
 
     /**
-     * @description The details of the data.
+     * @description The data of the node.
      *
      * @example 400
      *
@@ -54,7 +54,7 @@ class UpdateGatewayRouteTimeoutResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. A value of true indicates that the request is successful. A value of false indicates that the request fails.
+     * @description Indicates whether the request was successful. true: The request was successful. false: The request failed.
      *
      * @example true
      *

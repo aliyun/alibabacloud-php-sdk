@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description Indicates whether Application High Availability Service (AHAS) is enabled.
+     * @description Indicates whether Application High Availability Service (AHAS) is activated.
      *
      * @example false
      *
@@ -30,7 +30,7 @@ class result extends Model
     public $appVersion;
 
     /**
-     * @description Indicates whether Application Real-Time Monitoring Service (ARMS) is enabled.
+     * @description Indicates whether Application Real-Time Monitoring Service (ARMS) is activated.
      *
      * @example false
      *
@@ -84,6 +84,8 @@ class result extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description The version of the gateway.
+     *
      * @example 1.2.9
      *
      * @var string
@@ -150,6 +152,8 @@ class result extends Model
     public $latestVersion;
 
     /**
+     * @description The tag of the instance.
+     *
      * @example {"tagKey":"tagValue"}
      *
      * @var string
@@ -184,7 +188,7 @@ class result extends Model
     public $primaryUser;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -202,6 +206,8 @@ class result extends Model
     public $replica;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-97hg87vi****
      *
      * @var string
@@ -209,6 +215,8 @@ class result extends Model
     public $resourceGroupId;
 
     /**
+     * @description Indicates whether rollbacks are allowed.
+     *
      * @example false
      *
      * @var bool

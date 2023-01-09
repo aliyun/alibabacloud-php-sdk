@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListListenersByIpResponseBody extends Model
 {
     /**
-     * @description The error code returned.
+     * @description The error code returned if the request failed.
      *
      * @example MSE-100-000
      *

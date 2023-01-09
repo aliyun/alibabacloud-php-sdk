@@ -11,7 +11,9 @@ class GetBlackWhiteListRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -28,7 +30,7 @@ class GetBlackWhiteListRequest extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description Specifies whether to query the whitelist.
+     * @description Specifies whether to enable the whitelist.
      *
      * @example true
      *
@@ -46,7 +48,7 @@ class GetBlackWhiteListRequest extends Model
     public $resourceType;
 
     /**
-     * @description The type of the blacklist or whitelist.
+     * @description The type.
      *
      * @example IP
      *

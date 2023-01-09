@@ -28,12 +28,14 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description The data structure.
+     *
      * @var result[]
      */
     public $result;
 
     /**
-     * @description The number of clusters.
+     * @description The total number of clusters.
      *
      * @example 3
      *

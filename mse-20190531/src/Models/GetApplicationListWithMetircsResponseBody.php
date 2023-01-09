@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetApplicationListWithMetircsResponseBody extends Model
 {
     /**
+     * @description The response code returned.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class GetApplicationListWithMetircsResponseBody extends Model
     public $code;
 
     /**
+     * @description The details of the data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -29,11 +35,17 @@ class GetApplicationListWithMetircsResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example The request is successfully processed.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 062D13C5-DEA3-4921-8918-C49A0F1B****
      *
      * @var string
@@ -41,6 +53,11 @@ class GetApplicationListWithMetircsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

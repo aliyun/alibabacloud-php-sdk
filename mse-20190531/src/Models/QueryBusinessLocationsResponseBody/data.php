@@ -18,7 +18,7 @@ class data extends Model
     public $cnName;
 
     /**
-     * @description The description of the region.
+     * @description The description.
      *
      * @example China (Shanghai)
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $districtEnName;
 
     /**
-     * @description The ID of the district.
+     * @description The ID of the region.
      *
      * @example asia-pacific
      *
@@ -90,7 +90,7 @@ class data extends Model
     public $enName;
 
     /**
-     * @description The ID of the region.
+     * @description The name.
      *
      * @example cn-shanghai
      *
@@ -108,7 +108,7 @@ class data extends Model
     public $ordering;
 
     /**
-     * @description The display name of the region.
+     * @description The display name.
      *
      * @example China (Shanghai)
      *
@@ -117,7 +117,7 @@ class data extends Model
     public $showName;
 
     /**
-     * @description The type of the data.
+     * @description The type.
      *
      * @example region
      *

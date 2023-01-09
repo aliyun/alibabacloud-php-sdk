@@ -72,7 +72,7 @@ class fallbackServices extends Model
     public $serviceName;
 
     /**
-     * @description The service port.
+     * @description The service port number.
      *
      * @example 8848
      *
@@ -81,7 +81,7 @@ class fallbackServices extends Model
     public $servicePort;
 
     /**
-     * @description The type of the service source.
+     * @description The source type.
      *
      * @example MSE
      *

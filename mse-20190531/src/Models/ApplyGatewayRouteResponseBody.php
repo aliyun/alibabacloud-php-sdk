@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ApplyGatewayRouteResponseBody extends Model
 {
     /**
-     * @description The status code returned.
+     * @description The response code returned.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class ApplyGatewayRouteResponseBody extends Model
     public $code;
 
     /**
-     * @description The data that indicates whether the operation is successful.
+     * @description The data of the node.
      *
      * @example true
      *
@@ -54,8 +54,11 @@ class ApplyGatewayRouteResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     * - `false`: The request fails.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

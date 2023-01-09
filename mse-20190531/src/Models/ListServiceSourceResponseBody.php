@@ -10,8 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListServiceSourceResponseBody extends Model
 {
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     * - `false`: The request fails.
+     * @description The response code returned.
+     *
      * @example 200
      *
      * @var int
@@ -19,14 +19,14 @@ class ListServiceSourceResponseBody extends Model
     public $code;
 
     /**
-     * @description The data structure.
+     * @description The returned data.
      *
      * @var data[]
      */
     public $data;
 
     /**
-     * @description The error message returned if the request fails.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -35,7 +35,7 @@ class ListServiceSourceResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The status code returned.
+     * @description The error message.
      *
      * @example You are not authorized to perform this operation.
      *
@@ -44,7 +44,7 @@ class ListServiceSourceResponseBody extends Model
     public $message;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The ID of the request.
      *
      * @example B8C4B0D8-EBB9-5F20-8295-04224FBE5529
      *
@@ -53,7 +53,10 @@ class ListServiceSourceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The returned results.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
      *
      * @example true
      *

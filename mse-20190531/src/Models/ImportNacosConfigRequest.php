@@ -11,7 +11,9 @@ class ImportNacosConfigRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -46,7 +48,7 @@ class ImportNacosConfigRequest extends Model
     public $namespaceId;
 
     /**
-     * @description The policy used to handle write conflicts.
+     * @description The policy.
      *
      * @example overwrite
      *

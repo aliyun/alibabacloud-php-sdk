@@ -11,7 +11,9 @@ class AddSecurityGroupRuleRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -19,7 +21,7 @@ class AddSecurityGroupRuleRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The description of the rule.
+     * @description The description.
      *
      * @example description
      *
@@ -37,7 +39,7 @@ class AddSecurityGroupRuleRequest extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The port range.
+     * @description The range of port numbers.
      *
      * @example 1/65535
      *

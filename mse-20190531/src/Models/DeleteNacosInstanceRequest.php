@@ -21,7 +21,7 @@ class DeleteNacosInstanceRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The name of the instance.
+     * @description The alias of the instance.
      *
      * @example DEFAULT
      *
@@ -30,9 +30,9 @@ class DeleteNacosInstanceRequest extends Model
     public $clusterName;
 
     /**
-     * @description Specifies whether the instance is a temporary node. Valid values:
+     * @description Specifies whether the instance is marked as a temporary node. Valid values:
      *
-     *   `true`: yes
+     *   `true`: monitors the task status.
      *   `false`: no
      *
      * @example false
@@ -60,7 +60,7 @@ class DeleteNacosInstanceRequest extends Model
     public $instanceId;
 
     /**
-     * @description The IP address of the instance.
+     * @description The IP address of the Nacos instance.
      *
      * @example 10.237.1.32
      *
@@ -78,7 +78,7 @@ class DeleteNacosInstanceRequest extends Model
     public $namespaceId;
 
     /**
-     * @description The port number of the instance.
+     * @description The port of the Nacos instance.
      *
      * @example 8080
      *

@@ -11,7 +11,9 @@ class ListAppBySwimmingLaneGroupTagRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -28,7 +30,7 @@ class ListAppBySwimmingLaneGroupTagRequest extends Model
     public $groupId;
 
     /**
-     * @description The tag of the lane group.
+     * @description The tag.
      *
      * @example gray
      *

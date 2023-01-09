@@ -29,7 +29,9 @@ class data extends Model
     /**
      * @description The type of the security group. Valid values:
      *
-     * - enterprise: advanced security group For more information, see [Overview](~~120621~~).
+     *   normal: basic security group
+     *   enterprise: advanced security group For more information, see [Advanced security groups](~~120621~~).
+     *
      * @example enterprise
      *
      * @var string
@@ -37,7 +39,7 @@ class data extends Model
     public $securityGroupType;
 
     /**
-     * @description VPC ID.
+     * @description The ID of the virtual private cloud (VPC).
      *
      * @example vpc-bp1b
      *

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteGatewayDomainRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -25,7 +30,7 @@ class DeleteGatewayDomainRequest extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The ID of the domain name.
+     * @description The domain ID.
      *
      * @example 109
      *

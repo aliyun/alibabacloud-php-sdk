@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class serviceVersion extends Model
 {
     /**
-     * @description The tags of the version.
+     * @description The tag.
      *
      * @var labels[]
      */
     public $labels;
 
     /**
-     * @description The name of the version.
+     * @description The version number.
      *
      * @example v2
      *

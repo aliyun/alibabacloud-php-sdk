@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class QueryClusterDiskSpecificationResponseBody extends Model
 {
     /**
-     * @description The status code returned.
+     * @description The return value.
      *
      * @example 200
      *
@@ -26,8 +26,9 @@ class QueryClusterDiskSpecificationResponseBody extends Model
     public $data;
 
     /**
-     * @description The dynamic part in the error message. This parameter is used to replace the **%s** variable in the **Message** parameter.
-     * > If the specified **InstanceId** parameter is invalid, **The Value of Input Parameter %s is not valid** is returned for **Message** and **InstanceId** is returned for **DynamicMessage**.
+     * @description The dynamic part in the error message. This parameter is used to replace the \*\*%s\*\* variable in the **ErrMessage** parameter.
+     *
+     * > If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
      * @example The specified parameter is invalid.
      *
      * @var string
@@ -35,7 +36,7 @@ class QueryClusterDiskSpecificationResponseBody extends Model
     public $dynamicMessage;
 
     /**
-     * @description The error code returned if the request fails.
+     * @description The error code returned if the request failed.
      *
      * @example mse-100-000
      *
@@ -55,7 +56,7 @@ class QueryClusterDiskSpecificationResponseBody extends Model
     /**
      * @description The message returned.
      *
-     * @example The request is processed successfully.
+     * @example The request is successfully processed.
      *
      * @var string
      */
@@ -71,8 +72,11 @@ class QueryClusterDiskSpecificationResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     * - `false`: The request fails.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example True
      *
      * @var bool

@@ -36,6 +36,8 @@ class filterParams extends Model
     public $instanceId;
 
     /**
+     * @description The tag of the instance.
+     *
      * @example [{"key":"tagkey","value":"tagvalue"}]
      *
      * @var string
@@ -52,6 +54,8 @@ class filterParams extends Model
     public $name;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-7y2uye*****
      *
      * @var string

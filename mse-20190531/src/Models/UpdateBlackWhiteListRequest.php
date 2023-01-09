@@ -11,7 +11,9 @@ class UpdateBlackWhiteListRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -55,16 +57,28 @@ class UpdateBlackWhiteListRequest extends Model
     public $isWhite;
 
     /**
+     * @description The name.
+     *
+     * @example name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The description.
+     *
+     * @example this is a note
+     *
      * @var string
      */
     public $note;
 
     /**
+     * @description The resource IDs in the JSON format.
+     *
+     * @example [123]
+     *
      * @var string
      */
     public $resourceIdJsonList;

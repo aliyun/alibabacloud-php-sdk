@@ -18,7 +18,7 @@ class ingressOptionsRequest extends Model
     public $enableIngress;
 
     /**
-     * @description Update the Ingress Status.
+     * @description Specifies whether to update the Ingress status.
      *
      * @example true
      *
@@ -36,7 +36,7 @@ class ingressOptionsRequest extends Model
     public $ingressClass;
 
     /**
-     * @description The namespace that you want to monitor.
+     * @description The namespace whose resources you want to monitor.
      *
      * @example default
      *

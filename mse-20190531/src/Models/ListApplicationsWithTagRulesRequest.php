@@ -11,7 +11,9 @@ class ListApplicationsWithTagRulesRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -28,7 +30,7 @@ class ListApplicationsWithTagRulesRequest extends Model
     public $appId;
 
     /**
-     * @description The name of the application.
+     * @description The names of the applications.
      *
      * @example test
      *
@@ -55,7 +57,7 @@ class ListApplicationsWithTagRulesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

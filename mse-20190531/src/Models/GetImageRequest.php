@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetImageRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,7 +21,7 @@ class GetImageRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The version of the cluster.
+     * @description The version number of the current instance.
      *
      * @example ZooKeeper_3_5_5
      *

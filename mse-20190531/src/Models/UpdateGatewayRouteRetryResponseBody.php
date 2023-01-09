@@ -36,7 +36,7 @@ class UpdateGatewayRouteRetryResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The message returned.
+     * @description The error message.
      *
      * @example You are not authorized to perform this operation.
      *
@@ -54,9 +54,11 @@ class UpdateGatewayRouteRetryResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     * - `false`: The request fails.
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListZkTrackRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class ListZkTrackRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The end timestamp. Unit: seconds.
+     *
      * @example 1669619383
      *
      * @var int
@@ -23,6 +30,8 @@ class ListZkTrackRequest extends Model
     public $endTs;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example mse-cn-0ju2yq****
      *
      * @var string
@@ -30,6 +39,8 @@ class ListZkTrackRequest extends Model
     public $instanceId;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +48,8 @@ class ListZkTrackRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 20
      *
      * @var int
@@ -44,6 +57,8 @@ class ListZkTrackRequest extends Model
     public $pageSize;
 
     /**
+     * @description The path.
+     *
      * @example /path
      *
      * @var string
@@ -51,13 +66,17 @@ class ListZkTrackRequest extends Model
     public $path;
 
     /**
-     * @description RequestPars。
+     * @description The request parameters.
+     *
+     * @example {}
      *
      * @var string
      */
     public $requestPars;
 
     /**
+     * @description Specifies whether entries are sorted in reverse chronological order.
+     *
      * @example false
      *
      * @var bool
@@ -65,7 +84,7 @@ class ListZkTrackRequest extends Model
     public $reverse;
 
     /**
-     * @description SessionId。
+     * @description The session ID.
      *
      * @example 0x301fdfbdbf00***
      *
@@ -74,6 +93,8 @@ class ListZkTrackRequest extends Model
     public $sessionId;
 
     /**
+     * @description The start timestamp. Unit: seconds.
+     *
      * @example 1669618483
      *
      * @var int

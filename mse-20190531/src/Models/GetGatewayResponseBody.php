@@ -26,7 +26,7 @@ class GetGatewayResponseBody extends Model
     public $data;
 
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *

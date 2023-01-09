@@ -40,7 +40,7 @@ class result extends Model
     public $defaultServiceName;
 
     /**
-     * @description The destination type.
+     * @description The destination service type.
      *
      * @example Single
      *
@@ -65,7 +65,7 @@ class result extends Model
     public $domainId;
 
     /**
-     * @description The list of domain IDs.
+     * @description The IDs of domains.
      *
      * @var int[]
      */
@@ -88,7 +88,7 @@ class result extends Model
     public $domainNameList;
 
     /**
-     * @description Indicates whether Web Application Firewall (WAF) is activated.
+     * @description Specifies whether to activate Web Application Firewall (WAF).
      *
      * @example false
      *
@@ -97,7 +97,7 @@ class result extends Model
     public $enableWaf;
 
     /**
-     * @description Indicates whether the Fallback service is enabled.
+     * @description Specifies whether to enable the Fallback service.
      *
      * @example true
      *
@@ -149,7 +149,7 @@ class result extends Model
     public $gmtModified;
 
     /**
-     * @description ID.
+     * @description The ID.
      *
      * @example 47
      *

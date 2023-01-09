@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListClusterVersionsResponseBody extends Model
 {
     /**
-     * @description The status code returned.
+     * @description The response code returned.
      *
      * @example 200
      *
@@ -35,7 +35,7 @@ class ListClusterVersionsResponseBody extends Model
     public $dynamicMessage;
 
     /**
-     * @description The error code returned if the request fails.
+     * @description The error code returned if the request failed.
      *
      * @example mse-100-000
      *
@@ -55,7 +55,7 @@ class ListClusterVersionsResponseBody extends Model
     /**
      * @description The message returned.
      *
-     * @example The request is processed successfully.
+     * @example The request is successfully processed.
      *
      * @var string
      */
@@ -71,8 +71,11 @@ class ListClusterVersionsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     * - `false`: The request fails.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

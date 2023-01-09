@@ -39,7 +39,7 @@ class UpdateGatewaySpecRequest extends Model
     public $replica;
 
     /**
-     * @description The node specifications.
+     * @description The node specifications of the gateway.
      *
      * @example MSE_GTW_4_8_200_c
      *

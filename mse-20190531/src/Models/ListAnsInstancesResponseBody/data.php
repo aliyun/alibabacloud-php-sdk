@@ -57,7 +57,7 @@ class data extends Model
     public $enabled;
 
     /**
-     * @description Indicates whether the service is marked as a temporary node. Valid values:
+     * @description Indicates whether the information about the temporary node is obtained. Valid values:
      *
      *   `true`: yes
      *   `false`: no
@@ -135,7 +135,7 @@ class data extends Model
     public $ipDeleteTimeout;
 
     /**
-     * @description The time when the instance heartbeat was last checked.
+     * @description The last heartbeat time.
      *
      * @example 20201010
      *

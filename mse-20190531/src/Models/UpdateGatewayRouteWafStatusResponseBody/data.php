@@ -59,7 +59,7 @@ class data extends Model
     public $directResponse;
 
     /**
-     * @description The ID of the domain name.
+     * @description The domain ID.
      *
      * @example 235
      *
@@ -68,7 +68,7 @@ class data extends Model
     public $domainId;
 
     /**
-     * @description The IDs of the domain names.
+     * @description The IDs of domains.
      *
      * @var int[]
      */
@@ -84,14 +84,14 @@ class data extends Model
     public $domainName;
 
     /**
-     * @description The domain names.
+     * @description The list of domain names.
      *
      * @var string[]
      */
     public $domainNameList;
 
     /**
-     * @description Indicates whether WAF is enabled.
+     * @description Indicates whether WAF is activated.
      *
      * @example 0
      *
@@ -143,7 +143,7 @@ class data extends Model
     public $HTTPRewrite;
 
     /**
-     * @description The information about the header configuration policy.
+     * @description The header settings.
      *
      * @var headerOp
      */

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteServiceSourceRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -25,7 +30,7 @@ class DeleteServiceSourceRequest extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The ID of the service source.
+     * @description The ID of the data source.
      *
      * @example 17
      *

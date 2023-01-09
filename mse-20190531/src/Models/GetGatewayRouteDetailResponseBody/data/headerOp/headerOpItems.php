@@ -18,7 +18,7 @@ class headerOpItems extends Model
     public $directionType;
 
     /**
-     * @description Header Key.
+     * @description The header key.
      *
      * @example debug
      *

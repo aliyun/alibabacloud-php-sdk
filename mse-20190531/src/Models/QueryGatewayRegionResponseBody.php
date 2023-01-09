@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class QueryGatewayRegionResponseBody extends Model
 {
     /**
-     * @description The request is processed successfully.
+     * @description The status code returned.
      *
      * @example 200
      *
@@ -18,14 +18,14 @@ class QueryGatewayRegionResponseBody extends Model
     public $code;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     * - `false`: The request fails.
+     * @description The returned data.
+     *
      * @var string[]
      */
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -34,16 +34,16 @@ class QueryGatewayRegionResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The message returned.
      *
-     * @example The message returned.
+     * @example The request is successfully processed.
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The data structure.
+     * @description The ID of the request.
      *
      * @example 9e78a671-4b9b-4dd4-99c1-0b9da87d3dec
      *
@@ -52,7 +52,10 @@ class QueryGatewayRegionResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status code returned.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
      *
      * @example true
      *

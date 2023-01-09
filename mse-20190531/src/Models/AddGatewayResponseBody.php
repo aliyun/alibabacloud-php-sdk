@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class AddGatewayResponseBody extends Model
 {
     /**
-     * @description The return value.
+     * @description The status code returned.
      *
      * @example 200
      *
@@ -26,7 +26,7 @@ class AddGatewayResponseBody extends Model
     public $data;
 
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -35,7 +35,7 @@ class AddGatewayResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The returned message.
+     * @description The message returned.
      *
      *   If the request is successful, a success message is returned.
      *   If the request fails, an error message is returned.

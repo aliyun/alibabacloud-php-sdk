@@ -23,8 +23,8 @@ class DeleteNacosConfigRequest extends Model
     /**
      * @description Specifies whether to perform a beta release. Valid values:
      *
-     *   `true`: yes
-     *   `false`: no
+     *   `true`: performs a beta release.
+     *   `false`: not performs a beta release.
      *
      * @example true
      *

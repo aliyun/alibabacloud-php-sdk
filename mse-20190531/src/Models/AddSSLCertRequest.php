@@ -30,7 +30,7 @@ class AddSSLCertRequest extends Model
     public $certIdentifier;
 
     /**
-     * @description The ID of the domain name.
+     * @description The domain ID.
      *
      * @example 0
      *

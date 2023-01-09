@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instanceModels extends Model
 {
     /**
-     * @description The timestamp when the node was created.
+     * @description The timestamp when the instance node was created.
      *
      * @example 1578575377732
      *
@@ -18,7 +18,7 @@ class instanceModels extends Model
     public $creationTimestamp;
 
     /**
-     * @description The health status of the node.
+     * @description The health status of the instance node.
      *
      * @example Running
      *
@@ -54,7 +54,7 @@ class instanceModels extends Model
     public $podName;
 
     /**
-     * @description The role of the node.
+     * @description The role.
      *
      * @example Peer
      *
@@ -72,6 +72,8 @@ class instanceModels extends Model
     public $singleTunnelVip;
 
     /**
+     * @description The zone.
+     *
      * @example cn-shanghai-f
      *
      * @var string

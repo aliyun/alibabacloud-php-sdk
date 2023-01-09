@@ -36,7 +36,7 @@ class AddSSLCertResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The message returned.
+     * @description The error message.
      *
      * @example You are not authorized to perform this operation.
      *

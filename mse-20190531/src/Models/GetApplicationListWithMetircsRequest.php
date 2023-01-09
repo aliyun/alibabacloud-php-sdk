@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetApplicationListWithMetircsRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class GetApplicationListWithMetircsRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The ID of the application.
+     *
      * @example hkhon1po62@c3df23522baa898
      *
      * @var string
@@ -23,6 +30,8 @@ class GetApplicationListWithMetircsRequest extends Model
     public $appId;
 
     /**
+     * @description The name of the application.
+     *
      * @example spring-cloud-a
      *
      * @var string
@@ -30,6 +39,13 @@ class GetApplicationListWithMetircsRequest extends Model
     public $appName;
 
     /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +53,8 @@ class GetApplicationListWithMetircsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +62,14 @@ class GetApplicationListWithMetircsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region where the instance resides. Examples:
+     *
+     *   cn-hangzhou: China (Hangzhou)
+     *   cn-beijing: China (Beijing)
+     *   cn-shanghai: China (Shanghai)
+     *   cn-zhangjiakou: China (Zhangjiakou)
+     *   cn-shenzhen: China (Shenzhen)
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +77,8 @@ class GetApplicationListWithMetircsRequest extends Model
     public $region;
 
     /**
+     * @description The service source. Valid values:
+     *
      * @example edasmsc
      *
      * @var string
@@ -60,6 +88,7 @@ class GetApplicationListWithMetircsRequest extends Model
         'acceptLanguage' => 'AcceptLanguage',
         'appId'          => 'AppId',
         'appName'        => 'AppName',
+        'namespace'      => 'Namespace',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
         'region'         => 'Region',
@@ -81,6 +110,9 @@ class GetApplicationListWithMetircsRequest extends Model
         }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -114,6 +146,9 @@ class GetApplicationListWithMetircsRequest extends Model
         }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

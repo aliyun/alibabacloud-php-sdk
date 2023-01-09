@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description SLB ID.
+     * @description The ID of the SLB instance.
      *
      * @example lb-bp14lqiw5n96hq2****
      *

@@ -21,7 +21,7 @@ class QueryConfigRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the instance.
      *
      * @example mse-09k1q11****
      *
@@ -48,12 +48,14 @@ class QueryConfigRequest extends Model
     public $instanceId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $needRunningConf;
 
     /**
-     * @description The extended request parameter in the JSON format.
+     * @description The extended request parameters in the JSON format.
      *
      * @example {}
      *

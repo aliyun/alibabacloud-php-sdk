@@ -36,7 +36,7 @@ class data extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The time when the security group rule was created.
+     * @description The creation time.
      *
      * @example 2022-01-07T10:07:57.000+0000
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $gmtCreate;
 
     /**
-     * @description The time when the security group rule was last modified.
+     * @description The last modification time.
      *
      * @example 2022-01-07T10:07:57.000+0000
      *
@@ -54,7 +54,7 @@ class data extends Model
     public $gmtModified;
 
     /**
-     * @description ID.
+     * @description The ID.
      *
      * @example 21
      *
@@ -63,7 +63,7 @@ class data extends Model
     public $id;
 
     /**
-     * @description The type of the protocol.
+     * @description The protocol type.
      *
      * @example tcp
      *
@@ -72,7 +72,7 @@ class data extends Model
     public $ipProtocol;
 
     /**
-     * @description The range of ports.
+     * @description The port range.
      *
      * @example 8000/8000
      *

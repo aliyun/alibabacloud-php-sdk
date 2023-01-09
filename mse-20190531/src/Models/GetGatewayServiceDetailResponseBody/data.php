@@ -41,7 +41,7 @@ class data extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The time when the service was added.
+     * @description The creation time.
      *
      * @example 2022-01-07 18:07:57
      *
@@ -50,7 +50,7 @@ class data extends Model
     public $gmtCreate;
 
     /**
-     * @description The time when the service was last modified.
+     * @description The last modification time.
      *
      * @example 2022-01-07T10:07:57.000+0000
      *
@@ -68,11 +68,19 @@ class data extends Model
     public $groupName;
 
     /**
+     * @description Indicates whether the health check is enabled.
+     *
+     * @example true
+     *
      * @var string
      */
     public $healthCheck;
 
     /**
+     * @description The status of the health check. Valid values:
+     *
+     * @example true
+     *
      * @var string
      */
     public $healthStatus;
@@ -87,14 +95,14 @@ class data extends Model
     public $id;
 
     /**
-     * @description The IP addresses of the service.
+     * @description The IP address of the service.
      *
      * @var string[]
      */
     public $ips;
 
     /**
-     * @description The details of tags.
+     * @description The details of the tag.
      *
      * @var labelDetails[]
      */
@@ -119,7 +127,7 @@ class data extends Model
     public $name;
 
     /**
-     * @description The name of the namespace.
+     * @description The namespace.
      *
      * @example default
      *
@@ -128,11 +136,15 @@ class data extends Model
     public $namespace;
 
     /**
+     * @description The traffic policy of service ports.
+     *
      * @var portTrafficPolicyList[]
      */
     public $portTrafficPolicyList;
 
     /**
+     * @description The array of service ports.
+     *
      * @var int[]
      */
     public $ports;
@@ -147,12 +159,16 @@ class data extends Model
     public $serviceNameInRegistry;
 
     /**
+     * @description The protocol of the service.
+     *
+     * @example HTTP
+     *
      * @var string
      */
     public $serviceProtocol;
 
     /**
-     * @description The source ID of the service.
+     * @description The ID of the service source.
      *
      * @example 1
      *
@@ -177,7 +193,7 @@ class data extends Model
     public $versionDetails;
 
     /**
-     * @description The versions of the service.
+     * @description The version of the service.
      *
      * @var versions[]
      */

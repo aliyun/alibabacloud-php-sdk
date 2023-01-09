@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class redirectJSON extends Model
 {
     /**
-     * @description The return code.
+     * @description The status code returned.
      *
      * @example 302
      *

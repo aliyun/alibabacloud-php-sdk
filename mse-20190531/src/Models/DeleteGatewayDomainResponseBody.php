@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteGatewayDomainResponseBody extends Model
 {
     /**
-     * @description The error message returned if the request fails.
+     * @description The status code returned.
      *
      * @example 200
      *
@@ -19,14 +19,14 @@ class DeleteGatewayDomainResponseBody extends Model
     public $code;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     * - `false`: The request fails.
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -35,7 +35,7 @@ class DeleteGatewayDomainResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The error message.
      *
      * @example You are not authorized to perform this operation.
      *
@@ -44,7 +44,7 @@ class DeleteGatewayDomainResponseBody extends Model
     public $message;
 
     /**
-     * @description The data structure.
+     * @description The ID of the request.
      *
      * @example 39016EAC-6EDB-52FE-AE20-4B013DF236FF
      *
@@ -53,7 +53,10 @@ class DeleteGatewayDomainResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status code returned.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
      *
      * @example true
      *

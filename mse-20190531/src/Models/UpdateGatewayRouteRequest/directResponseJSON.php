@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class directResponseJSON extends Model
 {
     /**
-     * @description The return value for service mocking.
+     * @description The mock return value.
      *
      * @example hello
      *
@@ -18,7 +18,7 @@ class directResponseJSON extends Model
     public $body;
 
     /**
-     * @description The status code returned for service mocking.
+     * @description The mock return code.
      *
      * @example 200
      *

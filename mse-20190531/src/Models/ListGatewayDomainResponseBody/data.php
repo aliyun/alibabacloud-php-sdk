@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The expiration time of the certificate.
+     * @description The expiration time.
      *
      * @example 2031-03-30 02:35:12
      *
@@ -28,6 +28,8 @@ class data extends Model
     public $certIdentifier;
 
     /**
+     * @description The route comment (ingress).
+     *
      * @var comment
      */
     public $comment;
@@ -42,7 +44,7 @@ class data extends Model
     public $gatewayId;
 
     /**
-     * @description The time when the domain name was associated.
+     * @description The creation time.
      *
      * @example 2031-03-30 02:35:12
      *
@@ -51,7 +53,7 @@ class data extends Model
     public $gmtCreate;
 
     /**
-     * @description The time when the domain name was last modified.
+     * @description The update time.
      *
      * @example 2031-03-30 02:35:12
      *
@@ -60,8 +62,12 @@ class data extends Model
     public $gmtModified;
 
     /**
-     * @description Specifies whether to enable `Http2`.
-     * - `globalConfig`: uses global configurations.
+     * @description Indicates whether `HTTP/2` is enabled.
+     *
+     *   `open`: `HTTP/2` is enabled.
+     *   `close`: `HTTP/2` is disabled.
+     *   `globalConfig`: Global configurations are used.
+     *
      * @example close
      *
      * @var string
@@ -78,7 +84,7 @@ class data extends Model
     public $id;
 
     /**
-     * @description Indicates whether HTTPS is forcibly used.
+     * @description Indicates whether HTTPS is forcefully used.
      *
      * @example true
      *
@@ -96,7 +102,7 @@ class data extends Model
     public $name;
 
     /**
-     * @description The type of the protocol.
+     * @description The protocol.
      *
      * @example HTTP
      *
@@ -105,6 +111,15 @@ class data extends Model
     public $protocol;
 
     /**
+     * @description The status of the domain name. Valid values:
+     *
+     *   0: unpublish
+     *   2: publishing
+     *   3: published
+     *   4: editing
+     *   5: unpublishing
+     *   6: unavailable
+     *
      * @example 3
      *
      * @var int
@@ -130,6 +145,8 @@ class data extends Model
     public $tlsMin;
 
     /**
+     * @description The type.
+     *
      * @example Op
      *
      * @var string

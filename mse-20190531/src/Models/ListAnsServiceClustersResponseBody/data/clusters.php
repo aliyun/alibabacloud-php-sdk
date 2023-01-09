@@ -27,16 +27,16 @@ class clusters extends Model
     public $defaultPort;
 
     /**
-     * @description The type of health check.
+     * @description The type of health checks.
      *
-     * @example beat
+     * @example Heartbeat Reporting
      *
      * @var string
      */
     public $healthCheckerType;
 
     /**
-     * @description The metadata.
+     * @description The metadata of the cluster.
      *
      * @example 111
      *
@@ -54,16 +54,16 @@ class clusters extends Model
     public $name;
 
     /**
-     * @description The name of the service.
+     * @description The complete name of the service.
      *
-     * @example DEFAULT_GROUP@@consumers:com.alibaba.edas.IHelloService::
+     * @example DEFAULT_GROUP@@nacos.test.3
      *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description Indicates whether the IP address is used for a health check.
+     * @description Indicates whether the health check is initiated by the server. This parameter is valid only when the service is a temporary service.
      *
      * @example true
      *

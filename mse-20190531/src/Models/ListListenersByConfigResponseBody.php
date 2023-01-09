@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListListenersByConfigResponseBody extends Model
 {
     /**
-     * @description The error code returned.
+     * @description The error code returned if the request failed.
      *
      * @example mse-100-000
      *
@@ -35,7 +35,7 @@ class ListListenersByConfigResponseBody extends Model
     public $listeners;
 
     /**
-     * @description The response message.
+     * @description The message returned.
      *
      * @example success
      *
@@ -44,7 +44,7 @@ class ListListenersByConfigResponseBody extends Model
     public $message;
 
     /**
-     * @description The number of the returned page.
+     * @description The page number of the returned page.
      *
      * @example 2
      *
@@ -73,7 +73,7 @@ class ListListenersByConfigResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     *   `true`: The call was successful.
+     *   `true`: The request was successful.
      *   `false`: The request failed.
      *
      * @example true

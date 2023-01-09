@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description Indicates whether HTTP probing is allowed.
+     * @description The ID of the certificate.
      *
      * @example 243
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $certIdentifier;
 
     /**
-     * @description The unique ID of the gateway.
+     * @description The ID of the gateway.
      *
      * @example 253
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $gatewayId;
 
     /**
-     * @description The name of the gateway.
+     * @description The unique ID of the gateway.
      *
      * @example gw-7ea3da97b96543e19f6c597c****
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The ID of the certificate.
+     * @description The time when the domain name was added.
      *
      * @example 2022-01-07T10:07:57.000+0000
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $gmtCreate;
 
     /**
-     * @description The time when the domain name was added.
+     * @description The last modification time.
      *
      * @example 2022-01-07T10:07:57.000+0000
      *
@@ -54,7 +54,7 @@ class data extends Model
     public $gmtModified;
 
     /**
-     * @description The returned data.
+     * @description The domain ID.
      *
      * @example 2
      *
@@ -63,7 +63,7 @@ class data extends Model
     public $id;
 
     /**
-     * @description The protocol used by the gateway.
+     * @description Indicates whether HTTP probing is allowed.
      *
      * @example true
      *
@@ -72,7 +72,7 @@ class data extends Model
     public $mustHttps;
 
     /**
-     * @description The ID of the domain name.
+     * @description The name.
      *
      * @example CONTACTINFO
      *
@@ -81,7 +81,7 @@ class data extends Model
     public $name;
 
     /**
-     * @description The ID of the gateway.
+     * @description The protocol.
      *
      * @example HTTP
      *

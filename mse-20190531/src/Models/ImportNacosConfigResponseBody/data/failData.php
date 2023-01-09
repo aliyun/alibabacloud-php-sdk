@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class failData extends Model
 {
     /**
-     * @description The ID of the configuration.
+     * @description The ID of the data.
      *
      * @example test2.yaml
      *

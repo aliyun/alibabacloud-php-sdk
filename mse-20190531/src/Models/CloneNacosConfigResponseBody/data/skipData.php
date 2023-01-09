@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class skipData extends Model
 {
     /**
-     * @description The data ID.
+     * @description The ID of the data.
      *
      * @example test.yaml
      *

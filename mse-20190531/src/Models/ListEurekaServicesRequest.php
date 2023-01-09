@@ -11,7 +11,9 @@ class ListEurekaServicesRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -19,7 +21,7 @@ class ListEurekaServicesRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the instance.
      *
      * @example mse-09k1q11****
      *
@@ -46,7 +48,7 @@ class ListEurekaServicesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

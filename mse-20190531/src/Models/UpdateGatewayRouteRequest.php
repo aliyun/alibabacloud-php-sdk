@@ -16,7 +16,9 @@ class UpdateGatewayRouteRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -24,7 +26,7 @@ class UpdateGatewayRouteRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The type of the destination service.
+     * @description The destination service type.
      *
      * @example Mock
      *
@@ -40,7 +42,7 @@ class UpdateGatewayRouteRequest extends Model
     public $directResponseJSON;
 
     /**
-     * @description The IDs of domain names with which the route is associated.
+     * @description The associated domain name.
      *
      * @example [90]
      *
@@ -49,16 +51,26 @@ class UpdateGatewayRouteRequest extends Model
     public $domainIdListJSON;
 
     /**
+     * @description Specifies whether to enable Web Application Firewall (WAF).
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableWaf;
 
     /**
+     * @description Specifies whether to enable the Fallback service.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $fallback;
 
     /**
+     * @description The information about the Fallback service.
+     *
      * @var fallbackServices[]
      */
     public $fallbackServices;
@@ -100,14 +112,14 @@ class UpdateGatewayRouteRequest extends Model
     public $name;
 
     /**
-     * @description The matching rules of the route.
+     * @description The route matching conditions.
      *
      * @var predicates
      */
     public $predicates;
 
     /**
-     * @description The configuration of the redirect action.
+     * @description The information about redirection.
      *
      * @var redirectJSON
      */
@@ -123,7 +135,7 @@ class UpdateGatewayRouteRequest extends Model
     public $routeOrder;
 
     /**
-     * @description The information about services.
+     * @description The information about destination services.
      *
      * @var services[]
      */

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteMigrationTaskRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class DeleteMigrationTaskRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +30,8 @@ class DeleteMigrationTaskRequest extends Model
     public $id;
 
     /**
+     * @description The extended request parameters in the JSON format.
+     *
      * @example {}
      *
      * @var string

@@ -11,7 +11,9 @@ class UpdateAclRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -19,7 +21,7 @@ class UpdateAclRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The IP addresses in the whitelist.
+     * @description The IP addresses or CIDR blocks in the IP address whitelist.
      *
      * @example 192.168.0.0/XX,192.168.0.0/XX
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateBlackWhiteListResponseBody extends Model
 {
     /**
-     * @description The status code returned.
+     * @description The return value.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class UpdateBlackWhiteListResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the blacklist or whitelist.
+     * @description The ID of the record.
      *
      * @example 13
      *
@@ -36,7 +36,7 @@ class UpdateBlackWhiteListResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The message returned.
+     * @description Request
      *
      * @example You are not authorized to perform this operation.
      *
@@ -54,8 +54,11 @@ class UpdateBlackWhiteListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     * - `false`: The request fails.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

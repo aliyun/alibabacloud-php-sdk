@@ -31,7 +31,7 @@ class loadBalancerSettings extends Model
     public $loadbalancerType;
 
     /**
-     * @description The prefetch time of least connection load balancing.
+     * @description The prefetch time of the least connection load balancing.
      *
      * @example 10
      *

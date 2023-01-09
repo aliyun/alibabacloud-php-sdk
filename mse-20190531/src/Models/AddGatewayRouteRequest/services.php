@@ -71,7 +71,7 @@ class services extends Model
     public $serviceId;
 
     /**
-     * @description The service port.
+     * @description The service port number.
      *
      * @example 443
      *

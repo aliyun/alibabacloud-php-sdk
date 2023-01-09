@@ -31,7 +31,7 @@ class AddGatewayRequest extends Model
     public $enableHardwareAcceleration;
 
     /**
-     * @description Specifies whether to enable Log Service.
+     * @description Specifies whether to activate Log Service.
      *
      * @example false
      *
@@ -40,7 +40,7 @@ class AddGatewayRequest extends Model
     public $enableSls;
 
     /**
-     * @description Specifies whether to enable Tracing Analysis.
+     * @description Specifies whether to activate Tracing Analysis.
      *
      * @example false
      *
@@ -58,7 +58,7 @@ class AddGatewayRequest extends Model
     public $enterpriseSecurityGroup;
 
     /**
-     * @description The specifications of the Internet-facing SLB instance.
+     * @description The specifications of the Internet-facing SLB instance. Valid values:
      *
      *   slb.s1.small
      *   slb.s2.small
@@ -83,7 +83,7 @@ class AddGatewayRequest extends Model
     public $name;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -110,7 +110,7 @@ class AddGatewayRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The specifications of the internal-facing Server Load Balancer (SLB) instance.
+     * @description The specifications of the internal-facing Server Load Balancer (SLB) instance. Valid values:
      *
      *   slb.s1.small
      *   slb.s2.small
@@ -126,7 +126,7 @@ class AddGatewayRequest extends Model
     public $slbSpec;
 
     /**
-     * @description The node specifications.
+     * @description The node specifications. Valid values:
      *
      *   MSE_GTW\_16\_32\_200\_c(16C32G)
      *   MSE_GTW\_2\_4\_200\_c(2C4G)

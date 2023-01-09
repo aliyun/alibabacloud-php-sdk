@@ -81,7 +81,7 @@ class data extends Model
     public $endDate;
 
     /**
-     * @description The initialization status of the instance.
+     * @description The initial status of the instance.
      *
      * @example RESTART_SUCCESS
      *

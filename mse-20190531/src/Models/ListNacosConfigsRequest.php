@@ -11,7 +11,9 @@ class ListNacosConfigsRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -28,7 +30,7 @@ class ListNacosConfigsRequest extends Model
     public $appName;
 
     /**
-     * @description The ID of the configuration.
+     * @description The ID of the data.
      *
      * @example zeekr-*
      *
@@ -37,7 +39,7 @@ class ListNacosConfigsRequest extends Model
     public $dataId;
 
     /**
-     * @description The name of the group. Default value: `default`.
+     * @description The name of the group. Default value: `default`
      *
      * @example crm
      *
@@ -82,7 +84,7 @@ class ListNacosConfigsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region in which the cluster resides.
+     * @description The ID of the region in which the instance resides. The region is supported by Microservices Engine (MSE).
      *
      * @example cn-hangzhou
      *
@@ -93,14 +95,14 @@ class ListNacosConfigsRequest extends Model
     /**
      * @description The extended request parameters. The JSON format is supported.
      *
-     * @example {\"appGroup\":\"sm_zk_asi_na610\",\"appName\":\"sm-zk\",\"appStage\":\"PUBLISH\",\"appUnit\":\"center\",\"bucId\":\"193554\",\"bucName\":\"Alibaba Mobile Business Group-UC\",\"provider\":\"aliyun\"}
+     * @example {\\"appGroup\\":\\"sm_zk_asi_na610\\",\\"appName\\":\\"sm-zk\\",\\"appStage\\":\\"PUBLISH\\",\\"appUnit\\":\\"center\\",\\"bucId\\":\\"193554\\",\\"bucName\\":\\"Alibaba Mobile Business Group-UC\\",\\"provider\\":\\"aliyun\\"}
      *
      * @var string
      */
     public $requestPars;
 
     /**
-     * @description The tags of the configuration.
+     * @description The tags.
      *
      * @example billing
      *

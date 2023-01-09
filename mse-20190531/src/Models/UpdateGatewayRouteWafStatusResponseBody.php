@@ -26,7 +26,7 @@ class UpdateGatewayRouteWafStatusResponseBody extends Model
     public $data;
 
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -35,7 +35,7 @@ class UpdateGatewayRouteWafStatusResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The response message.
+     * @description The message returned.
      *
      * @example success
      *
@@ -44,7 +44,7 @@ class UpdateGatewayRouteWafStatusResponseBody extends Model
     public $message;
 
     /**
-     * @description ID of the Request.
+     * @description The ID of the request.
      *
      * @example 7466566F-F30F-4A29-965D-3E0AF21D****
      *

@@ -36,7 +36,7 @@ class data extends Model
     public $gmtCreate;
 
     /**
-     * @description The time when the domain name was last modified.
+     * @description The last modification time.
      *
      * @example 2022-01-07T10:07:57.000+0000
      *
@@ -88,7 +88,7 @@ class data extends Model
     public $name;
 
     /**
-     * @description The namespace in which the service resides.
+     * @description The namespace.
      *
      * @example default
      *
@@ -106,7 +106,7 @@ class data extends Model
     public $serviceNameInRegistry;
 
     /**
-     * @description The source ID of the service.
+     * @description The ID of the service source.
      *
      * @example 1
      *

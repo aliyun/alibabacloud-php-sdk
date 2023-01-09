@@ -69,7 +69,7 @@ class data extends Model
     public $directResponse;
 
     /**
-     * @description The ID of the domain name.
+     * @description The domain ID.
      *
      * @example 235
      *
@@ -78,7 +78,7 @@ class data extends Model
     public $domainId;
 
     /**
-     * @description The domain names.
+     * @description The IDs of domains.
      *
      * @var int[]
      */
@@ -94,14 +94,14 @@ class data extends Model
     public $domainName;
 
     /**
-     * @description The domain names.
+     * @description The list of domain names.
      *
      * @var string[]
      */
     public $domainNameList;
 
     /**
-     * @description Indicates whether Web Application Firewall (WAF) is enabled.
+     * @description Indicates whether WAF is activated.
      *
      * @example true
      *
@@ -119,7 +119,7 @@ class data extends Model
     public $fallback;
 
     /**
-     * @description The information of the Fallback service.
+     * @description The information about the Fallback service.
      *
      * @var fallbackServices[]
      */
@@ -169,14 +169,14 @@ class data extends Model
     public $HTTPRewrite;
 
     /**
-     * @description The information about the header configuration policy.
+     * @description The header settings.
      *
      * @var headerOp
      */
     public $headerOp;
 
     /**
-     * @description ID.
+     * @description The ID.
      *
      * @example 1050
      *
@@ -249,7 +249,7 @@ class data extends Model
     public $services;
 
     /**
-     * @description The status of the route.
+     * @description The status of the route. Valid values:
      *
      *   0: unpublished
      *   2: publishing

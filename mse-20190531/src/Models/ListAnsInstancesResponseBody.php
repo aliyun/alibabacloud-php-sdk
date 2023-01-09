@@ -17,7 +17,7 @@ class ListAnsInstancesResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The error code returned if the request failed.
      *
      * @example mse-100-000
      *
@@ -26,7 +26,7 @@ class ListAnsInstancesResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status code returned.
      *
      * @example 202
      *

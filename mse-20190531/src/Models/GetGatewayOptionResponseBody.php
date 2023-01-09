@@ -18,7 +18,13 @@ class GetGatewayOptionResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned data.
+     * @description The detailed configurations of the gateway.
+     *
+     *   **TraceDetails**: the sampling description of Tracing Analysis. Content: TraceEnabled indicates whether Tracing Analysis is activated. Sample indicates the sampling rate of Tracing Analysis.
+     *   **LogConfigDetails**: the description of Log Service. Content: LogEnabled indicates whether Log Service is activated. ProjectName indicates the Log Service project to which logs are delivered. LogStoreName indicates the name of the Logstore.
+     *   **EnableHardwareAcceleration**: indicates whether hardware acceleration is enabled.
+     *   **DisableHttp2Alpn**: indicates whether the HTTP/2 protocol is disabled.
+     *   **EnableWaf**: indicates whether Web Application Firewall (WAF) is enabled.
      *
      * @example {\"LogConfigDetails\": {\"LogEnabled\": False}, \"TraceDetails\": {\"TraceEnabled\": False}}
      *
@@ -50,7 +56,7 @@ class GetGatewayOptionResponseBody extends Model
     /**
      * @description The ID of the request.
      *
-     * @example C92F4A4D-A2FD-593E-839E-F3D4DFD2E238
+     * @example C92F4A4D-A2FD-593E-839E-F3D4DFD2****
      *
      * @var string
      */

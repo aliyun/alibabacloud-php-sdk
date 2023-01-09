@@ -106,7 +106,7 @@ class result extends Model
     public $healthStatus;
 
     /**
-     * @description ID.
+     * @description The ID.
      *
      * @example 1
      *

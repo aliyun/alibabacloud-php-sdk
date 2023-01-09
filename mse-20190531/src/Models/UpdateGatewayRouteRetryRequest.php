@@ -12,7 +12,9 @@ class UpdateGatewayRouteRetryRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -38,7 +40,7 @@ class UpdateGatewayRouteRetryRequest extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The ID of the route.
+     * @description The ID of the associated record.
      *
      * @example 508
      *

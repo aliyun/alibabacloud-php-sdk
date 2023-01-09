@@ -72,7 +72,7 @@ class data extends Model
     public $regionId;
 
     /**
-     * @description The type of the service source.
+     * @description The source type.
      *
      * @example edasmsc
      *
@@ -90,7 +90,7 @@ class data extends Model
     public $status;
 
     /**
-     * @description The time of the last modification.
+     * @description The last modification time.
      *
      * @example 1632979237663
      *

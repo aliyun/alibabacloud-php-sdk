@@ -11,8 +11,8 @@ class UpdateGatewayServiceTrafficPolicyRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     *   **zh**: Chinese. This is the default value.
-     *   **en**: English.
+     *   **zh-CN**: Chinese. This is the default value.
+     *   **en-US**: English
      *
      * @example zh
      *

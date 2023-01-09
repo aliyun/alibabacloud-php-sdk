@@ -36,7 +36,7 @@ class AddGatewayDomainResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The message returned.
+     * @description The error message.
      *
      * @example The request is successfully processed.
      *

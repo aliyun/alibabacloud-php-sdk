@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the default service.
+     * @description The default service ID.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The time when the route was created.
+     * @description The creation time.
      *
      * @example 2022-01-07 18:07:57
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $gmtCreate;
 
     /**
-     * @description The time when the route was last modified.
+     * @description The modification time.
      *
      * @example 2021-12-30T06:41:52.000+0000
      *
@@ -54,7 +54,7 @@ class data extends Model
     public $gmtModified;
 
     /**
-     * @description ID.
+     * @description The ID.
      *
      * @example 12
      *
@@ -63,7 +63,7 @@ class data extends Model
     public $id;
 
     /**
-     * @description The name of the route.
+     * @description The name.
      *
      * @example test
      *
@@ -72,7 +72,7 @@ class data extends Model
     public $name;
 
     /**
-     * @description The matching rules of the route.
+     * @description The matching rules.
      *
      * @example {\"PathPredicates\":{\"Path\":\"/metas\",\"Type\":\"PRE\",\"IgnoreCase\":false}}
      *
@@ -90,7 +90,7 @@ class data extends Model
     public $routeOrder;
 
     /**
-     * @description The status of the route.
+     * @description The status.
      *
      * @example 1
      *

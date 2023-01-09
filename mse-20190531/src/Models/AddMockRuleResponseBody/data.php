@@ -36,9 +36,11 @@ class data extends Model
     public $consumerAppName;
 
     /**
-     * @description Indicates whether the rule is enabled.
+     * @description Indicates whether the mock rule is enabled.
      *
-     * - `false`: disabled
+     *   `true`: enabled
+     *   `false`: disabled
+     *
      * @example true
      *
      * @var bool
@@ -64,9 +66,11 @@ class data extends Model
     public $id;
 
     /**
-     * @description The type of the model. Valid values:
+     * @description The mock type. Valid values:
      *
-     * - `[unk]1[unk]`: mobile client
+     *   \- `[unk]0[unk]`: desktop client
+     *   \- `[unk]1[unk]`: mobile client
+     *
      * @example 0
      *
      * @var int
@@ -74,7 +78,7 @@ class data extends Model
     public $mockType;
 
     /**
-     * @description The name of the rule.
+     * @description The name.
      *
      * @example mse-bc1a29b0-160230875****-reg-center-0-1
      *
@@ -110,7 +114,7 @@ class data extends Model
     public $providerAppName;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-shanghai
      *
@@ -128,7 +132,7 @@ class data extends Model
     public $scMockItemJson;
 
     /**
-     * @description The source.
+     * @description The service source.
      *
      * @example edasmsc
      *

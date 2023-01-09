@@ -10,36 +10,62 @@ use AlibabaCloud\Tea\Model;
 class portTrafficPolicyList extends Model
 {
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-2837hfd91h34dbg87364g*****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The creation time.
+     *
+     * @example 1667460287386
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The modification time.
+     *
+     * @example 1667460287386
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description The ID of the port configuration.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The ID of the service.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $serviceId;
 
     /**
+     * @description The service port number.
+     *
+     * @example 8080
+     *
      * @var int
      */
     public $servicePort;
 
     /**
+     * @description The traffic policy.
+     *
      * @var TrafficPolicy
      */
     public $trafficPolicy;

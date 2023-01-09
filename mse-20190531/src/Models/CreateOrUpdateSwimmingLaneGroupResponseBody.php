@@ -36,7 +36,7 @@ class CreateOrUpdateSwimmingLaneGroupResponseBody extends Model
     public $dynamicMessage;
 
     /**
-     * @description The error code returned.
+     * @description The error code returned if the request failed.
      *
      * @example mse-100-000
      *
@@ -45,7 +45,7 @@ class CreateOrUpdateSwimmingLaneGroupResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *

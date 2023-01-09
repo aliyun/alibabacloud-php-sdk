@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class routeRules extends Model
 {
     /**
-     * @description Indicates whether pass-through is enabled.
+     * @description Indicates whether the field is a primary key.
      *
      * @example false
      *
@@ -18,9 +18,11 @@ class routeRules extends Model
     public $carryData;
 
     /**
-     * @description Indicates whether the routing rule is enabled. Valid values:
+     * @description Indicates whether the alert rule is enabled. Valid values:
      *
-     * - `false`: disabled
+     *   `true`: enabled
+     *   `false`: disabled
+     *
      * @example true
      *
      * @var bool
@@ -28,7 +30,7 @@ class routeRules extends Model
     public $enable;
 
     /**
-     * @description The time when the routing rule was last modified.
+     * @description The modification time.
      *
      * @example 2022-01-06T06:11:06.000+0000
      *
@@ -37,7 +39,7 @@ class routeRules extends Model
     public $gmtModified;
 
     /**
-     * @description The ID of the routing rule.
+     * @description The ID of the rule.
      *
      * @example 653
      *
@@ -55,7 +57,7 @@ class routeRules extends Model
     public $instanceNum;
 
     /**
-     * @description The name of the routing rule.
+     * @description The name of the rule.
      *
      * @example dubbo
      *
@@ -91,7 +93,7 @@ class routeRules extends Model
     public $rules;
 
     /**
-     * @description The status of the routing rule.
+     * @description The status.
      *
      * @example 1
      *
@@ -100,7 +102,7 @@ class routeRules extends Model
     public $status;
 
     /**
-     * @description The tag of the routing rule.
+     * @description The tag.
      *
      * @example gray
      *

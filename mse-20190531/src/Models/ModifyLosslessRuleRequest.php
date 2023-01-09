@@ -83,6 +83,11 @@ class ModifyLosslessRuleRequest extends Model
     public $lossLessDetail;
 
     /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
      * @var bool
      */
     public $notice;
@@ -140,6 +145,7 @@ class ModifyLosslessRuleRequest extends Model
         'enable'              => 'Enable',
         'funcType'            => 'FuncType',
         'lossLessDetail'      => 'LossLessDetail',
+        'namespace'           => 'Namespace',
         'notice'              => 'Notice',
         'regionId'            => 'RegionId',
         'related'             => 'Related',
@@ -178,6 +184,9 @@ class ModifyLosslessRuleRequest extends Model
         }
         if (null !== $this->lossLessDetail) {
             $res['LossLessDetail'] = $this->lossLessDetail;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->notice) {
             $res['Notice'] = $this->notice;
@@ -232,6 +241,9 @@ class ModifyLosslessRuleRequest extends Model
         }
         if (isset($map['LossLessDetail'])) {
             $model->lossLessDetail = $map['LossLessDetail'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['Notice'])) {
             $model->notice = $map['Notice'];

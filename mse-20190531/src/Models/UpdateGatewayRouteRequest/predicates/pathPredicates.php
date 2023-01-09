@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class pathPredicates extends Model
 {
     /**
-     * @description Specifies whether to perform case-insensitive matches.
+     * @description Specifies whether to perform case-insensitive matching.
      *
      * @example true
      *
@@ -18,7 +18,7 @@ class pathPredicates extends Model
     public $ignoreCase;
 
     /**
-     * @description The path.
+     * @description The path used for route matching.
      *
      * @example /test
      *
@@ -27,7 +27,7 @@ class pathPredicates extends Model
     public $path;
 
     /**
-     * @description The matching mode.
+     * @description The matching type.
      *
      * @example PRE
      *

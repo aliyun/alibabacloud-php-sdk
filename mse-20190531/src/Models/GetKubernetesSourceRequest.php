@@ -11,7 +11,9 @@ class GetKubernetesSourceRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -28,6 +30,10 @@ class GetKubernetesSourceRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
+     * @example vpc-bp1t50e045b5g7i3p****
+     *
      * @var string
      */
     public $vpcId;

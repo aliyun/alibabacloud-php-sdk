@@ -28,7 +28,7 @@ class data extends Model
     public $autopurgeSnapRetainCount;
 
     /**
-     * @description The name of the cluster.
+     * @description The name of the instance.
      *
      * @example name
      *
@@ -37,7 +37,7 @@ class data extends Model
     public $clusterName;
 
     /**
-     * @description Indicates whether RAM authentication of a configuration center is enabled. This parameter is valid for Nacos instances. Valid values:
+     * @description Indicates whether RAM authorization of a configuration center is enabled. This parameter is valid for Nacos instances. Valid values:
      *
      *   `true`: enabled
      *   `false`: disabled
@@ -49,7 +49,7 @@ class data extends Model
     public $configAuthEnabled;
 
     /**
-     * @description Indicates whether RAM authentication is supported by a configuration center of the instance. This parameter is valid for Nacos instances. Valid values:
+     * @description Indicates whether RAM authorization is supported by a configuration center of the instance. This parameter is valid for Nacos instances. Valid values:
      *
      *   `true`: supported
      *   `false`: not supported
@@ -61,6 +61,8 @@ class data extends Model
     public $configAuthSupported;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $configContentLimit;
@@ -95,7 +97,7 @@ class data extends Model
     public $extendedTypesEnable;
 
     /**
-     * @description The maximum connection duration of the instance. This parameter is valid for ZooKeeper instances. Unit: seconds.
+     * @description The maximum connection duration of the instance. Unit: seconds. This parameter is valid for ZooKeeper instances.
      *
      * @example 100
      *
@@ -178,7 +180,7 @@ class data extends Model
     public $nacosRunningEnv;
 
     /**
-     * @description Indicates whether RAM authentication of a registry is enabled. This parameter is valid for Nacos instances. Valid values:
+     * @description Indicates whether RAM authorization of a registry is enabled. This parameter is valid for Nacos instances. Valid values:
      *
      *   `true`: enabled
      *   `false`: disabled
@@ -190,7 +192,7 @@ class data extends Model
     public $namingAuthEnabled;
 
     /**
-     * @description Indicates whether RAM authentication of services is supported by the instance. This parameter is valid for Nacos instances. Valid values:
+     * @description Indicates whether RAM authorization of services is supported by the instance. This parameter is valid for Nacos instances. Valid values:
      *
      *   `true`: supported
      *   `false`: not supported
@@ -226,7 +228,7 @@ class data extends Model
     public $openSuperAcl;
 
     /**
-     * @description The password of the user. This parameter is valid only if OpenSuperAcl is set to true.
+     * @description The user password. This parameter is valid only if OpenSuperAcl is set to true.
      *
      * @example password
      *
@@ -274,7 +276,7 @@ class data extends Model
     public $tickTime;
 
     /**
-     * @description The username of the user. This parameter is valid only if OpenSuperAcl is set to true.
+     * @description The username. This parameter is valid only if OpenSuperAcl is set to true.
      *
      * @example name
      *

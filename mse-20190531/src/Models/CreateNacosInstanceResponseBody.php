@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateNacosInstanceResponseBody extends Model
 {
     /**
-     * @description The message returned.
+     * @description The response code returned.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class CreateNacosInstanceResponseBody extends Model
     public $code;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description The result returned.
      *
      * @example ok
      *
@@ -27,7 +27,7 @@ class CreateNacosInstanceResponseBody extends Model
     public $data;
 
     /**
-     * @description The data structure.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -36,16 +36,16 @@ class CreateNacosInstanceResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The message returned.
      *
-     * @example The message returned.
+     * @example The request is successfully processed.
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The ID of the request.
      *
      * @example 9e78a671-4b9b-4dd4-99c1-0b9da87d3dec
      *
@@ -54,7 +54,7 @@ class CreateNacosInstanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status code returned.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

@@ -19,14 +19,14 @@ class QueryGovernanceKubernetesClusterResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
+     * @description The response data.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description HttpCode
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -35,7 +35,7 @@ class QueryGovernanceKubernetesClusterResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description Message
+     * @description The message returned.
      *
      * @example success
      *

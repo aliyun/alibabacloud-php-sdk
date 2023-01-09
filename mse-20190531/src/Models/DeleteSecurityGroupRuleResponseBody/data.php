@@ -36,7 +36,7 @@ class data extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The time when the security group rule was created.
+     * @description The creation time.
      *
      * @example 2022-01-07 18:07:57
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $gmtCreate;
 
     /**
-     * @description The time when the security group rule was last modified.
+     * @description The modification time.
      *
      * @example 2022-01-11T14:12:55.000+0000
      *
@@ -54,7 +54,7 @@ class data extends Model
     public $gmtModified;
 
     /**
-     * @description ID.
+     * @description The ID.
      *
      * @example 2
      *
@@ -65,7 +65,12 @@ class data extends Model
     /**
      * @description The transport layer protocol. The value of this parameter is case-insensitive. Valid values:
      *
-     * - all: All protocols are supported.
+     *   icmp
+     *   gre
+     *   tcp
+     *   udp
+     *   all: All protocols are supported.
+     *
      * @example tcp
      *
      * @var string
@@ -73,9 +78,13 @@ class data extends Model
     public $ipProtocol;
 
     /**
-     * @description The range of destination ports that correspond to the transport layer protocol. Valid values:
+     * @description The range of ports for the transport layer protocol in the destination security group. Valid values:
      *
-     * - When the value of the IpProtocol parameter is all, the port number range is -1/-1, which indicates all ports.
+     *   When the IpProtocol parameter is set to tcp or udp, the port number range is 1 to 65535. The start port number and the end port number are separated by a forward slash (/). Example: 1/200.
+     *   If the IpProtocol parameter is set to icmp, the port number range is -1/-1, which indicates all ports.
+     *   If the IpProtocol parameter is set to gre, the port number range is -1/-1, which indicates all ports.
+     *   If the IpProtocol parameter is set to all, the port number range is -1/-1, which indicates all ports.
+     *
      * @example 8443/8443
      *
      * @var string

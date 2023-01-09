@@ -27,7 +27,7 @@ class data extends Model
     public $appName;
 
     /**
-     * @description The time when the application was created.
+     * @description The creation time.
      *
      * @example 1631001140913
      *
@@ -63,7 +63,7 @@ class data extends Model
     public $licenseKey;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -74,7 +74,9 @@ class data extends Model
     /**
      * @description The service where the application is deployed. Valid values:
      *
-     * - Normal: another service
+     *   \- ACK: Container Service for Kubernetes
+     *   \- Normal: another service
+     *
      * @example ACK
      *
      * @var string
@@ -91,7 +93,7 @@ class data extends Model
     public $status;
 
     /**
-     * @description The time when the application was last modified.
+     * @description The update time.
      *
      * @example 1632979237663
      *

@@ -36,7 +36,7 @@ class data extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The time when the blacklist or whitelist was created.
+     * @description The creation time.
      *
      * @example 2022-01-07T10:07:57.000+0000
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $gmtCreate;
 
     /**
-     * @description The time when the blacklist or whitelist was last modified.
+     * @description The modification time.
      *
      * @example 2022-01-07T10:07:57.000+0000
      *
@@ -54,7 +54,7 @@ class data extends Model
     public $gmtModified;
 
     /**
-     * @description ID.
+     * @description The ID.
      *
      * @example 275
      *
@@ -63,7 +63,7 @@ class data extends Model
     public $id;
 
     /**
-     * @description Indicates whether the whitelist is queried.
+     * @description Indicates whether the whitelist is enabled.
      *
      * @example true
      *
@@ -81,7 +81,7 @@ class data extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource.
+     * @description The type of a resource.
      *
      * @example GATEWAY
      *
@@ -99,7 +99,7 @@ class data extends Model
     public $status;
 
     /**
-     * @description The type of the blacklist or whitelist.
+     * @description The type.
      *
      * @example IP
      *

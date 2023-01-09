@@ -48,6 +48,11 @@ class GetApplicationListRequest extends Model
     public $language;
 
     /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
      * @description The number of the page to return.
      *
      * @example 1
@@ -105,6 +110,7 @@ class GetApplicationListRequest extends Model
         'appId'          => 'AppId',
         'appName'        => 'AppName',
         'language'       => 'Language',
+        'namespace'      => 'Namespace',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
         'region'         => 'Region',
@@ -131,6 +137,9 @@ class GetApplicationListRequest extends Model
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -173,6 +182,9 @@ class GetApplicationListRequest extends Model
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

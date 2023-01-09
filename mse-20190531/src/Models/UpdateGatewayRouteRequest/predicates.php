@@ -33,7 +33,7 @@ class predicates extends Model
     public $pathPredicates;
 
     /**
-     * @description The information about URL parameter matching.
+     * @description The information about parameter matching.
      *
      * @var queryPredicates[]
      */

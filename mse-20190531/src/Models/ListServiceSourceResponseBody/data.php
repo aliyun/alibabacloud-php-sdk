@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The type of the service source.
+     * @description The ID of the Container Service for Kubernetes (ACK) cluster or the endpoint of the Microservices Engine (MSE) registry.
      *
      * @example ***
      *
@@ -19,7 +19,7 @@ class data extends Model
     public $address;
 
     /**
-     * @description The ID of the gateway.
+     * @description Indicates whether the service source is associated with the gateway. The value 1 indicates that the service source is associated with the gateway.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class data extends Model
     public $bindingWithGateway;
 
     /**
-     * @description The time when the service source was added.
+     * @description The ID of the gateway.
      *
      * @example 1
      *
@@ -37,12 +37,16 @@ class data extends Model
     public $gatewayId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-2u9uhd9283hd92hgd39g239dg2*****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
-     * @description The time when the service source was last modified.
+     * @description The creation time.
      *
      * @example 2022-01-07 18:07:57
      *
@@ -51,7 +55,7 @@ class data extends Model
     public $gmtCreate;
 
     /**
-     * @description The unique ID of the service source.
+     * @description The update time.
      *
      * @example 2022-01-07 18:07:57
      *
@@ -60,12 +64,14 @@ class data extends Model
     public $gmtModified;
 
     /**
+     * @description The array of service groups.
+     *
      * @var string[]
      */
     public $groupList;
 
     /**
-     * @description The name of the service source.
+     * @description The ID.
      *
      * @example 1
      *
@@ -74,14 +80,14 @@ class data extends Model
     public $id;
 
     /**
-     * @description Programming language
+     * @description Support for Ingresses of applications.
      *
      * @var ingressOptions
      */
     public $ingressOptions;
 
     /**
-     * @description The ID of the Container Service for Kubernetes (ACK) cluster, or the endpoint of the Microservices Engine (MSE) Nacos registry.
+     * @description The name.
      *
      * @example test
      *
@@ -90,12 +96,14 @@ class data extends Model
     public $name;
 
     /**
+     * @description The array of root paths of service lists.
+     *
      * @var string[]
      */
     public $pathList;
 
     /**
-     * @description Indicates whether the service source is associated with the gateway.
+     * @description The type of the service source.
      *
      * @example MSE
      *
@@ -104,7 +112,7 @@ class data extends Model
     public $source;
 
     /**
-     * @description Query service sources
+     * @description The unique ID of the service source.
      *
      * @example mse-cn-***
      *
@@ -113,7 +121,7 @@ class data extends Model
     public $sourceUniqueId;
 
     /**
-     * @description The source of the service source.
+     * @description The type.
      *
      * @example NACOS
      *

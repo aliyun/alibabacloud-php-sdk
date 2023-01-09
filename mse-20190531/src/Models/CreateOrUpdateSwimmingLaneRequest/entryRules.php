@@ -21,8 +21,8 @@ class entryRules extends Model
     /**
      * @description Specifies whether to enable the rule. Valid values:
      *
-     *   `true`: yes
-     *   `false`: no
+     *   `true`: enables the rule.
+     *   `false`: disables the rule.
      *
      * @example false
      *

@@ -18,8 +18,11 @@ class data extends Model
     public $data;
 
     /**
-     * @description Indicates whether the node directory information is returned. Valid values:
-     * - `false`: The information fails to be returned.
+     * @description Indicates whether the node information was returned. Valid values:
+     *
+     *   `true`: The node information was returned.
+     *   `false`: The node information failed to be returned.
+     *
      * @example true
      *
      * @var bool

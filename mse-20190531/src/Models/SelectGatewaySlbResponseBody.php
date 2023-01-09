@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class SelectGatewaySlbResponseBody extends Model
 {
     /**
-     * @description The HTTP status code returned.
+     * @description The status code returned.
      *
      * @example 200
      *

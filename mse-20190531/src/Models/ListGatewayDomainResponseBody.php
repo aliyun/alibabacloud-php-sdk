@@ -19,7 +19,7 @@ class ListGatewayDomainResponseBody extends Model
     public $code;
 
     /**
-     * @description The details of the data.
+     * @description The data of the node.
      *
      * @var data[]
      */
@@ -35,7 +35,7 @@ class ListGatewayDomainResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The error message returned if the request fails.
+     * @description The error message returned.
      *
      * @example You are not authorized to perform this operation.
      *
@@ -46,15 +46,18 @@ class ListGatewayDomainResponseBody extends Model
     /**
      * @description The ID of the request.
      *
-     * @example 3F5D8E93-CA66-57F1-8BCF-A223E11*****
+     * @example 3F5D8E93-CA66-57F1-8BCF-A223E11B6B91
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     * - `false`: The request fails.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

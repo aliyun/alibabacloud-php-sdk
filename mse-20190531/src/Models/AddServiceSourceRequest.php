@@ -12,7 +12,10 @@ class AddServiceSourceRequest extends Model
     /**
      * @description The language in which the returned information is displayed. Valid values:
      *
-     * - ja: Japanese.
+     *   zh-CN: Chinese. This is the default value.
+     *   en-US: English.
+     *   ja: Japanese.
+     *
      * @example zh-CN
      *
      * @var string
@@ -20,7 +23,7 @@ class AddServiceSourceRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The address of the service.
+     * @description The endpoint.
      *
      * @example c9ad2a0717032427e920754e25b49e3b5
      *
@@ -38,7 +41,7 @@ class AddServiceSourceRequest extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description GroupList.
+     * @description The list of service groups.
      *
      * @var string[]
      */
@@ -52,7 +55,13 @@ class AddServiceSourceRequest extends Model
     public $ingressOptionsRequest;
 
     /**
-     * @description The name of the service.
+     * @description The name.
+     *
+     * >  The parameter value varies based on the source type.
+     *
+     *   If Type is set to K8S, this parameter specifies the name of the ACK cluster.
+     *
+     *   If Type is set to NACOS, this parameter specifies the ID of the instance.
      *
      * @example istio
      *
@@ -61,25 +70,31 @@ class AddServiceSourceRequest extends Model
     public $name;
 
     /**
-     * @description Service root path array.
+     * @description An array of service root paths.
      *
      * @var string[]
      */
     public $pathList;
 
     /**
-     * @description The type of the service source.
+     * @description The service source.
      *
-     * @example K8s
+     *   K8S: ACK cluster
+     *   MSE: Nacos instance
+     *
+     * @example K8S, MSE
      *
      * @var string
      */
     public $source;
 
     /**
-     * @description The service type.
+     * @description The type of the service source. Valid values:
      *
-     * @example K8s
+     *   K8S: ACK cluster
+     *   NACOS: Nacos instance
+     *
+     * @example K8S, NACOS
      *
      * @var string
      */

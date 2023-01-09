@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpgradeClusterResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request fails.
+     * @description The error code returned if the request failed.
      *
      * @example mse-100-000
      *
@@ -18,7 +18,7 @@ class UpgradeClusterResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The status code returned.
+     * @description The response code returned.
      *
      * @example 202
      *
@@ -27,10 +27,12 @@ class UpgradeClusterResponseBody extends Model
     public $httpCode;
 
     /**
-     * @description The message returned. Valid values:
+     * @description The message returned.
      *
-     * - If the request fails, an error message is returned.
-     * @example The request is processed successfully.
+     *   If the request is successful, a success message is returned.
+     *   If the request fails, an error message is returned.
+     *
+     * @example The request is successfully processed.
      *
      * @var string
      */
@@ -46,8 +48,11 @@ class UpgradeClusterResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     * - `false`: The request fails.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

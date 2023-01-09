@@ -26,7 +26,7 @@ class GetAppMessageQueueRouteResponseBody extends Model
     public $data;
 
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -35,7 +35,7 @@ class GetAppMessageQueueRouteResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The returned message.
+     * @description The message returned.
      *
      *   If the request is successful, a success message is returned.
      *   If the request fails, an error message is returned.

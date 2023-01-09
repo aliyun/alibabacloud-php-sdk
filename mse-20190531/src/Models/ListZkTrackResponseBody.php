@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListZkTrackResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example mse-100-000
      *
      * @var string
@@ -17,6 +19,8 @@ class ListZkTrackResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -24,6 +28,8 @@ class ListZkTrackResponseBody extends Model
     public $httpCode;
 
     /**
+     * @description The message returned.
+     *
      * @example ok
      *
      * @var string
@@ -31,6 +37,8 @@ class ListZkTrackResponseBody extends Model
     public $message;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -38,6 +46,8 @@ class ListZkTrackResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 20
      *
      * @var int
@@ -45,6 +55,8 @@ class ListZkTrackResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example DC34E4A3-5F1C-4E40-86EA-02EDF967****
      *
      * @var string
@@ -52,6 +64,11 @@ class ListZkTrackResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
      * @example true
      *
      * @var bool
@@ -59,6 +76,8 @@ class ListZkTrackResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 20
      *
      * @var int
@@ -66,6 +85,8 @@ class ListZkTrackResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The trajectory data.
+     *
      * @var traces[]
      */
     public $traces;

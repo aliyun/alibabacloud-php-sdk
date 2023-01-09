@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the authorization record.
+     * @description The authentication ID.
      *
      * @example 253
      *

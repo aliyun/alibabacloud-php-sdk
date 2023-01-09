@@ -28,7 +28,7 @@ class result extends Model
     public $appName;
 
     /**
-     * @description The information about routing rules.
+     * @description An array that consists of the rules.
      *
      * @var routeRules[]
      */

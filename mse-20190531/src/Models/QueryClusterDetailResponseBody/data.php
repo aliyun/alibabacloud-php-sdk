@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The whitelist of the cluster.
+     * @description The whitelist.
      *
      * @example []
      *
@@ -28,7 +28,7 @@ class data extends Model
     public $aclId;
 
     /**
-     * @description The version of the application.
+     * @description The application version.
      *
      * @example 1.2.1
      *
@@ -39,14 +39,14 @@ class data extends Model
     /**
      * @description The billing method, such as subscription or pay-as-you-go.
      *
-     * @example POSTPAY
+     * @example Pay-as-you-go
      *
      * @var string
      */
     public $chargeType;
 
     /**
-     * @description The alias of the cluster.
+     * @description The alias of the instance.
      *
      * @example mse-7413****
      *
@@ -55,7 +55,7 @@ class data extends Model
     public $clusterAliasName;
 
     /**
-     * @description The name of the cluster.
+     * @description The name of the instance.
      *
      * @example mse-bc1a29b0-160230875****
      *
@@ -64,7 +64,7 @@ class data extends Model
     public $clusterName;
 
     /**
-     * @description The specifications of the engine.
+     * @description The engine specifications.
      *
      * @example MSE_SC_1_2_200_c
      *
@@ -73,7 +73,7 @@ class data extends Model
     public $clusterSpecification;
 
     /**
-     * @description The type of the cluster. Valid values: ZooKeeper, Nacos-Ans, and Eureka.
+     * @description The type of the instance. Valid values: ZooKeeper, Nacos-Ans, and Eureka.
      *
      * @example Nacos-Ans
      *
@@ -82,7 +82,7 @@ class data extends Model
     public $clusterType;
 
     /**
-     * @description The version of the cluster.
+     * @description The version of the instance.
      *
      * @example 1.2.1
      *
@@ -91,9 +91,11 @@ class data extends Model
     public $clusterVersion;
 
     /**
-     * @description The connection type. Valid values:
+     * @description The network connection type. Valid values:
      *
-     * - eni
+     *   slb
+     *   eni
+     *
      * @example slb
      *
      * @var string
@@ -101,7 +103,7 @@ class data extends Model
     public $connectionType;
 
     /**
-     * @description The number of CPUs.
+     * @description The number of vCPUs.
      *
      * @example 1
      *
@@ -110,7 +112,7 @@ class data extends Model
     public $cpu;
 
     /**
-     * @description The time when the cluster was created.
+     * @description The time when the instance was created.
      *
      * @example 2020-07-31 11:36:08
      *
@@ -137,7 +139,7 @@ class data extends Model
     public $diskType;
 
     /**
-     * @description The health status of the cluster.
+     * @description The health status of the instance.
      *
      * @example RESTART_SUCCESS
      *
@@ -146,7 +148,7 @@ class data extends Model
     public $healthStatus;
 
     /**
-     * @description The amount of time taken to create the cluster. Unit: milliseconds.
+     * @description The amount of time taken to create the instance. Unit: milliseconds.
      *
      * @example 98408
      *
@@ -155,7 +157,7 @@ class data extends Model
     public $initCostTime;
 
     /**
-     * @description The creation status of the cluster.
+     * @description The creation status of the instance.
      *
      * @example RESTART_SUCCESS
      *
@@ -164,7 +166,7 @@ class data extends Model
     public $initStatus;
 
     /**
-     * @description The number of nodes.
+     * @description The number of instance nodes.
      *
      * @example 3
      *
@@ -182,14 +184,14 @@ class data extends Model
     public $instanceId;
 
     /**
-     * @description The information about nodes.
+     * @description The list of instance nodes.
      *
      * @var instanceModels[]
      */
     public $instanceModels;
 
     /**
-     * @description The public IP address.
+     * @description The public IP address of the instance.
      *
      * @example 47.98.XX.XX
      *
@@ -198,7 +200,7 @@ class data extends Model
     public $internetAddress;
 
     /**
-     * @description The public domain name.
+     * @description The public endpoint of the instance.
      *
      * @example mse-7413****-p.eureka.mse.aliyuncs.com
      *
@@ -207,7 +209,7 @@ class data extends Model
     public $internetDomain;
 
     /**
-     * @description The private port.
+     * @description The private port number.
      *
      * @example 8761
      *
@@ -216,7 +218,7 @@ class data extends Model
     public $internetPort;
 
     /**
-     * @description The private IP address.
+     * @description The internal IP address.
      *
      * @example 192.168.XX.XX
      *
@@ -225,7 +227,7 @@ class data extends Model
     public $intranetAddress;
 
     /**
-     * @description The private domain name.
+     * @description The internal endpoint of the instance.
      *
      * @example mse-7413****-eureka.mse.aliyuncs.com
      *
@@ -234,7 +236,7 @@ class data extends Model
     public $intranetDomain;
 
     /**
-     * @description The private port.
+     * @description The private port number.
      *
      * @example 8761
      *
@@ -252,7 +254,7 @@ class data extends Model
     public $memoryCapacity;
 
     /**
-     * @description The version category of the cluster.
+     * @description The edition of Microservices Engine (MSE).
      *
      * @example mse_basic
      *
@@ -261,9 +263,11 @@ class data extends Model
     public $mseVersion;
 
     /**
-     * @description The network type of the cluster. Valid values:
+     * @description The network type of the instance. Valid values:
      *
-     * - `pubnet`: the Internet
+     *   `privatenet`: VPC
+     *   `pubnet`: Internet
+     *
      * @example privatenet
      *
      * @var string
@@ -271,6 +275,8 @@ class data extends Model
     public $netType;
 
     /**
+     * @description The version number of the original order.
+     *
      * @example 1.2.0
      *
      * @var string
@@ -280,15 +286,15 @@ class data extends Model
     /**
      * @description The billing method, such as subscription or pay-as-you-go.
      *
-     * @example POSTPAY
+     * @example Pay-as-you-go
      *
      * @var string
      */
     public $payInfo;
 
     /**
-     * @description The public bandwidth. Unit: Mbit/s.
-     * Valid values: 0 to 5000. A value of 0 indicates no access to the Internet.
+     * @description The public bandwidth. Unit: Mbit/s.\
+     * Valid values: 0 to 5000. The value 0 indicates no access to the Internet.
      * @example 3
      *
      * @var string
@@ -296,7 +302,7 @@ class data extends Model
     public $pubNetworkFlow;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -305,6 +311,8 @@ class data extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-aek2dhgysj*****
      *
      * @var string
@@ -312,6 +320,8 @@ class data extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tags that are attached to the instance.
+     *
      * @var mixed[]
      */
     public $tags;
@@ -326,7 +336,7 @@ class data extends Model
     public $vSwitchId;
 
     /**
-     * @description VPC ID.
+     * @description The ID of the virtual private cloud (VPC).
      *
      * @example vpc-bp1hcg467ekqsv0zr****
      *

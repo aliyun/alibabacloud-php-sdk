@@ -30,7 +30,7 @@ class UpdateClusterSpecRequest extends Model
     public $clusterId;
 
     /**
-     * @description The specifications of the engine.
+     * @description The destination engine specifications.
      *
      * @example MSE_SC_2_4_200_c
      *
@@ -39,7 +39,7 @@ class UpdateClusterSpecRequest extends Model
     public $clusterSpecification;
 
     /**
-     * @description The number of nodes.
+     * @description The number of destination nodes.
      *
      * @example 3
      *

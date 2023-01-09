@@ -99,7 +99,7 @@ class UpdateNacosInstanceRequest extends Model
     public $namespaceId;
 
     /**
-     * @description The port of the Nacos instance.
+     * @description The port number of the Nacos instance.
      *
      * @example 12281
      *

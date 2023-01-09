@@ -17,7 +17,7 @@ class QueryBusinessLocationsResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned if the request fails.
+     * @description The error code returned if the request failed.
      *
      * @example mse-100-000
      *
@@ -28,7 +28,7 @@ class QueryBusinessLocationsResponseBody extends Model
     /**
      * @description The message returned.
      *
-     * @example The specified parameter is invalid.
+     * @example The parameter is invalid.
      *
      * @var string
      */
@@ -44,7 +44,7 @@ class QueryBusinessLocationsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description The result of the request.
      *
      * @example true
      *

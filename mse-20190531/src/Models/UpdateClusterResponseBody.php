@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateClusterResponseBody extends Model
 {
     /**
-     * @description The error code returned.
+     * @description The error code returned if the request failed.
      *
      * @example mse-100-100
      *
@@ -18,7 +18,7 @@ class UpdateClusterResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *

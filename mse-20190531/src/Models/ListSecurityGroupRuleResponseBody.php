@@ -19,7 +19,7 @@ class ListSecurityGroupRuleResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned results.
+     * @description The returned data.
      *
      * @var data[]
      */
@@ -44,7 +44,7 @@ class ListSecurityGroupRuleResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 9EC7BDBF-3C38-5C9C-95DD-61E298CD43E8
      *
@@ -53,8 +53,11 @@ class ListSecurityGroupRuleResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     * - `false`: The request fails.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

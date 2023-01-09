@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListClusterTypesResponseBody extends Model
 {
     /**
-     * @description The return value.
+     * @description The status code returned.
      *
      * @example 200
      *
@@ -19,7 +19,7 @@ class ListClusterTypesResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned data.
+     * @description The data entries returned.
      *
      * @var data[]
      */
@@ -28,7 +28,7 @@ class ListClusterTypesResponseBody extends Model
     /**
      * @description The dynamic part in the error message. This parameter is used to replace the \*\*%s\*\* variable in the **ErrMessage** parameter.
      *
-     * >  If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+     * > If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
      * @example The specified parameter is invalid.
      *
      * @var string
@@ -45,7 +45,7 @@ class ListClusterTypesResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -54,7 +54,7 @@ class ListClusterTypesResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The returned message.
+     * @description The message returned.
      *
      * @example The request is successfully processed.
      *

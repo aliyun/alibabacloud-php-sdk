@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The information about instances.
+     * @description The details of the instance.
      *
      * @var string[]
      */

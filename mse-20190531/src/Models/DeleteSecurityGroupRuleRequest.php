@@ -11,7 +11,9 @@ class DeleteSecurityGroupRuleRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -28,7 +30,7 @@ class DeleteSecurityGroupRuleRequest extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The ID of the security group rule.
+     * @description The destination ID.
      *
      * @example 93
      *

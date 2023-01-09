@@ -130,7 +130,7 @@ class data extends Model
     public $http2;
 
     /**
-     * @description ID.
+     * @description The ID.
      *
      * @example 12
      *

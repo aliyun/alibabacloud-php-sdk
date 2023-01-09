@@ -18,7 +18,7 @@ class data extends Model
     public $address;
 
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the instance.
      *
      * @example mse_
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $instanceId;
 
     /**
-     * @description The name of the service source.
+     * @description The name.
      *
      * @example test
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $name;
 
     /**
-     * @description The type of the service source.
+     * @description The type.
      *
      * @example Nacos
      *

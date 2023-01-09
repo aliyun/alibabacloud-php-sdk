@@ -11,7 +11,9 @@ class UpdateGatewayRouteHeaderOpRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -46,7 +48,7 @@ class UpdateGatewayRouteHeaderOpRequest extends Model
     public $headerOpJSON;
 
     /**
-     * @description The ID of the route.
+     * @description The ID of the record.
      *
      * @example 411
      *

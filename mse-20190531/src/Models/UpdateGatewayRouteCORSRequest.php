@@ -11,9 +11,10 @@ class UpdateGatewayRouteCORSRequest extends Model
 {
     /**
      * @description The language of the response. In compliance with [RFC 7231](https://tools.ietf.org/html/rfc7231), the backend service must return a response based on the language used by the user.
-     * This parameter is empty by default. Valid values:
-     * zh-CN: Chinese
-     * en-US: English
+     *
+     *   No default value
+     *   zh-CN: Chinese
+     *   en-US: English
      *
      * @example zh
      *
@@ -47,7 +48,7 @@ class UpdateGatewayRouteCORSRequest extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The ID of the route.
+     * @description The ID of the associated record.
      *
      * @example 55
      *

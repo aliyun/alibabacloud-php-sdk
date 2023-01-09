@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateNacosServiceResponseBody extends Model
 {
     /**
-     * @description The response code returned.
+     * @description The status code returned.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class UpdateNacosServiceResponseBody extends Model
     public $data;
 
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -36,7 +36,7 @@ class UpdateNacosServiceResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The returned message.
+     * @description The message returned.
      *
      * @example success
      *

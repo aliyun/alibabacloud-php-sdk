@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The ID of the application.
+     *
      * @example daqijp6c31@xxx
      *
      * @var string
@@ -18,6 +20,8 @@ class result extends Model
     public $appId;
 
     /**
+     * @description The name of the application.
+     *
      * @example finance
      *
      * @var string
@@ -25,16 +29,22 @@ class result extends Model
     public $appName;
 
     /**
+     * @description The metric about the application.
+     *
      * @var curMetrics[]
      */
     public $curMetrics;
 
     /**
+     * @description The sum of metrics about the application.
+     *
      * @var curMetricsFm
      */
     public $curMetricsFm;
 
     /**
+     * @description The additional information.
+     *
      * @example {}
      *
      * @var string
@@ -42,11 +52,17 @@ class result extends Model
     public $extraInfo;
 
     /**
+     * @description The number of instances.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $instancesNumber;
 
     /**
+     * @description The programming language of the application.
+     *
      * @example JAVA
      *
      * @var string
@@ -54,6 +70,8 @@ class result extends Model
     public $language;
 
     /**
+     * @description The license key in use.
+     *
      * @example diyh1rln1u@8d97eb7ad938167
      *
      * @var string
@@ -61,6 +79,13 @@ class result extends Model
     public $licenseKey;
 
     /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
+     * @description The ID of the region where the instance resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -68,6 +93,8 @@ class result extends Model
     public $regionId;
 
     /**
+     * @description The service source.
+     *
      * @example edasmsc
      *
      * @var string
@@ -75,6 +102,8 @@ class result extends Model
     public $source;
 
     /**
+     * @description The status.
+     *
      * @example 0
      *
      * @var int
@@ -82,11 +111,17 @@ class result extends Model
     public $status;
 
     /**
+     * @description The tags.
+     *
      * @var string[]
      */
     public $tags;
 
     /**
+     * @description The ID of the user.
+     *
+     * @example 1234567890
+     *
      * @var string
      */
     public $userId;
@@ -99,6 +134,7 @@ class result extends Model
         'instancesNumber' => 'InstancesNumber',
         'language'        => 'Language',
         'licenseKey'      => 'LicenseKey',
+        'namespace'       => 'Namespace',
         'regionId'        => 'RegionId',
         'source'          => 'Source',
         'status'          => 'Status',
@@ -142,6 +178,9 @@ class result extends Model
         }
         if (null !== $this->licenseKey) {
             $res['LicenseKey'] = $this->licenseKey;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -199,6 +238,9 @@ class result extends Model
         }
         if (isset($map['LicenseKey'])) {
             $model->licenseKey = $map['LicenseKey'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

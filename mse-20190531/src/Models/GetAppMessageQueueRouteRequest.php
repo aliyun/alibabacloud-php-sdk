@@ -30,7 +30,7 @@ class GetAppMessageQueueRouteRequest extends Model
     public $appId;
 
     /**
-     * @description The region where the cluster resides. Examples:
+     * @description The region where the instance resides. Examples:
      *
      *   `cn-hangzhou`: China (Hangzhou)
      *   `cn-beijing`: China (Beijing)

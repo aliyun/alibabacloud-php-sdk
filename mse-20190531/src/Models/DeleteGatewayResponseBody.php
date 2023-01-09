@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteGatewayResponseBody extends Model
 {
     /**
-     * @description The request is processed successfully.
+     * @description The status code returned. A value of 200 indicates that the request is successful. Other values indicate that the request fails.
      *
      * @example 200
      *
@@ -19,15 +19,14 @@ class DeleteGatewayResponseBody extends Model
     public $code;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
+     * @description The details of the data.
      *
-     * - `false`: The request fails.
      * @var data
      */
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -36,7 +35,7 @@ class DeleteGatewayResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The request is processed successfully.
      *
      * @example The message returned.
      *
@@ -46,7 +45,7 @@ class DeleteGatewayResponseBody extends Model
     public $message;
 
     /**
-     * @description The data structure.
+     * @description The ID of the request.
      *
      * @example 2FFEA345-BE30-5FE0-8885-42E2DEFD5FE6
      *
@@ -55,8 +54,9 @@ class DeleteGatewayResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status code returned. A value of 200 indicates that the request is successful. Other values indicate that the request fails.
+     * @description Indicates whether the request is successful. Valid values:
      *
+     * - `false`: The request fails.
      * @example true
      *
      * @var bool

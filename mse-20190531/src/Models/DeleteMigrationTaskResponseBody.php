@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteMigrationTaskResponseBody extends Model
 {
     /**
+     * @description The deletion result.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class DeleteMigrationTaskResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example mse-100-000
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteMigrationTaskResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The HTTP status code
+     *
      * @example 200
      *
      * @var string
@@ -30,11 +36,17 @@ class DeleteMigrationTaskResponseBody extends Model
     public $httpCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example The request is successfully processed.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 8BD1E58D-0755-42AC-A599-E6B55112****
      *
      * @var string
@@ -42,6 +54,11 @@ class DeleteMigrationTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

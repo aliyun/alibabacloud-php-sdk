@@ -11,7 +11,9 @@ class GetImportFileUrlRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -19,7 +21,7 @@ class GetImportFileUrlRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The type of the configuration file.
+     * @description The type of the file.
      *
      * @example application/zip
      *

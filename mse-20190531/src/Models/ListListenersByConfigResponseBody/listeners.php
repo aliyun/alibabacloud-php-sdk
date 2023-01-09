@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class listeners extends Model
 {
     /**
-     * @description IP.
+     * @description The IP address.
      *
      * @example 1.1.1.1
      *

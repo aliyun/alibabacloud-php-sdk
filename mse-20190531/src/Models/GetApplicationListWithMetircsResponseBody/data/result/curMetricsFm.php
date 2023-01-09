@@ -9,22 +9,34 @@ use AlibabaCloud\Tea\Model;
 class curMetricsFm extends Model
 {
     /**
+     * @description The number of blocked QPS.
+     *
+     * @example 1
+     *
      * @var float
      */
     public $blockQps;
 
     /**
+     * @description The number of abnormal QPS.
+     *
+     * @example 100
+     *
      * @var float
      */
     public $expQps;
 
     /**
+     * @description The number of passed QPS.
+     *
+     * @example 1
+     *
      * @var float
      */
     public $passQps;
 
     /**
-     * @description QPS。
+     * @description The QPS.
      *
      * @example 1
      *
@@ -33,7 +45,7 @@ class curMetricsFm extends Model
     public $qps;
 
     /**
-     * @description Rt。
+     * @description The RT.
      *
      * @example 0
      *
@@ -42,6 +54,8 @@ class curMetricsFm extends Model
     public $rt;
 
     /**
+     * @description The number of concurrent threads.
+     *
      * @example 1
      *
      * @var float
@@ -49,6 +63,8 @@ class curMetricsFm extends Model
     public $thread;
 
     /**
+     * @description The timestamp.
+     *
      * @example 1648117002717
      *
      * @var int

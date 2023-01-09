@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The full name of the current cluster image version. The full name is in the X.X.X.X format.
+     * @description The full version number of the current instance image. The parameter is in the X.X.X.X format.
      *
      * @example 3.5.5.0
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $currentVersionFullShowName;
 
     /**
-     * @description The URL of change logs for the latest version that can be updated to.
+     * @description The URL of the changelog for the maximum version to which the current version can be upgraded.
      *
      * @example https://xxxxx
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $maxVersionChangelogUrl;
 
     /**
-     * @description The code of the latest version that can be updated to.
+     * @description The code of the maximum version to which the current version can be upgraded.
      *
      * @example ZooKeeper_3_6_3
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $maxVersionCode;
 
     /**
-     * @description The full name of the latest version that can be updated to.
+     * @description The full number of the maximum version to which the current version can be upgraded.
      *
      * @example 3.6.3.0
      *

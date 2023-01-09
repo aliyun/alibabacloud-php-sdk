@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class AddAuthResourceRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -31,7 +36,7 @@ class AddAuthResourceRequest extends Model
     public $authResourceHeaderList;
 
     /**
-     * @description The ID of the domain name.
+     * @description The domain ID.
      *
      * @example 128
      *
@@ -54,6 +59,14 @@ class AddAuthResourceRequest extends Model
     public $ignoreCase;
 
     /**
+     * @description The matching type.
+     *
+     *   exact: exact matching
+     *   prefix: prefix matching
+     *   regex: regular expression matching
+     *
+     * @example exact
+     *
      * @var string
      */
     public $matchType;

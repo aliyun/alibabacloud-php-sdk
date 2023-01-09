@@ -11,7 +11,9 @@ class CreateNacosConfigRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -46,7 +48,7 @@ class CreateNacosConfigRequest extends Model
     public $content;
 
     /**
-     * @description The data ID.
+     * @description The ID of the data.
      *
      * @example common.yaml
      *
@@ -91,9 +93,9 @@ class CreateNacosConfigRequest extends Model
     public $namespaceId;
 
     /**
-     * @description The tag of the configuration.
+     * @description The tags of the configuration.
      *
-     * @example Basic config
+     * @example Basic configurations
      *
      * @var string
      */

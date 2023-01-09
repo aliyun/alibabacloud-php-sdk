@@ -18,7 +18,7 @@ class AddAuthResourceResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned data.
+     * @description The data structure.
      *
      * @example 24
      *
@@ -36,7 +36,7 @@ class AddAuthResourceResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The error message returned if the request fails.
+     * @description The error message.
      *
      * @example You are not authorized to perform this operation.
      *
@@ -54,8 +54,11 @@ class AddAuthResourceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     * - `false`: The request fails.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

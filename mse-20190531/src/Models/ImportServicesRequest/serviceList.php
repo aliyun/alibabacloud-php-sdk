@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class serviceList extends Model
 {
     /**
-     * @description The name of the group.
+     * @description The group.
      *
      * @example test
      *
@@ -34,7 +34,7 @@ class serviceList extends Model
     public $name;
 
     /**
-     * @description The name of the namespace.
+     * @description The namespace.
      *
      * @example public
      *

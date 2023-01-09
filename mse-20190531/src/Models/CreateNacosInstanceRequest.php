@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateNacosInstanceRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,7 +21,7 @@ class CreateNacosInstanceRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The name of the Nacos cluster.
+     * @description The name of the Nacos instance.
      *
      * @example DEFAULT
      *
@@ -63,14 +68,14 @@ class CreateNacosInstanceRequest extends Model
     /**
      * @description The IP address of the Nacos instance.
      *
-     * @example 1.2.3.4
+     * @example 1.2.xx.xx
      *
      * @var string
      */
     public $ip;
 
     /**
-     * @description The node metadata of the instance.
+     * @description The metadata of the instance.
      *
      * @example {\"grayversion\":\"1.0\",\"preserved.register.source\":\"SPRING_CLOUD\",\"management.context-path\":\"\"}
      *
@@ -106,7 +111,7 @@ class CreateNacosInstanceRequest extends Model
     public $serviceName;
 
     /**
-     * @description The weight of the instance.
+     * @description The weight. Valid values: 0 to 10000. The value must be an integer. A larger value indicates a higher frequency at which the instance is accessed.
      *
      * @example 1
      *

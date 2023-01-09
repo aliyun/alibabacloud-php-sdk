@@ -27,7 +27,7 @@ class data extends Model
     public $gatewayId;
 
     /**
-     * @description The service source.
+     * @description The mode of the SLB instance.
      *
      * @example UserSelect
      *

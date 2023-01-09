@@ -45,7 +45,7 @@ class UpdateSSLCertResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example CA689BED-08F3-54C2-A206-A0924E2ACA0A
      *

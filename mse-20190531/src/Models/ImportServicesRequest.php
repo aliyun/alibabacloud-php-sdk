@@ -10,7 +10,10 @@ use AlibabaCloud\Tea\Model;
 class ImportServicesRequest extends Model
 {
     /**
-     * @description The data structure.
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
      *
      * @example zh
      *
@@ -30,12 +33,19 @@ class ImportServicesRequest extends Model
     /**
      * @description The information about services.
      *
+     * @example DNS
+     *
      * @var serviceList[]
      */
     public $serviceList;
 
     /**
-     * @description The source type of the service.
+     * @description The service source. Valid values:
+     *
+     *   MSE: MSE Nacos instance
+     *   K8s: ACK cluster
+     *   VIP: fixed address
+     *   DNS: DNS domain
      *
      * @example DNS
      *
@@ -44,6 +54,18 @@ class ImportServicesRequest extends Model
     public $sourceType;
 
     /**
+     * @description The Transport Layer Security (TLS) settings. Valid values:
+     *
+     *   mode: TLS mode
+     *   certId: certificate ID
+     *   caCertId: CA certificate ID
+     *   caCertContent: CA certificate public key
+     *   sni: service name identification
+     *
+     * @example {
+     * "mode": "MUTUAL",
+     * "certId": "1*****-cn-hangzhou",
+     * }
      * @var string
      */
     public $tlsSetting;

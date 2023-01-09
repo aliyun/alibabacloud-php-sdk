@@ -11,7 +11,9 @@ class ListClusterVersionsRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -19,7 +21,7 @@ class ListClusterVersionsRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The type of the cluster. Valid values: ZooKeeper, Nacos-Ans, and Eureka.
+     * @description The type of the instance. Valid values: ZooKeeper, Nacos-Ans, and Eureka.
      *
      * @example Nacos-Ans
      *
@@ -28,6 +30,11 @@ class ListClusterVersionsRequest extends Model
     public $clusterType;
 
     /**
+     * @description Valid values:
+     *
+     *   `mse_dev`: Developer Edition
+     *   `mse_pro`: Professional Edition. This is the default value.
+     *
      * @example mse_pro
      *
      * @var string

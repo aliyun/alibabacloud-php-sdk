@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetMseSourceRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -25,6 +30,13 @@ class GetMseSourceRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description The MSE engine type. Valid values:
+     *
+     *   NACOS
+     *   ZOOKEEPER
+     *
+     * @example NACOS
+     *
      * @var string
      */
     public $type;

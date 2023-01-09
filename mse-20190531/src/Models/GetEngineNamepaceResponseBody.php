@@ -18,7 +18,7 @@ class GetEngineNamepaceResponseBody extends Model
     public $configCount;
 
     /**
-     * @description The error code returned if the request fails.
+     * @description The error code returned if the request failed.
      *
      * @example mse-100-000
      *
@@ -45,7 +45,7 @@ class GetEngineNamepaceResponseBody extends Model
     public $message;
 
     /**
-     * @description The name of the namespace.
+     * @description The ID of the namespace.
      *
      * @example public
      *
@@ -90,8 +90,11 @@ class GetEngineNamepaceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     * - `false`: The request fails.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool
@@ -101,7 +104,10 @@ class GetEngineNamepaceResponseBody extends Model
     /**
      * @description The type of the namespace. Valid values:
      *
-     * - 2: custom namespace
+     *   0: global configuration
+     *   1: default namespace
+     *   2: custom namespace
+     *
      * @example 1
      *
      * @var string

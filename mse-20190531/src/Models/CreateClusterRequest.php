@@ -113,7 +113,7 @@ class CreateClusterRequest extends Model
     public $instanceCount;
 
     /**
-     * @description The name of the instance.
+     * @description The name of the MSE instance.
      *
      * @example tanshuyingtest001
      *
@@ -194,7 +194,7 @@ class CreateClusterRequest extends Model
     public $region;
 
     /**
-     * @description The extended request parameter in the JSON format.
+     * @description The extended request parameters in the JSON format.
      *
      * @example {}
      *
@@ -228,7 +228,7 @@ class CreateClusterRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description VPC ID.
+     * @description The ID of the virtual private cloud (VPC).
      *
      * @example vpc-bp1t50e045b5g7i3p****
      *

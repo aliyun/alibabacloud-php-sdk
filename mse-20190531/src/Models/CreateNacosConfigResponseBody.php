@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateNacosConfigResponseBody extends Model
 {
     /**
-     * @description The status code returned.
+     * @description The code returned.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class CreateNacosConfigResponseBody extends Model
     public $code;
 
     /**
-     * @description The error code returned if the request fails.
+     * @description The error code returned if the request failed.
      *
      * @example mse-100-000
      *
@@ -38,7 +38,7 @@ class CreateNacosConfigResponseBody extends Model
     /**
      * @description The message returned.
      *
-     * @example The request is processed successfully.
+     * @example The request is successfully processed.
      *
      * @var string
      */
@@ -54,9 +54,11 @@ class CreateNacosConfigResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     * - `false`: The request fails.
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

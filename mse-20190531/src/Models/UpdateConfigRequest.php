@@ -48,7 +48,7 @@ class UpdateConfigRequest extends Model
     public $clusterId;
 
     /**
-     * @description Specifies whether to enable RAM authentication for a configuration center. This parameter is valid for Nacos instances. Valid values:
+     * @description Specifies whether to enable RAM authorization for a configuration center. This parameter is valid for Nacos instances. Valid values:
      *
      *   `true`: yes
      *   `false`: no
@@ -83,6 +83,10 @@ class UpdateConfigRequest extends Model
     public $configType;
 
     /**
+     * @description zookeeper参数，是否开启TTL配置。
+     *
+     * @example true
+     *
      * @var string
      */
     public $extendedTypesEnable;
@@ -155,7 +159,7 @@ class UpdateConfigRequest extends Model
     public $minSessionTimeout;
 
     /**
-     * @description Specifies whether to enable RAM authentication for a registry. This parameter is valid for Nacos instances. Valid values:
+     * @description Specifies whether to enable RAM authorization for a registry. This parameter is valid for Nacos instances. Valid values:
      *
      *   `true`: yes
      *   `false`: no
@@ -190,7 +194,7 @@ class UpdateConfigRequest extends Model
     public $passWord;
 
     /**
-     * @description The extended request parameter in the JSON format.
+     * @description The extended request parameters in the JSON format.
      *
      * @example {}
      *
@@ -226,7 +230,7 @@ class UpdateConfigRequest extends Model
     public $tickTime;
 
     /**
-     * @description The name of the user.
+     * @description The username.
      *
      * > You must specify this parameter if OpenSuperAcl is set to true.
      * @example name

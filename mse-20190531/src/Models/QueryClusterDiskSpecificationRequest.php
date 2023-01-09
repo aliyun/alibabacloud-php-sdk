@@ -11,7 +11,9 @@ class QueryClusterDiskSpecificationRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -19,7 +21,7 @@ class QueryClusterDiskSpecificationRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The type of the cluster. Valid values: ZooKeeper, Nacos-Ans, and Eureka.
+     * @description The type of the instance. Valid values: ZooKeeper, Nacos-Ans, and Eureka.
      *
      * @example ZooKeeper
      *

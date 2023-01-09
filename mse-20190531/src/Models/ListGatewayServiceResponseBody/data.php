@@ -19,7 +19,7 @@ class data extends Model
     public $pageNumber;
 
     /**
-     * @description The maximum number of entries returned per page. Default value: 10.
+     * @description The number of entries returned per page. Default value: 10.
      *
      * @example 10
      *

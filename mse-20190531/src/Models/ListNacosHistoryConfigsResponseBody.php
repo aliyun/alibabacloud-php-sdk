@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListNacosHistoryConfigsResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request fails.
+     * @description The error code returned if the request failed.
      *
      * @example mse-100-000
      *
@@ -19,7 +19,7 @@ class ListNacosHistoryConfigsResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The information about configurations.
+     * @description The configuration items.
      *
      * @var historyItems[]
      */
@@ -37,7 +37,7 @@ class ListNacosHistoryConfigsResponseBody extends Model
     /**
      * @description The message returned.
      *
-     * @example The request is processed successfully.
+     * @example The request was successfully processed.
      *
      * @var string
      */
@@ -71,8 +71,11 @@ class ListNacosHistoryConfigsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     * - `false`: The request fails.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

@@ -27,7 +27,7 @@ class data extends Model
     public $maxConnection;
 
     /**
-     * @description The name of the instance type.
+     * @description The name.
      *
      * @example Standard I
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $newConnectionPerSecond;
 
     /**
-     * @description The maximum queries per second (QPS).
+     * @description The number of queries per second (QPS).
      *
      * @example 50,000
      *
@@ -54,7 +54,7 @@ class data extends Model
     public $qps;
 
     /**
-     * @description The instance type of the SLB instance.
+     * @description The specifications.
      *
      * @example slb.s2.small
      *

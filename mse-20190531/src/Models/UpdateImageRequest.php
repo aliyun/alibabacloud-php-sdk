@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateImageRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -18,15 +23,16 @@ class UpdateImageRequest extends Model
     /**
      * @description The ID of the cluster.
      *
-     * @example mse-cn-09k1zkrnt0h
+     * @example mse-8e8e9060
      *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The destination version of the image.
+     * @description The destination version number.
      *
+     * > You must call the GetImage operation to obtain the maximum destination version number that corresponds to MaxVersionCode.
      * @example ZooKeeper_3_5_5
      *
      * @var string

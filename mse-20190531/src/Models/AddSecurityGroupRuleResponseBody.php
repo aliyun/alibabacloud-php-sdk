@@ -45,7 +45,7 @@ class AddSecurityGroupRuleResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example D0DB055C-51F2-5BB2-82A6-CD8A3C6EE6BA
      *
@@ -54,8 +54,11 @@ class AddSecurityGroupRuleResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     * - `false`: The request fails.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

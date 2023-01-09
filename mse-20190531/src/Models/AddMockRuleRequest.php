@@ -11,7 +11,9 @@ class AddMockRuleRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -37,9 +39,11 @@ class AddMockRuleRequest extends Model
     public $dubboMockItems;
 
     /**
-     * @description Specifies whether to enable the rule. Valid values:
+     * @description Specifies whether to enable the alert rule. Valid values:
      *
-     * - `false`: disables the rule.
+     *   `true`: enables the alert rule.
+     *   `false`: disables the alert rule.
+     *
      * @example true
      *
      * @var bool
@@ -56,9 +60,13 @@ class AddMockRuleRequest extends Model
     public $extraJson;
 
     /**
-     * @description The response time threshold of slow calls. Valid values:
+     * @description The response time (RT) threshold of slow calls. Valid values:
      *
-     * - 120: 120 ms
+     *   \- 15: 15 ms
+     *   \- 30: 30 ms
+     *   \- 60: 60 ms
+     *   \- 120: 120 ms
+     *
      * @example 1
      *
      * @var int
@@ -111,7 +119,7 @@ class AddMockRuleRequest extends Model
     public $scMockItems;
 
     /**
-     * @description The source of the rule. Valid values: -custom_fc: The rule is based on a custom function. -system_custom: The rule is based on a system function.
+     * @description The rule source.
      *
      * @example edasmsc
      *

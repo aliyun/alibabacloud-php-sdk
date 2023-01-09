@@ -39,7 +39,7 @@ class data extends Model
     public $filterSide;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

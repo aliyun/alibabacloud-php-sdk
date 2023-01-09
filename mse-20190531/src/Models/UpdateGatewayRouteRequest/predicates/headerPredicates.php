@@ -18,7 +18,7 @@ class headerPredicates extends Model
     public $key;
 
     /**
-     * @description The matching mode.
+     * @description The matching type.
      *
      * @example PRE
      *

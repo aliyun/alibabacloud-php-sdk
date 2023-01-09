@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetGovernanceKubernetesClusterResponseBody extends Model
 {
     /**
-     * @description The status code returned.
+     * @description The response code returned.
      *
      * @example 200
      *
@@ -53,8 +53,11 @@ class GetGovernanceKubernetesClusterResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     * - `false`: The request fails.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example True
      *
      * @var bool

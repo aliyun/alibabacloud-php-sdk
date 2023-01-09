@@ -18,7 +18,7 @@ class UpdateGatewaySpecResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned data.
+     * @description The returned message.
      *
      * @example gw-892ehbv7gg56******
      *
@@ -27,7 +27,7 @@ class UpdateGatewaySpecResponseBody extends Model
     public $data;
 
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -45,7 +45,7 @@ class UpdateGatewaySpecResponseBody extends Model
     public $message;
 
     /**
-     * @description ID of the Request.
+     * @description The ID of the request.
      *
      * @example 316F5F64-F73D-42DC-8632-01E308B6****
      *

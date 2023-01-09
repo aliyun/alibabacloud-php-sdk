@@ -26,7 +26,7 @@ class ListGatewayResponseBody extends Model
     public $data;
 
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -35,7 +35,7 @@ class ListGatewayResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The returned message.
+     * @description The message returned.
      *
      * @example You are not authorized to perform this operation. Action: mse:ListGateway, Resource: acs:mse:cn-hangzhou:102123:*
      *
@@ -46,7 +46,7 @@ class ListGatewayResponseBody extends Model
     /**
      * @description The ID of the request.
      *
-     * @example 34300B3-52EC-5049-8C96-914098CF090C
+     * @example 34300B3-52EC-5049-8C96-914098CF****
      *
      * @var string
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class logConfigDetails extends Model
 {
     /**
-     * @description Indicates whether log shipping is enabled.
+     * @description Indicates whether Log Service is activated.
      *
      * @example true
      *

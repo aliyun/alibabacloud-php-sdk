@@ -33,7 +33,7 @@ class QueryClusterSpecificationRequest extends Model
     public $connectType;
 
     /**
-     * @description The edition of the Microservices Engine (MSE) instance that you want to purchase.
+     * @description The edition of the MSE instance that you want to purchase.
      *
      *   mse_pro: Professional Edition
      *   mse_dev: Developer Edition

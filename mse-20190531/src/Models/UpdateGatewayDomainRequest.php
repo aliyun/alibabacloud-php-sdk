@@ -41,9 +41,9 @@ class UpdateGatewayDomainRequest extends Model
     /**
      * @description Specifies whether to enable `HTTP/2`.
      *
-     *   `open`: enables `HTTP/2`
-     *   `close`: disables `HTTP/2`
-     *   `globalConfig`: uses global configurations
+     *   `open`: `HTTP/2` is enabled.
+     *   `close`: `HTTP/2` is disabled.
+     *   `globalConfig`: Global configurations are used.
      *
      * @example close
      *
@@ -52,7 +52,7 @@ class UpdateGatewayDomainRequest extends Model
     public $http2;
 
     /**
-     * @description The ID of the domain name.
+     * @description The ID of the domain name that you want to update.
      *
      * @example 94
      *

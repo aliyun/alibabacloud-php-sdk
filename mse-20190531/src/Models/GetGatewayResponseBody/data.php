@@ -81,7 +81,7 @@ class data extends Model
     public $logConfigDetails;
 
     /**
-     * @description The tag of the instance.
+     * @description The tag of the resource.
      *
      * @example {"TagKey":"TagValue"}
      *
@@ -108,7 +108,7 @@ class data extends Model
     public $primaryUser;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

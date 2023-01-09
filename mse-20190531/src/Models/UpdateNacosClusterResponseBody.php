@@ -18,7 +18,7 @@ class UpdateNacosClusterResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned result.
+     * @description The result returned.
      *
      * @example ok
      *
@@ -27,7 +27,7 @@ class UpdateNacosClusterResponseBody extends Model
     public $data;
 
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -36,7 +36,7 @@ class UpdateNacosClusterResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The response message.
+     * @description The message returned.
      *
      * @example The request is successfully processed.
      *

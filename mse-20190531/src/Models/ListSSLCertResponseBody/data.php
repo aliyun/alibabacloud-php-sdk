@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The effective time of the certificate.
+     * @description The validation time.
      *
      * @example 2021-04-01 02:35:12
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $afterDate;
 
     /**
-     * @description The algorithm of the certificate.
+     * @description The algorithm.
      *
      * @example test
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $algorithm;
 
     /**
-     * @description The expiration time of the certificate.
+     * @description The expiration time.
      *
      * @example 2031-03-30 02:35:12
      *
@@ -63,7 +63,7 @@ class data extends Model
     public $commonName;
 
     /**
-     * @description The effective time of the certificate.
+     * @description The validation time.
      *
      * @example 2021-04-01 02:35:12
      *
@@ -72,7 +72,7 @@ class data extends Model
     public $gmtAfter;
 
     /**
-     * @description The expiration time of the certificate.
+     * @description The expiration time.
      *
      * @example 2031-03-30 02:35:12
      *
@@ -81,7 +81,7 @@ class data extends Model
     public $gmtBefore;
 
     /**
-     * @description The issuer of the certificate.
+     * @description The issuer.
      *
      * @example test
      *

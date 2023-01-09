@@ -10,13 +10,13 @@ use AlibabaCloud\Tea\Model;
 class CreateOrUpdateSwimmingLaneRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:****
+     * @description The language that the value of the **LocalName** response parameter uses. Valid values:
      *
-     *   **zh-CN**: Chinese
-     *   **en-US**: English.
+     *   **zh-cn**: Chinese
+     *   **en-us**: English.
      *
      * > Default value: **zh-CN**.
-     * @example zh
+     * @example zh-cn
      *
      * @var string
      */
@@ -41,7 +41,7 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
     public $enableRules;
 
     /**
-     * @description json string.
+     * @description The JSON string.
      *
      * @example {}
      *
@@ -50,7 +50,7 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
     public $entryRule;
 
     /**
-     * @description SwimmingLane.
+     * @description The lane.
      *
      * @var entryRules[]
      */

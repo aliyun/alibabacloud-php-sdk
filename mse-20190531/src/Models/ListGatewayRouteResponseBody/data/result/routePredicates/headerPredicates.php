@@ -27,7 +27,7 @@ class headerPredicates extends Model
     public $type;
 
     /**
-     * @description The header value.
+     * @description The value.
      *
      * @example test
      *

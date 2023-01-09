@@ -37,7 +37,7 @@ class AddGatewayRouteShrinkRequest extends Model
     public $directResponseJSONShrink;
 
     /**
-     * @description The ID of the domain name.
+     * @description The domain ID.
      *
      * @example 20
      *
@@ -55,7 +55,7 @@ class AddGatewayRouteShrinkRequest extends Model
     public $domainIdListJSON;
 
     /**
-     * @description Specifies whether to enable Web Application Firewall (WAF).
+     * @description Specifies whether to activate Web Application Firewall (WAF).
      *
      * @example true
      *
@@ -73,7 +73,7 @@ class AddGatewayRouteShrinkRequest extends Model
     public $fallback;
 
     /**
-     * @description The information of the Fallback service.
+     * @description The information about the Fallback service.
      *
      * @var string
      */

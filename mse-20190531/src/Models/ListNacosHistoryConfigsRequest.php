@@ -11,7 +11,9 @@ class ListNacosHistoryConfigsRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -19,7 +21,7 @@ class ListNacosHistoryConfigsRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The ID of the configuration.
+     * @description The ID of the data.
      *
      * @example user-prod.yaml
      *
@@ -28,7 +30,7 @@ class ListNacosHistoryConfigsRequest extends Model
     public $dataId;
 
     /**
-     * @description The name of the group.
+     * @description The name of the configuration group.
      *
      * @example fc-dev-cluster-1
      *
@@ -73,7 +75,7 @@ class ListNacosHistoryConfigsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region in which the cluster resides.
+     * @description The ID of the region in which the instance resides. The region is supported by Microservices Engine (MSE).
      *
      * @example cn-hangzhou
      *
@@ -84,7 +86,7 @@ class ListNacosHistoryConfigsRequest extends Model
     /**
      * @description The extended request parameters in the JSON format.
      *
-     * @example {\"appGroup\":\"aliyun-phecda-service-staging\",\"appName\":\"aliyun-phecda-service\",\"appStage\":\"DAILY\",\"appUnit\":\"center\",\"bucId\":\"250858\",\"bucName\":\"Alibaba Cloud\",\"provider\":\"aliyun\"}
+     * @example {\\"appGroup\\":\\"aliyun-phecda-service-staging\\",\\"appName\\":\\"aliyun-phecda-service\\",\\"appStage\\":\\"DAILY\\",\\"appUnit\\":\\"center\\",\\"bucId\\":\\"250858\\",\\"bucName\\":\\"Alibaba Cloud\\",\\"provider\\":\\"aliyun\\"}
      *
      * @var string
      */

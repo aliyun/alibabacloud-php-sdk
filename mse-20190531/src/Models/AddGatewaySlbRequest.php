@@ -66,7 +66,7 @@ class AddGatewaySlbRequest extends Model
     public $serviceWeight;
 
     /**
-     * @description SLB ID.
+     * @description The ID of the SLB instance.
      *
      * @example lb-bp18t6jjskwxh6wy1****
      *

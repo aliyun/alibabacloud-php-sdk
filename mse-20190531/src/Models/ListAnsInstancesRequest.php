@@ -23,7 +23,7 @@ class ListAnsInstancesRequest extends Model
     /**
      * @description The ID of the cluster.
      *
-     * > This operation contains both the InstanceId and ClusterId parameters. You must configure either InstanceId or ClusterId.
+     * > This operation contains both the InstanceId and ClusterId parameters. You must specify one of them.
      * @example mse-09k1q11****
      *
      * @var string
@@ -51,7 +51,7 @@ class ListAnsInstancesRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * > This operation contains both the InstanceId and ClusterId parameters. You must configure either InstanceId or ClusterId.
+     * >  This operation contains both the InstanceId and ClusterId parameters. You must specify one of them.
      * @example mse_prepaid_public_cn-tl327w****
      *
      * @var string
@@ -86,7 +86,7 @@ class ListAnsInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The extended request parameter in the JSON format.
+     * @description The extended request parameters in the JSON format.
      *
      * @example {}
      *

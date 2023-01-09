@@ -19,7 +19,7 @@ class GetBlackWhiteListResponseBody extends Model
     public $code;
 
     /**
-     * @description The details of the data.
+     * @description The data of the node.
      *
      * @var data
      */
@@ -53,8 +53,11 @@ class GetBlackWhiteListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     * - `false`: The request fails.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

@@ -18,7 +18,7 @@ class AddGatewayServiceVersionResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the created gateway.
+     * @description The ID of the created service version.
      *
      * @example 330
      *

@@ -27,7 +27,7 @@ class slb extends Model
     public $gatewaySlbStatus;
 
     /**
-     * @description SLB ID.
+     * @description The ID of the SLB instance.
      *
      * @example lb-bp1ut8asdfgucjk****
      *
@@ -36,7 +36,7 @@ class slb extends Model
     public $slbId;
 
     /**
-     * @description SLB IP.
+     * @description The IP address of the SLB instance.
      *
      * @example 153.12.XX.XX
      *

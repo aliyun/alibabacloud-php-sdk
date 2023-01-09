@@ -11,7 +11,9 @@ class GetNacosConfigRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -21,7 +23,9 @@ class GetNacosConfigRequest extends Model
     /**
      * @description Specifies whether to perform a beta release. Valid values:
      *
-     * - `false`
+     *   `true`: yes
+     *   `false`: no
+     *
      * @example true
      *
      * @var bool
@@ -29,7 +33,7 @@ class GetNacosConfigRequest extends Model
     public $beta;
 
     /**
-     * @description The ID of the configuration.
+     * @description The ID of the data.
      *
      * @example halvie-mp-item****
      *
@@ -38,7 +42,7 @@ class GetNacosConfigRequest extends Model
     public $dataId;
 
     /**
-     * @description The name of the group.
+     * @description The name of the configuration group.
      *
      * @example common
      *

@@ -18,7 +18,7 @@ class gatewayTrafficPolicy extends Model
     public $loadBalancerSettings;
 
     /**
-     * @description TLS.
+     * @description The Transport Layer Security (TLS).
      *
      * @var tls
      */

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the instance.
      *
      * @example cd23228b3c80c4d4f9ad7af1d87cc30d5
      *
@@ -19,7 +19,7 @@ class data extends Model
     public $clusterId;
 
     /**
-     * @description The name of the cluster.
+     * @description The name of the instance.
      *
      * @example myCluster
      *
@@ -37,7 +37,7 @@ class data extends Model
     public $k8sVersion;
 
     /**
-     * @description The information about namespaces.
+     * @description The information of the namespace.
      *
      * @example [{\"Name\":\"ack-onepilot\",\"Tags\":null},{\"Name\":\"default\",\"Tags\":{\"mse-enable\":\"enabled\"}},{\"Name\":\"kube-node-lease\",\"Tags\":null},{\"Name\":\"kube-public\",\"Tags\":null},{\"Name\":\"kube-system\",\"Tags\":null}]
      *
@@ -46,14 +46,14 @@ class data extends Model
     public $namespaceInfos;
 
     /**
-     * @description The details of namespaces.
+     * @description The list of namespaces.
      *
      * @var namespaces[]
      */
     public $namespaces;
 
     /**
-     * @description The time when the cluster was started.
+     * @description The time when the ack-onepilot component was started.
      *
      * @example 2022-01-11T11:50:38.000+0000
      *
@@ -62,7 +62,7 @@ class data extends Model
     public $pilotStartTime;
 
     /**
-     * @description The ID of the region in which the cluster resides.
+     * @description The ID of the region in which the instance resides. The region is supported by MSE.
      *
      * @example cn-hangzhou
      *
@@ -71,7 +71,7 @@ class data extends Model
     public $region;
 
     /**
-     * @description The time when the cluster was last modified.
+     * @description The time of the last modification.
      *
      * @example 2022-01-12T05:24:31.000+0000
      *

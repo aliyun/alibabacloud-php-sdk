@@ -30,7 +30,7 @@ class GetGatewayDomainDetailRequest extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The ID of the domain name.
+     * @description The domain ID.
      *
      * @example 29
      *

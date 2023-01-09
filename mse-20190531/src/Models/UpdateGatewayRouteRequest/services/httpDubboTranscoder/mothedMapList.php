@@ -10,31 +10,71 @@ use AlibabaCloud\Tea\Model;
 class mothedMapList extends Model
 {
     /**
+     * @description The method name of the Dubbo service.
+     *
+     * @example sayHello
+     *
      * @var string
      */
     public $dubboMothedName;
 
     /**
+     * @description The HTTP method.
+     *
+     * > Valid values:
+     *
+     *   ALL_GET
+     *
+     *   ALL_POST
+     *
+     *   ALL_PUT
+     *
+     *   ALL_DELETE
+     *
+     *   ALL_PATCH
+     *
+     * @example ALL_GET
+     *
      * @var string
      */
     public $httpMothed;
 
     /**
+     * @description The path that is used to match a method.
+     *
+     * @example /mytestzbk/sayhello
+     *
      * @var string
      */
     public $mothedpath;
 
     /**
+     * @description The information of parameter mappings.
+     *
      * @var paramMapsList[]
      */
     public $paramMapsList;
 
     /**
+     * @description The pass-through type of the header.
+     *
+     * > Valid values:
+     *
+     *   PASS_ALL: All headers are passed through.
+     *
+     *   PASS_NOT: All headers are not passed through.
+     *
+     *   PASS_ASSIGN: Specified headers are passed through.
+     *
+     * @example PASS_NOT
+     *
      * @var string
      */
     public $passThroughAllHeaders;
 
     /**
+     * @description The list of headers to be passed through.
+     *
      * @var string[]
      */
     public $passThroughList;

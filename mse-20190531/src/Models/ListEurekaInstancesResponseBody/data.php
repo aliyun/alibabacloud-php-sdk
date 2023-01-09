@@ -18,8 +18,8 @@ class data extends Model
     public $app;
 
     /**
-     * @description The timeout period of the instance.
-     * After the specified timeout period expires, the service is unavailable by default and therefore is deleted.
+     * @description The timeout period of the instance.\
+     * After the specified timeout period expires, the service is unavailable by default and is deleted.
      * @example 90
      *
      * @var int
@@ -54,7 +54,7 @@ class data extends Model
     public $instanceId;
 
     /**
-     * @description The IP address of the instance.
+     * @description The IP address.
      *
      * @example 30.5.XX.XX
      *
@@ -90,7 +90,7 @@ class data extends Model
     public $metadata;
 
     /**
-     * @description The port of the service.
+     * @description The service port number.
      *
      * @example 8091
      *
@@ -99,7 +99,7 @@ class data extends Model
     public $port;
 
     /**
-     * @description The maximum interval between two heartbeat checks after a heartbeat check times out.
+     * @description The maximum interval between two heartbeat checks after a heartbeat check times out.\
      * Default value: 10.
      * @example 10
      *
@@ -126,7 +126,7 @@ class data extends Model
     public $status;
 
     /**
-     * @description The virtual hostname.
+     * @description The virtual IP address (VIP).
      *
      * @example contactinfo
      *

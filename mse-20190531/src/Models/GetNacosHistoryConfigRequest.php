@@ -11,7 +11,9 @@ class GetNacosHistoryConfigRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -19,7 +21,7 @@ class GetNacosHistoryConfigRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The ID of the configuration.
+     * @description The ID of the data.
      *
      * @example msg-center.main.yaml
      *
@@ -28,7 +30,7 @@ class GetNacosHistoryConfigRequest extends Model
     public $dataId;
 
     /**
-     * @description The name of the group.
+     * @description The group.
      *
      * @example DEFAULT_GROUP
      *
@@ -55,7 +57,7 @@ class GetNacosHistoryConfigRequest extends Model
     public $namespaceId;
 
     /**
-     * @description The historical version ID of the configuration.
+     * @description The version ID of the configuration.
      *
      * @example 40****
      *

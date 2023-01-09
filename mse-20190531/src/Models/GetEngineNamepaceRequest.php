@@ -11,7 +11,9 @@ class GetEngineNamepaceRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -28,7 +30,7 @@ class GetEngineNamepaceRequest extends Model
     public $clusterId;
 
     /**
-     * @description The ID of the namespace.
+     * @description The destination ID.
      *
      * @example 0e958d79-****-b282-b702d66362b5
      *

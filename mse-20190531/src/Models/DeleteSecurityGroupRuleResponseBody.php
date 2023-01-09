@@ -37,14 +37,14 @@ class DeleteSecurityGroupRuleResponseBody extends Model
     /**
      * @description The message returned.
      *
-     * @example The request is processed successfully.
+     * @example The request is successfully processed.
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 43E50CB7-258E-5AFF-9B93-ECC19928C699
      *
@@ -53,8 +53,11 @@ class DeleteSecurityGroupRuleResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     * - `false`: The request fails.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

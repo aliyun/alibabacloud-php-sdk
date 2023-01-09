@@ -11,7 +11,9 @@ class ListGatewayDomainRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -28,6 +30,8 @@ class ListGatewayDomainRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description The type of the domain name.
+     *
      * @example All
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteGatewayServiceVersionRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string

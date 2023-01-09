@@ -45,7 +45,7 @@ class configuration extends Model
     public $encryptedDataKey;
 
     /**
-     * @description The name of the group.
+     * @description The name of the configuration group.
      *
      * @example public
      *
@@ -63,7 +63,7 @@ class configuration extends Model
     public $md5;
 
     /**
-     * @description The type of the configuration.
+     * @description The configuration type.
      *
      * @example text
      *

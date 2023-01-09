@@ -11,7 +11,9 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * zh: Chinese en: English Default value: zh
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -118,7 +120,12 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
     public $name;
 
     /**
-     * @description Region.
+     * @var string
+     */
+    public $namespace;
+
+    /**
+     * @description The region ID.
      *
      * @example cn-shanghai
      *
@@ -127,7 +134,7 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
     public $region;
 
     /**
-     * @description The service source. Set the value to edasmsc.
+     * @description The service source. Valid value: edasmsc.
      *
      * @example edasmsc
      *
@@ -136,7 +143,7 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
     public $source;
 
     /**
-     * @description The status of the lane group. The value 0 indicates that the lane group is disabled. The value 1 indicates that the lane group is enabled.
+     * @description The status of the lane group. The value 0 specifies that the lane group is disabled. The value 1 specifies that the lane group is enabled.
      *
      * @example 0
      *
@@ -165,6 +172,7 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
         'messageQueueFilterSide' => 'MessageQueueFilterSide',
         'messageQueueGrayEnable' => 'MessageQueueGrayEnable',
         'name'                   => 'Name',
+        'namespace'              => 'Namespace',
         'region'                 => 'Region',
         'source'                 => 'Source',
         'status'                 => 'Status',
@@ -213,6 +221,9 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -273,6 +284,9 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];

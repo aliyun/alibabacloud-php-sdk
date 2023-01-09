@@ -11,7 +11,9 @@ class QueryClusterDetailRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -19,6 +21,8 @@ class QueryClusterDetailRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description Specifies whether to query access control lists (ACLs).
+     *
      * @example false
      *
      * @var bool

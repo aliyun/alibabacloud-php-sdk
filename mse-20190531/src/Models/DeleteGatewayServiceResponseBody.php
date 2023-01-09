@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteGatewayServiceResponseBody extends Model
 {
     /**
-     * @description The status code returned.
+     * @description The response code returned.
      *
      * @example 200
      *
@@ -44,7 +44,7 @@ class DeleteGatewayServiceResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The unique ID of the request.
      *
      * @example B3545F76-6ED1-586F-8DB9-ECE07985F381
      *
@@ -53,9 +53,11 @@ class DeleteGatewayServiceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     * - `false`: The request fails.
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool
