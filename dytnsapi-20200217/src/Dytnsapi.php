@@ -616,9 +616,6 @@ class Dytnsapi extends OpenApiClient
         if (!Utils::isUnset($request->mask)) {
             $query['Mask'] = $request->mask;
         }
-        if (!Utils::isUnset($request->numberType)) {
-            $query['NumberType'] = $request->numberType;
-        }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }

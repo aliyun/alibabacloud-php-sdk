@@ -30,13 +30,6 @@ class PhoneNumberEncryptRequest extends Model
     public $mask;
 
     /**
-     * @example 89
-     *
-     * @var int
-     */
-    public $numberType;
-
-    /**
      * @var int
      */
     public $ownerId;
@@ -54,7 +47,6 @@ class PhoneNumberEncryptRequest extends Model
         'authCode'             => 'AuthCode',
         'inputNumber'          => 'InputNumber',
         'mask'                 => 'Mask',
-        'numberType'           => 'NumberType',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -75,9 +67,6 @@ class PhoneNumberEncryptRequest extends Model
         }
         if (null !== $this->mask) {
             $res['Mask'] = $this->mask;
-        }
-        if (null !== $this->numberType) {
-            $res['NumberType'] = $this->numberType;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -108,9 +97,6 @@ class PhoneNumberEncryptRequest extends Model
         }
         if (isset($map['Mask'])) {
             $model->mask = $map['Mask'];
-        }
-        if (isset($map['NumberType'])) {
-            $model->numberType = $map['NumberType'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
