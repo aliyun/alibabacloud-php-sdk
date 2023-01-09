@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Cloudauth\V20221125;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntElementVerifyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntElementVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntVerifyResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -45,6 +47,73 @@ class Cloudauth extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param EntElementVerifyRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return EntElementVerifyResponse
+     */
+    public function entElementVerifyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->entName)) {
+            $query['EntName'] = $request->entName;
+        }
+        if (!Utils::isUnset($request->infoVerifyType)) {
+            $query['InfoVerifyType'] = $request->infoVerifyType;
+        }
+        if (!Utils::isUnset($request->legalPersonCertNo)) {
+            $query['LegalPersonCertNo'] = $request->legalPersonCertNo;
+        }
+        if (!Utils::isUnset($request->legalPersonName)) {
+            $query['LegalPersonName'] = $request->legalPersonName;
+        }
+        if (!Utils::isUnset($request->licenseNo)) {
+            $query['LicenseNo'] = $request->licenseNo;
+        }
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
+        }
+        if (!Utils::isUnset($request->merchantUserId)) {
+            $query['MerchantUserId'] = $request->merchantUserId;
+        }
+        if (!Utils::isUnset($request->sceneCode)) {
+            $query['SceneCode'] = $request->sceneCode;
+        }
+        if (!Utils::isUnset($request->userAuthorization)) {
+            $query['UserAuthorization'] = $request->userAuthorization;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EntElementVerify',
+            'version'     => '2022-11-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EntElementVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EntElementVerifyRequest $request
+     *
+     * @return EntElementVerifyResponse
+     */
+    public function entElementVerify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->entElementVerifyWithOptions($request, $runtime);
     }
 
     /**
