@@ -44,13 +44,6 @@ class SetSecurityPreferenceRequest extends Model
     public $enableSaveMFATicket;
 
     /**
-     * @example true
-     *
-     * @var bool
-     */
-    public $enforceMFAForLogin;
-
-    /**
      * @example 10.0.0.0/8
      *
      * @var string
@@ -63,15 +56,26 @@ class SetSecurityPreferenceRequest extends Model
      * @var int
      */
     public $loginSessionDuration;
+
+    /**
+     * @var string
+     */
+    public $MFAOperationForLogin;
+
+    /**
+     * @var string
+     */
+    public $operationForRiskLogin;
     protected $_name = [
         'allowUserToChangePassword'         => 'AllowUserToChangePassword',
         'allowUserToManageAccessKeys'       => 'AllowUserToManageAccessKeys',
         'allowUserToManageMFADevices'       => 'AllowUserToManageMFADevices',
         'allowUserToManagePersonalDingTalk' => 'AllowUserToManagePersonalDingTalk',
         'enableSaveMFATicket'               => 'EnableSaveMFATicket',
-        'enforceMFAForLogin'                => 'EnforceMFAForLogin',
         'loginNetworkMasks'                 => 'LoginNetworkMasks',
         'loginSessionDuration'              => 'LoginSessionDuration',
+        'MFAOperationForLogin'              => 'MFAOperationForLogin',
+        'operationForRiskLogin'             => 'OperationForRiskLogin',
     ];
 
     public function validate()
@@ -96,14 +100,17 @@ class SetSecurityPreferenceRequest extends Model
         if (null !== $this->enableSaveMFATicket) {
             $res['EnableSaveMFATicket'] = $this->enableSaveMFATicket;
         }
-        if (null !== $this->enforceMFAForLogin) {
-            $res['EnforceMFAForLogin'] = $this->enforceMFAForLogin;
-        }
         if (null !== $this->loginNetworkMasks) {
             $res['LoginNetworkMasks'] = $this->loginNetworkMasks;
         }
         if (null !== $this->loginSessionDuration) {
             $res['LoginSessionDuration'] = $this->loginSessionDuration;
+        }
+        if (null !== $this->MFAOperationForLogin) {
+            $res['MFAOperationForLogin'] = $this->MFAOperationForLogin;
+        }
+        if (null !== $this->operationForRiskLogin) {
+            $res['OperationForRiskLogin'] = $this->operationForRiskLogin;
         }
 
         return $res;
@@ -132,14 +139,17 @@ class SetSecurityPreferenceRequest extends Model
         if (isset($map['EnableSaveMFATicket'])) {
             $model->enableSaveMFATicket = $map['EnableSaveMFATicket'];
         }
-        if (isset($map['EnforceMFAForLogin'])) {
-            $model->enforceMFAForLogin = $map['EnforceMFAForLogin'];
-        }
         if (isset($map['LoginNetworkMasks'])) {
             $model->loginNetworkMasks = $map['LoginNetworkMasks'];
         }
         if (isset($map['LoginSessionDuration'])) {
             $model->loginSessionDuration = $map['LoginSessionDuration'];
+        }
+        if (isset($map['MFAOperationForLogin'])) {
+            $model->MFAOperationForLogin = $map['MFAOperationForLogin'];
+        }
+        if (isset($map['OperationForRiskLogin'])) {
+            $model->operationForRiskLogin = $map['OperationForRiskLogin'];
         }
 
         return $model;

@@ -23,13 +23,6 @@ class loginProfilePreference extends Model
     public $enableSaveMFATicket;
 
     /**
-     * @example false
-     *
-     * @var bool
-     */
-    public $enforceMFAForLogin;
-
-    /**
      * @example 10.0.0.0/8
      *
      * @var string
@@ -42,12 +35,23 @@ class loginProfilePreference extends Model
      * @var int
      */
     public $loginSessionDuration;
+
+    /**
+     * @var string
+     */
+    public $MFAOperationForLogin;
+
+    /**
+     * @var string
+     */
+    public $operationForRiskLogin;
     protected $_name = [
         'allowUserToChangePassword' => 'AllowUserToChangePassword',
         'enableSaveMFATicket'       => 'EnableSaveMFATicket',
-        'enforceMFAForLogin'        => 'EnforceMFAForLogin',
         'loginNetworkMasks'         => 'LoginNetworkMasks',
         'loginSessionDuration'      => 'LoginSessionDuration',
+        'MFAOperationForLogin'      => 'MFAOperationForLogin',
+        'operationForRiskLogin'     => 'OperationForRiskLogin',
     ];
 
     public function validate()
@@ -63,14 +67,17 @@ class loginProfilePreference extends Model
         if (null !== $this->enableSaveMFATicket) {
             $res['EnableSaveMFATicket'] = $this->enableSaveMFATicket;
         }
-        if (null !== $this->enforceMFAForLogin) {
-            $res['EnforceMFAForLogin'] = $this->enforceMFAForLogin;
-        }
         if (null !== $this->loginNetworkMasks) {
             $res['LoginNetworkMasks'] = $this->loginNetworkMasks;
         }
         if (null !== $this->loginSessionDuration) {
             $res['LoginSessionDuration'] = $this->loginSessionDuration;
+        }
+        if (null !== $this->MFAOperationForLogin) {
+            $res['MFAOperationForLogin'] = $this->MFAOperationForLogin;
+        }
+        if (null !== $this->operationForRiskLogin) {
+            $res['OperationForRiskLogin'] = $this->operationForRiskLogin;
         }
 
         return $res;
@@ -90,14 +97,17 @@ class loginProfilePreference extends Model
         if (isset($map['EnableSaveMFATicket'])) {
             $model->enableSaveMFATicket = $map['EnableSaveMFATicket'];
         }
-        if (isset($map['EnforceMFAForLogin'])) {
-            $model->enforceMFAForLogin = $map['EnforceMFAForLogin'];
-        }
         if (isset($map['LoginNetworkMasks'])) {
             $model->loginNetworkMasks = $map['LoginNetworkMasks'];
         }
         if (isset($map['LoginSessionDuration'])) {
             $model->loginSessionDuration = $map['LoginSessionDuration'];
+        }
+        if (isset($map['MFAOperationForLogin'])) {
+            $model->MFAOperationForLogin = $map['MFAOperationForLogin'];
+        }
+        if (isset($map['OperationForRiskLogin'])) {
+            $model->operationForRiskLogin = $map['OperationForRiskLogin'];
         }
 
         return $model;
