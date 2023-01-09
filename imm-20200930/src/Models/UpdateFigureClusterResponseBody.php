@@ -9,17 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateFigureClusterResponseBody extends Model
 {
     /**
-     * @var FigureCluster
-     */
-    public $figureCluster;
-
-    /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'figureCluster' => 'FigureCluster',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,9 +23,6 @@ class UpdateFigureClusterResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->figureCluster) {
-            $res['FigureCluster'] = null !== $this->figureCluster ? $this->figureCluster->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,9 +38,6 @@ class UpdateFigureClusterResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FigureCluster'])) {
-            $model->figureCluster = FigureCluster::fromMap($map['FigureCluster']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
