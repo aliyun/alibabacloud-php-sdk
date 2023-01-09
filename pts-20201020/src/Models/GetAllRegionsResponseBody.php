@@ -14,11 +14,15 @@ class GetAllRegionsResponseBody extends Model
     public $allRegions;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -29,11 +33,15 @@ class GetAllRegionsResponseBody extends Model
     public $message;
 
     /**
+     * @example 73D16B8D-0FCD-5596-B7BE-A47042989318
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

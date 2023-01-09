@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class sceneViewList extends Model
 {
     /**
+     * @example 2021-02-26 15:28:39
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example DFGVS3S
+     *
      * @var string
      */
     public $sceneId;

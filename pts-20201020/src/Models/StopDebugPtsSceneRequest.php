@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class StopDebugPtsSceneRequest extends Model
 {
     /**
+     * @example FVDC7HB
+     *
      * @var string
      */
     public $planId;
 
     /**
+     * @example RDDCF7
+     *
      * @var string
      */
     public $sceneId;

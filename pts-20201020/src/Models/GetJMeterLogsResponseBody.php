@@ -9,19 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetJMeterLogsResponseBody extends Model
 {
     /**
-     * @description 引擎数量，想要获得第几台引擎的日志可以根据引擎数量传值
+     * @example 3
      *
      * @var int
      */
     public $agentCount;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
-     * @description 日志内容
+     * @example { "timeTS":1637114804326, "instanceId":0, "level":"INFO", "logger":"org.apache.jmeter.util.JMeterUtils", "sceneId":251546, 	"planId":1501546, "thread":"main", "time":"2021-11-17T10:06Z", "taskId":15015460000, "logText":"Setting Locale to en_EN\n" }
      *
      * @var mixed[][]
      */
@@ -33,26 +35,36 @@ class GetJMeterLogsResponseBody extends Model
     public $message;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example A8E16480-15C1-555A-922F-B736A005E52D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

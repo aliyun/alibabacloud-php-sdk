@@ -13,6 +13,10 @@ use AlibabaCloud\Tea\Model;
 class apiList extends Model
 {
     /**
+     * @description API ID。
+     *
+     * @example MNB45
+     *
      * @var string
      */
     public $apiId;
@@ -43,21 +47,29 @@ class apiList extends Model
     public $headerList;
 
     /**
+     * @example GET
+     *
      * @var string
      */
     public $method;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $redirectCountLimit;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $timeoutInSecond;
 
     /**
+     * @example https://www.xxx.com
+     *
      * @var string
      */
     public $url;

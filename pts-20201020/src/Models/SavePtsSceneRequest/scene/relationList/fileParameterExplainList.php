@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class fileParameterExplainList extends Model
 {
     /**
-     * @description 是否作为基准文件
+     * @example true
      *
      * @var bool
      */
     public $baseFile;
 
     /**
-     * @description 文件是否轮询一次
+     * @example true
      *
      * @var bool
      */
     public $cycleOnce;
 
     /**
-     * @description 文件名
+     * @example fileName.csv
      *
      * @var string
      */
     public $fileName;
 
     /**
-     * @description 文件使用的参数列名
+     * @example name,uid,age
      *
      * @var string
      */

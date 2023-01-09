@@ -9,59 +9,63 @@ use AlibabaCloud\Tea\Model;
 class GetJMeterLogsRequest extends Model
 {
     /**
-     * @description 第几台引擎，起始为0
+     * @example 0
      *
      * @var int
      */
     public $agentIndex;
 
     /**
-     * @description 开始时间
+     * @example 1637115306000
      *
      * @var int
      */
     public $beginTime;
 
     /**
-     * @description 结束时间
+     * @example 1637115309000
      *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description 关键字
+     * @example test
      *
      * @var string
      */
     public $keyword;
 
     /**
-     * @description 日志等级
+     * @example INFO
      *
      * @var string
      */
     public $level;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 报告ID
+     * @example KS2YE3J2
      *
      * @var string
      */
     public $reportId;
 
     /**
-     * @description 线程名
+     * @example main
      *
      * @var string
      */

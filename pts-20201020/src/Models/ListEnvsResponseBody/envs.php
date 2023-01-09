@@ -11,70 +11,62 @@ use AlibabaCloud\Tea\Model;
 class envs extends Model
 {
     /**
-     * @description 创建时间
+     * @example 1637053715165
      *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description 环境ID
+     * @example 86S1LH
      *
      * @var string
      */
     public $envId;
 
     /**
-     * @description 环境名
+     * @example test-create
      *
      * @var string
      */
     public $envName;
 
     /**
-     * @description 依赖的jmeter版本
+     * @example 5.0
      *
      * @var string
      */
     public $envVersion;
 
     /**
-     * @description 包含的jar包
-     *
      * @var files[]
      */
     public $files;
 
     /**
-     * @description 修改时间
+     * @example 1637053719165
      *
      * @var int
      */
     public $modifiedTime;
 
     /**
-     * @description jmeter属性
-     *
      * @var properties[]
      */
     public $properties;
 
     /**
-     * @description 关联的场景
-     *
      * @var string[]
      */
     public $relatedScenes;
 
     /**
-     * @description 关联的场景id
-     *
      * @var string[]
      */
     public $runningScenes;
 
     /**
-     * @description 环境的文件总大小
+     * @example 26668
      *
      * @var int
      */

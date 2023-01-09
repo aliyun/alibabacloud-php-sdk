@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class vSwitchList extends Model
 {
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $availableIpAddressCount;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $maxAgentCount;
 
     /**
+     * @example vsw-bp1eil9df23rsd8l1sevebiszooj
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example my-vswitch
+     *
      * @var string
      */
     public $vSwitchName;
 
     /**
+     * @example vpc-wz9bpdaebft6j23fesdf84v2f1um3a
+     *
      * @var string
      */
     public $vpcId;

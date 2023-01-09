@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeletePtsSceneRequest extends Model
 {
     /**
+     * @example XANH3H
+     *
      * @var string
      */
     public $sceneId;

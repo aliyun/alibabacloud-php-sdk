@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class headerList extends Model
 {
     /**
+     * @example userId
+     *
      * @var string
      */
     public $headerName;
 
     /**
+     * @example 1111
+     *
      * @var string
      */
     public $headerValue;

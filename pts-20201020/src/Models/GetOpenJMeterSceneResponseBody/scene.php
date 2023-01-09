@@ -12,162 +12,162 @@ use AlibabaCloud\Tea\Model;
 class scene extends Model
 {
     /**
-     * @description 施压机数量
+     * @example 2
      *
      * @var int
      */
     public $agentCount;
 
     /**
-     * @description 基本信息
-     *
      * @var baseInfo
      */
     public $baseInfo;
 
     /**
-     * @description 最大并发，并发模式下生效
+     * @example 1000
      *
      * @var int
      */
     public $concurrency;
 
     /**
-     * @description constantThroughputTimerType
+     * @example STAND_ALONE
      *
      * @var string
      */
     public $constantThroughputTimerType;
 
     /**
-     * @description DNS配置
-     *
      * @var dnsCacheConfig
      */
     public $dnsCacheConfig;
 
     /**
-     * @description 压测持续时间，单位为s
+     * @example 600
      *
      * @var int
      */
     public $duration;
 
     /**
-     * @description 环境id
+     * @example EEDT7
      *
      * @var string
      */
     public $environmentId;
 
     /**
-     * @description 文件列表
-     *
      * @var fileList[]
      */
     public $fileList;
 
     /**
-     * @description 是否为VPC压测
+     * @example false
      *
      * @var bool
      */
     public $isVpcTest;
 
     /**
+     * @example true
+     *
      * @var int
      */
     public $maxRps;
 
     /**
-     * @description 施压模式，concurrency_mode表示并发压测,tps_mode表示RPS压测
+     * @example concurrency_mode
      *
      * @var string
      */
     public $mode;
 
     /**
-     * @description 压力来源。“”表示公网，intranet-vpc表示VPC
+     * @example VPC
      *
      * @var string
      */
     public $pool;
 
     /**
-     * @description 递增时间，单位s
+     * @example 100
      *
      * @var int
      */
     public $rampUp;
 
     /**
-     * @description VPC压测时配置
+     * @example cn-beijing
      *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 场景id
+     * @example DYYPZIH
      *
      * @var string
      */
     public $sceneId;
 
     /**
-     * @description 场景名
+     * @example test
      *
      * @var string
      */
     public $sceneName;
 
     /**
-     * @description 安全组id，VPC压测时配置
+     * @example sg-2zeid0dd7bhahsgdahspaly
      *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example true
+     *
      * @var int
      */
     public $startConcurrency;
 
     /**
+     * @example true
+     *
      * @var int
      */
     public $startRps;
 
     /**
-     * @description 递增阶梯数。预热时间和预热阶段数都不配置时 使用固定压力值 只配置预热时间，不配置阶段数时 使用均匀递增 预热时间和阶段数都配置时，并且steps<rampUp 使用阶梯递增 不能只配置steps，不配置rampUp 如果这样配置，默认使用固定压力值
+     * @example 3
      *
      * @var int
      */
     public $steps;
 
     /**
-     * @description synchronizing timer 类型
+     * @example GLOBAL
      *
      * @var string
      */
     public $syncTimerType;
 
     /**
-     * @description 测试文件
+     * @example baidu.jmx
      *
      * @var string
      */
     public $testFile;
 
     /**
-     * @description 交换机id，VPC压测时配置
+     * @example vsw-2zehsgdhsahw1r
      *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @description vpc的id，VPC压测时配置
+     * @example vpc-2ze2sahjdgahsebjkqhf4pyj
      *
      * @var string
      */

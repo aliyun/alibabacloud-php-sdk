@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class reports extends Model
 {
     /**
-     * @description 压测开始时间
+     * @example 1637157073000
      *
      * @var int
      */
     public $actualStartTime;
 
     /**
-     * @description 压测持续时间
+     * @example 10分钟
      *
      * @var string
      */
     public $duration;
 
     /**
-     * @description 报告id
+     * @example 7R4RE352
      *
      * @var string
      */
     public $reportId;
 
     /**
-     * @description 报告名称
+     * @example test
      *
      * @var string
      */
     public $reportName;
 
     /**
-     * @description 消耗的vum
+     * @example 1000
      *
      * @var int
      */

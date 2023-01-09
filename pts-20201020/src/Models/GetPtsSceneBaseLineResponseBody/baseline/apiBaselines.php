@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class apiBaselines extends Model
 {
     /**
+     * @example 10
+     *
      * @var float
      */
     public $avgRt;
 
     /**
+     * @example 1000
+     *
      * @var float
      */
     public $avgTps;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $failCountBiz;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $failCountReq;
 
     /**
+     * @example 76543
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $maxRt;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $minRt;
@@ -49,21 +63,29 @@ class apiBaselines extends Model
     public $name;
 
     /**
+     * @example 40
+     *
      * @var float
      */
     public $seg90Rt;
 
     /**
+     * @example 50
+     *
      * @var float
      */
     public $seg99Rt;
 
     /**
+     * @example 0.1
+     *
      * @var float
      */
     public $successRateBiz;
 
     /**
+     * @example 0.9
+     *
      * @var float
      */
     public $successRateReq;

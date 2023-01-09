@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class reportOverViewList extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $agentCount;
 
     /**
+     * @example 2021-02-26 16:38:30
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example NGGB5FV
+     *
      * @var string
      */
     public $reportId;
@@ -29,11 +35,15 @@ class reportOverViewList extends Model
     public $reportName;
 
     /**
+     * @example 2021-02-26 16:28:30
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $vum;

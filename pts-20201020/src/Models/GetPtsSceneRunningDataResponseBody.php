@@ -16,16 +16,22 @@ class GetPtsSceneRunningDataResponseBody extends Model
     public $agentLocation;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $aliveAgents;
 
     /**
+     * @example 45
+     *
      * @var int
      */
     public $averageRt;
 
     /**
+     * @example 1651895518339
+     *
      * @var int
      */
     public $beginTime;
@@ -36,76 +42,106 @@ class GetPtsSceneRunningDataResponseBody extends Model
     public $chainMonitorDataList;
 
     /**
+     * @example 4001
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $concurrency;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $concurrencyLimit;
 
     /**
+     * @example 78
+     *
      * @var int
      */
     public $failedBusinessCount;
 
     /**
+     * @example 90
+     *
      * @var int
      */
     public $failedRequestCount;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $hasReport;
 
     /**
+     * @example 400
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example no message
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 89kb
+     *
      * @var string
      */
     public $requestBps;
 
     /**
+     * @example DC4E3177-6745-4925-B423-4E89VV34221A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 8kb
+     *
      * @var string
      */
     public $responseBps;
 
     /**
+     * @example 45
+     *
      * @var int
      */
     public $seg90Rt;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalAgents;
@@ -113,14 +149,25 @@ class GetPtsSceneRunningDataResponseBody extends Model
     /**
      * @var int
      */
+    public $totalRealQps;
+
+    /**
+     * @example 8900
+     *
+     * @var int
+     */
     public $totalRequestCount;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $tpsLimit;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $vum;
@@ -145,6 +192,7 @@ class GetPtsSceneRunningDataResponseBody extends Model
         'status'               => 'Status',
         'success'              => 'Success',
         'totalAgents'          => 'TotalAgents',
+        'totalRealQps'         => 'TotalRealQps',
         'totalRequestCount'    => 'TotalRequestCount',
         'tpsLimit'             => 'TpsLimit',
         'vum'                  => 'Vum',
@@ -228,6 +276,9 @@ class GetPtsSceneRunningDataResponseBody extends Model
         }
         if (null !== $this->totalAgents) {
             $res['TotalAgents'] = $this->totalAgents;
+        }
+        if (null !== $this->totalRealQps) {
+            $res['TotalRealQps'] = $this->totalRealQps;
         }
         if (null !== $this->totalRequestCount) {
             $res['TotalRequestCount'] = $this->totalRequestCount;
@@ -321,6 +372,9 @@ class GetPtsSceneRunningDataResponseBody extends Model
         }
         if (isset($map['TotalAgents'])) {
             $model->totalAgents = $map['TotalAgents'];
+        }
+        if (isset($map['TotalRealQps'])) {
+            $model->totalRealQps = $map['TotalRealQps'];
         }
         if (isset($map['TotalRequestCount'])) {
             $model->totalRequestCount = $map['TotalRequestCount'];

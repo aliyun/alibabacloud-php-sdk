@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @example {\"key1\":\"111\",\"key2\":\"222\"}
+     *
      * @var string
      */
     public $bodyValue;
 
     /**
+     * @example application/x-www-form-urlencoded
+     *
      * @var string
      */
     public $contentType;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class fileParameterList extends Model
 {
     /**
+     * @example city.csv
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example https://test.oss-cn-shanghai.aliyuncs.com/json.jar
+     *
      * @var string
      */
     public $fileOssAddress;

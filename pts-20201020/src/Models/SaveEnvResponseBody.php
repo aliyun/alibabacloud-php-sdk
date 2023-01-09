@@ -9,18 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SaveEnvResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
-     * @description 操作的环境id
+     * @example 10YPA8H
      *
      * @var string
      */
     public $envId;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -31,11 +35,15 @@ class SaveEnvResponseBody extends Model
     public $message;
 
     /**
+     * @example A8E16480-15C1-555A-922F-B736A005E52D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

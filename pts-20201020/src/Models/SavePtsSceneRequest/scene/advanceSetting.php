@@ -10,28 +10,26 @@ use AlibabaCloud\Tea\Model;
 class advanceSetting extends Model
 {
     /**
-     * @description 超时时间，单位秒
+     * @example 5
      *
      * @var int
      */
     public $connectionTimeoutInSecond;
 
     /**
-     * @description 域名绑定IP关系
-     *
      * @var domainBindingList[]
      */
     public $domainBindingList;
 
     /**
-     * @description 日志采样率，[1,50]，且是10的倍数
+     * @example 1
      *
      * @var int
      */
     public $logRate;
 
     /**
-     * @description 新增成功状态码，多个用英文逗号隔开
+     * @example 205
      *
      * @var string
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetPtsSceneRunningStatusRequest extends Model
 {
     /**
+     * @example NHBG6V
+     *
      * @var string
      */
     public $sceneId;

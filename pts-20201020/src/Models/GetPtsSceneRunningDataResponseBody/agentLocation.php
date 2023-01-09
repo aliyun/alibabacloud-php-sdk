@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class agentLocation extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $count;

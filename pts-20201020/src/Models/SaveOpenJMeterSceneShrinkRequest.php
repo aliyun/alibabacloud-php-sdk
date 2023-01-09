@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SaveOpenJMeterSceneShrinkRequest extends Model
 {
     /**
-     * @description 场景详情
-     *
      * @var string
      */
     public $openJMeterSceneShrink;

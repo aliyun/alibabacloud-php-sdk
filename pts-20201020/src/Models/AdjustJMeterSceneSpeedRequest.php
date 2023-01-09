@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class AdjustJMeterSceneSpeedRequest extends Model
 {
     /**
-     * @description 报告id
+     * @example DYYPZIH
      *
      * @var string
      */
     public $reportId;
 
     /**
-     * @description 要调整到的压力值
+     * @example 100
      *
      * @var int
      */

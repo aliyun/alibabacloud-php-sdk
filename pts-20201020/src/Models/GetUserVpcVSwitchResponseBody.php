@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetUserVpcVSwitchResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -25,26 +29,36 @@ class GetUserVpcVSwitchResponseBody extends Model
     public $message;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 0235E5FC-4C7C-5F0C-843C-FC674F15F947
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $vSwitchCount;

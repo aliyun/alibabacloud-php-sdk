@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class apiLoadConfigList extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $rpsBegin;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $rpsLimit;

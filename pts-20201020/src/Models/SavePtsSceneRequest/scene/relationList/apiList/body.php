@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
-     * @description body 的实际内容 形式 {"key1":"value2","key2":"value2"}
+     * @example {\"global\":\"${global}\",\"name\":\"${name}\"}
      *
      * @var string
      */
     public $bodyValue;
 
     /**
-     * @description body 类型，默认 application/x-www-form-urlencoded
+     * @example application/x-www-form-urlencoded
      *
      * @var string
      */

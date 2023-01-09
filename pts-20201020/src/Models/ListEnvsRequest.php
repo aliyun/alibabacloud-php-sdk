@@ -9,25 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListEnvsRequest extends Model
 {
     /**
-     * @description 环境ID
+     * @example 10YPA8H
      *
      * @var string
      */
     public $envId;
 
     /**
-     * @description 环境名
+     * @example test-create
      *
      * @var string
      */
     public $envName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

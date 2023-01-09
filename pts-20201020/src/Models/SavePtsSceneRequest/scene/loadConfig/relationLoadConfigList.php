@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class relationLoadConfigList extends Model
 {
     /**
-     * @description concurrencyBegin
+     * @example 100
      *
      * @var int
      */
     public $concurrencyBegin;
 
     /**
-     * @description 最大并发
+     * @example 100
      *
      * @var int
      */
     public $concurrencyLimit;
 
     /**
-     * @description 链路id
+     * @example 1
      *
      * @var string
      */

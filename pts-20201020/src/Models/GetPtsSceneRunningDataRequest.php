@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetPtsSceneRunningDataRequest extends Model
 {
     /**
+     * @example NHBGVF8
+     *
      * @var string
      */
     public $planId;
 
     /**
+     * @example NKKI6GB
+     *
      * @var string
      */
     public $sceneId;

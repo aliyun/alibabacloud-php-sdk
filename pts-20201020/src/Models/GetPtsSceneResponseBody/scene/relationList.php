@@ -21,6 +21,8 @@ class relationList extends Model
     public $fileParameterExplainList;
 
     /**
+     * @example HNBGS7M
+     *
      * @var string
      */
     public $relationId;

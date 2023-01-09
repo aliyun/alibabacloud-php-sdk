@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RemoveEnvRequest extends Model
 {
     /**
-     * @description 要删除的环境ID
+     * @example 10YPA8H
      *
      * @var string
      */

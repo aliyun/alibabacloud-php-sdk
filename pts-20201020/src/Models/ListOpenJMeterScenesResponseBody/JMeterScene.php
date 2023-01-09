@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class JMeterScene extends Model
 {
     /**
-     * @description 压测持续时间
+     * @example 10分钟
      *
      * @var string
      */
     public $durationStr;
 
     /**
-     * @description 场景id
+     * @example DYYPZIH
      *
      * @var string
      */
     public $sceneId;
 
     /**
-     * @description 场景名
+     * @example test
      *
      * @var string
      */

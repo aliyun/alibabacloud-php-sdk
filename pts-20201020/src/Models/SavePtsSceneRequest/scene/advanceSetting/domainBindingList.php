@@ -9,15 +9,13 @@ use AlibabaCloud\Tea\Model;
 class domainBindingList extends Model
 {
     /**
-     * @description 域名
+     * @example www.example.com
      *
      * @var string
      */
     public $domain;
 
     /**
-     * @description 对应的IP
-     *
      * @var string[]
      */
     public $ips;

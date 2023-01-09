@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class exportList extends Model
 {
     /**
-     * @description 第几个匹配项，可以是数字 或 random（ BODY_TEXT情况下才需要count）
+     * @example 0
      *
      * @var string
      */
     public $count;
 
     /**
-     * @description 出参名
+     * @example test
      *
      * @var string
      */
     public $exportName;
 
     /**
-     * @description 出参来源 请求体(BODY_TEXT)，请求体(BODY_JSON)，请求头(HEADER)，响应状态码(STATUS_CODE)
+     * @example BODY_JSON
      *
      * @var string
      */
     public $exportType;
 
     /**
-     * @description 出参的解析表达式
+     * @example data.itemlist[0]
      *
      * @var string
      */

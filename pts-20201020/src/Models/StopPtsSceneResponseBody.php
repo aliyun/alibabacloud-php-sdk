@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class StopPtsSceneResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -24,11 +28,15 @@ class StopPtsSceneResponseBody extends Model
     public $message;
 
     /**
+     * @example DD6F2ED8-E31B-497F-85AB-C4E358A5F6F9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeletePtsScenesResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -24,11 +28,15 @@ class DeletePtsScenesResponseBody extends Model
     public $message;
 
     /**
+     * @example 35290A5B-AB50-46BD-81E0-E316F86128C4
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

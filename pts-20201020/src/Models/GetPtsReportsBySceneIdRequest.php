@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetPtsReportsBySceneIdRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example NGBCD4K
+     *
      * @var string
      */
     public $sceneId;

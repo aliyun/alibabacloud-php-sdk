@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class SaveOpenJMeterSceneRequest extends Model
 {
     /**
-     * @description 场景详情
-     *
      * @var openJMeterScene
      */
     public $openJMeterScene;

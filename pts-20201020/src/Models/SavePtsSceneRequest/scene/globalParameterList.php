@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class globalParameterList extends Model
 {
     /**
-     * @description 参数名
+     * @example global
      *
      * @var string
      */
     public $paramName;
 
     /**
-     * @description 全局参数值，不可参数化
+     * @example 11111
      *
      * @var string
      */

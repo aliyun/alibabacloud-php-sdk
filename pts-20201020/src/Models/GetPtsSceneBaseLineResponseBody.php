@@ -15,11 +15,15 @@ class GetPtsSceneBaseLineResponseBody extends Model
     public $baseline;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -30,16 +34,22 @@ class GetPtsSceneBaseLineResponseBody extends Model
     public $message;
 
     /**
+     * @example 4F7D2CE0-AE4C-4143-955A-8E4595AF86A6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example NHG67BF
+     *
      * @var string
      */
     public $sceneId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

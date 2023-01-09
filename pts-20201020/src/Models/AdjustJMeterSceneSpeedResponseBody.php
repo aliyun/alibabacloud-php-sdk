@@ -9,33 +9,43 @@ use AlibabaCloud\Tea\Model;
 class AdjustJMeterSceneSpeedResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 报告ID
+     * @example DYYPZIH
      *
      * @var string
      */
     public $reportId;
 
     /**
+     * @example DC4E31DDA77-6745-4925-B423-4E89VV34221A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

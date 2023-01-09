@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class properties extends Model
 {
     /**
-     * @description 描述
+     * @example 远程主机
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description 属性名
+     * @example remote_hosts
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 属性值
+     * @example 127.0.0.1
      *
      * @var string
      */

@@ -14,49 +14,39 @@ use AlibabaCloud\Tea\Model;
 class scene extends Model
 {
     /**
-     * @description 高级设置
-     *
      * @var advanceSetting
      */
     public $advanceSetting;
 
     /**
-     * @description 文件参数
-     *
      * @var fileParameterList[]
      */
     public $fileParameterList;
 
     /**
-     * @description 全局自定义参数
-     *
      * @var globalParameterList[]
      */
     public $globalParameterList;
 
     /**
-     * @description 施压配置
-     *
      * @var loadConfig
      */
     public $loadConfig;
 
     /**
-     * @description 链路配置
-     *
      * @var relationList[]
      */
     public $relationList;
 
     /**
-     * @description 场景ID，不传为新建，传递为修改
+     * @example IUYAHGJ
      *
      * @var string
      */
     public $sceneId;
 
     /**
-     * @description 场景名
+     * @example test
      *
      * @var string
      */

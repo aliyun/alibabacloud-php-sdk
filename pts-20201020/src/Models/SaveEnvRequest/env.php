@@ -11,36 +11,32 @@ use AlibabaCloud\Tea\Model;
 class env extends Model
 {
     /**
-     * @description 环境id，不填表示新建环境，填了表示修改该环境
+     * @example 10YPA8H
      *
      * @var string
      */
     public $envId;
 
     /**
-     * @description 环境名称
+     * @example test-create
      *
      * @var string
      */
     public $envName;
 
     /**
-     * @description 环境依赖的文件
-     *
      * @var files[]
      */
     public $files;
 
     /**
-     * @description jmeter插件的环境标签
+     * @example test
      *
      * @var string
      */
     public $jmeterPluginLabel;
 
     /**
-     * @description jmeter属性
-     *
      * @var properties[]
      */
     public $properties;

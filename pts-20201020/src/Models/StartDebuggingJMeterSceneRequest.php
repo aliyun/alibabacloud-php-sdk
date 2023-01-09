@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class StartDebuggingJMeterSceneRequest extends Model
 {
     /**
-     * @description 场景id
+     * @example DYYPZIH
      *
      * @var string
      */

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class configuration extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $allConcurrencyBegin;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $allConcurrencyLimit;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $allRpsBegin;
 
     /**
+     * @example 160
+     *
      * @var int
      */
     public $allRpsLimit;

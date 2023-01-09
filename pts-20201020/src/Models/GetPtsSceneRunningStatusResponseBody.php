@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetPtsSceneRunningStatusResponseBody extends Model
 {
     /**
+     * @example 4001
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 2021-03-01 16:05:56
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 400
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -29,11 +35,15 @@ class GetPtsSceneRunningStatusResponseBody extends Model
     public $message;
 
     /**
+     * @example 2021-03-26 16:03:56
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example DC4E3177-6745-4925-B423-4E89VV34221A
+     *
      * @var string
      */
     public $requestId;
@@ -44,11 +54,15 @@ class GetPtsSceneRunningStatusResponseBody extends Model
     public $sceneName;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $success;

@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class SavePtsSceneRequest extends Model
 {
     /**
-     * @description 场景详细信息
-     *
      * @var scene
      */
     public $scene;

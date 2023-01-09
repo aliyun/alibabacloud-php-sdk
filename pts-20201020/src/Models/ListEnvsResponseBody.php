@@ -10,18 +10,20 @@ use AlibabaCloud\Tea\Model;
 class ListEnvsResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
-     * @description 环境列表
-     *
      * @var envs[]
      */
     public $envs;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -32,26 +34,36 @@ class ListEnvsResponseBody extends Model
     public $message;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example A8E16480-15C1-555A-922F-B736A005E52D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

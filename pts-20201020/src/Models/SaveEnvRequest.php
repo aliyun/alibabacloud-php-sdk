@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class SaveEnvRequest extends Model
 {
     /**
-     * @description 环境
-     *
      * @var env
      */
     public $env;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class globalParameterList extends Model
 {
     /**
+     * @example userName
+     *
      * @var string
      */
     public $paramName;
 
     /**
+     * @example lisi
+     *
      * @var string
      */
     public $paramValue;

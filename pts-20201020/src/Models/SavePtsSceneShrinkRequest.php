@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SavePtsSceneShrinkRequest extends Model
 {
     /**
-     * @description 场景详细信息
-     *
      * @var string
      */
     public $sceneShrink;

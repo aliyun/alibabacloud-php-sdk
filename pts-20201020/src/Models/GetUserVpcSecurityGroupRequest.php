@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetUserVpcSecurityGroupRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example vpc-bp10xjz7c7oqjgasodihj1kx7t
+     *
      * @var string
      */
     public $vpcId;

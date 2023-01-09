@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class sceneBaseline extends Model
 {
     /**
+     * @example 10
+     *
      * @var float
      */
     public $avgRt;
 
     /**
+     * @example 1000
+     *
      * @var float
      */
     public $avgTps;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $failCountBiz;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $failCountReq;
 
     /**
+     * @example 10
+     *
      * @var float
      */
     public $seg90Rt;
 
     /**
+     * @example 10
+     *
      * @var float
      */
     public $seg99Rt;
 
     /**
+     * @example 0.1
+     *
      * @var float
      */
     public $successRateBiz;
 
     /**
+     * @example 0.9
+     *
      * @var float
      */
     public $successRateReq;

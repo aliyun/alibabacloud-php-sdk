@@ -9,28 +9,30 @@ use AlibabaCloud\Tea\Model;
 class vpcLoadConfig extends Model
 {
     /**
-     * @description regionId
+     * @example cn-beijing
      *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 安全组的Id
+     * @example sg-jkasgfieiajidsjakjscb
      *
      * @var string
      */
     public $securityGroupId;
 
     /**
-     * @description 交换机的Id
+     * @example vsw-skjfhlahsljkhsfalkjdoiw
      *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @description vpcId
+     * @description VPC ID。
+     *
+     * @example vpc-akjhsdajgjsfggahjkga
      *
      * @var string
      */

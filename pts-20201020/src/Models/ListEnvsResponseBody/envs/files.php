@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class files extends Model
 {
     /**
-     * @description 文件ID
+     * @example 61660
      *
      * @var int
      */
     public $fileId;
 
     /**
-     * @description 文件名
+     * @example json.jar
      *
      * @var string
      */
     public $fileName;
 
     /**
-     * @description 文件的oss地址
+     * @example https://test.oss-cn-shanghai.aliyuncs.com/json.jar
      *
      * @var string
      */
     public $fileOssAddress;
 
     /**
-     * @description 文件大小，单位为Byte
+     * @example 788
      *
      * @var int
      */
     public $fileSize;
 
     /**
-     * @description jar包的md5值
+     * @example 43B584026CE5E570F3DE638FA7EEF9E0
      *
      * @var string
      */

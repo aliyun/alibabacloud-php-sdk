@@ -9,45 +9,49 @@ use AlibabaCloud\Tea\Model;
 class ListJMeterReportsRequest extends Model
 {
     /**
-     * @description 报告的起始时间，单位为ms
+     * @example 1637115303000
      *
      * @var int
      */
     public $beginTime;
 
     /**
-     * @description 报告的结束时间
+     * @example 1637115306000
      *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description 报告关键字
+     * @example test
      *
      * @var string
      */
     public $keyword;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 报告ID
+     * @example 7R4RE352
      *
      * @var string
      */
     public $reportId;
 
     /**
-     * @description 要查看的报告的场景id
+     * @example 10YPA8H
      *
      * @var string
      */

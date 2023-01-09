@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class domainBindingList extends Model
 {
     /**
+     * @example www.aliyundoc.com
+     *
      * @var string
      */
     public $domain;

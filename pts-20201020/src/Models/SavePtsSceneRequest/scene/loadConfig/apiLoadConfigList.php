@@ -9,21 +9,23 @@ use AlibabaCloud\Tea\Model;
 class apiLoadConfigList extends Model
 {
     /**
-     * @description apiId
+     * @description API ID。
+     *
+     * @example 1
      *
      * @var string
      */
     public $apiId;
 
     /**
-     * @description 起始RPS值
+     * @example 100
      *
      * @var int
      */
     public $rpsBegin;
 
     /**
-     * @description 最大RPS值
+     * @example 100
      *
      * @var int
      */

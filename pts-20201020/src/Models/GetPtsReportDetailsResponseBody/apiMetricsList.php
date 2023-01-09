@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class apiMetricsList extends Model
 {
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $allCount;
@@ -19,61 +21,85 @@ class apiMetricsList extends Model
     public $apiName;
 
     /**
+     * @example 34.5
+     *
      * @var float
      */
     public $avgRt;
 
     /**
+     * @example 55
+     *
      * @var float
      */
     public $avgTps;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $failCountBiz;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $failCountReq;
 
     /**
+     * @example 50
+     *
      * @var float
      */
     public $maxRt;
 
     /**
+     * @example 10
+     *
      * @var float
      */
     public $minRt;
 
     /**
+     * @example 39
+     *
      * @var float
      */
     public $seg50Rt;
 
     /**
+     * @example 26
+     *
      * @var float
      */
     public $seg75Rt;
 
     /**
+     * @example 23
+     *
      * @var float
      */
     public $seg90Rt;
 
     /**
+     * @example 35
+     *
      * @var float
      */
     public $seg99Rt;
 
     /**
+     * @example 0.98
+     *
      * @var float
      */
     public $successRateBiz;
 
     /**
+     * @example 0.99
+     *
      * @var float
      */
     public $successRateReq;

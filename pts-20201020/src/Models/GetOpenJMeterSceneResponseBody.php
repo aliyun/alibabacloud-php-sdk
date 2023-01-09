@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetOpenJMeterSceneResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -25,18 +29,20 @@ class GetOpenJMeterSceneResponseBody extends Model
     public $message;
 
     /**
+     * @example A8E16480-15C1-555A-922F-B736A005E52D
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 场景详情
-     *
      * @var scene
      */
     public $scene;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

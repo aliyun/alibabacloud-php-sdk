@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SaveEnvShrinkRequest extends Model
 {
     /**
-     * @description 环境
-     *
      * @var string
      */
     public $envShrink;

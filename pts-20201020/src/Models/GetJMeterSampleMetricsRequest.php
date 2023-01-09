@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class GetJMeterSampleMetricsRequest extends Model
 {
     /**
-     * @description 开始时间
+     * @example 1637157070000
      *
      * @var int
      */
     public $beginTime;
 
     /**
-     * @description 结束时间
+     * @example 1637157073000
      *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description 报告ID
+     * @example 7R4RE352
      *
      * @var string
      */
     public $reportId;
 
     /**
-     * @description 采样器索引，从0开始。-1返回全场景
+     * @example 0
      *
      * @var int
      */

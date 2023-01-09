@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class checkPointList extends Model
 {
     /**
+     * @example userId
+     *
      * @var string
      */
     public $checkPoint;
 
     /**
+     * @example EXPORTED_PARAM
+     *
      * @var string
      */
     public $checkType;
 
     /**
+     * @example 111
+     *
      * @var string
      */
     public $expectValue;
 
     /**
+     * @example ctn
+     *
      * @var string
      */
     public $operator;

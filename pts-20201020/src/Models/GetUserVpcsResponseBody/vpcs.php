@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class vpcs extends Model
 {
     /**
+     * @example 172.16.80.0/20
+     *
      * @var string
      */
     public $cidrBlock;
@@ -19,11 +21,15 @@ class vpcs extends Model
     public $description;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfm3fzmgkehpewjertna
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -39,11 +45,15 @@ class vpcs extends Model
     public $vSwitchIds;
 
     /**
+     * @example vpc-uf6gc56wdjpafoiwej6adqb4qn72xtw
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example shanghai-vpc
+     *
      * @var string
      */
     public $vpcName;

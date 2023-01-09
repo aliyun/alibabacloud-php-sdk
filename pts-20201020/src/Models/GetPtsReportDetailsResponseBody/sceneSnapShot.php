@@ -19,6 +19,8 @@ class sceneSnapShot extends Model
     public $advanceSetting;
 
     /**
+     * @example 12684449000
+     *
      * @var string
      */
     public $createTime;
@@ -39,6 +41,8 @@ class sceneSnapShot extends Model
     public $loadConfig;
 
     /**
+     * @example 2020-10-10 10:10:10
+     *
      * @var string
      */
     public $modifiedTime;
@@ -49,6 +53,8 @@ class sceneSnapShot extends Model
     public $relationList;
 
     /**
+     * @example 7HBNS3
+     *
      * @var string
      */
     public $sceneId;
@@ -59,6 +65,8 @@ class sceneSnapShot extends Model
     public $sceneName;
 
     /**
+     * @example STOPPED
+     *
      * @var string
      */
     public $status;

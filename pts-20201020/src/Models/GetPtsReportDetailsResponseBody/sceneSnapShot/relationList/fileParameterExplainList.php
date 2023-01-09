@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class fileParameterExplainList extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $baseFile;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $cycleOnce;
 
     /**
+     * @example city.csv
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example address,name
+     *
      * @var string
      */
     public $fileParamName;

@@ -9,98 +9,94 @@ use AlibabaCloud\Tea\Model;
 class runningData extends Model
 {
     /**
-     * @description 压测引擎数量
+     * @example 2
      *
      * @var int
      */
     public $agentCount;
 
     /**
-     * @description 压测引擎列表
-     *
      * @var string[]
      */
     public $agentIdList;
 
     /**
-     * @description 场景整体的采样状态
+     * @example { "failTps":0,"successRtAvg":33,"successRtMin":29,"successRtSum":99407,         "rtAvg":33.459104678559406,"rtMin":29,"failRtMax":0,"duration":997,         "samplerId":-1, "successRtMax":133,"fullStat":{       "requestBytesSum":629926,"successRtAvg":33,"successRtMin":29,"successRtSum":174551,"count":5206,"rtSeg99":53, "successTps":2397.9732842008293,"rtSeg90":36, "rtSeg50":32,            "rtSeg99Sum":53,"rtAvg":33.528812908182864, "rtMin":29,             "failRtMax":0,"duration":2171, "successCount":5206,            "rtSegStatCount":1,"tps":2397.9732842008293 }, "successCount":2971, "failRtSum":0,"failCount":0,"count":2971,"concurrency":100, "successTps":2979.939819458375,"tps":2979.939819458375,"failRtAvg":0,         "failRtMin":0,  "rtMax":133}
      *
      * @var mixed[]
      */
     public $allSampleStat;
 
     /**
-     * @description 并发量
+     * @example 1000
      *
      * @var int
      */
     public $concurrency;
 
     /**
-     * @description 是否生成了报告
+     * @example false
      *
      * @var bool
      */
     public $hasReport;
 
     /**
-     * @description 压测计划持续时间，单位s
+     * @example 600
      *
      * @var int
      */
     public $holdFor;
 
     /**
-     * @description 是否是调试
+     * @example false
      *
      * @var bool
      */
     public $isDebugging;
 
     /**
-     * @description 每一个采样器的状态
-     *
      * @var mixed[][]
      */
     public $sampleStatList;
 
     /**
-     * @description 场景id
+     * @example DYYPZIH
      *
      * @var string
      */
     public $sceneId;
 
     /**
-     * @description 场景名称
+     * @example test
      *
      * @var string
      */
     public $sceneName;
 
     /**
-     * @description 当前所处阶段
+     * @example 任务执行
      *
      * @var string
      */
     public $stageName;
 
     /**
-     * @description 压测计划开始时间戳，单位ms
+     * @example 1639970040000
      *
      * @var int
      */
     public $startTimeTS;
 
     /**
-     * @description 状态
+     * @example RUNNING
      *
      * @var string
      */
     public $status;
 
     /**
-     * @description 目前消耗的vum
+     * @example 100
      *
      * @var int
      */

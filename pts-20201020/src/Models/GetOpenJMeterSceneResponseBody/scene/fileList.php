@@ -9,49 +9,49 @@ use AlibabaCloud\Tea\Model;
 class fileList extends Model
 {
     /**
-     * @description 文件名
+     * @example json.jar
      *
      * @var string
      */
     public $fileName;
 
     /**
-     * @description 文件地址
+     * @example https://test.oss-cn-shanghai.aliyuncs.com/json.jar
      *
      * @var string
      */
     public $fileOssAddress;
 
     /**
-     * @description 文件大小
+     * @example 700
      *
      * @var int
      */
     public $fileSize;
 
     /**
-     * @description 文件类型
+     * @example jar
      *
      * @var string
      */
     public $fileType;
 
     /**
-     * @description 文件ID
+     * @example 61660
      *
      * @var int
      */
     public $id;
 
     /**
-     * @description 文件的md5值
+     * @example 43B584026CE5E570F3DE638FA7EEF9E0
      *
      * @var string
      */
     public $md5;
 
     /**
-     * @description csv文件是否切分
+     * @example false
      *
      * @var bool
      */

@@ -19,6 +19,8 @@ class scene extends Model
     public $advanceSetting;
 
     /**
+     * @example 2021-02-26 15:30:30
+     *
      * @var string
      */
     public $createTime;
@@ -39,6 +41,8 @@ class scene extends Model
     public $loadConfig;
 
     /**
+     * @example 2021-03-26 15:30:30
+     *
      * @var string
      */
     public $modifiedTime;
@@ -49,6 +53,8 @@ class scene extends Model
     public $relationList;
 
     /**
+     * @example BGFJ7GV
+     *
      * @var string
      */
     public $sceneId;
@@ -59,6 +65,8 @@ class scene extends Model
     public $sceneName;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetJMeterSampleMetricsResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -19,25 +21,27 @@ class GetJMeterSampleMetricsResponseBody extends Model
     public $message;
 
     /**
+     * @example A8E16480-15C1-555A-922F-B736A005E52D
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 采样器聚合数据列表
-     *
      * @var string[]
      */
     public $sampleMetricList;
 
     /**
-     * @description 采样器列表，可根据该列表传递需要查询的采样器
+     * @example {0:"Http Request"}
      *
      * @var mixed[]
      */
     public $samplerMap;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

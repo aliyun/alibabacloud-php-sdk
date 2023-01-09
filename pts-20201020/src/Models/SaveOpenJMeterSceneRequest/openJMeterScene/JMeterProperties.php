@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class JMeterProperties extends Model
 {
     /**
+     * @example https.sessioncontext.shared
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $value;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreatePtsSceneBaseLineFromReportRequest extends Model
 {
     /**
+     * @example HNB78HB
+     *
      * @var string
      */
     public $reportId;
 
     /**
+     * @example VCB78HB
+     *
      * @var string
      */
     public $sceneId;

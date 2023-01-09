@@ -9,50 +9,48 @@ use AlibabaCloud\Tea\Model;
 class fileList extends Model
 {
     /**
-     * @description 文件id
+     * @example 61232
      *
      * @var int
      */
     public $fileId;
 
     /**
-     * @description 文件名
+     * @example baidu.jmx
      *
      * @var string
      */
     public $fileName;
 
     /**
-     * @description 文件公网可访问的oss地址
+     * @example https://test.cn-shanghai.aliyuncs.com/baidu.jmx
      *
      * @var string
      */
     public $fileOssAddress;
 
     /**
-     * @description 文件大小，单位byte
+     * @example 28880
      *
      * @var int
      */
     public $fileSize;
 
     /**
-     * @description 文件的MD5
+     * @example DA70F97A74D76B6A3BEF9CC8AE0D89EB
      *
      * @var string
      */
     public $md5;
 
     /**
-     * @description 是否切分，仅针对csv有效
+     * @example false
      *
      * @var bool
      */
     public $splitCsv;
 
     /**
-     * @description 文件tag
-     *
      * @var string
      */
     public $tags;

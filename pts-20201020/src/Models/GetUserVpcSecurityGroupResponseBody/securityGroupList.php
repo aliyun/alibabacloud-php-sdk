@@ -14,16 +14,22 @@ class securityGroupList extends Model
     public $description;
 
     /**
+     * @example sg-bp16bt3zuugxpfjkasdfvthxth8
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example my-security-group
+     *
      * @var string
      */
     public $securityGroupName;
 
     /**
+     * @example vpc-uf6tar2ohlasdhsatjln37h30bv
+     *
      * @var string
      */
     public $vpcId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dnsCacheConfig extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $clearCacheEachIteration;

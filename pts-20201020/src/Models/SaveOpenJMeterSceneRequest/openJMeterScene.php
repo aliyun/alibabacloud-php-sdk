@@ -12,162 +12,162 @@ use AlibabaCloud\Tea\Model;
 class openJMeterScene extends Model
 {
     /**
-     * @description 施压引擎数量
+     * @example 2
      *
      * @var int
      */
     public $agentCount;
 
     /**
-     * @description 最大并发
+     * @example 1000
      *
      * @var int
      */
     public $concurrency;
 
     /**
-     * @description constantThroughputTimerType
+     * @example GLOBAL
      *
      * @var string
      */
     public $constantThroughputTimerType;
 
     /**
-     * @description DNS配置
-     *
      * @var dnsCacheConfig
      */
     public $dnsCacheConfig;
 
     /**
-     * @description 压测持续时间
+     * @example 600
      *
      * @var int
      */
     public $duration;
 
     /**
-     * @description 关联的环境id
+     * @example I8PZIH
      *
      * @var string
      */
     public $environmentId;
 
     /**
-     * @description 文件列表
-     *
      * @var fileList[]
      */
     public $fileList;
 
     /**
-     * @description 是否为VPC测试，默认为false表示公网测试，此值为true时VPC相关配置才生效
+     * @example true
      *
      * @var bool
      */
     public $isVpcTest;
 
     /**
-     * @description Jmeter属性
-     *
      * @var JMeterProperties[]
      */
     public $JMeterProperties;
 
     /**
-     * @description jmeter插件的环境标签
+     * @example test
      *
      * @var string
      */
     public $jmeterPluginLabel;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $maxRps;
 
     /**
-     * @description 压力模式
+     * @example CONCURRENCY
      *
      * @var string
      */
     public $mode;
 
     /**
-     * @description 预热时间
+     * @example 600
      *
      * @var int
      */
     public $rampUp;
 
     /**
-     * @description region的id，VPC压测时配置
+     * @example cn-beijing
      *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 场景ID
+     * @example DYYPZIH
      *
      * @var string
      */
     public $sceneId;
 
     /**
-     * @description 场景名
+     * @example test
      *
      * @var string
      */
     public $sceneName;
 
     /**
-     * @description 安全组id，VPC压测时配置
+     * @example sg-2zeid0dd7bhahsgdahspaly
      *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $startConcurrency;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $startRps;
 
     /**
-     * @description 预热阶段
+     * @example 3
      *
      * @var int
      */
     public $steps;
 
     /**
-     * @description synchronizing timer 类型
+     * @example GLOBAL
      *
      * @var string
      */
     public $syncTimerType;
 
     /**
-     * @description 测试文件
+     * @example baidu.jmx
      *
      * @var string
      */
     public $testFile;
 
     /**
-     * @description 交换机id，VPC压测时配置
+     * @example vsw-2zehsgdhsahw1r
      *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @description vpc的id，VPC压测时配置
+     * @example vpc-2ze2sahjdgahsebjkqhf4pyj
      *
      * @var string
      */

@@ -9,42 +9,42 @@ use AlibabaCloud\Tea\Model;
 class baseInfo extends Model
 {
     /**
-     * @description 创建人名
+     * @example 张三
      *
      * @var string
      */
     public $createName;
 
     /**
-     * @description 修改人名
+     * @example 里斯
      *
      * @var string
      */
     public $modifyName;
 
     /**
-     * @description 操作类型
+     * @example 保存去压测
      *
      * @var string
      */
     public $operateType;
 
     /**
-     * @description 场景压测负责人
+     * @example test-person
      *
      * @var string
      */
     public $principal;
 
     /**
-     * @description 备注
+     * @example 小心压测
      *
      * @var string
      */
     public $remark;
 
     /**
-     * @description 场景来源
+     * @example create
      *
      * @var string
      */

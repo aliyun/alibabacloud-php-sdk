@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class exportList extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $count;
 
     /**
+     * @example data.username
+     *
      * @var string
      */
     public $exportName;
 
     /**
+     * @example BODY_JSON
+     *
      * @var string
      */
     public $exportType;
 
     /**
+     * @example username
+     *
      * @var string
      */
     public $exportValue;

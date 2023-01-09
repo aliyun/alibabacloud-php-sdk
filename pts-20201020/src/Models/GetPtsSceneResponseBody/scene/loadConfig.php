@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class loadConfig extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $agentCount;
@@ -23,6 +25,8 @@ class loadConfig extends Model
     public $apiLoadConfigList;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoStep;
@@ -33,16 +37,22 @@ class loadConfig extends Model
     public $configuration;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $increment;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $keepTime;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $maxRunningTime;
@@ -53,6 +63,8 @@ class loadConfig extends Model
     public $relationLoadConfigList;
 
     /**
+     * @example TPS
+     *
      * @var string
      */
     public $testMode;

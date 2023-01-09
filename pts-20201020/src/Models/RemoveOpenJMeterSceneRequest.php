@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RemoveOpenJMeterSceneRequest extends Model
 {
     /**
-     * @description 场景ID
+     * @example DYYPZIH
      *
      * @var string
      */

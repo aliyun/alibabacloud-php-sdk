@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class chainMonitorDataList extends Model
 {
     /**
+     * @example ANBDC8B
+     *
      * @var string
      */
     public $apiId;
@@ -20,6 +22,8 @@ class chainMonitorDataList extends Model
     public $apiName;
 
     /**
+     * @example 46
+     *
      * @var int
      */
     public $averageRt;
@@ -30,56 +34,78 @@ class chainMonitorDataList extends Model
     public $checkPointResult;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $concurrency;
 
     /**
+     * @example 78
+     *
      * @var int
      */
     public $configQps;
 
     /**
+     * @example 7890
+     *
      * @var int
      */
     public $count2XX;
 
     /**
+     * @example 456
+     *
      * @var int
      */
     public $failedCount;
 
     /**
+     * @example 15
+     *
      * @var float
      */
     public $failedQps;
 
     /**
+     * @example 56
+     *
      * @var int
      */
     public $maxRt;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $minRt;
 
     /**
+     * @example 78509
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example 78
+     *
      * @var float
      */
     public $qps2XX;
 
     /**
+     * @example 23
+     *
      * @var float
      */
     public $realQps;
 
     /**
+     * @example 1278908899
+     *
      * @var int
      */
     public $timePoint;

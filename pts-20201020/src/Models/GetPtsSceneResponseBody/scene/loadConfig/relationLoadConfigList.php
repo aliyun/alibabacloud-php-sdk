@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class relationLoadConfigList extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $concurrencyBegin;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $concurrencyLimit;
 
     /**
+     * @example HNBGS7M
+     *
      * @var string
      */
     public $relationId;

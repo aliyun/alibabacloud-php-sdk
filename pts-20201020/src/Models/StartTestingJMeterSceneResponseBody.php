@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class StartTestingJMeterSceneResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -24,16 +28,22 @@ class StartTestingJMeterSceneResponseBody extends Model
     public $message;
 
     /**
+     * @example MH0SU1I
+     *
      * @var string
      */
     public $reportId;
 
     /**
+     * @example A8E16480-15C1-555A-922F-B736A005E52D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

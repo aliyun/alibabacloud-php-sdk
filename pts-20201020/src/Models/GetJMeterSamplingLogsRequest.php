@@ -9,85 +9,91 @@ use AlibabaCloud\Tea\Model;
 class GetJMeterSamplingLogsRequest extends Model
 {
     /**
-     * @description 压测引擎编号
+     * @example 14238000
      *
      * @var int
      */
     public $agentId;
 
     /**
-     * @description 开始时间
+     * @example 1637157073000
      *
      * @var int
      */
     public $beginTime;
 
     /**
-     * @description 结束时间
+     * @example 1637157076000
      *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description 关键字
+     * @example test
      *
      * @var string
      */
     public $keyword;
 
     /**
-     * @description 最大响应时间，单位ms
+     * @example 1000
      *
      * @var int
      */
     public $maxRT;
 
     /**
-     * @description 最小响应时间，单位ms
+     * @example 0
      *
      * @var int
      */
     public $minRT;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 报告ID
+     * @example 7R4RE352
      *
      * @var string
      */
     public $reportId;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $responseCode;
 
     /**
-     * @description 第几个采样器，从0开始
+     * @example 0
      *
      * @var int
      */
     public $samplerId;
 
     /**
-     * @description 采样结果是否成功
+     * @example true
      *
      * @var bool
      */
     public $success;
 
     /**
-     * @description 线程
+     * @example main
      *
      * @var string
      */

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class apiLoadConfigList extends Model
 {
     /**
+     * @example GBFDCV8
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $rpsBegin;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $rpsLimit;

@@ -13,71 +13,63 @@ use AlibabaCloud\Tea\Model;
 class loadConfig extends Model
 {
     /**
-     * @description 指定机器数，并发必须大于250(RPS大于2000)才能使用，最大扩展机器数不能超过 最大并发/250(最大RPS/2000)
+     * @example 1
      *
      * @var int
      */
     public $agentCount;
 
     /**
-     * @description API的起始、最大RPS值设置，在RPS模式下使用
-     *
      * @var apiLoadConfigList[]
      */
     public $apiLoadConfigList;
 
     /**
-     * @description 是否自动递增，只有在并发模式下有效，即 testMode=concurrency_mode 时
+     * @example true
      *
      * @var bool
      */
     public $autoStep;
 
     /**
-     * @description 场景施压量级配置信息
-     *
      * @var configuration
      */
     public $configuration;
 
     /**
-     * @description 递增百分比，取值范围[10,100]，且是整十倍；只有在并发模式且是自动递增模式下有效，即 testMode=concurrency_mode 且 autoStep=true 时
+     * @example 30
      *
      * @var int
      */
     public $increment;
 
     /**
-     * @description 单量级持续时长，单位分钟，一定是小于施压时长 maxRunningTime
+     * @example 3
      *
      * @var int
      */
     public $keepTime;
 
     /**
-     * @description 施压时长，单位分钟，[1-1440]
+     * @example 10
      *
      * @var int
      */
     public $maxRunningTime;
 
     /**
-     * @description 链路的起始、最大并发值设置，在并发模式下使用
-     *
      * @var relationLoadConfigList[]
      */
     public $relationLoadConfigList;
 
     /**
-     * @description 施压模式，并发模式(concurrency_mode) 和RPS模式(tps_mode)
+     * @example concurrency_mode
      *
      * @var string
      */
     public $testMode;
 
     /**
-     * @description VPC配置
-     *
      * @var vpcLoadConfig
      */
     public $vpcLoadConfig;

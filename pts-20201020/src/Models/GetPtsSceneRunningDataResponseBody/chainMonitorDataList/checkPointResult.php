@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class checkPointResult extends Model
 {
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $failedBusinessCount;
 
     /**
+     * @example 78
+     *
      * @var float
      */
     public $failedBusinessQps;
 
     /**
+     * @example 908
+     *
      * @var int
      */
     public $succeedBusinessCount;
 
     /**
+     * @example 89
+     *
      * @var float
      */
     public $succeedBusinessQps;

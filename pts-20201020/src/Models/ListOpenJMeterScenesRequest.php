@@ -9,24 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ListOpenJMeterScenesRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 场景id
+     * @example DYYPZIH
      *
      * @var string
      */
     public $sceneId;
 
     /**
-     * @description 场景名
+     * @example test
      *
      * @var string
      */

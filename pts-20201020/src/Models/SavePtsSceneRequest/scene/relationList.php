@@ -11,29 +11,23 @@ use AlibabaCloud\Tea\Model;
 class relationList extends Model
 {
     /**
-     * @description 链路下的API信息
-     *
      * @var apiList[]
      */
     public $apiList;
 
     /**
-     * @description 链路中的文件参数配置信息
-     *
      * @var fileParameterExplainList[]
      */
     public $fileParameterExplainList;
 
     /**
-     * @description 链路id
+     * @example 1
      *
      * @var string
      */
     public $relationId;
 
     /**
-     * @description 链路名
-     *
      * @var string
      */
     public $relationName;

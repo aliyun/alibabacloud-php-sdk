@@ -9,21 +9,19 @@ use AlibabaCloud\Tea\Model;
 class dnsCacheConfig extends Model
 {
     /**
-     * @description 是否清除缓存
+     * @example false
      *
      * @var bool
      */
     public $clearCacheEachIteration;
 
     /**
-     * @description DNS服务器
-     *
      * @var string[]
      */
     public $dnsServers;
 
     /**
-     * @description 域名绑定
+     * @example {"server.com":"6.6.6.6"}
      *
      * @var mixed[]
      */

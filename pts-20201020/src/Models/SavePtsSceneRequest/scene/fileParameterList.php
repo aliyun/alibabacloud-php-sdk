@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class fileParameterList extends Model
 {
     /**
-     * @description 文件名
+     * @example test.csv
      *
      * @var string
      */
     public $fileName;
 
     /**
-     * @description 文件的oss地址，必须是公网可访问的
+     * @example https://jmeter-pts-testing-version.oss-cn-shanghai.aliyuncs.com/param-file.csv
      *
      * @var string
      */

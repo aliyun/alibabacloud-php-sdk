@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetUserVpcSecurityGroupResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -25,21 +29,29 @@ class GetUserVpcSecurityGroupResponseBody extends Model
     public $message;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 61B15017-1A68-5C47-834F-87E2BBC44F2C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 9
+     *
      * @var int
      */
     public $securityGroupCount;
@@ -50,6 +62,8 @@ class GetUserVpcSecurityGroupResponseBody extends Model
     public $securityGroupList;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -13,70 +13,62 @@ use AlibabaCloud\Tea\Model;
 class apiList extends Model
 {
     /**
-     * @description API的id
+     * @example 1
      *
      * @var string
      */
     public $apiId;
 
     /**
-     * @description API名
+     * @example api
      *
      * @var string
      */
     public $apiName;
 
     /**
-     * @description 请求body
-     *
      * @var body
      */
     public $body;
 
     /**
-     * @description 检查点
-     *
      * @var checkPointList[]
      */
     public $checkPointList;
 
     /**
-     * @description 出参
-     *
      * @var exportList[]
      */
     public $exportList;
 
     /**
-     * @description headerList
-     *
      * @var headerList[]
      */
     public $headerList;
 
     /**
-     * @description 请求方法
+     * @example GET
      *
      * @var string
      */
     public $method;
 
     /**
-     * @description 重定向次数，只能是0（允许重定向）或者10（不允许重定向）
+     * @example 0
      *
      * @var int
      */
     public $redirectCountLimit;
 
     /**
-     * @description API超时时间，单位秒，默认5s，范围[1-60]
+     * @example 5
      *
      * @var int
      */
     public $timeoutInSecond;
 
     /**
-     * @description 压测URL
+     * @example http://www.example.com
      *
      * @var string
      */

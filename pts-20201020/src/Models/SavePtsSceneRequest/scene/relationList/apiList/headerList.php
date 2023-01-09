@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class headerList extends Model
 {
     /**
-     * @description header参数名
+     * @example Accept-Encoding
      *
      * @var string
      */
     public $headerName;
 
     /**
-     * @description 参数对应的值
+     * @example gzip, deflate, br
      *
      * @var string
      */

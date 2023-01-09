@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetPtsReportsBySceneIdResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -30,11 +34,15 @@ class GetPtsReportsBySceneIdResponseBody extends Model
     public $reportOverViewList;
 
     /**
+     * @example DC4E3177-6745-4925-B423-4E89VV34221A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

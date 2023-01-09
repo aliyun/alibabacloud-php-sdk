@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class files extends Model
 {
     /**
-     * @description 文件名
+     * @example json.jar
      *
      * @var string
      */
     public $fileName;
 
     /**
-     * @description 文件oss地址，目前只支持上海region的oss地址
+     * @example https://test.oss-cn-shanghai.aliyuncs.com/json.jar
      *
      * @var string
      */

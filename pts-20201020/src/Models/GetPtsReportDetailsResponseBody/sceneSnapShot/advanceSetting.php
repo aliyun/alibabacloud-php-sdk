@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class advanceSetting extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $connectionTimeoutInSecond;
@@ -20,11 +22,15 @@ class advanceSetting extends Model
     public $domainBindingList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $logRate;
 
     /**
+     * @example 429,404
+     *
      * @var string
      */
     public $successCode;

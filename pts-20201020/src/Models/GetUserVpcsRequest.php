@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetUserVpcsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example vpc-2ze22asdfuwiea2ebjkqhf4pyj
+     *
      * @var string
      */
     public $vpcId;

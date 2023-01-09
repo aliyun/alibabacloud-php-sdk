@@ -90,7 +90,6 @@ use AlibabaCloud\SDK\PTS\V20201020\Models\StopTestingJMeterSceneResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\UpdatePtsSceneBaseLineRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\UpdatePtsSceneBaseLineResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\UpdatePtsSceneBaseLineShrinkRequest;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1497,7 +1496,7 @@ class PTS extends OpenApiClient
         $request = new SaveEnvShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->env)) {
-            $request->envShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->env), 'Env', 'json');
+            $request->envShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->env, 'Env', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->envShrink)) {
@@ -1545,7 +1544,7 @@ class PTS extends OpenApiClient
         $request = new SaveOpenJMeterSceneShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->openJMeterScene)) {
-            $request->openJMeterSceneShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->openJMeterScene), 'OpenJMeterScene', 'json');
+            $request->openJMeterSceneShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->openJMeterScene, 'OpenJMeterScene', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->openJMeterSceneShrink)) {
@@ -1593,7 +1592,7 @@ class PTS extends OpenApiClient
         $request = new SavePtsSceneShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->scene)) {
-            $request->sceneShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->scene), 'Scene', 'json');
+            $request->sceneShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scene, 'Scene', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->sceneShrink)) {
