@@ -6,10 +6,10 @@ namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AttachEaiResponseBody extends Model
+class CreateEaiEciResponseBody extends Model
 {
     /**
-     * @example i-wz93g6pyat2g7t7o****
+     * @example eci-2zeh03ygxlrzmfi6****
      *
      * @var string
      */
@@ -23,7 +23,7 @@ class AttachEaiResponseBody extends Model
     public $elasticAcceleratedInstanceId;
 
     /**
-     * @example C3BCB7DA-BEB6-4982-A765-6EA61EC84474
+     * @example F5FEB9AA-C108-577C-AB3D-D13524AF****
      *
      * @var string
      */
@@ -57,7 +57,7 @@ class AttachEaiResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return AttachEaiResponseBody
+     * @return CreateEaiEciResponseBody
      */
     public static function fromMap($map = [])
     {

@@ -9,79 +9,114 @@ use AlibabaCloud\Tea\Model;
 class CreateEaiAllRequest extends Model
 {
     /**
+     * @example ubuntu_18_04_x64_20G_alibase_20200914.vhd
+     *
      * @var string
      */
     public $clientImageId;
 
     /**
+     * @example test-name
+     *
      * @var string
      */
     public $clientInstanceName;
 
     /**
+     * @example ecs.g5.large
+     *
      * @var string
      */
     public $clientInstanceType;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $clientInternetMaxBandwidthIn;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $clientInternetMaxBandwidthOut;
 
     /**
+     * @example EcsV587!
+     *
      * @var string
      */
     public $clientPassword;
 
     /**
+     * @example sg-wz9a02pqben4axkd2****
+     *
      * @var string
      */
     public $clientSecurityGroupId;
 
     /**
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $clientSystemDiskCategory;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $clientSystemDiskSize;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example vsw-wz9a04axkd22pqben****
+     *
      * @var string
      */
     public $clientVSwitchId;
 
     /**
+     * @example cn-shenzhen-a
+     *
      * @var string
      */
     public $clientZoneId;
 
     /**
+     * @example eais.ei-a6.large
+     *
      * @var string
      */
     public $eaiInstanceType;
 
     /**
+     * @example eais-test01
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'clientImageId'                 => 'ClientImageId',
         'clientInstanceName'            => 'ClientInstanceName',
@@ -98,6 +133,7 @@ class CreateEaiAllRequest extends Model
         'eaiInstanceType'               => 'EaiInstanceType',
         'instanceName'                  => 'InstanceName',
         'regionId'                      => 'RegionId',
+        'resourceGroupId'               => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -151,6 +187,9 @@ class CreateEaiAllRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -208,6 +247,9 @@ class CreateEaiAllRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

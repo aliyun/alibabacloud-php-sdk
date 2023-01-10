@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateEaiJupyterShrinkRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example eais.ei-a6.2xlarge
+     *
      * @var string
      */
     public $eaisType;
@@ -24,6 +28,8 @@ class CreateEaiJupyterShrinkRequest extends Model
     public $environmentVarShrink;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -31,9 +37,18 @@ class CreateEaiJupyterShrinkRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @example sg-uf66jeqopgqa9hdn****
+     *
+     * @var string
+     */
     public $securityGroupId;
 
     /**
+     * @example vsw-uf6h3rbwbm90urjwa****
+     *
      * @var string
      */
     public $vSwitchId;
@@ -42,6 +57,7 @@ class CreateEaiJupyterShrinkRequest extends Model
         'eaisType'             => 'EaisType',
         'environmentVarShrink' => 'EnvironmentVar',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'securityGroupId'      => 'SecurityGroupId',
         'vSwitchId'            => 'VSwitchId',
     ];
@@ -64,6 +80,9 @@ class CreateEaiJupyterShrinkRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
@@ -94,6 +113,9 @@ class CreateEaiJupyterShrinkRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];

@@ -9,36 +9,55 @@ use AlibabaCloud\Tea\Model;
 class DescribeEaisRequest extends Model
 {
     /**
+     * @example ["eais-id1", "eais-id2"]
+     *
      * @var string
      */
     public $elasticAcceleratedInstanceIds;
 
     /**
+     * @example eais*
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example eais.ei-a6.2xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @example InUse
+     *
      * @var string
      */
     public $status;
@@ -49,6 +68,7 @@ class DescribeEaisRequest extends Model
         'pageNumber'                    => 'PageNumber',
         'pageSize'                      => 'PageSize',
         'regionId'                      => 'RegionId',
+        'resourceGroupId'               => 'ResourceGroupId',
         'status'                        => 'Status',
     ];
 
@@ -76,6 +96,9 @@ class DescribeEaisRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -109,6 +132,9 @@ class DescribeEaisRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

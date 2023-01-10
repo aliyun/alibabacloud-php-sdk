@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteEaiRequest extends Model
 {
     /**
+     * @example eais-sz8t15a7gt7z7j7i****
+     *
      * @var string
      */
     public $elasticAcceleratedInstanceId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $force;
 
     /**
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $regionId;

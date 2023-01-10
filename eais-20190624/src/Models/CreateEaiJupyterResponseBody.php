@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateEaiJupyterResponseBody extends Model
 {
     /**
+     * @example eais-hz8t15a7gt7z7j7i****
+     *
      * @var string
      */
     public $elasticAcceleratedInstanceId;
 
     /**
+     * @example A655AB0E-31BB-45AD-9255-FCE93F6*****
+     *
      * @var string
      */
     public $requestId;

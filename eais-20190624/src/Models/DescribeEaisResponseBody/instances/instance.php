@@ -10,61 +10,90 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @example jupyter
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example i-wz93g6pyat2g****
+     *
      * @var string
      */
     public $clientInstanceId;
 
     /**
+     * @example test1
+     *
      * @var string
      */
     public $clientInstanceName;
 
     /**
+     * @example ecs.g5ne.large
+     *
      * @var string
      */
     public $clientInstanceType;
 
     /**
+     * @example 2020-11-11T03:11Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example eais-sz8t15a7gt7****
+     *
      * @var string
      */
     public $elasticAcceleratedInstanceId;
 
     /**
+     * @example testName
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example eais.ei-a6.2xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example http://121.41.**.24:8888
+     *
      * @var string
      */
     public $jupyterUrl;
 
     /**
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @example sg-bp1gppir818lx4******
+     *
      * @var string
      */
     public $securityGroupId;
@@ -75,6 +104,8 @@ class instance extends Model
     public $startTime;
 
     /**
+     * @example InUse
+     *
      * @var string
      */
     public $status;
@@ -85,11 +116,15 @@ class instance extends Model
     public $tags;
 
     /**
+     * @example vsw-bp1sd131hfmd76r******
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example cn-shenzhen-e
+     *
      * @var string
      */
     public $zoneId;
@@ -105,6 +140,7 @@ class instance extends Model
         'instanceType'                 => 'InstanceType',
         'jupyterUrl'                   => 'JupyterUrl',
         'regionId'                     => 'RegionId',
+        'resourceGroupId'              => 'ResourceGroupId',
         'securityGroupId'              => 'SecurityGroupId',
         'startTime'                    => 'StartTime',
         'status'                       => 'Status',
@@ -152,6 +188,9 @@ class instance extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
@@ -215,6 +254,9 @@ class instance extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];

@@ -6,10 +6,10 @@ namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DetachEaiResponseBody extends Model
+class ChangeResourceGroupResponseBody extends Model
 {
     /**
-     * @example 04DEB304-2436-4CB9-BB63-468BCEA03D9D
+     * @example C3BCB7DA-BEB6-4982-A765-6EA61EC8****
      *
      * @var string
      */
@@ -35,7 +35,7 @@ class DetachEaiResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DetachEaiResponseBody
+     * @return ChangeResourceGroupResponseBody
      */
     public static function fromMap($map = [])
     {

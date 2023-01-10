@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateEaiRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example eais-test01
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example eais.ei-a6.2xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $regionId;
@@ -31,9 +39,18 @@ class CreateEaiRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @example sg-uf66jeqopgqa9hdn****
+     *
+     * @var string
+     */
     public $securityGroupId;
 
     /**
+     * @example vsw-uf6h3rbwbm90urjwa****
+     *
      * @var string
      */
     public $vSwitchId;
@@ -42,6 +59,7 @@ class CreateEaiRequest extends Model
         'instanceName'    => 'InstanceName',
         'instanceType'    => 'InstanceType',
         'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'securityGroupId' => 'SecurityGroupId',
         'vSwitchId'       => 'VSwitchId',
     ];
@@ -64,6 +82,9 @@ class CreateEaiRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
@@ -94,6 +115,9 @@ class CreateEaiRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];

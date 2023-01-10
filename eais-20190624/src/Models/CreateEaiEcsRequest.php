@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
-use AlibabaCloud\SDK\Eais\V20190624\Models\CreateEaiJupyterRequest\environmentVar;
+use AlibabaCloud\SDK\Eais\V20190624\Models\CreateEaiEcsRequest\ecs;
 use AlibabaCloud\Tea\Model;
 
-class CreateEaiJupyterRequest extends Model
+class CreateEaiEcsRequest extends Model
 {
     /**
      * @example 123e4567-e89b-12d3-a456-426655440000
@@ -17,6 +17,13 @@ class CreateEaiJupyterRequest extends Model
     public $clientToken;
 
     /**
+     * @example eais-test01
+     *
+     * @var string
+     */
+    public $eaisName;
+
+    /**
      * @example eais.ei-a6.2xlarge
      *
      * @var string
@@ -24,18 +31,20 @@ class CreateEaiJupyterRequest extends Model
     public $eaisType;
 
     /**
-     * @var environmentVar[]
+     * @var ecs
      */
-    public $environmentVar;
+    public $ecs;
 
     /**
-     * @example cn-hangzhou
+     * @example cn-shenzhen
      *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmvpuy4a5****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -55,8 +64,9 @@ class CreateEaiJupyterRequest extends Model
     public $vSwitchId;
     protected $_name = [
         'clientToken'     => 'ClientToken',
+        'eaisName'        => 'EaisName',
         'eaisType'        => 'EaisType',
-        'environmentVar'  => 'EnvironmentVar',
+        'ecs'             => 'Ecs',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'securityGroupId' => 'SecurityGroupId',
@@ -73,17 +83,14 @@ class CreateEaiJupyterRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->eaisName) {
+            $res['EaisName'] = $this->eaisName;
+        }
         if (null !== $this->eaisType) {
             $res['EaisType'] = $this->eaisType;
         }
-        if (null !== $this->environmentVar) {
-            $res['EnvironmentVar'] = [];
-            if (null !== $this->environmentVar && \is_array($this->environmentVar)) {
-                $n = 0;
-                foreach ($this->environmentVar as $item) {
-                    $res['EnvironmentVar'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->ecs) {
+            $res['Ecs'] = null !== $this->ecs ? $this->ecs->toMap() : null;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -104,7 +111,7 @@ class CreateEaiJupyterRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateEaiJupyterRequest
+     * @return CreateEaiEcsRequest
      */
     public static function fromMap($map = [])
     {
@@ -112,17 +119,14 @@ class CreateEaiJupyterRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['EaisName'])) {
+            $model->eaisName = $map['EaisName'];
+        }
         if (isset($map['EaisType'])) {
             $model->eaisType = $map['EaisType'];
         }
-        if (isset($map['EnvironmentVar'])) {
-            if (!empty($map['EnvironmentVar'])) {
-                $model->environmentVar = [];
-                $n                     = 0;
-                foreach ($map['EnvironmentVar'] as $item) {
-                    $model->environmentVar[$n++] = null !== $item ? environmentVar::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['Ecs'])) {
+            $model->ecs = ecs::fromMap($map['Ecs']);
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
