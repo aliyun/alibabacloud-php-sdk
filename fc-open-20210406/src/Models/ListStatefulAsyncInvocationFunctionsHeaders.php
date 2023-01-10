@@ -11,16 +11,28 @@ class ListStatefulAsyncInvocationFunctionsHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @description The ID of your Alibaba Cloud account.
+     *
+     * @example 12348*****
+     *
      * @var string
      */
     public $xFcAccountId;
 
     /**
+     * @description The time when Function Compute API is called. Specify the time in the **EEE,d MMM yyyy HH:mm:ss GMT** format.
+     *
+     * @example Wed, 11 May 2022 09:00:00 GMT
+     *
      * @var string
      */
     public $xFcDate;
 
     /**
+     * @description The trace ID of the request for Function Compute API.
+     *
+     * @example duytnd-Xsdfasfd***
+     *
      * @var string
      */
     public $xFcTraceId;

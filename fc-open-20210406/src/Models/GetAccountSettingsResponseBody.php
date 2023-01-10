@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetAccountSettingsResponseBody extends Model
 {
     /**
+     * @description The list of zones.
+     *
      * @var string[]
      */
     public $availableAZs;
 
     /**
+     * @description The default RAM role.
+     *
+     * @example acs:ram::1234:role/aliyunfcdefaultrole
+     *
      * @var string
      */
     public $defaultRole;

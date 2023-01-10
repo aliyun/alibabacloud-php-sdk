@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListReservedCapacitiesRequest extends Model
 {
     /**
+     * @description The maximum number of resources to return. Valid values: \[1, 100].
+     *
+     * @example 20
+     *
      * @var string
      */
     public $limit;
 
     /**
+     * @description The token that is required for pagination.
+     *
+     * @example 8bj81uI8n****
+     *
      * @var string
      */
     public $nextToken;

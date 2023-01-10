@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PathConfig extends Model
 {
     /**
+     * @example f1
+     *
      * @var string
      */
     public $functionName;
@@ -19,16 +21,22 @@ class PathConfig extends Model
     public $methods;
 
     /**
+     * @example /login
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example prod
+     *
      * @var string
      */
     public $qualifier;
 
     /**
+     * @example s1
+     *
      * @var string
      */
     public $serviceName;

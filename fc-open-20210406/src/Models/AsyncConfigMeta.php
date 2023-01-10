@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AsyncConfigMeta extends Model
 {
     /**
+     * @example functionName
+     *
      * @var string
      */
     public $functionName;
 
     /**
+     * @example LATEST
+     *
      * @var string
      */
     public $qualifier;
 
     /**
+     * @example serviceName
+     *
      * @var string
      */
     public $serviceName;

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListReservedCapacitiesResponseBody extends Model
 {
     /**
+     * @description The pagination token to request the next page of results.
+     *
+     * @example 8bj81uI8n****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The information about subscription instances.
+     *
      * @var OpenReservedCapacity[]
      */
     public $reservedCapacities;

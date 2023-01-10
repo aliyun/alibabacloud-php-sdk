@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListProvisionConfigsResponseBody extends Model
 {
     /**
+     * @description The token used to obtain more results.
+     *
+     * @example demoNextToken
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The information about provisioned instances.
+     *
      * @var provisionConfigs[]
      */
     public $provisionConfigs;

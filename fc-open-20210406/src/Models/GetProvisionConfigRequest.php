@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetProvisionConfigRequest extends Model
 {
     /**
+     * @description The name of the alias.
+     *
+     * @example prod
+     *
      * @var string
      */
     public $qualifier;

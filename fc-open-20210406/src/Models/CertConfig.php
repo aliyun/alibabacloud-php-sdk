@@ -14,11 +14,15 @@ class CertConfig extends Model
     public $certName;
 
     /**
+     * @example -----BEGIN CERTIFICATE----- xxxxx -----END CERTIFICATE-----
+     *
      * @var string
      */
     public $certificate;
 
     /**
+     * @example -----BEGIN RSA PRIVATE KEY----- xxxxx -----END RSA PRIVATE KEY-----
+     *
      * @var string
      */
     public $privateKey;

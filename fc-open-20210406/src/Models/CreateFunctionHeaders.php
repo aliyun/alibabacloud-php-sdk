@@ -11,21 +11,37 @@ class CreateFunctionHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @description The ID of your Alibaba Cloud account.
+     *
+     * @example 188077086902****
+     *
      * @var string
      */
     public $xFcAccountId;
 
     /**
+     * @description The CRC-64 value of the function code package.
+     *
+     * @example 1506052139770049xxxx
+     *
      * @var string
      */
     public $xFcCodeChecksum;
 
     /**
+     * @description The time on which the function is invoked. The format of the value is: **EEE,d MMM yyyy HH:mm:ss GMT**.
+     *
+     * @example Wed, 11 May 2022 09:00:00 GMT
+     *
      * @var string
      */
     public $xFcDate;
 
     /**
+     * @description The trace ID of the request. The value is the same as that of the requestId parameter in the response.
+     *
+     * @example test-trace-id
+     *
      * @var string
      */
     public $xFcTraceId;

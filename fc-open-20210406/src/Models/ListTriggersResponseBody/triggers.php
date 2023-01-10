@@ -9,66 +9,126 @@ use AlibabaCloud\Tea\Model;
 class triggers extends Model
 {
     /**
+     * @description The time when the trigger was created.
+     *
+     * @example 2016-08-15T15:00:00.000+0000
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description The description of the trigger.
+     *
+     * @example trigger for test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The domain name used to invoke the function by using HTTP. You can add this domain name as the prefix to the endpoint of Function Compute. This way, you can invoke the function that corresponds to the trigger by using HTTP. For example, `{domainName}.cn-shanghai.fc.aliyuncs.com`.
+     *
+     * @example demo-service-demo-function-jkhksh
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The ARN of the RAM role that is used by the event source to invoke the function.
+     *
+     * @example acs:ram::123456xxxx:role/fc-test
+     *
      * @var string
      */
     public $invocationRole;
 
     /**
+     * @description The time when the trigger was last modified.
+     *
+     * @example 016-08-15T17:00:00.000+0000
+     *
      * @var string
      */
     public $lastModifiedTime;
 
     /**
+     * @description The version or alias of the service.
+     *
+     * @example LATEST
+     *
      * @var string
      */
     public $qualifier;
 
     /**
+     * @description The ARN of the event source.
+     *
+     * @example acs:oss:cn-shanghai:123456xxxx:mybucket
+     *
      * @var string
      */
     public $sourceArn;
 
     /**
+     * @description The configurations of the trigger. The configurations vary based on the trigger type. For more information about the format, see the following topics:
+     *
+     *   OSS trigger: [OSSTriggerConfig](javascript:void\(0\)).
+     *   Log Service trigger: [LogTriggerConfig](javascript:void\(0\)).
+     *   Time trigger: [TimeTriggerConfig](javascript:void\(0\)).
+     *   HTTP trigger: [HTTPTriggerConfig](javascript:void\(0\)).
+     *   Tablestore trigger: Specify the **SourceArn** parameter and leave this parameter empty.
+     *   Alibaba Cloud CDN event trigger: [CDNEventsTriggerConfig](javascript:void\(0\)).
+     *   MNS topic trigger: [MnsTopicTriggerConfig](javascript:void\(0\)).
+     *
+     * @example {"events": ["oss:ObjectCreated:*"], "filter": {"key": {"prefix": "/prefix", "suffix": ".zip"}}}
+     *
      * @var string
      */
     public $triggerConfig;
 
     /**
+     * @description The unique ID of the trigger.
+     *
+     * @example 3e270f2f-cef2-421a-bc86-ff4e8088****
+     *
      * @var string
      */
     public $triggerId;
 
     /**
+     * @description The name of the trigger.
+     *
+     * @example demoTrigger
+     *
      * @var string
      */
     public $triggerName;
 
     /**
+     * @description The trigger type, such as **oss**, **log**, **tablestore**, **timer**, **http**, **cdn_events**, and **mns_topic**.
+     *
+     * @example oss
+     *
      * @var string
      */
     public $triggerType;
 
     /**
+     * @description The public domain address. You can access HTTP triggers over the Internet by using HTTP or HTTPS.
+     *
+     * @example https://svc-func-xxxxxxxx.cn-hangzhou.fcapp.run
+     *
      * @var string
      */
     public $urlInternet;
 
     /**
+     * @description The private endpoint. In a VPC, you can access HTTP triggers by using HTTP or HTTPS.
+     *
+     * @example https://svc-func-xxxxxxxx.cn-hangzhou-vpc.fcapp.run
+     *
      * @var string
      */
     public $urlIntranet;

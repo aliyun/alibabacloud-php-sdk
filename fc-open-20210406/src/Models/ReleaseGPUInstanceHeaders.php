@@ -11,16 +11,22 @@ class ReleaseGPUInstanceHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @example 188077086902****
+     *
      * @var string
      */
     public $xFcAccountId;
 
     /**
+     * @example 2022-11-11 07:31:04.899465017 +0000 UTC m=+37.671563424
+     *
      * @var string
      */
     public $xFcDate;
 
     /**
+     * @example test-trace-id
+     *
      * @var string
      */
     public $xFcTraceId;

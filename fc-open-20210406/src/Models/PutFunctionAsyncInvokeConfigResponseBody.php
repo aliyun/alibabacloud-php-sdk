@@ -9,46 +9,84 @@ use AlibabaCloud\Tea\Model;
 class PutFunctionAsyncInvokeConfigResponseBody extends Model
 {
     /**
+     * @description The creation time.
+     *
+     * @example 2020-09-10T02:45:02Z
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description The configuration structure of the destination for asynchronous invocation.
+     *
+     * @example {"onSuccess": null,"onFailure": {"destination": "acs:mns:cn-shanghai:123:/queues/xxx/messages"}}
+     *
      * @var DestinationConfig
      */
     public $destinationConfig;
 
     /**
+     * @description The name of the function.
+     *
+     * @example helloworld
+     *
      * @var string
      */
     public $function;
 
     /**
+     * @description The time when the configuration was last modified.
+     *
+     * @example 2020-09-10T02:45:02Z
+     *
      * @var string
      */
     public $lastModifiedTime;
 
     /**
+     * @description The maximum validity period of messages.
+     *
+     * @example 300
+     *
      * @var int
      */
     public $maxAsyncEventAgeInSeconds;
 
     /**
+     * @description The maximum number of retries allowed after an asynchronous invocation fails.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $maxAsyncRetryAttempts;
 
     /**
+     * @description The qualifier.
+     *
+     * @example test
+     *
      * @var string
      */
     public $qualifier;
 
     /**
+     * @description The name of the service.
+     *
+     * @example demo-service
+     *
      * @var string
      */
     public $service;
 
     /**
+     * @description Specifies whether to enable the asynchronous task feature.
+     *
+     * - **true**: enables the asynchronous task feature.
+     * - **false**: does not enable the asynchronous task feature.
+     * @example true
+     *
      * @var bool
      */
     public $statefulInvocation;

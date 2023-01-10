@@ -9,106 +9,182 @@ use AlibabaCloud\Tea\Model;
 class UpdateFunctionRequest extends Model
 {
     /**
+     * @description The number of requests that can be concurrently processed by a single instance.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $instanceConcurrency;
 
     /**
+     * @description The port on which the HTTP server listens for the custom runtime or custom container runtime.
+     *
+     * @example 9000
+     *
      * @var int
      */
     public $caPort;
 
     /**
+     * @description **Function code packages** can be provided with the following two methods. You must use only one of the methods in a single request.
+     *
+     *   Specify the names of the **Object Storage Service (OSS) bucket** and **object** where the code package is stored.
+     *   Set the **zipFile** parameter to the Base64-encoded content of the ZIP file.
+     *
      * @var Code
      */
     public $code;
 
     /**
+     * @description The number of vCPUs of the function. The value must be a multiple of 0.05.
+     *
+     * @example 1.5
+     *
      * @var float
      */
     public $cpu;
 
     /**
+     * @description The configurations of the custom container runtime. After you configure the custom container, Function Compute can execute functions in a container created from a custom image.
+     *
      * @var CustomContainerConfig
      */
     public $customContainerConfig;
 
     /**
+     * @description The custom Domain Name System (DNS) configurations of the function.
+     *
      * @var CustomDNS
      */
     public $customDNS;
 
     /**
+     * @description The custom health check configuration of the function. This parameter is applicable only to custom runtimes and custom containers.
+     *
      * @var CustomHealthCheckConfig
      */
     public $customHealthCheckConfig;
 
     /**
+     * @description The configurations of the custom runtime.
+     *
      * @var CustomRuntimeConfig
      */
     public $customRuntimeConfig;
 
     /**
+     * @description The description of the function.
+     *
+     * @example test desc
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The disk size of the function. Unit: MB. Valid values: 512 and 10240.
+     *
+     * @example 512
+     *
      * @var int
      */
     public $diskSize;
 
     /**
+     * @description The environment variables that you configured for the function. You can obtain the values of the environment variables from the function. For more information, see [Overview](~~69777~~).
+     *
      * @var string[]
      */
     public $environmentVariables;
 
     /**
+     * @description The handler of the function. The format varies based on the programming language. For more information, see [Function handlers](~~157704~~).
+     *
+     * @example index.handler
+     *
      * @var string
      */
     public $handler;
 
     /**
+     * @description The timeout period for the execution of the initializer function. Unit: seconds. Default value: 3. Minimum value: 1. When this period ends, the execution of the initializer function is terminated.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $initializationTimeout;
 
     /**
+     * @description The handler of the initializer function. The format is determined by the programming language. For more information, see [Function handlers](~~157704~~).
+     *
+     * @example index.handler
+     *
      * @var string
      */
     public $initializer;
 
     /**
+     * @description The lifecycle configurations of the instance.
+     *
      * @var InstanceLifecycleConfig
      */
     public $instanceLifecycleConfig;
 
     /**
+     * @description The soft concurrency of the instance. You can use this parameter to implement graceful scale-up of instances. If the number of concurrent requests on an instance is greater than the number of the soft concurrency, the instance scale-up is triggered. For example, if your instance requires a long term to start, you can specify a suitable soft concurrency to start the instance in advance.
+     *
+     * The value must be less than or equal to that of **instanceConcurrency**.
+     * @example 5
+     *
      * @var int
      */
     public $instanceSoftConcurrency;
 
     /**
+     * @description The instance type of the function. Valid values:
+     *
+     *   **e1**: elastic instance
+     *   **c1**: performance instance
+     *
+     * @example e1
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description An array that consists of the information of layers.
+     *
+     * >  Multiple layers are merged based on the order of array subscripts. The content of a layer with a smaller subscript overwrites the file with the same name in the layer with a larger subscript.
      * @var string[]
      */
     public $layers;
 
     /**
+     * @description The memory size for the function. Unit: MB. The memory size must be a multiple of 64 MB. The memory size varies based on the function instance type. For more information, see [Instance types](~~179379~~).
+     *
+     * @example 512
+     *
      * @var int
      */
     public $memorySize;
 
     /**
+     * @description The runtime environment of the function. Valid values: **nodejs14**, **nodejs12**, **nodejs10**, **nodejs8**, **nodejs6**, **nodejs4.4**, **python3.9**, **python3**, **python2.7**, **java11**, **java8**, **go1**, **php7.2**, **dotnetcore2.1**, **custom** and **custom-container**.
+     *
+     * @example python3.9
+     *
      * @var string
      */
     public $runtime;
 
     /**
+     * @description The timeout period for the execution of the function. Unit: seconds. Default value: 3. Minimum value: 1. When this period ends, the execution of the function is terminated.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $timeout;

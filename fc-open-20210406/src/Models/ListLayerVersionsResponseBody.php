@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListLayerVersionsResponseBody extends Model
 {
     /**
+     * @description The information about layer versions.
+     *
      * @var Layer[]
      */
     public $layers;
 
     /**
+     * @description The initial version of the layer for the next query.
+     *
+     * @example 21
+     *
      * @var int
      */
     public $nextVersion;

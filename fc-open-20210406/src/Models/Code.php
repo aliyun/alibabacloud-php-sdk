@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class Code extends Model
 {
     /**
+     * @example demo-bucket
+     *
      * @var string
      */
     public $ossBucketName;
 
     /**
+     * @example demo-key
+     *
      * @var string
      */
     public $ossObjectName;
 
     /**
+     * @example cHJpbnQoImhlbGxvIHdvcmxkIikK
+     *
      * @var string
      */
     public $zipFile;

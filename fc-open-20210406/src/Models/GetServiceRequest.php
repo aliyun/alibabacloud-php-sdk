@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetServiceRequest extends Model
 {
     /**
+     * @description The version or alias of the service.
+     *
+     * @example test
+     *
      * @var string
      */
     public $qualifier;

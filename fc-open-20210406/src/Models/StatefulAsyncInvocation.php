@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class StatefulAsyncInvocation extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $alreadyRetriedTimes;
 
     /**
+     * @example Succeeded
+     *
      * @var string
      */
     public $destinationStatus;
 
     /**
+     * @example 1633449599
+     *
      * @var int
      */
     public $endTime;
@@ -29,51 +35,71 @@ class StatefulAsyncInvocation extends Model
     public $events;
 
     /**
+     * @example functionName
+     *
      * @var string
      */
     public $functionName;
 
     /**
+     * @example D4-4BA6-5293-9FD1-882707E
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example UnhandledInvocationError
+     *
      * @var string
      */
     public $invocationErrorMessage;
 
     /**
+     * @example cxxdfd
+     *
      * @var string
      */
     public $invocationId;
 
     /**
+     * @example "body"
+     *
      * @var string
      */
     public $invocationPayload;
 
     /**
+     * @example LATEST
+     *
      * @var string
      */
     public $qualifier;
 
     /**
+     * @example ABA740D4-4BA6-5293-9FD1-882707EADC37
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example serviceName
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example 1633449590
+     *
      * @var int
      */
     public $startedTime;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;

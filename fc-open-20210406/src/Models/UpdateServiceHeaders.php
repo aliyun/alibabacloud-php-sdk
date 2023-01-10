@@ -11,21 +11,37 @@ class UpdateServiceHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @description The value used to ensure that the modified service is consistent with the service to be modified. The value is obtained from the responses of the [CreateService](~~175256~~), [UpdateService](~~188167~~), and [GetService](~~189225~~) operations.
+     *
+     * @example e19d5cd5af0378da05f63f891c7467af
+     *
      * @var string
      */
     public $ifMatch;
 
     /**
+     * @description The ID of your Alibaba Cloud account.
+     *
+     * @example 188077086902****
+     *
      * @var string
      */
     public $xFcAccountId;
 
     /**
+     * @description The time when the Function Compute API is called. The format is **EEE,d MMM yyyy HH:mm:ss GMT**.
+     *
+     * @example Wed, 11 May 2022 09:00:00 GMT
+     *
      * @var string
      */
     public $xFcDate;
 
     /**
+     * @description The custom request ID.
+     *
+     * @example rid281s******
+     *
      * @var string
      */
     public $xFcTraceId;

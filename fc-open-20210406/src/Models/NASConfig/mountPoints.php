@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class mountPoints extends Model
 {
     /**
+     * @example /home/test
+     *
      * @var string
      */
     public $mountDir;
 
     /**
+     * @example ***-uni85.cn-hangzhou.nas.aliyuncs.com:/
+     *
      * @var string
      */
     public $serverAddr;

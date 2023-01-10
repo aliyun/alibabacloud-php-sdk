@@ -11,16 +11,28 @@ class ListAliasesHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @description The ID of your Alibaba Cloud account.
+     *
+     * @example 188077086902****
+     *
      * @var string
      */
     public $xFcAccountId;
 
     /**
+     * @description The start time when the function is invoked. Specify the time in the yyyy-mm-ddhh:mm:ss format.
+     *
+     * @example 2021-12-1210:00:00
+     *
      * @var string
      */
     public $xFcDate;
 
     /**
+     * @description The trace ID of the invocation request of Function Compute.
+     *
+     * @example r9s89isisi****
+     *
      * @var string
      */
     public $xFcTraceId;

@@ -9,41 +9,72 @@ use AlibabaCloud\Tea\Model;
 class GetAliasResponseBody extends Model
 {
     /**
+     * @description The canary release version to which the alias points and the weight of the canary release version.
+     *
+     * - The value consists of a version number and the corresponding weight. For example, 2:0.05 indicates that when a function is invoked, Version 2 is the canary release version, 5% of the traffic is distributed to the canary release version, and 95% of the traffic is distributed to the major version.
      * @var float[]
      */
     public $additionalVersionWeight;
 
     /**
+     * @description The name of the alias.
+     *
+     * @example alias_test
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @description The time when the alias was created.
+     *
+     * @example 2020-07-27T06:37:29Z
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description The description of the alias.
+     *
+     * @example test_description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The time when the alias was last modified.
+     *
+     * @example 2020-07-27T06:37:29Z
+     *
      * @var string
      */
     public $lastModifiedTime;
 
     /**
+     * @description The canary release mode. Valid values:
+     *
+     * - **Random**: random canary release. This is the default value.
+     * - **Content**: rule-based canary release.
+     * @example Random
+     *
      * @var string
      */
     public $resolvePolicy;
 
     /**
+     * @description Canary release rule. The traffic that meets the conditions of the canary release rule is diverted to the canary release instances.
+     *
      * @var RoutePolicy
      */
     public $routePolicy;
 
     /**
+     * @description The version to which the alias points.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $versionId;

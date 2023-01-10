@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetFunctionAsyncInvokeConfigRequest extends Model
 {
     /**
+     * @description The qualifier.
+     *
+     * @example test
+     *
      * @var string
      */
     public $qualifier;

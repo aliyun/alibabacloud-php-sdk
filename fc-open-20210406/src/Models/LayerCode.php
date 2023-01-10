@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class LayerCode extends Model
 {
     /**
+     * @example 仅在查询具体层版本时返回
+     *
      * @var string
      */
     public $location;

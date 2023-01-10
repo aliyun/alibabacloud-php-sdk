@@ -9,36 +9,60 @@ use AlibabaCloud\Tea\Model;
 class GetProvisionConfigResponseBody extends Model
 {
     /**
+     * @description Specifies whether to always allocate CPU to a function instance.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $alwaysAllocateCPU;
 
     /**
+     * @description The actual number of provisioned instances.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $current;
 
     /**
+     * @description The error message returned if a provisioned instance fails to be created.
+     *
+     * @example image not found
+     *
      * @var string
      */
     public $currentError;
 
     /**
+     * @description The description of the resource.
+     *
+     * @example 12345#servierName#qualifier#functionName
+     *
      * @var string
      */
     public $resource;
 
     /**
+     * @description The configurations of scheduled auto scaling.
+     *
      * @var ScheduledActions[]
      */
     public $scheduledActions;
 
     /**
+     * @description The expected number of provisioned instances.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $target;
 
     /**
+     * @description The configurations of metric-based auto scaling.
+     *
      * @var TargetTrackingPolicies[]
      */
     public $targetTrackingPolicies;

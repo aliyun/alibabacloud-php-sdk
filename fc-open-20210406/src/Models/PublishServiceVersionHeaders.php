@@ -11,21 +11,37 @@ class PublishServiceVersionHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @description The ETag value of the service. This value is used to ensure that the modified service is consistent with the service to be modified. The ETag value is returned in the responses of the [CreateService](~~175256~~), [UpdateService](~~188167~~), and [GetService](~~189225~~) operations.
+     *
+     * @example e19d5cd5af0378da05f63f891c7467af
+     *
      * @var string
      */
     public $ifMatch;
 
     /**
+     * @description The ID of your Alibaba Cloud account.
+     *
+     * @example 188077086902****
+     *
      * @var string
      */
     public $xFcAccountId;
 
     /**
+     * @description The start time when the function is invoked. Specify the time in the yyyy-mm-ddhh:mm:ss format.
+     *
+     * @example 2020-12-1210:00:00
+     *
      * @var string
      */
     public $xFcDate;
 
     /**
+     * @description The trace ID of the invocation request of Function Compute.
+     *
+     * @example rid281s******
+     *
      * @var string
      */
     public $xFcTraceId;

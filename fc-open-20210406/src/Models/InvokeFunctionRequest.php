@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class InvokeFunctionRequest extends Model
 {
     /**
+     * @description The event to be processed by the function. Set this parameter to a binary string. Function Compute passes the event to the function for processing.
+     *
+     * @example {"key":"value"}
+     *
      * @var int[]
      */
     public $body;
 
     /**
+     * @description The version or alias of the service.
+     *
+     * @example demoQualifier
+     *
      * @var string
      */
     public $qualifier;

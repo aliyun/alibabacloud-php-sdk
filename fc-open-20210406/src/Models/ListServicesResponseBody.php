@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListServicesResponseBody extends Model
 {
     /**
+     * @description The token used to obtain more results. If this parameter is left empty, all the results are returned.
+     *
+     * @example caeba0****be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The information about a service.
+     *
      * @var services[]
      */
     public $services;

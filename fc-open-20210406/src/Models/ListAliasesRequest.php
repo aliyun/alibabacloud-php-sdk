@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ListAliasesRequest extends Model
 {
     /**
+     * @description The maximum number of resources to return.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @description The token used to obtain more results.
+     *
+     * @example caeba0be03****f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The prefix.
+     *
+     * @example prefix_text
+     *
      * @var string
      */
     public $prefix;
 
     /**
+     * @description The starting position of the result list.
+     *
+     * @example nextkey
+     *
      * @var string
      */
     public $startKey;

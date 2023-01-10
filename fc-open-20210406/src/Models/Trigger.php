@@ -59,6 +59,8 @@ class Trigger extends Model
     public $triggerId;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $triggerName;

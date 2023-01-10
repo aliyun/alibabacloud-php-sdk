@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListVpcBindingsResponseBody extends Model
 {
     /**
+     * @description The IDs of bound VPCs.
+     *
      * @var string[]
      */
     public $vpcIds;

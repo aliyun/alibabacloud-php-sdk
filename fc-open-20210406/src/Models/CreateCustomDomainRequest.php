@@ -9,26 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomDomainRequest extends Model
 {
     /**
+     * @description The configurations of the HTTPS certificate.
+     *
      * @var CertConfig
      */
     public $certConfig;
 
     /**
+     * @description The domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The protocol types supported by the domain name. Valid values:
+     *
+     * - **HTTP**: Only HTTP is supported.
+     * - **HTTPS**: Only HTTPS is supported.
+     * - **HTTP,HTTPS**: Both HTTP and HTTPS are supported.
+     * @example HTTP
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @description The route table that maps the paths to functions when the functions are invoked by using the custom domain name.
+     *
      * @var RouteConfig
      */
     public $routeConfig;
 
     /**
+     * @description The configurations of the TLS.
+     *
      * @var TLSConfig
      */
     public $tlsConfig;

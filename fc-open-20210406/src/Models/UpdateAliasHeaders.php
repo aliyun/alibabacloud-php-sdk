@@ -11,21 +11,38 @@ class UpdateAliasHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @description If the ETag specified in the request matches the ETag value of the object, the object and 200 OK are returned. Otherwise, 412 Precondition Failed is returned.
+     *
+     * The ETag value of an object is used to check data integrity of the object. This parameter is empty by default.
+     * @example e19d5cd5af0378da05f63f891c7467af
+     *
      * @var string
      */
     public $ifMatch;
 
     /**
+     * @description The ID of your Alibaba Cloud account.
+     *
+     * @example 188077086902****
+     *
      * @var string
      */
     public $xFcAccountId;
 
     /**
+     * @description The time on which the function is invoked. The format of the value is: **EEE,d MMM yyyy HH:mm:ss GMT**.
+     *
+     * @example Wed, 11 May 2022 09:00:00 GMT
+     *
      * @var string
      */
     public $xFcDate;
 
     /**
+     * @description The trace ID of the invocation request of Function Compute.
+     *
+     * @example rid281s******
+     *
      * @var string
      */
     public $xFcTraceId;

@@ -9,46 +9,83 @@ use AlibabaCloud\Tea\Model;
 class GetCustomDomainResponseBody extends Model
 {
     /**
+     * @description The version number of the API.
+     *
+     * @example 2016-08-15
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @description The version number of the API.
+     *
+     * @example 2016-08-15
+     *
      * @var string
      */
     public $apiVersion;
 
     /**
+     * @description The configurations of the HTTPS certificate.
+     *
+     * @example -
+     *
      * @var CertConfig
      */
     public $certConfig;
 
     /**
+     * @description The time when the domain name was added.
+     *
+     * @example 2020-07-27T08:02:19Z
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description The domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The time when the domain name was last modified.
+     *
+     * @example 2020-07-27T08:02:19Z
+     *
      * @var string
      */
     public $lastModifiedTime;
 
     /**
+     * @description The protocol types supported by the domain name. Valid values:
+     *
+     * - **HTTP**: Only HTTP is supported.
+     * - **HTTPS**: Only HTTPS is supported.
+     * - **HTTP,HTTPS**: Both HTTP and HTTPS are supported.
+     * @example HTTP
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @description The route table that maps the paths to functions when the functions are invoked by using the custom domain name.
+     *
+     * @example -
+     *
      * @var RouteConfig
      */
     public $routeConfig;
 
     /**
+     * @description The configurations of the TLS.
+     *
      * @var TLSConfig
      */
     public $tlsConfig;

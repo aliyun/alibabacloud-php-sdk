@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class StatefulAsyncInvocationEvent extends Model
 {
     /**
+     * @example {"Error":"UnhandledInvocationError"}
+     *
      * @var string
      */
     public $eventDetail;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $eventId;
 
     /**
+     * @example Enqueued
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1647420449721
+     *
      * @var int
      */
     public $timestamp;

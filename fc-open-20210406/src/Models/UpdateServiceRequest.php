@@ -9,41 +9,69 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceRequest extends Model
 {
     /**
+     * @description The description of the service.
+     *
+     * @example test service
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Specifies whether to allow functions to access the Internet. Valid values:
+     *
+     *   **true**: allows functions in the specified service to access the Internet.
+     *   **false**: does not allow functions in the specified service to access the Internet.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $internetAccess;
 
     /**
+     * @description The log configuration. Function Compute writes function execution logs to the specified Logstore.
+     *
      * @var LogConfig
      */
     public $logConfig;
 
     /**
+     * @description The configurations of the NAS file system. The configurations allow functions to access the specified NAS resources.
+     *
      * @var NASConfig
      */
     public $nasConfig;
 
     /**
+     * @description The OSS mount configurations.
+     *
      * @var OSSMountConfig
      */
     public $ossMountConfig;
 
     /**
+     * @description The RAM role that is used to grant required permissions to Function Compute. The RAM role is used in the following scenarios:
+     *
+     *   Sends function execution logs to your Logstore.
+     *   Generates a token for a function to access other cloud resources during function execution.
+     *
+     * @example acs:ram::1234567890:role/fc-test
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @description The configurations of Tracing Analysis. After you configure Tracing Analysis for a service in Function Compute, you can record the execution duration of a request, view the amount of cold start time for a function, and record the execution duration of a function. For more information, see [Overview](~~189804~~).
+     *
      * @var TracingConfig
      */
     public $tracingConfig;
 
     /**
+     * @description The virtual private cloud (VPC) configuration, which allows functions in the specified service in Function Compute to access the specified VPC.
+     *
      * @var VPCConfig
      */
     public $vpcConfig;

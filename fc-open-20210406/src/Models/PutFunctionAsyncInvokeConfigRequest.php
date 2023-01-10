@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class PutFunctionAsyncInvokeConfigRequest extends Model
 {
     /**
+     * @description The configuration structure of the destination for asynchronous invocation.
+     *
      * @var DestinationConfig
      */
     public $destinationConfig;
 
     /**
+     * @description The maximum validity period of messages. Valid values: 1 to 2592000. Unit: seconds.
+     *
+     * @example 300
+     *
      * @var int
      */
     public $maxAsyncEventAgeInSeconds;
 
     /**
+     * @description The maximum number of retries allowed after an asynchronous invocation fails. Default value: 3. Valid values: 0 to 8.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $maxAsyncRetryAttempts;
 
     /**
+     * @description Specifies whether to enable the asynchronous task feature.
+     *
+     * - **true**: enables the asynchronous task feature.
+     * - **false**: does not enable the asynchronous task feature.
+     * @example true
+     *
      * @var bool
      */
     public $statefulInvocation;
 
     /**
+     * @description The version or alias of the service.
+     *
+     * @example test
+     *
      * @var string
      */
     public $qualifier;

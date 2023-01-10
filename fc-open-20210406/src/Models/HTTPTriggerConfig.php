@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class HTTPTriggerConfig extends Model
 {
     /**
+     * @example anonymous, function
+     *
      * @var string
      */
     public $authType;
 
     /**
+     * @description 禁用默认公网域名访问的开关，设置为true 时，访问函数默认提供的公网URL地址会返回403错误。设置为 false 则不会有任何影响。
+     *
      * @var bool
      */
     public $disableURLInternet;

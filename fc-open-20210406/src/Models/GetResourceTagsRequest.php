@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetResourceTagsRequest extends Model
 {
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the resource.
+     *
+     * > You can use the value of this parameter to query the information about the resource, such as the account, service, and region information of the resource. You can manage tags only for services for top level resources.
+     * @example acs:fc:cn-shanghai:188077086902****:services/demo
+     *
      * @var string
      */
     public $resourceArn;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class RegisterEventSourceResponseBody extends Model
 {
     /**
+     * @description The time when the event source was created.
+     *
+     * @example 2016-08-15T16:06:05.000+0000
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description The ARN of the event source.
+     *
+     * @example acs:eventbridge:cn-shanghai:123456:eventbus/mns-test/rule/fc-test1/target/abc
+     *
      * @var string
      */
     public $sourceArn;

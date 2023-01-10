@@ -10,31 +10,51 @@ use AlibabaCloud\Tea\Model;
 class aliases extends Model
 {
     /**
+     * @description The weight of the canary release version.
+     *
      * @var float[]
      */
     public $additionalVersionWeight;
 
     /**
+     * @description The name of the alias.
+     *
+     * @example test
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @description The creation time.
+     *
+     * @example 2016-08-15T16:06:05.000+0000
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description The description of the alias.
+     *
+     * @example Sample alias.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The last update time.
+     *
+     * @example 2016-08-15T16:06:05.000+0000
+     *
      * @var string
      */
     public $lastModifiedTime;
 
     /**
+     * @example Random
+     *
      * @var string
      */
     public $resolvePolicy;
@@ -45,6 +65,10 @@ class aliases extends Model
     public $routePolicy;
 
     /**
+     * @description The ID of the version.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $versionId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RoutePolicy extends Model
 {
     /**
+     * @example AND
+     *
      * @var int[]
      */
     public $condition;

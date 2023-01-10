@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ClaimGPUInstanceRequest extends Model
 {
     /**
+     * @example PL0
+     *
      * @var string
      */
     public $diskPerformanceLevel;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $diskSizeGigabytes;
 
     /**
+     * @example m-foobar
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example ecs.gn7i-c8g1.2xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $internetBandwidthOut;
 
     /**
+     * @example MyPassword
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example acs:ram::1234567890:role/fc-test
+     *
+     * @var string
+     */
+    public $role;
+
+    /**
+     * @example sg-xxxx
+     *
+     * @var string
+     */
+    public $sgId;
+
+    /**
+     * @example 0.0.0.0/0
+     *
      * @var string
      */
     public $sourceCidrIp;
@@ -52,6 +80,20 @@ class ClaimGPUInstanceRequest extends Model
      * @var string[]
      */
     public $udpPortRange;
+
+    /**
+     * @example v-xxxx
+     *
+     * @var string
+     */
+    public $vpcId;
+
+    /**
+     * @example vsw-xxxx
+     *
+     * @var string
+     */
+    public $vswId;
     protected $_name = [
         'diskPerformanceLevel' => 'diskPerformanceLevel',
         'diskSizeGigabytes'    => 'diskSizeGigabytes',
@@ -59,9 +101,13 @@ class ClaimGPUInstanceRequest extends Model
         'instanceType'         => 'instanceType',
         'internetBandwidthOut' => 'internetBandwidthOut',
         'password'             => 'password',
+        'role'                 => 'role',
+        'sgId'                 => 'sgId',
         'sourceCidrIp'         => 'sourceCidrIp',
         'tcpPortRange'         => 'tcpPortRange',
         'udpPortRange'         => 'udpPortRange',
+        'vpcId'                => 'vpcId',
+        'vswId'                => 'vswId',
     ];
 
     public function validate()
@@ -89,6 +135,12 @@ class ClaimGPUInstanceRequest extends Model
         if (null !== $this->password) {
             $res['password'] = $this->password;
         }
+        if (null !== $this->role) {
+            $res['role'] = $this->role;
+        }
+        if (null !== $this->sgId) {
+            $res['sgId'] = $this->sgId;
+        }
         if (null !== $this->sourceCidrIp) {
             $res['sourceCidrIp'] = $this->sourceCidrIp;
         }
@@ -97,6 +149,12 @@ class ClaimGPUInstanceRequest extends Model
         }
         if (null !== $this->udpPortRange) {
             $res['udpPortRange'] = $this->udpPortRange;
+        }
+        if (null !== $this->vpcId) {
+            $res['vpcId'] = $this->vpcId;
+        }
+        if (null !== $this->vswId) {
+            $res['vswId'] = $this->vswId;
         }
 
         return $res;
@@ -128,6 +186,12 @@ class ClaimGPUInstanceRequest extends Model
         if (isset($map['password'])) {
             $model->password = $map['password'];
         }
+        if (isset($map['role'])) {
+            $model->role = $map['role'];
+        }
+        if (isset($map['sgId'])) {
+            $model->sgId = $map['sgId'];
+        }
         if (isset($map['sourceCidrIp'])) {
             $model->sourceCidrIp = $map['sourceCidrIp'];
         }
@@ -140,6 +204,12 @@ class ClaimGPUInstanceRequest extends Model
             if (!empty($map['udpPortRange'])) {
                 $model->udpPortRange = $map['udpPortRange'];
             }
+        }
+        if (isset($map['vpcId'])) {
+            $model->vpcId = $map['vpcId'];
+        }
+        if (isset($map['vswId'])) {
+            $model->vswId = $map['vswId'];
         }
 
         return $model;

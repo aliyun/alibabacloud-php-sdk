@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ListTriggersRequest extends Model
 {
     /**
+     * @description The maximum number of resources to return. Default value: 20. Maximum value: 100. The number of returned resources is less than or equal to the specified number.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @description The token required to obtain more results. You do not need to provide this parameter in the first call. The tokens for subsequent queries are obtained from the returned results.
+     *
+     * @example f-trigger
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The prefix that the names of returned resources must contain.
+     *
+     * @example a
+     *
      * @var string
      */
     public $prefix;
 
     /**
+     * @description The returned resources are sorted in alphabetical order, and the resources that include and follow the resource specified by the startKey parameter are returned.
+     *
+     * @example a-trigger
+     *
      * @var string
      */
     public $startKey;

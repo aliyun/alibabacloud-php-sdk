@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class CreateLayerVersionRequest extends Model
 {
     /**
+     * @description The code of the layer.
+     *
      * @var Code
      */
     public $code;
 
     /**
+     * @description The list of runtime environments that are supported by the layer.
+     *
      * @var string[]
      */
     public $compatibleRuntime;
 
     /**
+     * @description The description of the layer.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;

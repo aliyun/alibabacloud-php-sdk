@@ -14,31 +14,43 @@ class CustomContainerConfigInfo extends Model
     public $accelerationInfo;
 
     /**
+     * @example Default
+     *
      * @var string
      */
     public $accelerationType;
 
     /**
+     * @example ["-arg1", "value1"]
+     *
      * @var string
      */
     public $args;
 
     /**
+     * @example ["/code/myserver"]
+     *
      * @var string
      */
     public $command;
 
     /**
+     * @example registry-vpc.cn-hangzhou.aliyuncs.com/fc-demo/helloworld:v1beta1
+     *
      * @var string
      */
     public $image;
 
     /**
+     * @example cri-xxxxxxxxxx
+     *
      * @var string
      */
     public $instanceID;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $webServerMode;

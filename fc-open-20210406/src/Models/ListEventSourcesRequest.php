@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListEventSourcesRequest extends Model
 {
     /**
+     * @description The version or alias of the service.
+     *
+     * @example LATEST
+     *
      * @var string
      */
     public $qualifier;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListFunctionAsyncInvokeConfigsResponseBody extends Model
 {
     /**
+     * @description The list of asynchronous invocation configurations.
+     *
      * @var configs[]
      */
     public $configs;
 
     /**
+     * @description The token used to obtain more results.
+     *
+     * @example caeba0be03****f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;

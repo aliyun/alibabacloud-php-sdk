@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class PreStop extends Model
 {
     /**
+     * @example index.PreStop
+     *
      * @var string
      */
     public $handler;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $timeout;

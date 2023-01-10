@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ListFunctionsRequest extends Model
 {
     /**
+     * @description The maximum number of resources to return. Default value: 20. Maximum value: 100. The number of returned resources is less than or equal to the specified number.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @description The token required to obtain more results. If the number of resources exceeds the limit, the nextToken parameter is returned. You can include the parameter in subsequent calls to obtain more results. You do not need to provide this parameter in the first call.
+     *
+     * @example 8bj81uI8n****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The prefix that the names of returned resources must contain.
+     *
+     * @example demoFunctionsPrefix
+     *
      * @var string
      */
     public $prefix;
 
     /**
+     * @description The version or alias of the service.
+     *
+     * @example LATEST
+     *
      * @var string
      */
     public $qualifier;
 
     /**
+     * @description The returned resources are sorted in alphabetical order, and the resources that include and follow the resource specified by the startKey parameter are returned.
+     *
+     * @example demoStartKey
+     *
      * @var string
      */
     public $startKey;

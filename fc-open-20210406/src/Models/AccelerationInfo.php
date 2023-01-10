@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AccelerationInfo extends Model
 {
     /**
+     * @example Preparing
+     *
      * @var string
      */
     public $status;

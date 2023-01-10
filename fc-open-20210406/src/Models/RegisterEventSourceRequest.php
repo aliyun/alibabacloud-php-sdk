@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class RegisterEventSourceRequest extends Model
 {
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the event source.
+     *
+     * @example acs:eventbridge:cn-shanghai:123456:eventbus/mns-test/rule/fc-test1/target/abc
+     *
      * @var string
      */
     public $sourceArn;
 
     /**
+     * @description The version or alias of the service.
+     *
+     * @example LATEST
+     *
      * @var string
      */
     public $qualifier;

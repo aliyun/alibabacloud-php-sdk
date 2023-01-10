@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetFunctionCodeResponseBody extends Model
 {
     /**
+     * @description The CRC-64 value of the function code package.
+     *
+     * @example 1234567890
+     *
      * @var string
      */
     public $checksum;
 
     /**
+     * @description The URL of the function code package.
+     *
+     * @example http://func-code.oss-cn-shanghai.aliyuncs.com/1a2b3c4d5e6f
+     *
      * @var string
      */
     public $url;

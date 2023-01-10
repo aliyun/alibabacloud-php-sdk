@@ -9,26 +9,42 @@ use AlibabaCloud\Tea\Model;
 class PutProvisionConfigRequest extends Model
 {
     /**
+     * @description Specifies whether to always allocate CPU resources. Default value: true.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $alwaysAllocateCPU;
 
     /**
+     * @description The configurations of scheduled auto scaling.
+     *
      * @var ScheduledActions[]
      */
     public $scheduledActions;
 
     /**
+     * @description The number of provisioned instances. Value range: [1,100000].
+     *
+     * @example 1
+     *
      * @var int
      */
     public $target;
 
     /**
+     * @description The configurations of metric-based auto scaling.
+     *
      * @var TargetTrackingPolicies[]
      */
     public $targetTrackingPolicies;
 
     /**
+     * @description The name of the alias.
+     *
+     * @example prod
+     *
      * @var string
      */
     public $qualifier;

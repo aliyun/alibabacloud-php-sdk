@@ -11,16 +11,28 @@ class GetFunctionOnDemandConfigHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @description The ID of your Alibaba Cloud account.
+     *
+     * @example 188077086902****
+     *
      * @var string
      */
     public $xFcAccountId;
 
     /**
+     * @description The time when Function Compute API is called. Specify the time in the yyyy-mm-ddhh:mm:ss format.
+     *
+     * @example 2022-01-01 12:00:00
+     *
      * @var string
      */
     public $xFcDate;
 
     /**
+     * @description The trace ID of the request for Function Compute API, which is also the unique ID of the request.
+     *
+     * @example asdf****
+     *
      * @var string
      */
     public $xFcTraceId;

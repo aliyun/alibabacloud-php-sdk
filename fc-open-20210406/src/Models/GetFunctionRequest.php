@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetFunctionRequest extends Model
 {
     /**
+     * @description The version or alias of the service.
+     *
+     * @example demoQualifier
+     *
      * @var string
      */
     public $qualifier;

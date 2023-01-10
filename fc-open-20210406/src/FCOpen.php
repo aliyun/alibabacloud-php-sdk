@@ -253,19 +253,6 @@ class FCOpen extends OpenApiClient
 
     /**
      * @param ClaimGPUInstanceRequest $request
-     *
-     * @return ClaimGPUInstanceResponse
-     */
-    public function claimGPUInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = new ClaimGPUInstanceHeaders([]);
-
-        return $this->claimGPUInstanceWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ClaimGPUInstanceRequest $request
      * @param ClaimGPUInstanceHeaders $headers
      * @param RuntimeOptions          $runtime
      *
@@ -293,6 +280,12 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->password)) {
             $body['password'] = $request->password;
         }
+        if (!Utils::isUnset($request->role)) {
+            $body['role'] = $request->role;
+        }
+        if (!Utils::isUnset($request->sgId)) {
+            $body['sgId'] = $request->sgId;
+        }
         if (!Utils::isUnset($request->sourceCidrIp)) {
             $body['sourceCidrIp'] = $request->sourceCidrIp;
         }
@@ -301,6 +294,12 @@ class FCOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->udpPortRange)) {
             $body['udpPortRange'] = $request->udpPortRange;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $body['vpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->vswId)) {
+            $body['vswId'] = $request->vswId;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
@@ -335,17 +334,16 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string             $serviceName
-     * @param CreateAliasRequest $request
+     * @param ClaimGPUInstanceRequest $request
      *
-     * @return CreateAliasResponse
+     * @return ClaimGPUInstanceResponse
      */
-    public function createAlias($serviceName, $request)
+    public function claimGPUInstance($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CreateAliasHeaders([]);
+        $headers = new ClaimGPUInstanceHeaders([]);
 
-        return $this->createAliasWithOptions($serviceName, $request, $headers, $runtime);
+        return $this->claimGPUInstanceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -411,16 +409,17 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomDomainRequest $request
+     * @param string             $serviceName
+     * @param CreateAliasRequest $request
      *
-     * @return CreateCustomDomainResponse
+     * @return CreateAliasResponse
      */
-    public function createCustomDomain($request)
+    public function createAlias($serviceName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CreateCustomDomainHeaders([]);
+        $headers = new CreateAliasHeaders([]);
 
-        return $this->createCustomDomainWithOptions($request, $headers, $runtime);
+        return $this->createAliasWithOptions($serviceName, $request, $headers, $runtime);
     }
 
     /**
@@ -482,17 +481,16 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                $serviceName
-     * @param CreateFunctionRequest $request
+     * @param CreateCustomDomainRequest $request
      *
-     * @return CreateFunctionResponse
+     * @return CreateCustomDomainResponse
      */
-    public function createFunction($serviceName, $request)
+    public function createCustomDomain($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CreateFunctionHeaders([]);
+        $headers = new CreateCustomDomainHeaders([]);
 
-        return $this->createFunctionWithOptions($serviceName, $request, $headers, $runtime);
+        return $this->createCustomDomainWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -609,17 +607,17 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                    $layerName
-     * @param CreateLayerVersionRequest $request
+     * @param string                $serviceName
+     * @param CreateFunctionRequest $request
      *
-     * @return CreateLayerVersionResponse
+     * @return CreateFunctionResponse
      */
-    public function createLayerVersion($layerName, $request)
+    public function createFunction($serviceName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CreateLayerVersionHeaders([]);
+        $headers = new CreateFunctionHeaders([]);
 
-        return $this->createLayerVersionWithOptions($layerName, $request, $headers, $runtime);
+        return $this->createFunctionWithOptions($serviceName, $request, $headers, $runtime);
     }
 
     /**
@@ -676,16 +674,17 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceRequest $request
+     * @param string                    $layerName
+     * @param CreateLayerVersionRequest $request
      *
-     * @return CreateServiceResponse
+     * @return CreateLayerVersionResponse
      */
-    public function createService($request)
+    public function createLayerVersion($layerName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CreateServiceHeaders([]);
+        $headers = new CreateLayerVersionHeaders([]);
 
-        return $this->createServiceWithOptions($request, $headers, $runtime);
+        return $this->createLayerVersionWithOptions($layerName, $request, $headers, $runtime);
     }
 
     /**
@@ -759,18 +758,16 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string               $serviceName
-     * @param string               $functionName
-     * @param CreateTriggerRequest $request
+     * @param CreateServiceRequest $request
      *
-     * @return CreateTriggerResponse
+     * @return CreateServiceResponse
      */
-    public function createTrigger($serviceName, $functionName, $request)
+    public function createService($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CreateTriggerHeaders([]);
+        $headers = new CreateServiceHeaders([]);
 
-        return $this->createTriggerWithOptions($serviceName, $functionName, $request, $headers, $runtime);
+        return $this->createServiceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -840,17 +837,18 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                  $serviceName
-     * @param CreateVpcBindingRequest $request
+     * @param string               $serviceName
+     * @param string               $functionName
+     * @param CreateTriggerRequest $request
      *
-     * @return CreateVpcBindingResponse
+     * @return CreateTriggerResponse
      */
-    public function createVpcBinding($serviceName, $request)
+    public function createTrigger($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CreateVpcBindingHeaders([]);
+        $headers = new CreateTriggerHeaders([]);
 
-        return $this->createVpcBindingWithOptions($serviceName, $request, $headers, $runtime);
+        return $this->createTriggerWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
 
     /**
@@ -901,17 +899,17 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string $serviceName
-     * @param string $aliasName
+     * @param string                  $serviceName
+     * @param CreateVpcBindingRequest $request
      *
-     * @return DeleteAliasResponse
+     * @return CreateVpcBindingResponse
      */
-    public function deleteAlias($serviceName, $aliasName)
+    public function createVpcBinding($serviceName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new DeleteAliasHeaders([]);
+        $headers = new CreateVpcBindingHeaders([]);
 
-        return $this->deleteAliasWithOptions($serviceName, $aliasName, $headers, $runtime);
+        return $this->createVpcBindingWithOptions($serviceName, $request, $headers, $runtime);
     }
 
     /**
@@ -959,16 +957,17 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string $domainName
+     * @param string $serviceName
+     * @param string $aliasName
      *
-     * @return DeleteCustomDomainResponse
+     * @return DeleteAliasResponse
      */
-    public function deleteCustomDomain($domainName)
+    public function deleteAlias($serviceName, $aliasName)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new DeleteCustomDomainHeaders([]);
+        $headers = new DeleteAliasHeaders([]);
 
-        return $this->deleteCustomDomainWithOptions($domainName, $headers, $runtime);
+        return $this->deleteAliasWithOptions($serviceName, $aliasName, $headers, $runtime);
     }
 
     /**
@@ -1012,17 +1011,16 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string $serviceName
-     * @param string $functionName
+     * @param string $domainName
      *
-     * @return DeleteFunctionResponse
+     * @return DeleteCustomDomainResponse
      */
-    public function deleteFunction($serviceName, $functionName)
+    public function deleteCustomDomain($domainName)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new DeleteFunctionHeaders([]);
+        $headers = new DeleteCustomDomainHeaders([]);
 
-        return $this->deleteFunctionWithOptions($serviceName, $functionName, $headers, $runtime);
+        return $this->deleteCustomDomainWithOptions($domainName, $headers, $runtime);
     }
 
     /**
@@ -1070,18 +1068,17 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                                 $serviceName
-     * @param string                                 $functionName
-     * @param DeleteFunctionAsyncInvokeConfigRequest $request
+     * @param string $serviceName
+     * @param string $functionName
      *
-     * @return DeleteFunctionAsyncInvokeConfigResponse
+     * @return DeleteFunctionResponse
      */
-    public function deleteFunctionAsyncInvokeConfig($serviceName, $functionName, $request)
+    public function deleteFunction($serviceName, $functionName)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new DeleteFunctionAsyncInvokeConfigHeaders([]);
+        $headers = new DeleteFunctionHeaders([]);
 
-        return $this->deleteFunctionAsyncInvokeConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime);
+        return $this->deleteFunctionWithOptions($serviceName, $functionName, $headers, $runtime);
     }
 
     /**
@@ -1133,18 +1130,18 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                              $serviceName
-     * @param string                              $functionName
-     * @param DeleteFunctionOnDemandConfigRequest $request
+     * @param string                                 $serviceName
+     * @param string                                 $functionName
+     * @param DeleteFunctionAsyncInvokeConfigRequest $request
      *
-     * @return DeleteFunctionOnDemandConfigResponse
+     * @return DeleteFunctionAsyncInvokeConfigResponse
      */
-    public function deleteFunctionOnDemandConfig($serviceName, $functionName, $request)
+    public function deleteFunctionAsyncInvokeConfig($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new DeleteFunctionOnDemandConfigHeaders([]);
+        $headers = new DeleteFunctionAsyncInvokeConfigHeaders([]);
 
-        return $this->deleteFunctionOnDemandConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime);
+        return $this->deleteFunctionAsyncInvokeConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
 
     /**
@@ -1199,17 +1196,18 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string $layerName
-     * @param string $version
+     * @param string                              $serviceName
+     * @param string                              $functionName
+     * @param DeleteFunctionOnDemandConfigRequest $request
      *
-     * @return DeleteLayerVersionResponse
+     * @return DeleteFunctionOnDemandConfigResponse
      */
-    public function deleteLayerVersion($layerName, $version)
+    public function deleteFunctionOnDemandConfig($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new DeleteLayerVersionHeaders([]);
+        $headers = new DeleteFunctionOnDemandConfigHeaders([]);
 
-        return $this->deleteLayerVersionWithOptions($layerName, $version, $headers, $runtime);
+        return $this->deleteFunctionOnDemandConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
 
     /**
@@ -1254,16 +1252,17 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string $serviceName
+     * @param string $layerName
+     * @param string $version
      *
-     * @return DeleteServiceResponse
+     * @return DeleteLayerVersionResponse
      */
-    public function deleteService($serviceName)
+    public function deleteLayerVersion($layerName, $version)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new DeleteServiceHeaders([]);
+        $headers = new DeleteLayerVersionHeaders([]);
 
-        return $this->deleteServiceWithOptions($serviceName, $headers, $runtime);
+        return $this->deleteLayerVersionWithOptions($layerName, $version, $headers, $runtime);
     }
 
     /**
@@ -1311,16 +1310,15 @@ class FCOpen extends OpenApiClient
 
     /**
      * @param string $serviceName
-     * @param string $versionId
      *
-     * @return DeleteServiceVersionResponse
+     * @return DeleteServiceResponse
      */
-    public function deleteServiceVersion($serviceName, $versionId)
+    public function deleteService($serviceName)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new DeleteServiceVersionHeaders([]);
+        $headers = new DeleteServiceHeaders([]);
 
-        return $this->deleteServiceVersionWithOptions($serviceName, $versionId, $headers, $runtime);
+        return $this->deleteServiceWithOptions($serviceName, $headers, $runtime);
     }
 
     /**
@@ -1366,17 +1364,16 @@ class FCOpen extends OpenApiClient
 
     /**
      * @param string $serviceName
-     * @param string $functionName
-     * @param string $triggerName
+     * @param string $versionId
      *
-     * @return DeleteTriggerResponse
+     * @return DeleteServiceVersionResponse
      */
-    public function deleteTrigger($serviceName, $functionName, $triggerName)
+    public function deleteServiceVersion($serviceName, $versionId)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new DeleteTriggerHeaders([]);
+        $headers = new DeleteServiceVersionHeaders([]);
 
-        return $this->deleteTriggerWithOptions($serviceName, $functionName, $triggerName, $headers, $runtime);
+        return $this->deleteServiceVersionWithOptions($serviceName, $versionId, $headers, $runtime);
     }
 
     /**
@@ -1426,16 +1423,17 @@ class FCOpen extends OpenApiClient
 
     /**
      * @param string $serviceName
-     * @param string $vpcId
+     * @param string $functionName
+     * @param string $triggerName
      *
-     * @return DeleteVpcBindingResponse
+     * @return DeleteTriggerResponse
      */
-    public function deleteVpcBinding($serviceName, $vpcId)
+    public function deleteTrigger($serviceName, $functionName, $triggerName)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new DeleteVpcBindingHeaders([]);
+        $headers = new DeleteTriggerHeaders([]);
 
-        return $this->deleteVpcBindingWithOptions($serviceName, $vpcId, $headers, $runtime);
+        return $this->deleteTriggerWithOptions($serviceName, $functionName, $triggerName, $headers, $runtime);
     }
 
     /**
@@ -1480,19 +1478,17 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                       $serviceName
-     * @param string                       $functionName
-     * @param string                       $sourceArn
-     * @param DeregisterEventSourceRequest $request
+     * @param string $serviceName
+     * @param string $vpcId
      *
-     * @return DeregisterEventSourceResponse
+     * @return DeleteVpcBindingResponse
      */
-    public function deregisterEventSource($serviceName, $functionName, $sourceArn, $request)
+    public function deleteVpcBinding($serviceName, $vpcId)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new DeregisterEventSourceHeaders([]);
+        $headers = new DeleteVpcBindingHeaders([]);
 
-        return $this->deregisterEventSourceWithOptions($serviceName, $functionName, $sourceArn, $request, $headers, $runtime);
+        return $this->deleteVpcBindingWithOptions($serviceName, $vpcId, $headers, $runtime);
     }
 
     /**
@@ -1545,14 +1541,19 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @return GetAccountSettingsResponse
+     * @param string                       $serviceName
+     * @param string                       $functionName
+     * @param string                       $sourceArn
+     * @param DeregisterEventSourceRequest $request
+     *
+     * @return DeregisterEventSourceResponse
      */
-    public function getAccountSettings()
+    public function deregisterEventSource($serviceName, $functionName, $sourceArn, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetAccountSettingsHeaders([]);
+        $headers = new DeregisterEventSourceHeaders([]);
 
-        return $this->getAccountSettingsWithOptions($headers, $runtime);
+        return $this->deregisterEventSourceWithOptions($serviceName, $functionName, $sourceArn, $request, $headers, $runtime);
     }
 
     /**
@@ -1595,17 +1596,14 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string $serviceName
-     * @param string $aliasName
-     *
-     * @return GetAliasResponse
+     * @return GetAccountSettingsResponse
      */
-    public function getAlias($serviceName, $aliasName)
+    public function getAccountSettings()
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetAliasHeaders([]);
+        $headers = new GetAccountSettingsHeaders([]);
 
-        return $this->getAliasWithOptions($serviceName, $aliasName, $headers, $runtime);
+        return $this->getAccountSettingsWithOptions($headers, $runtime);
     }
 
     /**
@@ -1650,16 +1648,17 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string $domainName
+     * @param string $serviceName
+     * @param string $aliasName
      *
-     * @return GetCustomDomainResponse
+     * @return GetAliasResponse
      */
-    public function getCustomDomain($domainName)
+    public function getAlias($serviceName, $aliasName)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetCustomDomainHeaders([]);
+        $headers = new GetAliasHeaders([]);
 
-        return $this->getCustomDomainWithOptions($domainName, $headers, $runtime);
+        return $this->getAliasWithOptions($serviceName, $aliasName, $headers, $runtime);
     }
 
     /**
@@ -1703,18 +1702,16 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string             $serviceName
-     * @param string             $functionName
-     * @param GetFunctionRequest $request
+     * @param string $domainName
      *
-     * @return GetFunctionResponse
+     * @return GetCustomDomainResponse
      */
-    public function getFunction($serviceName, $functionName, $request)
+    public function getCustomDomain($domainName)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetFunctionHeaders([]);
+        $headers = new GetCustomDomainHeaders([]);
 
-        return $this->getFunctionWithOptions($serviceName, $functionName, $request, $headers, $runtime);
+        return $this->getCustomDomainWithOptions($domainName, $headers, $runtime);
     }
 
     /**
@@ -1766,28 +1763,30 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                              $serviceName
-     * @param string                              $functionName
-     * @param GetFunctionAsyncInvokeConfigRequest $request
+     * @param string             $serviceName
+     * @param string             $functionName
+     * @param GetFunctionRequest $request
      *
-     * @return GetFunctionAsyncInvokeConfigResponse
+     * @return GetFunctionResponse
      */
-    public function getFunctionAsyncInvokeConfig($serviceName, $functionName, $request)
+    public function getFunction($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetFunctionAsyncInvokeConfigHeaders([]);
+        $headers = new GetFunctionHeaders([]);
 
-        return $this->getFunctionAsyncInvokeConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime);
+        return $this->getFunctionWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
 
     /**
+     * StatefulAsyncInvocation indicates whether the asynchronous task feature is enabled. If the value of StatefulAsyncInvocation is true, the asynchronous task feature is enabled. All asynchronous invocations change to asynchronous task mode.
+     *   *
      * @param string                              $serviceName
      * @param string                              $functionName
-     * @param GetFunctionAsyncInvokeConfigRequest $request
-     * @param GetFunctionAsyncInvokeConfigHeaders $headers
-     * @param RuntimeOptions                      $runtime
+     * @param GetFunctionAsyncInvokeConfigRequest $request      GetFunctionAsyncInvokeConfigRequest
+     * @param GetFunctionAsyncInvokeConfigHeaders $headers      GetFunctionAsyncInvokeConfigHeaders
+     * @param RuntimeOptions                      $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetFunctionAsyncInvokeConfigResponse
+     * @return GetFunctionAsyncInvokeConfigResponse GetFunctionAsyncInvokeConfigResponse
      */
     public function getFunctionAsyncInvokeConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
@@ -1829,18 +1828,20 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                 $serviceName
-     * @param string                 $functionName
-     * @param GetFunctionCodeRequest $request
+     * StatefulAsyncInvocation indicates whether the asynchronous task feature is enabled. If the value of StatefulAsyncInvocation is true, the asynchronous task feature is enabled. All asynchronous invocations change to asynchronous task mode.
+     *   *
+     * @param string                              $serviceName
+     * @param string                              $functionName
+     * @param GetFunctionAsyncInvokeConfigRequest $request      GetFunctionAsyncInvokeConfigRequest
      *
-     * @return GetFunctionCodeResponse
+     * @return GetFunctionAsyncInvokeConfigResponse GetFunctionAsyncInvokeConfigResponse
      */
-    public function getFunctionCode($serviceName, $functionName, $request)
+    public function getFunctionAsyncInvokeConfig($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetFunctionCodeHeaders([]);
+        $headers = new GetFunctionAsyncInvokeConfigHeaders([]);
 
-        return $this->getFunctionCodeWithOptions($serviceName, $functionName, $request, $headers, $runtime);
+        return $this->getFunctionAsyncInvokeConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
 
     /**
@@ -1892,18 +1893,18 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                           $serviceName
-     * @param string                           $functionName
-     * @param GetFunctionOnDemandConfigRequest $request
+     * @param string                 $serviceName
+     * @param string                 $functionName
+     * @param GetFunctionCodeRequest $request
      *
-     * @return GetFunctionOnDemandConfigResponse
+     * @return GetFunctionCodeResponse
      */
-    public function getFunctionOnDemandConfig($serviceName, $functionName, $request)
+    public function getFunctionCode($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetFunctionOnDemandConfigHeaders([]);
+        $headers = new GetFunctionCodeHeaders([]);
 
-        return $this->getFunctionOnDemandConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime);
+        return $this->getFunctionCodeWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
 
     /**
@@ -1955,17 +1956,18 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string $layerName
-     * @param string $version
+     * @param string                           $serviceName
+     * @param string                           $functionName
+     * @param GetFunctionOnDemandConfigRequest $request
      *
-     * @return GetLayerVersionResponse
+     * @return GetFunctionOnDemandConfigResponse
      */
-    public function getLayerVersion($layerName, $version)
+    public function getFunctionOnDemandConfig($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetLayerVersionHeaders([]);
+        $headers = new GetFunctionOnDemandConfigHeaders([]);
 
-        return $this->getLayerVersionWithOptions($layerName, $version, $headers, $runtime);
+        return $this->getFunctionOnDemandConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
 
     /**
@@ -2010,18 +2012,17 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                    $serviceName
-     * @param string                    $functionName
-     * @param GetProvisionConfigRequest $request
+     * @param string $layerName
+     * @param string $version
      *
-     * @return GetProvisionConfigResponse
+     * @return GetLayerVersionResponse
      */
-    public function getProvisionConfig($serviceName, $functionName, $request)
+    public function getLayerVersion($layerName, $version)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetProvisionConfigHeaders([]);
+        $headers = new GetLayerVersionHeaders([]);
 
-        return $this->getProvisionConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime);
+        return $this->getLayerVersionWithOptions($layerName, $version, $headers, $runtime);
     }
 
     /**
@@ -2073,16 +2074,18 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param GetResourceTagsRequest $request
+     * @param string                    $serviceName
+     * @param string                    $functionName
+     * @param GetProvisionConfigRequest $request
      *
-     * @return GetResourceTagsResponse
+     * @return GetProvisionConfigResponse
      */
-    public function getResourceTags($request)
+    public function getProvisionConfig($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetResourceTagsHeaders([]);
+        $headers = new GetProvisionConfigHeaders([]);
 
-        return $this->getResourceTagsWithOptions($request, $headers, $runtime);
+        return $this->getProvisionConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
 
     /**
@@ -2132,17 +2135,16 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string            $serviceName
-     * @param GetServiceRequest $request
+     * @param GetResourceTagsRequest $request
      *
-     * @return GetServiceResponse
+     * @return GetResourceTagsResponse
      */
-    public function getService($serviceName, $request)
+    public function getResourceTags($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetServiceHeaders([]);
+        $headers = new GetResourceTagsHeaders([]);
 
-        return $this->getServiceWithOptions($serviceName, $request, $headers, $runtime);
+        return $this->getResourceTagsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2193,30 +2195,30 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                            $serviceName
-     * @param string                            $functionName
-     * @param string                            $invocationId
-     * @param GetStatefulAsyncInvocationRequest $request
+     * @param string            $serviceName
+     * @param GetServiceRequest $request
      *
-     * @return GetStatefulAsyncInvocationResponse
+     * @return GetServiceResponse
      */
-    public function getStatefulAsyncInvocation($serviceName, $functionName, $invocationId, $request)
+    public function getService($serviceName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetStatefulAsyncInvocationHeaders([]);
+        $headers = new GetServiceHeaders([]);
 
-        return $this->getStatefulAsyncInvocationWithOptions($serviceName, $functionName, $invocationId, $request, $headers, $runtime);
+        return $this->getServiceWithOptions($serviceName, $request, $headers, $runtime);
     }
 
     /**
+     * StatefulAsyncInvocation: asynchronous task. Asynchronous tasks allow you to manage the states on the basis of common asynchronous invocations, which is more suitable for task scenarios.
+     *   *
      * @param string                            $serviceName
      * @param string                            $functionName
      * @param string                            $invocationId
-     * @param GetStatefulAsyncInvocationRequest $request
-     * @param GetStatefulAsyncInvocationHeaders $headers
-     * @param RuntimeOptions                    $runtime
+     * @param GetStatefulAsyncInvocationRequest $request      GetStatefulAsyncInvocationRequest
+     * @param GetStatefulAsyncInvocationHeaders $headers      GetStatefulAsyncInvocationHeaders
+     * @param RuntimeOptions                    $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetStatefulAsyncInvocationResponse
+     * @return GetStatefulAsyncInvocationResponse GetStatefulAsyncInvocationResponse
      */
     public function getStatefulAsyncInvocationWithOptions($serviceName, $functionName, $invocationId, $request, $headers, $runtime)
     {
@@ -2267,18 +2269,21 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string $serviceName
-     * @param string $functionName
-     * @param string $triggerName
+     * StatefulAsyncInvocation: asynchronous task. Asynchronous tasks allow you to manage the states on the basis of common asynchronous invocations, which is more suitable for task scenarios.
+     *   *
+     * @param string                            $serviceName
+     * @param string                            $functionName
+     * @param string                            $invocationId
+     * @param GetStatefulAsyncInvocationRequest $request      GetStatefulAsyncInvocationRequest
      *
-     * @return GetTriggerResponse
+     * @return GetStatefulAsyncInvocationResponse GetStatefulAsyncInvocationResponse
      */
-    public function getTrigger($serviceName, $functionName, $triggerName)
+    public function getStatefulAsyncInvocation($serviceName, $functionName, $invocationId, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetTriggerHeaders([]);
+        $headers = new GetStatefulAsyncInvocationHeaders([]);
 
-        return $this->getTriggerWithOptions($serviceName, $functionName, $triggerName, $headers, $runtime);
+        return $this->getStatefulAsyncInvocationWithOptions($serviceName, $functionName, $invocationId, $request, $headers, $runtime);
     }
 
     /**
@@ -2324,18 +2329,18 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                $serviceName
-     * @param string                $functionName
-     * @param InvokeFunctionRequest $request
+     * @param string $serviceName
+     * @param string $functionName
+     * @param string $triggerName
      *
-     * @return InvokeFunctionResponse
+     * @return GetTriggerResponse
      */
-    public function invokeFunction($serviceName, $functionName, $request)
+    public function getTrigger($serviceName, $functionName, $triggerName)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new InvokeFunctionHeaders([]);
+        $headers = new GetTriggerHeaders([]);
 
-        return $this->invokeFunctionWithOptions($serviceName, $functionName, $request, $headers, $runtime);
+        return $this->getTriggerWithOptions($serviceName, $functionName, $triggerName, $headers, $runtime);
     }
 
     /**
@@ -2401,17 +2406,18 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string             $serviceName
-     * @param ListAliasesRequest $request
+     * @param string                $serviceName
+     * @param string                $functionName
+     * @param InvokeFunctionRequest $request
      *
-     * @return ListAliasesResponse
+     * @return InvokeFunctionResponse
      */
-    public function listAliases($serviceName, $request)
+    public function invokeFunction($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListAliasesHeaders([]);
+        $headers = new InvokeFunctionHeaders([]);
 
-        return $this->listAliasesWithOptions($serviceName, $request, $headers, $runtime);
+        return $this->invokeFunctionWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
 
     /**
@@ -2471,16 +2477,17 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param ListCustomDomainsRequest $request
+     * @param string             $serviceName
+     * @param ListAliasesRequest $request
      *
-     * @return ListCustomDomainsResponse
+     * @return ListAliasesResponse
      */
-    public function listCustomDomains($request)
+    public function listAliases($serviceName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListCustomDomainsHeaders([]);
+        $headers = new ListAliasesHeaders([]);
 
-        return $this->listCustomDomainsWithOptions($request, $headers, $runtime);
+        return $this->listAliasesWithOptions($serviceName, $request, $headers, $runtime);
     }
 
     /**
@@ -2539,18 +2546,16 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                  $serviceName
-     * @param string                  $functionName
-     * @param ListEventSourcesRequest $request
+     * @param ListCustomDomainsRequest $request
      *
-     * @return ListEventSourcesResponse
+     * @return ListCustomDomainsResponse
      */
-    public function listEventSources($serviceName, $functionName, $request)
+    public function listCustomDomains($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListEventSourcesHeaders([]);
+        $headers = new ListCustomDomainsHeaders([]);
 
-        return $this->listEventSourcesWithOptions($serviceName, $functionName, $request, $headers, $runtime);
+        return $this->listCustomDomainsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2602,28 +2607,30 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                                $serviceName
-     * @param string                                $functionName
-     * @param ListFunctionAsyncInvokeConfigsRequest $request
+     * @param string                  $serviceName
+     * @param string                  $functionName
+     * @param ListEventSourcesRequest $request
      *
-     * @return ListFunctionAsyncInvokeConfigsResponse
+     * @return ListEventSourcesResponse
      */
-    public function listFunctionAsyncInvokeConfigs($serviceName, $functionName, $request)
+    public function listEventSources($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListFunctionAsyncInvokeConfigsHeaders([]);
+        $headers = new ListEventSourcesHeaders([]);
 
-        return $this->listFunctionAsyncInvokeConfigsWithOptions($serviceName, $functionName, $request, $headers, $runtime);
+        return $this->listEventSourcesWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
 
     /**
+     * StatefulAsyncInvocation indicates whether the asynchronous task feature is enabled. If StatefulAsyncInvocation is set to true, the asynchronous task is enabled. All asynchronous invocations to the function corresponding to this configuration change to asynchronous task mode.
+     *   *
      * @param string                                $serviceName
      * @param string                                $functionName
-     * @param ListFunctionAsyncInvokeConfigsRequest $request
-     * @param ListFunctionAsyncInvokeConfigsHeaders $headers
-     * @param RuntimeOptions                        $runtime
+     * @param ListFunctionAsyncInvokeConfigsRequest $request      ListFunctionAsyncInvokeConfigsRequest
+     * @param ListFunctionAsyncInvokeConfigsHeaders $headers      ListFunctionAsyncInvokeConfigsHeaders
+     * @param RuntimeOptions                        $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListFunctionAsyncInvokeConfigsResponse
+     * @return ListFunctionAsyncInvokeConfigsResponse ListFunctionAsyncInvokeConfigsResponse
      */
     public function listFunctionAsyncInvokeConfigsWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
@@ -2677,17 +2684,20 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string               $serviceName
-     * @param ListFunctionsRequest $request
+     * StatefulAsyncInvocation indicates whether the asynchronous task feature is enabled. If StatefulAsyncInvocation is set to true, the asynchronous task is enabled. All asynchronous invocations to the function corresponding to this configuration change to asynchronous task mode.
+     *   *
+     * @param string                                $serviceName
+     * @param string                                $functionName
+     * @param ListFunctionAsyncInvokeConfigsRequest $request      ListFunctionAsyncInvokeConfigsRequest
      *
-     * @return ListFunctionsResponse
+     * @return ListFunctionAsyncInvokeConfigsResponse ListFunctionAsyncInvokeConfigsResponse
      */
-    public function listFunctions($serviceName, $request)
+    public function listFunctionAsyncInvokeConfigs($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListFunctionsHeaders([]);
+        $headers = new ListFunctionAsyncInvokeConfigsHeaders([]);
 
-        return $this->listFunctionsWithOptions($serviceName, $request, $headers, $runtime);
+        return $this->listFunctionAsyncInvokeConfigsWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
 
     /**
@@ -2751,27 +2761,29 @@ class FCOpen extends OpenApiClient
 
     /**
      * @param string               $serviceName
-     * @param string               $functionName
-     * @param ListInstancesRequest $request
+     * @param ListFunctionsRequest $request
      *
-     * @return ListInstancesResponse
+     * @return ListFunctionsResponse
      */
-    public function listInstances($serviceName, $functionName, $request)
+    public function listFunctions($serviceName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListInstancesHeaders([]);
+        $headers = new ListFunctionsHeaders([]);
 
-        return $this->listInstancesWithOptions($serviceName, $functionName, $request, $headers, $runtime);
+        return $this->listFunctionsWithOptions($serviceName, $request, $headers, $runtime);
     }
 
     /**
+     * The ListInstances operation allows you to query the available instances of a function.
+     *   * Available instances are instances that are processing requests or can be scheduled to process requests. Available instances queried by the ListInstances operation are the same as those that can be used when you call the InvokeFunction operation with the same values specified for the `serviceName`, `functionName`, and `qualifier` parameters.
+     *   *
      * @param string               $serviceName
      * @param string               $functionName
-     * @param ListInstancesRequest $request
-     * @param ListInstancesHeaders $headers
-     * @param RuntimeOptions       $runtime
+     * @param ListInstancesRequest $request      ListInstancesRequest
+     * @param ListInstancesHeaders $headers      ListInstancesHeaders
+     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstancesWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
@@ -2813,17 +2825,21 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                   $layerName
-     * @param ListLayerVersionsRequest $request
+     * The ListInstances operation allows you to query the available instances of a function.
+     *   * Available instances are instances that are processing requests or can be scheduled to process requests. Available instances queried by the ListInstances operation are the same as those that can be used when you call the InvokeFunction operation with the same values specified for the `serviceName`, `functionName`, and `qualifier` parameters.
+     *   *
+     * @param string               $serviceName
+     * @param string               $functionName
+     * @param ListInstancesRequest $request      ListInstancesRequest
      *
-     * @return ListLayerVersionsResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
-    public function listLayerVersions($layerName, $request)
+    public function listInstances($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListLayerVersionsHeaders([]);
+        $headers = new ListInstancesHeaders([]);
 
-        return $this->listLayerVersionsWithOptions($layerName, $request, $headers, $runtime);
+        return $this->listInstancesWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
 
     /**
@@ -2877,16 +2893,17 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param ListLayersRequest $request
+     * @param string                   $layerName
+     * @param ListLayerVersionsRequest $request
      *
-     * @return ListLayersResponse
+     * @return ListLayerVersionsResponse
      */
-    public function listLayers($request)
+    public function listLayerVersions($layerName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListLayersHeaders([]);
+        $headers = new ListLayerVersionsHeaders([]);
 
-        return $this->listLayersWithOptions($request, $headers, $runtime);
+        return $this->listLayerVersionsWithOptions($layerName, $request, $headers, $runtime);
     }
 
     /**
@@ -2951,16 +2968,16 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param ListOnDemandConfigsRequest $request
+     * @param ListLayersRequest $request
      *
-     * @return ListOnDemandConfigsResponse
+     * @return ListLayersResponse
      */
-    public function listOnDemandConfigs($request)
+    public function listLayers($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListOnDemandConfigsHeaders([]);
+        $headers = new ListLayersHeaders([]);
 
-        return $this->listOnDemandConfigsWithOptions($request, $headers, $runtime);
+        return $this->listLayersWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3019,16 +3036,16 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param ListProvisionConfigsRequest $request
+     * @param ListOnDemandConfigsRequest $request
      *
-     * @return ListProvisionConfigsResponse
+     * @return ListOnDemandConfigsResponse
      */
-    public function listProvisionConfigs($request)
+    public function listOnDemandConfigs($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListProvisionConfigsHeaders([]);
+        $headers = new ListOnDemandConfigsHeaders([]);
 
-        return $this->listProvisionConfigsWithOptions($request, $headers, $runtime);
+        return $this->listOnDemandConfigsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3087,16 +3104,16 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param ListReservedCapacitiesRequest $request
+     * @param ListProvisionConfigsRequest $request
      *
-     * @return ListReservedCapacitiesResponse
+     * @return ListProvisionConfigsResponse
      */
-    public function listReservedCapacities($request)
+    public function listProvisionConfigs($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListReservedCapacitiesHeaders([]);
+        $headers = new ListProvisionConfigsHeaders([]);
 
-        return $this->listReservedCapacitiesWithOptions($request, $headers, $runtime);
+        return $this->listProvisionConfigsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3149,17 +3166,16 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                     $serviceName
-     * @param ListServiceVersionsRequest $request
+     * @param ListReservedCapacitiesRequest $request
      *
-     * @return ListServiceVersionsResponse
+     * @return ListReservedCapacitiesResponse
      */
-    public function listServiceVersions($serviceName, $request)
+    public function listReservedCapacities($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListServiceVersionsHeaders([]);
+        $headers = new ListReservedCapacitiesHeaders([]);
 
-        return $this->listServiceVersionsWithOptions($serviceName, $request, $headers, $runtime);
+        return $this->listReservedCapacitiesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3219,16 +3235,17 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param ListServicesRequest $request
+     * @param string                     $serviceName
+     * @param ListServiceVersionsRequest $request
      *
-     * @return ListServicesResponse
+     * @return ListServiceVersionsResponse
      */
-    public function listServices($request)
+    public function listServiceVersions($serviceName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListServicesHeaders([]);
+        $headers = new ListServiceVersionsHeaders([]);
 
-        return $this->listServicesWithOptions($request, $headers, $runtime);
+        return $this->listServiceVersionsWithOptions($serviceName, $request, $headers, $runtime);
     }
 
     /**
@@ -3287,24 +3304,26 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param ListStatefulAsyncInvocationFunctionsRequest $request
+     * @param ListServicesRequest $request
      *
-     * @return ListStatefulAsyncInvocationFunctionsResponse
+     * @return ListServicesResponse
      */
-    public function listStatefulAsyncInvocationFunctions($request)
+    public function listServices($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListStatefulAsyncInvocationFunctionsHeaders([]);
+        $headers = new ListServicesHeaders([]);
 
-        return $this->listStatefulAsyncInvocationFunctionsWithOptions($request, $headers, $runtime);
+        return $this->listServicesWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param ListStatefulAsyncInvocationFunctionsRequest $request
-     * @param ListStatefulAsyncInvocationFunctionsHeaders $headers
-     * @param RuntimeOptions                              $runtime
+     * StatefulAsyncInvocation: asynchronous task. Asynchronous tasks allow you to manage the states on the basis of common asynchronous invocations, which is more suitable for task scenarios.
+     *   *
+     * @param ListStatefulAsyncInvocationFunctionsRequest $request ListStatefulAsyncInvocationFunctionsRequest
+     * @param ListStatefulAsyncInvocationFunctionsHeaders $headers ListStatefulAsyncInvocationFunctionsHeaders
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListStatefulAsyncInvocationFunctionsResponse
+     * @return ListStatefulAsyncInvocationFunctionsResponse ListStatefulAsyncInvocationFunctionsResponse
      */
     public function listStatefulAsyncInvocationFunctionsWithOptions($request, $headers, $runtime)
     {
@@ -3349,28 +3368,30 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                              $serviceName
-     * @param string                              $functionName
-     * @param ListStatefulAsyncInvocationsRequest $request
+     * StatefulAsyncInvocation: asynchronous task. Asynchronous tasks allow you to manage the states on the basis of common asynchronous invocations, which is more suitable for task scenarios.
+     *   *
+     * @param ListStatefulAsyncInvocationFunctionsRequest $request ListStatefulAsyncInvocationFunctionsRequest
      *
-     * @return ListStatefulAsyncInvocationsResponse
+     * @return ListStatefulAsyncInvocationFunctionsResponse ListStatefulAsyncInvocationFunctionsResponse
      */
-    public function listStatefulAsyncInvocations($serviceName, $functionName, $request)
+    public function listStatefulAsyncInvocationFunctions($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListStatefulAsyncInvocationsHeaders([]);
+        $headers = new ListStatefulAsyncInvocationFunctionsHeaders([]);
 
-        return $this->listStatefulAsyncInvocationsWithOptions($serviceName, $functionName, $request, $headers, $runtime);
+        return $this->listStatefulAsyncInvocationFunctionsWithOptions($request, $headers, $runtime);
     }
 
     /**
+     * StatefulAsyncInvocation: asynchronous task. Asynchronous tasks allow you to manage the states on the basis of common asynchronous invocations, which is more suitable for task scenarios.
+     *   *
      * @param string                              $serviceName
      * @param string                              $functionName
-     * @param ListStatefulAsyncInvocationsRequest $request
-     * @param ListStatefulAsyncInvocationsHeaders $headers
-     * @param RuntimeOptions                      $runtime
+     * @param ListStatefulAsyncInvocationsRequest $request      ListStatefulAsyncInvocationsRequest
+     * @param ListStatefulAsyncInvocationsHeaders $headers      ListStatefulAsyncInvocationsHeaders
+     * @param RuntimeOptions                      $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListStatefulAsyncInvocationsResponse
+     * @return ListStatefulAsyncInvocationsResponse ListStatefulAsyncInvocationsResponse
      */
     public function listStatefulAsyncInvocationsWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
@@ -3445,16 +3466,20 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param ListTaggedResourcesRequest $request
+     * StatefulAsyncInvocation: asynchronous task. Asynchronous tasks allow you to manage the states on the basis of common asynchronous invocations, which is more suitable for task scenarios.
+     *   *
+     * @param string                              $serviceName
+     * @param string                              $functionName
+     * @param ListStatefulAsyncInvocationsRequest $request      ListStatefulAsyncInvocationsRequest
      *
-     * @return ListTaggedResourcesResponse
+     * @return ListStatefulAsyncInvocationsResponse ListStatefulAsyncInvocationsResponse
      */
-    public function listTaggedResources($request)
+    public function listStatefulAsyncInvocations($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListTaggedResourcesHeaders([]);
+        $headers = new ListStatefulAsyncInvocationsHeaders([]);
 
-        return $this->listTaggedResourcesWithOptions($request, $headers, $runtime);
+        return $this->listStatefulAsyncInvocationsWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
 
     /**
@@ -3507,18 +3532,16 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string              $serviceName
-     * @param string              $functionName
-     * @param ListTriggersRequest $request
+     * @param ListTaggedResourcesRequest $request
      *
-     * @return ListTriggersResponse
+     * @return ListTaggedResourcesResponse
      */
-    public function listTriggers($serviceName, $functionName, $request)
+    public function listTaggedResources($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListTriggersHeaders([]);
+        $headers = new ListTaggedResourcesHeaders([]);
 
-        return $this->listTriggersWithOptions($serviceName, $functionName, $request, $headers, $runtime);
+        return $this->listTaggedResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3579,16 +3602,18 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string $serviceName
+     * @param string              $serviceName
+     * @param string              $functionName
+     * @param ListTriggersRequest $request
      *
-     * @return ListVpcBindingsResponse
+     * @return ListTriggersResponse
      */
-    public function listVpcBindings($serviceName)
+    public function listTriggers($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListVpcBindingsHeaders([]);
+        $headers = new ListTriggersHeaders([]);
 
-        return $this->listVpcBindingsWithOptions($serviceName, $headers, $runtime);
+        return $this->listTriggersWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
 
     /**
@@ -3632,17 +3657,16 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                       $serviceName
-     * @param PublishServiceVersionRequest $request
+     * @param string $serviceName
      *
-     * @return PublishServiceVersionResponse
+     * @return ListVpcBindingsResponse
      */
-    public function publishServiceVersion($serviceName, $request)
+    public function listVpcBindings($serviceName)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new PublishServiceVersionHeaders([]);
+        $headers = new ListVpcBindingsHeaders([]);
 
-        return $this->publishServiceVersionWithOptions($serviceName, $request, $headers, $runtime);
+        return $this->listVpcBindingsWithOptions($serviceName, $headers, $runtime);
     }
 
     /**
@@ -3696,28 +3720,29 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                              $serviceName
-     * @param string                              $functionName
-     * @param PutFunctionAsyncInvokeConfigRequest $request
+     * @param string                       $serviceName
+     * @param PublishServiceVersionRequest $request
      *
-     * @return PutFunctionAsyncInvokeConfigResponse
+     * @return PublishServiceVersionResponse
      */
-    public function putFunctionAsyncInvokeConfig($serviceName, $functionName, $request)
+    public function publishServiceVersion($serviceName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new PutFunctionAsyncInvokeConfigHeaders([]);
+        $headers = new PublishServiceVersionHeaders([]);
 
-        return $this->putFunctionAsyncInvokeConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime);
+        return $this->publishServiceVersionWithOptions($serviceName, $request, $headers, $runtime);
     }
 
     /**
+     * StatefulAsyncInvocation specifies the configurations of the asynchronous task. Asynchronous tasks allow you to manage the states on the basis of common asynchronous invocations, which is more suitable for task scenarios.
+     *   *
      * @param string                              $serviceName
      * @param string                              $functionName
-     * @param PutFunctionAsyncInvokeConfigRequest $request
-     * @param PutFunctionAsyncInvokeConfigHeaders $headers
-     * @param RuntimeOptions                      $runtime
+     * @param PutFunctionAsyncInvokeConfigRequest $request      PutFunctionAsyncInvokeConfigRequest
+     * @param PutFunctionAsyncInvokeConfigHeaders $headers      PutFunctionAsyncInvokeConfigHeaders
+     * @param RuntimeOptions                      $runtime      runtime options for this request RuntimeOptions
      *
-     * @return PutFunctionAsyncInvokeConfigResponse
+     * @return PutFunctionAsyncInvokeConfigResponse PutFunctionAsyncInvokeConfigResponse
      */
     public function putFunctionAsyncInvokeConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
@@ -3773,18 +3798,20 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                           $serviceName
-     * @param string                           $functionName
-     * @param PutFunctionOnDemandConfigRequest $request
+     * StatefulAsyncInvocation specifies the configurations of the asynchronous task. Asynchronous tasks allow you to manage the states on the basis of common asynchronous invocations, which is more suitable for task scenarios.
+     *   *
+     * @param string                              $serviceName
+     * @param string                              $functionName
+     * @param PutFunctionAsyncInvokeConfigRequest $request      PutFunctionAsyncInvokeConfigRequest
      *
-     * @return PutFunctionOnDemandConfigResponse
+     * @return PutFunctionAsyncInvokeConfigResponse PutFunctionAsyncInvokeConfigResponse
      */
-    public function putFunctionOnDemandConfig($serviceName, $functionName, $request)
+    public function putFunctionAsyncInvokeConfig($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new PutFunctionOnDemandConfigHeaders([]);
+        $headers = new PutFunctionAsyncInvokeConfigHeaders([]);
 
-        return $this->putFunctionOnDemandConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime);
+        return $this->putFunctionAsyncInvokeConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
 
     /**
@@ -3844,17 +3871,18 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string             $layerName
-     * @param PutLayerACLRequest $request
+     * @param string                           $serviceName
+     * @param string                           $functionName
+     * @param PutFunctionOnDemandConfigRequest $request
      *
-     * @return PutLayerACLResponse
+     * @return PutFunctionOnDemandConfigResponse
      */
-    public function putLayerACL($layerName, $request)
+    public function putFunctionOnDemandConfig($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new PutLayerACLHeaders([]);
+        $headers = new PutFunctionOnDemandConfigHeaders([]);
 
-        return $this->putLayerACLWithOptions($layerName, $request, $headers, $runtime);
+        return $this->putFunctionOnDemandConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
 
     /**
@@ -3905,18 +3933,17 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                    $serviceName
-     * @param string                    $functionName
-     * @param PutProvisionConfigRequest $request
+     * @param string             $layerName
+     * @param PutLayerACLRequest $request
      *
-     * @return PutProvisionConfigResponse
+     * @return PutLayerACLResponse
      */
-    public function putProvisionConfig($serviceName, $functionName, $request)
+    public function putLayerACL($layerName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new PutProvisionConfigHeaders([]);
+        $headers = new PutLayerACLHeaders([]);
 
-        return $this->putProvisionConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime);
+        return $this->putLayerACLWithOptions($layerName, $request, $headers, $runtime);
     }
 
     /**
@@ -3982,18 +4009,18 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                     $serviceName
-     * @param string                     $functionName
-     * @param RegisterEventSourceRequest $request
+     * @param string                    $serviceName
+     * @param string                    $functionName
+     * @param PutProvisionConfigRequest $request
      *
-     * @return RegisterEventSourceResponse
+     * @return PutProvisionConfigResponse
      */
-    public function registerEventSource($serviceName, $functionName, $request)
+    public function putProvisionConfig($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new RegisterEventSourceHeaders([]);
+        $headers = new PutProvisionConfigHeaders([]);
 
-        return $this->registerEventSourceWithOptions($serviceName, $functionName, $request, $headers, $runtime);
+        return $this->putProvisionConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
 
     /**
@@ -4050,16 +4077,18 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string $instanceId
+     * @param string                     $serviceName
+     * @param string                     $functionName
+     * @param RegisterEventSourceRequest $request
      *
-     * @return ReleaseGPUInstanceResponse
+     * @return RegisterEventSourceResponse
      */
-    public function releaseGPUInstance($instanceId)
+    public function registerEventSource($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ReleaseGPUInstanceHeaders([]);
+        $headers = new RegisterEventSourceHeaders([]);
 
-        return $this->releaseGPUInstanceWithOptions($instanceId, $headers, $runtime);
+        return $this->registerEventSourceWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
 
     /**
@@ -4103,30 +4132,29 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                             $serviceName
-     * @param string                             $functionName
-     * @param string                             $invocationId
-     * @param StopStatefulAsyncInvocationRequest $request
+     * @param string $instanceId
      *
-     * @return StopStatefulAsyncInvocationResponse
+     * @return ReleaseGPUInstanceResponse
      */
-    public function stopStatefulAsyncInvocation($serviceName, $functionName, $invocationId, $request)
+    public function releaseGPUInstance($instanceId)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new StopStatefulAsyncInvocationHeaders([]);
+        $headers = new ReleaseGPUInstanceHeaders([]);
 
-        return $this->stopStatefulAsyncInvocationWithOptions($serviceName, $functionName, $invocationId, $request, $headers, $runtime);
+        return $this->releaseGPUInstanceWithOptions($instanceId, $headers, $runtime);
     }
 
     /**
+     * StatefulAsyncInvocation: asynchronous task. Asynchronous tasks allow you to manage the states on the basis of common asynchronous invocations, which is more suitable for task scenarios.
+     *   *
      * @param string                             $serviceName
      * @param string                             $functionName
      * @param string                             $invocationId
-     * @param StopStatefulAsyncInvocationRequest $request
-     * @param StopStatefulAsyncInvocationHeaders $headers
-     * @param RuntimeOptions                     $runtime
+     * @param StopStatefulAsyncInvocationRequest $request      StopStatefulAsyncInvocationRequest
+     * @param StopStatefulAsyncInvocationHeaders $headers      StopStatefulAsyncInvocationHeaders
+     * @param RuntimeOptions                     $runtime      runtime options for this request RuntimeOptions
      *
-     * @return StopStatefulAsyncInvocationResponse
+     * @return StopStatefulAsyncInvocationResponse StopStatefulAsyncInvocationResponse
      */
     public function stopStatefulAsyncInvocationWithOptions($serviceName, $functionName, $invocationId, $request, $headers, $runtime)
     {
@@ -4168,16 +4196,21 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param TagResourceRequest $request
+     * StatefulAsyncInvocation: asynchronous task. Asynchronous tasks allow you to manage the states on the basis of common asynchronous invocations, which is more suitable for task scenarios.
+     *   *
+     * @param string                             $serviceName
+     * @param string                             $functionName
+     * @param string                             $invocationId
+     * @param StopStatefulAsyncInvocationRequest $request      StopStatefulAsyncInvocationRequest
      *
-     * @return TagResourceResponse
+     * @return StopStatefulAsyncInvocationResponse StopStatefulAsyncInvocationResponse
      */
-    public function tagResource($request)
+    public function stopStatefulAsyncInvocation($serviceName, $functionName, $invocationId, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new TagResourceHeaders([]);
+        $headers = new StopStatefulAsyncInvocationHeaders([]);
 
-        return $this->tagResourceWithOptions($request, $headers, $runtime);
+        return $this->stopStatefulAsyncInvocationWithOptions($serviceName, $functionName, $invocationId, $request, $headers, $runtime);
     }
 
     /**
@@ -4230,16 +4263,16 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param UntagResourceRequest $request
+     * @param TagResourceRequest $request
      *
-     * @return UntagResourceResponse
+     * @return TagResourceResponse
      */
-    public function untagResource($request)
+    public function tagResource($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new UntagResourceHeaders([]);
+        $headers = new TagResourceHeaders([]);
 
-        return $this->untagResourceWithOptions($request, $headers, $runtime);
+        return $this->tagResourceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4295,18 +4328,16 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string             $serviceName
-     * @param string             $aliasName
-     * @param UpdateAliasRequest $request
+     * @param UntagResourceRequest $request
      *
-     * @return UpdateAliasResponse
+     * @return UntagResourceResponse
      */
-    public function updateAlias($serviceName, $aliasName, $request)
+    public function untagResource($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new UpdateAliasHeaders([]);
+        $headers = new UntagResourceHeaders([]);
 
-        return $this->updateAliasWithOptions($serviceName, $aliasName, $request, $headers, $runtime);
+        return $this->untagResourceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4373,17 +4404,18 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                    $domainName
-     * @param UpdateCustomDomainRequest $request
+     * @param string             $serviceName
+     * @param string             $aliasName
+     * @param UpdateAliasRequest $request
      *
-     * @return UpdateCustomDomainResponse
+     * @return UpdateAliasResponse
      */
-    public function updateCustomDomain($domainName, $request)
+    public function updateAlias($serviceName, $aliasName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new UpdateCustomDomainHeaders([]);
+        $headers = new UpdateAliasHeaders([]);
 
-        return $this->updateCustomDomainWithOptions($domainName, $request, $headers, $runtime);
+        return $this->updateAliasWithOptions($serviceName, $aliasName, $request, $headers, $runtime);
     }
 
     /**
@@ -4443,18 +4475,17 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string                $serviceName
-     * @param string                $functionName
-     * @param UpdateFunctionRequest $request
+     * @param string                    $domainName
+     * @param UpdateCustomDomainRequest $request
      *
-     * @return UpdateFunctionResponse
+     * @return UpdateCustomDomainResponse
      */
-    public function updateFunction($serviceName, $functionName, $request)
+    public function updateCustomDomain($domainName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new UpdateFunctionHeaders([]);
+        $headers = new UpdateCustomDomainHeaders([]);
 
-        return $this->updateFunctionWithOptions($serviceName, $functionName, $request, $headers, $runtime);
+        return $this->updateCustomDomainWithOptions($domainName, $request, $headers, $runtime);
     }
 
     /**
@@ -4572,17 +4603,18 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * @param string               $serviceName
-     * @param UpdateServiceRequest $request
+     * @param string                $serviceName
+     * @param string                $functionName
+     * @param UpdateFunctionRequest $request
      *
-     * @return UpdateServiceResponse
+     * @return UpdateFunctionResponse
      */
-    public function updateService($serviceName, $request)
+    public function updateFunction($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new UpdateServiceHeaders([]);
+        $headers = new UpdateFunctionHeaders([]);
 
-        return $this->updateServiceWithOptions($serviceName, $request, $headers, $runtime);
+        return $this->updateFunctionWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
 
     /**
@@ -4658,18 +4690,16 @@ class FCOpen extends OpenApiClient
 
     /**
      * @param string               $serviceName
-     * @param string               $functionName
-     * @param string               $triggerName
-     * @param UpdateTriggerRequest $request
+     * @param UpdateServiceRequest $request
      *
-     * @return UpdateTriggerResponse
+     * @return UpdateServiceResponse
      */
-    public function updateTrigger($serviceName, $functionName, $triggerName, $request)
+    public function updateService($serviceName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new UpdateTriggerHeaders([]);
+        $headers = new UpdateServiceHeaders([]);
 
-        return $this->updateTriggerWithOptions($serviceName, $functionName, $triggerName, $request, $headers, $runtime);
+        return $this->updateServiceWithOptions($serviceName, $request, $headers, $runtime);
     }
 
     /**
@@ -4731,5 +4761,21 @@ class FCOpen extends OpenApiClient
         ]);
 
         return UpdateTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string               $serviceName
+     * @param string               $functionName
+     * @param string               $triggerName
+     * @param UpdateTriggerRequest $request
+     *
+     * @return UpdateTriggerResponse
+     */
+    public function updateTrigger($serviceName, $functionName, $triggerName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateTriggerHeaders([]);
+
+        return $this->updateTriggerWithOptions($serviceName, $functionName, $triggerName, $request, $headers, $runtime);
     }
 }

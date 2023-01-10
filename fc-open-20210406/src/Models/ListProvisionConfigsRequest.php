@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ListProvisionConfigsRequest extends Model
 {
     /**
+     * @description The maximum number of resources to return. Default value: 20. Maximum value: 100. The number of returned resources is less than or equal to the specified number.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @description The token used to obtain more results. You do not need to provide this parameter in the first call. The tokens for subsequent queries are obtained from the returned results.
+     *
+     * @example demoNextToken
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The qualifier of the service to which resources belong. The qualifier must be aliasName and used together with the serviceName parameter.
+     *
+     * @example prod
+     *
      * @var string
      */
     public $qualifier;
 
     /**
+     * @description The name of the service to which resources belong.
+     *
+     * @example serviceName
+     *
      * @var string
      */
     public $serviceName;

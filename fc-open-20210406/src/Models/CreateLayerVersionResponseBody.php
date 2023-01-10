@@ -9,51 +9,87 @@ use AlibabaCloud\Tea\Model;
 class CreateLayerVersionResponseBody extends Model
 {
     /**
+     * @description The access mode of the layer.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $acl;
 
     /**
+     * @description The name of the layer.
+     *
+     * @example xxxxxxxx#Layer-name#1
+     *
      * @var string
      */
     public $arn;
 
     /**
+     * @description The information about the layer code package.
+     *
      * @var OutputCodeLocation
      */
     public $code;
 
     /**
+     * @description The checksum of the layer code package.
+     *
+     * @example 2825179536350****
+     *
      * @var string
      */
     public $codeChecksum;
 
     /**
+     * @description The size of the layer code package. Unit: Byte.
+     *
+     * @example 421
+     *
      * @var int
      */
     public $codesize;
 
     /**
+     * @description The list of runtime environments that are supported by the layer.
+     *
      * @var string[]
      */
     public $compatibleRuntime;
 
     /**
+     * @description The time when the layer version was created. The time follows the **yyyy-MM-ddTHH:mm:ssZ** format.
+     *
+     * @example 2022-01-01T11:08:00Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The description of the layer version.
+     *
+     * @example the first layer
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the layer.
+     *
+     * @example MyLayer
+     *
      * @var string
      */
     public $layerName;
 
     /**
+     * @description The version of the layer.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $version;

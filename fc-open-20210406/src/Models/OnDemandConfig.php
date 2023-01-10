@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class OnDemandConfig extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maximumInstanceCount;
 
     /**
+     * @example services/serviceName/function/functionName
+     *
      * @var string
      */
     public $resource;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class PolicyItem extends Model
 {
     /**
+     * @example x-test-uid
+     *
      * @var int[]
      */
     public $key;
 
     /**
+     * @example =
+     *
      * @var int[]
      */
     public $operator;
 
     /**
+     * @example Header
+     *
      * @var int[]
      */
     public $type;
 
     /**
+     * @example 11111
+     *
      * @var int[]
      */
     public $value;

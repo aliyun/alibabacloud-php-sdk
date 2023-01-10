@@ -9,26 +9,42 @@ use AlibabaCloud\Tea\Model;
 class mountPoints extends Model
 {
     /**
+     * @example my-bucket
+     *
      * @var string
      */
     public $bucketName;
 
     /**
+     * @example /my-dir
+     *
+     * @var string
+     */
+    public $bucketPath;
+
+    /**
+     * @example http://oss-cn-shanghai.aliyuncs.com
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @example /mnt/dir
+     *
      * @var string
      */
     public $mountDir;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $readOnly;
     protected $_name = [
         'bucketName' => 'bucketName',
+        'bucketPath' => 'bucketPath',
         'endpoint'   => 'endpoint',
         'mountDir'   => 'mountDir',
         'readOnly'   => 'readOnly',
@@ -43,6 +59,9 @@ class mountPoints extends Model
         $res = [];
         if (null !== $this->bucketName) {
             $res['bucketName'] = $this->bucketName;
+        }
+        if (null !== $this->bucketPath) {
+            $res['bucketPath'] = $this->bucketPath;
         }
         if (null !== $this->endpoint) {
             $res['endpoint'] = $this->endpoint;
@@ -67,6 +86,9 @@ class mountPoints extends Model
         $model = new self();
         if (isset($map['bucketName'])) {
             $model->bucketName = $map['bucketName'];
+        }
+        if (isset($map['bucketPath'])) {
+            $model->bucketPath = $map['bucketPath'];
         }
         if (isset($map['endpoint'])) {
             $model->endpoint = $map['endpoint'];

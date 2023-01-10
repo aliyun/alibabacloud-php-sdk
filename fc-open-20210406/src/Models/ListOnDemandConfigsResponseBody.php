@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListOnDemandConfigsResponseBody extends Model
 {
     /**
+     * @description The information about the provisioned configuration.
+     *
      * @var OnDemandConfig[]
      */
     public $configs;
 
     /**
+     * @description The token used to obtain more results. If this parameter is left empty, all the results are returned.
+     *
+     * @example next_token
+     *
      * @var string
      */
     public $nextToken;

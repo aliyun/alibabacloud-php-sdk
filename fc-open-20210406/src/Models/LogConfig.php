@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class LogConfig extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableInstanceMetrics;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableRequestMetrics;
 
     /**
+     * @example DefaultRegex
+     *
      * @var string
      */
     public $logBeginRule;
 
     /**
+     * @example test-prj
+     *
      * @var string
      */
     public $logstore;
 
     /**
+     * @example test-logstore
+     *
      * @var string
      */
     public $project;

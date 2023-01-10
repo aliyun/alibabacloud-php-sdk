@@ -11,16 +11,22 @@ class ClaimGPUInstanceHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @example 188077086902****
+     *
      * @var string
      */
     public $xFcAccountId;
 
     /**
+     * @example Sat, 14 Jul 2017 07:02:38 GMT
+     *
      * @var string
      */
     public $xFcDate;
 
     /**
+     * @example test-trace-id
+     *
      * @var string
      */
     public $xFcTraceId;

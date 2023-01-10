@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetStatefulAsyncInvocationRequest extends Model
 {
     /**
+     * @description The version or alias of the service to which the asynchronous task belongs.
+     *
+     * @example LATEST
+     *
      * @var string
      */
     public $qualifier;

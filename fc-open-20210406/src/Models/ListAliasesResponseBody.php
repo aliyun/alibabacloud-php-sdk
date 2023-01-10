@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListAliasesResponseBody extends Model
 {
     /**
+     * @description The list of aliases.
+     *
      * @var aliases[]
      */
     public $aliases;
 
     /**
+     * @description The token used to obtain more results.
+     *
+     * @example 8bj81uI8n****
+     *
      * @var string
      */
     public $nextToken;
