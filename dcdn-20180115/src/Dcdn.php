@@ -7210,9 +7210,11 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * You can call this operation up to 20 times per second per account.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnWafSpecInfoResponse
+     * @return DescribeDcdnWafSpecInfoResponse DescribeDcdnWafSpecInfoResponse
      */
     public function describeDcdnWafSpecInfoWithOptions($runtime)
     {
@@ -7233,7 +7235,9 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @return DescribeDcdnWafSpecInfoResponse
+     * You can call this operation up to 20 times per second per account.
+     *   *
+     * @return DescribeDcdnWafSpecInfoResponse DescribeDcdnWafSpecInfoResponse
      */
     public function describeDcdnWafSpecInfo()
     {
@@ -8925,10 +8929,12 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param UntagDcdnResourcesRequest $request
-     * @param RuntimeOptions            $runtime
+     * >  You can call this API operation up to 100 times per second per account.
+     *   *
+     * @param UntagDcdnResourcesRequest $request UntagDcdnResourcesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagDcdnResourcesResponse
+     * @return UntagDcdnResourcesResponse UntagDcdnResourcesResponse
      */
     public function untagDcdnResourcesWithOptions($request, $runtime)
     {
@@ -8965,9 +8971,11 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param UntagDcdnResourcesRequest $request
+     * >  You can call this API operation up to 100 times per second per account.
+     *   *
+     * @param UntagDcdnResourcesRequest $request UntagDcdnResourcesRequest
      *
-     * @return UntagDcdnResourcesResponse
+     * @return UntagDcdnResourcesResponse UntagDcdnResourcesResponse
      */
     public function untagDcdnResources($request)
     {

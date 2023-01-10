@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class UntagDcdnResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to delete all tags. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * Default value: **false**.
      * @example false
      *
      * @var bool
@@ -16,6 +22,8 @@ class UntagDcdnResourcesRequest extends Model
     public $all;
 
     /**
+     * @description The ID of the resource. Valid values of N: **1** to **50**.
+     *
      * @example example.com
      *
      * @var string[]
@@ -23,6 +31,8 @@ class UntagDcdnResourcesRequest extends Model
     public $resourceId;
 
     /**
+     * @description The type of the resources from which you want to detach tags. The resource type. Set this value to **DOMAIN**.
+     *
      * @example DOMAIN
      *
      * @var string
@@ -30,6 +40,8 @@ class UntagDcdnResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The key of a tag. Valid values of N: **1** to **20**.
+     *
      * @example env
      *
      * @var string[]

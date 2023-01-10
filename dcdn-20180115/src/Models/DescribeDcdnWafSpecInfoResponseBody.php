@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafSpecInfoResponseBody extends Model
 {
     /**
+     * @description The version of WAF.
+     *
      * @example dcdnwaf_afterpay
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeDcdnWafSpecInfoResponseBody extends Model
     public $edition;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 7281593a-f414-42c1-b7ba-2ce65e21cc00
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeDcdnWafSpecInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The supported types of protection policies and the configuration information of protection rules.
+     *
      * @var specInfos[]
      */
     public $specInfos;

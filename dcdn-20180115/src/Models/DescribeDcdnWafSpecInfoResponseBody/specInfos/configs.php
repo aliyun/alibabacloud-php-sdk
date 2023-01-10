@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class configs extends Model
 {
     /**
+     * @description The configuration code of the protection rule.
+     *
      * @example enable
      *
      * @var string
@@ -16,6 +18,8 @@ class configs extends Model
     public $config;
 
     /**
+     * @description The configuration expression of the protection rule.
+     *
      * @example equal
      *
      * @var string
@@ -23,6 +27,8 @@ class configs extends Model
     public $expr;
 
     /**
+     * @description The value of the configuration expression of the protection rule.
+     *
      * @example on
      *
      * @var string

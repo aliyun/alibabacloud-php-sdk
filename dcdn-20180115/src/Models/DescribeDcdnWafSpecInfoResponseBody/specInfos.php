@@ -10,11 +10,22 @@ use AlibabaCloud\Tea\Model;
 class specInfos extends Model
 {
     /**
+     * @description The configuration information of the protection rule.
+     *
      * @var configs[]
      */
     public $configs;
 
     /**
+     * @description The type of the protection policy. Valid values:
+     *
+     *   waf_group: basic web protection
+     *   custom_acl: custom protection
+     *   whitelist: IP address whitelist
+     *   ip_blacklist: IP address blacklist
+     *   region_block: region blacklist
+     *   bot: bot management
+     *
      * @example custom_acl
      *
      * @var string
