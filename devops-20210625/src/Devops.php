@@ -97,6 +97,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\GetBranchInfoRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetBranchInfoResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetCodeupOrganizationRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetCodeupOrganizationResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetCompareDetailRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetCompareDetailResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetCustomFieldOptionRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetCustomFieldOptionResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetFileBlobsRequest;
@@ -126,6 +128,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\GetRepositoryRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetRepositoryResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetRepositoryTagRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetRepositoryTagResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetSearchCodePreviewRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetSearchCodePreviewResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetSprintInfoResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetUserInfoRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetUserInfoResponse;
@@ -196,6 +200,12 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryTreeResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryWebhookRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryWebhookResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListResourceMembersResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListSearchCommitRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListSearchCommitResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListSearchRepositoryRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListSearchRepositoryResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListSearchSourceCodeRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListSearchSourceCodeResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListServiceConnectionsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListServiceConnectionsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListSprintsRequest;
@@ -248,6 +258,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProjectMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProjectMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProtectedBranchesRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProtectedBranchesResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePushReviewOnOffRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePushReviewOnOffResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateRepositoryMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateRepositoryMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateRepositoryRequest;
@@ -3138,6 +3150,69 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string                  $repositoryId
+     * @param GetCompareDetailRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetCompareDetailResponse
+     */
+    public function getCompareDetailWithOptions($repositoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->from)) {
+            $query['from'] = $request->from;
+        }
+        if (!Utils::isUnset($request->maxDiffByte)) {
+            $query['maxDiffByte'] = $request->maxDiffByte;
+        }
+        if (!Utils::isUnset($request->maxDiffFile)) {
+            $query['maxDiffFile'] = $request->maxDiffFile;
+        }
+        if (!Utils::isUnset($request->mergeBase)) {
+            $query['mergeBase'] = $request->mergeBase;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->to)) {
+            $query['to'] = $request->to;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCompareDetail',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/commits/compare/detail',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCompareDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                  $repositoryId
+     * @param GetCompareDetailRequest $request
+     *
+     * @return GetCompareDetailResponse
+     */
+    public function getCompareDetail($repositoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getCompareDetailWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
      * @param string                      $organizationId
      * @param string                      $fieldId
      * @param GetCustomFieldOptionRequest $request
@@ -4032,6 +4107,61 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->getRepositoryTagWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetSearchCodePreviewRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetSearchCodePreviewResponse
+     */
+    public function getSearchCodePreviewWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->docId)) {
+            $query['docId'] = $request->docId;
+        }
+        if (!Utils::isUnset($request->isDsl)) {
+            $query['isDsl'] = $request->isDsl;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSearchCodePreview',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/search/code_preview',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSearchCodePreviewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetSearchCodePreviewRequest $request
+     *
+     * @return GetSearchCodePreviewResponse
+     */
+    public function getSearchCodePreview($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getSearchCodePreviewWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6202,6 +6332,228 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param ListSearchCommitRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListSearchCommitResponse
+     */
+    public function listSearchCommitWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->keyword)) {
+            $body['keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $body['order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $body['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->repoPath)) {
+            $body['repoPath'] = $request->repoPath;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $body['scope'] = $request->scope;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $body['sort'] = $request->sort;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSearchCommit',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/search/commit',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSearchCommitResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSearchCommitRequest $request
+     *
+     * @return ListSearchCommitResponse
+     */
+    public function listSearchCommit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSearchCommitWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListSearchRepositoryRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListSearchRepositoryResponse
+     */
+    public function listSearchRepositoryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->aliyunPk)) {
+            $body['aliyunPk'] = $request->aliyunPk;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $body['keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $body['order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $body['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->repoPath)) {
+            $body['repoPath'] = $request->repoPath;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $body['scope'] = $request->scope;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $body['sort'] = $request->sort;
+        }
+        if (!Utils::isUnset($request->visibilityLevel)) {
+            $body['visibilityLevel'] = $request->visibilityLevel;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSearchRepository',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/search/repo',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSearchRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSearchRepositoryRequest $request
+     *
+     * @return ListSearchRepositoryResponse
+     */
+    public function listSearchRepository($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSearchRepositoryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListSearchSourceCodeRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListSearchSourceCodeResponse
+     */
+    public function listSearchSourceCodeWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->filePath)) {
+            $body['filePath'] = $request->filePath;
+        }
+        if (!Utils::isUnset($request->isCodeBlock)) {
+            $body['isCodeBlock'] = $request->isCodeBlock;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $body['keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $body['language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $body['order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $body['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->repoPath)) {
+            $body['repoPath'] = $request->repoPath;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $body['scope'] = $request->scope;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $body['sort'] = $request->sort;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSearchSourceCode',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/search/code',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSearchSourceCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSearchSourceCodeRequest $request
+     *
+     * @return ListSearchSourceCodeResponse
+     */
+    public function listSearchSourceCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSearchSourceCodeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param string                        $organizationId
      * @param ListServiceConnectionsRequest $request
      * @param string[]                      $headers
@@ -7948,6 +8300,57 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->updateProtectedBranchesWithOptions($repositoryId, $id, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                       $repositoryId
+     * @param UpdatePushReviewOnOffRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdatePushReviewOnOffResponse
+     */
+    public function updatePushReviewOnOffWithOptions($repositoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->trunkMode)) {
+            $query['trunkMode'] = $request->trunkMode;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePushReviewOnOff',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/settings/trunk_mode',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdatePushReviewOnOffResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                       $repositoryId
+     * @param UpdatePushReviewOnOffRequest $request
+     *
+     * @return UpdatePushReviewOnOffResponse
+     */
+    public function updatePushReviewOnOff($repositoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updatePushReviewOnOffWithOptions($repositoryId, $request, $headers, $runtime);
     }
 
     /**
