@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetProductInfoByIdsResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
@@ -20,16 +22,22 @@ class GetProductInfoByIdsResponseBody extends Model
     public $data;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example B3137727-7D6E-488C-BA21-0E034C38A879
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

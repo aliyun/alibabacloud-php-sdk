@@ -15,6 +15,8 @@ class mainRegion extends Model
     public $multiCategoryId;
 
     /**
+     * @example 280,486,232,351
+     *
      * @var string
      */
     public $region;

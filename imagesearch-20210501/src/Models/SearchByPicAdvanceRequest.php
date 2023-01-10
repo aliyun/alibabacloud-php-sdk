@@ -10,60 +10,80 @@ use GuzzleHttp\Psr7\Stream;
 class SearchByPicAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $picContentObject;
-
-    /**
+     * @example 88888888
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $crop;
 
     /**
+     * @example Url,UserType
+     *
      * @var string
      */
     public $fields;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $num;
 
     /**
+     * @example xxx
+     *
+     * @var Stream
+     */
+    public $picContentObject;
+
+    /**
+     * @example mm_xxx_xxx_xxx
+     *
      * @var string
      */
     public $pid;
 
     /**
+     * @example 280,486,232,351
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example 1125526
+     *
      * @var int
      */
     public $relationId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $start;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $userType;
     protected $_name = [
-        'picContentObject' => 'PicContentObject',
         'categoryId'       => 'CategoryId',
         'crop'             => 'Crop',
         'fields'           => 'Fields',
         'num'              => 'Num',
+        'picContentObject' => 'PicContent',
         'pid'              => 'Pid',
         'region'           => 'Region',
         'relationId'       => 'RelationId',
@@ -73,15 +93,11 @@ class SearchByPicAdvanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('picContentObject', $this->picContentObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->picContentObject) {
-            $res['PicContentObject'] = $this->picContentObject;
-        }
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
@@ -93,6 +109,9 @@ class SearchByPicAdvanceRequest extends Model
         }
         if (null !== $this->num) {
             $res['Num'] = $this->num;
+        }
+        if (null !== $this->picContentObject) {
+            $res['PicContent'] = $this->picContentObject;
         }
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
@@ -121,9 +140,6 @@ class SearchByPicAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PicContentObject'])) {
-            $model->picContentObject = $map['PicContentObject'];
-        }
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
@@ -135,6 +151,9 @@ class SearchByPicAdvanceRequest extends Model
         }
         if (isset($map['Num'])) {
             $model->num = $map['Num'];
+        }
+        if (isset($map['PicContent'])) {
+            $model->picContentObject = $map['PicContent'];
         }
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];

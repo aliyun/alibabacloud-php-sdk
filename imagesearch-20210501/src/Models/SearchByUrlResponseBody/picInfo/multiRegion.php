@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class multiRegion extends Model
 {
     /**
+     * @example 280,486,232,351
+     *
      * @var string
      */
     public $region;

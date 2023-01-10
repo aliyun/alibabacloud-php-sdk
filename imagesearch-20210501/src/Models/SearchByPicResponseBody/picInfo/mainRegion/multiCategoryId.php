@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class multiCategoryId extends Model
 {
     /**
+     * @example 88888888
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @example 0.34
+     *
      * @var float
      */
     public $score;

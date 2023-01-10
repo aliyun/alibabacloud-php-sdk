@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class auctions extends Model
 {
     /**
+     * @example 0.34
+     *
      * @var float
      */
     public $rankScore;

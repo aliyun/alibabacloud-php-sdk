@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class SearchByUrlResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
@@ -21,6 +23,8 @@ class SearchByUrlResponseBody extends Model
     public $data;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
@@ -31,11 +35,15 @@ class SearchByUrlResponseBody extends Model
     public $picInfo;
 
     /**
+     * @example B3137727-7D6E-488C-BA21-0E034C38A879
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class SearchByUrlRequest extends Model
 {
     /**
+     * @example 88888888
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $crop;
 
     /**
+     * @example Url,UserType
+     *
      * @var string
      */
     public $fields;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $num;
 
     /**
+     * @example https://oss-test.oss-cn-shanghai.aliyuncs.com/xxxx.jpg
+     *
      * @var string
      */
     public $picUrl;
 
     /**
+     * @example mm_xxx_xxx_xxx
+     *
      * @var string
      */
     public $pid;
 
     /**
+     * @example 280,486,232,351
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example 1125526
+     *
      * @var int
      */
     public $relationId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $start;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $userType;

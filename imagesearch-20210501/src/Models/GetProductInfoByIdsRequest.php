@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetProductInfoByIdsRequest extends Model
 {
     /**
+     * @example Url,UserType
+     *
      * @var string
      */
     public $fields;
 
     /**
+     * @example 111,22,33
+     *
      * @var string
      */
     public $itemIds;
 
     /**
+     * @example mm_xxx_xxx_xxx
+     *
      * @var string
      */
     public $pid;

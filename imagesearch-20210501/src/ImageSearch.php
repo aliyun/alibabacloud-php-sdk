@@ -20,9 +20,9 @@ use AlibabaCloud\SDK\OSS\OSS;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
-use AlibabaCloud\Tea\Rpc\Rpc\Config;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -69,8 +69,18 @@ class ImageSearch extends OpenApiClient
     public function getProductInfoByIdsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->fields)) {
+            $body['Fields'] = $request->fields;
+        }
+        if (!Utils::isUnset($request->itemIds)) {
+            $body['ItemIds'] = $request->itemIds;
+        }
+        if (!Utils::isUnset($request->pid)) {
+            $body['Pid'] = $request->pid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetProductInfoByIds',
@@ -108,11 +118,41 @@ class ImageSearch extends OpenApiClient
     public function searchByPicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['UserType'] = $request->userType;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->userType)) {
+            $query['UserType'] = $request->userType;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->categoryId)) {
+            $body['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->crop)) {
+            $body['Crop'] = $request->crop;
+        }
+        if (!Utils::isUnset($request->fields)) {
+            $body['Fields'] = $request->fields;
+        }
+        if (!Utils::isUnset($request->num)) {
+            $body['Num'] = $request->num;
+        }
+        if (!Utils::isUnset($request->picContent)) {
+            $body['PicContent'] = $request->picContent;
+        }
+        if (!Utils::isUnset($request->pid)) {
+            $body['Pid'] = $request->pid;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $body['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->relationId)) {
+            $body['RelationId'] = $request->relationId;
+        }
+        if (!Utils::isUnset($request->start)) {
+            $body['Start'] = $request->start;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SearchByPic',
@@ -192,28 +232,28 @@ class ImageSearch extends OpenApiClient
         OpenApiUtilClient::convert($request, $searchByPicReq);
         if (!Utils::isUnset($request->picContentObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->picContentObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $searchByPicReq->picContent = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $searchByPicReq->picContent = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->searchByPicWithOptions($searchByPicReq, $runtime);
@@ -228,11 +268,41 @@ class ImageSearch extends OpenApiClient
     public function searchByUrlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['UserType'] = $request->userType;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->userType)) {
+            $query['UserType'] = $request->userType;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->categoryId)) {
+            $body['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->crop)) {
+            $body['Crop'] = $request->crop;
+        }
+        if (!Utils::isUnset($request->fields)) {
+            $body['Fields'] = $request->fields;
+        }
+        if (!Utils::isUnset($request->num)) {
+            $body['Num'] = $request->num;
+        }
+        if (!Utils::isUnset($request->picUrl)) {
+            $body['PicUrl'] = $request->picUrl;
+        }
+        if (!Utils::isUnset($request->pid)) {
+            $body['Pid'] = $request->pid;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $body['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->relationId)) {
+            $body['RelationId'] = $request->relationId;
+        }
+        if (!Utils::isUnset($request->start)) {
+            $body['Start'] = $request->start;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SearchByUrl',

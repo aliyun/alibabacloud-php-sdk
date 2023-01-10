@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class maxCommission extends Model
 {
     /**
+     * @example https://s.click.taobao.com/t?e=xxxx
+     *
      * @var string
      */
     public $maxCommissionClickUrl;
 
     /**
+     * @example https://uland.taobao.com/coupon/xxxx
+     *
      * @var string
      */
     public $maxCommissionCouponShareUrl;
 
     /**
+     * @example 20.4
+     *
      * @var string
      */
     public $maxCommissionRate;

@@ -15,16 +15,22 @@ class result extends Model
     public $categoryName;
 
     /**
+     * @example 180
+     *
      * @var string
      */
     public $commissionRate;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $couponAmount;
 
     /**
+     * @example 2021-06-01
+     *
      * @var string
      */
     public $couponEndTime;
@@ -35,41 +41,57 @@ class result extends Model
     public $couponInfo;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $couponRemainCount;
 
     /**
+     * @example //uland.taobao.com/cxxxxxx
+     *
      * @var string
      */
     public $couponShareUrl;
 
     /**
+     * @example 98.000000
+     *
      * @var string
      */
     public $couponStartFee;
 
     /**
+     * @example 2021-05-01
+     *
      * @var string
      */
     public $couponStartTime;
 
     /**
+     * @example 100000
+     *
      * @var string
      */
     public $couponTotalCount;
 
     /**
+     * @example tbopen://m.taobao.com/tbopen/index.html?
+     *
      * @var string
      */
     public $deeplinkCouponShareUrl;
 
     /**
+     * @example tbopen://m.taobao.com/tbopen/index.html?
+     *
      * @var string
      */
     public $deeplinkUrl;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $itemId;
@@ -90,11 +112,15 @@ class result extends Model
     public $nick;
 
     /**
+     * @example //img.alicdn.com/i1/FXXXXXXXXXX.jpg
+     *
      * @var string
      */
     public $picUrl;
 
     /**
+     * @example 90
+     *
      * @var string
      */
     public $priceAfterCoupon;
@@ -105,11 +131,15 @@ class result extends Model
     public $provcity;
 
     /**
+     * @example 158
+     *
      * @var string
      */
     public $reservePrice;
 
     /**
+     * @example 32590610
+     *
      * @var string
      */
     public $sellerId;
@@ -135,21 +165,29 @@ class result extends Model
     public $title;
 
     /**
+     * @example //s.click.taobao.com/t?xxxxxx
+     *
      * @var string
      */
     public $url;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $userType;
 
     /**
+     * @example 500
+     *
      * @var int
      */
     public $volume;
 
     /**
+     * @example 98
+     *
      * @var string
      */
     public $zkFinalPrice;
