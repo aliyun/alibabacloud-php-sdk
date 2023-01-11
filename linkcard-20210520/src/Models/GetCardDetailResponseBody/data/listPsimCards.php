@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class listPsimCards extends Model
 {
     /**
+     * @example cmiot
+     *
      * @var string
      */
     public $apnName;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $certifyStatus;
 
     /**
+     * @example 89860321******15668
+     *
      * @var string
      */
     public $iccid;
@@ -39,36 +45,50 @@ class listPsimCards extends Model
     public $msisdn;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $openSms;
 
     /**
+     * @example 300
+     *
      * @var string
      */
     public $osStatus;
 
     /**
+     * @example 130.00MB
+     *
      * @var string
      */
     public $periodAddFlow;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $periodSmsUse;
 
     /**
+     * @example *.2.*.4
+     *
      * @var string
      */
     public $privateNetworkSegment;
 
     /**
+     * @example 35
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example CMCC
+     *
      * @var string
      */
     public $vendor;

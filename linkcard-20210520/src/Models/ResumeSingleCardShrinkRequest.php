@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ResumeSingleCardShrinkRequest extends Model
 {
     /**
+     * @example 89860321******15668
+     *
      * @var string
      */
     public $iccid;
 
     /**
+     * @example ["111******6826","11*******6827"]
+     *
      * @var string
      */
     public $optMsisdnsShrink;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class listDayFlow extends Model
 {
     /**
+     * @example 20211201
+     *
      * @var string
      */
     public $day;
 
     /**
+     * @example 100MB
+     *
      * @var string
      */
     public $flow;

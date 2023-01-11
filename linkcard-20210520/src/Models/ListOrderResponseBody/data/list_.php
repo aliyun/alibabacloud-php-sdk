@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example ali_2
+     *
      * @var string
      */
     public $aliFee;
@@ -25,31 +27,43 @@ class list_ extends Model
     public $apnRegion;
 
     /**
+     * @example 1101
+     *
      * @var string
      */
     public $billingCycle;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $buyNum;
 
     /**
+     * @example 2022-04-11 16:43:00
+     *
      * @var int
      */
     public $cardPayCount;
 
     /**
+     * @example CM-***-*-2-**M
+     *
      * @var string
      */
     public $credentialNo;
 
     /**
+     * @example AL-UPG-******3_beika4
+     *
      * @var string
      */
     public $credentialPackage;
 
     /**
+     * @example 30MB
+     *
      * @var string
      */
     public $dataLevel;
@@ -65,36 +79,50 @@ class list_ extends Model
     public $expressNoList;
 
     /**
+     * @example singlecard
+     *
      * @var string
      */
     public $flowType;
 
     /**
+     * @example 90
+     *
      * @var int
      */
     public $functionFee;
 
     /**
+     * @example https://us******60589
+     *
      * @var string
      */
     public $orderDetailUrl;
 
     /**
+     * @example 21450******0275
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 123123
+     *
      * @var string
      */
     public $orderInfo;
 
     /**
+     * @example processing
+     *
      * @var string
      */
     public $orderStatus;
 
     /**
+     * @example NEW
+     *
      * @var string
      */
     public $orderType;
@@ -105,21 +133,29 @@ class list_ extends Model
     public $payDuration;
 
     /**
+     * @example 2022-04-11 16:43:00
+     *
      * @var string
      */
     public $payTime;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $poolCapacity;
 
     /**
+     * @example GB
+     *
      * @var string
      */
     public $poolCapacityUnit;
 
     /**
+     * @example beika4
+     *
      * @var string
      */
     public $poolNo;
@@ -130,6 +166,8 @@ class list_ extends Model
     public $resourceQuantity;
 
     /**
+     * @example CMCC
+     *
      * @var string
      */
     public $vendor;

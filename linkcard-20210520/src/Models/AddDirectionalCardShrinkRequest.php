@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddDirectionalCardShrinkRequest extends Model
 {
     /**
+     * @example https://linkcard-user-online.oss-cn-zhangjiakou.aliyuncs.com/DIRECTIONAL_GROUP/20220811/xxxx.csv
+     *
      * @var string
      */
     public $fileUri;
 
     /**
+     * @example 5
+     *
      * @var string
      */
     public $groupId;
@@ -34,11 +38,15 @@ class AddDirectionalCardShrinkRequest extends Model
     public $tagListShrink;
 
     /**
+     * @example TAG
+     *
      * @var string
      */
     public $uploadMethod;
 
     /**
+     * @example ALL
+     *
      * @var string
      */
     public $uploadType;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetCardDetailRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $destroyCard;
 
     /**
+     * @example 89860321******15668
+     *
      * @var string
      */
     public $iccid;
 
     /**
+     * @example 411****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $showPsim;

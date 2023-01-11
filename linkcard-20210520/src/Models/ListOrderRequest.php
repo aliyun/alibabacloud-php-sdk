@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ListOrderRequest extends Model
 {
     /**
+     * @example 2022-04-05
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @example 21450******0275
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example processing
+     *
      * @var string
      */
     public $orderStatus;
 
     /**
+     * @example NEW
+     *
      * @var string
      */
     public $orderType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2022-04-05
+     *
      * @var string
      */
     public $startDate;

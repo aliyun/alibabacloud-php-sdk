@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class listVendorDetail extends Model
 {
     /**
+     * @example 20
+     *
      * @var string
      */
     public $netWorkDelay;
 
     /**
+     * @example 80%
+     *
      * @var string
      */
     public $ratio;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $signalStrength;
 
     /**
+     * @example 100MB
+     *
      * @var string
      */
     public $usedFlow;
 
     /**
+     * @example CMCC
+     *
      * @var string
      */
     public $vendor;

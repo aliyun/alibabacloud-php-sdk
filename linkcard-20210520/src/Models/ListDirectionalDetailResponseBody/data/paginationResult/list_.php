@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example *.aliyun.com
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @example Domain
+     *
      * @var string
      */
     public $addressType;
 
     /**
+     * @example 5
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example user_defined
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example 500
+     *
      * @var string
      */
     public $state;

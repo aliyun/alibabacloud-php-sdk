@@ -28,8 +28,18 @@ use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCardDetailRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCardDetailResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCardFlowInfoRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCardFlowInfoResponse;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCardLatestFlowRequest;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCardLatestFlowResponse;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCardStatusStatisticsResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCredentialPoolStatisticsRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCredentialPoolStatisticsResponse;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetOperateResultRequest;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetOperateResultResponse;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetRealNameStatusRequest;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetRealNameStatusResponse;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetRealNameStatusShrinkRequest;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetSimCardStateDistributionRequest;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetSimCardStateDistributionResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\ListCardInfoRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\ListCardInfoResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\ListDirectionalAddressRequest;
@@ -622,6 +632,82 @@ class Linkcard extends OpenApiClient
     }
 
     /**
+     * @param GetCardLatestFlowRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetCardLatestFlowResponse
+     */
+    public function getCardLatestFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iccid)) {
+            $query['Iccid'] = $request->iccid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCardLatestFlow',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCardLatestFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCardLatestFlowRequest $request
+     *
+     * @return GetCardLatestFlowResponse
+     */
+    public function getCardLatestFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCardLatestFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetCardStatusStatisticsResponse
+     */
+    public function getCardStatusStatisticsWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetCardStatusStatistics',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCardStatusStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return GetCardStatusStatisticsResponse
+     */
+    public function getCardStatusStatistics()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCardStatusStatisticsWithOptions($runtime);
+    }
+
+    /**
      * @param GetCredentialPoolStatisticsRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -665,6 +751,152 @@ class Linkcard extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCredentialPoolStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetOperateResultRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetOperateResultResponse
+     */
+    public function getOperateResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiProduct)) {
+            $query['ApiProduct'] = $request->apiProduct;
+        }
+        if (!Utils::isUnset($request->resId)) {
+            $query['ResId'] = $request->resId;
+        }
+        if (!Utils::isUnset($request->serialNo)) {
+            $query['SerialNo'] = $request->serialNo;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOperateResult',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOperateResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetOperateResultRequest $request
+     *
+     * @return GetOperateResultResponse
+     */
+    public function getOperateResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOperateResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetRealNameStatusRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetRealNameStatusResponse
+     */
+    public function getRealNameStatusWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetRealNameStatusShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->listMsisdns)) {
+            $request->listMsisdnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listMsisdns, 'ListMsisdns', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->iccid)) {
+            $query['Iccid'] = $request->iccid;
+        }
+        if (!Utils::isUnset($request->listMsisdnsShrink)) {
+            $query['ListMsisdns'] = $request->listMsisdnsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRealNameStatus',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRealNameStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRealNameStatusRequest $request
+     *
+     * @return GetRealNameStatusResponse
+     */
+    public function getRealNameStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRealNameStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetSimCardStateDistributionRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetSimCardStateDistributionResponse
+     */
+    public function getSimCardStateDistributionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->credentialNO)) {
+            $query['CredentialNO'] = $request->credentialNO;
+        }
+        if (!Utils::isUnset($request->date)) {
+            $query['Date'] = $request->date;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSimCardStateDistribution',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSimCardStateDistributionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetSimCardStateDistributionRequest $request
+     *
+     * @return GetSimCardStateDistributionResponse
+     */
+    public function getSimCardStateDistribution($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSimCardStateDistributionWithOptions($request, $runtime);
     }
 
     /**

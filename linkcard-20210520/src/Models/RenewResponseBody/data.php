@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 21450******0275
+     *
      * @var string
      */
     public $orderNo;
 
     /**
+     * @example 12345678
+     *
      * @var string
      */
     public $serialNo;

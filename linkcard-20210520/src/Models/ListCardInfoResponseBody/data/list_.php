@@ -10,61 +10,85 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example 2021-11-16 16:35:50
+     *
      * @var string
      */
     public $activeTime;
 
     /**
+     * @example first_data_record
+     *
      * @var string
      */
     public $activeType;
 
     /**
+     * @example ali_2
+     *
      * @var string
      */
     public $aliFee;
 
     /**
+     * @example 211519634******
+     *
      * @var string
      */
     public $aliyunOrderId;
 
     /**
+     * @example cmiot
+     *
      * @var string
      */
     public $apnName;
 
     /**
+     * @example enterprise
+     *
      * @var string
      */
     public $certifyType;
 
     /**
+     * @example 2622***
+     *
      * @var string
      */
     public $credentialInstanceId;
 
     /**
+     * @example CM-***-*-2-**M
+     *
      * @var string
      */
     public $credentialNo;
 
     /**
+     * @example unityPayPool
+     *
      * @var string
      */
     public $credentialType;
 
     /**
+     * @example 30MB
+     *
      * @var string
      */
     public $dataLevel;
 
     /**
+     * @example sameflowcard
+     *
      * @var string
      */
     public $dataType;
 
     /**
+     * @example 55
+     *
      * @var int
      */
     public $directionalGroupId;
@@ -75,11 +99,15 @@ class list_ extends Model
     public $directionalGroupName;
 
     /**
+     * @example 2022-04-30 23:59:59
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @example 89860321******15668
+     *
      * @var string
      */
     public $iccid;
@@ -90,6 +118,8 @@ class list_ extends Model
     public $imsi;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isAutoRecharge;
@@ -100,41 +130,57 @@ class list_ extends Model
     public $msisdn;
 
     /**
+     * @example 11111
+     *
      * @var string
      */
     public $notifyId;
 
     /**
+     * @example 2021-11-29 16:12:14
+     *
      * @var string
      */
     public $openAccountTime;
 
     /**
+     * @example 300
+     *
      * @var string
      */
     public $osStatus;
 
     /**
+     * @example 1101
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @example 0KB
+     *
      * @var string
      */
     public $periodAddFlow;
 
     /**
+     * @example 130.00MB
+     *
      * @var string
      */
     public $periodRestFlow;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $periodSmsUse;
 
     /**
+     * @example 1.*.3.*
+     *
      * @var string
      */
     public $privateNetworkSegment;
@@ -145,11 +191,15 @@ class list_ extends Model
     public $remark;
 
     /**
+     * @example nano
+     *
      * @var string
      */
     public $simType;
 
     /**
+     * @example 35
+     *
      * @var string
      */
     public $status;
@@ -160,11 +210,15 @@ class list_ extends Model
     public $tagList;
 
     /**
+     * @example CMCC
+     *
      * @var string
      */
     public $vendor;
 
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $vsimInstanceId;

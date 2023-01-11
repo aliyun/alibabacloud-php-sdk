@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetCredentialPoolStatisticsRequest extends Model
 {
     /**
+     * @example CM-SF-M-2-12G
+     *
      * @var string
      */
     public $credentialNO;
 
     /**
+     * @example 202108
+     *
      * @var string
      */
     public $date;

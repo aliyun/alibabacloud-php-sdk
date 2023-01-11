@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BatchAddDirectionalAddressRequest extends Model
 {
     /**
+     * @example Domain
+     *
      * @var string
      */
     public $addressType;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $groupId;
@@ -24,6 +28,8 @@ class BatchAddDirectionalAddressRequest extends Model
     public $listAddress;
 
     /**
+     * @example user_defined
+     *
      * @var string
      */
     public $source;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ForceActivationRequest extends Model
 {
     /**
+     * @example sameflowcard
+     *
      * @var string
      */
     public $dateType;
 
     /**
+     * @example 89860321******15668
+     *
      * @var string
      */
     public $iccid;

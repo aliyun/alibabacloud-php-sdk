@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListDirectionalDetailRequest extends Model
 {
     /**
+     * @example 89860321******15668
+     *
      * @var string
      */
     public $iccid;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

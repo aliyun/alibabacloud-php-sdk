@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class AddCardToDirectionalGroupShrinkRequest extends Model
 {
     /**
+     * @example NEW
+     *
      * @var string
      */
     public $addType;
 
     /**
+     * @description Linkcard
+     *
+     * @example Linkcard
+     *
      * @var string
      */
     public $apiProduct;
 
     /**
+     * @example 10000002595
+     *
      * @var string
      */
     public $groupId;
@@ -29,11 +37,15 @@ class AddCardToDirectionalGroupShrinkRequest extends Model
     public $iccidListShrink;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $msgNotify;
 
     /**
+     * @example 123123
+     *
      * @var string
      */
     public $serialNo;

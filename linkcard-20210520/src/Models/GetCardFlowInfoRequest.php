@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetCardFlowInfoRequest extends Model
 {
     /**
+     * @example ["202110","202111"]
+     *
      * @var string[]
      */
     public $dateList;
 
     /**
+     * @example 89860321******15668
+     *
      * @var string
      */
     public $iccid;

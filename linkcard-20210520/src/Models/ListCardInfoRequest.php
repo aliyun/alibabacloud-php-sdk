@@ -9,136 +9,190 @@ use AlibabaCloud\Tea\Model;
 class ListCardInfoRequest extends Model
 {
     /**
+     * @example 2022-05-25 23:59:59
+     *
      * @var string
      */
     public $activeTimeEnd;
 
     /**
+     * @example 2022-05-25 23:59:59
+     *
      * @var string
      */
     public $activeTimeStart;
 
     /**
+     * @example ali_2
+     *
      * @var string
      */
     public $aliFee;
 
     /**
+     * @example 211519634******
+     *
      * @var string
      */
     public $aliyunOrderId;
 
     /**
+     * @example cmiot
+     *
      * @var string
      */
     public $apnName;
 
     /**
+     * @example enterprise
+     *
      * @var string
      */
     public $certifyType;
 
     /**
+     * @example CM-***-*-2-**M
+     *
      * @var string
      */
     public $credentialNo;
 
     /**
+     * @example 30MB
+     *
      * @var string
      */
     public $dataLevel;
 
     /**
+     * @example sameflowcard
+     *
      * @var string
      */
     public $dataType;
 
     /**
+     * @example 22
+     *
      * @var string
      */
     public $directionalGroupId;
 
     /**
+     * @example 2022-05-25 23:59:59
+     *
      * @var string
      */
     public $expireTimeEnd;
 
     /**
+     * @example 2022-05-25 23:59:59
+     *
      * @var string
      */
     public $expireTimeStart;
 
     /**
+     * @example 89860321******15668
+     *
      * @var string
      */
     public $iccid;
 
     /**
+     * @example 460081937******
+     *
      * @var string
      */
     public $imsi;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isAutoRecharge;
 
     /**
+     * @example 30
+     *
      * @var string
      */
     public $maxFlow;
 
     /**
+     * @example 0.2
+     *
      * @var float
      */
     public $maxRestFlowPercentage;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $minFlow;
 
     /**
+     * @example 1440993******
+     *
      * @var string
      */
     public $msisdn;
 
     /**
+     * @example 11111
+     *
      * @var string
      */
     public $notifyId;
 
     /**
+     * @example 300
+     *
      * @var string
      */
     public $osStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1101
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @example test1
+     *
      * @var string
      */
     public $poolId;
 
     /**
+     * @example nano
+     *
      * @var string
      */
     public $simType;
 
     /**
+     * @example 35
+     *
      * @var string
      */
     public $status;
@@ -149,6 +203,8 @@ class ListCardInfoRequest extends Model
     public $tagName;
 
     /**
+     * @example CMCC
+     *
      * @var string
      */
     public $vendor;

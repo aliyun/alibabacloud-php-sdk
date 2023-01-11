@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class listCardMonthFlow extends Model
 {
     /**
+     * @example 200MB
+     *
      * @var string
      */
     public $flowCount;
@@ -20,6 +22,8 @@ class listCardMonthFlow extends Model
     public $listDayFlow;
 
     /**
+     * @example 202112
+     *
      * @var string
      */
     public $month;

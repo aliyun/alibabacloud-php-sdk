@@ -19,6 +19,8 @@ class deliveryInfo extends Model
     public $buyerMessage;
 
     /**
+     * @example xxx@xxx.com
+     *
      * @var string
      */
     public $mail;
@@ -29,6 +31,8 @@ class deliveryInfo extends Model
     public $receiver;
 
     /**
+     * @example 100000
+     *
      * @var string
      */
     public $zipCode;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class listPackageDTO extends Model
 {
     /**
+     * @example 2022-03-20 23:59:59
+     *
      * @var string
      */
     public $effectiveTime;
 
     /**
+     * @example 2022-04-30 23:59:59
+     *
      * @var string
      */
     public $expireTime;

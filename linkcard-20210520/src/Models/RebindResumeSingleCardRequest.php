@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RebindResumeSingleCardRequest extends Model
 {
     /**
+     * @example 89860321******15668
+     *
      * @var string
      */
     public $iccid;
 
     /**
+     * @example ["1112******826","1112******827"]
+     *
      * @var string[]
      */
     public $optMsisdns;

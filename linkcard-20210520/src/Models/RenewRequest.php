@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class RenewRequest extends Model
 {
     /**
+     * @example linkcard
+     *
      * @var string
      */
     public $apiProduct;
 
     /**
+     * @example 2021-05-20
+     *
      * @var string
      */
     public $apiRevision;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $buyNum;
 
     /**
+     * @example 89860321******15668
+     *
      * @var string
      */
     public $iccid;
 
     /**
+     * @example COM***0203
+     *
      * @var string
      */
     public $offerCode;
 
     /**
+     * @example STANDARD
+     *
      * @var string
      */
     public $rechargeType;
 
     /**
+     * @example 12345678
+     *
      * @var string
      */
     public $serialNo;

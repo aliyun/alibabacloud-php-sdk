@@ -10,101 +10,141 @@ use AlibabaCloud\Tea\Model;
 class vsimCardInfo extends Model
 {
     /**
+     * @example 2021-11-16 16:35:50
+     *
      * @var string
      */
     public $activeTime;
 
     /**
+     * @example first_data_record
+     *
      * @var string
      */
     public $activeType;
 
     /**
+     * @example ali_2
+     *
      * @var string
      */
     public $aliFee;
 
     /**
+     * @example 211519634******
+     *
      * @var string
      */
     public $aliyunOrderId;
 
     /**
+     * @example cmiot
+     *
      * @var string
      */
     public $apnName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoLimitResume;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoRebindReuse;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $cardLimitSpeedThreshold;
 
     /**
+     * @example 20480
+     *
      * @var int
      */
     public $cardLimitStopThreshold;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $certifyStatus;
 
     /**
+     * @example enterprise
+     *
      * @var string
      */
     public $certifyType;
 
     /**
+     * @example 2622***
+     *
      * @var string
      */
     public $credentialInstanceId;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $credentialLimitSpeedThreshold;
 
     /**
+     * @example 20480
+     *
      * @var int
      */
     public $credentialLimitStopThreshold;
 
     /**
+     * @example CM-***-*-2-**M
+     *
      * @var string
      */
     public $credentialNo;
 
     /**
+     * @example CT-SC-M-1-30M
+     *
      * @var string
      */
     public $credentialType;
 
     /**
+     * @example 30MB
+     *
      * @var string
      */
     public $dataLevel;
 
     /**
+     * @example sameflowcard
+     *
      * @var string
      */
     public $dataType;
 
     /**
+     * @example 11111111******
+     *
      * @var string
      */
     public $deviceImei;
 
     /**
+     * @example 22
+     *
      * @var string
      */
     public $directionalGroupId;
@@ -115,16 +155,22 @@ class vsimCardInfo extends Model
     public $directionalGroupName;
 
     /**
+     * @example 2022-04-30 23:59:59
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @example KB
+     *
      * @var string
      */
     public $flowThresholdUnit;
 
     /**
+     * @example 89860321******15668
+     *
      * @var string
      */
     public $iccid;
@@ -140,6 +186,8 @@ class vsimCardInfo extends Model
     public $ip;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isAutoRecharge;
@@ -150,56 +198,78 @@ class vsimCardInfo extends Model
     public $msisdn;
 
     /**
+     * @example 11111
+     *
      * @var string
      */
     public $notifyId;
 
     /**
+     * @example 2021-11-29 16:12:14
+     *
      * @var string
      */
     public $openAccountTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $openSms;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $osStatus;
 
     /**
+     * @example 1101
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @example 0KB
+     *
      * @var string
      */
     public $periodAddFlow;
 
     /**
+     * @example 130.00MB
+     *
      * @var string
      */
     public $periodRestFlow;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $periodSmsUse;
 
     /**
+     * @example 1.*.3.*
+     *
      * @var string
      */
     public $privateNetworkSegment;
 
     /**
+     * @example nano
+     *
      * @var string
      */
     public $simType;
 
     /**
+     * @example 35
+     *
      * @var string
      */
     public $status;
@@ -210,11 +280,15 @@ class vsimCardInfo extends Model
     public $tagList;
 
     /**
+     * @example CMCC
+     *
      * @var string
      */
     public $vendor;
 
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $vsimInstanceId;

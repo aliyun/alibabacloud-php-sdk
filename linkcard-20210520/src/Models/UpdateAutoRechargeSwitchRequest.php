@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateAutoRechargeSwitchRequest extends Model
 {
     /**
+     * @example 89860321******15668
+     *
      * @var string
      */
     public $iccid;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $open;

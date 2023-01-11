@@ -15,21 +15,29 @@ class paginationResult extends Model
     public $list;
 
     /**
+     * @example 9
+     *
      * @var int
      */
     public $pageCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 90
+     *
      * @var int
      */
     public $total;

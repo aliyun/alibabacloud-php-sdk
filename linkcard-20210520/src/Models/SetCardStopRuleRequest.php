@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SetCardStopRuleRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoRestore;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $flowLimit;
 
     /**
+     * @example 89860321******15668
+     *
      * @var string
      */
     public $iccid;

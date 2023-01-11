@@ -9,76 +9,106 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $cardActiveNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $cardTotalNum;
 
     /**
+     * @example 259****
+     *
      * @var string
      */
     public $credentialInstanceId;
 
     /**
+     * @example CM-SF-M-2-12G
+     *
      * @var string
      */
     public $credentialNO;
 
     /**
+     * @example CT-SC-M-1-30M
+     *
      * @var string
      */
     public $credentialType;
 
     /**
+     * @example 6.00GB
+     *
      * @var string
      */
     public $effectiveAvailableFlow;
 
     /**
+     * @example 12.00GB
+     *
      * @var string
      */
     public $effectiveTotalFlow;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $monthFeatureFee;
 
     /**
+     * @example 3.00GB
+     *
      * @var int
      */
     public $monthUsedAmount;
 
     /**
+     * @example 6.00GB
+     *
      * @var string
      */
     public $poolAvaiable;
 
     /**
+     * @example 12.00GB
+     *
      * @var string
      */
     public $poolGrandTotal;
 
     /**
+     * @example 6.00GB
+     *
      * @var string
      */
     public $poolGrandTotalUsed;
 
     /**
+     * @example 0KB
+     *
      * @var string
      */
     public $poolOutUsed;
 
     /**
+     * @example 0KB
+     *
      * @var string
      */
     public $poolUsed;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $smsUsed;
