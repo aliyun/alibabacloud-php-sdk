@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetResourceTypeRequest extends Model
 {
     /**
+     * @example ALIYUN::ROS::WaitConditionHandle
+     *
      * @var string
      */
     public $resourceType;

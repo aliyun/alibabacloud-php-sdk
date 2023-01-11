@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateParameterConstraintsResponseBody;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateParameterConstraintsResponseBody\parameterConstraints\notSupportResources;
 use AlibabaCloud\Tea\Model;
 
 class parameterConstraints extends Model
@@ -19,11 +20,15 @@ class parameterConstraints extends Model
     public $associationParameterNames;
 
     /**
+     * @example NoLimit
+     *
      * @var string
      */
     public $behavior;
 
     /**
+     * @example No resource property refer to the parameter
+     *
      * @var string
      */
     public $behaviorReason;
@@ -39,11 +44,20 @@ class parameterConstraints extends Model
     public $illegalValueByRules;
 
     /**
+     * @var notSupportResources[]
+     */
+    public $notSupportResources;
+
+    /**
+     * @example ZoneInfo
+     *
      * @var string
      */
     public $parameterKey;
 
     /**
+     * @example String
+     *
      * @var string
      */
     public $type;
@@ -54,6 +68,7 @@ class parameterConstraints extends Model
         'behaviorReason'                     => 'BehaviorReason',
         'illegalValueByParameterConstraints' => 'IllegalValueByParameterConstraints',
         'illegalValueByRules'                => 'IllegalValueByRules',
+        'notSupportResources'                => 'NotSupportResources',
         'parameterKey'                       => 'ParameterKey',
         'type'                               => 'Type',
     ];
@@ -82,6 +97,15 @@ class parameterConstraints extends Model
         }
         if (null !== $this->illegalValueByRules) {
             $res['IllegalValueByRules'] = $this->illegalValueByRules;
+        }
+        if (null !== $this->notSupportResources) {
+            $res['NotSupportResources'] = [];
+            if (null !== $this->notSupportResources && \is_array($this->notSupportResources)) {
+                $n = 0;
+                foreach ($this->notSupportResources as $item) {
+                    $res['NotSupportResources'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->parameterKey) {
             $res['ParameterKey'] = $this->parameterKey;
@@ -125,6 +149,15 @@ class parameterConstraints extends Model
         if (isset($map['IllegalValueByRules'])) {
             if (!empty($map['IllegalValueByRules'])) {
                 $model->illegalValueByRules = $map['IllegalValueByRules'];
+            }
+        }
+        if (isset($map['NotSupportResources'])) {
+            if (!empty($map['NotSupportResources'])) {
+                $model->notSupportResources = [];
+                $n                          = 0;
+                foreach ($map['NotSupportResources'] as $item) {
+                    $model->notSupportResources[$n++] = null !== $item ? notSupportResources::fromMap($item) : $item;
+                }
             }
         }
         if (isset($map['ParameterKey'])) {

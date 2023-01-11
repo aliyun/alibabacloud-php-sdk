@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetResourceTypeTemplateResponseBody extends Model
 {
     /**
+     * @example 87F54B2B-AEF0-4C33-A72A-3F8856A575E9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example {"ROSTemplateFormatVersion": "2015-09-01"}
+     *
      * @var mixed[]
      */
     public $templateBody;

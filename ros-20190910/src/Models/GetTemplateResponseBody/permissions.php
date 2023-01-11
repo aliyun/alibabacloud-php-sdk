@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class permissions extends Model
 {
     /**
+     * @example 142437958638****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @example ShareToAccounts
+     *
      * @var string
      */
     public $shareOption;
 
     /**
+     * @example ROS
+     *
      * @var string
      */
     public $shareSource;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $templateVersion;
 
     /**
+     * @example AllVersions
+     *
      * @var string
      */
     public $versionOption;

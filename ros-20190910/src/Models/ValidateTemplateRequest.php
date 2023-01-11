@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ValidateTemplateRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example {"ROSTemplateFormatVersion":"2015-09-01"}
+     *
      * @var string
      */
     public $templateBody;
 
     /**
+     * @example oss://ros/template/demo
+     *
      * @var string
      */
     public $templateURL;
 
     /**
+     * @example None
+     *
      * @var string
      */
     public $validationOption;

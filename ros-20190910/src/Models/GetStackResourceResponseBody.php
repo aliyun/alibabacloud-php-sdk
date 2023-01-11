@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class GetStackResourceResponseBody extends Model
 {
     /**
+     * @example 2019-08-01T06:01:23
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example no description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 2020-02-27T07:47:47
+     *
      * @var string
      */
     public $driftDetectionTime;
 
     /**
+     * @example WebServer
+     *
      * @var string
      */
     public $logicalResourceId;
 
     /**
+     * @example {"key": "value"}
+     *
      * @var mixed[]
      */
     public $metadata;
 
     /**
+     * @example d04af923-e6b7-4272-aeaa-47ec9777****
+     *
      * @var string
      */
     public $physicalResourceId;
 
     /**
+     * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6
+     *
      * @var string
      */
     public $requestId;
@@ -49,36 +63,50 @@ class GetStackResourceResponseBody extends Model
     public $resourceAttributes;
 
     /**
+     * @example IN_SYNC
+     *
      * @var string
      */
     public $resourceDriftStatus;
 
     /**
+     * @example ALIYUN::ROS::WaitConditionHandle
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example efdf5c10-96a5-4fd7-ab89-68e7baa2****
+     *
      * @var string
      */
     public $stackId;
 
     /**
+     * @example test-describe-resource
+     *
      * @var string
      */
     public $stackName;
 
     /**
+     * @example CREATE_COMPLETE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example state changed
+     *
      * @var string
      */
     public $statusReason;
 
     /**
+     * @example 2019-08-01T06:01:29
+     *
      * @var string
      */
     public $updateTime;

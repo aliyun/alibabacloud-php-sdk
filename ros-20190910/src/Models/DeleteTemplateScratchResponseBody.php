@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteTemplateScratchResponseBody extends Model
 {
     /**
+     * @example 1B9C6333-5904-5A1E-9845-CB17A369AFDC
+     *
      * @var string
      */
     public $requestId;

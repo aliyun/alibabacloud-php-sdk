@@ -15,16 +15,22 @@ class roles extends Model
     public $apiForCreation;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $created;
 
     /**
+     * @example Default
+     *
      * @var string
      */
     public $function;
 
     /**
+     * @example AliyunServiceRoleForEHPC
+     *
      * @var string
      */
     public $roleName;

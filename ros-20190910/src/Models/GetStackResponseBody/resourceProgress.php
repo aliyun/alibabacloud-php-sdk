@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class resourceProgress extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $failedResourceCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $inProgressResourceCount;
@@ -25,16 +29,22 @@ class resourceProgress extends Model
     public $inProgressResourceDetails;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $pendingResourceCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $successResourceCount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalResourceCount;

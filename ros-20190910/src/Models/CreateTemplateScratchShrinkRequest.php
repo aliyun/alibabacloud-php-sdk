@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTemplateScratchShrinkRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
@@ -20,11 +22,15 @@ class CreateTemplateScratchShrinkRequest extends Model
     public $description;
 
     /**
+     * @example Sync
+     *
      * @var string
      */
     public $executionMode;
 
     /**
+     * @example LongTypePrefixAndIndexSuffix
+     *
      * @var string
      */
     public $logicalIdStrategy;
@@ -35,6 +41,8 @@ class CreateTemplateScratchShrinkRequest extends Model
     public $preferenceParametersShrink;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -60,6 +68,8 @@ class CreateTemplateScratchShrinkRequest extends Model
     public $tags;
 
     /**
+     * @example ArchitectureReplication
+     *
      * @var string
      */
     public $templateScratchType;

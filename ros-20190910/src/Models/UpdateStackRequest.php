@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateStackRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $disableRollback;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $parallelism;
@@ -31,46 +37,64 @@ class UpdateStackRequest extends Model
     public $parameters;
 
     /**
+     * @example test-role
+     *
      * @var string
      */
     public $ramRoleName;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example Disabled
+     *
      * @var string
      */
     public $replacementOption;
 
     /**
+     * @example rg-acfmxazb4ph6aiy****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+     *
      * @var string
      */
     public $stackId;
 
     /**
+     * @example {"Statement": [{"Action": "Update:*", "Resource": "*", "Effect": "Allow", "Principal": "*"}]}
+     *
      * @var string
      */
     public $stackPolicyBody;
 
     /**
+     * @example {"Statement": [{"Effect": "Allow", "Action": "Update:*", "Principal": "*", "Resource": "*"}]}
+     *
      * @var string
      */
     public $stackPolicyDuringUpdateBody;
 
     /**
+     * @example oss://ros-stack-policy/demo
+     *
      * @var string
      */
     public $stackPolicyDuringUpdateURL;
 
     /**
+     * @example oss://ros-stack-policy/demo
+     *
      * @var string
      */
     public $stackPolicyURL;
@@ -81,31 +105,43 @@ class UpdateStackRequest extends Model
     public $tags;
 
     /**
+     * @example {"ROSTemplateFormatVersion": "2015-09-01"}
+     *
      * @var string
      */
     public $templateBody;
 
     /**
+     * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example oss://ros-template/demo
+     *
      * @var string
      */
     public $templateURL;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $templateVersion;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $timeoutInMinutes;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $usePreviousParameters;

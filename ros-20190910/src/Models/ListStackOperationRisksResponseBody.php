@@ -15,6 +15,8 @@ class ListStackOperationRisksResponseBody extends Model
     public $missingPolicyActions;
 
     /**
+     * @example 72108E7A-E874-4A5E-B22C-A61E94AD12CD
+     *
      * @var string
      */
     public $requestId;

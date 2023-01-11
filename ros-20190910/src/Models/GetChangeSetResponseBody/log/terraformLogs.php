@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class terraformLogs extends Model
 {
     /**
+     * @example apply
+     *
      * @var string
      */
     public $command;
 
     /**
+     * @example Apply complete! Resources: 42 added, 0 changed, 0 destroyed.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example stdout
+     *
      * @var string
      */
     public $stream;

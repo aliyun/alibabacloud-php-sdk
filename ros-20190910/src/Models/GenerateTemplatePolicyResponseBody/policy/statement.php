@@ -14,11 +14,15 @@ class statement extends Model
     public $action;
 
     /**
+     * @example Allow
+     *
      * @var string
      */
     public $effect;
 
     /**
+     * @example *
+     *
      * @var string
      */
     public $resource;

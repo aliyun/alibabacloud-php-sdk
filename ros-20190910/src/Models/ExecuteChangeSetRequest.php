@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ExecuteChangeSetRequest extends Model
 {
     /**
+     * @example 1f6521a4-05af-4975-afe9-bc4b45ad****
+     *
      * @var string
      */
     public $changeSetId;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

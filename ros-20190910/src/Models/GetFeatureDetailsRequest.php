@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetFeatureDetailsRequest extends Model
 {
     /**
+     * @example Terraform
+     *
      * @var string
      */
     public $feature;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

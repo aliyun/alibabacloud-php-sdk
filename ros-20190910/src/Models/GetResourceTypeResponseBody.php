@@ -14,6 +14,8 @@ class GetResourceTypeResponseBody extends Model
     public $attributes;
 
     /**
+     * @example Resource
+     *
      * @var string
      */
     public $entityType;
@@ -24,21 +26,29 @@ class GetResourceTypeResponseBody extends Model
     public $properties;
 
     /**
+     * @example A28FBA2E-B6B3-5822-AA45-AB875EF23641
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example ALIYUN::ROS::WaitConditionHandle
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $supportDriftDetection;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $supportScratchDetection;

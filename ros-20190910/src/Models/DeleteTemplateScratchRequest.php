@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteTemplateScratchRequest extends Model
 {
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example ts-4f83704400994409****
+     *
      * @var string
      */
     public $templateScratchId;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class operationInfo extends Model
 {
     /**
+     * @example DeleteSecurityGroup
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @example DependencyViolation
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example EcsSecurityGroup
+     *
      * @var string
      */
     public $logicalResourceId;
 
     /**
+     * @example There is still instance(s) in the specified security group.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 071D6166-3F6B-5C7B-A1F0-0113FBB643A8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example ALIYUN::ECS::SecurityGroup
+     *
      * @var string
      */
     public $resourceType;

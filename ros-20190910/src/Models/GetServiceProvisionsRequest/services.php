@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class services extends Model
 {
     /**
+     * @example EHPC
+     *
      * @var string
      */
     public $serviceName;

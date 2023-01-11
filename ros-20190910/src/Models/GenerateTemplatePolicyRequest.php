@@ -14,21 +14,29 @@ class GenerateTemplatePolicyRequest extends Model
     public $operationTypes;
 
     /**
+     * @example {"ROSTemplateFormatVersion":"2015-09-01"}
+     *
      * @var string
      */
     public $templateBody;
 
     /**
+     * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example oss://ros/template/demo
+     *
      * @var string
      */
     public $templateURL;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $templateVersion;

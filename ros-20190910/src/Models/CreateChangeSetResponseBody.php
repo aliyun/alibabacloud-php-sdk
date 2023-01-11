@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateChangeSetResponseBody extends Model
 {
     /**
+     * @example e85abe0c-6528-43fb-ae93-fdf8de22****
+     *
      * @var string
      */
     public $changeSetId;
 
     /**
+     * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+     *
      * @var string
      */
     public $stackId;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class stacks extends Model
 {
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 3708bf6a-3a67-44d4-9eb1-c56704b9****
+     *
      * @var string
      */
     public $stackId;
 
     /**
+     * @example ArchitectureReplication
+     *
      * @var string
      */
     public $usageType;

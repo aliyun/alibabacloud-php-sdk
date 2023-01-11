@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateSummaryResponseBody extends Model
 {
     /**
+     * @example No description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example {"key": "value"}
+     *
      * @var mixed[]
      */
     public $metadata;
@@ -25,6 +29,8 @@ class GetTemplateSummaryResponseBody extends Model
     public $parameters;
 
     /**
+     * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6
+     *
      * @var string
      */
     public $requestId;
@@ -40,6 +46,8 @@ class GetTemplateSummaryResponseBody extends Model
     public $resourceTypes;
 
     /**
+     * @example 2015-09-01
+     *
      * @var string
      */
     public $version;

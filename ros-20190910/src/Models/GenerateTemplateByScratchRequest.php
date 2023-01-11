@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GenerateTemplateByScratchRequest extends Model
 {
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $provisionRegionId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example ts-aa9c62feab844a6b****
+     *
      * @var string
      */
     public $templateScratchId;

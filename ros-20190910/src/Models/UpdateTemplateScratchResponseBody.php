@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateTemplateScratchResponseBody extends Model
 {
     /**
+     * @example 221DA822-B8CF-50DF-A9D2-BA197BF97BD5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example ts-7f7a704cf71c49a6****
+     *
      * @var string
      */
     public $templateScratchId;

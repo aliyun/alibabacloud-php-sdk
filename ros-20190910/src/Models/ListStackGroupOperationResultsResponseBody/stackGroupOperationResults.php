@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class stackGroupOperationResults extends Model
 {
     /**
+     * @example 175458090349****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @example "fd-4PvlVLOL8v"
+     *
      * @var string
      */
     public $rdFolderId;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example SUCCEEDED
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example User initiated operation
+     *
      * @var string
      */
     public $statusReason;

@@ -11,36 +11,50 @@ use AlibabaCloud\Tea\Model;
 class CreateChangeSetRequest extends Model
 {
     /**
+     * @example MyChangeSet
+     *
      * @var string
      */
     public $changeSetName;
 
     /**
+     * @example UPDATE
+     *
      * @var string
      */
     public $changeSetType;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example It is a demo.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $disableRollback;
 
     /**
+     * @example http://my-site.com/ros-notify
+     *
      * @var string[]
      */
     public $notificationURLs;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $parallelism;
@@ -51,16 +65,22 @@ class CreateChangeSetRequest extends Model
     public $parameters;
 
     /**
+     * @example test-role
+     *
      * @var string
      */
     public $ramRoleName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example Disabled
+     *
      * @var string
      */
     public $replacementOption;
@@ -71,66 +91,92 @@ class CreateChangeSetRequest extends Model
     public $resourcesToImport;
 
     /**
+     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+     *
      * @var string
      */
     public $stackId;
 
     /**
+     * @example MyStack
+     *
      * @var string
      */
     public $stackName;
 
     /**
+     * @example {"Statement":[{"Effect":"Allow","Action":"Update:*","Principal":"*","Resource":"*"}]}
+     *
      * @var string
      */
     public $stackPolicyBody;
 
     /**
+     * @example {"Statement":[{"Effect":"Allow","Action":"Update:*","Principal":"*","Resource":"*"}]}
+     *
      * @var string
      */
     public $stackPolicyDuringUpdateBody;
 
     /**
+     * @example oss://ros/stack-policy/demo
+     *
      * @var string
      */
     public $stackPolicyDuringUpdateURL;
 
     /**
+     * @example oss://ros/stack-policy/demo
+     *
      * @var string
      */
     public $stackPolicyURL;
 
     /**
+     * @example {"ROSTemplateFormatVersion":"2015-09-01"}
+     *
      * @var string
      */
     public $templateBody;
 
     /**
+     * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+     *
      * @var string
      */
     public $templateScratchId;
 
     /**
+     * @example oss://ros/template/demo
+     *
      * @var string
      */
     public $templateURL;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $templateVersion;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $timeoutInMinutes;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $usePreviousParameters;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DeleteStackRequest extends Model
 {
     /**
+     * @example test-role
+     *
      * @var string
      */
     public $ramRoleName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $retainAllResources;
 
     /**
+     * @example WebServer
+     *
      * @var string[]
      */
     public $retainResources;
 
     /**
+     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+     *
      * @var string
      */
     public $stackId;

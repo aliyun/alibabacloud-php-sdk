@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateStackResponseBody extends Model
 {
     /**
+     * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+     *
      * @var string
      */
     public $stackId;

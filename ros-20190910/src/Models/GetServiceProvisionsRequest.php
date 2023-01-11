@@ -16,6 +16,8 @@ class GetServiceProvisionsRequest extends Model
     public $parameters;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -26,21 +28,29 @@ class GetServiceProvisionsRequest extends Model
     public $services;
 
     /**
+     * @example {"ROSTemplateFormatVersion": "2015-09-01","Resources": {"ApiGateway": {"Type": "ALIYUN::ApiGateway::Group","Properties": { "GroupName": "ros_example" }},"FC": {"Type": "ALIYUN::FC::Service","Properties": {"ServiceName": "ros_example"}}}}
+     *
      * @var string
      */
     public $templateBody;
 
     /**
+     * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example oss://ros-template/demo
+     *
      * @var string
      */
     public $templateURL;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $templateVersion;

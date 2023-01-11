@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class changeSets extends Model
 {
     /**
+     * @example 1f6521a4-05af-4975-afe9-bc4b45ad****
+     *
      * @var string
      */
     public $changeSetId;
 
     /**
+     * @example MyChangeSet
+     *
      * @var string
      */
     public $changeSetName;
 
     /**
+     * @example UPDATE
+     *
      * @var string
      */
     public $changeSetType;
 
     /**
+     * @example 2019-08-01T05:16:31
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example It is a demo.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example AVAILABLE
+     *
      * @var string
      */
     public $executionStatus;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+     *
      * @var string
      */
     public $stackId;
 
     /**
+     * @example MyStack
+     *
      * @var string
      */
     public $stackName;
 
     /**
+     * @example CREATE_COMPLETE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example too many changes
+     *
      * @var string
      */
     public $statusReason;

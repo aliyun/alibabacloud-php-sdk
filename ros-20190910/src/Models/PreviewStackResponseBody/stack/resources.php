@@ -14,26 +14,36 @@ class resources extends Model
     public $acsResourceType;
 
     /**
+     * @example Add
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @example ECS instance.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example WebServer
+     *
      * @var string
      */
     public $logicalResourceId;
 
     /**
+     * @example {   "DiskMappings": [     {       "Category": "cloud_ssd",       "Size": "20"     }   ],   "SystemDisk_Category": "cloud_ssd",   "InstanceChargeType": "PostPaid",   "AutoRenew": "False",   "WillReplace": true,   "ImageId": "centos_7",   "InstanceType": "ecs.g6.large",   "AllocatePublicIP": true,   "AutoRenewPeriod": 1,   "IoOptimized": "optimized",   "ZoneId": "cn-beijing-g",   "VSwitchId": "",   "SecurityGroupId": "",   "Period": 1,   "InternetChargeType": "PayByTraffic",   "SystemDiskCategory": "cloud_efficiency",   "InternetMaxBandwidthOut": 1,   "VpcId": "",   "InternetMaxBandwidthIn": 200,   "PeriodUnit": "Month" }
+     *
      * @var mixed[]
      */
     public $properties;
 
     /**
+     * @example False
+     *
      * @var string
      */
     public $replacement;
@@ -44,11 +54,15 @@ class resources extends Model
     public $requiredBy;
 
     /**
+     * @example ALIYUN::ECS::Instance
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example {}
+     *
      * @var mixed[]
      */
     public $stack;

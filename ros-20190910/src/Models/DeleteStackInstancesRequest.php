@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteStackInstancesRequest extends Model
 {
     /**
+     * @example ["151266687691****"]
+     *
      * @var string[]
      */
     public $accountIds;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
@@ -25,31 +29,43 @@ class DeleteStackInstancesRequest extends Model
     public $deploymentTargets;
 
     /**
+     * @example Delete stack instances in hangzhou and beijing
+     *
      * @var string
      */
     public $operationDescription;
 
     /**
+     * @example {"FailureToleranceCount": 1, "MaxConcurrentCount": 2}
+     *
      * @var mixed[]
      */
     public $operationPreferences;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example ["cn-hangzhou", "cn-beijing"]
+     *
      * @var string[]
      */
     public $regionIds;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $retainStacks;
 
     /**
+     * @example MyStackGroup
+     *
      * @var string
      */
     public $stackGroupName;

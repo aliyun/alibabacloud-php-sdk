@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class GetFeatureDetailsResponseBody extends Model
 {
     /**
+     * @example EBF833DA-D0E2-52BE-92E2-59CA56BE834E
+     *
      * @var string
      */
     public $requestId;

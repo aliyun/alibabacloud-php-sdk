@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class SignalResourceRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example WebServer
+     *
      * @var string
      */
     public $logicalResourceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+     *
      * @var string
      */
     public $stackId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 27c7347b-352a-4377-accf-63d361c1****
+     *
      * @var string
      */
     public $uniqueId;

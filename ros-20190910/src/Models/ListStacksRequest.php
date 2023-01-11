@@ -10,36 +10,50 @@ use AlibabaCloud\Tea\Model;
 class ListStacksRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+     *
      * @var string
      */
     public $parentStackId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmxazb4ph6aiy****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $showNestedStack;
 
     /**
+     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+     *
      * @var string
      */
     public $stackId;
@@ -50,11 +64,15 @@ class ListStacksRequest extends Model
     public $stackIds;
 
     /**
+     * @example MyStack
+     *
      * @var string[]
      */
     public $stackName;
 
     /**
+     * @example CREATE_COMPLETE
+     *
      * @var string[]
      */
     public $status;

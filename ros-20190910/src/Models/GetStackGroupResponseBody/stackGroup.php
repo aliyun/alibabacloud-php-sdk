@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class stackGroup extends Model
 {
     /**
+     * @example AliyunROSStackGroupAdministrationRole
+     *
      * @var string
      */
     public $administrationRoleName;
@@ -22,11 +24,15 @@ class stackGroup extends Model
     public $autoDeployment;
 
     /**
+     * @example StackGroup Description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example AliyunROSStackGroupExecutionRole
+     *
      * @var string
      */
     public $executionRoleName;
@@ -37,6 +43,8 @@ class stackGroup extends Model
     public $parameters;
 
     /**
+     * @example SELF_MANAGED
+     *
      * @var string
      */
     public $permissionModel;
@@ -47,6 +55,8 @@ class stackGroup extends Model
     public $rdFolderIds;
 
     /**
+     * @example rg-acfmxazb4ph6aiy****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -57,21 +67,29 @@ class stackGroup extends Model
     public $stackGroupDriftDetectionDetail;
 
     /**
+     * @example fd0ddef9-9540-4b42-a464-94f77835****
+     *
      * @var string
      */
     public $stackGroupId;
 
     /**
+     * @example MyStackGroup
+     *
      * @var string
      */
     public $stackGroupName;
 
     /**
+     * @example ACTIVE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example {"ROSTemplateFormatVersion": "2015-09-01"}
+     *
      * @var string
      */
     public $templateBody;

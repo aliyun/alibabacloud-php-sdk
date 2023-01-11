@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class templates extends Model
 {
     /**
+     * @example 2019-10-15T08:17:14.000000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example test-description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 151266687691****
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @example rg-acfmxazb4ph6aiy****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example Private
+     *
      * @var string
      */
     public $shareType;
@@ -40,26 +50,36 @@ class templates extends Model
     public $tags;
 
     /**
+     * @example acs:ros:*:151266687691****:template/a52f81be-496f-4e1c-a286-8852ab54****
+     *
      * @var string
      */
     public $templateARN;
 
     /**
+     * @example 4d4f5aa2-3260-4e47-863b-763fbb12****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example demo
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $templateVersion;
 
     /**
+     * @example 2019-10-15T08:17:14.000000
+     *
      * @var string
      */
     public $updateTime;

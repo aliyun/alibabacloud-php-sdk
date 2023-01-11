@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class versions extends Model
 {
     /**
+     * @example 2020-02-27T07:47:47
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $templateVersion;
 
     /**
+     * @example 2020-02-27T07:47:47
+     *
      * @var string
      */
     public $updateTime;

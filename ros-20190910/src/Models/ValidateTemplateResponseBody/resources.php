@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @example server
+     *
      * @var string
      */
     public $logicalResourceIdPattern;
 
     /**
+     * @example server
+     *
      * @var string
      */
     public $resourcePath;
 
     /**
+     * @example ALIYUN::ECS::InstanceGroup
+     *
      * @var string
      */
     public $resourceType;

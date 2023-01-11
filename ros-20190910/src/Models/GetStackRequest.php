@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class GetStackRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example Stack
+     *
      * @var string
      */
     public $logOption;
 
     /**
+     * @example Disabled
+     *
      * @var string
      */
     public $outputOption;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example Disabled
+     *
      * @var string
      */
     public $showResourceProgress;
 
     /**
+     * @example c754d2a4-28f1-46df-b557-9586173a****
+     *
      * @var string
      */
     public $stackId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sourceTag extends Model
 {
     /**
+     * @example {"a": "b"}
+     *
      * @var mixed[]
      */
     public $resourceTags;

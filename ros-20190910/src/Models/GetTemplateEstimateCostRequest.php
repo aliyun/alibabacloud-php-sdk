@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateEstimateCostRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
@@ -20,36 +22,50 @@ class GetTemplateEstimateCostRequest extends Model
     public $parameters;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example {"ROSTemplateFormatVersion": "2015-09-01", "Parameters": {"Isp": {"Type": "String"}, "Name": {"Type": "String"},"Netmode": {"Type": "String"}, "Bandwidth": {"Type": "Number", "Default": 5}}, "Resources": {"NewEip": {"Type": "ALIYUN::VPC::EIP","Properties": {"InstanceChargeType": "Prepaid", "PricingCycle": "Month",   "Isp": {"Ref": "Isp"}, "Period": 1, "DeletionProtection": false, "AutoPay": false, "Name": {"Ref": "Name"}, "InternetChargeType": "PayByTraffic", "Netmode": {   "Ref": "Netmode"},"Bandwidth": 5}}}}
+     *
      * @var string
      */
     public $templateBody;
 
     /**
+     * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example ts-aa9c62feab844a6b****
+     *
      * @var string
      */
     public $templateScratchId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $templateScratchRegionId;
 
     /**
+     * @example oss://ros-template/demo
+     *
      * @var string
      */
     public $templateURL;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $templateVersion;

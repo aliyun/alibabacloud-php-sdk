@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListStackResourceDriftsRequest extends Model
 {
     /**
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example AAAAAdDWBF2****w==
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example MODIFIED
+     *
      * @var string[]
      */
     public $resourceDriftStatus;
 
     /**
+     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+     *
      * @var string
      */
     public $stackId;

@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class ListTemplatesRequest extends Model
 {
     /**
+     * @example Enabled
+     *
      * @var string
      */
     public $includeTags;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example rg-acfmxazb4ph6aiy****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example Private
+     *
      * @var string
      */
     public $shareType;
@@ -40,6 +50,8 @@ class ListTemplatesRequest extends Model
     public $tag;
 
     /**
+     * @example MyTemplate
+     *
      * @var string
      */
     public $templateName;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class sourceResources extends Model
 {
     /**
+     * @example vpc-bp1m6fww66xbntjyc****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example ALIYUN::ECS::VPC
+     *
      * @var string
      */
     public $resourceType;

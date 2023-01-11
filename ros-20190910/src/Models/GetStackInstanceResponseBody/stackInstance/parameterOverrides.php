@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class parameterOverrides extends Model
 {
     /**
+     * @example Amount
+     *
      * @var string
      */
     public $parameterKey;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $parameterValue;

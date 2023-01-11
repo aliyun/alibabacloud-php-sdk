@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class ListChangeSetsRequest extends Model
 {
     /**
+     * @example 1f6521a4-05af-4975-afe9-bc4b45ad****
+     *
      * @var string
      */
     public $changeSetId;
 
     /**
+     * @example MyChangeSet
+     *
      * @var string[]
      */
     public $changeSetName;
 
     /**
+     * @example AVAILABLE
+     *
      * @var string[]
      */
     public $executionStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+     *
      * @var string
      */
     public $stackId;
 
     /**
+     * @example CREATE_COMPLETE
+     *
      * @var string[]
      */
     public $status;

@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class stacks extends Model
 {
     /**
+     * @example 2022-03-10T06:44:36
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $disableRollback;
 
     /**
+     * @example 2022-03-10T06:46:36
+     *
      * @var string
      */
     public $driftDetectionTime;
@@ -31,56 +37,78 @@ class stacks extends Model
     public $operationInfo;
 
     /**
+     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf692****
+     *
      * @var string
      */
     public $parentStackId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-aek2frunvw7****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $serviceManaged;
 
     /**
+     * @example ACVS
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example IN_SYNC
+     *
      * @var string
      */
     public $stackDriftStatus;
 
     /**
+     * @example 67805444-a605-45ee-a57f-83908ff6****
+     *
      * @var string
      */
     public $stackId;
 
     /**
+     * @example MyStack
+     *
      * @var string
      */
     public $stackName;
 
     /**
+     * @example ROS
+     *
      * @var string
      */
     public $stackType;
 
     /**
+     * @example CREATE_COMPLETE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example Stack CREATE completed successfully
+     *
      * @var string
      */
     public $statusReason;
@@ -91,11 +119,15 @@ class stacks extends Model
     public $tags;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $timeoutInMinutes;
 
     /**
+     * @example 2022-03-10T07:44:36
+     *
      * @var string
      */
     public $updateTime;

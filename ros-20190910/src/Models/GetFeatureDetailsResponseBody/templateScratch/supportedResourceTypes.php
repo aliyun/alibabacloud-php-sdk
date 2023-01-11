@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class supportedResourceTypes extends Model
 {
     /**
+     * @example ALIYUN::ECS::Disk
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $sourceResourceGroupSupported;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $sourceResourcesSupported;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $sourceSupported;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $sourceTagSupported;

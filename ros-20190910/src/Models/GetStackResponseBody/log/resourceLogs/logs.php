@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class logs extends Model
 {
     /**
+     * @example []
+     *
      * @var string
      */
     public $content;

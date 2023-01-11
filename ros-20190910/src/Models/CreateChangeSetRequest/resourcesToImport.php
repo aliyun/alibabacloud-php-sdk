@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class resourcesToImport extends Model
 {
     /**
+     * @example Vpc
+     *
      * @var string
      */
     public $logicalResourceId;
 
     /**
+     * @example {"VpcId": "vpc-2zevx9ios******"}
+     *
      * @var string
      */
     public $resourceIdentifier;
 
     /**
+     * @example ALIYUN::ECS::VPC
+     *
      * @var string
      */
     public $resourceType;

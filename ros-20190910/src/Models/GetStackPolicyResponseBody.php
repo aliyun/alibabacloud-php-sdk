@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetStackPolicyResponseBody extends Model
 {
     /**
+     * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example {"Statement": [{"Action": "Update:*", "Effect": "Allow","Principal": "*","Resource": "*"}]}
+     *
      * @var mixed[]
      */
     public $stackPolicyBody;

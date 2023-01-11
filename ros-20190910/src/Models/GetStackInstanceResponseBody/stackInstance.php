@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class stackInstance extends Model
 {
     /**
+     * @example 151266687691****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @example 2020-02-27T07:47:47
+     *
      * @var string
      */
     public $driftDetectionTime;
@@ -25,41 +29,57 @@ class stackInstance extends Model
     public $parameterOverrides;
 
     /**
+     * @example fd-4PvlVLOL8v
+     *
      * @var string
      */
     public $rdFolderId;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example IN_SYNC
+     *
      * @var string
      */
     public $stackDriftStatus;
 
     /**
+     * @example fd0ddef9-9540-4b42-a464-94f77835****
+     *
      * @var string
      */
     public $stackGroupId;
 
     /**
+     * @example MyStackGroup
+     *
      * @var string
      */
     public $stackGroupName;
 
     /**
+     * @example 35ad60e3-6a92-42d8-8812-f0700d45****
+     *
      * @var string
      */
     public $stackId;
 
     /**
+     * @example CURRENT
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example User initiated stop
+     *
      * @var string
      */
     public $statusReason;

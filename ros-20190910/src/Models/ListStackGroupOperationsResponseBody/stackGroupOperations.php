@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class stackGroupOperations extends Model
 {
     /**
+     * @example CREATE
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @example 2020-01-20T09:22:36.000000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2020-01-20T09:22:41.000000
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example Create stack instance in hangzhou
+     *
      * @var string
      */
     public $operationDescription;
 
     /**
+     * @example 14A07460-EBE7-47CA-9757-12CC4761****
+     *
      * @var string
      */
     public $operationId;
 
     /**
+     * @example fd0ddef9-9540-4b42-a464-94f77835****
+     *
      * @var string
      */
     public $stackGroupId;
 
     /**
+     * @example MyStackGroup
+     *
      * @var string
      */
     public $stackGroupName;
 
     /**
+     * @example SUCCEEDED
+     *
      * @var string
      */
     public $status;

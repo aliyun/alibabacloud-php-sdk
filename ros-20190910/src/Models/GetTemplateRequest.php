@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateRequest extends Model
 {
     /**
+     * @example 1f6521a4-05af-4975-afe9-bc4b45ad****
+     *
      * @var string
      */
     public $changeSetId;
 
     /**
+     * @example Enabled
+     *
      * @var string
      */
     public $includePermission;
 
     /**
+     * @example Enabled
+     *
      * @var string
      */
     public $includeTags;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example MyStackGroup
+     *
      * @var string
      */
     public $stackGroupName;
 
     /**
+     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+     *
      * @var string
      */
     public $stackId;
 
     /**
+     * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example Processed
+     *
      * @var string
      */
     public $templateStage;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $templateVersion;

@@ -14,11 +14,15 @@ class ListTagKeysResponseBody extends Model
     public $keys;
 
     /**
+     * @example caeba0bbb2be03f84eb48b699f0*****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example C429473A-5C66-4661-B5F8-4F900CD4330A
+     *
      * @var string
      */
     public $requestId;

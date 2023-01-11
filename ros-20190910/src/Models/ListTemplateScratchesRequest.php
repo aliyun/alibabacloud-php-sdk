@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class ListTemplateScratchesRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example GENERATE_COMPLETE
+     *
      * @var string
      */
     public $status;
@@ -35,11 +43,15 @@ class ListTemplateScratchesRequest extends Model
     public $tags;
 
     /**
+     * @example ts-7f7a704cf71c49a6****
+     *
      * @var string
      */
     public $templateScratchId;
 
     /**
+     * @example ArchitectureReplication
+     *
      * @var string
      */
     public $templateScratchType;

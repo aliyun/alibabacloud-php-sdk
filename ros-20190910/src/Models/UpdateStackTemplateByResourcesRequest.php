@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class UpdateStackTemplateByResourcesRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example Vpc
+     *
      * @var string[]
      */
     public $logicalResourceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+     *
      * @var string
      */
     public $stackId;
 
     /**
+     * @example JSON
+     *
      * @var string
      */
     public $templateFormat;

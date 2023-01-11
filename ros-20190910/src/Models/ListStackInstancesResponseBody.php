@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListStackInstancesResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 85DE34BD-7FF9-480F-8C21-556E9DA93ACD
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class ListStackInstancesResponseBody extends Model
     public $stackInstances;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

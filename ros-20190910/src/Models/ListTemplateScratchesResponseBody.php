@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListTemplateScratchesResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example D1C09606-C58B-558F-9B4E-5BF263D17D09
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class ListTemplateScratchesResponseBody extends Model
     public $templateScratches;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

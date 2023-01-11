@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListTemplateVersionsResponseBody extends Model
 {
     /**
+     * @example caeba0bbb2be03f84eb48b699f0****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
+     *
      * @var string
      */
     public $requestId;

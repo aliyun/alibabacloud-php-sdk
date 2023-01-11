@@ -14,11 +14,15 @@ class regions extends Model
     public $localName;
 
     /**
+     * @example ros.aliyuncs.com
+     *
      * @var string
      */
     public $regionEndpoint;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

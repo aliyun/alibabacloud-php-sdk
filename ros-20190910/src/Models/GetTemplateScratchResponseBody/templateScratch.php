@@ -15,6 +15,8 @@ use AlibabaCloud\Tea\Model;
 class templateScratch extends Model
 {
     /**
+     * @example 2021-12-22T01:49:22
+     *
      * @var string
      */
     public $createTime;
@@ -25,11 +27,15 @@ class templateScratch extends Model
     public $description;
 
     /**
+     * @example InvalidZoneId
+     *
      * @var string
      */
     public $failedCode;
 
     /**
+     * @example LongTypePrefixAndIndexSuffix
+     *
      * @var string
      */
     public $logicalIdStrategy;
@@ -65,11 +71,15 @@ class templateScratch extends Model
     public $stacks;
 
     /**
+     * @example GENERATE_COMPLETE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example Resource ALIYUN::ECS::VPC vpc-m5eauuq80anx59v28**** could not be found for template scratch.
+     *
      * @var string
      */
     public $statusReason;
@@ -80,16 +90,22 @@ class templateScratch extends Model
     public $templateScratchData;
 
     /**
+     * @example ts-7f7a704cf71c49a6****
+     *
      * @var string
      */
     public $templateScratchId;
 
     /**
+     * @example ArchitectureReplication
+     *
      * @var string
      */
     public $templateScratchType;
 
     /**
+     * @example 2021-12-22T01:49:23
+     *
      * @var string
      */
     public $updateTime;

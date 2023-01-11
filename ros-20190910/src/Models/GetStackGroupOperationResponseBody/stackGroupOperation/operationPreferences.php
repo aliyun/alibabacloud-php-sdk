@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class operationPreferences extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $failureToleranceCount;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $failureTolerancePercentage;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $maxConcurrentCount;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxConcurrentPercentage;
 
     /**
+     * @description test
+     *
      * @var string[]
      */
     public $regionIdsOrder;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class MoveResourceGroupRequest extends Model
 {
     /**
+     * @example rg-acfm3peow3k****
+     *
      * @var string
      */
     public $newResourceGroupId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 4e8611cb-251e-42b7-b9cb-3496362c****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example stack
+     *
      * @var string
      */
     public $resourceType;

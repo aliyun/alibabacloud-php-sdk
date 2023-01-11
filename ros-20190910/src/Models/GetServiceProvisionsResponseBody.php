@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetServiceProvisionsResponseBody extends Model
 {
     /**
+     * @example A9938C04-26AD-5EFA-B394-EA7866842DFF
+     *
      * @var string
      */
     public $requestId;

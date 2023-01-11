@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
+     * @example InstanceId
+     *
      * @var string
      */
     public $parameterKey;
 
     /**
+     * @example i-rotp2e20whfrs2****
+     *
      * @var string
      */
     public $parameterValue;

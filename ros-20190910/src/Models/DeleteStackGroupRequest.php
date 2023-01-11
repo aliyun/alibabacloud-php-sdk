@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteStackGroupRequest extends Model
 {
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example MyStackGroup
+     *
      * @var string
      */
     public $stackGroupName;

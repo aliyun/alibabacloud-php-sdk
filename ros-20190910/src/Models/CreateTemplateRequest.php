@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateTemplateRequest extends Model
 {
     /**
+     * @example It is a demo.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example rg-acfmxazb4ph6aiy****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -25,16 +29,22 @@ class CreateTemplateRequest extends Model
     public $tags;
 
     /**
+     * @example {"ROSTemplateFormatVersion":"2015-09-01"}
+     *
      * @var string
      */
     public $templateBody;
 
     /**
+     * @example MyTemplate
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example oss://ros/template/demo
+     *
      * @var string
      */
     public $templateURL;

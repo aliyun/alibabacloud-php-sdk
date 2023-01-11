@@ -11,56 +11,78 @@ use AlibabaCloud\Tea\Model;
 class CreateStackInstancesRequest extends Model
 {
     /**
+     * @example ["151266687691****","141261387191****"]
+     *
      * @var string[]
      */
     public $accountIds;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example {"RdFolderId": "fd-4PvlVLOL8v"}
+     *
      * @var deploymentTargets
      */
     public $deploymentTargets;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $disableRollback;
 
     /**
+     * @example Create stack instances in hangzhou and beijing
+     *
      * @var string
      */
     public $operationDescription;
 
     /**
+     * @example {"FailureToleranceCount": 1, "MaxConcurrentCount": 2}
+     *
      * @var mixed[]
      */
     public $operationPreferences;
 
     /**
+     * @description test
+     *
      * @var parameterOverrides[]
      */
     public $parameterOverrides;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example ["cn-hangzhou", "cn-beijing"]
+     *
      * @var string[]
      */
     public $regionIds;
 
     /**
+     * @example MyStackGroup
+     *
      * @var string
      */
     public $stackGroupName;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $timeoutInMinutes;

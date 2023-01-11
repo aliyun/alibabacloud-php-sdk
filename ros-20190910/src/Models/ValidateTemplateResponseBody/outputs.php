@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class outputs extends Model
 {
     /**
+     * @example The instance ID of my ECS.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example Instance ID
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @example instance_id
+     *
      * @var string
      */
     public $outputKey;

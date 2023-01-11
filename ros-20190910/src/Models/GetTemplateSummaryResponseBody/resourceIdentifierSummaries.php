@@ -19,6 +19,8 @@ class resourceIdentifierSummaries extends Model
     public $resourceIdentifiers;
 
     /**
+     * @example ALIYUN::ECS::VPC
+     *
      * @var string
      */
     public $resourceType;

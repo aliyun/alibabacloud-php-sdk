@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class events extends Model
 {
     /**
+     * @example 2019-08-01T04:07:39
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 0086612d-77cf-4056-b0b5-ff8e94ad****
+     *
      * @var string
      */
     public $eventId;
 
     /**
+     * @example WebServer
+     *
      * @var string
      */
     public $logicalResourceId;
 
     /**
+     * @example i-m5e3tfdbinchnexh****
+     *
      * @var string
      */
     public $physicalResourceId;
 
     /**
+     * @example ALIYUN::ECS::Instance
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+     *
      * @var string
      */
     public $stackId;
 
     /**
+     * @example StackName
+     *
      * @var string
      */
     public $stackName;
 
     /**
+     * @example CREATE_COMPLETE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example state changed
+     *
      * @var string
      */
     public $statusReason;

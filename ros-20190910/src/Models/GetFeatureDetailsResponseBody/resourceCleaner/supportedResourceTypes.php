@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class supportedResourceTypes extends Model
 {
     /**
+     * @example ECS:Instance
+     *
      * @var string
      */
     public $resourceType;

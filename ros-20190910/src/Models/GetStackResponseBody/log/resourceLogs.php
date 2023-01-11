@@ -15,6 +15,8 @@ class resourceLogs extends Model
     public $logs;
 
     /**
+     * @example MyResourceCleaner
+     *
      * @var string
      */
     public $resourceName;

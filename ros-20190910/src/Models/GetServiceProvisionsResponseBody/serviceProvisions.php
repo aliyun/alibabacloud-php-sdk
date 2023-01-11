@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class serviceProvisions extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoEnableService;
@@ -20,6 +22,8 @@ class serviceProvisions extends Model
     public $dependentServiceNames;
 
     /**
+     * @example https://common-buy.aliyun.com/?commodityCode=nas
+     *
      * @var string
      */
     public $enableURL;
@@ -30,16 +34,22 @@ class serviceProvisions extends Model
     public $roleProvision;
 
     /**
+     * @example EHPC
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example Enabled
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example No permission.
+     *
      * @var string
      */
     public $statusReason;

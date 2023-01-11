@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateTemplateScratchRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
@@ -23,11 +25,15 @@ class UpdateTemplateScratchRequest extends Model
     public $description;
 
     /**
+     * @example Sync
+     *
      * @var string
      */
     public $executionMode;
 
     /**
+     * @example LongTypePrefixAndIndexSuffix
+     *
      * @var string
      */
     public $logicalIdStrategy;
@@ -38,6 +44,8 @@ class UpdateTemplateScratchRequest extends Model
     public $preferenceParameters;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -58,6 +66,8 @@ class UpdateTemplateScratchRequest extends Model
     public $sourceTag;
 
     /**
+     * @example ts-7f7a704cf71c49a6****
+     *
      * @var string
      */
     public $templateScratchId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateEstimateCostResponseBody extends Model
 {
     /**
+     * @example 6DEA36EF-C97D-5658-A4AC-4F5DB08D1A89
+     *
      * @var string
      */
     public $requestId;

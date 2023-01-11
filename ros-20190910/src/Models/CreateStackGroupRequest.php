@@ -12,51 +12,71 @@ use AlibabaCloud\Tea\Model;
 class CreateStackGroupRequest extends Model
 {
     /**
+     * @example AliyunROSStackGroupAdministrationRole
+     *
      * @var string
      */
     public $administrationRoleName;
 
     /**
+     * @example {"Enabled": true, "RetainStacksOnAccountRemoval": true}
+     *
      * @var autoDeployment
      */
     public $autoDeployment;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example StackGroup Description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example AliyunROSStackGroupExecutionRole
+     *
      * @var string
      */
     public $executionRoleName;
 
     /**
+     * @description test
+     *
      * @var parameters[]
      */
     public $parameters;
 
     /**
+     * @example SELF_MANAGED
+     *
      * @var string
      */
     public $permissionModel;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmxazb4ph6aiy****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example MyStackGroup
+     *
      * @var string
      */
     public $stackGroupName;
@@ -67,21 +87,29 @@ class CreateStackGroupRequest extends Model
     public $tags;
 
     /**
+     * @example {"ROSTemplateFormatVersion":"2015-09-01"}
+     *
      * @var string
      */
     public $templateBody;
 
     /**
+     * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example oss://ros-template/demo
+     *
      * @var string
      */
     public $templateURL;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $templateVersion;

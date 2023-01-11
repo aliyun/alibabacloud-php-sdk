@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetStackGroupRequest extends Model
 {
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example fd0ddef9-9540-4b42-a464-94f77835****
+     *
      * @var string
      */
     public $stackGroupId;
 
     /**
+     * @example MyStackGroup
+     *
      * @var string
      */
     public $stackGroupName;

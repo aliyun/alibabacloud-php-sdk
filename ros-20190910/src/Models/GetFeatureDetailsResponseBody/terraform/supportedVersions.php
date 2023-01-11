@@ -15,11 +15,15 @@ class supportedVersions extends Model
     public $providerVersions;
 
     /**
+     * @example 1.0.11
+     *
      * @var string
      */
     public $terraformVersion;
 
     /**
+     * @example Aliyun::Terraform-v1.0
+     *
      * @var string
      */
     public $transform;

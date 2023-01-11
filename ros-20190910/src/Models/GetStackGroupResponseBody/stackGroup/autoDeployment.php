@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class autoDeployment extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $retainStacksOnAccountRemoval;

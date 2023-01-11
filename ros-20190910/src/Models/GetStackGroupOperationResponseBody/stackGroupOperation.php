@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class stackGroupOperation extends Model
 {
     /**
+     * @example DELETE
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @example AliyunROSStackGroupAdministrationRole
+     *
      * @var string
      */
     public $administrationRoleName;
 
     /**
+     * @example 2020-01-20T09:22:3
+     *
      * @var string
      */
     public $createTime;
@@ -32,21 +38,29 @@ class stackGroupOperation extends Model
     public $deploymentTargets;
 
     /**
+     * @example 2020-01-20T09:22:4
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example AliyunROSStackGroupExecutionRole
+     *
      * @var string
      */
     public $executionRoleName;
 
     /**
+     * @example Create stack instance in hangzhou
+     *
      * @var string
      */
     public $operationDescription;
 
     /**
+     * @example 6da106ca-1784-4a6f-a7e1-e723863d****
+     *
      * @var string
      */
     public $operationId;
@@ -57,6 +71,8 @@ class stackGroupOperation extends Model
     public $operationPreferences;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $retainStacks;
@@ -67,16 +83,22 @@ class stackGroupOperation extends Model
     public $stackGroupDriftDetectionDetail;
 
     /**
+     * @example fd0ddef9-9540-4b42-a464-94f77835****
+     *
      * @var string
      */
     public $stackGroupId;
 
     /**
+     * @example MyStackGroup
+     *
      * @var string
      */
     public $stackGroupName;
 
     /**
+     * @example SUCCEEDED
+     *
      * @var string
      */
     public $status;

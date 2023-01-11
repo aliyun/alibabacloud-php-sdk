@@ -14,6 +14,8 @@ class deploymentTargets extends Model
     public $accountIds;
 
     /**
+     * @description test
+     *
      * @var string[]
      */
     public $rdFolderIds;

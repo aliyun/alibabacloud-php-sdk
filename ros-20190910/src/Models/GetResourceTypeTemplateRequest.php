@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetResourceTypeTemplateRequest extends Model
 {
     /**
+     * @example ALIYUN::ECS::VPC
+     *
      * @var string
      */
     public $resourceType;

@@ -15,6 +15,8 @@ class GetTemplateParameterConstraintsResponseBody extends Model
     public $parameterConstraints;
 
     /**
+     * @example 9816785B-BCF8-514D-8B76-C1EC2BC954FC
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class stackProvision extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $creatable;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $importable;

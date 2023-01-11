@@ -16,41 +16,57 @@ class stackGroups extends Model
     public $autoDeployment;
 
     /**
+     * @example My Stack Group
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 2020-02-27T07:47:47
+     *
      * @var string
      */
     public $driftDetectionTime;
 
     /**
+     * @example SELF_MANAGED
+     *
      * @var string
      */
     public $permissionModel;
 
     /**
+     * @example rg-acfmzawhxxcj****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example IN_SYNC
+     *
      * @var string
      */
     public $stackGroupDriftStatus;
 
     /**
+     * @example fd0ddef9-9540-4b42-a464-94f77835****
+     *
      * @var string
      */
     public $stackGroupId;
 
     /**
+     * @example MyStackGroup
+     *
      * @var string
      */
     public $stackGroupName;
 
     /**
+     * @example ACTIVE
+     *
      * @var string
      */
     public $status;

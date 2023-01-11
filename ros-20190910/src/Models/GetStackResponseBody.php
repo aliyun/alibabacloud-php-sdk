@@ -14,31 +14,43 @@ use AlibabaCloud\Tea\Model;
 class GetStackResponseBody extends Model
 {
     /**
+     * @example 2020-09-16T08:21:40
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example Disabled
+     *
      * @var string
      */
     public $deletionProtection;
 
     /**
+     * @example Create a VPC.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $disableRollback;
 
     /**
+     * @example 2020-09-16T09:21:40
+     *
      * @var string
      */
     public $driftDetectionTime;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $interface;
@@ -69,26 +81,36 @@ class GetStackResponseBody extends Model
     public $parameters;
 
     /**
+     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf692****
+     *
      * @var string
      */
     public $parentStackId;
 
     /**
+     * @example test-role
+     *
      * @var string
      */
     public $ramRoleName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example rg-acfmxazb4ph6aiy****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -99,46 +121,64 @@ class GetStackResponseBody extends Model
     public $resourceProgress;
 
     /**
+     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf692****
+     *
      * @var string
      */
     public $rootStackId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $serviceManaged;
 
     /**
+     * @example ACVS
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example IN_SYNC
+     *
      * @var string
      */
     public $stackDriftStatus;
 
     /**
+     * @example c754d2a4-28f1-46df-b557-9586173a****
+     *
      * @var string
      */
     public $stackId;
 
     /**
+     * @example MyStack
+     *
      * @var string
      */
     public $stackName;
 
     /**
+     * @example ROS
+     *
      * @var string
      */
     public $stackType;
 
     /**
+     * @example CREATE_COMPLETE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example Stack CREATE completed successfully
+     *
      * @var string
      */
     public $statusReason;
@@ -149,36 +189,50 @@ class GetStackResponseBody extends Model
     public $tags;
 
     /**
+     * @example Create a VPC.
+     *
      * @var string
      */
     public $templateDescription;
 
     /**
+     * @example a52f81be-496f-4e1c-a286-8852ab54****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example ts-7f7a704cf71c49a6****
+     *
      * @var string
      */
     public $templateScratchId;
 
     /**
+     * @example oss://ros/template/demo
+     *
      * @var string
      */
     public $templateURL;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $templateVersion;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $timeoutInMinutes;
 
     /**
+     * @example 2020-09-17T08:21:40
+     *
      * @var string
      */
     public $updateTime;

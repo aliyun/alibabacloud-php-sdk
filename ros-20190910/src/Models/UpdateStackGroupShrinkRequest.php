@@ -10,91 +10,127 @@ use AlibabaCloud\Tea\Model;
 class UpdateStackGroupShrinkRequest extends Model
 {
     /**
+     * @example ["12****"]
+     *
      * @var string
      */
     public $accountIdsShrink;
 
     /**
+     * @example AliyunROSStackGroupAdministrationRole
+     *
      * @var string
      */
     public $administrationRoleName;
 
     /**
+     * @example {"Enabled": true, "RetainStacksOnAccountRemoval": true}
+     *
      * @var string
      */
     public $autoDeploymentShrink;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example {"RdFolderIds": ["fd-4PvlVLOL8v"]}
+     *
      * @var string
      */
     public $deploymentTargetsShrink;
 
     /**
+     * @example My Stack Group
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example AliyunROSStackGroupExecutionRole
+     *
      * @var string
      */
     public $executionRoleName;
 
     /**
+     * @example Update stack instances in hangzhou
+     *
      * @var string
      */
     public $operationDescription;
 
     /**
+     * @example {"FailureToleranceCount": 1,"MaxConcurrentCount": 2}
+     *
      * @var string
      */
     public $operationPreferencesShrink;
 
     /**
+     * @description test
+     *
      * @var parameters[]
      */
     public $parameters;
 
     /**
+     * @example SELF_MANAGED
+     *
      * @var string
      */
     public $permissionModel;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example ["cn-hangzhou", "cn-beijing"]
+     *
      * @var string
      */
     public $regionIdsShrink;
 
     /**
+     * @example MyStackGroup
+     *
      * @var string
      */
     public $stackGroupName;
 
     /**
+     * @example {"ROSTemplateFormatVersion": "2015-09-01"}
+     *
      * @var string
      */
     public $templateBody;
 
     /**
+     * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example oss://ros-template/demo
+     *
      * @var string
      */
     public $templateURL;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $templateVersion;

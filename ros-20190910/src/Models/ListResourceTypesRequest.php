@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListResourceTypesRequest extends Model
 {
     /**
+     * @example Resource
+     *
      * @var string
      */
     public $entityType;

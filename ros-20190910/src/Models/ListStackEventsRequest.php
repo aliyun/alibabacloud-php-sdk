@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ListStackEventsRequest extends Model
 {
     /**
+     * @example WebServer
+     *
      * @var string[]
      */
     public $logicalResourceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example ALIYUN::ECS::Instance
+     *
      * @var string[]
      */
     public $resourceType;
 
     /**
+     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+     *
      * @var string
      */
     public $stackId;
 
     /**
+     * @example CREATE_IN_PROGRESS
+     *
      * @var string[]
      */
     public $status;

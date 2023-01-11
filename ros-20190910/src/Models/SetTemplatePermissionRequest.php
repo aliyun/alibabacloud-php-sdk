@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class SetTemplatePermissionRequest extends Model
 {
     /**
+     * @example 123456789
+     *
      * @var string[]
      */
     public $accountIds;
 
     /**
+     * @example ShareToAccounts
+     *
      * @var string
      */
     public $shareOption;
 
     /**
+     * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $templateVersion;
 
     /**
+     * @example Specified
+     *
      * @var string
      */
     public $versionOption;

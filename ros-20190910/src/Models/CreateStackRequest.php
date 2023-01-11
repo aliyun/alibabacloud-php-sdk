@@ -11,106 +11,148 @@ use AlibabaCloud\Tea\Model;
 class CreateStackRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example KeepStackOnCreationComplete
+     *
      * @var string
      */
     public $createOption;
 
     /**
+     * @example Enabled
+     *
      * @var string
      */
     public $deletionProtection;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $disableRollback;
 
     /**
+     * @example http://my-site.com/ros-event
+     *
      * @var string[]
      */
     public $notificationURLs;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $parallelism;
 
     /**
+     * @description test
+     *
      * @var parameters[]
      */
     public $parameters;
 
     /**
+     * @example test-role
+     *
      * @var string
      */
     public $ramRoleName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmxazb4ph6aiy****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example MyStack
+     *
      * @var string
      */
     public $stackName;
 
     /**
+     * @example {"Statement": [{"Action": "Update:*", "Resource": "*", "Effect": "Allow", "Principal": "*"}]}
+     *
      * @var string
      */
     public $stackPolicyBody;
 
     /**
+     * @example oss://ros-stack-policy/demo
+     *
      * @var string
      */
     public $stackPolicyURL;
 
     /**
+     * @description test
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @example {"ROSTemplateFormatVersion":"2015-09-01"}
+     *
      * @var string
      */
     public $templateBody;
 
     /**
+     * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example ts-aa9c62feab844a6b****
+     *
      * @var string
      */
     public $templateScratchId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $templateScratchRegionId;
 
     /**
+     * @example oss://ros-template/demo
+     *
      * @var string
      */
     public $templateURL;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $templateVersion;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $timeoutInMinutes;

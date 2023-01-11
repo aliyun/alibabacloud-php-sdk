@@ -15,21 +15,29 @@ class ListStackEventsResponseBody extends Model
     public $events;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $totalCount;

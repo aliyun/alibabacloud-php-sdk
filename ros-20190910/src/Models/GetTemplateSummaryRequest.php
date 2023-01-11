@@ -10,51 +10,71 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateSummaryRequest extends Model
 {
     /**
+     * @example 1f6521a4-05af-4975-afe9-bc4b45ad****
+     *
      * @var string
      */
     public $changeSetId;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description test
+     *
      * @var parameters[]
      */
     public $parameters;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example my-stack-group
+     *
      * @var string
      */
     public $stackGroupName;
 
     /**
+     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+     *
      * @var string
      */
     public $stackId;
 
     /**
+     * @example {"ROSTemplateFormatVersion":"2015-09-01"}
+     *
      * @var string
      */
     public $templateBody;
 
     /**
+     * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example oss://ros/template/demo
+     *
      * @var string
      */
     public $templateURL;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $templateVersion;

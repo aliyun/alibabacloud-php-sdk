@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class roleProvision extends Model
 {
     /**
+     * @example https://ehpc.console.aliyun.com/
+     *
      * @var string
      */
     public $authorizationURL;

@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class stackGroupDriftDetectionDetail extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $cancelledStackInstancesCount;
 
     /**
+     * @example COMPLETED
+     *
      * @var string
      */
     public $driftDetectionStatus;
 
     /**
+     * @example 2020-02-27T07:47:47
+     *
      * @var string
      */
     public $driftDetectionTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $driftedStackInstancesCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $failedStackInstancesCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $inProgressStackInstancesCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $inSyncStackInstancesCount;
 
     /**
+     * @example DRIFTED
+     *
      * @var string
      */
     public $stackGroupDriftStatus;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalStackInstancesCount;

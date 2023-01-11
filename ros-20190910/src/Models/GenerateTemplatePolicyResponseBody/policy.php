@@ -15,6 +15,8 @@ class policy extends Model
     public $statement;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $version;

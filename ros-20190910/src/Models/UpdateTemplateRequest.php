@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateTemplateRequest extends Model
 {
     /**
+     * @example It is a demo.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example {"ROSTemplateFormatVersion":"2015-09-01"}
+     *
      * @var string
      */
     public $templateBody;
 
     /**
+     * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example MyTemplate
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example oss://ros/template/demo
+     *
      * @var string
      */
     public $templateURL;

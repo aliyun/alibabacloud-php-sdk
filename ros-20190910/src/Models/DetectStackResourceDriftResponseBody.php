@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DetectStackResourceDriftResponseBody extends Model
 {
     /**
+     * @example {"ScalingRuleName": "test1"}
+     *
      * @var string
      */
     public $actualProperties;
 
     /**
+     * @example 2020-02-27T07:47:47
+     *
      * @var string
      */
     public $driftDetectionTime;
 
     /**
+     * @example {"ScalingRuleName": "test2"}
+     *
      * @var string
      */
     public $expectedProperties;
 
     /**
+     * @example ScalingRule
+     *
      * @var string
      */
     public $logicalResourceId;
 
     /**
+     * @example asr-2ze4zzc3kf9yz1kd****
+     *
      * @var string
      */
     public $physicalResourceId;
@@ -40,21 +50,29 @@ class DetectStackResourceDriftResponseBody extends Model
     public $propertyDifferences;
 
     /**
+     * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example MODIFIED
+     *
      * @var string
      */
     public $resourceDriftStatus;
 
     /**
+     * @example ALIYUN::ESS::ScalingRule
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+     *
      * @var string
      */
     public $stackId;

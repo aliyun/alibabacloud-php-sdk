@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class riskResources extends Model
 {
     /**
+     * @example NoPermission
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example MySG
+     *
      * @var string
      */
     public $logicalResourceId;
 
     /**
+     * @example You are not authorized to complete this action.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example sg-bp1dpioafqphedg9****
+     *
      * @var string
      */
     public $physicalResourceId;
 
     /**
+     * @example There are some ECS instances (i-bp18el96s4wq635e****) depending on the security group.
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @example DF4296CF-F45F-4845-A72B-BE617601DB25
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example ALIYUN::ECS::SecurityGroup
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example Referenced
+     *
      * @var string
      */
     public $riskType;

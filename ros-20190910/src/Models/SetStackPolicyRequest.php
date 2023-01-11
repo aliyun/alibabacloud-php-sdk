@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SetStackPolicyRequest extends Model
 {
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+     *
      * @var string
      */
     public $stackId;
 
     /**
+     * @example {"Statement":[{"Effect":"Allow","Action":"Update:*","Principal":"*","Resource":"*"}]}
+     *
      * @var string
      */
     public $stackPolicyBody;
 
     /**
+     * @example oss://ros/stack-policy/demo
+     *
      * @var string
      */
     public $stackPolicyURL;

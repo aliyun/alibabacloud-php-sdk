@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\ROS\V20190910;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\ROS\V20190910\Models\CancelStackOperationRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\CancelStackOperationResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CancelUpdateStackRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CancelUpdateStackResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ContinueCreateStackRequest;
@@ -194,6 +196,58 @@ class ROS extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param CancelStackOperationRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CancelStackOperationResponse
+     */
+    public function cancelStackOperationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->allowedStackOperations)) {
+            $query['AllowedStackOperations'] = $request->allowedStackOperations;
+        }
+        if (!Utils::isUnset($request->cancelType)) {
+            $query['CancelType'] = $request->cancelType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->stackId)) {
+            $query['StackId'] = $request->stackId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelStackOperation',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelStackOperationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CancelStackOperationRequest $request
+     *
+     * @return CancelStackOperationResponse
+     */
+    public function cancelStackOperation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelStackOperationWithOptions($request, $runtime);
     }
 
     /**

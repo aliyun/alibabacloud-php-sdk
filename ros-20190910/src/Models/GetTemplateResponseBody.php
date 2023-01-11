@@ -11,26 +11,36 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateResponseBody extends Model
 {
     /**
+     * @example e85abe0c-6528-43fb-ae93-fdf8de22****
+     *
      * @var string
      */
     public $changeSetId;
 
     /**
+     * @example 2020-11-18T08:49:26
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example ROS template for create ECS instance.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $interface;
 
     /**
+     * @example 151266687691****
+     *
      * @var string
      */
     public $ownerId;
@@ -41,31 +51,43 @@ class GetTemplateResponseBody extends Model
     public $permissions;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example B288A0BE-D927-4888-B0F7-B35EF84****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example rg-acfmxazb4ph6aiy****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example Private
+     *
      * @var string
      */
     public $shareType;
 
     /**
+     * @example MyStackGroup
+     *
      * @var string
      */
     public $stackGroupName;
 
     /**
+     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+     *
      * @var string
      */
     public $stackId;
@@ -76,31 +98,43 @@ class GetTemplateResponseBody extends Model
     public $tags;
 
     /**
+     * @example acs:ros:*:151266687691****:template/a52f81be-496f-4e1c-a286-8852ab54****
+     *
      * @var string
      */
     public $templateARN;
 
     /**
+     * @example {"ROSTemplateFormatVersion": "2015-09-01"}
+     *
      * @var string
      */
     public $templateBody;
 
     /**
+     * @example a52f81be-496f-4e1c-a286-8852ab54****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example MyTemplate
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $templateVersion;
 
     /**
+     * @example 2020-12-07T06:11:48
+     *
      * @var string
      */
     public $updateTime;

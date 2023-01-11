@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListTagKeysRequest extends Model
 {
     /**
+     * @example caeba0bbb2be03f84eb48b699f0*****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example stack
+     *
      * @var string
      */
     public $resourceType;

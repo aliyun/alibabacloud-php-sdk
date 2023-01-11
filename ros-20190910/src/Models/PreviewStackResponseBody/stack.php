@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class stack extends Model
 {
     /**
+     * @example One ECS instance.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $disableRollback;
@@ -32,6 +36,8 @@ class stack extends Model
     public $parameters;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -42,21 +48,29 @@ class stack extends Model
     public $resources;
 
     /**
+     * @example MyStack
+     *
      * @var string
      */
     public $stackName;
 
     /**
+     * @example {   "Statement": [     {       "Action": "Update:*",       "Resource": "*",       "Effect": "Allow",       "Principal": "*"     },     {       "Action": "Update:*",       "Resource": "LogicalResourceId/apple1",       "Effect": "Deny",       "Principal": "*"     }   ] }
+     *
      * @var mixed[]
      */
     public $stackPolicyBody;
 
     /**
+     * @example One ECS instance.
+     *
      * @var string
      */
     public $templateDescription;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $timeoutInMinutes;

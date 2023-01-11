@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListTemplateVersionsRequest extends Model
 {
     /**
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example caeba0bbb2be03f84eb48b699f0****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
+     *
      * @var string
      */
     public $templateId;

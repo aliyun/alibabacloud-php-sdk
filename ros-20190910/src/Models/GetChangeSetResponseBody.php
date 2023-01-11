@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class GetChangeSetResponseBody extends Model
 {
     /**
+     * @example 4c11658d-bd47-4dd0-ba64-727edc62****
+     *
      * @var string
      */
     public $changeSetId;
 
     /**
+     * @example ChangeSet_template
+     *
      * @var string
      */
     public $changeSetName;
 
     /**
+     * @example UPDATE
+     *
      * @var string
      */
     public $changeSetType;
@@ -31,21 +37,29 @@ class GetChangeSetResponseBody extends Model
     public $changes;
 
     /**
+     * @example 2021-12-01T02:20:56
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example It is a demo.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $disableRollback;
 
     /**
+     * @example AVAILABLE
+     *
      * @var string
      */
     public $executionStatus;
@@ -61,41 +75,57 @@ class GetChangeSetResponseBody extends Model
     public $parameters;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 3766EE04-76DD-50F9-9C23-3AF136CD5708
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example a486fc19-ebb7-4ce9-a70b-554a7c3d****
+     *
      * @var string
      */
     public $stackId;
 
     /**
+     * @example stack_2021-10-13
+     *
      * @var string
      */
     public $stackName;
 
     /**
+     * @example CREATE_COMPLETE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example too many changes.
+     *
      * @var string
      */
     public $statusReason;
 
     /**
+     * @example {"ROSTemplateFormatVersion": "2015-09-01"}
+     *
      * @var string
      */
     public $templateBody;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $timeoutInMinutes;

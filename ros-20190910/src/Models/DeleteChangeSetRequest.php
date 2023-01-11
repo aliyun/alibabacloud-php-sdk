@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteChangeSetRequest extends Model
 {
     /**
+     * @example 1f6521a4-05af-4975-afe9-bc4b45ad****
+     *
      * @var string
      */
     public $changeSetId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
