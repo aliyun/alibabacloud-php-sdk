@@ -63,6 +63,11 @@ class data extends Model
     public $licenseKey;
 
     /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
      * @description The region ID.
      *
      * @example cn-hangzhou
@@ -109,6 +114,11 @@ class data extends Model
      * @var string
      */
     public $userId;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'appId'      => 'AppId',
         'appName'    => 'AppName',
@@ -116,11 +126,13 @@ class data extends Model
         'extraInfo'  => 'ExtraInfo',
         'language'   => 'Language',
         'licenseKey' => 'LicenseKey',
+        'namespace'  => 'Namespace',
         'regionId'   => 'RegionId',
         'source'     => 'Source',
         'status'     => 'Status',
         'updateTime' => 'UpdateTime',
         'userId'     => 'UserId',
+        'version'    => 'Version',
     ];
 
     public function validate()
@@ -148,6 +160,9 @@ class data extends Model
         if (null !== $this->licenseKey) {
             $res['LicenseKey'] = $this->licenseKey;
         }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -162,6 +177,9 @@ class data extends Model
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -193,6 +211,9 @@ class data extends Model
         if (isset($map['LicenseKey'])) {
             $model->licenseKey = $map['LicenseKey'];
         }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -207,6 +228,9 @@ class data extends Model
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

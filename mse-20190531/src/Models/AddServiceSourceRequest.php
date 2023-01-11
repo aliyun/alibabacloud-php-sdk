@@ -57,10 +57,9 @@ class AddServiceSourceRequest extends Model
     /**
      * @description The name.
      *
-     * >  The parameter value varies based on the source type.
+     * > The parameter value varies based on the source type.
      *
      *   If Type is set to K8S, this parameter specifies the name of the ACK cluster.
-     *
      *   If Type is set to NACOS, this parameter specifies the ID of the instance.
      *
      * @example istio

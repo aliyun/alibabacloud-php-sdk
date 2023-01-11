@@ -1429,11 +1429,11 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->appName)) {
             $query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->extraInfo)) {
-            $query['ExtraInfo'] = $request->extraInfo;
-        }
         if (!Utils::isUnset($request->language)) {
             $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
         if (!Utils::isUnset($request->region)) {
             $query['Region'] = $request->region;
@@ -1640,10 +1640,14 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateMseServiceApplicationRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @deprecated : CreateMseServiceApplication is deprecated, please use mse::2019-05-31::CreateApplication instead.
+     *   *
+     * Deprecated
      *
-     * @return CreateMseServiceApplicationResponse
+     * @param CreateMseServiceApplicationRequest $request CreateMseServiceApplicationRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateMseServiceApplicationResponse CreateMseServiceApplicationResponse
      */
     public function createMseServiceApplicationWithOptions($request, $runtime)
     {
@@ -1695,9 +1699,13 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateMseServiceApplicationRequest $request
+     * @deprecated : CreateMseServiceApplication is deprecated, please use mse::2019-05-31::CreateApplication instead.
+     *   *
+     * Deprecated
      *
-     * @return CreateMseServiceApplicationResponse
+     * @param CreateMseServiceApplicationRequest $request CreateMseServiceApplicationRequest
+     *
+     * @return CreateMseServiceApplicationResponse CreateMseServiceApplicationResponse
      */
     public function createMseServiceApplication($request)
     {
@@ -8965,11 +8973,17 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
         }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
         if (!Utils::isUnset($request->enable)) {
             $query['Enable'] = $request->enable;
         }
         if (!Utils::isUnset($request->filterSide)) {
             $query['FilterSide'] = $request->filterSide;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
         if (!Utils::isUnset($request->region)) {
             $query['Region'] = $request->region;

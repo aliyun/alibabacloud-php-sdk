@@ -30,15 +30,6 @@ class CreateApplicationRequest extends Model
     public $appName;
 
     /**
-     * @description The additional information.
-     *
-     * @example text
-     *
-     * @var string
-     */
-    public $extraInfo;
-
-    /**
      * @description The programming language of the application.
      *
      * @example JAVA
@@ -46,6 +37,13 @@ class CreateApplicationRequest extends Model
      * @var string
      */
     public $language;
+
+    /**
+     * @example prod
+     *
+     * @var string
+     */
+    public $namespace;
 
     /**
      * @description The region to which the application belongs.
@@ -85,8 +83,8 @@ class CreateApplicationRequest extends Model
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'appName'        => 'AppName',
-        'extraInfo'      => 'ExtraInfo',
         'language'       => 'Language',
+        'namespace'      => 'Namespace',
         'region'         => 'Region',
         'sentinelEnable' => 'SentinelEnable',
         'source'         => 'Source',
@@ -106,11 +104,11 @@ class CreateApplicationRequest extends Model
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-        if (null !== $this->extraInfo) {
-            $res['ExtraInfo'] = $this->extraInfo;
-        }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -142,11 +140,11 @@ class CreateApplicationRequest extends Model
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-        if (isset($map['ExtraInfo'])) {
-            $model->extraInfo = $map['ExtraInfo'];
-        }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
