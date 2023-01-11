@@ -12,6 +12,22 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotAssociateShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotChatRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotChatResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotChatShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappBindWabaRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappBindWabaResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappEmbedSignUpRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappEmbedSignUpResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappMigrationRegisterRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappMigrationRegisterResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappMigrationVerifiedRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappMigrationVerifiedResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappPhoneNumberRegisterRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappPhoneNumberRegisterResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappSyncPhoneNumberRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappSyncPhoneNumberResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappVerifyAndRegisterRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappVerifyAndRegisterResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappMigrationInitiateRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappMigrationInitiateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateShrinkRequest;
@@ -19,22 +35,41 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappVerifyCodeRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappVerifyCodeResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetMigrationVerifyCodeRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetMigrationVerifyCodeResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetPhoneNumberVerificationStatusRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetPhoneNumberVerificationStatusResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\IsvGetAppIdRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\IsvGetAppIdResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyPhoneBusinessProfileRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyPhoneBusinessProfileResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyPhoneBusinessProfileShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\QueryChatappBindWabaRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\QueryChatappBindWabaResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\QueryChatappPhoneNumbersRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\QueryChatappPhoneNumbersResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\QueryPhoneBusinessProfileRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\QueryPhoneBusinessProfileResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\QueryWabaBusinessInfoRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\QueryWabaBusinessInfoResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateAccountWebhookRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateAccountWebhookResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdatePhoneWebhookRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdatePhoneWebhookResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -227,6 +262,374 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->beeBotChatWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ChatappBindWabaRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ChatappBindWabaResponse
+     */
+    public function chatappBindWabaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->wabaId)) {
+            $body['WabaId'] = $request->wabaId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ChatappBindWaba',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChatappBindWabaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChatappBindWabaRequest $request
+     *
+     * @return ChatappBindWabaResponse
+     */
+    public function chatappBindWaba($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->chatappBindWabaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ChatappEmbedSignUpRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ChatappEmbedSignUpResponse
+     */
+    public function chatappEmbedSignUpWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->inputToken)) {
+            $body['InputToken'] = $request->inputToken;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ChatappEmbedSignUp',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChatappEmbedSignUpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChatappEmbedSignUpRequest $request
+     *
+     * @return ChatappEmbedSignUpResponse
+     */
+    public function chatappEmbedSignUp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->chatappEmbedSignUpWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ChatappMigrationRegisterRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ChatappMigrationRegisterResponse
+     */
+    public function chatappMigrationRegisterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChatappMigrationRegister',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChatappMigrationRegisterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChatappMigrationRegisterRequest $request
+     *
+     * @return ChatappMigrationRegisterResponse
+     */
+    public function chatappMigrationRegister($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->chatappMigrationRegisterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ChatappMigrationVerifiedRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ChatappMigrationVerifiedResponse
+     */
+    public function chatappMigrationVerifiedWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->verifyCode)) {
+            $query['VerifyCode'] = $request->verifyCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChatappMigrationVerified',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChatappMigrationVerifiedResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChatappMigrationVerifiedRequest $request
+     *
+     * @return ChatappMigrationVerifiedResponse
+     */
+    public function chatappMigrationVerified($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->chatappMigrationVerifiedWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ChatappPhoneNumberRegisterRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ChatappPhoneNumberRegisterResponse
+     */
+    public function chatappPhoneNumberRegisterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $body['PhoneNumber'] = $request->phoneNumber;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ChatappPhoneNumberRegister',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChatappPhoneNumberRegisterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChatappPhoneNumberRegisterRequest $request
+     *
+     * @return ChatappPhoneNumberRegisterResponse
+     */
+    public function chatappPhoneNumberRegister($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->chatappPhoneNumberRegisterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ChatappSyncPhoneNumberRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ChatappSyncPhoneNumberResponse
+     */
+    public function chatappSyncPhoneNumberWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChatappSyncPhoneNumber',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChatappSyncPhoneNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChatappSyncPhoneNumberRequest $request
+     *
+     * @return ChatappSyncPhoneNumberResponse
+     */
+    public function chatappSyncPhoneNumber($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->chatappSyncPhoneNumberWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ChatappVerifyAndRegisterRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ChatappVerifyAndRegisterResponse
+     */
+    public function chatappVerifyAndRegisterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $body['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->verifyCode)) {
+            $body['VerifyCode'] = $request->verifyCode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ChatappVerifyAndRegister',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChatappVerifyAndRegisterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChatappVerifyAndRegisterRequest $request
+     *
+     * @return ChatappVerifyAndRegisterResponse
+     */
+    public function chatappVerifyAndRegister($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->chatappVerifyAndRegisterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateChatappMigrationInitiateRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CreateChatappMigrationInitiateResponse
+     */
+    public function createChatappMigrationInitiateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->countryCode)) {
+            $query['CountryCode'] = $request->countryCode;
+        }
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->mobileNumber)) {
+            $query['MobileNumber'] = $request->mobileNumber;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateChatappMigrationInitiate',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateChatappMigrationInitiateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateChatappMigrationInitiateRequest $request
+     *
+     * @return CreateChatappMigrationInitiateResponse
+     */
+    public function createChatappMigrationInitiate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createChatappMigrationInitiateWithOptions($request, $runtime);
     }
 
     /**
@@ -432,6 +835,199 @@ class Cams extends OpenApiClient
     }
 
     /**
+     * @param GetChatappVerifyCodeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetChatappVerifyCodeResponse
+     */
+    public function getChatappVerifyCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->locale)) {
+            $body['Locale'] = $request->locale;
+        }
+        if (!Utils::isUnset($request->method)) {
+            $body['Method'] = $request->method;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $body['PhoneNumber'] = $request->phoneNumber;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetChatappVerifyCode',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetChatappVerifyCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetChatappVerifyCodeRequest $request
+     *
+     * @return GetChatappVerifyCodeResponse
+     */
+    public function getChatappVerifyCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getChatappVerifyCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMigrationVerifyCodeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetMigrationVerifyCodeResponse
+     */
+    public function getMigrationVerifyCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->locale)) {
+            $query['Locale'] = $request->locale;
+        }
+        if (!Utils::isUnset($request->method)) {
+            $query['Method'] = $request->method;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMigrationVerifyCode',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMigrationVerifyCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetMigrationVerifyCodeRequest $request
+     *
+     * @return GetMigrationVerifyCodeResponse
+     */
+    public function getMigrationVerifyCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMigrationVerifyCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetPhoneNumberVerificationStatusRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetPhoneNumberVerificationStatusResponse
+     */
+    public function getPhoneNumberVerificationStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $body['PhoneNumber'] = $request->phoneNumber;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPhoneNumberVerificationStatus',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPhoneNumberVerificationStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPhoneNumberVerificationStatusRequest $request
+     *
+     * @return GetPhoneNumberVerificationStatusResponse
+     */
+    public function getPhoneNumberVerificationStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPhoneNumberVerificationStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param IsvGetAppIdRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return IsvGetAppIdResponse
+     */
+    public function isvGetAppIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'IsvGetAppId',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return IsvGetAppIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param IsvGetAppIdRequest $request
+     *
+     * @return IsvGetAppIdResponse
+     */
+    public function isvGetAppId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->isvGetAppIdWithOptions($request, $runtime);
+    }
+
+    /**
      * ### QPS limit
      *   * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
      *   *
@@ -573,6 +1169,75 @@ class Cams extends OpenApiClient
     }
 
     /**
+     * @param ModifyPhoneBusinessProfileRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyPhoneBusinessProfileResponse
+     */
+    public function modifyPhoneBusinessProfileWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyPhoneBusinessProfileShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->websites)) {
+            $request->websitesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->websites, 'Websites', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->email)) {
+            $query['Email'] = $request->email;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->profilePictureUrl)) {
+            $query['ProfilePictureUrl'] = $request->profilePictureUrl;
+        }
+        if (!Utils::isUnset($request->vertical)) {
+            $query['Vertical'] = $request->vertical;
+        }
+        if (!Utils::isUnset($request->websitesShrink)) {
+            $query['Websites'] = $request->websitesShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyPhoneBusinessProfile',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyPhoneBusinessProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyPhoneBusinessProfileRequest $request
+     *
+     * @return ModifyPhoneBusinessProfileResponse
+     */
+    public function modifyPhoneBusinessProfile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyPhoneBusinessProfileWithOptions($request, $runtime);
+    }
+
+    /**
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param QueryChatappBindWabaRequest $request QueryChatappBindWabaRequest
@@ -670,6 +1335,98 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryChatappPhoneNumbersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryPhoneBusinessProfileRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryPhoneBusinessProfileResponse
+     */
+    public function queryPhoneBusinessProfileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryPhoneBusinessProfile',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryPhoneBusinessProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryPhoneBusinessProfileRequest $request
+     *
+     * @return QueryPhoneBusinessProfileResponse
+     */
+    public function queryPhoneBusinessProfile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryPhoneBusinessProfileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryWabaBusinessInfoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryWabaBusinessInfoResponse
+     */
+    public function queryWabaBusinessInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->wabaId)) {
+            $query['WabaId'] = $request->wabaId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryWabaBusinessInfo',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryWabaBusinessInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryWabaBusinessInfoRequest $request
+     *
+     * @return QueryWabaBusinessInfoResponse
+     */
+    public function queryWabaBusinessInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryWabaBusinessInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -868,5 +1625,115 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sendChatappMessageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateAccountWebhookRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateAccountWebhookResponse
+     */
+    public function updateAccountWebhookWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->httpFlag)) {
+            $query['HttpFlag'] = $request->httpFlag;
+        }
+        if (!Utils::isUnset($request->queueFlag)) {
+            $query['QueueFlag'] = $request->queueFlag;
+        }
+        if (!Utils::isUnset($request->statusCallbackUrl)) {
+            $query['StatusCallbackUrl'] = $request->statusCallbackUrl;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAccountWebhook',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAccountWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAccountWebhookRequest $request
+     *
+     * @return UpdateAccountWebhookResponse
+     */
+    public function updateAccountWebhook($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAccountWebhookWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdatePhoneWebhookRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdatePhoneWebhookResponse
+     */
+    public function updatePhoneWebhookWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->httpFlag)) {
+            $query['HttpFlag'] = $request->httpFlag;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->queueFlag)) {
+            $query['QueueFlag'] = $request->queueFlag;
+        }
+        if (!Utils::isUnset($request->statusCallbackUrl)) {
+            $query['StatusCallbackUrl'] = $request->statusCallbackUrl;
+        }
+        if (!Utils::isUnset($request->upCallbackUrl)) {
+            $query['UpCallbackUrl'] = $request->upCallbackUrl;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePhoneWebhook',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdatePhoneWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdatePhoneWebhookRequest $request
+     *
+     * @return UpdatePhoneWebhookResponse
+     */
+    public function updatePhoneWebhook($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePhoneWebhookWithOptions($request, $runtime);
     }
 }
