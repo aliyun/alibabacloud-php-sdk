@@ -1,3 +1,6 @@
+2023-01-11 Version: 1.0.6
+- Update imageaudit.
+
 2022-12-20 Version: 1.0.5
 - Update imageaudit.
 
