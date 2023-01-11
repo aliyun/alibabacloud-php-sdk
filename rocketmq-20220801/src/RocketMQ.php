@@ -24,6 +24,7 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListTopicsRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListTopicsResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListTopicsShrinkRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateConsumerGroupRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateConsumerGroupResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceRequest;
@@ -621,18 +622,26 @@ class RocketMQ extends OpenApiClient
 
     /**
      * @param string            $instanceId
-     * @param ListTopicsRequest $request
+     * @param ListTopicsRequest $tmpReq
      * @param string[]          $headers
      * @param RuntimeOptions    $runtime
      *
      * @return ListTopicsResponse
      */
-    public function listTopicsWithOptions($instanceId, $request, $headers, $runtime)
+    public function listTopicsWithOptions($instanceId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListTopicsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->messageTypes)) {
+            $request->messageTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->messageTypes, 'messageTypes', 'simple');
+        }
         $query = [];
         if (!Utils::isUnset($request->filter)) {
             $query['filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->messageTypesShrink)) {
+            $query['messageTypes'] = $request->messageTypesShrink;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['pageNumber'] = $request->pageNumber;

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListTopicsRequest extends Model
+class ListTopicsShrinkRequest extends Model
 {
     /**
      * @example topic_test
@@ -16,9 +16,9 @@ class ListTopicsRequest extends Model
     public $filter;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $messageTypes;
+    public $messageTypesShrink;
 
     /**
      * @example 1
@@ -34,10 +34,10 @@ class ListTopicsRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'filter'       => 'filter',
-        'messageTypes' => 'messageTypes',
-        'pageNumber'   => 'pageNumber',
-        'pageSize'     => 'pageSize',
+        'filter'             => 'filter',
+        'messageTypesShrink' => 'messageTypes',
+        'pageNumber'         => 'pageNumber',
+        'pageSize'           => 'pageSize',
     ];
 
     public function validate()
@@ -50,8 +50,8 @@ class ListTopicsRequest extends Model
         if (null !== $this->filter) {
             $res['filter'] = $this->filter;
         }
-        if (null !== $this->messageTypes) {
-            $res['messageTypes'] = $this->messageTypes;
+        if (null !== $this->messageTypesShrink) {
+            $res['messageTypes'] = $this->messageTypesShrink;
         }
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
@@ -66,7 +66,7 @@ class ListTopicsRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListTopicsRequest
+     * @return ListTopicsShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -75,9 +75,7 @@ class ListTopicsRequest extends Model
             $model->filter = $map['filter'];
         }
         if (isset($map['messageTypes'])) {
-            if (!empty($map['messageTypes'])) {
-                $model->messageTypes = $map['messageTypes'];
-            }
+            $model->messageTypesShrink = $map['messageTypes'];
         }
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
