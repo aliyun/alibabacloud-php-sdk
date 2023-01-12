@@ -46,7 +46,7 @@ class PutClusterHealthCheckTaskResponseBody extends Model
     public $dynamicMessage;
 
     /**
-     * @description The error code returned if the request failed.
+     * @description The error code returned.
      *
      * @example mse-100-000
      *
@@ -67,7 +67,7 @@ class PutClusterHealthCheckTaskResponseBody extends Model
      * @description The message returned.
      *
      *   If the request is successful, a success message is returned.
-     *   If the request fails, an error message, such as the "TaskId not found" message, is returned.
+     *   If the request fails, an error message is returned, such as the "TaskId not found" message.
      *
      * @example The request is successfully processed.
      *

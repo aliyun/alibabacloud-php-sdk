@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class AddMigrationTaskResponseBody extends Model
 {
     /**
+     * @description The data structure.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example mse-100-000
      *
      * @var string
@@ -22,6 +26,8 @@ class AddMigrationTaskResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -29,6 +35,8 @@ class AddMigrationTaskResponseBody extends Model
     public $httpCode;
 
     /**
+     * @description The message returned.
+     *
      * @example The request is processed successfully.
      *
      * @var string
@@ -36,6 +44,8 @@ class AddMigrationTaskResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 7466566F-F30F-4A29-965D-3E0AF21D****
      *
      * @var string
@@ -43,6 +53,11 @@ class AddMigrationTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

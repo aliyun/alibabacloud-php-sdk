@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The type of the instance.
+     *
+     *   Nacos-Ans
+     *   ZooKeeper
+     *   Eureka
+     *
      * @example Nacos-Ans
      *
      * @var string
@@ -16,6 +22,8 @@ class data extends Model
     public $clusterType;
 
     /**
+     * @description The creation time.
+     *
      * @example 2022-01-07T10:07:57.000+0000
      *
      * @var string
@@ -23,6 +31,8 @@ class data extends Model
     public $gmtCreate;
 
     /**
+     * @description The update time.
+     *
      * @example 2022-01-07T10:07:57.000+0000
      *
      * @var string
@@ -30,6 +40,8 @@ class data extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 12
      *
      * @var string
@@ -37,6 +49,8 @@ class data extends Model
     public $id;
 
     /**
+     * @description The source instance node address.
+     *
      * @example 192.168.1.1:8848
      *
      * @var string
@@ -44,11 +58,17 @@ class data extends Model
     public $originInstanceAddress;
 
     /**
+     * @description The name of the source instance.
+     *
+     * @example Source instance
+     *
      * @var string
      */
     public $originInstanceName;
 
     /**
+     * @description The list of namespaces. This parameter is optional if the source instance is a Nacos instance.
+     *
      * @example namesapceId1,namesapceId2
      *
      * @var string
@@ -56,6 +76,8 @@ class data extends Model
     public $originInstanceNamespace;
 
     /**
+     * @description The description.
+     *
      * @example testsdfsdfsd
      *
      * @var string
@@ -63,11 +85,17 @@ class data extends Model
     public $projectDesc;
 
     /**
+     * @description The name of the destination instance.
+     *
+     * @example Destination instance
+     *
      * @var string
      */
     public $targetClusterName;
 
     /**
+     * @description The URL of the destination instance.
+     *
      * @example mse-94d****-nacos-ans.mse.aliyuncs.com:8848
      *
      * @var string
@@ -75,6 +103,8 @@ class data extends Model
     public $targetClusterUrl;
 
     /**
+     * @description The ID of the destination instance.
+     *
      * @example mse-cn-7pp2w*****
      *
      * @var string
@@ -82,6 +112,8 @@ class data extends Model
     public $targetInstanceId;
 
     /**
+     * @description The ID of the user.
+     *
      * @example 183876217*****
      *
      * @var string

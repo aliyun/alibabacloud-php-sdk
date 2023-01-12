@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListMigrationTaskRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class ListMigrationTaskRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The name of the source instance.
+     *
      * @example whdc
      *
      * @var string
@@ -23,6 +30,8 @@ class ListMigrationTaskRequest extends Model
     public $originInstanceName;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +39,8 @@ class ListMigrationTaskRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +48,8 @@ class ListMigrationTaskRequest extends Model
     public $pageSize;
 
     /**
+     * @description The extended request parameters in the JSON format.
+     *
      * @example {}
      *
      * @var string

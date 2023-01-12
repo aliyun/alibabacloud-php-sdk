@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request failed.
+     * @description The error code returned.
      *
      * @example mse-100-000
      *
@@ -20,7 +20,7 @@ class TagResourcesResponseBody extends Model
     /**
      * @description The message returned.
      *
-     * @example The request was successfully processed.
+     * @example The request is successfully processed.
      *
      * @var string
      */

@@ -4,11 +4,10 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneRequest\entryRules;
-use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneRequest\gatewaySwimmingLaneRouteJson;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneShrinkRequest\entryRules;
 use AlibabaCloud\Tea\Model;
 
-class CreateOrUpdateSwimmingLaneRequest extends Model
+class CreateOrUpdateSwimmingLaneShrinkRequest extends Model
 {
     /**
      * @description The language that the value of the **LocalName** response parameter uses. Valid values:
@@ -58,9 +57,9 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
     public $entryRules;
 
     /**
-     * @var gatewaySwimmingLaneRouteJson
+     * @var string
      */
-    public $gatewaySwimmingLaneRouteJson;
+    public $gatewaySwimmingLaneRouteJsonShrink;
 
     /**
      * @description Optional. The time when the lane was created.
@@ -159,23 +158,23 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'acceptLanguage'               => 'AcceptLanguage',
-        'enable'                       => 'Enable',
-        'enableRules'                  => 'EnableRules',
-        'entryRule'                    => 'EntryRule',
-        'entryRules'                   => 'EntryRules',
-        'gatewaySwimmingLaneRouteJson' => 'GatewaySwimmingLaneRouteJson',
-        'gmtCreate'                    => 'GmtCreate',
-        'gmtModified'                  => 'GmtModified',
-        'groupId'                      => 'GroupId',
-        'id'                           => 'Id',
-        'licenseKey'                   => 'LicenseKey',
-        'name'                         => 'Name',
-        'regionId'                     => 'RegionId',
-        'source'                       => 'Source',
-        'status'                       => 'Status',
-        'tag'                          => 'Tag',
-        'userId'                       => 'UserId',
+        'acceptLanguage'                     => 'AcceptLanguage',
+        'enable'                             => 'Enable',
+        'enableRules'                        => 'EnableRules',
+        'entryRule'                          => 'EntryRule',
+        'entryRules'                         => 'EntryRules',
+        'gatewaySwimmingLaneRouteJsonShrink' => 'GatewaySwimmingLaneRouteJson',
+        'gmtCreate'                          => 'GmtCreate',
+        'gmtModified'                        => 'GmtModified',
+        'groupId'                            => 'GroupId',
+        'id'                                 => 'Id',
+        'licenseKey'                         => 'LicenseKey',
+        'name'                               => 'Name',
+        'regionId'                           => 'RegionId',
+        'source'                             => 'Source',
+        'status'                             => 'Status',
+        'tag'                                => 'Tag',
+        'userId'                             => 'UserId',
     ];
 
     public function validate()
@@ -206,8 +205,8 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
                 }
             }
         }
-        if (null !== $this->gatewaySwimmingLaneRouteJson) {
-            $res['GatewaySwimmingLaneRouteJson'] = null !== $this->gatewaySwimmingLaneRouteJson ? $this->gatewaySwimmingLaneRouteJson->toMap() : null;
+        if (null !== $this->gatewaySwimmingLaneRouteJsonShrink) {
+            $res['GatewaySwimmingLaneRouteJson'] = $this->gatewaySwimmingLaneRouteJsonShrink;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
@@ -249,7 +248,7 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateOrUpdateSwimmingLaneRequest
+     * @return CreateOrUpdateSwimmingLaneShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -276,7 +275,7 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
             }
         }
         if (isset($map['GatewaySwimmingLaneRouteJson'])) {
-            $model->gatewaySwimmingLaneRouteJson = gatewaySwimmingLaneRouteJson::fromMap($map['GatewaySwimmingLaneRouteJson']);
+            $model->gatewaySwimmingLaneRouteJsonShrink = $map['GatewaySwimmingLaneRouteJson'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];

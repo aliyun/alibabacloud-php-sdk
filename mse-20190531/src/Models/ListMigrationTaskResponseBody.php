@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListMigrationTaskResponseBody extends Model
 {
     /**
+     * @description The array structure.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example mse-100-000
      *
      * @var string
@@ -22,6 +26,8 @@ class ListMigrationTaskResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -29,11 +35,17 @@ class ListMigrationTaskResponseBody extends Model
     public $httpCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example The request is successfully processed.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -41,6 +53,8 @@ class ListMigrationTaskResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -48,6 +62,8 @@ class ListMigrationTaskResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 451EBE59-5F33-5B15-83C1-78593B9*****
      *
      * @var string
@@ -55,6 +71,11 @@ class ListMigrationTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool
@@ -62,6 +83,8 @@ class ListMigrationTaskResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int

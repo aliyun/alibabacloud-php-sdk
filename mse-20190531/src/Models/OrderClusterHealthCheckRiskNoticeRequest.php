@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class OrderClusterHealthCheckRiskNoticeRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class OrderClusterHealthCheckRiskNoticeRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example mse-cn-st21ri2****
      *
      * @var string
@@ -23,6 +30,11 @@ class OrderClusterHealthCheckRiskNoticeRequest extends Model
     public $instanceId;
 
     /**
+     * @description Specifies whether to disable the risk item notification feature.
+     *
+     *   true: disabled
+     *   false: enabled
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +42,8 @@ class OrderClusterHealthCheckRiskNoticeRequest extends Model
     public $mute;
 
     /**
+     * @description A reserved parameter.
+     *
      * @example null
      *
      * @var string
@@ -37,6 +51,8 @@ class OrderClusterHealthCheckRiskNoticeRequest extends Model
     public $noticeType;
 
     /**
+     * @description The region in which the cluster resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +60,8 @@ class OrderClusterHealthCheckRiskNoticeRequest extends Model
     public $regionId;
 
     /**
+     * @description The extended request parameters in the JSON format.
+     *
      * @example {}
      *
      * @var string
@@ -51,6 +69,8 @@ class OrderClusterHealthCheckRiskNoticeRequest extends Model
     public $requestPars;
 
     /**
+     * @description The code of the risk.
+     *
      * @example 30010010001
      *
      * @var string

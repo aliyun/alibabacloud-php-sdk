@@ -57,6 +57,7 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneGroupRequest
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneGroupResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateZnodeRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateZnodeResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteAuthResourceRequest;
@@ -1942,14 +1943,19 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateSwimmingLaneRequest $request
+     * @param CreateOrUpdateSwimmingLaneRequest $tmpReq
      * @param RuntimeOptions                    $runtime
      *
      * @return CreateOrUpdateSwimmingLaneResponse
      */
-    public function createOrUpdateSwimmingLaneWithOptions($request, $runtime)
+    public function createOrUpdateSwimmingLaneWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateOrUpdateSwimmingLaneShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->gatewaySwimmingLaneRouteJson)) {
+            $request->gatewaySwimmingLaneRouteJsonShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->gatewaySwimmingLaneRouteJson, 'GatewaySwimmingLaneRouteJson', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
@@ -1965,6 +1971,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->entryRules)) {
             $query['EntryRules'] = $request->entryRules;
+        }
+        if (!Utils::isUnset($request->gatewaySwimmingLaneRouteJsonShrink)) {
+            $query['GatewaySwimmingLaneRouteJson'] = $request->gatewaySwimmingLaneRouteJsonShrink;
         }
         if (!Utils::isUnset($request->gmtCreate)) {
             $query['GmtCreate'] = $request->gmtCreate;

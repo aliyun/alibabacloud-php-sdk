@@ -35,8 +35,8 @@ class TagResourcesRequest extends Model
      *
      * > This parameter specifies the instance ID that is passed. Examples:
      *
-     *   **ResourceId.1** indicates the ID of the first instance.
-     *   **ResourceId.2** indicates the ID of the second instance.
+     *   **ResourceId.1** specifies that the first instance ID is passed.
+     *   **ResourceId.2** specifies that the second instance ID is passed.
      *
      * @var string[]
      */
@@ -45,7 +45,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The type of the resources. Valid values:
      *
-     *   CLUSTER: MSE instance
+     *   CLUSTER: Microservices Engine (MSE) instance
      *   GATEWAY: cloud-native gateway
      *
      * @example CLUSTER

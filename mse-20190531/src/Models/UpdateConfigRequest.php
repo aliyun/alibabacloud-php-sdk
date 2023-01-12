@@ -50,10 +50,10 @@ class UpdateConfigRequest extends Model
     /**
      * @description Specifies whether to enable RAM authorization for a configuration center. This parameter is valid for Nacos instances. Valid values:
      *
-     *   `true`: yes
-     *   `false`: no
+     *   `true`: enabled
+     *   `false`: disabled
      *
-     * > Before you set this parameter, you must call the QueryConfig operation to obtain the ConfigAuthSupported parameter value to check whether the instance supports this feature.
+     * > Before you configure this parameter, you must call the QueryConfig operation to obtain the ConfigAuthSupported parameter value to check whether the instance supports this feature.
      * @example true
      *
      * @var bool
@@ -63,10 +63,10 @@ class UpdateConfigRequest extends Model
     /**
      * @description Specifies whether to enable configuration encryption for a configuration center. This parameter is valid for Nacos instances. Valid values:
      *
-     *   `true`: yes
-     *   `false`: no
+     *   `true`: enabled
+     *   `false`: disabled
      *
-     * > Before you set this parameter, you must call the QueryConfig operation to obtain the ConfigSecretSupported parameter value to check whether the instance supports this feature.
+     * > Before you configure this parameter, you must call the QueryConfig operation to obtain the ConfigSecretSupported parameter value to check whether the instance supports this feature.
      * @example true
      *
      * @var bool
@@ -83,7 +83,7 @@ class UpdateConfigRequest extends Model
     public $configType;
 
     /**
-     * @description zookeeper参数，是否开启TTL配置。
+     * @description Specifies whether to enable the time to live (TTL) configuration.
      *
      * @example true
      *
@@ -121,10 +121,10 @@ class UpdateConfigRequest extends Model
     /**
      * @description Specifies whether to enable Mesh Configuration Protocol (MCP). This parameter is valid for Nacos instances. Valid values:
      *
-     *   `true`: yes
-     *   `false`: no
+     *   `true`: enabled
+     *   `false`: disabled
      *
-     * > Before you set this parameter, you must call the QueryConfig operation to obtain the MCPSupported parameter value to check whether the instance supports this feature.
+     * > Before you configure this parameter, you must call the QueryConfig operation to obtain the MCPSupported parameter value to check whether the instance supports this feature.
      * @example true
      *
      * @var bool
@@ -161,10 +161,10 @@ class UpdateConfigRequest extends Model
     /**
      * @description Specifies whether to enable RAM authorization for a registry. This parameter is valid for Nacos instances. Valid values:
      *
-     *   `true`: yes
-     *   `false`: no
+     *   `true`: enabled
+     *   `false`: disabled
      *
-     * > Before you set this parameter, you must call the QueryConfig operation to obtain the NamingAuthSupported parameter value to check whether the instance supports this feature.
+     * > Before you configure this parameter, you must call the QueryConfig operation to obtain the NamingAuthSupporte parameter value to check whether the instance supports this feature.
      * @example true
      *
      * @var bool
@@ -174,8 +174,8 @@ class UpdateConfigRequest extends Model
     /**
      * @description Specifies whether to enable super permissions. This parameter is valid for ZooKeeper instances. Valid values:
      *
-     *   `true`: yes
-     *   `false`: no
+     *   `true`: enabled
+     *   `false`: disabled
      *
      * @example true
      *
@@ -230,7 +230,7 @@ class UpdateConfigRequest extends Model
     public $tickTime;
 
     /**
-     * @description The username.
+     * @description The name of the user.
      *
      * > You must specify this parameter if OpenSuperAcl is set to true.
      * @example name
