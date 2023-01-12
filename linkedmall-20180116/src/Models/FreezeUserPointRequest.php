@@ -9,62 +9,60 @@ use AlibabaCloud\Tea\Model;
 class FreezeUserPointRequest extends Model
 {
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $accountType;
 
     /**
-     * @description 数额
+     * @example 1000
      *
      * @var int
      */
     public $amount;
 
     /**
-     * @description 业务ID
+     * @example LMALL20******001
      *
      * @var string
      */
     public $bizId;
 
     /**
-     * @description 扩展信息
+     * @example {"key":"value"}
      *
      * @var mixed[]
      */
     public $extInfo;
 
     /**
-     * @description 幂等ID
+     * @example 202112******31746-1202
      *
      * @var string
      */
     public $idempotentId;
 
     /**
-     * @description 发放说明
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 规则ID
+     * @example 136
      *
      * @var string
      */
     public $ruleId;
 
     /**
-     * @description 业务方用户ID
+     * @example 22******3748
      *
      * @var string
      */
     public $thirdPartyUserId;
 
     /**
-     * @description 发放主题
-     *
      * @var string
      */
     public $title;

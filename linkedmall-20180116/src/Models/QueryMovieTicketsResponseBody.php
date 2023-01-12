@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class QueryMovieTicketsResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $logsId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -30,21 +36,29 @@ class QueryMovieTicketsResponseBody extends Model
     public $movieTicket;
 
     /**
+     * @example 5E2D59BA-4EB0-45C4-A0D7-D98C1A4B320B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1004
+     *
      * @var string
      */
     public $subCode;
 
     /**
+     * @example 1004
+     *
      * @var string
      */
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

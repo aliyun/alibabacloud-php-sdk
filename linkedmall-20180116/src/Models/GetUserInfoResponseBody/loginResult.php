@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class loginResult extends Model
 {
     /**
+     * @example LMALL20******001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 18******60
+     *
      * @var string
      */
     public $bizUid;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $bizUserName;
 
     /**
+     * @example {}
+     *
      * @var mixed[]
      */
     public $extInfo;
 
     /**
+     * @example 10******3
+     *
      * @var int
      */
     public $lmUserId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $returnUrl;

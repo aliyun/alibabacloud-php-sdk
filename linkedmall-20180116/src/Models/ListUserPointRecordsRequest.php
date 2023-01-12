@@ -9,36 +9,42 @@ use AlibabaCloud\Tea\Model;
 class ListUserPointRecordsRequest extends Model
 {
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $accountType;
 
     /**
-     * @description 业务ID
+     * @example LMALL20******001
      *
      * @var string
      */
     public $bizId;
 
     /**
-     * @description 发放说明
+     * @example 1638958044395
      *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 操作
+     * @example ""
      *
      * @var string
      */
@@ -50,28 +56,28 @@ class ListUserPointRecordsRequest extends Model
     public $pointActions;
 
     /**
-     * @description 规则ID
+     * @example ""
      *
      * @var string
      */
     public $recordId;
 
     /**
-     * @description 数额
+     * @example 136
      *
      * @var string
      */
     public $ruleId;
 
     /**
-     * @description 发放主题
+     * @example 1640958044395
      *
      * @var int
      */
     public $startTime;
 
     /**
-     * @description 业务方用户ID
+     * @example 22******67
      *
      * @var string
      */

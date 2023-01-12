@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class lmOrderList extends Model
 {
     /**
+     * @example 39435****
+     *
      * @var string
      */
     public $lmOrderId;

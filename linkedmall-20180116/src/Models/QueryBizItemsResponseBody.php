@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryBizItemsResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -24,21 +28,29 @@ class QueryBizItemsResponseBody extends Model
     public $model;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 96B4141C-A3CD-5162-B435-4780A75E3D97
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 19
+     *
      * @var int
      */
     public $totalCount;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ValidateTaobaoAccountResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class ValidateTaobaoAccountResponseBody extends Model
     public $logsId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -30,26 +34,36 @@ class ValidateTaobaoAccountResponseBody extends Model
     public $model;
 
     /**
+     * @example DAAA6391-3339-5333-9E4D-C71CD26A231F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 205
+     *
      * @var string
      */
     public $subCode;
 
     /**
+     * @example 1004
+     *
      * @var string
      */
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $totalCount;

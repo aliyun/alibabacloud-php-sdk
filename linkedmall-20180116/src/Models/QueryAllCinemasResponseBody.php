@@ -15,41 +15,57 @@ class QueryAllCinemasResponseBody extends Model
     public $cinemas;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $logsId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 6103AD7B-21C2-523B-89D0-579DA58D08E8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 205
+     *
      * @var string
      */
     public $subCode;
 
     /**
+     * @example 1004
+     *
      * @var string
      */
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 19
+     *
      * @var int
      */
     public $totalCount;

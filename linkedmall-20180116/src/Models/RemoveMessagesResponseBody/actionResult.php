@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class actionResult extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $returnCode;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $returnMessage;
 
     /**
+     * @example [{\"uuid\": \"dim-a0bf795*******8e86d4d464dc3a\", \"code\": \"itm\", \"extendName\": \"item\", \"name\": u\"\u5541\", \"description\": u\"\u5546\u4e49\"}]
+     *
      * @var string
      */
     public $returnValue;

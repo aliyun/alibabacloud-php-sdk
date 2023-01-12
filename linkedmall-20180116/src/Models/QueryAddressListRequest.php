@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryAddressListRequest extends Model
 {
     /**
+     * @example LMALL2***100001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 12312
+     *
      * @var string
      */
     public $thirdPartyUserId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useAnonymousTbAccount;

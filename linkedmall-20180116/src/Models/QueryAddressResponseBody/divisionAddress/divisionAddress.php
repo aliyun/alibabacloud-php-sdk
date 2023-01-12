@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class divisionAddress extends Model
 {
     /**
+     * @example 210211019
+     *
      * @var int
      */
     public $divisionCode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $divisionLevel;
@@ -24,6 +28,8 @@ class divisionAddress extends Model
     public $divisionName;
 
     /**
+     * @example 30226760
+     *
      * @var int
      */
     public $parentId;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class UnFreezeUserPointResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -25,7 +29,7 @@ class UnFreezeUserPointResponseBody extends Model
     public $model;
 
     /**
-     * @description Id of the request
+     * @example 6103AD7B-21C2-523B-89D0-579DA58D08E8
      *
      * @var string
      */

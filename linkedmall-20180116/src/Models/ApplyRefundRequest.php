@@ -10,41 +10,57 @@ use AlibabaCloud\Tea\Model;
 class ApplyRefundRequest extends Model
 {
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example 500325
+     *
      * @var int
      */
     public $applyReasonTextId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $applyRefundCount;
 
     /**
+     * @example 790
+     *
      * @var int
      */
     public $applyRefundFee;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $bizClaimType;
 
     /**
+     * @example LMALL201912230007
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 186******89
+     *
      * @var string
      */
     public $bizUid;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $goodsStatus;
@@ -60,6 +76,8 @@ class ApplyRefundRequest extends Model
     public $leavePictureList;
 
     /**
+     * @example 42******33
+     *
      * @var string
      */
     public $subLmOrderId;
@@ -70,6 +88,8 @@ class ApplyRefundRequest extends Model
     public $thirdPartyUserId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useAnonymousTbAccount;

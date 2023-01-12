@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class RefundOrderResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -25,6 +29,8 @@ class RefundOrderResponseBody extends Model
     public $refundResponse;
 
     /**
+     * @example 1718921E-C8D4-55E1-B8D4-114AE537C1B7
+     *
      * @var string
      */
     public $requestId;

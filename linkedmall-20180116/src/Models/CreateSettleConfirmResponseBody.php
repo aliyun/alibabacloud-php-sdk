@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class CreateSettleConfirmResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 5E2D59BA-4EB0-45C4-A0D7-D98C1A4B320B
+     *
      * @var string
      */
     public $requestId;

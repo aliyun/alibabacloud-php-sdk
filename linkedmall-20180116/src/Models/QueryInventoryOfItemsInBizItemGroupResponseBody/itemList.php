@@ -10,17 +10,21 @@ use AlibabaCloud\Tea\Model;
 class itemList extends Model
 {
     /**
+     * @example ******058233
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @example 10016572-******058233
+     *
      * @var string
      */
     public $lmItemId;
 
     /**
-     * @description 剩余可售库存
+     * @example 10000
      *
      * @var int
      */
@@ -32,14 +36,14 @@ class itemList extends Model
     public $skuList;
 
     /**
-     * @description 总量库存
+     * @example 5000
      *
      * @var int
      */
     public $totalQuantity;
 
     /**
-     * @description 已售库存
+     * @example 900
      *
      * @var int
      */

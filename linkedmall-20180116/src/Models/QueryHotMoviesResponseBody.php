@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class QueryHotMoviesResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $logsId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -30,21 +36,29 @@ class QueryHotMoviesResponseBody extends Model
     public $movies;
 
     /**
+     * @example 1AF23E47-D8FB-576A-B069-CA98B4DE****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 205
+     *
      * @var string
      */
     public $subCode;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class fundStructure extends Model
 {
     /**
+     * @example 2990
+     *
      * @var int
      */
     public $fundAmount;
 
     /**
+     * @example 2990
+     *
      * @var int
      */
     public $fundAmountMoney;
 
     /**
+     * @example POINT_PAY
+     *
      * @var string
      */
     public $fundType;
 
     /**
+     * @example 51855****
+     *
      * @var int
      */
     public $lmOrderId;
 
     /**
+     * @example 2874823748****
+     *
      * @var int
      */
     public $tbSubOrderId;

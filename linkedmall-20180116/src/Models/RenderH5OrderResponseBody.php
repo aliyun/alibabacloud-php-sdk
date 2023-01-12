@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class RenderH5OrderResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $logsId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -30,11 +36,15 @@ class RenderH5OrderResponseBody extends Model
     public $model;
 
     /**
+     * @example 96B4141C-A3CD-5162-B435-4780A75E3D97
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 205
+     *
      * @var string
      */
     public $subCode;
@@ -45,11 +55,15 @@ class RenderH5OrderResponseBody extends Model
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $totalCount;

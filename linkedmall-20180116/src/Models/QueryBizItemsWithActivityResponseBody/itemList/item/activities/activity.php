@@ -26,16 +26,22 @@ class activity extends Model
     public $description;
 
     /**
+     * @example 1642412800000
+     *
      * @var int
      */
     public $endDate;
 
     /**
+     * @example 679
+     *
      * @var int
      */
     public $lmActivityId;
 
     /**
+     * @example 1632412800000
+     *
      * @var int
      */
     public $startDate;

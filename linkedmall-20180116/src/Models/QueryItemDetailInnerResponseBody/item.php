@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $canSell;
 
     /**
+     * @example 20177****
+     *
      * @var int
      */
     public $categoryId;
@@ -26,6 +30,8 @@ class item extends Model
     public $categoryIds;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $centerInventory;
@@ -36,14 +42,23 @@ class item extends Model
     public $city;
 
     /**
+     * @example "<p><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i1/1742262291/O1CN01j0oO3L1SnK7EwwXP4_!!1742262291.jpg\" style=\"max-width: none;width: 750.0px;\">"
+     *
      * @var string
      */
     public $descOption;
 
     /**
+     * @example https://img.alicdn.com/imgextra/i3/22066070*****\/O1CN01jCtHkC1ZjO2Q8DWUk_!!0-item_pic.jpg
+     *
      * @var string
      */
     public $descPath;
+
+    /**
+     * @var string
+     */
+    public $firstPicUrl;
 
     /**
      * @var mixed[][]
@@ -51,16 +66,22 @@ class item extends Model
     public $iforestProps;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isCanSell;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isSellerPayPostfee;
 
     /**
+     * @example 60646253****
+     *
      * @var int
      */
     public $itemId;
@@ -76,31 +97,43 @@ class item extends Model
     public $itemTitle;
 
     /**
+     * @example entity
+     *
      * @var string
      */
     public $lmItemCategory;
 
     /**
+     * @example 1002****
+     *
      * @var int
      */
     public $lmShopId;
 
     /**
+     * @example https://img.alicdn.com/imgextra/i3/22066070*****\/O1CN01jCtHkC1ZjO2Q8DWUk_!!0-item_pic.jpg
+     *
      * @var string
      */
     public $mainPicUrl;
 
     /**
+     * @example 2990
+     *
      * @var int
      */
     public $minPoints;
 
     /**
+     * @example 1990
+     *
      * @var int
      */
     public $minPrice;
 
     /**
+     * @example {}
+     *
      * @var mixed[]
      */
     public $properties;
@@ -111,16 +144,22 @@ class item extends Model
     public $province;
 
     /**
+     * @example 5000
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @example 2990
+     *
      * @var int
      */
     public $reservePrice;
 
     /**
+     * @example 329488****
+     *
      * @var int
      */
     public $sellerId;
@@ -131,6 +170,8 @@ class item extends Model
     public $sellerNick;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $sellerPayPostfee;
@@ -151,6 +192,8 @@ class item extends Model
     public $tbShopName;
 
     /**
+     * @example 1999
+     *
      * @var int
      */
     public $totalSoldQuantity;
@@ -162,6 +205,7 @@ class item extends Model
         'city'               => 'City',
         'descOption'         => 'DescOption',
         'descPath'           => 'DescPath',
+        'firstPicUrl'        => 'FirstPicUrl',
         'iforestProps'       => 'IforestProps',
         'isCanSell'          => 'IsCanSell',
         'isSellerPayPostfee' => 'IsSellerPayPostfee',
@@ -213,6 +257,9 @@ class item extends Model
         }
         if (null !== $this->descPath) {
             $res['DescPath'] = $this->descPath;
+        }
+        if (null !== $this->firstPicUrl) {
+            $res['FirstPicUrl'] = $this->firstPicUrl;
         }
         if (null !== $this->iforestProps) {
             $res['IforestProps'] = $this->iforestProps;
@@ -326,6 +373,9 @@ class item extends Model
         }
         if (isset($map['DescPath'])) {
             $model->descPath = $map['DescPath'];
+        }
+        if (isset($map['FirstPicUrl'])) {
+            $model->firstPicUrl = $map['FirstPicUrl'];
         }
         if (isset($map['IforestProps'])) {
             if (!empty($map['IforestProps'])) {

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
+     * @example 22******37
+     *
      * @var string
      */
     public $bizUid;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $status;

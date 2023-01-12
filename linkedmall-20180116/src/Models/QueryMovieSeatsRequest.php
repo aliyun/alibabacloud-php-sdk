@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryMovieSeatsRequest extends Model
 {
     /**
+     * @example LMALL20******004
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extJson;
 
     /**
+     * @example 9******5
+     *
      * @var int
      */
     public $scheduleId;

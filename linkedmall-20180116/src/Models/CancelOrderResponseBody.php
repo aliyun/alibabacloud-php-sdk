@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CancelOrderResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $logsId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 920C6519-4888-599F-9FBA-991774BAA1DD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $subCode;
@@ -39,6 +49,8 @@ class CancelOrderResponseBody extends Model
     public $subMessage;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

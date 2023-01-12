@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryBestSession4ItemsRequest extends Model
 {
     /**
+     * @example LMALL20211118****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example [63928655****,65314637****,65771454****]
+     *
      * @var mixed[]
      */
     public $itemIds;
 
     /**
+     * @example [\"10000791-65975997****\"]
+     *
      * @var mixed[]
      */
     public $lmItemIds;

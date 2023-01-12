@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteItemLimitRuleResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example The specified parameter %s value is not valid.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $model;
 
     /**
+     * @example A7BE4356-7F92-533E-A31B-2EBF2D67****
+     *
      * @var string
      */
     public $requestId;

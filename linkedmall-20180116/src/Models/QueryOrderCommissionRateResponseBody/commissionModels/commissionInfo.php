@@ -15,6 +15,8 @@ class commissionInfo extends Model
     public $rateConfig;
 
     /**
+     * @example CONSTANT_RATE
+     *
      * @var string
      */
     public $rateType;

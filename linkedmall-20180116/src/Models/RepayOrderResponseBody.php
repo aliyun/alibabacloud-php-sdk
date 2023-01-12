@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RepayOrderResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example The specified parameter %s value is not valid.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 322830A9-C820-5974-B409-7B32C41E8B42
+     *
      * @var string
      */
     public $requestId;

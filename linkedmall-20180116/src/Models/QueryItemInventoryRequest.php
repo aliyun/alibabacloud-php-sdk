@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class QueryItemInventoryRequest extends Model
 {
     /**
+     * @example LMALL2******002
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 410503006
+     *
      * @var string
      */
     public $divisionCode;
 
     /**
+     * @example 113.77.105.73
+     *
      * @var string
      */
     public $ip;

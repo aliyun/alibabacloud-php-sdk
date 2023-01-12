@@ -14,6 +14,8 @@ class QueryAddressDetailRequest extends Model
     public $addressInfo;
 
     /**
+     * @example LMALL2******01
+     *
      * @var string
      */
     public $bizId;
@@ -24,6 +26,8 @@ class QueryAddressDetailRequest extends Model
     public $thirdPartyUserId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useAnonymousTbAccount;

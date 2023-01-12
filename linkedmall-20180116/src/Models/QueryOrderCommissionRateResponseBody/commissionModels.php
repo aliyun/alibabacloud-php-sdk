@@ -15,6 +15,8 @@ class commissionModels extends Model
     public $commissionInfo;
 
     /**
+     * @example 45******23
+     *
      * @var int
      */
     public $lmOrderId;

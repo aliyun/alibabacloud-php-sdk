@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class QueryMovieSeatsResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $logsId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 79C01D47-3C44-57D9-BC99-1B33F7ED14B8
+     *
      * @var string
      */
     public $requestId;
@@ -35,6 +43,8 @@ class QueryMovieSeatsResponseBody extends Model
     public $seatMap;
 
     /**
+     * @example 1004
+     *
      * @var string
      */
     public $subCode;
@@ -45,6 +55,8 @@ class QueryMovieSeatsResponseBody extends Model
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

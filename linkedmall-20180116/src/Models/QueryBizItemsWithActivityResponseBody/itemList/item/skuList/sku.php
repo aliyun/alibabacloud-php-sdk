@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class sku extends Model
 {
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $maxAllowedCount;
 
     /**
+     * @example 69
+     *
      * @var int
      */
     public $points;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $pointsAmount;
@@ -34,21 +40,31 @@ class sku extends Model
     public $pointsKey;
 
     /**
+     * @example 2790
+     *
      * @var int
      */
     public $priceCent;
 
     /**
+     * @example 500
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @description skuId
+     *
+     * @example 472266643****
+     *
      * @var int
      */
     public $skuId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;

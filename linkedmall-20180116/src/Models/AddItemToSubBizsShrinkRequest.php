@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class AddItemToSubBizsShrinkRequest extends Model
 {
     /**
+     * @example LMALL20190325****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 57835029****
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @example 10001036-66644894****
+     *
      * @var string
      */
     public $lmItemId;
 
     /**
+     * @example ["id1", "id2"]
+     *
      * @var string
      */
     public $subBizIdsShrink;

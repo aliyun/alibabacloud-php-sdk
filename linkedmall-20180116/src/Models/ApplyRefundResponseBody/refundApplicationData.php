@@ -11,18 +11,30 @@ class refundApplicationData extends Model
     /**
      * @var int
      */
+    public $disputeId;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
     public $disputeStatus;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $disputeType;
 
     /**
+     * @example 53******67
+     *
      * @var string
      */
     public $subLmOrderId;
     protected $_name = [
+        'disputeId'     => 'DisputeId',
         'disputeStatus' => 'DisputeStatus',
         'disputeType'   => 'DisputeType',
         'subLmOrderId'  => 'SubLmOrderId',
@@ -35,6 +47,9 @@ class refundApplicationData extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->disputeId) {
+            $res['DisputeId'] = $this->disputeId;
+        }
         if (null !== $this->disputeStatus) {
             $res['DisputeStatus'] = $this->disputeStatus;
         }
@@ -56,6 +71,9 @@ class refundApplicationData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DisputeId'])) {
+            $model->disputeId = $map['DisputeId'];
+        }
         if (isset($map['DisputeStatus'])) {
             $model->disputeStatus = $map['DisputeStatus'];
         }

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyBasicAndBizItemsResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -20,11 +22,15 @@ class ModifyBasicAndBizItemsResponseBody extends Model
     public $failedItemList;
 
     /**
+     * @example The specified parameter %s value is not valid.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example F957A835-87CE-5E5F-B0A9-A66B081E****
+     *
      * @var string
      */
     public $requestId;

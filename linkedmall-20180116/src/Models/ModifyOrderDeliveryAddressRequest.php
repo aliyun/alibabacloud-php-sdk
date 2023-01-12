@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyOrderDeliveryAddressRequest extends Model
 {
     /**
+     * @example LMALL20190325****
+     *
      * @var string
      */
     public $bizId;
@@ -19,11 +21,15 @@ class ModifyOrderDeliveryAddressRequest extends Model
     public $deliveryAddress;
 
     /**
+     * @example {\"mobileNo\":\"123****8965\"}
+     *
      * @var string
      */
     public $extJson;
 
     /**
+     * @example 53396****
+     *
      * @var int
      */
     public $lmOrderId;

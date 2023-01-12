@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteItemLimitRuleRequest extends Model
 {
     /**
+     * @example LMALL2021083****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 57835029****
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @example 679
+     *
      * @var int
      */
     public $lmActivityId;
 
     /**
+     * @example 10000035-6193664*****
+     *
      * @var string
      */
     public $lmItemId;
@@ -34,6 +42,8 @@ class DeleteItemLimitRuleRequest extends Model
     public $ruleId;
 
     /**
+     * @example 7ddaba53d5be4173808f2335eac0****
+     *
      * @var string
      */
     public $subBizCode;

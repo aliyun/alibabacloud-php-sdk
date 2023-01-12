@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateSettleConfirmRequest extends Model
 {
     /**
-     * @description 业务ID
+     * @example LMALL20******05
      *
      * @var string
      */

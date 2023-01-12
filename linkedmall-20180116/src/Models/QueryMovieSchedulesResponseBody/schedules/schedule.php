@@ -24,11 +24,15 @@ class schedule extends Model
     public $id;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isExpired;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $maxCanBuy;
@@ -44,6 +48,8 @@ class schedule extends Model
     public $movieVersion;
 
     /**
+     * @example 5000
+     *
      * @var int
      */
     public $price;
@@ -69,11 +75,15 @@ class schedule extends Model
     public $serviceFee;
 
     /**
+     * @example 2022-04-01 12:00:00
+     *
      * @var string
      */
     public $sessionEndingTime;
 
     /**
+     * @example 2022-04-01 10:00:00
+     *
      * @var string
      */
     public $sessionStartingTime;

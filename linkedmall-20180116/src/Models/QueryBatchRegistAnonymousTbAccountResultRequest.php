@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryBatchRegistAnonymousTbAccountResultRequest extends Model
 {
     /**
+     * @example 10418*******
+     *
      * @var string
      */
     public $batchId;
 
     /**
+     * @example LMALL20210125****
+     *
      * @var string
      */
     public $bizId;

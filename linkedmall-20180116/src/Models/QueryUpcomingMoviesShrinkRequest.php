@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryUpcomingMoviesShrinkRequest extends Model
 {
     /**
+     * @example LMALL20******001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 110100
+     *
      * @var int
      */
     public $cityCode;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extJsonShrink;

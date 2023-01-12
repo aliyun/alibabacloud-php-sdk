@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class lmItemInfoList extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $actualPrice;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $canSell;
@@ -29,6 +33,8 @@ class lmItemInfoList extends Model
     public $features;
 
     /**
+     * @example 65******461
+     *
      * @var int
      */
     public $itemId;
@@ -49,6 +55,8 @@ class lmItemInfoList extends Model
     public $itemUrl;
 
     /**
+     * @example 10000102-******94679
+     *
      * @var string
      */
     public $lmItemId;
@@ -59,16 +67,22 @@ class lmItemInfoList extends Model
     public $message;
 
     /**
+     * @example 69
+     *
      * @var int
      */
     public $points;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @example 42******044
+     *
      * @var int
      */
     public $sellerId;
@@ -79,6 +93,8 @@ class lmItemInfoList extends Model
     public $sellerNick;
 
     /**
+     * @example 46******9302
+     *
      * @var int
      */
     public $skuId;

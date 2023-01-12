@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class queryWithholdTradeResponse extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $outTradeNo;
@@ -19,21 +21,29 @@ class queryWithholdTradeResponse extends Model
     public $paymentDate;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $settleStatus;
 
     /**
+     * @example 1000
+     *
      * @var string
      */
     public $totalAmount;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $tradeNo;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $tradeStatus;

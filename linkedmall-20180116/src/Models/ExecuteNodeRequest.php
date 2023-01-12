@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ExecuteNodeRequest extends Model
 {
     /**
+     * @example LMALL20******001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $nodeInstanceId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $processId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $processInstanceId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $requestData;

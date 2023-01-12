@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class logistics extends Model
 {
     /**
+     * @example SF
+     *
      * @var string
      */
     public $logisticsCompanyCode;
@@ -19,11 +21,15 @@ class logistics extends Model
     public $logisticsCompanyName;
 
     /**
+     * @example 731******8882
+     *
      * @var string
      */
     public $logisticsNo;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $logisticsStatus;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetLoginPageRequest extends Model
 {
     /**
+     * @example LMALL20210830****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example https://********
+     *
      * @var string
      */
     public $failUrl;
 
     /**
+     * @example https://********
+     *
      * @var string
      */
     public $targetUrl;
 
     /**
+     * @example 287381784****
+     *
      * @var string
      */
     public $thirdPartyUserId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useAnonymousTbAccount;

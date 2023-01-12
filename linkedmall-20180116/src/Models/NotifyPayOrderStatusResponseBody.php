@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class NotifyPayOrderStatusResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;

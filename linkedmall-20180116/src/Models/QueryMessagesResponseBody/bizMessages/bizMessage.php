@@ -24,6 +24,8 @@ class bizMessage extends Model
     public $pubTime;
 
     /**
+     * @example Topic_******_api
+     *
      * @var string
      */
     public $topic;

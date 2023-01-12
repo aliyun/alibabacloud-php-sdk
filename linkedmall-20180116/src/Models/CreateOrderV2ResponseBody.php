@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class CreateOrderV2ResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $logsId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -30,11 +36,15 @@ class CreateOrderV2ResponseBody extends Model
     public $model;
 
     /**
+     * @example 978A8742-1A38-54B5-98D9-F8713ACBC385
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $subCode;
@@ -45,11 +55,15 @@ class CreateOrderV2ResponseBody extends Model
     public $subMessage;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $totalCount;

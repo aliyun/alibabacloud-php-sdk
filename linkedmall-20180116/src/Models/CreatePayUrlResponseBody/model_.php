@@ -24,6 +24,8 @@ class model_ extends Model
     public $payTradeIds;
 
     /**
+     * @example "www.taobao.com"
+     *
      * @var string
      */
     public $redirectUrl;

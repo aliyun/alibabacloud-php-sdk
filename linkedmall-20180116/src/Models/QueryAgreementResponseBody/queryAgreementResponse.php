@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class queryAgreementResponse extends Model
 {
     /**
+     * @example 20******8006
+     *
      * @var string
      */
     public $agreementNo;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $externalAgreementNo;
 
     /**
+     * @example 2022-08-01 00:00:00
+     *
      * @var string
      */
     public $invalidTime;
 
     /**
+     * @example 2021-08-01 00:00:00
+     *
      * @var string
      */
     public $signTime;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 2021-08-01 00:00:00
+     *
      * @var string
      */
     public $validTime;

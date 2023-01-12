@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class QueryUserGameProcessShrinkRequest extends Model
 {
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example LMALL20******002
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example {"key":"value"}
+     *
      * @var string
      */
     public $extInfoShrink;
 
     /**
+     * @example 6******352
+     *
      * @var string
      */
     public $processId;
 
     /**
+     * @example 22******372
+     *
      * @var string
      */
     public $thirdPartyUserId;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ConfirmDisburseRequest extends Model
 {
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example LMALL20******01
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 9f99f38030254728***
+     *
      * @var string
      */
     public $bizUid;
 
     /**
+     * @example 449975059**
+     *
      * @var string
      */
     public $lmOrderId;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $thirdPartyUserId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $useAnonymousTbAccount;

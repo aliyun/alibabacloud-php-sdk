@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class QueryOrderAndPaymentListResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -21,16 +23,22 @@ class QueryOrderAndPaymentListResponseBody extends Model
     public $lmOrderList;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -41,11 +49,15 @@ class QueryOrderAndPaymentListResponseBody extends Model
     public $postFee;
 
     /**
+     * @example 3F43129B-020F-5F8A-88B0-9CBDE2AD6F52
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $totalCount;

@@ -14,6 +14,8 @@ class movie extends Model
     public $backgroundPicture;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $country;
@@ -29,36 +31,50 @@ class movie extends Model
     public $director;
 
     /**
+     * @example 190
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $highlight;
 
     /**
+     * @example 1159177
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $leadingRole;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $movieName;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $movieNameEn;
@@ -79,21 +95,29 @@ class movie extends Model
     public $openDay;
 
     /**
+     * @example 2022-04-01 12:00:00
+     *
      * @var string
      */
     public $openTime;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $poster;
 
     /**
+     * @example 9.6
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @example []
+     *
      * @var string
      */
     public $trailerList;

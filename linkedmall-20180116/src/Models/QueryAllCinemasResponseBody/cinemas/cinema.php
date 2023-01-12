@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class cinema extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $cinemaName;
 
     /**
+     * @example 330100
+     *
      * @var int
      */
     public $cityId;
@@ -29,31 +35,43 @@ class cinema extends Model
     public $cityName;
 
     /**
+     * @example 153
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $latitude;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $longitude;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $phone;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $scheduleCloseTime;
 
     /**
+     * @example 42112601
+     *
      * @var string
      */
     public $standardId;

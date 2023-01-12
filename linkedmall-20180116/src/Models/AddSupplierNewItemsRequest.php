@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class AddSupplierNewItemsRequest extends Model
 {
     /**
+     * @example LMALL2000***12
+     *
      * @var string
      */
     public $bizId;

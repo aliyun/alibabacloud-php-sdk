@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetItemPromotionResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -20,26 +22,36 @@ class GetItemPromotionResponseBody extends Model
     public $itemPromotionModel;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 7152F15C-7298-5531-9A76-2ED2C331****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $subCode;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

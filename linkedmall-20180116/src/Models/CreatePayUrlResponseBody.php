@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreatePayUrlResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -25,11 +29,15 @@ class CreatePayUrlResponseBody extends Model
     public $model;
 
     /**
+     * @example 1718921E-C8D4-55E1-B8D4-114AE537C1B7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

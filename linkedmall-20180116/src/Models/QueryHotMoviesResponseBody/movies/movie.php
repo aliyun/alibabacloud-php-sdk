@@ -11,56 +11,78 @@ use AlibabaCloud\Tea\Model;
 class movie extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $backgroundPicture;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $country;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $director;
 
     /**
+     * @example 190
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $highlight;
 
     /**
+     * @example 5790
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $leadingRole;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $movieName;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $movieNameEn;
@@ -71,26 +93,36 @@ class movie extends Model
     public $movieTypeList;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $movieVersion;
 
     /**
+     * @example 2022-04-01 12:00:00
+     *
      * @var string
      */
     public $openDay;
 
     /**
+     * @example 2022-04-01 12:00:00
+     *
      * @var string
      */
     public $openTime;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $poster;
 
     /**
+     * @example 9.7
+     *
      * @var string
      */
     public $remark;

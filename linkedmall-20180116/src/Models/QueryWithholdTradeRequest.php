@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryWithholdTradeRequest extends Model
 {
     /**
+     * @example 64******721
+     *
      * @var string
      */
     public $merchantId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $outTradeNo;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $tradeNo;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GiveUserPointResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -25,7 +29,7 @@ class GiveUserPointResponseBody extends Model
     public $model;
 
     /**
-     * @description Id of the request
+     * @example 0854F82D-7912-52A1-8EF5-2D1662C50C36
      *
      * @var string
      */

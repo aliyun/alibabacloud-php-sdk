@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class AddItemLimitRuleResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $model;
 
     /**
+     * @example 7BAC5B75-8208-5788-829D-AD7640085D38
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 109
+     *
      * @var int
      */
     public $ruleId;

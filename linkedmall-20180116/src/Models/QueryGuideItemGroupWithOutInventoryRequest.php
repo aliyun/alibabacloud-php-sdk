@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QueryGuideItemGroupWithOutInventoryRequest extends Model
 {
     /**
+     * @example LMALL20211206****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example taojinbi-shang******
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;

@@ -9,36 +9,28 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
-     * @description 扩展信息
+     * @example {"key":"value"}
      *
      * @var string
      */
     public $extInfo;
 
     /**
-     * @description 玩法信息
-     *
      * @var string
      */
     public $gameDTO;
 
     /**
-     * @description 玩法展示信息
-     *
      * @var string
      */
     public $gameShowInfo;
 
     /**
-     * @description 玩法币信息
-     *
      * @var string
      */
     public $userGameCoinInfos;
 
     /**
-     * @description 用户进度
-     *
      * @var string
      */
     public $userProcessDTO;

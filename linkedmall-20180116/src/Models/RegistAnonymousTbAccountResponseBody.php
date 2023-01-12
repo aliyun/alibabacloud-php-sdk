@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RegistAnonymousTbAccountResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example FC994CBE-F97C-5C58-ACF3-86F0292C****
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class city extends Model
 {
     /**
+     * @example 110100
+     *
      * @var int
      */
     public $cityCode;
 
     /**
+     * @example 424
+     *
      * @var int
      */
     public $id;
@@ -24,11 +28,15 @@ class city extends Model
     public $name;
 
     /**
+     * @example 110000
+     *
      * @var int
      */
     public $parentId;
 
     /**
+     * @example beijing
+     *
      * @var string
      */
     public $pinYin;

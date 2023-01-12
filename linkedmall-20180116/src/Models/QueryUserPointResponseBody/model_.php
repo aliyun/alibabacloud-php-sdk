@@ -9,70 +9,70 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
-     * @description 账户ID
+     * @example 11******466
      *
      * @var string
      */
     public $accountId;
 
     /**
-     * @description 业务ID
+     * @example LMALL20******008
      *
      * @var string
      */
     public $bizId;
 
     /**
-     * @description 业务方用户ID
+     * @example 22******3646
      *
      * @var string
      */
     public $bizUid;
 
     /**
-     * @description 创建时间
+     * @example 1639037068811
      *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description 当前积分余额
+     * @example 1000
      *
      * @var int
      */
     public $currentAmount;
 
     /**
-     * @description 当前冻结积分
+     * @example 4000
      *
      * @var int
      */
     public $frozenAmount;
 
     /**
-     * @description 历史累计积分
+     * @example 5000
      *
      * @var int
      */
     public $historyAmount;
 
     /**
-     * @description 账号等级
+     * @example 1
      *
      * @var string
      */
     public $level;
 
     /**
-     * @description 修改时间
+     * @example 1642662319000
      *
      * @var int
      */
     public $modifyTime;
 
     /**
-     * @description 账号状态
+     * @example 4
      *
      * @var string
      */

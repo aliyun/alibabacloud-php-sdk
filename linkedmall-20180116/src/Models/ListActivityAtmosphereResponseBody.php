@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListActivityAtmosphereResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -25,24 +29,28 @@ class ListActivityAtmosphereResponseBody extends Model
     public $model;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description Id of the request
+     * @example E090F1A0-7454-5F36-933C-E6332CE2****
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description TotalCount本次请求条件下的数据总量，此参数为可选参数，默认可不返回
+     * @example 12
      *
      * @var int
      */

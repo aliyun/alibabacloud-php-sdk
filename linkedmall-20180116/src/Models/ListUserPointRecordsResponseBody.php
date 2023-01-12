@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListUserPointRecordsResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -25,23 +29,29 @@ class ListUserPointRecordsResponseBody extends Model
     public $model;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description Id of the request
+     * @example 199DFDCB-2225-5748-8D1A-528DD6C76563
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 19
+     *
      * @var int
      */
     public $totalCount;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class lmActivitySessionModel extends Model
 {
     /**
+     * @example LMALL20211013****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 2017-11-30 23:59:59
+     *
      * @var string
      */
     public $displayDate;
 
     /**
+     * @example 2017-11-30 23:59:59
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @example 679
+     *
      * @var int
      */
     public $lmActivityId;
@@ -44,11 +54,15 @@ class lmActivitySessionModel extends Model
     public $name;
 
     /**
+     * @example 2021-05-01 00:00:00
+     *
      * @var string
      */
     public $startDate;
 
     /**
+     * @example 04fe37ad2d7c42a3b215ff3a5a9*****
+     *
      * @var string
      */
     public $subBizCode;

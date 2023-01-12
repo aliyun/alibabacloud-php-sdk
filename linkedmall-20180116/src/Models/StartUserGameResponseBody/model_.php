@@ -19,22 +19,16 @@ class model_ extends Model
     public $bizId;
 
     /**
-     * @description 进度内容
-     *
      * @var string
      */
     public $currentShowContent;
 
     /**
-     * @description 当前步骤ID
-     *
      * @var string
      */
     public $currentStepId;
 
     /**
-     * @description 当前步骤状态
-     *
      * @var string
      */
     public $currentStepStatus;
@@ -45,8 +39,6 @@ class model_ extends Model
     public $desc;
 
     /**
-     * @description 扩展信息
-     *
      * @var string
      */
     public $extInfo;
@@ -62,22 +54,18 @@ class model_ extends Model
     public $name;
 
     /**
-     * @description 进度ID
+     * @example 1916
      *
      * @var string
      */
     public $processId;
 
     /**
-     * @description 路线ID
-     *
      * @var string
      */
     public $routeId;
 
     /**
-     * @description 状态
-     *
      * @var string
      */
     public $status;

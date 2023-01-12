@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class subItemOrder extends Model
 {
     /**
+     * @example *****
+     *
      * @var string
      */
     public $channelCode;
 
     /**
+     * @example 63194403****
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @example https://img.alicdn.com/imgextra/i3/22066070*****\/O1CN01jCtHkC1ZjO2Q8DWUk_!!0-item_pic.jpg
+     *
      * @var string
      */
     public $itemPic;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $itemPriceInfo;
@@ -40,26 +48,36 @@ class subItemOrder extends Model
     public $itemTitle;
 
     /**
+     * @example 10000102-61638587****
+     *
      * @var string
      */
     public $lmItemId;
 
     /**
+     * @example 45609****
+     *
      * @var int
      */
     public $lmOrderId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $number;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $payStatus;
 
     /**
+     * @example 473246257****
+     *
      * @var int
      */
     public $skuId;
@@ -70,6 +88,8 @@ class subItemOrder extends Model
     public $skuName;
 
     /**
+     * @example 2487583728****
+     *
      * @var int
      */
     public $tbSubOrderId;

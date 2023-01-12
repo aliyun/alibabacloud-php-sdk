@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class QueryOrderAndPaymentListRequest extends Model
 {
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example LMALL20******001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 22******6718
+     *
      * @var string
      */
     public $bizUid;
 
     /**
+     * @example {\"lmOrderList\":[32******46],\"enableStatus\":-1}
+     *
      * @var string
      */
     public $filterOption;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -44,6 +56,8 @@ class QueryOrderAndPaymentListRequest extends Model
     public $thirdPartyUserId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useAnonymousTbAccount;

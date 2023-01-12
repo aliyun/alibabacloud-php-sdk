@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetUserInfoRequest extends Model
 {
     /**
+     * @example alipay
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example LMALL20******001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $queryJson;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $userFlag;

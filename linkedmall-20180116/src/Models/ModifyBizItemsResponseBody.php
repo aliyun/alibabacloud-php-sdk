@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyBizItemsResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -20,26 +22,36 @@ class ModifyBizItemsResponseBody extends Model
     public $failedItemList;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 204F5C60-0B34-5718-AF93-9BD26B37****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 19
+     *
      * @var int
      */
     public $totalCount;

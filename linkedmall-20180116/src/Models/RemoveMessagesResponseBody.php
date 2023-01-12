@@ -15,26 +15,36 @@ class RemoveMessagesResponseBody extends Model
     public $actionResult;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $logsId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1718921E-C8D4-55E1-B8D4-114AE537C1B7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $subCode;
@@ -45,6 +55,8 @@ class RemoveMessagesResponseBody extends Model
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

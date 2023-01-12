@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class CreateVirtualProductOrderRequest extends Model
 {
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example LMALL20210508****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 221122411****
+     *
      * @var string
      */
     public $bizUid;
@@ -30,11 +36,15 @@ class CreateVirtualProductOrderRequest extends Model
     public $deliveryAddress;
 
     /**
+     * @example {\"chargeAccount\":\"1510380****\",\"mobileNo\":\"186****3931\"}
+     *
      * @var string
      */
     public $extJson;
 
     /**
+     * @example 66985559****
+     *
      * @var int
      */
     public $itemId;
@@ -45,36 +55,50 @@ class CreateVirtualProductOrderRequest extends Model
     public $itemList;
 
     /**
+     * @example 10001036-66644894****
+     *
      * @var string
      */
     public $lmItemId;
 
     /**
+     * @example 900
+     *
      * @var int
      */
     public $orderExpireTime;
 
     /**
+     * @example 963****
+     *
      * @var string
      */
     public $outTradeId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @example 221122411****
+     *
      * @var string
      */
     public $thirdPartyUserId;
 
     /**
+     * @example 4990
+     *
      * @var int
      */
     public $totalAmount;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useAnonymousTbAccount;

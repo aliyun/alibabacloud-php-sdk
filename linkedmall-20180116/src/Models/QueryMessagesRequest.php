@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryMessagesRequest extends Model
 {
     /**
+     * @example LMALL2******001
+     *
      * @var string
      */
     public $bizId;
@@ -19,6 +21,8 @@ class QueryMessagesRequest extends Model
     public $extJson;
 
     /**
+     * @example Topic_******_api
+     *
      * @var string
      */
     public $topic;

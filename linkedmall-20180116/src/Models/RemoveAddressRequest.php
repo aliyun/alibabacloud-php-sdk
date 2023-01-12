@@ -14,16 +14,22 @@ class RemoveAddressRequest extends Model
     public $addressInfo;
 
     /**
+     * @example LMALL202101250001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 1221
+     *
      * @var string
      */
     public $thirdPartyUserId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useAnonymousTbAccount;

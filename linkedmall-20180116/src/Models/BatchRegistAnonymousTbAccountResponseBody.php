@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class BatchRegistAnonymousTbAccountResponseBody extends Model
 {
     /**
+     * @example [\"id1\", \"id2\"]
+     *
      * @var string
      */
     public $batchId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 37899973-5963-5028-BA54-180A5B107****
+     *
      * @var string
      */
     public $requestId;

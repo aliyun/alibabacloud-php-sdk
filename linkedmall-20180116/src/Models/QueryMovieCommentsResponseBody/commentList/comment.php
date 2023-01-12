@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class comment extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $commentTime;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $favorCount;
 
     /**
+     * @example 6331
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example ""
+     *
      * @var int
      */
     public $movieId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $nickName;
 
     /**
+     * @example 9
+     *
      * @var int
      */
     public $remark;

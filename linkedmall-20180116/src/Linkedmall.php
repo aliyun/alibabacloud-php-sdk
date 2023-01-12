@@ -17,20 +17,39 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\AddSupplierNewItemsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\AddSupplierNewItemsResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ApplyRefundRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ApplyRefundResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ApplyRefundWithDesignatedTbUidRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ApplyRefundWithDesignatedTbUidResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ApplyRefundWithDesignatedTbUidShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\BatchRegistAnonymousTbAccountRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\BatchRegistAnonymousTbAccountResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CancelOrderRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CancelOrderResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CancelOrderWithDesignatedTbUidRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CancelOrderWithDesignatedTbUidResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CancelRealTbAccountSupportRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CancelRealTbAccountSupportResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CancelRefundRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CancelRefundResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CancelRefundWithDesignatedTbUidRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CancelRefundWithDesignatedTbUidResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ConfirmDisburseRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ConfirmDisburseResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ConfirmDisburseWithDesignatedTbUidRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ConfirmDisburseWithDesignatedTbUidResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateMovieTicketOrderRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateMovieTicketOrderResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderPayUrlForOutDiscountRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderPayUrlForOutDiscountResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderTransactionDetailFileRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderTransactionDetailFileResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderV2Request;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderV2Response;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderWithDesignatedTbUidRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOrderWithDesignatedTbUidResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOutDiscountOrderWithDesignatedTbUidRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateOutDiscountOrderWithDesignatedTbUidResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreatePayUrlRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreatePayUrlResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateSettleConfirmRequest;
@@ -46,8 +65,16 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\DeleteBizItemsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\DeleteBizItemsResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\DeleteItemLimitRuleRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\DeleteItemLimitRuleResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\DownloadCpsBillFileRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\DownloadCpsBillFileResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\DownloadItemBillFileRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\DownloadItemBillFileResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\DownloadOrderTransactionDetailFileRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\DownloadOrderTransactionDetailFileResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\EnableOrderRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\EnableOrderResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\EnableOrderWithDesignatedTbUidRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\EnableOrderWithDesignatedTbUidResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ExecuteNodeRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ExecuteNodeResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\FreezeUserPointRequest;
@@ -87,6 +114,12 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GrantUserPointResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GrantUserPointShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\InitApplyRefundRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\InitApplyRefundResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\InitApplyRefundWithDesignatedTbUidRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\InitApplyRefundWithDesignatedTbUidResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\InitModifyRefundRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\InitModifyRefundResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\InitModifyRefundWithDesignatedTbUidRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\InitModifyRefundWithDesignatedTbUidResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ListActivityAtmosphereRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ListActivityAtmosphereResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ListActivityGameInfoRequest;
@@ -100,18 +133,29 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ListUserPointRecordsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ListUserPointRecordsResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyBasicAndBizItemsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyBasicAndBizItemsResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyBasicItemSupplierPriceRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyBasicItemSupplierPriceResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyBizItemsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyBizItemsResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyItemLimitRuleRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyItemLimitRuleResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyOrderDeliveryAddressRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyOrderDeliveryAddressResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyRefundRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyRefundResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyRefundWithDesignatedTbUidRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyRefundWithDesignatedTbUidResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyRefundWithDesignatedTbUidShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifySettleAccountRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifySettleAccountResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifySupplierPriceAndPriceCentRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifySupplierPriceAndPriceCentResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\NotifyPayOrderStatusRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\NotifyPayOrderStatusResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\NotifyWithholdFundRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\NotifyWithholdFundResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\OpenRealTbAccountSupportRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\OpenRealTbAccountSupportResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\PushUserGameProcessRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\PushUserGameProcessResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\PushUserGameProcessShrinkRequest;
@@ -140,6 +184,9 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBestSession4ItemsShrinkReq
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemListRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemListResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemListShrinkRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemListV2Request;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemListV2Response;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemListV2ShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemListWithCacheRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemListWithCacheResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemListWithCacheShrinkRequest;
@@ -150,6 +197,8 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemsWithActivityRespon
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemsWithActivityShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBudgetTicketItemListByBizIdRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBudgetTicketItemListByBizIdResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryGuideItemGroupForCrowdOperationRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryGuideItemGroupForCrowdOperationResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryGuideItemGroupRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryGuideItemGroupResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryGuideItemGroupWithOutInventoryRequest;
@@ -170,6 +219,8 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemInSubBizsResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemInSubBizsShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemInventoryRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemInventoryResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemInventoryV2Request;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemInventoryV2Response;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryLogisticsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryLogisticsResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryMediaSettleInfoRequest;
@@ -186,6 +237,8 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryMovieTicketsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryMovieTicketsResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderAndPaymentListRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderAndPaymentListResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderAndPaymentListWithDesignatedTbUidRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderAndPaymentListWithDesignatedTbUidResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderCommissionRateRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderCommissionRateResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderDetailInnerRequest;
@@ -198,10 +251,18 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderItemInfoByPaymentIdFo
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderItemInfoByPaymentIdForAiZhanYouResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderListRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderListResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderListWithDesignatedTbUidRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderListWithDesignatedTbUidResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderLogisticsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderLogisticsResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderLogisticsWithDesignatedTbUidRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryOrderLogisticsWithDesignatedTbUidResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryRealTbAccountSupportRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryRealTbAccountSupportResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryRefundApplicationDetailRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryRefundApplicationDetailResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryRefundApplyWithDesignatedTbUidRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryRefundApplyWithDesignatedTbUidResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryStatementsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryStatementsResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUnfinishedActivitiesRequest;
@@ -214,6 +275,8 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUnfinishedSessionsResponse
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUpcomingMoviesRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUpcomingMoviesResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUpcomingMoviesShrinkRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUserAccountRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUserAccountResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUserGameProcessRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUserGameProcessResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUserGameProcessShrinkRequest;
@@ -222,6 +285,10 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUserPointResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUserPointShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryWithholdTradeRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryWithholdTradeResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RebindTbAccountRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RebindTbAccountResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RefreshSettlementOrderAccountRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RefreshSettlementOrderAccountResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RefundOrderRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RefundOrderResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RefundPointRequest;
@@ -235,6 +302,8 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RegistAnonymousTbAccountRequest
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RegistAnonymousTbAccountResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RegisterSettleAccountRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RegisterSettleAccountResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RegisterUserAccountRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RegisterUserAccountResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ReleaseMovieSeatRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ReleaseMovieSeatResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RemoveAddressRequest;
@@ -245,10 +314,15 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RenderH5OrderRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RenderH5OrderResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RenderOrderRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RenderOrderResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RenderOrderWithDesignatedTbUidRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RenderOrderWithDesignatedTbUidResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RenderOrderWithDesignatedTbUidShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RepayForPayUrlRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RepayForPayUrlResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RepayOrderRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RepayOrderResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RepayWithDesignatedTbUidRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RepayWithDesignatedTbUidResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ReserveMovieSeatRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ReserveMovieSeatResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\SettleOrderRequest;
@@ -258,6 +332,8 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\StartUserGameResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\StartUserGameShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\SubmitReturnGoodLogisticsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\SubmitReturnGoodLogisticsResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\SubmitReturnGoodLogisticsWithDesignatedTbUidRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\SubmitReturnGoodLogisticsWithDesignatedTbUidResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\SyncMerchantInfoRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\SyncMerchantInfoResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\UnFreezeUserPointRequest;
@@ -670,6 +746,90 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param ApplyRefundWithDesignatedTbUidRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ApplyRefundWithDesignatedTbUidResponse
+     */
+    public function applyRefundWithDesignatedTbUidWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ApplyRefundWithDesignatedTbUidShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->proofs)) {
+            $request->proofsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->proofs, 'Proofs', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->disputeId)) {
+            $body['DisputeId'] = $request->disputeId;
+        }
+        if (!Utils::isUnset($request->goodsStatus)) {
+            $body['GoodsStatus'] = $request->goodsStatus;
+        }
+        if (!Utils::isUnset($request->message)) {
+            $body['Message'] = $request->message;
+        }
+        if (!Utils::isUnset($request->proofsShrink)) {
+            $body['Proofs'] = $request->proofsShrink;
+        }
+        if (!Utils::isUnset($request->reasonId)) {
+            $body['ReasonId'] = $request->reasonId;
+        }
+        if (!Utils::isUnset($request->refundCode)) {
+            $body['RefundCode'] = $request->refundCode;
+        }
+        if (!Utils::isUnset($request->refundCount)) {
+            $body['RefundCount'] = $request->refundCount;
+        }
+        if (!Utils::isUnset($request->refundFee)) {
+            $body['RefundFee'] = $request->refundFee;
+        }
+        if (!Utils::isUnset($request->subLmOrderId)) {
+            $body['SubLmOrderId'] = $request->subLmOrderId;
+        }
+        if (!Utils::isUnset($request->tbAccountType)) {
+            $body['TbAccountType'] = $request->tbAccountType;
+        }
+        if (!Utils::isUnset($request->tbUserId)) {
+            $body['TbUserId'] = $request->tbUserId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $body['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ApplyRefundWithDesignatedTbUid',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ApplyRefundWithDesignatedTbUidResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ApplyRefundWithDesignatedTbUidRequest $request
+     *
+     * @return ApplyRefundWithDesignatedTbUidResponse
+     */
+    public function applyRefundWithDesignatedTbUid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->applyRefundWithDesignatedTbUidWithOptions($request, $runtime);
+    }
+
+    /**
      * @param BatchRegistAnonymousTbAccountRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -774,6 +934,104 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param CancelOrderWithDesignatedTbUidRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CancelOrderWithDesignatedTbUidResponse
+     */
+    public function cancelOrderWithDesignatedTbUidWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->lmOrderId)) {
+            $body['LmOrderId'] = $request->lmOrderId;
+        }
+        if (!Utils::isUnset($request->tbAccountType)) {
+            $body['TbAccountType'] = $request->tbAccountType;
+        }
+        if (!Utils::isUnset($request->tbUserId)) {
+            $body['TbUserId'] = $request->tbUserId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $body['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelOrderWithDesignatedTbUid',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelOrderWithDesignatedTbUidResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CancelOrderWithDesignatedTbUidRequest $request
+     *
+     * @return CancelOrderWithDesignatedTbUidResponse
+     */
+    public function cancelOrderWithDesignatedTbUid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelOrderWithDesignatedTbUidWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CancelRealTbAccountSupportRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CancelRealTbAccountSupportResponse
+     */
+    public function cancelRealTbAccountSupportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelRealTbAccountSupport',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelRealTbAccountSupportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CancelRealTbAccountSupportRequest $request
+     *
+     * @return CancelRealTbAccountSupportResponse
+     */
+    public function cancelRealTbAccountSupport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelRealTbAccountSupportWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CancelRefundRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -835,6 +1093,64 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param CancelRefundWithDesignatedTbUidRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CancelRefundWithDesignatedTbUidResponse
+     */
+    public function cancelRefundWithDesignatedTbUidWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->disputeId)) {
+            $body['DisputeId'] = $request->disputeId;
+        }
+        if (!Utils::isUnset($request->subLmOrderId)) {
+            $body['SubLmOrderId'] = $request->subLmOrderId;
+        }
+        if (!Utils::isUnset($request->tbAccountType)) {
+            $body['TbAccountType'] = $request->tbAccountType;
+        }
+        if (!Utils::isUnset($request->tbUserId)) {
+            $body['TbUserId'] = $request->tbUserId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $body['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelRefundWithDesignatedTbUid',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelRefundWithDesignatedTbUidResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CancelRefundWithDesignatedTbUidRequest $request
+     *
+     * @return CancelRefundWithDesignatedTbUidResponse
+     */
+    public function cancelRefundWithDesignatedTbUid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelRefundWithDesignatedTbUidWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ConfirmDisburseRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -890,6 +1206,61 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->confirmDisburseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ConfirmDisburseWithDesignatedTbUidRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ConfirmDisburseWithDesignatedTbUidResponse
+     */
+    public function confirmDisburseWithDesignatedTbUidWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->lmOrderId)) {
+            $body['LmOrderId'] = $request->lmOrderId;
+        }
+        if (!Utils::isUnset($request->tbAccountType)) {
+            $body['TbAccountType'] = $request->tbAccountType;
+        }
+        if (!Utils::isUnset($request->tbUserId)) {
+            $body['TbUserId'] = $request->tbUserId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $body['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ConfirmDisburseWithDesignatedTbUid',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ConfirmDisburseWithDesignatedTbUidResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ConfirmDisburseWithDesignatedTbUidRequest $request
+     *
+     * @return ConfirmDisburseWithDesignatedTbUidResponse
+     */
+    public function confirmDisburseWithDesignatedTbUid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->confirmDisburseWithDesignatedTbUidWithOptions($request, $runtime);
     }
 
     /**
@@ -1018,6 +1389,166 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param CreateOrderPayUrlForOutDiscountRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateOrderPayUrlForOutDiscountResponse
+     */
+    public function createOrderPayUrlForOutDiscountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->buyInfo)) {
+            $body['BuyInfo'] = $request->buyInfo;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOrderPayUrlForOutDiscount',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateOrderPayUrlForOutDiscountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateOrderPayUrlForOutDiscountRequest $request
+     *
+     * @return CreateOrderPayUrlForOutDiscountResponse
+     */
+    public function createOrderPayUrlForOutDiscount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOrderPayUrlForOutDiscountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateOrderTransactionDetailFileRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return CreateOrderTransactionDetailFileResponse
+     */
+    public function createOrderTransactionDetailFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizName)) {
+            $body['BizName'] = $request->bizName;
+        }
+        if (!Utils::isUnset($request->channelName)) {
+            $body['ChannelName'] = $request->channelName;
+        }
+        if (!Utils::isUnset($request->createEndTime)) {
+            $body['CreateEndTime'] = $request->createEndTime;
+        }
+        if (!Utils::isUnset($request->createStartTime)) {
+            $body['CreateStartTime'] = $request->createStartTime;
+        }
+        if (!Utils::isUnset($request->itemId)) {
+            $body['ItemId'] = $request->itemId;
+        }
+        if (!Utils::isUnset($request->lmShopId)) {
+            $body['LmShopId'] = $request->lmShopId;
+        }
+        if (!Utils::isUnset($request->orderStatus)) {
+            $body['OrderStatus'] = $request->orderStatus;
+        }
+        if (!Utils::isUnset($request->payStatus)) {
+            $body['PayStatus'] = $request->payStatus;
+        }
+        if (!Utils::isUnset($request->paymentEndTime)) {
+            $body['PaymentEndTime'] = $request->paymentEndTime;
+        }
+        if (!Utils::isUnset($request->paymentStartTime)) {
+            $body['PaymentStartTime'] = $request->paymentStartTime;
+        }
+        if (!Utils::isUnset($request->poCode)) {
+            $body['PoCode'] = $request->poCode;
+        }
+        if (!Utils::isUnset($request->refundEndTime)) {
+            $body['RefundEndTime'] = $request->refundEndTime;
+        }
+        if (!Utils::isUnset($request->refundStartTime)) {
+            $body['RefundStartTime'] = $request->refundStartTime;
+        }
+        if (!Utils::isUnset($request->sellerId)) {
+            $body['SellerId'] = $request->sellerId;
+        }
+        if (!Utils::isUnset($request->sellerName)) {
+            $body['SellerName'] = $request->sellerName;
+        }
+        if (!Utils::isUnset($request->settlementNode)) {
+            $body['SettlementNode'] = $request->settlementNode;
+        }
+        if (!Utils::isUnset($request->shopName)) {
+            $body['ShopName'] = $request->shopName;
+        }
+        if (!Utils::isUnset($request->tbMainOrderId)) {
+            $body['TbMainOrderId'] = $request->tbMainOrderId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->tenantName)) {
+            $body['TenantName'] = $request->tenantName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOrderTransactionDetailFile',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateOrderTransactionDetailFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateOrderTransactionDetailFileRequest $request
+     *
+     * @return CreateOrderTransactionDetailFileResponse
+     */
+    public function createOrderTransactionDetailFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOrderTransactionDetailFileWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateOrderV2Request $request
      * @param RuntimeOptions       $runtime
      *
@@ -1100,6 +1631,155 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createOrderV2WithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateOrderWithDesignatedTbUidRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CreateOrderWithDesignatedTbUidResponse
+     */
+    public function createOrderWithDesignatedTbUidWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->buyerMessages)) {
+            $body['BuyerMessages'] = $request->buyerMessages;
+        }
+        if (!Utils::isUnset($request->deliveryAddress)) {
+            $body['DeliveryAddress'] = $request->deliveryAddress;
+        }
+        if (!Utils::isUnset($request->deliveryInfo)) {
+            $body['DeliveryInfo'] = $request->deliveryInfo;
+        }
+        if (!Utils::isUnset($request->extInfo)) {
+            $body['ExtInfo'] = $request->extInfo;
+        }
+        if (!Utils::isUnset($request->orderExpireTime)) {
+            $body['OrderExpireTime'] = $request->orderExpireTime;
+        }
+        if (!Utils::isUnset($request->orderItems)) {
+            $body['OrderItems'] = $request->orderItems;
+        }
+        if (!Utils::isUnset($request->outTradeId)) {
+            $body['OutTradeId'] = $request->outTradeId;
+        }
+        if (!Utils::isUnset($request->tbAccountType)) {
+            $body['TbAccountType'] = $request->tbAccountType;
+        }
+        if (!Utils::isUnset($request->tbUserId)) {
+            $body['TbUserId'] = $request->tbUserId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $body['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOrderWithDesignatedTbUid',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateOrderWithDesignatedTbUidResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateOrderWithDesignatedTbUidRequest $request
+     *
+     * @return CreateOrderWithDesignatedTbUidResponse
+     */
+    public function createOrderWithDesignatedTbUid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOrderWithDesignatedTbUidWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateOutDiscountOrderWithDesignatedTbUidRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return CreateOutDiscountOrderWithDesignatedTbUidResponse
+     */
+    public function createOutDiscountOrderWithDesignatedTbUidWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->buyerMessages)) {
+            $body['BuyerMessages'] = $request->buyerMessages;
+        }
+        if (!Utils::isUnset($request->deliveryAddress)) {
+            $body['DeliveryAddress'] = $request->deliveryAddress;
+        }
+        if (!Utils::isUnset($request->deliveryInfo)) {
+            $body['DeliveryInfo'] = $request->deliveryInfo;
+        }
+        if (!Utils::isUnset($request->extInfo)) {
+            $body['ExtInfo'] = $request->extInfo;
+        }
+        if (!Utils::isUnset($request->orderExpireTime)) {
+            $body['OrderExpireTime'] = $request->orderExpireTime;
+        }
+        if (!Utils::isUnset($request->orderItems)) {
+            $body['OrderItems'] = $request->orderItems;
+        }
+        if (!Utils::isUnset($request->outDiscountInfos)) {
+            $body['OutDiscountInfos'] = $request->outDiscountInfos;
+        }
+        if (!Utils::isUnset($request->outTradeId)) {
+            $body['OutTradeId'] = $request->outTradeId;
+        }
+        if (!Utils::isUnset($request->tbAccountType)) {
+            $body['TbAccountType'] = $request->tbAccountType;
+        }
+        if (!Utils::isUnset($request->tbUserId)) {
+            $body['TbUserId'] = $request->tbUserId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $body['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOutDiscountOrderWithDesignatedTbUid',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateOutDiscountOrderWithDesignatedTbUidResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateOutDiscountOrderWithDesignatedTbUidRequest $request
+     *
+     * @return CreateOutDiscountOrderWithDesignatedTbUidResponse
+     */
+    public function createOutDiscountOrderWithDesignatedTbUid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOutDiscountOrderWithDesignatedTbUidWithOptions($request, $runtime);
     }
 
     /**
@@ -1557,6 +2237,144 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param DownloadCpsBillFileRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DownloadCpsBillFileResponse
+     */
+    public function downloadCpsBillFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->billId)) {
+            $body['BillId'] = $request->billId;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DownloadCpsBillFile',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DownloadCpsBillFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DownloadCpsBillFileRequest $request
+     *
+     * @return DownloadCpsBillFileResponse
+     */
+    public function downloadCpsBillFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->downloadCpsBillFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DownloadItemBillFileRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DownloadItemBillFileResponse
+     */
+    public function downloadItemBillFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->billId)) {
+            $body['BillId'] = $request->billId;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DownloadItemBillFile',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DownloadItemBillFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DownloadItemBillFileRequest $request
+     *
+     * @return DownloadItemBillFileResponse
+     */
+    public function downloadItemBillFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->downloadItemBillFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DownloadOrderTransactionDetailFileRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DownloadOrderTransactionDetailFileResponse
+     */
+    public function downloadOrderTransactionDetailFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->recordId)) {
+            $body['RecordId'] = $request->recordId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DownloadOrderTransactionDetailFile',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DownloadOrderTransactionDetailFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DownloadOrderTransactionDetailFileRequest $request
+     *
+     * @return DownloadOrderTransactionDetailFileResponse
+     */
+    public function downloadOrderTransactionDetailFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->downloadOrderTransactionDetailFileWithOptions($request, $runtime);
+    }
+
+    /**
      * @param EnableOrderRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -1618,6 +2436,61 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EnableOrderWithDesignatedTbUidRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return EnableOrderWithDesignatedTbUidResponse
+     */
+    public function enableOrderWithDesignatedTbUidWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->lmOrderId)) {
+            $body['LmOrderId'] = $request->lmOrderId;
+        }
+        if (!Utils::isUnset($request->tbAccountType)) {
+            $body['TbAccountType'] = $request->tbAccountType;
+        }
+        if (!Utils::isUnset($request->tbUserId)) {
+            $body['TbUserId'] = $request->tbUserId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $body['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableOrderWithDesignatedTbUid',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableOrderWithDesignatedTbUidResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EnableOrderWithDesignatedTbUidRequest $request
+     *
+     * @return EnableOrderWithDesignatedTbUidResponse
+     */
+    public function enableOrderWithDesignatedTbUid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableOrderWithDesignatedTbUidWithOptions($request, $runtime);
     }
 
     /**
@@ -2636,6 +3509,195 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param InitApplyRefundWithDesignatedTbUidRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return InitApplyRefundWithDesignatedTbUidResponse
+     */
+    public function initApplyRefundWithDesignatedTbUidWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->disputeId)) {
+            $body['DisputeId'] = $request->disputeId;
+        }
+        if (!Utils::isUnset($request->refundCode)) {
+            $body['RefundCode'] = $request->refundCode;
+        }
+        if (!Utils::isUnset($request->subLmOrderId)) {
+            $body['SubLmOrderId'] = $request->subLmOrderId;
+        }
+        if (!Utils::isUnset($request->tbAccountType)) {
+            $body['TbAccountType'] = $request->tbAccountType;
+        }
+        if (!Utils::isUnset($request->tbUserId)) {
+            $body['TbUserId'] = $request->tbUserId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $body['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'InitApplyRefundWithDesignatedTbUid',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InitApplyRefundWithDesignatedTbUidResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InitApplyRefundWithDesignatedTbUidRequest $request
+     *
+     * @return InitApplyRefundWithDesignatedTbUidResponse
+     */
+    public function initApplyRefundWithDesignatedTbUid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->initApplyRefundWithDesignatedTbUidWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InitModifyRefundRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return InitModifyRefundResponse
+     */
+    public function initModifyRefundWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizClaimType)) {
+            $query['BizClaimType'] = $request->bizClaimType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->disputeId)) {
+            $query['DisputeId'] = $request->disputeId;
+        }
+        if (!Utils::isUnset($request->goodsStatus)) {
+            $query['GoodsStatus'] = $request->goodsStatus;
+        }
+        if (!Utils::isUnset($request->subLmOrderId)) {
+            $query['SubLmOrderId'] = $request->subLmOrderId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InitModifyRefund',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InitModifyRefundResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InitModifyRefundRequest $request
+     *
+     * @return InitModifyRefundResponse
+     */
+    public function initModifyRefund($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->initModifyRefundWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InitModifyRefundWithDesignatedTbUidRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return InitModifyRefundWithDesignatedTbUidResponse
+     */
+    public function initModifyRefundWithDesignatedTbUidWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->disputeId)) {
+            $body['DisputeId'] = $request->disputeId;
+        }
+        if (!Utils::isUnset($request->refundCode)) {
+            $body['RefundCode'] = $request->refundCode;
+        }
+        if (!Utils::isUnset($request->subLmOrderId)) {
+            $body['SubLmOrderId'] = $request->subLmOrderId;
+        }
+        if (!Utils::isUnset($request->tbAccountType)) {
+            $body['TbAccountType'] = $request->tbAccountType;
+        }
+        if (!Utils::isUnset($request->tbUserId)) {
+            $body['TbUserId'] = $request->tbUserId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $body['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'InitModifyRefundWithDesignatedTbUid',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InitModifyRefundWithDesignatedTbUidResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InitModifyRefundWithDesignatedTbUidRequest $request
+     *
+     * @return InitModifyRefundWithDesignatedTbUidResponse
+     */
+    public function initModifyRefundWithDesignatedTbUid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->initModifyRefundWithDesignatedTbUidWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListActivityAtmosphereRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -2904,6 +3966,61 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param ModifyBasicItemSupplierPriceRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyBasicItemSupplierPriceResponse
+     */
+    public function modifyBasicItemSupplierPriceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->lmItemId)) {
+            $query['LmItemId'] = $request->lmItemId;
+        }
+        if (!Utils::isUnset($request->lmShopId)) {
+            $query['LmShopId'] = $request->lmShopId;
+        }
+        if (!Utils::isUnset($request->skuId)) {
+            $query['SkuId'] = $request->skuId;
+        }
+        if (!Utils::isUnset($request->supplierPrice)) {
+            $query['SupplierPrice'] = $request->supplierPrice;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyBasicItemSupplierPrice',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyBasicItemSupplierPriceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyBasicItemSupplierPriceRequest $request
+     *
+     * @return ModifyBasicItemSupplierPriceResponse
+     */
+    public function modifyBasicItemSupplierPrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyBasicItemSupplierPriceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyBizItemsRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -3077,6 +4194,174 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param ModifyRefundRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ModifyRefundResponse
+     */
+    public function modifyRefundWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->applyReasonTextId)) {
+            $query['ApplyReasonTextId'] = $request->applyReasonTextId;
+        }
+        if (!Utils::isUnset($request->applyRefundCount)) {
+            $query['ApplyRefundCount'] = $request->applyRefundCount;
+        }
+        if (!Utils::isUnset($request->applyRefundFee)) {
+            $query['ApplyRefundFee'] = $request->applyRefundFee;
+        }
+        if (!Utils::isUnset($request->bizClaimType)) {
+            $query['BizClaimType'] = $request->bizClaimType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->disputeId)) {
+            $query['DisputeId'] = $request->disputeId;
+        }
+        if (!Utils::isUnset($request->goodsStatus)) {
+            $query['GoodsStatus'] = $request->goodsStatus;
+        }
+        if (!Utils::isUnset($request->subLmOrderId)) {
+            $query['SubLmOrderId'] = $request->subLmOrderId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->leaveMessage)) {
+            $body['LeaveMessage'] = $request->leaveMessage;
+        }
+        if (!Utils::isUnset($request->leavePictureList)) {
+            $body['LeavePictureList'] = $request->leavePictureList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyRefund',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyRefundResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyRefundRequest $request
+     *
+     * @return ModifyRefundResponse
+     */
+    public function modifyRefund($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyRefundWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyRefundWithDesignatedTbUidRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ModifyRefundWithDesignatedTbUidResponse
+     */
+    public function modifyRefundWithDesignatedTbUidWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyRefundWithDesignatedTbUidShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->proofs)) {
+            $request->proofsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->proofs, 'Proofs', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->disputeId)) {
+            $body['DisputeId'] = $request->disputeId;
+        }
+        if (!Utils::isUnset($request->goodsStatus)) {
+            $body['GoodsStatus'] = $request->goodsStatus;
+        }
+        if (!Utils::isUnset($request->message)) {
+            $body['Message'] = $request->message;
+        }
+        if (!Utils::isUnset($request->proofsShrink)) {
+            $body['Proofs'] = $request->proofsShrink;
+        }
+        if (!Utils::isUnset($request->reasonId)) {
+            $body['ReasonId'] = $request->reasonId;
+        }
+        if (!Utils::isUnset($request->refundCode)) {
+            $body['RefundCode'] = $request->refundCode;
+        }
+        if (!Utils::isUnset($request->refundCount)) {
+            $body['RefundCount'] = $request->refundCount;
+        }
+        if (!Utils::isUnset($request->refundFee)) {
+            $body['RefundFee'] = $request->refundFee;
+        }
+        if (!Utils::isUnset($request->subLmOrderId)) {
+            $body['SubLmOrderId'] = $request->subLmOrderId;
+        }
+        if (!Utils::isUnset($request->tbAccountType)) {
+            $body['TbAccountType'] = $request->tbAccountType;
+        }
+        if (!Utils::isUnset($request->tbUserId)) {
+            $body['TbUserId'] = $request->tbUserId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $body['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyRefundWithDesignatedTbUid',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyRefundWithDesignatedTbUidResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyRefundWithDesignatedTbUidRequest $request
+     *
+     * @return ModifyRefundWithDesignatedTbUidResponse
+     */
+    public function modifyRefundWithDesignatedTbUid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyRefundWithDesignatedTbUidWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifySettleAccountRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -3107,8 +4392,17 @@ class Linkedmall extends OpenApiClient
         if (!Utils::isUnset($request->bizId)) {
             $body['BizId'] = $request->bizId;
         }
+        if (!Utils::isUnset($request->countryOrAreaCode)) {
+            $body['CountryOrAreaCode'] = $request->countryOrAreaCode;
+        }
+        if (!Utils::isUnset($request->currency)) {
+            $body['Currency'] = $request->currency;
+        }
         if (!Utils::isUnset($request->extInfo)) {
             $body['ExtInfo'] = $request->extInfo;
+        }
+        if (!Utils::isUnset($request->idempotentId)) {
+            $body['IdempotentId'] = $request->idempotentId;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -3138,6 +4432,64 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifySettleAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifySupplierPriceAndPriceCentRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ModifySupplierPriceAndPriceCentResponse
+     */
+    public function modifySupplierPriceAndPriceCentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->lmItemId)) {
+            $query['LmItemId'] = $request->lmItemId;
+        }
+        if (!Utils::isUnset($request->lmShopId)) {
+            $query['LmShopId'] = $request->lmShopId;
+        }
+        if (!Utils::isUnset($request->priceCent)) {
+            $query['PriceCent'] = $request->priceCent;
+        }
+        if (!Utils::isUnset($request->skuId)) {
+            $query['SkuId'] = $request->skuId;
+        }
+        if (!Utils::isUnset($request->supplierPrice)) {
+            $query['SupplierPrice'] = $request->supplierPrice;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifySupplierPriceAndPriceCent',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifySupplierPriceAndPriceCentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifySupplierPriceAndPriceCentRequest $request
+     *
+     * @return ModifySupplierPriceAndPriceCentResponse
+     */
+    public function modifySupplierPriceAndPriceCent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySupplierPriceAndPriceCentWithOptions($request, $runtime);
     }
 
     /**
@@ -3251,6 +4603,49 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->notifyWithholdFundWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param OpenRealTbAccountSupportRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return OpenRealTbAccountSupportResponse
+     */
+    public function openRealTbAccountSupportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'OpenRealTbAccountSupport',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OpenRealTbAccountSupportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param OpenRealTbAccountSupportRequest $request
+     *
+     * @return OpenRealTbAccountSupportResponse
+     */
+    public function openRealTbAccountSupport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->openRealTbAccountSupportWithOptions($request, $runtime);
     }
 
     /**
@@ -3921,6 +5316,78 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param QueryBizItemListV2Request $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryBizItemListV2Response
+     */
+    public function queryBizItemListV2WithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryBizItemListV2ShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->itemIds)) {
+            $request->itemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->itemIds, 'ItemIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->lmItemIds)) {
+            $request->lmItemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lmItemIds, 'LmItemIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->itemIdsShrink)) {
+            $query['ItemIds'] = $request->itemIdsShrink;
+        }
+        if (!Utils::isUnset($request->lmItemIdsShrink)) {
+            $query['LmItemIds'] = $request->lmItemIdsShrink;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->subBizId)) {
+            $query['SubBizId'] = $request->subBizId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryBizItemListV2',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryBizItemListV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryBizItemListV2Request $request
+     *
+     * @return QueryBizItemListV2Response
+     */
+    public function queryBizItemListV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryBizItemListV2WithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryBizItemListWithCacheRequest $tmpReq
      * @param RuntimeOptions                   $runtime
      *
@@ -4176,6 +5643,64 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryGuideItemGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryGuideItemGroupForCrowdOperationRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return QueryGuideItemGroupForCrowdOperationResponse
+     */
+    public function queryGuideItemGroupForCrowdOperationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->itemState)) {
+            $query['ItemState'] = $request->itemState;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->userFlag)) {
+            $query['UserFlag'] = $request->userFlag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryGuideItemGroupForCrowdOperation',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryGuideItemGroupForCrowdOperationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryGuideItemGroupForCrowdOperationRequest $request
+     *
+     * @return QueryGuideItemGroupForCrowdOperationResponse
+     */
+    public function queryGuideItemGroupForCrowdOperation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryGuideItemGroupForCrowdOperationWithOptions($request, $runtime);
     }
 
     /**
@@ -4572,6 +6097,58 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryItemInventoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryItemInventoryV2Request $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryItemInventoryV2Response
+     */
+    public function queryItemInventoryV2WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->divisionCode)) {
+            $query['DivisionCode'] = $request->divisionCode;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->itemList)) {
+            $query['ItemList'] = $request->itemList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryItemInventoryV2',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryItemInventoryV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryItemInventoryV2Request $request
+     *
+     * @return QueryItemInventoryV2Response
+     */
+    public function queryItemInventoryV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryItemInventoryV2WithOptions($request, $runtime);
     }
 
     /**
@@ -5003,6 +6580,67 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param QueryOrderAndPaymentListWithDesignatedTbUidRequest $request
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return QueryOrderAndPaymentListWithDesignatedTbUidResponse
+     */
+    public function queryOrderAndPaymentListWithDesignatedTbUidWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->filterOption)) {
+            $body['FilterOption'] = $request->filterOption;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tbAccountType)) {
+            $body['TbAccountType'] = $request->tbAccountType;
+        }
+        if (!Utils::isUnset($request->tbUserId)) {
+            $body['TbUserId'] = $request->tbUserId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $body['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryOrderAndPaymentListWithDesignatedTbUid',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryOrderAndPaymentListWithDesignatedTbUidResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryOrderAndPaymentListWithDesignatedTbUidRequest $request
+     *
+     * @return QueryOrderAndPaymentListWithDesignatedTbUidResponse
+     */
+    public function queryOrderAndPaymentListWithDesignatedTbUid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryOrderAndPaymentListWithDesignatedTbUidWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryOrderCommissionRateRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -5327,6 +6965,67 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param QueryOrderListWithDesignatedTbUidRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return QueryOrderListWithDesignatedTbUidResponse
+     */
+    public function queryOrderListWithDesignatedTbUidWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->filterOption)) {
+            $body['FilterOption'] = $request->filterOption;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tbAccountType)) {
+            $body['TbAccountType'] = $request->tbAccountType;
+        }
+        if (!Utils::isUnset($request->tbUserId)) {
+            $body['TbUserId'] = $request->tbUserId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $body['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryOrderListWithDesignatedTbUid',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryOrderListWithDesignatedTbUidResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryOrderListWithDesignatedTbUidRequest $request
+     *
+     * @return QueryOrderListWithDesignatedTbUidResponse
+     */
+    public function queryOrderListWithDesignatedTbUid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryOrderListWithDesignatedTbUidWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryOrderLogisticsRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -5382,6 +7081,104 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryOrderLogisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryOrderLogisticsWithDesignatedTbUidRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return QueryOrderLogisticsWithDesignatedTbUidResponse
+     */
+    public function queryOrderLogisticsWithDesignatedTbUidWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->lmOrderId)) {
+            $body['LmOrderId'] = $request->lmOrderId;
+        }
+        if (!Utils::isUnset($request->tbAccountType)) {
+            $body['TbAccountType'] = $request->tbAccountType;
+        }
+        if (!Utils::isUnset($request->tbUserId)) {
+            $body['TbUserId'] = $request->tbUserId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $body['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryOrderLogisticsWithDesignatedTbUid',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryOrderLogisticsWithDesignatedTbUidResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryOrderLogisticsWithDesignatedTbUidRequest $request
+     *
+     * @return QueryOrderLogisticsWithDesignatedTbUidResponse
+     */
+    public function queryOrderLogisticsWithDesignatedTbUid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryOrderLogisticsWithDesignatedTbUidWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryRealTbAccountSupportRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryRealTbAccountSupportResponse
+     */
+    public function queryRealTbAccountSupportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryRealTbAccountSupport',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryRealTbAccountSupportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryRealTbAccountSupportRequest $request
+     *
+     * @return QueryRealTbAccountSupportResponse
+     */
+    public function queryRealTbAccountSupport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryRealTbAccountSupportWithOptions($request, $runtime);
     }
 
     /**
@@ -5443,6 +7240,61 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param QueryRefundApplyWithDesignatedTbUidRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return QueryRefundApplyWithDesignatedTbUidResponse
+     */
+    public function queryRefundApplyWithDesignatedTbUidWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->subLmOrderId)) {
+            $body['SubLmOrderId'] = $request->subLmOrderId;
+        }
+        if (!Utils::isUnset($request->tbAccountType)) {
+            $body['TbAccountType'] = $request->tbAccountType;
+        }
+        if (!Utils::isUnset($request->tbUserId)) {
+            $body['TbUserId'] = $request->tbUserId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $body['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryRefundApplyWithDesignatedTbUid',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryRefundApplyWithDesignatedTbUidResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryRefundApplyWithDesignatedTbUidRequest $request
+     *
+     * @return QueryRefundApplyWithDesignatedTbUidResponse
+     */
+    public function queryRefundApplyWithDesignatedTbUid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryRefundApplyWithDesignatedTbUidWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryStatementsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -5454,6 +7306,9 @@ class Linkedmall extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->bizId)) {
             $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->currency)) {
+            $query['Currency'] = $request->currency;
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
@@ -5731,6 +7586,52 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param QueryUserAccountRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryUserAccountResponse
+     */
+    public function queryUserAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $body['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryUserAccount',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryUserAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryUserAccountRequest $request
+     *
+     * @return QueryUserAccountResponse
+     */
+    public function queryUserAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryUserAccountWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryUserGameProcessRequest $tmpReq
      * @param RuntimeOptions              $runtime
      *
@@ -5884,6 +7785,110 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryWithholdTradeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RebindTbAccountRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RebindTbAccountResponse
+     */
+    public function rebindTbAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->tbAccountType)) {
+            $body['TbAccountType'] = $request->tbAccountType;
+        }
+        if (!Utils::isUnset($request->tbUserId)) {
+            $body['TbUserId'] = $request->tbUserId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $body['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RebindTbAccount',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RebindTbAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RebindTbAccountRequest $request
+     *
+     * @return RebindTbAccountResponse
+     */
+    public function rebindTbAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rebindTbAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RefreshSettlementOrderAccountRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return RefreshSettlementOrderAccountResponse
+     */
+    public function refreshSettlementOrderAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $body['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->extInfo)) {
+            $body['ExtInfo'] = $request->extInfo;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshSettlementOrderAccount',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RefreshSettlementOrderAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RefreshSettlementOrderAccountRequest $request
+     *
+     * @return RefreshSettlementOrderAccountResponse
+     */
+    public function refreshSettlementOrderAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refreshSettlementOrderAccountWithOptions($request, $runtime);
     }
 
     /**
@@ -6211,8 +8216,17 @@ class Linkedmall extends OpenApiClient
         if (!Utils::isUnset($request->bizId)) {
             $body['BizId'] = $request->bizId;
         }
+        if (!Utils::isUnset($request->countryOrAreaCode)) {
+            $body['CountryOrAreaCode'] = $request->countryOrAreaCode;
+        }
+        if (!Utils::isUnset($request->currency)) {
+            $body['Currency'] = $request->currency;
+        }
         if (!Utils::isUnset($request->extInfo)) {
             $body['ExtInfo'] = $request->extInfo;
+        }
+        if (!Utils::isUnset($request->idempotentId)) {
+            $body['IdempotentId'] = $request->idempotentId;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -6242,6 +8256,58 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->registerSettleAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RegisterUserAccountRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RegisterUserAccountResponse
+     */
+    public function registerUserAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->tbAccountType)) {
+            $body['TbAccountType'] = $request->tbAccountType;
+        }
+        if (!Utils::isUnset($request->tbUserId)) {
+            $body['TbUserId'] = $request->tbUserId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $body['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RegisterUserAccount',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RegisterUserAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RegisterUserAccountRequest $request
+     *
+     * @return RegisterUserAccountResponse
+     */
+    public function registerUserAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->registerUserAccountWithOptions($request, $runtime);
     }
 
     /**
@@ -6525,6 +8591,69 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param RenderOrderWithDesignatedTbUidRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return RenderOrderWithDesignatedTbUidResponse
+     */
+    public function renderOrderWithDesignatedTbUidWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RenderOrderWithDesignatedTbUidShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->itemList)) {
+            $request->itemListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->itemList, 'ItemList', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->deliveryAddress)) {
+            $body['DeliveryAddress'] = $request->deliveryAddress;
+        }
+        if (!Utils::isUnset($request->itemListShrink)) {
+            $body['ItemList'] = $request->itemListShrink;
+        }
+        if (!Utils::isUnset($request->tbAccountType)) {
+            $body['TbAccountType'] = $request->tbAccountType;
+        }
+        if (!Utils::isUnset($request->tbUserId)) {
+            $body['TbUserId'] = $request->tbUserId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $body['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RenderOrderWithDesignatedTbUid',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RenderOrderWithDesignatedTbUidResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RenderOrderWithDesignatedTbUidRequest $request
+     *
+     * @return RenderOrderWithDesignatedTbUidResponse
+     */
+    public function renderOrderWithDesignatedTbUid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renderOrderWithDesignatedTbUidWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RepayForPayUrlRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -6635,6 +8764,64 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->repayOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RepayWithDesignatedTbUidRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RepayWithDesignatedTbUidResponse
+     */
+    public function repayWithDesignatedTbUidWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->extJson)) {
+            $body['ExtJson'] = $request->extJson;
+        }
+        if (!Utils::isUnset($request->lmOrderId)) {
+            $body['LmOrderId'] = $request->lmOrderId;
+        }
+        if (!Utils::isUnset($request->tbAccountType)) {
+            $body['TbAccountType'] = $request->tbAccountType;
+        }
+        if (!Utils::isUnset($request->tbUserId)) {
+            $body['TbUserId'] = $request->tbUserId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $body['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RepayWithDesignatedTbUid',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RepayWithDesignatedTbUidResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RepayWithDesignatedTbUidRequest $request
+     *
+     * @return RepayWithDesignatedTbUidResponse
+     */
+    public function repayWithDesignatedTbUid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->repayWithDesignatedTbUidWithOptions($request, $runtime);
     }
 
     /**
@@ -6892,6 +9079,70 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitReturnGoodLogisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitReturnGoodLogisticsWithDesignatedTbUidRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return SubmitReturnGoodLogisticsWithDesignatedTbUidResponse
+     */
+    public function submitReturnGoodLogisticsWithDesignatedTbUidWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->cpCode)) {
+            $body['CpCode'] = $request->cpCode;
+        }
+        if (!Utils::isUnset($request->disputeId)) {
+            $body['DisputeId'] = $request->disputeId;
+        }
+        if (!Utils::isUnset($request->logisticsNo)) {
+            $body['LogisticsNo'] = $request->logisticsNo;
+        }
+        if (!Utils::isUnset($request->subLmOrderId)) {
+            $body['SubLmOrderId'] = $request->subLmOrderId;
+        }
+        if (!Utils::isUnset($request->tbAccountType)) {
+            $body['TbAccountType'] = $request->tbAccountType;
+        }
+        if (!Utils::isUnset($request->tbUserId)) {
+            $body['TbUserId'] = $request->tbUserId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $body['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitReturnGoodLogisticsWithDesignatedTbUid',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitReturnGoodLogisticsWithDesignatedTbUidResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitReturnGoodLogisticsWithDesignatedTbUidRequest $request
+     *
+     * @return SubmitReturnGoodLogisticsWithDesignatedTbUidResponse
+     */
+    public function submitReturnGoodLogisticsWithDesignatedTbUid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitReturnGoodLogisticsWithDesignatedTbUidWithOptions($request, $runtime);
     }
 
     /**

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryOrderIdByPayIdResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -20,11 +22,15 @@ class QueryOrderIdByPayIdResponseBody extends Model
     public $lmOrderIds;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 79C01D47-3C44-57D9-BC99-1B33F7ED14B8
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryInventoryOfItemsInBizItemGroupShrinkRequest extends Model
 {
     /**
+     * @example LMALL20******001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 510132
+     *
      * @var string
      */
     public $divisionCode;
@@ -29,6 +33,8 @@ class QueryInventoryOfItemsInBizItemGroupShrinkRequest extends Model
     public $lmItemIdsShrink;
 
     /**
+     * @example 52847******1a58205d3ce5e9328
+     *
      * @var string
      */
     public $subBizId;

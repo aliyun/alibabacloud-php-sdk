@@ -26,6 +26,8 @@ class data extends Model
     public $goods;
 
     /**
+     * @example ZTO
+     *
      * @var string
      */
     public $logisticsCompanyCode;
@@ -41,6 +43,8 @@ class data extends Model
     public $logisticsDetailList;
 
     /**
+     * @example 32178478218****
+     *
      * @var string
      */
     public $mailNo;

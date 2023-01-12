@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class seat extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $area;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $column;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $extId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $flag;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $leftPx;
@@ -39,21 +49,29 @@ class seat extends Model
     public $name;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $row;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $rowName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $topPx;

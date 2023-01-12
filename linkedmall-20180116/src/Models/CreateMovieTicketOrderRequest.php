@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateMovieTicketOrderRequest extends Model
 {
     /**
+     * @example LMALL20******001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 22******85759
+     *
      * @var string
      */
     public $bizUid;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extJson;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $lockSeatAppKey;
 
     /**
+     * @example 146******54
+     *
      * @var string
      */
     public $outTradeId;

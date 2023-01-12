@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class PushUserGameProcessRequest extends Model
 {
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example LMALL20******001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $currentStepId;
 
     /**
+     * @example {\"gmtCreate\":\"2022-01-01 00:00:00\"}
+     *
      * @var mixed[]
      */
     public $extInfo;
 
     /**
+     * @example 6734******4397953
+     *
      * @var string
      */
     public $processId;
 
     /**
+     * @example 22******343
+     *
      * @var string
      */
     public $thirdPartyUserId;
 
     /**
+     * @example {\"orderNo\":\"20211204211241160338-120\",\"serialNumber\":\"0\",\"voucherId\":\"202112040007300238170AD22N26\",\"userId\":\"2088312906117381\"}
+     *
      * @var mixed[]
      */
     public $body;

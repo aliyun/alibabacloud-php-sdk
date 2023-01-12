@@ -18,6 +18,8 @@ class model_ extends Model
     public $addressInfoList;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $buyerCurrentPoints;

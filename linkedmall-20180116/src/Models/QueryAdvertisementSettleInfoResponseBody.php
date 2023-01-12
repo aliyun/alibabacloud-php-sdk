@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class QueryAdvertisementSettleInfoResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $logsId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -30,11 +36,15 @@ class QueryAdvertisementSettleInfoResponseBody extends Model
     public $model;
 
     /**
+     * @example D94987AE-2290-5084-AA34-53C50A245AFA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 206
+     *
      * @var string
      */
     public $subCode;
@@ -45,11 +55,15 @@ class QueryAdvertisementSettleInfoResponseBody extends Model
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 19
+     *
      * @var int
      */
     public $totalCount;

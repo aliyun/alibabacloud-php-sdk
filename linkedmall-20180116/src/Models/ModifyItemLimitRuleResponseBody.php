@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyItemLimitRuleResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -24,6 +28,8 @@ class ModifyItemLimitRuleResponseBody extends Model
     public $model;
 
     /**
+     * @example BCB20091-68E0-5D29-BE90-125954BB58E2
+     *
      * @var string
      */
     public $requestId;

@@ -27,6 +27,8 @@ class orderLogistics extends Model
     public $fetcher;
 
     /**
+     * @example ZTO
+     *
      * @var string
      */
     public $logisticsCompanyCode;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryMovieCommentsResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -20,36 +22,50 @@ class QueryMovieCommentsResponseBody extends Model
     public $commentList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $logsId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 42A19B5E-B9A0-5D41-91D0-CC316A97B92A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 205
+     *
      * @var string
      */
     public $subCode;
 
     /**
+     * @example 1004
+     *
      * @var string
      */
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

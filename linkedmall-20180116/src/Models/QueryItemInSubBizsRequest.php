@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QueryItemInSubBizsRequest extends Model
 {
     /**
+     * @example LMALL20201229****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 57835029****
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @example 10001036-66644894****
+     *
      * @var string
      */
     public $lmItemId;
 
     /**
+     * @example ["id1","id2"]
+     *
      * @var mixed[]
      */
     public $subBizIds;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ModifySettleAccountResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $logsId;
@@ -30,11 +34,15 @@ class ModifySettleAccountResponseBody extends Model
     public $model;
 
     /**
+     * @example 5127621C-****-5DCA-9745-2936B31DFD12
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 205
+     *
      * @var string
      */
     public $subCode;
@@ -45,6 +53,8 @@ class ModifySettleAccountResponseBody extends Model
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,54 +9,56 @@ use AlibabaCloud\Tea\Model;
 class StartUserGameShrinkRequest extends Model
 {
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $accountType;
 
     /**
-     * @description 活动ID
+     * @example 671091829240653825
      *
      * @var string
      */
     public $activityId;
 
     /**
-     * @description 业务ID
+     * @example LMALL20288*****003
      *
      * @var string
      */
     public $bizId;
 
     /**
-     * @description 扩展信息
+     * @example {\"channelId\":\"test\"}
      *
      * @var string
      */
     public $extInfoShrink;
 
     /**
-     * @description 玩法ID
+     * @example 673474835708274689
      *
      * @var string
      */
     public $gameId;
 
     /**
-     * @description 路线ID
+     * @example RouteId1
      *
      * @var string
      */
     public $routeId;
 
     /**
-     * @description 业务方用户ID
+     * @example 123
      *
      * @var string
      */
     public $thirdPartyUserId;
 
     /**
-     * @description 用户APP
+     * @example MAC
      *
      * @var string
      */

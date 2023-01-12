@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListItemActivitiesRequest extends Model
 {
     /**
+     * @example LMALL20******002
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example [664148141***,663735776***]
+     *
      * @var mixed[]
      */
     public $itemIds;
 
     /**
+     * @example [\"10000230-60716881****\",\"10000021-59183191****\"]
+     *
      * @var mixed[]
      */
     public $lmItemIds;

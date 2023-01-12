@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class QueryMovieSchedulesResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $logsId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1718921E-C8D4-55E1-B8D4-114AE537C1B7
+     *
      * @var string
      */
     public $requestId;
@@ -35,16 +43,22 @@ class QueryMovieSchedulesResponseBody extends Model
     public $schedules;
 
     /**
+     * @example 207
+     *
      * @var string
      */
     public $subCode;
 
     /**
+     * @example 1004
+     *
      * @var string
      */
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

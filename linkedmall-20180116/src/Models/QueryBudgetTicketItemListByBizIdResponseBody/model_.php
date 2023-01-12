@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $invalid;
 
     /**
+     * @example 65******0310
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $poCode;
 
     /**
+     * @example 68442******012
+     *
      * @var string
      */
     public $promotionId;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $remnantAmount;
 
     /**
+     * @example c26be******86e5a61cc710cdb
+     *
      * @var string
      */
     public $securityCode;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $settlementPrice;
 
     /**
+     * @example 47******76529
+     *
      * @var int
      */
     public $skuId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $subsidyAmount;

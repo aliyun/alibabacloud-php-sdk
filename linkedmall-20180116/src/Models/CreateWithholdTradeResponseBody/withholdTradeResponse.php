@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class withholdTradeResponse extends Model
 {
     /**
+     * @example 57E4FE52-0750-4456-AA8F-ECC9FA0F8DF0
+     *
      * @var string
      */
     public $outRequestNo;
 
     /**
+     * @example 23******274
+     *
      * @var string
      */
     public $outTradeNo;
 
     /**
+     * @example 2022-04-01 12:00:00
+     *
      * @var string
      */
     public $paymentDate;
 
     /**
+     * @example 32******372
+     *
      * @var string
      */
     public $tradeNo;

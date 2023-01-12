@@ -11,61 +11,85 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $canSell;
 
     /**
+     * @example 5001****
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $centerInventory;
 
     /**
+     * @example {}
+     *
      * @var mixed[]
      */
     public $customizedAttributeMap;
 
     /**
+     * @example "<p><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i1/174226****\/O1CN01j0oO3L1SnK7EwwXP4_!!1742262291.jpg\" style=\"max-width: none;width: 750.0px;\">"
+     *
      * @var string
      */
     public $descOption;
 
     /**
+     * @example https://img.alicdn.com/imgextra/i3/22066070*****\/O1CN01jCtHkC1ZjO2Q8DWUk_!!0-item_pic.jpg
+     *
      * @var string
      */
     public $descPath;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extJson;
 
     /**
+     * @example []
+     *
      * @var string
      */
     public $iforestProps;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $iforestPropsJson;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isCanSell;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isSellerPayPostfee;
 
     /**
+     * @example 64407904****
+     *
      * @var int
      */
     public $itemId;
@@ -81,61 +105,85 @@ class item extends Model
     public $itemTitle;
 
     /**
+     * @example entity
+     *
      * @var string
      */
     public $lmItemCategory;
 
     /**
+     * @example 10000043-64818014****
+     *
      * @var string
      */
     public $lmItemId;
 
     /**
+     * @example https://img.alicdn.com/imgextra/i3/22066070*****\/O1CN01jCtHkC1ZjO2Q8DWUk_!!0-item_pic.jpg
+     *
      * @var string
      */
     public $mainPicUrl;
 
     /**
+     * @example 2990
+     *
      * @var int
      */
     public $minPoints;
 
     /**
+     * @example 2990
+     *
      * @var int
      */
     public $minPrice;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $properties;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $propertiesJson;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @example 4990
+     *
      * @var int
      */
     public $reservePrice;
 
     /**
+     * @example 424414****
+     *
      * @var int
      */
     public $sellerId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $sellerPayPostfee;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $sellerType;
@@ -151,16 +199,22 @@ class item extends Model
     public $tbShopName;
 
     /**
+     * @example 199
+     *
      * @var int
      */
     public $totalSoldQuantity;
 
     /**
+     * @example https://img.alicdn.com/imgextra/i3/22066070*****\/O1CN01jCtHkC1ZjO2Q8DWUk_!!0-item_pic.jpg
+     *
      * @var string
      */
     public $videoPicUrl;
 
     /**
+     * @example https://img.alicdn.com/imgextra/i3/22066070*****\/O1CN01jCtHkC1ZjO2Q8DWUk_!!0-item_pic.jpg
+     *
      * @var string
      */
     public $videoUrl;

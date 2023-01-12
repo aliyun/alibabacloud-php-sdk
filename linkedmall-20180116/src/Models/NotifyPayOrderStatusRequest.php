@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class NotifyPayOrderStatusRequest extends Model
 {
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $amount;
 
     /**
+     * @example 5781******290561
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example 2022-04-01 12:00:00
+     *
      * @var string
      */
     public $operationDate;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $payTypes;
 
     /**
+     * @example 1718921E-C8D4-55E1-B8D4-114AE537C1B7
+     *
      * @var string
      */
     public $requestId;

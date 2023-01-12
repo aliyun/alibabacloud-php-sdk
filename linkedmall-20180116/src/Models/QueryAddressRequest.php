@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryAddressRequest extends Model
 {
     /**
+     * @example LMALL202106040001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 510132
+     *
      * @var string
      */
     public $divisionCode;
 
     /**
+     * @example 113.77.105.73
+     *
      * @var string
      */
     public $ip;

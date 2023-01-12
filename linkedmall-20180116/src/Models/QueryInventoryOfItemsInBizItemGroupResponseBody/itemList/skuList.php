@@ -9,13 +9,15 @@ use AlibabaCloud\Tea\Model;
 class skuList extends Model
 {
     /**
-     * @description 剩余可售库存
+     * @example 4100
      *
      * @var int
      */
     public $quantity;
 
     /**
+     * @example 467******9928
+     *
      * @var int
      */
     public $skuId;

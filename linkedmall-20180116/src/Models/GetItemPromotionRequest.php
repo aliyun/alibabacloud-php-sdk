@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetItemPromotionRequest extends Model
 {
     /**
+     * @example LMALL20******003
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 66262416****
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @example 10000035-6193664*****
+     *
      * @var string
      */
     public $lmItemId;

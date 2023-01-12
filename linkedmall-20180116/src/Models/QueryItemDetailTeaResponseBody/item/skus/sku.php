@@ -9,81 +9,113 @@ use AlibabaCloud\Tea\Model;
 class sku extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $canSell;
 
     /**
+     * @example {}
+     *
      * @var mixed[]
      */
     public $customizedAttributeMap;
 
     /**
+     * @example {\"delivery_version\":\"1\"}
+     *
      * @var string
      */
     public $extJson;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hasQuantity;
 
     /**
+     * @example 62887962****
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @example 10000102-64426301****
+     *
      * @var string
      */
     public $lmItemId;
 
     /**
+     * @example 2990
+     *
      * @var int
      */
     public $pointPrice;
 
     /**
+     * @example 1990
+     *
      * @var int
      */
     public $points;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $pointsAmount;
 
     /**
+     * @example 2890
+     *
      * @var int
      */
     public $priceCent;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @example 1990
+     *
      * @var int
      */
     public $reservePrice;
 
     /**
+     * @example “”
+     *
      * @var string
      */
     public $simpleQuantity;
 
     /**
+     * @example 465309897****
+     *
      * @var int
      */
     public $skuId;
 
     /**
+     * @example https://img.alicdn.com/imgextra/i3/22066070*****\/O1CN01jCtHkC1ZjO2Q8DWUk_!!0-item_pic.jpg
+     *
      * @var string
      */
     public $skuPicUrl;
 
     /**
+     * @example {}
+     *
      * @var mixed[]
      */
     public $skuProperties;

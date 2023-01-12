@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class EnableOrderRequest extends Model
 {
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example LMALL201912040001
+     *
      * @var string
      */
     public $bizId;

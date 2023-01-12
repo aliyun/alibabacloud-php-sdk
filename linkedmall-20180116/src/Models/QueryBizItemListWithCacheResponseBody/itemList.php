@@ -9,73 +9,75 @@ use AlibabaCloud\Tea\Model;
 class itemList extends Model
 {
     /**
-     * @description 商品是否可售卖
+     * @example true
      *
      * @var bool
      */
     public $canSell;
 
     /**
+     * @example 65671280****
+     *
      * @var int
      */
     public $itemId;
 
     /**
-     * @description 商品名称
-     *
      * @var string
      */
     public $itemTitle;
 
     /**
+     * @example 10000102-64373376****
+     *
      * @var string
      */
     public $lmItemId;
 
     /**
-     * @description 商品主图
+     * @example https://img.alicdn.com/imgextra/i3/220660702****\/O1CN01jCtHkC1ZjO2Q8DWUk_!!0-item_pic.jpg
      *
      * @var string
      */
     public $mainPicUrl;
 
     /**
-     * @description 用户支付价格:分
+     * @example 4990
      *
      * @var int
      */
     public $pointPrice;
 
     /**
-     * @description 积分，单位：个
+     * @example 4990
      *
      * @var int
      */
     public $points;
 
     /**
-     * @description 积分抵扣的金额，单位：分
+     * @example 4990
      *
      * @var int
      */
     public $pointsAmount;
 
     /**
-     * @description 渠道售价，单位：分
+     * @example 4990
      *
      * @var int
      */
     public $priceCent;
 
     /**
-     * @description 商品原价（元）
+     * @example 9990
      *
      * @var int
      */
     public $reservePrice;
 
     /**
-     * @description 商品状态。1-商品可售；2-商品下架；3-价格异常；4-商品删除
+     * @example 1
      *
      * @var int
      */

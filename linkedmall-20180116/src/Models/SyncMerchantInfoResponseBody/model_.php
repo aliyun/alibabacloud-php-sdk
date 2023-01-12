@@ -14,6 +14,8 @@ class model_ extends Model
     public $status;
 
     /**
+     * @example 1****1
+     *
      * @var string
      */
     public $taskId;

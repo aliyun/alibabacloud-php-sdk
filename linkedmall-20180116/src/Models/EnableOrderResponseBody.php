@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class EnableOrderResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;

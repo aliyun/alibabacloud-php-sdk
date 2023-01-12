@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetGuidePageResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -25,6 +29,8 @@ class GetGuidePageResponseBody extends Model
     public $miniShopInfo;
 
     /**
+     * @example BA157565-3358-5D80-9330-************
+     *
      * @var string
      */
     public $requestId;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetWithholdSignPageUrlRequest extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $deviceType;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extInfo;
 
     /**
+     * @example 223******2637
+     *
      * @var string
      */
     public $externalAgreementNo;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $identityParameters;
 
     /**
+     * @example 64******721
+     *
      * @var string
      */
     public $merchantId;
@@ -44,16 +54,22 @@ class GetWithholdSignPageUrlRequest extends Model
     public $merchantServiceName;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $notifyUrl;
 
     /**
+     * @example 0AF7F437-C869-477D-A21A-CF402493FFFE
+     *
      * @var string
      */
     public $outRequestNo;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $returnUrl;

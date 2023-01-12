@@ -9,66 +9,92 @@ use AlibabaCloud\Tea\Model;
 class ListActivityGameInfoRequest extends Model
 {
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example 673
+     *
      * @var string
      */
     public $activityId;
 
     /**
+     * @example LMALL20******002
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 1639104750323
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 6717******67874
+     *
      * @var string
      */
     public $gameId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1638104750323
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example []
+     *
      * @var string
      */
     public $statuses;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $subType;
 
     /**
+     * @example 22******263
+     *
      * @var string
      */
     public $thirdPartyUserId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $type;

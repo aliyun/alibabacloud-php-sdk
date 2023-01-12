@@ -15,11 +15,15 @@ class GetCategoryChainResponseBody extends Model
     public $categoryList;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;

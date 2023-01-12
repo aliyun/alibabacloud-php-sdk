@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryItemDetailTeaRequest extends Model
 {
     /**
+     * @example LMALL20211013****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 66644894****
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @example 10001036-66644894****
+     *
      * @var string
      */
     public $lmItemId;

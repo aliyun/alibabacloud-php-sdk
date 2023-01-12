@@ -14,11 +14,15 @@ class model_ extends Model
     public $action;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $amount;
 
     /**
+     * @example 1638451941000
+     *
      * @var int
      */
     public $createTime;
@@ -29,16 +33,22 @@ class model_ extends Model
     public $description;
 
     /**
+     * @example {"key":"value"}
+     *
      * @var mixed[]
      */
     public $extInfo;
 
     /**
+     * @example 20211215******8117-1200
+     *
      * @var string
      */
     public $idempotentId;
 
     /**
+     * @example 1648451941000
+     *
      * @var int
      */
     public $modifyTime;
@@ -49,6 +59,8 @@ class model_ extends Model
     public $name;
 
     /**
+     * @example 5******4
+     *
      * @var string
      */
     public $recordId;
@@ -59,11 +71,15 @@ class model_ extends Model
     public $rest;
 
     /**
+     * @example 710
+     *
      * @var string
      */
     public $ruleId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $status;

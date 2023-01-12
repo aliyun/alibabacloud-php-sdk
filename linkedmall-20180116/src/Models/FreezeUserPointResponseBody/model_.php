@@ -9,91 +9,87 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
-     * @description 账号ID
+     * @example 11******26
      *
      * @var string
      */
     public $accountId;
 
     /**
-     * @description 操作
+     * @example ""
      *
      * @var string
      */
     public $action;
 
     /**
-     * @description 本次操作数额
+     * @example 1000
      *
      * @var int
      */
     public $amount;
 
     /**
-     * @description 业务ID
+     * @example LMALL20******008
      *
      * @var string
      */
     public $bizId;
 
     /**
-     * @description 用户ID
+     * @example 22******3748
      *
      * @var string
      */
     public $bizUid;
 
     /**
-     * @description 描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 扩展信息
+     * @example {"key":"value"}
      *
      * @var mixed[]
      */
     public $extInfo;
 
     /**
-     * @description 幂等ID
+     * @example 202112******31746-1202
      *
      * @var string
      */
     public $idempotentId;
 
     /**
-     * @description 标题
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 流水记录ID
+     * @example 71******92
      *
      * @var string
      */
     public $recordId;
 
     /**
-     * @description 账户积分余额
+     * @example 2000
      *
      * @var int
      */
     public $rest;
 
     /**
-     * @description 规则ID
+     * @example ""
      *
      * @var string
      */
     public $ruleId;
 
     /**
-     * @description 状态
+     * @example ""
      *
      * @var string
      */

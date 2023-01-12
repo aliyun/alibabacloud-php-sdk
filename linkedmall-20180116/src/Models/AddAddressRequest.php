@@ -14,6 +14,8 @@ class AddAddressRequest extends Model
     public $addressInfo;
 
     /**
+     * @example LMALL202202100002
+     *
      * @var string
      */
     public $bizId;
@@ -24,6 +26,8 @@ class AddAddressRequest extends Model
     public $thirdPartyUserId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useAnonymousTbAccount;

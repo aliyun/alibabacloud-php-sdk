@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetCategoryChainRequest extends Model
 {
     /**
+     * @example LMALL20******003
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 50012478
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @example 637284556514
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @example 10000055-609650881234
+     *
      * @var string
      */
     public $lmItemId;

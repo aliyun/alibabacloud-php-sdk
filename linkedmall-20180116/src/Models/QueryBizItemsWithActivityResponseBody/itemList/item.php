@@ -16,11 +16,15 @@ class item extends Model
     public $activities;
 
     /**
+     * @example 50018977
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @example 60716881****
+     *
      * @var int
      */
     public $itemId;
@@ -31,31 +35,43 @@ class item extends Model
     public $itemTitle;
 
     /**
+     * @example 10000230-60716881****
+     *
      * @var string
      */
     public $lmItemId;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $maxAllowedCount;
 
     /**
+     * @example https://img.alicdn.com/******.jpg
+     *
      * @var string
      */
     public $picUrl;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @example 2990
+     *
      * @var int
      */
     public $reservePrice;
 
     /**
+     * @example 284324****
+     *
      * @var int
      */
     public $sellerId;
@@ -71,6 +87,8 @@ class item extends Model
     public $taobaoShopName;
 
     /**
+     * @example 900
+     *
      * @var int
      */
     public $totalSoldQuantity;

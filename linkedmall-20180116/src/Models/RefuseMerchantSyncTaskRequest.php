@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RefuseMerchantSyncTaskRequest extends Model
 {
     /**
+     * @example LMALL20190325****
+     *
      * @var string
      */
     public $bizId;
@@ -19,11 +21,15 @@ class RefuseMerchantSyncTaskRequest extends Model
     public $sellerNick;
 
     /**
+     * @example 1***1
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example 1641708010
+     *
      * @var int
      */
     public $timeStamp;

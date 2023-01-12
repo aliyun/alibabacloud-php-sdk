@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class withholdSignResponse extends Model
 {
     /**
+     * @example 0AF7F437-C869-477D-A21A-CF402493FFFE
+     *
      * @var string
      */
     public $outRequestNo;

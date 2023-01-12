@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class QueryItemDetailInnerRequest extends Model
 {
     /**
+     * @example LMALL2021081*****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 9f99f38030254728***
+     *
      * @var string
      */
     public $bizUid;
 
     /**
+     * @example 510132
+     *
      * @var string
      */
     public $divisionCode;
 
     /**
+     * @example 49.93.0.222
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @example 61358168****
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @example 10000055-58233812****
+     *
      * @var string
      */
     public $lmItemId;
 
     /**
+     * @example 9f99f38030254728***
+     *
      * @var string
      */
     public $thirdPartyUserId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useAnonymousTbAccount;

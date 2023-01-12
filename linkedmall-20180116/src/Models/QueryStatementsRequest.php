@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryStatementsRequest extends Model
 {
     /**
+     * @example LMALL20******001
+     *
      * @var string
      */
     public $bizId;
@@ -16,54 +18,80 @@ class QueryStatementsRequest extends Model
     /**
      * @var string
      */
+    public $currency;
+
+    /**
+     * @example 2021-09-01 00:00:00
+     *
+     * @var string
+     */
     public $endTime;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extInfo;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $payeeIds;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $settleNoes;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $settleStatus;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $settleType;
 
     /**
+     * @example 2021-08-01 00:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 18******263
+     *
      * @var string
      */
     public $tenantId;
     protected $_name = [
         'bizId'        => 'BizId',
+        'currency'     => 'Currency',
         'endTime'      => 'EndTime',
         'extInfo'      => 'ExtInfo',
         'pageNumber'   => 'PageNumber',
@@ -85,6 +113,9 @@ class QueryStatementsRequest extends Model
         $res = [];
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
+        }
+        if (null !== $this->currency) {
+            $res['Currency'] = $this->currency;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -130,6 +161,9 @@ class QueryStatementsRequest extends Model
         $model = new self();
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
+        }
+        if (isset($map['Currency'])) {
+            $model->currency = $map['Currency'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];

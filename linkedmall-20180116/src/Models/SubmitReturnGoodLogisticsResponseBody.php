@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitReturnGoodLogisticsResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -19,6 +21,8 @@ class SubmitReturnGoodLogisticsResponseBody extends Model
     public $message;
 
     /**
+     * @example C27A9456-5FC3-529D-9FDF-B21323E93B63
+     *
      * @var string
      */
     public $requestId;

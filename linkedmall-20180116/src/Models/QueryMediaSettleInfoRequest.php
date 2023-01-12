@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryMediaSettleInfoRequest extends Model
 {
     /**
+     * @example LMALL20******005
+     *
      * @var string
      */
     public $bizId;
@@ -19,6 +21,8 @@ class QueryMediaSettleInfoRequest extends Model
     public $channelId;
 
     /**
+     * @example 2021-08-01 01:00:00
+     *
      * @var string
      */
     public $endTime;
@@ -34,11 +38,15 @@ class QueryMediaSettleInfoRequest extends Model
     public $mediaName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -49,6 +57,8 @@ class QueryMediaSettleInfoRequest extends Model
     public $settleNo;
 
     /**
+     * @example 2021-08-01 00:00:00
+     *
      * @var string
      */
     public $startTime;

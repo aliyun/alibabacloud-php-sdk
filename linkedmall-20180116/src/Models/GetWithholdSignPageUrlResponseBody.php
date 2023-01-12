@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class GetWithholdSignPageUrlResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 6103AD7B-21C2-523B-89D0-579DA58D08E8
+     *
      * @var string
      */
     public $requestId;

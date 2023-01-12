@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class itemPromotionModel extends Model
 {
     /**
+     * @example 2022-02-06 10:01:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example {"key":"value"}
+     *
      * @var mixed[]
      */
     public $extInfo;
 
     /**
+     * @example 66440412****
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @example 10000035-63064613****
+     *
      * @var string
      */
     public $lmItemId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $promotionDesc;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $promotionFlag;
 
     /**
+     * @example 68476201884251****
+     *
      * @var string
      */
     public $promotionId;
@@ -49,11 +63,15 @@ class itemPromotionModel extends Model
     public $promotionName;
 
     /**
+     * @example {}
+     *
      * @var mixed[]
      */
     public $skuPromotion;
 
     /**
+     * @example 2022-01-01 00:00:00
+     *
      * @var string
      */
     public $startTime;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RegistAnonymousTbAccountRequest extends Model
 {
     /**
+     * @example LMALL20190729****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 238837487****
+     *
      * @var string
      */
     public $thirdPartyUserId;

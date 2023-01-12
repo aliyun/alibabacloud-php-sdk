@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class QueryOrderLogisticsRequest extends Model
 {
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example LMALL20210825****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 22378277****
+     *
      * @var string
      */
     public $bizUid;
 
     /**
+     * @example 42535****
+     *
      * @var int
      */
     public $lmOrderId;
 
     /**
+     * @example 22378277****
+     *
      * @var string
      */
     public $thirdPartyUserId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useAnonymousTbAccount;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QueryActivityItemsRequest extends Model
 {
     /**
+     * @example LMALL2000***12
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 679
+     *
      * @var int
      */
     public $lmActivityId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;

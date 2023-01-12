@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class SettleOrderRequest extends Model
 {
     /**
+     * @example {"key":"value"}
+     *
      * @var string
      */
     public $extInfo;
 
     /**
+     * @example 64******721
+     *
      * @var string
      */
     public $merchantId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $outRequestNo;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $outTradeNo;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $royaltyParameters;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $tradeNo;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RegisterSettleAccountRequest extends Model
 {
     /**
+     * @example bank
+     *
      * @var string
      */
     public $accountChannel;
@@ -19,21 +21,29 @@ class RegisterSettleAccountRequest extends Model
     public $accountName;
 
     /**
+     * @example 15******65
+     *
      * @var string
      */
     public $accountNo;
 
     /**
+     * @example transferIn
+     *
      * @var string
      */
     public $accountPayType;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example LMALL20******007
+     *
      * @var string
      */
     public $bizId;
@@ -41,15 +51,35 @@ class RegisterSettleAccountRequest extends Model
     /**
      * @var string
      */
+    public $countryOrAreaCode;
+
+    /**
+     * @var string
+     */
+    public $currency;
+
+    /**
+     * @example {}
+     *
+     * @var string
+     */
     public $extInfo;
+
+    /**
+     * @var string
+     */
+    public $idempotentId;
     protected $_name = [
-        'accountChannel' => 'AccountChannel',
-        'accountName'    => 'AccountName',
-        'accountNo'      => 'AccountNo',
-        'accountPayType' => 'AccountPayType',
-        'accountType'    => 'AccountType',
-        'bizId'          => 'BizId',
-        'extInfo'        => 'ExtInfo',
+        'accountChannel'    => 'AccountChannel',
+        'accountName'       => 'AccountName',
+        'accountNo'         => 'AccountNo',
+        'accountPayType'    => 'AccountPayType',
+        'accountType'       => 'AccountType',
+        'bizId'             => 'BizId',
+        'countryOrAreaCode' => 'CountryOrAreaCode',
+        'currency'          => 'Currency',
+        'extInfo'           => 'ExtInfo',
+        'idempotentId'      => 'IdempotentId',
     ];
 
     public function validate()
@@ -77,8 +107,17 @@ class RegisterSettleAccountRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
+        if (null !== $this->countryOrAreaCode) {
+            $res['CountryOrAreaCode'] = $this->countryOrAreaCode;
+        }
+        if (null !== $this->currency) {
+            $res['Currency'] = $this->currency;
+        }
         if (null !== $this->extInfo) {
             $res['ExtInfo'] = $this->extInfo;
+        }
+        if (null !== $this->idempotentId) {
+            $res['IdempotentId'] = $this->idempotentId;
         }
 
         return $res;
@@ -110,8 +149,17 @@ class RegisterSettleAccountRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
+        if (isset($map['CountryOrAreaCode'])) {
+            $model->countryOrAreaCode = $map['CountryOrAreaCode'];
+        }
+        if (isset($map['Currency'])) {
+            $model->currency = $map['Currency'];
+        }
         if (isset($map['ExtInfo'])) {
             $model->extInfo = $map['ExtInfo'];
+        }
+        if (isset($map['IdempotentId'])) {
+            $model->idempotentId = $map['IdempotentId'];
         }
 
         return $model;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ValidateTaobaoAccountRequest extends Model
 {
     /**
+     * @example LMALL20******001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 42******681
+     *
      * @var string
      */
     public $bizUid;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extJson;
 
     /**
+     * @example 181****0115
+     *
      * @var string
      */
     public $mobileNo;

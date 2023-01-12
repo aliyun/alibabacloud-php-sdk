@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyBizItemsRequest extends Model
 {
     /**
+     * @example LMALL20211119****
+     *
      * @var string
      */
     public $bizId;
@@ -20,6 +22,8 @@ class ModifyBizItemsRequest extends Model
     public $itemList;
 
     /**
+     * @example 12c6b6e98bb34475bcd38df73****
+     *
      * @var string
      */
     public $subBizId;

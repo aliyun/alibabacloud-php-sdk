@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteBizItemsRequest extends Model
 {
     /**
+     * @example LMALL2*****001
+     *
      * @var string
      */
     public $bizId;

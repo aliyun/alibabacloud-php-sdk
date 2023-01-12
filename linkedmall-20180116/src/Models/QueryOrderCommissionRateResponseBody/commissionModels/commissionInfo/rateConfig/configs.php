@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class configs extends Model
 {
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $value;
 
     /**
+     * @example %%
+     *
      * @var string
      */
     public $valueUnit;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryGuideItemGroupResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class QueryGuideItemGroupResponseBody extends Model
     public $guideItemGroup;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1B82570B-7167-5D41-A74F-CD8DC2C54A49
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 205
+     *
      * @var string
      */
     public $subCode;
@@ -40,6 +48,8 @@ class QueryGuideItemGroupResponseBody extends Model
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

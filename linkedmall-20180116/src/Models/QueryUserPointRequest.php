@@ -9,24 +9,28 @@ use AlibabaCloud\Tea\Model;
 class QueryUserPointRequest extends Model
 {
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $accountType;
 
     /**
-     * @description 业务ID
+     * @example LMALL20******002
      *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example {"key":"value"}
+     *
      * @var mixed[]
      */
     public $extInfo;
 
     /**
-     * @description 业务方用户ID
+     * @example 22******3646
      *
      * @var string
      */

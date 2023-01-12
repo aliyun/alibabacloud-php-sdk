@@ -17,26 +17,36 @@ class order extends Model
     public $channelBizType;
 
     /**
+     * @example *********
+     *
      * @var string
      */
     public $channelCode;
 
     /**
+     * @example 182378172837****
+     *
      * @var string
      */
     public $channelOrderId;
 
     /**
+     * @example 2022-04-01 16:33:23
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $enableStatus;
 
     /**
+     * @example 2022-04-01 17:21:23
+     *
      * @var int
      */
     public $endTime;
@@ -47,6 +57,8 @@ class order extends Model
     public $eticket;
 
     /**
+     * @example {\"key\":\"value\"}
+     *
      * @var mixed[]
      */
     public $extInfo;
@@ -57,6 +69,8 @@ class order extends Model
     public $fundStructureModels;
 
     /**
+     * @example 45609****
+     *
      * @var int
      */
     public $lmOrderId;
@@ -72,16 +86,22 @@ class order extends Model
     public $logisticsCompName;
 
     /**
+     * @example 185****4801
+     *
      * @var string
      */
     public $logisticsMobilePhone;
 
     /**
+     * @example YT217467555****
+     *
      * @var string
      */
     public $logisticsNo;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $logisticsStatus;
@@ -97,16 +117,22 @@ class order extends Model
     public $logisticsUserName;
 
     /**
+     * @example 2990
+     *
      * @var int
      */
     public $orderAmount;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $orderPayInfo;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $payStatus;
@@ -122,16 +148,22 @@ class order extends Model
     public $postFee;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $refundStatus;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $resExtInfo;
 
     /**
+     * @example 220941058****
+     *
      * @var int
      */
     public $sellerId;
@@ -157,6 +189,8 @@ class order extends Model
     public $subItemOrderList;
 
     /**
+     * @example 25343894898952***
+     *
      * @var string
      */
     public $tbOrderId;

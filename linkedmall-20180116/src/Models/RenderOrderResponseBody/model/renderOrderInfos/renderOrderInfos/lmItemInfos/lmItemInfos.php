@@ -24,11 +24,15 @@ class lmItemInfos extends Model
     public $cash;
 
     /**
+     * @example 658057729548
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @example iphone12
+     *
      * @var string
      */
     public $itemName;
@@ -39,6 +43,8 @@ class lmItemInfos extends Model
     public $itemPicUrl;
 
     /**
+     * @example 10001036-254415474010492928
+     *
      * @var string
      */
     public $lmItemId;
@@ -49,16 +55,22 @@ class lmItemInfos extends Model
     public $message;
 
     /**
+     * @example 39
+     *
      * @var int
      */
     public $points;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @example 107184918
+     *
      * @var int
      */
     public $sellerId;
@@ -69,11 +81,15 @@ class lmItemInfos extends Model
     public $sellerNick;
 
     /**
+     * @example 4931861303981
+     *
      * @var int
      */
     public $skuId;
 
     /**
+     * @example liu_12
+     *
      * @var string
      */
     public $skuName;

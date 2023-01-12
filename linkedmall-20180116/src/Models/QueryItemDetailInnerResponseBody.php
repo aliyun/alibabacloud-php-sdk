@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryItemDetailInnerResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -20,11 +22,15 @@ class QueryItemDetailInnerResponseBody extends Model
     public $item;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example BA157565-3358-5D80-9330-************
+     *
      * @var string
      */
     public $requestId;

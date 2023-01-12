@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class GetCustomServiceUrlRequest extends Model
 {
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example LMALL20210315****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 220077837****
+     *
      * @var string
      */
     public $bizUid;
 
     /**
+     * @example 5512876
+     *
      * @var string
      */
     public $cuid;
 
     /**
+     * @example 123213***1212
+     *
      * @var string
      */
     public $nick;
 
     /**
+     * @example 220680193****
+     *
      * @var string
      */
     public $sellerId;
 
     /**
+     * @example 220077837****
+     *
      * @var string
      */
     public $thirdPartyUserId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useAnonymousTbAccount;

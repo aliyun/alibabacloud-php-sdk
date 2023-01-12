@@ -15,11 +15,15 @@ class activityItem extends Model
     public $activityItemSkuList;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $activityQuantity;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $limitQuantityForPerson;

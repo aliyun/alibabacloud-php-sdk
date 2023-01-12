@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class initApplyRefundData extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $bizClaimType;

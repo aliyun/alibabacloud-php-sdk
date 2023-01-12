@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class actionResult extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $returnCode;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $returnMessage;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $returnValue;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QueryOrderCommissionRateRequest extends Model
 {
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example LMALL20******002
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 221249435****
+     *
      * @var string
      */
     public $bizUid;
 
     /**
+     * @example 45******23
+     *
      * @var int
      */
     public $lmOrderId;
@@ -34,6 +42,8 @@ class QueryOrderCommissionRateRequest extends Model
     public $thirdPartyUserId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useAnonymousTbAccount;

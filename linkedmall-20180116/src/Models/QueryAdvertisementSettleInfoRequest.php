@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class QueryAdvertisementSettleInfoRequest extends Model
 {
     /**
+     * @example LMALL20******006
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 5781******561
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example 2021-08-01 01:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example {"key":"value"}
+     *
      * @var string
      */
     public $extInfo;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $mediaSettleDetailId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example TEST000000
+     *
      * @var string
      */
     public $settleNo;
 
     /**
+     * @example 2021-08-01 00:00:00
+     *
      * @var string
      */
     public $startTime;

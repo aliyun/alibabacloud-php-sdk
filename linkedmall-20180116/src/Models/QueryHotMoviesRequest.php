@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryHotMoviesRequest extends Model
 {
     /**
+     * @example LMALL20******001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 310100
+     *
      * @var int
      */
     public $cityCode;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extJson;

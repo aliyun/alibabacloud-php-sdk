@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class skuList extends Model
 {
     /**
+     * @example 202108181714875327
+     *
      * @var string
      */
     public $benefitId;
 
     /**
+     * @example 1999
+     *
      * @var int
      */
     public $points;
 
     /**
+     * @example 1290
+     *
      * @var int
      */
     public $pointsAmount;
 
     /**
+     * @example 2790
+     *
      * @var int
      */
     public $priceCent;
 
     /**
+     * @example 20000
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @example 472266643****
+     *
      * @var int
      */
     public $skuId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $statusAction;

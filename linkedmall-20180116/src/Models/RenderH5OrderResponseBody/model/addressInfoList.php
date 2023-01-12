@@ -19,11 +19,15 @@ class addressInfoList extends Model
     public $addressId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $default;
 
     /**
+     * @example 410223
+     *
      * @var string
      */
     public $divisionCode;
@@ -34,6 +38,8 @@ class addressInfoList extends Model
     public $receiver;
 
     /**
+     * @example 158****3627
+     *
      * @var string
      */
     public $receiverPhone;

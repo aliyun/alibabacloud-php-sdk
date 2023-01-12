@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class miniShopInfo extends Model
 {
     /**
+     * @example LMALL20211012****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 10000001
+     *
      * @var string
      */
     public $liteShopId;

@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class CreateOrderV2Request extends Model
 {
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example LMALL202****0001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 4012776630
+     *
      * @var string
      */
     public $bizUid;
@@ -30,16 +36,22 @@ class CreateOrderV2Request extends Model
     public $buyerMessageMap;
 
     /**
+     * @example *****************************************************************************************************
+     *
      * @var string
      */
     public $deliveryAddress;
 
     /**
+     * @example {\"outShopId\":\"8044468\"}
+     *
      * @var string
      */
     public $extJson;
 
     /**
+     * @example 591831917868
+     *
      * @var int
      */
     public $itemId;
@@ -50,36 +62,50 @@ class CreateOrderV2Request extends Model
     public $itemList;
 
     /**
+     * @example 10016572-654408058233
+     *
      * @var string
      */
     public $lmItemId;
 
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $orderExpireTime;
 
     /**
+     * @example 949251510338846720
+     *
      * @var string
      */
     public $outTradeId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $thirdPartyUserId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalAmount;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useAnonymousTbAccount;

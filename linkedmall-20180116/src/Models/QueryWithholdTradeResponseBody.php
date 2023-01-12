@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class QueryWithholdTradeResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -25,6 +29,8 @@ class QueryWithholdTradeResponseBody extends Model
     public $queryWithholdTradeResponse;
 
     /**
+     * @example 0825B1A4-0870-50BD-8AA3-9618587BEBC2
+     *
      * @var string
      */
     public $requestId;

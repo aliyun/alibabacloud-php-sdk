@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class GetLoginPageResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1267088B-4695-50DC-97B9-9E4F89D1****
+     *
      * @var string
      */
     public $requestId;

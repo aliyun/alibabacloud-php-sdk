@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QueryMovieCommentsRequest extends Model
 {
     /**
+     * @example LMALL20******001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extJson;
 
     /**
+     * @example ""
+     *
      * @var int
      */
     public $movieId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;

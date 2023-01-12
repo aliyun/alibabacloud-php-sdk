@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryAgreementRequest extends Model
 {
     /**
+     * @example 20******8006
+     *
      * @var string
      */
     public $agreementNo;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $externalAgreementNo;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $merchantId;

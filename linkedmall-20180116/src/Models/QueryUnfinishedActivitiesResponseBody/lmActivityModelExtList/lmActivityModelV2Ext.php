@@ -15,6 +15,8 @@ class lmActivityModelV2Ext extends Model
     public $activityPicUrl;
 
     /**
+     * @example LMALL20******002
+     *
      * @var string
      */
     public $bizId;
@@ -25,11 +27,15 @@ class lmActivityModelV2Ext extends Model
     public $description;
 
     /**
+     * @example 2022-01-14 23:59:59
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @example 679
+     *
      * @var int
      */
     public $lmActivityId;
@@ -45,6 +51,8 @@ class lmActivityModelV2Ext extends Model
     public $name;
 
     /**
+     * @example 2022-03-09 11:17:38
+     *
      * @var string
      */
     public $startDate;

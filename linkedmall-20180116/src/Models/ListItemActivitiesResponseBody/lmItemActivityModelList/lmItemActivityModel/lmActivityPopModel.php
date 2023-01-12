@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class lmActivityPopModel extends Model
 {
     /**
+     * @example LMALL20******001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 2022-03-31 14:25:00
+     *
      * @var string
      */
     public $displayDate;
 
     /**
+     * @example 2022-04-04 00:00:00
+     *
      * @var string
      */
     public $endDate;
@@ -29,16 +35,22 @@ class lmActivityPopModel extends Model
     public $extInfo;
 
     /**
+     * @example 666
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 2022-04-01 00:00:00
+     *
      * @var string
      */
     public $startDate;
 
     /**
+     * @example 4309074a******9d626669eaa7f7c
+     *
      * @var string
      */
     public $subBizCode;

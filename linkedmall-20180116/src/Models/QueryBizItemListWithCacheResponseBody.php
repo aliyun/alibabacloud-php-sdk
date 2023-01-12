@@ -10,56 +10,54 @@ use AlibabaCloud\Tea\Model;
 class QueryBizItemListWithCacheResponseBody extends Model
 {
     /**
-     * @description code
+     * @example SUCCESS
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description model
-     *
      * @var itemList[]
      */
     public $itemList;
 
     /**
-     * @description message
+     * @example The specified parameter %s value is not valid.
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description pageNumber
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description pageSize
+     * @example 20
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description requestId
+     * @example F2D3CA1E-28BE-5E1C-B55F-81C8F290****
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description success
+     * @example true
      *
      * @var bool
      */
     public $success;
 
     /**
-     * @description totalCount
+     * @example 13
      *
      * @var int
      */

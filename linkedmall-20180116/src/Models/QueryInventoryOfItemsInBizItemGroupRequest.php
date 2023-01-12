@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryInventoryOfItemsInBizItemGroupRequest extends Model
 {
     /**
+     * @example LMALL20******001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 510132
+     *
      * @var string
      */
     public $divisionCode;
@@ -29,6 +33,8 @@ class QueryInventoryOfItemsInBizItemGroupRequest extends Model
     public $lmItemIds;
 
     /**
+     * @example 52847******1a58205d3ce5e9328
+     *
      * @var string
      */
     public $subBizId;

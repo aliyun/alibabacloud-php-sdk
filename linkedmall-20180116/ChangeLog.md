@@ -1,3 +1,6 @@
+2023-01-12 Version: 1.0.13
+- Add ModifyBasicItemSupplierPrice.
+
 2022-03-17 Version: 1.0.12
 - QueryItemDetailTea.
 

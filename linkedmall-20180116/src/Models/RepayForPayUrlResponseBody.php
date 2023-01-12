@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class RepayForPayUrlResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example The specified parameter %s value is not valid.
+     *
      * @var string
      */
     public $message;
@@ -25,6 +29,8 @@ class RepayForPayUrlResponseBody extends Model
     public $model;
 
     /**
+     * @example 1AF23E47-D8FB-576A-B069-CA98B4DE****
+     *
      * @var string
      */
     public $requestId;

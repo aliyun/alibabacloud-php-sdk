@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class lmItemActivitySessionModel extends Model
 {
     /**
+     * @example 66440412****
+     *
      * @var int
      */
     public $itemId;
@@ -20,6 +22,8 @@ class lmItemActivitySessionModel extends Model
     public $lmActivitySessionModel;
 
     /**
+     * @example 10000102-65875550****
+     *
      * @var string
      */
     public $lmItemId;

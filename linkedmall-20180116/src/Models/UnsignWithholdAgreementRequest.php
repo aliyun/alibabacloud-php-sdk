@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UnsignWithholdAgreementRequest extends Model
 {
     /**
+     * @example 20******8006
+     *
      * @var string
      */
     public $agreementNo;
 
     /**
+     * @example 234******3626
+     *
      * @var string
      */
     public $externalAgreementNo;
 
     /**
+     * @example 64******721
+     *
      * @var string
      */
     public $merchantId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $outRequestNo;

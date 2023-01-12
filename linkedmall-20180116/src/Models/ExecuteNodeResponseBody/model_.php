@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $processInstanceId;

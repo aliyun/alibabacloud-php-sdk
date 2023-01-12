@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryItemDetailResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -20,26 +22,36 @@ class QueryItemDetailResponseBody extends Model
     public $item;
 
     /**
+     * @example BizItemGroup [LMALL20210830****] has not the item [65728655****].
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example E46C790E-B1F2-51EF-B6F8-B52404B5****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1004
+     *
      * @var string
      */
     public $subCode;
 
     /**
+     * @example 1004
+     *
      * @var string
      */
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

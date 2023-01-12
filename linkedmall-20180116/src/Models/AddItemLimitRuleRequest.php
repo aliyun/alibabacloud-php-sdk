@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class AddItemLimitRuleRequest extends Model
 {
     /**
+     * @example 1638958044395
+     *
      * @var int
      */
     public $beginTime;
 
     /**
+     * @example LMALL20******001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 1647446400000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 59******0266
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @example 679
+     *
      * @var int
      */
     public $lmActivityId;
 
     /**
+     * @example 10000055-******09769
+     *
      * @var string
      */
     public $lmItemId;
@@ -44,6 +56,8 @@ class AddItemLimitRuleRequest extends Model
     public $ruleType;
 
     /**
+     * @example eaab4******59205ec608b2144ba
+     *
      * @var string
      */
     public $subBizCode;

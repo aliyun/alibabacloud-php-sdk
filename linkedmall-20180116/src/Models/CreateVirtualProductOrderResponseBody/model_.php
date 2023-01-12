@@ -27,6 +27,8 @@ class model_ extends Model
     public $payTradeIds;
 
     /**
+     * @example https://console.authing.cn/console/g*********
+     *
      * @var string
      */
     public $redirectUrl;

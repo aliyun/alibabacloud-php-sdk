@@ -21,11 +21,15 @@ class refundApplicationDetail extends Model
     public $applyReasonText;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $bizClaimType;
 
     /**
+     * @example 2022-04-02 10:16:10
+     *
      * @var string
      */
     public $disputeCreateTime;
@@ -36,11 +40,15 @@ class refundApplicationDetail extends Model
     public $disputeDesc;
 
     /**
+     * @example 2022-04-02 10:16:12
+     *
      * @var string
      */
     public $disputeEndTime;
 
     /**
+     * @example 141******33
+     *
      * @var int
      */
     public $disputeId;
@@ -56,6 +64,8 @@ class refundApplicationDetail extends Model
     public $disputeType;
 
     /**
+     * @example 46******11
+     *
      * @var string
      */
     public $lmOrderId;
@@ -66,16 +76,22 @@ class refundApplicationDetail extends Model
     public $maxRefundFeeData;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $orderLogisticsStatus;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $realRefundFee;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $refundFee;
@@ -91,6 +107,8 @@ class refundApplicationDetail extends Model
     public $refunderName;
 
     /**
+     * @example 158****1234
+     *
      * @var string
      */
     public $refunderTel;
@@ -101,6 +119,8 @@ class refundApplicationDetail extends Model
     public $refunderZipCode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $returnGoodCount;
@@ -126,6 +146,8 @@ class refundApplicationDetail extends Model
     public $sellerRefuseReason;
 
     /**
+     * @example 44******62
+     *
      * @var string
      */
     public $subLmOrderId;

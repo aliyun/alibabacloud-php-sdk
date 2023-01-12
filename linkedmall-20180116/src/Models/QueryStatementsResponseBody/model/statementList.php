@@ -14,6 +14,8 @@ class statementList extends Model
     public $attributes;
 
     /**
+     * @example 2021-08-01 00:00:00
+     *
      * @var string
      */
     public $createDate;
@@ -21,9 +23,18 @@ class statementList extends Model
     /**
      * @var string
      */
+    public $currency;
+
+    /**
+     * @example 2021-09-01 00:00:00
+     *
+     * @var string
+     */
     public $endTime;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extInfo;
@@ -31,9 +42,18 @@ class statementList extends Model
     /**
      * @var string
      */
+    public $kpNoGenerateTime;
+
+    /**
+     * @example 2021-09-01 00:00:00
+     *
+     * @var string
+     */
     public $modifiedDate;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $payeeAccountId;
@@ -54,44 +74,60 @@ class statementList extends Model
     public $payeeId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $payeeName;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $settleAmount;
 
     /**
+     * @example TEST000000
+     *
      * @var string
      */
     public $settleNo;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $settleStatus;
 
     /**
+     * @example 2021-08-01 00:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $statusMessage;
 
     /**
+     * @example 18******263
+     *
      * @var string
      */
     public $tenantId;
     protected $_name = [
         'attributes'       => 'Attributes',
         'createDate'       => 'CreateDate',
+        'currency'         => 'Currency',
         'endTime'          => 'EndTime',
         'extInfo'          => 'ExtInfo',
+        'kpNoGenerateTime' => 'KpNoGenerateTime',
         'modifiedDate'     => 'ModifiedDate',
         'payeeAccountId'   => 'PayeeAccountId',
         'payeeAccountName' => 'PayeeAccountName',
@@ -119,11 +155,17 @@ class statementList extends Model
         if (null !== $this->createDate) {
             $res['CreateDate'] = $this->createDate;
         }
+        if (null !== $this->currency) {
+            $res['Currency'] = $this->currency;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->extInfo) {
             $res['ExtInfo'] = $this->extInfo;
+        }
+        if (null !== $this->kpNoGenerateTime) {
+            $res['KpNoGenerateTime'] = $this->kpNoGenerateTime;
         }
         if (null !== $this->modifiedDate) {
             $res['ModifiedDate'] = $this->modifiedDate;
@@ -179,11 +221,17 @@ class statementList extends Model
         if (isset($map['CreateDate'])) {
             $model->createDate = $map['CreateDate'];
         }
+        if (isset($map['Currency'])) {
+            $model->currency = $map['Currency'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
         if (isset($map['ExtInfo'])) {
             $model->extInfo = $map['ExtInfo'];
+        }
+        if (isset($map['KpNoGenerateTime'])) {
+            $model->kpNoGenerateTime = $map['KpNoGenerateTime'];
         }
         if (isset($map['ModifiedDate'])) {
             $model->modifiedDate = $map['ModifiedDate'];

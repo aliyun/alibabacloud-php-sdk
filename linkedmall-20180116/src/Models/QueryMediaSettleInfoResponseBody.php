@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryMediaSettleInfoResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class QueryMediaSettleInfoResponseBody extends Model
     public $logsId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -30,11 +34,15 @@ class QueryMediaSettleInfoResponseBody extends Model
     public $model;
 
     /**
+     * @example FAED4911-3F7D-56C0-880F-C4755D4F26D8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1004
+     *
      * @var string
      */
     public $subCode;
@@ -45,11 +53,15 @@ class QueryMediaSettleInfoResponseBody extends Model
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 19
+     *
      * @var int
      */
     public $totalCount;

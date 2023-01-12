@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class maxRefundFeeData extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxRefundFee;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $minRefundFee;

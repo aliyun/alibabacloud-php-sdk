@@ -15,31 +15,43 @@ class activitySession extends Model
     public $activitySessionItem;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1633412800000
+     *
      * @var int
      */
     public $displayDate;
 
     /**
+     * @example 1639412800000
+     *
      * @var int
      */
     public $endDate;
 
     /**
+     * @example 329
+     *
      * @var int
      */
     public $lmSessionId;
 
     /**
+     * @example 1634412800000
+     *
      * @var int
      */
     public $startDate;
 
     /**
+     * @example 5fbbd94******4345f6c37166fb
+     *
      * @var string
      */
     public $subBizCode;

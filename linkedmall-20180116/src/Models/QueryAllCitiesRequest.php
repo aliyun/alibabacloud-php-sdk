@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryAllCitiesRequest extends Model
 {
     /**
+     * @example LMALL20******001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example {}
+     *
      * @var mixed[]
      */
     public $extJson;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryGuideItemGroupWithOutInventoryResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -20,26 +22,36 @@ class QueryGuideItemGroupWithOutInventoryResponseBody extends Model
     public $itemList;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example A7BE4356-7F92-533E-A31B-2EBF2D67****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 19
+     *
      * @var int
      */
     public $totalCount;

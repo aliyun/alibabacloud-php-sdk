@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class urlData extends Model
 {
     /**
+     * @example https://**********
+     *
      * @var string
      */
     public $returnUrl;

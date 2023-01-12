@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class GetActivityGameInfoRequest extends Model
 {
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example 673
+     *
      * @var string
      */
     public $activityId;
 
     /**
+     * @example LMALL20211224****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example {"key":"value"}
+     *
      * @var mixed[]
      */
     public $extInfo;
 
     /**
+     * @example 673476420068894723
+     *
      * @var string
      */
     public $gameId;
 
     /**
+     * @example 287384877****
+     *
      * @var string
      */
     public $thirdPartyUserId;

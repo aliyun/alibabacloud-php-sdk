@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class QueryOrderDetailInnerResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example The specified parameter %s value is not valid.
+     *
      * @var string
      */
     public $message;
@@ -25,6 +29,8 @@ class QueryOrderDetailInnerResponseBody extends Model
     public $model;
 
     /**
+     * @example 6103AD7B-21C2-523B-89D0-579DA58D****
+     *
      * @var string
      */
     public $requestId;

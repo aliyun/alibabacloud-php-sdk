@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class RefundUserPointResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -25,7 +29,7 @@ class RefundUserPointResponseBody extends Model
     public $model;
 
     /**
-     * @description Id of the request
+     * @example 79C01D47-3C44-57D9-BC99-1B33F7ED****
      *
      * @var string
      */

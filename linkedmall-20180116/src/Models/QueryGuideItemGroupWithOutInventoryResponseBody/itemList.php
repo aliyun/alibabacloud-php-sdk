@@ -14,6 +14,8 @@ class itemList extends Model
     public $customizedAttributeMap;
 
     /**
+     * @example 62785263****
+     *
      * @var string
      */
     public $itemId;
@@ -24,11 +26,15 @@ class itemList extends Model
     public $itemTitle;
 
     /**
+     * @example https://detail.tmall.com/item.htm?id=670600584601&spm=a21y2.8291224.2879496.9.c6e23569FJRVmu&skuId=500049906****
+     *
      * @var string
      */
     public $itemUrl;
 
     /**
+     * @example 10006515-64348848****
+     *
      * @var string
      */
     public $lmItemId;
@@ -39,26 +45,36 @@ class itemList extends Model
     public $mainPicUrl;
 
     /**
+     * @example 4990
+     *
      * @var int
      */
     public $pointPrice;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $points;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $pointsAmount;
 
     /**
+     * @example 4990
+     *
      * @var int
      */
     public $priceCent;
 
     /**
+     * @example 5990
+     *
      * @var string
      */
     public $reservePrice;
@@ -69,6 +85,8 @@ class itemList extends Model
     public $tags;
 
     /**
+     * @example https://img.alicdn.com/imgextra/i3/22066070*****\/O1CN01jCtHkC1ZjO2Q8DWUk_!!0-item_pic.jpg
+     *
      * @var string
      */
     public $whitePicUrl;

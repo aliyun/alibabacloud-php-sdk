@@ -9,67 +9,69 @@ use AlibabaCloud\Tea\Model;
 class RefundUserPointRequest extends Model
 {
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $accountType;
 
     /**
-     * @description 数额
+     * @example 100
      *
      * @var int
      */
     public $amount;
 
     /**
-     * @description 业务ID
+     * @example LMALL2000***12
      *
      * @var string
      */
     public $bizId;
 
     /**
-     * @description 扩展信息
+     * @example {"key":"value"}
      *
      * @var mixed[]
      */
     public $extInfo;
 
     /**
-     * @description 幂等ID
+     * @example 123
      *
      * @var string
      */
     public $idempotentId;
 
     /**
-     * @description 发放说明
+     * @example ""
      *
      * @var string
      */
     public $message;
 
     /**
+     * @example PYPT**12
+     *
      * @var string
      */
     public $originRecordId;
 
     /**
-     * @description 规则ID
+     * @example 136
      *
      * @var string
      */
     public $ruleId;
 
     /**
-     * @description 业务方用户ID
+     * @example 1
      *
      * @var string
      */
     public $thirdPartyUserId;
 
     /**
-     * @description 发放主题
-     *
      * @var string
      */
     public $title;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ReleaseMovieSeatRequest extends Model
 {
     /**
+     * @example LMALL20******005
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 221249435****
+     *
      * @var string
      */
     public $bizUid;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extJson;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $lockSeatApplyKey;

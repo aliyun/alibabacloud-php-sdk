@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class itemList extends Model
 {
     /**
+     * @example 620033847326
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @example 10016572-654408058233
+     *
      * @var string
      */
     public $lmItemId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @example 4415814743135
+     *
      * @var int
      */
     public $skuId;

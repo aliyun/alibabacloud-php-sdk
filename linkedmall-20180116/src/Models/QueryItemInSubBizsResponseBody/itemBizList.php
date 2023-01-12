@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class itemBizList extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $canSell;
 
     /**
+     * @example 50444021
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $descOption;
 
     /**
+     * @example 62503849****
+     *
      * @var int
      */
     public $itemId;
@@ -40,31 +48,43 @@ class itemBizList extends Model
     public $itemTitle;
 
     /**
+     * @example 10006484-64668317****
+     *
      * @var string
      */
     public $lmItemId;
 
     /**
+     * @example https://img.alicdn.com/imgextra/i3/22066070*****\/O1CN01jCtHkC1ZjO2Q8DWUk_!!0-item_pic.jpg
+     *
      * @var string
      */
     public $mainPicUrl;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $propertiesJson;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @example 2990
+     *
      * @var int
      */
     public $reservePrice;
 
     /**
+     * @example 329488****
+     *
      * @var int
      */
     public $sellerId;
@@ -75,6 +95,8 @@ class itemBizList extends Model
     public $skuList;
 
     /**
+     * @example 9f65e0905a544924b3cda147f28b****
+     *
      * @var string
      */
     public $subBizId;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RenderH5OrderRequest extends Model
 {
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example LMALL20******001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 208******6520
+     *
      * @var string
      */
     public $bizUid;
@@ -29,11 +35,15 @@ class RenderH5OrderRequest extends Model
     public $buyOrderRequestModel;
 
     /**
+     * @example 208******6520
+     *
      * @var string
      */
     public $thirdPartyUserId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useAnonymousTbAccount;

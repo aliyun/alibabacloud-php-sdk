@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class RenderOrderRequest extends Model
 {
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example LMALL2000***12
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 2212850685759
+     *
      * @var string
      */
     public $bizUid;
 
     /**
+     * @example ***********************************************************************
+     *
      * @var string
      */
     public $deliveryAddress;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extJson;
@@ -40,16 +50,22 @@ class RenderOrderRequest extends Model
     public $itemList;
 
     /**
+     * @example 10016572-654408058233
+     *
      * @var string
      */
     public $lmItemId;
 
     /**
+     * @example 2212850685759
+     *
      * @var string
      */
     public $thirdPartyUserId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useAnonymousTbAccount;

@@ -45,11 +45,15 @@ class gradePriceModel extends Model
     public $pointPrice;
 
     /**
+     * @example 2990
+     *
      * @var int
      */
     public $points;
 
     /**
+     * @example 2990
+     *
      * @var int
      */
     public $pointsAmount;

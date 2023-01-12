@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyBasicAndBizItemsRequest extends Model
 {
     /**
+     * @example LMALL2***100001
+     *
      * @var string
      */
     public $bizId;
@@ -20,6 +22,8 @@ class ModifyBasicAndBizItemsRequest extends Model
     public $itemList;
 
     /**
+     * @example f4279b7cbdfc46d4b7566****
+     *
      * @var string
      */
     public $subBizId;

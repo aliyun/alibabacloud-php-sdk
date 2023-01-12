@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class applyReasonText extends Model
 {
     /**
+     * @example 100005
+     *
      * @var int
      */
     public $reasonTextId;

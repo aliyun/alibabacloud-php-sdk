@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryUnfinishedActivitiesResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -20,26 +22,36 @@ class QueryUnfinishedActivitiesResponseBody extends Model
     public $lmActivityModelExtList;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example AB121F3E-607D-5EC3-A09B-7B54B86D9154
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $totalCount;

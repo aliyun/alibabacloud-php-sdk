@@ -15,6 +15,8 @@ class GetCategoryListResponseBody extends Model
     public $categoryList;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -25,6 +27,8 @@ class GetCategoryListResponseBody extends Model
     public $message;
 
     /**
+     * @example 96B4141C-A3CD-5162-B435-4780A75E3D97
+     *
      * @var string
      */
     public $requestId;

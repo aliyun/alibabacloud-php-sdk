@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QueryOrderIdByPayIdRequest extends Model
 {
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example LMALL20******001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 221249435****
+     *
      * @var string
      */
     public $bizUid;
 
     /**
+     * @example PYPT******9379
+     *
      * @var string
      */
     public $paymentId;
@@ -34,6 +42,8 @@ class QueryOrderIdByPayIdRequest extends Model
     public $thirdPartyUserId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useAnonymousTbAccount;

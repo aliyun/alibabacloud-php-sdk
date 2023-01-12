@@ -9,71 +9,99 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
+     * @example 134
+     *
      * @var string
      */
     public $activityId;
 
     /**
+     * @example 1638451941000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $currentShowContent;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $currentStepId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $currentStepStatus;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @example {"key":"value"}
+     *
      * @var string
      */
     public $extInfo;
 
     /**
+     * @example 6******723
+     *
      * @var string
      */
     public $gameId;
 
     /**
+     * @example 1648451941000
+     *
      * @var int
      */
     public $modifyTime;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 6******352
+     *
      * @var string
      */
     public $processId;
 
     /**
+     * @example RouteId_1
+     *
      * @var string
      */
     public $routeId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $type;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class addressList extends Model
 {
     /**
+     * @example *********************
+     *
      * @var string
      */
     public $addressDetail;
 
     /**
+     * @example 314304607
+     *
      * @var int
      */
     public $addressId;
 
     /**
+     * @example xianggang
+     *
      * @var string
      */
     public $area;
@@ -29,11 +35,15 @@ class addressList extends Model
     public $city;
 
     /**
+     * @example CN
+     *
      * @var string
      */
     public $country;
 
     /**
+     * @example 230921
+     *
      * @var string
      */
     public $divisionCode;
@@ -44,11 +54,15 @@ class addressList extends Model
     public $fullName;
 
     /**
+     * @example 18611921898
+     *
      * @var string
      */
     public $mobile;
 
     /**
+     * @example 323050
+     *
      * @var string
      */
     public $postCode;
@@ -59,6 +73,8 @@ class addressList extends Model
     public $province;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;

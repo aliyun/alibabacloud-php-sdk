@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class logisticsDetailList extends Model
 {
     /**
+     * @example 2022-04-01
+     *
      * @var string
      */
     public $ocurrTimeStr;

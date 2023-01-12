@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryUnfinishedSessions4ItemsResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -20,11 +22,15 @@ class QueryUnfinishedSessions4ItemsResponseBody extends Model
     public $lmItemActivitySessionModelListList;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example A209C555-3869-5259-9880-9747CBDA2B89
+     *
      * @var string
      */
     public $requestId;

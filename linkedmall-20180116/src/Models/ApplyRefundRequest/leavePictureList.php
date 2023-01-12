@@ -14,6 +14,8 @@ class leavePictureList extends Model
     public $desc;
 
     /**
+     * @example https://lm-dk.oss-cn-hangzhou.aliyuncs.com/******06661.png
+     *
      * @var string
      */
     public $picture;

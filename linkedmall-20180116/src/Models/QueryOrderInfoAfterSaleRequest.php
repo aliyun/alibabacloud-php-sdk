@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class QueryOrderInfoAfterSaleRequest extends Model
 {
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example LMALL20******001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 22******323
+     *
      * @var string
      */
     public $channelUserId;
 
     /**
+     * @example 40******84
+     *
      * @var string
      */
     public $lmOrderId;
 
     /**
+     * @example 22******323
+     *
      * @var string
      */
     public $thirdPartyUserId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useAnonymousTbAccount;

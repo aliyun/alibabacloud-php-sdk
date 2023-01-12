@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QueryUnfinishedSessionsRequest extends Model
 {
     /**
+     * @example LMALL20210802****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1637294220
+     *
      * @var int
      */
     public $queryTime;

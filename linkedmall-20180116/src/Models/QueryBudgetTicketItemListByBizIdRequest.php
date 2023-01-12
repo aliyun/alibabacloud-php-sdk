@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QueryBudgetTicketItemListByBizIdRequest extends Model
 {
     /**
+     * @example LMALL20******003
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 20******-4
+     *
      * @var string
      */
     public $budgetTicketNo;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;

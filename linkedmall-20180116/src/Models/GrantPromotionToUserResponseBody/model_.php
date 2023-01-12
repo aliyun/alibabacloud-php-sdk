@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
+     * @example 12322333232
+     *
      * @var int
      */
     public $effectiveEndTime;
 
     /**
+     * @example 123243444
+     *
      * @var int
      */
     public $effectiveStartTime;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $promotionInstanceId;
 
     /**
+     * @example ef2b8********f824830b7e55a0dc5
+     *
      * @var string
      */
     public $subBizCode;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

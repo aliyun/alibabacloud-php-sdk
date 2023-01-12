@@ -10,61 +10,85 @@ use AlibabaCloud\Tea\Model;
 class seatMap extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $maxCanBuy;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxColumn;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $maxLeftPx;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxRow;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $maxTopPx;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $minColumn;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $minLeftPx;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $minRow;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $minTopPx;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $notice;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $regular;
 
     /**
+     * @example 150
+     *
      * @var int
      */
     public $seatCount;
@@ -75,6 +99,8 @@ class seatMap extends Model
     public $seats;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $soldCount;

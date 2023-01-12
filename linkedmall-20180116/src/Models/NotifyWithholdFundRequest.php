@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class NotifyWithholdFundRequest extends Model
 {
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $amount;
 
     /**
+     * @example 5781******90561
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example 2022-04-01 12:00:00
+     *
      * @var string
      */
     public $operationDate;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $payTypes;
 
     /**
+     * @example 9054694D-E3AF-5A07-9647-0537026A45E1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 23***2674
+     *
      * @var string
      */
     public $tenantOrderId;

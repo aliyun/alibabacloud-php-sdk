@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetGuidePageRequest extends Model
 {
     /**
+     * @example LMALL2***100001
+     *
      * @var string
      */
     public $bizId;

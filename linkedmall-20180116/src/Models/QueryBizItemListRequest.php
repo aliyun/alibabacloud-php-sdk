@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class QueryBizItemListRequest extends Model
 {
     /**
+     * @example LMALL20211202****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 50003449
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @example [63524643****]
+     *
      * @var mixed[]
      */
     public $itemIds;
 
     /**
+     * @example [\"10000791-65975997****\"]
+     *
      * @var mixed[]
      */
     public $lmItemIds;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example sQuuSHY*************
+     *
      * @var string
      */
     public $subBizId;
 
     /**
+     * @example 2114255235****
+     *
      * @var string
      */
     public $userId;

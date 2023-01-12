@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class itemPrice extends Model
 {
     /**
+     * @example 2990
+     *
      * @var int
      */
     public $fundAmount;
 
     /**
+     * @example 2990
+     *
      * @var int
      */
     public $fundAmountMoney;
 
     /**
+     * @example POINT_PAY
+     *
      * @var string
      */
     public $fundType;
 
     /**
+     * @example 2547326482****
+     *
      * @var int
      */
     public $tbOrderId;
 
     /**
+     * @example 2547326482****
+     *
      * @var int
      */
     public $tbSubOrderId;

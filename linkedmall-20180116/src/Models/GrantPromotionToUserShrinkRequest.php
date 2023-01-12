@@ -9,64 +9,60 @@ use AlibabaCloud\Tea\Model;
 class GrantPromotionToUserShrinkRequest extends Model
 {
     /**
-     * @description 业务ID
+     * @example LMALL20211118****
      *
      * @var string
      */
     public $bizId;
 
     /**
-     * @description 过期时间
+     * @example 2554265
      *
      * @var int
      */
     public $expireSeconds;
 
     /**
-     * @description 发放模式
+     * @example NORMAL
      *
      * @var string
      */
     public $grantMode;
 
     /**
-     * @description 发放方式
+     * @example latour2
      *
      * @var string
      */
     public $grantWay;
 
     /**
-     * @description 幂等ID
+     * @example 20211212211381431746-1202
      *
      * @var string
      */
     public $idempotentId;
 
     /**
-     * @description 优惠元数据ID
+     * @example 66482394364783****
      *
      * @var string
      */
     public $promotionId;
 
     /**
-     * @description 安全码
+     * @example 6aa6ea6af00b453eafc3128d41858bf6
      *
      * @var string
      */
     public $securityCode;
 
     /**
-     * @description 用户ID
-     *
      * @var string
      */
     public $thirdPartyUserId;
 
     /**
-     * @description 扩展信息
-     *
      * @var string
      */
     public $bodyShrink;

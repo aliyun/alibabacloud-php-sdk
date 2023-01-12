@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetUserTokenPageResponseBody extends Model
 {
     /**
-     * @description 响应码
+     * @example SUCCESS
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description 提示信息
+     * @example SUCCESS
      *
      * @var string
      */
@@ -29,7 +29,7 @@ class GetUserTokenPageResponseBody extends Model
     public $model;
 
     /**
-     * @description 请求ID
+     * @example B7E4EF89-DBC3-5CD0-9993-02D8C13E7177
      *
      * @var string
      */

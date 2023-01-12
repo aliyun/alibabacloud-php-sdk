@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class QueryGuideItemGroupRequest extends Model
 {
     /**
+     * @example LMALL20******002
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example test01
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example AVAILABLE_FOR_SALE
+     *
      * @var string
      */
     public $itemState;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;

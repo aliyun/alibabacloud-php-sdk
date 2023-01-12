@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SyncMerchantInfoRequest extends Model
 {
     /**
+     * @example LMALL20******002
+     *
      * @var string
      */
     public $bizId;
@@ -24,11 +26,15 @@ class SyncMerchantInfoRequest extends Model
     public $sellerNick;
 
     /**
+     * @example 1****3
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example 1639540484044
+     *
      * @var int
      */
     public $timeStamp;

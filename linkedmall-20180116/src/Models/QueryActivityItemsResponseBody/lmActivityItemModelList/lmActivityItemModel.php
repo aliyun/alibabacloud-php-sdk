@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class lmActivityItemModel extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $canSell;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $itemActivityQuantity;
@@ -25,6 +29,8 @@ class lmActivityItemModel extends Model
     public $itemActivityStatus;
 
     /**
+     * @example 65332479****
+     *
      * @var int
      */
     public $itemId;
@@ -35,26 +41,36 @@ class lmActivityItemModel extends Model
     public $itemTitle;
 
     /**
+     * @example 679
+     *
      * @var int
      */
     public $lmActivityId;
 
     /**
+     * @example 10006138-63786616****
+     *
      * @var string
      */
     public $lmItemId;
 
     /**
+     * @example 1002****
+     *
      * @var string
      */
     public $lmShopId;
 
     /**
+     * @example https://img.alicdn.com/imgextra/i3/22066070*****\/O1CN01jCtHkC1ZjO2Q8DWUk_!!0-item_pic.jpg
+     *
      * @var string
      */
     public $mainPicUrl;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $sellableQuantity;
@@ -65,11 +81,15 @@ class lmActivityItemModel extends Model
     public $skuModelList;
 
     /**
+     * @example 285278****
+     *
      * @var int
      */
     public $tbSellerId;
 
     /**
+     * @example 13089****
+     *
      * @var int
      */
     public $tbShopId;

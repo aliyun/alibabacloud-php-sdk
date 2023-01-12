@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class reservedSeat extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $applyKey;
 
     /**
+     * @example 900
+     *
      * @var int
      */
     public $defaultLockSecond;
 
     /**
+     * @example 1649302236658
+     *
      * @var int
      */
     public $reservedTime;
 
     /**
+     * @example LOCKSUCCESS
+     *
      * @var string
      */
     public $status;

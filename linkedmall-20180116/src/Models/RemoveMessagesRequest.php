@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RemoveMessagesRequest extends Model
 {
     /**
+     * @example LMALL2******001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extJson;
 
     /**
+     * @example 212112212
+     *
      * @var string
      */
     public $messageIds;

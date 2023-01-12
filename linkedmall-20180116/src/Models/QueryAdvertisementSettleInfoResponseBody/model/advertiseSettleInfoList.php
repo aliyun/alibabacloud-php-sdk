@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class advertiseSettleInfoList extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $advertiseName;
 
     /**
+     * @example 1000
+     *
      * @var string
      */
     public $advertiseSettleAmount;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $advertiseSettleDetailId;
 
     /**
+     * @example 5781******561
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example 2021-09-11 10:00:00
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example 2021-09-11 10:01:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extInfo;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $mediaSettleDetailId;
 
     /**
+     * @example 2021-09-11 10:01:00
+     *
      * @var string
      */
     public $modifiedDate;
 
     /**
+     * @example TEST000000
+     *
      * @var string
      */
     public $settleNo;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $settleStatus;
 
     /**
+     * @example 2021-09-11 10:00:00
+     *
      * @var string
      */
     public $startTime;

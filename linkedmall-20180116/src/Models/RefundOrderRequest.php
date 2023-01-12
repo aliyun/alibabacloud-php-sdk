@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class RefundOrderRequest extends Model
 {
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extInfo;
 
     /**
+     * @example 64******721
+     *
      * @var string
      */
     public $merchantId;
 
     /**
+     * @example 4111584A-44D8-49B6-80BD-FACD0726054C
+     *
      * @var string
      */
     public $outRequestNo;
 
     /**
+     * @example 23******32727
+     *
      * @var string
      */
     public $outTradeNo;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $refundAmount;
@@ -44,6 +54,8 @@ class RefundOrderRequest extends Model
     public $refundRoyaltyParameters;
 
     /**
+     * @example WH******27
+     *
      * @var string
      */
     public $tradeNo;

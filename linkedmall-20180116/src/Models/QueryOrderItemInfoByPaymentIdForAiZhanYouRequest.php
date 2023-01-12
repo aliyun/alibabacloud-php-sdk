@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryOrderItemInfoByPaymentIdForAiZhanYouRequest extends Model
 {
     /**
+     * @example LMALL20******001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 22******85759
+     *
      * @var string
      */
     public $bizUid;
 
     /**
+     * @example P51M******15
+     *
      * @var string
      */
     public $paymentId;

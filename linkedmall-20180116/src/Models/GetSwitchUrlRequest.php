@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetSwitchUrlRequest extends Model
 {
     /**
+     * @example LMALL20211119****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 221249435****
+     *
      * @var string
      */
     public $bizUid;
 
     /**
+     * @example 221249435****
+     *
      * @var string
      */
     public $thirdPartyUserId;
@@ -29,6 +35,8 @@ class GetSwitchUrlRequest extends Model
     public $url;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useAnonymousTbAccount;

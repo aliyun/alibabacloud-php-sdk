@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class QueryBudgetTicketItemListByBizIdResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -25,26 +29,36 @@ class QueryBudgetTicketItemListByBizIdResponseBody extends Model
     public $model;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 26F4B2C7-931F-5AC5-8FCC-AE76C9B00D2F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $totalCount;

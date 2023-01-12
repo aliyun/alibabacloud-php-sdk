@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $canSell;
 
     /**
+     * @example 50050579
+     *
      * @var int
      */
     public $categoryId;
@@ -25,11 +29,15 @@ class item extends Model
     public $customizedItemName;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $extJson;
 
     /**
+     * @example 64944233****
+     *
      * @var int
      */
     public $itemId;
@@ -40,21 +48,29 @@ class item extends Model
     public $itemTitle;
 
     /**
+     * @example 10000102-65931326****
+     *
      * @var string
      */
     public $lmItemId;
 
     /**
+     * @example https://img.alicdn.com/imgextra/i3/22066070*****\/O1CN01jCtHkC1ZjO2Q8DWUk_!!0-item_pic.jpg
+     *
      * @var string
      */
     public $mainPicUrl;
 
     /**
+     * @example 2990
+     *
      * @var int
      */
     public $reservePrice;
 
     /**
+     * @example 284324****
+     *
      * @var int
      */
     public $sellerId;

@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class ListActivityAtmosphereRequest extends Model
 {
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example 673
+     *
      * @var string
      */
     public $activityId;
 
     /**
+     * @example LMALL20******001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 671******37088
+     *
      * @var string
      */
     public $gameId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 22******364
+     *
      * @var string
      */
     public $thirdPartyUserId;

@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
+     * @example 10
+     *
      * @var string
      */
     public $cashAmount;
 
     /**
+     * @example 2022-03-29
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extJson;
 
     /**
+     * @example 45******66
+     *
      * @var int
      */
     public $lmOrderId;
@@ -35,26 +43,36 @@ class model_ extends Model
     public $logisticsList;
 
     /**
+     * @example 6
+     *
      * @var string
      */
     public $orderStatus;
 
     /**
+     * @example 69
+     *
      * @var int
      */
     public $points;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $pointsAmount;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $refundAmount;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $refundPoints;
@@ -65,6 +83,8 @@ class model_ extends Model
     public $refundRate;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $refundStatus;
@@ -80,11 +100,15 @@ class model_ extends Model
     public $shopServiceTelephone;
 
     /**
+     * @example 12******964113
+     *
      * @var int
      */
     public $tbOrderId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $xiaomiCode;

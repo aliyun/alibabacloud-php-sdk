@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class activitySessionItemSkuList extends Model
 {
     /**
+     * @example 159
+     *
      * @var int
      */
     public $points;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $pointsAmount;
 
     /**
+     * @example 2990
+     *
      * @var int
      */
     public $priceCent;
 
     /**
+     * @description skuId
+     *
+     * @example 471******57
+     *
      * @var int
      */
     public $skuId;

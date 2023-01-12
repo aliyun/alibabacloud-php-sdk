@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BatchRegistAnonymousTbAccountRequest extends Model
 {
     /**
+     * @example LMALL20210802****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example idJsonList": "[\"id1\", \"id2\"]
+     *
      * @var string
      */
     public $idJsonList;

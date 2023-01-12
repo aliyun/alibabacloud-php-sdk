@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListItemActivitiesShrinkRequest extends Model
 {
     /**
+     * @example LMALL20******002
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example [664148141***,663735776***]
+     *
      * @var string
      */
     public $itemIdsShrink;
 
     /**
+     * @example [\"10000230-60716881****\",\"10000021-59183191****\"]
+     *
      * @var string
      */
     public $lmItemIdsShrink;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class itemInfo extends Model
 {
     /**
+     * @example 66******1055
+     *
      * @var int
      */
     public $itemId;
@@ -24,6 +26,8 @@ class itemInfo extends Model
     public $itemUrl;
 
     /**
+     * @example 10001036-******0492928
+     *
      * @var string
      */
     public $lmItemId;
@@ -34,26 +38,36 @@ class itemInfo extends Model
     public $mainPicUrl;
 
     /**
+     * @example 990
+     *
      * @var int
      */
     public $pointPrice;
 
     /**
+     * @example 69
+     *
      * @var int
      */
     public $points;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $pointsAmount;
 
     /**
+     * @example 990
+     *
      * @var int
      */
     public $priceCent;
 
     /**
+     * @example 20.0
+     *
      * @var string
      */
     public $reservePrice;

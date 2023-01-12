@@ -15,6 +15,10 @@ class sku extends Model
     public $inventory;
 
     /**
+     * @description skuId
+     *
+     * @example 4901251235576
+     *
      * @var int
      */
     public $skuId;

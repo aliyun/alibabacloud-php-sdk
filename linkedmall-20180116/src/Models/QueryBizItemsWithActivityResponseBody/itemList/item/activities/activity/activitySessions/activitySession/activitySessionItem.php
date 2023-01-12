@@ -15,16 +15,22 @@ class activitySessionItem extends Model
     public $activitySessionItemSkuList;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $limitQuantityForPerson;
 
     /**
+     * @example 888
+     *
      * @var int
      */
     public $saleableQuantity;
 
     /**
+     * @example 888
+     *
      * @var int
      */
     public $sessionQuantity;

@@ -14,6 +14,8 @@ class UpdateAddressRequest extends Model
     public $addressInfo;
 
     /**
+     * @example LMMINIAPP202004140002
+     *
      * @var string
      */
     public $bizId;
@@ -24,6 +26,8 @@ class UpdateAddressRequest extends Model
     public $thirdPartyUserId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $useAnonymousTbAccount;

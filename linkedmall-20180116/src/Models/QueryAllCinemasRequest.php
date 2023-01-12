@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QueryAllCinemasRequest extends Model
 {
     /**
+     * @example LMALL20******001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 330100
+     *
      * @var int
      */
     public $cityCode;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extJson;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class mediaSettleInfoList extends Model
 {
     /**
+     * @example 63839******79044
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example 2021-08-01 00:00:00
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example 2021-08-01 01:00:00
+     *
      * @var string
      */
     public $endTime;
@@ -44,21 +50,29 @@ class mediaSettleInfoList extends Model
     public $mediaSettleDetailId;
 
     /**
+     * @example 2021-08-01 01:00:00
+     *
      * @var string
      */
     public $modifiedDate;
 
     /**
+     * @example TEST000000
+     *
      * @var string
      */
     public $settleNo;
 
     /**
+     * @example waitPayerConfirm
+     *
      * @var string
      */
     public $settleStatus;
 
     /**
+     * @example 2021-08-01 00:00:00
+     *
      * @var string
      */
     public $startTime;

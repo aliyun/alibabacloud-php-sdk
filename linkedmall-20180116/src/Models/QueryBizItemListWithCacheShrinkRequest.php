@@ -9,42 +9,38 @@ use AlibabaCloud\Tea\Model;
 class QueryBizItemListWithCacheShrinkRequest extends Model
 {
     /**
-     * @description bizId
+     * @example LMALL20211119****
      *
      * @var string
      */
     public $bizId;
 
     /**
-     * @description itemIds
-     *
      * @var string
      */
     public $itemIdsShrink;
 
     /**
-     * @description lmItemIds
-     *
      * @var string
      */
     public $lmItemIdsShrink;
 
     /**
-     * @description pageNumber
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description pageSize
+     * @example 20
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description subBizCode
+     * @example 7ddaba53d5be4173808f2335eac0****
      *
      * @var string
      */

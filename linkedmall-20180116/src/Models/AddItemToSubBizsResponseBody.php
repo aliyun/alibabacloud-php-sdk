@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AddItemToSubBizsResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example A7BE4356-7F92-533E-A31B-2EBF2D67****
+     *
      * @var string
      */
     public $requestId;

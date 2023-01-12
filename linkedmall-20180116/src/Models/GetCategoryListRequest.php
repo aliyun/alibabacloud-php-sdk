@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetCategoryListRequest extends Model
 {
     /**
+     * @example LMALL20*****08
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 50000852
+     *
      * @var int
      */
     public $categoryId;

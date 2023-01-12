@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class skuList extends Model
 {
     /**
+     * @example 202201050050220000000190****
+     *
      * @var string
      */
     public $benefitId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $canSell;
 
     /**
+     * @example {}
+     *
      * @var mixed[]
      */
     public $customizedAttributeMap;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $pointPrice;
 
     /**
+     * @example 4299
+     *
      * @var int
      */
     public $points;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $pointsAmount;
 
     /**
+     * @example 1290
+     *
      * @var int
      */
     public $priceCent;
 
     /**
+     * @example 2990
+     *
      * @var int
      */
     public $reservePrice;
 
     /**
+     * @example 474820025****
+     *
      * @var int
      */
     public $skuId;
 
     /**
+     * @example https://img.alicdn.com/imgextra/i3/22066070*****\/O1CN01jCtHkC1ZjO2Q8DWUk_!!0-item_pic.jpg
+     *
      * @var string
      */
     public $skuPicUrl;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $skuProperties;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $skuPropertiesJson;

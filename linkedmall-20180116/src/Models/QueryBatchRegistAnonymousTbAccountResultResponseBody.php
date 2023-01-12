@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class QueryBatchRegistAnonymousTbAccountResultResponseBody extends Model
 {
     /**
+     * @example 10418*******
+     *
      * @var string
      */
     public $batchId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -25,16 +29,22 @@ class QueryBatchRegistAnonymousTbAccountResultResponseBody extends Model
     public $failIds;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 5E2D59BA-4EB0-45C4-A0D7-D98C1A4B****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;

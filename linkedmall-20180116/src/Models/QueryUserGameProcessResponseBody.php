@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class QueryUserGameProcessResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -25,7 +29,7 @@ class QueryUserGameProcessResponseBody extends Model
     public $model;
 
     /**
-     * @description Id of the request
+     * @example 45B9EF4E-4D18-59B2-85E6-9B568F73C79D
      *
      * @var string
      */

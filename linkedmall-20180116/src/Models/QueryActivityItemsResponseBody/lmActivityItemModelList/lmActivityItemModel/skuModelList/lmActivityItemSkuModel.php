@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class lmActivityItemSkuModel extends Model
 {
     /**
+     * @example 1990
+     *
      * @var int
      */
     public $activityPrice;
@@ -19,36 +21,52 @@ class lmActivityItemSkuModel extends Model
     public $activityStatus;
 
     /**
+     * @example LMALL20211013****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 64092072****
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @example 679
+     *
      * @var int
      */
     public $lmActivityId;
 
     /**
+     * @example 10000035-63064613****
+     *
      * @var string
      */
     public $lmItemId;
 
     /**
+     * @example 2990
+     *
      * @var int
      */
     public $reservedPrice;
 
     /**
+     * @description skuID
+     *
+     * @example 478531731****
+     *
      * @var int
      */
     public $skuId;
 
     /**
+     * @example https://img.alicdn.com/imgextra/i3/22066070*****\/O1CN01jCtHkC1ZjO2Q8DWUk_!!0-item_pic.jpg
+     *
      * @var string
      */
     public $skuPicUrl;

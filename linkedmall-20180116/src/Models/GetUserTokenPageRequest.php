@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class GetUserTokenPageRequest extends Model
 {
     /**
-     * @description 业务ID
+     * @example LMALL20******001
      *
      * @var string
      */
     public $bizId;
 
     /**
-     * @description 过期时间
+     * @example 86400
      *
      * @var int
      */
     public $expireSeconds;
 
     /**
-     * @description 扩展信息
+     * @example {}
      *
      * @var string
      */
     public $extJson;
 
     /**
-     * @description 业务方用户ID
+     * @example 22******234
      *
      * @var string
      */
     public $thirdPartyUserId;
 
     /**
-     * @description 用户昵称
+     * @example ""
      *
      * @var string
      */

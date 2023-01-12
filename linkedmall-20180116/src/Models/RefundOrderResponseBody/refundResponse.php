@@ -19,11 +19,15 @@ class refundResponse extends Model
     public $gmtRefundPay;
 
     /**
+     * @example 4111584A-44D8-49B6-80BD-FACD0726054C
+     *
      * @var string
      */
     public $outRequestNo;
 
     /**
+     * @example 23******32727
+     *
      * @var string
      */
     public $outTradeNo;

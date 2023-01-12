@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class RepayForPayUrlRequest extends Model
 {
     /**
+     * @example LMALL20210802****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 9f99f38030254728***
+     *
      * @var string
      */
     public $bizUid;
 
     /**
+     * @example 449975059**
+     *
      * @var int
      */
     public $lmOrderId;
 
     /**
+     * @example 9f99f38030254728***
+     *
      * @var string
      */
     public $thirdPartyUserId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useAnonymousTbAccount;

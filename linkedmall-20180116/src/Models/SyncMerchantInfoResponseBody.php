@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class SyncMerchantInfoResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -25,6 +29,8 @@ class SyncMerchantInfoResponseBody extends Model
     public $model;
 
     /**
+     * @example 79C01D47-3C44-57D9-BC99-1B33F7ED14B8
+     *
      * @var string
      */
     public $requestId;

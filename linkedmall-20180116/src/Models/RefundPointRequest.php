@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RefundPointRequest extends Model
 {
     /**
+     * @example LMALL20191223****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 44453****
+     *
      * @var string
      */
     public $lmOrderId;
@@ -24,16 +28,22 @@ class RefundPointRequest extends Model
     public $reason;
 
     /**
+     * @example 10718491****
+     *
      * @var string
      */
     public $sellerId;
 
     /**
+     * @example susan*****
+     *
      * @var string
      */
     public $thirdPartyUserId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useAnonymousTbAccount;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ReserveMovieSeatRequest extends Model
 {
     /**
+     * @example LMALL20******003
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 22******85759
+     *
      * @var string
      */
     public $bizUid;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extJson;
 
     /**
+     * @example 186******71
+     *
      * @var string
      */
     public $mobile;
 
     /**
+     * @example 9******15
+     *
      * @var int
      */
     public $scheduleId;

@@ -15,16 +15,22 @@ class model_ extends Model
     public $advertiseSettleInfoList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 19
+     *
      * @var int
      */
     public $totalCount;

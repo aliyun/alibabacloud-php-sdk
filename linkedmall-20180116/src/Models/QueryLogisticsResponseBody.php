@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryLogisticsResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -20,11 +22,15 @@ class QueryLogisticsResponseBody extends Model
     public $data;
 
     /**
+     * @example The specified parameter %s value is not valid.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example E090F1A0-7454-5F36-933C-E6332CE2****
+     *
      * @var string
      */
     public $requestId;

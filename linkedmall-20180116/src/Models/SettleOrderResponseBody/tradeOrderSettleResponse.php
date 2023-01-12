@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class tradeOrderSettleResponse extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $outRequestNo;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $tradeNo;

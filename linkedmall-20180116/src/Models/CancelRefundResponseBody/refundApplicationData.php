@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class refundApplicationData extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $disputeStatus;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $disputeType;
 
     /**
+     * @example 37******31
+     *
      * @var string
      */
     public $subLmOrderId;

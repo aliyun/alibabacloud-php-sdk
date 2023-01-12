@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
-     * @description 结算账号ID
+     * @example 180173763600****
      *
      * @var string
      */
     public $accountId;
 
     /**
-     * @description 入参账号no
+     * @example 15******65
      *
      * @var string
      */
     public $accountNo;
 
     /**
-     * @description 主键ID
+     * @example 252
      *
      * @var string
      */

@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class lmOrderList extends Model
 {
     /**
+     * @example 2022-04-01 12:00:00
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $enableStatus;
@@ -32,21 +36,29 @@ class lmOrderList extends Model
     public $fundStructureModels;
 
     /**
+     * @example 41******03
+     *
      * @var int
      */
     public $lmOrderId;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $logisticsStatus;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $orderAmount;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $orderStatus;
@@ -67,6 +79,8 @@ class lmOrderList extends Model
     public $subOrderList;
 
     /**
+     * @example 12******41253
+     *
      * @var int
      */
     public $tbOrderId;

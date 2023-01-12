@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class QueryOrderDetailInnerRequest extends Model
 {
     /**
+     * @example LMALL20210927****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 208823220453****
+     *
      * @var string
      */
     public $bizUid;
 
     /**
+     * @example {\"enableStatus\":0,\"lmOrderList\":[42433****]}
+     *
      * @var string
      */
     public $filterOption;
 
     /**
+     * @example 208823220453****
+     *
      * @var string
      */
     public $thirdPartyUserId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useAnonymousTbAccount;

@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class sku extends Model
 {
     /**
+     * @example 202109240050220000008822****
+     *
      * @var string
      */
     public $benefitId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $canSell;
 
     /**
+     * @example {}
+     *
      * @var mixed[]
      */
     public $customizedAttributeMap;
@@ -31,26 +37,36 @@ class sku extends Model
     public $gradePriceModels;
 
     /**
+     * @example 2990
+     *
      * @var int
      */
     public $points;
 
     /**
+     * @example 2990
+     *
      * @var int
      */
     public $pointsAmount;
 
     /**
+     * @example 1990
+     *
      * @var int
      */
     public $priceCent;
 
     /**
+     * @example 482694857****
+     *
      * @var int
      */
     public $skuId;
 
     /**
+     * @example https://img.alicdn.com/imgextra/i3/22066070*****\/O1CN01jCtHkC1ZjO2Q8DWUk_!!0-item_pic.jpg
+     *
      * @var string
      */
     public $skuPicUrl;
@@ -61,6 +77,8 @@ class sku extends Model
     public $skuTitle;
 
     /**
+     * @example 4990
+     *
      * @var int
      */
     public $taoBaoCurrentPrice;

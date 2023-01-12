@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreatePayUrlRequest extends Model
 {
     /**
+     * @example LMALL20*****0001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 9f99f38030254728***
+     *
      * @var string
      */
     public $bizUid;
@@ -24,11 +28,15 @@ class CreatePayUrlRequest extends Model
     public $buyInfo;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $thirdPartyUserId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useAnonymousTbAccount;

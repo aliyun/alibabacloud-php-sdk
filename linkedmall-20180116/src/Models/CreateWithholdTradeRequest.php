@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class CreateWithholdTradeRequest extends Model
 {
     /**
+     * @example 2021******59220
+     *
      * @var string
      */
     public $agreementNo;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $body;
 
     /**
+     * @example 12******209
+     *
      * @var string
      */
     public $buyerId;
 
     /**
+     * @example {"key":"value"}
+     *
      * @var string
      */
     public $extInfo;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $goodsDetail;
 
     /**
+     * @example 64******721
+     *
      * @var string
      */
     public $merchantId;
 
     /**
+     * @example 94A30BED-4321-4A94-B948-EB896493B4BF
+     *
      * @var string
      */
     public $outRequestNo;
 
     /**
+     * @example 23******274
+     *
      * @var string
      */
     public $outTradeNo;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $settleMode;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $subject;
 
     /**
+     * @example 6900
+     *
      * @var string
      */
     public $totalAmount;

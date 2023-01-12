@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryItemDetailTeaResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -20,26 +22,36 @@ class QueryItemDetailTeaResponseBody extends Model
     public $item;
 
     /**
+     * @example The specified parameter lmItemId or itemId value is not valid.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example BA157565-3358-5D80-9330-************
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $subCode;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
