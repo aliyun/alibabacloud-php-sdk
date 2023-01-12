@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateBasicAcceleratorResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example F591955F-5CB5-4CCE-A75D-17CF2085CE22
+     *
      * @var string
      */
     public $requestId;

@@ -15,16 +15,31 @@ class CreateIpSetsRequest extends Model
     public $accelerateRegion;
 
     /**
+     * @description The ID of the GA instance.
+     *
+     * @example ga-bp1yeeq8yfoyszmqy****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * @example 1F4B6A4A-C89E-489E-BAF1-52777EE148EF
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class regionList extends Model
 {
     /**
+     * @description The name of the region.
+     *
      * @var string
      */
     public $localName;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $regionId;

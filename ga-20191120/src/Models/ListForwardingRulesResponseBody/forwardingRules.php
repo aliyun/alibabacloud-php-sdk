@@ -11,41 +11,75 @@ use AlibabaCloud\Tea\Model;
 class forwardingRules extends Model
 {
     /**
+     * @description The direction in which the forwarding rule takes effect.
+     *
+     * By default, **request** is returned, which indicates that the forwarding rule takes effect on requests.
+     * @example request
+     *
      * @var string
      */
     public $forwardingRuleDirection;
 
     /**
+     * @description The ID of the forwarding rule.
+     *
+     * @example frule-bp19a3t3yzr21q3****
+     *
      * @var string
      */
     public $forwardingRuleId;
 
     /**
+     * @description The name of the forwarding rule.
+     *
+     * @example auto_named_rule
+     *
      * @var string
      */
     public $forwardingRuleName;
 
     /**
+     * @description The state of the forwarding rule.
+     *
+     *   **active**: The forwarding rule is normal.
+     *   **configuring**: The forwarding rule is being modified.
+     *   **deleting**: The forwarding rule is being deleted.
+     *
+     * @example active
+     *
      * @var string
      */
     public $forwardingRuleStatus;
 
     /**
+     * @description The ID of the listener.
+     *
+     * @example lsr-bp1s0vzbi5bxlx5****
+     *
      * @var string
      */
     public $listenerId;
 
     /**
+     * @description The priority of the forwarding rule.
+     *
+     * Valid values: **1** to **10000**. A lower value indicates a higher priority.
+     * @example 1000
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @description The forwarding action.
+     *
      * @var ruleActions[]
      */
     public $ruleActions;
 
     /**
+     * @description The forwarding conditions.
+     *
      * @var ruleConditions[]
      */
     public $ruleConditions;

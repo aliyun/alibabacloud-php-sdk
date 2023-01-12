@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class hostConfig extends Model
 {
     /**
+     * @description The domain name.
+     *
+     * The domain name must be 3 to 128 characters in length, and can contain letters, digits, hyphens (-), and periods (.). Supported wildcard characters are asterisks (\*) and question marks (?).
      * @var string[]
      */
     public $values;

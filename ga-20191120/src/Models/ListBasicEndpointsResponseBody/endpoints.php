@@ -9,51 +9,100 @@ use AlibabaCloud\Tea\Model;
 class endpoints extends Model
 {
     /**
+     * @example ga-bp17frjjh0udz4qz****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The address of the endpoint.
+     *
+     * @example eni-bp1a05txelswuj8g****
+     *
      * @var string
      */
     public $endpointAddress;
 
     /**
+     * @description The ID of the endpoint group to which the endpoints belong.
+     *
+     * @example epg-bp1dmlohjjz4kqaun****
+     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
+     * @description The ID of the endpoint that is associated with the basic GA instance.
+     *
+     * @example ep-bp14sz7ftcwwjgrdm****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @description The secondary address of the endpoint.
+     *
+     * This parameter is returned when the accelerated IP address is associated with the secondary private IP address of an ECS instance or ENI.
+     *
+     *   When the endpoint type is **ECS**, **EndpointSubAddress** returns the secondary private IP address of the primary ENI. If the parameter is left empty, the primary private IP address of the primary ENI is returned.
+     *   When the endpoint type is **ENI**, **EndpointSubAddress** returns the secondary private IP address of the secondary ENI. If the parameter is left empty, the primary private IP address of the secondary ENI is returned.
+     *
+     * @example 172.16.XX.XX
+     *
      * @var string
      */
     public $endpointSubAddress;
 
     /**
+     * @example primary
+     *
      * @var string
      */
     public $endpointSubAddressType;
 
     /**
+     * @description The type of endpoint. Valid values:
+     *
+     *   **ENI**: ENI
+     *   **SLB**: CLB
+     *   **ECS**: ECS
+     *
+     * @example ENI
+     *
      * @var string
      */
     public $endpointType;
 
     /**
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $endpointZoneId;
 
     /**
+     * @example ep01
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The status of the endpoint. Valid values:
+     *
+     *   **init**: The endpoint is being initialized.
+     *   **active**: The endpoint is available.
+     *   **updating**: The endpoint is being configured.
+     *   **binding**: The endpoint is being associated.
+     *   **unbinding**: The endpoint is being disassociated.
+     *   **deleting**: The endpoint is being deleted.
+     *   **bound**: The endpoint is associated.
+     *
+     * @example active
+     *
      * @var string
      */
     public $state;

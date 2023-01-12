@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class destinationSocketAddress extends Model
 {
     /**
+     * @description The service IP address of the backend instance.
+     *
+     * @example 10.0.XX.XX
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @description The service port of the backend instance.
+     *
+     * @example 443
+     *
      * @var int
      */
     public $port;

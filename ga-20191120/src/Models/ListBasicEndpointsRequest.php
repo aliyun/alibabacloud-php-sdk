@@ -9,41 +9,81 @@ use AlibabaCloud\Tea\Model;
 class ListBasicEndpointsRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must ensure that it is unique among all requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the endpoint group that you want to query.
+     *
+     * @example epg-bp1dmlohjjz4kqaun****
+     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
+     * @description The ID of the endpoint that you want to query.
+     *
+     * @example ep-bp14sz7ftcwwjgrdm****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @description The type of endpoint that you want to query. Valid values:
+     *
+     *   **ENI**: elastic network interface (ENI)
+     *   **SLB**: Classic Load Balancer (CLB)
+     *   **ECS**: Elastic Compute Service (ECS)
+     *
+     * @example ENI
+     *
      * @var string
      */
     public $endpointType;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **1** to **50**. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example ep01
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The token that determines the start point of the query. Valid values:
+     *
+     *   If this is your first query or no next query is to be sent, ignore this parameter.
+     *   If a next query is to be sent, set the value to the value of NextToken that is returned from the last call.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

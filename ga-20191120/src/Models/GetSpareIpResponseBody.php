@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetSpareIpResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 6FEA0CF3-D3B9-43E5-A304-D217037876A8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The state of the secondary IP address. Valid values:
+     *
+     *   **active**: The secondary IP address is available.
+     *   **inuse**: The secondary IP address is in use.
+     *
+     * @example active
+     *
      * @var string
      */
     public $state;

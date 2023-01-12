@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class ListCustomRoutingEndpointTrafficPoliciesRequest extends Model
 {
     /**
+     * @description The ID of the GA instance to which the traffic policies belong.
+     *
+     * @example ga-bp1odcab8tmno0hdq****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The IP addresses of the traffic policies.
+     *
+     * @example 10.0.XX.XX
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @description The ID of the endpoint group to which the traffic policies belong.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
+     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
+     * @description The ID of the endpoint to which the traffic policies belong.
+     *
+     * @example ep-bp16jdc00bhe97sr5****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @description The ID of the listener to which the traffic policies belong.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
+     *
      * @var string
      */
     public $listenerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

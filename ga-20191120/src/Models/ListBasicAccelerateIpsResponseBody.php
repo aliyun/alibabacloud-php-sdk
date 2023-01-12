@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class ListBasicAccelerateIpsResponseBody extends Model
 {
     /**
+     * @description The accelerated IP addresses of the basic GA instance.
+     *
      * @var accelerateIps[]
      */
     public $accelerateIps;
 
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that determines the start point of the query. Valid values:
+     *
+     *   If **NextToken** was not returned, it indicates that no additional results exist.
+     *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

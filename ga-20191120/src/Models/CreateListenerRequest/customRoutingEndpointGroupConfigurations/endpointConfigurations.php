@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class endpointConfigurations extends Model
 {
     /**
+     * @description The name of the endpoint vSwitch of the custom routing listener.
+     *
+     * >  You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
+     * @example vsw-test01
+     *
      * @var string
      */
     public $endpoint;
@@ -20,11 +25,31 @@ class endpointConfigurations extends Model
     public $policyConfigurations;
 
     /**
+     * @description The traffic policy of the backend service of the endpoint that is associated with the custom routing listener. Valid values:
+     *
+     *   **DenyAll** (default): denies all traffic to the specified backend service.
+     *
+     *   **AllowAll**: allows all traffic to the specified backend service.
+     *
+     *   **AllowCustom**: allows traffic to a specified destination.
+     *
+     * You must specify the IP address and port range of the destination. If the port range is empty, all ports are available.
+     *
+     * >  You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
+     * @example DenyAll
+     *
      * @var string
      */
     public $trafficToEndpointPolicy;
 
     /**
+     * @description The backend service type of the endpoint that is associated with the custom routing listener. Set the value to
+     *
+     **PrivateSubNet**, which specifies a private CIDR block.
+     *
+     * >  You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
+     * @example PrivateSubNet
+     *
      * @var string
      */
     public $type;

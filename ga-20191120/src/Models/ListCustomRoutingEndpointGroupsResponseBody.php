@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListCustomRoutingEndpointGroupsResponseBody extends Model
 {
     /**
+     * @description The configuration information about the endpoint groups.
+     *
      * @var endpointGroups[]
      */
     public $endpointGroups;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

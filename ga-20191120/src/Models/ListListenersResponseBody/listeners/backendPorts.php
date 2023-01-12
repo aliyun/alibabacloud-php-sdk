@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class backendPorts extends Model
 {
     /**
+     * @description The start port in the range of ports used by the backend server.
+     *
+     * @example 80
+     *
      * @var string
      */
     public $fromPort;
 
     /**
+     * @description The end port in the range of ports used by the backend server.
+     *
+     * @example 80
+     *
      * @var string
      */
     public $toPort;

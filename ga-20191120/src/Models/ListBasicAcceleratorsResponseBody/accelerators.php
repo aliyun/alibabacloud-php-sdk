@@ -12,71 +12,128 @@ use AlibabaCloud\Tea\Model;
 class accelerators extends Model
 {
     /**
+     * @description The ID of the basic GA instance.
+     *
+     * @example ga-bp17frjjh0udz4qz****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @example BandwidthPackage
+     *
      * @var string
      */
     public $bandwidthBillingType;
 
     /**
+     * @description The details about the basic bandwidth plan that is associated with the basic GA instance.
+     *
      * @var basicBandwidthPackage
      */
     public $basicBandwidthPackage;
 
     /**
+     * @description The ID of the endpoint group that is associated with the basic GA instance.
+     *
+     * @example epg-bp1dmlohjjz4kqaun****
+     *
      * @var string
      */
     public $basicEndpointGroupId;
 
     /**
+     * @description The ID of the acceleration region.
+     *
+     * @example ips-bp11ilwqjdkjeg9r7****
+     *
      * @var string
      */
     public $basicIpSetId;
 
     /**
+     * @description The timestamp that indicates when the basic GA instance was created.
+     *
+     * @example 1637734547
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The details about the cross-region acceleration bandwidth plan that is associated with the GA instance.
+     *
+     * This array is returned only for GA instances that are created on the International site (alibabacloud.com).
      * @var crossDomainBandwidthPackage
      */
     public $crossDomainBandwidthPackage;
 
     /**
+     * @description The description of the basic GA instance.
+     *
+     * @example BasicAccelerator
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The timestamp that indicates when the basic GA instance expires.
+     *
+     * @example 1640326547
+     *
      * @var int
      */
     public $expiredTime;
 
     /**
+     * @description The billing method of the basic GA instance. Only **PREPAY** is returned, which indicates the subscription billing method.
+     *
+     * @example PREPAY
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description The name of the basic GA instance.
+     *
+     * @example BasicAccelerator
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the region where the basic GA instance is deployed.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-aekzrnd67gq****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The status of the basic GA instance. Valid values:
+     *
+     *   **init**: initializing
+     *   **active**: available
+     *   **configuring**: being configured
+     *   **binding**: being associated
+     *   **unbinding**: being disassociated
+     *   **Deleting**: being deleted
+     *   **finacialLocked**: locked due to overdue payments
+     *
+     * @example active
+     *
      * @var string
      */
     public $state;
@@ -87,6 +144,10 @@ class accelerators extends Model
     public $tags;
 
     /**
+     * @description Ignore this parameter.
+     *
+     * @example None
+     *
      * @var string
      */
     public $type;

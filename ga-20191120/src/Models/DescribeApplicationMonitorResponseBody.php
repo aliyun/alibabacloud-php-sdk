@@ -10,66 +10,123 @@ use AlibabaCloud\Tea\Model;
 class DescribeApplicationMonitorResponseBody extends Model
 {
     /**
+     * @description The ID of the GA instance on which the origin probing task runs.
+     *
+     * @example ga-bp1odcab8tmno0hdq****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The URL or IP address that is probed.
+     *
+     * @example https://www.aliyun.com
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @description Indicates whether the automatic diagnostics feature is enabled. Valid values:
+     *
+     *   **true**: yes.
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $detectEnable;
 
     /**
+     * @description The threshold that is used to trigger the automatic diagnostics feature.
+     *
+     * If the liveness of the origin in percentile drops below the specified threshold, the automatic diagnostics feature is triggered.
+     * @example 0
+     *
      * @var int
      */
     public $detectThreshold;
 
     /**
+     * @description The number of times that is required to reach the threshold before the automatic diagnostics feature can be triggered.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $detectTimes;
 
     /**
+     * @description The list of probe points provided by the service provider.
+     *
      * @var ispCityList[]
      */
     public $ispCityList;
 
     /**
+     * @description The ID of the listener on which the origin probing task runs.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
+     *
      * @var string
      */
     public $listenerId;
 
     /**
+     * @description The extended options of the listener protocol that is used by the origin probing task. The options vary based on the listener protocol.
+     *
+     * @example { "http_method": "get","header": "key:asd","acceptable_response_code": "500","cert_verify": true }
+     *
      * @var string
      */
     public $optionsJson;
 
     /**
+     * @description The ID of the region where the GA instance is deployed. The value is set to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The silence period of the automatic diagnostics feature. This parameter specifies the interval at which the automatic diagnostics feature is triggered. If the availability rate does not return to normal after GA triggers an automatic diagnostic, GA must wait until the silence period ends before GA can trigger another automatic diagnostic.
+     *
+     * If the number of consecutive times that the availability rate drops below the threshold of automatic diagnostics reaches the value of the **DetectTimes** parameter, the automatic diagnostics feature is triggered. The automatic diagnostics feature is not triggered again within the silence period even if the availability rate stays below the threshold. If the availability rate does not return to normal after the silence period ends, the automatic diagnostics feature is triggered again.
+     *
+     * Unit: seconds.
+     * @example 300
+     *
      * @var int
      */
     public $silenceTime;
 
     /**
+     * @description The ID of the origin probing task.
+     *
+     * @example sm-bp1fpdjfju9k8yr1y****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The name of the origin probing task.
+     *
+     * @example task1
+     *
      * @var string
      */
     public $taskName;

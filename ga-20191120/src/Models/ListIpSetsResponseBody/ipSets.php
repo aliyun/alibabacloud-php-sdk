@@ -9,36 +9,68 @@ use AlibabaCloud\Tea\Model;
 class ipSets extends Model
 {
     /**
+     * @description The ID of the region that is accelerated.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $accelerateRegionId;
 
     /**
+     * @description The bandwidth that is allocated to the acceleration region. Unit: **Mbit/s**.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @description The list of accelerated IP addresses in the acceleration region.
+     *
      * @var string[]
      */
     public $ipAddressList;
 
     /**
+     * @description The ID of the acceleration region.
+     *
+     * @example ips-bp11r5jb8ogp122xl****
+     *
      * @var string
      */
     public $ipSetId;
 
     /**
+     * @description The version of the accelerated IP address. Valid values:
+     *
+     *   **IPv4**
+     *   **IPv6**
+     *
+     * @example IPv4
+     *
      * @var string
      */
     public $ipVersion;
 
     /**
+     * @example BGP
+     *
      * @var string
      */
     public $ispType;
 
     /**
+     * @description The status of the acceleration region. Valid values:
+     *
+     *   **init**: The acceleration region is being initialized.
+     *   **active**: The acceleration region is in the running state.
+     *   **updating**: The acceleration region is being configured.
+     *   **Deleting**: The acceleration region is being deleted.
+     *
+     * @example active
+     *
      * @var string
      */
     public $state;

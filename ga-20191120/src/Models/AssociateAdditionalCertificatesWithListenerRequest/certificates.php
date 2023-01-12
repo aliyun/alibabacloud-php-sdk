@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class certificates extends Model
 {
     /**
+     * @description The domain name specified by the certificate.
+     *
+     * You can specify up to 10 domain names in each request.
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The ID of the certificate. Only server certificates are supported.
+     *
+     * You can specify up to 10 certificate IDs in each request.
+     * @example 6092**-cn-hangzhou
+     *
      * @var string
      */
     public $id;

@@ -10,26 +10,50 @@ use AlibabaCloud\Tea\Model;
 class endpointGroups extends Model
 {
     /**
+     * @description The ID of the endpoint group.
+     *
+     * @example epg-bp14sz7ftcwwjgrdm****
+     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
+     * @description The type of the endpoint group. Valid values:
+     *
+     *   **default**: a default endpoint group
+     *   **virtual**: a virtual endpoint group
+     *
+     * @example default
+     *
      * @var string
      */
     public $endpointGroupType;
 
     /**
+     * @description The information about the endpoints.
+     *
      * @var endpoints[]
      */
     public $endpoints;
 
     /**
+     * @description The IDs of the forwarding rules.
+     *
      * @var string[]
      */
     public $forwardingRuleIds;
 
     /**
+     * @description The health status of the endpoint group. Valid values:
+     *
+     *   **init**: The endpoint group is being initialized.
+     *   **normal**: The endpoint group is normal.
+     *   **Abnormal**: The endpoint group is abnormal.
+     *   **partiallyAbnormal**: Some endpoint groups that are associated with the listener are abnormal.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $healthStatus;

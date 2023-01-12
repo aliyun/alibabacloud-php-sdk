@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class ListBasicAccelerateIpEndpointRelationsResponseBody extends Model
 {
     /**
+     * @description The mappings between the accelerated IP addresses and endpoints.
+     *
      * @var accelerateIpEndpointRelations[]
      */
     public $accelerateIpEndpointRelations;
 
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $maxResults;
 
     /**
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If **NextToken** is not returned, it indicates that no additional results exist.
+     *   If **NextToken** is returned, the value is the token that is used for the next query.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of entries returned.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $totalCount;

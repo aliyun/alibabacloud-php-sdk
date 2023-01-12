@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class aclEntries extends Model
 {
     /**
+     * @description The IP address or CIDR block that you want to delete from the ACL.
+     *
+     * >  This parameter is required.
+     * @example 10.0.XX.XX/24
+     *
      * @var string
      */
     public $entry;

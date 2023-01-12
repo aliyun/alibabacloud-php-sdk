@@ -11,15 +11,29 @@ class DescribeCustomRoutingEndPointTrafficPolicyRequest extends Model
     /**
      * @var string
      */
+    public $endpointId;
+
+    /**
+     * @description The ID of the traffic policy to be queried.
+     *
+     * @example ply-bptest2****
+     *
+     * @var string
+     */
     public $policyId;
 
     /**
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'policyId' => 'PolicyId',
-        'regionId' => 'RegionId',
+        'endpointId' => 'EndpointId',
+        'policyId'   => 'PolicyId',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -29,6 +43,9 @@ class DescribeCustomRoutingEndPointTrafficPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endpointId) {
+            $res['EndpointId'] = $this->endpointId;
+        }
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
@@ -47,6 +64,9 @@ class DescribeCustomRoutingEndPointTrafficPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndpointId'])) {
+            $model->endpointId = $map['EndpointId'];
+        }
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }

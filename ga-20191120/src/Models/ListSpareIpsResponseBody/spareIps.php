@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class spareIps extends Model
 {
     /**
+     * @description The secondary IP address that is associated with the CNAME. If the acceleration area becomes unavailable, GA redirects traffic to the secondary IP address.
+     *
+     * @example 47.100.XX.XX
+     *
      * @var string
      */
     public $spareIp;
 
     /**
+     * @description The status of the secondary IP address. Valid values:
+     *
+     *   **active**: The secondary IP address is available.
+     *   **inuse**: The secondary IP address is in use.
+     *
+     * @example active
+     *
      * @var string
      */
     public $state;

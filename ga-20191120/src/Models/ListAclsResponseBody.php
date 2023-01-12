@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class ListAclsResponseBody extends Model
 {
     /**
+     * @description The network ACLs.
+     *
      * @var acls[]
      */
     public $acls;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that determines the start point of the next query. Valid values:
+     *
+     *   If **NextToken** was not returned, it indicates that no additional results exist.
+     *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+     *
+     * @example FFmyTO70t****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 64ADAB1E-0B7F-4FD8-A404-3BECC0E9CCFF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

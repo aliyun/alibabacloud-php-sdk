@@ -9,46 +9,83 @@ use AlibabaCloud\Tea\Model;
 class endpointGroups extends Model
 {
     /**
+     * @description The ID of the GA instance.
+     *
+     * @example ga-bp1odcab8tmno0hdq****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The description of the endpoint group.
+     *
+     * @example EndpointGroup
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the endpoint group.
+     *
+     * @example epg-bp14sz7ftcwwjgrdm****
+     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
+     * @description The list of endpoint group IP addresses.
+     *
      * @var string[]
      */
     public $endpointGroupIpList;
 
     /**
+     * @description The ID of the region where the endpoint group is created.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $endpointGroupRegion;
 
     /**
+     * @description The endpoint group IP addresses to be confirmed after the GA instance is upgraded.
+     *
      * @var string[]
      */
     public $endpointGroupUnconfirmedIpList;
 
     /**
+     * @description The ID of the custom routing listener.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
+     *
      * @var string
      */
     public $listenerId;
 
     /**
+     * @description The name of the endpoint group.
+     *
+     * @example group1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The status of the endpoint group.
+     *
+     *   **init**: being initialized
+     *   **active**: running as expected
+     *   **updating**: being updated
+     *   **deleting**: being deleted
+     *
+     * @example active
+     *
      * @var string
      */
     public $state;

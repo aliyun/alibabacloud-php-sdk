@@ -9,41 +9,87 @@ use AlibabaCloud\Tea\Model;
 class UpdateBandwidthPackageRequest extends Model
 {
     /**
+     * @description Specifies whether to enable automatic payment. Default value: false. Valid values:
+     *
+     *   **false**: disables automatic payment. If you select this option, you must go to the Order Center to complete the payment after an order is generated.
+     *   **true**: enables automatic payment. Payments are automatically completed.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @description Specifies whether to use coupons. Default value: false. Valid values:
+     *
+     *   **true**: uses coupons.
+     *   **false**: does not use coupons.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $autoUseCoupon;
 
     /**
+     * @description The bandwidth value of the bandwidth plan. Unit: Mbit/s.
+     *
+     * Valid values: **2** to **2000**.
+     * @example 2
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @description The ID of the bandwidth plan that you want to modify.
+     *
+     * @example gbwp-bp1sgzldyj6b4q7cx****
+     *
      * @var string
      */
     public $bandwidthPackageId;
 
     /**
+     * @description The type of bandwidth. Valid values:
+     *
+     *   **Basic**: basic
+     *   **Enhanced**: enhanced
+     *   **Advanced**: premium
+     *
+     * >  You can only upgrade **Basic** bandwidth to **Enhanced** bandwidth. You cannot change **Enhanced** bandwidth or **Advanced** bandwidth to another type.
+     * @example Basic
+     *
      * @var string
      */
     public $bandwidthType;
 
     /**
+     * @description The description of the bandwidth plan.
+     *
+     * The description can be up to 256 characters in length.
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the bandwidth plan.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * @example testName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

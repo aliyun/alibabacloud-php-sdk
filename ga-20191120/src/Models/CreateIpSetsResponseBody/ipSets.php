@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class ipSets extends Model
 {
     /**
+     * @description The ID of the region that requires acceleration.
+     *
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $accelerateRegionId;
 
     /**
+     * @description The bandwidth allocated to the acceleration region. Unit: **Mbit/s**.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @description The ID of the acceleration region.
+     *
+     * @example ips-bp11r5jb8ogp122xl****
+     *
      * @var string
      */
     public $ipSetId;
 
     /**
+     * @example BGP
+     *
      * @var string
      */
     public $ispType;

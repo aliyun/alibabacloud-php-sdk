@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class regions extends Model
 {
     /**
+     * @description The name of the region.
+     *
      * @var string
      */
     public $localName;
 
     /**
+     * @description The ID of the region where the GA instance is deployed. Only **cn-hangzhou** is returned.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

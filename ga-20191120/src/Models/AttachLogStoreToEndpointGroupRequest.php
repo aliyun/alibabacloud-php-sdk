@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AttachLogStoreToEndpointGroupRequest extends Model
 {
     /**
+     * @description The ID of the GA instance.
+     *
+     * @example ga-bp1odcab8tmno0hdq****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
@@ -24,26 +35,46 @@ class AttachLogStoreToEndpointGroupRequest extends Model
     public $endpointGroupIds;
 
     /**
+     * @description The ID of the listener.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
+     *
      * @var string
      */
     public $listenerId;
 
     /**
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the Logstore.
+     *
+     * @example lsn-01
+     *
      * @var string
      */
     public $slsLogStoreName;
 
     /**
+     * @description The name of the Log Service project.
+     *
+     * @example pn-01
+     *
      * @var string
      */
     public $slsProjectName;
 
     /**
+     * @description The region ID of the Log Service project.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $slsRegionId;

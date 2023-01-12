@@ -11,11 +11,25 @@ use AlibabaCloud\Tea\Model;
 class endpointGroupConfigurations extends Model
 {
     /**
+     * @description Specifies whether to use the proxy protocol to preserve client IP addresses. Valid values:
+     *
+     *   **true**: uses the proxy protocol to preserve client IP addresses.
+     *   **false**: does not use the proxy protocol to preserve client IP addresses.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableClientIPPreservationProxyProtocol;
 
     /**
+     * @description Specifies whether to preserve client IP addresses by using the TCP Option Address (TOA) module. Valid values:
+     *
+     *   **true**: preserves client IP addresses by using the TOA module.
+     *   **false**: does not preserve client IP addresses by using the TOA module.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableClientIPPreservationToa;
@@ -26,46 +40,99 @@ class endpointGroupConfigurations extends Model
     public $endpointConfigurations;
 
     /**
+     * @description The description of the endpoint group.
+     *
+     * The description cannot exceed 256 characters in length and cannot contain `http://` or `https://`.
+     * @example group1
+     *
      * @var string
      */
     public $endpointGroupDescription;
 
     /**
+     * @description The ID of the endpoint.
+     *
+     * @example ep-bp1d2utp8qqe2a44t****
+     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
+     * @description The name of the endpoint group.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * @example group1
+     *
      * @var string
      */
     public $endpointGroupName;
 
     /**
+     * @description The protocol that is used by the backend service. Valid values:
+     *
+     *   **HTTP**: HTTP
+     *   **HTTPS**: HTTPS
+     *
+     * >
+     *   You can set this property only if the listener that is associated with the endpoint group uses the HTTP or HTTPS protocol.
+     *   For an HTTP listener, the backend service protocol must be HTTP.
+     *
+     * @example HTTP
+     *
      * @var string
      */
     public $endpointRequestProtocol;
 
     /**
+     * @description Specifies whether to enable the health check feature. Default value: false. Valid values:
+     *
+     *   **true**: enables the health check feature.
+     *   **false**: disables the health check feature.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $healthCheckEnabled;
 
     /**
+     * @description The interval at which health checks are performed. Unit: seconds. Valid values: **1** to **50**.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $healthCheckIntervalSeconds;
 
     /**
+     * @description The path to which health check requests are sent.
+     *
+     * @example /healthcheck
+     *
      * @var string
      */
     public $healthCheckPath;
 
     /**
+     * @description The port that is used for health checks.
+     *
+     * Valid values: **1** to **65535**.
+     * @example 20
+     *
      * @var int
      */
     public $healthCheckPort;
 
     /**
+     * @description The protocol over which health check requests are sent.
+     *
+     *   **tcp**: TCP
+     *   **http**: HTTP
+     *   **https**: HTTPS
+     *
+     * @example tcp
+     *
      * @var string
      */
     public $healthCheckProtocol;
@@ -76,11 +143,21 @@ class endpointGroupConfigurations extends Model
     public $portOverrides;
 
     /**
+     * @description The number of consecutive health check failures that must occur before a healthy endpoint group is considered unhealthy, or the number of consecutive health check successes that must occur before an unhealthy endpoint group is considered healthy.
+     *
+     * Valid values: **2** to **10**.
+     * @example 3
+     *
      * @var int
      */
     public $thresholdCount;
 
     /**
+     * @description The traffic ratio for the endpoint group when the specified listener is associated with multiple endpoint groups.
+     *
+     * Valid values: **1** to **100**.
+     * @example 20
+     *
      * @var int
      */
     public $trafficPercentage;

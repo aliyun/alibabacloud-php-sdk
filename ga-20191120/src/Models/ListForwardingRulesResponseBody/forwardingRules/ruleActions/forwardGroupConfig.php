@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class forwardGroupConfig extends Model
 {
     /**
+     * @description The information about the endpoint group.
+     *
      * @var serverGroupTuples[]
      */
     public $serverGroupTuples;

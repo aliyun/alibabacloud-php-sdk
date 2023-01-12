@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListAccelerateAreasRequest extends Model
 {
     /**
+     * @description The region ID of the Global Accelerator instance. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -11,21 +11,51 @@ use AlibabaCloud\Tea\Model;
 class ruleConditions extends Model
 {
     /**
+     * @description The configuration of the domain name.
+     *
      * @var hostConfig
      */
     public $hostConfig;
 
     /**
+     * @description The configuration of the path.
+     *
      * @var pathConfig
      */
     public $pathConfig;
 
     /**
+     * @description The type of the forwarding condition.
+     *
+     *   **Host**: domain name
+     *   **Path**: path
+     *   **RequestHeader**: HTTP header
+     *   **Query**: query string
+     *   **Method**: HTTP method
+     *   **Cookie**: cookie
+     *   **SourceIP**: source IP address
+     *
+     * @example Host
+     *
      * @var string
      */
     public $ruleConditionType;
 
     /**
+     * @description The value of the forwarding condition type.
+     *
+     * Different JSON strings are returned based on the **RuleConditionType** parameter.
+     *
+     *   If **RuleConditionType** is set to **Host**, a domain name condition is returned. If multiple domain names are returned in a forwarding condition, the relationship between the domain names is OR.
+     *   If **RuleConditionType** is set to **Path**, a path condition is returned. If multiple forwarding conditions whose types are path are returned in a forwarding rule, the relationship between the forwarding conditions is OR. If multiple paths are returned in a forwarding condition, the relationship between the paths is OR.
+     *   If **RuleConditionType** is set to **RequestHeader**, an HTTP header condition that consists of key-value pairs is returned.
+     *   If **RuleConditionType** is set to **Query**, a query string condition that consists of key-value pairs is returned.
+     *   If **RuleConditionType** is set to **Method**, an HTTP method condition is returned.
+     *   If **RuleConditionType** is set to **Cookie**, a cookie condition that consists of key-value pairs is returned.
+     *   If **RuleConditionType** is set to **SourceIP**, a source IP address condition is returned. If multiple source IP addresses are returned in a forwarding condition, the relationship between the source IP addresses is OR.
+     *
+     * @example ["www.example.com", "www.aliyun.com"]
+     *
      * @var string
      */
     public $ruleConditionValue;

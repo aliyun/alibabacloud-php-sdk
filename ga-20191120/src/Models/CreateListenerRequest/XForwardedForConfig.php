@@ -9,26 +9,66 @@ use AlibabaCloud\Tea\Model;
 class XForwardedForConfig extends Model
 {
     /**
+     * @description Specifies whether to use the `GA-AP` header to retrieve the information about acceleration regions. Valid values:
+     *
+     *   **true**: yes
+     *   **false** (default): no
+     *
+     * >  You can set this parameter only for HTTP and HTTPS listeners.
+     * @example false
+     *
      * @var bool
      */
     public $XForwardedForGaApEnabled;
 
     /**
+     * @description Specifies whether to use the `GA-ID` header to retrieve the ID of the GA instance. Valid values:
+     *
+     *   **true**: yes
+     *   **false** (default): no
+     *
+     * >  You can set this parameter only for HTTP and HTTPS listeners.
+     * @example false
+     *
      * @var bool
      */
     public $XForwardedForGaIdEnabled;
 
     /**
+     * @description Specifies whether to use the `GA-X-Forward-Port` header to retrieve the listening ports of the GA instance. Valid values:
+     *
+     *   **true**: yes
+     *   **false** (default): no
+     *
+     * >  You can set this parameter only for HTTP and HTTPS listeners.
+     * @example false
+     *
      * @var bool
      */
     public $XForwardedForPortEnabled;
 
     /**
+     * @description Specifies whether to use the `GA-X-Forward-Proto` header to retrieve the listener protocol of the GA instance. Valid values:
+     *
+     *   **true**: yes
+     *   **false** (default): no
+     *
+     * >  You can set this parameter only for HTTP and HTTPS listeners.
+     * @example false
+     *
      * @var bool
      */
     public $XForwardedForProtoEnabled;
 
     /**
+     * @description Specifies whether to use the `X-Real-IP` header to retrieve client IP addresses. Valid values:
+     *
+     *   **true**: yes
+     *   **false** (default): no
+     *
+     * >  You can set this parameter only for HTTP and HTTPS listeners.
+     * @example false
+     *
      * @var bool
      */
     public $XRealIpEnabled;

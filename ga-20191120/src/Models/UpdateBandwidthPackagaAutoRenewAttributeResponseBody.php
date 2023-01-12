@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UpdateBandwidthPackagaAutoRenewAttributeResponseBody extends Model
 {
     /**
+     * @description The ID of the bandwidth plan.
+     *
+     * @example gbwp-bp1sgzldyj6b4q7cx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F591955F-5CB5-4CCE-A75D-17CF2085CE22
+     *
      * @var string
      */
     public $requestId;

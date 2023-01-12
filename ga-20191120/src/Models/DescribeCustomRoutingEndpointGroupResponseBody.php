@@ -9,76 +9,145 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomRoutingEndpointGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the GA instance.
+     *
+     * @example ga-bp1odcab8tmno0hdq****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The status of the logs.
+     *
+     *   **on**: associated
+     *   **off**: not associated
+     *   **binding**: being associated
+     *   **unbinding**: being disassociated
+     *
+     * @example on
+     *
      * @var string
      */
     public $accessLogSwitch;
 
     /**
+     * @description The description of the endpoint group.
+     *
+     * @example EndpointGroup
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether access logging is enabled.
+     *
+     *   **on**: enabled
+     *   **off**: disabled
+     *
+     * @example on
+     *
      * @var bool
      */
     public $enableAccessLog;
 
     /**
+     * @description The ID of the endpoint group.
+     *
+     * @example epg-bp1dmlohjjz4kqaua****
+     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
+     * @description The list of endpoint group IP addresses.
+     *
      * @var string[]
      */
     public $endpointGroupIpList;
 
     /**
+     * @description The ID of the region where the endpoint group is created.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $endpointGroupRegion;
 
     /**
+     * @description The endpoint group IP addresses to be confirmed after the GA instance is upgraded.
+     *
      * @var string[]
      */
     public $endpointGroupUnconfirmedIpList;
 
     /**
+     * @description The ID of the custom routing listener.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
+     *
      * @var string
      */
     public $listenerId;
 
     /**
+     * @description The name of the endpoint group.
+     *
+     * @example group1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The name of the Logstore.
+     *
+     * @example lsn-01
+     *
      * @var string
      */
     public $slsLogStoreName;
 
     /**
+     * @description The name of the Log Service project.
+     *
+     * @example pn-01
+     *
      * @var string
      */
     public $slsProjectName;
 
     /**
+     * @description The region of the logs that are created in Log Service.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $slsRegion;
 
     /**
+     * @description The status of the endpoint group.
+     *
+     *   **init**: being initialized
+     *   **active**: running as expected
+     *   **updating**: being updated
+     *   **deleting**: being deleted
+     *
+     * @example active
+     *
      * @var string
      */
     public $state;

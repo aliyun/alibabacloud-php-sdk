@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class forwardingRules extends Model
 {
     /**
+     * @description The ID of the forwarding rule.
+     *
+     * @example frule-bp19a3t3yzr21q3****
+     *
      * @var string
      */
     public $forwardingRuleId;

@@ -15,21 +15,43 @@ class RemoveEntriesFromAclRequest extends Model
     public $aclEntries;
 
     /**
+     * @description The ID of the ACL.
+     *
+     * @example nacl-hp34s2h0xx1ht4nwo****
+     *
      * @var string
      */
     public $aclId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must ensure that it is unique among all requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * @example 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description Specifies whether to check the request without performing the operation. Valid values:
+     *
+     *   **true**: checks the request without performing the operation. The system checks the required parameters, request syntax, and limits. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+     *   **false** (default): sends the request. If the request passes the check, an HTTP 2xx status code is returned and the operation is performed.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

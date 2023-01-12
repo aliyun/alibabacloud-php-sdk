@@ -9,11 +9,28 @@ use AlibabaCloud\Tea\Model;
 class portOverrides extends Model
 {
     /**
+     * @description The endpoint port that is mapped to the listening port.
+     *
+     * >
+     *   You can configure endpoint groups and endpoints for an intelligent routing listener only if the **Type** parameter is set to **Standard**.
+     *   Only HTTP and HTTPS intelligent routing listeners support port mappings.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $endpointPort;
 
     /**
+     * @description The listening port that is mapped to the endpoint port.
+     *
+     * >
+     *   You can configure endpoint groups and endpoints for an intelligent routing listener only if the **Type** parameter is set to **Standard**.
+     *   Only HTTP and HTTPS intelligent routing listeners support port mappings.
+     *   The listening port in a port mapping must be the one used by the current listener.
+     *
+     * @example 443
+     *
      * @var int
      */
     public $listenerPort;

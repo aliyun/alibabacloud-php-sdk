@@ -10,21 +10,39 @@ use AlibabaCloud\Tea\Model;
 class GetHealthStatusResponseBody extends Model
 {
     /**
+     * @description The information about the endpoint group.
+     *
      * @var endpointGroups[]
      */
     public $endpointGroups;
 
     /**
+     * @description The health status of the listener. Valid values:
+     *
+     *   **normal**: The listener is normal.
+     *   **Abnormal**: The listener is abnormal.
+     *   **partiallyAbnormal**: Some exceptions occur to the listener.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $healthStatus;
 
     /**
+     * @description The ID of the listener.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
+     *
      * @var string
      */
     public $listenerId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 64ADAB1E-0B7F-4FD8-A404-3BECC0E9CCFF
+     *
      * @var string
      */
     public $requestId;

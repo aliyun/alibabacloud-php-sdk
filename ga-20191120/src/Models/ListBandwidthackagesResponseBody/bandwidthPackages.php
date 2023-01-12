@@ -10,56 +10,105 @@ use AlibabaCloud\Tea\Model;
 class bandwidthPackages extends Model
 {
     /**
+     * @description The ID of the GA instance that is associated with the bandwidth plan.
+     *
      * @var string[]
      */
     public $accelerators;
 
     /**
+     * @description The bandwidth value of the bandwidth plan. Unit: Mbit/s.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @description The ID of the bandwidth plan.
+     *
+     * @example gbwp-bp1sgzldyj6b4q7cx****
+     *
      * @var string
      */
     public $bandwidthPackageId;
 
     /**
+     * @description The billing method of the bandwidth plan. Only **PREPAY** is returned, which indicates the subscription billing method.
+     *
+     * @example PREPAY
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The timestamp when the bandwidth plan was created.
+     *
+     * @example 1578966918000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The description of the bandwidth plan.
+     *
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The timestamp when the bandwidth plan expires.
+     *
+     * @example 1578966918000
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The name of the GA instance.
+     *
+     * @example Accelerator
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DE77A7F3-3B74-41C0-A5BC-CAFD188C28B6
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-aekzzwgr7vz2liy
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The state of the bandwidth plan. Valid values:
+     *
+     *   **init**: The bandwidth plan is being initialized.
+     *   **active**: The bandwidth plan is available.
+     *   **binded**: The bandwidth plan is associated with a GA instance.
+     *   **binding**: The bandwidth plan is being associated.
+     *   **unbinding**: The bandwidth plan is being disassociated.
+     *   **updating**: The bandwidth plan is being updated.
+     *   **finacialLocked**: The bandwidth plan is locked due to overdue payments.
+     *   **Locked**: The bandwidth plan is locked.
+     *
+     * @example active
+     *
      * @var string
      */
     public $state;

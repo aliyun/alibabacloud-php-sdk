@@ -9,26 +9,48 @@ use AlibabaCloud\Tea\Model;
 class UpdateEndpointGroupAttributeRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The description of the endpoint group that you want to modify.
+     *
+     * @example testEndpointGroup
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the endpoint group.
+     *
+     * @example epg-bp1ple63864a5hyj5****
+     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
+     * @description The name of the endpoint group that you want to modify.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UpdateAdditionalCertificateWithListenerResponseBody extends Model
 {
     /**
+     * @description The ID of the listener.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
+     *
      * @var string
      */
     public $listenerId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example 6FEA0CF3-D3B9-43E5-A304-D217037876A8
+     *
      * @var string
      */
     public $requestId;

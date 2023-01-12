@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListEndpointGroupsResponseBody extends Model
 {
     /**
+     * @description The configurations of the endpoint group.
+     *
      * @var endpointGroups[]
      */
     public $endpointGroups;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A052D49E-CCC2-41DB-816C-DC3381503194
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

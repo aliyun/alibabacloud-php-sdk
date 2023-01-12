@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class UpdateBasicEndpointResponseBody extends Model
 {
     /**
+     * @description The ID of the endpoint group to which the endpoints belong.
+     *
+     * @example epg-bp1dmlohjjz4kqaun****
+     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
+     * @description The ID of the endpoint.
+     *
+     * @example ep-bp14sz7ftcwwjgrdm****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @description The name of the endpoint.
+     *
+     * @example ep01
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 6FEA0CF3-D3B9-43E5-A304-D217037876A8
+     *
      * @var string
      */
     public $requestId;

@@ -9,21 +9,46 @@ use AlibabaCloud\Tea\Model;
 class endpoints extends Model
 {
     /**
+     * @description The address of the endpoint.
+     *
+     * @example eni-bp1a05txelswuj8g****
+     *
      * @var string
      */
     public $endpointAddress;
 
     /**
+     * @description The ID of the endpoint.
+     *
+     * @example ep-bp14sz7ftcwwjgrdm****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @description The secondary address of the endpoint.
+     *
+     * This parameter is returned when the accelerated IP address is associated with the secondary private IP address of an ECS instance or ENI.
+     *
+     *   When the endpoint type is **ECS**, you can set **EndpointSubAddress** to the secondary private IP address of the primary ENI. If the parameter is left empty, the primary private IP address of the primary ENI is used.
+     *   When the endpoint type is **ENI**, you can set **EndpointSubAddress** to the secondary private IP address of the secondary ENI. If the parameter is left empty, the primary private IP address of the secondary ENI is used.
+     *
+     * @example 172.16.XX.XX
+     *
      * @var string
      */
     public $endpointSubAddress;
 
     /**
+     * @description The type of endpoint. Valid values:
+     *
+     *   **ENI**: ENI
+     *   **SLB**: CLB
+     *   **ECS**: ECS
+     *
+     * @example ENI
+     *
      * @var string
      */
     public $endpointType;

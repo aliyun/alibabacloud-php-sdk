@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomRoutingEndpointResponseBody extends Model
 {
     /**
+     * @description The ID of the GA instance with which the endpoint is associated.
+     *
+     * @example ga-bp1odcab8tmno0hdq****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The name of the endpoint (vSwitch).
+     *
+     * @example vsw-test01
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @description The ID of the endpoint group to which the endpoint belongs.
+     *
+     * @example epg-bp14sz7ftcwwjgrdm****
+     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
+     * @description The ID of the endpoint.
+     *
+     * @example ep-bp1dmlohjjz4kqaun****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @description The ID of the listener with which the endpoint is associated.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
+     *
      * @var string
      */
     public $listenerId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example String	04F0F334-1335-436C-A1D7-6C044FE73368
+     *
      * @var string
      */
     public $requestId;
@@ -41,9 +65,27 @@ class DescribeCustomRoutingEndpointResponseBody extends Model
     /**
      * @var string
      */
+    public $state;
+
+    /**
+     * @description The access policy of traffic for the specified endpoint. Valid values:
+     *
+     *   **AllowAll**: allows all traffic to the endpoint.
+     *   **DenyAll**: denies all traffic to the endpoint.
+     *   **AllowCustom**: allows traffic only to specified destinations.
+     *
+     * @example DenyAll
+     *
+     * @var string
+     */
     public $trafficToEndpointPolicy;
 
     /**
+     * @description The backend service type of the endpoint.
+     *
+     * Set the value to **PrivateSubNet**, which indicates private CIDR blocks.
+     * @example PrivateSubNet
+     *
      * @var string
      */
     public $type;
@@ -54,6 +96,7 @@ class DescribeCustomRoutingEndpointResponseBody extends Model
         'endpointId'              => 'EndpointId',
         'listenerId'              => 'ListenerId',
         'requestId'               => 'RequestId',
+        'state'                   => 'State',
         'trafficToEndpointPolicy' => 'TrafficToEndpointPolicy',
         'type'                    => 'Type',
     ];
@@ -82,6 +125,9 @@ class DescribeCustomRoutingEndpointResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
         if (null !== $this->trafficToEndpointPolicy) {
             $res['TrafficToEndpointPolicy'] = $this->trafficToEndpointPolicy;
@@ -118,6 +164,9 @@ class DescribeCustomRoutingEndpointResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
         if (isset($map['TrafficToEndpointPolicy'])) {
             $model->trafficToEndpointPolicy = $map['TrafficToEndpointPolicy'];

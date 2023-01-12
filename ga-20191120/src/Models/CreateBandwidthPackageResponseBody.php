@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateBandwidthPackageResponseBody extends Model
 {
     /**
+     * @description The ID of the bandwidth plan.
+     *
+     * @example gbwp-bp1sgzldyj6b4q7cx****
+     *
      * @var string
      */
     public $bandwidthPackageId;
 
     /**
+     * @description The ID of the order.
+     *
+     * If bills are not automatically paid, you must go to the Order Center to complete the payments.
+     * @example 208257****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4B6DBBB0-2D01-4C6A-A384-4129266E6B78
+     *
      * @var string
      */
     public $requestId;

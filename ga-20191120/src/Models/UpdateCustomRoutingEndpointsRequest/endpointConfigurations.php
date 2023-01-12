@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class endpointConfigurations extends Model
 {
     /**
+     * @description The ID of the endpoint.
+     *
+     * You can specify up to 20 endpoint IDs.
+     * @example ep-bp1dmlohjjz4kqaun****
+     *
      * @var string
      */
     public $endpointId;
@@ -20,6 +25,17 @@ class endpointConfigurations extends Model
     public $policyConfigurations;
 
     /**
+     * @description The access policy of traffic for the specified endpoint. Default value: DenyAll. Valid values:
+     *
+     *   **DenyAll**: denies all traffic to the endpoint.
+     *
+     *   **AllowAll**: allows all traffic to the endpoint.
+     *
+     *   **AllowCustom**: allows traffic only to specified destinations.
+     *
+     * You can specify up to 20 access policies of traffic for the specified endpoint.
+     * @example DenyAll
+     *
      * @var string
      */
     public $trafficToEndpointPolicy;

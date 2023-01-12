@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class portRanges extends Model
 {
     /**
+     * @description The first port in the range of listening ports that are used to receive and forward requests to endpoints.
+     *
+     * Valid values: **1** to **65499**. The value of **FromPort** must be smaller than or equal to the value of **ToPort**.
+     *
+     * >  You can configure only one listening port for an HTTP or HTTPS listener. In this case, the first port also serves as the last port.
+     * @example 20
+     *
      * @var int
      */
     public $fromPort;
 
     /**
+     * @description The last port in the range of listening ports that are used to receive and forward requests to endpoints.
+     *
+     * Valid values: **1** to **65499**. The value of **FromPort** must be smaller than or equal to the value of **ToPort**.
+     *
+     * >  You can configure only one listening port for an HTTP or HTTPS listener. In this case, the first port also serves as the last port.
+     * @example 20
+     *
      * @var int
      */
     public $toPort;

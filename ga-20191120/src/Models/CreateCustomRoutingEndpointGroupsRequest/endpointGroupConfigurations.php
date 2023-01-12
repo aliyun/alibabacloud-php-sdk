@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class endpointGroupConfigurations extends Model
 {
     /**
+     * @description The description of the endpoint group.
+     *
+     * You can specify up to five endpoint group descriptions.
+     * @example test
+     *
      * @var string
      */
     public $description;
@@ -26,11 +31,21 @@ class endpointGroupConfigurations extends Model
     public $endpointConfigurations;
 
     /**
+     * @description The ID of the region in which to create the endpoint group.
+     *
+     * You can specify up to five region IDs.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $endpointGroupRegion;
 
     /**
+     * @description The name of the endpoint group.
+     *
+     * You can specify up to five endpoint group names.
+     * @example test
+     *
      * @var string
      */
     public $name;

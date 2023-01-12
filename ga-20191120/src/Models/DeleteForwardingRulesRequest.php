@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class DeleteForwardingRulesRequest extends Model
 {
     /**
+     * @description The ID of the GA instance.
+     *
+     * @example ga-bp17frjjh0udz4q****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example frule-bp19a3t3yzr21q3****
+     *
      * @var string[]
      */
     public $forwardingRuleIds;
 
     /**
+     * @description The ID of the listener.
+     *
+     * @example lsr-bp1s0vzbi5bxlx5****
+     *
      * @var string
      */
     public $listenerId;
 
     /**
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

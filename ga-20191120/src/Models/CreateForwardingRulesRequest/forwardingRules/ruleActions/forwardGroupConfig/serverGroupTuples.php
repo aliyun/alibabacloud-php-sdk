@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class serverGroupTuples extends Model
 {
     /**
+     * @example epg-bp1ieei9664r5nv****
+     *
      * @var string
      */
     public $endpointGroupId;

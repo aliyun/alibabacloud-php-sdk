@@ -10,31 +10,62 @@ use AlibabaCloud\Tea\Model;
 class ListBandwidthPackagesRequest extends Model
 {
     /**
+     * @description The ID of the bandwidth plan.
+     *
+     * @example gbwp-bp1sgzldyj6b4q7cx****
+     *
      * @var string
      */
     public $bandwidthPackageId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **100**. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-aek2ry6mp2clrla
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The state of the bandwidth plan. Valid values:
+     *
+     *   **init**: The bandwidth plan is being initialized.
+     *   **active**: The bandwidth plan is available.
+     *   **binded**: The bandwidth plan is associated with a GA instance.
+     *   **binding**: The bandwidth plan is being associated.
+     *   **unbinding**: The bandwidth plan is being disassociated.
+     *   **updating**: The bandwidth plan is being updated.
+     *   **finacialLocked**: The bandwidth plan is locked due to overdue payments.
+     *   **Locked**: The bandwidth plan is locked.
+     *
+     * @example active
+     *
      * @var string
      */
     public $state;
@@ -45,6 +76,14 @@ class ListBandwidthPackagesRequest extends Model
     public $tag;
 
     /**
+     * @description The type of the bandwidth plan. Valid values:
+     *
+     *   **Basic**: a basic bandwidth plan
+     *   **CrossDomain**: a cross-region acceleration bandwidth plan
+     *
+     * If you call this operation on the Alibaba Cloud China Site (aliyun.com), you can only set Type to **Basic**.
+     * @example Basic
+     *
      * @var string
      */
     public $type;

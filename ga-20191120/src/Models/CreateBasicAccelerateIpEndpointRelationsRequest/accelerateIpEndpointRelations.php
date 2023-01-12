@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class accelerateIpEndpointRelations extends Model
 {
     /**
+     * @description The IDs of the accelerated IP addresses.
+     *
+     * You can specify at most 20 IP address IDs.
+     * @example gaip-bp1****
+     *
      * @var string
      */
     public $accelerateIpId;
 
     /**
+     * @description The IDs of the endpoints.
+     *
+     * You can specify up to 20 endpoint IDs.
+     * @example ep-bp14sz7ftcwwjgrdm****
+     *
      * @var string
      */
     public $endpointId;

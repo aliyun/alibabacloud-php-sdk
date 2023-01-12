@@ -12,86 +12,163 @@ use AlibabaCloud\Tea\Model;
 class GetBasicAcceleratorResponseBody extends Model
 {
     /**
+     * @description The ID of the basic GA instance.
+     *
+     * @example ga-bp17frjjh0udz4qz****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The bandwidth billing method. Valid values:
+     *
+     *   **BandwidthPackage**: billed based on bandwidth plans.
+     *   **CDT**: billed based on data transfer.
+     *
+     * @example CDT
+     *
      * @var string
      */
     public $bandwidthBillingType;
 
     /**
+     * @description Details about the basic bandwidth plan that is associated with the basic GA instance.
+     *
      * @var basicBandwidthPackage
      */
     public $basicBandwidthPackage;
 
     /**
+     * @description The ID of the endpoint group that is associated with the basic GA instance.
+     *
+     * @example epg-bp1dmlohjjz4kqaun****
+     *
      * @var string
      */
     public $basicEndpointGroupId;
 
     /**
+     * @description The ID of the region where the basic GA instance is deployed.
+     *
+     * @example ips-bp11ilwqjdkjeg9r7****
+     *
      * @var string
      */
     public $basicIpSetId;
 
     /**
+     * @description The ID of the Cloud Enterprise Network (CEN) instance to which the basic GA instance is attached.
+     *
+     * @example cen-hjkduu767hc****
+     *
      * @var string
      */
     public $cenId;
 
     /**
+     * @description The timestamp that indicates when the basic GA instance was created.
+     *
+     * @example 1637734547
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description Details about the cross-region acceleration bandwidth plan that is associated with the GA instance.
+     *
+     * This parameter is returned only when you call this operation on the International site (alibabacloud.com).
      * @var crossDomainBandwidthPackage
      */
     public $crossDomainBandwidthPackage;
 
     /**
+     * @description Indicates whether China Unicom cross-border communication is enabled.
+     *
+     *   **true**: China Unicom cross-border communication is enabled.
+     *   **false**: China Unicom cross-border communication is disabled.
+     *
+     * @example false
+     *
      * @var string
      */
     public $crossPrivateState;
 
     /**
+     * @description The description of the basic GA instance.
+     *
+     * @example BasicAccelerator
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The timestamp that indicates when the basic GA instance expires.
+     *
+     * @example 1640326547
+     *
      * @var int
      */
     public $expiredTime;
 
     /**
+     * @description The billing method of the basic GA instance. Only **PREPAY** is returned, which indicates the subscription billing method.
+     *
+     * @example PREPAY
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description The name of the basic GA instance.
+     *
+     * @example BasicAccelerator
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the region where the basic GA instance is deployed.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F591955F-5CB5-4CCE-A75D-17CF2085CE22
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example rg-aekzrnd67gq****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The state of the basic GA instance. Valid values:
+     *
+     *   **init**: The basic GA instance is being initialized.
+     *   **active**: The basic GA instance is available.
+     *   **configuring**: The basic GA instance is being configured.
+     *   **binding**: The basic GA instance is being associated.
+     *   **unbinding**: The basic GA instance is being disassociated.
+     *   **deleting**: The basic GA instance is being deleted.
+     *   **finacialLocked**: The basic GA instance is locked due to overdue payments.
+     *
+     * @example active
+     *
      * @var string
      */
     public $state;

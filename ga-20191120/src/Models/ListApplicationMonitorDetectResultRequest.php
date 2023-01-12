@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationMonitorDetectResultRequest extends Model
 {
     /**
+     * @description The start time of the time range to be queried. The time follows the UNIX time format. It is the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1638288000
+     *
      * @var int
      */
     public $beginTime;
 
     /**
+     * @description The end time of the time range to be queried. The time follows the UNIX time format. It is the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1640164683
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **100**. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the origin probing task.
+     *
+     * @example sm-bp1fpdjfju9k8yr1y****
+     *
      * @var string
      */
     public $taskId;

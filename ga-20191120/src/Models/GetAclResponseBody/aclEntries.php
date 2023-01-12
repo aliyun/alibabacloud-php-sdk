@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class aclEntries extends Model
 {
     /**
+     * @description The network ACL entry.
+     *
+     * @example 10.0.XX.XX/24
+     *
      * @var string
      */
     public $entry;
 
     /**
+     * @description The description of the network ACL entry.
+     *
+     * @example test-entry
+     *
      * @var string
      */
     public $entryDescription;

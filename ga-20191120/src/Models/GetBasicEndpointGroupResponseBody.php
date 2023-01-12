@@ -9,51 +9,97 @@ use AlibabaCloud\Tea\Model;
 class GetBasicEndpointGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the basic GA instance.
+     *
+     * @example ga-bp17frjjh0udz4qz****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The description of the endpoint group that is associated with the basic GA instance.
+     *
+     * @example BasicEndpointGroup
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The address of the endpoint.
+     *
+     * @example eni-bp1a05txelswuj8g****
+     *
      * @var string
      */
     public $endpointAddress;
 
     /**
+     * @description The ID of the endpoint group that is associated with the basic GA instance.
+     *
+     * @example epg-bp1dmlohjjz4kqaun****
+     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
+     * @description The ID of the region where the endpoint group resides.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $endpointGroupRegion;
 
     /**
+     * @example 172.16.XX.XX
+     *
      * @var string
      */
     public $endpointSubAddress;
 
     /**
+     * @description The type of endpoint. Valid values:
+     *
+     *   **ENI**: elastic network interface (ENI)
+     *   **SLB**: Server Load Balancer (SLB) instance
+     *
+     * @example ENI
+     *
      * @var string
      */
     public $endpointType;
 
     /**
+     * @description The name of the endpoint group that is associated with the basic GA instance.
+     *
+     * @example group1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The state of the endpoint group.
+     *
+     *   **init**: The endpoint group is being initialized.
+     *   **active**: The endpoint group is running as expected.
+     *   **updating**: The endpoint group is being updated.
+     *   **deleting**: The endpoint group is being deleted.
+     *
+     * @example active
+     *
      * @var string
      */
     public $state;

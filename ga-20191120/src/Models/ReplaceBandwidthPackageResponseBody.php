@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ReplaceBandwidthPackageResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example A0EA8CCA-F081-4338-9790-A1C791CCA779
+     *
      * @var string
      */
     public $requestId;

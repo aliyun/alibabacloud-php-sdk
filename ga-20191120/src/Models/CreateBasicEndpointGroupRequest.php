@@ -9,46 +9,89 @@ use AlibabaCloud\Tea\Model;
 class CreateBasicEndpointGroupRequest extends Model
 {
     /**
+     * @description The ID of the basic GA instance.
+     *
+     * @example ga-bp17frjjh0udz4qz****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The description of the endpoint group.
+     *
+     * The description cannot exceed 256 characters in length and cannot contain `http://` or `https://`.
+     * @example BasicEndpointGroup
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The address of the endpoint.
+     *
+     * @example eni-bp1a05txelswuj8g****
+     *
      * @var string
      */
     public $endpointAddress;
 
     /**
+     * @description The ID of the region where you want to create the endpoint group.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $endpointGroupRegion;
 
     /**
+     * @example 172.16.XX.XX
+     *
      * @var string
      */
     public $endpointSubAddress;
 
     /**
+     * @description The type of the endpoint. Valid values:
+     *
+     *   **ENI**: an ENI
+     *   **SLB**: a Server Load Balancer (SLB) instance
+     *
+     * @example ENI
+     *
      * @var string
      */
     public $endpointType;
 
     /**
+     * @description The name of the endpoint group.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * @example group1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the region where the basic GA instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,31 +9,63 @@ use AlibabaCloud\Tea\Model;
 class ListListenerCertificatesRequest extends Model
 {
     /**
+     * @description The ID of the GA instance.
+     *
+     * @example ga-bp1odcab8tmno0hdq****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The ID of the listener.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
+     *
      * @var string
      */
     public $listenerId;
 
     /**
+     * @description The number of entries to return.
+     *
+     * Valid values: **1** to **50**. Default value: **20**.
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that determines the start point of the next query. Valid values:
+     *
+     *   If this is your first and only query, ignore this parameter.
+     *   If a next query is to be performed, set the value to the NextToken value returned in the last call to the ListListenerCertificates operation.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of the certificate. Valid values:
+     *
+     *   **default**: a default certificate
+     *   **additional**: an additional certificate
+     *
+     * If you do not set this parameter, default and additional certificates are returned by default.
+     * @example default
+     *
      * @var string
      */
     public $role;

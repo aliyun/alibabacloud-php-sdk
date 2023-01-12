@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetBasicAcceleratorRequest extends Model
 {
     /**
+     * @description The ID of the basic GA instance that you want to query.
+     *
+     * @example ga-bp17frjjh0udz4qz****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The ID of the region to which the basic GA instance belongs. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

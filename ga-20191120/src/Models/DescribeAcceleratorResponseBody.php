@@ -13,101 +13,204 @@ use AlibabaCloud\Tea\Model;
 class DescribeAcceleratorResponseBody extends Model
 {
     /**
+     * @description The ID of the GA instance.
+     *
+     * @example ga-bp1odcab8tmno0hdq****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @example CDT
+     *
      * @var string
      */
     public $bandwidthBillingType;
 
     /**
+     * @description Details about the basic bandwidth plan that is associated with the GA instance.
+     *
      * @var basicBandwidthPackage
      */
     public $basicBandwidthPackage;
 
     /**
+     * @description The ID of the Cloud Enterprise Network (CEN) instance with which the GA instance is associated.
+     *
+     * @example cen-hjkduu767hc****
+     *
      * @var string
      */
     public $cenId;
 
     /**
+     * @description The timestamp that indicates the time when the GA instance was created.
+     *
+     * @example 1650643200
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example private
+     *
+     * @var string
+     */
+    public $crossBorderMode;
+
+    /**
+     * @description Details about the cross-region acceleration bandwidth plan that is associated with the GA instance.
+     *
+     * This array is returned only for GA instances that are created on the International site (alibabacloud.com).
      * @var crossDomainBandwidthPackage
      */
     public $crossDomainBandwidthPackage;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $crossPrivateState;
 
     /**
+     * @description The ID of the Anti-DDoS Pro or Anti-DDoS Premium instance that is associated with the GA instance.
+     *
+     * @example ddoscoo-cn-zz11vq7j****
+     *
      * @var string
      */
     public $ddosId;
 
     /**
+     * @description The description of the GA instance.
+     *
+     * @example Accelerator
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The canonical name (CNAME) that is assigned to the GA instance.
+     *
+     * @example ga-bp1j80t5****.uisnetwork.com
+     *
      * @var string
      */
     public $dnsName;
 
     /**
+     * @description The timestamp that indicates the time when the GA instance expires.
+     *
+     * @example 1653235200
+     *
      * @var int
      */
     public $expiredTime;
 
     /**
+     * @description The billing method of the GA instance.
+     *
+     * @example PREPAY
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description The configurations of the acceleration area.
+     *
      * @var ipSetConfig
      */
     public $ipSetConfig;
 
     /**
+     * @description The name of the GA instance.
+     *
+     * @example Accelerator
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The region ID of the GA instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 6FEA0CF3-D3B9-43E5-A304-D217037876A8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example rg-acfmw2vwdbujqbq
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The CNAME that is used to integrate the GA instance with the Anti-DDoS service.
+     *
+     * @example ga-bp1f609c76zg6zuna****-1.aliyunga0047.com
+     *
      * @var string
      */
     public $secondDnsName;
 
     /**
+     * @description The specification of the GA instance. Valid values:
+     *
+     *   **1**: Small Ⅰ
+     *   **2**: Small Ⅱ
+     *   **3**: Small Ⅲ
+     *   **5**: Medium Ⅰ
+     *   **8**: Medium Ⅱ
+     *   **10**: Medium Ⅲ
+     *   **20**: Large Ⅰ
+     *   **30**: Large Ⅱ
+     *   **40**: Large Ⅲ
+     *   **50**: Large Ⅳ
+     *   **60**: Large Ⅴ
+     *   **70**: Large Ⅵ
+     *   **80**: Large VⅡ
+     *   **90**: Large VⅢ
+     *   **100**: Super Large Ⅰ
+     *   **200**: Super Large Ⅱ
+     *   **300**: Super Large Ⅲ
+     *
+     * Each instance specification provides different capabilities. For more information, see the "Specifications of standard GA instances" section in [Overview](~~153127~~).
+     * @example 1
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @description The state of the GA instance. Valid values:
+     *
+     *   **init**: The GA instance is being initialized.
+     *   **active**: The GA instance is available.
+     *   **configuring**: The GA instance is being configured.
+     *   **binding**: The GA instance is being associated.
+     *   **unbinding**: The GA instance is being disassociated.
+     *   **deleting**: The GA instance is being deleted.
+     *   **finacialLocked**: The GA instance is locked due to overdue payments.
+     *
+     * @example active
+     *
      * @var string
      */
     public $state;
@@ -122,6 +225,7 @@ class DescribeAcceleratorResponseBody extends Model
         'basicBandwidthPackage'       => 'BasicBandwidthPackage',
         'cenId'                       => 'CenId',
         'createTime'                  => 'CreateTime',
+        'crossBorderMode'             => 'CrossBorderMode',
         'crossDomainBandwidthPackage' => 'CrossDomainBandwidthPackage',
         'crossPrivateState'           => 'CrossPrivateState',
         'ddosId'                      => 'DdosId',
@@ -161,6 +265,9 @@ class DescribeAcceleratorResponseBody extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->crossBorderMode) {
+            $res['CrossBorderMode'] = $this->crossBorderMode;
         }
         if (null !== $this->crossDomainBandwidthPackage) {
             $res['CrossDomainBandwidthPackage'] = null !== $this->crossDomainBandwidthPackage ? $this->crossDomainBandwidthPackage->toMap() : null;
@@ -242,6 +349,9 @@ class DescribeAcceleratorResponseBody extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['CrossBorderMode'])) {
+            $model->crossBorderMode = $map['CrossBorderMode'];
         }
         if (isset($map['CrossDomainBandwidthPackage'])) {
             $model->crossDomainBandwidthPackage = crossDomainBandwidthPackage::fromMap($map['CrossDomainBandwidthPackage']);

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomRoutingEndpointGroupDestinationsRequest extends Model
 {
     /**
+     * @description The ID of the endpoint group mapping configuration.
+     *
+     * @example dst-123abc****
+     *
      * @var string
      */
     public $destinationId;
@@ -16,10 +20,20 @@ class DescribeCustomRoutingEndpointGroupDestinationsRequest extends Model
     /**
      * @var string
      */
+    public $endpointGroupId;
+
+    /**
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
     public $regionId;
     protected $_name = [
-        'destinationId' => 'DestinationId',
-        'regionId'      => 'RegionId',
+        'destinationId'   => 'DestinationId',
+        'endpointGroupId' => 'EndpointGroupId',
+        'regionId'        => 'RegionId',
     ];
 
     public function validate()
@@ -31,6 +45,9 @@ class DescribeCustomRoutingEndpointGroupDestinationsRequest extends Model
         $res = [];
         if (null !== $this->destinationId) {
             $res['DestinationId'] = $this->destinationId;
+        }
+        if (null !== $this->endpointGroupId) {
+            $res['EndpointGroupId'] = $this->endpointGroupId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -49,6 +66,9 @@ class DescribeCustomRoutingEndpointGroupDestinationsRequest extends Model
         $model = new self();
         if (isset($map['DestinationId'])) {
             $model->destinationId = $map['DestinationId'];
+        }
+        if (isset($map['EndpointGroupId'])) {
+            $model->endpointGroupId = $map['EndpointGroupId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

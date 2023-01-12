@@ -10,51 +10,93 @@ use AlibabaCloud\Tea\Model;
 class portMappings extends Model
 {
     /**
+     * @description The ID of the GA instance.
+     *
+     * @example ga-bp1odcab8tmno0hdq****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The acceleration port.
+     *
+     * @example 3000
+     *
      * @var int
      */
     public $acceleratorPort;
 
     /**
+     * @description The service IP address and port of the backend instance.
+     *
      * @var destinationSocketAddress
      */
     public $destinationSocketAddress;
 
     /**
+     * @description The access policy of traffic for the backend instance.
+     *
+     *   **allow**: allows traffic to the backend instance.
+     *   **deny**: denies all traffic to the backend instance.
+     *
+     * @example allow
+     *
      * @var string
      */
     public $destinationTrafficState;
 
     /**
+     * @description The ID of the endpoint group.
+     *
+     * @example epg-bp14sz7ftcwwjgrdm****
+     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
+     * @description The ID of the region in which the endpoint group resides.
+     *
+     * @example us-west-1
+     *
      * @var string
      */
     public $endpointGroupRegion;
 
     /**
+     * @description The ID of the endpoint.
+     *
+     * @example ep-bp14sz7ftcwwjgrdm****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @description The ID of the listener.
+     *
+     * @example ga-bp1odcab8tmno0hdq****
+     *
      * @var string
      */
     public $listenerId;
 
     /**
+     * @description The protocol of the backend service.
+     *
+     *   **tcp**: TCP
+     *   **udp**: UDP
+     *
      * @var string[]
      */
     public $protocols;
 
     /**
+     * @description The name of the endpoint (vSwitch).
+     *
+     * @example vsw-test01
+     *
      * @var string
      */
     public $vswitch;

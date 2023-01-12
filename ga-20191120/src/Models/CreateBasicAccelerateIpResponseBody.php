@@ -9,31 +9,56 @@ use AlibabaCloud\Tea\Model;
 class CreateBasicAccelerateIpResponseBody extends Model
 {
     /**
+     * @description The accelerated IP address.
+     *
+     * @example 116.132.XX.XX
+     *
      * @var string
      */
     public $accelerateIpAddress;
 
     /**
+     * @description The ID of the accelerated IP address.
+     *
+     * @example gaip-bp1****
+     *
      * @var string
      */
     public $accelerateIpId;
 
     /**
+     * @description The ID of the basic GA instance.
+     *
+     * @example ga-bp17frjjh0udz4qz****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The ID of the acceleration region.
+     *
+     * @example ips-bp11r5jb8ogp122xl****
+     *
      * @var string
      */
     public $ipSetId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status of the accelerated IP address.
+     *
+     * >  This parameter returns an empty string because the parameter is not in use.
+     * @example null
+     *
      * @var string
      */
     public $state;

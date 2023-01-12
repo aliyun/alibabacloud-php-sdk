@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class relatedAcls extends Model
 {
     /**
+     * @description The ID of the ACL that is associated with the listener.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $aclId;
 
     /**
+     * @description Indicates whether the access control feature is enabled. Valid values:
+     *
+     *   **on**: enabled
+     *   **off**: disabled
+     *
+     * @example off
+     *
      * @var string
      */
     public $status;

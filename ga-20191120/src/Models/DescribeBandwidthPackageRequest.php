@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeBandwidthPackageRequest extends Model
 {
     /**
+     * @description The ID of the bandwidth plan that you want to query.
+     *
+     * @example gbwp-bp1sgzldyj6b4q7cx****
+     *
      * @var string
      */
     public $bandwidthPackageId;
 
     /**
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,26 +9,66 @@ use AlibabaCloud\Tea\Model;
 class XForwardedForConfig extends Model
 {
     /**
+     * @description Specifies whether to use the `GA-AP` header to retrieve the information about acceleration regions. Default value: false. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * >  You can specify this parameter only for HTTP and HTTPS listeners.
+     * @example false
+     *
      * @var bool
      */
     public $XForwardedForGaApEnabled;
 
     /**
+     * @description Specifies whether to use the `GA-ID` header to retrieve the ID of the GA instance. Default value: false. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * >  You can specify this parameter only for HTTP and HTTPS listeners.
+     * @example false
+     *
      * @var bool
      */
     public $XForwardedForGaIdEnabled;
 
     /**
+     * @description Specifies whether to use the `GA-X-Forward-Port` header to retrieve the listener ports of the GA instance. Default value: false. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * >  You can specify this parameter only for HTTP and HTTPS listeners.
+     * @example false
+     *
      * @var bool
      */
     public $XForwardedForPortEnabled;
 
     /**
+     * @description Specifies whether to use the `GA-X-Forward-Proto` header to retrieve the listener protocol of the GA instance. Default value: false. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * >  You can specify this parameter only for HTTP and HTTPS listeners.
+     * @example false
+     *
      * @var bool
      */
     public $XForwardedForProtoEnabled;
 
     /**
+     * @description Specifies whether to use the `X-Real-IP` header to retrieve client IP addresses. Default value: false. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * >  You can specify this parameter only for HTTP and HTTPS listeners.
+     * @example false
+     *
      * @var bool
      */
     public $XRealIpEnabled;

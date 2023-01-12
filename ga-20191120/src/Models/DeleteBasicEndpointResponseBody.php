@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteBasicEndpointResponseBody extends Model
 {
     /**
+     * @description The ID of the endpoint.
+     *
+     * @example ep-bp14sz7ftcwwjgrdm****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
+     *
      * @var string
      */
     public $requestId;

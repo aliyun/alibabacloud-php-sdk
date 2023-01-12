@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeBandwidthPackageAutoRenewAttributeRequest extends Model
 {
     /**
+     * @description The ID of the bandwidth plan.
+     *
+     * @example gbwp-bp1iquvlp8khla5emb3ia
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to cn-hangzhou.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

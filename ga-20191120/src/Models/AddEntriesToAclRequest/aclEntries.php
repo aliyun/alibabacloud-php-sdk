@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class aclEntries extends Model
 {
     /**
+     * @description The IP address or CIDR block that you want to add to the network ACL.
+     *
+     * >  This parameter is required.
+     * @example 10.0.XX.XX/24
+     *
      * @var string
      */
     public $entry;
 
     /**
+     * @description The description of the entry.
+     *
+     * The description must be 1 to 256 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (\_).
+     * @example test-entry
+     *
      * @var string
      */
     public $entryDescription;

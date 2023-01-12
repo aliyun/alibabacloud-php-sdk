@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateBasicIpSetResponseBody extends Model
 {
     /**
+     * @description The ID of the acceleration region of the basic GA instance.
+     *
+     * @example ips-bp11r5jb8ogp122xl****
+     *
      * @var string
      */
     public $ipSetId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class AssociateAclsWithListenerResponseBody extends Model
 {
     /**
+     * @description The ID of the ACL.
+     *
      * @var string[]
      */
     public $aclIds;
 
     /**
+     * @description The ID of the listener.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
+     *
      * @var string
      */
     public $listenerId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 64ADAB1E-0B7F-4FD8-A404-3BECC0E9CCFF
+     *
      * @var string
      */
     public $requestId;

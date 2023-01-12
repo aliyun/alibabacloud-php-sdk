@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class BandwidthPackageAddAcceleratorRequest extends Model
 {
     /**
+     * @description The ID of the GA instance.
+     *
+     * @example ga-bp1qe94o52ot4pkfn****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The ID of the bandwidth plan.
+     *
+     * @example gbwp-bp1sgzldyj6b4q7cx****
+     *
      * @var string
      */
     public $bandwidthPackageId;
 
     /**
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class BandwidthPackageAddAcceleratorResponseBody extends Model
 {
     /**
+     * @description The ID of the GA instance.
+     *
      * @var string[]
      */
     public $accelerators;
 
     /**
+     * @description The ID of the bandwidth plan.
+     *
+     * @example gbwp-bp1sgzldyj6b4q7cx****
+     *
      * @var string
      */
     public $bandwidthPackageId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B7770CB9-9745-4FE5-9EDA-D14B01A12A50
+     *
      * @var string
      */
     public $requestId;

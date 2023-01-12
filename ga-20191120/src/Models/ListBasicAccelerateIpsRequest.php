@@ -9,36 +9,70 @@ use AlibabaCloud\Tea\Model;
 class ListBasicAccelerateIpsRequest extends Model
 {
     /**
+     * @description The accelerated IP address of the basic GA instance.
+     *
+     * @example 116.132.XX.XX
+     *
      * @var string
      */
     public $accelerateIpAddress;
 
     /**
+     * @description The ID of the accelerated IP address of the basic GA instance.
+     *
+     * @example gaip-bp1****
+     *
      * @var string
      */
     public $accelerateIpId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the acceleration region.
+     *
+     * @example ips-bp11r5jb8ogp122xl****
+     *
      * @var string
      */
     public $ipSetId;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **1** to **50**. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that determines the start point of the query. Valid values:
+     *
+     *   If this is your first query and no next queries are to be sent, ignore this parameter.
+     *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

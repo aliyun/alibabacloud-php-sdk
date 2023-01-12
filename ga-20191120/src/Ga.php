@@ -56,6 +56,8 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\CreateCustomRoutingEndpointsRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateCustomRoutingEndpointsResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateCustomRoutingEndpointTrafficPoliciesRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateCustomRoutingEndpointTrafficPoliciesResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateDomainRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateDomainResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupsRequest;
@@ -96,6 +98,8 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteCustomRoutingEndpointsRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteCustomRoutingEndpointsResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteCustomRoutingEndpointTrafficPoliciesRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteCustomRoutingEndpointTrafficPoliciesResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteDomainAcceleratorRelationRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteDomainAcceleratorRelationResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteEndpointGroupRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteEndpointGroupResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteEndpointGroupsRequest;
@@ -120,6 +124,10 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeBandwidthPackageAutoRenewAttrib
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeBandwidthPackageAutoRenewAttributeResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeBandwidthPackageRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeBandwidthPackageResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeCommodityPriceRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeCommodityPriceResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeCommodityRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeCommodityResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeCustomRoutingEndpointGroupDestinationsRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeCustomRoutingEndpointGroupDestinationsResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeCustomRoutingEndpointGroupRequest;
@@ -168,6 +176,10 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicIpSetRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicIpSetResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetHealthStatusRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetHealthStatusResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\GetInvalidDomainCountRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\GetInvalidDomainCountResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\GetIpsetsBandwidthLimitRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\GetIpsetsBandwidthLimitResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetSpareIpRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetSpareIpResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListAccelerateAreasRequest;
@@ -198,6 +210,8 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\ListBasicEndpointsRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListBasicEndpointsResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListBusiRegionsRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListBusiRegionsResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListCommonAreasRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListCommonAreasResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingEndpointGroupDestinationsRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingEndpointGroupDestinationsResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingEndpointGroupsRequest;
@@ -210,12 +224,16 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingPortMappingsByDestinat
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingPortMappingsByDestinationResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingPortMappingsRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingPortMappingsResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListDomainsRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListDomainsResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListEndpointGroupsRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListEndpointGroupsResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListForwardingRulesRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListForwardingRulesResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListIpSetsRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListIpSetsResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListIspTypesRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListIspTypesResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListListenerCertificatesRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListListenerCertificatesResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListListenersRequest;
@@ -226,6 +244,8 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\ListSystemSecurityPoliciesRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListSystemSecurityPoliciesResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\QueryCrossPrivatePermissionRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\QueryCrossPrivatePermissionResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\RemoveEntriesFromAclRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\RemoveEntriesFromAclResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ReplaceBandwidthPackageRequest;
@@ -258,6 +278,8 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBasicEndpointRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBasicEndpointResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBasicIpSetRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBasicIpSetResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateCrossPrivateStateRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateCrossPrivateStateResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateCustomRoutingEndpointGroupAttributeRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateCustomRoutingEndpointGroupAttributeResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateCustomRoutingEndpointGroupDestinationsRequest;
@@ -266,6 +288,10 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateCustomRoutingEndpointsRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateCustomRoutingEndpointsResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateCustomRoutingEndpointTrafficPoliciesRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateCustomRoutingEndpointTrafficPoliciesResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateDomainRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateDomainResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateDomainStateRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateDomainStateResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateEndpointGroupAttributeRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateEndpointGroupAttributeResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateEndpointGroupRequest;
@@ -320,10 +346,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param AddEntriesToAclRequest $request
-     * @param RuntimeOptions         $runtime
+     * *   The **AddEntriesToAcl** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the status of an ACL:
+     *   *     *   If an ACL is in the **configuring** state, the IP entries are being added. In this case, you can perform only query operations.
+     *   *     *   If an ACL is in the **active** state, the IP entries are added.
+     *   * *   You cannot repeatedly call the **AddEntriesToAcl** operation for the same Global Accelerator (GA) instance within the specified period of time.
+     *   *
+     * @param AddEntriesToAclRequest $request AddEntriesToAclRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddEntriesToAclResponse
+     * @return AddEntriesToAclResponse AddEntriesToAclResponse
      */
     public function addEntriesToAclWithOptions($request, $runtime)
     {
@@ -363,9 +394,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param AddEntriesToAclRequest $request
+     * *   The **AddEntriesToAcl** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the status of an ACL:
+     *   *     *   If an ACL is in the **configuring** state, the IP entries are being added. In this case, you can perform only query operations.
+     *   *     *   If an ACL is in the **active** state, the IP entries are added.
+     *   * *   You cannot repeatedly call the **AddEntriesToAcl** operation for the same Global Accelerator (GA) instance within the specified period of time.
+     *   *
+     * @param AddEntriesToAclRequest $request AddEntriesToAclRequest
      *
-     * @return AddEntriesToAclResponse
+     * @return AddEntriesToAclResponse AddEntriesToAclResponse
      */
     public function addEntriesToAcl($request)
     {
@@ -375,10 +411,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param AssociateAclsWithListenerRequest $request
-     * @param RuntimeOptions                   $runtime
+     * *   **AssociateAclsWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of the listener with which you attempt to associate an ACL.
+     *   *     *   If the listener is in the **updating** state, it indicates that the ACL is being associated. In this case, you can perform only query operations.
+     *   *     *   If the listener is in the **active** state, it indicates that the ACL is associated.
+     *   * *   The **AssociateAclsWithListener** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param AssociateAclsWithListenerRequest $request AssociateAclsWithListenerRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssociateAclsWithListenerResponse
+     * @return AssociateAclsWithListenerResponse AssociateAclsWithListenerResponse
      */
     public function associateAclsWithListenerWithOptions($request, $runtime)
     {
@@ -421,9 +462,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param AssociateAclsWithListenerRequest $request
+     * *   **AssociateAclsWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of the listener with which you attempt to associate an ACL.
+     *   *     *   If the listener is in the **updating** state, it indicates that the ACL is being associated. In this case, you can perform only query operations.
+     *   *     *   If the listener is in the **active** state, it indicates that the ACL is associated.
+     *   * *   The **AssociateAclsWithListener** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param AssociateAclsWithListenerRequest $request AssociateAclsWithListenerRequest
      *
-     * @return AssociateAclsWithListenerResponse
+     * @return AssociateAclsWithListenerResponse AssociateAclsWithListenerResponse
      */
     public function associateAclsWithListener($request)
     {
@@ -433,10 +479,16 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param AssociateAdditionalCertificatesWithListenerRequest $request
-     * @param RuntimeOptions                                     $runtime
+     * *   You can associate additional certificates with only HTTPS listeners.
+     *   * *   **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of the listener with which you attempt to associate an additional certificate.
+     *   *     *   If the listener is in the **updating** state, it indicates that the additional certificate is being associated. In this case, you can perform only query operations.
+     *   *     *   If the listener is in the **active** state, it indicates that the additional certificate is associated.
+     *   * *   The **AssociateAdditionalCertificatesWithListener** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param AssociateAdditionalCertificatesWithListenerRequest $request AssociateAdditionalCertificatesWithListenerRequest
+     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssociateAdditionalCertificatesWithListenerResponse
+     * @return AssociateAdditionalCertificatesWithListenerResponse AssociateAdditionalCertificatesWithListenerResponse
      */
     public function associateAdditionalCertificatesWithListenerWithOptions($request, $runtime)
     {
@@ -476,9 +528,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param AssociateAdditionalCertificatesWithListenerRequest $request
+     * *   You can associate additional certificates with only HTTPS listeners.
+     *   * *   **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of the listener with which you attempt to associate an additional certificate.
+     *   *     *   If the listener is in the **updating** state, it indicates that the additional certificate is being associated. In this case, you can perform only query operations.
+     *   *     *   If the listener is in the **active** state, it indicates that the additional certificate is associated.
+     *   * *   The **AssociateAdditionalCertificatesWithListener** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param AssociateAdditionalCertificatesWithListenerRequest $request AssociateAdditionalCertificatesWithListenerRequest
      *
-     * @return AssociateAdditionalCertificatesWithListenerResponse
+     * @return AssociateAdditionalCertificatesWithListenerResponse AssociateAdditionalCertificatesWithListenerResponse
      */
     public function associateAdditionalCertificatesWithListener($request)
     {
@@ -488,10 +546,20 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param AttachDdosToAcceleratorRequest $request
-     * @param RuntimeOptions                 $runtime
+     * When you call this operation, take note of the following items:
+     *   * *   When you call this operation, the system checks whether the GA instance assumes the service-linked role AliyunServiceRoleForGaAntiDdos. In this case, the following rules apply to the GA instance:
+     *   *     *   If the GA instance does not assume the service-linked role AliyunServiceRoleForGaAntiDdos, the system automatically creates the service-linked role and attaches the policy AliyunServiceRolePolicyForGaAntiDdos to the service-linked role. This allows GA to access the Anti-DDoS Pro/Premium instance.
+     *   *     *   If the GA instance assumes the service-linked role AliyunServiceRoleForGaAntiDdos, the system does not create the service-linked role again.
+     *   *     For more information, see [AliyunServiceRoleForGaAntiDdos](~~186805~~).
+     *   * *   **AttachDdosToAccelerator** is an asynchronous operation. After you call the operation, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the status of the GA instance.
+     *   *     *   If the GA instance is in the **configuring** state, the Anti-DDoS Pro/Premium instance is being associated with the GA instance. In this case, you can perform only query operations.
+     *   *     *   If the GA instance is in the **active** state, the Anti-DDoS Pro/Premium instance is associated with the GA instance.
+     *   * *   You cannot repeatedly call the **AttachDdosToAccelerator** operation for the same GA instance within a specific period of time.
+     *   *
+     * @param AttachDdosToAcceleratorRequest $request AttachDdosToAcceleratorRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachDdosToAcceleratorResponse
+     * @return AttachDdosToAcceleratorResponse AttachDdosToAcceleratorResponse
      */
     public function attachDdosToAcceleratorWithOptions($request, $runtime)
     {
@@ -528,9 +596,19 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param AttachDdosToAcceleratorRequest $request
+     * When you call this operation, take note of the following items:
+     *   * *   When you call this operation, the system checks whether the GA instance assumes the service-linked role AliyunServiceRoleForGaAntiDdos. In this case, the following rules apply to the GA instance:
+     *   *     *   If the GA instance does not assume the service-linked role AliyunServiceRoleForGaAntiDdos, the system automatically creates the service-linked role and attaches the policy AliyunServiceRolePolicyForGaAntiDdos to the service-linked role. This allows GA to access the Anti-DDoS Pro/Premium instance.
+     *   *     *   If the GA instance assumes the service-linked role AliyunServiceRoleForGaAntiDdos, the system does not create the service-linked role again.
+     *   *     For more information, see [AliyunServiceRoleForGaAntiDdos](~~186805~~).
+     *   * *   **AttachDdosToAccelerator** is an asynchronous operation. After you call the operation, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the status of the GA instance.
+     *   *     *   If the GA instance is in the **configuring** state, the Anti-DDoS Pro/Premium instance is being associated with the GA instance. In this case, you can perform only query operations.
+     *   *     *   If the GA instance is in the **active** state, the Anti-DDoS Pro/Premium instance is associated with the GA instance.
+     *   * *   You cannot repeatedly call the **AttachDdosToAccelerator** operation for the same GA instance within a specific period of time.
+     *   *
+     * @param AttachDdosToAcceleratorRequest $request AttachDdosToAcceleratorRequest
      *
-     * @return AttachDdosToAcceleratorResponse
+     * @return AttachDdosToAcceleratorResponse AttachDdosToAcceleratorResponse
      */
     public function attachDdosToAccelerator($request)
     {
@@ -540,10 +618,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param AttachLogStoreToEndpointGroupRequest $request
-     * @param RuntimeOptions                       $runtime
+     * *   **AttachLogStoreToEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
+     *   *     *   If the endpoint group is in the **updating** state, it indicates that a Logstore is being associated with the group. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group is in the **active** state, it indicates that a Logstore is associated with the group.
+     *   * *   The **AttachLogStoreToEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param AttachLogStoreToEndpointGroupRequest $request AttachLogStoreToEndpointGroupRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachLogStoreToEndpointGroupResponse
+     * @return AttachLogStoreToEndpointGroupResponse AttachLogStoreToEndpointGroupResponse
      */
     public function attachLogStoreToEndpointGroupWithOptions($request, $runtime)
     {
@@ -592,9 +675,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param AttachLogStoreToEndpointGroupRequest $request
+     * *   **AttachLogStoreToEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
+     *   *     *   If the endpoint group is in the **updating** state, it indicates that a Logstore is being associated with the group. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group is in the **active** state, it indicates that a Logstore is associated with the group.
+     *   * *   The **AttachLogStoreToEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param AttachLogStoreToEndpointGroupRequest $request AttachLogStoreToEndpointGroupRequest
      *
-     * @return AttachLogStoreToEndpointGroupResponse
+     * @return AttachLogStoreToEndpointGroupResponse AttachLogStoreToEndpointGroupResponse
      */
     public function attachLogStoreToEndpointGroup($request)
     {
@@ -604,10 +692,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param BandwidthPackageAddAcceleratorRequest $request
-     * @param RuntimeOptions                        $runtime
+     * *   **BandwidthPackageAddAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the state of the bandwidth plan that you attempt to associate.
+     *   *     *   If the bandwidth plan is in the **binding** state, it indicates that the bandwidth plan is being associated. In this case, you can perform only query operations.
+     *   *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is associated.
+     *   * *   The **BandwidthPackageAddAccelerator** operation cannot be called repeatedly for the same GA instance.
+     *   *
+     * @param BandwidthPackageAddAcceleratorRequest $request BandwidthPackageAddAcceleratorRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return BandwidthPackageAddAcceleratorResponse
+     * @return BandwidthPackageAddAcceleratorResponse BandwidthPackageAddAcceleratorResponse
      */
     public function bandwidthPackageAddAcceleratorWithOptions($request, $runtime)
     {
@@ -641,9 +734,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param BandwidthPackageAddAcceleratorRequest $request
+     * *   **BandwidthPackageAddAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the state of the bandwidth plan that you attempt to associate.
+     *   *     *   If the bandwidth plan is in the **binding** state, it indicates that the bandwidth plan is being associated. In this case, you can perform only query operations.
+     *   *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is associated.
+     *   * *   The **BandwidthPackageAddAccelerator** operation cannot be called repeatedly for the same GA instance.
+     *   *
+     * @param BandwidthPackageAddAcceleratorRequest $request BandwidthPackageAddAcceleratorRequest
      *
-     * @return BandwidthPackageAddAcceleratorResponse
+     * @return BandwidthPackageAddAcceleratorResponse BandwidthPackageAddAcceleratorResponse
      */
     public function bandwidthPackageAddAccelerator($request)
     {
@@ -653,10 +751,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param BandwidthPackageRemoveAcceleratorRequest $request
-     * @param RuntimeOptions                           $runtime
+     * *   **BandwidthPackageRemoveAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the state of the bandwidth plan that you attempt to disassociate.
+     *   *     *   If the bandwidth plan is in the **unbinding** state, it indicates that the bandwidth plan is being disassociated. In this case, you can perform only query operations.
+     *   *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is disassociated.
+     *   * *   The **BandwidthPackageRemoveAccelerator** cannot be called repeatedly for the same GA instance.
+     *   *
+     * @param BandwidthPackageRemoveAcceleratorRequest $request BandwidthPackageRemoveAcceleratorRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return BandwidthPackageRemoveAcceleratorResponse
+     * @return BandwidthPackageRemoveAcceleratorResponse BandwidthPackageRemoveAcceleratorResponse
      */
     public function bandwidthPackageRemoveAcceleratorWithOptions($request, $runtime)
     {
@@ -690,9 +793,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param BandwidthPackageRemoveAcceleratorRequest $request
+     * *   **BandwidthPackageRemoveAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the state of the bandwidth plan that you attempt to disassociate.
+     *   *     *   If the bandwidth plan is in the **unbinding** state, it indicates that the bandwidth plan is being disassociated. In this case, you can perform only query operations.
+     *   *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is disassociated.
+     *   * *   The **BandwidthPackageRemoveAccelerator** cannot be called repeatedly for the same GA instance.
+     *   *
+     * @param BandwidthPackageRemoveAcceleratorRequest $request BandwidthPackageRemoveAcceleratorRequest
      *
-     * @return BandwidthPackageRemoveAcceleratorResponse
+     * @return BandwidthPackageRemoveAcceleratorResponse BandwidthPackageRemoveAcceleratorResponse
      */
     public function bandwidthPackageRemoveAccelerator($request)
     {
@@ -702,10 +810,12 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * The **ChangeResourceGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
@@ -745,9 +855,11 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
+     * The **ChangeResourceGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -757,10 +869,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param ConfigEndpointProbeRequest $request
-     * @param RuntimeOptions             $runtime
+     * *   **ConfigEndpointProbe** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of the endpoint group to which an endpoint belongs and determine whether latency monitoring is configured for the endpoint.
+     *   *     *   If the endpoint group is in the **updating** state, it indicates that latency monitoring is being configured for the endpoint. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group is in the **active** state, it indicates that latency monitoring is configured for the endpoint.
+     *   * *   The **ConfigEndpointProbe** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param ConfigEndpointProbeRequest $request ConfigEndpointProbeRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConfigEndpointProbeResponse
+     * @return ConfigEndpointProbeResponse ConfigEndpointProbeResponse
      */
     public function configEndpointProbeWithOptions($request, $runtime)
     {
@@ -809,9 +926,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param ConfigEndpointProbeRequest $request
+     * *   **ConfigEndpointProbe** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of the endpoint group to which an endpoint belongs and determine whether latency monitoring is configured for the endpoint.
+     *   *     *   If the endpoint group is in the **updating** state, it indicates that latency monitoring is being configured for the endpoint. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group is in the **active** state, it indicates that latency monitoring is configured for the endpoint.
+     *   * *   The **ConfigEndpointProbe** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param ConfigEndpointProbeRequest $request ConfigEndpointProbeRequest
      *
-     * @return ConfigEndpointProbeResponse
+     * @return ConfigEndpointProbeResponse ConfigEndpointProbeResponse
      */
     public function configEndpointProbe($request)
     {
@@ -821,10 +943,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateAcceleratorRequest $request
-     * @param RuntimeOptions           $runtime
+     * **CreateAccelerator** is an asynchronous operation. After you send a request, the system returns the ID of a GA instance, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+     *   * *   If the GA instance is in the **init** state, it indicates that the GA instance is being created. In this case, you can perform only query operations.
+     *   * *   If the GA instance is in the **active** state, it indicates that the GA instance is created.
+     *   *
+     * @param CreateAcceleratorRequest $request CreateAcceleratorRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAcceleratorResponse
+     * @return CreateAcceleratorResponse CreateAcceleratorResponse
      */
     public function createAcceleratorWithOptions($request, $runtime)
     {
@@ -860,6 +986,9 @@ class Ga extends OpenApiClient
         if (!Utils::isUnset($request->pricingCycle)) {
             $query['PricingCycle'] = $request->pricingCycle;
         }
+        if (!Utils::isUnset($request->promotionOptionNo)) {
+            $query['PromotionOptionNo'] = $request->promotionOptionNo;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -888,9 +1017,13 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateAcceleratorRequest $request
+     * **CreateAccelerator** is an asynchronous operation. After you send a request, the system returns the ID of a GA instance, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+     *   * *   If the GA instance is in the **init** state, it indicates that the GA instance is being created. In this case, you can perform only query operations.
+     *   * *   If the GA instance is in the **active** state, it indicates that the GA instance is created.
+     *   *
+     * @param CreateAcceleratorRequest $request CreateAcceleratorRequest
      *
-     * @return CreateAcceleratorResponse
+     * @return CreateAcceleratorResponse CreateAcceleratorResponse
      */
     public function createAccelerator($request)
     {
@@ -900,10 +1033,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateAclRequest $request
-     * @param RuntimeOptions   $runtime
+     * **CreateAcl** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the state of an ACL.
+     *   * *   If the ACL is in the **init** state, the ACL is being created. In this case, you can only perform only query operations.
+     *   * *   If the ACL is in the **active** state, the ACL is created.
+     *   *
+     * @param CreateAclRequest $request CreateAclRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAclResponse
+     * @return CreateAclResponse CreateAclResponse
      */
     public function createAclWithOptions($request, $runtime)
     {
@@ -949,9 +1086,13 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateAclRequest $request
+     * **CreateAcl** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the state of an ACL.
+     *   * *   If the ACL is in the **init** state, the ACL is being created. In this case, you can only perform only query operations.
+     *   * *   If the ACL is in the **active** state, the ACL is created.
+     *   *
+     * @param CreateAclRequest $request CreateAclRequest
      *
-     * @return CreateAclResponse
+     * @return CreateAclResponse CreateAclResponse
      */
     public function createAcl($request)
     {
@@ -961,10 +1102,17 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateApplicationMonitorRequest $request
-     * @param RuntimeOptions                  $runtime
+     * You can call the **CreateApplicationMonitor** operation to create an origin probing task. An origin probing task monitors the network quality between the client and origin server and checks the availability of the origin.
+     *   * Before you call this operation, take note of the following items:
+     *   * *   **CreateApplicationMonitor** is an asynchronous operation. After you send a request, the system returns the ID of an origin probing task, but the origin probing task is still being created in the system background. You can call the [DescribeApplicationMonitor](~~408463~~) or [ListApplicationMonitor](~~408462~~) operation to query the state of the origin probing task.
+     *   *     *   If the origin probing task is in the **init** state, it indicates that the task is being created. In this case, you can only perform query operations.
+     *   *     *   If the origin probing task is in the **active** state, it indicates that the task is created.
+     *   * *   The **CreateApplicationMonitor** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param CreateApplicationMonitorRequest $request CreateApplicationMonitorRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateApplicationMonitorResponse
+     * @return CreateApplicationMonitorResponse CreateApplicationMonitorResponse
      */
     public function createApplicationMonitorWithOptions($request, $runtime)
     {
@@ -1022,9 +1170,16 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateApplicationMonitorRequest $request
+     * You can call the **CreateApplicationMonitor** operation to create an origin probing task. An origin probing task monitors the network quality between the client and origin server and checks the availability of the origin.
+     *   * Before you call this operation, take note of the following items:
+     *   * *   **CreateApplicationMonitor** is an asynchronous operation. After you send a request, the system returns the ID of an origin probing task, but the origin probing task is still being created in the system background. You can call the [DescribeApplicationMonitor](~~408463~~) or [ListApplicationMonitor](~~408462~~) operation to query the state of the origin probing task.
+     *   *     *   If the origin probing task is in the **init** state, it indicates that the task is being created. In this case, you can only perform query operations.
+     *   *     *   If the origin probing task is in the **active** state, it indicates that the task is created.
+     *   * *   The **CreateApplicationMonitor** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param CreateApplicationMonitorRequest $request CreateApplicationMonitorRequest
      *
-     * @return CreateApplicationMonitorResponse
+     * @return CreateApplicationMonitorResponse CreateApplicationMonitorResponse
      */
     public function createApplicationMonitor($request)
     {
@@ -1034,10 +1189,20 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateBandwidthPackageRequest $request
-     * @param RuntimeOptions                $runtime
+     * To use Global Accelerator (GA) for acceleration, you must purchase a basic bandwidth plan. A basic bandwidth plan supports the following bandwidth types:
+     *   * *   **Basic**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service is deployed on Alibaba Cloud.
+     *   * *   **Enhanced**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service can be deployed on and off Alibaba Cloud.
+     *   * *   **Premium**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service can be deployed on and off Alibaba Cloud. If you want to accelerate data transfer for clients in the Chinese mainland, you must select China (Hong Kong) as the acceleration region.
+     *   * When you call this operation, take note of the following items:
+     *   * *   **CreateBandwidthPackage** is an asynchronous operation. After you send a request, the system returns the ID of a bandwidth plan, but the bandwidth plan is still being created in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the state of the bandwidth plan.
+     *   *     *   If the bandwidth plan is in the **init** state, it indicates that the bandwidth plan is being created. In this case, you can perform only query operations.
+     *   *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is created.
+     *   * *   The **CreateBandwidthPackage** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param CreateBandwidthPackageRequest $request CreateBandwidthPackageRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBandwidthPackageResponse
+     * @return CreateBandwidthPackageResponse CreateBandwidthPackageResponse
      */
     public function createBandwidthPackageWithOptions($request, $runtime)
     {
@@ -1082,6 +1247,9 @@ class Ga extends OpenApiClient
         if (!Utils::isUnset($request->pricingCycle)) {
             $query['PricingCycle'] = $request->pricingCycle;
         }
+        if (!Utils::isUnset($request->promotionOptionNo)) {
+            $query['PromotionOptionNo'] = $request->promotionOptionNo;
+        }
         if (!Utils::isUnset($request->ratio)) {
             $query['Ratio'] = $request->ratio;
         }
@@ -1113,9 +1281,19 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateBandwidthPackageRequest $request
+     * To use Global Accelerator (GA) for acceleration, you must purchase a basic bandwidth plan. A basic bandwidth plan supports the following bandwidth types:
+     *   * *   **Basic**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service is deployed on Alibaba Cloud.
+     *   * *   **Enhanced**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service can be deployed on and off Alibaba Cloud.
+     *   * *   **Premium**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service can be deployed on and off Alibaba Cloud. If you want to accelerate data transfer for clients in the Chinese mainland, you must select China (Hong Kong) as the acceleration region.
+     *   * When you call this operation, take note of the following items:
+     *   * *   **CreateBandwidthPackage** is an asynchronous operation. After you send a request, the system returns the ID of a bandwidth plan, but the bandwidth plan is still being created in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the state of the bandwidth plan.
+     *   *     *   If the bandwidth plan is in the **init** state, it indicates that the bandwidth plan is being created. In this case, you can perform only query operations.
+     *   *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is created.
+     *   * *   The **CreateBandwidthPackage** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param CreateBandwidthPackageRequest $request CreateBandwidthPackageRequest
      *
-     * @return CreateBandwidthPackageResponse
+     * @return CreateBandwidthPackageResponse CreateBandwidthPackageResponse
      */
     public function createBandwidthPackage($request)
     {
@@ -1125,10 +1303,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateBasicAccelerateIpRequest $request
-     * @param RuntimeOptions                 $runtime
+     * *   **CreateBasicAccelerateIp** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicAccelerateIp](~~466794~~) operation to query the status of an accelerated IP address:
+     *   *     *   If no status information is returned, the accelerated IP address is being created. In this case, you can perform only query operations.
+     *   *     *   If the accelerated IP address is in the **active** state, the accelerated IP address is created.
+     *   * *   The **CreateBasicAccelerateIp** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param CreateBasicAccelerateIpRequest $request CreateBasicAccelerateIpRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBasicAccelerateIpResponse
+     * @return CreateBasicAccelerateIpResponse CreateBasicAccelerateIpResponse
      */
     public function createBasicAccelerateIpWithOptions($request, $runtime)
     {
@@ -1165,9 +1348,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateBasicAccelerateIpRequest $request
+     * *   **CreateBasicAccelerateIp** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicAccelerateIp](~~466794~~) operation to query the status of an accelerated IP address:
+     *   *     *   If no status information is returned, the accelerated IP address is being created. In this case, you can perform only query operations.
+     *   *     *   If the accelerated IP address is in the **active** state, the accelerated IP address is created.
+     *   * *   The **CreateBasicAccelerateIp** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param CreateBasicAccelerateIpRequest $request CreateBasicAccelerateIpRequest
      *
-     * @return CreateBasicAccelerateIpResponse
+     * @return CreateBasicAccelerateIpResponse CreateBasicAccelerateIpResponse
      */
     public function createBasicAccelerateIp($request)
     {
@@ -1177,10 +1365,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateBasicAccelerateIpEndpointRelationRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * *   **CreateBasicAccelerateIpEndpointRelation** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerateIp](~~466794~~) or [ListBasicEndpoints](~~466831~~) API operation to query the status of an accelerated IP address or an endpoint to determine the association status between the accelerated IP address and endpoint.
+     *   *     *   If the status of the accelerated IP address and endpoint is **binding**, the accelerated IP address is being associated with the endpoint. In this case, you can query the accelerated IP address and endpoint but cannot perform other operations.
+     *   *     *   If the status of the accelerated IP address and endpoint is **bound** and the status returned by the [ListBasicAccelerateIpEndpointRelations](~~466803~~) API operation is **active**, the accelerated IP address is associated with the endpoint.
+     *   * *   The **CreateBasicAccelerateIpEndpointRelation** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+     *   *
+     * @param CreateBasicAccelerateIpEndpointRelationRequest $request CreateBasicAccelerateIpEndpointRelationRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBasicAccelerateIpEndpointRelationResponse
+     * @return CreateBasicAccelerateIpEndpointRelationResponse CreateBasicAccelerateIpEndpointRelationResponse
      */
     public function createBasicAccelerateIpEndpointRelationWithOptions($request, $runtime)
     {
@@ -1220,9 +1413,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateBasicAccelerateIpEndpointRelationRequest $request
+     * *   **CreateBasicAccelerateIpEndpointRelation** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerateIp](~~466794~~) or [ListBasicEndpoints](~~466831~~) API operation to query the status of an accelerated IP address or an endpoint to determine the association status between the accelerated IP address and endpoint.
+     *   *     *   If the status of the accelerated IP address and endpoint is **binding**, the accelerated IP address is being associated with the endpoint. In this case, you can query the accelerated IP address and endpoint but cannot perform other operations.
+     *   *     *   If the status of the accelerated IP address and endpoint is **bound** and the status returned by the [ListBasicAccelerateIpEndpointRelations](~~466803~~) API operation is **active**, the accelerated IP address is associated with the endpoint.
+     *   * *   The **CreateBasicAccelerateIpEndpointRelation** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+     *   *
+     * @param CreateBasicAccelerateIpEndpointRelationRequest $request CreateBasicAccelerateIpEndpointRelationRequest
      *
-     * @return CreateBasicAccelerateIpEndpointRelationResponse
+     * @return CreateBasicAccelerateIpEndpointRelationResponse CreateBasicAccelerateIpEndpointRelationResponse
      */
     public function createBasicAccelerateIpEndpointRelation($request)
     {
@@ -1232,10 +1430,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateBasicAccelerateIpEndpointRelationsRequest $request
-     * @param RuntimeOptions                                  $runtime
+     * *   The **CreateBasicAccelerateIpEndpointRelations** is asynchronous. After you send a request, the system returns a request ID and runs the task in the system background. You can call the [GetBasicAccelerateIp](~~466794~~) or [ListBasicEndpoints](~~466831~~) API operation to query the status of an accelerated IP address or an endpoint to determine the association status.
+     *   *     *   If an accelerated IP address and the endpoint are in the **binding** state, the accelerated IP address is being associated with the endpoint. In this case, you can only query the accelerated IP address and endpoint, but cannot perform other operations.
+     *   *     *   If all the accelerated IP addresses and the endpoint are in the **bound** state, and the association status returned by the [ListBasicAccelerateIpEndpointRelations](~~466803~~) API operation is **active**, the accelerated IP addresses are associated with the endpoints.
+     *   * *   The **CreateBasicAccelerateIpEndpointRelations** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+     *   *
+     * @param CreateBasicAccelerateIpEndpointRelationsRequest $request CreateBasicAccelerateIpEndpointRelationsRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBasicAccelerateIpEndpointRelationsResponse
+     * @return CreateBasicAccelerateIpEndpointRelationsResponse CreateBasicAccelerateIpEndpointRelationsResponse
      */
     public function createBasicAccelerateIpEndpointRelationsWithOptions($request, $runtime)
     {
@@ -1272,9 +1475,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateBasicAccelerateIpEndpointRelationsRequest $request
+     * *   The **CreateBasicAccelerateIpEndpointRelations** is asynchronous. After you send a request, the system returns a request ID and runs the task in the system background. You can call the [GetBasicAccelerateIp](~~466794~~) or [ListBasicEndpoints](~~466831~~) API operation to query the status of an accelerated IP address or an endpoint to determine the association status.
+     *   *     *   If an accelerated IP address and the endpoint are in the **binding** state, the accelerated IP address is being associated with the endpoint. In this case, you can only query the accelerated IP address and endpoint, but cannot perform other operations.
+     *   *     *   If all the accelerated IP addresses and the endpoint are in the **bound** state, and the association status returned by the [ListBasicAccelerateIpEndpointRelations](~~466803~~) API operation is **active**, the accelerated IP addresses are associated with the endpoints.
+     *   * *   The **CreateBasicAccelerateIpEndpointRelations** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+     *   *
+     * @param CreateBasicAccelerateIpEndpointRelationsRequest $request CreateBasicAccelerateIpEndpointRelationsRequest
      *
-     * @return CreateBasicAccelerateIpEndpointRelationsResponse
+     * @return CreateBasicAccelerateIpEndpointRelationsResponse CreateBasicAccelerateIpEndpointRelationsResponse
      */
     public function createBasicAccelerateIpEndpointRelations($request)
     {
@@ -1284,10 +1492,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateBasicAcceleratorRequest $request
-     * @param RuntimeOptions                $runtime
+     * Basic GA instances use high-quality global network bandwidth and the transmission network of Alibaba Cloud to provide users with point-to-point acceleration services. You can use basic GA instances to accelerate content delivery at Layer 3 (IP protocols). For more information, see [Overview of GA instances](~~153127~~).
+     *   * The **CreateBasicAccelerator** operation is asynchronous. After you send a request, the system returns the ID of a basic GA instance, but the operation is still being performed in the background. You can call the [GetBasicAccelerator](~~353188~~) or [ListBasicAccelerators](~~353189~~) operation to query the status of a basic GA instance:
+     *   * *   If a basic GA instance is in the **init** state, the basic GA instance is being created. In this case, you can perform only query operations.
+     *   * *   If a basic GA instance is in the **active** state, the basic GA instance is created.
+     *   *
+     * @param CreateBasicAcceleratorRequest $request CreateBasicAcceleratorRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBasicAcceleratorResponse
+     * @return CreateBasicAcceleratorResponse CreateBasicAcceleratorResponse
      */
     public function createBasicAcceleratorWithOptions($request, $runtime)
     {
@@ -1308,14 +1521,23 @@ class Ga extends OpenApiClient
         if (!Utils::isUnset($request->bandwidthBillingType)) {
             $query['BandwidthBillingType'] = $request->bandwidthBillingType;
         }
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
+        }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
         }
         if (!Utils::isUnset($request->duration)) {
             $query['Duration'] = $request->duration;
         }
         if (!Utils::isUnset($request->pricingCycle)) {
             $query['PricingCycle'] = $request->pricingCycle;
+        }
+        if (!Utils::isUnset($request->promotionOptionNo)) {
+            $query['PromotionOptionNo'] = $request->promotionOptionNo;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -1342,9 +1564,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateBasicAcceleratorRequest $request
+     * Basic GA instances use high-quality global network bandwidth and the transmission network of Alibaba Cloud to provide users with point-to-point acceleration services. You can use basic GA instances to accelerate content delivery at Layer 3 (IP protocols). For more information, see [Overview of GA instances](~~153127~~).
+     *   * The **CreateBasicAccelerator** operation is asynchronous. After you send a request, the system returns the ID of a basic GA instance, but the operation is still being performed in the background. You can call the [GetBasicAccelerator](~~353188~~) or [ListBasicAccelerators](~~353189~~) operation to query the status of a basic GA instance:
+     *   * *   If a basic GA instance is in the **init** state, the basic GA instance is being created. In this case, you can perform only query operations.
+     *   * *   If a basic GA instance is in the **active** state, the basic GA instance is created.
+     *   *
+     * @param CreateBasicAcceleratorRequest $request CreateBasicAcceleratorRequest
      *
-     * @return CreateBasicAcceleratorResponse
+     * @return CreateBasicAcceleratorResponse CreateBasicAcceleratorResponse
      */
     public function createBasicAccelerator($request)
     {
@@ -1354,10 +1581,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateBasicEndpointRequest $request
-     * @param RuntimeOptions             $runtime
+     * *   **CreateBasicEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](~~466831~~) API operation to query the status of an endpoint.
+     *   *     *   If the endpoint is in the **init** state, the endpoint is being created. In this case, you can perform only query operations.
+     *   *     *   If the endpoint is in the **active** state, the endpoint is created.
+     *   * *   The **CreateBasicEndpoint** API operation cannot be repeatedly called for the same basic GA instance within a specific period of time.
+     *   *
+     * @param CreateBasicEndpointRequest $request CreateBasicEndpointRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBasicEndpointResponse
+     * @return CreateBasicEndpointResponse CreateBasicEndpointResponse
      */
     public function createBasicEndpointWithOptions($request, $runtime)
     {
@@ -1412,9 +1644,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateBasicEndpointRequest $request
+     * *   **CreateBasicEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](~~466831~~) API operation to query the status of an endpoint.
+     *   *     *   If the endpoint is in the **init** state, the endpoint is being created. In this case, you can perform only query operations.
+     *   *     *   If the endpoint is in the **active** state, the endpoint is created.
+     *   * *   The **CreateBasicEndpoint** API operation cannot be repeatedly called for the same basic GA instance within a specific period of time.
+     *   *
+     * @param CreateBasicEndpointRequest $request CreateBasicEndpointRequest
      *
-     * @return CreateBasicEndpointResponse
+     * @return CreateBasicEndpointResponse CreateBasicEndpointResponse
      */
     public function createBasicEndpoint($request)
     {
@@ -1424,10 +1661,18 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateBasicEndpointGroupRequest $request
-     * @param RuntimeOptions                  $runtime
+     * Before you call this operation, take note of the following items:
+     *   * *   You can add only one endpoint group and one endpoint for each basic GA instance. The endpoint must be a Classic Load Balancer (CLB) instance of the Virtual Private Cloud (VPC) type or a secondary elastic network interface (ENI).
+     *   * *   You cannot add a secondary ENI or CLB instance as an endpoint for a basic GA instance if the secondary ENI or CLB instance is associated with an elastic IP address (EIP).
+     *   * *   **CreateBasicEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicEndpointGroup](~~362984~~) operation to query the state of an endpoint group.
+     *   *     *   If the endpoint group is in the **init** state, the endpoint is being created. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group is in the **active** state, the endpoint group is created.
+     *   * *   The **CreateBasicEndpointGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param CreateBasicEndpointGroupRequest $request CreateBasicEndpointGroupRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBasicEndpointGroupResponse
+     * @return CreateBasicEndpointGroupResponse CreateBasicEndpointGroupResponse
      */
     public function createBasicEndpointGroupWithOptions($request, $runtime)
     {
@@ -1479,9 +1724,17 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateBasicEndpointGroupRequest $request
+     * Before you call this operation, take note of the following items:
+     *   * *   You can add only one endpoint group and one endpoint for each basic GA instance. The endpoint must be a Classic Load Balancer (CLB) instance of the Virtual Private Cloud (VPC) type or a secondary elastic network interface (ENI).
+     *   * *   You cannot add a secondary ENI or CLB instance as an endpoint for a basic GA instance if the secondary ENI or CLB instance is associated with an elastic IP address (EIP).
+     *   * *   **CreateBasicEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicEndpointGroup](~~362984~~) operation to query the state of an endpoint group.
+     *   *     *   If the endpoint group is in the **init** state, the endpoint is being created. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group is in the **active** state, the endpoint group is created.
+     *   * *   The **CreateBasicEndpointGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param CreateBasicEndpointGroupRequest $request CreateBasicEndpointGroupRequest
      *
-     * @return CreateBasicEndpointGroupResponse
+     * @return CreateBasicEndpointGroupResponse CreateBasicEndpointGroupResponse
      */
     public function createBasicEndpointGroup($request)
     {
@@ -1491,10 +1744,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateBasicEndpointsRequest $request
-     * @param RuntimeOptions              $runtime
+     * *   **CreateEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](~~466831~~) API operation to query the status of endpoints.
+     *   *     *   If the endpoints are in the **init** state, the endpoints are being created. In this case, you can perform only query operations.
+     *   *     *   If all endpoints are in the **active** state, the endpoints are created.
+     *   * *   The **CreateBasicEndpointGroup** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+     *   *
+     * @param CreateBasicEndpointsRequest $request CreateBasicEndpointsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBasicEndpointsResponse
+     * @return CreateBasicEndpointsResponse CreateBasicEndpointsResponse
      */
     public function createBasicEndpointsWithOptions($request, $runtime)
     {
@@ -1534,9 +1792,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateBasicEndpointsRequest $request
+     * *   **CreateEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](~~466831~~) API operation to query the status of endpoints.
+     *   *     *   If the endpoints are in the **init** state, the endpoints are being created. In this case, you can perform only query operations.
+     *   *     *   If all endpoints are in the **active** state, the endpoints are created.
+     *   * *   The **CreateBasicEndpointGroup** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+     *   *
+     * @param CreateBasicEndpointsRequest $request CreateBasicEndpointsRequest
      *
-     * @return CreateBasicEndpointsResponse
+     * @return CreateBasicEndpointsResponse CreateBasicEndpointsResponse
      */
     public function createBasicEndpoints($request)
     {
@@ -1546,10 +1809,17 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateBasicIpSetRequest $request
-     * @param RuntimeOptions          $runtime
+     * Before you call this operation, take note of the following items:
+     *   * *   You can add only one acceleration region for each basic GA instance, and only IPv4 clients can connect to basic GA instances.
+     *   * *   **CreateBasicIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicIpSet](~~362987~~) operation to query the state of an acceleration region.
+     *   *     *   If the acceleration region is in the **init** state, the acceleration region is being created. In this case, you can perform only query operations.
+     *   *     *   If the acceleration region is in the **active** state, the acceleration region is created.
+     *   * *   The **CreateBasicIpSet** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param CreateBasicIpSetRequest $request CreateBasicIpSetRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBasicIpSetResponse
+     * @return CreateBasicIpSetResponse CreateBasicIpSetResponse
      */
     public function createBasicIpSetWithOptions($request, $runtime)
     {
@@ -1592,9 +1862,16 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateBasicIpSetRequest $request
+     * Before you call this operation, take note of the following items:
+     *   * *   You can add only one acceleration region for each basic GA instance, and only IPv4 clients can connect to basic GA instances.
+     *   * *   **CreateBasicIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicIpSet](~~362987~~) operation to query the state of an acceleration region.
+     *   *     *   If the acceleration region is in the **init** state, the acceleration region is being created. In this case, you can perform only query operations.
+     *   *     *   If the acceleration region is in the **active** state, the acceleration region is created.
+     *   * *   The **CreateBasicIpSet** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param CreateBasicIpSetRequest $request CreateBasicIpSetRequest
      *
-     * @return CreateBasicIpSetResponse
+     * @return CreateBasicIpSetResponse CreateBasicIpSetResponse
      */
     public function createBasicIpSet($request)
     {
@@ -1604,10 +1881,25 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomRoutingEndpointGroupDestinationsRequest $request
-     * @param RuntimeOptions                                      $runtime
+     * After you configure a custom routing listener for a Global Accelerator (GA) instance, the instance generates a port mapping table based on the listener port range, mapping information (protocols and port ranges) of the associated endpoint groups, and IP addresses of endpoints (vSwitches) and forwards client requests to specified IP addresses and ports in the vSwitches.
+     *   * This operation is used to create endpoint group mappings for custom routing listeners. When you call this operation, take note of the following items:
+     *   * - **CreateCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpointgroup) operation to query the state of a specified endpoint group and determine whether mappings are created in the endpoint group.
+     *   *
+     *   *     - If the endpoint group is in the **updating** state, it indicates that mappings are being created in the endpoint group. In this case, you can perform only query operations.
+     *   *     - If the endpoint group is in the **active** state, it indicates that mappings are created in the endpoint group.
+     *   * - The **CreateCustomRoutingEndpointGroupDestinations** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+     *   * ## Prerequisites
+     *   * The following operations are complete before you call this operation:
+     *   * - Create a standard GA instance. For more information, see [CreateAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/createaccelerator).
+     *   * - Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/bandwidthpackageaddaccelerator).
+     *   * - Deploy an application that serves as the endpoint of the standard GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+     *   * - Apply for permissions to use custom routing listeners, and create a custom routing listener for the GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://www.alibabacloud.com/help/en/global-accelerator/latest/createlistener).
+     *   * - Create an endpoint group for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](https://www.alibabacloud.com/help/en/global-accelerator/latest/createcustomroutingendpointgroups).
+     *   *
+     * @param CreateCustomRoutingEndpointGroupDestinationsRequest $request CreateCustomRoutingEndpointGroupDestinationsRequest
+     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCustomRoutingEndpointGroupDestinationsResponse
+     * @return CreateCustomRoutingEndpointGroupDestinationsResponse CreateCustomRoutingEndpointGroupDestinationsResponse
      */
     public function createCustomRoutingEndpointGroupDestinationsWithOptions($request, $runtime)
     {
@@ -1647,9 +1939,24 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomRoutingEndpointGroupDestinationsRequest $request
+     * After you configure a custom routing listener for a Global Accelerator (GA) instance, the instance generates a port mapping table based on the listener port range, mapping information (protocols and port ranges) of the associated endpoint groups, and IP addresses of endpoints (vSwitches) and forwards client requests to specified IP addresses and ports in the vSwitches.
+     *   * This operation is used to create endpoint group mappings for custom routing listeners. When you call this operation, take note of the following items:
+     *   * - **CreateCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpointgroup) operation to query the state of a specified endpoint group and determine whether mappings are created in the endpoint group.
+     *   *
+     *   *     - If the endpoint group is in the **updating** state, it indicates that mappings are being created in the endpoint group. In this case, you can perform only query operations.
+     *   *     - If the endpoint group is in the **active** state, it indicates that mappings are created in the endpoint group.
+     *   * - The **CreateCustomRoutingEndpointGroupDestinations** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+     *   * ## Prerequisites
+     *   * The following operations are complete before you call this operation:
+     *   * - Create a standard GA instance. For more information, see [CreateAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/createaccelerator).
+     *   * - Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/bandwidthpackageaddaccelerator).
+     *   * - Deploy an application that serves as the endpoint of the standard GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+     *   * - Apply for permissions to use custom routing listeners, and create a custom routing listener for the GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://www.alibabacloud.com/help/en/global-accelerator/latest/createlistener).
+     *   * - Create an endpoint group for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](https://www.alibabacloud.com/help/en/global-accelerator/latest/createcustomroutingendpointgroups).
+     *   *
+     * @param CreateCustomRoutingEndpointGroupDestinationsRequest $request CreateCustomRoutingEndpointGroupDestinationsRequest
      *
-     * @return CreateCustomRoutingEndpointGroupDestinationsResponse
+     * @return CreateCustomRoutingEndpointGroupDestinationsResponse CreateCustomRoutingEndpointGroupDestinationsResponse
      */
     public function createCustomRoutingEndpointGroupDestinations($request)
     {
@@ -1659,10 +1966,27 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomRoutingEndpointGroupsRequest $request
-     * @param RuntimeOptions                           $runtime
+     * GA forwards client requests to endpoints in an endpoint group based on the routing type of the listener that is associated with the endpoint group.
+     *   * - After you configure an intelligent routing listener for a GA instance, the GA instance selects a nearby and healthy endpoint group and forwards client requests to a healthy endpoint in the endpoint group.
+     *   * - After you configure a custom routing listener for a GA instance, the instance generates a port mapping table based on the listener port range, backend service protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches) and forwards client requests to specified IP addresses and ports in the vSwitches.
+     *   * This operation is used to create endpoint groups for custom routing listeners. For information about how to create endpoint groups for intelligent routing listeners, see [CreateEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/createendpointgroup).
+     *   * When you call this operation, take note of the following items:
+     *   * - **CreateCustomRoutingEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpointgroup) or [ListCustomRoutingEndpointGroups](https://www.alibabacloud.com/help/en/global-accelerator/latest/listcustomroutingendpointgroups) operation to query the status of the endpoint groups that are associated with custom routing listeners.
+     *   *
+     *   *     - If one or more endpoints groups are in the **init** state, it indicates that the endpoint groups are being created. In this case, you can perform only query operations.
+     *   *     - If all endpoint groups are in the **active** state, it indicates that the endpoint groups are created.
+     *   * - The **CreateCustomRoutingEndpointGroups** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+     *   * ## Prerequisites
+     *   * The following operations are complete before you call this operation:
+     *   * - Create a standard GA instance. For more information, see [CreateAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/createaccelerator).
+     *   * - Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/bandwidthpackageaddaccelerator).
+     *   * - Deploy an application that serves as the endpoint of the standard GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+     *   * - Apply for permissions to use custom routing listeners, and create a custom routing listener for the GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://www.alibabacloud.com/help/en/global-accelerator/latest/createlistener).
+     *   *
+     * @param CreateCustomRoutingEndpointGroupsRequest $request CreateCustomRoutingEndpointGroupsRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCustomRoutingEndpointGroupsResponse
+     * @return CreateCustomRoutingEndpointGroupsResponse CreateCustomRoutingEndpointGroupsResponse
      */
     public function createCustomRoutingEndpointGroupsWithOptions($request, $runtime)
     {
@@ -1705,9 +2029,26 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomRoutingEndpointGroupsRequest $request
+     * GA forwards client requests to endpoints in an endpoint group based on the routing type of the listener that is associated with the endpoint group.
+     *   * - After you configure an intelligent routing listener for a GA instance, the GA instance selects a nearby and healthy endpoint group and forwards client requests to a healthy endpoint in the endpoint group.
+     *   * - After you configure a custom routing listener for a GA instance, the instance generates a port mapping table based on the listener port range, backend service protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches) and forwards client requests to specified IP addresses and ports in the vSwitches.
+     *   * This operation is used to create endpoint groups for custom routing listeners. For information about how to create endpoint groups for intelligent routing listeners, see [CreateEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/createendpointgroup).
+     *   * When you call this operation, take note of the following items:
+     *   * - **CreateCustomRoutingEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpointgroup) or [ListCustomRoutingEndpointGroups](https://www.alibabacloud.com/help/en/global-accelerator/latest/listcustomroutingendpointgroups) operation to query the status of the endpoint groups that are associated with custom routing listeners.
+     *   *
+     *   *     - If one or more endpoints groups are in the **init** state, it indicates that the endpoint groups are being created. In this case, you can perform only query operations.
+     *   *     - If all endpoint groups are in the **active** state, it indicates that the endpoint groups are created.
+     *   * - The **CreateCustomRoutingEndpointGroups** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+     *   * ## Prerequisites
+     *   * The following operations are complete before you call this operation:
+     *   * - Create a standard GA instance. For more information, see [CreateAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/createaccelerator).
+     *   * - Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/bandwidthpackageaddaccelerator).
+     *   * - Deploy an application that serves as the endpoint of the standard GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+     *   * - Apply for permissions to use custom routing listeners, and create a custom routing listener for the GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://www.alibabacloud.com/help/en/global-accelerator/latest/createlistener).
+     *   *
+     * @param CreateCustomRoutingEndpointGroupsRequest $request CreateCustomRoutingEndpointGroupsRequest
      *
-     * @return CreateCustomRoutingEndpointGroupsResponse
+     * @return CreateCustomRoutingEndpointGroupsResponse CreateCustomRoutingEndpointGroupsResponse
      */
     public function createCustomRoutingEndpointGroups($request)
     {
@@ -1717,10 +2058,26 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomRoutingEndpointTrafficPoliciesRequest $request
-     * @param RuntimeOptions                                    $runtime
+     * This operation takes effect only when traffic is allowed to specified destinations. You can call the [DescribeCustomRoutingEndpoint](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpoint) operation to query the access policy of traffic for the specified endpoint. This operation takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**.
+     *   * When you call this operation, take note of the following items:
+     *   * - **CreateCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpointgroup) operation to query the state of an endpoint group to check whether access policies of traffic are created for endpoints in the endpoint group.
+     *   *
+     *   *      - If the endpoint group is in the **updating** state, access policies of traffic are being created for endpoints in the endpoint group. In this case, you can perform only query operations.
+     *   *     - If the endpoint group is in the **active** state, access policies of traffic are created for endpoints in the endpoint group.
+     *   * - The **CreateCustomRoutingEndpointTrafficPolicies** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   * ## Prerequisites
+     *   * The following operations are complete before you call this operation:
+     *   * - Create a standard GA instance. For more information, see [CreateAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/createaccelerator).
+     *   * - Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/bandwidthpackageaddaccelerator).
+     *   * - Deploy an application that serves as the endpoint of the GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+     *   * - Apply for permissions to use custom routing listeners and create custom routing listeners for the GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://www.alibabacloud.com/help/en/global-accelerator/latest/createlistener).
+     *   * - Create endpoint groups for the custom routing listeners. For more information, see [CreateCustomRoutingEndpointGroups](https://www.alibabacloud.com/help/en/global-accelerator/latest/createcustomroutingendpointgroups).
+     *   * - Create endpoints for the custom routing listeners. For more information, see [CreateCustomRoutingEndpoints](https://www.alibabacloud.com/help/en/global-accelerator/latest/createcustomroutingendpoints).
+     *   *
+     * @param CreateCustomRoutingEndpointTrafficPoliciesRequest $request CreateCustomRoutingEndpointTrafficPoliciesRequest
+     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCustomRoutingEndpointTrafficPoliciesResponse
+     * @return CreateCustomRoutingEndpointTrafficPoliciesResponse CreateCustomRoutingEndpointTrafficPoliciesResponse
      */
     public function createCustomRoutingEndpointTrafficPoliciesWithOptions($request, $runtime)
     {
@@ -1757,9 +2114,25 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomRoutingEndpointTrafficPoliciesRequest $request
+     * This operation takes effect only when traffic is allowed to specified destinations. You can call the [DescribeCustomRoutingEndpoint](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpoint) operation to query the access policy of traffic for the specified endpoint. This operation takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**.
+     *   * When you call this operation, take note of the following items:
+     *   * - **CreateCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpointgroup) operation to query the state of an endpoint group to check whether access policies of traffic are created for endpoints in the endpoint group.
+     *   *
+     *   *      - If the endpoint group is in the **updating** state, access policies of traffic are being created for endpoints in the endpoint group. In this case, you can perform only query operations.
+     *   *     - If the endpoint group is in the **active** state, access policies of traffic are created for endpoints in the endpoint group.
+     *   * - The **CreateCustomRoutingEndpointTrafficPolicies** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   * ## Prerequisites
+     *   * The following operations are complete before you call this operation:
+     *   * - Create a standard GA instance. For more information, see [CreateAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/createaccelerator).
+     *   * - Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/bandwidthpackageaddaccelerator).
+     *   * - Deploy an application that serves as the endpoint of the GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+     *   * - Apply for permissions to use custom routing listeners and create custom routing listeners for the GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://www.alibabacloud.com/help/en/global-accelerator/latest/createlistener).
+     *   * - Create endpoint groups for the custom routing listeners. For more information, see [CreateCustomRoutingEndpointGroups](https://www.alibabacloud.com/help/en/global-accelerator/latest/createcustomroutingendpointgroups).
+     *   * - Create endpoints for the custom routing listeners. For more information, see [CreateCustomRoutingEndpoints](https://www.alibabacloud.com/help/en/global-accelerator/latest/createcustomroutingendpoints).
+     *   *
+     * @param CreateCustomRoutingEndpointTrafficPoliciesRequest $request CreateCustomRoutingEndpointTrafficPoliciesRequest
      *
-     * @return CreateCustomRoutingEndpointTrafficPoliciesResponse
+     * @return CreateCustomRoutingEndpointTrafficPoliciesResponse CreateCustomRoutingEndpointTrafficPoliciesResponse
      */
     public function createCustomRoutingEndpointTrafficPolicies($request)
     {
@@ -1769,10 +2142,25 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomRoutingEndpointsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * After you configure a custom routing listener for a GA instance, the instance generates a port mapping table based on the listener port range, backend service protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches), and forwards client requests to specified IP addresses and ports in the vSwitches.
+     *   * This operation is used to create endpoints for custom routing listeners. When you call this operation to create endpoints in an endpoint group, take note of the following items:
+     *   * - **CreateCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpointgroup) operation to query the state of the endpoint group and determine whether endpoints are created in the endpoint group.
+     *   *
+     *   *     - If the endpoint group is in the **updating** state, it indicates that endpoints are being created. In this case, you can perform only query operations.
+     *   *     - If the endpoint group is in the **active** state, it indicates that endpoints are created.
+     *   * - The **CreateCustomRoutingEndpoints** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+     *   * ## Prerequisites
+     *   * The following operations are complete before you call this operation:
+     *   * - Create a standard GA instance. For more information, see [CreateAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/createaccelerator).
+     *   * - Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/bandwidthpackageaddaccelerator).
+     *   * - Deploy an application that serves as the endpoint of the GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+     *   * - Apply for permissions to use custom routing listeners, and create a custom routing listener for the standard GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://www.alibabacloud.com/help/en/global-accelerator/latest/createlistener).
+     *   * - Create an endpoint group for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](https://www.alibabacloud.com/help/en/global-accelerator/latest/createcustomroutingendpointgroups).
+     *   *
+     * @param CreateCustomRoutingEndpointsRequest $request CreateCustomRoutingEndpointsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCustomRoutingEndpointsResponse
+     * @return CreateCustomRoutingEndpointsResponse CreateCustomRoutingEndpointsResponse
      */
     public function createCustomRoutingEndpointsWithOptions($request, $runtime)
     {
@@ -1809,9 +2197,24 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomRoutingEndpointsRequest $request
+     * After you configure a custom routing listener for a GA instance, the instance generates a port mapping table based on the listener port range, backend service protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches), and forwards client requests to specified IP addresses and ports in the vSwitches.
+     *   * This operation is used to create endpoints for custom routing listeners. When you call this operation to create endpoints in an endpoint group, take note of the following items:
+     *   * - **CreateCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpointgroup) operation to query the state of the endpoint group and determine whether endpoints are created in the endpoint group.
+     *   *
+     *   *     - If the endpoint group is in the **updating** state, it indicates that endpoints are being created. In this case, you can perform only query operations.
+     *   *     - If the endpoint group is in the **active** state, it indicates that endpoints are created.
+     *   * - The **CreateCustomRoutingEndpoints** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+     *   * ## Prerequisites
+     *   * The following operations are complete before you call this operation:
+     *   * - Create a standard GA instance. For more information, see [CreateAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/createaccelerator).
+     *   * - Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/bandwidthpackageaddaccelerator).
+     *   * - Deploy an application that serves as the endpoint of the GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+     *   * - Apply for permissions to use custom routing listeners, and create a custom routing listener for the standard GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://www.alibabacloud.com/help/en/global-accelerator/latest/createlistener).
+     *   * - Create an endpoint group for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](https://www.alibabacloud.com/help/en/global-accelerator/latest/createcustomroutingendpointgroups).
+     *   *
+     * @param CreateCustomRoutingEndpointsRequest $request CreateCustomRoutingEndpointsRequest
      *
-     * @return CreateCustomRoutingEndpointsResponse
+     * @return CreateCustomRoutingEndpointsResponse CreateCustomRoutingEndpointsResponse
      */
     public function createCustomRoutingEndpoints($request)
     {
@@ -1821,10 +2224,76 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateEndpointGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * After you associate an accelerated domain name for which an ICP number is obtained with a GA instance, you do not need to complete filing for the accelerated domain name or its subdomains on Alibaba Cloud.
+     *   * You can call this operation to add an accelerated domain name and associate the accelerated domain name with GA instances. When you call this operation, take note of the following items:
+     *   * *   If your accelerated domain name is hosted in the Chinese mainland, you must obtain an ICP number for the domain name.
+     *   * *   The same accelerated domain name cannot be repeatedly associated with the same GA instance.
+     *   * *   You cannot repeatedly call the **CreateDomain** operation by using the same Alibaba Cloud account within a specific period of time.
+     *   *
+     * @param CreateDomainRequest $request CreateDomainRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEndpointGroupResponse
+     * @return CreateDomainResponse CreateDomainResponse
+     */
+    public function createDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorIds)) {
+            $query['AcceleratorIds'] = $request->acceleratorIds;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDomain',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * After you associate an accelerated domain name for which an ICP number is obtained with a GA instance, you do not need to complete filing for the accelerated domain name or its subdomains on Alibaba Cloud.
+     *   * You can call this operation to add an accelerated domain name and associate the accelerated domain name with GA instances. When you call this operation, take note of the following items:
+     *   * *   If your accelerated domain name is hosted in the Chinese mainland, you must obtain an ICP number for the domain name.
+     *   * *   The same accelerated domain name cannot be repeatedly associated with the same GA instance.
+     *   * *   You cannot repeatedly call the **CreateDomain** operation by using the same Alibaba Cloud account within a specific period of time.
+     *   *
+     * @param CreateDomainRequest $request CreateDomainRequest
+     *
+     * @return CreateDomainResponse CreateDomainResponse
+     */
+    public function createDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * *   **CreateEndpointGroup** is an asynchronous operation. After you send a request, the system returns the ID of an endpoint group, but the endpoint group is still being created in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of the endpoint group.
+     *   *     *   If the endpoint group is in the **init** state, it indicates that the endpoint group is being created. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group is in the **active** state, it indicates that the endpoint group is created.
+     *   * *   The **CreateEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param CreateEndpointGroupRequest $request CreateEndpointGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateEndpointGroupResponse CreateEndpointGroupResponse
      */
     public function createEndpointGroupWithOptions($request, $runtime)
     {
@@ -1903,9 +2372,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateEndpointGroupRequest $request
+     * *   **CreateEndpointGroup** is an asynchronous operation. After you send a request, the system returns the ID of an endpoint group, but the endpoint group is still being created in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of the endpoint group.
+     *   *     *   If the endpoint group is in the **init** state, it indicates that the endpoint group is being created. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group is in the **active** state, it indicates that the endpoint group is created.
+     *   * *   The **CreateEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param CreateEndpointGroupRequest $request CreateEndpointGroupRequest
      *
-     * @return CreateEndpointGroupResponse
+     * @return CreateEndpointGroupResponse CreateEndpointGroupResponse
      */
     public function createEndpointGroup($request)
     {
@@ -1915,10 +2389,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateEndpointGroupsRequest $request
-     * @param RuntimeOptions              $runtime
+     * *   **CreateEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) or [ListEndpointGroups](~~153261~~) to query the state of an endpoint group.
+     *   *     *   If an endpoint group is in the **init** state, the endpoint group is being created. In this case, you can perform only query operations.
+     *   *     *   If all endpoint groups are in the **active**, endpoint groups are created.
+     *   * *   The **CreateEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param CreateEndpointGroupsRequest $request CreateEndpointGroupsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEndpointGroupsResponse
+     * @return CreateEndpointGroupsResponse CreateEndpointGroupsResponse
      */
     public function createEndpointGroupsWithOptions($request, $runtime)
     {
@@ -1961,9 +2440,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateEndpointGroupsRequest $request
+     * *   **CreateEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) or [ListEndpointGroups](~~153261~~) to query the state of an endpoint group.
+     *   *     *   If an endpoint group is in the **init** state, the endpoint group is being created. In this case, you can perform only query operations.
+     *   *     *   If all endpoint groups are in the **active**, endpoint groups are created.
+     *   * *   The **CreateEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param CreateEndpointGroupsRequest $request CreateEndpointGroupsRequest
      *
-     * @return CreateEndpointGroupsResponse
+     * @return CreateEndpointGroupsResponse CreateEndpointGroupsResponse
      */
     public function createEndpointGroups($request)
     {
@@ -1973,10 +2457,17 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateForwardingRulesRequest $request
-     * @param RuntimeOptions               $runtime
+     * HTTP and HTTPS listeners of Global Accelerator (GA) support domain name-based and path-based forwarding rules. After an HTTP or HTTPS listener receives a request, the system matches the request against the forwarding conditions in a forwarding rule and then performs the corresponding forwarding action. For example, if you set **Host** to `www.example.com` as the forwarding condition and **Forward** to `epg-bp1enpdcrqhl78g6r****` as the forwarding action in a forwarding rule, requests to the `www.example.com` domain name match this forwarding rule and are forwarded to the `epg-bp1enpdcrqhl78g6r****` endpoint group. Before you call this API operation to create a forwarding rule, we recommend that you understand forwarding rules. For more information, see [Forwarding rules](~~204224~~).
+     *   * When you call this operation, take note of the following items:
+     *   * *   **CreateForwardingRules** is an asynchronous operation. After you send a request, the system returns the ID of a forwarding rule, but the forwarding rule is still being created in the system background. You can call the [ListForwardingRules](~~205817~~) operation to query the state of the forwarding rule.
+     *   *     *   If the forwarding rule is in the **configuring** state, it indicates that the rule is being created. In this case, you can only perform query operations.
+     *   *     *   If the forwarding rule is in the **active** state, it indicates that the rule is created.
+     *   * *   The **CreateForwardingRules** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param CreateForwardingRulesRequest $request CreateForwardingRulesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateForwardingRulesResponse
+     * @return CreateForwardingRulesResponse CreateForwardingRulesResponse
      */
     public function createForwardingRulesWithOptions($request, $runtime)
     {
@@ -2016,9 +2507,16 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateForwardingRulesRequest $request
+     * HTTP and HTTPS listeners of Global Accelerator (GA) support domain name-based and path-based forwarding rules. After an HTTP or HTTPS listener receives a request, the system matches the request against the forwarding conditions in a forwarding rule and then performs the corresponding forwarding action. For example, if you set **Host** to `www.example.com` as the forwarding condition and **Forward** to `epg-bp1enpdcrqhl78g6r****` as the forwarding action in a forwarding rule, requests to the `www.example.com` domain name match this forwarding rule and are forwarded to the `epg-bp1enpdcrqhl78g6r****` endpoint group. Before you call this API operation to create a forwarding rule, we recommend that you understand forwarding rules. For more information, see [Forwarding rules](~~204224~~).
+     *   * When you call this operation, take note of the following items:
+     *   * *   **CreateForwardingRules** is an asynchronous operation. After you send a request, the system returns the ID of a forwarding rule, but the forwarding rule is still being created in the system background. You can call the [ListForwardingRules](~~205817~~) operation to query the state of the forwarding rule.
+     *   *     *   If the forwarding rule is in the **configuring** state, it indicates that the rule is being created. In this case, you can only perform query operations.
+     *   *     *   If the forwarding rule is in the **active** state, it indicates that the rule is created.
+     *   * *   The **CreateForwardingRules** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param CreateForwardingRulesRequest $request CreateForwardingRulesRequest
      *
-     * @return CreateForwardingRulesResponse
+     * @return CreateForwardingRulesResponse CreateForwardingRulesResponse
      */
     public function createForwardingRules($request)
     {
@@ -2028,10 +2526,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateIpSetsRequest $request
-     * @param RuntimeOptions      $runtime
+     * *   **CreateIpSets** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of acceleration regions.
+     *   *     *   If acceleration regions are in the **init** state, it indicates that the acceleration regions are being created. In this case, you can perform only query operations.
+     *   *     *   If acceleration regions are in the **active** state, it indicates that the acceleration regions are created.
+     *   * *   The **CreateIpSets** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param CreateIpSetsRequest $request CreateIpSetsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateIpSetsResponse
+     * @return CreateIpSetsResponse CreateIpSetsResponse
      */
     public function createIpSetsWithOptions($request, $runtime)
     {
@@ -2068,9 +2571,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateIpSetsRequest $request
+     * *   **CreateIpSets** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of acceleration regions.
+     *   *     *   If acceleration regions are in the **init** state, it indicates that the acceleration regions are being created. In this case, you can perform only query operations.
+     *   *     *   If acceleration regions are in the **active** state, it indicates that the acceleration regions are created.
+     *   * *   The **CreateIpSets** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param CreateIpSetsRequest $request CreateIpSetsRequest
      *
-     * @return CreateIpSetsResponse
+     * @return CreateIpSetsResponse CreateIpSetsResponse
      */
     public function createIpSets($request)
     {
@@ -2080,10 +2588,17 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateListenerRequest $request
-     * @param RuntimeOptions        $runtime
+     * A listener listens for connection requests and then distributes the requests to endpoints based on the forwarding rules that are defined by a specified scheduling algorithm. You can call this operation to create a listener for a standard GA instance.
+     *   * Before you call this operation, take note of the following limits:
+     *   * *   The **CreateListener** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the status of a listener:
+     *   *     *   If a listener is in the **init** state, the listener is being created. In this case, you can perform only query operations.
+     *   *     *   If a listener is in the **active** state, the listener is created.
+     *   * *   You cannot repeatedly call the **CreateListener** operation for the same GA instance within the specified period of time.
+     *   *
+     * @param CreateListenerRequest $request CreateListenerRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateListenerResponse
+     * @return CreateListenerResponse CreateListenerResponse
      */
     public function createListenerWithOptions($request, $runtime)
     {
@@ -2153,9 +2668,16 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateListenerRequest $request
+     * A listener listens for connection requests and then distributes the requests to endpoints based on the forwarding rules that are defined by a specified scheduling algorithm. You can call this operation to create a listener for a standard GA instance.
+     *   * Before you call this operation, take note of the following limits:
+     *   * *   The **CreateListener** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the status of a listener:
+     *   *     *   If a listener is in the **init** state, the listener is being created. In this case, you can perform only query operations.
+     *   *     *   If a listener is in the **active** state, the listener is created.
+     *   * *   You cannot repeatedly call the **CreateListener** operation for the same GA instance within the specified period of time.
+     *   *
+     * @param CreateListenerRequest $request CreateListenerRequest
      *
-     * @return CreateListenerResponse
+     * @return CreateListenerResponse CreateListenerResponse
      */
     public function createListener($request)
     {
@@ -2165,10 +2687,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateSpareIpsRequest $request
-     * @param RuntimeOptions        $runtime
+     * *   **CreateSpareIps** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+     *   *     *   If the GA instance is in the **configuring** state, it indicates that spare IP addresses are being created for the CNAME that is assigned to the GA instance. In this case, you can only perform query operations.
+     *   *     *   If the GA instance is in the **active** state, it indicates that spare IP addresses are created for the CNAME that is assigned to the GA instance.
+     *   * *   The **CreateSpareIps** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+     *   *
+     * @param CreateSpareIpsRequest $request CreateSpareIpsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSpareIpsResponse
+     * @return CreateSpareIpsResponse CreateSpareIpsResponse
      */
     public function createSpareIpsWithOptions($request, $runtime)
     {
@@ -2208,9 +2735,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param CreateSpareIpsRequest $request
+     * *   **CreateSpareIps** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+     *   *     *   If the GA instance is in the **configuring** state, it indicates that spare IP addresses are being created for the CNAME that is assigned to the GA instance. In this case, you can only perform query operations.
+     *   *     *   If the GA instance is in the **active** state, it indicates that spare IP addresses are created for the CNAME that is assigned to the GA instance.
+     *   * *   The **CreateSpareIps** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+     *   *
+     * @param CreateSpareIpsRequest $request CreateSpareIpsRequest
      *
-     * @return CreateSpareIpsResponse
+     * @return CreateSpareIpsResponse CreateSpareIpsResponse
      */
     public function createSpareIps($request)
     {
@@ -2220,10 +2752,16 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteAcceleratorRequest $request
-     * @param RuntimeOptions           $runtime
+     * *   Subscription GA instances cannot be deleted.
+     *   * *   GA instances that have bandwidth plans associated cannot be deleted. To delete such GA instances, disassociate the bandwidth plans. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
+     *   * *   **DeleteAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+     *   *     *   If the GA instance is in the **deleting** state, it indicates that the GA instance is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the GA instance cannot be queried, it indicates that the GA instance is deleted.
+     *   *
+     * @param DeleteAcceleratorRequest $request DeleteAcceleratorRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAcceleratorResponse
+     * @return DeleteAcceleratorResponse DeleteAcceleratorResponse
      */
     public function deleteAcceleratorWithOptions($request, $runtime)
     {
@@ -2254,9 +2792,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteAcceleratorRequest $request
+     * *   Subscription GA instances cannot be deleted.
+     *   * *   GA instances that have bandwidth plans associated cannot be deleted. To delete such GA instances, disassociate the bandwidth plans. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
+     *   * *   **DeleteAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+     *   *     *   If the GA instance is in the **deleting** state, it indicates that the GA instance is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the GA instance cannot be queried, it indicates that the GA instance is deleted.
+     *   *
+     * @param DeleteAcceleratorRequest $request DeleteAcceleratorRequest
      *
-     * @return DeleteAcceleratorResponse
+     * @return DeleteAcceleratorResponse DeleteAcceleratorResponse
      */
     public function deleteAccelerator($request)
     {
@@ -2266,10 +2810,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteAclRequest $request
-     * @param RuntimeOptions   $runtime
+     * **DeleteAcl** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetAcl](~~258292~~) operation to query the state of a network ACL.
+     *   * *   If the network ACL is in the **deleting** state, it indicates that the network ACL is being deleted. In this case, you can perform only query operations.
+     *   * *   If the network ACL cannot be queried, it indicates that the network ACL is deleted.
+     *   *
+     * @param DeleteAclRequest $request DeleteAclRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAclResponse
+     * @return DeleteAclResponse DeleteAclResponse
      */
     public function deleteAclWithOptions($request, $runtime)
     {
@@ -2306,9 +2854,13 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteAclRequest $request
+     * **DeleteAcl** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetAcl](~~258292~~) operation to query the state of a network ACL.
+     *   * *   If the network ACL is in the **deleting** state, it indicates that the network ACL is being deleted. In this case, you can perform only query operations.
+     *   * *   If the network ACL cannot be queried, it indicates that the network ACL is deleted.
+     *   *
+     * @param DeleteAclRequest $request DeleteAclRequest
      *
-     * @return DeleteAclResponse
+     * @return DeleteAclResponse DeleteAclResponse
      */
     public function deleteAcl($request)
     {
@@ -2318,10 +2870,16 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteApplicationMonitorRequest $request
-     * @param RuntimeOptions                  $runtime
+     * *   **DeleteApplicationMonitor** is an asynchronous operation. After you call this operation, the system returns a request ID, but the operation is still being performed in the system background. You can call the [ListApplicationMonitor](~~408462~~) operation to query the state of an origin probing task.
+     *   *     *   If the origin probing task is in the **deleting** state, it indicates that the task is being deleted. In this case, you can perform only query operations.
+     *   *     <!---->
+     *   *     *   If the origin probing task cannot be queried, it indicates that the task is deleted.
+     *   * *   The **DeleteApplicationMonitor** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param DeleteApplicationMonitorRequest $request DeleteApplicationMonitorRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteApplicationMonitorResponse
+     * @return DeleteApplicationMonitorResponse DeleteApplicationMonitorResponse
      */
     public function deleteApplicationMonitorWithOptions($request, $runtime)
     {
@@ -2355,9 +2913,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteApplicationMonitorRequest $request
+     * *   **DeleteApplicationMonitor** is an asynchronous operation. After you call this operation, the system returns a request ID, but the operation is still being performed in the system background. You can call the [ListApplicationMonitor](~~408462~~) operation to query the state of an origin probing task.
+     *   *     *   If the origin probing task is in the **deleting** state, it indicates that the task is being deleted. In this case, you can perform only query operations.
+     *   *     <!---->
+     *   *     *   If the origin probing task cannot be queried, it indicates that the task is deleted.
+     *   * *   The **DeleteApplicationMonitor** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param DeleteApplicationMonitorRequest $request DeleteApplicationMonitorRequest
      *
-     * @return DeleteApplicationMonitorResponse
+     * @return DeleteApplicationMonitorResponse DeleteApplicationMonitorResponse
      */
     public function deleteApplicationMonitor($request)
     {
@@ -2367,10 +2931,17 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteBandwidthPackageRequest $request
-     * @param RuntimeOptions                $runtime
+     * *   By default, subscription bandwidth plans cannot be deleted. To delete a subscription bandwidth plan by calling this operation, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+     *   * *   Bandwidth plans that are associated with Global Accelerator (GA) instances cannot be deleted. Before you can delete a bandwidth plan that is associated with a GA instance, you must disassociate the bandwidth plan from the GA instance. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
+     *   * *   **DeleteBandwidthPackage** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the state of the bandwidth plan that you attempt to delete.
+     *   *     *   If the bandwidth plan is in the **deleting** state, it indicates that the bandwidth plan is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the bandwidth plan cannot be found, it indicates that the bandwidth plan is deleted.
+     *   * *   The **DeleteBandwidthPackage** operation cannot be called repeatedly for the same bandwidth plan within a specific period of time.
+     *   *
+     * @param DeleteBandwidthPackageRequest $request DeleteBandwidthPackageRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBandwidthPackageResponse
+     * @return DeleteBandwidthPackageResponse DeleteBandwidthPackageResponse
      */
     public function deleteBandwidthPackageWithOptions($request, $runtime)
     {
@@ -2404,9 +2975,16 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteBandwidthPackageRequest $request
+     * *   By default, subscription bandwidth plans cannot be deleted. To delete a subscription bandwidth plan by calling this operation, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+     *   * *   Bandwidth plans that are associated with Global Accelerator (GA) instances cannot be deleted. Before you can delete a bandwidth plan that is associated with a GA instance, you must disassociate the bandwidth plan from the GA instance. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
+     *   * *   **DeleteBandwidthPackage** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the state of the bandwidth plan that you attempt to delete.
+     *   *     *   If the bandwidth plan is in the **deleting** state, it indicates that the bandwidth plan is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the bandwidth plan cannot be found, it indicates that the bandwidth plan is deleted.
+     *   * *   The **DeleteBandwidthPackage** operation cannot be called repeatedly for the same bandwidth plan within a specific period of time.
+     *   *
+     * @param DeleteBandwidthPackageRequest $request DeleteBandwidthPackageRequest
      *
-     * @return DeleteBandwidthPackageResponse
+     * @return DeleteBandwidthPackageResponse DeleteBandwidthPackageResponse
      */
     public function deleteBandwidthPackage($request)
     {
@@ -2416,10 +2994,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteBasicAccelerateIpRequest $request
-     * @param RuntimeOptions                 $runtime
+     * *   **DeleteBasicAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerateIp](~~466794~~) API operation to query the status of an accelerated IP address:
+     *   *     *   If the accelerated IP address is in the **deleting** state, the accelerated IP address is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the system fails to return information about the accelerated IP address, the accelerated IP address is deleted.
+     *   * *   The **DeleteBasicAccelerateIp** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+     *   *
+     * @param DeleteBasicAccelerateIpRequest $request DeleteBasicAccelerateIpRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBasicAccelerateIpResponse
+     * @return DeleteBasicAccelerateIpResponse DeleteBasicAccelerateIpResponse
      */
     public function deleteBasicAccelerateIpWithOptions($request, $runtime)
     {
@@ -2453,9 +3036,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteBasicAccelerateIpRequest $request
+     * *   **DeleteBasicAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerateIp](~~466794~~) API operation to query the status of an accelerated IP address:
+     *   *     *   If the accelerated IP address is in the **deleting** state, the accelerated IP address is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the system fails to return information about the accelerated IP address, the accelerated IP address is deleted.
+     *   * *   The **DeleteBasicAccelerateIp** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+     *   *
+     * @param DeleteBasicAccelerateIpRequest $request DeleteBasicAccelerateIpRequest
      *
-     * @return DeleteBasicAccelerateIpResponse
+     * @return DeleteBasicAccelerateIpResponse DeleteBasicAccelerateIpResponse
      */
     public function deleteBasicAccelerateIp($request)
     {
@@ -2465,10 +3053,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteBasicAccelerateIpEndpointRelationRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * *   **DeleteBasicAccelerateIpEndpointRelation** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the following operations to check whether an accelerated IP address is disassociated from an endpoint:
+     *   *     *   You can call the [GetBasicAccelerateIp](~~466794~~) and [ListBasicEndpoints](~~466831~~) operations to query the status of an accelerated IP address and an endpoint. If the accelerated IP address and the endpoint are in the **unbinding** state, the accelerated IP address is being disassociated from the endpoint. In this case, you can query the IP address and endpoint but cannot perform other operations.
+     *   *     *   If the association status between the accelerated IP address and the endpoint cannot be queried by calling the [ListBasicAccelerateIpEndpointRelations](~~466803~~) operation, the accelerated IP address is disassociated from the endpoint.
+     *   * *   The **DeleteBasicAccelerateIpEndpointRelation** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+     *   *
+     * @param DeleteBasicAccelerateIpEndpointRelationRequest $request DeleteBasicAccelerateIpEndpointRelationRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBasicAccelerateIpEndpointRelationResponse
+     * @return DeleteBasicAccelerateIpEndpointRelationResponse DeleteBasicAccelerateIpEndpointRelationResponse
      */
     public function deleteBasicAccelerateIpEndpointRelationWithOptions($request, $runtime)
     {
@@ -2508,9 +3101,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteBasicAccelerateIpEndpointRelationRequest $request
+     * *   **DeleteBasicAccelerateIpEndpointRelation** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the following operations to check whether an accelerated IP address is disassociated from an endpoint:
+     *   *     *   You can call the [GetBasicAccelerateIp](~~466794~~) and [ListBasicEndpoints](~~466831~~) operations to query the status of an accelerated IP address and an endpoint. If the accelerated IP address and the endpoint are in the **unbinding** state, the accelerated IP address is being disassociated from the endpoint. In this case, you can query the IP address and endpoint but cannot perform other operations.
+     *   *     *   If the association status between the accelerated IP address and the endpoint cannot be queried by calling the [ListBasicAccelerateIpEndpointRelations](~~466803~~) operation, the accelerated IP address is disassociated from the endpoint.
+     *   * *   The **DeleteBasicAccelerateIpEndpointRelation** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+     *   *
+     * @param DeleteBasicAccelerateIpEndpointRelationRequest $request DeleteBasicAccelerateIpEndpointRelationRequest
      *
-     * @return DeleteBasicAccelerateIpEndpointRelationResponse
+     * @return DeleteBasicAccelerateIpEndpointRelationResponse DeleteBasicAccelerateIpEndpointRelationResponse
      */
     public function deleteBasicAccelerateIpEndpointRelation($request)
     {
@@ -2520,10 +3118,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteBasicAcceleratorRequest $request
-     * @param RuntimeOptions                $runtime
+     * **DeleteBasicAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicAccelerator](~~353188~~) operation to query the state of a basic GA instance.
+     *   * *   If the basic GA instance is in the **deleting** state, it indicates that the instance is being deleted. In this case, you can perform only query operations.
+     *   * *   If the information of the basic GA instance is not displayed in the response, it indicates that the instance is deleted.
+     *   *
+     * @param DeleteBasicAcceleratorRequest $request DeleteBasicAcceleratorRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBasicAcceleratorResponse
+     * @return DeleteBasicAcceleratorResponse DeleteBasicAcceleratorResponse
      */
     public function deleteBasicAcceleratorWithOptions($request, $runtime)
     {
@@ -2554,9 +3156,13 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteBasicAcceleratorRequest $request
+     * **DeleteBasicAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicAccelerator](~~353188~~) operation to query the state of a basic GA instance.
+     *   * *   If the basic GA instance is in the **deleting** state, it indicates that the instance is being deleted. In this case, you can perform only query operations.
+     *   * *   If the information of the basic GA instance is not displayed in the response, it indicates that the instance is deleted.
+     *   *
+     * @param DeleteBasicAcceleratorRequest $request DeleteBasicAcceleratorRequest
      *
-     * @return DeleteBasicAcceleratorResponse
+     * @return DeleteBasicAcceleratorResponse DeleteBasicAcceleratorResponse
      */
     public function deleteBasicAccelerator($request)
     {
@@ -2566,10 +3172,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteBasicEndpointRequest $request
-     * @param RuntimeOptions             $runtime
+     * *   **DeleteBasicEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](~~466831~~) operation to query the status of endpoints.
+     *   *     *   If the endpoint is in the **deleting** state, it indicates that the endpoint is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the endpoint cannot be found, it indicates that the endpoint is deleted.
+     *   * *   The **DeleteBasicEndpoint** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+     *   *
+     * @param DeleteBasicEndpointRequest $request DeleteBasicEndpointRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBasicEndpointResponse
+     * @return DeleteBasicEndpointResponse DeleteBasicEndpointResponse
      */
     public function deleteBasicEndpointWithOptions($request, $runtime)
     {
@@ -2606,9 +3217,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteBasicEndpointRequest $request
+     * *   **DeleteBasicEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](~~466831~~) operation to query the status of endpoints.
+     *   *     *   If the endpoint is in the **deleting** state, it indicates that the endpoint is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the endpoint cannot be found, it indicates that the endpoint is deleted.
+     *   * *   The **DeleteBasicEndpoint** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+     *   *
+     * @param DeleteBasicEndpointRequest $request DeleteBasicEndpointRequest
      *
-     * @return DeleteBasicEndpointResponse
+     * @return DeleteBasicEndpointResponse DeleteBasicEndpointResponse
      */
     public function deleteBasicEndpoint($request)
     {
@@ -2618,10 +3234,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteBasicEndpointGroupRequest $request
-     * @param RuntimeOptions                  $runtime
+     * *   **DeleteBasicEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicEndpointGroup](~~362984~~) operation to query the state of an endpoint group.
+     *   *     *   If the endpoint group is in the **deleting** state, it indicates that the endpoint group is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group cannot be queried, it indicates that the endpoint group is deleted.
+     *   * *   The **DeleteBasicEndpointGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param DeleteBasicEndpointGroupRequest $request DeleteBasicEndpointGroupRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBasicEndpointGroupResponse
+     * @return DeleteBasicEndpointGroupResponse DeleteBasicEndpointGroupResponse
      */
     public function deleteBasicEndpointGroupWithOptions($request, $runtime)
     {
@@ -2652,9 +3273,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteBasicEndpointGroupRequest $request
+     * *   **DeleteBasicEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicEndpointGroup](~~362984~~) operation to query the state of an endpoint group.
+     *   *     *   If the endpoint group is in the **deleting** state, it indicates that the endpoint group is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group cannot be queried, it indicates that the endpoint group is deleted.
+     *   * *   The **DeleteBasicEndpointGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param DeleteBasicEndpointGroupRequest $request DeleteBasicEndpointGroupRequest
      *
-     * @return DeleteBasicEndpointGroupResponse
+     * @return DeleteBasicEndpointGroupResponse DeleteBasicEndpointGroupResponse
      */
     public function deleteBasicEndpointGroup($request)
     {
@@ -2664,10 +3290,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteBasicIpSetRequest $request
-     * @param RuntimeOptions          $runtime
+     * *   **DeleteBasicIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicIpSet](~~362987~~) operation to query the state of an acceleration region.
+     *   *     *   If the acceleration region is in the **deleting** state, it indicates that the acceleration region is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the information of the acceleration region is not displayed in the response, it indicates that the acceleration region is deleted.
+     *   * *   The **DeleteBasicIpSet** cannot be called repeatedly for the same basic GA instance within a specific period of time.
+     *   *
+     * @param DeleteBasicIpSetRequest $request DeleteBasicIpSetRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBasicIpSetResponse
+     * @return DeleteBasicIpSetResponse DeleteBasicIpSetResponse
      */
     public function deleteBasicIpSetWithOptions($request, $runtime)
     {
@@ -2701,9 +3332,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteBasicIpSetRequest $request
+     * *   **DeleteBasicIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicIpSet](~~362987~~) operation to query the state of an acceleration region.
+     *   *     *   If the acceleration region is in the **deleting** state, it indicates that the acceleration region is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the information of the acceleration region is not displayed in the response, it indicates that the acceleration region is deleted.
+     *   * *   The **DeleteBasicIpSet** cannot be called repeatedly for the same basic GA instance within a specific period of time.
+     *   *
+     * @param DeleteBasicIpSetRequest $request DeleteBasicIpSetRequest
      *
-     * @return DeleteBasicIpSetResponse
+     * @return DeleteBasicIpSetResponse DeleteBasicIpSetResponse
      */
     public function deleteBasicIpSet($request)
     {
@@ -2713,10 +3349,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomRoutingEndpointGroupDestinationsRequest $request
-     * @param RuntimeOptions                                      $runtime
+     * *   **DeleteCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) to query the state of an endpoint group and determine whether mappings are deleted from the endpoint group.
+     *   *     *   If the endpoint group is in the **updating** state, it indicates that mappings are being deleted from the endpoint group. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group is in the **active** state and no information about the mappings that you attempt to delete is found in the response when you call the [DescribeCustomRoutingEndpointGroupDestinations](~~449378~~) operation, it indicates the mappings are deleted from the endpoint group.
+     *   * *   The **DeleteCustomRoutingEndpointGroupDestinations** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param DeleteCustomRoutingEndpointGroupDestinationsRequest $request DeleteCustomRoutingEndpointGroupDestinationsRequest
+     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCustomRoutingEndpointGroupDestinationsResponse
+     * @return DeleteCustomRoutingEndpointGroupDestinationsResponse DeleteCustomRoutingEndpointGroupDestinationsResponse
      */
     public function deleteCustomRoutingEndpointGroupDestinationsWithOptions($request, $runtime)
     {
@@ -2756,9 +3397,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomRoutingEndpointGroupDestinationsRequest $request
+     * *   **DeleteCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) to query the state of an endpoint group and determine whether mappings are deleted from the endpoint group.
+     *   *     *   If the endpoint group is in the **updating** state, it indicates that mappings are being deleted from the endpoint group. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group is in the **active** state and no information about the mappings that you attempt to delete is found in the response when you call the [DescribeCustomRoutingEndpointGroupDestinations](~~449378~~) operation, it indicates the mappings are deleted from the endpoint group.
+     *   * *   The **DeleteCustomRoutingEndpointGroupDestinations** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param DeleteCustomRoutingEndpointGroupDestinationsRequest $request DeleteCustomRoutingEndpointGroupDestinationsRequest
      *
-     * @return DeleteCustomRoutingEndpointGroupDestinationsResponse
+     * @return DeleteCustomRoutingEndpointGroupDestinationsResponse DeleteCustomRoutingEndpointGroupDestinationsResponse
      */
     public function deleteCustomRoutingEndpointGroupDestinations($request)
     {
@@ -2768,10 +3414,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomRoutingEndpointGroupsRequest $request
-     * @param RuntimeOptions                           $runtime
+     * *   **DeleteCustomRoutingEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of the endpoint groups associated with a custom routing listener that you attempt to delete.
+     *   *     *   If the endpoint groups are in the **deleting** state, the endpoint groups are being deleted. In this case, you can perform only query operations.
+     *   *     *   If the endpoint groups cannot be queried, the endpoint groups are deleted.
+     *   * *   The **DeleteCustomRoutingEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param DeleteCustomRoutingEndpointGroupsRequest $request DeleteCustomRoutingEndpointGroupsRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCustomRoutingEndpointGroupsResponse
+     * @return DeleteCustomRoutingEndpointGroupsResponse DeleteCustomRoutingEndpointGroupsResponse
      */
     public function deleteCustomRoutingEndpointGroupsWithOptions($request, $runtime)
     {
@@ -2811,9 +3462,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomRoutingEndpointGroupsRequest $request
+     * *   **DeleteCustomRoutingEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of the endpoint groups associated with a custom routing listener that you attempt to delete.
+     *   *     *   If the endpoint groups are in the **deleting** state, the endpoint groups are being deleted. In this case, you can perform only query operations.
+     *   *     *   If the endpoint groups cannot be queried, the endpoint groups are deleted.
+     *   * *   The **DeleteCustomRoutingEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param DeleteCustomRoutingEndpointGroupsRequest $request DeleteCustomRoutingEndpointGroupsRequest
      *
-     * @return DeleteCustomRoutingEndpointGroupsResponse
+     * @return DeleteCustomRoutingEndpointGroupsResponse DeleteCustomRoutingEndpointGroupsResponse
      */
     public function deleteCustomRoutingEndpointGroups($request)
     {
@@ -2823,10 +3479,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomRoutingEndpointTrafficPoliciesRequest $request
-     * @param RuntimeOptions                                    $runtime
+     * *   **DeleteCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of an endpoint group to check whether access policies of traffic for endpoints in the endpoint group are deleted.
+     *   *     *   If the endpoint group is in the **updating** state, access policies of traffic for endpoints in the endpoint group are being deleted. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group is in the **active** state and access policies of traffic that you want to delete cannot be queried by calling the [DescribeCustomRoutingEndPointTrafficPolicy](~~449392~~) operation, the access policies of traffic for endpoints in the endpoint group are deleted.
+     *   * *   The **DeleteCustomRoutingEndpointTrafficPolicies** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param DeleteCustomRoutingEndpointTrafficPoliciesRequest $request DeleteCustomRoutingEndpointTrafficPoliciesRequest
+     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCustomRoutingEndpointTrafficPoliciesResponse
+     * @return DeleteCustomRoutingEndpointTrafficPoliciesResponse DeleteCustomRoutingEndpointTrafficPoliciesResponse
      */
     public function deleteCustomRoutingEndpointTrafficPoliciesWithOptions($request, $runtime)
     {
@@ -2863,9 +3524,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomRoutingEndpointTrafficPoliciesRequest $request
+     * *   **DeleteCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of an endpoint group to check whether access policies of traffic for endpoints in the endpoint group are deleted.
+     *   *     *   If the endpoint group is in the **updating** state, access policies of traffic for endpoints in the endpoint group are being deleted. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group is in the **active** state and access policies of traffic that you want to delete cannot be queried by calling the [DescribeCustomRoutingEndPointTrafficPolicy](~~449392~~) operation, the access policies of traffic for endpoints in the endpoint group are deleted.
+     *   * *   The **DeleteCustomRoutingEndpointTrafficPolicies** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param DeleteCustomRoutingEndpointTrafficPoliciesRequest $request DeleteCustomRoutingEndpointTrafficPoliciesRequest
      *
-     * @return DeleteCustomRoutingEndpointTrafficPoliciesResponse
+     * @return DeleteCustomRoutingEndpointTrafficPoliciesResponse DeleteCustomRoutingEndpointTrafficPoliciesResponse
      */
     public function deleteCustomRoutingEndpointTrafficPolicies($request)
     {
@@ -2875,10 +3541,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomRoutingEndpointsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * *   The **DeleteCustomRoutingEndpoints** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) to query the status of an endpoint group and check whether an endpoint is deleted.
+     *   *     *   If an endpoint group is in the **updating** state, the endpoint is being deleted. In this case, you can perform only query operations.
+     *   *     *   If an endpoint group is in the **active** state and the endpoint cannot be found after you call the [DescribeCustomRoutingEndpoint](~~449386~~) operation, the endpoint is deleted.
+     *   * *   You cannot repeatedly call the **DeleteCustomRoutingEndpoints** operation for the same Global Accelerator (GA) instance within the specified period of time.
+     *   *
+     * @param DeleteCustomRoutingEndpointsRequest $request DeleteCustomRoutingEndpointsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCustomRoutingEndpointsResponse
+     * @return DeleteCustomRoutingEndpointsResponse DeleteCustomRoutingEndpointsResponse
      */
     public function deleteCustomRoutingEndpointsWithOptions($request, $runtime)
     {
@@ -2915,9 +3586,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomRoutingEndpointsRequest $request
+     * *   The **DeleteCustomRoutingEndpoints** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) to query the status of an endpoint group and check whether an endpoint is deleted.
+     *   *     *   If an endpoint group is in the **updating** state, the endpoint is being deleted. In this case, you can perform only query operations.
+     *   *     *   If an endpoint group is in the **active** state and the endpoint cannot be found after you call the [DescribeCustomRoutingEndpoint](~~449386~~) operation, the endpoint is deleted.
+     *   * *   You cannot repeatedly call the **DeleteCustomRoutingEndpoints** operation for the same Global Accelerator (GA) instance within the specified period of time.
+     *   *
+     * @param DeleteCustomRoutingEndpointsRequest $request DeleteCustomRoutingEndpointsRequest
      *
-     * @return DeleteCustomRoutingEndpointsResponse
+     * @return DeleteCustomRoutingEndpointsResponse DeleteCustomRoutingEndpointsResponse
      */
     public function deleteCustomRoutingEndpoints($request)
     {
@@ -2927,10 +3603,68 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteEndpointGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * You cannot repeatedly call the **DeleteDomainAcceleratorRelation** operation by using the same Alibaba Cloud account within a specific period of time.
+     *   *
+     * @param DeleteDomainAcceleratorRelationRequest $request DeleteDomainAcceleratorRelationRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEndpointGroupResponse
+     * @return DeleteDomainAcceleratorRelationResponse DeleteDomainAcceleratorRelationResponse
+     */
+    public function deleteDomainAcceleratorRelationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorIds)) {
+            $query['AcceleratorIds'] = $request->acceleratorIds;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDomainAcceleratorRelation',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDomainAcceleratorRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * You cannot repeatedly call the **DeleteDomainAcceleratorRelation** operation by using the same Alibaba Cloud account within a specific period of time.
+     *   *
+     * @param DeleteDomainAcceleratorRelationRequest $request DeleteDomainAcceleratorRelationRequest
+     *
+     * @return DeleteDomainAcceleratorRelationResponse DeleteDomainAcceleratorRelationResponse
+     */
+    public function deleteDomainAcceleratorRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDomainAcceleratorRelationWithOptions($request, $runtime);
+    }
+
+    /**
+     * *   **DeleteEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
+     *   *     *   If the endpoint group is in the **deleting** state, it indicates that the endpoint group is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group cannot be queried, it indicates that the endpoint group is deleted.
+     *   * *   The **DeleteEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param DeleteEndpointGroupRequest $request DeleteEndpointGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteEndpointGroupResponse DeleteEndpointGroupResponse
      */
     public function deleteEndpointGroupWithOptions($request, $runtime)
     {
@@ -2964,9 +3698,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteEndpointGroupRequest $request
+     * *   **DeleteEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
+     *   *     *   If the endpoint group is in the **deleting** state, it indicates that the endpoint group is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group cannot be queried, it indicates that the endpoint group is deleted.
+     *   * *   The **DeleteEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param DeleteEndpointGroupRequest $request DeleteEndpointGroupRequest
      *
-     * @return DeleteEndpointGroupResponse
+     * @return DeleteEndpointGroupResponse DeleteEndpointGroupResponse
      */
     public function deleteEndpointGroup($request)
     {
@@ -2976,10 +3715,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteEndpointGroupsRequest $request
-     * @param RuntimeOptions              $runtime
+     * *   **DeleteEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
+     *   *     *   If the endpoint group is in the **deleting** state, it indicates that the endpoint group is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group cannot be queried, it indicates that the endpoint group is deleted.
+     *   * *   The **DeleteEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param DeleteEndpointGroupsRequest $request DeleteEndpointGroupsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEndpointGroupsResponse
+     * @return DeleteEndpointGroupsResponse DeleteEndpointGroupsResponse
      */
     public function deleteEndpointGroupsWithOptions($request, $runtime)
     {
@@ -3016,9 +3760,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteEndpointGroupsRequest $request
+     * *   **DeleteEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
+     *   *     *   If the endpoint group is in the **deleting** state, it indicates that the endpoint group is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group cannot be queried, it indicates that the endpoint group is deleted.
+     *   * *   The **DeleteEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param DeleteEndpointGroupsRequest $request DeleteEndpointGroupsRequest
      *
-     * @return DeleteEndpointGroupsResponse
+     * @return DeleteEndpointGroupsResponse DeleteEndpointGroupsResponse
      */
     public function deleteEndpointGroups($request)
     {
@@ -3028,10 +3777,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteForwardingRulesRequest $request
-     * @param RuntimeOptions               $runtime
+     * *   **DeleteForwardingRules** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [ListForwardingRules](~~205817~~) operation to query the state of a forwarding rule.
+     *   *     *   If the forwarding rule is in the **deleting** state, the forwarding rule is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the forwarding rule cannot be queried, the forwarding rule is deleted.
+     *   * *   The **DeleteForwardingRules** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param DeleteForwardingRulesRequest $request DeleteForwardingRulesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteForwardingRulesResponse
+     * @return DeleteForwardingRulesResponse DeleteForwardingRulesResponse
      */
     public function deleteForwardingRulesWithOptions($request, $runtime)
     {
@@ -3071,9 +3825,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteForwardingRulesRequest $request
+     * *   **DeleteForwardingRules** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [ListForwardingRules](~~205817~~) operation to query the state of a forwarding rule.
+     *   *     *   If the forwarding rule is in the **deleting** state, the forwarding rule is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the forwarding rule cannot be queried, the forwarding rule is deleted.
+     *   * *   The **DeleteForwardingRules** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param DeleteForwardingRulesRequest $request DeleteForwardingRulesRequest
      *
-     * @return DeleteForwardingRulesResponse
+     * @return DeleteForwardingRulesResponse DeleteForwardingRulesResponse
      */
     public function deleteForwardingRules($request)
     {
@@ -3083,10 +3842,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteIpSetRequest $request
-     * @param RuntimeOptions     $runtime
+     * *   **DeleteIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the state of an acceleration region.
+     *   *     *   If the acceleration region is in the **deleting** state, the acceleration region is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the acceleration region cannot be queried, the acceleration region is deleted.
+     *   * *   The **DeleteIpSet** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param DeleteIpSetRequest $request DeleteIpSetRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteIpSetResponse
+     * @return DeleteIpSetResponse DeleteIpSetResponse
      */
     public function deleteIpSetWithOptions($request, $runtime)
     {
@@ -3123,9 +3887,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteIpSetRequest $request
+     * *   **DeleteIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the state of an acceleration region.
+     *   *     *   If the acceleration region is in the **deleting** state, the acceleration region is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the acceleration region cannot be queried, the acceleration region is deleted.
+     *   * *   The **DeleteIpSet** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param DeleteIpSetRequest $request DeleteIpSetRequest
      *
-     * @return DeleteIpSetResponse
+     * @return DeleteIpSetResponse DeleteIpSetResponse
      */
     public function deleteIpSet($request)
     {
@@ -3135,10 +3904,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteIpSetsRequest $request
-     * @param RuntimeOptions      $runtime
+     * *   **DeleteIpSets** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the state of an acceleration region.
+     *   *     *   If the acceleration region is in the **deleting** state, the acceleration region is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the acceleration region cannot be queried, the acceleration region is deleted.
+     *   * *   The **DeleteIpSets** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param DeleteIpSetsRequest $request DeleteIpSetsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteIpSetsResponse
+     * @return DeleteIpSetsResponse DeleteIpSetsResponse
      */
     public function deleteIpSetsWithOptions($request, $runtime)
     {
@@ -3169,9 +3943,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteIpSetsRequest $request
+     * *   **DeleteIpSets** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the state of an acceleration region.
+     *   *     *   If the acceleration region is in the **deleting** state, the acceleration region is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the acceleration region cannot be queried, the acceleration region is deleted.
+     *   * *   The **DeleteIpSets** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param DeleteIpSetsRequest $request DeleteIpSetsRequest
      *
-     * @return DeleteIpSetsResponse
+     * @return DeleteIpSetsResponse DeleteIpSetsResponse
      */
     public function deleteIpSets($request)
     {
@@ -3181,10 +3960,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteListenerRequest $request
-     * @param RuntimeOptions        $runtime
+     * *   **DeleteListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of a listener.
+     *   *     *   If the listener is in the **deleting** state, it indicates that the listener is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the listener cannot be queried, it indicates that the listener is deleted.
+     *   * *   The **DeleteListener** operation cannot be repeatedly called to delete listeners for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param DeleteListenerRequest $request DeleteListenerRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteListenerResponse
+     * @return DeleteListenerResponse DeleteListenerResponse
      */
     public function deleteListenerWithOptions($request, $runtime)
     {
@@ -3218,9 +4002,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteListenerRequest $request
+     * *   **DeleteListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of a listener.
+     *   *     *   If the listener is in the **deleting** state, it indicates that the listener is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the listener cannot be queried, it indicates that the listener is deleted.
+     *   * *   The **DeleteListener** operation cannot be repeatedly called to delete listeners for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param DeleteListenerRequest $request DeleteListenerRequest
      *
-     * @return DeleteListenerResponse
+     * @return DeleteListenerResponse DeleteListenerResponse
      */
     public function deleteListener($request)
     {
@@ -3230,10 +4019,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteSpareIpsRequest $request
-     * @param RuntimeOptions        $runtime
+     * *   **DeleteSpareIps** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+     *   *     *   If the GA instance is in the **configuring** state, it indicates that the secondary IP addresses for the CNAME are being deleted. In this case, you can perform only query operations.
+     *   *     *   If the GA instance is in the **active** state and the secondary IP addresses for the CNAME cannot be queried by calling the [ListSpareIps](~~262121~~) operation, it indicates that the IP addresses are deleted.
+     *   * *   The **DeleteSpareIps** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param DeleteSpareIpsRequest $request DeleteSpareIpsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSpareIpsResponse
+     * @return DeleteSpareIpsResponse DeleteSpareIpsResponse
      */
     public function deleteSpareIpsWithOptions($request, $runtime)
     {
@@ -3273,9 +4067,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DeleteSpareIpsRequest $request
+     * *   **DeleteSpareIps** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+     *   *     *   If the GA instance is in the **configuring** state, it indicates that the secondary IP addresses for the CNAME are being deleted. In this case, you can perform only query operations.
+     *   *     *   If the GA instance is in the **active** state and the secondary IP addresses for the CNAME cannot be queried by calling the [ListSpareIps](~~262121~~) operation, it indicates that the IP addresses are deleted.
+     *   * *   The **DeleteSpareIps** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param DeleteSpareIpsRequest $request DeleteSpareIpsRequest
      *
-     * @return DeleteSpareIpsResponse
+     * @return DeleteSpareIpsResponse DeleteSpareIpsResponse
      */
     public function deleteSpareIps($request)
     {
@@ -3518,6 +4317,104 @@ class Ga extends OpenApiClient
     }
 
     /**
+     * @param DescribeCommodityRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeCommodityResponse
+     */
+    public function describeCommodityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->commodityCode)) {
+            $query['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCommodity',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCommodityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCommodityRequest $request
+     *
+     * @return DescribeCommodityResponse
+     */
+    public function describeCommodity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCommodityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCommodityPriceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeCommodityPriceResponse
+     */
+    public function describeCommodityPriceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orders)) {
+            $query['Orders'] = $request->orders;
+        }
+        if (!Utils::isUnset($request->promotionOptionNo)) {
+            $query['PromotionOptionNo'] = $request->promotionOptionNo;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCommodityPrice',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCommodityPriceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCommodityPriceRequest $request
+     *
+     * @return DescribeCommodityPriceResponse
+     */
+    public function describeCommodityPrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCommodityPriceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeCustomRoutingEndPointTrafficPolicyRequest $request
      * @param RuntimeOptions                                    $runtime
      *
@@ -3527,6 +4424,9 @@ class Ga extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
         if (!Utils::isUnset($request->policyId)) {
             $query['PolicyId'] = $request->policyId;
         }
@@ -3573,6 +4473,9 @@ class Ga extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->endpointGroup)) {
+            $query['EndpointGroup'] = $request->endpointGroup;
+        }
         if (!Utils::isUnset($request->endpointId)) {
             $query['EndpointId'] = $request->endpointId;
         }
@@ -3667,6 +4570,9 @@ class Ga extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->destinationId)) {
             $query['DestinationId'] = $request->destinationId;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -3794,10 +4700,12 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DescribeListenerRequest $request
-     * @param RuntimeOptions          $runtime
+     * This operation is used to query configuration information about a specified listener of a GA instance. The information includes the routing type of the listener, the state of the listener, the timestamp that indicates when the listener was created, and the listener ports.
+     *   *
+     * @param DescribeListenerRequest $request DescribeListenerRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeListenerResponse
+     * @return DescribeListenerResponse DescribeListenerResponse
      */
     public function describeListenerWithOptions($request, $runtime)
     {
@@ -3828,9 +4736,11 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DescribeListenerRequest $request
+     * This operation is used to query configuration information about a specified listener of a GA instance. The information includes the routing type of the listener, the state of the listener, the timestamp that indicates when the listener was created, and the listener ports.
+     *   *
+     * @param DescribeListenerRequest $request DescribeListenerRequest
      *
-     * @return DescribeListenerResponse
+     * @return DescribeListenerResponse DescribeListenerResponse
      */
     public function describeListener($request)
     {
@@ -3883,10 +4793,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DetachDdosFromAcceleratorRequest $request
-     * @param RuntimeOptions                   $runtime
+     * *   The **DetachDdosFromAccelerator** operation is asynchronous. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the status of the GA instance.
+     *   *     *   If the GA instance is in the **configuring** state, the Anti-DDoS Pro/Premium instance is being disassociated from the GA instance. In this case, you can perform only query operations.
+     *   *     *   If the GA instance is in the **active** state, the Anti-DDoS Pro/Premium instance is disassociated from the GA instance.
+     *   * *   **DetachDdosFromAccelerator** cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param DetachDdosFromAcceleratorRequest $request DetachDdosFromAcceleratorRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachDdosFromAcceleratorResponse
+     * @return DetachDdosFromAcceleratorResponse DetachDdosFromAcceleratorResponse
      */
     public function detachDdosFromAcceleratorWithOptions($request, $runtime)
     {
@@ -3917,9 +4832,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DetachDdosFromAcceleratorRequest $request
+     * *   The **DetachDdosFromAccelerator** operation is asynchronous. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the status of the GA instance.
+     *   *     *   If the GA instance is in the **configuring** state, the Anti-DDoS Pro/Premium instance is being disassociated from the GA instance. In this case, you can perform only query operations.
+     *   *     *   If the GA instance is in the **active** state, the Anti-DDoS Pro/Premium instance is disassociated from the GA instance.
+     *   * *   **DetachDdosFromAccelerator** cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param DetachDdosFromAcceleratorRequest $request DetachDdosFromAcceleratorRequest
      *
-     * @return DetachDdosFromAcceleratorResponse
+     * @return DetachDdosFromAcceleratorResponse DetachDdosFromAcceleratorResponse
      */
     public function detachDdosFromAccelerator($request)
     {
@@ -3929,10 +4849,16 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DetachLogStoreFromEndpointGroupRequest $request
-     * @param RuntimeOptions                         $runtime
+     * *   **DetachLogStoreFromEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
+     *   *     *   If the endpoint group is in the **updating** state, the Log Service Logstore is being disassociated from the endpoint group. In this case, you can perform only query operations.
+     *   *     <!---->
+     *   *     *   If the endpoint group is in the **active** state, the Log Service Logstore is disassociated from the endpoint group.
+     *   * *   The **DetachLogStoreFromEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param DetachLogStoreFromEndpointGroupRequest $request DetachLogStoreFromEndpointGroupRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachLogStoreFromEndpointGroupResponse
+     * @return DetachLogStoreFromEndpointGroupResponse DetachLogStoreFromEndpointGroupResponse
      */
     public function detachLogStoreFromEndpointGroupWithOptions($request, $runtime)
     {
@@ -3972,9 +4898,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DetachLogStoreFromEndpointGroupRequest $request
+     * *   **DetachLogStoreFromEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
+     *   *     *   If the endpoint group is in the **updating** state, the Log Service Logstore is being disassociated from the endpoint group. In this case, you can perform only query operations.
+     *   *     <!---->
+     *   *     *   If the endpoint group is in the **active** state, the Log Service Logstore is disassociated from the endpoint group.
+     *   * *   The **DetachLogStoreFromEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param DetachLogStoreFromEndpointGroupRequest $request DetachLogStoreFromEndpointGroupRequest
      *
-     * @return DetachLogStoreFromEndpointGroupResponse
+     * @return DetachLogStoreFromEndpointGroupResponse DetachLogStoreFromEndpointGroupResponse
      */
     public function detachLogStoreFromEndpointGroup($request)
     {
@@ -4082,10 +5014,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DissociateAclsFromListenerRequest $request
-     * @param RuntimeOptions                    $runtime
+     * *   **DissociateAclsFromListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of a listener:
+     *   *     *   If the listener is in the **updating** state, ACLs are being disassociated from the listener. In this case, you can perform only query operations.
+     *   *     *   If the listener is in the **active** state, ACLs are disassociated from the listener.
+     *   * *   The **DissociateAclsFromListener** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param DissociateAclsFromListenerRequest $request DissociateAclsFromListenerRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DissociateAclsFromListenerResponse
+     * @return DissociateAclsFromListenerResponse DissociateAclsFromListenerResponse
      */
     public function dissociateAclsFromListenerWithOptions($request, $runtime)
     {
@@ -4125,9 +5062,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DissociateAclsFromListenerRequest $request
+     * *   **DissociateAclsFromListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of a listener:
+     *   *     *   If the listener is in the **updating** state, ACLs are being disassociated from the listener. In this case, you can perform only query operations.
+     *   *     *   If the listener is in the **active** state, ACLs are disassociated from the listener.
+     *   * *   The **DissociateAclsFromListener** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param DissociateAclsFromListenerRequest $request DissociateAclsFromListenerRequest
      *
-     * @return DissociateAclsFromListenerResponse
+     * @return DissociateAclsFromListenerResponse DissociateAclsFromListenerResponse
      */
     public function dissociateAclsFromListener($request)
     {
@@ -4137,10 +5079,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DissociateAdditionalCertificatesFromListenerRequest $request
-     * @param RuntimeOptions                                      $runtime
+     * *   **DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of an HTTPS listener.
+     *   *     *   If the listener is in the **updating** state, it indicates that the additional certificate is being dissociated from the listener. In this case, you can perform only query operations.
+     *   *     *   If the listener is in the **active** state, it indicates that the additional certificate is dissociated from the listener.
+     *   * *   The **DissociateAdditionalCertificatesFromListener** operation cannot be repeatedly called for the same Global Accelerator (GA) instance with a specific period of time.
+     *   *
+     * @param DissociateAdditionalCertificatesFromListenerRequest $request DissociateAdditionalCertificatesFromListenerRequest
+     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DissociateAdditionalCertificatesFromListenerResponse
+     * @return DissociateAdditionalCertificatesFromListenerResponse DissociateAdditionalCertificatesFromListenerResponse
      */
     public function dissociateAdditionalCertificatesFromListenerWithOptions($request, $runtime)
     {
@@ -4180,9 +5127,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param DissociateAdditionalCertificatesFromListenerRequest $request
+     * *   **DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of an HTTPS listener.
+     *   *     *   If the listener is in the **updating** state, it indicates that the additional certificate is being dissociated from the listener. In this case, you can perform only query operations.
+     *   *     *   If the listener is in the **active** state, it indicates that the additional certificate is dissociated from the listener.
+     *   * *   The **DissociateAdditionalCertificatesFromListener** operation cannot be repeatedly called for the same Global Accelerator (GA) instance with a specific period of time.
+     *   *
+     * @param DissociateAdditionalCertificatesFromListenerRequest $request DissociateAdditionalCertificatesFromListenerRequest
      *
-     * @return DissociateAdditionalCertificatesFromListenerResponse
+     * @return DissociateAdditionalCertificatesFromListenerResponse DissociateAdditionalCertificatesFromListenerResponse
      */
     public function dissociateAdditionalCertificatesFromListener($request)
     {
@@ -4685,6 +5637,95 @@ class Ga extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getHealthStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetInvalidDomainCountRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetInvalidDomainCountResponse
+     */
+    public function getInvalidDomainCountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetInvalidDomainCount',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetInvalidDomainCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetInvalidDomainCountRequest $request
+     *
+     * @return GetInvalidDomainCountResponse
+     */
+    public function getInvalidDomainCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInvalidDomainCountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetIpsetsBandwidthLimitRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetIpsetsBandwidthLimitResponse
+     */
+    public function getIpsetsBandwidthLimitWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetIpsetsBandwidthLimit',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetIpsetsBandwidthLimitResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetIpsetsBandwidthLimitRequest $request
+     *
+     * @return GetIpsetsBandwidthLimitResponse
+     */
+    public function getIpsetsBandwidthLimit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getIpsetsBandwidthLimitWithOptions($request, $runtime);
     }
 
     /**
@@ -5516,6 +6557,55 @@ class Ga extends OpenApiClient
     }
 
     /**
+     * @param ListCommonAreasRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListCommonAreasResponse
+     */
+    public function listCommonAreasWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
+        }
+        if (!Utils::isUnset($request->isEpg)) {
+            $query['IsEpg'] = $request->isEpg;
+        }
+        if (!Utils::isUnset($request->isIpSet)) {
+            $query['IsIpSet'] = $request->isIpSet;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCommonAreas',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCommonAreasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCommonAreasRequest $request
+     *
+     * @return ListCommonAreasResponse
+     */
+    public function listCommonAreas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCommonAreasWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListCustomRoutingEndpointGroupDestinationsRequest $request
      * @param RuntimeOptions                                    $runtime
      *
@@ -5763,10 +6853,12 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param ListCustomRoutingPortMappingsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * After you configure a custom routing listener for a Global Accelerator (GA) instance, the instance generates a port mapping table based on the listener port range, backend service protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches). The custom routing listener forwards client requests to specified IP addresses and ports in the vSwitches based on the port mapping table. This operation is used to query the generated port mapping table.
+     *   *
+     * @param ListCustomRoutingPortMappingsRequest $request ListCustomRoutingPortMappingsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCustomRoutingPortMappingsResponse
+     * @return ListCustomRoutingPortMappingsResponse ListCustomRoutingPortMappingsResponse
      */
     public function listCustomRoutingPortMappingsWithOptions($request, $runtime)
     {
@@ -5809,9 +6901,11 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param ListCustomRoutingPortMappingsRequest $request
+     * After you configure a custom routing listener for a Global Accelerator (GA) instance, the instance generates a port mapping table based on the listener port range, backend service protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches). The custom routing listener forwards client requests to specified IP addresses and ports in the vSwitches based on the port mapping table. This operation is used to query the generated port mapping table.
+     *   *
+     * @param ListCustomRoutingPortMappingsRequest $request ListCustomRoutingPortMappingsRequest
      *
-     * @return ListCustomRoutingPortMappingsResponse
+     * @return ListCustomRoutingPortMappingsResponse ListCustomRoutingPortMappingsResponse
      */
     public function listCustomRoutingPortMappings($request)
     {
@@ -5873,6 +6967,64 @@ class Ga extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCustomRoutingPortMappingsByDestinationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDomainsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListDomainsResponse
+     */
+    public function listDomainsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDomains',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDomainsRequest $request
+     *
+     * @return ListDomainsResponse
+     */
+    public function listDomains($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDomainsWithOptions($request, $runtime);
     }
 
     /**
@@ -5943,10 +7095,12 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param ListForwardingRulesRequest $request
-     * @param RuntimeOptions             $runtime
+     * >  This operation is used to query only custom forwarding rules, not the default forwarding rule.
+     *   *
+     * @param ListForwardingRulesRequest $request ListForwardingRulesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListForwardingRulesResponse
+     * @return ListForwardingRulesResponse ListForwardingRulesResponse
      */
     public function listForwardingRulesWithOptions($request, $runtime)
     {
@@ -5992,9 +7146,11 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param ListForwardingRulesRequest $request
+     * >  This operation is used to query only custom forwarding rules, not the default forwarding rule.
+     *   *
+     * @param ListForwardingRulesRequest $request ListForwardingRulesRequest
      *
-     * @return ListForwardingRulesResponse
+     * @return ListForwardingRulesResponse ListForwardingRulesResponse
      */
     public function listForwardingRules($request)
     {
@@ -6056,6 +7212,52 @@ class Ga extends OpenApiClient
     }
 
     /**
+     * @param ListIspTypesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListIspTypesResponse
+     */
+    public function listIspTypesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorType)) {
+            $query['AcceleratorType'] = $request->acceleratorType;
+        }
+        if (!Utils::isUnset($request->businessRegionId)) {
+            $query['BusinessRegionId'] = $request->businessRegionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIspTypes',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListIspTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListIspTypesRequest $request
+     *
+     * @return ListIspTypesResponse
+     */
+    public function listIspTypes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIspTypesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListListenerCertificatesRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -6114,10 +7316,12 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param ListListenersRequest $request
-     * @param RuntimeOptions       $runtime
+     * This operation is used to query information about the listeners of a GA instance, including the state of each listener, the timestamp that indicates when each listener was created, and the listener ports.
+     *   *
+     * @param ListListenersRequest $request ListListenersRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListListenersResponse
+     * @return ListListenersResponse ListListenersResponse
      */
     public function listListenersWithOptions($request, $runtime)
     {
@@ -6154,9 +7358,11 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param ListListenersRequest $request
+     * This operation is used to query information about the listeners of a GA instance, including the state of each listener, the timestamp that indicates when each listener was created, and the listener ports.
+     *   *
+     * @param ListListenersRequest $request ListListenersRequest
      *
-     * @return ListListenersResponse
+     * @return ListListenersResponse ListListenersResponse
      */
     public function listListeners($request)
     {
@@ -6218,10 +7424,12 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param ListSystemSecurityPoliciesRequest $request
-     * @param RuntimeOptions                    $runtime
+     * You can select a TLS security policy when you create and modify an HTTPS listener. This API operation is used to query the TLS security policies that are supported by HTTPS listeners.
+     *   *
+     * @param ListSystemSecurityPoliciesRequest $request ListSystemSecurityPoliciesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSystemSecurityPoliciesResponse
+     * @return ListSystemSecurityPoliciesResponse ListSystemSecurityPoliciesResponse
      */
     public function listSystemSecurityPoliciesWithOptions($request, $runtime)
     {
@@ -6255,9 +7463,11 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param ListSystemSecurityPoliciesRequest $request
+     * You can select a TLS security policy when you create and modify an HTTPS listener. This API operation is used to query the TLS security policies that are supported by HTTPS listeners.
+     *   *
+     * @param ListSystemSecurityPoliciesRequest $request ListSystemSecurityPoliciesRequest
      *
-     * @return ListSystemSecurityPoliciesResponse
+     * @return ListSystemSecurityPoliciesResponse ListSystemSecurityPoliciesResponse
      */
     public function listSystemSecurityPolicies($request)
     {
@@ -6325,10 +7535,58 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param RemoveEntriesFromAclRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param QueryCrossPrivatePermissionRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return RemoveEntriesFromAclResponse
+     * @return QueryCrossPrivatePermissionResponse
+     */
+    public function queryCrossPrivatePermissionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCrossPrivatePermission',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryCrossPrivatePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryCrossPrivatePermissionRequest $request
+     *
+     * @return QueryCrossPrivatePermissionResponse
+     */
+    public function queryCrossPrivatePermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCrossPrivatePermissionWithOptions($request, $runtime);
+    }
+
+    /**
+     * *   The **RemoveEntriesFromAcl** operation is asynchronous. After you send a request, the system returns the request ID, but the operation is still being performed in the system background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the status of an ACL:
+     *   *     *   If an ACL is in the **configuring** state, the IP entries are being deleted. In this case, you can perform only query operations.
+     *   *     *   If an ACL is in the **active** state, the IP entries are deleted.
+     *   * *   You cannot repeatedly call the **RemoveEntriesFromAcl** operation for the same Global Accelerator (GA) instance within the specified period of time.
+     *   *
+     * @param RemoveEntriesFromAclRequest $request RemoveEntriesFromAclRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RemoveEntriesFromAclResponse RemoveEntriesFromAclResponse
      */
     public function removeEntriesFromAclWithOptions($request, $runtime)
     {
@@ -6368,9 +7626,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param RemoveEntriesFromAclRequest $request
+     * *   The **RemoveEntriesFromAcl** operation is asynchronous. After you send a request, the system returns the request ID, but the operation is still being performed in the system background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the status of an ACL:
+     *   *     *   If an ACL is in the **configuring** state, the IP entries are being deleted. In this case, you can perform only query operations.
+     *   *     *   If an ACL is in the **active** state, the IP entries are deleted.
+     *   * *   You cannot repeatedly call the **RemoveEntriesFromAcl** operation for the same Global Accelerator (GA) instance within the specified period of time.
+     *   *
+     * @param RemoveEntriesFromAclRequest $request RemoveEntriesFromAclRequest
      *
-     * @return RemoveEntriesFromAclResponse
+     * @return RemoveEntriesFromAclResponse RemoveEntriesFromAclResponse
      */
     public function removeEntriesFromAcl($request)
     {
@@ -6380,10 +7643,17 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param ReplaceBandwidthPackageRequest $request
-     * @param RuntimeOptions                 $runtime
+     * When you call this operation to replace the bandwidth plan that is associated with a GA instance, take note of the following items:
+     *   * *   The GA instance continues to forward network traffic.
+     *   * *   **ReplaceBandwidthPackage** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the state of the GA instance.
+     *   *     *   If the GA instance is in the **configuring** state, it indicates that the associated bandwidth plan is being replaced. In this case, you can perform only query operations.
+     *   *     *   If the GA instance is in the **active** state, it indicates that the associated bandwidth plan is replaced.
+     *   * *   The **ReplaceBandwidthPackage** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+     *   *
+     * @param ReplaceBandwidthPackageRequest $request ReplaceBandwidthPackageRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReplaceBandwidthPackageResponse
+     * @return ReplaceBandwidthPackageResponse ReplaceBandwidthPackageResponse
      */
     public function replaceBandwidthPackageWithOptions($request, $runtime)
     {
@@ -6420,9 +7690,16 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param ReplaceBandwidthPackageRequest $request
+     * When you call this operation to replace the bandwidth plan that is associated with a GA instance, take note of the following items:
+     *   * *   The GA instance continues to forward network traffic.
+     *   * *   **ReplaceBandwidthPackage** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the state of the GA instance.
+     *   *     *   If the GA instance is in the **configuring** state, it indicates that the associated bandwidth plan is being replaced. In this case, you can perform only query operations.
+     *   *     *   If the GA instance is in the **active** state, it indicates that the associated bandwidth plan is replaced.
+     *   * *   The **ReplaceBandwidthPackage** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+     *   *
+     * @param ReplaceBandwidthPackageRequest $request ReplaceBandwidthPackageRequest
      *
-     * @return ReplaceBandwidthPackageResponse
+     * @return ReplaceBandwidthPackageResponse ReplaceBandwidthPackageResponse
      */
     public function replaceBandwidthPackage($request)
     {
@@ -6432,10 +7709,12 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * You can add up to 20 tags to a single Global Accelerator (GA) resource. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags attached to the resource. If the quota is reached, an error message is returned.
+     *   *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -6475,9 +7754,11 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * You can add up to 20 tags to a single Global Accelerator (GA) resource. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags attached to the resource. If the quota is reached, an error message is returned.
+     *   *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -6545,10 +7826,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateAcceleratorRequest $request
-     * @param RuntimeOptions           $runtime
+     * *   **UpdateAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+     *   *     *   If the GA instance is in the **configuring** state, the GA instance is being modified. In this case, you can perform only query operations.
+     *   *     *   If the GA instance is in the **active** state, the GA instance is modified.
+     *   * *   The **UpdateAccelerator** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param UpdateAcceleratorRequest $request UpdateAcceleratorRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAcceleratorResponse
+     * @return UpdateAcceleratorResponse UpdateAcceleratorResponse
      */
     public function updateAcceleratorWithOptions($request, $runtime)
     {
@@ -6597,9 +7883,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateAcceleratorRequest $request
+     * *   **UpdateAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+     *   *     *   If the GA instance is in the **configuring** state, the GA instance is being modified. In this case, you can perform only query operations.
+     *   *     *   If the GA instance is in the **active** state, the GA instance is modified.
+     *   * *   The **UpdateAccelerator** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param UpdateAcceleratorRequest $request UpdateAcceleratorRequest
      *
-     * @return UpdateAcceleratorResponse
+     * @return UpdateAcceleratorResponse UpdateAcceleratorResponse
      */
     public function updateAccelerator($request)
     {
@@ -6609,10 +7900,12 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateAcceleratorAutoRenewAttributeRequest $request
-     * @param RuntimeOptions                             $runtime
+     * The **UpdateAcceleratorAutoRenewAttribute** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param UpdateAcceleratorAutoRenewAttributeRequest $request UpdateAcceleratorAutoRenewAttributeRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAcceleratorAutoRenewAttributeResponse
+     * @return UpdateAcceleratorAutoRenewAttributeResponse UpdateAcceleratorAutoRenewAttributeResponse
      */
     public function updateAcceleratorAutoRenewAttributeWithOptions($request, $runtime)
     {
@@ -6658,9 +7951,11 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateAcceleratorAutoRenewAttributeRequest $request
+     * The **UpdateAcceleratorAutoRenewAttribute** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param UpdateAcceleratorAutoRenewAttributeRequest $request UpdateAcceleratorAutoRenewAttributeRequest
      *
-     * @return UpdateAcceleratorAutoRenewAttributeResponse
+     * @return UpdateAcceleratorAutoRenewAttributeResponse UpdateAcceleratorAutoRenewAttributeResponse
      */
     public function updateAcceleratorAutoRenewAttribute($request)
     {
@@ -6670,10 +7965,16 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateAcceleratorConfirmRequest $request
-     * @param RuntimeOptions                  $runtime
+     * After you modify the specification of a GA instance, you must confirm the modification. The **UpdateAcceleratorConfirm** operation is used to confirm the specification modification to a GA instance. When you call this operation to confirm the specification modification to a GA instance, take note of the following items:
+     *   * *   **UpdateAcceleratorConfirm** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of the GA instance.
+     *   *     *   If the GA instance is in the **configuring** state, it indicates that the specification of the instance is being modified. In this case, you can perform only query operations.
+     *   *     *   If the GA instance is in the **active** state, it indicates that the specification of the instance is modified.
+     *   * *   The **UpdateAcceleratorConfirm** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+     *   *
+     * @param UpdateAcceleratorConfirmRequest $request UpdateAcceleratorConfirmRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAcceleratorConfirmResponse
+     * @return UpdateAcceleratorConfirmResponse UpdateAcceleratorConfirmResponse
      */
     public function updateAcceleratorConfirmWithOptions($request, $runtime)
     {
@@ -6704,9 +8005,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateAcceleratorConfirmRequest $request
+     * After you modify the specification of a GA instance, you must confirm the modification. The **UpdateAcceleratorConfirm** operation is used to confirm the specification modification to a GA instance. When you call this operation to confirm the specification modification to a GA instance, take note of the following items:
+     *   * *   **UpdateAcceleratorConfirm** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of the GA instance.
+     *   *     *   If the GA instance is in the **configuring** state, it indicates that the specification of the instance is being modified. In this case, you can perform only query operations.
+     *   *     *   If the GA instance is in the **active** state, it indicates that the specification of the instance is modified.
+     *   * *   The **UpdateAcceleratorConfirm** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+     *   *
+     * @param UpdateAcceleratorConfirmRequest $request UpdateAcceleratorConfirmRequest
      *
-     * @return UpdateAcceleratorConfirmResponse
+     * @return UpdateAcceleratorConfirmResponse UpdateAcceleratorConfirmResponse
      */
     public function updateAcceleratorConfirm($request)
     {
@@ -6771,10 +8078,16 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateAdditionalCertificateWithListenerRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * The UpdateAdditionalCertificateWithListener operation is used to replace an additional certificate. You can call this operation when you want to replace an expired additional certificate with a new additional certificate without changing the associated domain name.
+     *   * *   **UpdateAdditionalCertificateWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [ListListenerCertificates](~~307743~~) operation to query the state of the additional certificate that is associated with an HTTP listener:
+     *   *     *   If the certificate that you want to replace is in the **updating** state, it indicates that the additional certificate is being replaced for the HTTP listener. In this case, you can perform only query operations.
+     *   *     *   If the replacement certificate is in the **active** state, it indicates that the replacement operation is complete and the replacement certificate is associated with the HTTP listener.
+     *   * *   The **UpdateAdditionalCertificateWithListener** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param UpdateAdditionalCertificateWithListenerRequest $request UpdateAdditionalCertificateWithListenerRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAdditionalCertificateWithListenerResponse
+     * @return UpdateAdditionalCertificateWithListenerResponse UpdateAdditionalCertificateWithListenerResponse
      */
     public function updateAdditionalCertificateWithListenerWithOptions($request, $runtime)
     {
@@ -6820,9 +8133,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateAdditionalCertificateWithListenerRequest $request
+     * The UpdateAdditionalCertificateWithListener operation is used to replace an additional certificate. You can call this operation when you want to replace an expired additional certificate with a new additional certificate without changing the associated domain name.
+     *   * *   **UpdateAdditionalCertificateWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [ListListenerCertificates](~~307743~~) operation to query the state of the additional certificate that is associated with an HTTP listener:
+     *   *     *   If the certificate that you want to replace is in the **updating** state, it indicates that the additional certificate is being replaced for the HTTP listener. In this case, you can perform only query operations.
+     *   *     *   If the replacement certificate is in the **active** state, it indicates that the replacement operation is complete and the replacement certificate is associated with the HTTP listener.
+     *   * *   The **UpdateAdditionalCertificateWithListener** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param UpdateAdditionalCertificateWithListenerRequest $request UpdateAdditionalCertificateWithListenerRequest
      *
-     * @return UpdateAdditionalCertificateWithListenerResponse
+     * @return UpdateAdditionalCertificateWithListenerResponse UpdateAdditionalCertificateWithListenerResponse
      */
     public function updateAdditionalCertificateWithListener($request)
     {
@@ -6832,10 +8151,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationMonitorRequest $request
-     * @param RuntimeOptions                  $runtime
+     * **UpdateApplicationMonitor** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeApplicationMonitor](~~408463~~) or [ListApplicationMonitor](~~408462~~) operation to check whether the configurations of an origin probing task are modified.
+     *   * *   If the values of modified parameters remain unchanged, it indicates that the origin probing task is being modified. In this case, you can perform only query operations.
+     *   * *   If the values of modified parameters change, it indicates that the origin probing task is modified.
+     *   *
+     * @param UpdateApplicationMonitorRequest $request UpdateApplicationMonitorRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateApplicationMonitorResponse
+     * @return UpdateApplicationMonitorResponse UpdateApplicationMonitorResponse
      */
     public function updateApplicationMonitorWithOptions($request, $runtime)
     {
@@ -6893,9 +8216,13 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationMonitorRequest $request
+     * **UpdateApplicationMonitor** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeApplicationMonitor](~~408463~~) or [ListApplicationMonitor](~~408462~~) operation to check whether the configurations of an origin probing task are modified.
+     *   * *   If the values of modified parameters remain unchanged, it indicates that the origin probing task is being modified. In this case, you can perform only query operations.
+     *   * *   If the values of modified parameters change, it indicates that the origin probing task is modified.
+     *   *
+     * @param UpdateApplicationMonitorRequest $request UpdateApplicationMonitorRequest
      *
-     * @return UpdateApplicationMonitorResponse
+     * @return UpdateApplicationMonitorResponse UpdateApplicationMonitorResponse
      */
     public function updateApplicationMonitor($request)
     {
@@ -6905,10 +8232,12 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateBandwidthPackagaAutoRenewAttributeRequest $request
-     * @param RuntimeOptions                                  $runtime
+     * You cannot repeatedly call the **UpdateBandwidthPackagaAutoRenewAttribute** operation to modify the auto-renewal settings of a bandwidth plan.
+     *   *
+     * @param UpdateBandwidthPackagaAutoRenewAttributeRequest $request UpdateBandwidthPackagaAutoRenewAttributeRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateBandwidthPackagaAutoRenewAttributeResponse
+     * @return UpdateBandwidthPackagaAutoRenewAttributeResponse UpdateBandwidthPackagaAutoRenewAttributeResponse
      */
     public function updateBandwidthPackagaAutoRenewAttributeWithOptions($request, $runtime)
     {
@@ -6954,9 +8283,11 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateBandwidthPackagaAutoRenewAttributeRequest $request
+     * You cannot repeatedly call the **UpdateBandwidthPackagaAutoRenewAttribute** operation to modify the auto-renewal settings of a bandwidth plan.
+     *   *
+     * @param UpdateBandwidthPackagaAutoRenewAttributeRequest $request UpdateBandwidthPackagaAutoRenewAttributeRequest
      *
-     * @return UpdateBandwidthPackagaAutoRenewAttributeResponse
+     * @return UpdateBandwidthPackagaAutoRenewAttributeResponse UpdateBandwidthPackagaAutoRenewAttributeResponse
      */
     public function updateBandwidthPackagaAutoRenewAttribute($request)
     {
@@ -6966,10 +8297,20 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateBandwidthPackageRequest $request
-     * @param RuntimeOptions                $runtime
+     * When you call this operation, take note of the following items:
+     *   * *   **UpdateBandwidthPackage** is a synchronous operation when it is called to modify the configurations excluding the bandwidth value of a bandwidth plan. The new configurations take effect immediately after the operation is performed.
+     *   * *   **UpdateBandwidthPackage** is an asynchronous operation when it is called to modify the configurations including the bandwidth value of a bandwidth plan that is not associated with a Global Accelerator (GA) instance. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query whether the bandwidth plan is modified.
+     *   *     *   If the parameter settings of the bandwidth plan remain unchanged, it indicates that the bandwidth plan is being modified. In this case, you can perform only query operations.
+     *   *     *   If the parameter settings of the bandwidth plan change, it indicates that the bandwidth plan is modified.
+     *   * *   **UpdateBandwidthPackage** is an asynchronous operation when it is called to modify the configurations including the bandwidth value of a bandwidth plan that is associated with a GA instance. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of the GA instance and determine whether its associated bandwidth plan is modified.
+     *   *     *   If the GA instance is in the **configuring** state, it indicates that the bandwidth plan is being modified. In this case, you can perform only query operations.
+     *   *     *   If the GA instance is in the **active** state, it indicates that the bandwidth plan is modified.
+     *   * *   The **UpdateBandwidthPackage** operation cannot be called repeatedly for the same bandwidth plan within a specific period of time.
+     *   *
+     * @param UpdateBandwidthPackageRequest $request UpdateBandwidthPackageRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateBandwidthPackageResponse
+     * @return UpdateBandwidthPackageResponse UpdateBandwidthPackageResponse
      */
     public function updateBandwidthPackageWithOptions($request, $runtime)
     {
@@ -7018,9 +8359,19 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateBandwidthPackageRequest $request
+     * When you call this operation, take note of the following items:
+     *   * *   **UpdateBandwidthPackage** is a synchronous operation when it is called to modify the configurations excluding the bandwidth value of a bandwidth plan. The new configurations take effect immediately after the operation is performed.
+     *   * *   **UpdateBandwidthPackage** is an asynchronous operation when it is called to modify the configurations including the bandwidth value of a bandwidth plan that is not associated with a Global Accelerator (GA) instance. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query whether the bandwidth plan is modified.
+     *   *     *   If the parameter settings of the bandwidth plan remain unchanged, it indicates that the bandwidth plan is being modified. In this case, you can perform only query operations.
+     *   *     *   If the parameter settings of the bandwidth plan change, it indicates that the bandwidth plan is modified.
+     *   * *   **UpdateBandwidthPackage** is an asynchronous operation when it is called to modify the configurations including the bandwidth value of a bandwidth plan that is associated with a GA instance. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of the GA instance and determine whether its associated bandwidth plan is modified.
+     *   *     *   If the GA instance is in the **configuring** state, it indicates that the bandwidth plan is being modified. In this case, you can perform only query operations.
+     *   *     *   If the GA instance is in the **active** state, it indicates that the bandwidth plan is modified.
+     *   * *   The **UpdateBandwidthPackage** operation cannot be called repeatedly for the same bandwidth plan within a specific period of time.
+     *   *
+     * @param UpdateBandwidthPackageRequest $request UpdateBandwidthPackageRequest
      *
-     * @return UpdateBandwidthPackageResponse
+     * @return UpdateBandwidthPackageResponse UpdateBandwidthPackageResponse
      */
     public function updateBandwidthPackage($request)
     {
@@ -7140,10 +8491,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateBasicEndpointGroupRequest $request
-     * @param RuntimeOptions                  $runtime
+     * *   **UpdateBasicEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. After you call this operation to modify an endpoint group that is associated with a basic GA instance, the system deletes the endpoint group and creates another endpoint group in the background for the basic GA instance. You can call the [GetBasicAccelerator](~~353188~~) operation to query the state of the basic GA instance.
+     *   *     *   If the basic GA instance is in the **configuring** state, it indicates that the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
+     *   *     *   If the basic GA instance is in the **active** state, it indicates that the configurations of the endpoint group are modified.
+     *   * *   The **UpdateBasicEndpointGroup** operation cannot be called repeatedly for the same basic GA instance within a specific period of time.
+     *   *
+     * @param UpdateBasicEndpointGroupRequest $request UpdateBasicEndpointGroupRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateBasicEndpointGroupResponse
+     * @return UpdateBasicEndpointGroupResponse UpdateBasicEndpointGroupResponse
      */
     public function updateBasicEndpointGroupWithOptions($request, $runtime)
     {
@@ -7192,9 +8548,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateBasicEndpointGroupRequest $request
+     * *   **UpdateBasicEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. After you call this operation to modify an endpoint group that is associated with a basic GA instance, the system deletes the endpoint group and creates another endpoint group in the background for the basic GA instance. You can call the [GetBasicAccelerator](~~353188~~) operation to query the state of the basic GA instance.
+     *   *     *   If the basic GA instance is in the **configuring** state, it indicates that the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
+     *   *     *   If the basic GA instance is in the **active** state, it indicates that the configurations of the endpoint group are modified.
+     *   * *   The **UpdateBasicEndpointGroup** operation cannot be called repeatedly for the same basic GA instance within a specific period of time.
+     *   *
+     * @param UpdateBasicEndpointGroupRequest $request UpdateBasicEndpointGroupRequest
      *
-     * @return UpdateBasicEndpointGroupResponse
+     * @return UpdateBasicEndpointGroupResponse UpdateBasicEndpointGroupResponse
      */
     public function updateBasicEndpointGroup($request)
     {
@@ -7204,10 +8565,17 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateBasicIpSetRequest $request
-     * @param RuntimeOptions          $runtime
+     * Before you call this operation, take note of the following limits:
+     *   * *   You can call this operation for only basic GA instances whose bandwidth is billed by Cloud Data Transfer (CDT).
+     *   * *   The **UpdateBasicIpSet** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the background. You can call the [GetBasicIpSet](~~362987~~) operation to query the status of an acceleration region:
+     *   *     *   If an acceleration region is in the **updating** state, the bandwidth of the acceleration region is being modified. In this state, you can perform only query operations.
+     *   *     *   If an acceleration region is in the **active** state, the bandwidth of the acceleration region is modified.
+     *   * *   You cannot repeatedly call the **UpdateBasicIpSet** operation for the same basic GA instance within the specified period of time.
+     *   *
+     * @param UpdateBasicIpSetRequest $request UpdateBasicIpSetRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateBasicIpSetResponse
+     * @return UpdateBasicIpSetResponse UpdateBasicIpSetResponse
      */
     public function updateBasicIpSetWithOptions($request, $runtime)
     {
@@ -7244,15 +8612,71 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateBasicIpSetRequest $request
+     * Before you call this operation, take note of the following limits:
+     *   * *   You can call this operation for only basic GA instances whose bandwidth is billed by Cloud Data Transfer (CDT).
+     *   * *   The **UpdateBasicIpSet** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the background. You can call the [GetBasicIpSet](~~362987~~) operation to query the status of an acceleration region:
+     *   *     *   If an acceleration region is in the **updating** state, the bandwidth of the acceleration region is being modified. In this state, you can perform only query operations.
+     *   *     *   If an acceleration region is in the **active** state, the bandwidth of the acceleration region is modified.
+     *   * *   You cannot repeatedly call the **UpdateBasicIpSet** operation for the same basic GA instance within the specified period of time.
+     *   *
+     * @param UpdateBasicIpSetRequest $request UpdateBasicIpSetRequest
      *
-     * @return UpdateBasicIpSetResponse
+     * @return UpdateBasicIpSetResponse UpdateBasicIpSetResponse
      */
     public function updateBasicIpSet($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->updateBasicIpSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCrossPrivateStateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateCrossPrivateStateResponse
+     */
+    public function updateCrossPrivateStateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->crossPrivateState)) {
+            $query['CrossPrivateState'] = $request->crossPrivateState;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCrossPrivateState',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCrossPrivateStateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCrossPrivateStateRequest $request
+     *
+     * @return UpdateCrossPrivateStateResponse
+     */
+    public function updateCrossPrivateState($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCrossPrivateStateWithOptions($request, $runtime);
     }
 
     /**
@@ -7311,10 +8735,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateCustomRoutingEndpointGroupDestinationsRequest $request
-     * @param RuntimeOptions                                      $runtime
+     * *   **UpdateCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of an endpoint group associated with a custom route listener to check whether the mappings of the endpoint group is modified.
+     *   *     *   If the endpoint group is in the **updating** state, the mappings of the endpoint group are being modified. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group is in the **active** state, the mappings of the endpoint group are modified.
+     *   * *   The **UpdateCustomRoutingEndpointGroupDestinations** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param UpdateCustomRoutingEndpointGroupDestinationsRequest $request UpdateCustomRoutingEndpointGroupDestinationsRequest
+     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateCustomRoutingEndpointGroupDestinationsResponse
+     * @return UpdateCustomRoutingEndpointGroupDestinationsResponse UpdateCustomRoutingEndpointGroupDestinationsResponse
      */
     public function updateCustomRoutingEndpointGroupDestinationsWithOptions($request, $runtime)
     {
@@ -7354,9 +8783,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateCustomRoutingEndpointGroupDestinationsRequest $request
+     * *   **UpdateCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of an endpoint group associated with a custom route listener to check whether the mappings of the endpoint group is modified.
+     *   *     *   If the endpoint group is in the **updating** state, the mappings of the endpoint group are being modified. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group is in the **active** state, the mappings of the endpoint group are modified.
+     *   * *   The **UpdateCustomRoutingEndpointGroupDestinations** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param UpdateCustomRoutingEndpointGroupDestinationsRequest $request UpdateCustomRoutingEndpointGroupDestinationsRequest
      *
-     * @return UpdateCustomRoutingEndpointGroupDestinationsResponse
+     * @return UpdateCustomRoutingEndpointGroupDestinationsResponse UpdateCustomRoutingEndpointGroupDestinationsResponse
      */
     public function updateCustomRoutingEndpointGroupDestinations($request)
     {
@@ -7366,10 +8800,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateCustomRoutingEndpointTrafficPoliciesRequest $request
-     * @param RuntimeOptions                                    $runtime
+     * *   **UpdateCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of an endpoint group associated with a custom routing listener to check whether access policies of traffic are modified for endpoints in the endpoint group.
+     *   *     *   If the endpoint group is in the **updating** state, access policies of traffic are being modified for endpoints in the endpoint group. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group is in the **active** state, access policies of traffic are modified for endpoints in the endpoint group.
+     *   * *   The **UpdateCustomRoutingEndpointTrafficPolicies** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param UpdateCustomRoutingEndpointTrafficPoliciesRequest $request UpdateCustomRoutingEndpointTrafficPoliciesRequest
+     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateCustomRoutingEndpointTrafficPoliciesResponse
+     * @return UpdateCustomRoutingEndpointTrafficPoliciesResponse UpdateCustomRoutingEndpointTrafficPoliciesResponse
      */
     public function updateCustomRoutingEndpointTrafficPoliciesWithOptions($request, $runtime)
     {
@@ -7406,9 +8845,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateCustomRoutingEndpointTrafficPoliciesRequest $request
+     * *   **UpdateCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of an endpoint group associated with a custom routing listener to check whether access policies of traffic are modified for endpoints in the endpoint group.
+     *   *     *   If the endpoint group is in the **updating** state, access policies of traffic are being modified for endpoints in the endpoint group. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group is in the **active** state, access policies of traffic are modified for endpoints in the endpoint group.
+     *   * *   The **UpdateCustomRoutingEndpointTrafficPolicies** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param UpdateCustomRoutingEndpointTrafficPoliciesRequest $request UpdateCustomRoutingEndpointTrafficPoliciesRequest
      *
-     * @return UpdateCustomRoutingEndpointTrafficPoliciesResponse
+     * @return UpdateCustomRoutingEndpointTrafficPoliciesResponse UpdateCustomRoutingEndpointTrafficPoliciesResponse
      */
     public function updateCustomRoutingEndpointTrafficPolicies($request)
     {
@@ -7418,10 +8862,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateCustomRoutingEndpointsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * *   **UpdateCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of the endpoint groups associated with a custom routing listener to check whether the endpoints in the endpoint groups are modified.
+     *   *     *   If an endpoint group is in the **updating** state, the endpoints in the endpoint group are being modified. In this case, you can perform only query operations.
+     *   *     *   If an endpoint group is in the **active** state, the endpoints in the endpoint group are modified.
+     *   * *   The **UpdateCustomRoutingEndpoints** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param UpdateCustomRoutingEndpointsRequest $request UpdateCustomRoutingEndpointsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateCustomRoutingEndpointsResponse
+     * @return UpdateCustomRoutingEndpointsResponse UpdateCustomRoutingEndpointsResponse
      */
     public function updateCustomRoutingEndpointsWithOptions($request, $runtime)
     {
@@ -7458,9 +8907,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateCustomRoutingEndpointsRequest $request
+     * *   **UpdateCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of the endpoint groups associated with a custom routing listener to check whether the endpoints in the endpoint groups are modified.
+     *   *     *   If an endpoint group is in the **updating** state, the endpoints in the endpoint group are being modified. In this case, you can perform only query operations.
+     *   *     *   If an endpoint group is in the **active** state, the endpoints in the endpoint group are modified.
+     *   * *   The **UpdateCustomRoutingEndpoints** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param UpdateCustomRoutingEndpointsRequest $request UpdateCustomRoutingEndpointsRequest
      *
-     * @return UpdateCustomRoutingEndpointsResponse
+     * @return UpdateCustomRoutingEndpointsResponse UpdateCustomRoutingEndpointsResponse
      */
     public function updateCustomRoutingEndpoints($request)
     {
@@ -7470,10 +8924,110 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateEndpointGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param UpdateDomainRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return UpdateEndpointGroupResponse
+     * @return UpdateDomainResponse
+     */
+    public function updateDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->targetDomain)) {
+            $query['TargetDomain'] = $request->targetDomain;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDomain',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDomainRequest $request
+     *
+     * @return UpdateDomainResponse
+     */
+    public function updateDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateDomainStateRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateDomainStateResponse
+     */
+    public function updateDomainStateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDomainState',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDomainStateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDomainStateRequest $request
+     *
+     * @return UpdateDomainStateResponse
+     */
+    public function updateDomainState($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDomainStateWithOptions($request, $runtime);
+    }
+
+    /**
+     * *   **UpdateEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
+     *   *     *   If the endpoint group is in the **updating** state, it indicates that the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group is in the **active** state, it indicates that the configurations of the endpoint group are modified.
+     *   * *   The **UpdateEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param UpdateEndpointGroupRequest $request UpdateEndpointGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateEndpointGroupResponse UpdateEndpointGroupResponse
      */
     public function updateEndpointGroupWithOptions($request, $runtime)
     {
@@ -7546,9 +9100,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateEndpointGroupRequest $request
+     * *   **UpdateEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
+     *   *     *   If the endpoint group is in the **updating** state, it indicates that the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group is in the **active** state, it indicates that the configurations of the endpoint group are modified.
+     *   * *   The **UpdateEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param UpdateEndpointGroupRequest $request UpdateEndpointGroupRequest
      *
-     * @return UpdateEndpointGroupResponse
+     * @return UpdateEndpointGroupResponse UpdateEndpointGroupResponse
      */
     public function updateEndpointGroup($request)
     {
@@ -7613,10 +9172,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateEndpointGroupsRequest $request
-     * @param RuntimeOptions              $runtime
+     * *   **UpdateEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) or [ListEndpointGroups](~~153261~~) operation to query the state of an endpoint group.
+     *   *     *   If the endpoint group is in the **updating** state, the configuration of the endpoint group is being modified. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group is in the **active**, the configuration of the endpoint group is modified.
+     *   * *   The **UpdateEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param UpdateEndpointGroupsRequest $request UpdateEndpointGroupsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateEndpointGroupsResponse
+     * @return UpdateEndpointGroupsResponse UpdateEndpointGroupsResponse
      */
     public function updateEndpointGroupsWithOptions($request, $runtime)
     {
@@ -7656,9 +9220,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateEndpointGroupsRequest $request
+     * *   **UpdateEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) or [ListEndpointGroups](~~153261~~) operation to query the state of an endpoint group.
+     *   *     *   If the endpoint group is in the **updating** state, the configuration of the endpoint group is being modified. In this case, you can perform only query operations.
+     *   *     *   If the endpoint group is in the **active**, the configuration of the endpoint group is modified.
+     *   * *   The **UpdateEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param UpdateEndpointGroupsRequest $request UpdateEndpointGroupsRequest
      *
-     * @return UpdateEndpointGroupsResponse
+     * @return UpdateEndpointGroupsResponse UpdateEndpointGroupsResponse
      */
     public function updateEndpointGroups($request)
     {
@@ -7668,10 +9237,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateForwardingRulesRequest $request
-     * @param RuntimeOptions               $runtime
+     * *   **UpdateForwardingRules** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [ListForwardingRules](~~205817~~) operation to query the state of a forwarding rule.
+     *   *     *   If the forwarding rule is in the **configuring** state, it indicates that the forwarding rule is being modified. In this case, you can perform only query operations.
+     *   *     *   If the forwarding rule is in the **active** state, it indicates that the forwarding rule is modified.
+     *   * *   The **UpdateForwardingRules** operation cannot be repeatedly called to modify forwarding rules for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param UpdateForwardingRulesRequest $request UpdateForwardingRulesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateForwardingRulesResponse
+     * @return UpdateForwardingRulesResponse UpdateForwardingRulesResponse
      */
     public function updateForwardingRulesWithOptions($request, $runtime)
     {
@@ -7711,9 +9285,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateForwardingRulesRequest $request
+     * *   **UpdateForwardingRules** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [ListForwardingRules](~~205817~~) operation to query the state of a forwarding rule.
+     *   *     *   If the forwarding rule is in the **configuring** state, it indicates that the forwarding rule is being modified. In this case, you can perform only query operations.
+     *   *     *   If the forwarding rule is in the **active** state, it indicates that the forwarding rule is modified.
+     *   * *   The **UpdateForwardingRules** operation cannot be repeatedly called to modify forwarding rules for the same Global Accelerator (GA) instance within a specific period of time.
+     *   *
+     * @param UpdateForwardingRulesRequest $request UpdateForwardingRulesRequest
      *
-     * @return UpdateForwardingRulesResponse
+     * @return UpdateForwardingRulesResponse UpdateForwardingRulesResponse
      */
     public function updateForwardingRules($request)
     {
@@ -7723,10 +9302,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateIpSetRequest $request
-     * @param RuntimeOptions     $runtime
+     * *   **UpdateIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the state of an acceleration region.
+     *   *     *   If the acceleration region is in the **updating** state, the acceleration region is being modified. In this case, you can perform only query operations.
+     *   *     *   If the acceleration region is in the **active** state, the acceleration region is modified.
+     *   * *   The **UpdateIpSet** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param UpdateIpSetRequest $request UpdateIpSetRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateIpSetResponse
+     * @return UpdateIpSetResponse UpdateIpSetResponse
      */
     public function updateIpSetWithOptions($request, $runtime)
     {
@@ -7763,9 +9347,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateIpSetRequest $request
+     * *   **UpdateIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the state of an acceleration region.
+     *   *     *   If the acceleration region is in the **updating** state, the acceleration region is being modified. In this case, you can perform only query operations.
+     *   *     *   If the acceleration region is in the **active** state, the acceleration region is modified.
+     *   * *   The **UpdateIpSet** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param UpdateIpSetRequest $request UpdateIpSetRequest
      *
-     * @return UpdateIpSetResponse
+     * @return UpdateIpSetResponse UpdateIpSetResponse
      */
     public function updateIpSet($request)
     {
@@ -7775,10 +9364,15 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateIpSetsRequest $request
-     * @param RuntimeOptions      $runtime
+     * *   **UpdateIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the state of an acceleration region.
+     *   *     *   If the acceleration region is in the **updating** state, the acceleration region is being modified. In this case, you can perform only query operations.
+     *   *     *   If the acceleration region is in the **active** state, the acceleration region is modified.
+     *   * *   The **UpdateIpSet** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param UpdateIpSetsRequest $request UpdateIpSetsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateIpSetsResponse
+     * @return UpdateIpSetsResponse UpdateIpSetsResponse
      */
     public function updateIpSetsWithOptions($request, $runtime)
     {
@@ -7809,9 +9403,14 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateIpSetsRequest $request
+     * *   **UpdateIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the state of an acceleration region.
+     *   *     *   If the acceleration region is in the **updating** state, the acceleration region is being modified. In this case, you can perform only query operations.
+     *   *     *   If the acceleration region is in the **active** state, the acceleration region is modified.
+     *   * *   The **UpdateIpSet** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   *
+     * @param UpdateIpSetsRequest $request UpdateIpSetsRequest
      *
-     * @return UpdateIpSetsResponse
+     * @return UpdateIpSetsResponse UpdateIpSetsResponse
      */
     public function updateIpSets($request)
     {
@@ -7821,10 +9420,17 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateListenerRequest $request
-     * @param RuntimeOptions        $runtime
+     * This operation can be called to modify the configurations such as protocol and ports of a listener to meet your business requirements.
+     *   * When you call this operation, take note of the following items:
+     *   * *   **UpdateListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of a listener.
+     *   *     *   If the listener is in the **updating** state, it indicates that its configurations are being modified. In this case, you can perform only query operations.
+     *   *     *   If the listener is in the **active** state, it indicates that its configurations are modified.
+     *   * *   The **UpdateListener** operation cannot be repeatedly called to modify listener configurations for the same GA instance within a specific period of time.
+     *   *
+     * @param UpdateListenerRequest $request UpdateListenerRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateListenerResponse
+     * @return UpdateListenerResponse UpdateListenerResponse
      */
     public function updateListenerWithOptions($request, $runtime)
     {
@@ -7888,9 +9494,16 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param UpdateListenerRequest $request
+     * This operation can be called to modify the configurations such as protocol and ports of a listener to meet your business requirements.
+     *   * When you call this operation, take note of the following items:
+     *   * *   **UpdateListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of a listener.
+     *   *     *   If the listener is in the **updating** state, it indicates that its configurations are being modified. In this case, you can perform only query operations.
+     *   *     *   If the listener is in the **active** state, it indicates that its configurations are modified.
+     *   * *   The **UpdateListener** operation cannot be repeatedly called to modify listener configurations for the same GA instance within a specific period of time.
+     *   *
+     * @param UpdateListenerRequest $request UpdateListenerRequest
      *
-     * @return UpdateListenerResponse
+     * @return UpdateListenerResponse UpdateListenerResponse
      */
     public function updateListener($request)
     {

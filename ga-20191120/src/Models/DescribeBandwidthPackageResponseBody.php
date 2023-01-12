@@ -10,86 +10,168 @@ use AlibabaCloud\Tea\Model;
 class DescribeBandwidthPackageResponseBody extends Model
 {
     /**
+     * @description The ID of the GA instance that is associated with the bandwidth plan.
+     *
      * @var string[]
      */
     public $accelerators;
 
     /**
+     * @description The bandwidth value of the bandwidth plan. Unit: Mbit/s.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @description The ID of the bandwidth plan.
+     *
+     * @example gbwp-bp1sgzldyj6b4q7cx****
+     *
      * @var string
      */
     public $bandwidthPackageId;
 
     /**
+     * @description The type of the bandwidth. Valid values:
+     *
+     *   **Basic**: basic bandwidth
+     *   **Enhanced**: enhanced bandwidth
+     *   **Advanced**: premium bandwidth
+     *
+     * @example Basic
+     *
      * @var string
      */
     public $bandwidthType;
 
     /**
+     * @description The metering method that is used when you use the pay-as-you-go billing method. Valid values:
+     *
+     *   **PayByTraffic**: pay-by-data-transfer
+     *   **PayBY95**: pay-by-95th-percentile
+     *
+     * @example PayByTraffic
+     *
      * @var string
      */
     public $billingType;
 
     /**
+     * @description Area A specified in the cross-region acceleration bandwidth plan. Only **China-mainland** (the Chinese mainland) is returned.
+     *
+     * This parameter is returned only if you call this operation on the International site (alibabacloud.com).
+     * @example China-mainland
+     *
      * @var string
      */
     public $cbnGeographicRegionIdA;
 
     /**
+     * @description Area B specified in the cross-region acceleration bandwidth plan. Only **Global** (global) is returned.
+     *
+     * This parameter is returned only if you call this operation on the International site (alibabacloud.com).
+     * @example Global
+     *
      * @var string
      */
     public $cbnGeographicRegionIdB;
 
     /**
+     * @description The billing method of the bandwidth plan. Only **PREPAY** is returned, which indicates the subscription billing method.
+     *
+     * @example PREPAY
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The timestamp that indicates when the bandwidth plan was created.
+     *
+     * @example 1578966918000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The description of the bandwidth plan.
+     *
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The timestamp that indicates when the bandwidth plan expires.
+     *
+     * @example 1578966918000
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The name of the bandwidth plan.
+     *
+     * @example testName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The percentage of the minimum bandwidth guaranteed if the pay-by-95th-percentile-bandwidth metering method is used. Valid values: **30** to **100**.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $ratio;
 
     /**
+     * @description The ID of the region where GA instance is deployed. **cn-hangzhou** is returned.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4B6DBBB0-2D01-4C6A-A384-4129266E6B78
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example rg-acfnvueepcihjiq
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The state of the bandwidth plan. Valid values:
+     *
+     *   **init**: The bandwidth plan is being initialized.
+     *   **active**: The bandwidth plan is available.
+     *   **binded**: The bandwidth plan is associated with a GA instance.
+     *   **binding**: The bandwidth plan is being associated.
+     *   **unbinding**: The bandwidth plan is being disassociated.
+     *   **updating**: The bandwidth plan is being updated.
+     *   **finacialLocked**: The bandwidth plan is locked due to overdue payments.
+     *   **Locked**: The bandwidth plan is locked.
+     *
+     * @example active
+     *
      * @var string
      */
     public $state;
@@ -100,6 +182,14 @@ class DescribeBandwidthPackageResponseBody extends Model
     public $tags;
 
     /**
+     * @description The type of the bandwidth plan. Valid values:
+     *
+     *   **Basic**: a basic bandwidth plan
+     *   **CrossDomain**: a cross-region acceleration bandwidth plan
+     *
+     * If you call this operation on the Alibaba Cloud China Site (aliyun.com), only **Basic** is returned.
+     * @example Basic
+     *
      * @var string
      */
     public $type;

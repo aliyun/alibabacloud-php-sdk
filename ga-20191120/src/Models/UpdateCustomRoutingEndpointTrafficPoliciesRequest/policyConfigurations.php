@@ -10,11 +10,22 @@ use AlibabaCloud\Tea\Model;
 class policyConfigurations extends Model
 {
     /**
+     * @description The IP address of the destination to which to allow traffic.
+     *
+     * This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**. You can call the [DescribeCustomRoutingEndpoint](~~449386~~) operation to query the access policy of traffic for the specified endpoint.
+     *
+     * You can specify up to 500 destination IP addresses for each endpoint.
+     * @example 10.0.XX.XX
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @description The ID of the access policy of traffic that you want to modify.
+     *
+     * @example ply-bptest2****
+     *
      * @var string
      */
     public $policyId;

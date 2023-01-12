@@ -11,15 +11,29 @@ class DescribeCustomRoutingEndpointRequest extends Model
     /**
      * @var string
      */
+    public $endpointGroup;
+
+    /**
+     * @description The ID of the endpoint.
+     *
+     * @example ep-bp1dmlohjjz4kqaun****
+     *
+     * @var string
+     */
     public $endpointId;
 
     /**
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'endpointId' => 'EndpointId',
-        'regionId'   => 'RegionId',
+        'endpointGroup' => 'EndpointGroup',
+        'endpointId'    => 'EndpointId',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -29,6 +43,9 @@ class DescribeCustomRoutingEndpointRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endpointGroup) {
+            $res['EndpointGroup'] = $this->endpointGroup;
+        }
         if (null !== $this->endpointId) {
             $res['EndpointId'] = $this->endpointId;
         }
@@ -47,6 +64,9 @@ class DescribeCustomRoutingEndpointRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndpointGroup'])) {
+            $model->endpointGroup = $map['EndpointGroup'];
+        }
         if (isset($map['EndpointId'])) {
             $model->endpointId = $map['EndpointId'];
         }

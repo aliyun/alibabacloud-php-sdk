@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class endpointConfigurations extends Model
 {
     /**
+     * @description The name of the endpoint (vSwitch).
+     *
+     * @example vsw-test01
+     *
      * @var string
      */
     public $endpoint;
@@ -20,11 +24,27 @@ class endpointConfigurations extends Model
     public $policyConfigurations;
 
     /**
+     * @description The access policy of traffic to the specified vSwitches. Default value: DenyAll. Valid values:
+     *
+     *   **AllowAll**: allows all traffic to the vSwitch.
+     *
+     *   **DenyAll**: denies all traffic to the vSwitch.
+     *
+     *   **AllowCustom**: allows traffic only to specified destinations in the vSwitch.
+     *
+     * If you set this parameter to AllowCustom, you must specify IP addresses and port ranges of destinations to which to allow traffic. If you specify only IP addresses and do not specify port ranges, GA can forward traffic to the specified IP addresses over all ports in the destinations.
+     * @example DenyAll
+     *
      * @var string
      */
     public $trafficToEndpointPolicy;
 
     /**
+     * @description The backend service type of the endpoint. Default value: PrivateSubNet.
+     *
+     * Set the value to **PrivateSubNet**, which indicates private CIDR blocks.
+     * @example PrivateSubNet
+     *
      * @var string
      */
     public $type;

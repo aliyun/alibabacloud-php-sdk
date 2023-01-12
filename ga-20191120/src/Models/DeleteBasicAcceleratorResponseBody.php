@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteBasicAcceleratorResponseBody extends Model
 {
     /**
+     * @description The ID of the basic GA instance.
+     *
+     * @example ga-bp17frjjh0udz4qz****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 54B48E3D-DF70-471B-AA93-08E683A1B45
+     *
      * @var string
      */
     public $requestId;

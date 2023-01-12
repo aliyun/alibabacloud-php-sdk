@@ -9,41 +9,87 @@ use AlibabaCloud\Tea\Model;
 class ConfigEndpointProbeRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description Specifies whether to enable latency monitoring. Default value: false. Valid values:
+     *
+     *   **true**: enables latency monitoring.
+     *   **false**: disables latency monitoring.
+     *
+     * @example true
+     *
      * @var string
      */
     public $enable;
 
     /**
+     * @description The endpoint.
+     *
+     * @example 127.0.XX.XX
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @description The ID of the endpoint group.
+     *
+     * @example epg-bp1dmlohjjz4kqaun****
+     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
+     * @description The type of endpoint. Valid values:
+     *
+     *   **Ip**: a custom IP address
+     *   **Domain**: a custom domain name
+     *   **EIP**: an Alibaba Cloud elastic IP address (EIP)
+     *   **PublicIp**: an Alibaba Cloud public IP address
+     *
+     * @example Ip
+     *
      * @var string
      */
     public $endpointType;
 
     /**
+     * @description The port that is used to monitor latency. Valid values: **0** to **65535**.
+     *
+     * @example 80
+     *
      * @var string
      */
     public $probePort;
 
     /**
+     * @description The protocol that is used to monitor latency. Valid values:
+     *
+     *   **tcp**
+     *   **icmp**
+     *
+     * @example tcp
+     *
      * @var string
      */
     public $probeProtocol;
 
     /**
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

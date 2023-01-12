@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class certificates extends Model
 {
     /**
+     * @description The ID of the SSL certificate.
+     *
+     * >  This parameter is required only if an HTTPS listener is created.
+     * @example 449****-cn-hangzhou
+     *
      * @var string
      */
     public $id;

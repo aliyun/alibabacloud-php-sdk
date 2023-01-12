@@ -10,31 +10,61 @@ use AlibabaCloud\Tea\Model;
 class ListAcceleratorsRequest extends Model
 {
     /**
+     * @description The ID of the GA instance.
+     *
+     * @example ga-bp1odcab8tmno0hdq****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-aekztkx4zwc3m4a
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The state of the GA instance. Valid values:
+     *
+     *   **init**: The GA instance is being initialized.
+     *   **active**: The GA instance is available.
+     *   **configuring**: The GA instance is being configured.
+     *   **binding**: The GA instance is being associated.
+     *   **unbinding**: The GA instance is being disassociated.
+     *   **deleting**: The GA instance is being deleted.
+     *   **finacialLocked**: The GA instance is locked due to overdue payments.
+     *
+     * @example active
+     *
      * @var string
      */
     public $state;

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomRoutingEndpointGroupDestinationsResponseBody extends Model
 {
     /**
+     * @description The IDs of the endpoint group mapping configurations.
+     *
      * @var string[]
      */
     public $destinationIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
+     *
      * @var string
      */
     public $requestId;

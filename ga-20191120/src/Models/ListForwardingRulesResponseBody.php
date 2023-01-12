@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class ListForwardingRulesResponseBody extends Model
 {
     /**
+     * @description The information about the forwarding rules.
+     *
      * @var forwardingRules[]
      */
     public $forwardingRules;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that determines the start point of the next query. Valid values:
+     *
+     *   If **NextToken** was not returned, it indicates that no additional results exist.
+     *   If **NextToken** is returned, the value indicates the token that is used for the next query.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CFC67ED9-4AB1-431F-B6E3-A752B7B8CCD4
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

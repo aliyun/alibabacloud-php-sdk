@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeEndpointGroupRequest extends Model
 {
     /**
+     * @description The ID of the endpoint group that you want to query.
+     *
+     * @example epg-bp14sz7ftcwwjgrdm****
+     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

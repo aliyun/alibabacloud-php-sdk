@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListBusiRegionsRequest extends Model
 {
     /**
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

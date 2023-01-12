@@ -9,26 +9,54 @@ use AlibabaCloud\Tea\Model;
 class DescribeAcceleratorAutoRenewAttributeResponseBody extends Model
 {
     /**
+     * @description The ID of the GA instance.
+     *
+     * @example ga-bp17frjjh0udz4qz****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description Indicates whether auto-renewal is enabled. Valid values:
+     *
+     *   **true**: yes
+     *   **false** (default): no
+     *
+     * @example false
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @description The auto-renewal period. Unit: months.
+     *
+     * This parameter is returned only if **AutoRenew** is set to **true**.
+     * @example 1
+     *
      * @var int
      */
     public $autoRenewDuration;
 
     /**
+     * @description Indicates how the GA instance is renewed. Valid values:
+     *
+     *   **AutoRenewal**: The GA instance is automatically renewed.
+     *   **Normal**: The GA instance is manually renewed.
+     *   **NotRenewal**: The GA instance is not renewed after the instance expires. The system sends only a non-renewal reminder three days before the expiration date. The system no longer sends notifications to remind you to renew the GA instance.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $renewalStatus;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F591955F-5CB5-4CCE-A75D-17CF2085CE22
+     *
      * @var string
      */
     public $requestId;

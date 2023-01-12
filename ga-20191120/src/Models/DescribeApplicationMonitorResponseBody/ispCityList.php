@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ispCityList extends Model
 {
     /**
+     * @description The ID of the city where the probe point provided by the service provider is deployed.
+     *
+     * @example 375
+     *
      * @var string
      */
     public $city;
 
     /**
+     * @description The name of the city where the probe point provided by the service provider is deployed.
+     *
      * @var string
      */
     public $cityName;
 
     /**
+     * @description The ID of the probe point provided by the service provider.
+     *
+     * @example 465
+     *
      * @var string
      */
     public $isp;
 
     /**
+     * @description The name of the probe point provided by the service provider.
+     *
      * @var string
      */
     public $ispName;

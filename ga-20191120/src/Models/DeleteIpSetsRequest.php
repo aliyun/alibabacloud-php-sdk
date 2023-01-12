@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteIpSetsRequest extends Model
 {
     /**
+     * @example ips-bp11c9mpphtb1xkds****
+     *
      * @var string[]
      */
     public $ipSetIds;
 
     /**
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

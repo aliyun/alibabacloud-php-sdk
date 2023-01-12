@@ -10,26 +10,53 @@ use AlibabaCloud\Tea\Model;
 class acls extends Model
 {
     /**
+     * @description The ID of the network ACL.
+     *
+     * @example nacl-hp34s2h0xx1ht4nwo****
+     *
      * @var string
      */
     public $aclId;
 
     /**
+     * @description The name of the network ACL.
+     *
+     * @example test-acl
+     *
      * @var string
      */
     public $aclName;
 
     /**
+     * @description The state of the network ACL. Valid values:
+     *
+     *   **init**: The network ACL is being initialized.
+     *   **active**: The network ACL is available.
+     *   **configuring**: The network ACL is being configured.
+     *   **updating**: The network ACL is being updated.
+     *   **deleting**: The GA instance is being deleted.
+     *
+     * @example active
+     *
      * @var string
      */
     public $aclStatus;
 
     /**
+     * @description The IP version of the network ACL. Valid values:
+     *
+     *   **IPv4**
+     *   **IPv6**
+     *
+     * @example IPv4
+     *
      * @var string
      */
     public $addressIPVersion;
 
     /**
+     * @example rg-acfnsq3noy22fkq
+     *
      * @var string
      */
     public $resourceGroupId;

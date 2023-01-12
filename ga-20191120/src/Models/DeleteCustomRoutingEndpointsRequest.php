@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteCustomRoutingEndpointsRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must ensure that it is unique among all requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the endpoint group to which the endpoint that you want to delete belongs.
+     *
+     * @example epg-bp1bpn0kn908w4nb****
+     *
      * @var string
      */
     public $endpointGroupId;
@@ -24,6 +35,10 @@ class DeleteCustomRoutingEndpointsRequest extends Model
     public $endpointIds;
 
     /**
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

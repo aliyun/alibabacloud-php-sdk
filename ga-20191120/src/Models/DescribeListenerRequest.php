@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeListenerRequest extends Model
 {
     /**
+     * @description The ID of the listener that you want to query.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
+     *
      * @var string
      */
     public $listenerId;
 
     /**
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

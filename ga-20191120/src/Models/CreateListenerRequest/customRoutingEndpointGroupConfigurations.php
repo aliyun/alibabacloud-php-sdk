@@ -11,6 +11,13 @@ use AlibabaCloud\Tea\Model;
 class customRoutingEndpointGroupConfigurations extends Model
 {
     /**
+     * @description The description of the endpoint group that is associated with the custom routing listener.
+     *
+     * You can enter the descriptions of at most five endpoint groups.
+     *
+     * >  You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
+     * @example test
+     *
      * @var string
      */
     public $description;
@@ -26,11 +33,25 @@ class customRoutingEndpointGroupConfigurations extends Model
     public $endpointConfigurations;
 
     /**
+     * @description The region ID of the endpoint group that is associated with the custom routing listener.
+     *
+     * You can enter the region IDs of at most five endpoint groups.
+     *
+     * >  You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $endpointGroupRegion;
 
     /**
+     * @description The name of the endpoint group that is associated with the custom routing listener.
+     *
+     * You can enter the names of at most five endpoint groups.
+     *
+     * >  You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
+     * @example test
+     *
      * @var string
      */
     public $name;

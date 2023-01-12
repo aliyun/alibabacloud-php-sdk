@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The tag key of the GA resource. The tag key cannot be an empty string.
+     *
+     * You can specify up to 20 tag keys.
+     * @example KeyTest
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The tag value of the GA resource. The tag value can be an empty string.
+     *
+     * You can specify up to 20 tag values.
+     * @example valueTest
+     *
      * @var string
      */
     public $value;

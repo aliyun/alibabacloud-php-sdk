@@ -9,26 +9,55 @@ use AlibabaCloud\Tea\Model;
 class DescribeBandwidthPackageAutoRenewAttributeResponseBody extends Model
 {
     /**
+     * @description Indicates whether auto-renewal is enabled. Valid values:
+     *
+     *   **true**: enabled
+     *   **false** (default): disabled
+     *
+     * @example false
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @description The auto-renewal duration. Unit: months. Valid values: **1** to **12**.
+     *
+     * > : This parameter takes effect only if **AutoRenew** is set to **true**.
+     * @example 1
+     *
      * @var int
      */
     public $autoRenewDuration;
 
     /**
+     * @description The ID of the bandwidth plan.
+     *
+     * @example gbwp-bp1iquvlp8khla5emb3ia
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The auto-renewal status of the bandwidth plan. Valid values:
+     *
+     *   **AutoRenewal**: The bandwidth plan is automatically renewed.
+     *   **Normal**: You must manually renew the bandwidth plan.
+     *   **NotRenewal**: Choose this option if you do not want to renew the bandwidth plan after it expires. The system sends only a non-renewal reminder three days before the expiration date. The system no longer sends notifications to remind you to renew the bandwidth plan. You can change the value of this parameter from NotRenewal to Normal for a bandwidth plan, and then manually renew the bandwidth plan. You can also set the RenewalStatus parameter to **AutoRenewal**.
+     *
+     * > The **RenewalStatus** parameter takes precedence over the **AutoRenew** parameter. If you do not set **RenewalStatus**, the **AutoRenew** parameter is used by default.
+     * @example Normal
+     *
      * @var string
      */
     public $renewalStatus;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B820E9F9-D459-5AE7-8F08-A368B53C1AC3
+     *
      * @var string
      */
     public $requestId;

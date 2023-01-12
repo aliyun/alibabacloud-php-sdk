@@ -9,31 +9,56 @@ use AlibabaCloud\Tea\Model;
 class ListCustomRoutingEndpointGroupDestinationsRequest extends Model
 {
     /**
+     * @description The ID of the GA instance.
+     *
+     * @example ga-bp1odcab8tmno0hdq****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The ID of the endpoint group.
+     *
+     * @example epg-bp16jdc00bhe97sr5****
+     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
+     * @description The start port of the backend service port range of the endpoint group.
+     *
+     * Valid values: **1** to **65499**. The **FromPort** value must be smaller than or equal to the **ToPort** value.
+     * @example 80
+     *
      * @var int
      */
     public $fromPort;
 
     /**
+     * @description The ID of the listener.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
+     *
      * @var string
      */
     public $listenerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
@@ -44,11 +69,20 @@ class ListCustomRoutingEndpointGroupDestinationsRequest extends Model
     public $protocols;
 
     /**
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The end port of the backend service port range of the endpoint group.
+     *
+     * Valid values: **1** to **65499**. The **FromPort** value must be smaller than or equal to the **ToPort** value.
+     * @example 80
+     *
      * @var int
      */
     public $toPort;

@@ -9,36 +9,77 @@ use AlibabaCloud\Tea\Model;
 class UpdateBandwidthPackagaAutoRenewAttributeRequest extends Model
 {
     /**
+     * @description Specifies whether to enable auto-renewal. Valid values:
+     *
+     *   **true**: enables auto-renewal.
+     *   **false** disables auto-renewal.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @description The auto-renewal period. Unit: months. Valid values: **1** to **12**.
+     *
+     * >  This parameter is required only if **AutoRenew** is set to **true**.
+     * @example 1
+     *
      * @var int
      */
     public $autoRenewDuration;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** of each API request may be different.
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the bandwidth plan.
+     *
+     * @example gbwp-bp1sgzldyj6b4q7cx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the bandwidth plan.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The auto-renewal status of the bandwidth plan. Valid values:
+     *
+     *   **AutoRenewal**: The system automatically renews the bandwidth plan.
+     *   **Normal**: You must manually renew the bandwidth plan.
+     *   **NotRenewal**: Choose this option if you do not want to renew the bandwidth plan after it expires. The system sends only a non-renewal reminder three days before the expiration date. The system no longer sends notifications to remind you to renew the bandwidth plan. You can change the value of this parameter from NotRenewal to Normal for a bandwidth plan, and then manually renew the bandwidth plan. You can also set the RenewalStatus parameter to **AutoRenewal**.
+     *
+     * >  **RenewalStatus** takes precedence over **AutoRenew**. If you do not specify **RenewalStatus**, the **AutoRenew** parameter is used by default.
+     * @example Normal
+     *
      * @var string
      */
     public $renewalStatus;

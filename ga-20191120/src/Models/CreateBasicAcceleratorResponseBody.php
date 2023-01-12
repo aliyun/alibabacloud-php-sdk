@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CreateBasicAcceleratorResponseBody extends Model
 {
     /**
+     * @description The ID of the basic GA instance.
+     *
+     * @example ga-bp17frjjh0udz4qz****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The ID of the order.
+     *
+     * @example 2082574365
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F591955F-5CB5-4CCE-A75D-17CF2085CE22
+     *
      * @var string
      */
     public $requestId;

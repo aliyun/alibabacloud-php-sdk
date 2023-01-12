@@ -10,11 +10,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateCustomRoutingEndpointTrafficPoliciesRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the endpoint for which you want to modify the access policies of traffic.
+     *
+     * @example ep-2zewuzypq5e6r3pfh****
+     *
      * @var string
      */
     public $endpointId;
@@ -25,6 +36,10 @@ class UpdateCustomRoutingEndpointTrafficPoliciesRequest extends Model
     public $policyConfigurations;
 
     /**
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

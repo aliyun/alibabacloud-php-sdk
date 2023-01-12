@@ -10,16 +10,24 @@ use AlibabaCloud\Tea\Model;
 class areas extends Model
 {
     /**
+     * @description The ID of the acceleration area.
+     *
+     * @example cn-huabei
+     *
      * @var string
      */
     public $areaId;
 
     /**
+     * @description The name of the acceleration area.
+     *
      * @var string
      */
     public $localName;
 
     /**
+     * @description The list of regions.
+     *
      * @var regionList[]
      */
     public $regionList;

@@ -9,36 +9,66 @@ use AlibabaCloud\Tea\Model;
 class destinations extends Model
 {
     /**
+     * @description The ID of the GA instance.
+     *
+     * @example ga-bp1odcab8tmno0hdq****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The ID of the endpoint group mapping configuration.
+     *
+     * @example dst-123abc****
+     *
      * @var string
      */
     public $destinationId;
 
     /**
+     * @description The ID of the endpoint group.
+     *
+     * @example epg-bp14sz7ftcwwjgrdm****
+     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
+     * @description The start port of the backend service port range of the endpoint group.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $fromPort;
 
     /**
+     * @description The ID of the listener.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
+     *
      * @var string
      */
     public $listenerId;
 
     /**
+     * @description The backend service protocol of the endpoint group.
+     *
+     *   **tcp**: TCP
+     *   **udp**: UDP
+     *   **tcp,udp**: TCP and UDP
+     *
      * @var string[]
      */
     public $protocols;
 
     /**
+     * @description The end port of the backend service port range of the endpoint group.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $toPort;

@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ListCustomRoutingPortMappingsByDestinationRequest extends Model
 {
     /**
+     * @description The service IP address of the backend instance.
+     *
+     * @example 10.0.XX.XX
+     *
      * @var string
      */
     public $destinationAddress;
 
     /**
+     * @description The ID of the endpoint to which the backend instance belongs.
+     *
+     * @example ep-bp16jdc00bhe97sr5****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

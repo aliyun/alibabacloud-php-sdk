@@ -10,26 +10,57 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * > If you do not specify this parameter, the system automatically uses the value of **RequestId**as the value of **ClientToken**. The value of **RequestId** for each API request may be different.
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the GA resource.
+     *
+     *   If **ResourceType** is set to **accelerator**, set the value of ResourceId to the ID of a standard GA instance.
+     *   If **ResourceType** is set to **basicaccelerator**, set the value of ResourceId to the ID of a basic GA instance.
+     *   If **ResourceType** is set to**bandwidthpackage**, set the value of ResourceId to the ID of a bandwidth plan.
+     *   If **ResourceType** is set to **acl**, set the value of ResourceId to the ID of an ACL.
+     *
+     * You can specify up to 50 GA resource IDs.
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The type of the GA resource. Valid values:
+     *
+     *   **accelerator:** a standard GA instance.
+     *   **basicaccelerator:** a basic GA instance.
+     *   **bandwidthpackage:** a bandwidth plan.
+     *   **acl:** an access control list (ACL).
+     *
+     * @example accelerator
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tags of GA resources.
+     *
+     * You can specify up to 20 tags.
      * @var tag[]
      */
     public $tag;

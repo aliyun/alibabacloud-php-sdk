@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateApplicationMonitorResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the origin probing task.
+     *
+     * @example sm-bp1fpdjfju9k8yr1y****
+     *
      * @var string
      */
     public $taskId;

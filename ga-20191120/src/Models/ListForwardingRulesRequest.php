@@ -9,36 +9,70 @@ use AlibabaCloud\Tea\Model;
 class ListForwardingRulesRequest extends Model
 {
     /**
+     * @description The ID of the GA instance.
+     *
+     * @example ga-bp17frjjh0udz4qzk****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * @example 02fb3da4****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the forwarding rule.
+     *
+     * @example frule-bp19a3t3yzr21q3****
+     *
      * @var string
      */
     public $forwardingRuleId;
 
     /**
+     * @description The ID of the listener.
+     *
+     * @example lsr-bp1s0vzbi5bxlx5pw****
+     *
      * @var string
      */
     public $listenerId;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that determines the start point of the query. Valid values:
+     *
+     *   If this is your first query or no next query is to be sent, ignore this parameter.
+     *   If a subsequent query is to be sent, set the value to the value of **NextToken** that is returned from the last call.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

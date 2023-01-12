@@ -10,6 +10,15 @@ use AlibabaCloud\Tea\Model;
 class policyConfigurations extends Model
 {
     /**
+     * @description The IP address of the destination that allows traffic.
+     *
+     * This parameter takes effect only if **TrafficToEndpointPolicy** is set to **AllowCustom**.
+     *
+     * You can specify up to 20 destination IP addresses for each endpoint of a custom routing listener.
+     *
+     * >  You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
+     * @example 10.0.XX.XX
+     *
      * @var string
      */
     public $address;

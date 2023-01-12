@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class AttachDdosToAcceleratorRequest extends Model
 {
     /**
+     * @description The ID of the GA instance with which the Anti-DDoS Pro/Premium instance is associated.
+     *
+     * @example ga-bp1odcab8tmno0hdq****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The ID of the Anti-DDoS Pro/Premium instance to be associated with the GA instance.
+     *
+     * @example ddoscoo-cn-zz11vq7j****
+     *
      * @var string
      */
     public $ddosId;
 
     /**
+     * @description The region where the Anti-DDoS Pro/Premium instance is deployed. Valid values:
+     *
+     *   **cn-hangzhou**: regions in the Chinese mainland
+     *   **ap-southeast-1**: regions outside the Chinese mainland
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $ddosRegionId;
 
     /**
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

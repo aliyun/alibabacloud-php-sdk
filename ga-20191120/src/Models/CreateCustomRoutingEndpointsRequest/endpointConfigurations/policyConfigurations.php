@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class policyConfigurations extends Model
 {
     /**
+     * @description The IP address of the destination which to allow traffic.
+     *
+     * This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**.
+     *
+     * You can specify up to 20 destination IP addresses for each endpoint.
+     * @example 10.0.XX.XX
+     *
      * @var string
      */
     public $address;

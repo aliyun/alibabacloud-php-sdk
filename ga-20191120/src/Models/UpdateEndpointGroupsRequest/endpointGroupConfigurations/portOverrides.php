@@ -9,11 +9,26 @@ use AlibabaCloud\Tea\Model;
 class portOverrides extends Model
 {
     /**
+     * @description The endpoint port.
+     *
+     * Valid values: **1** to **65499**.
+     * @example 80
+     *
      * @var int
      */
     public $endpointPort;
 
     /**
+     * @description The listening port.
+     *
+     * Valid values: **1** to **65499**.
+     *
+     * >
+     *   Only HTTP and HTTPS listeners support port mapping.
+     *   The listener port in a port mapping must be the one used by the current listener.
+     *
+     * @example 443
+     *
      * @var int
      */
     public $listenerPort;

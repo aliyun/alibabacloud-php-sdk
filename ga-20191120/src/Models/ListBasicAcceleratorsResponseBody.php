@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListBasicAcceleratorsResponseBody extends Model
 {
     /**
+     * @description The information about basic GA instances.
+     *
      * @var accelerators[]
      */
     public $accelerators;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 54B48E3D-DF70-471B-AA93-08E683A1B45
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of basic GA instances returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

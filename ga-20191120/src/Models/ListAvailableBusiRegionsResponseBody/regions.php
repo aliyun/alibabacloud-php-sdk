@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class regions extends Model
 {
     /**
+     * @description The name of the region.
+     *
      * @var string
      */
     public $localName;
 
     /**
+     * @description Indicates whether it is a point of presence (PoP). Valid values:
+     *
+     *   **true**: It is a PoP.
+     *   **false**: It is not a PoP.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $pop;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $regionId;

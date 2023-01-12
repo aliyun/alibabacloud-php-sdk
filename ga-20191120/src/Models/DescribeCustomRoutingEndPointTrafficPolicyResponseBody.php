@@ -10,49 +10,88 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
 {
     /**
+     * @description The ID of the GA instance to which the endpoint belongs.
+     *
+     * @example ga-bp1odcab8tmno0hdq****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The IP address of the traffic policy.
+     *
+     * @example 10.0.XX.XX
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @description The name of the vSwitch to which the traffic policy belongs.
+     *
+     * @example vsw-test01
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @description The ID of the endpoint group to which the endpoint belongs.
+     *
+     * @example epg-bp1bpn0kn908w4nb****
+     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
+     * @description The ID of the endpoint to which the traffic policy belongs.
+     *
+     * @example ep-2zewuzypq5e6r3pfh****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @description The ID of the listener to which the endpoint belongs.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
+     *
      * @var string
      */
     public $listenerId;
 
     /**
+     * @description The ID of the traffic policy.
+     *
+     * @example ply-bptest2****
+     *
      * @var string
      */
     public $policyId;
 
     /**
+     * @description The port range of the traffic policy.
+     *
      * @var portRanges[]
      */
     public $portRanges;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
+     *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $state;
     protected $_name = [
         'acceleratorId'   => 'AcceleratorId',
         'address'         => 'Address',
@@ -63,6 +102,7 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
         'policyId'        => 'PolicyId',
         'portRanges'      => 'PortRanges',
         'requestId'       => 'RequestId',
+        'state'           => 'State',
     ];
 
     public function validate()
@@ -104,6 +144,9 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
 
         return $res;
@@ -149,6 +192,9 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
 
         return $model;

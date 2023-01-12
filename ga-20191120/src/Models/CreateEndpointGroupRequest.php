@@ -11,16 +11,32 @@ use AlibabaCloud\Tea\Model;
 class CreateEndpointGroupRequest extends Model
 {
     /**
+     * @description The ID of the GA instance.
+     *
+     * @example ga-bp1odcab8tmno0hdq****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The description of the endpoint group.
+     *
+     * The description cannot exceed 256 characters in length and cannot contain `http://` or `https://`.
+     * @example EndpointGroup
+     *
      * @var string
      */
     public $description;
@@ -31,51 +47,110 @@ class CreateEndpointGroupRequest extends Model
     public $endpointConfigurations;
 
     /**
+     * @description The ID of the region in which to create the endpoint group.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $endpointGroupRegion;
 
     /**
+     * @description The type of the endpoint group. Default value: default. Valid values:
+     *
+     *   **default**: a default endpoint group.
+     *   **virtual**: a virtual endpoint group.
+     *
+     * >  Only HTTP and HTTPS listeners support virtual endpoint groups.
+     * @example default
+     *
      * @var string
      */
     public $endpointGroupType;
 
     /**
+     * @description The protocol that is used by the backend service. Default value: HTTP. Valid values:
+     *
+     *   **HTTP**
+     *   **HTTPS**
+     *
+     * >
+     *   You can set this parameter only when the listener that is associated with the endpoint group uses **HTTP** or **HTTPS**.
+     *   For an **HTTP** listener, the backend service protocol must be **HTTP**.
+     *
+     * @example HTTP
+     *
      * @var string
      */
     public $endpointRequestProtocol;
 
     /**
+     * @description Specifies whether to enable the health check feature. Default value: true. Valid values:
+     *
+     *   **true**: enables the health check feature.
+     *   **false**: disables the health check feature.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $healthCheckEnabled;
 
     /**
+     * @description The interval at which health checks are performed. Unit: seconds.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $healthCheckIntervalSeconds;
 
     /**
+     * @description The path to which to send health check requests.
+     *
+     * @example /healthcheck
+     *
      * @var string
      */
     public $healthCheckPath;
 
     /**
+     * @description The port that is used for health checks.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $healthCheckPort;
 
     /**
+     * @description The protocol over which to send health check requests. Valid values:
+     *
+     *   **tcp**: TCP
+     *   **http**: HTTP
+     *   **https**: HTTPS
+     *
+     * @example tcp
+     *
      * @var string
      */
     public $healthCheckProtocol;
 
     /**
+     * @description The ID of the listener.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
+     *
      * @var string
      */
     public $listenerId;
 
     /**
+     * @description The name of the endpoint group.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * @example group1
+     *
      * @var string
      */
     public $name;
@@ -86,16 +161,30 @@ class CreateEndpointGroupRequest extends Model
     public $portOverrides;
 
     /**
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The number of consecutive health check failures that must occur before a healthy endpoint group is considered unhealthy, or the number of consecutive health check successes that must occur before an unhealthy endpoint group is considered healthy.
+     *
+     * Valid values: **2** to **10**. Default value: **3**.
+     * @example 3
+     *
      * @var int
      */
     public $thresholdCount;
 
     /**
+     * @description The traffic ratio for the endpoint group when the specified listener is associated with multiple endpoint groups.
+     *
+     * Valid values: **1** to **100**.
+     * @example 20
+     *
      * @var int
      */
     public $trafficPercentage;

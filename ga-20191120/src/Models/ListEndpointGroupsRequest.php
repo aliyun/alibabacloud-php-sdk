@@ -10,41 +10,80 @@ use AlibabaCloud\Tea\Model;
 class ListEndpointGroupsRequest extends Model
 {
     /**
+     * @description The ID of the GA instance.
+     *
+     * @example ga-bp1odcab8tmno0hdq****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description Specifies whether the access logging feature is enabled. Default value: off. Valid values:
+     *
+     *   **on**: The access logging feature is enabled.
+     *   **off**: The access logging feature is disabled.
+     *
+     * @example on
+     *
      * @var string
      */
     public $accessLogSwitch;
 
     /**
+     * @description The ID of the endpoint group.
+     *
+     * @example epg-bp16jdc00bhe97sr5****
+     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
+     * @description The type of the endpoint group. Valid values:
+     *
+     *   **default**: a default endpoint group
+     *   **virtual**: a virtual endpoint group
+     *   If you leave this parameter empty, all default and virtual endpoint groups are queried.
+     *
+     * @example virtual
+     *
      * @var string
      */
     public $endpointGroupType;
 
     /**
+     * @description The ID of the listener.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
+     *
      * @var string
      */
     public $listenerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

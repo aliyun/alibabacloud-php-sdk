@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class portRanges extends Model
 {
     /**
+     * @description The start port in the range of listening ports used to receive and forward requests to endpoints.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $fromPort;
 
     /**
+     * @description The end port in the range of listening ports used to receive and forward requests to endpoints.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $toPort;

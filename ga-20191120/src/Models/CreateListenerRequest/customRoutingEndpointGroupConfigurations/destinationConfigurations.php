@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class destinationConfigurations extends Model
 {
     /**
+     * @description The first port of the backend service of the endpoint group that is associated with the custom routing listener.
+     *
+     * Valid values: **1** to **65499**. The value of **FromPort** must be equal to or smaller than the value of **ToPort**.
+     *
+     * You can specify at most 20 first ports of backend services for an endpoint group of a custom routing listener.
+     *
+     * >  You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
+     * @example 80
+     *
      * @var int
      */
     public $fromPort;
@@ -19,6 +28,15 @@ class destinationConfigurations extends Model
     public $protocols;
 
     /**
+     * @description The last port of the backend service of the endpoint group that is associated with the custom routing listener.
+     *
+     * Valid values: **1** to **65499**. The value of **FromPort** must be equal to or smaller than the value of **ToPort**.
+     *
+     * You can specify at most 20 last ports of backend services for an endpoint group of a custom routing listener.
+     *
+     * >  You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
+     * @example 80
+     *
      * @var int
      */
     public $toPort;

@@ -9,26 +9,53 @@ use AlibabaCloud\Tea\Model;
 class accelerateIps extends Model
 {
     /**
+     * @description The accelerated IP address of the basic GA instance.
+     *
+     * @example 116.132.XX.XX
+     *
      * @var string
      */
     public $accelerateIpAddress;
 
     /**
+     * @description The ID of the accelerated IP address of the basic GA instance.
+     *
+     * @example gaip-bp1****
+     *
      * @var string
      */
     public $accelerateIpId;
 
     /**
+     * @description The ID of the basic GA instance.
+     *
+     * @example ga-bp17frjjh0udz4qz****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The ID of the acceleration region.
+     *
+     * @example ips-bp11r5jb8ogp122xl****
+     *
      * @var string
      */
     public $ipSetId;
 
     /**
+     * @description The status of the accelerated IP address. Valid values:
+     *
+     *   **active**: The accelerated IP address is available.
+     *   **binding**: The accelerated IP address is being associated.
+     *   **bound**: The accelerated IP address is associated.
+     *   **unbinding**: The accelerated IP address is being disassociated.
+     *   **deleting**: The accelerated IP address is being deleted.
+     *
+     * >  This parameter is unavailable when the accelerated IP address is being created.
+     * @example active
+     *
      * @var string
      */
     public $state;

@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class GetBasicAccelerateIpRequest extends Model
 {
     /**
+     * @description The ID of the accelerated IP address that you want to query.
+     *
+     * @example gaip-bp1****
+     *
      * @var string
      */
     public $accelerateIpId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must ensure that it is unique among all requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,31 +9,69 @@ use AlibabaCloud\Tea\Model;
 class endpointConfigurations extends Model
 {
     /**
+     * @description Indicates whether the client IP address preservation feature is enabled. Valid values:
+     *
+     *   **true**: The client IP address preservation feature is enabled.
+     *   **false**: The client IP address preservation feature is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableClientIPPreservation;
 
     /**
+     * @description The IP address or domain name of the endpoint.
+     *
+     * @example 120.XX.XX.21
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @description The port that is used to monitor latency.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $probePort;
 
     /**
+     * @description The protocol that is used to monitor the network latency. Valid values:
+     *
+     *   **tcp**: TCP
+     *   **icmp**: ICMP
+     *
+     * @example tcp
+     *
      * @var string
      */
     public $probeProtocol;
 
     /**
+     * @description The type of the endpoint. Valid values:
+     *
+     *   **Domain**: a custom domain name
+     *   **Ip**: a custom IP address
+     *   **PublicIp**: a public IP address provided by Alibaba Cloud
+     *   **ECS**: an Elastic Compute Service (ECS) instance
+     *   **SLB**: a Server Load Balancer (SLB) instance
+     *   **ALB**: an Application Load Balancer (ALB) instance
+     *   **OSS**: an Object Storage Service (OSS) bucket
+     *
+     * @example Ip
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The weight of the endpoint.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $weight;

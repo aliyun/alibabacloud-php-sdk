@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class portRanges extends Model
 {
     /**
+     * @description The first port of the port range.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $fromPort;
 
     /**
+     * @description The last port of the port range.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $toPort;

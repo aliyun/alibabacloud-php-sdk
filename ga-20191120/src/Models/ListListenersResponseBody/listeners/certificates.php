@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class certificates extends Model
 {
     /**
+     * @description The ID of the SSL certificate.
+     *
+     * @example 44983xxxx-cn-hangzhou
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The type of the certificate.
+     *
+     * Only **Server** can be returned, which indicates a server certificate.
+     * @example Server
+     *
      * @var string
      */
     public $type;

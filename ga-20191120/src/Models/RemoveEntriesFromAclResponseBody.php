@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class RemoveEntriesFromAclResponseBody extends Model
 {
     /**
+     * @description The ID of the ACL.
+     *
+     * @example nacl-hp34s2h0xx1ht4nwo****
+     *
      * @var string
      */
     public $aclId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 64ADAB1E-0B7F-4FD8-A404-3BECC0E9CCFF
+     *
      * @var string
      */
     public $requestId;

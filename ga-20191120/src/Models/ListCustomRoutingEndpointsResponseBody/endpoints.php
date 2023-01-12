@@ -9,36 +9,69 @@ use AlibabaCloud\Tea\Model;
 class endpoints extends Model
 {
     /**
+     * @description The ID of the GA instance with which the endpoint is associated.
+     *
+     * @example ga-bp1odcab8tmno0hdq****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The name of the endpoint (vSwitch).
+     *
+     * @example vsw-test01
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @description The ID of the endpoint group to which the endpoint belongs.
+     *
+     * @example epg-bp16jdc00bhe97sr5****
+     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
+     * @description The ID of the endpoint.
+     *
+     * @example ep-bp14sz7ftcwwjgrdm****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @description The ID of the listener with which the endpoint is associated.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
+     *
      * @var string
      */
     public $listenerId;
 
     /**
+     * @description The access policy of traffic for the specified endpoint. Valid values:
+     *
+     *   **AllowAll**: allows all traffic to the endpoint.
+     *   **DenyAll**: denies all traffic to the endpoint.
+     *   **AllowCustom**: allows traffic only to specified destinations.
+     *
+     * @example DenyAll
+     *
      * @var string
      */
     public $trafficToEndpointPolicy;
 
     /**
+     * @description The backend service type of the endpoint.
+     *
+     * Set the value to **PrivateSubNet**, which indicates private CIDR blocks.
+     * @example PrivateSubNet
+     *
      * @var string
      */
     public $type;

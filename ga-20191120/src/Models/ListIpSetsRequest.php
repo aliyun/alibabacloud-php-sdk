@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ListIpSetsRequest extends Model
 {
     /**
+     * @description The ID of the GA instance that you want to query.
+     *
+     * @example ga-bp1yeeq8yfoyszmqy****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **100**. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region where the Global Accelerator (GA) instance that you want to query is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

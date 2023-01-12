@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class UpdateIpSetRequest extends Model
 {
     /**
+     * @description The new bandwidth to be allocated to the acceleration region.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * @example 7D2F7E4E-B958-439C-9821-56D6213A31EC
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the acceleration region that you want to modify.
+     *
+     * @example ips-bp11r5jb8ogp122xl****
+     *
      * @var string
      */
     public $ipSetId;
 
     /**
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

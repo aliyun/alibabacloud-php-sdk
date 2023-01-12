@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListAvailableAccelerateAreasRequest extends Model
 {
     /**
+     * @description The ID of the GA instance.
+     *
+     * @example ga-bp1yeeq8yfoyszmqy****
+     *
      * @var string
      */
     public $acceleratorId;
 
     /**
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

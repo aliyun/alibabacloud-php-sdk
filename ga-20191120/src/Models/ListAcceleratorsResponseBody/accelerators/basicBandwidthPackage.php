@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class basicBandwidthPackage extends Model
 {
     /**
+     * @description The bandwidth value of the basic bandwidth plan. Unit: Mbit/s.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @description The type of the bandwidth that is provided by the basic bandwidth plan. Valid values:
+     *
+     *   **Basic**: standard bandwidth plans
+     *   **Enhanced**: enhanced bandwidth plans
+     *   **Advanced**: premium bandwidth plans
+     *
+     * @example Basic
+     *
      * @var string
      */
     public $bandwidthType;
 
     /**
+     * @description The ID of the basic bandwidth plan.
+     *
+     * @example gbwp-bp1d8xk8bg139j0fw****
+     *
      * @var string
      */
     public $instanceId;

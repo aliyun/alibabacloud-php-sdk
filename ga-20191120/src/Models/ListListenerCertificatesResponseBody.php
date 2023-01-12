@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class ListListenerCertificatesResponseBody extends Model
 {
     /**
+     * @description Details about the certificates.
+     *
      * @var certificates[]
      */
     public $certificates;
 
     /**
+     * @description The maximum number of entries returned.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that determines the start point of the next query. Valid values:
+     *
+     *   If **NextToken** is not returned, it indicates that no additional results exist.
+     *   If **NextToken** is returned, the value is the token that is used for the next query.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 6FEA0CF3-D3B9-43E5-A304-D217037876A8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;
