@@ -448,6 +448,9 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->tlsConfig)) {
             $body['tlsConfig'] = $request->tlsConfig;
         }
+        if (!Utils::isUnset($request->wafConfig)) {
+            $body['wafConfig'] = $request->wafConfig;
+        }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
@@ -4441,6 +4444,9 @@ class FCOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->tlsConfig)) {
             $body['tlsConfig'] = $request->tlsConfig;
+        }
+        if (!Utils::isUnset($request->wafConfig)) {
+            $body['wafConfig'] = $request->wafConfig;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {

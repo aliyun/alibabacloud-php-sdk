@@ -89,6 +89,11 @@ class GetCustomDomainResponseBody extends Model
      * @var TLSConfig
      */
     public $tlsConfig;
+
+    /**
+     * @var WAFConfig
+     */
+    public $wafConfig;
     protected $_name = [
         'accountId'        => 'accountId',
         'apiVersion'       => 'apiVersion',
@@ -99,6 +104,7 @@ class GetCustomDomainResponseBody extends Model
         'protocol'         => 'protocol',
         'routeConfig'      => 'routeConfig',
         'tlsConfig'        => 'tlsConfig',
+        'wafConfig'        => 'wafConfig',
     ];
 
     public function validate()
@@ -134,6 +140,9 @@ class GetCustomDomainResponseBody extends Model
         }
         if (null !== $this->tlsConfig) {
             $res['tlsConfig'] = null !== $this->tlsConfig ? $this->tlsConfig->toMap() : null;
+        }
+        if (null !== $this->wafConfig) {
+            $res['wafConfig'] = null !== $this->wafConfig ? $this->wafConfig->toMap() : null;
         }
 
         return $res;
@@ -173,6 +182,9 @@ class GetCustomDomainResponseBody extends Model
         }
         if (isset($map['tlsConfig'])) {
             $model->tlsConfig = TLSConfig::fromMap($map['tlsConfig']);
+        }
+        if (isset($map['wafConfig'])) {
+            $model->wafConfig = WAFConfig::fromMap($map['wafConfig']);
         }
 
         return $model;

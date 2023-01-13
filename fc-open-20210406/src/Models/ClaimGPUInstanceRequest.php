@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ClaimGPUInstanceRequest extends Model
 {
     /**
+     * @description The disk performance level of the GPU rendering instance.
+     *
      * @example PL0
      *
      * @var string
@@ -16,6 +18,8 @@ class ClaimGPUInstanceRequest extends Model
     public $diskPerformanceLevel;
 
     /**
+     * @description The system disk space of the GPU rendering instance.
+     *
      * @example 100
      *
      * @var string
@@ -23,6 +27,8 @@ class ClaimGPUInstanceRequest extends Model
     public $diskSizeGigabytes;
 
     /**
+     * @description The image ID of the GPU-rendered instance.
+     *
      * @example m-foobar
      *
      * @var string
@@ -30,6 +36,8 @@ class ClaimGPUInstanceRequest extends Model
     public $imageId;
 
     /**
+     * @description The specifications of the GPU rendering instance.
+     *
      * @example ecs.gn7i-c8g1.2xlarge
      *
      * @var string
@@ -37,6 +45,8 @@ class ClaimGPUInstanceRequest extends Model
     public $instanceType;
 
     /**
+     * @description The outbound Internet bandwidth of the GPU rendering instance.
+     *
      * @example 100
      *
      * @var string
@@ -44,6 +54,8 @@ class ClaimGPUInstanceRequest extends Model
     public $internetBandwidthOut;
 
     /**
+     * @description The password of the GPU rendering instance.
+     *
      * @example MyPassword
      *
      * @var string
@@ -51,6 +63,8 @@ class ClaimGPUInstanceRequest extends Model
     public $password;
 
     /**
+     * @description The role of the user.
+     *
      * @example acs:ram::1234567890:role/fc-test
      *
      * @var string
@@ -58,6 +72,8 @@ class ClaimGPUInstanceRequest extends Model
     public $role;
 
     /**
+     * @description The ID of the security group.
+     *
      * @example sg-xxxx
      *
      * @var string
@@ -65,6 +81,8 @@ class ClaimGPUInstanceRequest extends Model
     public $sgId;
 
     /**
+     * @description The source IPv4 CIDR block of the GPU rendering instance.
+     *
      * @example 0.0.0.0/0
      *
      * @var string
@@ -72,16 +90,22 @@ class ClaimGPUInstanceRequest extends Model
     public $sourceCidrIp;
 
     /**
+     * @description The range of TCP ports that are open to the security group of the GPU-rendered instance.
+     *
      * @var string[]
      */
     public $tcpPortRange;
 
     /**
+     * @description The range of UDP ports that are open to the security group of the GPU rendering instance.
+     *
      * @var string[]
      */
     public $udpPortRange;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
      * @example v-xxxx
      *
      * @var string
@@ -89,6 +113,8 @@ class ClaimGPUInstanceRequest extends Model
     public $vpcId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vsw-xxxx
      *
      * @var string
