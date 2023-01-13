@@ -11,9 +11,8 @@ class opLogDetail extends Model
     /**
      * @description The endpoint of the database instance.
      *
-     * > *   This parameter is valid only for database instances of the LocalInstance type.
-     *   This parameter is valid only for operations on the functional modules related to tasks.
-     *
+     * > * This parameter is valid only for database instances of the LocalInstance type.
+     * > * This parameter is valid only for operations on the functional modules related to tasks.
      * @var string
      */
     public $database;

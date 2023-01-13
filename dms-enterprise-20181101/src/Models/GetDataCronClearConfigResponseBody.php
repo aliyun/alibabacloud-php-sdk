@@ -15,11 +15,15 @@ class GetDataCronClearConfigResponseBody extends Model
     public $dataCronClearConfig;
 
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -27,6 +31,8 @@ class GetDataCronClearConfigResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 283C461F-11D8-48AA-B695-DF092DA32AF3
      *
      * @var string
@@ -34,6 +40,11 @@ class GetDataCronClearConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
      * @example true
      *
      * @var bool

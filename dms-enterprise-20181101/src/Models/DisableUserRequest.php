@@ -16,6 +16,8 @@ class DisableUserRequest extends Model
     public $tid;
 
     /**
+     * @description The UID of the Alibaba Cloud account.
+     *
      * @example 12345
      *
      * @var string

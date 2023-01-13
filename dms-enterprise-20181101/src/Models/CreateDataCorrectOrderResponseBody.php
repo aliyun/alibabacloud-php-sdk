@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDataCorrectOrderResponseBody extends Model
 {
     /**
-     * @description The ID of the ticket.
+     * @description The IDs of the tickets.
      *
      * @var int[]
      */

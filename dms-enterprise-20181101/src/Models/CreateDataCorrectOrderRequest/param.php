@@ -80,9 +80,7 @@ class param extends Model
     /**
      * @description The SQL statements used to roll back the data change.
      *
-     * >
-     *   This parameter is required if you set the **RollbackSqlType** parameter to **TEXT**.
-     *
+     * > This parameter is required if you set the **RollbackSqlType** parameter to **TEXT**.
      * @example update base_user set id = 1 where id  = 1;
      *
      * @var string

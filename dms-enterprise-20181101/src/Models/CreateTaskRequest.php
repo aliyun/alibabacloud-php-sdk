@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTaskRequest extends Model
 {
     /**
+     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
+     *
      * @example 7***
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateTaskRequest extends Model
     public $dagId;
 
     /**
+     * @description The position of the node on the Directed Acyclic Graph (DAG).
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateTaskRequest extends Model
     public $graphParam;
 
     /**
+     * @description The configuration for the node.
+     *
      * @example test
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateTaskRequest extends Model
     public $nodeContent;
 
     /**
+     * @description The name of the node you want to create.
+     *
      * @example zhttest
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateTaskRequest extends Model
     public $nodeName;
 
     /**
+     * @description The output variables for the task.
+     *
      * @example test
      *
      * @var string
@@ -44,6 +54,8 @@ class CreateTaskRequest extends Model
     public $nodeOutput;
 
     /**
+     * @description The type of the node you want to create. For more information about the valid values for this parameter, see [NodeType parameter](~~424705~~).
+     *
      * @example 36
      *
      * @var string
@@ -51,6 +63,9 @@ class CreateTaskRequest extends Model
     public $nodeType;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * > To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
      * @example 3***
      *
      * @var int
@@ -58,6 +73,8 @@ class CreateTaskRequest extends Model
     public $tid;
 
     /**
+     * @description The time variables configured for the node.
+     *
      * @example test
      *
      * @var string

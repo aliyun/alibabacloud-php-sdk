@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTaskFlowsByPageResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -17,6 +19,8 @@ class ListTaskFlowsByPageResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -24,6 +28,8 @@ class ListTaskFlowsByPageResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 6CB28697-BFE2-5739-9228-3971990E982C
      *
      * @var string
@@ -31,6 +37,11 @@ class ListTaskFlowsByPageResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool
@@ -38,11 +49,15 @@ class ListTaskFlowsByPageResponseBody extends Model
     public $success;
 
     /**
+     * @description The details of the returned task flows.
+     *
      * @var taskFlowList
      */
     public $taskFlowList;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 24
      *
      * @var int

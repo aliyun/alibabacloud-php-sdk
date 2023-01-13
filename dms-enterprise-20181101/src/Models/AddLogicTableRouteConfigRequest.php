@@ -20,7 +20,7 @@ class AddLogicTableRouteConfigRequest extends Model
     /**
      * @description The unique key of the routing algorithm.
      *
-     * - The unique key of the routing algorithm in the same logical table must be unique.
+     * > - The unique key of the routing algorithm in the same logical table must be unique.
      * @example id-hash-mod16
      *
      * @var string

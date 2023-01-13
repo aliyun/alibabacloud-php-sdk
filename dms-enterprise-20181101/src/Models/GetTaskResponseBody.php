@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetTaskResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -17,6 +19,8 @@ class GetTaskResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -24,6 +28,8 @@ class GetTaskResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
+     *
      * @example 7838266C-E17B-58F4-B072-4DC356B58258
      *
      * @var string
@@ -31,6 +37,11 @@ class GetTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool
@@ -38,6 +49,8 @@ class GetTaskResponseBody extends Model
     public $success;
 
     /**
+     * @description The task node.
+     *
      * @var task
      */
     public $task;

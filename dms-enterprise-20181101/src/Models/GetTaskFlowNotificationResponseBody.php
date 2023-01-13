@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetTaskFlowNotificationResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -17,6 +19,8 @@ class GetTaskFlowNotificationResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -24,11 +28,15 @@ class GetTaskFlowNotificationResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The notification settings specified by the user.
+     *
      * @var notification
      */
     public $notification;
 
     /**
+     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
+     *
      * @example F19D575F-EBEA-5683-AFA3-A8F6D9A7DE03
      *
      * @var string
@@ -36,6 +44,11 @@ class GetTaskFlowNotificationResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

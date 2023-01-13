@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListClassificationTemplatesResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -17,6 +19,8 @@ class ListClassificationTemplatesResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -24,6 +28,8 @@ class ListClassificationTemplatesResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 90260530-565C-42B9-A6E8-893481FE6AB6
      *
      * @var string
@@ -31,6 +37,11 @@ class ListClassificationTemplatesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool
@@ -38,6 +49,8 @@ class ListClassificationTemplatesResponseBody extends Model
     public $success;
 
     /**
+     * @description The list of templates.
+     *
      * @var templateList[]
      */
     public $templateList;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class sensitiveDataAuditLogList extends Model
 {
     /**
+     * @description The name of the database that stores the sensitive data.
+     *
      * @example ExampleDbName@xxx.xxx.xxx.xxx:3306
      *
      * @var string
@@ -17,6 +19,8 @@ class sensitiveDataAuditLogList extends Model
     public $dbDisplayName;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example 12****
      *
      * @var int
@@ -24,6 +28,8 @@ class sensitiveDataAuditLogList extends Model
     public $instanceId;
 
     /**
+     * @description The name of the function module whose audit logs were queried.
+     *
      * @example SQL_CONSOLE
      *
      * @var string
@@ -31,6 +37,8 @@ class sensitiveDataAuditLogList extends Model
     public $moduleName;
 
     /**
+     * @description The time when the operation was performed. The time is in the yyyy-MM-DD HH:mm:ss format.
+     *
      * @example 2022-11-18 10:01:00
      *
      * @var string
@@ -38,16 +46,27 @@ class sensitiveDataAuditLogList extends Model
     public $opTime;
 
     /**
+     * @description The logs for sensitive data.
+     *
      * @var sensitiveDataLog[]
      */
     public $sensitiveDataLog;
 
     /**
+     * @description The details of the object on which the operation was performed. The value of this parameter is in one of the following formats:
+     *
+     *   Object name - object ID
+     *   Object name (object ID)
+     *
+     * @example Ticket - 1\*\*\*\*
+     *
      * @var string
      */
     public $targetName;
 
     /**
+     * @description The user ID of the requester.
+     *
      * @example 1**
      *
      * @var int
@@ -55,6 +74,8 @@ class sensitiveDataAuditLogList extends Model
     public $userId;
 
     /**
+     * @description The username of the requester.
+     *
      * @example ExampleUserName
      *
      * @var string

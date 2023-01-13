@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTaskFlowsByPageRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListTaskFlowsByPageRequest extends Model
     public $pageIndex;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 20
      *
      * @var int
@@ -23,11 +27,18 @@ class ListTaskFlowsByPageRequest extends Model
     public $pageSize;
 
     /**
+     * @description The keyword that is used to search for task flow names.
+     *
+     * @example Test node
+     *
      * @var string
      */
     public $searchKey;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * > : To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
      * @example 3***
      *
      * @var int

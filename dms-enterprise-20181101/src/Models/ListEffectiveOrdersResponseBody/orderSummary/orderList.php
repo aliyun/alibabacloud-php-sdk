@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class orderList extends Model
 {
     /**
+     * @description The UID of the user who placed the order.
+     *
      * @example 2698420314****
      *
      * @var string
@@ -16,6 +18,8 @@ class orderList extends Model
     public $buyerId;
 
     /**
+     * @description The time when the instance expires.
+     *
      * @example 2022-11-24 00:00:00
      *
      * @var string
@@ -23,6 +27,8 @@ class orderList extends Model
     public $endTime;
 
     /**
+     * @description The maximum number of database instances that you can use DMS to manage.
+     *
      * @example 7
      *
      * @var string
@@ -30,6 +36,8 @@ class orderList extends Model
     public $insNum;
 
     /**
+     * @description The ID of the instance for the purchased service.
+     *
      * @example rm-bp1xd1v866****
      *
      * @var string
@@ -37,6 +45,8 @@ class orderList extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the order.
+     *
      * @example 2190037****
      *
      * @var string
@@ -44,6 +54,8 @@ class orderList extends Model
     public $orderId;
 
     /**
+     * @description The time when the instance is started.
+     *
      * @example 2022-10-24 00:00:00
      *
      * @var string

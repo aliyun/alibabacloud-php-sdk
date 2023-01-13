@@ -20,6 +20,11 @@ class searchDatabase extends Model
     public $alias;
 
     /**
+     * @var string
+     */
+    public $catalogName;
+
+    /**
      * @description The ID of the database.
      *
      * @example 2528****
@@ -145,6 +150,7 @@ class searchDatabase extends Model
     public $sid;
     protected $_name = [
         'alias'         => 'Alias',
+        'catalogName'   => 'CatalogName',
         'databaseId'    => 'DatabaseId',
         'datalinkName'  => 'DatalinkName',
         'dbType'        => 'DbType',
@@ -170,6 +176,9 @@ class searchDatabase extends Model
         $res = [];
         if (null !== $this->alias) {
             $res['Alias'] = $this->alias;
+        }
+        if (null !== $this->catalogName) {
+            $res['CatalogName'] = $this->catalogName;
         }
         if (null !== $this->databaseId) {
             $res['DatabaseId'] = $this->databaseId;
@@ -227,6 +236,9 @@ class searchDatabase extends Model
         $model = new self();
         if (isset($map['Alias'])) {
             $model->alias = $map['Alias'];
+        }
+        if (isset($map['CatalogName'])) {
+            $model->catalogName = $map['CatalogName'];
         }
         if (isset($map['DatabaseId'])) {
             $model->databaseId = $map['DatabaseId'];

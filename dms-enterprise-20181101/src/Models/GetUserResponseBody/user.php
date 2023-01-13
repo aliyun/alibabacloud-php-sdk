@@ -31,10 +31,8 @@ class user extends Model
     /**
      * @description The DingTalk chatbot URL that is used to receive notifications.
      *
-     * >
-     *   The system returns this parameter if the user has set a DingTalk chatbot URL in the console. To set a DingTalk chatbot URL in the console, move the pointer over the profile picture in the upper-right corner and click the Edit icon next to **Notice**.
-     *   The system does not return this parameter if the user has not set a DingTalk chatbot URL.
-     *
+     * > * The system returns this parameter if the user has set a DingTalk chatbot URL in the console. To set a DingTalk chatbot URL in the console, move the pointer over the profile picture in the upper-right corner and click the Edit icon next to **Notice**.
+     * > * The system does not return this parameter if the user has not set a DingTalk chatbot URL.
      * @example https://XXX.dingtalk.com/robot/send?access_token=***
      *
      * @var string
@@ -44,10 +42,8 @@ class user extends Model
     /**
      * @description The email address that is used to receive notifications.
      *
-     * >
-     *   The system returns this parameter if the user has set an email address in the console. To set an email address in the console, move the pointer over the profile picture in the upper-right corner and click the Edit icon next to **Notice**.
-     *   The system does not return this parameter if the user has not set an email address.
-     *
+     * > * The system returns this parameter if the user has set an email address in the console. To set an email address in the console, move the pointer over the profile picture in the upper-right corner and click the Edit icon next to **Notice**.
+     * > * The system does not return this parameter if the user has not set an email address.
      * @example Uesr_email
      *
      * @var string
@@ -84,10 +80,8 @@ class user extends Model
     /**
      * @description The mobile phone number that is used to receive notifications.
      *
-     * >
-     *   The system returns this parameter if the user has set a mobile phone number in the console. To set a mobile phone number in the console, move the pointer over the profile picture in the upper-right corner and click the Edit icon next to **Notice**.
-     *   The system does not return this parameter if the user has not set a mobile phone number.
-     *
+     * > * The system returns this parameter if the user has set a mobile phone number in the console. To set a mobile phone number in the console, move the pointer over the profile picture in the upper-right corner and click the Edit icon next to **Notice**.
+     * > * The system does not return this parameter if the user has not set a mobile phone number.
      * @example 1389223****
      *
      * @var string
@@ -158,7 +152,7 @@ class user extends Model
      * @description The signature method that is used to secure connections when a webhook URL is used. Valid values:
      *
      *   **NONE**: no signature.
-     *   **HMAC_SHA1**: HMAC_SHA1.
+     *   **HMAC\_SHA1**: HMAC_SHA1.
      *
      * @example NONE
      *
@@ -200,10 +194,8 @@ class user extends Model
     /**
      * @description The webhook URL that is used to receive notifications.
      *
-     * >
-     *   If the user has set a webhook URL, DMS sends notifications to the specified URL.
-     *   The system does not return this parameter if the user has not set a webhook URL.
-     *
+     * > * If the user has set a webhook URL, DMS sends notifications to the specified URL.
+     * > * The system does not return this parameter if the user has not set a webhook URL.
      * @example http://dms-XXX.aliyun.com:8***
      *
      * @var string

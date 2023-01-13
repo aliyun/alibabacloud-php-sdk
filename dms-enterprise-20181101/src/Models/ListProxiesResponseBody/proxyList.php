@@ -100,12 +100,17 @@ class proxyList extends Model
      * @description The public endpoint. A public endpoint is returned no matter whether the public endpoint is enabled or disabled.
      *
      * > - If the value of the PublicEnable parameter is **true**, a valid public endpoint that can be resolved by using Alibaba Cloud DNS (DNS) is returned.
-     * - If the value of the PublicEnable parameter is **false**, an invalid public endpoint that cannot be resolved by using DNS is returned.
+     * > - If the value of the PublicEnable parameter is **false**, an invalid public endpoint that cannot be resolved by using DNS is returned.
      * @example dphzmy-5j8oimjsz6ze****-pub.proxy.dms.aliyuncs.com
      *
      * @var string
      */
     public $publicHost;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'creatorId'     => 'CreatorId',
         'creatorName'   => 'CreatorName',
@@ -118,6 +123,7 @@ class proxyList extends Model
         'proxyId'       => 'ProxyId',
         'publicEnable'  => 'PublicEnable',
         'publicHost'    => 'PublicHost',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -159,6 +165,9 @@ class proxyList extends Model
         }
         if (null !== $this->publicHost) {
             $res['PublicHost'] = $this->publicHost;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -204,6 +213,9 @@ class proxyList extends Model
         }
         if (isset($map['PublicHost'])) {
             $model->publicHost = $map['PublicHost'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

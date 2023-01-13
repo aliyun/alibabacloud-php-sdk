@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class task extends Model
 {
     /**
+     * @description The ID of the task flow to which the node belongs.
+     *
      * @example 7321
      *
      * @var int
@@ -16,6 +18,8 @@ class task extends Model
     public $dagId;
 
     /**
+     * @description The position of the node on the Directed Acyclic Graph (DAG).
+     *
      * @example {"{\"x\":0,\"y\":0,\"layoutType\":\"Horizontal\"}",  "id": 51***}
      *
      * @var string
@@ -23,11 +27,17 @@ class task extends Model
     public $graphParam;
 
     /**
+     * @description The advanced configuration for the node.
+     *
+     * @example {\\"dbId\\":39\*\*\*\*,\\"dbType\\":\\"mysql\\",\\"locale\\":\\"zh\\",\\"sql\\":\\"/\* Make sure that the following SQL statements meet your business requirements before submitting the SQL statements for execution. \*\/\\\n\\\nCREATE TABLE IF NOT EXISTS \`momo_weekGather\` (\\\n\\\t\`id\` bigint AUTO_INCREMENT DEFAULT \"0\",\\\n\\\t\`age\` bit NULL,\\\n\\\t\`action\` varchar(150) NULL,\\\n\\\t\`elapse_time\` datetime NULL,\\\n\\\tPRIMARY KEY (\`id\`)\\\n) ENGINE=InnoDB\\\nDEFAULT CHARACTER SET=utf8;\\"}
+     *
      * @var string
      */
     public $nodeConfig;
 
     /**
+     * @description The configuration for the node.
+     *
      * @example {\"dbList\":[{\"instanceId\":177****}"   }
      *
      * @var string
@@ -35,11 +45,17 @@ class task extends Model
     public $nodeContent;
 
     /**
+     * @description The name of the node.
+     *
+     * @example Cross-database Spark SQL-1
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description The output variables for the node. This parameter is available only for some types of nodes.
+     *
      * @example { "outputs":[ "extractMethod":"json" , "variableName":"var",   "description":"demo desc" } ] }
      *
      * @var string
@@ -47,6 +63,8 @@ class task extends Model
     public $nodeOutput;
 
     /**
+     * @description The type of the node. For more information about the valid values for this parameter, see [NodeType parameter](~~424705~~).
+     *
      * @example SPARK_SQL
      *
      * @var string
@@ -54,6 +72,8 @@ class task extends Model
     public $nodeType;
 
     /**
+     * @description The time variables configured for the node.
+     *
      * @example {\"variables\":[{\"name\":\"Today\",\"pattern\":\"yyyy-MM-dd|+1d\"}]}
      *
      * @var string

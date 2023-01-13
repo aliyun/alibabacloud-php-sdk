@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskFlowTimeVariablesRequest extends Model
 {
     /**
+     * @description The ID of the task node. You can call the [GetTaskInstanceRelation](~~424711~~) operation to query the node ID.
+     *
      * @example 43****
      *
      * @var int
@@ -16,6 +18,9 @@ class UpdateTaskFlowTimeVariablesRequest extends Model
     public $dagId;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * > :To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
      * @example 3***
      *
      * @var int
@@ -23,6 +28,8 @@ class UpdateTaskFlowTimeVariablesRequest extends Model
     public $tid;
 
     /**
+     * @description The time variables for the task flow.
+     *
      * @example {"variables":[ {"name":"var", "pattern":"yyyy-MM-dd|+0m+0h-2d+0w+0M+1y"} ]}
      *
      * @var string

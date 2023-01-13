@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RegisterInstanceResponseBody extends Model
 {
     /**
-     * @description The error code that is returned.
+     * @description The error code returned if the request failed.
      *
      * @example UnknownError
      *
@@ -18,7 +18,7 @@ class RegisterInstanceResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message that is returned.
+     * @description The error message returned if the request failed.
      *
      * @example UnknownError
      *
@@ -38,8 +38,8 @@ class RegisterInstanceResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
+     *   **true:** The request was successful.
+     *   **false:** The request failed.
      *
      * @example true
      *

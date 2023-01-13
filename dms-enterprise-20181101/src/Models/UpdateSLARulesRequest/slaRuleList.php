@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class slaRuleList extends Model
 {
     /**
+     * @description The ID of the task flow.
+     *
      * @example 15***
      *
      * @var int
@@ -16,6 +18,8 @@ class slaRuleList extends Model
     public $dagId;
 
     /**
+     * @description The timeout period. Unit: minutes.
+     *
      * @example 1080
      *
      * @var int
@@ -23,6 +27,8 @@ class slaRuleList extends Model
     public $intervalMinutes;
 
     /**
+     * @description The ID of the task node.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +36,11 @@ class slaRuleList extends Model
     public $nodeId;
 
     /**
+     * @description The rule type. Valid values:
+     *
+     *   **0**: SLA rules for task flows
+     *   **1**: SLA rules for nodes
+     *
      * @example 0
      *
      * @var int

@@ -31,10 +31,8 @@ class user extends Model
     /**
      * @description The DingTalk chatbot URL that is used to receive notifications.
      *
-     * >
-     *   The system returns this parameter if the user has set a DingTalk chatbot URL in the console. To set a DingTalk chatbot URL in the console, move the pointer over the profile picture in the upper-right corner and click the Edit icon next to **Notice**.
-     *   The system does not return this parameter if the user has not set a DingTalk chatbot URL.
-     *
+     * > * The system returns this parameter if the user has set a DingTalk chatbot URL in the console. To set a DingTalk chatbot URL in the console, move the pointer over the profile picture in the upper-right corner and click the Edit icon next to **Notice**.
+     * > * The system does not return this parameter if the user has not set a DingTalk chatbot URL.
      * @example https://XXX.dingtalk.com/robot/send?access_token=9b7a4a562cbe7fcdea9962afac7b9d7b4504d564948083419750f9cafa78e4ef
      *
      * @var string
@@ -44,10 +42,8 @@ class user extends Model
     /**
      * @description The email address that is used to receive notifications.
      *
-     * >
-     *   The system returns this parameter if the user has set an email address in the console. To set an email address in the console, move the pointer over the profile picture in the upper-right corner and click the Edit icon next to **Notice**.
-     *   The system does not return this parameter if the user has not set an email address.
-     *
+     * > * The system returns this parameter if the user has set an email address in the console. To set an email address in the console, move the pointer over the profile picture in the upper-right corner and click the Edit icon next to **Notice**.
+     * > * The system does not return this parameter if the user has not set an email address.
      * @example username@example.com
      *
      * @var string
@@ -84,10 +80,8 @@ class user extends Model
     /**
      * @description The mobile phone number that is used to receive notifications.
      *
-     * >
-     *   The system returns this parameter if the user has set a mobile phone number in the console. To set a mobile phone number in the console, move the pointer over the profile picture in the upper-right corner and click the Edit icon next to **Notice**.
-     *   The system does not return this parameter if the user has not set a mobile phone number.
-     *
+     * > * The system returns this parameter if the user has set a mobile phone number in the console. To set a mobile phone number in the console, move the pointer over the profile picture in the upper-right corner and click the Edit icon next to **Notice**.
+     * > * The system does not return this parameter if the user has not set a mobile phone number.
      * @example 1389999****
      *
      * @var string
@@ -147,7 +141,7 @@ class user extends Model
      *   **DBA**: a DBA.
      *   **ADMIN**: a DMS administrator.
      *   **SECURITY_ADMIN**: a security administrator.
-     *   **STRUCT_READ_ONLY**: a schema read-only user.
+     *   **STRUCT\_READ\_ONLY**: a schema read-only user.
      *
      * @var roleNameList
      */
@@ -199,10 +193,8 @@ class user extends Model
     /**
      * @description The webhook URL that is used to receive notifications.
      *
-     * >
-     *   If the user has set a webhook URL, DMS sends notifications to the specified URL.
-     *   The system does not return this parameter if the user has not set a webhook URL.
-     *
+     * > * If the user has set a webhook URL, DMS sends notifications to the specified URL.
+     * > * The system does not return this parameter if the user has not set a webhook URL.
      * @example http://dms-XXX.aliyun.com:8***
      *
      * @var string

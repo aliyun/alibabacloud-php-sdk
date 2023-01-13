@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class taskFlow extends Model
 {
     /**
+     * @description The ID of the user who created the task flow.
+     *
      * @example 51****
      *
      * @var string
@@ -16,6 +18,8 @@ class taskFlow extends Model
     public $creatorId;
 
     /**
+     * @description The username of the user who created the task flow.
+     *
      * @example Creator_NickName
      *
      * @var string
@@ -23,6 +27,8 @@ class taskFlow extends Model
     public $creatorNickName;
 
     /**
+     * @description The name of the task flow.
+     *
      * @example poc_task_test
      *
      * @var string
@@ -30,6 +36,8 @@ class taskFlow extends Model
     public $dagName;
 
     /**
+     * @description The username of the owner of the task flow.
+     *
      * @example Owner_NickName
      *
      * @var string
@@ -37,6 +45,8 @@ class taskFlow extends Model
     public $dagOwnerNickName;
 
     /**
+     * @description The ID of the last deployment record of the task flow.
+     *
      * @example 65***
      *
      * @var int
@@ -44,6 +54,8 @@ class taskFlow extends Model
     public $deployId;
 
     /**
+     * @description The description of the task flow.
+     *
      * @example test
      *
      * @var string
@@ -51,6 +63,8 @@ class taskFlow extends Model
     public $description;
 
     /**
+     * @description The ID of the task flow.
+     *
      * @example 7***
      *
      * @var int
@@ -58,6 +72,12 @@ class taskFlow extends Model
     public $id;
 
     /**
+     * @description The status of the last execution of the task flow. Valid values:
+     *
+     *   **0**: invalid
+     *   **1**: scheduling disabled
+     *   **2**: waiting to be scheduled
+     *
      * @example 0
      *
      * @var int
@@ -65,6 +85,8 @@ class taskFlow extends Model
     public $latestInstanceStatus;
 
     /**
+     * @description The time when the last execution record was created.
+     *
      * @example 2022-04-13
      *
      * @var string
@@ -72,6 +94,12 @@ class taskFlow extends Model
     public $latestInstanceTime;
 
     /**
+     * @description The status of the task flow. Valid values:
+     *
+     *   **0**: invalid
+     *   **1**: scheduling disabled
+     *   **2**: waiting to be scheduled
+     *
      * @example 1
      *
      * @var int

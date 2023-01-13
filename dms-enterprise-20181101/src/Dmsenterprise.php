@@ -619,10 +619,14 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param AddTaskFlowEdgesRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * When you add directed edges for a task node, take note of the following limits:
+     *   * 1. The endpoints of the specified edge exist in the Directed Acyclic Graph (DAG) of the task flow specified by DagId.
+     *   * 2. After a backward edge is added, the DAG does not contain loops.
+     *   *
+     * @param AddTaskFlowEdgesRequest $tmpReq  AddTaskFlowEdgesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddTaskFlowEdgesResponse
+     * @return AddTaskFlowEdgesResponse AddTaskFlowEdgesResponse
      */
     public function addTaskFlowEdgesWithOptions($tmpReq, $runtime)
     {
@@ -661,9 +665,13 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param AddTaskFlowEdgesRequest $request
+     * When you add directed edges for a task node, take note of the following limits:
+     *   * 1. The endpoints of the specified edge exist in the Directed Acyclic Graph (DAG) of the task flow specified by DagId.
+     *   * 2. After a backward edge is added, the DAG does not contain loops.
+     *   *
+     * @param AddTaskFlowEdgesRequest $request AddTaskFlowEdgesRequest
      *
-     * @return AddTaskFlowEdgesResponse
+     * @return AddTaskFlowEdgesResponse AddTaskFlowEdgesResponse
      */
     public function addTaskFlowEdges($request)
     {
@@ -725,8 +733,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * During a data backfill, task flows are run in sequence based on their dates. You can specify whether task flows are run in chronological or reverse chronological order. After the data backfill is complete, you can specify a date or date range, and a node range to run task flows.
+     * During a data backfill, task flows are run in sequence based on their dates. You can specify whether task flows are run in chronological or reverse chronological order. After the data backfill is complete, you can specify a date or date range, and a node range to run task flows.
      *   *
      * @param BackFillRequest $tmpReq  BackFillRequest
      * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
@@ -791,8 +798,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * During a data backfill, task flows are run in sequence based on their dates. You can specify whether task flows are run in chronological or reverse chronological order. After the data backfill is complete, you can specify a date or date range, and a node range to run task flows.
+     * During a data backfill, task flows are run in sequence based on their dates. You can specify whether task flows are run in chronological or reverse chronological order. After the data backfill is complete, you can specify a date or date range, and a node range to run task flows.
      *   *
      * @param BackFillRequest $request BackFillRequest
      *
@@ -2486,8 +2492,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * ### Usage notes
-     *   * When you call this operation, make sure that no task flow is specified in the business scenario.
+     * When you call this operation, make sure that no task flow is specified in the business scenario.
      *   *
      * @param DeleteScenarioRequest $request DeleteScenarioRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -2523,8 +2528,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * ### Usage notes
-     *   * When you call this operation, make sure that no task flow is specified in the business scenario.
+     * When you call this operation, make sure that no task flow is specified in the business scenario.
      *   *
      * @param DeleteScenarioRequest $request DeleteScenarioRequest
      *
@@ -3797,10 +3801,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param GetIntervalLimitOfSLARequest $request
-     * @param RuntimeOptions               $runtime
+     * The scheduling cycle of a task flow must be greater than the minimum scheduling cycle configured in the SLA rule for the task flow.
+     *   *
+     * @param GetIntervalLimitOfSLARequest $request GetIntervalLimitOfSLARequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetIntervalLimitOfSLAResponse
+     * @return GetIntervalLimitOfSLAResponse GetIntervalLimitOfSLAResponse
      */
     public function getIntervalLimitOfSLAWithOptions($request, $runtime)
     {
@@ -3831,9 +3837,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param GetIntervalLimitOfSLARequest $request
+     * The scheduling cycle of a task flow must be greater than the minimum scheduling cycle configured in the SLA rule for the task flow.
+     *   *
+     * @param GetIntervalLimitOfSLARequest $request GetIntervalLimitOfSLARequest
      *
-     * @return GetIntervalLimitOfSLAResponse
+     * @return GetIntervalLimitOfSLAResponse GetIntervalLimitOfSLAResponse
      */
     public function getIntervalLimitOfSLA($request)
     {
@@ -8361,8 +8369,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Prerequisites:
-     *   * You are a DMS administrator or a database administrator (DBA). You can call the [ListUsers](~~141938~~) or [GetUser](~~147098~~) operation to obtain your user role from the RoleIdList parameter that is returned.
+     * Prerequisites: You are a DMS administrator or a database administrator (DBA). You can call the [ListUsers](~~141938~~) or [GetUser](~~147098~~) operation to query your user role from the RoleIdList parameter that is returned.
      *   *
      * @param RegisterInstanceRequest $request RegisterInstanceRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -8467,8 +8474,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Prerequisites:
-     *   * You are a DMS administrator or a database administrator (DBA). You can call the [ListUsers](~~141938~~) or [GetUser](~~147098~~) operation to obtain your user role from the RoleIdList parameter that is returned.
+     * Prerequisites: You are a DMS administrator or a database administrator (DBA). You can call the [ListUsers](~~141938~~) or [GetUser](~~147098~~) operation to query your user role from the RoleIdList parameter that is returned.
      *   *
      * @param RegisterInstanceRequest $request RegisterInstanceRequest
      *
@@ -8593,10 +8599,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param ResumeTaskFlowInstanceRequest $request
-     * @param RuntimeOptions                $runtime
+     * You can call this operation only for task flows that are suspended.
+     *   *
+     * @param ResumeTaskFlowInstanceRequest $request ResumeTaskFlowInstanceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResumeTaskFlowInstanceResponse
+     * @return ResumeTaskFlowInstanceResponse ResumeTaskFlowInstanceResponse
      */
     public function resumeTaskFlowInstanceWithOptions($request, $runtime)
     {
@@ -8633,9 +8641,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param ResumeTaskFlowInstanceRequest $request
+     * You can call this operation only for task flows that are suspended.
+     *   *
+     * @param ResumeTaskFlowInstanceRequest $request ResumeTaskFlowInstanceRequest
      *
-     * @return ResumeTaskFlowInstanceResponse
+     * @return ResumeTaskFlowInstanceResponse ResumeTaskFlowInstanceResponse
      */
     public function resumeTaskFlowInstance($request)
     {
@@ -9351,10 +9361,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param UpdateSLARulesRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * SLA rules take effect after task flows are deployed and published.
+     *   *
+     * @param UpdateSLARulesRequest $tmpReq  UpdateSLARulesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateSLARulesResponse
+     * @return UpdateSLARulesResponse UpdateSLARulesResponse
      */
     public function updateSLARulesWithOptions($tmpReq, $runtime)
     {
@@ -9393,9 +9405,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param UpdateSLARulesRequest $request
+     * SLA rules take effect after task flows are deployed and published.
+     *   *
+     * @param UpdateSLARulesRequest $request UpdateSLARulesRequest
      *
-     * @return UpdateSLARulesResponse
+     * @return UpdateSLARulesResponse UpdateSLARulesResponse
      */
     public function updateSLARules($request)
     {
@@ -9457,10 +9471,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param UpdateTaskConfigRequest $request
-     * @param RuntimeOptions          $runtime
+     * You can call this operation to configure a failed task or rerun a task.
+     *   *
+     * @param UpdateTaskConfigRequest $request UpdateTaskConfigRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTaskConfigResponse
+     * @return UpdateTaskConfigResponse UpdateTaskConfigResponse
      */
     public function updateTaskConfigWithOptions($request, $runtime)
     {
@@ -9494,9 +9510,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param UpdateTaskConfigRequest $request
+     * You can call this operation to configure a failed task or rerun a task.
+     *   *
+     * @param UpdateTaskConfigRequest $request UpdateTaskConfigRequest
      *
-     * @return UpdateTaskConfigResponse
+     * @return UpdateTaskConfigResponse UpdateTaskConfigResponse
      */
     public function updateTaskConfig($request)
     {
@@ -9667,11 +9685,10 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * The edges can be updated only when the following conditions are met:
-     *   * 1\\. The specified edge exists in the Directed Acyclic Graph (DAG) of the task flow. The DAG is identified by DagId.
-     *   * 2\\. The end points of the specified edge exist in the DAG of the task flow. The DAG is identified by DagId.
-     *   * 3\\. After the update, no loop appears in the DAG.
+     * The edges can be updated only when the following conditions are met:
+     *   * 1. The specified edge exists in the Directed Acyclic Graph (DAG) of the task flow. The DAG is identified by DagId.
+     *   * 2. The end points of the specified edge exist in the DAG of the task flow. The DAG is identified by DagId.
+     *   * 3. After the update, no loop appears in the DAG.
      *   *
      * @param UpdateTaskFlowEdgesRequest $tmpReq  UpdateTaskFlowEdgesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -9715,11 +9732,10 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * The edges can be updated only when the following conditions are met:
-     *   * 1\\. The specified edge exists in the Directed Acyclic Graph (DAG) of the task flow. The DAG is identified by DagId.
-     *   * 2\\. The end points of the specified edge exist in the DAG of the task flow. The DAG is identified by DagId.
-     *   * 3\\. After the update, no loop appears in the DAG.
+     * The edges can be updated only when the following conditions are met:
+     *   * 1. The specified edge exists in the Directed Acyclic Graph (DAG) of the task flow. The DAG is identified by DagId.
+     *   * 2. The end points of the specified edge exist in the DAG of the task flow. The DAG is identified by DagId.
+     *   * 3. After the update, no loop appears in the DAG.
      *   *
      * @param UpdateTaskFlowEdgesRequest $request UpdateTaskFlowEdgesRequest
      *
@@ -9951,10 +9967,13 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param UpdateTaskFlowScheduleRequest $request
-     * @param RuntimeOptions                $runtime
+     * You can call this operation to update the scheduling properties for a task flow in the editing state. You can configure a **timed scheduling** task flow or an **event scheduling** task flow. When you configure a **timed scheduling** task flow, you can choose from one-time scheduling or periodic scheduling. When you configure an **event scheduling** task flow, you can subscribe to task flows or task flow nodes.****\\
+     *   * After you update the scheduling properties, you need to publish and deploy the task flow again. The new task flow instance will run based on the updated scheduling properties.
+     *   *
+     * @param UpdateTaskFlowScheduleRequest $request UpdateTaskFlowScheduleRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTaskFlowScheduleResponse
+     * @return UpdateTaskFlowScheduleResponse UpdateTaskFlowScheduleResponse
      */
     public function updateTaskFlowScheduleWithOptions($request, $runtime)
     {
@@ -10009,9 +10028,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param UpdateTaskFlowScheduleRequest $request
+     * You can call this operation to update the scheduling properties for a task flow in the editing state. You can configure a **timed scheduling** task flow or an **event scheduling** task flow. When you configure a **timed scheduling** task flow, you can choose from one-time scheduling or periodic scheduling. When you configure an **event scheduling** task flow, you can subscribe to task flows or task flow nodes.****\\
+     *   * After you update the scheduling properties, you need to publish and deploy the task flow again. The new task flow instance will run based on the updated scheduling properties.
+     *   *
+     * @param UpdateTaskFlowScheduleRequest $request UpdateTaskFlowScheduleRequest
      *
-     * @return UpdateTaskFlowScheduleResponse
+     * @return UpdateTaskFlowScheduleResponse UpdateTaskFlowScheduleResponse
      */
     public function updateTaskFlowSchedule($request)
     {
@@ -10119,8 +10141,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * Only nodes of single-instance SQL assignment, script code, and ECS remote command have output variables.
+     * Only nodes of single-instance SQL assignment, script code, and ECS remote command have output variables.
      *   *
      * @param UpdateTaskOutputRequest $request UpdateTaskOutputRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -10159,8 +10180,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * Only nodes of single-instance SQL assignment, script code, and ECS remote command have output variables.
+     * Only nodes of single-instance SQL assignment, script code, and ECS remote command have output variables.
      *   *
      * @param UpdateTaskOutputRequest $request UpdateTaskOutputRequest
      *
