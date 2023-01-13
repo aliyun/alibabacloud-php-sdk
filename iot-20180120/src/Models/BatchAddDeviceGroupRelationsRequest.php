@@ -15,15 +15,11 @@ class BatchAddDeviceGroupRelationsRequest extends Model
     public $device;
 
     /**
-     * @example 6VfhebLg5iUe****
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
@@ -35,6 +31,7 @@ class BatchAddDeviceGroupRelationsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('groupId', $this->groupId, true);
     }
 
     public function toMap()

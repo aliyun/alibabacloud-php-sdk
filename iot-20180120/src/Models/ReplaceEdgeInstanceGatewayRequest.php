@@ -36,6 +36,9 @@ class ReplaceEdgeInstanceGatewayRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('currentGatewayId', $this->currentGatewayId, true);
+        Model::validateRequired('instanceId', $this->instanceId, true);
+        Model::validateRequired('newGatewayId', $this->newGatewayId, true);
     }
 
     public function toMap()

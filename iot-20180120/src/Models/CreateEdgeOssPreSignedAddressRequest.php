@@ -48,6 +48,10 @@ class CreateEdgeOssPreSignedAddressRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('fileName', $this->fileName, true);
+        Model::validateRequired('resourceId', $this->resourceId, true);
+        Model::validateRequired('resourceVersion', $this->resourceVersion, true);
+        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()

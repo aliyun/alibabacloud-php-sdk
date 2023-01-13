@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class condition extends Model
 {
     /**
-     * @example 5
-     *
      * @var string
      */
     public $betweenEnd;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $betweenStart;
 
     /**
-     * @example testCode
-     *
      * @var string
      */
     public $fieldName;
 
     /**
-     * @example =
-     *
      * @var string
      */
     public $operate;
 
     /**
-     * @example 4
-     *
      * @var string
      */
     public $value;
@@ -52,6 +42,8 @@ class condition extends Model
 
     public function validate()
     {
+        Model::validateRequired('fieldName', $this->fieldName, true);
+        Model::validateRequired('operate', $this->operate, true);
     }
 
     public function toMap()

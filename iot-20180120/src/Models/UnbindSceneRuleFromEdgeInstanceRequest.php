@@ -30,6 +30,8 @@ class UnbindSceneRuleFromEdgeInstanceRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('instanceId', $this->instanceId, true);
+        Model::validateRequired('ruleId', $this->ruleId, true);
     }
 
     public function toMap()

@@ -30,6 +30,9 @@ class BatchAddDataForApiSourceRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('apiId', $this->apiId, true);
+        Model::validateRequired('contentList', $this->contentList, true);
+        Model::validateRequired('iotInstanceId', $this->iotInstanceId, true);
     }
 
     public function toMap()

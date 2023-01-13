@@ -42,6 +42,9 @@ class QuerySolutionDeviceGroupPageRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('pageId', $this->pageId, true);
+        Model::validateRequired('pageSize', $this->pageSize, true);
+        Model::validateRequired('projectCode', $this->projectCode, true);
     }
 
     public function toMap()

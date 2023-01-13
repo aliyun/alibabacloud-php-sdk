@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceEventDataRequest extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $asc;
 
     /**
-     * @example light
-     *
      * @var string
      */
     public $deviceName;
 
     /**
-     * @example 1516541900303
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @example info
-     *
      * @var string
      */
     public $eventType;
 
     /**
-     * @example PowerOff
-     *
      * @var string
      */
     public $identifier;
 
     /**
-     * @example Q7uOhVRdZRRlDnTLv****00100
-     *
      * @var string
      */
     public $iotId;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example a1BwAGV****
-     *
      * @var string
      */
     public $productKey;
 
     /**
-     * @example 1516541900303
-     *
      * @var int
      */
     public $startTime;
@@ -92,6 +72,8 @@ class QueryDeviceEventDataRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('endTime', $this->endTime, true);
+        Model::validateRequired('startTime', $this->startTime, true);
     }
 
     public function toMap()

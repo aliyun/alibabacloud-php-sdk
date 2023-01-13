@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceByStatusRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example a1BwAGV****
-     *
      * @var string
      */
     public $productKey;
 
     /**
-     * @example rg-acfm4l5tcwd***
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $status;
@@ -60,6 +48,7 @@ class QueryDeviceByStatusRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('status', $this->status, true);
     }
 
     public function toMap()

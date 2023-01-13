@@ -37,6 +37,7 @@ class ListProductByTagsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('productTag', $this->productTag, true);
     }
 
     public function toMap()

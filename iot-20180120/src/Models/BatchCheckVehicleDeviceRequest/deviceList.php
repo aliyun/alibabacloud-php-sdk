@@ -30,6 +30,8 @@ class deviceList extends Model
 
     public function validate()
     {
+        Model::validateRequired('deviceModel', $this->deviceModel, true);
+        Model::validateRequired('manufacturer', $this->manufacturer, true);
     }
 
     public function toMap()

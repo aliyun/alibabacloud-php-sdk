@@ -42,6 +42,9 @@ class CreateRuleActionRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('configuration', $this->configuration, true);
+        Model::validateRequired('ruleId', $this->ruleId, true);
+        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()

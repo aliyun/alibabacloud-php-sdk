@@ -17,17 +17,17 @@ class CreateDeviceDistributeJobRequest extends Model
     /**
      * @var string
      */
+    public $sourceInstanceId;
+
+    /**
+     * @var string
+     */
     public $productKey;
 
     /**
      * @var string
      */
-    public $sourceInstanceId;
-
-    /**
-     * @var int
-     */
-    public $strategy;
+    public $targetUid;
 
     /**
      * @var string
@@ -40,21 +40,26 @@ class CreateDeviceDistributeJobRequest extends Model
     public $targetInstanceConfig;
 
     /**
-     * @var string
+     * @var int
      */
-    public $targetUid;
+    public $strategy;
     protected $_name = [
         'deviceName'           => 'DeviceName',
-        'productKey'           => 'ProductKey',
         'sourceInstanceId'     => 'SourceInstanceId',
-        'strategy'             => 'Strategy',
+        'productKey'           => 'ProductKey',
+        'targetUid'            => 'TargetUid',
         'targetAliyunId'       => 'TargetAliyunId',
         'targetInstanceConfig' => 'TargetInstanceConfig',
-        'targetUid'            => 'TargetUid',
+        'strategy'             => 'Strategy',
     ];
 
     public function validate()
     {
+        Model::validateRequired('deviceName', $this->deviceName, true);
+        Model::validateRequired('sourceInstanceId', $this->sourceInstanceId, true);
+        Model::validateRequired('productKey', $this->productKey, true);
+        Model::validateRequired('targetInstanceConfig', $this->targetInstanceConfig, true);
+        Model::validateRequired('strategy', $this->strategy, true);
     }
 
     public function toMap()
@@ -63,14 +68,14 @@ class CreateDeviceDistributeJobRequest extends Model
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
-        }
         if (null !== $this->sourceInstanceId) {
             $res['SourceInstanceId'] = $this->sourceInstanceId;
         }
-        if (null !== $this->strategy) {
-            $res['Strategy'] = $this->strategy;
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
+        }
+        if (null !== $this->targetUid) {
+            $res['TargetUid'] = $this->targetUid;
         }
         if (null !== $this->targetAliyunId) {
             $res['TargetAliyunId'] = $this->targetAliyunId;
@@ -84,8 +89,8 @@ class CreateDeviceDistributeJobRequest extends Model
                 }
             }
         }
-        if (null !== $this->targetUid) {
-            $res['TargetUid'] = $this->targetUid;
+        if (null !== $this->strategy) {
+            $res['Strategy'] = $this->strategy;
         }
 
         return $res;
@@ -104,14 +109,14 @@ class CreateDeviceDistributeJobRequest extends Model
                 $model->deviceName = $map['DeviceName'];
             }
         }
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
-        }
         if (isset($map['SourceInstanceId'])) {
             $model->sourceInstanceId = $map['SourceInstanceId'];
         }
-        if (isset($map['Strategy'])) {
-            $model->strategy = $map['Strategy'];
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
+        }
+        if (isset($map['TargetUid'])) {
+            $model->targetUid = $map['TargetUid'];
         }
         if (isset($map['TargetAliyunId'])) {
             $model->targetAliyunId = $map['TargetAliyunId'];
@@ -125,8 +130,8 @@ class CreateDeviceDistributeJobRequest extends Model
                 }
             }
         }
-        if (isset($map['TargetUid'])) {
-            $model->targetUid = $map['TargetUid'];
+        if (isset($map['Strategy'])) {
+            $model->strategy = $map['Strategy'];
         }
 
         return $model;

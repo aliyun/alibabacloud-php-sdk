@@ -30,6 +30,8 @@ class GetEdgeInstanceDeploymentRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('deploymentId', $this->deploymentId, true);
+        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()

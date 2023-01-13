@@ -14,22 +14,16 @@ class UpdateParserRequest extends Model
     public $description;
 
     /**
-     * @example iot-8t***
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example DataParserTwo
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example 1001
-     *
      * @var int
      */
     public $parserId;
@@ -42,6 +36,7 @@ class UpdateParserRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('parserId', $this->parserId, true);
     }
 
     public function toMap()

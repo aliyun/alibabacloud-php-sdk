@@ -30,6 +30,8 @@ class configs extends Model
 
     public function validate()
     {
+        Model::validateRequired('content', $this->content, true);
+        Model::validateRequired('format', $this->format, true);
     }
 
     public function toMap()

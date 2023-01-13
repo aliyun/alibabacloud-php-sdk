@@ -36,6 +36,9 @@ class UpdateRuleActionRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('actionId', $this->actionId, true);
+        Model::validateRequired('configuration', $this->configuration, true);
+        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()

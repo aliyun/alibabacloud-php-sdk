@@ -30,6 +30,8 @@ class UnbindApplicationFromEdgeInstanceRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('applicationId', $this->applicationId, true);
+        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()

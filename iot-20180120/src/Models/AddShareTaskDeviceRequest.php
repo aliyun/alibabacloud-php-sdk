@@ -36,6 +36,7 @@ class AddShareTaskDeviceRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('shareTaskId', $this->shareTaskId, true);
     }
 
     public function toMap()

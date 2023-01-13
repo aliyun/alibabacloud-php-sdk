@@ -24,6 +24,7 @@ class GetSpeechDeviceDetailRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('iotId', $this->iotId, true);
     }
 
     public function toMap()

@@ -4,48 +4,75 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
+use AlibabaCloud\SDK\Iot\V20180120\Models\BatchGetEdgeInstanceDriverConfigsResponse\driverConfigList;
 use AlibabaCloud\Tea\Model;
 
 class BatchGetEdgeInstanceDriverConfigsResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $code;
 
     /**
-     * @var int
+     * @var string
      */
-    public $statusCode;
+    public $errorMessage;
 
     /**
-     * @var BatchGetEdgeInstanceDriverConfigsResponseBody
+     * @var string
      */
-    public $body;
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
+
+    /**
+     * @var driverConfigList[]
+     */
+    public $driverConfigList;
     protected $_name = [
-        'headers'    => 'headers',
-        'statusCode' => 'statusCode',
-        'body'       => 'body',
+        'code'             => 'Code',
+        'errorMessage'     => 'ErrorMessage',
+        'requestId'        => 'RequestId',
+        'success'          => 'Success',
+        'driverConfigList' => 'DriverConfigList',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('statusCode', $this->statusCode, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('code', $this->code, true);
+        Model::validateRequired('errorMessage', $this->errorMessage, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('success', $this->success, true);
+        Model::validateRequired('driverConfigList', $this->driverConfigList, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
-        if (null !== $this->statusCode) {
-            $res['statusCode'] = $this->statusCode;
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->driverConfigList) {
+            $res['DriverConfigList'] = [];
+            if (null !== $this->driverConfigList && \is_array($this->driverConfigList)) {
+                $n = 0;
+                foreach ($this->driverConfigList as $item) {
+                    $res['DriverConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -59,14 +86,26 @@ class BatchGetEdgeInstanceDriverConfigsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
-        if (isset($map['statusCode'])) {
-            $model->statusCode = $map['statusCode'];
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
         }
-        if (isset($map['body'])) {
-            $model->body = BatchGetEdgeInstanceDriverConfigsResponseBody::fromMap($map['body']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['DriverConfigList'])) {
+            if (!empty($map['DriverConfigList'])) {
+                $model->driverConfigList = [];
+                $n                       = 0;
+                foreach ($map['DriverConfigList'] as $item) {
+                    $model->driverConfigList[$n++] = null !== $item ? driverConfigList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

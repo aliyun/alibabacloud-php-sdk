@@ -30,6 +30,8 @@ class UpdateSoundCodeLabelRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('label', $this->label, true);
+        Model::validateRequired('soundCode', $this->soundCode, true);
     }
 
     public function toMap()

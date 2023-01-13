@@ -9,106 +9,76 @@ use AlibabaCloud\Tea\Model;
 class CreateProductRequest extends Model
 {
     /**
-     * @example iothub_senior
-     *
      * @var string
      */
     public $aliyunCommodityCode;
 
     /**
-     * @example secret
-     *
      * @var string
      */
     public $authType;
 
     /**
-     * @example Lighting
-     *
      * @var string
      */
     public $categoryKey;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $dataFormat;
 
     /**
-     * @example Product test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $id2;
 
     /**
-     * @example iot-***-v64***
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 8***
-     *
      * @var string
      */
     public $joinPermissionId;
 
     /**
-     * @example WIFI
-     *
      * @var string
      */
     public $netType;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $nodeType;
 
     /**
-     * @example Light
-     *
      * @var string
      */
     public $productName;
 
     /**
-     * @example modbus
-     *
      * @var string
      */
     public $protocolType;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $publishAuto;
 
     /**
-     * @example rg-acfmxazb4ph***
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $validateType;
@@ -132,6 +102,8 @@ class CreateProductRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('nodeType', $this->nodeType, true);
+        Model::validateRequired('productName', $this->productName, true);
     }
 
     public function toMap()

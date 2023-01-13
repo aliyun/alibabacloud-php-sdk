@@ -24,6 +24,7 @@ class GetDestinationRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('destinationId', $this->destinationId, true);
     }
 
     public function toMap()

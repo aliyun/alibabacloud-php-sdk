@@ -54,6 +54,12 @@ class QueryDetailSceneRuleLogRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('currentPage', $this->currentPage, true);
+        Model::validateRequired('endTime', $this->endTime, true);
+        Model::validateRequired('pageSize', $this->pageSize, true);
+        Model::validateRequired('ruleId', $this->ruleId, true);
+        Model::validateRequired('startTime', $this->startTime, true);
+        Model::validateRequired('traceId', $this->traceId, true);
     }
 
     public function toMap()

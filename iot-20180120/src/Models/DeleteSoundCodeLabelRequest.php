@@ -24,6 +24,7 @@ class DeleteSoundCodeLabelRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('soundCode', $this->soundCode, true);
     }
 
     public function toMap()

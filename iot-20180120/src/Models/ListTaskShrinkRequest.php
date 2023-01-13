@@ -48,6 +48,7 @@ class ListTaskShrinkRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('limit', $this->limit, true);
     }
 
     public function toMap()

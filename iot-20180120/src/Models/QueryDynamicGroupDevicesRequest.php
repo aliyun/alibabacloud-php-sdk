@@ -66,6 +66,8 @@ class QueryDynamicGroupDevicesRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('groupId', $this->groupId, true);
+        Model::validateRequired('iotInstanceId', $this->iotInstanceId, true);
     }
 
     public function toMap()

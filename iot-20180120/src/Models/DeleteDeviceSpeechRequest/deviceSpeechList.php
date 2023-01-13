@@ -24,6 +24,8 @@ class deviceSpeechList extends Model
 
     public function validate()
     {
+        Model::validateRequired('audioFormat', $this->audioFormat, true);
+        Model::validateRequired('bizCode', $this->bizCode, true);
     }
 
     public function toMap()

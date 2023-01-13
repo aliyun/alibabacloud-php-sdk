@@ -25,6 +25,7 @@ class GisQueryDeviceLocationRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('thingList', $this->thingList, true);
     }
 
     public function toMap()

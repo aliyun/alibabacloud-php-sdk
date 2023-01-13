@@ -24,6 +24,7 @@ class BatchGetDeviceBindStatusRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('iotIds', $this->iotIds, true);
     }
 
     public function toMap()

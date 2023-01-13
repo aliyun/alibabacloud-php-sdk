@@ -30,6 +30,8 @@ class GetEdgeInstanceMessageRoutingRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('instanceId', $this->instanceId, true);
+        Model::validateRequired('routeId', $this->routeId, true);
     }
 
     public function toMap()

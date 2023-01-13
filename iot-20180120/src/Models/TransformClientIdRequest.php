@@ -30,6 +30,8 @@ class TransformClientIdRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('clientId', $this->clientId, true);
+        Model::validateRequired('iotId', $this->iotId, true);
     }
 
     public function toMap()

@@ -30,6 +30,8 @@ class UpdateConsumerGroupRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('groupId', $this->groupId, true);
+        Model::validateRequired('newGroupName', $this->newGroupName, true);
     }
 
     public function toMap()

@@ -74,6 +74,11 @@ class UpdateSubscribeRelationRequest extends Model
     public $productKey;
 
     /**
+     * @var string
+     */
+    public $subscribeFlags;
+
+    /**
      * @var bool
      */
     public $thingHistoryFlag;
@@ -96,12 +101,15 @@ class UpdateSubscribeRelationRequest extends Model
         'otaJobFlag'              => 'OtaJobFlag',
         'otaVersionFlag'          => 'OtaVersionFlag',
         'productKey'              => 'ProductKey',
+        'subscribeFlags'          => 'SubscribeFlags',
         'thingHistoryFlag'        => 'ThingHistoryFlag',
         'type'                    => 'Type',
     ];
 
     public function validate()
     {
+        Model::validateRequired('productKey', $this->productKey, true);
+        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()
@@ -145,6 +153,9 @@ class UpdateSubscribeRelationRequest extends Model
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
+        }
+        if (null !== $this->subscribeFlags) {
+            $res['SubscribeFlags'] = $this->subscribeFlags;
         }
         if (null !== $this->thingHistoryFlag) {
             $res['ThingHistoryFlag'] = $this->thingHistoryFlag;
@@ -204,6 +215,9 @@ class UpdateSubscribeRelationRequest extends Model
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
+        }
+        if (isset($map['SubscribeFlags'])) {
+            $model->subscribeFlags = $map['SubscribeFlags'];
         }
         if (isset($map['ThingHistoryFlag'])) {
             $model->thingHistoryFlag = $map['ThingHistoryFlag'];

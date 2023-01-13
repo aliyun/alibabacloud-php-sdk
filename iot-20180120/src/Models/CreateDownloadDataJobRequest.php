@@ -54,6 +54,8 @@ class CreateDownloadDataJobRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('downloadDataType', $this->downloadDataType, true);
+        Model::validateRequired('tableName', $this->tableName, true);
     }
 
     public function toMap()

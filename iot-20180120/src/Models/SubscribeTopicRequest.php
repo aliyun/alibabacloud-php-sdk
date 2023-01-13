@@ -36,6 +36,9 @@ class SubscribeTopicRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('deviceName', $this->deviceName, true);
+        Model::validateRequired('productKey', $this->productKey, true);
+        Model::validateRequired('topic', $this->topic, true);
     }
 
     public function toMap()

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GenerateOTAUploadURLRequest extends Model
 {
     /**
-     * @example apk
-     *
      * @var string
      */
     public $fileSuffix;
 
     /**
-     * @example iot-cn-0pp1n8t****
-     *
      * @var string
      */
     public $iotInstanceId;

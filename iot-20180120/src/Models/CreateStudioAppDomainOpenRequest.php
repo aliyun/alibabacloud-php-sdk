@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class CreateStudioAppDomainOpenRequest extends Model
 {
     /**
-     * @example a12*******
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @example www.aliyun.test.com
-     *
      * @var string
      */
     public $host;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example a123******
-     *
      * @var string
      */
     public $projectId;
 
     /**
-     * @example https
-     *
      * @var string
      */
     public $protocol;
@@ -52,6 +42,10 @@ class CreateStudioAppDomainOpenRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('appId', $this->appId, true);
+        Model::validateRequired('host', $this->host, true);
+        Model::validateRequired('projectId', $this->projectId, true);
+        Model::validateRequired('protocol', $this->protocol, true);
     }
 
     public function toMap()

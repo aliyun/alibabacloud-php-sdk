@@ -36,6 +36,9 @@ class CreateDeviceDynamicGroupRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('dynamicGroupExpression', $this->dynamicGroupExpression, true);
+        Model::validateRequired('groupName', $this->groupName, true);
+        Model::validateRequired('iotInstanceId', $this->iotInstanceId, true);
     }
 
     public function toMap()

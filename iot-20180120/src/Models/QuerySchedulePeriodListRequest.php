@@ -36,6 +36,7 @@ class QuerySchedulePeriodListRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('scheduleCode', $this->scheduleCode, true);
     }
 
     public function toMap()

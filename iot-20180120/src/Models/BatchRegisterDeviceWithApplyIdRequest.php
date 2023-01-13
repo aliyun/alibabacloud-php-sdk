@@ -30,6 +30,8 @@ class BatchRegisterDeviceWithApplyIdRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('applyId', $this->applyId, true);
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

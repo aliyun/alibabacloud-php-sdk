@@ -30,6 +30,8 @@ class CreateSoundCodeLabelRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('label', $this->label, true);
+        Model::validateRequired('scheduleCode', $this->scheduleCode, true);
     }
 
     public function toMap()

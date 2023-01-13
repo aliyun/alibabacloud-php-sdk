@@ -36,6 +36,8 @@ class BatchCreateSoundCodeLabelWithLabelsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('labels', $this->labels, true);
+        Model::validateRequired('scheduleCode', $this->scheduleCode, true);
     }
 
     public function toMap()

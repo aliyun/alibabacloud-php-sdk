@@ -31,6 +31,8 @@ class DeleteDeviceSpeechRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('deviceSpeechList', $this->deviceSpeechList, true);
+        Model::validateRequired('iotId', $this->iotId, true);
     }
 
     public function toMap()

@@ -24,6 +24,7 @@ class PackageSoundCodeLabelBatchAudioRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('batchCode', $this->batchCode, true);
     }
 
     public function toMap()

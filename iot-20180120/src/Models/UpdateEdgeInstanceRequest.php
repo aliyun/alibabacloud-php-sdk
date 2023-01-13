@@ -48,6 +48,8 @@ class UpdateEdgeInstanceRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('instanceId', $this->instanceId, true);
+        Model::validateRequired('name', $this->name, true);
     }
 
     public function toMap()

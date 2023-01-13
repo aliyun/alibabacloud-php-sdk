@@ -30,6 +30,7 @@ class QueryTopicReverseRouteTableRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('topic', $this->topic, true);
     }
 
     public function toMap()

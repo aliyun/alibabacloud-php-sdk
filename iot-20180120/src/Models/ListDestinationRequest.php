@@ -42,6 +42,8 @@ class ListDestinationRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('page', $this->page, true);
+        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

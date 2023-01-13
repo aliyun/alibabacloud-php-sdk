@@ -72,6 +72,9 @@ class SpeechBySynthesisRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('audioFormat', $this->audioFormat, true);
+        Model::validateRequired('text', $this->text, true);
+        Model::validateRequired('voice', $this->voice, true);
     }
 
     public function toMap()

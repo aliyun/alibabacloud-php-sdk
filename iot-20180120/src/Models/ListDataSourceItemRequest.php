@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ListDataSourceItemRequest extends Model
 {
     /**
-     * @example 1001
-     *
      * @var int
      */
     public $dataSourceId;
 
     /**
-     * @example iot-0pp1n8t***
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $page;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example thing
-     *
      * @var string
      */
     public $searchName;
@@ -52,6 +42,9 @@ class ListDataSourceItemRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('dataSourceId', $this->dataSourceId, true);
+        Model::validateRequired('page', $this->page, true);
+        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

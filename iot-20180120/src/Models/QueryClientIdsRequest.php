@@ -24,6 +24,7 @@ class QueryClientIdsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('iotId', $this->iotId, true);
     }
 
     public function toMap()

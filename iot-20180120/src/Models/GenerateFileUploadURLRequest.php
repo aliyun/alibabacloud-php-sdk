@@ -36,6 +36,8 @@ class GenerateFileUploadURLRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('bizCode', $this->bizCode, true);
+        Model::validateRequired('fileSuffix', $this->fileSuffix, true);
     }
 
     public function toMap()

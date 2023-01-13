@@ -24,6 +24,7 @@ class CancelReleaseProductRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

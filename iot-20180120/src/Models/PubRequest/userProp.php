@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class userProp extends Model
 {
     /**
-     * @example key1
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @example value1
-     *
      * @var string
      */
     public $value;

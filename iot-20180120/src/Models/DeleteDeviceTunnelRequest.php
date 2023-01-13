@@ -11,29 +11,30 @@ class DeleteDeviceTunnelRequest extends Model
     /**
      * @var string
      */
-    public $iotInstanceId;
+    public $tunnelId;
 
     /**
      * @var string
      */
-    public $tunnelId;
+    public $iotInstanceId;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
         'tunnelId'      => 'TunnelId',
+        'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('tunnelId', $this->tunnelId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
         if (null !== $this->tunnelId) {
             $res['TunnelId'] = $this->tunnelId;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
 
         return $res;
@@ -47,11 +48,11 @@ class DeleteDeviceTunnelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
         if (isset($map['TunnelId'])) {
             $model->tunnelId = $map['TunnelId'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
 
         return $model;

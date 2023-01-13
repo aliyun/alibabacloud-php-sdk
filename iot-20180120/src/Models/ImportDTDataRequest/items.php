@@ -24,6 +24,8 @@ class items extends Model
 
     public function validate()
     {
+        Model::validateRequired('deviceName', $this->deviceName, true);
+        Model::validateRequired('params', $this->params, true);
     }
 
     public function toMap()

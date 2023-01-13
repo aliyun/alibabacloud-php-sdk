@@ -31,6 +31,8 @@ class ImportDTDataRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('items', $this->items, true);
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceBySQLRequest extends Model
 {
     /**
-     * @example iot-cn-0pp1n8t****
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example SELECT * FROM device where product_key = "a1*********" limit 100, 20
-     *
      * @var string
      */
     public $SQL;
@@ -28,6 +24,7 @@ class QueryDeviceBySQLRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('SQL', $this->SQL, true);
     }
 
     public function toMap()

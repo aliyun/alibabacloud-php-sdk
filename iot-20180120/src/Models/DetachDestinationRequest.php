@@ -30,6 +30,8 @@ class DetachDestinationRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('destinationId', $this->destinationId, true);
+        Model::validateRequired('parserId', $this->parserId, true);
     }
 
     public function toMap()

@@ -54,6 +54,7 @@ class ShareSpeechByCombinationRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('combinationList', $this->combinationList, true);
     }
 
     public function toMap()

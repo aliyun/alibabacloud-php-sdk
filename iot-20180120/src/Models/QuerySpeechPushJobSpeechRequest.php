@@ -36,6 +36,7 @@ class QuerySpeechPushJobSpeechRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('jobCode', $this->jobCode, true);
     }
 
     public function toMap()

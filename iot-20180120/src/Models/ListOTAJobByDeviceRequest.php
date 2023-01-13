@@ -48,6 +48,11 @@ class ListOTAJobByDeviceRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('currentPage', $this->currentPage, true);
+        Model::validateRequired('deviceName', $this->deviceName, true);
+        Model::validateRequired('firmwareId', $this->firmwareId, true);
+        Model::validateRequired('pageSize', $this->pageSize, true);
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

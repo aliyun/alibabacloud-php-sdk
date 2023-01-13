@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class BindLicenseProductRequest extends Model
 {
     /**
-     * @example iot-23***
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 480P
-     *
      * @var string
      */
     public $licenseCode;
 
     /**
-     * @example a1BwAGV***
-     *
      * @var string
      */
     public $productKey;
@@ -36,6 +30,8 @@ class BindLicenseProductRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('licenseCode', $this->licenseCode, true);
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

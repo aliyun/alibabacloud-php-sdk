@@ -78,6 +78,8 @@ class CreateSpeechRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('projectCode', $this->projectCode, true);
+        Model::validateRequired('voice', $this->voice, true);
     }
 
     public function toMap()

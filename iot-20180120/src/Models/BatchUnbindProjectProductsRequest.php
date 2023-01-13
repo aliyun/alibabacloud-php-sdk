@@ -30,6 +30,8 @@ class BatchUnbindProjectProductsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('productKeys', $this->productKeys, true);
+        Model::validateRequired('projectId', $this->projectId, true);
     }
 
     public function toMap()

@@ -30,6 +30,7 @@ class GetDownloadFileRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('longJobId', $this->longJobId, true);
     }
 
     public function toMap()

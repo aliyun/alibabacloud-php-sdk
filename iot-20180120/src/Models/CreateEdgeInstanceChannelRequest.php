@@ -43,6 +43,10 @@ class CreateEdgeInstanceChannelRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('channelName', $this->channelName, true);
+        Model::validateRequired('configs', $this->configs, true);
+        Model::validateRequired('driverId', $this->driverId, true);
+        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()

@@ -36,6 +36,9 @@ class SetupStudioAppAuthModeOpenRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('appId', $this->appId, true);
+        Model::validateRequired('authMode', $this->authMode, true);
+        Model::validateRequired('projectId', $this->projectId, true);
     }
 
     public function toMap()

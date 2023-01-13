@@ -30,6 +30,8 @@ class DeleteOTAModuleRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('moduleName', $this->moduleName, true);
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

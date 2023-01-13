@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DeleteDeviceRequest extends Model
 {
     /**
-     * @example light
-     *
      * @var string
      */
     public $deviceName;
 
     /**
-     * @example MpEKNuEUJzIORNANAWJX0010929900*****
-     *
      * @var string
      */
     public $iotId;
 
     /**
-     * @example iot-cn-0pp1n8t****
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example a1FlqIQ****
-     *
      * @var string
      */
     public $productKey;

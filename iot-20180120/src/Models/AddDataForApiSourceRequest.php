@@ -30,6 +30,9 @@ class AddDataForApiSourceRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('apiId', $this->apiId, true);
+        Model::validateRequired('content', $this->content, true);
+        Model::validateRequired('iotInstanceId', $this->iotInstanceId, true);
     }
 
     public function toMap()

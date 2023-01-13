@@ -24,6 +24,7 @@ class DeleteSpeechRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('speechCodeList', $this->speechCodeList, true);
     }
 
     public function toMap()

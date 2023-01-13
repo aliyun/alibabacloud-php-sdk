@@ -36,6 +36,9 @@ class CheckBindLicenseDeviceProgressRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('checkProgressId', $this->checkProgressId, true);
+        Model::validateRequired('licenseCode', $this->licenseCode, true);
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

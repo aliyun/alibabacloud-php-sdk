@@ -48,6 +48,7 @@ class UpdateSchedulePeriodRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('periodCode', $this->periodCode, true);
     }
 
     public function toMap()

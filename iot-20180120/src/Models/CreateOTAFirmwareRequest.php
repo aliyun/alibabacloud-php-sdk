@@ -103,6 +103,8 @@ class CreateOTAFirmwareRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('destVersion', $this->destVersion, true);
+        Model::validateRequired('firmwareName', $this->firmwareName, true);
     }
 
     public function toMap()

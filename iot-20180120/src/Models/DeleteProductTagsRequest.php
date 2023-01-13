@@ -30,6 +30,8 @@ class DeleteProductTagsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('productKey', $this->productKey, true);
+        Model::validateRequired('productTagKey', $this->productTagKey, true);
     }
 
     public function toMap()

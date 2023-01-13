@@ -19,22 +19,16 @@ class BindLicenseDeviceRequest extends Model
     public $iotIdList;
 
     /**
-     * @example iot-e3***
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 720P
-     *
      * @var string
      */
     public $licenseCode;
 
     /**
-     * @example a2YwD23***
-     *
      * @var string
      */
     public $productKey;
@@ -48,6 +42,8 @@ class BindLicenseDeviceRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('licenseCode', $this->licenseCode, true);
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

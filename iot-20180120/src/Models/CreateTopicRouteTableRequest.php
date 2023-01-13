@@ -30,6 +30,8 @@ class CreateTopicRouteTableRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('dstTopic', $this->dstTopic, true);
+        Model::validateRequired('srcTopic', $this->srcTopic, true);
     }
 
     public function toMap()

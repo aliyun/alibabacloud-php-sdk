@@ -48,6 +48,7 @@ class ListOTAUnfinishedTaskByDeviceRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('taskStatus', $this->taskStatus, true);
     }
 
     public function toMap()

@@ -30,6 +30,9 @@ class BatchAddDataForApiSourceShrinkRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('apiId', $this->apiId, true);
+        Model::validateRequired('contentListShrink', $this->contentListShrink, true);
+        Model::validateRequired('iotInstanceId', $this->iotInstanceId, true);
     }
 
     public function toMap()

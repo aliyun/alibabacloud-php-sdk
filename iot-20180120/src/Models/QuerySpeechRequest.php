@@ -24,6 +24,7 @@ class QuerySpeechRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('speechCode', $this->speechCode, true);
     }
 
     public function toMap()

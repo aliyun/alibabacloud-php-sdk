@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ReupgradeOTATaskRequest extends Model
 {
     /**
-     * @example iot-v64***
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 7glPHmaDYLAYMD1HHutT02****
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @example y3tOmCDNgpR8F9jnVEzC01****
-     *
      * @var string[]
      */
     public $taskId;
@@ -36,6 +30,8 @@ class ReupgradeOTATaskRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('jobId', $this->jobId, true);
+        Model::validateRequired('taskId', $this->taskId, true);
     }
 
     public function toMap()

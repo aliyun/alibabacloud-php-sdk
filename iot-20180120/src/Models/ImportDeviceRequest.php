@@ -48,6 +48,9 @@ class ImportDeviceRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('deviceName', $this->deviceName, true);
+        Model::validateRequired('deviceSecret', $this->deviceSecret, true);
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

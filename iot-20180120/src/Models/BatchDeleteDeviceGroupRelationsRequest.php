@@ -31,6 +31,7 @@ class BatchDeleteDeviceGroupRelationsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('groupId', $this->groupId, true);
     }
 
     public function toMap()

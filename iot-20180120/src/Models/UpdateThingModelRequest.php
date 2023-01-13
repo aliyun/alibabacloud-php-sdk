@@ -11,21 +11,6 @@ class UpdateThingModelRequest extends Model
     /**
      * @var string
      */
-    public $functionBlockId;
-
-    /**
-     * @var string
-     */
-    public $functionBlockName;
-
-    /**
-     * @var string
-     */
-    public $identifier;
-
-    /**
-     * @var string
-     */
     public $iotInstanceId;
 
     /**
@@ -36,40 +21,56 @@ class UpdateThingModelRequest extends Model
     /**
      * @var string
      */
+    public $identifier;
+
+    /**
+     * @var string
+     */
     public $thingModelJson;
+
+    /**
+     * @var string
+     */
+    public $functionBlockId;
+
+    /**
+     * @var string
+     */
+    public $functionBlockName;
     protected $_name = [
-        'functionBlockId'   => 'FunctionBlockId',
-        'functionBlockName' => 'FunctionBlockName',
-        'identifier'        => 'Identifier',
         'iotInstanceId'     => 'IotInstanceId',
         'productKey'        => 'ProductKey',
+        'identifier'        => 'Identifier',
         'thingModelJson'    => 'ThingModelJson',
+        'functionBlockId'   => 'FunctionBlockId',
+        'functionBlockName' => 'FunctionBlockName',
     ];
 
     public function validate()
     {
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->functionBlockId) {
-            $res['FunctionBlockId'] = $this->functionBlockId;
-        }
-        if (null !== $this->functionBlockName) {
-            $res['FunctionBlockName'] = $this->functionBlockName;
-        }
-        if (null !== $this->identifier) {
-            $res['Identifier'] = $this->identifier;
-        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
+        if (null !== $this->identifier) {
+            $res['Identifier'] = $this->identifier;
+        }
         if (null !== $this->thingModelJson) {
             $res['ThingModelJson'] = $this->thingModelJson;
+        }
+        if (null !== $this->functionBlockId) {
+            $res['FunctionBlockId'] = $this->functionBlockId;
+        }
+        if (null !== $this->functionBlockName) {
+            $res['FunctionBlockName'] = $this->functionBlockName;
         }
 
         return $res;
@@ -83,23 +84,23 @@ class UpdateThingModelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FunctionBlockId'])) {
-            $model->functionBlockId = $map['FunctionBlockId'];
-        }
-        if (isset($map['FunctionBlockName'])) {
-            $model->functionBlockName = $map['FunctionBlockName'];
-        }
-        if (isset($map['Identifier'])) {
-            $model->identifier = $map['Identifier'];
-        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }
+        if (isset($map['Identifier'])) {
+            $model->identifier = $map['Identifier'];
+        }
         if (isset($map['ThingModelJson'])) {
             $model->thingModelJson = $map['ThingModelJson'];
+        }
+        if (isset($map['FunctionBlockId'])) {
+            $model->functionBlockId = $map['FunctionBlockId'];
+        }
+        if (isset($map['FunctionBlockName'])) {
+            $model->functionBlockName = $map['FunctionBlockName'];
         }
 
         return $model;

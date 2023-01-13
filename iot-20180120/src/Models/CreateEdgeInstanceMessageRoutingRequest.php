@@ -66,6 +66,9 @@ class CreateEdgeInstanceMessageRoutingRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('instanceId', $this->instanceId, true);
+        Model::validateRequired('sourceType', $this->sourceType, true);
+        Model::validateRequired('targetType', $this->targetType, true);
     }
 
     public function toMap()

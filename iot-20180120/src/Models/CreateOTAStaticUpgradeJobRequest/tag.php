@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @example key1
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @example value1
-     *
      * @var string
      */
     public $value;
@@ -28,6 +24,8 @@ class tag extends Model
 
     public function validate()
     {
+        Model::validateRequired('key', $this->key, true);
+        Model::validateRequired('value', $this->value, true);
     }
 
     public function toMap()

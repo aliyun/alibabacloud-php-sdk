@@ -24,6 +24,7 @@ class QueryMessageInfoRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('uniMsgId', $this->uniMsgId, true);
     }
 
     public function toMap()

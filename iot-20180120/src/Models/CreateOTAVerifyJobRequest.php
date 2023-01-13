@@ -67,6 +67,9 @@ class CreateOTAVerifyJobRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('firmwareId', $this->firmwareId, true);
+        Model::validateRequired('productKey', $this->productKey, true);
+        Model::validateRequired('targetDeviceName', $this->targetDeviceName, true);
     }
 
     public function toMap()

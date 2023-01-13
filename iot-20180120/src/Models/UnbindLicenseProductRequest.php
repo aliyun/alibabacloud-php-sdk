@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UnbindLicenseProductRequest extends Model
 {
     /**
-     * @example iot-s3***
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 480P
-     *
      * @var string
      */
     public $licenseCode;
 
     /**
-     * @example gq62z***
-     *
      * @var string
      */
     public $productKey;
@@ -36,6 +30,8 @@ class UnbindLicenseProductRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('licenseCode', $this->licenseCode, true);
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

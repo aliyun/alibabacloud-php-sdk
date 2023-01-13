@@ -36,6 +36,9 @@ class CreateThingScriptRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('productKey', $this->productKey, true);
+        Model::validateRequired('scriptContent', $this->scriptContent, true);
+        Model::validateRequired('scriptType', $this->scriptType, true);
     }
 
     public function toMap()

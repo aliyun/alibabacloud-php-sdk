@@ -36,6 +36,7 @@ class CreateSceneRuleRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('ruleName', $this->ruleName, true);
     }
 
     public function toMap()

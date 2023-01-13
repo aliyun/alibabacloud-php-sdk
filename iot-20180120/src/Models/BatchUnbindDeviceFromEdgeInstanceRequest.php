@@ -30,6 +30,8 @@ class BatchUnbindDeviceFromEdgeInstanceRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('instanceId', $this->instanceId, true);
+        Model::validateRequired('iotIds', $this->iotIds, true);
     }
 
     public function toMap()

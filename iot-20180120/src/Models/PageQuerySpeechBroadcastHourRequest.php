@@ -42,6 +42,8 @@ class PageQuerySpeechBroadcastHourRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('queryDateTimeHour', $this->queryDateTimeHour, true);
+        Model::validateRequired('shareTaskCode', $this->shareTaskCode, true);
     }
 
     public function toMap()

@@ -48,6 +48,11 @@ class CreateSchedulePeriodRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('description', $this->description, true);
+        Model::validateRequired('endTime', $this->endTime, true);
+        Model::validateRequired('scheduleCode', $this->scheduleCode, true);
+        Model::validateRequired('soundCodeContent', $this->soundCodeContent, true);
+        Model::validateRequired('startTime', $this->startTime, true);
     }
 
     public function toMap()

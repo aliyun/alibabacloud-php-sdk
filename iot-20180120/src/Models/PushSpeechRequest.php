@@ -60,6 +60,9 @@ class PushSpeechRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('projectCode', $this->projectCode, true);
+        Model::validateRequired('pushMode', $this->pushMode, true);
+        Model::validateRequired('speechCodeList', $this->speechCodeList, true);
     }
 
     public function toMap()
