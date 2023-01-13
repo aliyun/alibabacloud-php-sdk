@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckResultRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckResultResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -105,6 +107,61 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
+     * @param FaceCompareRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return FaceCompareResponse
+     */
+    public function faceCompareWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
+        }
+        if (!Utils::isUnset($request->sourceFacePicture)) {
+            $query['SourceFacePicture'] = $request->sourceFacePicture;
+        }
+        if (!Utils::isUnset($request->sourceFacePictureUrl)) {
+            $query['SourceFacePictureUrl'] = $request->sourceFacePictureUrl;
+        }
+        if (!Utils::isUnset($request->targetFacePicture)) {
+            $query['TargetFacePicture'] = $request->targetFacePicture;
+        }
+        if (!Utils::isUnset($request->targetFacePictureUrl)) {
+            $query['TargetFacePictureUrl'] = $request->targetFacePictureUrl;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FaceCompare',
+            'version'     => '2022-08-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return FaceCompareResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FaceCompareRequest $request
+     *
+     * @return FaceCompareResponse
+     */
+    public function faceCompare($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->faceCompareWithOptions($request, $runtime);
+    }
+
+    /**
      * @param InitializeRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -116,6 +173,12 @@ class Cloudauthintl extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->docType)) {
             $query['DocType'] = $request->docType;
+        }
+        if (!Utils::isUnset($request->facePictureBase64)) {
+            $query['FacePictureBase64'] = $request->facePictureBase64;
+        }
+        if (!Utils::isUnset($request->facePictureUrl)) {
+            $query['FacePictureUrl'] = $request->facePictureUrl;
         }
         if (!Utils::isUnset($request->flowType)) {
             $query['FlowType'] = $request->flowType;

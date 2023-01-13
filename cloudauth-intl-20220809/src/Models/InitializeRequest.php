@@ -16,6 +16,16 @@ class InitializeRequest extends Model
     /**
      * @var string
      */
+    public $facePictureBase64;
+
+    /**
+     * @var string
+     */
+    public $facePictureUrl;
+
+    /**
+     * @var string
+     */
     public $flowType;
 
     /**
@@ -63,17 +73,19 @@ class InitializeRequest extends Model
      */
     public $serviceLevel;
     protected $_name = [
-        'docType'        => 'DocType',
-        'flowType'       => 'FlowType',
-        'merchantBizId'  => 'MerchantBizId',
-        'merchantUserId' => 'MerchantUserId',
-        'metaInfo'       => 'MetaInfo',
-        'operationMode'  => 'OperationMode',
-        'pages'          => 'Pages',
-        'productCode'    => 'ProductCode',
-        'productConfig'  => 'ProductConfig',
-        'sceneCode'      => 'SceneCode',
-        'serviceLevel'   => 'ServiceLevel',
+        'docType'           => 'DocType',
+        'facePictureBase64' => 'FacePictureBase64',
+        'facePictureUrl'    => 'FacePictureUrl',
+        'flowType'          => 'FlowType',
+        'merchantBizId'     => 'MerchantBizId',
+        'merchantUserId'    => 'MerchantUserId',
+        'metaInfo'          => 'MetaInfo',
+        'operationMode'     => 'OperationMode',
+        'pages'             => 'Pages',
+        'productCode'       => 'ProductCode',
+        'productConfig'     => 'ProductConfig',
+        'sceneCode'         => 'SceneCode',
+        'serviceLevel'      => 'ServiceLevel',
     ];
 
     public function validate()
@@ -85,6 +97,12 @@ class InitializeRequest extends Model
         $res = [];
         if (null !== $this->docType) {
             $res['DocType'] = $this->docType;
+        }
+        if (null !== $this->facePictureBase64) {
+            $res['FacePictureBase64'] = $this->facePictureBase64;
+        }
+        if (null !== $this->facePictureUrl) {
+            $res['FacePictureUrl'] = $this->facePictureUrl;
         }
         if (null !== $this->flowType) {
             $res['FlowType'] = $this->flowType;
@@ -130,6 +148,12 @@ class InitializeRequest extends Model
         $model = new self();
         if (isset($map['DocType'])) {
             $model->docType = $map['DocType'];
+        }
+        if (isset($map['FacePictureBase64'])) {
+            $model->facePictureBase64 = $map['FacePictureBase64'];
+        }
+        if (isset($map['FacePictureUrl'])) {
+            $model->facePictureUrl = $map['FacePictureUrl'];
         }
         if (isset($map['FlowType'])) {
             $model->flowType = $map['FlowType'];

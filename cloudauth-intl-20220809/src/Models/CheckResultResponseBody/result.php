@@ -32,12 +32,24 @@ class result extends Model
      * @var string
      */
     public $extRiskInfo;
+
+    /**
+     * @var string
+     */
+    public $passed;
+
+    /**
+     * @var string
+     */
+    public $subCode;
     protected $_name = [
         'ekycResult'   => 'EkycResult',
         'extBasicInfo' => 'ExtBasicInfo',
         'extFaceInfo'  => 'ExtFaceInfo',
         'extIdInfo'    => 'ExtIdInfo',
         'extRiskInfo'  => 'ExtRiskInfo',
+        'passed'       => 'Passed',
+        'subCode'      => 'SubCode',
     ];
 
     public function validate()
@@ -61,6 +73,12 @@ class result extends Model
         }
         if (null !== $this->extRiskInfo) {
             $res['ExtRiskInfo'] = $this->extRiskInfo;
+        }
+        if (null !== $this->passed) {
+            $res['Passed'] = $this->passed;
+        }
+        if (null !== $this->subCode) {
+            $res['SubCode'] = $this->subCode;
         }
 
         return $res;
@@ -88,6 +106,12 @@ class result extends Model
         }
         if (isset($map['ExtRiskInfo'])) {
             $model->extRiskInfo = $map['ExtRiskInfo'];
+        }
+        if (isset($map['Passed'])) {
+            $model->passed = $map['Passed'];
+        }
+        if (isset($map['SubCode'])) {
+            $model->subCode = $map['SubCode'];
         }
 
         return $model;
