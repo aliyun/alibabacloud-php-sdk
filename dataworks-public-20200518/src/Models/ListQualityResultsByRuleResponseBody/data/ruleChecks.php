@@ -184,6 +184,11 @@ class ruleChecks extends Model
     public $op;
 
     /**
+     * @var bool
+     */
+    public $open;
+
+    /**
      * @example autotest
      *
      * @var string
@@ -312,6 +317,7 @@ class ruleChecks extends Model
         'matchExpression'   => 'MatchExpression',
         'methodName'        => 'MethodName',
         'op'                => 'Op',
+        'open'              => 'Open',
         'projectName'       => 'ProjectName',
         'property'          => 'Property',
         'referenceValue'    => 'ReferenceValue',
@@ -411,6 +417,9 @@ class ruleChecks extends Model
         }
         if (null !== $this->op) {
             $res['Op'] = $this->op;
+        }
+        if (null !== $this->open) {
+            $res['Open'] = $this->open;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -558,6 +567,9 @@ class ruleChecks extends Model
         }
         if (isset($map['Op'])) {
             $model->op = $map['Op'];
+        }
+        if (isset($map['Open'])) {
+            $model->open = $map['Open'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

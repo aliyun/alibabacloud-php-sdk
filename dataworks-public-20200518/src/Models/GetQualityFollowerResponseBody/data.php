@@ -16,6 +16,11 @@ class data extends Model
     public $alarmMode;
 
     /**
+     * @var int
+     */
+    public $createTime;
+
+    /**
      * @example 1234
      *
      * @var string
@@ -44,6 +49,11 @@ class data extends Model
     public $id;
 
     /**
+     * @var int
+     */
+    public $modifyTime;
+
+    /**
      * @example autotest
      *
      * @var string
@@ -58,10 +68,12 @@ class data extends Model
     public $tableName;
     protected $_name = [
         'alarmMode'           => 'AlarmMode',
+        'createTime'          => 'CreateTime',
         'entityId'            => 'EntityId',
         'follower'            => 'Follower',
         'followerAccountName' => 'FollowerAccountName',
         'id'                  => 'Id',
+        'modifyTime'          => 'ModifyTime',
         'projectName'         => 'ProjectName',
         'tableName'           => 'TableName',
     ];
@@ -76,6 +88,9 @@ class data extends Model
         if (null !== $this->alarmMode) {
             $res['AlarmMode'] = $this->alarmMode;
         }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
         }
@@ -87,6 +102,9 @@ class data extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -109,6 +127,9 @@ class data extends Model
         if (isset($map['AlarmMode'])) {
             $model->alarmMode = $map['AlarmMode'];
         }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
         }
@@ -120,6 +141,9 @@ class data extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

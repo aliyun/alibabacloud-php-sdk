@@ -98,6 +98,11 @@ class data extends Model
     public $onDutyAccountName;
 
     /**
+     * @var bool
+     */
+    public $openSwitch;
+
+    /**
      * @example >=
      *
      * @var string
@@ -178,6 +183,7 @@ class data extends Model
         'methodName'        => 'MethodName',
         'onDuty'            => 'OnDuty',
         'onDutyAccountName' => 'OnDutyAccountName',
+        'openSwitch'        => 'OpenSwitch',
         'operator'          => 'Operator',
         'predictType'       => 'PredictType',
         'property'          => 'Property',
@@ -235,6 +241,9 @@ class data extends Model
         }
         if (null !== $this->onDutyAccountName) {
             $res['OnDutyAccountName'] = $this->onDutyAccountName;
+        }
+        if (null !== $this->openSwitch) {
+            $res['OpenSwitch'] = $this->openSwitch;
         }
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
@@ -316,6 +325,9 @@ class data extends Model
         }
         if (isset($map['OnDutyAccountName'])) {
             $model->onDutyAccountName = $map['OnDutyAccountName'];
+        }
+        if (isset($map['OpenSwitch'])) {
+            $model->openSwitch = $map['OpenSwitch'];
         }
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
