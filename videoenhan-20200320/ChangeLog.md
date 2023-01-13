@@ -1,3 +1,6 @@
+2023-01-13 Version: 2.0.12
+- Update sdk.
+
 2023-01-12 Version: 2.0.11
 - Update sdk.
 
