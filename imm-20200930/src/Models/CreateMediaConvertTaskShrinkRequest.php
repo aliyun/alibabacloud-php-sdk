@@ -14,11 +14,15 @@ class CreateMediaConvertTaskShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
+     * @example topic1
+     *
      * @var string
      */
     public $notifyTopicName;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
@@ -29,6 +33,8 @@ class CreateMediaConvertTaskShrinkRequest extends Model
     public $sourcesShrink;
 
     /**
+     * @example {"test":"val1"}
+     *
      * @var string
      */
     public $tagsShrink;
@@ -39,6 +45,8 @@ class CreateMediaConvertTaskShrinkRequest extends Model
     public $targetsShrink;
 
     /**
+     * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+     *
      * @var string
      */
     public $userData;

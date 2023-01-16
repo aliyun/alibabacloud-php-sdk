@@ -14,11 +14,15 @@ class DetectImageFacesShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example oss://bucket1/object
+     *
      * @var string
      */
     public $sourceURI;

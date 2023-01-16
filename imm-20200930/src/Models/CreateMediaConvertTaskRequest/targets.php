@@ -20,6 +20,8 @@ class targets extends Model
     public $audio;
 
     /**
+     * @example mp4
+     *
      * @var string
      */
     public $container;
@@ -40,6 +42,8 @@ class targets extends Model
     public $segment;
 
     /**
+     * @example 1.0
+     *
      * @var float
      */
     public $speed;
@@ -50,6 +54,8 @@ class targets extends Model
     public $subtitle;
 
     /**
+     * @example oss://test-bucket/targets
+     *
      * @var string
      */
     public $URI;

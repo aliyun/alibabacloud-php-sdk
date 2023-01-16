@@ -14,16 +14,22 @@ class CreateFileUncompressionTaskShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
+     * @example topic1
+     *
      * @var string
      */
     public $notifyTopicName;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
@@ -34,6 +40,8 @@ class CreateFileUncompressionTaskShrinkRequest extends Model
     public $selectedFilesShrink;
 
     /**
+     * @example oss://imm-apitest-fxf2/name.zip
+     *
      * @var string
      */
     public $sourceURI;
@@ -44,6 +52,8 @@ class CreateFileUncompressionTaskShrinkRequest extends Model
     public $targetShrink;
 
     /**
+     * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+     *
      * @var string
      */
     public $userData;

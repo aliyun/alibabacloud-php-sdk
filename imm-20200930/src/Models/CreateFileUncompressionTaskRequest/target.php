@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class target extends Model
 {
     /**
+     * @example oss://imm-apitest-fxf1/test/TaskResultURI.json
+     *
      * @var string
      */
     public $manifestURI;
 
     /**
+     * @example oss://imm-apitest-fxf1/test
+     *
      * @var string
      */
     public $URI;

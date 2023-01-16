@@ -16,11 +16,15 @@ class CreateCustomizedStoryRequest extends Model
     public $cover;
 
     /**
+     * @example {"Bucket": "examplebucket"}
+     *
      * @var mixed[]
      */
     public $customLabels;
 
     /**
+     * @example dataset001
+     *
      * @var string
      */
     public $datasetName;
@@ -31,21 +35,29 @@ class CreateCustomizedStoryRequest extends Model
     public $files;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example name1
+     *
      * @var string
      */
     public $storyName;
 
     /**
+     * @example Solo
+     *
      * @var string
      */
     public $storySubType;
 
     /**
+     * @example PeopleMemory
+     *
      * @var string
      */
     public $storyType;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetFileMetaRequest extends Model
 {
     /**
+     * @example dataset001
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example oss://examplebucket/exampleobject.jpg
+     *
      * @var string
      */
     public $URI;

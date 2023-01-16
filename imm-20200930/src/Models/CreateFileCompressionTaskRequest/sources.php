@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class sources extends Model
 {
     /**
+     * @example /new-dir/
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @example oss://test-bucket/test-object
+     *
      * @var string
      */
     public $URI;

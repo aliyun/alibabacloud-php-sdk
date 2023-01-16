@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveStoryFilesShrinkRequest extends Model
 {
     /**
+     * @example testdataset
+     *
      * @var string
      */
     public $datasetName;
@@ -19,11 +21,15 @@ class RemoveStoryFilesShrinkRequest extends Model
     public $filesShrink;
 
     /**
+     * @example testid
+     *
      * @var string
      */
     public $objectId;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;

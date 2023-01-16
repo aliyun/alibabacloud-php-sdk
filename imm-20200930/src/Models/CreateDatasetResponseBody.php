@@ -14,6 +14,8 @@ class CreateDatasetResponseBody extends Model
     public $dataset;
 
     /**
+     * @example 6D74B3A9-5AC0-49F9-914D-E01589D3****
+     *
      * @var string
      */
     public $requestId;

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class audio extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $disableAudio;

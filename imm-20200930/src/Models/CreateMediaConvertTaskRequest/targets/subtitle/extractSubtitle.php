@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class extractSubtitle extends Model
 {
     /**
+     * @example srt
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @example oss://test-bucket/extractsubtitle
+     *
      * @var string
      */
     public $URI;

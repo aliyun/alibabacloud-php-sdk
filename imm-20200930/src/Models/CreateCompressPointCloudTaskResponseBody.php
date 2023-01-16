@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateCompressPointCloudTaskResponseBody extends Model
 {
     /**
+     * @example 0B7-1LR4Wcue1aBhk2xT85MfL*****
+     *
      * @var string
      */
     public $eventId;
 
     /**
+     * @example CA995EFD-083D-4F40-BE8A-BDF75FFF****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example PointCloudCompress-badda57d-a3ab-4e6d-938f-49b77ce****
+     *
      * @var string
      */
     public $taskId;

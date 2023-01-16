@@ -14,6 +14,8 @@ class UpdateDatasetResponseBody extends Model
     public $dataset;
 
     /**
+     * @example 45234D4A-A3E3-4B23-AACA-8D897514****
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateLocationDateClusteringTaskShrinkRequest extends Model
 {
     /**
+     * @example dataset001
+     *
      * @var string
      */
     public $datasetName;
@@ -24,21 +26,29 @@ class CreateLocationDateClusteringTaskShrinkRequest extends Model
     public $locationOptionsShrink;
 
     /**
+     * @example NotifyTopicName1
+     *
      * @var string
      */
     public $notifyTopicName;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example \"{"key":"value"}\"
+     *
      * @var string
      */
     public $tagsShrink;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $userData;

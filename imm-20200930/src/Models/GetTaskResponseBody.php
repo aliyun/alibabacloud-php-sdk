@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class GetTaskResponseBody extends Model
 {
     /**
+     * @example ResourceNotFound
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 2021-12-24T03:01:49.480109219Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 2F6-1Bz99Xi93EnRpNEyLudILJm****
+     *
      * @var string
      */
     public $eventId;
 
     /**
+     * @example The specified resource project is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example 2C5C1E0F-D8B8-4DA0-8127-EC32C771****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2021-12-24T03:01:41.662060377Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example {"test": "val1"}
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @example c2b277b9-0d30-4882-ad6d-ad661382****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example VideoLabelClassification
+     *
      * @var string
      */
     public $taskType;
 
     /**
+     * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+     *
      * @var string
      */
     public $userData;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class transcodeAudio extends Model
 {
     /**
+     * @example 128000
+     *
      * @var int
      */
     public $bitrate;
 
     /**
+     * @example fixed
+     *
      * @var string
      */
     public $bitrateOption;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $channel;
 
     /**
+     * @example aac
+     *
      * @var string
      */
     public $codec;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $quality;
 
     /**
+     * @example 44100
+     *
      * @var int
      */
     public $sampleRate;
 
     /**
+     * @example fixed
+     *
      * @var string
      */
     public $sampleRateOption;

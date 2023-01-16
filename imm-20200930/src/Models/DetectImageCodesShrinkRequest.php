@@ -14,12 +14,14 @@ class DetectImageCodesShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @example 源文件路径
+     * @example oss://bucketname/objectname
      *
      * @var string
      */

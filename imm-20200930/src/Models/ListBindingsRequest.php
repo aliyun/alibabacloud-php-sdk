@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListBindingsRequest extends Model
 {
     /**
+     * @example test-dataset
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example immtest:dataset001:examplebucket01
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example test-project
+     *
      * @var string
      */
     public $projectName;

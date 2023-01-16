@@ -14,76 +14,106 @@ class CreateStoryRequest extends Model
     public $address;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $customId;
 
     /**
+     * @example {"Bucket": "examplebucket"}
+     *
      * @var mixed[]
      */
     public $customLabels;
 
     /**
+     * @example test-dataset
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $maxFileCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $minFileCount;
 
     /**
+     * @example test-topic
+     *
      * @var string
      */
     public $notifyTopicName;
 
     /**
+     * @example id1
+     *
      * @var string
      */
     public $objectId;
 
     /**
+     * @example test-project
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example 2021-12-30T16:00:00Z
+     *
      * @var string
      */
     public $storyEndTime;
 
     /**
+     * @example name1
+     *
      * @var string
      */
     public $storyName;
 
     /**
+     * @example 2016-12-30T16:00:00Z
+     *
      * @var string
      */
     public $storyStartTime;
 
     /**
+     * @example Solo
+     *
      * @var string
      */
     public $storySubType;
 
     /**
+     * @example PeopleMemory
+     *
      * @var string
      */
     public $storyType;
 
     /**
+     * @example {"key":"val"}
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @example {"ID": "testuid","Name": "test-user","Avatar": "http://test.com/testuid"}
+     *
      * @var string
      */
     public $userData;

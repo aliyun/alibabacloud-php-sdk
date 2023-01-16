@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class boundary extends Model
 {
     /**
+     * @example 200
+     *
      * @var float
      */
     public $height;
 
     /**
+     * @example topleft
+     *
      * @var string
      */
     public $referPos;
 
     /**
+     * @example 200
+     *
      * @var float
      */
     public $width;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $x;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $y;

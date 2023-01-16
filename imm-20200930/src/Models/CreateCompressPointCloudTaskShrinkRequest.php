@@ -26,6 +26,8 @@ class CreateCompressPointCloudTaskShrinkRequest extends Model
     public $kdtreeOptionShrink;
 
     /**
+     * @example imm-regression-test-1
+     *
      * @var string
      */
     public $notifyTopicName;
@@ -62,18 +64,22 @@ class CreateCompressPointCloudTaskShrinkRequest extends Model
     public $sourceURI;
 
     /**
+     * @example {"LabelKey": "Value"}
+     *
      * @var string
      */
     public $tagsShrink;
 
     /**
-     * @example oss://test/tgt/
+     * @example oss://test/tgt
      *
      * @var string
      */
     public $targetURI;
 
     /**
+     * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+     *
      * @var string
      */
     public $userData;

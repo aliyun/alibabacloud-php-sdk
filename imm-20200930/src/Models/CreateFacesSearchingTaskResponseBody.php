@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateFacesSearchingTaskResponseBody extends Model
 {
     /**
+     * @example 0ED-1Bz8z71k5TtsUejT4UJ16****
+     *
      * @var string
      */
     public $eventId;
 
     /**
+     * @example B1E79399-05F7-06D8-95FE-EBE17BA*****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example CreateFacesSearchingTask-00bec802-073a-4b61-ba*****
+     *
      * @var string
      */
     public $taskId;

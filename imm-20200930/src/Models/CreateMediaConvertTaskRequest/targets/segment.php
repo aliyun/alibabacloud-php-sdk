@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class segment extends Model
 {
     /**
+     * @example 30
+     *
      * @var float
      */
     public $duration;
 
     /**
+     * @example hls
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $startNumber;

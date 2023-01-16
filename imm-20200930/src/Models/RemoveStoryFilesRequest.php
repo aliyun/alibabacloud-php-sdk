@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveStoryFilesRequest extends Model
 {
     /**
+     * @example testdataset
+     *
      * @var string
      */
     public $datasetName;
@@ -20,11 +22,15 @@ class RemoveStoryFilesRequest extends Model
     public $files;
 
     /**
+     * @example testid
+     *
      * @var string
      */
     public $objectId;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;

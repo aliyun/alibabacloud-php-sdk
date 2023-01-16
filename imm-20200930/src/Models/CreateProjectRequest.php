@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateProjectRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $datasetMaxBindCount;
 
     /**
+     * @example 10000000000
+     *
      * @var int
      */
     public $datasetMaxEntityCount;
 
     /**
+     * @example 100000000
+     *
      * @var int
      */
     public $datasetMaxFileCount;
 
     /**
+     * @example 100000000000
+     *
      * @var int
      */
     public $datasetMaxRelationCount;
 
     /**
+     * @example 90000000000000000
+     *
      * @var int
      */
     public $datasetMaxTotalFileSize;
@@ -39,31 +49,29 @@ class CreateProjectRequest extends Model
     public $description;
 
     /**
-     * @var int
-     */
-    public $engineConcurrency;
-
-    /**
+     * @example 1000000000
+     *
      * @var int
      */
     public $projectMaxDatasetCount;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @var int
-     */
-    public $projectQueriesPerSecond;
-
-    /**
+     * @example AliyunIMMDefaultRole
+     *
      * @var string
      */
     public $serviceRole;
 
     /**
+     * @example Official:AllFunction
+     *
      * @var string
      */
     public $templateId;
@@ -74,10 +82,8 @@ class CreateProjectRequest extends Model
         'datasetMaxRelationCount' => 'DatasetMaxRelationCount',
         'datasetMaxTotalFileSize' => 'DatasetMaxTotalFileSize',
         'description'             => 'Description',
-        'engineConcurrency'       => 'EngineConcurrency',
         'projectMaxDatasetCount'  => 'ProjectMaxDatasetCount',
         'projectName'             => 'ProjectName',
-        'projectQueriesPerSecond' => 'ProjectQueriesPerSecond',
         'serviceRole'             => 'ServiceRole',
         'templateId'              => 'TemplateId',
     ];
@@ -107,17 +113,11 @@ class CreateProjectRequest extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->engineConcurrency) {
-            $res['EngineConcurrency'] = $this->engineConcurrency;
-        }
         if (null !== $this->projectMaxDatasetCount) {
             $res['ProjectMaxDatasetCount'] = $this->projectMaxDatasetCount;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
-        }
-        if (null !== $this->projectQueriesPerSecond) {
-            $res['ProjectQueriesPerSecond'] = $this->projectQueriesPerSecond;
         }
         if (null !== $this->serviceRole) {
             $res['ServiceRole'] = $this->serviceRole;
@@ -155,17 +155,11 @@ class CreateProjectRequest extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['EngineConcurrency'])) {
-            $model->engineConcurrency = $map['EngineConcurrency'];
-        }
         if (isset($map['ProjectMaxDatasetCount'])) {
             $model->projectMaxDatasetCount = $map['ProjectMaxDatasetCount'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
-        }
-        if (isset($map['ProjectQueriesPerSecond'])) {
-            $model->projectQueriesPerSecond = $map['ProjectQueriesPerSecond'];
         }
         if (isset($map['ServiceRole'])) {
             $model->serviceRole = $map['ServiceRole'];

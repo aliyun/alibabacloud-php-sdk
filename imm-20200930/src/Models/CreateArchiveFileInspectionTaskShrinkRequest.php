@@ -14,31 +14,43 @@ class CreateArchiveFileInspectionTaskShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
+     * @example topic1
+     *
      * @var string
      */
     public $notifyTopicName;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example oss://imm-apitest-fxf2/name.zip
+     *
      * @var string
      */
     public $sourceURI;
 
     /**
+     * @example oss://bucket/bucket.json
+     *
      * @var string
      */
     public $targetURI;
 
     /**
+     * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+     *
      * @var string
      */
     public $userData;

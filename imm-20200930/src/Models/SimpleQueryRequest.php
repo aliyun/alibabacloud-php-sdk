@@ -15,26 +15,36 @@ class SimpleQueryRequest extends Model
     public $aggregations;
 
     /**
+     * @example test-dataset
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example asc,desc
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @example test-project
+     *
      * @var string
      */
     public $projectName;
@@ -45,7 +55,7 @@ class SimpleQueryRequest extends Model
     public $query;
 
     /**
-     * @example ASC / DESC
+     * @example Size,Filename
      *
      * @var string
      */

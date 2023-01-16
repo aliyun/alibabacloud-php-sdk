@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SemanticQueryRequest extends Model
 {
     /**
+     * @example immDatatest
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryStoriesResponseBody extends Model
 {
     /**
+     * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3Qx****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 2C5C1E0F-D8B8-4DA0-8127-EC32C771****
+     *
      * @var string
      */
     public $requestId;

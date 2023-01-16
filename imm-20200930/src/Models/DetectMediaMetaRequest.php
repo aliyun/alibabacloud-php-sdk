@@ -14,11 +14,15 @@ class DetectMediaMetaRequest extends Model
     public $credentialConfig;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example oss://imm-test/testcases/video.mp4
+     *
      * @var string
      */
     public $sourceURI;

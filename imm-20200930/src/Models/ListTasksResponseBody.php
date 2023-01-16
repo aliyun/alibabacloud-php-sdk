@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListTasksResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $maxResults;
 
     /**
+     * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example 9847E7D0-A9A3-0053-84C6-BA16FFFA726E
+     *
      * @var string
      */
     public $requestId;

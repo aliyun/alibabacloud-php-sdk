@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class IndexFileMetaShrinkRequest extends Model
 {
     /**
+     * @example test-dataset
+     *
      * @var string
      */
     public $datasetName;
@@ -19,11 +21,15 @@ class IndexFileMetaShrinkRequest extends Model
     public $fileShrink;
 
     /**
+     * @example http://1111111111.mns.cn-hangzhou.aliyuncs.com
+     *
      * @var string
      */
     public $notifyTopicName;
 
     /**
+     * @example test-project
+     *
      * @var string
      */
     public $projectName;

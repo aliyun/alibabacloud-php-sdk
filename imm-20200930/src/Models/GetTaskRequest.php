@@ -9,19 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetTaskRequest extends Model
 {
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @example 任务唯一Id
+     * @example c2b277b9-0d30-4882-ad6d-ad661382****
      *
      * @var string
      */
     public $taskId;
 
     /**
-     * @example 任务类型
+     * @example VideoLabelClassification
      *
      * @var string
      */

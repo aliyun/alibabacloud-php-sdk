@@ -14,12 +14,14 @@ class DetectImageCodesRequest extends Model
     public $credentialConfig;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @example 源文件路径
+     * @example oss://bucketname/objectname
      *
      * @var string
      */

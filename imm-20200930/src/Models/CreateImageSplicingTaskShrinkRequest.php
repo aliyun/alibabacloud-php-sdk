@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateImageSplicingTaskShrinkRequest extends Model
 {
     /**
+     * @example 192
+     *
      * @var int
      */
     public $align;
 
     /**
+     * @example red
+     *
      * @var string
      */
     public $backgroundColor;
@@ -24,41 +28,57 @@ class CreateImageSplicingTaskShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
+     * @example vertical
+     *
      * @var string
      */
     public $direction;
 
     /**
+     * @example jpg
+     *
      * @var string
      */
     public $imageFormat;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $margin;
 
     /**
+     * @example test-topic
+     *
      * @var string
      */
     public $notifyTopicName;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $padding;
 
     /**
+     * @example test-project
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $quality;
 
     /**
+     * @example stretch
+     *
      * @var string
      */
     public $scaleType;
@@ -69,16 +89,22 @@ class CreateImageSplicingTaskShrinkRequest extends Model
     public $sourcesShrink;
 
     /**
+     * @example {"key":"val"}
+     *
      * @var string
      */
     public $tagsShrink;
 
     /**
+     * @example oss://test-bucket/test-target-object.jpg
+     *
      * @var string
      */
     public $targetURI;
 
     /**
+     * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+     *
      * @var string
      */
     public $userData;

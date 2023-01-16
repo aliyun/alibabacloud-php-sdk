@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class source extends Model
 {
     /**
+     * @example oss://test-bucket/test-object1
+     *
      * @var string
      */
     public $URI1;
 
     /**
+     * @example oss://test-bucket/test-object2
+     *
      * @var string
      */
     public $URI2;

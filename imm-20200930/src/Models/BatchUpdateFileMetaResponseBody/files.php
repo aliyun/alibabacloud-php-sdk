@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class files extends Model
 {
     /**
+     * @example *error.OpError : InvalidArgument | Index KV count exceeded, should be no more than 100.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example oss://imm-test-co-cn-beijing/zqh/input/Image/indexImage/nn1.jpg
+     *
      * @var string
      */
     public $URI;

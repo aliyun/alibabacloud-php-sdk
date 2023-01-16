@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetOSSBucketAttachmentResponseBody extends Model
 {
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example 5F74C5C9-5AC0-49F9-914D-E01589D3****
+     *
      * @var string
      */
     public $requestId;

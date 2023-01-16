@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateProjectRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $datasetMaxBindCount;
 
     /**
+     * @example 10000000000
+     *
      * @var int
      */
     public $datasetMaxEntityCount;
 
     /**
+     * @example 100000000
+     *
      * @var int
      */
     public $datasetMaxFileCount;
 
     /**
+     * @example 100000000000
+     *
      * @var int
      */
     public $datasetMaxRelationCount;
 
     /**
+     * @example 90000000000000000
+     *
      * @var int
      */
     public $datasetMaxTotalFileSize;
@@ -39,31 +49,43 @@ class UpdateProjectRequest extends Model
     public $description;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $engineConcurrency;
 
     /**
+     * @example 1000000000
+     *
      * @var int
      */
     public $projectMaxDatasetCount;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $projectQueriesPerSecond;
 
     /**
+     * @example AliyunIMMDefaultRole
+     *
      * @var string
      */
     public $serviceRole;
 
     /**
+     * @example AliyunIMMDefaultRole
+     *
      * @var string
      */
     public $templateId;

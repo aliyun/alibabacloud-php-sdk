@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DetectTextAnomalyResponseBody extends Model
 {
     /**
+     * @example 91AC8C98-0F36-49D2-8290-742E24DF*****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example pass
+     *
      * @var string
      */
     public $suggestion;

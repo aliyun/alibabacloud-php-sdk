@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetDatasetRequest extends Model
 {
     /**
+     * @example dataset001
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $withStatistics;

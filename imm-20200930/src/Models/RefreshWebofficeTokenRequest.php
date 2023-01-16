@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RefreshWebofficeTokenRequest extends Model
 {
     /**
+     * @example 99d1b8b478b641c1b3372f5bd6********
+     *
      * @var string
      */
     public $accessToken;
@@ -19,11 +21,15 @@ class RefreshWebofficeTokenRequest extends Model
     public $credentialConfig;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example a730ae0d7c6a487d87c661d199********
+     *
      * @var string
      */
     public $refreshToken;

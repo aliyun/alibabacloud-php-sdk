@@ -14,6 +14,8 @@ class DetectImageBodiesResponseBody extends Model
     public $bodies;
 
     /**
+     * @example 501339F9-4B70-0CE2-AB8C-866C********
+     *
      * @var string
      */
     public $requestId;

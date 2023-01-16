@@ -14,26 +14,36 @@ class CreateOfficeConversionTaskRequest extends Model
     public $credentialConfig;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $endPage;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $firstPage;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $fitToHeight;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $fitToWidth;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $holdLineFeed;
@@ -46,38 +56,50 @@ class CreateOfficeConversionTaskRequest extends Model
     public $imageDPI;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $longPicture;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $longText;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxSheetColumn;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxSheetRow;
 
     /**
+     * @example topic1
+     *
      * @var string
      */
     public $notifyTopicName;
 
     /**
-     * @example 1,3-5,7
+     * @example 1,2-4,7
      *
      * @var string
      */
     public $pages;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $paperHorizontal;
@@ -90,62 +112,78 @@ class CreateOfficeConversionTaskRequest extends Model
     public $paperSize;
 
     /**
+     * @example ********
+     *
      * @var string
      */
     public $password;
 
     /**
-     * @example test-project
+     * @example immtest
      *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $quality;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $scalePercentage;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $sheetCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $sheetIndex;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $showComments;
 
     /**
-     * @example docx
+     * @example doc
      *
      * @var string
      */
     public $sourceType;
 
     /**
-     * @example oss://imm-test/test.pptx
+     * @example oss://test-bucket/test-object
      *
      * @var string
      */
     public $sourceURI;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $startPage;
 
     /**
+     * @example {"test":"val1"}
+     *
      * @var mixed[]
      */
     public $tags;
@@ -158,14 +196,14 @@ class CreateOfficeConversionTaskRequest extends Model
     public $targetType;
 
     /**
-     * @example oss://{bucket}/{dirname}/{barename}.{autoext}
+     * @example oss://{bucket}/{tags.custom}/{dirname}/{barename}.{autoext}
      *
      * @var string
      */
     public $targetURI;
 
     /**
-     * @example oss://imm-test/test.pptx
+     * @example oss://bucket1/
      *
      * @var string
      */
@@ -177,6 +215,8 @@ class CreateOfficeConversionTaskRequest extends Model
     public $trimPolicy;
 
     /**
+     * @example {"file_id": "abc"}
+     *
      * @var string
      */
     public $userData;

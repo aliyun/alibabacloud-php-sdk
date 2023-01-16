@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DetachOSSBucketRequest extends Model
 {
     /**
+     * @example examplebucket
+     *
      * @var string
      */
     public $OSSBucket;

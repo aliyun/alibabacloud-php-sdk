@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GenerateWebofficeTokenRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $cachePreview;
@@ -19,26 +21,36 @@ class GenerateWebofficeTokenRequest extends Model
     public $credentialConfig;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $externalUploaded;
 
     /**
+     * @example test.pptx
+     *
      * @var string
      */
     public $filename;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $hidecmb;
 
     /**
+     * @example topic1
+     *
      * @var string
      */
     public $notifyTopicName;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $password;
@@ -49,16 +61,22 @@ class GenerateWebofficeTokenRequest extends Model
     public $permission;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $previewPages;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example *
+     *
      * @var string
      */
     public $referer;
@@ -76,6 +94,8 @@ class GenerateWebofficeTokenRequest extends Model
     public $user;
 
     /**
+     * @example {"file_id": "abc"}
+     *
      * @var string
      */
     public $userData;

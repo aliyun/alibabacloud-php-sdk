@@ -16,11 +16,15 @@ class CreateMediaConvertTaskRequest extends Model
     public $credentialConfig;
 
     /**
+     * @example topic1
+     *
      * @var string
      */
     public $notifyTopicName;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
@@ -31,6 +35,8 @@ class CreateMediaConvertTaskRequest extends Model
     public $sources;
 
     /**
+     * @example {"test":"val1"}
+     *
      * @var mixed[]
      */
     public $tags;
@@ -41,6 +47,8 @@ class CreateMediaConvertTaskRequest extends Model
     public $targets;
 
     /**
+     * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+     *
      * @var string
      */
     public $userData;

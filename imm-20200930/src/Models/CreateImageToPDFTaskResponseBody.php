@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateImageToPDFTaskResponseBody extends Model
 {
     /**
+     * @example 0ED-1Bz8z71k5TtsUejT4UJ16Es*****
+     *
      * @var string
      */
     public $eventId;
 
     /**
+     * @example EC564A9A-BA5C-4499-A087-D9B9E76E*****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example ImageToPDF-cbe6ae3e-f8dc-4566-9da7-535d5d*****
+     *
      * @var string
      */
     public $taskId;

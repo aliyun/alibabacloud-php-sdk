@@ -14,6 +14,8 @@ class GetBindingResponseBody extends Model
     public $binding;
 
     /**
+     * @example AEFCD467-C928-4A36-951A-6EB5A592****
+     *
      * @var string
      */
     public $requestId;

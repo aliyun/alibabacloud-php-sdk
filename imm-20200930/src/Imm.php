@@ -42,9 +42,6 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\CreateCustomizedStoryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateCustomizedStoryShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDatasetRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDatasetResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDetectVideoLabelsTaskRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDetectVideoLabelsTaskResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDetectVideoLabelsTaskShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFacesSearchingTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFacesSearchingTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFacesSearchingTaskShrinkRequest;
@@ -80,9 +77,6 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\CreateOfficeConversionTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateOfficeConversionTaskShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateProjectResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\CreateSimilarImageClusteringTaskRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\CreateSimilarImageClusteringTaskResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\CreateSimilarImageClusteringTaskShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateStoryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateStoryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateStoryShrinkRequest;
@@ -131,11 +125,6 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\DetectTextAnomalyRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectTextAnomalyResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\FuzzyQueryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\FuzzyQueryResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateDRMLicenseRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateDRMLicenseResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateVideoPlaylistRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateVideoPlaylistResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateVideoPlaylistShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateWebofficeTokenRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateWebofficeTokenResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateWebofficeTokenShrinkRequest;
@@ -143,8 +132,6 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\GetBindingRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetBindingResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetDatasetRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetDatasetResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GetDetectVideoLabelsResultRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GetDetectVideoLabelsResultResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFigureClusterRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFigureClusterResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileMetaRequest;
@@ -173,19 +160,12 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\ListRegionsResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListTasksRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListTasksResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListTasksShrinkRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\LiveTranscodingRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\LiveTranscodingResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\LiveTranscodingShrinkRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\MergeFigureClustersRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\MergeFigureClustersResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryFigureClustersRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryFigureClustersResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryFigureClustersShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryLocationDateClustersRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryLocationDateClustersResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryLocationDateClustersShrinkRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\QuerySimilarImageClustersRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\QuerySimilarImageClustersResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryStoriesRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryStoriesResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryStoriesShrinkRequest;
@@ -195,8 +175,6 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\RefreshWebofficeTokenShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\RemoveStoryFilesRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\RemoveStoryFilesResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\RemoveStoryFilesShrinkRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\ResumeBindingRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\ResumeBindingResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SearchImageFigureClusterRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SearchImageFigureClusterResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SearchImageFigureClusterShrinkRequest;
@@ -205,8 +183,6 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\SemanticQueryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SimpleQueryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SimpleQueryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SimpleQueryShrinkRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\StopBindingRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\StopBindingResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateDatasetRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateDatasetResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateFigureClusterRequest;
@@ -1061,80 +1037,6 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDatasetWithOptions($request, $runtime);
-    }
-
-    /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param CreateDetectVideoLabelsTaskRequest $tmpReq  CreateDetectVideoLabelsTaskRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
-     *
-     * @return CreateDetectVideoLabelsTaskResponse CreateDetectVideoLabelsTaskResponse
-     */
-    public function createDetectVideoLabelsTaskWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new CreateDetectVideoLabelsTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
-        }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
-        }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
-        }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
-        }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
-        }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDetectVideoLabelsTask',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateDetectVideoLabelsTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param CreateDetectVideoLabelsTaskRequest $request CreateDetectVideoLabelsTaskRequest
-     *
-     * @return CreateDetectVideoLabelsTaskResponse CreateDetectVideoLabelsTaskResponse
-     */
-    public function createDetectVideoLabelsTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDetectVideoLabelsTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -2047,17 +1949,11 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->engineConcurrency)) {
-            $query['EngineConcurrency'] = $request->engineConcurrency;
-        }
         if (!Utils::isUnset($request->projectMaxDatasetCount)) {
             $query['ProjectMaxDatasetCount'] = $request->projectMaxDatasetCount;
         }
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
-        }
-        if (!Utils::isUnset($request->projectQueriesPerSecond)) {
-            $query['ProjectQueriesPerSecond'] = $request->projectQueriesPerSecond;
         }
         if (!Utils::isUnset($request->serviceRole)) {
             $query['ServiceRole'] = $request->serviceRole;
@@ -2093,66 +1989,6 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createProjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateSimilarImageClusteringTaskRequest $tmpReq
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return CreateSimilarImageClusteringTaskResponse
-     */
-    public function createSimilarImageClusteringTaskWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new CreateSimilarImageClusteringTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
-        }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
-        }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
-        }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
-        }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateSimilarImageClusteringTask',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateSimilarImageClusteringTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateSimilarImageClusteringTaskRequest $request
-     *
-     * @return CreateSimilarImageClusteringTaskResponse
-     */
-    public function createSimilarImageClusteringTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createSimilarImageClusteringTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -3231,142 +3067,6 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GenerateDRMLicenseRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GenerateDRMLicenseResponse
-     */
-    public function generateDRMLicenseWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->keyId)) {
-            $query['KeyId'] = $request->keyId;
-        }
-        if (!Utils::isUnset($request->notifyEndpoint)) {
-            $query['NotifyEndpoint'] = $request->notifyEndpoint;
-        }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
-        }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
-        }
-        if (!Utils::isUnset($request->protectionSystem)) {
-            $query['ProtectionSystem'] = $request->protectionSystem;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GenerateDRMLicense',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GenerateDRMLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GenerateDRMLicenseRequest $request
-     *
-     * @return GenerateDRMLicenseResponse
-     */
-    public function generateDRMLicense($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->generateDRMLicenseWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GenerateVideoPlaylistRequest $tmpReq
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GenerateVideoPlaylistResponse
-     */
-    public function generateVideoPlaylistWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new GenerateVideoPlaylistShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->sourceSubtitles)) {
-            $request->sourceSubtitlesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceSubtitles, 'SourceSubtitles', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->targets)) {
-            $request->targetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->targets, 'Targets', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
-        }
-        if (!Utils::isUnset($request->masterURI)) {
-            $query['MasterURI'] = $request->masterURI;
-        }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
-        }
-        if (!Utils::isUnset($request->sourceDuration)) {
-            $query['SourceDuration'] = $request->sourceDuration;
-        }
-        if (!Utils::isUnset($request->sourceStartTime)) {
-            $query['SourceStartTime'] = $request->sourceStartTime;
-        }
-        if (!Utils::isUnset($request->sourceSubtitlesShrink)) {
-            $query['SourceSubtitles'] = $request->sourceSubtitlesShrink;
-        }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
-        }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
-        }
-        if (!Utils::isUnset($request->targetsShrink)) {
-            $query['Targets'] = $request->targetsShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GenerateVideoPlaylist',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GenerateVideoPlaylistResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GenerateVideoPlaylistRequest $request
-     *
-     * @return GenerateVideoPlaylistResponse
-     */
-    public function generateVideoPlaylist($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->generateVideoPlaylistWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GenerateWebofficeTokenRequest $tmpReq
      * @param RuntimeOptions                $runtime
      *
@@ -3561,63 +3261,6 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDatasetWithOptions($request, $runtime);
-    }
-
-    /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param GetDetectVideoLabelsResultRequest $request GetDetectVideoLabelsResultRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
-     *
-     * @return GetDetectVideoLabelsResultResponse GetDetectVideoLabelsResultResponse
-     */
-    public function getDetectVideoLabelsResultWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetDetectVideoLabelsResult',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetDetectVideoLabelsResultResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param GetDetectVideoLabelsResultRequest $request GetDetectVideoLabelsResultRequest
-     *
-     * @return GetDetectVideoLabelsResultResponse GetDetectVideoLabelsResultResponse
-     */
-    public function getDetectVideoLabelsResult($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDetectVideoLabelsResultWithOptions($request, $runtime);
     }
 
     /**
@@ -4289,127 +3932,6 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param LiveTranscodingRequest $tmpReq
-     * @param RuntimeOptions         $runtime
-     *
-     * @return LiveTranscodingResponse
-     */
-    public function liveTranscodingWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new LiveTranscodingShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
-        }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
-        }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
-        }
-        if (!Utils::isUnset($request->token)) {
-            $query['Token'] = $request->token;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'LiveTranscoding',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return LiveTranscodingResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param LiveTranscodingRequest $request
-     *
-     * @return LiveTranscodingResponse
-     */
-    public function liveTranscoding($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->liveTranscodingWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param MergeFigureClustersRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return MergeFigureClustersResponse
-     */
-    public function mergeFigureClustersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clusterIdFrom)) {
-            $query['ClusterIdFrom'] = $request->clusterIdFrom;
-        }
-        if (!Utils::isUnset($request->clusterIdTo)) {
-            $query['ClusterIdTo'] = $request->clusterIdTo;
-        }
-        if (!Utils::isUnset($request->customMessage)) {
-            $query['CustomMessage'] = $request->customMessage;
-        }
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
-        }
-        if (!Utils::isUnset($request->figureType)) {
-            $query['FigureType'] = $request->figureType;
-        }
-        if (!Utils::isUnset($request->notifyTopicEndpoint)) {
-            $query['NotifyTopicEndpoint'] = $request->notifyTopicEndpoint;
-        }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
-        }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'MergeFigureClusters',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return MergeFigureClustersResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param MergeFigureClustersRequest $request
-     *
-     * @return MergeFigureClustersResponse
-     */
-    public function mergeFigureClusters($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->mergeFigureClustersWithOptions($request, $runtime);
-    }
-
-    /**
      * @param QueryFigureClustersRequest $tmpReq
      * @param RuntimeOptions             $runtime
      *
@@ -4587,64 +4109,6 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryLocationDateClustersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QuerySimilarImageClustersRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return QuerySimilarImageClustersResponse
-     */
-    public function querySimilarImageClustersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->customLabels)) {
-            $query['CustomLabels'] = $request->customLabels;
-        }
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
-        }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
-        }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
-        }
-        if (!Utils::isUnset($request->sort)) {
-            $query['Sort'] = $request->sort;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QuerySimilarImageClusters',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return QuerySimilarImageClustersResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param QuerySimilarImageClustersRequest $request
-     *
-     * @return QuerySimilarImageClustersResponse
-     */
-    public function querySimilarImageClusters($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->querySimilarImageClustersWithOptions($request, $runtime);
     }
 
     /**
@@ -4864,55 +4328,6 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ResumeBindingRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ResumeBindingResponse
-     */
-    public function resumeBindingWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
-        }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
-        }
-        if (!Utils::isUnset($request->URI)) {
-            $query['URI'] = $request->URI;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ResumeBinding',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ResumeBindingResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ResumeBindingRequest $request
-     *
-     * @return ResumeBindingResponse
-     */
-    public function resumeBinding($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->resumeBindingWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SearchImageFigureClusterRequest $tmpReq
      * @param RuntimeOptions                  $runtime
      *
@@ -5100,58 +4515,6 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->simpleQueryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param StopBindingRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return StopBindingResponse
-     */
-    public function stopBindingWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
-        }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
-        }
-        if (!Utils::isUnset($request->reason)) {
-            $query['Reason'] = $request->reason;
-        }
-        if (!Utils::isUnset($request->URI)) {
-            $query['URI'] = $request->URI;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'StopBinding',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return StopBindingResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param StopBindingRequest $request
-     *
-     * @return StopBindingResponse
-     */
-    public function stopBinding($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->stopBindingWithOptions($request, $runtime);
     }
 
     /**

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteStoryRequest extends Model
 {
     /**
+     * @example dataset001
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @example id1
+     *
      * @var string
      */
     public $objectId;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;

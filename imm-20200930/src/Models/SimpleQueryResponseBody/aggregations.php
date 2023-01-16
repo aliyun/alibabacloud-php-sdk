@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class aggregations extends Model
 {
     /**
+     * @example Size
+     *
      * @var string
      */
     public $field;
@@ -20,11 +22,15 @@ class aggregations extends Model
     public $groups;
 
     /**
+     * @example sum
+     *
      * @var string
      */
     public $operation;
 
     /**
+     * @example 200
+     *
      * @var float
      */
     public $value;

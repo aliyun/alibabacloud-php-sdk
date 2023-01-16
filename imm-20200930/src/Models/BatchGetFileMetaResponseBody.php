@@ -14,6 +14,8 @@ class BatchGetFileMetaResponseBody extends Model
     public $files;
 
     /**
+     * @example 7F84C6D9-5AC0-49F9-914D-F02678E3****
+     *
      * @var string
      */
     public $requestId;

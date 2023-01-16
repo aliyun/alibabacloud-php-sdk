@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetOSSBucketAttachmentRequest extends Model
 {
     /**
+     * @example examplebucket
+     *
      * @var string
      */
     public $OSSBucket;

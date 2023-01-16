@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class video extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $disableVideo;

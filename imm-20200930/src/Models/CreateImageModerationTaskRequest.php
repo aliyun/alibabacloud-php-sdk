@@ -14,26 +14,36 @@ class CreateImageModerationTaskRequest extends Model
     public $credentialConfig;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxFrames;
 
     /**
+     * @example topic1
+     *
      * @var string
      */
     public $notifyTopicName;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example auto
+     *
      * @var string
      */
     public $reviewer;
@@ -44,16 +54,22 @@ class CreateImageModerationTaskRequest extends Model
     public $scenes;
 
     /**
+     * @example oss://test-bucket/test-object
+     *
      * @var string
      */
     public $sourceURI;
 
     /**
+     * @example {"test": "val1"}
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+     *
      * @var string
      */
     public $userData;

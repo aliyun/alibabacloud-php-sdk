@@ -19,11 +19,15 @@ class QueryLocationDateClustersRequest extends Model
     public $createTimeRange;
 
     /**
+     * @example key=value
+     *
      * @var string
      */
     public $customLabels;
 
     /**
+     * @example dataset001
+     *
      * @var string
      */
     public $datasetName;
@@ -44,36 +48,50 @@ class QueryLocationDateClustersRequest extends Model
     public $locationDateClusterStartTimeRange;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example MzQNjmY2MzYxNhNjk2ZNjEu****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example id1
+     *
      * @var string
      */
     public $objectId;
 
     /**
+     * @example asc
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example LocationDateClusterStartTime
+     *
      * @var string
      */
     public $sort;
 
     /**
+     * @example title1
+     *
      * @var string
      */
     public $title;

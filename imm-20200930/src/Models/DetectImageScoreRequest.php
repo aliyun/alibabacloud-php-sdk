@@ -14,11 +14,15 @@ class DetectImageScoreRequest extends Model
     public $credentialConfig;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example oss://bucketname/objectname
+     *
      * @var string
      */
     public $sourceURI;

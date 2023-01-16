@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class files extends Model
 {
     /**
+     * @example ResourceNotFound
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example The specified resource %s is not found.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example oss://test-bucket/test-object
+     *
      * @var string
      */
     public $URI;

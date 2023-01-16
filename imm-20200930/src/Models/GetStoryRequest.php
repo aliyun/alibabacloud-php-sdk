@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetStoryRequest extends Model
 {
     /**
+     * @example test-dataset
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @example id1
+     *
      * @var string
      */
     public $objectId;
 
     /**
+     * @example test-project
+     *
      * @var string
      */
     public $projectName;

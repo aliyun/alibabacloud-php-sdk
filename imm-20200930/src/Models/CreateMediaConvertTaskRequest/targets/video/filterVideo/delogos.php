@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class delogos extends Model
 {
     /**
+     * @example 15.23234
+     *
      * @var float
      */
     public $duration;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $dx;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $dy;
 
     /**
+     * @example 2
+     *
      * @var float
      */
     public $height;
 
     /**
+     * @example topleft
+     *
      * @var string
      */
     public $referPos;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $startTime;
 
     /**
+     * @example 2
+     *
      * @var float
      */
     public $width;

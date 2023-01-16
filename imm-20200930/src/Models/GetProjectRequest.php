@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetProjectRequest extends Model
 {
     /**
+     * @example test-project
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $withStatistics;

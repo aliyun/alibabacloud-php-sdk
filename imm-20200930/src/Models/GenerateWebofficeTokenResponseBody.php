@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class GenerateWebofficeTokenResponseBody extends Model
 {
     /**
+     * @example 2d73dd5d87524c5e8a194c3eb5********
+     *
      * @var string
      */
     public $accessToken;
 
     /**
+     * @example 2021-08-30T13:13:11.347146982Z
+     *
      * @var string
      */
     public $accessTokenExpiredTime;
 
     /**
+     * @example e374995ec532432bb678074d36********
+     *
      * @var string
      */
     public $refreshToken;
 
     /**
+     * @example 2021-08-31T12:43:11.347146982Z
+     *
      * @var string
      */
     public $refreshTokenExpiredTime;
 
     /**
+     * @example 1759315A-CB33-0A75-A72B-62D7********
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example https://office-hl.imm.aliyuncs.com/office/s/dd221b2cdb44fb66e9070d1d70a8b9bbb6d6fff7?_w_tokentype=1
+     *
      * @var string
      */
     public $webofficeURL;

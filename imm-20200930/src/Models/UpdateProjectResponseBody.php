@@ -14,6 +14,8 @@ class UpdateProjectResponseBody extends Model
     public $project;
 
     /**
+     * @example D33C3574-4093-448E-86E7-15BE2BD3****
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class files extends Model
 {
     /**
+     * @example [{"URI":"oss://bucket1/file1"}]
+     *
      * @var string
      */
     public $URI;

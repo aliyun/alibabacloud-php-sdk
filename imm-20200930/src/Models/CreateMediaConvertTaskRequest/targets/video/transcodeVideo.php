@@ -9,86 +9,120 @@ use AlibabaCloud\Tea\Model;
 class transcodeVideo extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $adaptiveResolutionDirection;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $BFrames;
 
     /**
+     * @example 128000
+     *
      * @var int
      */
     public $bitrate;
 
     /**
+     * @example fixed
+     *
      * @var string
      */
     public $bitrateOption;
 
     /**
+     * @example 4000000
+     *
      * @var int
      */
     public $bufferSize;
 
     /**
+     * @example 20
+     *
      * @var float
      */
     public $CRF;
 
     /**
+     * @example h264
+     *
      * @var string
      */
     public $codec;
 
     /**
+     * @example 25
+     *
      * @var float
      */
     public $frameRate;
 
     /**
+     * @example fixed
+     *
      * @var string
      */
     public $frameRateOption;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $GOPSize;
 
     /**
+     * @example 1000000
+     *
      * @var int
      */
     public $maxBitrate;
 
     /**
+     * @example yuv420p
+     *
      * @var string
      */
     public $pixelFormat;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $refs;
 
     /**
+     * @example 640x480
+     *
      * @var string
      */
     public $resolution;
 
     /**
+     * @example fixed
+     *
      * @var string
      */
     public $resolutionOption;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $rotation;
 
     /**
+     * @example stretch
+     *
      * @var string
      */
     public $scaleType;

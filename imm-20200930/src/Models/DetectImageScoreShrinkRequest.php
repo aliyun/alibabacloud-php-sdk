@@ -14,11 +14,15 @@ class DetectImageScoreShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example oss://bucketname/objectname
+     *
      * @var string
      */
     public $sourceURI;

@@ -14,16 +14,22 @@ class DetectMediaMetaResponseBody extends Model
     public $addresses;
 
     /**
+     * @example unable
+     *
      * @var string
      */
     public $album;
 
     /**
+     * @example unable
+     *
      * @var string
      */
     public $albumArtist;
 
     /**
+     * @example unable
+     *
      * @var string
      */
     public $artist;
@@ -34,71 +40,99 @@ class DetectMediaMetaResponseBody extends Model
     public $audioStreams;
 
     /**
+     * @example 13164131
+     *
      * @var int
      */
     public $bitrate;
 
     /**
+     * @example unable
+     *
      * @var string
      */
     public $composer;
 
     /**
+     * @example 15.263000
+     *
      * @var float
      */
     public $duration;
 
     /**
+     * @example QuickTime / MOV
+     *
      * @var string
      */
     public $formatLongName;
 
     /**
+     * @example mov,mp4,m4a,3gp,3g2,mj2
+     *
      * @var string
      */
     public $formatName;
 
     /**
+     * @example eng
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @example +120.029003,+30.283095
+     *
      * @var string
      */
     public $latLong;
 
     /**
+     * @example unable
+     *
      * @var string
      */
     public $performer;
 
     /**
+     * @example 2022-04-24T02:39:57Z
+     *
      * @var string
      */
     public $produceTime;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $programCount;
 
     /**
+     * @example 2213B1A9-EB3D-4666-84E0-24980BC*****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 25115517
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example 0.000000
+     *
      * @var float
      */
     public $startTime;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $streamCount;
@@ -109,11 +143,15 @@ class DetectMediaMetaResponseBody extends Model
     public $subtitles;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @example 1920
+     *
      * @var int
      */
     public $videoHeight;
@@ -124,6 +162,8 @@ class DetectMediaMetaResponseBody extends Model
     public $videoStreams;
 
     /**
+     * @example 1080
+     *
      * @var int
      */
     public $videoWidth;

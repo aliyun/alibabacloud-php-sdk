@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchUpdateFileMetaShrinkRequest extends Model
 {
     /**
+     * @example test-dataset
+     *
      * @var string
      */
     public $datasetName;
@@ -19,6 +21,8 @@ class BatchUpdateFileMetaShrinkRequest extends Model
     public $filesShrink;
 
     /**
+     * @example test-project
+     *
      * @var string
      */
     public $projectName;

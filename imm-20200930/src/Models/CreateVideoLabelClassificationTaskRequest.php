@@ -14,31 +14,35 @@ class CreateVideoLabelClassificationTaskRequest extends Model
     public $credentialConfig;
 
     /**
-     * @example MNS 通知的 Topic 名称
+     * @example topic1
      *
      * @var string
      */
     public $notifyTopicName;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @example 源文件路径
+     * @example oss://bucket1/object
      *
      * @var string
      */
     public $sourceURI;
 
     /**
+     * @example {"test":"val1"}
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
-     * @example 用户自定义信息
+     * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
      *
      * @var string
      */

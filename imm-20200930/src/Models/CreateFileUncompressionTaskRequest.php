@@ -15,16 +15,22 @@ class CreateFileUncompressionTaskRequest extends Model
     public $credentialConfig;
 
     /**
+     * @example topic1
+     *
      * @var string
      */
     public $notifyTopicName;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
@@ -35,6 +41,8 @@ class CreateFileUncompressionTaskRequest extends Model
     public $selectedFiles;
 
     /**
+     * @example oss://imm-apitest-fxf2/name.zip
+     *
      * @var string
      */
     public $sourceURI;
@@ -45,6 +53,8 @@ class CreateFileUncompressionTaskRequest extends Model
     public $target;
 
     /**
+     * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+     *
      * @var string
      */
     public $userData;

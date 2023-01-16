@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class subtitle extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $disableSubtitle;

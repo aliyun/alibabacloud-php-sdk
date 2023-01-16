@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateFacesSearchingTaskShrinkRequest extends Model
 {
     /**
+     * @example test-dataset
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $maxResult;
 
     /**
+     * @example test-topic
+     *
      * @var string
      */
     public $notifyTopicName;
 
     /**
+     * @example test-project
+     *
      * @var string
      */
     public $projectName;
@@ -34,11 +42,15 @@ class CreateFacesSearchingTaskShrinkRequest extends Model
     public $sourcesShrink;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $topK;
 
     /**
+     * @example {"ID": "testuid","Name": "test-user","Avatar": "http://test.com/testuid"}
+     *
      * @var string
      */
     public $userData;

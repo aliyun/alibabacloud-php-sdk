@@ -15,31 +15,43 @@ class UpdateStoryRequest extends Model
     public $cover;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $customId;
 
     /**
+     * @example {"key": "value"}
+     *
      * @var mixed[]
      */
     public $customLabels;
 
     /**
+     * @example testdata
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @example testid
+     *
      * @var string
      */
     public $objectId;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example newstory
+     *
      * @var string
      */
     public $storyName;

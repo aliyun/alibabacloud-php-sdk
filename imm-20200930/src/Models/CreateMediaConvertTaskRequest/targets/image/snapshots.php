@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class snapshots extends Model
 {
     /**
+     * @example png
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @example 640
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 0.5
+     *
      * @var float
      */
     public $interval;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $number;
 
     /**
+     * @example stretch
+     *
      * @var string
      */
     public $scaleType;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $startTime;
 
     /**
+     * @example oss://test-bucket/snapshots
+     *
      * @var string
      */
     public $URI;
 
     /**
+     * @example 640
+     *
      * @var int
      */
     public $width;

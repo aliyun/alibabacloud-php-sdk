@@ -14,11 +14,15 @@ class CreateCustomizedStoryShrinkRequest extends Model
     public $coverShrink;
 
     /**
+     * @example {"Bucket": "examplebucket"}
+     *
      * @var string
      */
     public $customLabelsShrink;
 
     /**
+     * @example dataset001
+     *
      * @var string
      */
     public $datasetName;
@@ -29,21 +33,29 @@ class CreateCustomizedStoryShrinkRequest extends Model
     public $filesShrink;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example name1
+     *
      * @var string
      */
     public $storyName;
 
     /**
+     * @example Solo
+     *
      * @var string
      */
     public $storySubType;
 
     /**
+     * @example PeopleMemory
+     *
      * @var string
      */
     public $storyType;

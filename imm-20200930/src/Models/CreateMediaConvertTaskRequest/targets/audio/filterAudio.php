@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class filterAudio extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $mixing;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListDatasetsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example 12345678:immtest:dataset002
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example dataset
+     *
      * @var string
      */
     public $prefix;
 
     /**
+     * @example test-project
+     *
      * @var string
      */
     public $projectName;

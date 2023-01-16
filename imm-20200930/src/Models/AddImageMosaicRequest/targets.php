@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class targets extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $blurRadius;
@@ -20,21 +22,29 @@ class targets extends Model
     public $boundary;
 
     /**
+     * @example #FFFFFF
+     *
      * @var string
      */
     public $color;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $mosaicRadius;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $sigma;
 
     /**
+     * @example square
+     *
      * @var string
      */
     public $type;

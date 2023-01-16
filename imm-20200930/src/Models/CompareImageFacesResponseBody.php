@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CompareImageFacesResponseBody extends Model
 {
     /**
+     * @example F73AC982-2B9E-4ECD-AED5-F8331C5******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 0.8848152756690983
+     *
      * @var float
      */
     public $similarity;

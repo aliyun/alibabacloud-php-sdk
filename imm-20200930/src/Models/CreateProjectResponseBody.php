@@ -14,6 +14,8 @@ class CreateProjectResponseBody extends Model
     public $project;
 
     /**
+     * @example 7F7D235C-76FF-4B65-800C-8238AE3F****
+     *
      * @var string
      */
     public $requestId;

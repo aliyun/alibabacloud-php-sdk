@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddImageMosaicResponseBody extends Model
 {
     /**
+     * @example CA995EFD-083D-4F40-BE8A-BDF75FF*****
+     *
      * @var string
      */
     public $requestId;

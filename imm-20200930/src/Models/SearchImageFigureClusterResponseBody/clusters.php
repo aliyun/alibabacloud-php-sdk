@@ -15,11 +15,15 @@ class clusters extends Model
     public $boundary;
 
     /**
+     * @example Cluster-ca730577-06b1-42c7-a25b-8f2c7******
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 0.87413794
+     *
      * @var float
      */
     public $similarity;

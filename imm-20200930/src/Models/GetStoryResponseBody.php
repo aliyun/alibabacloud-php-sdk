@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetStoryResponseBody extends Model
 {
     /**
+     * @example 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
+     *
      * @var string
      */
     public $requestId;

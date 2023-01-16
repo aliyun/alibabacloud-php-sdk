@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateLocationDateClusteringTaskResponseBody extends Model
 {
     /**
+     * @example 9bab56e8****
+     *
      * @var string
      */
     public $eventId;
 
     /**
+     * @example B121940C-9794-4EE3-8D6E-F8EC525F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example SpaceTimeClustering-9bab56e8-e596-421a-b1f5-9ad1ab87****
+     *
      * @var string
      */
     public $taskId;

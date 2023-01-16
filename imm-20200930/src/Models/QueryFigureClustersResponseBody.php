@@ -14,11 +14,15 @@ class QueryFigureClustersResponseBody extends Model
     public $figureClusters;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example CA995EFD-083D-4F40-BE8A-BDF75FFF****
+     *
      * @var string
      */
     public $requestId;

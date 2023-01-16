@@ -15,6 +15,8 @@ class SearchImageFigureClusterResponseBody extends Model
     public $clusters;
 
     /**
+     * @example C2734912-E6D5-052C-AC67-6A9FD02*****
+     *
      * @var string
      */
     public $requestId;

@@ -15,6 +15,8 @@ class CompareImageFacesRequest extends Model
     public $credentialConfig;
 
     /**
+     * @example test-project
+     *
      * @var string
      */
     public $projectName;

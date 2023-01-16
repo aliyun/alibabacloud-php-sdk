@@ -9,81 +9,113 @@ use AlibabaCloud\Tea\Model;
 class watermarks extends Model
 {
     /**
+     * @example #000000
+     *
      * @var string
      */
     public $borderColor;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $borderWidth;
 
     /**
+     * @example example
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $duration;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $dx;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $dy;
 
     /**
+     * @example 1.0
+     *
      * @var float
      */
     public $fontApha;
 
     /**
+     * @example #000000
+     *
      * @var string
      */
     public $fontColor;
 
     /**
+     * @example SourceHanSans-Regular
+     *
      * @var string
      */
     public $fontName;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $fontSize;
 
     /**
+     * @example 2
+     *
      * @var float
      */
     public $height;
 
     /**
+     * @example topleft
+     *
      * @var string
      */
     public $referPos;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $startTime;
 
     /**
+     * @example text
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example oss://test-bucket/watermarks
+     *
      * @var string
      */
     public $URI;
 
     /**
+     * @example 2
+     *
      * @var float
      */
     public $width;

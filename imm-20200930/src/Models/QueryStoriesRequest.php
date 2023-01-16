@@ -14,11 +14,15 @@ class QueryStoriesRequest extends Model
     public $createTimeRange;
 
     /**
+     * @example {"key": "val"}
+     *
      * @var string
      */
     public $customLabels;
 
     /**
+     * @example test-dataset
+     *
      * @var string
      */
     public $datasetName;
@@ -29,31 +33,43 @@ class QueryStoriesRequest extends Model
     public $figureClusterIds;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpw****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example id1
+     *
      * @var string
      */
     public $objectId;
 
     /**
+     * @example asc
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @example test-project
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example CreateTime
+     *
      * @var string
      */
     public $sort;
@@ -64,6 +80,8 @@ class QueryStoriesRequest extends Model
     public $storyEndTimeRange;
 
     /**
+     * @example name1
+     *
      * @var string
      */
     public $storyName;
@@ -74,16 +92,22 @@ class QueryStoriesRequest extends Model
     public $storyStartTimeRange;
 
     /**
+     * @example SeasonHighlights
+     *
      * @var string
      */
     public $storySubType;
 
     /**
+     * @example TimeMemory
+     *
      * @var string
      */
     public $storyType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $withEmptyStories;

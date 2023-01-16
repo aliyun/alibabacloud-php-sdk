@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class CreateLocationDateClusteringTaskRequest extends Model
 {
     /**
+     * @example dataset001
+     *
      * @var string
      */
     public $datasetName;
@@ -26,21 +28,29 @@ class CreateLocationDateClusteringTaskRequest extends Model
     public $locationOptions;
 
     /**
+     * @example NotifyTopicName1
+     *
      * @var string
      */
     public $notifyTopicName;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example \"{"key":"value"}\"
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $userData;

@@ -14,17 +14,21 @@ class DetectImageBodiesShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
+     * @example test-project
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example 0.6
+     *
      * @var float
      */
     public $sensitivity;
 
     /**
-     * @example 源文件路径
+     * @example oss://test-bucket/test-object
      *
      * @var string
      */

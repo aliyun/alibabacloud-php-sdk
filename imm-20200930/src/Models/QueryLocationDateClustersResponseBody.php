@@ -14,11 +14,15 @@ class QueryLocationDateClustersResponseBody extends Model
     public $locationDateClusters;
 
     /**
+     * @example MzQNjmY2MzYxNhNjk2ZNjEu****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 7055FCF7-4D7B-098E-BD4D-DD2932B0****
+     *
      * @var string
      */
     public $requestId;

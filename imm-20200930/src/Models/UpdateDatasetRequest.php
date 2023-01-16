@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class UpdateDatasetRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $datasetMaxBindCount;
 
     /**
+     * @example 10000000000
+     *
      * @var int
      */
     public $datasetMaxEntityCount;
 
     /**
+     * @example 100000000
+     *
      * @var int
      */
     public $datasetMaxFileCount;
 
     /**
+     * @example 100000000000
+     *
      * @var int
      */
     public $datasetMaxRelationCount;
 
     /**
+     * @example 90000000000000000
+     *
      * @var int
      */
     public $datasetMaxTotalFileSize;
 
     /**
+     * @example dataset001
+     *
      * @var string
      */
     public $datasetName;
@@ -44,11 +56,15 @@ class UpdateDatasetRequest extends Model
     public $description;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example Official:AllFunction
+     *
      * @var string
      */
     public $templateId;

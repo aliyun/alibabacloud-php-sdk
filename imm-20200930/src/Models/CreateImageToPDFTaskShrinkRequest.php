@@ -14,11 +14,15 @@ class CreateImageToPDFTaskShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
+     * @example test-topic
+     *
      * @var string
      */
     public $notifyTopicName;
 
     /**
+     * @example test-project
+     *
      * @var string
      */
     public $projectName;
@@ -29,16 +33,22 @@ class CreateImageToPDFTaskShrinkRequest extends Model
     public $sourcesShrink;
 
     /**
+     * @example {"test":"val1"}
+     *
      * @var string
      */
     public $tagsShrink;
 
     /**
+     * @example oss://test-bucket/test-target-object.pdf
+     *
      * @var string
      */
     public $targetURI;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $userData;

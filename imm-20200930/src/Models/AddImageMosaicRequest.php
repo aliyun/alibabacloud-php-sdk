@@ -15,26 +15,36 @@ class AddImageMosaicRequest extends Model
     public $credentialConfig;
 
     /**
+     * @example jpg
+     *
      * @var string
      */
     public $imageFormat;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $quality;
 
     /**
+     * @example oss://bucketname/objectname
+     *
      * @var string
      */
     public $sourceURI;
 
     /**
+     * @example oss://bucketname/objectname
+     *
      * @var string
      */
     public $targetURI;

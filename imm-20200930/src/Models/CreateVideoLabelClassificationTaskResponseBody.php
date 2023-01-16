@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateVideoLabelClassificationTaskResponseBody extends Model
 {
     /**
+     * @example 03F-1Qt1Yn5RZZ0Zh3ZdYlDblv7****
+     *
      * @var string
      */
     public $eventId;
 
     /**
+     * @example CA995EFD-083D-4F40-BE8A-BDF75FFFE0B6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example VideoLabelClassification-2f157087-91df-4fda-8c3e-232407ec*****
+     *
      * @var string
      */
     public $taskId;

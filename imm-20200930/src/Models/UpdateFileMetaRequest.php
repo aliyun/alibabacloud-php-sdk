@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateFileMetaRequest extends Model
 {
     /**
+     * @example dataset001
+     *
      * @var string
      */
     public $datasetName;
@@ -19,6 +21,8 @@ class UpdateFileMetaRequest extends Model
     public $file;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;

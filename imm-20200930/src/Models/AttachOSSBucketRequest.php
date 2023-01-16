@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AttachOSSBucketRequest extends Model
 {
     /**
+     * @example examplebucket
+     *
      * @var string
      */
     public $OSSBucket;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;

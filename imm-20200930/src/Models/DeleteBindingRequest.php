@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteBindingRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $cleanup;
 
     /**
+     * @example dataset001
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example oss://examplebucket
+     *
      * @var string
      */
     public $URI;

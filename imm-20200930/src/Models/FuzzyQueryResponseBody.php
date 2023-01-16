@@ -14,11 +14,15 @@ class FuzzyQueryResponseBody extends Model
     public $files;
 
     /**
+     * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
+     *
      * @var string
      */
     public $requestId;

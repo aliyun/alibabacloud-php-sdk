@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchIndexFileMetaRequest extends Model
 {
     /**
+     * @example test-dataset
+     *
      * @var string
      */
     public $datasetName;
@@ -19,11 +21,15 @@ class BatchIndexFileMetaRequest extends Model
     public $files;
 
     /**
+     * @example test-topic
+     *
      * @var string
      */
     public $notifyTopicName;
 
     /**
+     * @example test-project
+     *
      * @var string
      */
     public $projectName;

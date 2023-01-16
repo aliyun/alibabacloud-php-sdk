@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cover extends Model
 {
     /**
+     * @example oss://bucket1/cover
+     *
      * @var string
      */
     public $URI;

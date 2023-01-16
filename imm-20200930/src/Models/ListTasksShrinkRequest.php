@@ -14,30 +14,36 @@ class ListTasksShrinkRequest extends Model
     public $endTimeRangeShrink;
 
     /**
-     * @example 最大结果数量
+     * @example 1
      *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example 翻页标记
+     * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
      *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example ASC
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example TaskId
+     *
      * @var string
      */
     public $sort;
@@ -48,11 +54,15 @@ class ListTasksShrinkRequest extends Model
     public $startTimeRangeShrink;
 
     /**
+     * @example Succeeded
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example test=val1
+     *
      * @var string
      */
     public $tagSelector;

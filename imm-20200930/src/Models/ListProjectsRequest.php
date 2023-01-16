@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListProjectsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example 12345678:immtest01
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $prefix;

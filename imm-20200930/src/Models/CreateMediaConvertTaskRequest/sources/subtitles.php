@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class subtitles extends Model
 {
     /**
+     * @example eng
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @example 10.5
+     *
      * @var float
      */
     public $timeOffset;
 
     /**
+     * @example oss://test-bucket/subtitles
+     *
      * @var string
      */
     public $URI;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BatchIndexFileMetaResponseBody extends Model
 {
     /**
+     * @example 387-1DAPFFZplUZhuCuhnB6I9H****
+     *
      * @var string
      */
     public $eventId;
 
     /**
+     * @example 8F93E6D9-5AC0-49F9-914D-E02678A3****
+     *
      * @var string
      */
     public $requestId;

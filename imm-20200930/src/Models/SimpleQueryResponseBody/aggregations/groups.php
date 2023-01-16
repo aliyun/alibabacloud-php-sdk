@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class groups extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $value;

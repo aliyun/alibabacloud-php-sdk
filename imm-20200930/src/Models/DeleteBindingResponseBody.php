@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteBindingResponseBody extends Model
 {
     /**
+     * @example ACDFE467-C817-4B36-951A-6EB5A592****
+     *
      * @var string
      */
     public $requestId;

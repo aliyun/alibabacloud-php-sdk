@@ -14,16 +14,22 @@ class SearchImageFigureClusterShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
+     * @example test-dataset
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @example test-project
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example oss://test-bucket/test-object
+     *
      * @var string
      */
     public $sourceURI;

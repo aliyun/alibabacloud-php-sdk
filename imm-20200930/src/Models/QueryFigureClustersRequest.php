@@ -14,21 +14,29 @@ class QueryFigureClustersRequest extends Model
     public $createTimeRange;
 
     /**
+     * @example {"Bucket": "examplebucket"}
+     *
      * @var string
      */
     public $customLabels;
 
     /**
+     * @example test-dataset
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3Qx****
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $nextToken;
@@ -41,6 +49,8 @@ class QueryFigureClustersRequest extends Model
     public $order;
 
     /**
+     * @example test-project
+     *
      * @var string
      */
     public $projectName;

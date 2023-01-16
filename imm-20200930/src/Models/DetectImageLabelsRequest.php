@@ -14,19 +14,21 @@ class DetectImageLabelsRequest extends Model
     public $credentialConfig;
 
     /**
+     * @example immimagetest
+     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @example 源文件路径
+     * @example oss://imm-test/testcases/facetest.jpg
      *
      * @var string
      */
     public $sourceURI;
 
     /**
-     * @example 阈值
+     * @example 1
      *
      * @var float
      */

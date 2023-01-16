@@ -14,11 +14,15 @@ class ListDatasetsResponseBody extends Model
     public $datasets;
 
     /**
+     * @example 12345678:immtest:dataset002
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example FEEDE356-C928-4A36-951A-6EB5A592****
+     *
      * @var string
      */
     public $requestId;

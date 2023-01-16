@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class sources extends Model
 {
     /**
+     * @example 0
+     *
      * @var float
      */
     public $duration;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $startTime;
@@ -25,6 +29,8 @@ class sources extends Model
     public $subtitles;
 
     /**
+     * @example oss://test-bucket/test-object
+     *
      * @var string
      */
     public $URI;

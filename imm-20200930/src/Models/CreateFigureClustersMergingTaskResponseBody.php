@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateFigureClustersMergingTaskResponseBody extends Model
 {
     /**
+     * @example 0ED-1Bz8z71k5TtsUejT4UJ16E****
+     *
      * @var string
      */
     public $eventId;
 
     /**
+     * @example CA995EFD-083D-4F40-BE8A-BDF75FF****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 92376fbb-171f-4259-913f-705f7ee0****
+     *
      * @var string
      */
     public $taskId;

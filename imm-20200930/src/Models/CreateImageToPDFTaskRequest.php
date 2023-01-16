@@ -15,11 +15,15 @@ class CreateImageToPDFTaskRequest extends Model
     public $credentialConfig;
 
     /**
+     * @example test-topic
+     *
      * @var string
      */
     public $notifyTopicName;
 
     /**
+     * @example test-project
+     *
      * @var string
      */
     public $projectName;
@@ -30,16 +34,22 @@ class CreateImageToPDFTaskRequest extends Model
     public $sources;
 
     /**
+     * @example {"test":"val1"}
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @example oss://test-bucket/test-target-object.pdf
+     *
      * @var string
      */
     public $targetURI;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $userData;

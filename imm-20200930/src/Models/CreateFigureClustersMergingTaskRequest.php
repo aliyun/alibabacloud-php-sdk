@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class CreateFigureClustersMergingTaskRequest extends Model
 {
     /**
+     * @example dataset001
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @example Cluster-2ab85905-23ba-4632-b2d8-1c21cfe****
+     *
      * @var string
      */
     public $from;
 
     /**
+     * @example http://1111111111.mns.cn-hangzhou.aliyuncs.com
+     *
      * @var string
      */
     public $notifyTopicName;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example {"key":"val"}
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @example Cluster-4a3a71c1-c092-4788-8826-2f65d17****
+     *
      * @var string
      */
     public $to;
 
     /**
+     * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+     *
      * @var string
      */
     public $userData;

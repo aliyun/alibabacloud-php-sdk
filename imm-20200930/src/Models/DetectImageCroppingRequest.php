@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DetectImageCroppingRequest extends Model
 {
     /**
+     * @example ["1:1"]
+     *
      * @var string
      */
     public $aspectRatios;
@@ -19,12 +21,14 @@ class DetectImageCroppingRequest extends Model
     public $credentialConfig;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @example 源文件路径
+     * @example oss://imm-test/testcases/facetest.jpg
      *
      * @var string
      */

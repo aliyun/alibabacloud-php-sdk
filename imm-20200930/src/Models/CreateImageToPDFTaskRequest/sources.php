@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class sources extends Model
 {
     /**
+     * @example 90
+     *
      * @var int
      */
     public $rotate;
 
     /**
+     * @example oss://test-bucket/test-object.jpg
+     *
      * @var string
      */
     public $URI;

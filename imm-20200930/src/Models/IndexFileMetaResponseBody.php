@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class IndexFileMetaResponseBody extends Model
 {
     /**
+     * @example 30F-1D8FxFzDXKJH9YQdve4CjR****
+     *
      * @var string
      */
     public $eventId;
 
     /**
+     * @example 6E93D6C9-5AC0-49F9-914D-E02678D3****
+     *
      * @var string
      */
     public $requestId;

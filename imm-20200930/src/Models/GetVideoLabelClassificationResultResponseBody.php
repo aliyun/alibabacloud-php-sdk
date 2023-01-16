@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetVideoLabelClassificationResultResponseBody extends Model
 {
     /**
+     * @example ResourceNotFound
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 2021-12-24T03:00:42.134971294Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 2F6-1Bz99Xi93EnRpNEyLudILJm****
+     *
      * @var string
      */
     public $eventId;
@@ -29,41 +35,57 @@ class GetVideoLabelClassificationResultResponseBody extends Model
     public $labels;
 
     /**
+     * @example The specified resource project is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example 7F84C6D9-5AC0-49F9-914D-F02678E3****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2021-12-24T03:00:38.892462383Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example Succeeded
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example VideoLabelClassification-2f157087-91df-4fda-8c3e-232407ec****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example VideoLabelClassification
+     *
      * @var string
      */
     public $taskType;
 
     /**
+     * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+     *
      * @var string
      */
     public $userData;

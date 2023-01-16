@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class imageScore extends Model
 {
     /**
+     * @example 0.6
+     *
      * @var float
      */
     public $overallQualityScore;

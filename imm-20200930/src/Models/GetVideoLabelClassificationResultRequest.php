@@ -9,19 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetVideoLabelClassificationResultRequest extends Model
 {
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @example 任务唯一Id
+     * @example VideoLabelClassification-2f157087-91df-4fda-8c3e-232407ec****
      *
      * @var string
      */
     public $taskId;
 
     /**
-     * @example 任务类型
+     * @example VideoLabelClassification
      *
      * @var string
      */

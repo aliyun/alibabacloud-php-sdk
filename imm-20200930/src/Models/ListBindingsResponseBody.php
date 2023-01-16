@@ -14,11 +14,15 @@ class ListBindingsResponseBody extends Model
     public $bindings;
 
     /**
+     * @example immtest:dataset001:examplebucket01
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example EFDFD356-C928-4A36-951A-6EB5A592****
+     *
      * @var string
      */
     public $requestId;

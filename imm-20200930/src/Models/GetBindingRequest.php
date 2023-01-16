@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetBindingRequest extends Model
 {
     /**
+     * @example dataset001
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example oss://examplebucket
+     *
      * @var string
      */
     public $URI;

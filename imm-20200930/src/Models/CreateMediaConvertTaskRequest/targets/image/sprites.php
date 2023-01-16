@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class sprites extends Model
 {
     /**
+     * @example png
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @example 0.5
+     *
      * @var float
      */
     public $interval;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $margin;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $number;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $pad;
 
     /**
+     * @example 1.0
+     *
      * @var float
      */
     public $scaleHeight;
 
     /**
+     * @example stretch
+     *
      * @var string
      */
     public $scaleType;
 
     /**
+     * @example 1.0
+     *
      * @var float
      */
     public $scaleWidth;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $startTime;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $tileHeight;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $tileWidth;
 
     /**
+     * @example oss://test-bucket/sprites
+     *
      * @var string
      */
     public $URI;

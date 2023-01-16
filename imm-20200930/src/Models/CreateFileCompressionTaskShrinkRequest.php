@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFileCompressionTaskShrinkRequest extends Model
 {
     /**
+     * @example zip
+     *
      * @var string
      */
     public $compressedFormat;
@@ -19,21 +21,29 @@ class CreateFileCompressionTaskShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
+     * @example topic1
+     *
      * @var string
      */
     public $notifyTopicName;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example oss://test-bucket/test-object.json
+     *
      * @var string
      */
     public $sourceManifestURI;
@@ -44,11 +54,15 @@ class CreateFileCompressionTaskShrinkRequest extends Model
     public $sourcesShrink;
 
     /**
+     * @example oss://test-bucket/test-target-object.zip
+     *
      * @var string
      */
     public $targetURI;
 
     /**
+     * @example {"ID": "testuid","Name": "test-user","Avatar": "http://test.com/testuid"}
+     *
      * @var string
      */
     public $userData;
