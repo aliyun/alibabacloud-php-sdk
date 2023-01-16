@@ -101,15 +101,40 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExceedApplySyncResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightBillSettlementQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightCancelOrderHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightCancelOrderRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightCancelOrderResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightCreateOrderHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightCreateOrderRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightCreateOrderResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightCreateOrderShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightExceedApplyQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightExceedApplyQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightExceedApplyQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderDetailInfoHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderDetailInfoRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderDetailInfoResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderListQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderListQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderListQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightPayOrderHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightPayOrderRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightPayOrderResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightPayOrderShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightRefundApplyHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightRefundApplyRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightRefundApplyResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightRefundApplyShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightRefundDetailHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightRefundDetailRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightRefundDetailResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightRefundPreCalHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightRefundPreCalRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightRefundPreCalResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightRefundPreCalShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelBillSettlementQueryResponse;
@@ -161,6 +186,27 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\SyncSingleUserHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\SyncSingleUserRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\SyncSingleUserResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\SyncSingleUserShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingApplyHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingApplyRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingApplyResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingApplyShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingCancelHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingCancelRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingCancelResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingDetailHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingDetailRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingDetailResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingEnquiryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingEnquiryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingEnquiryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingFlightListHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingFlightListRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingFlightListResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingFlightListShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingPayHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingPayRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingPayResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingPayShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainBillSettlementQueryResponse;
@@ -2371,6 +2417,177 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @param FlightCancelOrderRequest $request
+     * @param FlightCancelOrderHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return FlightCancelOrderResponse
+     */
+    public function flightCancelOrderWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->disOrderId)) {
+            $query['dis_order_id'] = $request->disOrderId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FlightCancelOrder',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-flight/v1/order/action/cancel',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return FlightCancelOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FlightCancelOrderRequest $request
+     *
+     * @return FlightCancelOrderResponse
+     */
+    public function flightCancelOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new FlightCancelOrderHeaders([]);
+
+        return $this->flightCancelOrderWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param FlightCreateOrderRequest $tmpReq
+     * @param FlightCreateOrderHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return FlightCreateOrderResponse
+     */
+    public function flightCreateOrderWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new FlightCreateOrderShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->contactInfo)) {
+            $request->contactInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contactInfo, 'contact_info', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->orderAttr)) {
+            $request->orderAttrShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->orderAttr, 'order_attr', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->travelerInfoList)) {
+            $request->travelerInfoListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->travelerInfoList, 'traveler_info_list', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->arrAirportCode)) {
+            $body['arr_airport_code'] = $request->arrAirportCode;
+        }
+        if (!Utils::isUnset($request->arrCityCode)) {
+            $body['arr_city_code'] = $request->arrCityCode;
+        }
+        if (!Utils::isUnset($request->autoPay)) {
+            $body['auto_pay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->buyerName)) {
+            $body['buyer_name'] = $request->buyerName;
+        }
+        if (!Utils::isUnset($request->buyerUniqueKey)) {
+            $body['buyer_unique_key'] = $request->buyerUniqueKey;
+        }
+        if (!Utils::isUnset($request->contactInfoShrink)) {
+            $body['contact_info'] = $request->contactInfoShrink;
+        }
+        if (!Utils::isUnset($request->depAirportCode)) {
+            $body['dep_airport_code'] = $request->depAirportCode;
+        }
+        if (!Utils::isUnset($request->depCityCode)) {
+            $body['dep_city_code'] = $request->depCityCode;
+        }
+        if (!Utils::isUnset($request->depDate)) {
+            $body['dep_date'] = $request->depDate;
+        }
+        if (!Utils::isUnset($request->disOrderId)) {
+            $body['dis_order_id'] = $request->disOrderId;
+        }
+        if (!Utils::isUnset($request->orderAttrShrink)) {
+            $body['order_attr'] = $request->orderAttrShrink;
+        }
+        if (!Utils::isUnset($request->orderParams)) {
+            $body['order_params'] = $request->orderParams;
+        }
+        if (!Utils::isUnset($request->otaItemId)) {
+            $body['ota_item_id'] = $request->otaItemId;
+        }
+        if (!Utils::isUnset($request->price)) {
+            $body['price'] = $request->price;
+        }
+        if (!Utils::isUnset($request->receiptAddress)) {
+            $body['receipt_address'] = $request->receiptAddress;
+        }
+        if (!Utils::isUnset($request->receiptTarget)) {
+            $body['receipt_target'] = $request->receiptTarget;
+        }
+        if (!Utils::isUnset($request->receiptTitle)) {
+            $body['receipt_title'] = $request->receiptTitle;
+        }
+        if (!Utils::isUnset($request->travelerInfoListShrink)) {
+            $body['traveler_info_list'] = $request->travelerInfoListShrink;
+        }
+        if (!Utils::isUnset($request->tripType)) {
+            $body['trip_type'] = $request->tripType;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'FlightCreateOrder',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-flight/v1/order/action/create',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return FlightCreateOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FlightCreateOrderRequest $request
+     *
+     * @return FlightCreateOrderResponse
+     */
+    public function flightCreateOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new FlightCreateOrderHeaders([]);
+
+        return $this->flightCreateOrderWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param FlightExceedApplyQueryRequest $request
      * @param FlightExceedApplyQueryHeaders $headers
      * @param RuntimeOptions                $runtime
@@ -2421,6 +2638,59 @@ class BtripOpen extends OpenApiClient
         $headers = new FlightExceedApplyQueryHeaders([]);
 
         return $this->flightExceedApplyQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param FlightOrderDetailInfoRequest $request
+     * @param FlightOrderDetailInfoHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return FlightOrderDetailInfoResponse
+     */
+    public function flightOrderDetailInfoWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->disOrderId)) {
+            $query['dis_order_id'] = $request->disOrderId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FlightOrderDetailInfo',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-flight/v1/order/action/detail',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return FlightOrderDetailInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FlightOrderDetailInfoRequest $request
+     *
+     * @return FlightOrderDetailInfoResponse
+     */
+    public function flightOrderDetailInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new FlightOrderDetailInfoHeaders([]);
+
+        return $this->flightOrderDetailInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2560,6 +2830,299 @@ class BtripOpen extends OpenApiClient
         $headers = new FlightOrderQueryHeaders([]);
 
         return $this->flightOrderQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param FlightPayOrderRequest $tmpReq
+     * @param FlightPayOrderHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return FlightPayOrderResponse
+     */
+    public function flightPayOrderWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new FlightPayOrderShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extra)) {
+            $request->extraShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extra, 'extra', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->corpPayPrice)) {
+            $body['corp_pay_price'] = $request->corpPayPrice;
+        }
+        if (!Utils::isUnset($request->disOrderId)) {
+            $body['dis_order_id'] = $request->disOrderId;
+        }
+        if (!Utils::isUnset($request->extraShrink)) {
+            $body['extra'] = $request->extraShrink;
+        }
+        if (!Utils::isUnset($request->personalPayPrice)) {
+            $body['personal_pay_price'] = $request->personalPayPrice;
+        }
+        if (!Utils::isUnset($request->totalPayPrice)) {
+            $body['total_pay_price'] = $request->totalPayPrice;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'FlightPayOrder',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-flight/v1/order/action/pay',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return FlightPayOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FlightPayOrderRequest $request
+     *
+     * @return FlightPayOrderResponse
+     */
+    public function flightPayOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new FlightPayOrderHeaders([]);
+
+        return $this->flightPayOrderWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param FlightRefundApplyRequest $tmpReq
+     * @param FlightRefundApplyHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return FlightRefundApplyResponse
+     */
+    public function flightRefundApplyWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new FlightRefundApplyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extra)) {
+            $request->extraShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extra, 'extra', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->passengerSegmentInfoList)) {
+            $request->passengerSegmentInfoListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->passengerSegmentInfoList, 'passenger_segment_info_list', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->refundVoucherInfo)) {
+            $request->refundVoucherInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->refundVoucherInfo, 'refund_voucher_info', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->corpRefundPrice)) {
+            $body['corp_refund_price'] = $request->corpRefundPrice;
+        }
+        if (!Utils::isUnset($request->disOrderId)) {
+            $body['dis_order_id'] = $request->disOrderId;
+        }
+        if (!Utils::isUnset($request->disSubOrderId)) {
+            $body['dis_sub_order_id'] = $request->disSubOrderId;
+        }
+        if (!Utils::isUnset($request->displayRefundMoney)) {
+            $body['display_refund_money'] = $request->displayRefundMoney;
+        }
+        if (!Utils::isUnset($request->extraShrink)) {
+            $body['extra'] = $request->extraShrink;
+        }
+        if (!Utils::isUnset($request->isVoluntary)) {
+            $body['is_voluntary'] = $request->isVoluntary;
+        }
+        if (!Utils::isUnset($request->itemUnitIds)) {
+            $body['item_unit_ids'] = $request->itemUnitIds;
+        }
+        if (!Utils::isUnset($request->passengerSegmentInfoListShrink)) {
+            $body['passenger_segment_info_list'] = $request->passengerSegmentInfoListShrink;
+        }
+        if (!Utils::isUnset($request->personalRefundPrice)) {
+            $body['personal_refund_price'] = $request->personalRefundPrice;
+        }
+        if (!Utils::isUnset($request->reasonDetail)) {
+            $body['reason_detail'] = $request->reasonDetail;
+        }
+        if (!Utils::isUnset($request->reasonType)) {
+            $body['reason_type'] = $request->reasonType;
+        }
+        if (!Utils::isUnset($request->refundVoucherInfoShrink)) {
+            $body['refund_voucher_info'] = $request->refundVoucherInfoShrink;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['session_id'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->totalRefundPrice)) {
+            $body['total_refund_price'] = $request->totalRefundPrice;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'FlightRefundApply',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-flight/v1/refund/action/apply',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return FlightRefundApplyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FlightRefundApplyRequest $request
+     *
+     * @return FlightRefundApplyResponse
+     */
+    public function flightRefundApply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new FlightRefundApplyHeaders([]);
+
+        return $this->flightRefundApplyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param FlightRefundDetailRequest $request
+     * @param FlightRefundDetailHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return FlightRefundDetailResponse
+     */
+    public function flightRefundDetailWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->disOrderId)) {
+            $query['dis_order_id'] = $request->disOrderId;
+        }
+        if (!Utils::isUnset($request->disSubOrderId)) {
+            $query['dis_sub_order_id'] = $request->disSubOrderId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FlightRefundDetail',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-flight/v1/refund/action/detail',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return FlightRefundDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FlightRefundDetailRequest $request
+     *
+     * @return FlightRefundDetailResponse
+     */
+    public function flightRefundDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new FlightRefundDetailHeaders([]);
+
+        return $this->flightRefundDetailWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param FlightRefundPreCalRequest $tmpReq
+     * @param FlightRefundPreCalHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return FlightRefundPreCalResponse
+     */
+    public function flightRefundPreCalWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new FlightRefundPreCalShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->passengerSegmentInfoList)) {
+            $request->passengerSegmentInfoListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->passengerSegmentInfoList, 'passenger_segment_info_list', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->disOrderId)) {
+            $query['dis_order_id'] = $request->disOrderId;
+        }
+        if (!Utils::isUnset($request->isVoluntary)) {
+            $query['is_voluntary'] = $request->isVoluntary;
+        }
+        if (!Utils::isUnset($request->passengerSegmentInfoListShrink)) {
+            $query['passenger_segment_info_list'] = $request->passengerSegmentInfoListShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FlightRefundPreCal',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-flight/v1/refund/action/pre-cal',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return FlightRefundPreCalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FlightRefundPreCalRequest $request
+     *
+     * @return FlightRefundPreCalResponse
+     */
+    public function flightRefundPreCal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new FlightRefundPreCalHeaders([]);
+
+        return $this->flightRefundPreCalWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3576,6 +4139,414 @@ class BtripOpen extends OpenApiClient
         $headers = new SyncSingleUserHeaders([]);
 
         return $this->syncSingleUserWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param TicketChangingApplyRequest $tmpReq
+     * @param TicketChangingApplyHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return TicketChangingApplyResponse
+     */
+    public function ticketChangingApplyWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new TicketChangingApplyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->modifyFlightInfoList)) {
+            $request->modifyFlightInfoListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->modifyFlightInfoList, 'modify_flight_info_list', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->disOrderId)) {
+            $body['dis_order_id'] = $request->disOrderId;
+        }
+        if (!Utils::isUnset($request->disSubOrderId)) {
+            $body['dis_sub_order_id'] = $request->disSubOrderId;
+        }
+        if (!Utils::isUnset($request->isVoluntary)) {
+            $body['is_voluntary'] = $request->isVoluntary;
+        }
+        if (!Utils::isUnset($request->modifyFlightInfoListShrink)) {
+            $body['modify_flight_info_list'] = $request->modifyFlightInfoListShrink;
+        }
+        if (!Utils::isUnset($request->otaItemId)) {
+            $body['ota_item_id'] = $request->otaItemId;
+        }
+        if (!Utils::isUnset($request->reason)) {
+            $body['reason'] = $request->reason;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['session_id'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->whetherRetry)) {
+            $body['whether_retry'] = $request->whetherRetry;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TicketChangingApply',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-flight/v1/ticket-changing/action/apply',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TicketChangingApplyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TicketChangingApplyRequest $request
+     *
+     * @return TicketChangingApplyResponse
+     */
+    public function ticketChangingApply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TicketChangingApplyHeaders([]);
+
+        return $this->ticketChangingApplyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param TicketChangingCancelRequest $request
+     * @param TicketChangingCancelHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return TicketChangingCancelResponse
+     */
+    public function ticketChangingCancelWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->disOrderId)) {
+            $query['dis_order_id'] = $request->disOrderId;
+        }
+        if (!Utils::isUnset($request->disSubOrderId)) {
+            $query['dis_sub_order_id'] = $request->disSubOrderId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TicketChangingCancel',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-flight/v1/ticket-changing/action/cancel',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return TicketChangingCancelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TicketChangingCancelRequest $request
+     *
+     * @return TicketChangingCancelResponse
+     */
+    public function ticketChangingCancel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TicketChangingCancelHeaders([]);
+
+        return $this->ticketChangingCancelWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param TicketChangingDetailRequest $request
+     * @param TicketChangingDetailHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return TicketChangingDetailResponse
+     */
+    public function ticketChangingDetailWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->disOrderId)) {
+            $query['dis_order_id'] = $request->disOrderId;
+        }
+        if (!Utils::isUnset($request->disSubOrderId)) {
+            $query['dis_sub_order_id'] = $request->disSubOrderId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TicketChangingDetail',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-flight/v1/ticket-changing/action/detail',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return TicketChangingDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TicketChangingDetailRequest $request
+     *
+     * @return TicketChangingDetailResponse
+     */
+    public function ticketChangingDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TicketChangingDetailHeaders([]);
+
+        return $this->ticketChangingDetailWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param TicketChangingEnquiryRequest $request
+     * @param TicketChangingEnquiryHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return TicketChangingEnquiryResponse
+     */
+    public function ticketChangingEnquiryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->arrCity)) {
+            $query['arr_city'] = $request->arrCity;
+        }
+        if (!Utils::isUnset($request->depCity)) {
+            $query['dep_city'] = $request->depCity;
+        }
+        if (!Utils::isUnset($request->disOrderId)) {
+            $query['dis_order_id'] = $request->disOrderId;
+        }
+        if (!Utils::isUnset($request->isVoluntary)) {
+            $query['is_voluntary'] = $request->isVoluntary;
+        }
+        if (!Utils::isUnset($request->modifyDepartDate)) {
+            $query['modify_depart_date'] = $request->modifyDepartDate;
+        }
+        if (!Utils::isUnset($request->modifyFlightNo)) {
+            $query['modify_flight_no'] = $request->modifyFlightNo;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $query['session_id'] = $request->sessionId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TicketChangingEnquiry',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-flight/v1/ticket-changing/action/enquiry',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return TicketChangingEnquiryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TicketChangingEnquiryRequest $request
+     *
+     * @return TicketChangingEnquiryResponse
+     */
+    public function ticketChangingEnquiry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TicketChangingEnquiryHeaders([]);
+
+        return $this->ticketChangingEnquiryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param TicketChangingFlightListRequest $tmpReq
+     * @param TicketChangingFlightListHeaders $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return TicketChangingFlightListResponse
+     */
+    public function ticketChangingFlightListWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new TicketChangingFlightListShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->travelerInfoList)) {
+            $request->travelerInfoListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->travelerInfoList, 'traveler_info_list', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->arrCity)) {
+            $query['arr_city'] = $request->arrCity;
+        }
+        if (!Utils::isUnset($request->depCity)) {
+            $query['dep_city'] = $request->depCity;
+        }
+        if (!Utils::isUnset($request->depDate)) {
+            $query['dep_date'] = $request->depDate;
+        }
+        if (!Utils::isUnset($request->disOrderId)) {
+            $query['dis_order_id'] = $request->disOrderId;
+        }
+        if (!Utils::isUnset($request->isVoluntary)) {
+            $query['is_voluntary'] = $request->isVoluntary;
+        }
+        if (!Utils::isUnset($request->travelerInfoListShrink)) {
+            $query['traveler_info_list'] = $request->travelerInfoListShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TicketChangingFlightList',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/huge/dtb-flight/v1/ticket-changing-flight/action/list',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return TicketChangingFlightListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TicketChangingFlightListRequest $request
+     *
+     * @return TicketChangingFlightListResponse
+     */
+    public function ticketChangingFlightList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TicketChangingFlightListHeaders([]);
+
+        return $this->ticketChangingFlightListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param TicketChangingPayRequest $tmpReq
+     * @param TicketChangingPayHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return TicketChangingPayResponse
+     */
+    public function ticketChangingPayWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new TicketChangingPayShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extra)) {
+            $request->extraShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extra, 'extra', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->corpPayPrice)) {
+            $body['corp_pay_price'] = $request->corpPayPrice;
+        }
+        if (!Utils::isUnset($request->disOrderId)) {
+            $body['dis_order_id'] = $request->disOrderId;
+        }
+        if (!Utils::isUnset($request->disSubOrderId)) {
+            $body['dis_sub_order_id'] = $request->disSubOrderId;
+        }
+        if (!Utils::isUnset($request->extraShrink)) {
+            $body['extra'] = $request->extraShrink;
+        }
+        if (!Utils::isUnset($request->personalPayPrice)) {
+            $body['personal_pay_price'] = $request->personalPayPrice;
+        }
+        if (!Utils::isUnset($request->totalPayPrice)) {
+            $body['total_pay_price'] = $request->totalPayPrice;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TicketChangingPay',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-flight/v1/ticket-changing/action/pay',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TicketChangingPayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TicketChangingPayRequest $request
+     *
+     * @return TicketChangingPayResponse
+     */
+    public function ticketChangingPay($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TicketChangingPayHeaders([]);
+
+        return $this->ticketChangingPayWithOptions($request, $headers, $runtime);
     }
 
     /**
