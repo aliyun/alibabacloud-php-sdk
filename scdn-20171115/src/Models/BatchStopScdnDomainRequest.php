@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchStopScdnDomainRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainNames;

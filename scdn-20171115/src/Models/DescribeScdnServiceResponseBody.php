@@ -10,81 +10,113 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnServiceResponseBody extends Model
 {
     /**
+     * @example 100Mbps
+     *
      * @var string
      */
     public $bandwidth;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $bandwidthValue;
 
     /**
+     * @example 60000Qps
+     *
      * @var string
      */
     public $ccProtection;
 
     /**
+     * @example 60000
+     *
      * @var string
      */
     public $ccProtectionValue;
 
     /**
+     * @example 2018-03-31T16:00:00Z
+     *
      * @var string
      */
     public $changingAffectTime;
 
     /**
+     * @example PayByBandwidth
+     *
      * @var string
      */
     public $changingChargeType;
 
     /**
+     * @example 3 M
+     *
      * @var string
      */
     public $currentBandwidth;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $currentBandwidthValue;
 
     /**
+     * @example 60,000 QPS
+     *
      * @var string
      */
     public $currentCcProtection;
 
     /**
+     * @example 60000
+     *
      * @var string
      */
     public $currentCcProtectionValue;
 
     /**
+     * @example 30Gbps
+     *
      * @var string
      */
     public $currentDDoSBasic;
 
     /**
+     * @example 30
+     *
      * @var string
      */
     public $currentDDoSBasicValue;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $currentDomainCount;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $currentDomainCountValue;
 
     /**
+     * @example 100Gbps
+     *
      * @var string
      */
     public $currentElasticProtection;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $currentElasticProtectionValue;
@@ -95,16 +127,22 @@ class DescribeScdnServiceResponseBody extends Model
     public $currentProtectType;
 
     /**
+     * @example standard
+     *
      * @var string
      */
     public $currentProtectTypeValue;
 
     /**
+     * @example 20Gbps
+     *
      * @var string
      */
     public $DDoSBasic;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $DDoSBasicValue;
@@ -115,36 +153,50 @@ class DescribeScdnServiceResponseBody extends Model
     public $domainCount;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $domainCountValue;
 
     /**
+     * @example 100Gbps
+     *
      * @var string
      */
     public $elasticProtection;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $elasticProtectionValue;
 
     /**
+     * @example 2014-12-08T00:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example example ID
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example PayByTraffic
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example 2017-11-07T16:00:00Z
+     *
      * @var string
      */
     public $openTime;
@@ -155,11 +207,15 @@ class DescribeScdnServiceResponseBody extends Model
     public $operationLocks;
 
     /**
+     * @example monthPrice
+     *
      * @var string
      */
     public $priceType;
 
     /**
+     * @example Year
+     *
      * @var string
      */
     public $pricingCycle;
@@ -170,11 +226,15 @@ class DescribeScdnServiceResponseBody extends Model
     public $protectType;
 
     /**
+     * @example standard
+     *
      * @var string
      */
     public $protectTypeValue;
 
     /**
+     * @example BFFCDFAD-DACC-484E-9BE6-0AF3B3A0DD23
+     *
      * @var string
      */
     public $requestId;

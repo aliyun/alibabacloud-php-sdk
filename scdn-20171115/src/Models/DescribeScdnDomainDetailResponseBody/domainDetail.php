@@ -15,51 +15,71 @@ class domainDetail extends Model
     public $certName;
 
     /**
+     * @example example.com.scdn7mhp.com
+     *
      * @var string
      */
     public $cname;
 
     /**
+     * @example audit failed
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example online
+     *
      * @var string
      */
     public $domainStatus;
 
     /**
+     * @example 2017-11-27T06:51:26Z
+     *
      * @var string
      */
     public $gmtCreated;
 
     /**
+     * @example 2017-11-27T06:51:26Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example rg-acfmyuji4b6r4ry
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $SSLProtocol;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $SSLPub;
 
     /**
+     * @example overseas
+     *
      * @var string
      */
     public $scope;

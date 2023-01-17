@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnCcInfoResponseBody extends Model
 {
     /**
+     * @example BFFCDFAD-DACC-484E-9BE6-0AF3B3A0DD23
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example enable
+     *
      * @var string
      */
     public $status;

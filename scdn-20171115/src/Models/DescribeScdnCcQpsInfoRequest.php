@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnCcQpsInfoRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2017-11-30T00:55:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 2017-11-30T00:55:00Z
+     *
      * @var string
      */
     public $startTime;

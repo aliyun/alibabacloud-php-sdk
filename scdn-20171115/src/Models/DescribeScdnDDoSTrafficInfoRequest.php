@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnDDoSTrafficInfoRequest extends Model
 {
     /**
+     * @example 2017-11-30T00:56:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example ALL
+     *
      * @var string
      */
     public $line;
 
     /**
+     * @example 2017-11-30T00:55:00Z
+     *
      * @var string
      */
     public $startTime;

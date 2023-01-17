@@ -121,8 +121,6 @@ use AlibabaCloud\SDK\Scdn\V20171115\Models\StartScdnDomainRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\StartScdnDomainResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\StopScdnDomainRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\StopScdnDomainResponse;
-use AlibabaCloud\SDK\Scdn\V20171115\Models\TestAmpDescribeScdnDomainIspDataRequest;
-use AlibabaCloud\SDK\Scdn\V20171115\Models\TestAmpDescribeScdnDomainIspDataResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\UpdateScdnDomainRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\UpdateScdnDomainResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\VerifyScdnDomainOwnerRequest;
@@ -2752,6 +2750,9 @@ class Scdn extends OpenApiClient
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
         }
+        if (!Utils::isUnset($request->withHeader)) {
+            $query['WithHeader'] = $request->withHeader;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3120,55 +3121,6 @@ class Scdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopScdnDomainWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param TestAmpDescribeScdnDomainIspDataRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return TestAmpDescribeScdnDomainIspDataResponse
-     */
-    public function testAmpDescribeScdnDomainIspDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'TestAmpDescribeScdnDomainIspData',
-            'version'     => '2017-11-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return TestAmpDescribeScdnDomainIspDataResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param TestAmpDescribeScdnDomainIspDataRequest $request
-     *
-     * @return TestAmpDescribeScdnDomainIspDataResponse
-     */
-    public function testAmpDescribeScdnDomainIspData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->testAmpDescribeScdnDomainIspDataWithOptions($request, $runtime);
     }
 
     /**

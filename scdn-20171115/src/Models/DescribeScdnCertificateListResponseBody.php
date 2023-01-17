@@ -15,6 +15,8 @@ class DescribeScdnCertificateListResponseBody extends Model
     public $certificateListModel;
 
     /**
+     * @example FC0E34AC-0239-44A7-AB0E-800DE522C8DA
+     *
      * @var string
      */
     public $requestId;

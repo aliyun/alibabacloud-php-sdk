@@ -15,16 +15,22 @@ class DescribeScdnCcTopUrlResponseBody extends Model
     public $attackUrlDataList;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example FA2EE241-5E9D-488A-B36E-408BF81C077E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $total;

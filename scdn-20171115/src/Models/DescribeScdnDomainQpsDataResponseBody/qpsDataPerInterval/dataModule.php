@@ -9,36 +9,54 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @example 100
+     *
      * @var string
      */
     public $accValue;
 
     /**
+     * @example 50
+     *
      * @var string
      */
     public $httpAccValue;
 
     /**
+     * @description http QPS。
+     *
+     * @example 0.28
+     *
      * @var string
      */
     public $httpQpsValue;
 
     /**
+     * @example 50
+     *
      * @var string
      */
     public $httpsAccValue;
 
     /**
+     * @description https QPS。
+     *
+     * @example 0.28
+     *
      * @var string
      */
     public $httpsQpsValue;
 
     /**
+     * @example 0.56
+     *
      * @var string
      */
     public $qpsValue;
 
     /**
+     * @example 2017-12-10T21:00:00Z
+     *
      * @var string
      */
     public $timeStamp;

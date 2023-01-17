@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RefreshScdnObjectCachesRequest extends Model
 {
     /**
+     * @example example.aliyundoc.com/examplefile.txt
+     *
      * @var string
      */
     public $objectPath;
 
     /**
+     * @example File
+     *
      * @var string
      */
     public $objectType;

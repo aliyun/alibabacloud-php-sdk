@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnDomainPvDataRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2015-11-29T00:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 2015-11-28T00:00:00Z
+     *
      * @var string
      */
     public $startTime;

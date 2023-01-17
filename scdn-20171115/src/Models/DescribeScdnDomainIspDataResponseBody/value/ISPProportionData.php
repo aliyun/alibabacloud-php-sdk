@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ISPProportionData extends Model
 {
     /**
+     * @example 2888253.7875
+     *
      * @var string
      */
     public $avgObjectSize;
 
     /**
+     * @example 787.8073097249128
+     *
      * @var string
      */
     public $avgResponseRate;
 
     /**
+     * @example 3666.193181818182
+     *
      * @var string
      */
     public $avgResponseTime;
 
     /**
+     * @example 40343.86242857143
+     *
      * @var string
      */
     public $bps;
 
     /**
+     * @example 0.37532921137846464
+     *
      * @var string
      */
     public $bytesProportion;
@@ -39,31 +49,43 @@ class ISPProportionData extends Model
     public $ISP;
 
     /**
+     * @example China Mobile
+     *
      * @var string
      */
     public $ispEname;
 
     /**
+     * @example 0.33908754623921084
+     *
      * @var string
      */
     public $proportion;
 
     /**
+     * @example 0.001746031746031746
+     *
      * @var string
      */
     public $qps;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $reqErrRate;
 
     /**
+     * @example 254166333
+     *
      * @var string
      */
     public $totalBytes;
 
     /**
+     * @example 88
+     *
      * @var string
      */
     public $totalQuery;

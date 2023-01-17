@@ -15,11 +15,15 @@ class DescribeScdnDomainLogResponseBody extends Model
     public $domainLogDetails;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 077D0284-F041-4A41-A932-B48377FDAA25
+     *
      * @var string
      */
     public $requestId;

@@ -17,6 +17,8 @@ class DescribeScdnCcQpsInfoResponseBody extends Model
     public $attacks;
 
     /**
+     * @example FA2EE241-5E9D-488A-B36E-408BF81C077E
+     *
      * @var string
      */
     public $requestId;

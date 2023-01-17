@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetScdnCcInfoRequest extends Model
 {
     /**
+     * @example enable
+     *
      * @var string
      */
     public $status;

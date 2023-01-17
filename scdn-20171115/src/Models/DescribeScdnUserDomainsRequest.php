@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnUserDomainsRequest extends Model
 {
     /**
+     * @example 201911111
+     *
      * @var string
      */
     public $changeEndTime;
 
     /**
+     * @example 201911111
+     *
      * @var string
      */
     public $changeStartTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $checkDomainShow;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example fuzzy_match
+     *
      * @var string
      */
     public $domainSearchType;
@@ -44,16 +54,22 @@ class DescribeScdnUserDomainsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $resourceGroupId;

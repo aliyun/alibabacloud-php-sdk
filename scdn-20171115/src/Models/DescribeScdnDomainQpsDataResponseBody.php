@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnDomainQpsDataResponseBody extends Model
 {
     /**
+     * @example 300
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2017-12-10T21:00:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -30,11 +36,15 @@ class DescribeScdnDomainQpsDataResponseBody extends Model
     public $qpsDataPerInterval;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2017-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;

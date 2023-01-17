@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class functionArg extends Model
 {
     /**
+     * @example domain_name
+     *
      * @var string
      */
     public $argName;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $argValue;

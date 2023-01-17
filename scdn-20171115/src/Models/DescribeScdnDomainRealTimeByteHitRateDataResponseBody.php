@@ -15,6 +15,8 @@ class DescribeScdnDomainRealTimeByteHitRateDataResponseBody extends Model
     public $data;
 
     /**
+     * @example B955107D-E658-4E77-B913-E0AC3D31693E
+     *
      * @var string
      */
     public $requestId;

@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnTopDomainsByFlowResponseBody extends Model
 {
     /**
+     * @example 68
+     *
      * @var int
      */
     public $domainCount;
 
     /**
+     * @example 68
+     *
      * @var int
      */
     public $domainOnlineCount;
 
     /**
+     * @example 2016-03-14T07:34:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 4E09C5D7-E1CF-4CAA-A45E-8727F4C8FD70
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2016-03-14T06:34:00Z
+     *
      * @var string
      */
     public $startTime;

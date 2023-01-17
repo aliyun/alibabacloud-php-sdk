@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class urlList extends Model
 {
     /**
+     * @example 460486880
+     *
      * @var string
      */
     public $flow;
 
     /**
+     * @example 0.35
+     *
      * @var float
      */
     public $flowProportion;
 
     /**
+     * @example http://example.com/nn_live/nn_x64/a0.m3u8
+     *
      * @var string
      */
     public $urlDetail;
 
     /**
+     * @example 161673
+     *
      * @var string
      */
     public $visitData;
 
     /**
+     * @example 0.35
+     *
      * @var float
      */
     public $visitProportion;

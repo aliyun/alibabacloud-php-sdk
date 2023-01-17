@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class timeScope extends Model
 {
     /**
+     * @example 60000
+     *
      * @var string
      */
     public $interval;
 
     /**
+     * @example 1512003300000
+     *
      * @var string
      */
     public $start;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StopScdnDomainRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;

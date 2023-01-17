@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class PreloadScdnObjectCachesResponseBody extends Model
 {
     /**
+     * @example 9524****
+     *
      * @var string
      */
     public $preloadTaskId;
 
     /**
+     * @example E5BD4B50-7A02-493A-AE0B-97B9024B413
+     *
      * @var string
      */
     public $requestId;

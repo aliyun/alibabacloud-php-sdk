@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchUpdateScdnDomainRequest extends Model
 {
     /**
+     * @example example.com,aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
@@ -19,6 +21,8 @@ class BatchUpdateScdnDomainRequest extends Model
     public $ownerId;
 
     /**
+     * @example rg-xxx
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -29,11 +33,15 @@ class BatchUpdateScdnDomainRequest extends Model
     public $securityToken;
 
     /**
+     * @example [{"content":"1.1.1.1","type":"ipaddr","priority":"20","port":80,"weight":"15"}]
+     *
      * @var string
      */
     public $sources;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $topLevelDomain;

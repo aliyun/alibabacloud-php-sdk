@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnDomainHitRateDataResponseBody extends Model
 {
     /**
+     * @example 3600
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2018-03-02T15:00:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -30,11 +36,15 @@ class DescribeScdnDomainHitRateDataResponseBody extends Model
     public $hitRatePerInterval;
 
     /**
+     * @example 4D07ABFE-4737-4834-B1B9-A661308C47B4
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2018-03-02T12:00:00Z
+     *
      * @var string
      */
     public $startTime;

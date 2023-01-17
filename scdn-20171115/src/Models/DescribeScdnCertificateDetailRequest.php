@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnCertificateDetailRequest extends Model
 {
     /**
+     * @example certname
+     *
      * @var string
      */
     public $certName;

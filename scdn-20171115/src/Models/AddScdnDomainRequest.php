@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddScdnDomainRequest extends Model
 {
     /**
+     * @example www.yourdomain.com/test.html
+     *
      * @var string
      */
     public $checkUrl;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -29,11 +33,15 @@ class AddScdnDomainRequest extends Model
     public $ownerId;
 
     /**
+     * @example rg-acfmyuji4b6r4**
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example overseas
+     *
      * @var string
      */
     public $scope;
@@ -44,6 +52,8 @@ class AddScdnDomainRequest extends Model
     public $securityToken;
 
     /**
+     * @example [{"content":"1.1.1.1","type":"ipaddr","priority":"20","port":80}]
+     *
      * @var string
      */
     public $sources;

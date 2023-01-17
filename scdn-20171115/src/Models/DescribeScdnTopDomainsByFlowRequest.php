@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnTopDomainsByFlowRequest extends Model
 {
     /**
+     * @example 2016-03-14T07:34:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example scdn
+     *
      * @var string
      */
     public $product;
 
     /**
+     * @example 2016-03-01T04:00:00Z
+     *
      * @var string
      */
     public $startTime;

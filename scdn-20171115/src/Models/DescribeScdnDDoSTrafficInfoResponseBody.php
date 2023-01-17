@@ -34,6 +34,8 @@ class DescribeScdnDDoSTrafficInfoResponseBody extends Model
     public $ppsTotals;
 
     /**
+     * @example 8EEEA133-B4E4-4BE4-B00D-93B60387D8FD
+     *
      * @var string
      */
     public $requestId;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnDomainHttpCodeDataRequest extends Model
 {
     /**
+     * @example example.com,aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2018-03-01T13:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 300
+     *
      * @var string
      */
     public $interval;
 
     /**
+     * @example alibaba
+     *
      * @var string
      */
     public $ispNameEn;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $locationNameEn;
 
     /**
+     * @example 2018-03-01T05:00:00Z
+     *
      * @var string
      */
     public $startTime;

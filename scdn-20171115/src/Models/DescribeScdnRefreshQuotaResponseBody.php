@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnRefreshQuotaResponseBody extends Model
 {
     /**
+     * @example 100
+     *
      * @var string
      */
     public $blockQuota;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $dirQuota;
 
     /**
+     * @example 99
+     *
      * @var string
      */
     public $dirRemain;
 
     /**
+     * @example 500
+     *
      * @var string
      */
     public $preloadQuota;
 
     /**
+     * @example 400
+     *
      * @var string
      */
     public $preloadRemain;
 
     /**
+     * @example 42E0554B-80F4-4921-AED6-ACFB22CAAAD0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2000
+     *
      * @var string
      */
     public $urlQuota;
 
     /**
+     * @example 1996
+     *
      * @var string
      */
     public $urlRemain;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $blockRemain;

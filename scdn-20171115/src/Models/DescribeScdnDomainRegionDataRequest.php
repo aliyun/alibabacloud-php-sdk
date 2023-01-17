@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnDomainRegionDataRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2015-12-07T12:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 2015-12-05T12:00:00Z
+     *
      * @var string
      */
     public $startTime;

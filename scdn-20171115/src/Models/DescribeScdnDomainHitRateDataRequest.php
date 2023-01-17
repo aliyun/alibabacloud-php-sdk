@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnDomainHitRateDataRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2018-03-02T15:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 300
+     *
      * @var string
      */
     public $interval;
 
     /**
+     * @example 2018-03-02T12:00:00Z
+     *
      * @var string
      */
     public $startTime;

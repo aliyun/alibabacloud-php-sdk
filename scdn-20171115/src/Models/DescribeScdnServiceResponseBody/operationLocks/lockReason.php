@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class lockReason extends Model
 {
     /**
+     * @example financial
+     *
      * @var string
      */
     public $lockReason;

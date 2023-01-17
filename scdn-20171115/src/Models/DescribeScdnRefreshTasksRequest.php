@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnRefreshTasksRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2017-01-01T12:13:20Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example http://example.com/examplefile.txt
+     *
      * @var string
      */
     public $objectPath;
 
     /**
+     * @example file
+     *
      * @var string
      */
     public $objectType;
@@ -34,16 +42,22 @@ class DescribeScdnRefreshTasksRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example rg-acfmyuji4b6****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -54,16 +68,22 @@ class DescribeScdnRefreshTasksRequest extends Model
     public $securityToken;
 
     /**
+     * @example 2017-01-01T12:12:20Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example Complete
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 70422****
+     *
      * @var string
      */
     public $taskId;

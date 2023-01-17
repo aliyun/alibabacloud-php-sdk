@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnDomainTopUrlVisitRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example pv
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example 2018-10-03T16:00:00Z
+     *
      * @var string
      */
     public $startTime;

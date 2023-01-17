@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnDDoSInfoResponseBody extends Model
 {
     /**
+     * @example 80
+     *
      * @var int
      */
     public $elasticBandwidth;
 
     /**
+     * @example BFFCDFAD-DACC-484E-9BE6-0AF3B3A0DD23
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $secBandwidth;

@@ -19,16 +19,22 @@ class DescribeScdnDomainTopUrlVisitResponseBody extends Model
     public $allUrlList;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 64D28B53-5902-409B-94F6-FD46680144FE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2018-10-03T16:00:00Z
+     *
      * @var string
      */
     public $startTime;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnCcTopUrlRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2017-11-30T0 1:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @example 2017-11-30T00:55:00Z
+     *
      * @var string
      */
     public $startTime;

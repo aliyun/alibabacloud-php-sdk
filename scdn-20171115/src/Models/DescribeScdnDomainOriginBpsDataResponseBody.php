@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnDomainOriginBpsDataResponseBody extends Model
 {
     /**
+     * @example 300
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2017-12-10T21:00:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -30,11 +36,15 @@ class DescribeScdnDomainOriginBpsDataResponseBody extends Model
     public $originBpsDataPerInterval;
 
     /**
+     * @example 7CBCD6AD-B016-42E5-AE0B-B3731DE8F755
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2017-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;

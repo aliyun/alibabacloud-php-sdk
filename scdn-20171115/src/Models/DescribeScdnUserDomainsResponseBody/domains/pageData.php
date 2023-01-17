@@ -10,46 +10,64 @@ use AlibabaCloud\Tea\Model;
 class pageData extends Model
 {
     /**
+     * @example image.developer.aliyundoc.com
+     *
      * @var string
      */
     public $cname;
 
     /**
+     * @example audit failed
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example example.aliyun.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example online
+     *
      * @var string
      */
     public $domainStatus;
 
     /**
+     * @example 2015-10-28T11:05:52Z
+     *
      * @var string
      */
     public $gmtCreated;
 
     /**
+     * @example 2015-10-28T11:05:52Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example abcd1234abcd1234
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $SSLProtocol;
 
     /**
+     * @example normal
+     *
      * @var string
      */
     public $sandbox;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnDomainCnameRequest extends Model
 {
     /**
+     * @example aliyundoc.com
+     *
      * @var string
      */
     public $domainName;

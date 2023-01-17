@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class httpCodeDataModule extends Model
 {
     /**
+     * @example 404
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 16
+     *
      * @var string
      */
     public $count;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $proportion;

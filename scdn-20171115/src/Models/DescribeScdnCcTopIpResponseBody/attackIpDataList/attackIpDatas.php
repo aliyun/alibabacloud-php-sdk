@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class attackIpDatas extends Model
 {
     /**
+     * @example 2018398
+     *
      * @var string
      */
     public $attackCount;
 
     /**
+     * @example 1.XXX.XXX.4
+     *
      * @var string
      */
     public $ip;

@@ -15,6 +15,8 @@ class DescribeScdnDomainRealTimeBpsDataResponseBody extends Model
     public $data;
 
     /**
+     * @example B49E6DDA-F413-422B-B58E-2FA23F286726
+     *
      * @var string
      */
     public $requestId;

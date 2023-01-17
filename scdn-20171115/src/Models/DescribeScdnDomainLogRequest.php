@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnDomainLogRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2016-10-20T04:10:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2016-10-20T04:00:00Z
+     *
      * @var string
      */
     public $startTime;

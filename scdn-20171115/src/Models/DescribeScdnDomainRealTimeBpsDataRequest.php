@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnDomainRealTimeBpsDataRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2018-01-02T11:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example telecom
+     *
      * @var string
      */
     public $ispNameEn;
 
     /**
+     * @example beijing
+     *
      * @var string
      */
     public $locationNameEn;
 
     /**
+     * @example 2018-01-02T11:00:00Z
+     *
      * @var string
      */
     public $startTime;

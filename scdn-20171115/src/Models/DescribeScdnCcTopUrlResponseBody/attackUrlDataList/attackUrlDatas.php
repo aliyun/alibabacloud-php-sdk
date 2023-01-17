@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class attackUrlDatas extends Model
 {
     /**
+     * @example 2018398
+     *
      * @var string
      */
     public $attackCount;
 
     /**
+     * @example /xxxxx/xxx
+     *
      * @var string
      */
     public $url;

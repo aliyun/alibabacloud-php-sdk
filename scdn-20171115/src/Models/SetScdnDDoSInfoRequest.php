@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetScdnDDoSInfoRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $elasticBandwidth;

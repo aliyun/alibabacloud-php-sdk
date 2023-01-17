@@ -15,21 +15,29 @@ class DescribeScdnUserDomainsResponseBody extends Model
     public $domains;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example AA75AADB-5E25-4970-B480-EAA1F5658483
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $totalCount;

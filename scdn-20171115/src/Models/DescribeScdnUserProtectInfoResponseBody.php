@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnUserProtectInfoResponseBody extends Model
 {
     /**
+     * @example BFFCDFAD-DACC-484E-9BE6-0AF3B3A0DD23
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $serviceDDoS;

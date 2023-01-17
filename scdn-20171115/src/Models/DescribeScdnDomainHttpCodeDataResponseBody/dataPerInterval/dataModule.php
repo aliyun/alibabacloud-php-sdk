@@ -15,6 +15,8 @@ class dataModule extends Model
     public $httpCodeDataPerInterval;
 
     /**
+     * @example 2018-03-01T13:00:00Z
+     *
      * @var string
      */
     public $timeStamp;

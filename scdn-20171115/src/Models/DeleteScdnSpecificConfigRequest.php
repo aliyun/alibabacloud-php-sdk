@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteScdnSpecificConfigRequest extends Model
 {
     /**
+     * @example 2317
+     *
      * @var string
      */
     public $configId;
 
     /**
+     * @example example.com,aliyundoc.com
+     *
      * @var string
      */
     public $domainName;

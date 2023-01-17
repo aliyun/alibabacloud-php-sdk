@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SetScdnBotInfoRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $enable;
 
     /**
+     * @example limit
+     *
      * @var string
      */
     public $status;
