@@ -49,11 +49,6 @@ class DescribeDomainTopClientIpVisitRequest extends Model
     public $locationNameEn;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The method that is used to sort the client IP addresses. Valid values:
      *
      *   **traf**: by network traffic. This is the default value.
@@ -78,7 +73,6 @@ class DescribeDomainTopClientIpVisitRequest extends Model
         'endTime'        => 'EndTime',
         'limit'          => 'Limit',
         'locationNameEn' => 'LocationNameEn',
-        'ownerId'        => 'OwnerId',
         'sortBy'         => 'SortBy',
         'startTime'      => 'StartTime',
     ];
@@ -101,9 +95,6 @@ class DescribeDomainTopClientIpVisitRequest extends Model
         }
         if (null !== $this->locationNameEn) {
             $res['LocationNameEn'] = $this->locationNameEn;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
@@ -134,9 +125,6 @@ class DescribeDomainTopClientIpVisitRequest extends Model
         }
         if (isset($map['LocationNameEn'])) {
             $model->locationNameEn = $map['LocationNameEn'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];

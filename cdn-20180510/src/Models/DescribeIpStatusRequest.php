@@ -16,14 +16,8 @@ class DescribeIpStatusRequest extends Model
      * @var string
      */
     public $ips;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
     protected $_name = [
-        'ips'     => 'Ips',
-        'ownerId' => 'OwnerId',
+        'ips' => 'Ips',
     ];
 
     public function validate()
@@ -35,9 +29,6 @@ class DescribeIpStatusRequest extends Model
         $res = [];
         if (null !== $this->ips) {
             $res['Ips'] = $this->ips;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -53,9 +44,6 @@ class DescribeIpStatusRequest extends Model
         $model = new self();
         if (isset($map['Ips'])) {
             $model->ips = $map['Ips'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

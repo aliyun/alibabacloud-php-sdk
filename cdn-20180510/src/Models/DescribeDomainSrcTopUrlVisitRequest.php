@@ -28,11 +28,6 @@ class DescribeDomainSrcTopUrlVisitRequest extends Model
     public $endTime;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The method that is used to sort the returned URLs.**** Valid values:
      *
      *   **traf**: by network traffic.
@@ -56,7 +51,6 @@ class DescribeDomainSrcTopUrlVisitRequest extends Model
     protected $_name = [
         'domainName' => 'DomainName',
         'endTime'    => 'EndTime',
-        'ownerId'    => 'OwnerId',
         'sortBy'     => 'SortBy',
         'startTime'  => 'StartTime',
     ];
@@ -73,9 +67,6 @@ class DescribeDomainSrcTopUrlVisitRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
@@ -100,9 +91,6 @@ class DescribeDomainSrcTopUrlVisitRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];

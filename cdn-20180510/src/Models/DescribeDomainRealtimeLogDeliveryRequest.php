@@ -16,14 +16,8 @@ class DescribeDomainRealtimeLogDeliveryRequest extends Model
      * @var string
      */
     public $domain;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
     protected $_name = [
-        'domain'  => 'Domain',
-        'ownerId' => 'OwnerId',
+        'domain' => 'Domain',
     ];
 
     public function validate()
@@ -35,9 +29,6 @@ class DescribeDomainRealtimeLogDeliveryRequest extends Model
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -53,9 +44,6 @@ class DescribeDomainRealtimeLogDeliveryRequest extends Model
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

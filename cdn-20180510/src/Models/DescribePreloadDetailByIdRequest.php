@@ -6,21 +6,16 @@ namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeBlockedRegionsRequest extends Model
+class DescribePreloadDetailByIdRequest extends Model
 {
     /**
-     * @description The language. Valid values:
-     *
-     * - **zh**: simplified Chinese
-     * - **en**: English
-     * - **jp**: Japanese
-     * @example zh
+     * @example 15423123921
      *
      * @var string
      */
-    public $language;
+    public $taskId;
     protected $_name = [
-        'language' => 'Language',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
@@ -30,8 +25,8 @@ class DescribeBlockedRegionsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->language) {
-            $res['Language'] = $this->language;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -40,13 +35,13 @@ class DescribeBlockedRegionsRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeBlockedRegionsRequest
+     * @return DescribePreloadDetailByIdRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Language'])) {
-            $model->language = $map['Language'];
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

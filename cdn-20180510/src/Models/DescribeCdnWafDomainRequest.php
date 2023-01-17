@@ -18,11 +18,6 @@ class DescribeCdnWafDomainRequest extends Model
     public $domainName;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The ID of the region.
      *
      * @example cn-hangzhou
@@ -41,7 +36,6 @@ class DescribeCdnWafDomainRequest extends Model
     public $resourceGroupId;
     protected $_name = [
         'domainName'      => 'DomainName',
-        'ownerId'         => 'OwnerId',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
@@ -55,9 +49,6 @@ class DescribeCdnWafDomainRequest extends Model
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -79,9 +70,6 @@ class DescribeCdnWafDomainRequest extends Model
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

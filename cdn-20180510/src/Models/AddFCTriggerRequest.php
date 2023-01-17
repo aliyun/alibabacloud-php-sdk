@@ -45,13 +45,6 @@ class AddFCTriggerRequest extends Model
     public $notes;
 
     /**
-     * @description 用户ID。
-     *
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The assigned Resource Access Management (RAM) role.
      *
      * @example acs:ram:: 1234567890:role/aliyuncdneventnotificationrole
@@ -82,7 +75,6 @@ class AddFCTriggerRequest extends Model
         'eventMetaVersion' => 'EventMetaVersion',
         'functionARN'      => 'FunctionARN',
         'notes'            => 'Notes',
-        'ownerId'          => 'OwnerId',
         'roleARN'          => 'RoleARN',
         'sourceARN'        => 'SourceARN',
         'triggerARN'       => 'TriggerARN',
@@ -106,9 +98,6 @@ class AddFCTriggerRequest extends Model
         }
         if (null !== $this->notes) {
             $res['Notes'] = $this->notes;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->roleARN) {
             $res['RoleARN'] = $this->roleARN;
@@ -142,9 +131,6 @@ class AddFCTriggerRequest extends Model
         }
         if (isset($map['Notes'])) {
             $model->notes = $map['Notes'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['RoleARN'])) {
             $model->roleARN = $map['RoleARN'];

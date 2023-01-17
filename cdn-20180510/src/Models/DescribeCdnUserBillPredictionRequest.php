@@ -50,11 +50,6 @@ class DescribeCdnUserBillPredictionRequest extends Model
     public $endTime;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The default value is 00:00 on the first day of the current month. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
      *
      * @example 2018-09-30T16:00:00Z
@@ -66,7 +61,6 @@ class DescribeCdnUserBillPredictionRequest extends Model
         'area'      => 'Area',
         'dimension' => 'Dimension',
         'endTime'   => 'EndTime',
-        'ownerId'   => 'OwnerId',
         'startTime' => 'StartTime',
     ];
 
@@ -85,9 +79,6 @@ class DescribeCdnUserBillPredictionRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -112,9 +103,6 @@ class DescribeCdnUserBillPredictionRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

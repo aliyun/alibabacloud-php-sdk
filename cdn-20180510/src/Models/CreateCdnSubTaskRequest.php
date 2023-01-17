@@ -19,11 +19,6 @@ class CreateCdnSubTaskRequest extends Model
     public $domainName;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The IDs of the metrics that you want to include in the report. Separate multiple IDs with commas (,). Valid values:
      *
      *   **1**: frequently requested URLs (ranked by the number of requests)
@@ -46,7 +41,6 @@ class CreateCdnSubTaskRequest extends Model
     public $reportIds;
     protected $_name = [
         'domainName' => 'DomainName',
-        'ownerId'    => 'OwnerId',
         'reportIds'  => 'ReportIds',
     ];
 
@@ -59,9 +53,6 @@ class CreateCdnSubTaskRequest extends Model
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->reportIds) {
             $res['ReportIds'] = $this->reportIds;
@@ -80,9 +71,6 @@ class CreateCdnSubTaskRequest extends Model
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['ReportIds'])) {
             $model->reportIds = $map['ReportIds'];

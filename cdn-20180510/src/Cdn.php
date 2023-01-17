@@ -42,7 +42,6 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteCdnDeliverTaskRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteCdnDeliverTaskResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteCdnDomainRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteCdnDomainResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteCdnSubTaskRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteCdnSubTaskResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteFCTriggerRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteFCTriggerResponse;
@@ -94,7 +93,6 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSMCertificateDetailRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSMCertificateDetailResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSMCertificateListRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSMCertificateListResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSubListRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSubListResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnUserBillHistoryRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnUserBillHistoryResponse;
@@ -220,6 +218,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeIpStatusRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeIpStatusResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeL2VipsByDomainRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeL2VipsByDomainResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribePreloadDetailByIdRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribePreloadDetailByIdResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRangeDataByLocateAndIspServiceRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRangeDataByLocateAndIspServiceResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRealtimeDeliveryAccRequest;
@@ -230,19 +230,16 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRefreshTaskByIdRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRefreshTaskByIdResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRefreshTasksRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRefreshTasksResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeStagingIpRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeStagingIpResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeTagResourcesRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeTagResourcesResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeTopDomainsByFlowRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeTopDomainsByFlowResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeUserCertificateExpireCountRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeUserCertificateExpireCountResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeUserConfigsRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeUserConfigsResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeUserDomainsRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeUserDomainsResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeUserTagsRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeUserTagsResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeUserUsageDataExportTaskRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeUserUsageDataExportTaskResponse;
@@ -262,9 +259,7 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\ListFCTriggerRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ListFCTriggerResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ListRealtimeLogDeliveryDomainsRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ListRealtimeLogDeliveryDomainsResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\ListRealtimeLogDeliveryInfosRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ListRealtimeLogDeliveryInfosResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\ListUserCustomLogConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ListUserCustomLogConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainResponse;
@@ -457,9 +452,6 @@ class Cdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->triggerARN)) {
             $query['TriggerARN'] = $request->triggerARN;
         }
@@ -1005,9 +997,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->organizationUnit)) {
             $query['OrganizationUnit'] = $request->organizationUnit;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->SANs)) {
             $query['SANs'] = $request->SANs;
         }
@@ -1057,10 +1046,6 @@ class Cdn extends OpenApiClient
     public function createCdnDeliverTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         $body = [];
         if (!Utils::isUnset($request->deliver)) {
             $body['Deliver'] = $request->deliver;
@@ -1078,8 +1063,7 @@ class Cdn extends OpenApiClient
             $body['Schedule'] = $request->schedule;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateCdnDeliverTask',
@@ -1122,10 +1106,6 @@ class Cdn extends OpenApiClient
     public function createCdnSubTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         $body = [];
         if (!Utils::isUnset($request->domainName)) {
             $body['DomainName'] = $request->domainName;
@@ -1134,8 +1114,7 @@ class Cdn extends OpenApiClient
             $body['ReportIds'] = $request->reportIds;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateCdnSubTask',
@@ -1181,9 +1160,6 @@ class Cdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->taskName)) {
             $query['TaskName'] = $request->taskName;
         }
@@ -1293,9 +1269,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->language)) {
             $query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -1357,9 +1330,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->language)) {
             $query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -1413,9 +1383,6 @@ class Cdn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->deliverId)) {
             $query['DeliverId'] = $request->deliverId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1509,21 +1476,13 @@ class Cdn extends OpenApiClient
     /**
      * >  You can call this API operation up to three times per second per account.
      *   *
-     * @param DeleteCdnSubTaskRequest $request DeleteCdnSubTaskRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
      * @return DeleteCdnSubTaskResponse DeleteCdnSubTaskResponse
      */
-    public function deleteCdnSubTaskWithOptions($request, $runtime)
+    public function deleteCdnSubTaskWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
+        $req    = new OpenApiRequest([]);
         $params = new Params([
             'action'      => 'DeleteCdnSubTask',
             'version'     => '2018-05-10',
@@ -1542,15 +1501,13 @@ class Cdn extends OpenApiClient
     /**
      * >  You can call this API operation up to three times per second per account.
      *   *
-     * @param DeleteCdnSubTaskRequest $request DeleteCdnSubTaskRequest
-     *
      * @return DeleteCdnSubTaskResponse DeleteCdnSubTaskResponse
      */
-    public function deleteCdnSubTask($request)
+    public function deleteCdnSubTask()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteCdnSubTaskWithOptions($request, $runtime);
+        return $this->deleteCdnSubTaskWithOptions($runtime);
     }
 
     /**
@@ -1563,9 +1520,6 @@ class Cdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->triggerARN)) {
             $query['TriggerARN'] = $request->triggerARN;
         }
@@ -1811,9 +1765,6 @@ class Cdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->taskId)) {
             $query['TaskId'] = $request->taskId;
         }
@@ -1861,9 +1812,6 @@ class Cdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->taskId)) {
             $query['TaskId'] = $request->taskId;
         }
@@ -2061,9 +2009,6 @@ class Cdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
@@ -2401,9 +2346,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->functionNames)) {
             $query['FunctionNames'] = $request->functionNames;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2450,9 +2392,6 @@ class Cdn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->keyword)) {
             $query['Keyword'] = $request->keyword;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -2620,9 +2559,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->isOverseas)) {
             $query['IsOverseas'] = $request->isOverseas;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->reportId)) {
             $query['ReportId'] = $request->reportId;
         }
@@ -2674,9 +2610,6 @@ class Cdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->reportId)) {
             $query['ReportId'] = $request->reportId;
         }
@@ -2873,21 +2806,13 @@ class Cdn extends OpenApiClient
      * > - By default, this operation queries all tracking tasks. However, only one tracking task can be displayed. Therefore, only one tracking task is returned.
      *   * - You can call this API operation up to three times per second per account.
      *   *
-     * @param DescribeCdnSubListRequest $request DescribeCdnSubListRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
      * @return DescribeCdnSubListResponse DescribeCdnSubListResponse
      */
-    public function describeCdnSubListWithOptions($request, $runtime)
+    public function describeCdnSubListWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
+        $req    = new OpenApiRequest([]);
         $params = new Params([
             'action'      => 'DescribeCdnSubList',
             'version'     => '2018-05-10',
@@ -2907,15 +2832,13 @@ class Cdn extends OpenApiClient
      * > - By default, this operation queries all tracking tasks. However, only one tracking task can be displayed. Therefore, only one tracking task is returned.
      *   * - You can call this API operation up to three times per second per account.
      *   *
-     * @param DescribeCdnSubListRequest $request DescribeCdnSubListRequest
-     *
      * @return DescribeCdnSubListResponse DescribeCdnSubListResponse
      */
-    public function describeCdnSubList($request)
+    public function describeCdnSubList()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeCdnSubListWithOptions($request, $runtime);
+        return $this->describeCdnSubListWithOptions($runtime);
     }
 
     /**
@@ -2933,9 +2856,6 @@ class Cdn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -3000,9 +2920,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -3056,9 +2973,6 @@ class Cdn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -3317,9 +3231,6 @@ class Cdn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -3774,9 +3685,6 @@ class Cdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -5826,9 +5734,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->sortBy)) {
             $query['SortBy'] = $request->sortBy;
         }
@@ -5971,9 +5876,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->sortBy)) {
             $query['SortBy'] = $request->sortBy;
         }
@@ -6035,9 +5937,6 @@ class Cdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->sortBy)) {
             $query['SortBy'] = $request->sortBy;
@@ -6501,9 +6400,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->ruleId)) {
             $query['RuleId'] = $request->ruleId;
         }
@@ -6556,9 +6452,6 @@ class Cdn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->ruleId)) {
             $query['RuleId'] = $request->ruleId;
@@ -6651,9 +6544,6 @@ class Cdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->taskId)) {
             $query['TaskId'] = $request->taskId;
         }
@@ -6837,6 +6727,49 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @param DescribePreloadDetailByIdRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribePreloadDetailByIdResponse
+     */
+    public function describePreloadDetailByIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePreloadDetailById',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePreloadDetailByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePreloadDetailByIdRequest $request
+     *
+     * @return DescribePreloadDetailByIdResponse
+     */
+    public function describePreloadDetailById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePreloadDetailByIdWithOptions($request, $runtime);
+    }
+
+    /**
      * *   The data is collected every 5 minutes.
      *   * *   The maximum number of times that each user can call this operation per second is 20.
      *   *
@@ -6920,9 +6853,6 @@ class Cdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->logStore)) {
             $query['LogStore'] = $request->logStore;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->project)) {
             $query['Project'] = $request->project;
@@ -7157,21 +7087,13 @@ class Cdn extends OpenApiClient
     /**
      * >  The maximum number of times that each user can call this operation per second is 30.
      *   *
-     * @param DescribeStagingIpRequest $request DescribeStagingIpRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
      * @return DescribeStagingIpResponse DescribeStagingIpResponse
      */
-    public function describeStagingIpWithOptions($request, $runtime)
+    public function describeStagingIpWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
+        $req    = new OpenApiRequest([]);
         $params = new Params([
             'action'      => 'DescribeStagingIp',
             'version'     => '2018-05-10',
@@ -7190,15 +7112,13 @@ class Cdn extends OpenApiClient
     /**
      * >  The maximum number of times that each user can call this operation per second is 30.
      *   *
-     * @param DescribeStagingIpRequest $request DescribeStagingIpRequest
-     *
      * @return DescribeStagingIpResponse DescribeStagingIpResponse
      */
-    public function describeStagingIp($request)
+    public function describeStagingIp()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeStagingIpWithOptions($request, $runtime);
+        return $this->describeStagingIpWithOptions($runtime);
     }
 
     /**
@@ -7277,9 +7197,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->limit)) {
             $query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -7320,21 +7237,13 @@ class Cdn extends OpenApiClient
     /**
      * >  The maximum number of times that each user can call this operation per second is 100.
      *   *
-     * @param DescribeUserCertificateExpireCountRequest $request DescribeUserCertificateExpireCountRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
      * @return DescribeUserCertificateExpireCountResponse DescribeUserCertificateExpireCountResponse
      */
-    public function describeUserCertificateExpireCountWithOptions($request, $runtime)
+    public function describeUserCertificateExpireCountWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
+        $req    = new OpenApiRequest([]);
         $params = new Params([
             'action'      => 'DescribeUserCertificateExpireCount',
             'version'     => '2018-05-10',
@@ -7353,15 +7262,13 @@ class Cdn extends OpenApiClient
     /**
      * >  The maximum number of times that each user can call this operation per second is 100.
      *   *
-     * @param DescribeUserCertificateExpireCountRequest $request DescribeUserCertificateExpireCountRequest
-     *
      * @return DescribeUserCertificateExpireCountResponse DescribeUserCertificateExpireCountResponse
      */
-    public function describeUserCertificateExpireCount($request)
+    public function describeUserCertificateExpireCount()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeUserCertificateExpireCountWithOptions($request, $runtime);
+        return $this->describeUserCertificateExpireCountWithOptions($runtime);
     }
 
     /**
@@ -7515,21 +7422,13 @@ class Cdn extends OpenApiClient
     /**
      * >  The maximum number of times that each user can call this operation per second is 100.
      *   *
-     * @param DescribeUserTagsRequest $request DescribeUserTagsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
      * @return DescribeUserTagsResponse DescribeUserTagsResponse
      */
-    public function describeUserTagsWithOptions($request, $runtime)
+    public function describeUserTagsWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
+        $req    = new OpenApiRequest([]);
         $params = new Params([
             'action'      => 'DescribeUserTags',
             'version'     => '2018-05-10',
@@ -7548,15 +7447,13 @@ class Cdn extends OpenApiClient
     /**
      * >  The maximum number of times that each user can call this operation per second is 100.
      *   *
-     * @param DescribeUserTagsRequest $request DescribeUserTagsRequest
-     *
      * @return DescribeUserTagsResponse DescribeUserTagsResponse
      */
-    public function describeUserTags($request)
+    public function describeUserTags()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeUserTagsWithOptions($request, $runtime);
+        return $this->describeUserTagsWithOptions($runtime);
     }
 
     /**
@@ -7571,9 +7468,6 @@ class Cdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
@@ -7625,9 +7519,6 @@ class Cdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
@@ -7725,9 +7616,6 @@ class Cdn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -7984,18 +7872,13 @@ class Cdn extends OpenApiClient
     /**
      * >  The maximum number of times that each user can call this operation per second is 100.
      *   *
-     * @param ListRealtimeLogDeliveryInfosRequest $request ListRealtimeLogDeliveryInfosRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
      * @return ListRealtimeLogDeliveryInfosResponse ListRealtimeLogDeliveryInfosResponse
      */
-    public function listRealtimeLogDeliveryInfosWithOptions($request, $runtime)
+    public function listRealtimeLogDeliveryInfosWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
+        $req    = new OpenApiRequest([]);
         $params = new Params([
             'action'      => 'ListRealtimeLogDeliveryInfos',
             'version'     => '2018-05-10',
@@ -8014,32 +7897,25 @@ class Cdn extends OpenApiClient
     /**
      * >  The maximum number of times that each user can call this operation per second is 100.
      *   *
-     * @param ListRealtimeLogDeliveryInfosRequest $request ListRealtimeLogDeliveryInfosRequest
-     *
      * @return ListRealtimeLogDeliveryInfosResponse ListRealtimeLogDeliveryInfosResponse
      */
-    public function listRealtimeLogDeliveryInfos($request)
+    public function listRealtimeLogDeliveryInfos()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listRealtimeLogDeliveryInfosWithOptions($request, $runtime);
+        return $this->listRealtimeLogDeliveryInfosWithOptions($runtime);
     }
 
     /**
      * >  The maximum number of times that each user can call this operation per second is 100.
      *   *
-     * @param ListUserCustomLogConfigRequest $request ListUserCustomLogConfigRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
      * @return ListUserCustomLogConfigResponse ListUserCustomLogConfigResponse
      */
-    public function listUserCustomLogConfigWithOptions($request, $runtime)
+    public function listUserCustomLogConfigWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
+        $req    = new OpenApiRequest([]);
         $params = new Params([
             'action'      => 'ListUserCustomLogConfig',
             'version'     => '2018-05-10',
@@ -8058,15 +7934,13 @@ class Cdn extends OpenApiClient
     /**
      * >  The maximum number of times that each user can call this operation per second is 100.
      *   *
-     * @param ListUserCustomLogConfigRequest $request ListUserCustomLogConfigRequest
-     *
      * @return ListUserCustomLogConfigResponse ListUserCustomLogConfigResponse
      */
-    public function listUserCustomLogConfig($request)
+    public function listUserCustomLogConfig()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listUserCustomLogConfigWithOptions($request, $runtime);
+        return $this->listUserCustomLogConfigWithOptions($runtime);
     }
 
     /**
@@ -8145,9 +8019,6 @@ class Cdn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->property)) {
             $query['Property'] = $request->property;
@@ -8298,9 +8169,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -8369,6 +8237,9 @@ class Cdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->withHeader)) {
+            $query['WithHeader'] = $request->withHeader;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -8505,9 +8376,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -8554,9 +8422,6 @@ class Cdn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->serverCertificate)) {
             $query['ServerCertificate'] = $request->serverCertificate;
@@ -8669,9 +8534,6 @@ class Cdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->functions)) {
             $query['Functions'] = $request->functions;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -8860,9 +8722,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->maxTimeWait)) {
             $query['MaxTimeWait'] = $request->maxTimeWait;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->waitUri)) {
             $query['WaitUri'] = $request->waitUri;
         }
@@ -9023,9 +8882,6 @@ class Cdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->resourceId)) {
             $query['ResourceId'] = $request->resourceId;
         }
@@ -9082,9 +8938,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->all)) {
             $query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->resourceId)) {
             $query['ResourceId'] = $request->resourceId;
         }
@@ -9137,10 +8990,6 @@ class Cdn extends OpenApiClient
     public function updateCdnDeliverTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         $body = [];
         if (!Utils::isUnset($request->deliver)) {
             $body['Deliver'] = $request->deliver;
@@ -9161,8 +9010,7 @@ class Cdn extends OpenApiClient
             $body['Schedule'] = $request->schedule;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateCdnDeliverTask',
@@ -9204,10 +9052,6 @@ class Cdn extends OpenApiClient
     public function updateCdnSubTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         $body = [];
         if (!Utils::isUnset($request->domainName)) {
             $body['DomainName'] = $request->domainName;
@@ -9222,8 +9066,7 @@ class Cdn extends OpenApiClient
             $body['StartTime'] = $request->startTime;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateCdnSubTask',
@@ -9264,9 +9107,6 @@ class Cdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->triggerARN)) {
             $query['TriggerARN'] = $request->triggerARN;
         }

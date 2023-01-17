@@ -19,11 +19,6 @@ class DescribeEsExceptionDataRequest extends Model
     public $endTime;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The ID of the script that you want to query. You can call the [DescribeCdnDomainConfigs](~~90924~~) operation to query script IDs.
      *
      * @example 212896**
@@ -42,7 +37,6 @@ class DescribeEsExceptionDataRequest extends Model
     public $startTime;
     protected $_name = [
         'endTime'   => 'EndTime',
-        'ownerId'   => 'OwnerId',
         'ruleId'    => 'RuleId',
         'startTime' => 'StartTime',
     ];
@@ -56,9 +50,6 @@ class DescribeEsExceptionDataRequest extends Model
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
@@ -80,9 +71,6 @@ class DescribeEsExceptionDataRequest extends Model
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];

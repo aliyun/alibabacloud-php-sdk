@@ -19,11 +19,6 @@ class DescribeCdnUserBillHistoryRequest extends Model
     public $endTime;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
      *
      * The minimum data collection interval is 5 minutes.
@@ -34,7 +29,6 @@ class DescribeCdnUserBillHistoryRequest extends Model
     public $startTime;
     protected $_name = [
         'endTime'   => 'EndTime',
-        'ownerId'   => 'OwnerId',
         'startTime' => 'StartTime',
     ];
 
@@ -47,9 +41,6 @@ class DescribeCdnUserBillHistoryRequest extends Model
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -68,9 +59,6 @@ class DescribeCdnUserBillHistoryRequest extends Model
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

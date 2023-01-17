@@ -63,11 +63,6 @@ class CreateCdnCertificateSigningRequestRequest extends Model
     public $organizationUnit;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The Subject Alternative Name (SAN) extension of the SSL certificate. This extension is used to add domain names to the certificate. Separate multiple domain names with commas (,).
      *
      * @example example.com
@@ -91,7 +86,6 @@ class CreateCdnCertificateSigningRequestRequest extends Model
         'email'            => 'Email',
         'organization'     => 'Organization',
         'organizationUnit' => 'OrganizationUnit',
-        'ownerId'          => 'OwnerId',
         'SANs'             => 'SANs',
         'state'            => 'State',
     ];
@@ -120,9 +114,6 @@ class CreateCdnCertificateSigningRequestRequest extends Model
         }
         if (null !== $this->organizationUnit) {
             $res['OrganizationUnit'] = $this->organizationUnit;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->SANs) {
             $res['SANs'] = $this->SANs;
@@ -159,9 +150,6 @@ class CreateCdnCertificateSigningRequestRequest extends Model
         }
         if (isset($map['OrganizationUnit'])) {
             $model->organizationUnit = $map['OrganizationUnit'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SANs'])) {
             $model->SANs = $map['SANs'];

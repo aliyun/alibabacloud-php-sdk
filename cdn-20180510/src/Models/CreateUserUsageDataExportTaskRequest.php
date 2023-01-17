@@ -31,11 +31,6 @@ class CreateUserUsageDataExportTaskRequest extends Model
     public $language;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The start of the time range to query. The time interval at which the specified data is collected is five minutes.
      *
      * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
@@ -56,7 +51,6 @@ class CreateUserUsageDataExportTaskRequest extends Model
     protected $_name = [
         'endTime'   => 'EndTime',
         'language'  => 'Language',
-        'ownerId'   => 'OwnerId',
         'startTime' => 'StartTime',
         'taskName'  => 'TaskName',
     ];
@@ -73,9 +67,6 @@ class CreateUserUsageDataExportTaskRequest extends Model
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -100,9 +91,6 @@ class CreateUserUsageDataExportTaskRequest extends Model
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

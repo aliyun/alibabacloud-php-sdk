@@ -27,11 +27,6 @@ class CreateRealTimeLogDeliveryRequest extends Model
     public $logstore;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The name of the Log Service project that is used for real-time log delivery.
      *
      * @example ProjectName
@@ -51,7 +46,6 @@ class CreateRealTimeLogDeliveryRequest extends Model
     protected $_name = [
         'domain'   => 'Domain',
         'logstore' => 'Logstore',
-        'ownerId'  => 'OwnerId',
         'project'  => 'Project',
         'region'   => 'Region',
     ];
@@ -68,9 +62,6 @@ class CreateRealTimeLogDeliveryRequest extends Model
         }
         if (null !== $this->logstore) {
             $res['Logstore'] = $this->logstore;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->project) {
             $res['Project'] = $this->project;
@@ -95,9 +86,6 @@ class CreateRealTimeLogDeliveryRequest extends Model
         }
         if (isset($map['Logstore'])) {
             $model->logstore = $map['Logstore'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Project'])) {
             $model->project = $map['Project'];

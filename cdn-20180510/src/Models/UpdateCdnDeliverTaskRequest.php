@@ -46,11 +46,6 @@ class UpdateCdnDeliverTaskRequest extends Model
     public $name;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The operations reports that are tracked by the task. The data must be escaped in JSON.
      *
      * @example [{\"reportId\":3},{\"reportId\":1}]
@@ -72,7 +67,6 @@ class UpdateCdnDeliverTaskRequest extends Model
         'deliverId'  => 'DeliverId',
         'domainName' => 'DomainName',
         'name'       => 'Name',
-        'ownerId'    => 'OwnerId',
         'reports'    => 'Reports',
         'schedule'   => 'Schedule',
     ];
@@ -95,9 +89,6 @@ class UpdateCdnDeliverTaskRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->reports) {
             $res['Reports'] = $this->reports;
@@ -128,9 +119,6 @@ class UpdateCdnDeliverTaskRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Reports'])) {
             $model->reports = $map['Reports'];

@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteFCTriggerRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The trigger that corresponds to the Function Compute service.
      *
      * @example acs:cdn:{RegionID}:{AccountID}:{Filter}
@@ -22,7 +17,6 @@ class DeleteFCTriggerRequest extends Model
      */
     public $triggerARN;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
         'triggerARN' => 'TriggerARN',
     ];
 
@@ -33,9 +27,6 @@ class DeleteFCTriggerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->triggerARN) {
             $res['TriggerARN'] = $this->triggerARN;
         }
@@ -51,9 +42,6 @@ class DeleteFCTriggerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['TriggerARN'])) {
             $model->triggerARN = $map['TriggerARN'];
         }

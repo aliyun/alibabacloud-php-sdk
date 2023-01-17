@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateIllegalUrlExportTaskRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The name of the export task.
      *
      * @example exampleTask
@@ -31,7 +26,6 @@ class CreateIllegalUrlExportTaskRequest extends Model
      */
     public $timePoint;
     protected $_name = [
-        'ownerId'   => 'OwnerId',
         'taskName'  => 'TaskName',
         'timePoint' => 'TimePoint',
     ];
@@ -43,9 +37,6 @@ class CreateIllegalUrlExportTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
@@ -64,9 +55,6 @@ class CreateIllegalUrlExportTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }

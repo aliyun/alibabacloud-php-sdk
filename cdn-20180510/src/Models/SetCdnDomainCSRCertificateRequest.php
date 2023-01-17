@@ -18,11 +18,6 @@ class SetCdnDomainCSRCertificateRequest extends Model
     public $domainName;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The content of the certificate. The certificate must match the certificate signing request (CSR) created by calling the [CreateCdnCertificateSigningRequest](~~144478~~) operation. Make sure that the certificate is in the PEM format, and the content of the certificate is encoded in Base64 and then encoded by encodeURIComponent.
      *
      * @example ----BEGIN CERTIFICATE----- MIIFz****-----END CERTIFICATE-----
@@ -32,7 +27,6 @@ class SetCdnDomainCSRCertificateRequest extends Model
     public $serverCertificate;
     protected $_name = [
         'domainName'        => 'DomainName',
-        'ownerId'           => 'OwnerId',
         'serverCertificate' => 'ServerCertificate',
     ];
 
@@ -45,9 +39,6 @@ class SetCdnDomainCSRCertificateRequest extends Model
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->serverCertificate) {
             $res['ServerCertificate'] = $this->serverCertificate;
@@ -66,9 +57,6 @@ class SetCdnDomainCSRCertificateRequest extends Model
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['ServerCertificate'])) {
             $model->serverCertificate = $map['ServerCertificate'];

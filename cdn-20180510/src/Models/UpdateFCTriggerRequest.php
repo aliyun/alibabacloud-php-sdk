@@ -27,11 +27,6 @@ class UpdateFCTriggerRequest extends Model
     public $notes;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The assigned Resource Access Management (RAM) role.
      *
      * @example acs:ram:: 1234567890:role/aliyuncdneventnotificationrole
@@ -60,7 +55,6 @@ class UpdateFCTriggerRequest extends Model
     protected $_name = [
         'functionARN' => 'FunctionARN',
         'notes'       => 'Notes',
-        'ownerId'     => 'OwnerId',
         'roleARN'     => 'RoleARN',
         'sourceARN'   => 'SourceARN',
         'triggerARN'  => 'TriggerARN',
@@ -78,9 +72,6 @@ class UpdateFCTriggerRequest extends Model
         }
         if (null !== $this->notes) {
             $res['Notes'] = $this->notes;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->roleARN) {
             $res['RoleARN'] = $this->roleARN;
@@ -108,9 +99,6 @@ class UpdateFCTriggerRequest extends Model
         }
         if (isset($map['Notes'])) {
             $model->notes = $map['Notes'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['RoleARN'])) {
             $model->roleARN = $map['RoleARN'];

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeEsExceptionDataResponseBody;
 
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeEsExceptionDataResponseBody\contents\points;
 use AlibabaCloud\Tea\Model;
 
 class contents extends Model
@@ -27,7 +28,7 @@ class contents extends Model
     /**
      * @description The value of each time and the column of each data entry.
      *
-     * @var string[]
+     * @var points[]
      */
     public $points;
     protected $_name = [
@@ -50,7 +51,13 @@ class contents extends Model
             $res['Name'] = $this->name;
         }
         if (null !== $this->points) {
-            $res['Points'] = $this->points;
+            $res['Points'] = [];
+            if (null !== $this->points && \is_array($this->points)) {
+                $n = 0;
+                foreach ($this->points as $item) {
+                    $res['Points'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -74,7 +81,11 @@ class contents extends Model
         }
         if (isset($map['Points'])) {
             if (!empty($map['Points'])) {
-                $model->points = $map['Points'];
+                $model->points = [];
+                $n             = 0;
+                foreach ($map['Points'] as $item) {
+                    $model->points[$n++] = null !== $item ? points::fromMap($item) : $item;
+                }
             }
         }
 

@@ -18,11 +18,6 @@ class DeleteRealTimeLogLogstoreRequest extends Model
     public $logstore;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The name of the Log Service project that is used for real-time log delivery.
      *
      * @example ProjectName
@@ -41,7 +36,6 @@ class DeleteRealTimeLogLogstoreRequest extends Model
     public $region;
     protected $_name = [
         'logstore' => 'Logstore',
-        'ownerId'  => 'OwnerId',
         'project'  => 'Project',
         'region'   => 'Region',
     ];
@@ -55,9 +49,6 @@ class DeleteRealTimeLogLogstoreRequest extends Model
         $res = [];
         if (null !== $this->logstore) {
             $res['Logstore'] = $this->logstore;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->project) {
             $res['Project'] = $this->project;
@@ -79,9 +70,6 @@ class DeleteRealTimeLogLogstoreRequest extends Model
         $model = new self();
         if (isset($map['Logstore'])) {
             $model->logstore = $map['Logstore'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Project'])) {
             $model->project = $map['Project'];

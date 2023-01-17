@@ -25,15 +25,9 @@ class ListFCTriggerRequest extends Model
      * @var string
      */
     public $eventMetaVersion;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
     protected $_name = [
         'eventMetaName'    => 'EventMetaName',
         'eventMetaVersion' => 'EventMetaVersion',
-        'ownerId'          => 'OwnerId',
     ];
 
     public function validate()
@@ -48,9 +42,6 @@ class ListFCTriggerRequest extends Model
         }
         if (null !== $this->eventMetaVersion) {
             $res['EventMetaVersion'] = $this->eventMetaVersion;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -69,9 +60,6 @@ class ListFCTriggerRequest extends Model
         }
         if (isset($map['EventMetaVersion'])) {
             $model->eventMetaVersion = $map['EventMetaVersion'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

@@ -41,11 +41,6 @@ class DescribeRealtimeDeliveryAccRequest extends Model
     public $logStore;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The name of the Log Service project that is used for real-time log delivery. By default, all projects are queried.
      *
      * @example Project
@@ -66,7 +61,6 @@ class DescribeRealtimeDeliveryAccRequest extends Model
         'endTime'   => 'EndTime',
         'interval'  => 'Interval',
         'logStore'  => 'LogStore',
-        'ownerId'   => 'OwnerId',
         'project'   => 'Project',
         'startTime' => 'StartTime',
     ];
@@ -86,9 +80,6 @@ class DescribeRealtimeDeliveryAccRequest extends Model
         }
         if (null !== $this->logStore) {
             $res['LogStore'] = $this->logStore;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->project) {
             $res['Project'] = $this->project;
@@ -116,9 +107,6 @@ class DescribeRealtimeDeliveryAccRequest extends Model
         }
         if (isset($map['LogStore'])) {
             $model->logStore = $map['LogStore'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Project'])) {
             $model->project = $map['Project'];

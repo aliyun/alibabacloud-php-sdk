@@ -29,11 +29,6 @@ class DescribeDomainCcActivityLogRequest extends Model
     public $endTime;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
@@ -96,7 +91,6 @@ class DescribeDomainCcActivityLogRequest extends Model
     protected $_name = [
         'domainName'    => 'DomainName',
         'endTime'       => 'EndTime',
-        'ownerId'       => 'OwnerId',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
         'ruleName'      => 'RuleName',
@@ -117,9 +111,6 @@ class DescribeDomainCcActivityLogRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -156,9 +147,6 @@ class DescribeDomainCcActivityLogRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

@@ -22,11 +22,6 @@ class UntagResourcesRequest extends Model
     public $all;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The list of resource ID. The max items count is up to 20.
      *
      * @example example.com
@@ -54,7 +49,6 @@ class UntagResourcesRequest extends Model
     public $tagKey;
     protected $_name = [
         'all'          => 'All',
-        'ownerId'      => 'OwnerId',
         'resourceId'   => 'ResourceId',
         'resourceType' => 'ResourceType',
         'tagKey'       => 'TagKey',
@@ -69,9 +63,6 @@ class UntagResourcesRequest extends Model
         $res = [];
         if (null !== $this->all) {
             $res['All'] = $this->all;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -96,9 +87,6 @@ class UntagResourcesRequest extends Model
         $model = new self();
         if (isset($map['All'])) {
             $model->all = $map['All'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {

@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnReportListRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The ID of the operations report that you want to query. If you do not specify an ID, all operations reports are queried.
      *
      * @example 1
@@ -22,7 +17,6 @@ class DescribeCdnReportListRequest extends Model
      */
     public $reportId;
     protected $_name = [
-        'ownerId'  => 'OwnerId',
         'reportId' => 'ReportId',
     ];
 
@@ -33,9 +27,6 @@ class DescribeCdnReportListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->reportId) {
             $res['ReportId'] = $this->reportId;
         }
@@ -51,9 +42,6 @@ class DescribeCdnReportListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['ReportId'])) {
             $model->reportId = $map['ReportId'];
         }

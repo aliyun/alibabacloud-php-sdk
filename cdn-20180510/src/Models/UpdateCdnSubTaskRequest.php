@@ -28,11 +28,6 @@ class UpdateCdnSubTaskRequest extends Model
     public $endTime;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The IDs of operations reports that you want to update. Separate IDs with commas (,).
      *
      * @example 1,2,3
@@ -52,7 +47,6 @@ class UpdateCdnSubTaskRequest extends Model
     protected $_name = [
         'domainName' => 'DomainName',
         'endTime'    => 'EndTime',
-        'ownerId'    => 'OwnerId',
         'reportIds'  => 'ReportIds',
         'startTime'  => 'StartTime',
     ];
@@ -69,9 +63,6 @@ class UpdateCdnSubTaskRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->reportIds) {
             $res['ReportIds'] = $this->reportIds;
@@ -96,9 +87,6 @@ class UpdateCdnSubTaskRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['ReportIds'])) {
             $model->reportIds = $map['ReportIds'];

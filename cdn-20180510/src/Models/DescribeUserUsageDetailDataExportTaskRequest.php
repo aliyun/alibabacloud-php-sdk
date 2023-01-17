@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserUsageDetailDataExportTaskRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The number of the page to return. Valid values: **1** to **100000**.
      *
      * @example 1
@@ -32,7 +27,6 @@ class DescribeUserUsageDetailDataExportTaskRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
     ];
@@ -44,9 +38,6 @@ class DescribeUserUsageDetailDataExportTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -65,9 +56,6 @@ class DescribeUserUsageDetailDataExportTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }

@@ -16,14 +16,8 @@ class DescribeCertificateInfoByIDRequest extends Model
      * @var string
      */
     public $certId;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
     protected $_name = [
-        'certId'  => 'CertId',
-        'ownerId' => 'OwnerId',
+        'certId' => 'CertId',
     ];
 
     public function validate()
@@ -35,9 +29,6 @@ class DescribeCertificateInfoByIDRequest extends Model
         $res = [];
         if (null !== $this->certId) {
             $res['CertId'] = $this->certId;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -53,9 +44,6 @@ class DescribeCertificateInfoByIDRequest extends Model
         $model = new self();
         if (isset($map['CertId'])) {
             $model->certId = $map['CertId'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

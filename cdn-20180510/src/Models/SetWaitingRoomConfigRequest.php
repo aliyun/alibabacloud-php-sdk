@@ -45,11 +45,6 @@ class SetWaitingRoomConfigRequest extends Model
     public $maxTimeWait;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The regular expression that is used to match URI strings for which the virtual waiting room feature is enabled.
      *
      * @example xxx
@@ -71,7 +66,6 @@ class SetWaitingRoomConfigRequest extends Model
         'domainName'  => 'DomainName',
         'gapTime'     => 'GapTime',
         'maxTimeWait' => 'MaxTimeWait',
-        'ownerId'     => 'OwnerId',
         'waitUri'     => 'WaitUri',
         'waitUrl'     => 'WaitUrl',
     ];
@@ -94,9 +88,6 @@ class SetWaitingRoomConfigRequest extends Model
         }
         if (null !== $this->maxTimeWait) {
             $res['MaxTimeWait'] = $this->maxTimeWait;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->waitUri) {
             $res['WaitUri'] = $this->waitUri;
@@ -127,9 +118,6 @@ class SetWaitingRoomConfigRequest extends Model
         }
         if (isset($map['MaxTimeWait'])) {
             $model->maxTimeWait = $map['MaxTimeWait'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['WaitUri'])) {
             $model->waitUri = $map['WaitUri'];

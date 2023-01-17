@@ -66,11 +66,6 @@ class DescribeCdnReportRequest extends Model
     public $isOverseas;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The ID of the operations report that you want to query. You can enter only one ID in each call. You can call the [DescribeCdnSubList](~~271655~~) operation to query the report ID.
      *
      * @example 1
@@ -93,7 +88,6 @@ class DescribeCdnReportRequest extends Model
         'endTime'    => 'EndTime',
         'httpCode'   => 'HttpCode',
         'isOverseas' => 'IsOverseas',
-        'ownerId'    => 'OwnerId',
         'reportId'   => 'ReportId',
         'startTime'  => 'StartTime',
     ];
@@ -119,9 +113,6 @@ class DescribeCdnReportRequest extends Model
         }
         if (null !== $this->isOverseas) {
             $res['IsOverseas'] = $this->isOverseas;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->reportId) {
             $res['ReportId'] = $this->reportId;
@@ -155,9 +146,6 @@ class DescribeCdnReportRequest extends Model
         }
         if (isset($map['IsOverseas'])) {
             $model->isOverseas = $map['IsOverseas'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['ReportId'])) {
             $model->reportId = $map['ReportId'];

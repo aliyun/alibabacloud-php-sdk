@@ -16,14 +16,8 @@ class DescribeCustomLogConfigRequest extends Model
      * @var string
      */
     public $configId;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
     protected $_name = [
         'configId' => 'ConfigId',
-        'ownerId'  => 'OwnerId',
     ];
 
     public function validate()
@@ -35,9 +29,6 @@ class DescribeCustomLogConfigRequest extends Model
         $res = [];
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -53,9 +44,6 @@ class DescribeCustomLogConfigRequest extends Model
         $model = new self();
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

@@ -50,11 +50,6 @@ class CreateUsageDetailDataExportTaskRequest extends Model
     public $language;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The beginning of the time range to query.
      *
      * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
@@ -89,7 +84,6 @@ class CreateUsageDetailDataExportTaskRequest extends Model
         'endTime'     => 'EndTime',
         'group'       => 'Group',
         'language'    => 'Language',
-        'ownerId'     => 'OwnerId',
         'startTime'   => 'StartTime',
         'taskName'    => 'TaskName',
         'type'        => 'Type',
@@ -113,9 +107,6 @@ class CreateUsageDetailDataExportTaskRequest extends Model
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -149,9 +140,6 @@ class CreateUsageDetailDataExportTaskRequest extends Model
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

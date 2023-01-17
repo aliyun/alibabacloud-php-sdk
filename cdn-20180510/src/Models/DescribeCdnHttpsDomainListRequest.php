@@ -18,11 +18,6 @@ class DescribeCdnHttpsDomainListRequest extends Model
     public $keyword;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The number of the page to return. Valid values: **1** to **100000**.
      *
      * @example 5
@@ -41,7 +36,6 @@ class DescribeCdnHttpsDomainListRequest extends Model
     public $pageSize;
     protected $_name = [
         'keyword'    => 'Keyword',
-        'ownerId'    => 'OwnerId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
     ];
@@ -55,9 +49,6 @@ class DescribeCdnHttpsDomainListRequest extends Model
         $res = [];
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -79,9 +70,6 @@ class DescribeCdnHttpsDomainListRequest extends Model
         $model = new self();
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

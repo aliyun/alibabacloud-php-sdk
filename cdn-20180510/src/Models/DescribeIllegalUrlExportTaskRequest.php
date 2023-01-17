@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeIllegalUrlExportTaskRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The ID of the task. You can call the [CreateIllegalUrlExportTask](~~156492~~) operation to query task IDs.
      *
      * @example tu_4b37ea97_a7fa_4d36_b363_061c1f****
@@ -22,8 +17,7 @@ class DescribeIllegalUrlExportTaskRequest extends Model
      */
     public $taskId;
     protected $_name = [
-        'ownerId' => 'OwnerId',
-        'taskId'  => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
@@ -33,9 +27,6 @@ class DescribeIllegalUrlExportTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -51,9 +42,6 @@ class DescribeIllegalUrlExportTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
