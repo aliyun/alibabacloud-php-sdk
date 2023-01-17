@@ -4783,17 +4783,11 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->engineConcurrency)) {
-            $query['EngineConcurrency'] = $request->engineConcurrency;
-        }
         if (!Utils::isUnset($request->projectMaxDatasetCount)) {
             $query['ProjectMaxDatasetCount'] = $request->projectMaxDatasetCount;
         }
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
-        }
-        if (!Utils::isUnset($request->projectQueriesPerSecond)) {
-            $query['ProjectQueriesPerSecond'] = $request->projectQueriesPerSecond;
         }
         if (!Utils::isUnset($request->serviceRole)) {
             $query['ServiceRole'] = $request->serviceRole;

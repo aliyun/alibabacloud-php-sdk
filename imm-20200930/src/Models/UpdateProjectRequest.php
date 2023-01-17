@@ -49,13 +49,6 @@ class UpdateProjectRequest extends Model
     public $description;
 
     /**
-     * @example 10
-     *
-     * @var int
-     */
-    public $engineConcurrency;
-
-    /**
      * @example 1000000000
      *
      * @var int
@@ -68,13 +61,6 @@ class UpdateProjectRequest extends Model
      * @var string
      */
     public $projectName;
-
-    /**
-     * @example 100
-     *
-     * @var int
-     */
-    public $projectQueriesPerSecond;
 
     /**
      * @example AliyunIMMDefaultRole
@@ -96,10 +82,8 @@ class UpdateProjectRequest extends Model
         'datasetMaxRelationCount' => 'DatasetMaxRelationCount',
         'datasetMaxTotalFileSize' => 'DatasetMaxTotalFileSize',
         'description'             => 'Description',
-        'engineConcurrency'       => 'EngineConcurrency',
         'projectMaxDatasetCount'  => 'ProjectMaxDatasetCount',
         'projectName'             => 'ProjectName',
-        'projectQueriesPerSecond' => 'ProjectQueriesPerSecond',
         'serviceRole'             => 'ServiceRole',
         'templateId'              => 'TemplateId',
     ];
@@ -129,17 +113,11 @@ class UpdateProjectRequest extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->engineConcurrency) {
-            $res['EngineConcurrency'] = $this->engineConcurrency;
-        }
         if (null !== $this->projectMaxDatasetCount) {
             $res['ProjectMaxDatasetCount'] = $this->projectMaxDatasetCount;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
-        }
-        if (null !== $this->projectQueriesPerSecond) {
-            $res['ProjectQueriesPerSecond'] = $this->projectQueriesPerSecond;
         }
         if (null !== $this->serviceRole) {
             $res['ServiceRole'] = $this->serviceRole;
@@ -177,17 +155,11 @@ class UpdateProjectRequest extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['EngineConcurrency'])) {
-            $model->engineConcurrency = $map['EngineConcurrency'];
-        }
         if (isset($map['ProjectMaxDatasetCount'])) {
             $model->projectMaxDatasetCount = $map['ProjectMaxDatasetCount'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
-        }
-        if (isset($map['ProjectQueriesPerSecond'])) {
-            $model->projectQueriesPerSecond = $map['ProjectQueriesPerSecond'];
         }
         if (isset($map['ServiceRole'])) {
             $model->serviceRole = $map['ServiceRole'];
