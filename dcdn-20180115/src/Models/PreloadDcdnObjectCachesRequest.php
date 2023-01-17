@@ -38,12 +38,18 @@ class PreloadDcdnObjectCachesRequest extends Model
      * @var string
      */
     public $securityToken;
+
+    /**
+     * @var string
+     */
+    public $withHeader;
     protected $_name = [
         'area'          => 'Area',
         'l2Preload'     => 'L2Preload',
         'objectPath'    => 'ObjectPath',
         'ownerId'       => 'OwnerId',
         'securityToken' => 'SecurityToken',
+        'withHeader'    => 'WithHeader',
     ];
 
     public function validate()
@@ -67,6 +73,9 @@ class PreloadDcdnObjectCachesRequest extends Model
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->withHeader) {
+            $res['WithHeader'] = $this->withHeader;
         }
 
         return $res;
@@ -94,6 +103,9 @@ class PreloadDcdnObjectCachesRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['WithHeader'])) {
+            $model->withHeader = $map['WithHeader'];
         }
 
         return $model;

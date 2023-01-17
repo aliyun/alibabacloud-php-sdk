@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @description The type of the protection policy, which is the same as the DefenseScenes field in the QueryArgs parameter.
+     *
      * @example custom_acl
      *
      * @var string
@@ -16,6 +18,8 @@ class rules extends Model
     public $defenseScene;
 
     /**
+     * @description The modification time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2021-12-29T17:08:45Z
      *
      * @var string
@@ -23,6 +27,8 @@ class rules extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the protection policy.
+     *
      * @example 200001
      *
      * @var int
@@ -30,6 +36,8 @@ class rules extends Model
     public $policyId;
 
     /**
+     * @description The configuration information about the protection rule.
+     *
      * @example {\"action\":\"monitor\",\"actionExternal\":\"{}\",\"ccStatus\":1,\"conditions\":[{\"key\":\"URL\",\"opValue\":\"eq\",\"targetKey\":\"request_uri\",\"values\":\"/example\"},{\"key\":\"Header\",\"opValue\":\"eq\",\"subKey\":\"trt\",\"targetKey\":\"header.trt\",\"values\":\"3333\"}],\"effect\":\"service\",\"name\":\"aaa333\",\"origin\":\"custom\",\"ratelimit\":{\"interval\":5,\"status\":{\"code\":404,\"count\":2,\"stat\":{\"mode\":\"count\",\"value\":2.0}},\"target\":\"remote_addr\",\"threshold\":2,\"ttl\":1800}}
      *
      * @var string
@@ -37,6 +45,8 @@ class rules extends Model
     public $ruleConfig;
 
     /**
+     * @description The ID of the protection rule.
+     *
      * @example 100001
      *
      * @var int
@@ -44,6 +54,8 @@ class rules extends Model
     public $ruleId;
 
     /**
+     * @description The name of the protection rule.
+     *
      * @example rule_1
      *
      * @var string
@@ -51,6 +63,8 @@ class rules extends Model
     public $ruleName;
 
     /**
+     * @description The status of the protection rule, which is the same as the RuleStatus field in the QueryArgs parameter.
+     *
      * @example on
      *
      * @var string

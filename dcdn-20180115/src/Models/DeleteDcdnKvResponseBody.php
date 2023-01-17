@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class TagDcdnResourcesResponseBody extends Model
+class DeleteDcdnKvResponseBody extends Model
 {
     /**
      * @description The ID of the request.
      *
-     * @example 97C68796-EB7F-4D41-9D5B-12B909D76508
+     * @example D61E4801-EAFF-4A63-AAE1-FBF6CE1CFD1C
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class TagDcdnResourcesResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return TagDcdnResourcesResponseBody
+     * @return DeleteDcdnKvResponseBody
      */
     public static function fromMap($map = [])
     {

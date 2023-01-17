@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class TagDcdnResourcesRequest extends Model
 {
     /**
+     * @description The ID of the resource. Valid values of N: **1** to **50**.
+     *
      * @example example.com
      *
      * @var string[]
@@ -17,6 +19,8 @@ class TagDcdnResourcesRequest extends Model
     public $resourceId;
 
     /**
+     * @description The type of the resources from which you want to detach tags. Set this value to **DOMAIN**.
+     *
      * @example DOMAIN
      *
      * @var string
@@ -24,6 +28,8 @@ class TagDcdnResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description Details about the tags.
+     *
      * @var tag[]
      */
     public $tag;

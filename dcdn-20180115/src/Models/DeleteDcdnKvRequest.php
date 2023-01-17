@@ -2,32 +2,32 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\TagDcdnResourcesRequest;
+namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class tag extends Model
+class DeleteDcdnKvRequest extends Model
 {
     /**
-     * @description The value of the tag. Valid values of N: **1** to **20**.
+     * @description The name of the key to delete.
      *
-     * @example env
+     * @example test_key_1
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description The value of a tag. Valid values of N: **1** to **20**.
+     * @description The namespace that you specify when you call the PutDcdnKvNamespace operation.
      *
-     * @example value
+     * @example ns1
      *
      * @var string
      */
-    public $value;
+    public $namespace;
     protected $_name = [
-        'key'   => 'Key',
-        'value' => 'Value',
+        'key'       => 'Key',
+        'namespace' => 'Namespace',
     ];
 
     public function validate()
@@ -40,8 +40,8 @@ class tag extends Model
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
 
         return $res;
@@ -50,7 +50,7 @@ class tag extends Model
     /**
      * @param array $map
      *
-     * @return tag
+     * @return DeleteDcdnKvRequest
      */
     public static function fromMap($map = [])
     {
@@ -58,8 +58,8 @@ class tag extends Model
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
 
         return $model;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @description The bandwidth value. Unit: bit/s.
+     *
      * @example 11286
      *
      * @var float
@@ -16,6 +18,8 @@ class dataModule extends Model
     public $bps;
 
     /**
+     * @description The bandwidth that was consumed to deliver dynamic content over HTTP, in bit/s.
+     *
      * @example 11286111
      *
      * @var float
@@ -23,6 +27,8 @@ class dataModule extends Model
     public $dynamicHttpBps;
 
     /**
+     * @description The bandwidth that was consumed to deliver dynamic content over HTTPS, in bit/s.
+     *
      * @example 12312
      *
      * @var float
@@ -30,6 +36,8 @@ class dataModule extends Model
     public $dynamicHttpsBps;
 
     /**
+     * @description The bandwidth that was consumed to deliver static content over HTTP, in bit/s.
+     *
      * @example 123
      *
      * @var float
@@ -37,6 +45,8 @@ class dataModule extends Model
     public $staticHttpBps;
 
     /**
+     * @description The bandwidth that was consumed to deliver static content over HTTPS, in bit/s.
+     *
      * @example 123
      *
      * @var float
@@ -44,6 +54,8 @@ class dataModule extends Model
     public $staticHttpsBps;
 
     /**
+     * @description The timestamp of the returned data.
+     *
      * @example 2017-12-10T20:00:00Z
      *
      * @var string

@@ -21,9 +21,15 @@ class defenseScenes extends Model
      * @var int
      */
     public $policyId;
+
+    /**
+     * @var string
+     */
+    public $policyIds;
     protected $_name = [
         'defenseScene' => 'DefenseScene',
         'policyId'     => 'PolicyId',
+        'policyIds'    => 'PolicyIds',
     ];
 
     public function validate()
@@ -38,6 +44,9 @@ class defenseScenes extends Model
         }
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
+        }
+        if (null !== $this->policyIds) {
+            $res['PolicyIds'] = $this->policyIds;
         }
 
         return $res;
@@ -56,6 +65,9 @@ class defenseScenes extends Model
         }
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
+        }
+        if (isset($map['PolicyIds'])) {
+            $model->policyIds = $map['PolicyIds'];
         }
 
         return $model;

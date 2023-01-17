@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafPolicyValidDomainsResponseBody;
 
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafPolicyValidDomainsResponseBody\domains\policies;
 use AlibabaCloud\Tea\Model;
 
 class domains extends Model
@@ -14,6 +15,11 @@ class domains extends Model
      * @var string
      */
     public $domainName;
+
+    /**
+     * @var policies[]
+     */
+    public $policies;
 
     /**
      * @example 1000001
@@ -37,6 +43,7 @@ class domains extends Model
     public $policyType;
     protected $_name = [
         'domainName' => 'DomainName',
+        'policies'   => 'Policies',
         'policyId'   => 'PolicyId',
         'policyName' => 'PolicyName',
         'policyType' => 'PolicyType',
@@ -51,6 +58,15 @@ class domains extends Model
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->policies) {
+            $res['Policies'] = [];
+            if (null !== $this->policies && \is_array($this->policies)) {
+                $n = 0;
+                foreach ($this->policies as $item) {
+                    $res['Policies'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
@@ -75,6 +91,15 @@ class domains extends Model
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['Policies'])) {
+            if (!empty($map['Policies'])) {
+                $model->policies = [];
+                $n               = 0;
+                foreach ($map['Policies'] as $item) {
+                    $model->policies[$n++] = null !== $item ? policies::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
