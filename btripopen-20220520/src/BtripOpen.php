@@ -135,6 +135,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightRefundPreCalHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightRefundPreCalRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightRefundPreCalResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightRefundPreCalShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightSearchListHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightSearchListRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightSearchListResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelBillSettlementQueryResponse;
@@ -3123,6 +3126,98 @@ class BtripOpen extends OpenApiClient
         $headers = new FlightRefundPreCalHeaders([]);
 
         return $this->flightRefundPreCalWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param FlightSearchListRequest $request
+     * @param FlightSearchListHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return FlightSearchListResponse
+     */
+    public function flightSearchListWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->airlineCode)) {
+            $query['airline_code'] = $request->airlineCode;
+        }
+        if (!Utils::isUnset($request->arrCityCode)) {
+            $query['arr_city_code'] = $request->arrCityCode;
+        }
+        if (!Utils::isUnset($request->arrCityName)) {
+            $query['arr_city_name'] = $request->arrCityName;
+        }
+        if (!Utils::isUnset($request->arrDate)) {
+            $query['arr_date'] = $request->arrDate;
+        }
+        if (!Utils::isUnset($request->cabinClass)) {
+            $query['cabin_class'] = $request->cabinClass;
+        }
+        if (!Utils::isUnset($request->depCityCode)) {
+            $query['dep_city_code'] = $request->depCityCode;
+        }
+        if (!Utils::isUnset($request->depCityName)) {
+            $query['dep_city_name'] = $request->depCityName;
+        }
+        if (!Utils::isUnset($request->depDate)) {
+            $query['dep_date'] = $request->depDate;
+        }
+        if (!Utils::isUnset($request->flightNo)) {
+            $query['flight_no'] = $request->flightNo;
+        }
+        if (!Utils::isUnset($request->needMultiClassPrice)) {
+            $query['need_multi_class_price'] = $request->needMultiClassPrice;
+        }
+        if (!Utils::isUnset($request->transferCityCode)) {
+            $query['transfer_city_code'] = $request->transferCityCode;
+        }
+        if (!Utils::isUnset($request->transferFlightNo)) {
+            $query['transfer_flight_no'] = $request->transferFlightNo;
+        }
+        if (!Utils::isUnset($request->transferLeaveDate)) {
+            $query['transfer_leave_date'] = $request->transferLeaveDate;
+        }
+        if (!Utils::isUnset($request->tripType)) {
+            $query['trip_type'] = $request->tripType;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FlightSearchList',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/huge/dtb-flight/v1/flight/action/search-list',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return FlightSearchListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FlightSearchListRequest $request
+     *
+     * @return FlightSearchListResponse
+     */
+    public function flightSearchList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new FlightSearchListHeaders([]);
+
+        return $this->flightSearchListWithOptions($request, $headers, $runtime);
     }
 
     /**
