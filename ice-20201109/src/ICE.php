@@ -16,12 +16,16 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\AddTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\BatchGetMediaInfosRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\BatchGetMediaInfosResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CancelDNAJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CancelDNAJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CancelFavoritePublicMediaRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CancelFavoritePublicMediaResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateAuditRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateAuditResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateCustomTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateCustomTemplateResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateDNADBRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateDNADBResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateEditingProjectRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateEditingProjectResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLiveRecordTemplateRequest;
@@ -42,6 +46,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteCategoryRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteCategoryResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteCustomTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteCustomTemplateResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteDNADBRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteDNADBResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteDNAFilesRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteDNAFilesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteEditingProjectMaterialsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteEditingProjectMaterialsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteEditingProjectsRequest;
@@ -175,10 +183,16 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetUrlUploadInfosRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetUrlUploadInfosResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetWorkflowTaskRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetWorkflowTaskResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAllPublicMediaTagsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAllPublicMediaTagsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListCustomTemplatesRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListCustomTemplatesResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListDNADBRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListDNADBResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListDNAFilesRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListDNAFilesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListDynamicImageJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListDynamicImageJobsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListLiveRecordFilesRequest;
@@ -217,6 +231,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListTemplatesRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListTemplatesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListTranscodeJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListTranscodeJobsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QueryDNAJobListRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QueryDNAJobListResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryIProductionJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryIProductionJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobDetailRequest;
@@ -247,10 +263,15 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SetDefaultStorageLocationRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SetDefaultStorageLocationResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SetEventCallbackRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SetEventCallbackResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\StartWorkflowRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\StartWorkflowResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitASRJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitASRJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAudioProduceJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAudioProduceJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDNAJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDNAJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDNAJobShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDynamicChartJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDynamicChartJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDynamicImageJobRequest;
@@ -671,6 +692,61 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param CancelDNAJobRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CancelDNAJobResponse
+     */
+    public function cancelDNAJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelDNAJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelDNAJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CancelDNAJobRequest $request
+     *
+     * @return CancelDNAJobResponse
+     */
+    public function cancelDNAJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelDNAJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CancelFavoritePublicMediaRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -809,6 +885,67 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCustomTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDNADBRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateDNADBResponse
+     */
+    public function createDNADBWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->model)) {
+            $query['Model'] = $request->model;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDNADB',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDNADBResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDNADBRequest $request
+     *
+     * @return CreateDNADBResponse
+     */
+    public function createDNADB($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDNADBWithOptions($request, $runtime);
     }
 
     /**
@@ -1284,6 +1421,119 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCustomTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDNADBRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteDNADBResponse
+     */
+    public function deleteDNADBWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBId)) {
+            $query['DBId'] = $request->DBId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDNADB',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDNADBResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDNADBRequest $request
+     *
+     * @return DeleteDNADBResponse
+     */
+    public function deleteDNADB($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDNADBWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDNAFilesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteDNAFilesResponse
+     */
+    public function deleteDNAFilesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBId)) {
+            $query['DBId'] = $request->DBId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->primaryKeys)) {
+            $query['PrimaryKeys'] = $request->primaryKeys;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDNAFiles',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDNAFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDNAFilesRequest $request
+     *
+     * @return DeleteDNAFilesResponse
+     */
+    public function deleteDNAFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDNAFilesWithOptions($request, $runtime);
     }
 
     /**
@@ -4441,6 +4691,49 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param GetWorkflowTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetWorkflowTaskResponse
+     */
+    public function getWorkflowTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWorkflowTask',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetWorkflowTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetWorkflowTaskRequest $request
+     *
+     * @return GetWorkflowTaskResponse
+     */
+    public function getWorkflowTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWorkflowTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListAllPublicMediaTagsRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -4545,6 +4838,122 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCustomTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDNADBRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListDNADBResponse
+     */
+    public function listDNADBWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBIds)) {
+            $query['DBIds'] = $request->DBIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDNADB',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDNADBResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDNADBRequest $request
+     *
+     * @return ListDNADBResponse
+     */
+    public function listDNADB($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDNADBWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDNAFilesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListDNAFilesResponse
+     */
+    public function listDNAFilesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBId)) {
+            $query['DBId'] = $request->DBId;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $query['NextPageToken'] = $request->nextPageToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDNAFiles',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDNAFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDNAFilesRequest $request
+     *
+     * @return ListDNAFilesResponse
+     */
+    public function listDNAFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDNAFilesWithOptions($request, $runtime);
     }
 
     /**
@@ -5551,6 +5960,61 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param QueryDNAJobListRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryDNAJobListResponse
+     */
+    public function queryDNAJobListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDNAJobList',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDNAJobListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryDNAJobListRequest $request
+     *
+     * @return QueryDNAJobListResponse
+     */
+    public function queryDNAJobList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDNAJobListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryIProductionJobRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -6379,6 +6843,55 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param StartWorkflowRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return StartWorkflowResponse
+     */
+    public function startWorkflowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskInput)) {
+            $query['TaskInput'] = $request->taskInput;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        if (!Utils::isUnset($request->workflowId)) {
+            $query['WorkflowId'] = $request->workflowId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartWorkflow',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartWorkflowRequest $request
+     *
+     * @return StartWorkflowResponse
+     */
+    public function startWorkflow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startWorkflowWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SubmitASRJobRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -6495,6 +7008,84 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitAudioProduceJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitDNAJobRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SubmitDNAJobResponse
+     */
+    public function submitDNAJobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitDNAJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->input)) {
+            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->DBId)) {
+            $query['DBId'] = $request->DBId;
+        }
+        if (!Utils::isUnset($request->inputShrink)) {
+            $query['Input'] = $request->inputShrink;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->primaryKey)) {
+            $query['PrimaryKey'] = $request->primaryKey;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitDNAJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitDNAJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitDNAJobRequest $request
+     *
+     * @return SubmitDNAJobResponse
+     */
+    public function submitDNAJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitDNAJobWithOptions($request, $runtime);
     }
 
     /**

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class QuerySmarttagJobResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $jobStatus;
 
     /**
+     * @example ******11-DB8D-4A9A-875B-275798******
+     *
      * @var string
      */
     public $requestId;
@@ -25,6 +29,8 @@ class QuerySmarttagJobResponseBody extends Model
     public $results;
 
     /**
+     * @example {"userId":"123432412831"}
+     *
      * @var string
      */
     public $userData;

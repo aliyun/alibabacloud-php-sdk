@@ -4,18 +4,27 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetWorkflowTaskResponseBody\workflowTask;
 use AlibabaCloud\Tea\Model;
 
-class DeleteDNADBResponseBody extends Model
+class GetWorkflowTaskResponseBody extends Model
 {
     /**
-     * @example 25818875-5F78-4A13-BEF6-D7393642CA58
+     * @description Id of the request
+     *
+     * @example ******0C-7870-15FE-B96F-8880BB******
      *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var workflowTask
+     */
+    public $workflowTask;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'requestId'    => 'RequestId',
+        'workflowTask' => 'WorkflowTask',
     ];
 
     public function validate()
@@ -28,6 +37,9 @@ class DeleteDNADBResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->workflowTask) {
+            $res['WorkflowTask'] = null !== $this->workflowTask ? $this->workflowTask->toMap() : null;
+        }
 
         return $res;
     }
@@ -35,13 +47,16 @@ class DeleteDNADBResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteDNADBResponseBody
+     * @return GetWorkflowTaskResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['WorkflowTask'])) {
+            $model->workflowTask = workflowTask::fromMap($map['WorkflowTask']);
         }
 
         return $model;

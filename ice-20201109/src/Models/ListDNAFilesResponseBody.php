@@ -15,11 +15,15 @@ class ListDNAFilesResponseBody extends Model
     public $fileList;
 
     /**
+     * @example ae0fd49c0840e14daf0d66a75b83****
+     *
      * @var string
      */
     public $nextPageToken;
 
     /**
+     * @example 2AE89FA5-E620-56C7-9B80-75D09757385A
+     *
      * @var string
      */
     public $requestId;

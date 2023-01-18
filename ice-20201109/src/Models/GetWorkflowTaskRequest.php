@@ -6,16 +6,16 @@ namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteDNADBResponseBody extends Model
+class GetWorkflowTaskRequest extends Model
 {
     /**
-     * @example 25818875-5F78-4A13-BEF6-D7393642CA58
+     * @example ******4215e042b3966ca5441e******
      *
      * @var string
      */
-    public $requestId;
+    public $taskId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class DeleteDNADBResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -35,13 +35,13 @@ class DeleteDNADBResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteDNADBResponseBody
+     * @return GetWorkflowTaskRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SubmitDNAJobShrinkRequest extends Model
 {
     /**
+     * @example {"SaveType": "save","MediaType"":"video"}
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @example 2288c6ca184c0e47098a5b665e2a12****
+     *
      * @var string
      */
     public $DBId;
@@ -34,11 +38,15 @@ class SubmitDNAJobShrinkRequest extends Model
     public $ownerId;
 
     /**
+     * @example 5246b8d12a62433ab77845074039****
+     *
      * @var string
      */
     public $pipelineId;
 
     /**
+     * @example 3ca84a39a9024f19853b21be9cf9****
+     *
      * @var string
      */
     public $primaryKey;
@@ -54,11 +62,15 @@ class SubmitDNAJobShrinkRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example S00000101-100060
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example userData
+     *
      * @var string
      */
     public $userData;

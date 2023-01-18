@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DBList extends Model
 {
     /**
+     * @example 88c6ca184c0e47098a5b665e2a12****
+     *
      * @var string
      */
     public $DBId;
@@ -19,16 +21,22 @@ class DBList extends Model
     public $description;
 
     /**
+     * @example Video
+     *
      * @var int
      */
     public $model;
 
     /**
+     * @example example-name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $status;

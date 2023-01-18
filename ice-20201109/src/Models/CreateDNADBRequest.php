@@ -14,11 +14,15 @@ class CreateDNADBRequest extends Model
     public $description;
 
     /**
+     * @example Video
+     *
      * @var string
      */
     public $model;
 
     /**
+     * @example example name
+     *
      * @var string
      */
     public $name;

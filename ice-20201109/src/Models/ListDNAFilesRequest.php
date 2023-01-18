@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListDNAFilesRequest extends Model
 {
     /**
+     * @example 2288c6ca184c0e47098a5b665e2a12****
+     *
      * @var string
      */
     public $DBId;
 
     /**
+     * @example ae0fd49c0840e14daf0d66a75b83****
+     *
      * @var string
      */
     public $nextPageToken;
@@ -29,6 +33,8 @@ class ListDNAFilesRequest extends Model
     public $ownerId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

@@ -15,6 +15,8 @@ class fileList extends Model
     public $inputFile;
 
     /**
+     * @example ae0fd49c0840e14daf0d66a75b83****
+     *
      * @var string
      */
     public $primaryKey;

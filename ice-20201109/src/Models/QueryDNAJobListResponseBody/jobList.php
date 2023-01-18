@@ -10,36 +10,50 @@ use AlibabaCloud\Tea\Model;
 class jobList extends Model
 {
     /**
+     * @example "InvalidParameter.ResourceNotFound"
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example {"SaveType": "save","MediaType"":"video"}
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @example 2022-12-28T03:21:37Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example 2288c6ca184c0e47098a5b665e2a12****
+     *
      * @var string
      */
     public $DBId;
 
     /**
+     * @example http://test_bucket.oss-cn-shanghai.aliyuncs.com/fingerprint/video/search_result/5/5.txt
+     *
      * @var string
      */
     public $DNAResult;
 
     /**
+     * @example 2022-12-28T03:21:44Z
+     *
      * @var string
      */
     public $finishTime;
 
     /**
+     * @example 88c6ca184c0e47098a5b665e2a12****
+     *
      * @var string
      */
     public $id;
@@ -50,21 +64,29 @@ class jobList extends Model
     public $input;
 
     /**
+     * @example "The resource operated \"a887d0b***d805ef6f7f6786302\" cannot be found"
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 3ca84a39a9024f19853b21be9cf9****
+     *
      * @var string
      */
     public $primaryKey;
 
     /**
+     * @example Queuing
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example testdna
+     *
      * @var string
      */
     public $userData;

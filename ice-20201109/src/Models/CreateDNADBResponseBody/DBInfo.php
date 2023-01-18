@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DBInfo extends Model
 {
     /**
+     * @example 88c6ca184c0e47098a5b665e2a12****
+     *
      * @var string
      */
     public $DBId;
@@ -19,16 +21,22 @@ class DBInfo extends Model
     public $description;
 
     /**
+     * @example Video
+     *
      * @var string
      */
     public $model;
 
     /**
+     * @example example name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example offline
+     *
      * @var string
      */
     public $status;

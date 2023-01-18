@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QuerySmarttagJobRequest extends Model
 {
     /**
+     * @example 88c6ca184c0e47098a5b665e2****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example {"labelResultType":"auto"}
+     *
      * @var string
      */
     public $params;

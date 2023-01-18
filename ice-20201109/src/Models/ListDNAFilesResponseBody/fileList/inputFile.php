@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class inputFile extends Model
 {
     /**
+     * @example example-bucket
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @example oss-cn-beijing
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example example-****.mp4
+     *
      * @var string
      */
     public $object;
