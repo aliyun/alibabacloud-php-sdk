@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ecsList extends Model
 {
     /**
-     * @example i-y2vZ3********vvMilZ2hQ
-     *
      * @var string
      */
     public $ecsId;

@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class ListDbfsRequest extends Model
 {
     /**
-     * @example FsName
-     *
      * @var string
      */
     public $filterKey;
 
     /**
-     * @example dbfs-test-01
-     *
      * @var string
      */
     public $filterValue;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example SizeG
-     *
      * @var string
      */
     public $sortKey;
 
     /**
-     * @example desc
-     *
      * @var string
      */
     public $sortType;
 
     /**
-     * @example [{"TagKey":"k1","TagValue":"v1"},{"TagKey":"k2","TagValue":"v2"}]
-     *
      * @var string
      */
     public $tags;

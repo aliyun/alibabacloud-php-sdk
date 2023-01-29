@@ -2,18 +2,20 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\DBFS\V20200418\Models;
+namespace AlibabaCloud\SDK\DBFS\V20200418\Models\GetSnapshotLinkResponseBody\data;
 
 use AlibabaCloud\Tea\Model;
 
-class GetServiceLinkedRoleRequest extends Model
+class ecsList extends Model
 {
     /**
+     * @example i-bp19mogqud1w1*******
+     *
      * @var string
      */
-    public $regionId;
+    public $ecsId;
     protected $_name = [
-        'regionId' => 'RegionId',
+        'ecsId' => 'EcsId',
     ];
 
     public function validate()
@@ -23,8 +25,8 @@ class GetServiceLinkedRoleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->ecsId) {
+            $res['EcsId'] = $this->ecsId;
         }
 
         return $res;
@@ -33,13 +35,13 @@ class GetServiceLinkedRoleRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetServiceLinkedRoleRequest
+     * @return ecsList
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['EcsId'])) {
+            $model->ecsId = $map['EcsId'];
         }
 
         return $model;

@@ -45,6 +45,8 @@ use AlibabaCloud\SDK\DBFS\V20200418\Models\GetDbfsRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\GetDbfsResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\GetServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\GetServiceLinkedRoleResponse;
+use AlibabaCloud\SDK\DBFS\V20200418\Models\GetSnapshotLinkRequest;
+use AlibabaCloud\SDK\DBFS\V20200418\Models\GetSnapshotLinkResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ListAutoSnapshotPoliciesRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ListAutoSnapshotPoliciesResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ListAutoSnapshotPolicyAppliedDbfsRequest;
@@ -57,6 +59,8 @@ use AlibabaCloud\SDK\DBFS\V20200418\Models\ListDbfsAttachedEcsInstancesRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ListDbfsAttachedEcsInstancesResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ListDbfsRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ListDbfsResponse;
+use AlibabaCloud\SDK\DBFS\V20200418\Models\ListSnapshotLinksRequest;
+use AlibabaCloud\SDK\DBFS\V20200418\Models\ListSnapshotLinksResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ListSnapshotRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ListSnapshotResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ListTagKeysRequest;
@@ -683,6 +687,9 @@ class DBFS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
         if (!Utils::isUnset($request->fsId)) {
             $query['FsId'] = $request->fsId;
         }
@@ -1094,6 +1101,46 @@ class DBFS extends OpenApiClient
     }
 
     /**
+     * @param GetSnapshotLinkRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetSnapshotLinkResponse
+     */
+    public function getSnapshotLinkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSnapshotLink',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSnapshotLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetSnapshotLinkRequest $request
+     *
+     * @return GetSnapshotLinkResponse
+     */
+    public function getSnapshotLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSnapshotLinkWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListAutoSnapshotPoliciesRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1500,6 +1547,61 @@ class DBFS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSnapshotWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSnapshotLinksRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListSnapshotLinksResponse
+     */
+    public function listSnapshotLinksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->filterKey)) {
+            $query['FilterKey'] = $request->filterKey;
+        }
+        if (!Utils::isUnset($request->filterValue)) {
+            $query['FilterValue'] = $request->filterValue;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSnapshotLinks',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSnapshotLinksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSnapshotLinksRequest $request
+     *
+     * @return ListSnapshotLinksResponse
+     */
+    public function listSnapshotLinks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSnapshotLinksWithOptions($request, $runtime);
     }
 
     /**

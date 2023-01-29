@@ -4,41 +4,49 @@
 
 namespace AlibabaCloud\SDK\DBFS\V20200418\Models;
 
-use AlibabaCloud\SDK\DBFS\V20200418\Models\ListDbfsResponseBody\DBFSInfo;
+use AlibabaCloud\SDK\DBFS\V20200418\Models\ListSnapshotLinksResponseBody\snapshotLinks;
 use AlibabaCloud\Tea\Model;
 
-class ListDbfsResponseBody extends Model
+class ListSnapshotLinksResponseBody extends Model
 {
     /**
-     * @var DBFSInfo[]
-     */
-    public $DBFSInfo;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @var snapshotLinks[]
+     */
+    public $snapshotLinks;
+
+    /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'DBFSInfo'   => 'DBFSInfo',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'totalCount' => 'TotalCount',
+        'pageNumber'    => 'PageNumber',
+        'pageSize'      => 'PageSize',
+        'requestId'     => 'RequestId',
+        'snapshotLinks' => 'SnapshotLinks',
+        'totalCount'    => 'TotalCount',
     ];
 
     public function validate()
@@ -48,15 +56,6 @@ class ListDbfsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBFSInfo) {
-            $res['DBFSInfo'] = [];
-            if (null !== $this->DBFSInfo && \is_array($this->DBFSInfo)) {
-                $n = 0;
-                foreach ($this->DBFSInfo as $item) {
-                    $res['DBFSInfo'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -65,6 +64,15 @@ class ListDbfsResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->snapshotLinks) {
+            $res['SnapshotLinks'] = [];
+            if (null !== $this->snapshotLinks && \is_array($this->snapshotLinks)) {
+                $n = 0;
+                foreach ($this->snapshotLinks as $item) {
+                    $res['SnapshotLinks'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -76,20 +84,11 @@ class ListDbfsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListDbfsResponseBody
+     * @return ListSnapshotLinksResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBFSInfo'])) {
-            if (!empty($map['DBFSInfo'])) {
-                $model->DBFSInfo = [];
-                $n               = 0;
-                foreach ($map['DBFSInfo'] as $item) {
-                    $model->DBFSInfo[$n++] = null !== $item ? DBFSInfo::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -98,6 +97,15 @@ class ListDbfsResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SnapshotLinks'])) {
+            if (!empty($map['SnapshotLinks'])) {
+                $model->snapshotLinks = [];
+                $n                    = 0;
+                foreach ($map['SnapshotLinks'] as $item) {
+                    $model->snapshotLinks[$n++] = null !== $item ? snapshotLinks::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

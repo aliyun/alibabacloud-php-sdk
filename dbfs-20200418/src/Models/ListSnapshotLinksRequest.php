@@ -6,34 +6,39 @@ namespace AlibabaCloud\SDK\DBFS\V20200418\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListAutoSnapshotPolicyAppliedDbfsRequest extends Model
+class ListSnapshotLinksRequest extends Model
 {
     /**
+     * @example FsId
+     *
      * @var string
      */
     public $filterKey;
 
     /**
+     * @example dbfs-kwziq4dpsle********
+     *
      * @var string
      */
     public $filterValue;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @var string
-     */
-    public $policyId;
-
-    /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -42,7 +47,6 @@ class ListAutoSnapshotPolicyAppliedDbfsRequest extends Model
         'filterValue' => 'FilterValue',
         'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
-        'policyId'    => 'PolicyId',
         'regionId'    => 'RegionId',
     ];
 
@@ -65,9 +69,6 @@ class ListAutoSnapshotPolicyAppliedDbfsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->policyId) {
-            $res['PolicyId'] = $this->policyId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -78,7 +79,7 @@ class ListAutoSnapshotPolicyAppliedDbfsRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListAutoSnapshotPolicyAppliedDbfsRequest
+     * @return ListSnapshotLinksRequest
      */
     public static function fromMap($map = [])
     {
@@ -94,9 +95,6 @@ class ListAutoSnapshotPolicyAppliedDbfsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PolicyId'])) {
-            $model->policyId = $map['PolicyId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

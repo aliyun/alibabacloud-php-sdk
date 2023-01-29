@@ -37,7 +37,7 @@ class dbfsList extends Model
     public $sizeG;
 
     /**
-     * @var string
+     * @var int
      */
     public $snapshotCount;
 

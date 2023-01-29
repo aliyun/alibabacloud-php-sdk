@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetAutoSnapshotPolicyRequest extends Model
 {
     /**
-     * @example sp-z5siir3iq3m**********
-     *
      * @var string
      */
     public $policyId;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;

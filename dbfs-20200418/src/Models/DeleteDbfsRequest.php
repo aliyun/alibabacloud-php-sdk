@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteDbfsRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $force;
+
+    /**
      * @example d-bp131n0q38u3a4zi*****
      *
      * @var string
@@ -22,6 +27,7 @@ class DeleteDbfsRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'force'    => 'Force',
         'fsId'     => 'FsId',
         'regionId' => 'RegionId',
     ];
@@ -33,6 +39,9 @@ class DeleteDbfsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->force) {
+            $res['Force'] = $this->force;
+        }
         if (null !== $this->fsId) {
             $res['FsId'] = $this->fsId;
         }
@@ -51,6 +60,9 @@ class DeleteDbfsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Force'])) {
+            $model->force = $map['Force'];
+        }
         if (isset($map['FsId'])) {
             $model->fsId = $map['FsId'];
         }

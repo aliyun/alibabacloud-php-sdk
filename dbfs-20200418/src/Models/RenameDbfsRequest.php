@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class RenameDbfsRequest extends Model
 {
     /**
-     * @example dbfs-GOrr********Yd0VLOyBpg
-     *
      * @var string
      */
     public $fsId;
 
     /**
-     * @example NewDbfsName
-     *
      * @var string
      */
     public $fsName;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;

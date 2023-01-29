@@ -31,7 +31,7 @@ class snapshotInfo extends Model
         'linkId'        => 'LinkId',
         'policyId'      => 'PolicyId',
         'snapshotCount' => 'SnapshotCount',
-        'totalSize'     => 'totalSize',
+        'totalSize'     => 'TotalSize',
     ];
 
     public function validate()
@@ -51,7 +51,7 @@ class snapshotInfo extends Model
             $res['SnapshotCount'] = $this->snapshotCount;
         }
         if (null !== $this->totalSize) {
-            $res['totalSize'] = $this->totalSize;
+            $res['TotalSize'] = $this->totalSize;
         }
 
         return $res;
@@ -74,8 +74,8 @@ class snapshotInfo extends Model
         if (isset($map['SnapshotCount'])) {
             $model->snapshotCount = $map['SnapshotCount'];
         }
-        if (isset($map['totalSize'])) {
-            $model->totalSize = $map['totalSize'];
+        if (isset($map['TotalSize'])) {
+            $model->totalSize = $map['TotalSize'];
         }
 
         return $model;

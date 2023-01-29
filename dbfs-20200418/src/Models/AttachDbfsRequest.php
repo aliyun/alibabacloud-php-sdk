@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class AttachDbfsRequest extends Model
 {
     /**
-     * @example create_new_mount_point
-     *
      * @var string
      */
     public $attachMode;
 
     /**
-     * @example /mnt/dbfs/dbfs-001
-     *
      * @var string
      */
     public $attachPoint;
 
     /**
-     * @example i-bp1ecr********5go2go
-     *
      * @var string
      */
     public $ECSInstanceId;
 
     /**
-     * @example dbfs-v0WvA********tVEVcgJLg
-     *
      * @var string
      */
     public $fsId;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example dbfs-pkg-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com
-     *
      * @var string
      */
     public $serverUrl;

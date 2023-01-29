@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetServiceLinkedRoleResponseBody extends Model
 {
     /**
-     * @example 1352345930******
-     *
      * @var string
      */
     public $accountId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $dbfsLinkedRole;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
