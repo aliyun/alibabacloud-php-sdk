@@ -32,6 +32,11 @@ class flightList extends Model
     public $arrDate;
 
     /**
+     * @var int
+     */
+    public $basicCabinPrice;
+
+    /**
      * @example 100
      *
      * @var int
@@ -291,6 +296,7 @@ class flightList extends Model
         'airlineInfo'       => 'airline_info',
         'arrAirportInfo'    => 'arr_airport_info',
         'arrDate'           => 'arr_date',
+        'basicCabinPrice'   => 'basic_cabin_price',
         'buildPrice'        => 'build_price',
         'cabin'             => 'cabin',
         'cabinClass'        => 'cabin_class',
@@ -347,6 +353,9 @@ class flightList extends Model
         }
         if (null !== $this->arrDate) {
             $res['arr_date'] = $this->arrDate;
+        }
+        if (null !== $this->basicCabinPrice) {
+            $res['basic_cabin_price'] = $this->basicCabinPrice;
         }
         if (null !== $this->buildPrice) {
             $res['build_price'] = $this->buildPrice;
@@ -497,6 +506,9 @@ class flightList extends Model
         }
         if (isset($map['arr_date'])) {
             $model->arrDate = $map['arr_date'];
+        }
+        if (isset($map['basic_cabin_price'])) {
+            $model->basicCabinPrice = $map['basic_cabin_price'];
         }
         if (isset($map['build_price'])) {
             $model->buildPrice = $map['build_price'];
