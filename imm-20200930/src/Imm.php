@@ -86,6 +86,8 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\CreateVideoLabelClassificationTaskShri
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateVideoModerationTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateVideoModerationTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateVideoModerationTaskShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteBatchRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteBatchResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteBindingRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteBindingResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteDatasetRequest;
@@ -98,6 +100,8 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteStoryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteStoryResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteTriggerRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteTriggerResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetachOSSBucketRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetachOSSBucketResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageBodiesRequest;
@@ -175,6 +179,10 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\RefreshWebofficeTokenShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\RemoveStoryFilesRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\RemoveStoryFilesResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\RemoveStoryFilesShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\ResumeBatchRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\ResumeBatchResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\ResumeTriggerRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\ResumeTriggerResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SearchImageFigureClusterRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SearchImageFigureClusterResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SearchImageFigureClusterShrinkRequest;
@@ -183,6 +191,13 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\SemanticQueryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SimpleQueryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SimpleQueryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SimpleQueryShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\SuspendBatchRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\SuspendBatchResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\SuspendTriggerRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\SuspendTriggerResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateBatchRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateBatchResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateBatchShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateDatasetRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateDatasetResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateFigureClusterRequest;
@@ -199,6 +214,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateProjectResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateStoryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateStoryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateStoryShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateTriggerRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateTriggerResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateTriggerShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -2240,6 +2258,52 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param DeleteBatchRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteBatchResponse
+     */
+    public function deleteBatchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBatch',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteBatchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteBatchRequest $request
+     *
+     * @return DeleteBatchResponse
+     */
+    public function deleteBatch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBatchWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteBindingRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -2527,6 +2591,52 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteStoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteTriggerRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteTriggerResponse
+     */
+    public function deleteTriggerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTrigger',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteTriggerRequest $request
+     *
+     * @return DeleteTriggerResponse
+     */
+    public function deleteTrigger($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTriggerWithOptions($request, $runtime);
     }
 
     /**
@@ -4328,6 +4438,98 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param ResumeBatchRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ResumeBatchResponse
+     */
+    public function resumeBatchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ResumeBatch',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResumeBatchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResumeBatchRequest $request
+     *
+     * @return ResumeBatchResponse
+     */
+    public function resumeBatch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resumeBatchWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ResumeTriggerRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ResumeTriggerResponse
+     */
+    public function resumeTriggerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ResumeTrigger',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResumeTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResumeTriggerRequest $request
+     *
+     * @return ResumeTriggerResponse
+     */
+    public function resumeTrigger($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resumeTriggerWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SearchImageFigureClusterRequest $tmpReq
      * @param RuntimeOptions                  $runtime
      *
@@ -4515,6 +4717,170 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->simpleQueryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SuspendBatchRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SuspendBatchResponse
+     */
+    public function suspendBatchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SuspendBatch',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SuspendBatchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SuspendBatchRequest $request
+     *
+     * @return SuspendBatchResponse
+     */
+    public function suspendBatch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->suspendBatchWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SuspendTriggerRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SuspendTriggerResponse
+     */
+    public function suspendTriggerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SuspendTrigger',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SuspendTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SuspendTriggerRequest $request
+     *
+     * @return SuspendTriggerResponse
+     */
+    public function suspendTrigger($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->suspendTriggerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateBatchRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateBatchResponse
+     */
+    public function updateBatchWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateBatchShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->actions)) {
+            $request->actionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->actions, 'Actions', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->input)) {
+            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->actionsShrink)) {
+            $body['Actions'] = $request->actionsShrink;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->inputShrink)) {
+            $body['Input'] = $request->inputShrink;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $body['Notification'] = $request->notificationShrink;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $body['Tags'] = $request->tagsShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateBatch',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateBatchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateBatchRequest $request
+     *
+     * @return UpdateBatchResponse
+     */
+    public function updateBatch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateBatchWithOptions($request, $runtime);
     }
 
     /**
@@ -4892,5 +5258,77 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateStoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateTriggerRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateTriggerResponse
+     */
+    public function updateTriggerWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateTriggerShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->actions)) {
+            $request->actionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->actions, 'Actions', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->input)) {
+            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->actionsShrink)) {
+            $body['Actions'] = $request->actionsShrink;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->inputShrink)) {
+            $body['Input'] = $request->inputShrink;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $body['Notification'] = $request->notificationShrink;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $body['Tags'] = $request->tagsShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTrigger',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTriggerRequest $request
+     *
+     * @return UpdateTriggerResponse
+     */
+    public function updateTrigger($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTriggerWithOptions($request, $runtime);
     }
 }
