@@ -10,51 +10,93 @@ use AlibabaCloud\Tea\Model;
 class trafficControl extends Model
 {
     /**
+     * @description The default throttling value for each API.
+     *
+     * @example 20000
+     *
      * @var int
      */
     public $apiDefault;
 
     /**
+     * @description The default throttling value for each app.
+     *
+     * @example 8000
+     *
      * @var int
      */
     public $appDefault;
 
     /**
+     * @description The creation time (UTC) of the throttling policy.
+     *
+     * @example 2016-01-27T10:19:39Z
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description The description of the throttling policy.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The last modification time (UTC) of the throttling policy.
+     *
+     * @example 2016-01-27T10:34:38Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @description The returned information about a special throttling policy. It is an array consisting of SpecialPolicy data.
+     *
      * @var specialPolicies
      */
     public $specialPolicies;
 
     /**
+     * @description The ID of the throttling policy.
+     *
+     * @example cfed6c970d45481dbe136d6b5ac68c41
+     *
      * @var string
      */
     public $trafficControlId;
 
     /**
+     * @description The name of the throttling policy.
+     *
+     * @example wulingtestq1
+     *
      * @var string
      */
     public $trafficControlName;
 
     /**
+     * @description The unit to be used in the throttling policy. Valid values:
+     *
+     *   MINUTE
+     *   HOUR
+     *   DAY
+     *
+     * @example Minute
+     *
      * @var string
      */
     public $trafficControlUnit;
 
     /**
+     * @description The default throttling value for each user.
+     *
+     * @example 15000
+     *
      * @var int
      */
     public $userDefault;

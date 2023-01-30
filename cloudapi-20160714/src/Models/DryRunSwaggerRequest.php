@@ -9,26 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DryRunSwaggerRequest extends Model
 {
     /**
+     * @description The Swagger text content.
+     *
+     * @example "A Swagger API definition in YAML"
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The Swagger text format:
+     *
+     *   json
+     *   yaml
+     *
+     * @example yaml
+     *
      * @var string
      */
     public $dataFormat;
 
     /**
+     * @description The global condition.
+     *
+     * @example {}
+     *
      * @var mixed[]
      */
     public $globalCondition;
 
     /**
+     * @description The ID of the API group.
+     *
+     * @example d633cf5524f841b9950e245b191bdabf
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description Specifies whether to overwrite the existing API.
+     *
+     * APIs with the same HTTP request type and backend request path are considered the same.
+     * @example true
+     *
      * @var bool
      */
     public $overwrite;

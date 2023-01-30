@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class CreateModelResponseBody extends Model
 {
     /**
+     * @description The time when the model was created.
+     *
+     * @example 2019-01-29T09:33:01Z
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description The description of the created model.
+     *
+     * @example Model Description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the API group to which the created model belongs.
+     *
+     * @example 30e792398d6c4569b04c0e53a3494381
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the created model.
+     *
+     * @example 766c0b9538a04bdf974953b5576783ba
+     *
      * @var string
      */
     public $modelId;
 
     /**
+     * @description The name of the created model.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $modelName;
 
     /**
+     * @description The URI of the created model.
+     *
+     * @example https://apigateway.aliyun.com/models/30e792398d6c4569b04c0e53a3494381/766c0b9538a04bdf974953b5576783ba
+     *
      * @var string
      */
     public $modelRef;
 
     /**
+     * @description The time when the model is last modified.
+     *
+     * @example 2019-01-29T09:33:01Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @description The region to which the created model belongs.
+     *
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4173F95B-360C-460C-9F6C-4A960B904411
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The definition of the created model.
+     *
+     * @example {\"type\":\"object\",\"properties\":{\"id\":{\"format\":\"int64\",\"maximum\":100,\"exclusiveMaximum\":true,\"type\":\"integer\"},\"name\":{\"maxLength\":10,\"type\":\"string\"}}}
+     *
      * @var string
      */
     public $schema;

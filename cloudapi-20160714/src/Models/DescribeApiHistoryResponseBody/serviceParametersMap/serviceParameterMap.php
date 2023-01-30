@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class serviceParameterMap extends Model
 {
     /**
+     * @description The corresponding frontend parameter. It must be included in RequestParametersObject and matches ApiParameterName in RequestParameter data.
+     *
+     * @example sex
+     *
      * @var string
      */
     public $requestParameterName;
 
     /**
+     * @description The name of the backend service parameter.
+     *
+     * @example sex
+     *
      * @var string
      */
     public $serviceParameterName;

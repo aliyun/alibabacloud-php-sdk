@@ -9,41 +9,80 @@ use AlibabaCloud\Tea\Model;
 class ImportOASRequest extends Model
 {
     /**
+     * @description API安全认证类型，目前可以取值：
+     *
+     * - **APP**：只允许已授权的APP调用
+     * - **ANONYMOUS**：允许匿名调用，设置为允许匿名调用需要注意：
+     * - 任何能够获取该API服务信息的人，都将能够调用该API。网关不会对调用者做身份认证，也无法设置按用户的流量控制，若开放该API请设置好按API的流量控制。
+     * @example APP
+     *
      * @var string
      */
     public $authType;
 
     /**
+     * @description The name of the backend service.
+     *
+     * @example testBackendService
+     *
      * @var string
      */
     public $backendName;
 
     /**
+     * @description The OAS-compliant text file or OSS object URL.
+     *
+     * @example swagger: "2.0"
+     * - "sold"
      * @var string
      */
     public $data;
 
     /**
+     * @description The ID of the API group.
+     *
+     * @example 08ae4aa0f95e4321849ee57f4e0b3077
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description Specifies whether to ignore alerts.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $ignoreWarning;
 
     /**
+     * @description The OAS version.
+     *
+     * @example OAS2
+     *
      * @var string
      */
     public $OASVersion;
 
     /**
+     * @description Specifies whether to overwrite an existing API.
+     *
+     * If an existing API has the same HTTP request type and backend request path as the API to be imported, the existing API is overwritten.
+     * @example true
+     *
      * @var bool
      */
     public $overwrite;
 
     /**
+     * @description The request mode. Valid values:
+     *
+     *   MAPPING: Parameters are mapped. Unknown parameters are filtered out.
+     *   PASSTHROUGH: Parameters are passed through.
+     *
+     * @example PASSTHROUGH
+     *
      * @var string
      */
     public $requestMode;
@@ -54,6 +93,10 @@ class ImportOASRequest extends Model
     public $securityToken;
 
     /**
+     * @description Specifies whether to directly import the API without performing a precheck.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $skipDryRun;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribePluginsByApiResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The returned plug-in information. It is an array consisting of PluginAttribute data.
+     *
      * @var plugins
      */
     public $plugins;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 46373DC4-19F1-4DC8-8C31-1107289BB5E0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

@@ -9,46 +9,89 @@ use AlibabaCloud\Tea\Model;
 class apiInfo extends Model
 {
     /**
+     * @description The description of the API.
+     *
+     * @example 3b81fd160f5645e097cc8855d75a1cf6
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description The region where the API is located.
+     *
+     * @example testapi
+     *
      * @var string
      */
     public $apiName;
 
     /**
+     * @description Indicates whether the API is public. Valid values:
+     *
+     *   **PUBLIC**
+     *   **PRIVATE**
+     *
+     * @example 2016-07-23T08:28:48Z
+     *
      * @var string
      */
     public $boundTime;
 
     /**
+     * @description Description
+     *
+     * @example The name of the group to which the API belongs.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the runtime environment. Valid values:
+     *
+     *   **RELEASE**
+     *   **TEST**
+     *
+     * @example 0009db9c828549768a200320714b8930
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the API group.
+     *
+     * @example mygroup
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description *   This API is intended for API providers.
+     *   The results are returned on separate pages. You can specify PageNumber to obtain the result on the specified page.
+     *
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the API.
+     *
+     * @example TEST
+     *
      * @var string
      */
     public $stageName;
 
     /**
+     * @description The ID of the API.
+     *
+     * @example PUBLIC
+     *
      * @var string
      */
     public $visibility;

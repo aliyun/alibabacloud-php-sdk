@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribePurchasedApiGroupsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The attributes of the API group.
+     *
      * @var purchasedApiGroupAttributes
      */
     public $purchasedApiGroupAttributes;
 
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example 36BBBAD4-1CFB-489F-841A-8CA52EEA787E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The attributes of the API group.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

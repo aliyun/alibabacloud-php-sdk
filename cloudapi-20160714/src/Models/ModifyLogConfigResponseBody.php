@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyLogConfigResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 75A4ADCB-AA26-51FB-94D4-AB3240040974
+     *
      * @var string
      */
     public $requestId;

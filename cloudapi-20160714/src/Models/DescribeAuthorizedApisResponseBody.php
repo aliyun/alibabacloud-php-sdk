@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeAuthorizedApisResponseBody extends Model
 {
     /**
+     * @description The authorized API set.
+     *
      * @var authorizedApis
      */
     public $authorizedApis;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D6E46F10-F26C-4AA0-BB69-FE2743D9AE62
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

@@ -10,36 +10,67 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppAttributesRequest extends Model
 {
     /**
+     * @description The app key that is used to make an API call.
+     *
+     * @example 23552160
+     *
      * @var string
      */
     public $appCode;
 
     /**
+     * @description The name of the app.
+     *
+     * @example 20112314518278
+     *
      * @var int
      */
     public $appId;
 
     /**
+     * @description The order. Valid values: asc and desc. Default value: desc.
+     *
+     *   asc: The apps are displayed in ascending order of modification time.
+     *   desc: The apps are displayed in descending order of modification time.
+     *
+     * @example 203708622
+     *
      * @var string
      */
     public $appKey;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
+     * @example testApp
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The tag of objects that match the rule. You can specify multiple tags.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableTagAuth;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The AppCode of the app.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -50,11 +81,20 @@ class DescribeAppAttributesRequest extends Model
     public $securityToken;
 
     /**
+     * @description Specifies whether to enable tag verification.
+     *
+     * @example desc
+     *
      * @var string
      */
     public $sort;
 
     /**
+     * @description The key of the tag.
+     *
+     * N can be an integer from 1 to 20.``
+     * @example Key， Value
+     *
      * @var tag[]
      */
     public $tag;

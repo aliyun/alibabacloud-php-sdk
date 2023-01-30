@@ -10,26 +10,46 @@ use AlibabaCloud\Tea\Model;
 class DescribePluginsRequest extends Model
 {
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the plug-in.
+     *
+     * @example a96926e82f994915a8da40a119374537
+     *
      * @var string
      */
     public $pluginId;
 
     /**
+     * @description The name of the plug-in.
+     *
+     * @example testPlugin
+     *
      * @var string
      */
     public $pluginName;
 
     /**
+     * @description The business type of the plug-in.
+     *
+     * @example cors
+     *
      * @var string
      */
     public $pluginType;
@@ -40,6 +60,10 @@ class DescribePluginsRequest extends Model
     public $securityToken;
 
     /**
+     * @description The tag of objects that match the lifecycle rule. You can specify multiple tags.
+     *
+     * @example Key， Value
+     *
      * @var tag[]
      */
     public $tag;

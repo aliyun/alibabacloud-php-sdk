@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisByAppRequest extends Model
 {
     /**
+     * @description The name of the API operation.
+     *
+     * @example getPersonInfo
+     *
      * @var string
      */
     public $apiName;
 
     /**
+     * @description The ID of the API operation.
+     *
+     * @example b19240592b1b4e74961fb8438ed7550c
+     *
      * @var string
      */
     public $apiUid;
 
     /**
+     * @description The ID of the application.
+     *
+     * @example 333486644
+     *
      * @var int
      */
     public $appId;
 
     /**
+     * @description The description of the API.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The request HTTP method for the API.
+     *
+     * @example POST
+     *
      * @var string
      */
     public $method;
 
     /**
+     * @description The page number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The API request path.
+     *
+     * @example /tt
+     *
      * @var string
      */
     public $path;

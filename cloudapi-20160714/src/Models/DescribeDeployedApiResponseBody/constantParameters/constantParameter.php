@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class constantParameter extends Model
 {
     /**
+     * @description The constant value.
+     *
+     * @example constance
+     *
      * @var string
      */
     public $constantValue;
 
     /**
+     * @description The description.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
+     *
+     * @example HEAD
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @description The name of the backend service parameter.
+     *
+     * @example constance
+     *
      * @var string
      */
     public $serviceParameterName;

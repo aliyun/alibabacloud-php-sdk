@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class signatureItem extends Model
 {
     /**
+     * @description The ID of the backend signature key.
+     *
+     * @example 2016-07-23T08:28:48Z
+     *
      * @var string
      */
     public $boundTime;
 
     /**
+     * @description The name of the backend signature key.
+     *
+     * @example dd05f1c54d6749eda95f9fa6d491449a
+     *
      * @var string
      */
     public $signatureId;
 
     /**
+     * @description *   This API is intended for API providers.
+     *
+     * @example mysecret
+     *
      * @var string
      */
     public $signatureName;

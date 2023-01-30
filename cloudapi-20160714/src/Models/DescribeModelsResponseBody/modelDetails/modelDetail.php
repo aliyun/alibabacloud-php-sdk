@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class modelDetail extends Model
 {
     /**
+     * @description The time when the model was created.
+     *
+     * @example 2019-01-29T11:07:48Z
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description The definition of the model description.
+     *
+     * @example Model Description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the API group to which the model belongs.
+     *
+     * @example 30e792398d6c4569b04c0e53a3494381
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the model.
+     *
+     * @example 766c0b9538a04bdf974953b5576783ba
+     *
      * @var string
      */
     public $modelId;
 
     /**
+     * @description The name of the model.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $modelName;
 
     /**
+     * @description The URI of the model.
+     *
+     * @example https://apigateway.aliyun.com/models/30e792398d6c4569b04c0e53a3494381/766c0b9538a04bdf974953b5576783ba
+     *
      * @var string
      */
     public $modelRef;
 
     /**
+     * @description The last modification time of the model.
+     *
+     * @example 2019-01-29T11:07:48Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @description The definition of the model.
+     *
+     * @example {\"type\":\"object\",\"properties\":{\"id\":{\"format\":\"int64\",\"maximum\":100,\"exclusiveMaximum\":true,\"type\":\"integer\"},\"name\":{\"maxLength\":10,\"type\":\"string\"}}}
+     *
      * @var string
      */
     public $schema;

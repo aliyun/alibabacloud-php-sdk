@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class SdkGenerateByAppResponseBody extends Model
 {
     /**
+     * @description The code of the SDK by using the Base64 scheme. You can obtain the file by using the Base64 decoding scheme.
+     *
+     * @example UEsDBBQACAAIADdwnFQAAAAAAAAAAAAAAAA2AAAAQ0FTREtfSkFWQV8xMjI3NDY2NjY0MzM0MTMzXzE2NTExMjU3MD......
+     *
      * @var string
      */
     public $downloadLink;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 61A16D46-EC04-5288-8A18-811B0F536CC2
+     *
      * @var string
      */
     public $requestId;

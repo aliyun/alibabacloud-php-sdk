@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteBackendModelResponseBody extends Model
 {
     /**
+     * @description The ID of the operation.
+     *
+     * @example f7834d74be4e41aa8e607b0fafae9b33
+     *
      * @var string
      */
     public $operationId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D1B18FFE-4A81-59D8-AA02-1817098977CD
+     *
      * @var string
      */
     public $requestId;

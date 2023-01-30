@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CreateSignatureResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the back-end signature key.
+     *
+     * @example dd05f1c54d6749eda95f9fa6d491449a
+     *
      * @var string
      */
     public $signatureId;
 
     /**
+     * @description The name of the back-end signature key.
+     *
+     * @example backendsignature
+     *
      * @var string
      */
     public $signatureName;

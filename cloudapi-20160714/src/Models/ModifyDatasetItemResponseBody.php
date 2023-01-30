@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyDatasetItemResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example F7DE77BC-0F7D-5A18-B494-BD2C********
+     *
      * @var string
      */
     public $requestId;

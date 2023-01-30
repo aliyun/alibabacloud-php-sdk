@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DisableInstanceAccessControlRequest extends Model
 {
     /**
+     * @description The ID of the access control policy.
+     *
+     * @example acl-grgqc0mnuhkqciwtam
+     *
      * @var string
      */
     public $aclId;
@@ -19,6 +23,10 @@ class DisableInstanceAccessControlRequest extends Model
     public $addressIPVersion;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example apigateway-cn-v6419k43xxxxx
+     *
      * @var string
      */
     public $instanceId;

@@ -14,11 +14,15 @@ use AlibabaCloud\Tea\Model;
 class backendConfig extends Model
 {
     /**
+     * @description The information about the backend service that is EventBridge.
+     *
      * @var eventBridgeConfig
      */
     public $eventBridgeConfig;
 
     /**
+     * @description The information about the backend service whose type is FC_EVENT or FC_HTTP.
+     *
      * @var functionComputeConfig
      */
     public $functionComputeConfig;
@@ -29,21 +33,33 @@ class backendConfig extends Model
     public $mockConfig;
 
     /**
+     * @description The information about the backend service whose type is OSS.
+     *
      * @var ossConfig
      */
     public $ossConfig;
 
     /**
+     * @description The URL of the backend service.
+     *
+     * @example 10.0.0.1
+     *
      * @var string
      */
     public $serviceAddress;
 
     /**
+     * @description The type of the backend service.
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The information about the virtual private cloud (VPC). This parameter is available only for backend services whose type is VPC.
+     *
      * @var vpcConfig
      */
     public $vpcConfig;

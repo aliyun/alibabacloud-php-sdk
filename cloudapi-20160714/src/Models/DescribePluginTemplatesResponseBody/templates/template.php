@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class template extends Model
 {
     /**
+     * @description The description.
+     *
+     * @example balabala
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The document anchor point.
+     *
+     * @example anchor
+     *
      * @var string
      */
     public $documentAnchor;
 
     /**
+     * @description The ID of the document.
+     *
+     * @example 41079
+     *
      * @var string
      */
     public $documentId;
 
     /**
+     * @description The sample.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $sample;
 
     /**
+     * @description The title of the plug-in template title.
+     *
+     * @example template title
+     *
      * @var string
      */
     public $title;

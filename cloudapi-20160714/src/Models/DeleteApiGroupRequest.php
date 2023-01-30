@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteApiGroupRequest extends Model
 {
     /**
+     * @description The object tags that match the lifecycle rule. You can specify multiple tags.
+     *
+     * @example 523e8dc7bbe04613b5b1d726c2a7889d
+     *
      * @var string
      */
     public $groupId;
@@ -20,6 +24,10 @@ class DeleteApiGroupRequest extends Model
     public $securityToken;
 
     /**
+     * @description The key of the tag.
+     *
+     * @example Key， Value
+     *
      * @var tag[]
      */
     public $tag;

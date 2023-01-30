@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class mockHeader extends Model
 {
     /**
+     * @description Configuration items related to VPC channels
+     *
+     * @example Content-Length
+     *
      * @var string
      */
     public $headerName;
 
     /**
+     * @description The name of the HTTP header.
+     *
+     * @example 86400
+     *
      * @var string
      */
     public $headerValue;

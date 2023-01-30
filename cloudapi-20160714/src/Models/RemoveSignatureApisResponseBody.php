@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RemoveSignatureApisResponseBody extends Model
 {
     /**
+     * @description *   This API is intended for API providers.
+     *   The operation takes effect immediately. The request sent from API Gateway to the backend service does not contain the signature string. The corresponding verification step can be removed from the backend.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
+     *
      * @var string
      */
     public $requestId;

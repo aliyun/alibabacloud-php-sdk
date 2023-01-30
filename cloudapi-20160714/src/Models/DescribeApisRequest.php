@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisRequest extends Model
 {
     /**
+     * @description The ID of the API.
+     *
+     * @example f68c19ee3bd1478fb58aa05ce8ae9b5a
+     *
      * @var string
      */
     public $apiId;
@@ -20,6 +24,10 @@ class DescribeApisRequest extends Model
     public $apiMethod;
 
     /**
+     * @description The name of the API operation. The name is used for fuzzy match.
+     *
+     * @example weather
+     *
      * @var string
      */
     public $apiName;
@@ -30,26 +38,46 @@ class DescribeApisRequest extends Model
     public $apiPath;
 
     /**
+     * @description The ID of the category.
+     *
+     * @example 1553414085247362
+     *
      * @var string
      */
     public $catalogId;
 
     /**
+     * @description Specifies whether to enable tag verification.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableTagAuth;
 
     /**
+     * @description The ID of the API group.
+     *
+     * @example c4a4d2de657548a2bd485d5d4df42b4a
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -60,6 +88,15 @@ class DescribeApisRequest extends Model
     public $securityToken;
 
     /**
+     * @var string
+     */
+    public $stageName;
+
+    /**
+     * @description The tag of objects that match the rule. You can specify multiple tags.
+     *
+     * @example Key， Value
+     *
      * @var tag[]
      */
     public $tag;
@@ -70,6 +107,13 @@ class DescribeApisRequest extends Model
     public $unDeployed;
 
     /**
+     * @description Specifies whether to make the API public. Valid values:
+     *
+     *   **PUBLIC: Make the API public. If you set this parameter to PUBLIC, this API is displayed on the APIs page for all users after the API is published to the production environment.**
+     *   **PRIVATE: Make the API private. Private APIs are not displayed in the Alibaba Cloud Marketplace after the API group to which they belong is made available.
+     *
+     * @example PUBLIC
+     *
      * @var string
      */
     public $visibility;
@@ -84,6 +128,7 @@ class DescribeApisRequest extends Model
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
         'securityToken' => 'SecurityToken',
+        'stageName'     => 'StageName',
         'tag'           => 'Tag',
         'unDeployed'    => 'UnDeployed',
         'visibility'    => 'Visibility',
@@ -125,6 +170,9 @@ class DescribeApisRequest extends Model
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->stageName) {
+            $res['StageName'] = $this->stageName;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -182,6 +230,9 @@ class DescribeApisRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['StageName'])) {
+            $model->stageName = $map['StageName'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

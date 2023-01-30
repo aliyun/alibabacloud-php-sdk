@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeModelsResponseBody extends Model
 {
     /**
+     * @description The returned information about models. It is an array consisting of ModelDetail data.
+     *
      * @var modelDetails
      */
     public $modelDetails;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 40306469-2FB5-417A-B723-AF1F4A4FA204
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

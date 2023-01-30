@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiGroupVpcWhitelistResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ016
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-bp11w979o2s9rcr962w25
+     *
      * @var string
      */
     public $vpcIds;

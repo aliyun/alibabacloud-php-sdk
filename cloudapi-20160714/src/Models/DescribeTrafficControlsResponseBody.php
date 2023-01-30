@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeTrafficControlsResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 93D91A99-F093-4596-87BA-3C4FBFD3FD8A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The returned throttling policy information. It is an array consisting of TrafficControl data.
+     *
      * @var trafficControls
      */
     public $trafficControls;

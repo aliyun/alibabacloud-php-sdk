@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteApiRequest extends Model
 {
     /**
+     * @description The ID of the API.
+     *
+     * @example d6f679aeb3be4b91b3688e887ca1fe16
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description The ID of the API group.
+     *
+     * @example 08ae4aa0f95e4321849ee57f4e0b3077
+     *
      * @var string
      */
     public $groupId;

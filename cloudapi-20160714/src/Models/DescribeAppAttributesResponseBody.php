@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppAttributesResponseBody extends Model
 {
     /**
+     * @description The name of the app.
+     *
      * @var apps
      */
     public $apps;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 8883AC74-259D-4C0B-99FC-0B7F9A588B2F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The returned application information. It is an array that consists of AppAttribute data.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

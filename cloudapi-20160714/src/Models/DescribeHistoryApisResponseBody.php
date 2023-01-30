@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeHistoryApisResponseBody extends Model
 {
     /**
+     * @description The returned API information. It is an array consisting of ApiHisItem data.
+     *
      * @var apiHisItems
      */
     public $apiHisItems;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 50. Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 6C87A26A-6A18-4B8E-8099-705278381A2C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $totalCount;

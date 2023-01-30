@@ -9,61 +9,113 @@ use AlibabaCloud\Tea\Model;
 class functionComputeConfig extends Model
 {
     /**
+     * @description The ContentType header used when you called the backend service over HTTP. Valid values:
+     *
+     *   **DEFAULT: the default header in API Gateway**
+     *   **CUSTOM: a custom header**
+     *   **CLIENT: the ContentType header specified by the client**
+     *
+     * @example DEFAULT
+     *
      * @var string
      */
     public $contentTypeCatagory;
 
     /**
+     * @description The value of the ContentType header when the ServiceProtocol parameter is set to HTTP and the ContentTypeCatagory parameter is set to DEFAULT or CUSTOM.
+     *
+     * @example application/json
+     *
      * @var string
      */
     public $contentTypeValue;
 
     /**
+     * @description The root path of Function Compute.
+     *
+     * @example https://122xxxxxxx.fc.aliyun.com/2016xxxx/proxy/testSxxx.xxx/testHttp/
+     *
      * @var string
      */
     public $fcBaseUrl;
 
     /**
+     * @description The type of the Function Compute instance.
+     *
+     * @example HttpTrigger
+     *
      * @var string
      */
     public $fcType;
 
     /**
+     * @description The function name defined in Function Compute.
+     *
+     * @example domain_business_control
+     *
      * @var string
      */
     public $functionName;
 
     /**
+     * @description The request method.
+     *
+     * @example GET
+     *
      * @var string
      */
     public $method;
 
     /**
+     * @description Indicates whether the backend only receives the service path.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $onlyBusinessPath;
 
     /**
+     * @description The API request path.
+     *
+     * @example /api/offline/cacheData
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @description The alias of the function.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $qualifier;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role assumed by API Gateway to access Function Compute.
+     *
+     * @example acs:ram::111***:role/aliyunserviceroleforsas
+     *
      * @var string
      */
     public $roleArn;
 
     /**
+     * @description The service name defined in Function Compute.
+     *
+     * @example fcservicename
+     *
      * @var string
      */
     public $serviceName;

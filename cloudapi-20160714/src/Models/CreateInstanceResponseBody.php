@@ -9,17 +9,31 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example apigateway-hz-b3c5dadd5***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CEB6EC62-B6C7-5082-A45A-45A204724AC2
+     *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $tagStatus;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'requestId'  => 'RequestId',
+        'tagStatus'  => 'TagStatus',
     ];
 
     public function validate()
@@ -34,6 +48,9 @@ class CreateInstanceResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->tagStatus) {
+            $res['TagStatus'] = $this->tagStatus;
         }
 
         return $res;
@@ -52,6 +69,9 @@ class CreateInstanceResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TagStatus'])) {
+            $model->tagStatus = $map['TagStatus'];
         }
 
         return $model;

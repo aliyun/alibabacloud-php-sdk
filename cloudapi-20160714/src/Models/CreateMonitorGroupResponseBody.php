@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateMonitorGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 187421794
+     *
      * @var int
      */
     public $monitorGroupId;
 
     /**
+     * @description auditing
+     *
+     * @example 5D7136F7-9D67-5D4D-8418-6A512CCEE3A2
+     *
      * @var string
      */
     public $requestId;

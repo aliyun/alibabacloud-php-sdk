@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateDatasetResponseBody extends Model
 {
     /**
+     * @description The ID of the dataset.
+     *
+     * @example a25a6589b2584ff490e891cc********
+     *
      * @var string
      */
     public $datasetId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4173F95B-360C-460C-9F6C-4A96********
+     *
      * @var string
      */
     public $requestId;

@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class datasetItemInfo extends Model
 {
     /**
+     * @description The creation time (UTC) of the data entry.
+     *
+     * @example 2022-09-21T12:58:43Z
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description The ID of the dataset.
+     *
+     * @example 626238665db4a5140eea3e40********
+     *
      * @var string
      */
     public $datasetId;
 
     /**
+     * @description The ID of the data entry.
+     *
+     * @example 5045****
+     *
      * @var string
      */
     public $datasetItemId;
 
     /**
+     * @description The description of the data entry.
+     *
+     * @example Description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The time in UTC when the data entry expires. The time is in the **yyyy-MM-ddTHH:mm:ssZ** format. If this parameter is empty, the data entry does not expire.
+     *
+     * @example 2022-09-22T12:00:00Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The last modification time (UTC) of the data entry.
+     *
+     * @example 2022-09-21T12:58:43Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @description The value of the data entry.
+     *
+     * @example 106.43.XXX.XXX
+     *
      * @var string
      */
     public $value;

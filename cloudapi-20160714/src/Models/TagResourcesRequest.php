@@ -10,11 +10,21 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
+     * @example 285bb759342649a1b70c2093a772e087
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource. Tags are bound to API groups, plug-ins, and applications. You can use tags to manage cloud resources by group. Valid values:
+     *
+     *   **apiGroup**
+     *   **plugin**
+     *   **app**
+     *
+     * @example apiGroup
+     *
      * @var string
      */
     public $resourceType;
@@ -25,6 +35,8 @@ class TagResourcesRequest extends Model
     public $securityToken;
 
     /**
+     * @example 2021022811
+     *
      * @var tag[]
      */
     public $tag;

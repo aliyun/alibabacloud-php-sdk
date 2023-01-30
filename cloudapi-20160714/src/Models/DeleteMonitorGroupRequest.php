@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteMonitorGroupRequest extends Model
 {
     /**
+     * @description The ID of the monitoring group.
+     *
+     * @example 42925e7f5209438186d5560239af5286
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 166636221
+     *
      * @var int
      */
     public $rawMonitorGroupId;

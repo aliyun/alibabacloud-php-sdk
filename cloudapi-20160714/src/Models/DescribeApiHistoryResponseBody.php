@@ -21,176 +21,326 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiHistoryResponseBody extends Model
 {
     /**
+     * @description If **AuthType** is set to **APP**, this parameter is required and it is used to specify the signature algorithm. If you did not specify a value, HmacSHA256 is used by default. Valid values:
+     *
+     *   HmacSHA256
+     *   HmacSHA1,HmacSHA256
+     *
+     * @example HmacSHA256
+     *
      * @var string
      */
     public $allowSignatureMethod;
 
     /**
+     * @description The ID of the API.
+     *
+     * @example bebf996e4b3d445d83078094b72b0d91
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description The name of the API.
+     *
+     * @example Backstage_MengMeng Broadcast_Seven Niu Cloud Push Stream Callback_Official
+     *
      * @var string
      */
     public $apiName;
 
     /**
+     * @description The way in which AppCode authentication is supported. Default value: DEFAULT. Valid values:
+     *
+     *   DEFAULT: supported after being made available in Alibaba Cloud Marketplace.
+     *   DISABLE: not supported.
+     *   HEADER : supported only in the Header requests.
+     *   HEADER_QUERY: supported in the Header or Query requests.
+     *
+     * @example HEADER
+     *
      * @var string
      */
     public $appCodeAuthType;
 
     /**
+     * @description The authentication method of the API. Valid values:
+     *
+     *   **APP: Only authorized applications can call the API.**
+     *
+     *   **ANONYMOUS: Anonymous users can call the API. Take note of the following rules:**
+     *
+     *   All users who have obtained the API service information can call this API. API Gateway neither authenticates callers nor sets user-specific throttling policies. If this API is a public one, set throttling policies for it.
+     *
+     * @example APP
+     *
      * @var string
      */
     public $authType;
 
     /**
+     * @description The backend configurations.
+     *
      * @var backendConfig
      */
     public $backendConfig;
 
     /**
+     * @description Indicates whether the backend service is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $backendEnable;
 
     /**
+     * @description The constant parameters.
+     *
      * @var constantParameters
      */
     public $constantParameters;
 
     /**
+     * @description The custom system parameters.
+     *
      * @var customSystemParameters
      */
     public $customSystemParameters;
 
     /**
+     * @description The publishing time (UTC) of the API.
+     *
+     * @example 2021-06-1113:57:38
+     *
      * @var string
      */
     public $deployedTime;
 
     /**
+     * @description The description of the API.
+     *
+     * @example Queries weather based on the region name
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description *   If the value of **DisableInternet** is set to **true**, API calls are limited within the VPC.
+     *   If the value of **DisableInternet** is set to **false**, the limit is lifted. The default value is false when you create an API.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $disableInternet;
 
     /**
+     * @description The sample error codes returned by the backend service.
+     *
+     * For more information, see [ErrorCodeSample](~~44392~~).
      * @var errorCodeSamples
      */
     public $errorCodeSamples;
 
     /**
+     * @description The sample error response from the backend service.
+     *
+     * @example {"errorCode":"fail","errorMessage":"param invalid"}
+     *
      * @var string
      */
     public $failResultSample;
 
     /**
+     * @description *   If the value of **ForceNonceCheck** is set to **true**, X-Ca-Nonce must be checked during the request. This is the unique identifier of the request and is identified by UUID. After receiving this parameter, API Gateway verifies the validity of this parameter. The same value can be used only once within 15 minutes. This helps prevent replay attacks.
+     *   If the value of **ForceNonceCheck** is set to **false**, the X-Ca-Nonce is not checked. The default value is false when you create an API.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $forceNonceCheck;
 
     /**
+     * @description The ID of the API group.
+     *
+     * @example cfb6ef799bf54fffabb0f02019ad2581
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the API group.
+     *
+     * @example dev_api
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The historical version number.
+     *
+     * @example 20211022134156663
+     *
      * @var string
      */
     public $historyVersion;
 
     /**
+     * @description The configuration items of the third-party OpenID Connect authentication method.
+     *
      * @var openIdConnectConfig
      */
     public $openIdConnectConfig;
 
     /**
+     * @description The region where the API is located.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The configuration items of API requests sent by the consumer to API Gateway.
+     *
+     * For more information, see [RequestConfig](~~43985~~).
      * @var requestConfig
      */
     public $requestConfig;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 6C87A26A-6A18-4B8E-8099-705278381A2C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The parameters of API requests sent by the consumer to API Gateway.
+     *
+     * For more information, see [RequestParameter](~~43986~~).
      * @var requestParameters
      */
     public $requestParameters;
 
     /**
+     * @description The return description of the API.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $resultBodyModel;
 
     /**
+     * @description The return description of the API.
+     *
      * @var resultDescriptions
      */
     public $resultDescriptions;
 
     /**
+     * @description The sample response.
+     *
+     * @example {\n  \"status\": 0,\n  \"data\": {\n    \"count\": 1,\n    \"list\": [\n      \"352\"\n    ]\n  },\n  \"message\": \"success\"\n}
+     *
      * @var string
      */
     public $resultSample;
 
     /**
+     * @description The format of the return data.
+     *
+     * @example JSON
+     *
      * @var string
      */
     public $resultType;
 
     /**
+     * @description The information about a backend service call.
+     *
      * @var serviceConfig
      */
     public $serviceConfig;
 
     /**
+     * @description The parameters of API requests sent by API Gateway to the backend service.
+     *
+     * For more information, see [ServiceParameter](~~43988~~).
      * @var serviceParameters
      */
     public $serviceParameters;
 
     /**
+     * @description The mappings between parameters of requests sent by the consumer to API Gateway and parameters of requests sent by API Gateway to the backend service.
+     *
+     * For more information, see [ServiceParameterMap](~~43989~~).
      * @var serviceParametersMap
      */
     public $serviceParametersMap;
 
     /**
+     * @description The environment to which the API is published.
+     *
+     *   **RELEASE**
+     *   **PRE**: the pre-release environment
+     *   **TEST**
+     *
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;
 
     /**
+     * @description The status of the API you called.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The common parameters of APIs in JSON format.
+     *
      * @var systemParameters
      */
     public $systemParameters;
 
     /**
+     * @description Indicates whether the API is public. Valid values:
+     *
+     *   **PUBLIC: The API is public. Public APIs are displayed on the APIs page for all users after the APIs are published to the production environment.**
+     *   **PRIVATE: The API is private. Private APIs are not displayed in the Alibaba Cloud Marketplace after the API group to which they belong is made available.
+     *
+     * @example PUBLIC
+     *
      * @var string
      */
     public $visibility;
 
     /**
+     * @description The type of the WebSocket API. Valid values:
+     *
+     *   **COMMON**: general APIs
+     *   **REGISTER**: APIs for registration
+     *   **UNREGISTER**: APIs for deregistration
+     *   **NOTIFY**: APIs for downstream notification
+     *
+     * For more information, see [Two-way communication](~~66031~~).
+     * @example COMMON
+     *
      * @var string
      */
     public $webSocketApiType;

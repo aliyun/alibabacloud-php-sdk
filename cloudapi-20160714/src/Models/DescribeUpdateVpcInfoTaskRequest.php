@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeUpdateVpcInfoTaskRequest extends Model
 {
     /**
+     * @description The ID of the task.
+     *
+     * @example 7d341787517a47afaaef9cc1bdb7acce
+     *
      * @var string
      */
     public $operationUid;

@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ipControlInfo extends Model
 {
     /**
+     * @description The time when the ACL was created. The time is displayed in UTC.
+     *
+     * @example 2018-01-17T05:48:11Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description Description
+     *
+     * @example description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the ACL.
+     *
+     * @example 7ea91319a34d48a09b5c9c871d9768b1
+     *
      * @var string
      */
     public $ipControlId;
 
     /**
+     * @description The name of the ACL.
+     *
+     * @example testControl11
+     *
      * @var string
      */
     public $ipControlName;
 
     /**
+     * @description The type of the ACL.
+     *
+     * @example ALLOW
+     *
      * @var string
      */
     public $ipControlType;
 
     /**
+     * @description The time when the ACL was modified. The time is displayed in UTC.
+     *
+     * @example 2018-01-17T06:00:38Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @description The region in which the API is located.
+     *
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $regionId;

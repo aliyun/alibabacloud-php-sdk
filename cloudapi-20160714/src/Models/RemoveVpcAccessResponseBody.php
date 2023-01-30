@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class RemoveVpcAccessResponseBody extends Model
 {
     /**
+     * @description API operations
+     *
      * @var apis
      */
     public $apis;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ015
+     *
      * @var string
      */
     public $requestId;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisResponseBody extends Model
 {
     /**
+     * @description The returned API definition. It is an array that consists of ApiSummary data.
+     *
      * @var apiSummarys
      */
     public $apiSummarys;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 15
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ002
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 32
+     *
      * @var int
      */
     public $totalCount;

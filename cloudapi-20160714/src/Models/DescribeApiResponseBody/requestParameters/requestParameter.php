@@ -9,86 +9,154 @@ use AlibabaCloud\Tea\Model;
 class requestParameter extends Model
 {
     /**
+     * @description The hash values that can be entered when **ParameterType** is set to Int, Long, Float, Double, or String. Separate different values with commas (,), such as 1,2,3,4,9 or A,B,C,E,F.
+     *
+     * @example age
+     *
      * @var string
      */
     public $apiParameterName;
 
     /**
+     * @description The minimum parameter value when **ParameterType** is set to Int, Long, Float, or Double.
+     *
+     * @example String
+     *
      * @var string
      */
     public $arrayItemsType;
 
     /**
+     * @description The name of the parameter.
+     *
+     * @example 20
+     *
      * @var string
      */
     public $defaultValue;
 
     /**
+     * @description Indicates whether the parameter is required. Valid values: **REQUIRED** and **OPTIONAL**.
+     *
+     * @example 20
+     *
      * @var string
      */
     public $demoValue;
 
     /**
+     * @description Age
+     *
+     * @example The type of a request parameter. Valid values: String, Int, Long, Float, Double, and Boolean.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $docOrder;
 
     /**
+     * @description The maximum parameter length when **ParameterType** is set to String.
+     *
+     * @example PUBLIC
+     *
      * @var string
      */
     public $docShow;
 
     /**
+     * @description Examples
+     *
+     * @example boy,girl
+     *
      * @var string
      */
     public $enumValue;
 
     /**
+     * @description The maximum parameter value when **ParameterType** is set to Int, Long, Float, or Double.
+     *
+     * @example JSON
+     *
      * @var string
      */
     public $jsonScheme;
 
     /**
+     * @description The parameters of API requests sent by API Gateway to the backend service.
+     *
+     * @example HEAD
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @description The default value.
+     *
+     * @example 123456
+     *
      * @var int
      */
     public $maxLength;
 
     /**
+     * @description The type of the array element.
+     *
+     * @example 123456
+     *
      * @var int
      */
     public $maxValue;
 
     /**
+     * @description The order in the document.
+     *
+     * @example 123456
+     *
      * @var int
      */
     public $minLength;
 
     /**
+     * @description Indicates whether the document is public. Valid values: **PUBLIC** and **PRIVATE**.
+     *
+     * @example 123456
+     *
      * @var int
      */
     public $minValue;
 
     /**
+     * @description The regular expression used for parameter validation when **ParameterType** is set to String.
+     *
+     * @example String
+     *
      * @var string
      */
     public $parameterType;
 
     /**
+     * @description The minimum parameter length when **ParameterType** is set to String.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $regularExpression;
 
     /**
+     * @description Description
+     *
+     * @example OPTIONAL
+     *
      * @var string
      */
     public $required;

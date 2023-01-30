@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribePurchasedApiGroupsRequest extends Model
 {
     /**
+     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;

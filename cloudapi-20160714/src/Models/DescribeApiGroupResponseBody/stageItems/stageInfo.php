@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class stageInfo extends Model
 {
     /**
+     * @description The description of the runtime environment.
+     *
+     * @example MYTEST
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the runtime environment.
+     *
+     * @example 123e8dc7bbe01613b5b1d726c2a7888e
+     *
      * @var string
      */
     public $stageId;
 
     /**
+     * @description The name of the runtime environment.
+     *
+     * @example TEST
+     *
      * @var string
      */
     public $stageName;

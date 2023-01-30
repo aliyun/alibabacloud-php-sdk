@@ -10,46 +10,88 @@ use AlibabaCloud\Tea\Model;
 class instanceAttribute extends Model
 {
     /**
+     * @description The ID of the access control policy.
+     *
+     * @example acl-uf6f9zfxfxtp5j9ng3yv4
+     *
      * @var string
      */
     public $aclId;
 
     /**
+     * @description The name of the access control policy.
+     *
+     * @example test
+     *
      * @var string
      */
     public $aclName;
 
     /**
+     * @description Indicates whether access control is enabled. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example on
+     *
      * @var string
      */
     public $aclStatus;
 
     /**
+     * @description The type of the access control policy. Valid values:
+     *
+     *   black: blacklist
+     *   white: whitelist
+     *
+     * @example white
+     *
      * @var string
      */
     public $aclType;
 
     /**
+     * @description The outbound IP address.
+     *
+     * @example 10.0.0.1
+     *
      * @var string
      */
     public $classicEgressAddress;
 
     /**
+     * @description The time when the instance was created.
+     *
+     * @example 2021-10-22 15:36:53.0
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description Indicates whether outbound IPv6 is supported.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $egressIpv6Enable;
 
     /**
+     * @description The time when the instance expires.
+     *
+     * @example 1659801600000
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The HTTPS security policy.
+     *
+     * @example HTTPS2_TLS1_2
+     *
      * @var string
      */
     public $httpsPolicies;
@@ -75,41 +117,77 @@ class instanceAttribute extends Model
     public $IPV6AclType;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   PrePaid: subscription
+     *   PayAsYouGo: pay-as-you-go
+     *
+     * @example PrePaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example api-shared-vpc-020
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example test
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The records per second (RPS) limit on the instance.
+     *
+     * @example 500
+     *
      * @var int
      */
     public $instanceRpsLimit;
 
     /**
+     * @description The specifications of the instance.
+     *
+     * @example api.s1.small
+     *
      * @var string
      */
     public $instanceSpec;
 
     /**
+     * @description The specifications of the instance.
+     *
      * @var instanceSpecAttributes
      */
     public $instanceSpecAttributes;
 
     /**
+     * @description The instance type.
+     *
+     *   VPC_SHARED: shared instance (VPC)
+     *   VPC_DEDICATED: dedicated instance (VPC)
+     *
+     * @example VPC_SHARED
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The outbound public IP address.
+     *
+     * @example 47.241.89.244
+     *
      * @var string
      */
     public $internetEgressAddress;
@@ -120,26 +198,46 @@ class instanceAttribute extends Model
     public $intranetSegments;
 
     /**
+     * @description The region where the instance is located.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The instance status.
+     *
+     * @example RUNNING
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description Indicates whether IPv6 is supported.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $supportIpv6;
 
     /**
+     * @description The ID of the user\"s VPC.
+     *
+     * @example vpc-t***hx****yu9****t0g4
+     *
      * @var string
      */
     public $userVpcId;
 
     /**
+     * @description The ID of the user interaction machine.
+     *
+     * @example vsw-t4***eh****d7q****i2f
+     *
      * @var string
      */
     public $userVswitchId;
@@ -150,31 +248,55 @@ class instanceAttribute extends Model
     public $vipTypeList;
 
     /**
+     * @description The outbound CIDR block of the VPC.
+     *
+     * @example 100.104.254.0/26
+     *
      * @var string
      */
     public $vpcEgressAddress;
 
     /**
+     * @description Indicates whether VPC is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $vpcIntranetEnable;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the VPC belongs.
+     *
+     * @example 1408453217640291
+     *
      * @var int
      */
     public $vpcOwnerId;
 
     /**
+     * @description Indicates whether VPC SLB is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $vpcSlbIntranetEnable;
 
     /**
+     * @description The zone ID.
+     *
+     * @example cn-hangzhou-MAZ5(g,h)
+     *
      * @var string
      */
     public $zoneId;
 
     /**
+     * @description The zone.
+     *
+     * @example Multi-zone 2
+     *
      * @var string
      */
     public $zoneLocalName;

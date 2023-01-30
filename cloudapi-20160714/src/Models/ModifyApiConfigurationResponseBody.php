@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyApiConfigurationResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 6C87A26A-6A18-4B8E-8099-705278381A2C
+     *
      * @var string
      */
     public $requestId;

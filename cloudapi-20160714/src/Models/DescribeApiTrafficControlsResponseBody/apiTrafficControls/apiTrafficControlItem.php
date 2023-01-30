@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class apiTrafficControlItem extends Model
 {
     /**
+     * @description The ID of the throttling policy.
+     *
+     * @example 46fbb52840d146f186e38e8e70fc8c90
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description *   This API is intended for API providers.
+     *   The ApiIds parameter is optional. If this parameter is not specified, all results in the specified environment of an API group are returned.
+     *
+     * @example testapi
+     *
      * @var string
      */
     public $apiName;
 
     /**
+     * @description The ID of the API.
+     *
+     * @example 2016-07-23T08:28:48Z
+     *
      * @var string
      */
     public $boundTime;
 
     /**
+     * @description The name of the throttling policy.
+     *
+     * @example dd05f1c54d6749eda95f9fa6d491449a
+     *
      * @var string
      */
     public $trafficControlId;
 
     /**
+     * @description API operation
+     *
+     * @example backendsignature
+     *
      * @var string
      */
     public $trafficControlName;

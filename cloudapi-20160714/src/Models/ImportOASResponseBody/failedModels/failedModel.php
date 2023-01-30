@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class failedModel extends Model
 {
     /**
+     * @description The error message.
+     *
+     * @example Invalid Model Definition.
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description The ID of the API group.
+     *
+     * @example 2c1bc62e19614cc68c6b0b484bc9c5db
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the model.
+     *
+     * @example test
+     *
      * @var string
      */
     public $modelName;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class AddIpControlPolicyItemResponseBody extends Model
 {
     /**
+     * @description The ID of the policy. The ID is unique.
+     *
+     * @example P151617000829241
+     *
      * @var string
      */
     public $policyItemId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
+     *
      * @var string
      */
     public $requestId;

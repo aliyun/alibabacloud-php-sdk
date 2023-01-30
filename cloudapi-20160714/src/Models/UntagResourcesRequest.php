@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to delete all tags. This parameter is valid only when the **TagKey.N**parameter is not specified. Default value: false. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $all;
 
     /**
+     * @example 285bb759342649a1b70c2093a772e087
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource. Tags are bound to API groups, plug-ins, and applications. You can use tags to manage cloud resources by group. Valid values:
+     *
+     *   **apiGroup**
+     *   **plugin**
+     *   **app**
+     *
+     * @example apiGroup
+     *
      * @var string
      */
     public $resourceType;
@@ -29,6 +46,8 @@ class UntagResourcesRequest extends Model
     public $securityToken;
 
     /**
+     * @example env
+     *
      * @var string[]
      */
     public $tagKey;

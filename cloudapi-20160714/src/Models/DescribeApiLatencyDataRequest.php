@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiLatencyDataRequest extends Model
 {
     /**
+     * @description The ID of the API group.
+     *
+     * @example d6f679aeb3be4b91b3688e887ca1fe16
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description The environment. Valid values:
+     *
+     *   **RELEASE**
+     *   **PRE**: the pre-release environment
+     *   **TEST**
+     *
+     * @example 2016-07-23T09:28:48Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The start time in UTC. Format: YYYY-MM-DDThh:mm:ssZ
+     *
+     * @example 63be9002440b4778a61122f14c2b2bbb
+     *
      * @var string
      */
     public $groupId;
@@ -29,11 +45,19 @@ class DescribeApiLatencyDataRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;
 
     /**
+     * @description The end time in UTC. Format: YYYY-MM-DDThh:mm:ssZ
+     *
+     * @example 2016-07-23T08:28:48Z
+     *
      * @var string
      */
     public $startTime;

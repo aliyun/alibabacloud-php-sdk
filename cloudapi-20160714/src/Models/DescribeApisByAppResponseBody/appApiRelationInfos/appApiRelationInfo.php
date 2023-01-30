@@ -9,66 +9,121 @@ use AlibabaCloud\Tea\Model;
 class appApiRelationInfo extends Model
 {
     /**
+     * @description The ID of the API operation.
+     *
+     * @example c625795a1e664782a918eaa629e96ab5
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description The name of the API operation.
+     *
+     * @example sd2_h5_player_history_competition
+     *
      * @var string
      */
     public $apiName;
 
     /**
+     * @description The validity period of the authorization.
+     *
+     * @example Sun, 02 Jan 2022 16:00:00 GMT
+     *
      * @var string
      */
     public $authVaildTime;
 
     /**
+     * @description The source of the authorization.
+     *
+     * @example SELF
+     *
      * @var string
      */
     public $authorizationSource;
 
     /**
+     * @description The time when the authorization was created.
+     *
+     * @example Sun, 02 Jan 2022 16:00:00 GMT
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description The description of authorization.
+     *
+     * @example b1008kz
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the API group.
+     *
+     * @example 38bed48d664149e4b9b5ea576319673f
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the API group.
+     *
+     * @example wb2022012101605749
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The request HTTP method for the API.
+     *
+     * @example GET
+     *
      * @var string
      */
     public $method;
 
     /**
+     * @description The authorizer. Valid values:
+     *
+     *   **PROVIDER:** the API owner
+     *   **CONSUMER:** the API caller
+     *
+     * @example PROVIDER
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @description The API request path.
+     *
+     * @example /api/offline/cacheData
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the environment.
+     *
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;

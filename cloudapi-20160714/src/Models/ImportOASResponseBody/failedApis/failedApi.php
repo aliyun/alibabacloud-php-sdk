@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class failedApi extends Model
 {
     /**
+     * @description The error message.
+     *
+     * @example Invalid Api Definition.
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description The HTTP method configured when you created the API.
+     *
+     * @example POST
+     *
      * @var string
      */
     public $httpMethod;
 
     /**
+     * @description The request path configured when you created the API.
+     *
+     * @example /st1
+     *
      * @var string
      */
     public $path;

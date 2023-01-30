@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class api extends Model
 {
     /**
+     * @description The name of the environment.
+     *
+     * @example 994f72dcdaf04af0b38022c65fdbd1ac
+     *
      * @var string
      */
     public $apiUid;
 
     /**
+     * @description The ID of the API.
+     *
+     * @example ced5ab777f7b440398ea70e4470124de
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the API group.
+     *
+     * @example 979fd16250644d5b82173534f465ac77
+     *
      * @var string
      */
     public $stageId;
 
     /**
+     * @description The ID of the operation.
+     *
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;

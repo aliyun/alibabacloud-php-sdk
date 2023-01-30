@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class SetVpcAccessRequest extends Model
 {
     /**
+     * @description The description.
+     *
+     * @example The description of the VPC.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of an ECS or SLB instance in the VPC.
+     *
+     * @example i-uf6bzcg1pr4oh5jjmxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The unique custom name for authorization.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The port number that corresponds to the instance.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $port;
@@ -34,11 +50,19 @@ class SetVpcAccessRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the VPC. The VPC must be an available one that belongs to the same account as the API.
+     *
+     * @example vpc-uf657qec7lx42paw3qxxx
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The host of the backend service.
+     *
+     * @example iot.hu***ng.com
+     *
      * @var string
      */
     public $vpcTargetHostName;

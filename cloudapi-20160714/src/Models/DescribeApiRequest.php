@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiRequest extends Model
 {
     /**
+     * @description The ID of the API.
+     *
+     * @example 8afff6c8c4c6447abb035812e4d66b65
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description The ID of the API.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $groupId;

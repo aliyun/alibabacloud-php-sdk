@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeSystemParametersResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 0CCDF65E-6050-412D-AD68-FA3D9196836C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The returned information about system parameters. It is an array that consists of SystemParam data.
+     *
      * @var systemParams
      */
     public $systemParams;

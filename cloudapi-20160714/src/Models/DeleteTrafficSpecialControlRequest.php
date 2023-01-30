@@ -14,16 +14,31 @@ class DeleteTrafficSpecialControlRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the app or Alibaba Cloud account. You can view your account ID on the [Account Management](https://account.console.aliyun.com/?spm=a2c4g.11186623.2.15.343130a8sDi8cO#/secure) page.
+     *
+     * @example 3382463
+     *
      * @var string
      */
     public $specialKey;
 
     /**
+     * @description The type of the special throttling policy. Valid values:
+     *
+     *   **APP**
+     *   **USER**
+     *
+     * @example APP
+     *
      * @var string
      */
     public $specialType;
 
     /**
+     * @description The ID of the throttling policy.
+     *
+     * @example tf123456
+     *
      * @var string
      */
     public $trafficControlId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ResetAppCodeResponseBody extends Model
 {
     /**
+     * @description auditing
+     *
+     * @example D1B18FFE-4A81-59D8-AA02-1817098977CD
+     *
      * @var string
      */
     public $requestId;

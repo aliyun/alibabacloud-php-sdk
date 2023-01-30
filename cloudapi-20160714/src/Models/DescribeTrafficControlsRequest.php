@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeTrafficControlsRequest extends Model
 {
     /**
+     * @description The specified API ID. This parameter must be specified together with GroupId and StageName.
+     *
+     * @example 3b81fd160f5645e097cc8855d75a1cf6
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description The specified group ID. This parameter must be specified together with ApiId and StageName.
+     *
+     * @example 0009db9c828549768a200320714b8930
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -34,16 +50,31 @@ class DescribeTrafficControlsRequest extends Model
     public $securityToken;
 
     /**
+     * @description The environment name. This parameter must be specified together with GroupId and ApiId. Valid values:********
+     *
+     *   **RELEASE**
+     *   **TEST**
+     *
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;
 
     /**
+     * @description The ID of the throttling policy.
+     *
+     * @example tf123456
+     *
      * @var string
      */
     public $trafficControlId;
 
     /**
+     * @description The name of the throttling policy.
+     *
+     * @example ThrottlingTest
+     *
      * @var string
      */
     public $trafficControlName;

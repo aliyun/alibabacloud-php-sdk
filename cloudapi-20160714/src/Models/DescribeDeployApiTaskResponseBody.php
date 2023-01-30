@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDeployApiTaskResponseBody extends Model
 {
     /**
+     * @description The result returned.
+     *
      * @var deployedResults
      */
     public $deployedResults;
 
     /**
+     * @description The result returned.
+     *
+     * @example CA4B3261-F14A-5E33-8608-F75A1DF27AD4
+     *
      * @var string
      */
     public $requestId;

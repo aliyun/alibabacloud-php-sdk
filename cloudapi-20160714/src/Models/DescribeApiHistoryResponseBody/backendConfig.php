@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class backendConfig extends Model
 {
     /**
+     * @description The ID of the backend service.
+     *
+     * @example a0305308908c4740aba9cbfd63ba99b7
+     *
      * @var string
      */
     public $backendId;
 
     /**
+     * @description The name of the backend service.
+     *
+     * @example zmapi
+     *
      * @var string
      */
     public $backendName;
 
     /**
+     * @description The type of the backend service.
+     *
+     * @example HTTP
+     *
      * @var string
      */
     public $backendType;

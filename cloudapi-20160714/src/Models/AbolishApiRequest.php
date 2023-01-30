@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AbolishApiRequest extends Model
 {
     /**
+     * @description The name of the runtime environment. Valid values:
+     *
+     *   **RELEASE**
+     *   **TEST**
+     *
+     * @example d6f679aeb3be4b91b3688e887ca1fe16
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description The ID of the specified API.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $groupId;
@@ -24,6 +35,10 @@ class AbolishApiRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;

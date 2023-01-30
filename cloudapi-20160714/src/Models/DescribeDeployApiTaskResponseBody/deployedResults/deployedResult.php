@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class deployedResult extends Model
 {
     /**
+     * @description The deployment status of the API.
+     *
+     * @example 0433c1cd84724923b7a4f9ca1cfc249c
+     *
      * @var string
      */
     public $apiUid;
 
     /**
+     * @description auditing
+     *
+     * @example OVER
+     *
      * @var string
      */
     public $deployedStatus;
 
     /**
+     * @description The runtime environment of the API. Valid values:
+     *
+     *   **RELEASE**
+     *   **TEST**
+     *
+     * @example Success. Request Success.
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description The ID of the API.
+     *
+     * @example e8da6f6346184da9a30d0dc1888b1f3b
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the API group.
+     *
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;

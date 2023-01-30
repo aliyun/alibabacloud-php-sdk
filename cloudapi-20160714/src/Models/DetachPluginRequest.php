@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DetachPluginRequest extends Model
 {
     /**
+     * @description The ID of the API.
+     *
+     * @example 19a2846d8e8541c788c6be740035eb68
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description The ID of the API group to which the API belongs.
+     *
+     * @example 93b87279e54c4c0baeb7113cdf9c67f5
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the plug-in.
+     *
+     * @example 05df2b52a3644a3a8b1935ab8ab59e9d
+     *
      * @var string
      */
     public $pluginId;
@@ -29,6 +41,14 @@ class DetachPluginRequest extends Model
     public $securityToken;
 
     /**
+     * @description The name of the runtime environment. Valid values:
+     *
+     *   **RELEASE**
+     *   **PRE: the pre-release environment**
+     *   **TEST**
+     *
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;

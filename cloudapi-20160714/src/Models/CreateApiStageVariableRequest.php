@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateApiStageVariableRequest extends Model
 {
     /**
+     * @description The ID of the runtime environment.
+     *
+     * @example 523e8dc7bbe04613b5b1d726c2a7889d
+     *
      * @var string
      */
     public $groupId;
@@ -19,6 +23,10 @@ class CreateApiStageVariableRequest extends Model
     public $securityToken;
 
     /**
+     * @description The name of the variable to be added. This parameter is case-sensitive.
+     *
+     * @example 6EF60BEC-0242-43AF-BB20-270359FB54A7
+     *
      * @var string
      */
     public $stageId;
@@ -29,16 +37,28 @@ class CreateApiStageVariableRequest extends Model
     public $stageRouteModel;
 
     /**
+     * @description The value of the variable.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $supportRoute;
 
     /**
+     * @description Specifies whether routing is supported.
+     *
+     * @example serverName
+     *
      * @var string
      */
     public $variableName;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example api.domain.com
+     *
      * @var string
      */
     public $variableValue;

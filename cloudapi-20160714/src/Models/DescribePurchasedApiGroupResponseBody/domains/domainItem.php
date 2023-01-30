@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class domainItem extends Model
 {
     /**
+     * @description auditing
+     *
+     * @example test_domain.com
+     *
      * @var string
      */
     public $domainName;

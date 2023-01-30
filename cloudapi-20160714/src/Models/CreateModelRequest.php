@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class CreateModelRequest extends Model
 {
     /**
+     * @description The description of the model definition.
+     *
+     * @example Model Description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the API group to which the model belongs.
+     *
+     * @example 30e792398d6c4569b04c0e53a3494381
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the model. The name must be unique within the group.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $modelName;
 
     /**
+     * @description The definition of the model in JSON Schema.
+     *
+     * @example {"type":"object","properties":{"id":{"format":"int64","maximum":100,"exclusiveMaximum":true,"type":"integer"},"name":{"maxLength":10,"type":"string"}}}
+     *
      * @var string
      */
     public $schema;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateTrafficControlResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the throttling policy.
+     *
+     * @example tf123456
+     *
      * @var string
      */
     public $trafficControlId;

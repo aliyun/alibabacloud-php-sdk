@@ -9,26 +9,50 @@ use AlibabaCloud\Tea\Model;
 class datasetInfoList extends Model
 {
     /**
+     * @description The creation time (UTC) of the dataset.
+     *
+     * @example 2022-09-21T12:58:43Z
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description The ID of the dataset.
+     *
+     * @example 6304ce6b4ae6453f********
+     *
      * @var string
      */
     public $datasetId;
 
     /**
+     * @description The name of the dataset.
+     *
+     * @example DatasetName
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @description The type of the dataset. Valid values:
+     *
+     *   JWT_BLOCKING: a JSON Web Token (JWT) blacklist
+     *   IP_WHITELIST_CIDR : an IP address whitelist
+     *   PARAMETER_ACCESS : parameter-based access control
+     *
+     * @example IP_WHITELIST_CIDR
+     *
      * @var string
      */
     public $datasetType;
 
     /**
+     * @description The last modification time (UTC) of the dataset.
+     *
+     * @example 2022-09-21T12:58:43Z
+     *
      * @var string
      */
     public $modifiedTime;

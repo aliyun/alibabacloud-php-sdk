@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class backendInfoList extends Model
 {
     /**
+     * @description The ID of the backend service.
+     *
+     * @example 35bd31d32c9c425ebbe9330db9f8c375
+     *
      * @var string
      */
     public $backendId;
 
     /**
+     * @description The name of the backend service.
+     *
+     * @example test
+     *
      * @var string
      */
     public $backendName;
 
     /**
+     * @description The type of the backend service.
+     *
+     * @example HTTP
+     *
      * @var string
      */
     public $backendType;
 
     /**
+     * @description The time when the backend service was created.
+     *
+     * @example 2022-01-25T11:22:29Z
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description The description of the backend service.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The time when the backend service was modified.
+     *
+     * @example 2022-01-25T11:22:29Z
+     *
      * @var string
      */
     public $modifiedTime;

@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ModifyModelRequest extends Model
 {
     /**
+     * @description The description of the new model definition.
+     *
+     * @example Model Description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the API group to which the model belongs.
+     *
+     * @example 30e792398d6c4569b04c0e53a3494381
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the model.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $modelName;
 
     /**
+     * @description The new name of the model.
+     *
+     * @example NewTest
+     *
      * @var string
      */
     public $newModelName;
 
     /**
+     * @description The new definition of the model.
+     *
+     * @example {\"type\":\"object\",\"properties\":{\"id\":{\"format\":\"int64\",\"maximum\":100,\"exclusiveMaximum\":true,\"type\":\"integer\"},\"name\":{\"maxLength\":10,\"type\":\"string\"}}}
+     *
      * @var string
      */
     public $schema;

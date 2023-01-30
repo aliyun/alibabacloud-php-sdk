@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeTrafficControlsByApiRequest extends Model
 {
     /**
+     * @description The ID of the API.
+     *
+     * @example 3b81fd160f5645e097cc8855d75a1cf6
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description The ID of the group to which the API to be queried belongs.
+     *
+     * @example 0009db9c828549768a200320714b8930
+     *
      * @var string
      */
     public $groupId;
@@ -24,6 +32,13 @@ class DescribeTrafficControlsByApiRequest extends Model
     public $securityToken;
 
     /**
+     * @description The runtime environment of the API. Valid values:
+     *
+     *   **RELEASE**
+     *   **TEST**
+     *
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tagInfo extends Model
 {
     /**
+     * @description The value of the tag.
+     *
+     * @example appid
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description auditing
+     *
+     * @example 123
+     *
      * @var string
      */
     public $value;

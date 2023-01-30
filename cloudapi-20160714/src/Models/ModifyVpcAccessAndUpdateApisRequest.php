@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpcAccessAndUpdateApisRequest extends Model
 {
     /**
+     * @description The ID of the new instance.
+     *
+     * @example i-uf6bzcg1pr4oh5jjmxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The unique custom name for the authorization.
+     *
+     * @example VpcName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description Specifies whether to update the associated API.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $needBatchWork;
 
     /**
+     * @description The port number to be modified.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description Specifies whether to refresh the VPC authorization.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $refresh;
@@ -39,16 +59,28 @@ class ModifyVpcAccessAndUpdateApisRequest extends Model
     public $securityToken;
 
     /**
+     * @description The password.
+     *
+     * @example c20d86c4-1eb3-4d0b-afe9-c586df1e2136
+     *
      * @var string
      */
     public $token;
 
     /**
+     * @description The ID of the new VPC.
+     *
+     * @example vpc-m5e7jqfppv5wbvmdw5pg2
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The authorized backend host.
+     *
+     * @example iot.hu***ng.com
+     *
      * @var string
      */
     public $vpcTargetHostName;

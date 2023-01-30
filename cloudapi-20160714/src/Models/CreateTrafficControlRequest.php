@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CreateTrafficControlRequest extends Model
 {
     /**
+     * @description The default throttling value for each API.
+     *
+     * @example 10000
+     *
      * @var int
      */
     public $apiDefault;
 
     /**
+     * @description The default throttling value for each app.
+     *
+     * @example 10000
+     *
      * @var int
      */
     public $appDefault;
 
     /**
+     * @description The description of the throttling policy.
+     *
+     * @example ThrottlingTestDescription
+     *
      * @var string
      */
     public $description;
@@ -29,16 +41,33 @@ class CreateTrafficControlRequest extends Model
     public $securityToken;
 
     /**
+     * @description The name of the throttling policy. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (\_). It cannot start with an underscore.
+     *
+     * @example ThrottlingTest
+     *
      * @var string
      */
     public $trafficControlName;
 
     /**
+     * @description The unit to be used in the throttling policy. Valid values:
+     *
+     *   **SECOND**
+     *   **MINUTE**
+     *   **HOUR**
+     *   **DAY**
+     *
+     * @example MINUTE
+     *
      * @var string
      */
     public $trafficControlUnit;
 
     /**
+     * @description The default throttling value for each user.
+     *
+     * @example 10000
+     *
      * @var int
      */
     public $userDefault;

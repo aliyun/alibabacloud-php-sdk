@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class openIdConnectConfig extends Model
 {
     /**
+     * @description The name of the parameter that corresponds to the token.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $idTokenParamName;
 
     /**
+     * @description The OpenID Connect mode. Valid values:
+     *
+     *   **IDTOKEN: OpenID Connect calls the authentication API to issue tokens. If this value is specified, the PublicKeyId parameter and the PublicKey parameter are required.**
+     *   **BUSINESS: OpenID Connect calls the business API to verify identities by using existing tokens. If this value is specified, the IdTokenParamName parameter is required.
+     *
+     * @example IDTOKEN
+     *
      * @var string
      */
     public $openIdApiType;
 
     /**
+     * @description The public key of the API.
+     *
+     * @example EB1837F8693CCED0BF750B3AD48467BEB569E780A14591CF92
+     *
      * @var string
      */
     public $publicKey;
 
     /**
+     * @description The ID of the public key.
+     *
+     * @example 88483727556929326703309904351185815489
+     *
      * @var string
      */
     public $publicKeyId;

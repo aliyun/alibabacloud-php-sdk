@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceSpecResponseBody extends Model
 {
     /**
+     * @description auditing
+     *
+     * @example 36BBBAD4-1CFB-489F-841A-8CA52EEA787E
+     *
      * @var string
      */
     public $requestId;

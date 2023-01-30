@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class customSystemParameter extends Model
 {
     /**
+     * @description The example value.
+     *
+     * @example 192.168.1.1
+     *
      * @var string
      */
     public $demoValue;
 
     /**
+     * @description The description.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
+     *
+     * @example HEAD
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @description The name of the custom system parameter.
+     *
+     * @example appid
+     *
      * @var string
      */
     public $parameterName;
 
     /**
+     * @description The name of the corresponding backend parameter.
+     *
+     * @example clientIp
+     *
      * @var string
      */
     public $serviceParameterName;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeSignaturesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The last modification time of the key.
+     *
      * @var signatureInfos
      */
     public $signatureInfos;
 
     /**
+     * @description The returned signature information. It is an array consisting of SignatureInfo data.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $totalCount;

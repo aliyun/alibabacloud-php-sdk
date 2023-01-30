@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class resultDescription extends Model
 {
     /**
+     * @description The description.
+     *
+     * @example for_test1
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether a child node exists.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $hasChild;
 
     /**
+     * @description The ID of the result.
+     *
+     * @example id
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The primary key of the result.
+     *
+     * @example groupName
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description Indicates whether the parameter is required.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $mandatory;
 
     /**
+     * @description The name of the result.
+     *
+     * @example fwqf
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the parent node.
+     *
+     * @example pid
+     *
      * @var string
      */
     public $pid;
 
     /**
+     * @description The type of the result.
+     *
+     * @example String
+     *
      * @var string
      */
     public $type;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribePluginSchemasResponseBody extends Model
 {
     /**
+     * @description The plug-in modes.
+     *
      * @var pluginSchemas
      */
     public $pluginSchemas;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 2D39D1B3-8548-508A-9CE2-7F4A3F2A7989
+     *
      * @var string
      */
     public $requestId;

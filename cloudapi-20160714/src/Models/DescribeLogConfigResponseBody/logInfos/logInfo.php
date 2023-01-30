@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class logInfo extends Model
 {
     /**
+     * @description The log type.
+     *
+     * @example PROVIDER
+     *
      * @var string
      */
     public $logType;
 
     /**
+     * @description The region ID of Log Service.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The log store value of Log Service (SLS).
+     *
+     * @example slsstore
+     *
      * @var string
      */
     public $slsLogStore;
 
     /**
+     * @description The SLS project.
+     *
+     * @example slsproject
+     *
      * @var string
      */
     public $slsProject;

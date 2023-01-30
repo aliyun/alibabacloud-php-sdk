@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateAccessControlListRequest extends Model
 {
     /**
+     * @description The name of the ACL. The name must be 1 to 30 characters in length, and can contain letters, digits, periods (.), hyphens (-), forward slashes (/), and underscores (\_). The name must be unique within the region.
+     *
+     * @example testAcl
+     *
      * @var string
      */
     public $aclName;
 
     /**
+     * @example ipv4
+     *
      * @var string
      */
     public $addressIPVersion;

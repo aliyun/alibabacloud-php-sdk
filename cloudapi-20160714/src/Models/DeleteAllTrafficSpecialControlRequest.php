@@ -14,6 +14,10 @@ class DeleteAllTrafficSpecialControlRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the throttling policy.
+     *
+     * @example tf123456
+     *
      * @var string
      */
     public $trafficControlId;

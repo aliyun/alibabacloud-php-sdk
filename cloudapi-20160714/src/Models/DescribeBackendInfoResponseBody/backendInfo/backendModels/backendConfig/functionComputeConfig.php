@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class functionComputeConfig extends Model
 {
     /**
+     * @description The root path of the Function Compute service.
+     *
+     * @example https://t*******.ap-*****.fcapp.run/
+     *
      * @var string
      */
     public $fcBaseUrl;
 
     /**
+     * @description The region ID of the Function Compute service.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $fcRegionId;
 
     /**
+     * @description The type of the Function Compute service.
+     *
+     * @example HttpTrigger
+     *
      * @var string
      */
     public $fcType;
 
     /**
+     * @description The function name defined in Function Compute.
+     *
+     * @example edge_function
+     *
      * @var string
      */
     public $functionName;
 
     /**
+     * @description The backend service path.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $onlyBusinessPath;
 
     /**
+     * @description The alias of the function.
+     *
+     * @example testQualifier
+     *
      * @var string
      */
     public $qualifier;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role to be assumed by API Gateway to access Function Compute.
+     *
+     * @example acs:ram::31985*:role/aliyunserviceroleforbastionhostpam
+     *
      * @var string
      */
     public $roleArn;
 
     /**
+     * @description The service name defined in Function Compute.
+     *
+     * @example myservice
+     *
      * @var string
      */
     public $serviceName;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class QueryRequestLogsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example CE5722A6-AE78-4741-A9B0-6C81********
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Details about request logs returned.
+     *
      * @var requestLogs
      */
     public $requestLogs;

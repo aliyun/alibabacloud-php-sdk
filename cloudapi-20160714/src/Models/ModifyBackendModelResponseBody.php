@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackendModelResponseBody extends Model
 {
     /**
+     * @description The ID of the operation.
+     *
+     * @example c16a1880f5164d779f6a54f64d997cd9
+     *
      * @var string
      */
     public $operationId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 19B89B04-418B-55EE-94A8-6B42CA06002A
+     *
      * @var string
      */
     public $requestId;

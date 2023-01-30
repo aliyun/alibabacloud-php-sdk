@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class BatchAbolishApisRequest extends Model
 {
     /**
+     * @description The ID of the environment.
+     *
      * @var api[]
      */
     public $api;

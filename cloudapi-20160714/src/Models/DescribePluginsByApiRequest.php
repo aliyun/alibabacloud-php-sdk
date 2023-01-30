@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribePluginsByApiRequest extends Model
 {
     /**
+     * @description The ID of the API.
+     *
+     * @example 93f4ead4080c4b2da70b7f81f50ae459
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description The ID of the group to which the API to be queried belongs.
+     *
+     * @example 3c7a38392e764718ad7673e7b7f535d4
+     *
      * @var string
      */
     public $groupId;
@@ -24,6 +32,14 @@ class DescribePluginsByApiRequest extends Model
     public $securityToken;
 
     /**
+     * @description The runtime environment of the API. Valid values:
+     *
+     *   **RELEASE**
+     *   **PRE: the pre-release environment**
+     *   **TEST**
+     *
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;

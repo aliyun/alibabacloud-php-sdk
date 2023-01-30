@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class apiPluginSummary extends Model
 {
     /**
+     * @example accc8c68b7294b1cb4928741********
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @example fhosQueryDayOfStock_V2
+     *
      * @var string
      */
     public $apiName;
@@ -24,31 +28,43 @@ class apiPluginSummary extends Model
     public $description;
 
     /**
+     * @example 5f51f89261854fd9ad5116be********
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example myGroup2
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example GET
+     *
      * @var string
      */
     public $method;
 
     /**
+     * @example /mqTest
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;

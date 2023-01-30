@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateLogConfigRequest extends Model
 {
     /**
+     * @description The log type.
+     *
+     * @example PROVIDER
+     *
      * @var string
      */
     public $logType;
@@ -19,11 +23,19 @@ class CreateLogConfigRequest extends Model
     public $securityToken;
 
     /**
+     * @description slslogstore
+     *
+     * @example api-gateway
+     *
      * @var string
      */
     public $slsLogStore;
 
     /**
+     * @description The name of the Log Service project.
+     *
+     * @example rec-lq-sls
+     *
      * @var string
      */
     public $slsProject;

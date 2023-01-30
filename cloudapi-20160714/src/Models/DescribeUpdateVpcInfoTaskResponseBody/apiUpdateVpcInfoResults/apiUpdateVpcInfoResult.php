@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class apiUpdateVpcInfoResult extends Model
 {
     /**
+     * @description The name of the API.
+     *
+     * @example api_test2
+     *
      * @var string
      */
     public $apiName;
 
     /**
+     * @description The ID of the API.
+     *
+     * @example 86364e7c166c47ba819b3f8f95ac0913
+     *
      * @var string
      */
     public $apiUid;
 
     /**
+     * @description The error message.
+     *
+     * @example Success. Request Success.
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description The ID of the API group.
+     *
+     * @example e8da6f6346184da9a30d0dc1888b1f3b
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the API group.
+     *
+     * @example test
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The ID of the stage.
+     *
+     * @example fe952b95072747e2a8dfd336bcff8d7f
+     *
      * @var string
      */
     public $stageId;
 
     /**
+     * @description The environment to which the API is published.
+     *
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;
 
     /**
+     * @description The update status.
+     *
+     * @example success
+     *
      * @var string
      */
     public $updateStatus;

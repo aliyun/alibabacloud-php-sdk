@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogConfigResponseBody extends Model
 {
     /**
+     * @description The log data.
+     *
      * @var logInfos
      */
     public $logInfos;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E3BC2706-ABDB-5B64-A12F-08DFD9E3F339
+     *
      * @var string
      */
     public $requestId;

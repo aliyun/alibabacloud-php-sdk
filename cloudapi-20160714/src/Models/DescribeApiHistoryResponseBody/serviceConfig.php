@@ -14,86 +14,155 @@ use AlibabaCloud\Tea\Model;
 class serviceConfig extends Model
 {
     /**
+     * @description The ContentType header used when you called the backend service over HTTP. Valid values:
+     *
+     *   DEFAULT: the default header type in API Gateway
+     *   CUSTOM: a custom header
+     *   CLIENT: the ContentType header specified by the client
+     *
+     * @example CUSTOM
+     *
      * @var string
      */
     public $contentTypeCatagory;
 
     /**
+     * @description The value of the ContentType header when the ServiceProtocol parameter is set to HTTP and the ContentTypeCatagory parameter is set to DEFAULT or CUSTOM.
+     *
+     * @example application/json
+     *
      * @var string
      */
     public $contentTypeValue;
 
     /**
+     * @description The configuration items of EventBridge.
+     *
      * @var eventBridgeConfig
      */
     public $eventBridgeConfig;
 
     /**
+     * @description The backend configuration items when the backend service is Function Compute.
+     *
      * @var functionComputeConfig
      */
     public $functionComputeConfig;
 
     /**
+     * @description Indicates whether the Mock mode is enabled. Valid values:
+     *
+     *   TRUE: The Mock mode is enabled.
+     *   FALSE: The Mock mode is not enabled.
+     *
+     * @example TRUE
+     *
      * @var string
      */
     public $mock;
 
     /**
+     * @description The mock headers.
+     *
      * @var mockHeaders
      */
     public $mockHeaders;
 
     /**
+     * @description The result returned when the Mock mode is enabled.
+     *
+     * @example test result
+     *
      * @var string
      */
     public $mockResult;
 
     /**
+     * @description The status code returned for service mocking.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $mockStatusCode;
 
     /**
+     * @description The information returned when the backend service is OSS.
+     *
      * @var ossConfig
      */
     public $ossConfig;
 
     /**
+     * @description The URL used to call the backend service.
+     *
+     * @example http://api.a.com:8080
+     *
      * @var string
      */
     public $serviceAddress;
 
     /**
+     * @description The HTTP request method used when you called the backend service. Valid values: PUT, GET, POST, DELETE, PATCH, HEAD, OPTIONS, and ANY.
+     *
+     * @example POST
+     *
      * @var string
      */
     public $serviceHttpMethod;
 
     /**
+     * @description The path used when you called the backend service.
+     *
+     * @example /object/add
+     *
      * @var string
      */
     public $servicePath;
 
     /**
+     * @description The backend service protocol. Currently, only HTTP, HTTPS, and FunctionCompute are supported.
+     *
+     * @example HTTP
+     *
      * @var string
      */
     public $serviceProtocol;
 
     /**
+     * @description The timeout period of the backend service. Unit: milliseconds.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $serviceTimeout;
 
     /**
+     * @description Indicates whether the VPC channel is enabled. Valid values:
+     *
+     *   TRUE: The VPC channel is enabled.
+     *   FALSE: The VPC channel is not enabled.
+     *
+     * You must create the corresponding VPC access authorization before you can enable a VPC channel.
+     * @example TRUE
+     *
      * @var string
      */
     public $serviceVpcEnable;
 
     /**
+     * @description The configuration items of the VPC channel.
+     *
      * @var vpcConfig
      */
     public $vpcConfig;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-uf6kg9x8sx2tbxxxx
+     *
      * @var string
      */
     public $vpcId;

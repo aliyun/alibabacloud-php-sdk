@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class resultDescription extends Model
 {
     /**
+     * @description The ID of the parent node.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The description.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $hasChild;
 
     /**
+     * @description System parameters sent by API Gateway to the backend service
+     *
+     * @example id
+     *
      * @var string
      */
     public $id;
@@ -29,6 +41,10 @@ class resultDescription extends Model
     public $key;
 
     /**
+     * @description The ID of the result.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $mandatory;
@@ -39,6 +55,10 @@ class resultDescription extends Model
     public $name;
 
     /**
+     * @description Indicates whether the request parameter is required.
+     *
+     * @example pid
+     *
      * @var string
      */
     public $pid;

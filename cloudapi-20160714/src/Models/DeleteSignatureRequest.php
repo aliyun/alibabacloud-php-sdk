@@ -14,6 +14,10 @@ class DeleteSignatureRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the key to be deleted.
+     *
+     * @example dd05f1c54d6749eda95f9fa6d491449a
+     *
      * @var string
      */
     public $signatureId;

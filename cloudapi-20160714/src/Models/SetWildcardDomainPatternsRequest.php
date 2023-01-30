@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class SetWildcardDomainPatternsRequest extends Model
 {
     /**
+     * @description The wildcard domain name mode.
+     *
+     * @example *.prd.e-eir.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The custom domain name.
+     *
+     * @example 0009db9c828549768a200320714b8930
+     *
      * @var string
      */
     public $groupId;
@@ -24,6 +32,10 @@ class SetWildcardDomainPatternsRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example [\"{svc}.prd.e-eir.com\"]
+     *
      * @var string
      */
     public $wildcardDomainPatterns;

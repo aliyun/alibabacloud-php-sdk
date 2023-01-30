@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppResponseBody extends Model
 {
     /**
+     * @description The ID of the app.
+     *
+     * @example 110843374
+     *
      * @var int
      */
     public $appId;
 
     /**
+     * @description The name of the app.
+     *
+     * @example CreateApptest
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The time when the app was created.
+     *
+     * @example 2019-01-29T09:33:01Z
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description The description of the app.
+     *
+     * @example Estimated on October 15, 2021 at 10:20:27
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The time when the app was modified.
+     *
+     * @example 2019-01-29T09:33:01Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DBDB3B0F-EC61-5F33-88AD-EC2446FA1DDB
+     *
      * @var string
      */
     public $requestId;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class systemParamItem extends Model
 {
     /**
+     * @description Examples
+     *
+     * @example 192.168.1.1
+     *
      * @var string
      */
     public $demoValue;
 
     /**
+     * @description The description of a parameter.
+     *
+     * @example Client IP Address
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the parameter.
+     *
+     * @example CaClientIp
+     *
      * @var string
      */
     public $paramName;
 
     /**
+     * @description The type of the parameter.
+     *
+     * @example string
+     *
      * @var string
      */
     public $paramType;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class trafficControlItem extends Model
 {
     /**
+     * @description The binding time of the policy.
+     *
+     * @example 2016-07-23T08:28:48Z
+     *
      * @var string
      */
     public $boundTime;
 
     /**
+     * @description The ID of the throttling policy.
+     *
+     * @example dd05f1c54d6749eda95f9fa6d491449a
+     *
      * @var string
      */
     public $trafficControlItemId;
 
     /**
+     * @description The name of the throttling policy.
+     *
+     * @example mysecret
+     *
      * @var string
      */
     public $trafficControlItemName;

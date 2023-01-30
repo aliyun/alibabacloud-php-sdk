@@ -15,21 +15,29 @@ class DescribePluginApisResponseBody extends Model
     public $apiSummarys;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example F9C5C4A5-BC6C-57A3-839F-AB08********
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $totalCount;

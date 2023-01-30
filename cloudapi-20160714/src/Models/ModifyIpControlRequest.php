@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ModifyIpControlRequest extends Model
 {
     /**
+     * @description The description. The description can be up to 200 characters in length.
+     *
+     * @example description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the ACL. The ID is unique.
+     *
+     * @example 7ea91319a34d48a09b5c9c871d9768b1
+     *
      * @var string
      */
     public $ipControlId;
 
     /**
+     * @description The name of the ACL. The name must be 4 to 50 characters in length, and can contain letters, digits, and underscores (\_). The name cannot start with an underscore (\_).
+     *
+     * @example testControl11
+     *
      * @var string
      */
     public $ipControlName;

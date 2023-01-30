@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeSignaturesByApiRequest extends Model
 {
     /**
+     * @description The runtime environment. Valid values:
+     *
+     *   **RELEASE**
+     *   **TEST**
+     *
+     * @example 3b81fd160f5645e097cc8855d75a1cf6
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description The ID of the API.
+     *
+     * @example 0009db9c828549768a200320714b8930
+     *
      * @var string
      */
     public $groupId;
@@ -24,6 +35,10 @@ class DescribeSignaturesByApiRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example TEST
+     *
      * @var string
      */
     public $stageName;

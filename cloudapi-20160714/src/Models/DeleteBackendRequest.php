@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteBackendRequest extends Model
 {
     /**
+     * @description The ID of the backend service.
+     *
+     * @example 27be0dd9ebbc467b9e86c0d250d0b92e
+     *
      * @var string
      */
     public $backendId;

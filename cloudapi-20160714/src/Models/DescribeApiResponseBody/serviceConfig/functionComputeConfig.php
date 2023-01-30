@@ -9,61 +9,113 @@ use AlibabaCloud\Tea\Model;
 class functionComputeConfig extends Model
 {
     /**
+     * @description The API request path.
+     *
+     * @example DEFAULT
+     *
      * @var string
      */
     public $contentTypeCatagory;
 
     /**
+     * @description The region where the Function Compute instance is located.
+     *
+     * @example application/x-www-form-urlencoded; charset=UTF-8
+     *
      * @var string
      */
     public $contentTypeValue;
 
     /**
+     * @description The value of the ContentType header when the ContentTypeCatagory parameter is set to DEFAULT or CUSTOM.
+     *
+     * @example https://1227****64334133.ap-southeast-1-int***al.fc.aliyuncs.com/201****-15/proxy/test****ice.LATEST/testHttp/
+     *
      * @var string
      */
     public $fcBaseUrl;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role to be assumed by API Gateway to access Function Compute.
+     *
+     * @example HttpTrigger
+     *
      * @var string
      */
     public $fcType;
 
     /**
+     * @description The ContentType header type used when you call the backend service over HTTP.
+     *
+     *   **DEFAULT**: the default header type in API Gateway
+     *   **CUSTOM**: a custom header type
+     *   **CLIENT**: the ContentType header type of the client
+     *
+     * @example edge_function
+     *
      * @var string
      */
     public $functionName;
 
     /**
+     * @description The root path of Function Compute.
+     *
+     * @example GET
+     *
      * @var string
      */
     public $method;
 
     /**
+     * @description The function name defined in Function Compute.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $onlyBusinessPath;
 
     /**
+     * @description The service name defined in Function Compute.
+     *
+     * @example /api/offline/cacheData
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @description Information when the backend service is OSS
+     *
+     * @example 2
+     *
      * @var string
      */
     public $qualifier;
 
     /**
+     * @description The backend only receives the service path.
+     *
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The request method.
+     *
+     * @example acs:ram::111***:role/aliyunserviceroleforsas
+     *
      * @var string
      */
     public $roleArn;
 
     /**
+     * @description The alias of the function.
+     *
+     * @example fcservicename
+     *
      * @var string
      */
     public $serviceName;

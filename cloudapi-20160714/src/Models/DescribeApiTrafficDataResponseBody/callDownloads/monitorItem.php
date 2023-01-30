@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class monitorItem extends Model
 {
     /**
+     * @description auditing
+     *
+     * @example 2016-07-28T08:20:00Z
+     *
      * @var string
      */
     public $itemTime;
 
     /**
+     * @description The time of the monitoring metric. The time format follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ
+     *
+     * @example 0
+     *
      * @var string
      */
     public $itemValue;

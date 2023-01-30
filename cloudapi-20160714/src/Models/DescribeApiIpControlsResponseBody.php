@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiIpControlsResponseBody extends Model
 {
     /**
+     * @description The information about the ACLs. The information is an array of ApiIpControlItem data.
+     *
      * @var apiIpControls
      */
     public $apiIpControls;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

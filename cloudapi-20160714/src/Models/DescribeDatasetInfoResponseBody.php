@@ -15,6 +15,10 @@ class DescribeDatasetInfoResponseBody extends Model
     public $datasetInfo;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A2C8F75E-EE84-5C64-960F-45C8********
+     *
      * @var string
      */
     public $requestId;

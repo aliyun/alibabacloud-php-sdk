@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class appAttribute extends Model
 {
     /**
+     * @description The tags.
+     *
+     * @example 20112314518278
+     *
      * @var int
      */
     public $appId;
 
     /**
+     * @description The modification time (UTC) of the app.
+     *
+     * @example CreateApptest
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The ID of the app.
+     *
+     * @example 2016-07-31T04:10:19Z
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description The creation time (UTC) of the app.
+     *
+     * @example App test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The description of the app.
+     *
+     * @example 2016-07-31T04:10:19Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @description The key of the tag.
+     *
      * @var tags
      */
     public $tags;

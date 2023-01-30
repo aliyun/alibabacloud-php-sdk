@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class systemParameter extends Model
 {
     /**
+     * @description The example value.
+     *
+     * @example 192.168.1.1
+     *
      * @var string
      */
     public $demoValue;
 
     /**
+     * @description The description.
+     *
+     * @example QueryParamDTO
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
+     *
+     * @example HEAD
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @description The name of the system parameter. Valid values: CaClientIp, CaDomain, CaRequestHandleTime, CaAppId, CaRequestId, CaHttpSchema, CaProxy.
+     *
+     * @example CaClientIp
+     *
      * @var string
      */
     public $parameterName;
 
     /**
+     * @description The name of the corresponding backend parameter.
+     *
+     * @example clientIp
+     *
      * @var string
      */
     public $serviceParameterName;

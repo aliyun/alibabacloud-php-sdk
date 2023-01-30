@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteDatasetItemResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example FF433E09-663A-5F5D-9DBA-A611********
+     *
      * @var string
      */
     public $requestId;

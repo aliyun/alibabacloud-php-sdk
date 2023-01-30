@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiTrafficControlsRequest extends Model
 {
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
+     * @example 123,234
+     *
      * @var string
      */
     public $apiIds;
 
     /**
+     * @description The IDs of APIs that you want to query. Separate multiple API IDs with commas (,). A maximum of 100 API IDs can be entered.
+     *
+     * @example 0009db9c828549768a200320714b8930
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -34,6 +50,10 @@ class DescribeApiTrafficControlsRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the API group that you want to query.
+     *
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;

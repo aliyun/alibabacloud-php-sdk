@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class pluginSchema extends Model
 {
     /**
+     * @description The plug-in description.
+     *
+     * @example plugin scheme description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the document.
+     *
+     * @example 4107**
+     *
      * @var string
      */
     public $documentId;
 
     /**
+     * @description The name of the plug-in.
+     *
+     * @example VPC_C
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description Indicates whether classification is supported.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $supportClassic;
 
     /**
+     * @description The plug-in title.
+     *
+     * @example plugin schema title
+     *
      * @var string
      */
     public $title;

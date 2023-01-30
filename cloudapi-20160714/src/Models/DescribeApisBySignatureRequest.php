@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisBySignatureRequest extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -24,6 +32,10 @@ class DescribeApisBySignatureRequest extends Model
     public $securityToken;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
+     *
+     * @example dd05f1c54d6749eda95f9fa6d491449a
+     *
      * @var string
      */
     public $signatureId;

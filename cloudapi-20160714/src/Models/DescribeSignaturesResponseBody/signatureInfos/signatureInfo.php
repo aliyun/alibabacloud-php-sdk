@@ -9,36 +9,65 @@ use AlibabaCloud\Tea\Model;
 class signatureInfo extends Model
 {
     /**
+     * @description The region where the key is located.
+     *
+     * @example 2016-07-23T08:28:48Z
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description The ID of the backend signature key.
+     *
+     * @example 2016-07-24T08:28:48Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @description *   This API is intended for API providers.
+     *   This operation is used to query the backend signature keys in a Region. Region is a system parameter.
+     *
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The Secret value of the backend signature key.
+     *
+     * @example dd05f1c54d6749eda95f9fa6d491449a
+     *
      * @var string
      */
     public $signatureId;
 
     /**
+     * @description The creation time of the key.
+     *
+     * @example qwertyuiop
+     *
      * @var string
      */
     public $signatureKey;
 
     /**
+     * @description The Key value of the backend signature key.
+     *
+     * @example backendsignature
+     *
      * @var string
      */
     public $signatureName;
 
     /**
+     * @description The name of the backend signature key.
+     *
+     * @example asdfghjkl
+     *
      * @var string
      */
     public $signatureSecret;

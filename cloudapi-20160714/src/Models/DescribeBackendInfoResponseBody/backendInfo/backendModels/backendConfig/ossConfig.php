@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ossConfig extends Model
 {
     /**
+     * @description The name of the OSS bucket.
+     *
+     * @example my_bucket
+     *
      * @var string
      */
     public $bucketName;
 
     /**
+     * @description The region ID of the Object Storage Service (OSS) bucket.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $ossRegionId;

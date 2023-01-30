@@ -14,6 +14,10 @@ class ossConfig extends Model
     public $action;
 
     /**
+     * @description Configuration items of EventBridge
+     *
+     * @example cbg-db
+     *
      * @var string
      */
     public $bucketName;
@@ -24,6 +28,10 @@ class ossConfig extends Model
     public $key;
 
     /**
+     * @description The OSS bucket.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $ossRegionId;

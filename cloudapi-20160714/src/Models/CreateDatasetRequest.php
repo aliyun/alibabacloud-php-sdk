@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class CreateDatasetRequest extends Model
 {
     /**
+     * @description Dataset Name
+     *
+     * @example DatasetName
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @description The type of the dataset. Valid values:
+     *
+     *   JWT_BLOCKING: a JSON Web Token (JWT) blacklist
+     *   IP_WHITELIST_CIDR : an IP address whitelist
+     *   PARAMETER_ACCESS : parameter-based access control
+     *
+     * @example JWT_BLOCKING
+     *
      * @var string
      */
     public $datasetType;

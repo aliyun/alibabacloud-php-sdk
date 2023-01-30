@@ -9,106 +9,208 @@ use AlibabaCloud\Tea\Model;
 class ModifyApiRequest extends Model
 {
     /**
+     * @description The returned description of the API.
+     *
+     * @example HmacSHA256
+     *
      * @var string
      */
     public $allowSignatureMethod;
 
     /**
+     * @description The name of the API. The name must be unique within the API group. The name must be 4 to 50 characters in length. It must start with a letter and can contain letters, digits, and underscores (\_).
+     *
+     * @example 8afff6c8c4c6447abb035812e4d66b65
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description The description of the API. The description can be up to 180 characters in length.
+     *
+     * @example ApiName
+     *
      * @var string
      */
     public $apiName;
 
     /**
+     * @description Specifies whether to enable backend services.
+     *
+     * @example DEFAULT
+     *
      * @var string
      */
     public $appCodeAuthType;
 
     /**
+     * @description The configuration items of API requests sent by API Gateway to the backend service.
+     *
+     * @example APP
+     *
      * @var string
      */
     public $authType;
 
     /**
+     * @description auditing
+     *
+     * @example true
+     *
      * @var bool
      */
     public $backendEnable;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0d105f80a8f340408bd34954d4e4ff22
+     *
      * @var string
      */
     public $backendId;
 
     /**
+     * @description The mappings between parameters of requests sent by the consumer to API Gateway and parameters of requests sent by API Gateway to the backend service.
+     *
+     * @example [{\"ServiceParameterName\":\"HOST\",\"ConstantValue\":\"uat-cgi.smarket.net.cn\",\"Location\":\"HEAD\",\"Description\":\"\\u540e\\u7aefVPC-HOST\"}]
+     *
      * @var string
      */
     public $constantParameters;
 
     /**
+     * @description Specifies whether the API is public. Valid values:
+     *
+     *   **PUBLIC**: Make the API public. If you set this parameter to PUBLIC, this API is displayed on the APIs page for all users after the API is published to the production environment.
+     *   **PRIVATE**: Make the API private. Private APIs are not displayed in the Alibaba Cloud Marketplace after the API group to which they belong is made available.
+     *
+     * @example Api description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the backend service.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $disableInternet;
 
     /**
+     * @description The configuration items of the third-party OpenID Connect authentication method.
+     *
+     * @example [{"Code":"400","Message":"Missing the userId","Description":"param invalid"}]
+     *
      * @var string
      */
     public $errorCodeSamples;
 
     /**
+     * @description The returned description of the API.
+     *
+     * @example {"errorCode":"fail","errorMessage":"param invalid"}
+     *
      * @var string
      */
     public $failResultSample;
 
     /**
+     * @description The AppCode authentication type supported. Valid values:
+     *
+     *   DEFAULT: supported after being made available in Alibaba Cloud Marketplace
+     *   DISABLE: not supported
+     *   HEADER : supported only in the Header parameter
+     *   HEADER_QUERY: supported in the Header or Query parameter
+     *
+     * @example true
+     *
      * @var bool
      */
     public $forceNonceCheck;
 
     /**
+     * @description The ID of the API.
+     *
+     * @example 927d50c0f2e54b359919923d908bb015
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The type of the two-way communication API. Valid values:
+     *
+     *   **COMMON**: general APIs
+     *   **REGISTER**: registered APIs
+     *   **UNREGISTER**: unregistered APIs
+     *   **NOTIFY**: downstream notification
+     *
+     * @example {\"OpenIdApiType\":\"IDTOKEN\",\"PublicKey\":\"lzlj1573\",\"IdTokenParamName\":\"\",\"PublicKeyId\":\"lzljorders\"}
+     *
      * @var string
      */
     public $openIdConnectConfig;
 
     /**
+     * @description The parameters of API requests sent by the consumer to API Gateway.
+     *
+     * @example {"RequestProtocol":"HTTP","RequestHttpMethod":"GET","RequestPath":"/v3/getUserTest/[userId]","BodyFormat":"FORM","PostBodyDescription":""}
+     *
      * @var string
      */
     public $requestConfig;
 
     /**
+     * @description System parameter
+     *
+     * @example Constant parameter
+     *
      * @var string
      */
     public $requestParameters;
 
     /**
+     * @description *   Specifies whether to set DisableInternet to **true** to limit API calls to within the VPC.
+     *   If you set DisableInternet to **false**, the limit if lifted.
+     *
+     * >  If you do not set this parameter, the original value is used.
+     * @example {}
+     *
      * @var string
      */
     public $resultBodyModel;
 
     /**
+     * @description The client-side request signature method of the API. Valid values:
+     *
+     *   HmacSHA256
+     *   HmacSHA1,HmacSHA256
+     *
+     * @example []
+     *
      * @var string
      */
     public $resultDescriptions;
 
     /**
+     * @description The sample error codes returned by the backend service.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $resultSample;
 
     /**
+     * @description The sample error response from the backend service.
+     *
+     * @example HTML
+     *
      * @var string
      */
     public $resultType;
@@ -119,31 +221,56 @@ class ModifyApiRequest extends Model
     public $securityToken;
 
     /**
+     * @description \[{"ParameterType":"Number","Required":"OPTIONAL","isHide":false,"ApiParameterName":"age","DefaultValue":"20","DemoValue":"20","Description":"age","MinValue":18,"MaxValue":100,"Location":"Head"},{"ParameterType":"String","Required":"OPTIONAL","isHide":false,"ApiParameterName":"sex","DefaultValue":"boy","DemoValue":"boy","Description":"gender","EnumValue":"boy,girl","Location":"Query"},{"ParameterType":"Number","Required":"REQUIRED","isHide":false,"ApiParameterName":"userId","MaxLength":10,"MinValue":10000000,"MaxValue":100000000,"Location":"Path"},{"ApiParameterName":"CaClientIp","ParameterLocation":{"name":"Head","orderNumber":0},"Location":"Head","ParameterType":"String","Required":"REQUIRED","Description":"Client IP"},{"ApiParameterName":"constance","ParameterLocation":{"name":"Head","orderNumber":0},"Location":"Head","ParameterType":"String","Required":"REQUIRED","DefaultValue":"constance","Description":"constance"}]
+     *
+     * @example {"ServiceProtocol":"HTTP","ServiceHttpMethod":"GET","ServiceAddress":"http://www.customerdomain.com","ServiceTimeout":"1000","ServicePath":"/v3/getUserTest/[userId]"}
+     *
      * @var string
      */
     public $serviceConfig;
 
     /**
+     * @description The format of the response from the backend service. Valid values: JSON, TEXT, BINARY, XML, and HTML. This value is used only to generate documents. It does not affect the returned results.
+     *
+     * @example [{"ServiceParameterName":"age","Location":"Head","Type":"Number","ParameterCatalog":"REQUEST"},{"ServiceParameterName":"sex","Location":"Query","Type":"String","ParameterCatalog":"REQUEST"},{"ServiceParameterName":"userId","Location":"Path","Type":"Number","ParameterCatalog":"REQUEST"},{"ServiceParameterName":"clientIp","Location":"Head","Type":"String","ParameterCatalog":"SYSTEM"},{"ServiceParameterName":"constance","Location":"Head","Type":"String","ParameterCatalog":"CONSTANT"}]
+     *
      * @var string
      */
     public $serviceParameters;
 
     /**
+     * @description The sample response from the backend service.
+     *
+     * @example [{"ServiceParameterName":"age","RequestParameterName":"age"},{"ServiceParameterName":"sex","RequestParameterName":"sex"},{"ServiceParameterName":"userId","RequestParameterName":"userId"},{"ServiceParameterName":"clientIp","RequestParameterName":"CaClientIp"},{"ServiceParameterName":"constance","RequestParameterName":"constance"}]
+     *
      * @var string
      */
     public $serviceParametersMap;
 
     /**
+     * @description The parameters of API requests sent by API Gateway to the backend service.
+     *
+     * @example [{\"ParameterName\": \"CaAppId\", \"Location\": \"HEAD\", \"ServiceParameterName\": \"x-ca-appid\"}]
+     *
      * @var string
      */
     public $systemParameters;
 
     /**
+     * @description The configuration items of API requests sent by the consumer to API Gateway.
+     *
+     * @example PUBLIC
+     *
      * @var string
      */
     public $visibility;
 
     /**
+     * @description *   Specifies whether to set **ForceNonceCheck** to **true** to force the check of X-Ca-Nonce during the request. This is the unique identifier of the request and is generally identified by UUID. After receiving this parameter, API Gateway verifies the validity of this parameter. The same value can be used only once within 15 minutes. This helps prevent replay attacks.
+     *   If you set **ForceNonceCheck** to **false**, the check is not performed. If you do not set this parameter, the original value is used.
+     *
+     * @example COMMON
+     *
      * @var string
      */
     public $webSocketApiType;

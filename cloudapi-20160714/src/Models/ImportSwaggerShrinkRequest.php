@@ -9,31 +9,59 @@ use AlibabaCloud\Tea\Model;
 class ImportSwaggerShrinkRequest extends Model
 {
     /**
+     * @description The Swagger text content.
+     *
+     * @example "A Swagger API definition in YAML"
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The Swagger text format:
+     *
+     *   json
+     *   yaml
+     *
+     * @example yaml
+     *
      * @var string
      */
     public $dataFormat;
 
     /**
+     * @description The pre-inspection.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @description The global conditions.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $globalConditionShrink;
 
     /**
+     * @description The ID of the API group to which the Swagger is imported.
+     *
+     * @example 0009db9c828549768a200320714b8930
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description Specifies whether to overwrite the existing API.
+     *
+     * APIs with the same HTTP request type and backend request path are considered the same.
+     * @example true
+     *
      * @var bool
      */
     public $overwrite;

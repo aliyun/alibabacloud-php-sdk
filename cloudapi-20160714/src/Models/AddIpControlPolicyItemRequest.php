@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class AddIpControlPolicyItemRequest extends Model
 {
     /**
+     * @description The restriction policy on app IDs for a specific policy. You can restrict app IDs only for whitelists. The IpControlType values of whitelists are ALLOW.
+     *
+     *   You can add only one app ID restriction policy at a time.
+     *   If this parameter is empty, no restriction is imposed on the app IDs.
+     *   If this parameter is not empty, there is restriction not only on IP addresses, but also on apps.
+     *   Please note that if this parameter is not empty and the security authentication method of the API is No Authentication, all API calls are restricted.
+     *   If this parameter is not empty for a blacklist, API Gateway automatically skips this parameter and sets only restriction on IP addresses. The IpControlType value of a blacklist is REFUSE.
+     *
+     * @example 1111111
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The IP addresses or CIDR blocks involved in the policy. Separate multiple IP addresses or CIDR blocks with semicolons (;). You can specify a maximum of 10 IP addresses or CIDR blocks.
+     *
+     * @example 113.125.1.101;101.11.1.1
+     *
      * @var string
      */
     public $cidrIp;
 
     /**
+     * @description The ID of the ACL. The ID is unique.
+     *
+     * @example 7ea91319a34d48a09b5c9c871d9768b1
+     *
      * @var string
      */
     public $ipControlId;

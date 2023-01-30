@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpControlsRequest extends Model
 {
     /**
+     * @description The ID of the ACL. The ID is unique.
+     *
+     * @example 7ea91319a34d48a09b5c9c871d9768b1
+     *
      * @var string
      */
     public $ipControlId;
 
     /**
+     * @description The name of the ACL.
+     *
+     * @example ACLtest
+     *
      * @var string
      */
     public $ipControlName;
 
     /**
+     * @description The type of the ACL. Valid values:
+     *
+     *   **ALLOW**: an IP address whitelist
+     *   **REFUSE**: an IP address blacklist
+     *
+     * @example ALLOW
+     *
      * @var string
      */
     public $ipControlType;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePluginApisRequest extends Model
 {
     /**
+     * @example c6b0dd188b0e4e408e12f926********
+     *
      * @var string
      */
     public $apiId;
@@ -24,31 +26,43 @@ class DescribePluginApisRequest extends Model
     public $description;
 
     /**
+     * @example 231a4bb81ee94da785733c29********
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example GET
+     *
      * @var string
      */
     public $method;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example /sendVerifyCode
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example bf6583efcef44c51adb00c4e********
+     *
      * @var string
      */
     public $pluginId;

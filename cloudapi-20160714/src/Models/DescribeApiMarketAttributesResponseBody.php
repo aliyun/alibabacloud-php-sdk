@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiMarketAttributesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 6318cd8f6a304cac9318dea8d9a78f7a
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description Indicates whether fees are charged.
+     *
+     * @example PREPAID_BY_USAGE
+     *
      * @var string
      */
     public $marketChargingMode;
 
     /**
+     * @description auditing
+     *
+     * @example true
+     *
      * @var string
      */
     public $needCharging;
 
     /**
+     * @description The billing mode used by the Alibaba Cloud Marketplace.
+     *
+     * @example 545D4E52-4F77-5EC4-BB7E-7344CEC7B5E6
+     *
      * @var string
      */
     public $requestId;

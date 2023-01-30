@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateIntranetDomainResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example api.demo.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description auditing
+     *
+     * @example 20D942A5-EDC6-5DA3-93F9-257888399E22
+     *
      * @var string
      */
     public $requestId;

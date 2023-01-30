@@ -9,51 +9,94 @@ use AlibabaCloud\Tea\Model;
 class apiHisItem extends Model
 {
     /**
+     * @description The ID of the API.
+     *
+     * @example 5af418828f0344a3b588c0cc1331a3bc
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description The name of the API.
+     *
+     * @example CreateObject
+     *
      * @var string
      */
     public $apiName;
 
     /**
+     * @description The publishing time (UTC) of the API.
+     *
+     * @example 2016-07-20T08:28:48Z
+     *
      * @var string
      */
     public $deployedTime;
 
     /**
+     * @description The description of the API.
+     *
+     * @example Creates an object
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the API group.
+     *
+     * @example 1084f9034c744137901057206b39d2b6
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the group to which an API belongs.
+     *
+     * @example myGroup2
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The historical version of the API.
+     *
+     * @example 20160705104552393
+     *
      * @var string
      */
     public $historyVersion;
 
     /**
+     * @description The region where the API is located.
+     *
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the runtime environment. Valid values:
+     *
+     *   **RELEASE**
+     *   **TEST.
+     *
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;
 
     /**
+     * @description Indicates whether an API version is effective. Valid values: ONLINE and OFFLINE.
+     *
+     * @example ONLINE
+     *
      * @var string
      */
     public $status;

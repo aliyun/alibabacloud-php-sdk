@@ -10,11 +10,20 @@ use AlibabaCloud\Tea\Model;
 class specialPolicy extends Model
 {
     /**
+     * @description The type of the special throttling policy. Valid values:
+     *
+     *   **APP**
+     *   **USER**
+     *
+     * @example USER
+     *
      * @var string
      */
     public $specialType;
 
     /**
+     * @description The returned information about a special throttling policy. It is an array consisting of Special data.
+     *
      * @var specials
      */
     public $specials;

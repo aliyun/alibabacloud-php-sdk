@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class SetWildcardDomainPatternsResponseBody extends Model
 {
     /**
+     * @description auditing
+     *
+     * @example D0075BDA-8AED-5073-A70A-FE44E86AB20F
+     *
      * @var string
      */
     public $requestId;

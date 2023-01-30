@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class special extends Model
 {
     /**
+     * @description The AppId or user account corresponding to SpecialType.
+     *
+     * @example test_wg@aliyun.com
+     *
      * @var string
      */
     public $specialKey;
 
     /**
+     * @description The throttling value.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $trafficValue;

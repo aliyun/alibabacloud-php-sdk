@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class apiIpControlItem extends Model
 {
     /**
+     * @description The ID of the API.
+     *
+     * @example 46fbb52840d146f186e38e8e70fc8c90
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description The name of the API.
+     *
+     * @example testapi
+     *
      * @var string
      */
     public $apiName;
 
     /**
+     * @description The time of binding.
+     *
+     * @example 2016-07-23T08:28:48Z
+     *
      * @var string
      */
     public $boundTime;
 
     /**
+     * @description The ID of the ACL.
+     *
+     * @example dd05f1c54d6749eda95f9fa6d491449a
+     *
      * @var string
      */
     public $ipControlId;
 
     /**
+     * @description The name of the ACL.
+     *
+     * @example testControlName
+     *
      * @var string
      */
     public $ipControlName;

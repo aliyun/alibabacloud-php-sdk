@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeSignaturesByApiResponseBody extends Model
 {
     /**
+     * @description The returned signature key information. It is an array consisting of SignatureItem data.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The time when the key was bound.
+     *
      * @var signatures
      */
     public $signatures;

@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiHistoriesRequest extends Model
 {
     /**
+     * @description The ID of the API.
+     *
+     * @example c076144d7878437b8f82fb85890ce6a0
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description The name of the API. The name is used for fuzzy match.
+     *
+     * @example weather
+     *
      * @var string
      */
     public $apiName;
 
     /**
+     * @description The ID of the API group.
+     *
+     * @example 1084f9034c744137901057206b39d2b6
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -39,6 +59,13 @@ class DescribeApiHistoriesRequest extends Model
     public $securityToken;
 
     /**
+     * @description The name of the runtime environment. Valid values:
+     *
+     *   **RELEASE**
+     *   **TEST: the test environment**
+     *
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;

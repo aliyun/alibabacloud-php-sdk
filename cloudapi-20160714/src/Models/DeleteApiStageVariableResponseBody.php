@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteApiStageVariableResponseBody extends Model
 {
     /**
+     * @description Deletes a specified variable in a specified environment.
+     *
+     * @example 03442A3D-3B7D-434C-8A95-A5FEB969B529
+     *
      * @var string
      */
     public $requestId;

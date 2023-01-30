@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class RemoveIpControlApisRequest extends Model
 {
     /**
+     * @description The ID of the API to be managed.
+     *
+     *   If this parameter is not specified, all APIs of the API group are unbound in the specified environment by default.
+     *   The IDs of the APIs that you want to query. Separate multiple IDs with commas (,). A maximum of 100 IDs can be entered.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $apiIds;
 
     /**
+     * @description The ID of the API group containing the API to be managed.
+     *
+     * @example 0009db9c828549768a200320714b8930
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the ACL.
+     *
+     * @example dd05f1c54d6749eda95f9fa6d491449a
+     *
      * @var string
      */
     public $ipControlId;
@@ -29,6 +44,13 @@ class RemoveIpControlApisRequest extends Model
     public $securityToken;
 
     /**
+     * @description The name of the runtime environment. Valid values:
+     *
+     *   **RELEASE**
+     *   **TEST**
+     *
+     * @example TEST
+     *
      * @var string
      */
     public $stageName;

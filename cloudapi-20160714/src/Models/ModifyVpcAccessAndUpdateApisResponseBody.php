@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpcAccessAndUpdateApisResponseBody extends Model
 {
     /**
+     * @description The task ID.
+     *
+     * @example 7b6d0cb72b2e4215b0129f675c889746
+     *
      * @var string
      */
     public $operationId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C2CEC6EA-EEBA-5FD6-8BD9-2CF01980FE39
+     *
      * @var string
      */
     public $requestId;

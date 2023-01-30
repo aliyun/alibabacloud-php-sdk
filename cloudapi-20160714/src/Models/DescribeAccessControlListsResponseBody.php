@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccessControlListsResponseBody extends Model
 {
     /**
+     * @description The ACLs.
+     *
      * @var acls
      */
     public $acls;
 
     /**
+     * @description The page number of the current page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ015
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $totalCount;

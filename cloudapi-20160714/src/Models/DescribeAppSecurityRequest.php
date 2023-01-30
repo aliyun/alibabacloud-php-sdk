@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppSecurityRequest extends Model
 {
     /**
+     * @description The tag of objects that match the rule. You can specify multiple tags.
+     *
+     * @example 20112314518278
+     *
      * @var int
      */
     public $appId;
@@ -20,6 +24,10 @@ class DescribeAppSecurityRequest extends Model
     public $securityToken;
 
     /**
+     * @description The key of the tag.
+     *
+     * @example Key， Value
+     *
      * @var tag[]
      */
     public $tag;

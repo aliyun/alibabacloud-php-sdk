@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteAppRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example 110840611
+     *
      * @var int
      */
     public $appId;
@@ -20,6 +24,10 @@ class DeleteAppRequest extends Model
     public $securityToken;
 
     /**
+     * @description The tags. Up to 20 elements are allowed.
+     *
+     * @example test2
+     *
      * @var tag[]
      */
     public $tag;

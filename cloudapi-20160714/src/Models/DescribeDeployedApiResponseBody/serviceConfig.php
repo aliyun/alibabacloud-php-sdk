@@ -12,66 +12,118 @@ use AlibabaCloud\Tea\Model;
 class serviceConfig extends Model
 {
     /**
+     * @description The backend configuration items when the backend service is Function Compute.
+     *
      * @var functionComputeConfig
      */
     public $functionComputeConfig;
 
     /**
+     * @description Indicates whether the Mock mode is enabled. Valid values:
+     *
+     *   **TRUE: The Mock mode is enabled.**
+     *   **FALSE: The Mock mode is not enabled.
+     *
+     * @example TRUE
+     *
      * @var string
      */
     public $mock;
 
     /**
+     * @description The mock headers.
+     *
      * @var mockHeaders
      */
     public $mockHeaders;
 
     /**
+     * @description The result returned when the Mock mode is enabled.
+     *
+     * @example test result
+     *
      * @var string
      */
     public $mockResult;
 
     /**
+     * @description The status code returned for service mocking.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $mockStatusCode;
 
     /**
+     * @description The URL used to call the back-end service. If the complete back-end service URL is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, the value of ServiceAddress is **http://api.a.com:8080**.``
+     *
+     * @example http://api.a.com:8080
+     *
      * @var string
      */
     public $serviceAddress;
 
     /**
+     * @description The HTTP method used to call a backend service. Valid values: GET, POST, DELETE, PUT, HEADER, TRACE, PATCH, CONNECT, and OPTIONS.
+     *
+     * @example POST
+     *
      * @var string
      */
     public $serviceHttpMethod;
 
     /**
+     * @description The path used to call the back-end service. If the complete back-end service path is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, ServicePath is **\/object/add**.``
+     *
+     * @example /object/add
+     *
      * @var string
      */
     public $servicePath;
 
     /**
+     * @description The backend service protocol. Currently, only HTTP, HTTPS, and FunctionCompute are supported.
+     *
+     * @example HTTP
+     *
      * @var string
      */
     public $serviceProtocol;
 
     /**
+     * @description The timeout period of the backend service. Unit: milliseconds.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $serviceTimeout;
 
     /**
+     * @description Indicates whether the VPC channel is enabled. Valid values:
+     *
+     *   **TRUE**: The VPC channel is enabled. You must create the corresponding VPC access authorization before you can enable a VPC channel.
+     *   **FALSE**: The VPC channel is not enabled.
+     *
+     * @example TRUE
+     *
      * @var string
      */
     public $serviceVpcEnable;
 
     /**
+     * @description The configuration items of the VPC channel.
+     *
      * @var vpcConfig
      */
     public $vpcConfig;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-uf6kg9x8sx2tbxxxx
+     *
      * @var string
      */
     public $vpcId;

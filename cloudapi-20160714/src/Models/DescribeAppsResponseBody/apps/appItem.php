@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class appItem extends Model
 {
     /**
+     * @description *   This API is intended for API providers.
+     *   API providers can use the app IDs or their Apsara Stack tenant accounts to query app information.
+     *   Each provider can call this operation for a maximum of 200 times every day in a region.
+     *
+     * @example 20112314518278
+     *
      * @var int
      */
     public $appId;
 
     /**
+     * @description The description of the app.
+     *
+     * @example CreateApptest
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The ID of the app.
+     *
+     * @example App test
+     *
      * @var string
      */
     public $description;

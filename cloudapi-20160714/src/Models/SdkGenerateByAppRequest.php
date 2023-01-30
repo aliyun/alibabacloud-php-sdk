@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class SdkGenerateByAppRequest extends Model
 {
     /**
+     * @description The ID of the app. This ID is unique.
+     *
+     * @example 110797019
+     *
      * @var int
      */
     public $appId;
 
     /**
+     * @description The programming language in which the SDK is generated.
+     *
+     * @example java
+     *
      * @var string
      */
     public $language;

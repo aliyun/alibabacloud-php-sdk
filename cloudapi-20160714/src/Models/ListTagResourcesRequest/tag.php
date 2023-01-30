@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The key of the tag.
+     *
+     * Valid values of N: `[1, 20]`.
+     * @example env
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the tag. If the parameter has a value, you must specify a value for the tag key with the same N as **tag.N.Key**. Otherwise, an error is reported.
+     *
+     * Valid values of N: `[1, 20]`.
+     * @example product
+     *
      * @var string
      */
     public $value;

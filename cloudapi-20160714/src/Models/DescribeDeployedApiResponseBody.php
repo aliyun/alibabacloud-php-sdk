@@ -20,146 +20,263 @@ use AlibabaCloud\Tea\Model;
 class DescribeDeployedApiResponseBody extends Model
 {
     /**
+     * @description The signature method used by the client. Valid values:
+     *
+     *   HmacSHA256
+     *   HmacSHA1,HmacSHA256
+     *
+     * @example HmacSHA256
+     *
      * @var string
      */
     public $allowSignatureMethod;
 
     /**
+     * @description The ID of the API.
+     *
+     * @example 4eed13a57d4e42fbb51316be8a5329ff
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description The name of the API operation.
+     *
+     * @example weather
+     *
      * @var string
      */
     public $apiName;
 
     /**
+     * @description The authentication method of the API. Valid values:
+     *
+     *   **APP: Only authorized applications can call the API.**
+     *
+     *   **ANONYMOUS: Anonymous users can call the API. Take note of the following rules:**
+     *
+     *   All users who have obtained the API service information can call this API. API Gateway neither authenticates callers nor sets user-specific throttling policies. If this API is a public one, set throttling policies for it.
+     *
+     * @example APP
+     *
      * @var string
      */
     public $authType;
 
     /**
+     * @description The constant parameters.
+     *
      * @var constantParameters
      */
     public $constantParameters;
 
     /**
+     * @description The custom system parameters.
+     *
      * @var customSystemParameters
      */
     public $customSystemParameters;
 
     /**
+     * @description The deployment time. Format: yyyy-mm-ddhh:mm:ss.
+     *
+     * @example 2022-07-25T17:47:51Z
+     *
      * @var string
      */
     public $deployedTime;
 
     /**
+     * @description Description
+     *
+     * @example Api description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description *   If the value of DisableInternet is set to **true**, API calls are limited within the VPC.
+     *   If the value of DisableInternet is set to **false**, the limit is lifted.
+     *
+     * >  If you do not configure this parameter when you modify the API, the original value is used.
+     * @example true
+     *
      * @var bool
      */
     public $disableInternet;
 
     /**
+     * @description The sample error codes returned by the backend service.
+     *
+     * For more information, see [ErrorCodeSample](~~44392~~).
      * @var errorCodeSamples
      */
     public $errorCodeSamples;
 
     /**
+     * @description The sample error response from the backend service.
+     *
+     * @example {"errorCode":"fail","errorMessage":"param invalid"}
+     *
      * @var string
      */
     public $failResultSample;
 
     /**
+     * @description *   If the value of **ForceNonceCheck** is set to **true**, X-Ca-Nonce must be checked during the request. This is the unique identifier of the request and is identified by UUID. After receiving this parameter, API Gateway verifies the validity of this parameter. The same value can be used only once within 15 minutes. This helps prevent replay attacks.
+     *   If the value of **ForceNonceCheck** is set to **false**, the X-Ca-Nonce is not checked. The default value is false when you create an API.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $forceNonceCheck;
 
     /**
+     * @description The ID of the API group.
+     *
+     * @example bc77f5b49c974437a9912ea3755cd834
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the API group.
+     *
+     * @example Weather
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The configuration items of the third-party OpenID Connect authentication method.
+     *
      * @var openIdConnectConfig
      */
     public $openIdConnectConfig;
 
     /**
+     * @description The region to which the API group belongs.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The configuration items of API requests sent by the consumer to API Gateway.
+     *
+     * For more information, see [RequestConfig](~~43985~~).
      * @var requestConfig
      */
     public $requestConfig;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example EF924FE4-2EDD-4CD3-89EC-34E4708574E7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The parameters of API requests sent by the consumer to API Gateway.
+     *
+     * For more information, see [RequestParameter](~~43986~~).
      * @var requestParameters
      */
     public $requestParameters;
 
     /**
+     * @description The return description of the API.
+     *
      * @var string
      */
     public $resultBodyModel;
 
     /**
+     * @description The return descriptions of the API.
+     *
      * @var resultDescriptions
      */
     public $resultDescriptions;
 
     /**
+     * @description The sample response from the backend service.
+     *
+     * @example {code: 200, message:\"success\", data: \"\"}
+     *
      * @var string
      */
     public $resultSample;
 
     /**
+     * @description The format of the response from the backend service. Valid values: JSON, TEXT, BINARY, XML, and HTML. Default value: JSON.
+     *
+     * @example HTML
+     *
      * @var string
      */
     public $resultType;
 
     /**
+     * @description The configuration items of API requests sent by API Gateway to the backend service.
+     *
+     * For more information, see [ServiceConfig](~~43987~~).
      * @var serviceConfig
      */
     public $serviceConfig;
 
     /**
+     * @description The parameters of API requests sent by API Gateway to the backend service.
+     *
+     * For more information, see [ServiceParameter](~~43988~~).
      * @var serviceParameters
      */
     public $serviceParameters;
 
     /**
+     * @description The mappings between parameters of requests sent by the consumer to API Gateway and parameters of requests sent by API Gateway to the backend service.
+     *
+     * For more information, see [ServiceParameterMap](~~43989~~).
      * @var serviceParametersMap
      */
     public $serviceParametersMap;
 
     /**
+     * @description The name of the runtime environment. Valid values:
+     *
+     *   **RELEASE**
+     *   **PRE**: the pre-release environment
+     *   **TEST**
+     *
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;
 
     /**
+     * @description The system parameters.
+     *
      * @var systemParameters
      */
     public $systemParameters;
 
     /**
+     * @description Indicates whether the API is public. Valid values:
+     *
+     *   **PUBLIC: The API is public. Public APIs are displayed on the APIs page for all users after the APIs are published to the production environment.**
+     *   **PRIVATE: The API is private. Private APIs are not displayed in the Alibaba Cloud Marketplace after the API group to which they belong is made available.
+     *
+     * @example PUBLIC
+     *
      * @var string
      */
     public $visibility;

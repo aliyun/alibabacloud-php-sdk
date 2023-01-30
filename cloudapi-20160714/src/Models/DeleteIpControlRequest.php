@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteIpControlRequest extends Model
 {
     /**
+     * @description The ID of the ACL. The ID is unique.
+     *
+     * @example 7ea91319a34d48a09b5c9c871d9768b1
+     *
      * @var string
      */
     public $ipControlId;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisBySignatureResponseBody extends Model
 {
     /**
+     * @description The binding time of the API.
+     *
      * @var apiInfos
      */
     public $apiInfos;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The returned API information. It is an array consisting of ApiInfo data.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $totalCount;

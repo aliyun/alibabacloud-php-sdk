@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeModelsRequest extends Model
 {
     /**
+     * @description The ID of the API group.
+     *
+     * @example 30e792398d6c4569b04c0e53a3494381
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the model.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $modelId;
 
     /**
+     * @description The name of the model.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $modelName;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

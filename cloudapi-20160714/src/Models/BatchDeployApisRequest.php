@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class BatchDeployApisRequest extends Model
 {
     /**
+     * @description The APIs that you want to operate.
+     *
      * @var api[]
      */
     public $api;
 
     /**
+     * @description The description.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
@@ -25,6 +31,14 @@ class BatchDeployApisRequest extends Model
     public $securityToken;
 
     /**
+     * @description The name of the runtime environment. Valid values:
+     *
+     *   **RELEASE**
+     *   **TEST**
+     *   PRE: the pre-release environment
+     *
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;

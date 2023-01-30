@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class OpenApiGatewayServiceResponseBody extends Model
 {
     /**
+     * @description The ID of the order.
+     *
+     * @example 210981***530495
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 2D39D1B3-8548-508A-9CE2-7F4A3F2A7989
+     *
      * @var string
      */
     public $requestId;

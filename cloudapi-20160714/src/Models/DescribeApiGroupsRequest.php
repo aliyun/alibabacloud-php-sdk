@@ -10,31 +10,58 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiGroupsRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableTagAuth;
 
     /**
+     * @description The keyword that can be specified in the name of the API group.
+     *
+     * @example be6d2abcc0dd4f749fc2d2edd6567164
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
+     * @example Traffic
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The order. Valid values: asc and desc. Default value: desc.
+     *
+     *   asc: The API groups are displayed in ascending order of modification time.
+     *   desc: The API groups are displayed in descending order of modification time.
+     *
+     * @example apigateway-cn-v6419k43245xx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 50. Default value: 10.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description Specifies whether to enable tag verification.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -45,11 +72,17 @@ class DescribeApiGroupsRequest extends Model
     public $securityToken;
 
     /**
+     * @description The list of tags.
+     *
+     * @example desc
+     *
      * @var string
      */
     public $sort;
 
     /**
+     * @description The key of the tag.
+     *
      * @var tag[]
      */
     public $tag;

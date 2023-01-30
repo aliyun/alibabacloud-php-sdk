@@ -9,41 +9,76 @@ use AlibabaCloud\Tea\Model;
 class apiAbolishResult extends Model
 {
     /**
+     * @description The ID of the API group.
+     *
+     * @example OVER
+     *
      * @var string
      */
     public $abolishStatus;
 
     /**
+     * @description auditing
+     *
+     * @example v2_page_consent
+     *
      * @var string
      */
     public $apiName;
 
     /**
+     * @description The error message.
+     *
+     * @example 4e26cdbbb113416dba1f0285bed29979
+     *
      * @var string
      */
     public $apiUid;
 
     /**
+     * @description The name of the runtime environment. Valid values:
+     *
+     *   **RELEASE**
+     *   **TEST**
+     *
+     * @example Success. Request Success.
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description The name of the API group.
+     *
+     * @example 160cb6505e1c43a6b84346856d74eb47
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the API.
+     *
+     * @example wb2022021401619286
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The unpublishing status.
+     *
+     * @example 0919f2854a88484c91dc9253347c78f9
+     *
      * @var string
      */
     public $stageId;
 
     /**
+     * @description The name of the API.
+     *
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;

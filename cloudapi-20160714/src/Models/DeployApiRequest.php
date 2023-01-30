@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DeployApiRequest extends Model
 {
     /**
+     * @description The ID of the API.
+     *
+     * @example d6f679aeb3be4b91b3688e887ca1fe16
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description The publishing remarks.
+     *
+     * @example for_test1
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the API group.
+     *
+     * @example 63be9002440b4778a61122f14c2b2bbb
+     *
      * @var string
      */
     public $groupId;
@@ -29,6 +41,14 @@ class DeployApiRequest extends Model
     public $securityToken;
 
     /**
+     * @description The name of the runtime environment. Valid values:
+     *
+     *   **RELEASE**
+     *   **PRE: the pre-release environment**
+     *   **TEST: the test environment**
+     *
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;

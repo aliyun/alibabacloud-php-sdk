@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisByIpControlResponseBody extends Model
 {
     /**
+     * @description The returned API information. It is an array consisting of ApiInfo data.
+     *
      * @var apiInfos
      */
     public $apiInfos;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $totalCount;

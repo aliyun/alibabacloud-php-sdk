@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ResetAppSecretRequest extends Model
 {
     /**
+     * @description The key of the application that is used to make an API call.
+     *
+     * @example 60030986
+     *
      * @var string
      */
     public $appKey;
 
     /**
+     * @description The new key of the application. To improve compatibility, we recommend that you use other parameters.
+     *
+     * @example test***
+     *
      * @var string
      */
     public $newAppSecret;
