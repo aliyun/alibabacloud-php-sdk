@@ -15,21 +15,29 @@ class ListNodeInstanceTypeResponseBody extends Model
     public $nodeInstanceTypeModels;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example B6D88508-51D4-5105-8B3F-201EEE374B30
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $totalCount;

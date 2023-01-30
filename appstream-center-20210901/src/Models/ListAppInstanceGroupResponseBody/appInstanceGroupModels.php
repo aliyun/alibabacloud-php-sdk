@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class appInstanceGroupModels extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $amount;
 
     /**
+     * @example img-8z4nztpaqvay4****
+     *
      * @var string
      */
     public $appCenterImageId;
 
     /**
+     * @example aig-9ciijz60n4xsv****
+     *
      * @var string
      */
     public $appInstanceGroupId;
@@ -32,6 +38,8 @@ class appInstanceGroupModels extends Model
     public $appInstanceGroupName;
 
     /**
+     * @example __dynamic__
+     *
      * @var string
      */
     public $appInstanceType;
@@ -42,16 +50,22 @@ class appInstanceGroupModels extends Model
     public $apps;
 
     /**
+     * @example PrePaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example 2022-04-27T16:00:00.000+00:00
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @example 2022-04-26T15:06:16.000+00:00
+     *
      * @var string
      */
     public $gmtCreate;
@@ -62,6 +76,8 @@ class appInstanceGroupModels extends Model
     public $nodePool;
 
     /**
+     * @example Windows
+     *
      * @var string
      */
     public $osType;
@@ -72,11 +88,15 @@ class appInstanceGroupModels extends Model
     public $otaInfo;
 
     /**
+     * @example CloudApp
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -84,14 +104,25 @@ class appInstanceGroupModels extends Model
     /**
      * @var string
      */
+    public $resourceStatus;
+
+    /**
+     * @example 15
+     *
+     * @var string
+     */
     public $sessionTimeout;
 
     /**
+     * @example spec-8o18t8uc31qib0****
+     *
      * @var string
      */
     public $specId;
 
     /**
+     * @example PUBLISHED
+     *
      * @var string
      */
     public $status;
@@ -110,6 +141,7 @@ class appInstanceGroupModels extends Model
         'otaInfo'              => 'OtaInfo',
         'productType'          => 'ProductType',
         'regionId'             => 'RegionId',
+        'resourceStatus'       => 'ResourceStatus',
         'sessionTimeout'       => 'SessionTimeout',
         'specId'               => 'SpecId',
         'status'               => 'Status',
@@ -175,6 +207,9 @@ class appInstanceGroupModels extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceStatus) {
+            $res['ResourceStatus'] = $this->resourceStatus;
         }
         if (null !== $this->sessionTimeout) {
             $res['SessionTimeout'] = $this->sessionTimeout;
@@ -250,6 +285,9 @@ class appInstanceGroupModels extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceStatus'])) {
+            $model->resourceStatus = $map['ResourceStatus'];
         }
         if (isset($map['SessionTimeout'])) {
             $model->sessionTimeout = $map['SessionTimeout'];

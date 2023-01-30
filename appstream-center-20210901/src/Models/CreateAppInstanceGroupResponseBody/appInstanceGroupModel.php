@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class appInstanceGroupModel extends Model
 {
     /**
+     * @example aig-9ciijz60n4xsv****
+     *
      * @var string
      */
     public $appInstanceGroupId;
 
     /**
+     * @example rg-ew7va2g1wl3vm****
+     *
      * @var string
      */
     public $nodePoolId;
 
     /**
+     * @example 12345****
+     *
      * @var string
      */
     public $orderId;

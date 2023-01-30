@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class apps extends Model
 {
     /**
+     * @example ca-i87mycyn419nu****
+     *
      * @var string
      */
     public $appId;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ApproveOtaTaskRequest extends Model
 {
     /**
+     * @example aig-9ciijz60n4xsv****
+     *
      * @var string
      */
     public $appInstanceGroupId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $bizRegionId;
 
     /**
+     * @example Fota
+     *
      * @var string
      */
     public $otaType;
 
     /**
+     * @example 2022-08-04T14:36:00+08:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example ota-be7jzm29wrrz5****
+     *
      * @var string
      */
     public $taskId;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class otaInfo extends Model
 {
     /**
+     * @example 0.0.1-D-20220630.11****
+     *
      * @var string
      */
     public $newOtaVersion;
 
     /**
+     * @example 0.0.1-D-20220615.11****
+     *
      * @var string
      */
     public $otaVersion;
 
     /**
+     * @example ota-e49929gv8acz5****
+     *
      * @var string
      */
     public $taskId;

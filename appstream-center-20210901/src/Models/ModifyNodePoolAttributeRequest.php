@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyNodePoolAttributeRequest extends Model
 {
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $bizRegionId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $nodeCapacity;
@@ -25,6 +29,8 @@ class ModifyNodePoolAttributeRequest extends Model
     public $nodePoolStrategy;
 
     /**
+     * @example rg-ew7va2g1wl3vm****
+     *
      * @var string
      */
     public $poolId;

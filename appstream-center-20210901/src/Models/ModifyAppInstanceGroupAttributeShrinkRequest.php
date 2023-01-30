@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyAppInstanceGroupAttributeShrinkRequest extends Model
 {
     /**
+     * @example aig-9ciijz60n4xsv****
+     *
      * @var string
      */
     public $appInstanceGroupId;
@@ -24,11 +26,15 @@ class ModifyAppInstanceGroupAttributeShrinkRequest extends Model
     public $nodePoolShrink;
 
     /**
+     * @example CloudApp
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $sessionTimeout;

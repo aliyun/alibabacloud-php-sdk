@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CancelOtaTaskRequest extends Model
 {
     /**
+     * @example aig-53fvrq1oanz6c****
+     *
      * @var string
      */
     public $appInstanceGroupId;
 
     /**
+     * @example ota-be7jzm29wrrz5****
+     *
      * @var string
      */
     public $taskId;

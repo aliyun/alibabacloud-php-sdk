@@ -15,6 +15,8 @@ class CreateAppInstanceGroupResponseBody extends Model
     public $appInstanceGroupModel;
 
     /**
+     * @example 41730F59-EEF0-53E8-9692-2E82E6721D46
+     *
      * @var string
      */
     public $requestId;

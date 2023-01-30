@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class nodeInstanceTypeModels extends Model
 {
     /**
+     * @example 4
+     *
      * @var string
      */
     public $cpu;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $gpu;
@@ -29,16 +33,22 @@ class nodeInstanceTypeModels extends Model
     public $maxCapacity;
 
     /**
+     * @example 8192
+     *
      * @var int
      */
     public $memory;
 
     /**
+     * @example appstreaming.vgpu.4c8g.2g
+     *
      * @var string
      */
     public $nodeInstanceType;
 
     /**
+     * @example appstreaming.vgpu
+     *
      * @var string
      */
     public $nodeInstanceTypeFamily;

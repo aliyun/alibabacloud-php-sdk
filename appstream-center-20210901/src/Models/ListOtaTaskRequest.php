@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListOtaTaskRequest extends Model
 {
     /**
+     * @example aig-53fvrq1oanz6c****
+     *
      * @var string
      */
     public $appInstanceGroupId;
 
     /**
+     * @example Fota
+     *
      * @var string
      */
     public $otaType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

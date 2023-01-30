@@ -14,6 +14,8 @@ class ListAppInstanceGroupRequest extends Model
     public $appCenterImageId;
 
     /**
+     * @example aig-9ciijz60n4xsv****
+     *
      * @var string
      */
     public $appInstanceGroupId;
@@ -24,16 +26,22 @@ class ListAppInstanceGroupRequest extends Model
     public $appInstanceGroupName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example CloudApp
+     *
      * @var string
      */
     public $productType;

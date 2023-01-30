@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class PageListAppInstanceGroupUserRequest extends Model
 {
     /**
+     * @example aig-9ciijz60n4xsv****
+     *
      * @var string
      */
     public $appInstanceGroupId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example CloudApp
+     *
      * @var string
      */
     public $productType;

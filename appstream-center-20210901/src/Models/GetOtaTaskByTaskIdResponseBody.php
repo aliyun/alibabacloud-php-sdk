@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetOtaTaskByTaskIdResponseBody extends Model
 {
     /**
+     * @example OtaTask.Running
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example The task is running and cannot be sumitted.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 0.0.1-R-20220708.110604
+     *
      * @var string
      */
     public $otaVersion;
@@ -29,11 +35,15 @@ class GetOtaTaskByTaskIdResponseBody extends Model
     public $releaseNote;
 
     /**
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2022-08-04T14:36:00+08:00
+     *
      * @var string
      */
     public $taskStartTime;

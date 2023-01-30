@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class promotions extends Model
 {
     /**
+     * @example coupon****
+     *
      * @var string
      */
     public $optionCode;
@@ -19,6 +21,8 @@ class promotions extends Model
     public $promotionDesc;
 
     /**
+     * @example 17440009****
+     *
      * @var string
      */
     public $promotionId;
@@ -29,6 +33,8 @@ class promotions extends Model
     public $promotionName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $selected;

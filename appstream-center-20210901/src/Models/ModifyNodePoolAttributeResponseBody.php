@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyNodePoolAttributeResponseBody extends Model
 {
     /**
+     * @example InvalidParameter.PoolId
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example The parameter PoolId is invalid.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;

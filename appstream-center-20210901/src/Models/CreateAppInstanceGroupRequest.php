@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\network;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\nodePool;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\userInfo;
 use AlibabaCloud\Tea\Model;
@@ -11,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAppInstanceGroupRequest extends Model
 {
     /**
+     * @example img-8z4nztpaqvay4****
+     *
      * @var string
      */
     public $appCenterImageId;
@@ -21,29 +24,44 @@ class CreateAppInstanceGroupRequest extends Model
     public $appInstanceGroupName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $bizRegionId;
 
     /**
+     * @example Node
+     *
      * @var string
      */
     public $chargeResourceMode;
 
     /**
+     * @example PrePaid
+     *
      * @var string
      */
     public $chargeType;
+
+    /**
+     * @var network
+     */
+    public $network;
 
     /**
      * @var nodePool
@@ -51,11 +69,15 @@ class CreateAppInstanceGroupRequest extends Model
     public $nodePool;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example Day
+     *
      * @var string
      */
     public $periodUnit;
@@ -63,14 +85,25 @@ class CreateAppInstanceGroupRequest extends Model
     /**
      * @var string
      */
+    public $preOpenAppId;
+
+    /**
+     * @example CloudApp
+     *
+     * @var string
+     */
     public $productType;
 
     /**
+     * @example 17440009****
+     *
      * @var string
      */
     public $promotionId;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $sessionTimeout;
@@ -92,9 +125,11 @@ class CreateAppInstanceGroupRequest extends Model
         'bizRegionId'          => 'BizRegionId',
         'chargeResourceMode'   => 'ChargeResourceMode',
         'chargeType'           => 'ChargeType',
+        'network'              => 'Network',
         'nodePool'             => 'NodePool',
         'period'               => 'Period',
         'periodUnit'           => 'PeriodUnit',
+        'preOpenAppId'         => 'PreOpenAppId',
         'productType'          => 'ProductType',
         'promotionId'          => 'PromotionId',
         'sessionTimeout'       => 'SessionTimeout',
@@ -130,6 +165,9 @@ class CreateAppInstanceGroupRequest extends Model
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
+        if (null !== $this->network) {
+            $res['Network'] = null !== $this->network ? $this->network->toMap() : null;
+        }
         if (null !== $this->nodePool) {
             $res['NodePool'] = null !== $this->nodePool ? $this->nodePool->toMap() : null;
         }
@@ -138,6 +176,9 @@ class CreateAppInstanceGroupRequest extends Model
         }
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
+        }
+        if (null !== $this->preOpenAppId) {
+            $res['PreOpenAppId'] = $this->preOpenAppId;
         }
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
@@ -187,6 +228,9 @@ class CreateAppInstanceGroupRequest extends Model
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
+        if (isset($map['Network'])) {
+            $model->network = network::fromMap($map['Network']);
+        }
         if (isset($map['NodePool'])) {
             $model->nodePool = nodePool::fromMap($map['NodePool']);
         }
@@ -195,6 +239,9 @@ class CreateAppInstanceGroupRequest extends Model
         }
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
+        }
+        if (isset($map['PreOpenAppId'])) {
+            $model->preOpenAppId = $map['PreOpenAppId'];
         }
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];

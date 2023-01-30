@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class taskList extends Model
 {
     /**
+     * @example 0.0.1-R-20220708.110604
+     *
      * @var string
      */
     public $otaVersion;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $taskDisplayStatus;
 
     /**
+     * @example ota-be7jzm29wrrz5****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example 2022-08-04T14:36:00+08:00
+     *
      * @var string
      */
     public $taskStartTime;

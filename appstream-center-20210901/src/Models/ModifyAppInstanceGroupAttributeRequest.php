@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyAppInstanceGroupAttributeRequest extends Model
 {
     /**
+     * @example aig-9ciijz60n4xsv****
+     *
      * @var string
      */
     public $appInstanceGroupId;
@@ -25,11 +27,15 @@ class ModifyAppInstanceGroupAttributeRequest extends Model
     public $nodePool;
 
     /**
+     * @example CloudApp
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $sessionTimeout;

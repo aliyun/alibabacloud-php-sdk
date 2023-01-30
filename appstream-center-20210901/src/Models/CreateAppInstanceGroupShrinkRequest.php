@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAppInstanceGroupShrinkRequest extends Model
 {
     /**
+     * @example img-8z4nztpaqvay4****
+     *
      * @var string
      */
     public $appCenterImageId;
@@ -19,26 +21,36 @@ class CreateAppInstanceGroupShrinkRequest extends Model
     public $appInstanceGroupName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $bizRegionId;
 
     /**
+     * @example Node
+     *
      * @var string
      */
     public $chargeResourceMode;
 
     /**
+     * @example PrePaid
+     *
      * @var string
      */
     public $chargeType;
@@ -46,14 +58,23 @@ class CreateAppInstanceGroupShrinkRequest extends Model
     /**
      * @var string
      */
+    public $networkShrink;
+
+    /**
+     * @var string
+     */
     public $nodePoolShrink;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example Day
+     *
      * @var string
      */
     public $periodUnit;
@@ -61,14 +82,25 @@ class CreateAppInstanceGroupShrinkRequest extends Model
     /**
      * @var string
      */
+    public $preOpenAppId;
+
+    /**
+     * @example CloudApp
+     *
+     * @var string
+     */
     public $productType;
 
     /**
+     * @example 17440009****
+     *
      * @var string
      */
     public $promotionId;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $sessionTimeout;
@@ -90,9 +122,11 @@ class CreateAppInstanceGroupShrinkRequest extends Model
         'bizRegionId'          => 'BizRegionId',
         'chargeResourceMode'   => 'ChargeResourceMode',
         'chargeType'           => 'ChargeType',
+        'networkShrink'        => 'Network',
         'nodePoolShrink'       => 'NodePool',
         'period'               => 'Period',
         'periodUnit'           => 'PeriodUnit',
+        'preOpenAppId'         => 'PreOpenAppId',
         'productType'          => 'ProductType',
         'promotionId'          => 'PromotionId',
         'sessionTimeout'       => 'SessionTimeout',
@@ -128,6 +162,9 @@ class CreateAppInstanceGroupShrinkRequest extends Model
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
+        if (null !== $this->networkShrink) {
+            $res['Network'] = $this->networkShrink;
+        }
         if (null !== $this->nodePoolShrink) {
             $res['NodePool'] = $this->nodePoolShrink;
         }
@@ -136,6 +173,9 @@ class CreateAppInstanceGroupShrinkRequest extends Model
         }
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
+        }
+        if (null !== $this->preOpenAppId) {
+            $res['PreOpenAppId'] = $this->preOpenAppId;
         }
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
@@ -185,6 +225,9 @@ class CreateAppInstanceGroupShrinkRequest extends Model
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
+        if (isset($map['Network'])) {
+            $model->networkShrink = $map['Network'];
+        }
         if (isset($map['NodePool'])) {
             $model->nodePoolShrink = $map['NodePool'];
         }
@@ -193,6 +236,9 @@ class CreateAppInstanceGroupShrinkRequest extends Model
         }
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
+        }
+        if (isset($map['PreOpenAppId'])) {
+            $model->preOpenAppId = $map['PreOpenAppId'];
         }
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];

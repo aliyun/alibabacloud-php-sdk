@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AuthorizeInstanceGroupRequest extends Model
 {
     /**
+     * @example aig-9ciijz60n4xsv****
+     *
      * @var string
      */
     public $appInstanceGroupId;
@@ -19,6 +21,8 @@ class AuthorizeInstanceGroupRequest extends Model
     public $authorizeUserIds;
 
     /**
+     * @example CloudApp
+     *
      * @var string
      */
     public $productType;

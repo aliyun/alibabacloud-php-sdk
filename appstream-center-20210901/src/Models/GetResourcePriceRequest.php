@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class GetResourcePriceRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $amount;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $bizRegionId;
 
     /**
+     * @example PrePaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example appstreaming.vgpu.4c8g.2g
+     *
      * @var string
      */
     public $nodeInstanceType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example Day
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @example CloudApp
+     *
      * @var string
      */
     public $productType;

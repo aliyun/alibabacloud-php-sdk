@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListOtaTaskResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class ListOtaTaskResponseBody extends Model
     public $taskList;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $totalCount;

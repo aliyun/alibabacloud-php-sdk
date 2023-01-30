@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetOtaTaskByTaskIdRequest extends Model
 {
     /**
+     * @example ota-be7jzm29wrrz5****
+     *
      * @var string
      */
     public $taskId;

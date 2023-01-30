@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest;
 
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\nodePool\recurrenceSchedules;
 use AlibabaCloud\Tea\Model;
 
 class nodePool extends Model
@@ -14,19 +15,30 @@ class nodePool extends Model
     public $maxScalingAmount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $nodeAmount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $nodeCapacity;
 
     /**
+     * @example appstreaming.vgpu.4c8g.2g
+     *
      * @var string
      */
     public $nodeInstanceType;
+
+    /**
+     * @var recurrenceSchedules[]
+     */
+    public $recurrenceSchedules;
 
     /**
      * @var int
@@ -46,16 +58,35 @@ class nodePool extends Model
     /**
      * @var string
      */
+    public $strategyDisableDate;
+
+    /**
+     * @var string
+     */
+    public $strategyEnableDate;
+
+    /**
+     * @var string
+     */
     public $strategyType;
+
+    /**
+     * @var bool
+     */
+    public $warmUp;
     protected $_name = [
         'maxScalingAmount'            => 'MaxScalingAmount',
         'nodeAmount'                  => 'NodeAmount',
         'nodeCapacity'                => 'NodeCapacity',
         'nodeInstanceType'            => 'NodeInstanceType',
+        'recurrenceSchedules'         => 'RecurrenceSchedules',
         'scalingDownAfterIdleMinutes' => 'ScalingDownAfterIdleMinutes',
         'scalingStep'                 => 'ScalingStep',
         'scalingUsageThreshold'       => 'ScalingUsageThreshold',
+        'strategyDisableDate'         => 'StrategyDisableDate',
+        'strategyEnableDate'          => 'StrategyEnableDate',
         'strategyType'                => 'StrategyType',
+        'warmUp'                      => 'WarmUp',
     ];
 
     public function validate()
@@ -77,6 +108,15 @@ class nodePool extends Model
         if (null !== $this->nodeInstanceType) {
             $res['NodeInstanceType'] = $this->nodeInstanceType;
         }
+        if (null !== $this->recurrenceSchedules) {
+            $res['RecurrenceSchedules'] = [];
+            if (null !== $this->recurrenceSchedules && \is_array($this->recurrenceSchedules)) {
+                $n = 0;
+                foreach ($this->recurrenceSchedules as $item) {
+                    $res['RecurrenceSchedules'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->scalingDownAfterIdleMinutes) {
             $res['ScalingDownAfterIdleMinutes'] = $this->scalingDownAfterIdleMinutes;
         }
@@ -86,8 +126,17 @@ class nodePool extends Model
         if (null !== $this->scalingUsageThreshold) {
             $res['ScalingUsageThreshold'] = $this->scalingUsageThreshold;
         }
+        if (null !== $this->strategyDisableDate) {
+            $res['StrategyDisableDate'] = $this->strategyDisableDate;
+        }
+        if (null !== $this->strategyEnableDate) {
+            $res['StrategyEnableDate'] = $this->strategyEnableDate;
+        }
         if (null !== $this->strategyType) {
             $res['StrategyType'] = $this->strategyType;
+        }
+        if (null !== $this->warmUp) {
+            $res['WarmUp'] = $this->warmUp;
         }
 
         return $res;
@@ -113,6 +162,15 @@ class nodePool extends Model
         if (isset($map['NodeInstanceType'])) {
             $model->nodeInstanceType = $map['NodeInstanceType'];
         }
+        if (isset($map['RecurrenceSchedules'])) {
+            if (!empty($map['RecurrenceSchedules'])) {
+                $model->recurrenceSchedules = [];
+                $n                          = 0;
+                foreach ($map['RecurrenceSchedules'] as $item) {
+                    $model->recurrenceSchedules[$n++] = null !== $item ? recurrenceSchedules::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['ScalingDownAfterIdleMinutes'])) {
             $model->scalingDownAfterIdleMinutes = $map['ScalingDownAfterIdleMinutes'];
         }
@@ -122,8 +180,17 @@ class nodePool extends Model
         if (isset($map['ScalingUsageThreshold'])) {
             $model->scalingUsageThreshold = $map['ScalingUsageThreshold'];
         }
+        if (isset($map['StrategyDisableDate'])) {
+            $model->strategyDisableDate = $map['StrategyDisableDate'];
+        }
+        if (isset($map['StrategyEnableDate'])) {
+            $model->strategyEnableDate = $map['StrategyEnableDate'];
+        }
         if (isset($map['StrategyType'])) {
             $model->strategyType = $map['StrategyType'];
+        }
+        if (isset($map['WarmUp'])) {
+            $model->warmUp = $map['WarmUp'];
         }
 
         return $model;

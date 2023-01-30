@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class nodePoolStrategy extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxScalingAmount;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $scalingDownAfterIdleMinutes;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $scalingStep;
 
     /**
+     * @example 85
+     *
      * @var string
      */
     public $scalingUsageThreshold;
 
     /**
+     * @example NODE_SCALING_BY_USAGE
+     *
      * @var string
      */
     public $strategyType;

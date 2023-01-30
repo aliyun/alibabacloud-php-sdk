@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class nodePool extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $nodeCapacity;
 
     /**
+     * @example rg-ew7va2g1wl3vm****
+     *
      * @var string
      */
     public $nodePoolId;
