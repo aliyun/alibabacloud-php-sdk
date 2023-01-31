@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Dbs\V20210101;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\ChangeResourceGroupRequest;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\CreateDownloadRequest;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\CreateDownloadResponse;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\CreateSandboxInstanceRequest;
@@ -96,6 +98,58 @@ class Dbs extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param ChangeResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeResourceGroup',
+            'version'     => '2021-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeResourceGroupWithOptions($request, $runtime);
     }
 
     /**
