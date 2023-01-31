@@ -18374,6 +18374,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->isFakeAsn)) {
             $query['IsFakeAsn'] = $request->isFakeAsn;
         }
+        if (!Utils::isUnset($request->localAsn)) {
+            $query['LocalAsn'] = $request->localAsn;
+        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -18394,6 +18397,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->routeQuota)) {
+            $query['RouteQuota'] = $request->routeQuota;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
