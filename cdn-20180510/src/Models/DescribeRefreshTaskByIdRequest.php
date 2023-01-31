@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeRefreshTaskByIdRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The ID of the task that you want to query.
      *
      * You can specify up to 10 task IDs. Separate task IDs with commas (,).
@@ -23,8 +18,7 @@ class DescribeRefreshTaskByIdRequest extends Model
      */
     public $taskId;
     protected $_name = [
-        'ownerId' => 'OwnerId',
-        'taskId'  => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
@@ -34,9 +28,6 @@ class DescribeRefreshTaskByIdRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -52,9 +43,6 @@ class DescribeRefreshTaskByIdRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

@@ -5309,7 +5309,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * >  You can call this API operation up to 100 times per second per account.
      *   *
      * @param DescribeDomainRealtimeLogDeliveryRequest $request DescribeDomainRealtimeLogDeliveryRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
@@ -5339,7 +5339,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * >  You can call this API operation up to 100 times per second per account.
      *   *
      * @param DescribeDomainRealtimeLogDeliveryRequest $request DescribeDomainRealtimeLogDeliveryRequest
      *
@@ -6957,9 +6957,6 @@ class Cdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->taskId)) {
             $query['TaskId'] = $request->taskId;
         }
