@@ -14,6 +14,8 @@ class RunPreTrainServiceResponseBody extends Model
     public $predictResult;
 
     /**
+     * @example 7310FFCF-9FE8-4257-AE38-0E1AD828C2CC
+     *
      * @var string
      */
     public $requestId;

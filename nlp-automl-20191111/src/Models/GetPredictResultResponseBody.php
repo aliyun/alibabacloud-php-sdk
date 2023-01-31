@@ -14,6 +14,8 @@ class GetPredictResultResponseBody extends Model
     public $content;
 
     /**
+     * @example 32CE4E89-218B-4DAE-A103-E6BFA66EE63B
+     *
      * @var string
      */
     public $requestId;

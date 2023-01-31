@@ -14,11 +14,15 @@ class RunPreTrainServiceRequest extends Model
     public $predictContent;
 
     /**
+     * @example ReviewAnalysis
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example V1
+     *
      * @var string
      */
     public $serviceVersion;

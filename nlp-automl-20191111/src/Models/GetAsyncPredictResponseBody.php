@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetAsyncPredictResponseBody extends Model
 {
     /**
+     * @example 1629
+     *
      * @var int
      */
     public $asyncPredictId;
 
     /**
+     * @example json string
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example EBF1AAD7-A3FB-4A78-B5E9-8356324B12B2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $status;

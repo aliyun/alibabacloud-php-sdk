@@ -14,21 +14,29 @@ class GetPredictResultRequest extends Model
     public $content;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $detailTag;
 
     /**
+     * @example 1818
+     *
      * @var int
      */
     public $modelId;
 
     /**
+     * @example V1
+     *
      * @var string
      */
     public $modelVersion;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $topK;

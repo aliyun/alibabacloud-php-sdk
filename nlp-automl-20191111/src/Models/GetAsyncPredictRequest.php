@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAsyncPredictRequest extends Model
 {
     /**
+     * @example 1629
+     *
      * @var int
      */
     public $asyncPredictId;

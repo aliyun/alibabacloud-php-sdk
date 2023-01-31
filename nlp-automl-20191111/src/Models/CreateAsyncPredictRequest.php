@@ -14,36 +14,50 @@ class CreateAsyncPredictRequest extends Model
     public $content;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $detailTag;
 
     /**
+     * @example true,false
+     *
      * @var string
      */
     public $fetchContent;
 
     /**
+     * @example [base64 encode content]
+     *
      * @var string
      */
     public $fileContent;
 
     /**
+     * @example text,html,pdf,docx,doc
+     *
      * @var string
      */
     public $fileType;
 
     /**
+     * @example http://127.0.0.1/example.docx
+     *
      * @var string
      */
     public $fileUrl;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $modelId;
 
     /**
+     * @example V1
+     *
      * @var string
      */
     public $modelVersion;
@@ -59,6 +73,8 @@ class CreateAsyncPredictRequest extends Model
     public $serviceVersion;
 
     /**
+     * @example 0,3
+     *
      * @var int
      */
     public $topK;
