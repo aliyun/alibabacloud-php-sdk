@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteSslVpnClientCertRequest extends Model
 {
     /**
+     * @example 02fb3da4-130e-11e9-8e44-0016e04115b
+     *
      * @var string
      */
     public $clientToken;
@@ -24,6 +26,8 @@ class DeleteSslVpnClientCertRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -39,6 +43,8 @@ class DeleteSslVpnClientCertRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vsc-bp1n8wcf134yl0osr****
+     *
      * @var string
      */
     public $sslVpnClientCertId;

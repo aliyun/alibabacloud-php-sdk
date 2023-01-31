@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ModifySslVpnServerRequest extends Model
 {
     /**
+     * @example AES-128-CBC
+     *
      * @var string
      */
     public $cipher;
 
     /**
+     * @example 10.30.30.0/24
+     *
      * @var string
      */
     public $clientIpPool;
 
     /**
+     * @example 02fb3da4-130e-11e9-8e44-0016e04115b
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $compress;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableMultiFactorAuth;
 
     /**
+     * @example idaas-cn-hangzhou-****
+     *
      * @var string
      */
     public $IDaaSInstanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $IDaaSRegionId;
 
     /**
+     * @example 10.20.20.0/24
+     *
      * @var string
      */
     public $localSubnet;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
@@ -64,16 +82,22 @@ class ModifySslVpnServerRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1194
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example UDP
+     *
      * @var string
      */
     public $proto;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -89,6 +113,8 @@ class ModifySslVpnServerRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vss-bp18q7hzj6largv4v****
+     *
      * @var string
      */
     public $sslVpnServerId;

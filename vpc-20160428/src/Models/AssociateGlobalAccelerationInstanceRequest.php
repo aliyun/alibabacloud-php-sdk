@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class AssociateGlobalAccelerationInstanceRequest extends Model
 {
     /**
+     * @example i-saf23****
+     *
      * @var string
      */
     public $backendServerId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $backendServerRegionId;
 
     /**
+     * @example EcsInstance
+     *
      * @var string
      */
     public $backendServerType;
 
     /**
+     * @example ga-lsajj32****
+     *
      * @var string
      */
     public $globalAccelerationInstanceId;
@@ -39,6 +47,8 @@ class AssociateGlobalAccelerationInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

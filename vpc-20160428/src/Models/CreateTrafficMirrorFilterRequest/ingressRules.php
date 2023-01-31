@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ingressRules extends Model
 {
     /**
+     * @example accept
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @example 10.0.0.0/24
+     *
      * @var string
      */
     public $destinationCidrBlock;
 
     /**
+     * @example 80/120
+     *
      * @var string
      */
     public $destinationPortRange;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example TCP
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @example 10.0.0.0/24
+     *
      * @var string
      */
     public $sourceCidrBlock;
 
     /**
+     * @example 80/120
+     *
      * @var string
      */
     public $sourcePortRange;

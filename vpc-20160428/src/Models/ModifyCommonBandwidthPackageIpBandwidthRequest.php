@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyCommonBandwidthPackageIpBandwidthRequest extends Model
 {
     /**
+     * @example 500
+     *
      * @var string
      */
     public $bandwidth;
 
     /**
+     * @example cbwp-2zep6hw5d6y8exscd****
+     *
      * @var string
      */
     public $bandwidthPackageId;
 
     /**
+     * @example eip-2zewysoansu0svfbg****
+     *
      * @var string
      */
     public $eipId;
@@ -34,6 +40,8 @@ class ModifyCommonBandwidthPackageIpBandwidthRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

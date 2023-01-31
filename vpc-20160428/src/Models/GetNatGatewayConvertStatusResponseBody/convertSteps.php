@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class convertSteps extends Model
 {
     /**
+     * @example init
+     *
      * @var string
      */
     public $stepName;
 
     /**
+     * @example 2020-08-26T08:27:19Z
+     *
      * @var string
      */
     public $stepStartTime;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $stepStatus;

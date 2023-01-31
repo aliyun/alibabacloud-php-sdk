@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyExpressCloudConnectionAttributeRequest extends Model
 {
     /**
+     * @example sag-ejfge***
+     *
      * @var string
      */
     public $bgpAs;
 
     /**
+     * @example 172.16.**.**
+     *
      * @var string
      */
     public $ceIp;
 
     /**
+     * @example ECC
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example ecc-bp1t9osmuln*******
+     *
      * @var string
      */
     public $eccId;
 
     /**
+     * @example doctest
+     *
      * @var string
      */
     public $name;
@@ -44,11 +54,15 @@ class ModifyExpressCloudConnectionAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example 10.10.**.**
+     *
      * @var string
      */
     public $peIp;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

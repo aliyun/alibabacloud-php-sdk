@@ -9,61 +9,90 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpnAttachmentAttributeRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoConfigRoute;
 
     /**
+     * @example {"EnableBgp":"true","LocalAsn":"45104","TunnelCidr":"169.254.11.0/30","LocalBgpIp":"169.254.11.1"}
+     *
      * @var string
      */
     public $bgpConfig;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-4266****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @var string
+     */
+    public $customerGatewayId;
+
+    /**
+     * @example false
+     *
      * @var bool
      */
     public $effectImmediately;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableDpd;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableNatTraversal;
 
     /**
+     * @example {"enable":"true","dip":"192.168.1.1","sip":"10.1.1.1","interval":"3","retry":"3","Policy": "revoke_route"}
+     *
      * @var string
      */
     public $healthCheckConfig;
 
     /**
+     * @example {"Psk":"1234****","IkeVersion":"ikev1","IkeMode":"main","IkeEncAlg":"aes","IkeAuthAlg":"sha1","IkePfs":"group2","IkeLifetime":86400,"LocalIdIPsec":"47.XX.XX.1","RemoteId":"47.XX.XX.2"}
+     *
      * @var string
      */
     public $ikeConfig;
 
     /**
+     * @example {"IpsecEncAlg":"aes","IpsecAuthAlg":"sha1","IpsecPfs":"group2","IpsecLifetime":86400}
+     *
      * @var string
      */
     public $ipsecConfig;
 
     /**
+     * @example 10.1.1.0/24,10.1.2.0/24
+     *
      * @var string
      */
     public $localSubnet;
 
     /**
+     * @example nametest
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example public
+     *
      * @var string
      */
     public $networkType;
@@ -74,16 +103,22 @@ class ModifyVpnAttachmentAttributeRequest extends Model
     public $ownerAccount;
 
     /**
+     * @example ap-southeast-2
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example c20ycDI1NnYxIENBIChURVNUIFN****
+     *
      * @var string
      */
     public $remoteCaCert;
 
     /**
+     * @example 10.1.3.0/24,10.1.4.0/24
+     *
      * @var string
      */
     public $remoteSubnet;
@@ -99,6 +134,8 @@ class ModifyVpnAttachmentAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vco-p0w5112fgnl2ihlmf****
+     *
      * @var string
      */
     public $vpnConnectionId;
@@ -106,6 +143,7 @@ class ModifyVpnAttachmentAttributeRequest extends Model
         'autoConfigRoute'      => 'AutoConfigRoute',
         'bgpConfig'            => 'BgpConfig',
         'clientToken'          => 'ClientToken',
+        'customerGatewayId'    => 'CustomerGatewayId',
         'effectImmediately'    => 'EffectImmediately',
         'enableDpd'            => 'EnableDpd',
         'enableNatTraversal'   => 'EnableNatTraversal',
@@ -139,6 +177,9 @@ class ModifyVpnAttachmentAttributeRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->customerGatewayId) {
+            $res['CustomerGatewayId'] = $this->customerGatewayId;
         }
         if (null !== $this->effectImmediately) {
             $res['EffectImmediately'] = $this->effectImmediately;
@@ -208,6 +249,9 @@ class ModifyVpnAttachmentAttributeRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['CustomerGatewayId'])) {
+            $model->customerGatewayId = $map['CustomerGatewayId'];
         }
         if (isset($map['EffectImmediately'])) {
             $model->effectImmediately = $map['EffectImmediately'];

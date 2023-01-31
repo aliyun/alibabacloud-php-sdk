@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreatePhysicalConnectionRequest extends Model
 {
     /**
+     * @example ap-cn-beijing-ft-A
+     *
      * @var string
      */
     public $accessPointId;
 
     /**
+     * @example longtel001
+     *
      * @var string
      */
     public $circuitCode;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example CT
+     *
      * @var string
      */
     public $lineOperator;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
@@ -54,19 +66,30 @@ class CreatePhysicalConnectionRequest extends Model
     public $peerLocation;
 
     /**
+     * @example 1000Base-T
+     *
      * @var string
      */
     public $portType;
 
     /**
+     * @example pc-119mfjzm****
+     *
      * @var string
      */
     public $redundantPhysicalConnectionId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -79,11 +102,15 @@ class CreatePhysicalConnectionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $bandwidth;
@@ -100,6 +127,7 @@ class CreatePhysicalConnectionRequest extends Model
         'portType'                      => 'PortType',
         'redundantPhysicalConnectionId' => 'RedundantPhysicalConnectionId',
         'regionId'                      => 'RegionId',
+        'resourceGroupId'               => 'ResourceGroupId',
         'resourceOwnerAccount'          => 'ResourceOwnerAccount',
         'resourceOwnerId'               => 'ResourceOwnerId',
         'type'                          => 'Type',
@@ -148,6 +176,9 @@ class CreatePhysicalConnectionRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -208,6 +239,9 @@ class CreatePhysicalConnectionRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

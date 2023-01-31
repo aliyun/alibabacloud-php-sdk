@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class nextHopRelatedInfo extends Model
 {
     /**
+     * @example vpc-bp1t36rn9l53iwbsf****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example ch-hangzhou
+     *
      * @var string
      */
     public $regionId;

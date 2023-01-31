@@ -15,21 +15,29 @@ class DescribeBgpGroupsResponseBody extends Model
     public $bgpGroups;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1D0971B2-A35A-42C1-A44C-E91360C36C0B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

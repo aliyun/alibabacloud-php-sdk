@@ -21,31 +21,43 @@ class GetDhcpOptionsSetResponseBody extends Model
     public $dhcpOptions;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $dhcpOptionsSetDescription;
 
     /**
+     * @example dopt-o6w0df4epg9zo8isy****
+     *
      * @var string
      */
     public $dhcpOptionsSetId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $dhcpOptionsSetName;
 
     /**
+     * @example 12345678
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesForExpressConnectResponseBody extends Model
 {
     /**
+     * @example DE65F6B7-7566-4802-9007-96F2494AC512
+     *
      * @var string
      */
     public $requestId;

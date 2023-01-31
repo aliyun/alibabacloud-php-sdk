@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateExpressCloudConnectionResponseBody extends Model
 {
     /**
+     * @example ecc-jg************
+     *
      * @var string
      */
     public $eccId;
 
     /**
+     * @example C004F022-1CC2-4958-9937-675513A2CD7E
+     *
      * @var string
      */
     public $requestId;

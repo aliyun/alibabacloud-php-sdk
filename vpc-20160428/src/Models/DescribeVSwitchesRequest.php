@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeVSwitchesRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isDefault;
@@ -29,21 +33,29 @@ class DescribeVSwitchesRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -59,31 +71,43 @@ class DescribeVSwitchesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vtb-bp145q7glnuzdvzu2****
+     *
      * @var string
      */
     public $routeTableId;
 
     /**
+     * @example vsw-23dscddcffvf3****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vSwitch
+     *
      * @var string
      */
     public $vSwitchName;
 
     /**
+     * @example 2546073170691****
+     *
      * @var int
      */
     public $vSwitchOwnerId;
 
     /**
+     * @example vpc-25cdvfeq58pl****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example cn-hangzhou-d
+     *
      * @var string
      */
     public $zoneId;

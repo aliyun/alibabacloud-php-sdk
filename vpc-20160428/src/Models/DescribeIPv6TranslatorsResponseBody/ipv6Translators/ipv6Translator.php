@@ -10,41 +10,57 @@ use AlibabaCloud\Tea\Model;
 class ipv6Translator extends Model
 {
     /**
+     * @example 47.99.xx.xx
+     *
      * @var string
      */
     public $allocateIpv4Addr;
 
     /**
+     * @example 2400:3200:1600::xxx
+     *
      * @var string
      */
     public $allocateIpv6Addr;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $availableBandwidth;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $businessStatus;
 
     /**
+     * @example 1537151540000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example descriptionforinstance
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1539792000000
+     *
      * @var int
      */
     public $endTime;
@@ -55,31 +71,43 @@ class ipv6Translator extends Model
     public $ipv6TranslatorEntryIds;
 
     /**
+     * @example ipv6trans-bp1858ysxxxxxx
+     *
      * @var string
      */
     public $ipv6TranslatorId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example Prepay
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example small
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $status;

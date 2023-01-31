@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListPublicIpAddressPoolCidrBlocksRequest extends Model
 {
     /**
+     * @example 47.0.XX.XX/24
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
@@ -39,11 +47,15 @@ class ListPublicIpAddressPoolCidrBlocksRequest extends Model
     public $ownerId;
 
     /**
+     * @example pippool-6wetvn6fumkgycssx****
+     *
      * @var string
      */
     public $publicIpAddressPoolId;
 
     /**
+     * @example cn-chengdu
+     *
      * @var string
      */
     public $regionId;

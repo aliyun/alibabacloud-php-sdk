@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateVpconnFromVbrRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example PayByVirtualPhysicalConnectionOwner
+     *
      * @var string
      */
     public $orderMode;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example CBCE910E-D396-4944-8****
+     *
      * @var string
      */
     public $token;
 
     /**
+     * @example vbr-bp136flp1mf8mlq6r****
+     *
      * @var string
      */
     public $vbrId;

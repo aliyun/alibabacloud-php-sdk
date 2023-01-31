@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVSwitchAttributesRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
@@ -24,6 +26,8 @@ class DescribeVSwitchAttributesRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -39,6 +43,8 @@ class DescribeVSwitchAttributesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vsw-25naue4g****
+     *
      * @var string
      */
     public $vSwitchId;

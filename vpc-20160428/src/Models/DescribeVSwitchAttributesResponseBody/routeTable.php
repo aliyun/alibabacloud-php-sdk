@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class routeTable extends Model
 {
     /**
+     * @example vtb-bp145q7glnuzdv****
+     *
      * @var string
      */
     public $routeTableId;
 
     /**
+     * @example System
+     *
      * @var string
      */
     public $routeTableType;

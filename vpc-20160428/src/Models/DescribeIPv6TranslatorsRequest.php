@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeIPv6TranslatorsRequest extends Model
 {
     /**
+     * @example 47.99.xx.xx
+     *
      * @var string
      */
     public $allocateIpv4Addr;
 
     /**
+     * @example 2400:3200:1600::xxx
+     *
      * @var string
      */
     public $allocateIpv6Addr;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $businessStatus;
 
     /**
+     * @example ipv6trans-bp1858ysxxxxxx
+     *
      * @var string
      */
     public $ipv6TranslatorId;
 
     /**
+     * @example ipv6_1
+     *
      * @var string
      */
     public $name;
@@ -44,21 +54,29 @@ class DescribeIPv6TranslatorsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example Prepay
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -74,11 +92,15 @@ class DescribeIPv6TranslatorsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example small
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $status;

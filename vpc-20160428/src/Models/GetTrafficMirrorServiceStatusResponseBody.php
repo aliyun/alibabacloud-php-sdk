@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetTrafficMirrorServiceStatusResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @example 37626066-2C6C-4B62-ADD3-498920C409C5
+     *
      * @var string
      */
     public $requestId;

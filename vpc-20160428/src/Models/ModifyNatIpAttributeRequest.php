@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyNatIpAttributeRequest extends Model
 {
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $natIpDescription;
 
     /**
+     * @example vpcnatip-gw8e1n11f44wpg****
+     *
      * @var string
      */
     public $natIpId;
 
     /**
+     * @example newname
+     *
      * @var string
      */
     public $natIpName;
@@ -44,6 +54,8 @@ class ModifyNatIpAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example eu-central-1
+     *
      * @var string
      */
     public $regionId;

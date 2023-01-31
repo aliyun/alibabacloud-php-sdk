@@ -15,21 +15,29 @@ class DescribeIpv6EgressOnlyRulesResponseBody extends Model
     public $ipv6EgressOnlyRules;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example E16671B7-DEA6-48E0-8E9C-41913DAD44DD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

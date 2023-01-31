@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateDhcpOptionsSetResponseBody extends Model
 {
     /**
+     * @example dopt-o6w0df4epg9zo8isy****
+     *
      * @var string
      */
     public $dhcpOptionsSetId;
 
     /**
+     * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
+     *
      * @var string
      */
     public $requestId;

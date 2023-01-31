@@ -15,21 +15,29 @@ class DescribeBgpPeersResponseBody extends Model
     public $bgpPeers;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example DE77A7F3-3B74-41C0-A5BC-CAFD188C28B6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

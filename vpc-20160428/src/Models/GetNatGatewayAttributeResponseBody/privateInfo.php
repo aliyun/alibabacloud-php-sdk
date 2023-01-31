@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class privateInfo extends Model
 {
     /**
+     * @example eni-bp1cmgtoaka8vfyg****
+     *
      * @var string
      */
     public $eniInstanceId;
 
     /**
+     * @example cn-qingdao-b
+     *
      * @var string
      */
     public $izNo;
 
     /**
+     * @example 5120
+     *
      * @var int
      */
     public $maxBandwidth;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $privateIpAddress;
 
     /**
+     * @example vsw-bp1s2laxhdf9ayjbo***
+     *
      * @var string
      */
     public $vswitchId;

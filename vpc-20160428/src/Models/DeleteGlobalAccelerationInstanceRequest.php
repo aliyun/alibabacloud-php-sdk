@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteGlobalAccelerationInstanceRequest extends Model
 {
     /**
+     * @example ga-asdfsl22s****
+     *
      * @var string
      */
     public $globalAccelerationInstanceId;
@@ -24,6 +26,8 @@ class DeleteGlobalAccelerationInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

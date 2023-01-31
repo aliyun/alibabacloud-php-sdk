@@ -13,41 +13,57 @@ use AlibabaCloud\Tea\Model;
 class vpnConnection extends Model
 {
     /**
+     * @example cen-lxxpbpalc776qz****
+     *
      * @var string
      */
     public $attachInstanceId;
 
     /**
+     * @example CEN
+     *
      * @var string
      */
     public $attachType;
 
     /**
+     * @example 1492753817000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $crossAccountAuthorized;
 
     /**
+     * @example cgw-bp1mvj4g9kogw****
+     *
      * @var string
      */
     public $customerGatewayId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $effectImmediately;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableDpd;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableNatTraversal;
@@ -58,56 +74,83 @@ class vpnConnection extends Model
     public $ikeConfig;
 
     /**
+     * @example 10.XX.XX.10
+     *
+     * @var string
+     */
+    public $internetIp;
+
+    /**
      * @var ipsecConfig
      */
     public $ipsecConfig;
 
     /**
+     * @example 192.168.0.0/16,172.17.0.0/16
+     *
      * @var string
      */
     public $localSubnet;
 
     /**
+     * @example nametest
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example public
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @example -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
+     *
      * @var string
      */
     public $remoteCaCertificate;
 
     /**
+     * @example 10.0.0.0/8,172.16.0.0/16
+     *
      * @var string
      */
     public $remoteSubnet;
 
     /**
+     * @example 1000M
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @example attached
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example ipsec_sa_established
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example tr-p0we2edef9qr44a85****
+     *
      * @var string
      */
     public $transitRouterId;
 
     /**
+     * @example nametest
+     *
      * @var string
      */
     public $transitRouterName;
@@ -123,11 +166,15 @@ class vpnConnection extends Model
     public $vpnBgpConfig;
 
     /**
+     * @example vco-bp10lz7aejumd****
+     *
      * @var string
      */
     public $vpnConnectionId;
 
     /**
+     * @example vpn-bp1q8bgx4xnkm****
+     *
      * @var string
      */
     public $vpnGatewayId;
@@ -141,6 +188,7 @@ class vpnConnection extends Model
         'enableDpd'              => 'EnableDpd',
         'enableNatTraversal'     => 'EnableNatTraversal',
         'ikeConfig'              => 'IkeConfig',
+        'internetIp'             => 'InternetIp',
         'ipsecConfig'            => 'IpsecConfig',
         'localSubnet'            => 'LocalSubnet',
         'name'                   => 'Name',
@@ -191,6 +239,9 @@ class vpnConnection extends Model
         }
         if (null !== $this->ikeConfig) {
             $res['IkeConfig'] = null !== $this->ikeConfig ? $this->ikeConfig->toMap() : null;
+        }
+        if (null !== $this->internetIp) {
+            $res['InternetIp'] = $this->internetIp;
         }
         if (null !== $this->ipsecConfig) {
             $res['IpsecConfig'] = null !== $this->ipsecConfig ? $this->ipsecConfig->toMap() : null;
@@ -275,6 +326,9 @@ class vpnConnection extends Model
         }
         if (isset($map['IkeConfig'])) {
             $model->ikeConfig = ikeConfig::fromMap($map['IkeConfig']);
+        }
+        if (isset($map['InternetIp'])) {
+            $model->internetIp = $map['InternetIp'];
         }
         if (isset($map['IpsecConfig'])) {
             $model->ipsecConfig = ipsecConfig::fromMap($map['IpsecConfig']);

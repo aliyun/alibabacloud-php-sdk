@@ -15,21 +15,29 @@ class ListIpsecServersResponseBody extends Model
     public $ipsecServers;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example caeba0bbb2be03f84eb48b699f0a****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 54B48E3D-DF70-471B-AA93-08E683A1B457
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

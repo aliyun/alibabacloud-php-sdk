@@ -15,6 +15,8 @@ class DescribePhysicalConnectionLOAResponseBody extends Model
     public $physicalConnectionLOAType;
 
     /**
+     * @example 318BB676-0A2B-43A0-9AD8-F1D34E93750F
+     *
      * @var string
      */
     public $requestId;

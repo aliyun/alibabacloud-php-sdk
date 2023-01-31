@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class EnableNatGatewayEcsMetricRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example ngw-2vc53wynunp35lw1y****
+     *
      * @var string
      */
     public $natGatewayId;
 
     /**
+     * @example cn-chengdu
+     *
      * @var string
      */
     public $regionId;

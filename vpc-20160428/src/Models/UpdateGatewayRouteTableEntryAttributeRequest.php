@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayRouteTableEntryAttributeRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example new
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 192.168.0.5
+     *
      * @var string
      */
     public $destinationCidrBlock;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example vtb-5ts0ohchwkp3dydt2****
+     *
      * @var string
      */
     public $IPv4GatewayRouteTableId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example i-bp18xq9yguxoxe7m****
+     *
      * @var string
      */
     public $nextHopId;
 
     /**
+     * @example EcsInstance
+     *
      * @var string
      */
     public $nextHopType;
@@ -59,6 +75,8 @@ class UpdateGatewayRouteTableEntryAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example ap-southeast-6
+     *
      * @var string
      */
     public $regionId;

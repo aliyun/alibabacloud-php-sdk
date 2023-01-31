@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class ModifyVirtualBorderRouterAttributeRequest extends Model
 {
     /**
+     * @example [   {     "CircuitCode ": "longtel001",     " LocalGatewayIp ": "192.168.XX.XX",     "PeerGatewayIp" : "192.168.XX.XX",     " PeeringSubnetMask ": "255.255.255.252",     " PhysicalConnectionId ": "pc-kojok19****"   } ]
+     *
      * @var string
      */
     public $associatedPhysicalConnections;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example longtel001
+     *
      * @var string
      */
     public $circuitCode;
 
     /**
+     * @example 02fb3da4-130e-11e9-8e44-00****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example desc
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $detectMultiplier;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableIpv6;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $localGatewayIp;
 
     /**
+     * @example 2001:XXXX:3c4d:0015:0000:0000:0000:1a2b
+     *
      * @var string
      */
     public $localIpv6GatewayIp;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $minRxInterval;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $minTxInterval;
 
     /**
+     * @example VBR
+     *
      * @var string
      */
     public $name;
@@ -79,26 +103,36 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example 192.168.XX.X
+     *
      * @var string
      */
     public $peerGatewayIp;
 
     /**
+     * @example 2001:XXXX:3c4d:0015:0000:0000:0000:2a2b
+     *
      * @var string
      */
     public $peerIpv6GatewayIp;
 
     /**
+     * @example 2408:4004:cc:400::/56
+     *
      * @var string
      */
     public $peeringIpv6SubnetMask;
 
     /**
+     * @example 255.255.255.252
+     *
      * @var string
      */
     public $peeringSubnetMask;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -114,11 +148,15 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vbr-bp1lhl0taikrte****
+     *
      * @var string
      */
     public $vbrId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $vlanId;

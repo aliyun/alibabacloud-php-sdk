@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteNetworkAclRequest extends Model
 {
     /**
+     * @example 223e4867-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example nacl-bp1lhl0taikrbgnh****
+     *
      * @var string
      */
     public $networkAclId;
@@ -24,6 +28,8 @@ class DeleteNetworkAclRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

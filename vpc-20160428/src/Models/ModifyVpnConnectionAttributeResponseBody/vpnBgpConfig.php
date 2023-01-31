@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class vpnBgpConfig extends Model
 {
     /**
+     * @example true
+     *
      * @var string
      */
     public $enableBgp;
 
     /**
+     * @example 65530
+     *
      * @var int
      */
     public $localAsn;
 
     /**
+     * @example 169.254.11.1
+     *
      * @var string
      */
     public $localBgpIp;
 
     /**
+     * @example 65531
+     *
      * @var int
      */
     public $peerAsn;
 
     /**
+     * @example 169.254.11.2
+     *
      * @var string
      */
     public $peerBgpIp;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 169.254.11.0/30
+     *
      * @var string
      */
     public $tunnelCidr;

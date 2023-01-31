@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class reservationData extends Model
 {
     /**
+     * @example 2020-07-20T16:00:00Z
+     *
      * @var string
      */
     public $reservationEndTime;
 
     /**
+     * @example enable
+     *
      * @var string
      */
     public $reservationIpsec;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $reservationMaxConnections;
 
     /**
+     * @example TEMP_UPGRADE
+     *
      * @var string
      */
     public $reservationOrderType;
 
     /**
+     * @example 5
+     *
      * @var string
      */
     public $reservationSpec;
 
     /**
+     * @example enable
+     *
      * @var string
      */
     public $reservationSsl;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $status;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteDhcpOptionsSetRequest extends Model
 {
     /**
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example dopt-o6w0df4epg9zo8isy****
+     *
      * @var string
      */
     public $dhcpOptionsSetId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
@@ -34,6 +40,8 @@ class DeleteDhcpOptionsSetRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

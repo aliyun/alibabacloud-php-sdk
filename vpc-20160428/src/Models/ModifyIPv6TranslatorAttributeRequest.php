@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyIPv6TranslatorAttributeRequest extends Model
 {
     /**
+     * @example sha1111
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example instancedescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example ipv6trans-bp1858ysxxxxxx
+     *
      * @var string
      */
     public $ipv6TranslatorId;
 
     /**
+     * @example instancename
+     *
      * @var string
      */
     public $name;
@@ -39,6 +47,8 @@ class ModifyIPv6TranslatorAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

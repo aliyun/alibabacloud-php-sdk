@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class PMInfo extends Model
 {
     /**
+     * @example 12345671****
+     *
      * @var string
      */
     public $PMCertificateNo;
 
     /**
+     * @example Other
+     *
      * @var string
      */
     public $PMCertificateType;
 
     /**
+     * @example 18910010****
+     *
      * @var string
      */
     public $PMContactInfo;
 
     /**
+     * @example Male
+     *
      * @var string
      */
     public $PMGender;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $PMName;

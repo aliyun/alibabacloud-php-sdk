@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribePhysicalConnectionLOARequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example pc-bp1ca4wca27ex****
+     *
      * @var string
      */
     public $instanceId;
@@ -29,6 +33,8 @@ class DescribePhysicalConnectionLOARequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

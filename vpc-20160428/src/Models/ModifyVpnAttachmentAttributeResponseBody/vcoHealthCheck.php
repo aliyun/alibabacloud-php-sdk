@@ -9,26 +9,43 @@ use AlibabaCloud\Tea\Model;
 class vcoHealthCheck extends Model
 {
     /**
+     * @example 192.168.1.1
+     *
      * @var string
      */
     public $dip;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $enable;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @example revoke_route
+     *
+     * @var string
+     */
+    public $policy;
+
+    /**
+     * @example 3
+     *
      * @var int
      */
     public $retry;
 
     /**
+     * @example 10.1.1.1
+     *
      * @var string
      */
     public $sip;
@@ -36,6 +53,7 @@ class vcoHealthCheck extends Model
         'dip'      => 'Dip',
         'enable'   => 'Enable',
         'interval' => 'Interval',
+        'policy'   => 'Policy',
         'retry'    => 'Retry',
         'sip'      => 'Sip',
     ];
@@ -55,6 +73,9 @@ class vcoHealthCheck extends Model
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
+        }
+        if (null !== $this->policy) {
+            $res['Policy'] = $this->policy;
         }
         if (null !== $this->retry) {
             $res['Retry'] = $this->retry;
@@ -82,6 +103,9 @@ class vcoHealthCheck extends Model
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
+        }
+        if (isset($map['Policy'])) {
+            $model->policy = $map['Policy'];
         }
         if (isset($map['Retry'])) {
             $model->retry = $map['Retry'];

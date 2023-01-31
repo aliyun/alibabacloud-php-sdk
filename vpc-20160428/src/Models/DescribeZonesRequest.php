@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeZonesRequest extends Model
 {
     /**
+     * @example zh-cn
+     *
      * @var string
      */
     public $acceptLanguage;
@@ -24,6 +26,8 @@ class DescribeZonesRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -39,6 +43,8 @@ class DescribeZonesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example AvailabilityZone
+     *
      * @var string
      */
     public $zoneType;

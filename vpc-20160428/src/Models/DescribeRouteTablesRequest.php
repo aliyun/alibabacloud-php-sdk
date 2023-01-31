@@ -19,21 +19,29 @@ class DescribeRouteTablesRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmxazccb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -49,31 +57,43 @@ class DescribeRouteTablesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example rtb-bp12mw1f8k3jgygk9****
+     *
      * @var string
      */
     public $routeTableId;
 
     /**
+     * @example RouteTable-1
+     *
      * @var string
      */
     public $routeTableName;
 
     /**
+     * @example vtb-bp1krxxzp0c29fmon****
+     *
      * @var string
      */
     public $routerId;
 
     /**
+     * @example VRouter
+     *
      * @var string
      */
     public $routerType;
 
     /**
+     * @example custom
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example vtb-bp1krxxzp0c29fmon****
+     *
      * @var string
      */
     public $VRouterId;

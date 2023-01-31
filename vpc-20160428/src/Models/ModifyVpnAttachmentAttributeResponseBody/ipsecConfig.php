@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ipsecConfig extends Model
 {
     /**
+     * @example md5
+     *
      * @var string
      */
     public $ipsecAuthAlg;
 
     /**
+     * @example aes
+     *
      * @var string
      */
     public $ipsecEncAlg;
 
     /**
+     * @example 86400
+     *
      * @var int
      */
     public $ipsecLifetime;
 
     /**
+     * @example group2
+     *
      * @var string
      */
     public $ipsecPfs;

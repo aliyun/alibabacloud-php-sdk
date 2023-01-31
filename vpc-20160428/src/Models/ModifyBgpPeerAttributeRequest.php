@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyBgpPeerAttributeRequest extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $bfdMultiHop;
 
     /**
+     * @example bgpg-m5eo12jxuw2hc0uqq****
+     *
      * @var string
      */
     public $bgpGroupId;
 
     /**
+     * @example bgp-m5eoyp2mwegk8ce9v****
+     *
      * @var string
      */
     public $bgpPeerId;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableBfd;
@@ -44,11 +54,15 @@ class ModifyBgpPeerAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example 116.62.XX.XX
+     *
      * @var string
      */
     public $peerIpAddress;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;

@@ -9,16 +9,15 @@ use AlibabaCloud\Tea\Model;
 class dhcpOptions extends Model
 {
     /**
-     * @var string
-     */
-    public $bootFileName;
-
-    /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 192.xx.xx.123
+     *
      * @var string
      */
     public $domainNameServers;
@@ -32,18 +31,11 @@ class dhcpOptions extends Model
      * @var string
      */
     public $leaseTime;
-
-    /**
-     * @var string
-     */
-    public $TFTPServerName;
     protected $_name = [
-        'bootFileName'      => 'BootFileName',
         'domainName'        => 'DomainName',
         'domainNameServers' => 'DomainNameServers',
         'ipv6LeaseTime'     => 'Ipv6LeaseTime',
         'leaseTime'         => 'LeaseTime',
-        'TFTPServerName'    => 'TFTPServerName',
     ];
 
     public function validate()
@@ -53,9 +45,6 @@ class dhcpOptions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->bootFileName) {
-            $res['BootFileName'] = $this->bootFileName;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
@@ -67,9 +56,6 @@ class dhcpOptions extends Model
         }
         if (null !== $this->leaseTime) {
             $res['LeaseTime'] = $this->leaseTime;
-        }
-        if (null !== $this->TFTPServerName) {
-            $res['TFTPServerName'] = $this->TFTPServerName;
         }
 
         return $res;
@@ -83,9 +69,6 @@ class dhcpOptions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BootFileName'])) {
-            $model->bootFileName = $map['BootFileName'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
@@ -97,9 +80,6 @@ class dhcpOptions extends Model
         }
         if (isset($map['LeaseTime'])) {
             $model->leaseTime = $map['LeaseTime'];
-        }
-        if (isset($map['TFTPServerName'])) {
-            $model->TFTPServerName = $map['TFTPServerName'];
         }
 
         return $model;

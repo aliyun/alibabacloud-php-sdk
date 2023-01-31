@@ -19,6 +19,8 @@ class DeleteVSwitchRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,6 +36,8 @@ class DeleteVSwitchRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vsw-asdfjlna****
+     *
      * @var string
      */
     public $vSwitchId;

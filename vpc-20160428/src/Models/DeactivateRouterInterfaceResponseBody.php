@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeactivateRouterInterfaceResponseBody extends Model
 {
     /**
+     * @example BE7EB53A-99AB-4DA8-AEDE-75FA90D046A6
+     *
      * @var string
      */
     public $requestId;

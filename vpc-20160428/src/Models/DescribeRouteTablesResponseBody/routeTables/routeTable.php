@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class routeTable extends Model
 {
     /**
+     * @example 2017-08-22T10:40:25Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example rg-acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -26,21 +30,29 @@ class routeTable extends Model
     public $routeEntrys;
 
     /**
+     * @example vtb-bp145q7glnuzdvzu2****
+     *
      * @var string
      */
     public $routeTableId;
 
     /**
+     * @example System
+     *
      * @var string
      */
     public $routeTableType;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example vrt-bp1lhl0taikrteen8****
+     *
      * @var string
      */
     public $VRouterId;

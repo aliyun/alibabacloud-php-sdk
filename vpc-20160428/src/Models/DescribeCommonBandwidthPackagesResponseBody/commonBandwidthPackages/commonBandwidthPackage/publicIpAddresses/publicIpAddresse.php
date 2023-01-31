@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class publicIpAddresse extends Model
 {
     /**
+     * @example eip-bp13e9i2qst4g6jzi****
+     *
      * @var string
      */
     public $allocationId;
 
     /**
+     * @example BINDED
+     *
      * @var string
      */
     public $bandwidthPackageIpRelationStatus;
 
     /**
+     * @example 47.95.XX.XX
+     *
      * @var string
      */
     public $ipAddress;

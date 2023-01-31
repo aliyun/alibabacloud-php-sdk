@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeletePublicIpAddressPoolRequest extends Model
 {
     /**
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe60000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
@@ -29,11 +33,15 @@ class DeletePublicIpAddressPoolRequest extends Model
     public $ownerId;
 
     /**
+     * @example pippool-6wetvn6fumkgycssx****
+     *
      * @var string
      */
     public $publicIpAddressPoolId;
 
     /**
+     * @example cn-chengdu
+     *
      * @var string
      */
     public $regionId;

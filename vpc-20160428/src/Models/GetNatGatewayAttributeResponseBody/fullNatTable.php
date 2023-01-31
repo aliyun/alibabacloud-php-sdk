@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class fullNatTable extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $fullNatEntryCount;
 
     /**
+     * @example fulltb-gw88z7hhlv43rmb26****
+     *
      * @var string
      */
     public $fullNatTableId;

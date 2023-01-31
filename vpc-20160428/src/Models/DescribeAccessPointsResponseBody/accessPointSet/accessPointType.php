@@ -15,11 +15,15 @@ class accessPointType extends Model
     public $accessPointFeatureModels;
 
     /**
+     * @example ap-cn-hangzhou-****
+     *
      * @var string
      */
     public $accessPointId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $attachedRegionNo;
@@ -45,11 +49,15 @@ class accessPointType extends Model
     public $name;
 
     /**
+     * @example recommended
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $type;

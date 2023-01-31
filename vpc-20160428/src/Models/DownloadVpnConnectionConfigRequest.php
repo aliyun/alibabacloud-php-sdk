@@ -19,6 +19,8 @@ class DownloadVpnConnectionConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -34,6 +36,8 @@ class DownloadVpnConnectionConfigRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vco-bp1bbi27hojx80nck****
+     *
      * @var string
      */
     public $vpnConnectionId;

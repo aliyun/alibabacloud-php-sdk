@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class CreateVpnRouteEntryResponseBody extends Model
 {
     /**
+     * @example 1492747187000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example mytest
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example vco-bp15oes1py4i66rmd****
+     *
      * @var string
      */
     public $nextHop;
 
     /**
+     * @example Ipsec
+     *
      * @var string
      */
     public $overlayMode;
 
     /**
+     * @example 5BE01CD7-5A50-472D-AC14-CA181C5C03BE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 10.0.0.0/24
+     *
      * @var string
      */
     public $routeDest;
 
     /**
+     * @example published
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example vpn-bp1cmw7jh1nfe43m9****
+     *
      * @var string
      */
     public $vpnInstanceId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $weight;

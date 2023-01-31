@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class vpnRouteEntry extends Model
 {
     /**
+     * @example 65501,65001,60011
+     *
      * @var string
      */
     public $asPath;
 
     /**
+     * @example 65001:1000,65501:2000
+     *
      * @var string
      */
     public $community;
 
     /**
+     * @example 1563874074000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example vco-bp1tui07ob10fmuro****
+     *
      * @var string
      */
     public $nextHop;
 
     /**
+     * @example 10.0.0.0/24
+     *
      * @var string
      */
     public $routeDest;
 
     /**
+     * @example System
+     *
      * @var string
      */
     public $routeEntryType;
 
     /**
+     * @example 192.168.10.0/24
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example normal
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example vpn-bp1cmw7jh1nfe43m9****
+     *
      * @var string
      */
     public $vpnInstanceId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $weight;

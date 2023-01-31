@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateVSwitchRequest extends Model
 {
     /**
+     * @example 172.16.0.0/24
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example vSwitch
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $ipv6CidrBlock;
@@ -39,6 +47,8 @@ class CreateVSwitchRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -54,21 +64,29 @@ class CreateVSwitchRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vSwitch-1
+     *
      * @var string
      */
     public $vSwitchName;
 
     /**
+     * @example vpc-257gqcdfvx6n****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example 2408:XXXX:0:6a::/56
+     *
      * @var string
      */
     public $vpcIpv6CidrBlock;
 
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

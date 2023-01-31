@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdatePublicIpAddressPoolAttributeRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example AddressPoolDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example AddressPoolName
+     *
      * @var string
      */
     public $name;
@@ -39,11 +47,15 @@ class UpdatePublicIpAddressPoolAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example pippool-6wetvn6fumkgycssx****
+     *
      * @var string
      */
     public $publicIpAddressPoolId;
 
     /**
+     * @example cn-chengdu
+     *
      * @var string
      */
     public $regionId;

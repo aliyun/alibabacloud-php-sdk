@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListPrefixListsResponseBody extends Model
 {
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
@@ -25,11 +29,15 @@ class ListPrefixListsResponseBody extends Model
     public $prefixLists;
 
     /**
+     * @example DF72F7BB-5DFA-529C-887E-B0BB70D89C4F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

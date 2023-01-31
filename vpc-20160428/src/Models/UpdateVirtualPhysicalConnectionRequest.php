@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class UpdateVirtualPhysicalConnectionRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example 50M
+     *
      * @var string
      */
     public $expectSpec;
 
     /**
+     * @example pc-bp1mrgfbtmc9brre7****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example CBCE910E-D396-4944-8****
+     *
      * @var string
      */
     public $token;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $vlanId;

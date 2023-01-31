@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyGlobalAccelerationInstanceAttributesRequest extends Model
 {
     /**
+     * @example My GA
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example ga-14fdsf3****
+     *
      * @var string
      */
     public $globalAccelerationInstanceId;
 
     /**
+     * @example GA-1
+     *
      * @var string
      */
     public $name;
@@ -34,6 +40,8 @@ class ModifyGlobalAccelerationInstanceAttributesRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

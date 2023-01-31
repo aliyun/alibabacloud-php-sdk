@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateVirtualBorderBandwidthResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example none
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example AA4486A8-B6AE-469E-AB09-820EF8ECFA2B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

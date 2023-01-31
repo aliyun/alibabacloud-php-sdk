@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateVpcGatewayEndpointAttributeResponseBody extends Model
 {
     /**
+     * @example E9654534-5A38-5545-813F-0403D49042FB
+     *
      * @var string
      */
     public $requestId;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListIpv4GatewaysRequest extends Model
 {
     /**
+     * @example ipv4gw-5tsnc6s4ogsedtp3k****
+     *
      * @var string
      */
     public $ipv4GatewayId;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $ipv4GatewayName;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
@@ -39,6 +47,8 @@ class ListIpv4GatewaysRequest extends Model
     public $ownerId;
 
     /**
+     * @example ap-southeast-6
+     *
      * @var string
      */
     public $regionId;
@@ -54,6 +64,8 @@ class ListIpv4GatewaysRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vpc-5tsrxlw7dv074gci4****
+     *
      * @var string
      */
     public $vpcId;

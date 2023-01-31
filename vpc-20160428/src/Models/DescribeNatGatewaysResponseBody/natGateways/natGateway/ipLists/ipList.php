@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ipList extends Model
 {
     /**
+     * @example eip-m5egzuvp3dgixen6****
+     *
      * @var string
      */
     public $allocationId;
 
     /**
+     * @example 116.62.XX.XX
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $privateIpAddress;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $snatEntryEnabled;
 
     /**
+     * @example UsedByForwardTable
+     *
      * @var string
      */
     public $usingStatus;

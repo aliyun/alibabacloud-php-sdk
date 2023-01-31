@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AddIPv6TranslatorAclListEntryRequest extends Model
 {
     /**
+     * @example clientIP1
+     *
      * @var string
      */
     public $aclEntryComment;
 
     /**
+     * @example 12XX:0:0:dc30::0102
+     *
      * @var string
      */
     public $aclEntryIp;
 
     /**
+     * @example ipv6transacl-bp1dcdvfe2****
+     *
      * @var string
      */
     public $aclId;
@@ -34,6 +40,8 @@ class AddIPv6TranslatorAclListEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

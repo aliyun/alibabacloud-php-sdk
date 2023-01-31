@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpnRouteEntryWeightRequest extends Model
 {
     /**
+     * @example d7d24a21-f4ba-4454-9173-b3828dae492b
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $newWeight;
 
     /**
+     * @example vco-bp15oes1py4i66rmd****
+     *
      * @var string
      */
     public $nextHop;
 
     /**
+     * @example Ipsec
+     *
      * @var string
      */
     public $overlayMode;
@@ -39,6 +47,8 @@ class ModifyVpnRouteEntryWeightRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -54,16 +64,22 @@ class ModifyVpnRouteEntryWeightRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 10.0.0.0/24
+     *
      * @var string
      */
     public $routeDest;
 
     /**
+     * @example vpn-bp1a3kqjiiq9legfx****
+     *
      * @var string
      */
     public $vpnGatewayId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $weight;

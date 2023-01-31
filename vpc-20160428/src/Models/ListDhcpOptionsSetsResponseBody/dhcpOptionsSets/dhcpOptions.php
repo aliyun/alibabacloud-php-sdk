@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class dhcpOptions extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $domainNameServers;

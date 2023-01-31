@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetNatGatewayAttributeRequest extends Model
 {
     /**
+     * @example ngw-bp1b0lic8uz4r6vf2****
+     *
      * @var string
      */
     public $natGatewayId;
@@ -24,6 +26,8 @@ class GetNatGatewayAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $regionId;

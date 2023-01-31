@@ -9,61 +9,78 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpv6GatewayAttributeResponseBody extends Model
 {
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $businessStatus;
 
     /**
+     * @example 2018-12-05T09:21:35Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 2018-12-05T09:21:35Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @example ipv6gw-123456xxxxxxxx
+     *
      * @var string
      */
     public $ipv6GatewayId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example cn-huhehaote
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example ipv6gw-hp33p10bdbt77xxxxxxxx
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @var string
-     */
-    public $spec;
-
-    /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example vpc-123456xxxxxxxx
+     *
      * @var string
      */
     public $vpcId;
@@ -77,7 +94,6 @@ class DescribeIpv6GatewayAttributeResponseBody extends Model
         'name'               => 'Name',
         'regionId'           => 'RegionId',
         'requestId'          => 'RequestId',
-        'spec'               => 'Spec',
         'status'             => 'Status',
         'vpcId'              => 'VpcId',
     ];
@@ -115,9 +131,6 @@ class DescribeIpv6GatewayAttributeResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->spec) {
-            $res['Spec'] = $this->spec;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -163,9 +176,6 @@ class DescribeIpv6GatewayAttributeResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Spec'])) {
-            $model->spec = $map['Spec'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

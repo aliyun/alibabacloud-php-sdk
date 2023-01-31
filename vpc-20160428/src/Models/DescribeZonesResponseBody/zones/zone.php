@@ -14,11 +14,15 @@ class zone extends Model
     public $localName;
 
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;
 
     /**
+     * @example AvailabilityZone
+     *
      * @var string
      */
     public $zoneType;

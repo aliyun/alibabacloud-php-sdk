@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeVcoRouteEntriesResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example E18980E8-C8C2-31BD-8156-AE2BBDEC87E1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

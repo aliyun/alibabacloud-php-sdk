@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatGatewayRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateNatGatewayRequest extends Model
@@ -14,11 +15,15 @@ class CreateNatGatewayRequest extends Model
     public $autoPay;
 
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example testnat
+     *
      * @var string
      */
     public $description;
@@ -29,36 +34,50 @@ class CreateNatGatewayRequest extends Model
     public $duration;
 
     /**
+     * @example MULTI_BINDED
+     *
      * @var string
      */
     public $eipBindMode;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $icmpReplyEnabled;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @example PayByLcu
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example fortest
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example Enhanced
+     *
      * @var string
      */
     public $natType;
 
     /**
+     * @example internet
+     *
      * @var string
      */
     public $networkType;
@@ -79,6 +98,8 @@ class CreateNatGatewayRequest extends Model
     public $pricingCycle;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -94,6 +115,8 @@ class CreateNatGatewayRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $securityProtectionEnabled;
@@ -104,11 +127,20 @@ class CreateNatGatewayRequest extends Model
     public $spec;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
+     * @example vsw-bp1e3se98n9fq8hle****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vpc-bp1di7uewzmtvfuq8****
+     *
      * @var string
      */
     public $vpcId;
@@ -132,6 +164,7 @@ class CreateNatGatewayRequest extends Model
         'resourceOwnerId'           => 'ResourceOwnerId',
         'securityProtectionEnabled' => 'SecurityProtectionEnabled',
         'spec'                      => 'Spec',
+        'tag'                       => 'Tag',
         'vSwitchId'                 => 'VSwitchId',
         'vpcId'                     => 'VpcId',
     ];
@@ -199,6 +232,15 @@ class CreateNatGatewayRequest extends Model
         }
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -274,6 +316,15 @@ class CreateNatGatewayRequest extends Model
         }
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

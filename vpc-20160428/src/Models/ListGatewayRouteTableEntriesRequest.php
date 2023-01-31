@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListGatewayRouteTableEntriesRequest extends Model
 {
     /**
+     * @example 192.168.0.5
+     *
      * @var string
      */
     public $destinationCidrBlock;
 
     /**
+     * @example vtb-5ts0ohchwkp3dydt2****
+     *
      * @var string
      */
     public $gatewayRouteTableId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
@@ -39,6 +47,8 @@ class ListGatewayRouteTableEntriesRequest extends Model
     public $ownerId;
 
     /**
+     * @example ap-southeast-6
+     *
      * @var string
      */
     public $regionId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteBgpNetworkRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example 10.110.192.12/32
+     *
      * @var string
      */
     public $dstCidrBlock;
@@ -29,6 +33,8 @@ class DeleteBgpNetworkRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -44,6 +50,8 @@ class DeleteBgpNetworkRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vrt-bp1lhl0taikrteen8****
+     *
      * @var string
      */
     public $routerId;

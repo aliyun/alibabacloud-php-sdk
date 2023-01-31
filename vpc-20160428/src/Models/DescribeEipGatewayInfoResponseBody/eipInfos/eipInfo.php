@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class eipInfo extends Model
 {
     /**
+     * @example 47.xx.xx.236
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @example 47.xx.xx.1
+     *
      * @var string
      */
     public $ipGw;
 
     /**
+     * @example 255.255.255.0
+     *
      * @var string
      */
     public $ipMask;

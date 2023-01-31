@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpv6GatewaysRequest extends Model
 {
     /**
+     * @example ipv6gw-hp3rwmtmfhgis****
+     *
      * @var string
      */
     public $ipv6GatewayId;
 
     /**
+     * @example ipv6GW
+     *
      * @var string
      */
     public $name;
@@ -29,16 +33,22 @@ class DescribeIpv6GatewaysRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-huhehaote
+     *
      * @var string
      */
     public $regionId;
@@ -54,6 +64,8 @@ class DescribeIpv6GatewaysRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vpc-123sedrfswd23****
+     *
      * @var string
      */
     public $vpcId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeHighDefinitionMonitorLogAttributeRequest extends Model
 {
     /**
+     * @example eip-wz9fi6qboho9fwgx7****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example EIP
+     *
      * @var string
      */
     public $instanceType;
@@ -29,6 +33,8 @@ class DescribeHighDefinitionMonitorLogAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

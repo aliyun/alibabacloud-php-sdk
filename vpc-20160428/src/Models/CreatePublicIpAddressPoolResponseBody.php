@@ -9,17 +9,27 @@ use AlibabaCloud\Tea\Model;
 class CreatePublicIpAddressPoolResponseBody extends Model
 {
     /**
+     * @example pippool-6wetvn6fumkgycssx****
+     *
      * @var string
      */
     public $pulbicIpAddressPoolId;
 
     /**
+     * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
+     *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'pulbicIpAddressPoolId' => 'PulbicIpAddressPoolId',
         'requestId'             => 'RequestId',
+        'resourceGroupId'       => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -34,6 +44,9 @@ class CreatePublicIpAddressPoolResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -52,6 +65,9 @@ class CreatePublicIpAddressPoolResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateTrafficMirrorFilterRuleAttributeResponseBody extends Model
 {
     /**
+     * @example 02EB8585-D4DC-4E29-A0F4-7C588C82863C
+     *
      * @var string
      */
     public $requestId;

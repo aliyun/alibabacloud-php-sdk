@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class egressRules extends Model
 {
     /**
+     * @example accept
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @example 10.0.0.0/24
+     *
      * @var string
      */
     public $destinationCidrBlock;
 
     /**
+     * @example 22/40
+     *
      * @var string
      */
     public $destinationPortRange;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example TCP
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @example 10.0.0.0/24
+     *
      * @var string
      */
     public $sourceCidrBlock;
 
     /**
+     * @example 22/40
+     *
      * @var string
      */
     public $sourcePortRange;
 
     /**
+     * @example egress
+     *
      * @var string
      */
     public $trafficDirection;
 
     /**
+     * @example tmf-j6cmls82xnc86vtpe****
+     *
      * @var string
      */
     public $trafficMirrorFilterId;
 
     /**
+     * @example tmr-j6c89rzmtd3hhdugq****
+     *
      * @var string
      */
     public $trafficMirrorFilterRuleId;
 
     /**
+     * @example Created
+     *
      * @var string
      */
     public $trafficMirrorFilterRuleStatus;

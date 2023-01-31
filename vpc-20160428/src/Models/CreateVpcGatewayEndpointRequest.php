@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcGatewayEndpointRequest extends Model
 {
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $endpointDescription;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $endpointName;
@@ -39,11 +47,15 @@ class CreateVpcGatewayEndpointRequest extends Model
     public $ownerId;
 
     /**
+     * @example {   "Version" : "1",   "Statement" : [ {     "Effect" : "Allow",     "Resource" : [ "*" ],     "Action" : [ "*" ],     "Principal" : [ "*" ]   } ] }
+     *
      * @var string
      */
     public $policyDocument;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -59,11 +71,15 @@ class CreateVpcGatewayEndpointRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example com.aliyun.cn-hangzhou.oss
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example vpc-bp1gsk7h12ew7oegk****
+     *
      * @var string
      */
     public $vpcId;

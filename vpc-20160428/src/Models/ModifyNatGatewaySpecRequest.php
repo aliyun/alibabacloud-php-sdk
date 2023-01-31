@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyNatGatewaySpecRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-426655****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example ngw-bp1uewa15k4iy5770****
+     *
      * @var string
      */
     public $natGatewayId;
@@ -34,6 +40,8 @@ class ModifyNatGatewaySpecRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -49,6 +57,8 @@ class ModifyNatGatewaySpecRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example Middle
+     *
      * @var string
      */
     public $spec;

@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnatTableEntriesResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 6D7E89B1-1C5B-412B-8585-4908E222EED5
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class DescribeSnatTableEntriesResponseBody extends Model
     public $snatTableEntries;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

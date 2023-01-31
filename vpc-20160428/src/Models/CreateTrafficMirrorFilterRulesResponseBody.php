@@ -21,6 +21,8 @@ class CreateTrafficMirrorFilterRulesResponseBody extends Model
     public $ingressRules;
 
     /**
+     * @example 07F272E2-6AD5-433A-8207-A607C76F1676
+     *
      * @var string
      */
     public $requestId;

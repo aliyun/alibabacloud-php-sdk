@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class crossAccountAuthorizations extends Model
 {
     /**
+     * @example 1250123456123456
+     *
      * @var int
      */
     public $aliUid;
 
     /**
+     * @example cen-vv8h0t3klfpaae****
+     *
      * @var string
      */
     public $bindInstance;
 
     /**
+     * @example CEN
+     *
      * @var string
      */
     public $bindProduct;
 
     /**
+     * @example 1210123456123456
+     *
      * @var int
      */
     public $bindUid;
 
     /**
+     * @example 1658201810000
+     *
      * @var int
      */
     public $creationTime;
 
     /**
+     * @example vco-p0w2jpkhi2eeop6q6****
+     *
      * @var string
      */
     public $vpnConnectionId;

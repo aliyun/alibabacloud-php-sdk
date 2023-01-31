@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class natIpCidrs extends Model
 {
     /**
+     * @example 2021-06-28T20:50Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isDefault;
 
     /**
+     * @example ngw-gw8v16wgvtq26vh59****
+     *
      * @var string
      */
     public $natGatewayId;
 
     /**
+     * @example 172.16.0.0/24
+     *
      * @var string
      */
     public $natIpCidr;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $natIpCidrDescription;
 
     /**
+     * @example vpcnatcidr-gw8ov42ei6xh1jys2****
+     *
      * @var string
      */
     public $natIpCidrId;
 
     /**
+     * @example Name
+     *
      * @var string
      */
     public $natIpCidrName;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $natIpCidrStatus;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ConfirmPhysicalConnectionRequest extends Model
 {
     /**
+     * @example 02fb3da4-130e-11e9-8e44-0016e0****
+     *
      * @var string
      */
     public $clientToken;
@@ -24,11 +26,15 @@ class ConfirmPhysicalConnectionRequest extends Model
     public $ownerId;
 
     /**
+     * @example pc-119mf****
+     *
      * @var string
      */
     public $physicalConnectionId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;

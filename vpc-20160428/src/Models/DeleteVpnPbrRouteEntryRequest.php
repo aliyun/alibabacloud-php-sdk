@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteVpnPbrRouteEntryRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-4266****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example vco-bp15oes1py4i66rmd****
+     *
      * @var string
      */
     public $nextHop;
 
     /**
+     * @example Ipsec
+     *
      * @var string
      */
     public $overlayMode;
@@ -34,6 +40,15 @@ class DeleteVpnPbrRouteEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $priority;
+
+    /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -49,21 +64,29 @@ class DeleteVpnPbrRouteEntryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 10.0.0.0/24
+     *
      * @var string
      */
     public $routeDest;
 
     /**
+     * @example 192.168.1.0/24
+     *
      * @var string
      */
     public $routeSource;
 
     /**
+     * @example vpn-bp1a3kqjiiq9legfx****
+     *
      * @var string
      */
     public $vpnGatewayId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $weight;
@@ -73,6 +96,7 @@ class DeleteVpnPbrRouteEntryRequest extends Model
         'overlayMode'          => 'OverlayMode',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'priority'             => 'Priority',
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -103,6 +127,9 @@ class DeleteVpnPbrRouteEntryRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -151,6 +178,9 @@ class DeleteVpnPbrRouteEntryRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

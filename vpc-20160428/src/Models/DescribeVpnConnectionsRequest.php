@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpnConnectionsRequest extends Model
 {
     /**
+     * @example cgw-bp1mvj4g9kogw****
+     *
      * @var string
      */
     public $customerGatewayId;
@@ -24,16 +26,22 @@ class DescribeVpnConnectionsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -49,11 +57,15 @@ class DescribeVpnConnectionsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vco-bp10lz7aejumd****
+     *
      * @var string
      */
     public $vpnConnectionId;
 
     /**
+     * @example vpn-bp1q8bgx4xnkx****
+     *
      * @var string
      */
     public $vpnGatewayId;

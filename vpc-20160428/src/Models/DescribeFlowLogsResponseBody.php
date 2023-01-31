@@ -15,26 +15,36 @@ class DescribeFlowLogsResponseBody extends Model
     public $flowLogs;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @example F7DDDC17-FA06-4AC2-8F35-59D2470FCFC1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $totalCount;

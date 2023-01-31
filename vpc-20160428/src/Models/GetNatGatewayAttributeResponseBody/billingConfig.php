@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class billingConfig extends Model
 {
     /**
+     * @example false
+     *
      * @var string
      */
     public $autoPay;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @example PayBySpec
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example Small
+     *
      * @var string
      */
     public $spec;

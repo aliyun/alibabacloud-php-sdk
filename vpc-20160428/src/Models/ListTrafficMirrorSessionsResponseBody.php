@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListTrafficMirrorSessionsResponseBody extends Model
 {
     /**
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 739CA01C-92EB-4C69-BCC0-280149C6F41E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $totalCount;

@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class ListVirtualPhysicalConnectionsResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example dd20****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 2A55F69E-EE3D-5CBE-8805-734F7D5B46B9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

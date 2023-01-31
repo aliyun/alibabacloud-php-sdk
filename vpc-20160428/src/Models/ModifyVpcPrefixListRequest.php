@@ -16,16 +16,22 @@ class ModifyVpcPrefixListRequest extends Model
     public $addPrefixListEntry;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxEntries;
@@ -41,21 +47,29 @@ class ModifyVpcPrefixListRequest extends Model
     public $ownerId;
 
     /**
+     * @example newdescription
+     *
      * @var string
      */
     public $prefixListDescription;
 
     /**
+     * @example pl-0b7hwu67****
+     *
      * @var string
      */
     public $prefixListId;
 
     /**
+     * @example newname
+     *
      * @var string
      */
     public $prefixListName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

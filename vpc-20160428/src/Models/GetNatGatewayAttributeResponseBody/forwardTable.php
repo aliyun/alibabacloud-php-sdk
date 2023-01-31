@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class forwardTable extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $forwardEntryCount;
 
     /**
+     * @example ftb-uf6gj3mhsg94qsqst****
+     *
      * @var string
      */
     public $forwardTableId;

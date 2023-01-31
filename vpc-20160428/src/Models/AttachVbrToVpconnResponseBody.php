@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AttachVbrToVpconnResponseBody extends Model
 {
     /**
+     * @example 5356F028-0F5C-56FC-8574-897D24379041
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example pc-bp1mrgfbtmc9brre7****
+     *
      * @var string
      */
     public $virtualPhysicalConnection;

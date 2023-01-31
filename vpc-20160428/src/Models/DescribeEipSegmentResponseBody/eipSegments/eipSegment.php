@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class eipSegment extends Model
 {
     /**
+     * @example 2020-03-06T12:30:07Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example MyEipSegment
+     *
      * @var string
      */
     public $descritpion;
 
     /**
+     * @example eipsg-2zett8ba055tbsxme****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 28
+     *
      * @var string
      */
     public $ipCount;
 
     /**
+     * @example MyEipSegment
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 161.xx.xx.32/28
+     *
      * @var string
      */
     public $segment;
 
     /**
+     * @example Allocated
+     *
      * @var string
      */
     public $status;

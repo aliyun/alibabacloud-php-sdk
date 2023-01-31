@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class DescribeVbrHaResponseBody extends Model
 {
     /**
+     * @example 2021-06-08T12:20:55
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example desc
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example VBRHa
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example vbr-bp12mw1f8k3jgygk9****
+     *
      * @var string
      */
     public $peerVbrId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example Active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example vbrha-sa1sxheuxtd98****
+     *
      * @var string
      */
     public $vbrHaId;
 
     /**
+     * @example vbr-bp1jcg5cmxjbl9xgc****
+     *
      * @var string
      */
     public $vbrId;

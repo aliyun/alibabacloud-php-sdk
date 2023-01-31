@@ -19,6 +19,8 @@ class DeleteVpcRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,6 +36,8 @@ class DeleteVpcRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vpc-bp1m7v25emi1h5mtc****
+     *
      * @var string
      */
     public $vpcId;

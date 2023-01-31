@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteVpnConnectionRequest extends Model
 {
     /**
+     * @example 02fb3da4-130e-11e9-8e44-0016e04115b
+     *
      * @var string
      */
     public $clientToken;
@@ -24,6 +26,8 @@ class DeleteVpnConnectionRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -39,6 +43,8 @@ class DeleteVpnConnectionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vco-bp1bbi27hojx80nck****
+     *
      * @var string
      */
     public $vpnConnectionId;

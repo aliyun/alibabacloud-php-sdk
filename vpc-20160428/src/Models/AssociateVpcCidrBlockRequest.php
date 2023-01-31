@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AssociateVpcCidrBlockRequest extends Model
 {
     /**
+     * @example 2408:XXXX:0:6a::/56
+     *
      * @var string
      */
     public $IPv6CidrBlock;
 
     /**
+     * @example IPV4
+     *
      * @var string
      */
     public $ipVersion;
 
     /**
+     * @example BGP
+     *
      * @var string
      */
     public $ipv6Isp;
@@ -34,6 +40,8 @@ class AssociateVpcCidrBlockRequest extends Model
     public $ownerId;
 
     /**
+     * @example ch-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -49,11 +57,15 @@ class AssociateVpcCidrBlockRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 192.168.0.0/16
+     *
      * @var string
      */
     public $secondaryCidrBlock;
 
     /**
+     * @example vpc-o6wrloqsdqc9io3mg****
+     *
      * @var string
      */
     public $vpcId;

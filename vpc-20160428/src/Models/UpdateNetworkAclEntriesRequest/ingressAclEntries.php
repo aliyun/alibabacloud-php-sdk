@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class ingressAclEntries extends Model
 {
     /**
+     * @example This is IngressAclEntries.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example custom
+     *
      * @var string
      */
     public $entryType;
 
     /**
+     * @example nae-2zepn32de59j8m4****
+     *
      * @var string
      */
     public $networkAclEntryId;
 
     /**
+     * @example acl-3
+     *
      * @var string
      */
     public $networkAclEntryName;
 
     /**
+     * @example accept
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @example -1/-1
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @example all
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @example 10.0.0.0/24
+     *
      * @var string
      */
     public $sourceCidrIp;

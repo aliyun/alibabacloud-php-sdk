@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CheckVpnBgpEnabledResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $bgpEnabled;
 
     /**
+     * @example DF448D2E-215D-334F-B10D-7C3B087EF996
+     *
      * @var string
      */
     public $requestId;

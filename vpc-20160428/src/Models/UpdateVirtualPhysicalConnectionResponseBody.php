@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateVirtualPhysicalConnectionResponseBody extends Model
 {
     /**
+     * @example 7035627E-1C1D-5BC7-A830-F897A35912D1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;

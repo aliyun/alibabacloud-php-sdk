@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowLogsRequest extends Model
 {
     /**
+     * @example This is my Flowlog.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example fl-bp1f6qqhsrc2c12ta****
+     *
      * @var string
      */
     public $flowLogId;
 
     /**
+     * @example myFlowlog
+     *
      * @var string
      */
     public $flowLogName;
 
     /**
+     * @example FlowLogStore
+     *
      * @var string
      */
     public $logStoreName;
@@ -39,26 +47,36 @@ class DescribeFlowLogsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example FlowLogProject
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example eni-askldfas****
+     *
      * @var string
      */
     public $resourceId;
@@ -74,21 +92,29 @@ class DescribeFlowLogsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example NetworkInterface
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example Active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example All
+     *
      * @var string
      */
     public $trafficType;
 
     /**
+     * @example vpc-bp1nwd16gvo1wgs****
+     *
      * @var string
      */
     public $vpcId;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class snatTableEntry extends Model
 {
     /**
+     * @example snat-kmd6nv8fy****
+     *
      * @var string
      */
     public $snatEntryId;
 
     /**
+     * @example SnatEntry-1
+     *
      * @var string
      */
     public $snatEntryName;
 
     /**
+     * @example 116.22.XX.XX
+     *
      * @var string
      */
     public $snatIp;
 
     /**
+     * @example stb-gz3r3odawdgffde****
+     *
      * @var string
      */
     public $snatTableId;
 
     /**
+     * @example 116.22.XX.XX/24
+     *
      * @var string
      */
     public $sourceCIDR;
 
     /**
+     * @example vsw-3xbdsffvfgdfds****
+     *
      * @var string
      */
     public $sourceVSwitchId;
 
     /**
+     * @example Pending
+     *
      * @var string
      */
     public $status;

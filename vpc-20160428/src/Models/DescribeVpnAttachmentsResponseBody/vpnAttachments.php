@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class vpnAttachments extends Model
 {
     /**
+     * @example CEN
+     *
      * @var string
      */
     public $attachType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $crossAccountAuthorized;
 
     /**
+     * @example desctest
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example vco-p0w2jpkhi2eeop6q6****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example nametest1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example tr-p0wkh4yryb1dnanqw****
+     *
      * @var string
      */
     public $transitRouterId;
 
     /**
+     * @example nametest2
+     *
      * @var string
      */
     public $transitRouterName;

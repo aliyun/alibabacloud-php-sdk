@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteFullNatEntryRequest extends Model
 {
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example fullnat-gw8fz23jezpbblf1j****
+     *
      * @var string
      */
     public $fullNatEntryId;
 
     /**
+     * @example fulltb-gw88z7hhlv43rmb26****
+     *
      * @var string
      */
     public $fullNatTableId;
@@ -39,6 +47,8 @@ class DeleteFullNatEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @example eu-central-1
+     *
      * @var string
      */
     public $regionId;

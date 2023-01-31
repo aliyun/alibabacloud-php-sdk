@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeletionProtectionRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example eip-uf6id7gvguruxe41v****
+     *
      * @var string
      */
     public $instanceId;
@@ -24,11 +28,15 @@ class DeletionProtectionRequest extends Model
     public $ownerId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $protectionEnable;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -44,6 +52,8 @@ class DeletionProtectionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example EIP
+     *
      * @var string
      */
     public $type;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyIPv6TranslatorBandwidthRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example sha1111
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example ipv6trans-bp1858ysxxxxxx
+     *
      * @var string
      */
     public $ipv6TranslatorId;
@@ -39,6 +47,8 @@ class ModifyIPv6TranslatorBandwidthRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

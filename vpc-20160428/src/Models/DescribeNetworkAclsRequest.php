@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkAclsRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example nacl-bp1lhl0taikrbgnh****
+     *
      * @var string
      */
     public $networkAclId;
 
     /**
+     * @example acl-1
+     *
      * @var string
      */
     public $networkAclName;
@@ -29,21 +35,29 @@ class DescribeNetworkAclsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example vsw-bp1de348lntdwnhbg****
+     *
      * @var string
      */
     public $resourceId;
@@ -59,11 +73,15 @@ class DescribeNetworkAclsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example VSwitch
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example vpc-m5ebpc2xh64mqm27e****
+     *
      * @var string
      */
     public $vpcId;

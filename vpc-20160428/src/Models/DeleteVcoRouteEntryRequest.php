@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteVcoRouteEntryRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-4266****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example vco-p0w5112fgnl2ihlmf****
+     *
      * @var string
      */
     public $nextHop;
 
     /**
+     * @example Ipsec
+     *
      * @var string
      */
     public $overlayMode;
@@ -29,6 +35,8 @@ class DeleteVcoRouteEntryRequest extends Model
     public $ownerAccount;
 
     /**
+     * @example ap-southeast-2
+     *
      * @var string
      */
     public $regionId;
@@ -44,16 +52,22 @@ class DeleteVcoRouteEntryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 192.168.10.0/24
+     *
      * @var string
      */
     public $routeDest;
 
     /**
+     * @example vco-p0w5112fgnl2ihlmf****
+     *
      * @var string
      */
     public $vpnConnectionId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $weight;

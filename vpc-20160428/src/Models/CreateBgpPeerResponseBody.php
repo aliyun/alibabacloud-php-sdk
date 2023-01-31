@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateBgpPeerResponseBody extends Model
 {
     /**
+     * @example bgp-m5eoyp2mwegk8ce9v****
+     *
      * @var string
      */
     public $bgpPeerId;
 
     /**
+     * @example D4B7649A-61BB-4C64-A586-1DFF1EDA6A42
+     *
      * @var string
      */
     public $requestId;

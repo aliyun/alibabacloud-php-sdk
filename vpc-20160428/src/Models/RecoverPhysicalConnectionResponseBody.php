@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RecoverPhysicalConnectionResponseBody extends Model
 {
     /**
+     * @example CD14EA74-E9C3-59A9-942A-DFEC7E12818D
+     *
      * @var string
      */
     public $requestId;

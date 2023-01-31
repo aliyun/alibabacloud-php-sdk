@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteForwardEntryRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example fwd-8vbn3bc8roygjp0gy****
+     *
      * @var string
      */
     public $forwardEntryId;
 
     /**
+     * @example ftb-8vbx8xu2lqj9qb334****
+     *
      * @var string
      */
     public $forwardTableId;
@@ -34,6 +40,8 @@ class DeleteForwardEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

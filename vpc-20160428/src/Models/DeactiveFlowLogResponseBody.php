@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeactiveFlowLogResponseBody extends Model
 {
     /**
+     * @example F7DDDC17-FA06-4AC2-8F35-59D2470FCFC1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;

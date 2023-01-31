@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeGrantRulesToCenRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example vpc-bp18sth14qii3pnvc****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $instanceType;
@@ -34,11 +40,25 @@ class DescribeGrantRulesToCenRequest extends Model
     public $ownerId;
 
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -58,6 +78,8 @@ class DescribeGrantRulesToCenRequest extends Model
         'instanceType'         => 'InstanceType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'pageNumber'           => 'PageNumber',
+        'pageSize'             => 'PageSize',
         'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -85,6 +107,12 @@ class DescribeGrantRulesToCenRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -124,6 +152,12 @@ class DescribeGrantRulesToCenRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

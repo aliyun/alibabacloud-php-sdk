@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class ListVpnCertificateAssociationsResponseBody extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example caeba0bbb2be****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 197AF2BD-547F-470C-B29A-8400400233EB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $totalCount;

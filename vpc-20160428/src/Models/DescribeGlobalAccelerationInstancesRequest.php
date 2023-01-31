@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeGlobalAccelerationInstancesRequest extends Model
 {
     /**
+     * @example Exclusive
+     *
      * @var string
      */
     public $bandwidthType;
 
     /**
+     * @example ga-234sljmxaz****
+     *
      * @var string
      */
     public $globalAccelerationInstanceId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $includeReservationData;
 
     /**
+     * @example 12.xx.xx.78
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @example GA-1
+     *
      * @var string
      */
     public $name;
@@ -44,16 +54,22 @@ class DescribeGlobalAccelerationInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -69,16 +85,22 @@ class DescribeGlobalAccelerationInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example i-sxjblddejj9x****
+     *
      * @var string
      */
     public $serverId;
 
     /**
+     * @example china-mainland
+     *
      * @var string
      */
     public $serviceLocation;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;

@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class ingressRules extends Model
 {
     /**
+     * @example accept
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @example 0.0.0.0/0
+     *
      * @var string
      */
     public $destinationCidrBlock;
 
     /**
+     * @example -1/-1
+     *
      * @var string
      */
     public $destinationPortRange;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example ALL
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @example 0.0.0.0/0
+     *
      * @var string
      */
     public $sourceCidrBlock;
 
     /**
+     * @example -1/-1
+     *
      * @var string
      */
     public $sourcePortRange;
 
     /**
+     * @example ingress
+     *
      * @var string
      */
     public $trafficDirection;
 
     /**
+     * @example tmf-j6cmls82xnc86vtpe****
+     *
      * @var string
      */
     public $trafficMirrorFilterId;
 
     /**
+     * @example tmr-j6cezu8e68rnpepet****
+     *
      * @var string
      */
     public $trafficMirrorFilterRuleId;
 
     /**
+     * @example Created
+     *
      * @var string
      */
     public $trafficMirrorFilterRuleStatus;

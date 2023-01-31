@@ -15,21 +15,29 @@ class DescribeEipSegmentResponseBody extends Model
     public $eipSegments;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example F7A6301A-64BA-41EC-8284-8F4838C15D1F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

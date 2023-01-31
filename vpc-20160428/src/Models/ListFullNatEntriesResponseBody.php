@@ -15,31 +15,43 @@ class ListFullNatEntriesResponseBody extends Model
     public $fullNatEntries;
 
     /**
+     * @example fullnat-gw8fz23jezpbblf1j****
+     *
      * @var string
      */
     public $fullNatTableId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example ngw-gw8054kn57y3hq3bv****
+     *
      * @var string
      */
     public $natGatewayId;
 
     /**
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example F03E41F6-1A74-311F-8D98-124EEE9F37B8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

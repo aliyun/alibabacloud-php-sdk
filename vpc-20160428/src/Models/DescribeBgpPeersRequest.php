@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeBgpPeersRequest extends Model
 {
     /**
+     * @example bgpg-2zev8h2wo414sfh****
+     *
      * @var string
      */
     public $bgpGroupId;
 
     /**
+     * @example bgp-2ze3un0ft1jd1xd****
+     *
      * @var string
      */
     public $bgpPeerId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isDefault;
@@ -34,16 +40,22 @@ class DescribeBgpPeersRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -59,6 +71,8 @@ class DescribeBgpPeersRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vbr-2zecmmvg5gvu8i4te****
+     *
      * @var string
      */
     public $routerId;

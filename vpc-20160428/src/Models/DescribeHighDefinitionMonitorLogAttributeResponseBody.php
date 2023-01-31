@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeHighDefinitionMonitorLogAttributeResponseBody extends Model
 {
     /**
+     * @example eip-wz9fi6qboho9fwgx7****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example EIP
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example hdmonitor-cn-shenzhen-1658206966225390
+     *
      * @var string
      */
     public $logProject;
 
     /**
+     * @example hdmonitor
+     *
      * @var string
      */
     public $logStore;
 
     /**
+     * @example 54B48E3D-DF70-471B-AA93-08E683A1B457
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;

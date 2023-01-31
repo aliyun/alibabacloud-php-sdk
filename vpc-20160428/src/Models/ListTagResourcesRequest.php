@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
@@ -30,11 +34,15 @@ class ListTagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example vpc-bp16qjewdsunr41m1****
+     *
      * @var string[]
      */
     public $resourceId;
@@ -50,6 +58,8 @@ class ListTagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $resourceType;

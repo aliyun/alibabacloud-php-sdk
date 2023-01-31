@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteNatIpRequest extends Model
 {
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example vpcnatip-gw8y7q3cpk3fggs87****
+     *
      * @var string
      */
     public $natIpId;
@@ -34,6 +40,8 @@ class DeleteNatIpRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $regionId;

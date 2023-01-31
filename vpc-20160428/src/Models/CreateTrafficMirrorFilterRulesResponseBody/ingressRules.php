@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ingressRules extends Model
 {
     /**
+     * @example tmr-j6c6rtallo51ouzv3****
+     *
      * @var string
      */
     public $instanceId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListFullNatEntriesRequest extends Model
 {
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example fullnat-gw8fz23jezpbblf1j****
+     *
      * @var string
      */
     public $fullNatEntryId;
@@ -24,21 +28,29 @@ class ListFullNatEntriesRequest extends Model
     public $fullNatEntryNames;
 
     /**
+     * @example fulltb-gw88z7hhlv43rmb26****
+     *
      * @var string
      */
     public $fullNatTableId;
 
     /**
+     * @example TCP
+     *
      * @var string
      */
     public $ipProtocol;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example ngw-bp1uewa15k4iy5770****
+     *
      * @var string
      */
     public $natGatewayId;
@@ -49,6 +61,8 @@ class ListFullNatEntriesRequest extends Model
     public $networkInterfaceIds;
 
     /**
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
@@ -64,6 +78,8 @@ class ListFullNatEntriesRequest extends Model
     public $ownerId;
 
     /**
+     * @example eu-central-1
+     *
      * @var string
      */
     public $regionId;

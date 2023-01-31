@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ModifyNatIpCidrAttributeRequest extends Model
 {
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example ngw-gw8v16wgvtq26vh59****
+     *
      * @var string
      */
     public $natGatewayId;
 
     /**
+     * @example 172.16.0.0/24
+     *
      * @var string
      */
     public $natIpCidr;
 
     /**
+     * @example newtest
+     *
      * @var string
      */
     public $natIpCidrDescription;
 
     /**
+     * @example newname
+     *
      * @var string
      */
     public $natIpCidrName;
@@ -49,6 +61,8 @@ class ModifyNatIpCidrAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example eu-central-1
+     *
      * @var string
      */
     public $regionId;

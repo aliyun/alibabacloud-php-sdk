@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UnassociateGlobalAccelerationInstanceRequest extends Model
 {
     /**
+     * @example ga-1sxeedefrr33****
+     *
      * @var string
      */
     public $globalAccelerationInstanceId;
 
     /**
+     * @example RemoteEcsInstance
+     *
      * @var string
      */
     public $instanceType;
@@ -29,6 +33,8 @@ class UnassociateGlobalAccelerationInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GrantInstanceToCenRequest extends Model
 {
     /**
+     * @example cen-7qthudw0ll6jmc****
+     *
      * @var string
      */
     public $cenId;
 
     /**
+     * @example 123456789
+     *
      * @var int
      */
     public $cenOwnerId;
 
     /**
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example vpc-uf6o8d1dj8sjwxi6o****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $instanceType;
@@ -44,6 +54,8 @@ class GrantInstanceToCenRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

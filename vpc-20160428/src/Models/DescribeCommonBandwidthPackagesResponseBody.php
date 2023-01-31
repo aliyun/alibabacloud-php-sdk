@@ -15,21 +15,29 @@ class DescribeCommonBandwidthPackagesResponseBody extends Model
     public $commonBandwidthPackages;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 20E6FD1C-7321-4DAD-BDFD-EC8769E4AA33
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

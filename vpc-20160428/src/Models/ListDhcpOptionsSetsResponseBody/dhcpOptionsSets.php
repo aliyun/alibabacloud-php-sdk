@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class dhcpOptionsSets extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $associateVpcCount;
@@ -20,26 +22,36 @@ class dhcpOptionsSets extends Model
     public $dhcpOptions;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $dhcpOptionsSetDescription;
 
     /**
+     * @example dopt-o6w0df4epg9zo8isy****
+     *
      * @var string
      */
     public $dhcpOptionsSetId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $dhcpOptionsSetName;
 
     /**
+     * @example 253460731706911258
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;

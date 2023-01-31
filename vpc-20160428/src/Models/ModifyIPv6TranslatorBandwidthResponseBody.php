@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyIPv6TranslatorBandwidthResponseBody extends Model
 {
     /**
+     * @example 202304500950739
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example EF8198EE-8FC9-49C2-A22E-xxxx
+     *
      * @var string
      */
     public $requestId;

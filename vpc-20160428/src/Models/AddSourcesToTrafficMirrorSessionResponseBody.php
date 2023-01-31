@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddSourcesToTrafficMirrorSessionResponseBody extends Model
 {
     /**
+     * @example 87F70089-5B38-41A8-BAD8-0B55E2F8DC57
+     *
      * @var string
      */
     public $requestId;

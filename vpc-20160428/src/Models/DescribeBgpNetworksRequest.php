@@ -19,16 +19,22 @@ class DescribeBgpNetworksRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -44,6 +50,8 @@ class DescribeBgpNetworksRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vrt-bp1lhl0taikrteen8****
+     *
      * @var string
      */
     public $routerId;

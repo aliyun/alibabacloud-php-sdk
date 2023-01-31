@@ -15,21 +15,29 @@ class DescribeIPv6TranslatorAclListsResponseBody extends Model
     public $ipv6TranslatorAcls;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 8B2F5262-6B57-43F2-xxxxx
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

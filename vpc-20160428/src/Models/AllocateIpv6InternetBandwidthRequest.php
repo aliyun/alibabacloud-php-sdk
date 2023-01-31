@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class AllocateIpv6InternetBandwidthRequest extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example PayByBandwidth
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example ipv6bw-uf6hcyzu65v98v3du****
+     *
      * @var string
      */
     public $ipv6AddressId;
 
     /**
+     * @example ipv6bw-uf6hcyzu65v98v3du****
+     *
      * @var string
      */
     public $ipv6GatewayId;
@@ -44,6 +54,8 @@ class AllocateIpv6InternetBandwidthRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-huhehaote
+     *
      * @var string
      */
     public $regionId;

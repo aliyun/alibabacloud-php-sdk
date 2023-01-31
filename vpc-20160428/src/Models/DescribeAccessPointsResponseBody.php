@@ -15,21 +15,29 @@ class DescribeAccessPointsResponseBody extends Model
     public $accessPointSet;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 3E85D803-C7CF-4BCD-9CFE-6DBA1DFFA027
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $totalCount;

@@ -14,6 +14,8 @@ class zones extends Model
     public $localName;
 
     /**
+     * @example me-east-1a
+     *
      * @var string
      */
     public $zoneId;

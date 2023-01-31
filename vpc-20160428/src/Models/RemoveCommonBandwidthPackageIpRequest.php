@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RemoveCommonBandwidthPackageIpRequest extends Model
 {
     /**
+     * @example cbwp-2ze2ic1xd2qeqk145****
+     *
      * @var string
      */
     public $bandwidthPackageId;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example eip-2zeerraiwb7uj6i0d****
+     *
      * @var string
      */
     public $ipInstanceId;
@@ -34,6 +40,8 @@ class RemoveCommonBandwidthPackageIpRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

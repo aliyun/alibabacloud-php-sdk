@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UnassociateEipAddressRequest extends Model
 {
     /**
+     * @example eip-2zeerraiwb7uj6i0d****
+     *
      * @var string
      */
     public $allocationId;
 
     /**
+     * @example 02fb3da4-130e-11****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $force;
 
     /**
+     * @example i-hp3akk9irtd69jad****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example EcsInstance
+     *
      * @var string
      */
     public $instanceType;
@@ -44,11 +54,15 @@ class UnassociateEipAddressRequest extends Model
     public $ownerId;
 
     /**
+     * @example 192.XX.XX.2
+     *
      * @var string
      */
     public $privateIpAddress;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

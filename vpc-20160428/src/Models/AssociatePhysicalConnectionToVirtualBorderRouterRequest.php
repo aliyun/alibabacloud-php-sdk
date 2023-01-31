@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
 {
     /**
+     * @example longtel001
+     *
      * @var string
      */
     public $circuitCode;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $enableIpv6;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $localGatewayIp;
 
     /**
+     * @example 2001:XXXX:3c4d:0015:0000:0000:0000:1a2b
+     *
      * @var string
      */
     public $localIpv6GatewayIp;
@@ -44,31 +54,43 @@ class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
     public $ownerId;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $peerGatewayIp;
 
     /**
+     * @example 2001:XXXX:4:4:4:4:4:4
+     *
      * @var string
      */
     public $peerIpv6GatewayIp;
 
     /**
+     * @example 2408:4004:cc:400::/56
+     *
      * @var string
      */
     public $peeringIpv6SubnetMask;
 
     /**
+     * @example 255.255.255.0
+     *
      * @var string
      */
     public $peeringSubnetMask;
 
     /**
+     * @example pc-bp1qrb3044eqixog****
+     *
      * @var string
      */
     public $physicalConnectionId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -84,11 +106,15 @@ class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vbr-bp186tnz6rijyhj******
+     *
      * @var string
      */
     public $vbrId;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $vlanId;

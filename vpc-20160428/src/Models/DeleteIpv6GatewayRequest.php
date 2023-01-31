@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteIpv6GatewayRequest extends Model
 {
     /**
+     * @example ipv6gw-hp3y0l3ln89j8****
+     *
      * @var string
      */
     public $ipv6GatewayId;
@@ -24,6 +26,8 @@ class DeleteIpv6GatewayRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-huhehaote
+     *
      * @var string
      */
     public $regionId;

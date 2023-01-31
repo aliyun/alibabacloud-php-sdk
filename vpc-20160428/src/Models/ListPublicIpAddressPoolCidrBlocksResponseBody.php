@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListPublicIpAddressPoolCidrBlocksResponseBody extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
@@ -25,11 +29,15 @@ class ListPublicIpAddressPoolCidrBlocksResponseBody extends Model
     public $publicIpPoolCidrBlockList;
 
     /**
+     * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

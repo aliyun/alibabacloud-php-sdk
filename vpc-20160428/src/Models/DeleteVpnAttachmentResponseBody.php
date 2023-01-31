@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteVpnAttachmentResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 29440C49-398F-3D06-BA8B-E3CD13F3246D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class AllocateEipAddressProRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @example 5
+     *
      * @var string
      */
     public $bandwidth;
 
     /**
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe6****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example BGP
+     *
      * @var string
      */
     public $ISP;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @example eip-25877c70gddh****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example PayByBandwidth
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @example public
+     *
      * @var string
      */
     public $netmode;
@@ -64,26 +82,36 @@ class AllocateEipAddressProRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $pricingCycle;
 
     /**
+     * @example pippool-2vc0kxcedhquybdsz****
+     *
      * @var string
      */
     public $publicIpAddressPoolId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-resourcegroup****
+     *
      * @var string
      */
     public $resourceGroupId;

@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeEipAddressesResponseBody\eipAddresses;
 
-use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeEipAddressesResponseBody\eipAddresses\eipAddress\availableRegions;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeEipAddressesResponseBody\eipAddresses\eipAddress\operationLocks;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeEipAddressesResponseBody\eipAddresses\eipAddress\securityProtectionTypes;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeEipAddressesResponseBody\eipAddresses\eipAddress\tags;
@@ -13,116 +12,155 @@ use AlibabaCloud\Tea\Model;
 class eipAddress extends Model
 {
     /**
+     * @example eip-2zeerraiwb7ujcdvf****
+     *
      * @var string
      */
     public $allocationId;
 
     /**
+     * @example 2021-04-23T01:37:38Z
+     *
      * @var string
      */
     public $allocationTime;
 
     /**
-     * @var availableRegions
-     */
-    public $availableRegions;
-
-    /**
+     * @example 5
+     *
      * @var string
      */
     public $bandwidth;
 
     /**
+     * @example 50
+     *
      * @var string
      */
     public $bandwidthPackageBandwidth;
 
     /**
+     * @example cbwp-bp1ego3i4j07ccdvf****
+     *
      * @var string
      */
     public $bandwidthPackageId;
 
     /**
+     * @example CommonBandwidthPackage
+     *
      * @var string
      */
     public $bandwidthPackageType;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $businessStatus;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $deletionProtection;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 101
+     *
      * @var string
      */
     public $eipBandwidth;
 
     /**
+     * @example 2021-05-23T02:00:00Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $HDMonitorStatus;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $hasReservationData;
 
     /**
+     * @example BGP
+     *
      * @var string
      */
     public $ISP;
 
     /**
+     * @example i-bp15zckdt37cdvf****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $instanceRegionId;
 
     /**
+     * @example EcsInstance
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example PayByBandwidth
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example 47.75.XX.XX
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @example EIP-01
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example public
+     *
      * @var string
      */
     public $netmode;
@@ -133,41 +171,57 @@ class eipAddress extends Model
     public $operationLocks;
 
     /**
+     * @example pippool-2vc0kxcedhquybdsz****
+     *
      * @var string
      */
     public $publicIpAddressPoolId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 2021-05-23T16:00:00Z
+     *
      * @var string
      */
     public $reservationActiveTime;
 
     /**
+     * @example 12
+     *
      * @var string
      */
     public $reservationBandwidth;
 
     /**
+     * @example PayByBandwidth
+     *
      * @var string
      */
     public $reservationInternetChargeType;
 
     /**
+     * @example RENEWCHANGE
+     *
      * @var string
      */
     public $reservationOrderType;
 
     /**
+     * @example rg-acfmxazcdxs****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $secondLimited;
@@ -178,16 +232,22 @@ class eipAddress extends Model
     public $securityProtectionTypes;
 
     /**
+     * @example eipsg-t4nr90yik5oy38xd****
+     *
      * @var string
      */
     public $segmentInstanceId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $serviceManaged;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
@@ -196,10 +256,19 @@ class eipAddress extends Model
      * @var tags
      */
     public $tags;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $zone;
     protected $_name = [
         'allocationId'                  => 'AllocationId',
         'allocationTime'                => 'AllocationTime',
-        'availableRegions'              => 'AvailableRegions',
         'bandwidth'                     => 'Bandwidth',
         'bandwidthPackageBandwidth'     => 'BandwidthPackageBandwidth',
         'bandwidthPackageId'            => 'BandwidthPackageId',
@@ -234,6 +303,8 @@ class eipAddress extends Model
         'serviceManaged'                => 'ServiceManaged',
         'status'                        => 'Status',
         'tags'                          => 'Tags',
+        'vpcId'                         => 'VpcId',
+        'zone'                          => 'Zone',
     ];
 
     public function validate()
@@ -248,9 +319,6 @@ class eipAddress extends Model
         }
         if (null !== $this->allocationTime) {
             $res['AllocationTime'] = $this->allocationTime;
-        }
-        if (null !== $this->availableRegions) {
-            $res['AvailableRegions'] = null !== $this->availableRegions ? $this->availableRegions->toMap() : null;
         }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
@@ -354,6 +422,12 @@ class eipAddress extends Model
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->zone) {
+            $res['Zone'] = $this->zone;
+        }
 
         return $res;
     }
@@ -371,9 +445,6 @@ class eipAddress extends Model
         }
         if (isset($map['AllocationTime'])) {
             $model->allocationTime = $map['AllocationTime'];
-        }
-        if (isset($map['AvailableRegions'])) {
-            $model->availableRegions = availableRegions::fromMap($map['AvailableRegions']);
         }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
@@ -476,6 +547,12 @@ class eipAddress extends Model
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['Zone'])) {
+            $model->zone = $map['Zone'];
         }
 
         return $model;

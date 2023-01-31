@@ -15,21 +15,29 @@ class DescribeGrantRulesToCenResponseBody extends Model
     public $cenGrantRules;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example F5BB78C8-5F41-464F-B9FF-5E0A7198BA26
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

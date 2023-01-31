@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateVpcGatewayEndpointAttributeRequest extends Model
 {
     /**
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example updateendpoint
+     *
      * @var string
      */
     public $endpointDescription;
 
     /**
+     * @example vpce-bp1w1dmdqjpwul0v3****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @example update
+     *
      * @var string
      */
     public $endpointName;
@@ -44,11 +54,15 @@ class UpdateVpcGatewayEndpointAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example {   "Version" : "1",   "Statement" : [ {     "Effect" : "Allow",     "Resource" : [ "*" ],     "Action" : [ "*" ],     "Principal" : [ "*" ]   } ] }
+     *
      * @var string
      */
     public $policyDocument;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

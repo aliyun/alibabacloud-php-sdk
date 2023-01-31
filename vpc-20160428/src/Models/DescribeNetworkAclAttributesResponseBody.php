@@ -15,6 +15,8 @@ class DescribeNetworkAclAttributesResponseBody extends Model
     public $networkAclAttribute;
 
     /**
+     * @example F5905F9C-0161-4E72-9CB1-1F3F3CF6268A
+     *
      * @var string
      */
     public $requestId;

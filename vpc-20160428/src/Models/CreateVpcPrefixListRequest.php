@@ -4,27 +4,35 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVpcPrefixListRequest\prefixListEntrys;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVpcPrefixListRequest\prefixListEntries;
 use AlibabaCloud\Tea\Model;
 
 class CreateVpcPrefixListRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example ipv4
+     *
      * @var string
      */
     public $ipVersion;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $maxEntries;
@@ -40,24 +48,35 @@ class CreateVpcPrefixListRequest extends Model
     public $ownerId;
 
     /**
+     * @example description
+     *
      * @var string
      */
     public $prefixListDescription;
 
     /**
-     * @var prefixListEntrys[]
+     * @var prefixListEntries[]
      */
-    public $prefixListEntrys;
+    public $prefixListEntries;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $prefixListName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -76,9 +95,10 @@ class CreateVpcPrefixListRequest extends Model
         'ownerAccount'          => 'OwnerAccount',
         'ownerId'               => 'OwnerId',
         'prefixListDescription' => 'PrefixListDescription',
-        'prefixListEntrys'      => 'PrefixListEntrys',
+        'prefixListEntries'     => 'PrefixListEntries',
         'prefixListName'        => 'PrefixListName',
         'regionId'              => 'RegionId',
+        'resourceGroupId'       => 'ResourceGroupId',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
     ];
@@ -111,12 +131,12 @@ class CreateVpcPrefixListRequest extends Model
         if (null !== $this->prefixListDescription) {
             $res['PrefixListDescription'] = $this->prefixListDescription;
         }
-        if (null !== $this->prefixListEntrys) {
-            $res['PrefixListEntrys'] = [];
-            if (null !== $this->prefixListEntrys && \is_array($this->prefixListEntrys)) {
+        if (null !== $this->prefixListEntries) {
+            $res['PrefixListEntries'] = [];
+            if (null !== $this->prefixListEntries && \is_array($this->prefixListEntries)) {
                 $n = 0;
-                foreach ($this->prefixListEntrys as $item) {
-                    $res['PrefixListEntrys'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->prefixListEntries as $item) {
+                    $res['PrefixListEntries'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -125,6 +145,9 @@ class CreateVpcPrefixListRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -165,12 +188,12 @@ class CreateVpcPrefixListRequest extends Model
         if (isset($map['PrefixListDescription'])) {
             $model->prefixListDescription = $map['PrefixListDescription'];
         }
-        if (isset($map['PrefixListEntrys'])) {
-            if (!empty($map['PrefixListEntrys'])) {
-                $model->prefixListEntrys = [];
-                $n                       = 0;
-                foreach ($map['PrefixListEntrys'] as $item) {
-                    $model->prefixListEntrys[$n++] = null !== $item ? prefixListEntrys::fromMap($item) : $item;
+        if (isset($map['PrefixListEntries'])) {
+            if (!empty($map['PrefixListEntries'])) {
+                $model->prefixListEntries = [];
+                $n                        = 0;
+                foreach ($map['PrefixListEntries'] as $item) {
+                    $model->prefixListEntries[$n++] = null !== $item ? prefixListEntries::fromMap($item) : $item;
                 }
             }
         }
@@ -179,6 +202,9 @@ class CreateVpcPrefixListRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

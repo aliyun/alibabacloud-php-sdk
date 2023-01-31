@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePhysicalConnectionsRequest extends Model
 {
     /**
+     * @example 02fb3da4-130e-11e9-8e44-001
+     *
      * @var string
      */
     public $clientToken;
@@ -21,6 +23,8 @@ class DescribePhysicalConnectionsRequest extends Model
     public $filter;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $includeReservationData;
@@ -36,19 +40,30 @@ class DescribePhysicalConnectionsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -73,6 +88,7 @@ class DescribePhysicalConnectionsRequest extends Model
         'pageNumber'             => 'PageNumber',
         'pageSize'               => 'PageSize',
         'regionId'               => 'RegionId',
+        'resourceGroupId'        => 'ResourceGroupId',
         'resourceOwnerAccount'   => 'ResourceOwnerAccount',
         'resourceOwnerId'        => 'ResourceOwnerId',
         'tags'                   => 'Tags',
@@ -114,6 +130,9 @@ class DescribePhysicalConnectionsRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -171,6 +190,9 @@ class DescribePhysicalConnectionsRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

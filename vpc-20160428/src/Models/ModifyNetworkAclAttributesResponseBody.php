@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyNetworkAclAttributesResponseBody extends Model
 {
     /**
+     * @example 8F76C3E4-B39F-465D-B8B3-50BAF03CA833
+     *
      * @var string
      */
     public $requestId;

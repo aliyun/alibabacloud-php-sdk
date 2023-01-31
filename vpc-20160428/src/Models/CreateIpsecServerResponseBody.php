@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateIpsecServerResponseBody extends Model
 {
     /**
+     * @example 2021-02-22T03:24:28Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example iss-bp1jougp8cfsbo8y9****
+     *
      * @var string
      */
     public $ipsecServerId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $ipsecServerName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 690A967E-D4CD-4B69-8C78-94FE828BA10B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example vpn-bp17lofy9fd0dnvzv****
+     *
      * @var string
      */
     public $vpnGatewayId;

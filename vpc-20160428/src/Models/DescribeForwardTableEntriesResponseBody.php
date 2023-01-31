@@ -15,21 +15,29 @@ class DescribeForwardTableEntriesResponseBody extends Model
     public $forwardTableEntries;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example A6C4A8B1-7561-4509-949C-20DEB40D71E6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $totalCount;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyRouteEntryRequest extends Model
 {
     /**
+     * @example EntryDescription
+     *
      * @var string
      */
     public $description;
@@ -24,6 +26,8 @@ class ModifyRouteEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -39,11 +43,15 @@ class ModifyRouteEntryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example rte-acfvgfsghfdd****
+     *
      * @var string
      */
     public $routeEntryId;
 
     /**
+     * @example EntryName
+     *
      * @var string
      */
     public $routeEntryName;

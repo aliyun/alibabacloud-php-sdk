@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class cbnGrantRule extends Model
 {
     /**
+     * @example cen-9gsm1q2yh1prpt****
+     *
      * @var string
      */
     public $cenInstanceId;
 
     /**
+     * @example 1000000000
+     *
      * @var int
      */
     public $cenOwnerId;
 
     /**
+     * @example 2019-11-15T09:26:36Z
+     *
      * @var string
      */
     public $creationTime;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class sslVpnClientCertKey extends Model
 {
     /**
+     * @example 1492747187000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 1494966335000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example cert1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example vsc-bp1n8wcf134yl0osr****
+     *
      * @var string
      */
     public $sslVpnClientCertId;
 
     /**
+     * @example vss-bp18q7hzj6largv4v****
+     *
      * @var string
      */
     public $sslVpnServerId;
 
     /**
+     * @example normal
+     *
      * @var string
      */
     public $status;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribePhysicalConnectionsResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -25,11 +29,15 @@ class DescribePhysicalConnectionsResponseBody extends Model
     public $physicalConnectionSet;
 
     /**
+     * @example 0E6D0EC4-7C91-53E2-9F65-64BF713114B0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

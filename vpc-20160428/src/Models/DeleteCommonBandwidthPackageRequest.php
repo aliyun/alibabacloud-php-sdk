@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteCommonBandwidthPackageRequest extends Model
 {
     /**
+     * @example cbwp-2ze2ic1xd2qeqk145pn4u
+     *
      * @var string
      */
     public $bandwidthPackageId;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $force;
@@ -29,6 +33,8 @@ class DeleteCommonBandwidthPackageRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

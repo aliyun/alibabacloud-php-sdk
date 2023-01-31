@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateIPv6TranslatorRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example sha111
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example ipv6_1
+     *
      * @var string
      */
     public $name;
@@ -44,16 +54,22 @@ class CreateIPv6TranslatorRequest extends Model
     public $ownerId;
 
     /**
+     * @example PREPAY
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $pricingCycle;
 
     /**
+     * @example cm-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -69,6 +85,8 @@ class CreateIPv6TranslatorRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example small
+     *
      * @var string
      */
     public $spec;

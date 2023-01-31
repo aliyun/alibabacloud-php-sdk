@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ipv6CidrBlock extends Model
 {
     /**
+     * @example 2408:XXXX:0:a600::/56
+     *
      * @var string
      */
     public $ipv6CidrBlock;
 
     /**
+     * @example BGP
+     *
      * @var string
      */
     public $ipv6Isp;

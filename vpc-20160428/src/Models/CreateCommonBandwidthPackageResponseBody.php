@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateCommonBandwidthPackageResponseBody extends Model
 {
     /**
+     * @example cbwp-bp1vevu8h3ieh****
+     *
      * @var string
      */
     public $bandwidthPackageId;
 
     /**
+     * @example FF39F653-033E-4CD9-9EDF-3CCA5A71FBC3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example rg-acfmxazdjdhd****
+     *
      * @var string
      */
     public $resourceGroupId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetFlowLogServiceStatusResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @example 54B48E3D-DF70-471B-AA93-06F83A1B457
+     *
      * @var string
      */
     public $requestId;

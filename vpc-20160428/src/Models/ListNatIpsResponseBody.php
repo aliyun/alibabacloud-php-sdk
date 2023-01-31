@@ -15,16 +15,22 @@ class ListNatIpsResponseBody extends Model
     public $natIps;
 
     /**
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 7E78CEEA-BF8F-44D1-9DCD-D9141135B71E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $totalCount;

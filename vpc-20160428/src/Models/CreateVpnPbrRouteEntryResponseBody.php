@@ -9,51 +9,76 @@ use AlibabaCloud\Tea\Model;
 class CreateVpnPbrRouteEntryResponseBody extends Model
 {
     /**
+     * @example 1492747187000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 111
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example vco-bp15oes1py4i66rmd****
+     *
      * @var string
      */
     public $nextHop;
 
     /**
+     * @example Ipsec
+     *
      * @var string
      */
     public $overlayMode;
 
     /**
+     * @var int
+     */
+    public $priority;
+
+    /**
+     * @example 5BE01CD7-5A50-472D-AC14-CA181C5C03BE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 10.0.0.0/24
+     *
      * @var string
      */
     public $routeDest;
 
     /**
+     * @example 192.168.1.0/24
+     *
      * @var string
      */
     public $routeSource;
 
     /**
+     * @example normal
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example vpn-bp1cmw7jh1nfe43m9****
+     *
      * @var string
      */
     public $vpnInstanceId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $weight;
@@ -62,6 +87,7 @@ class CreateVpnPbrRouteEntryResponseBody extends Model
         'description'   => 'Description',
         'nextHop'       => 'NextHop',
         'overlayMode'   => 'OverlayMode',
+        'priority'      => 'Priority',
         'requestId'     => 'RequestId',
         'routeDest'     => 'RouteDest',
         'routeSource'   => 'RouteSource',
@@ -88,6 +114,9 @@ class CreateVpnPbrRouteEntryResponseBody extends Model
         }
         if (null !== $this->overlayMode) {
             $res['OverlayMode'] = $this->overlayMode;
+        }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -130,6 +159,9 @@ class CreateVpnPbrRouteEntryResponseBody extends Model
         }
         if (isset($map['OverlayMode'])) {
             $model->overlayMode = $map['OverlayMode'];
+        }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

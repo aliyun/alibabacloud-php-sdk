@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyVSwitchAttributeRequest extends Model
 {
     /**
+     * @example This is my vswitch.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableIPv6;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $ipv6CidrBlock;
@@ -34,6 +40,8 @@ class ModifyVSwitchAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -49,16 +57,22 @@ class ModifyVSwitchAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vsw-25nacdfvue4****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example VSwitch-1
+     *
      * @var string
      */
     public $vSwitchName;
 
     /**
+     * @example 2408:XXXX:312:3e00::/56
+     *
      * @var string
      */
     public $vpcIpv6CidrBlock;

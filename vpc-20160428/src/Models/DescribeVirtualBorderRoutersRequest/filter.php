@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
+     * @example Status
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example Active
+     *
      * @var string[]
      */
     public $value;

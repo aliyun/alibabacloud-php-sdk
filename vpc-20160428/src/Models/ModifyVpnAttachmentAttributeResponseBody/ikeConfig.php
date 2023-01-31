@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ikeConfig extends Model
 {
     /**
+     * @example sha1
+     *
      * @var string
      */
     public $ikeAuthAlg;
 
     /**
+     * @example aes
+     *
      * @var string
      */
     public $ikeEncAlg;
 
     /**
+     * @example 86400
+     *
      * @var int
      */
     public $ikeLifetime;
 
     /**
+     * @example main
+     *
      * @var string
      */
     public $ikeMode;
 
     /**
+     * @example group2
+     *
      * @var string
      */
     public $ikePfs;
 
     /**
+     * @example ikev1
+     *
      * @var string
      */
     public $ikeVersion;
 
     /**
+     * @example 47.XX.XX.1
+     *
      * @var string
      */
     public $localId;
 
     /**
+     * @example 1234***
+     *
      * @var string
      */
     public $psk;
 
     /**
+     * @example 47.XX.XX.2
+     *
      * @var string
      */
     public $remoteId;

@@ -9,16 +9,27 @@ use AlibabaCloud\Tea\Model;
 class AddPublicIpAddressPoolCidrBlockRequest extends Model
 {
     /**
+     * @example 47.0.XX.XX/24
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @var int
+     */
+    public $cidrMask;
+
+    /**
+     * @example 02fb3da4-130e-11****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
@@ -34,11 +45,15 @@ class AddPublicIpAddressPoolCidrBlockRequest extends Model
     public $ownerId;
 
     /**
+     * @example pippool-6wetvn6fumkgycssx****
+     *
      * @var string
      */
     public $publicIpAddressPoolId;
 
     /**
+     * @example cn-chengdu
+     *
      * @var string
      */
     public $regionId;
@@ -54,6 +69,7 @@ class AddPublicIpAddressPoolCidrBlockRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'cidrBlock'             => 'CidrBlock',
+        'cidrMask'              => 'CidrMask',
         'clientToken'           => 'ClientToken',
         'dryRun'                => 'DryRun',
         'ownerAccount'          => 'OwnerAccount',
@@ -73,6 +89,9 @@ class AddPublicIpAddressPoolCidrBlockRequest extends Model
         $res = [];
         if (null !== $this->cidrBlock) {
             $res['CidrBlock'] = $this->cidrBlock;
+        }
+        if (null !== $this->cidrMask) {
+            $res['CidrMask'] = $this->cidrMask;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -112,6 +131,9 @@ class AddPublicIpAddressPoolCidrBlockRequest extends Model
         $model = new self();
         if (isset($map['CidrBlock'])) {
             $model->cidrBlock = $map['CidrBlock'];
+        }
+        if (isset($map['CidrMask'])) {
+            $model->cidrMask = $map['CidrMask'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];

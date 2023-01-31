@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class globalAccelerationInstance extends Model
 {
     /**
+     * @example china-mainland
+     *
      * @var string
      */
     public $accelerationLocation;
@@ -21,51 +23,71 @@ class globalAccelerationInstance extends Model
     public $backendServers;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $bandwidth;
 
     /**
+     * @example Exclusive
+     *
      * @var string
      */
     public $bandwidthType;
 
     /**
+     * @example PrePaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example 2018-07-05T03:39:31Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example apiDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 2018-08-05T16:00Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @example ga-bp1x99kj7kl1ziw5x****
+     *
      * @var string
      */
     public $globalAccelerationInstanceId;
 
     /**
+     * @example PayByBandwidth
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example 47.xx.xx.99
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @example instanceName
+     *
      * @var string
      */
     public $name;
@@ -76,16 +98,22 @@ class globalAccelerationInstance extends Model
     public $publicIpAddresses;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example china-mainland
+     *
      * @var string
      */
     public $serviceLocation;
 
     /**
+     * @example InUse
+     *
      * @var string
      */
     public $status;

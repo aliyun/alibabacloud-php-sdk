@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ActiveFlowLogRequest extends Model
 {
     /**
+     * @example fl-m5e8vhz2t21sel1nq****
+     *
      * @var string
      */
     public $flowLogId;
@@ -24,6 +26,8 @@ class ActiveFlowLogRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $regionId;

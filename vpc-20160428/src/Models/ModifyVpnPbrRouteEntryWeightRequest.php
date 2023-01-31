@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpnPbrRouteEntryWeightRequest extends Model
 {
     /**
+     * @example d7d24a21-f4ba-4454-9173-b3828dae492b
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $newWeight;
 
     /**
+     * @example vco-bp15oes1py4i66rmd****
+     *
      * @var string
      */
     public $nextHop;
 
     /**
+     * @example Ipsec
+     *
      * @var string
      */
     public $overlayMode;
@@ -39,6 +47,15 @@ class ModifyVpnPbrRouteEntryWeightRequest extends Model
     public $ownerId;
 
     /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $priority;
+
+    /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -54,21 +71,29 @@ class ModifyVpnPbrRouteEntryWeightRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 10.0.0.0/24
+     *
      * @var string
      */
     public $routeDest;
 
     /**
+     * @example 192.168.1.0/24
+     *
      * @var string
      */
     public $routeSource;
 
     /**
+     * @example vpn-bp1a3kqjiiq9legfx****
+     *
      * @var string
      */
     public $vpnGatewayId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $weight;
@@ -79,6 +104,7 @@ class ModifyVpnPbrRouteEntryWeightRequest extends Model
         'overlayMode'          => 'OverlayMode',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'priority'             => 'Priority',
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -112,6 +138,9 @@ class ModifyVpnPbrRouteEntryWeightRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -163,6 +192,9 @@ class ModifyVpnPbrRouteEntryWeightRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

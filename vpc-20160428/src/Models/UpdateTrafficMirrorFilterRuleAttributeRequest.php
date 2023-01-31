@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateTrafficMirrorFilterRuleAttributeRequest extends Model
 {
     /**
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example 10.0.0.0/24
+     *
      * @var string
      */
     public $destinationCidrBlock;
 
     /**
+     * @example -1/-1
+     *
      * @var string
      */
     public $destinationPortRange;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
@@ -39,16 +47,22 @@ class UpdateTrafficMirrorFilterRuleAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example ICMP
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @example cn-hongkong
+     *
      * @var string
      */
     public $regionId;
@@ -64,21 +78,29 @@ class UpdateTrafficMirrorFilterRuleAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example accept
+     *
      * @var string
      */
     public $ruleAction;
 
     /**
+     * @example 0.0.0.0/0
+     *
      * @var string
      */
     public $sourceCidrBlock;
 
     /**
+     * @example 22/40
+     *
      * @var string
      */
     public $sourcePortRange;
 
     /**
+     * @example tmr-j6c89rzmtd3hhdugq****
+     *
      * @var string
      */
     public $trafficMirrorFilterRuleId;

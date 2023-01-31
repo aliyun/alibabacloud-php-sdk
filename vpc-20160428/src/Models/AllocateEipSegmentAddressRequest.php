@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class AllocateEipSegmentAddressRequest extends Model
 {
     /**
+     * @example 5
+     *
      * @var string
      */
     public $bandwidth;
 
     /**
+     * @example 02fb3da4-130e-11e9-8e44-001****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example 28
+     *
      * @var string
      */
     public $eipMask;
 
     /**
+     * @example PayByBandwidth
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example BGP
+     *
      * @var string
      */
     public $isp;
 
     /**
+     * @example public
+     *
      * @var string
      */
     public $netmode;
@@ -49,11 +61,15 @@ class AllocateEipSegmentAddressRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;

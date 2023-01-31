@@ -4,16 +4,21 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListPrefixListsRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class ListPrefixListsRequest extends Model
 {
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
@@ -29,19 +34,30 @@ class ListPrefixListsRequest extends Model
     public $ownerId;
 
     /**
+     * @example pl-m5estsqsdqwg88hjf****
+     *
      * @var string[]
      */
     public $prefixListIds;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $prefixListName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -52,6 +68,11 @@ class ListPrefixListsRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'maxResults'           => 'MaxResults',
         'nextToken'            => 'NextToken',
@@ -60,8 +81,10 @@ class ListPrefixListsRequest extends Model
         'prefixListIds'        => 'PrefixListIds',
         'prefixListName'       => 'PrefixListName',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'tags'                 => 'Tags',
     ];
 
     public function validate()
@@ -92,11 +115,23 @@ class ListPrefixListsRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -133,11 +168,23 @@ class ListPrefixListsRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesForExpressConnectRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $all;
@@ -24,6 +26,8 @@ class UntagResourcesForExpressConnectRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -44,6 +48,8 @@ class UntagResourcesForExpressConnectRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example PHYSICALCONNECTION
+     *
      * @var string
      */
     public $resourceType;

@@ -9,111 +9,155 @@ use AlibabaCloud\Tea\Model;
 class bgpPeer extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $advertisedRouteCount;
 
     /**
+     * @example !PWZ****
+     *
      * @var string
      */
     public $authKey;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $bfdMultiHop;
 
     /**
+     * @example bgpg-2zev8h2wo414sfh****
+     *
      * @var string
      */
     public $bgpGroupId;
 
     /**
+     * @example bgp-2ze3un0ft1jd1xd****
+     *
      * @var string
      */
     public $bgpPeerId;
 
     /**
+     * @example Connect
+     *
      * @var string
      */
     public $bgpStatus;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableBfd;
 
     /**
+     * @example 2022-05-20T07:29:08Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 30
+     *
      * @var string
      */
     public $hold;
 
     /**
+     * @example ipv4
+     *
      * @var string
      */
     public $ipVersion;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isFake;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $keepalive;
 
     /**
+     * @example 45104
+     *
      * @var string
      */
     public $localAsn;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 65515
+     *
      * @var string
      */
     public $peerAsn;
 
     /**
+     * @example 116.62.XX.XX
+     *
      * @var string
      */
     public $peerIpAddress;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $receivedRouteCount;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 110
+     *
      * @var string
      */
     public $routeLimit;
 
     /**
+     * @example vbr-2zecmmvg5gvu8i4te****
+     *
      * @var string
      */
     public $routerId;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;

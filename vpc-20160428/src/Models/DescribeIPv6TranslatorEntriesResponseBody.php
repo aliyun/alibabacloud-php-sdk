@@ -15,21 +15,29 @@ class DescribeIPv6TranslatorEntriesResponseBody extends Model
     public $ipv6TranslatorEntries;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 3109D437-5D6D-4A28-B5F5-EF936DExxxx
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

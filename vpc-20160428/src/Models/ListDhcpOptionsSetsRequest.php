@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListDhcpOptionsSetsRequest extends Model
 {
     /**
+     * @example dopt-o6w0df4epg9zo8isy****
+     *
      * @var string[]
      */
     public $dhcpOptionsSetId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $dhcpOptionsSetName;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
@@ -44,6 +54,8 @@ class ListDhcpOptionsSetsRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

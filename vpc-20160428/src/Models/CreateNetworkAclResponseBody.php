@@ -15,11 +15,15 @@ class CreateNetworkAclResponseBody extends Model
     public $networkAclAttribute;
 
     /**
+     * @example nacl-a2do9e413e0spzasx****
+     *
      * @var string
      */
     public $networkAclId;
 
     /**
+     * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyVRouterAttributeRequest extends Model
 {
     /**
+     * @example My VRouter
+     *
      * @var string
      */
     public $description;
@@ -24,6 +26,8 @@ class ModifyVRouterAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -39,11 +43,15 @@ class ModifyVRouterAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vrt-gw0p7zigake75znix****
+     *
      * @var string
      */
     public $VRouterId;
 
     /**
+     * @example VRouter-1
+     *
      * @var string
      */
     public $VRouterName;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class AssociateHaVipRequest extends Model
 {
     /**
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example havip-2zeo05qre24nhrqpy****
+     *
      * @var string
      */
     public $haVipId;
 
     /**
+     * @example i-faf344422ffsfad****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example EcsInstance
+     *
      * @var string
      */
     public $instanceType;
@@ -39,6 +47,8 @@ class AssociateHaVipRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;

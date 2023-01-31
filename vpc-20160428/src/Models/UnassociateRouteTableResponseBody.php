@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnassociateRouteTableResponseBody extends Model
 {
     /**
+     * @example 62172DD5-6BAC-45DF-8D44-xxxxxxx
+     *
      * @var string
      */
     public $requestId;

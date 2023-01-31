@@ -29,41 +29,57 @@ class DescribeSslVpnClientCertResponseBody extends Model
     public $clientKey;
 
     /**
+     * @example 1552550980000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 1647158980000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example nametest
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 5BE01CD7-5A50-472D-AC14-CA181C5C03BE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example vsc-bp13k5mp4tg8v3z9b****
+     *
      * @var string
      */
     public $sslVpnClientCertId;
 
     /**
+     * @example vss-bp155e9yclsg1xgq4****
+     *
      * @var string
      */
     public $sslVpnServerId;
 
     /**
+     * @example normal
+     *
      * @var string
      */
     public $status;

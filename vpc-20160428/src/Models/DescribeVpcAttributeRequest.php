@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcAttributeRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isDefault;
@@ -29,6 +33,8 @@ class DescribeVpcAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -44,6 +50,8 @@ class DescribeVpcAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vpc-bp18sth14qii3pnv****
+     *
      * @var string
      */
     public $vpcId;

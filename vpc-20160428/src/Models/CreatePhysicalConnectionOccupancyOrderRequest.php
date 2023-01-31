@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreatePhysicalConnectionOccupancyOrderRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @example CBCE910E-D396-4944
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example PrePaid
+     *
      * @var string
      */
     public $instanceChargeType;
@@ -34,21 +40,29 @@ class CreatePhysicalConnectionOccupancyOrderRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example pc-bp1hp0wr072f6****
+     *
      * @var string
      */
     public $physicalConnectionId;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $pricingCycle;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

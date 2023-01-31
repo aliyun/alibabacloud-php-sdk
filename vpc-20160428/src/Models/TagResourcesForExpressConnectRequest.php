@@ -20,6 +20,8 @@ class TagResourcesForExpressConnectRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -40,6 +42,8 @@ class TagResourcesForExpressConnectRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example PHYSICALCONNECTION
+     *
      * @var string
      */
     public $resourceType;

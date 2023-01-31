@@ -19,6 +19,8 @@ class DescribeSslVpnClientCertRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,6 +36,8 @@ class DescribeSslVpnClientCertRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vsc-bp17r58rjf5r1gjyr****
+     *
      * @var string
      */
     public $sslVpnClientCertId;

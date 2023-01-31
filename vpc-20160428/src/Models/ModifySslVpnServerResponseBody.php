@@ -9,86 +9,120 @@ use AlibabaCloud\Tea\Model;
 class ModifySslVpnServerResponseBody extends Model
 {
     /**
+     * @example AES-128-CBC
+     *
      * @var string
      */
     public $cipher;
 
     /**
+     * @example 10.30.30.0/24
+     *
      * @var string
      */
     public $clientIpPool;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $compress;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $connections;
 
     /**
+     * @example 1492753580000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableMultiFactorAuth;
 
     /**
+     * @example idaas-cn-hangzhou-****
+     *
      * @var string
      */
     public $IDaaSInstanceId;
 
     /**
+     * @example 47.98.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @example 10.20.20.0/24
+     *
      * @var string
      */
     public $localSubnet;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $maxConnections;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1194
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example UDP
+     *
      * @var string
      */
     public $proto;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example DF11D6F6-E35A-41C3-9B20-6FC8A901FE65
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example vss-bp18q7hzj6largv4v****
+     *
      * @var string
      */
     public $sslVpnServerId;
 
     /**
+     * @example vpn-bp1q8bgx4xnkm2ogj****
+     *
      * @var string
      */
     public $vpnGatewayId;

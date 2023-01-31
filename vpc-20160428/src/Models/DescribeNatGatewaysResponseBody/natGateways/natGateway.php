@@ -15,41 +15,57 @@ use AlibabaCloud\Tea\Model;
 class natGateway extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $businessStatus;
 
     /**
+     * @example 2021-06-08T12:20:20Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $deletionProtection;
 
     /**
+     * @example NAT
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $ecsMetricEnabled;
 
     /**
+     * @example MULTI_BINDED
+     *
      * @var string
      */
     public $eipBindMode;
 
     /**
+     * @example 2021-08-26T16:00Z
+     *
      * @var string
      */
     public $expiredTime;
@@ -65,16 +81,22 @@ class natGateway extends Model
     public $fullNatTableIds;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $icmpReplyEnabled;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @example PayByLcu
+     *
      * @var string
      */
     public $internetChargeType;
@@ -85,11 +107,15 @@ class natGateway extends Model
     public $ipLists;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example ngw-bp1047e2d4z7kf2ki****
+     *
      * @var string
      */
     public $natGatewayId;
@@ -100,36 +126,50 @@ class natGateway extends Model
     public $natGatewayPrivateInfo;
 
     /**
+     * @example Enhanced
+     *
      * @var string
      */
     public $natType;
 
     /**
+     * @example internet
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $privateLinkEnabled;
 
     /**
+     * @example FullNat
+     *
      * @var string
      */
     public $privateLinkMode;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $securityProtectionEnabled;
@@ -140,11 +180,15 @@ class natGateway extends Model
     public $snatTableIds;
 
     /**
+     * @example Small
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @example Creating
+     *
      * @var string
      */
     public $status;
@@ -155,6 +199,8 @@ class natGateway extends Model
     public $tags;
 
     /**
+     * @example vpc-bp15zckdt37pq72z****
+     *
      * @var string
      */
     public $vpcId;

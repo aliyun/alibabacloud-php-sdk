@@ -15,21 +15,29 @@ class DescribeVpnCrossAccountAuthorizationsResponseBody extends Model
     public $crossAccountAuthorizations;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example DB04E39A-6F0C-36AC-BCA0-B6D371B90062
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

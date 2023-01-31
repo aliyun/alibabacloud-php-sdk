@@ -10,31 +10,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeNatGatewaysRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example ngw-bp1uewa15k4iy5770****
+     *
      * @var string
      */
     public $natGatewayId;
 
     /**
+     * @example Enhanced
+     *
      * @var string
      */
     public $natType;
 
     /**
+     * @example internet
+     *
      * @var string
      */
     public $networkType;
@@ -50,21 +62,29 @@ class DescribeNatGatewaysRequest extends Model
     public $ownerId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -85,6 +105,8 @@ class DescribeNatGatewaysRequest extends Model
     public $spec;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
@@ -95,11 +117,15 @@ class DescribeNatGatewaysRequest extends Model
     public $tag;
 
     /**
+     * @example vpc-bp15zckdt37pq72z****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

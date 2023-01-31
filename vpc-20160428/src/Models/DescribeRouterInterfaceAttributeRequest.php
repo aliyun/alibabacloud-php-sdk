@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRouterInterfaceAttributeRequest extends Model
 {
     /**
+     * @example ri-m5egfc10sednwk2yt****
+     *
      * @var string
      */
     public $instanceId;
@@ -19,6 +21,8 @@ class DescribeRouterInterfaceAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $regionId;

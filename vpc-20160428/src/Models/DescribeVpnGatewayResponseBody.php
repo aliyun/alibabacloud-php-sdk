@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpnGatewayResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoPropagate;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $businessStatus;
@@ -26,41 +30,62 @@ class DescribeVpnGatewayResponseBody extends Model
     public $chargeType;
 
     /**
+     * @example 1495382400000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example vpngatewaydescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableBgp;
 
     /**
+     * @example 1544666102000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 47.22.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @example enable
+     *
      * @var string
      */
     public $ipsecVpn;
 
     /**
+     * @example vpngatewayname
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @var string
+     */
+    public $networkType;
+
+    /**
+     * @example 27E4E088-8DE0-4672-BF5C-0A412389DB9E
+     *
      * @var string
      */
     public $requestId;
@@ -71,26 +96,36 @@ class DescribeVpnGatewayResponseBody extends Model
     public $reservationData;
 
     /**
+     * @example 5
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $sslMaxConnections;
 
     /**
+     * @example enable
+     *
      * @var string
      */
     public $sslVpn;
 
     /**
+     * @example init
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example {\"VpnEnableBgp\":\"true\",\"VpnNewImage\":\"true\",\"VpnVersion\":\"v1.2.4\"}
+     *
      * @var string
      */
     public $tag;
@@ -101,21 +136,29 @@ class DescribeVpnGatewayResponseBody extends Model
     public $tags;
 
     /**
+     * @example vsw-bp1dmzugdikc6hdgx****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vpc-bp19m2yx1m5q0avyq****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example vpn-bp1r3v1xqkl0w519g****
+     *
      * @var string
      */
     public $vpnGatewayId;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $vpnType;
@@ -130,6 +173,7 @@ class DescribeVpnGatewayResponseBody extends Model
         'internetIp'        => 'InternetIp',
         'ipsecVpn'          => 'IpsecVpn',
         'name'              => 'Name',
+        'networkType'       => 'NetworkType',
         'requestId'         => 'RequestId',
         'reservationData'   => 'ReservationData',
         'spec'              => 'Spec',
@@ -180,6 +224,9 @@ class DescribeVpnGatewayResponseBody extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->networkType) {
+            $res['NetworkType'] = $this->networkType;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -258,6 +305,9 @@ class DescribeVpnGatewayResponseBody extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['NetworkType'])) {
+            $model->networkType = $map['NetworkType'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

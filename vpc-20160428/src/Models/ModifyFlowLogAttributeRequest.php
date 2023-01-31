@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyFlowLogAttributeRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $aggregationInterval;
 
     /**
+     * @example This is my Flowlog.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example fl-m5e8vhz2t21sel1nq****
+     *
      * @var string
      */
     public $flowLogId;
 
     /**
+     * @example myFlowlog
+     *
      * @var string
      */
     public $flowLogName;
@@ -39,6 +47,8 @@ class ModifyFlowLogAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $regionId;

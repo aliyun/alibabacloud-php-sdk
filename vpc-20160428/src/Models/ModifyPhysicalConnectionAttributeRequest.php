@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyPhysicalConnectionAttributeRequest extends Model
 {
     /**
+     * @example longtel001
+     *
      * @var string
      */
     public $circuitCode;
 
     /**
+     * @example efefe566754h
+     *
      * @var string
      */
     public $clientToken;
@@ -24,6 +28,8 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
     public $description;
 
     /**
+     * @example CT
+     *
      * @var string
      */
     public $lineOperator;
@@ -49,21 +55,29 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
     public $peerLocation;
 
     /**
+     * @example pc-119mfjzm******
+     *
      * @var string
      */
     public $physicalConnectionId;
 
     /**
+     * @example 1000Base-LX
+     *
      * @var string
      */
     public $portType;
 
     /**
+     * @example pc-119mfjzm7
+     *
      * @var string
      */
     public $redundantPhysicalConnectionId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -79,6 +93,8 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $bandwidth;

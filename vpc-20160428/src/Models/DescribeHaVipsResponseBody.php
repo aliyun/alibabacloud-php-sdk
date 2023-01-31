@@ -15,21 +15,29 @@ class DescribeHaVipsResponseBody extends Model
     public $haVips;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 33E480C5-B46F-4CA5-B6FD-D77C746E86AB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

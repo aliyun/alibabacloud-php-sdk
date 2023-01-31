@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateTrafficMirrorSessionRequest extends Model
 {
     /**
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enabled;
@@ -34,16 +40,22 @@ class CreateTrafficMirrorSessionRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1500
+     *
      * @var int
      */
     public $packetLength;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example cn-hongkong
+     *
      * @var string
      */
     public $regionId;
@@ -59,36 +71,50 @@ class CreateTrafficMirrorSessionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example tmf-j6cmls82xnc86vtpe****
+     *
      * @var string
      */
     public $trafficMirrorFilterId;
 
     /**
+     * @example This is a trafficmirrorsession.
+     *
      * @var string
      */
     public $trafficMirrorSessionDescription;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $trafficMirrorSessionName;
 
     /**
+     * @example eni-j6c2fp57q8rr47rp****
+     *
      * @var string[]
      */
     public $trafficMirrorSourceIds;
 
     /**
+     * @example eni-j6c8znm5l1yt4sox****
+     *
      * @var string
      */
     public $trafficMirrorTargetId;
 
     /**
+     * @example NetworkInterface
+     *
      * @var string
      */
     public $trafficMirrorTargetType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $virtualNetworkId;

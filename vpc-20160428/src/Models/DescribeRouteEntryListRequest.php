@@ -9,31 +9,48 @@ use AlibabaCloud\Tea\Model;
 class DescribeRouteEntryListRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $destCidrBlockList;
+
+    /**
+     * @example 192.168.2.0/24
+     *
      * @var string
      */
     public $destinationCidrBlock;
 
     /**
+     * @example IPv4
+     *
      * @var string
      */
     public $ipVersion;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResult;
 
     /**
+     * @example vpn-bp10zyaph5cc8b7c7****
+     *
      * @var string
      */
     public $nextHopId;
 
     /**
+     * @example Instance
+     *
      * @var string
      */
     public $nextHopType;
 
     /**
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
@@ -49,6 +66,8 @@ class DescribeRouteEntryListRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -64,25 +83,41 @@ class DescribeRouteEntryListRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example rte-bp1mnnr2al0naomnp****
+     *
      * @var string
      */
     public $routeEntryId;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $routeEntryName;
 
     /**
+     * @example System
+     *
      * @var string
      */
     public $routeEntryType;
 
     /**
+     * @example vtb-bp1r9pvl4xen8s9ju****
+     *
      * @var string
      */
     public $routeTableId;
+
+    /**
+     * @example TR
+     *
+     * @var string
+     */
+    public $serviceType;
     protected $_name = [
+        'destCidrBlockList'    => 'DestCidrBlockList',
         'destinationCidrBlock' => 'DestinationCidrBlock',
         'ipVersion'            => 'IpVersion',
         'maxResult'            => 'MaxResult',
@@ -98,6 +133,7 @@ class DescribeRouteEntryListRequest extends Model
         'routeEntryName'       => 'RouteEntryName',
         'routeEntryType'       => 'RouteEntryType',
         'routeTableId'         => 'RouteTableId',
+        'serviceType'          => 'ServiceType',
     ];
 
     public function validate()
@@ -107,6 +143,9 @@ class DescribeRouteEntryListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->destCidrBlockList) {
+            $res['DestCidrBlockList'] = $this->destCidrBlockList;
+        }
         if (null !== $this->destinationCidrBlock) {
             $res['DestinationCidrBlock'] = $this->destinationCidrBlock;
         }
@@ -152,6 +191,9 @@ class DescribeRouteEntryListRequest extends Model
         if (null !== $this->routeTableId) {
             $res['RouteTableId'] = $this->routeTableId;
         }
+        if (null !== $this->serviceType) {
+            $res['ServiceType'] = $this->serviceType;
+        }
 
         return $res;
     }
@@ -164,6 +206,11 @@ class DescribeRouteEntryListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DestCidrBlockList'])) {
+            if (!empty($map['DestCidrBlockList'])) {
+                $model->destCidrBlockList = $map['DestCidrBlockList'];
+            }
+        }
         if (isset($map['DestinationCidrBlock'])) {
             $model->destinationCidrBlock = $map['DestinationCidrBlock'];
         }
@@ -208,6 +255,9 @@ class DescribeRouteEntryListRequest extends Model
         }
         if (isset($map['RouteTableId'])) {
             $model->routeTableId = $map['RouteTableId'];
+        }
+        if (isset($map['ServiceType'])) {
+            $model->serviceType = $map['ServiceType'];
         }
 
         return $model;

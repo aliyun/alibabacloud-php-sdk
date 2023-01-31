@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDhcpOptionsSetRequest extends Model
 {
     /**
+     * @example dopt-o6w0df4epg9zo8isy****
+     *
      * @var string
      */
     public $dhcpOptionsSetId;
@@ -24,6 +26,8 @@ class GetDhcpOptionsSetRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

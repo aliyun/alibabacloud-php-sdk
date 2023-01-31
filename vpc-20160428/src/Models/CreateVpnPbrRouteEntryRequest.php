@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateVpnPbrRouteEntryRequest extends Model
 {
     /**
+     * @example d7d24a21-f4ba-4454-9173-b3828dae492b
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example 111
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example vco-bp15oes1py4i66rmd****
+     *
      * @var string
      */
     public $nextHop;
 
     /**
+     * @example Ipsec
+     *
      * @var string
      */
     public $overlayMode;
@@ -39,11 +47,20 @@ class CreateVpnPbrRouteEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @var int
+     */
+    public $priority;
+
+    /**
+     * @example true
+     *
      * @var bool
      */
     public $publishVpc;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -59,21 +76,29 @@ class CreateVpnPbrRouteEntryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 10.0.0.0/24
+     *
      * @var string
      */
     public $routeDest;
 
     /**
+     * @example 192.168.1.0/24
+     *
      * @var string
      */
     public $routeSource;
 
     /**
+     * @example vpn-bp1a3kqjiiq9legfx****
+     *
      * @var string
      */
     public $vpnGatewayId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $weight;
@@ -84,6 +109,7 @@ class CreateVpnPbrRouteEntryRequest extends Model
         'overlayMode'          => 'OverlayMode',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'priority'             => 'Priority',
         'publishVpc'           => 'PublishVpc',
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -118,6 +144,9 @@ class CreateVpnPbrRouteEntryRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
         if (null !== $this->publishVpc) {
             $res['PublishVpc'] = $this->publishVpc;
@@ -172,6 +201,9 @@ class CreateVpnPbrRouteEntryRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
         if (isset($map['PublishVpc'])) {
             $model->publishVpc = $map['PublishVpc'];

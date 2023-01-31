@@ -11,46 +11,64 @@ use AlibabaCloud\Tea\Model;
 class vSwitch extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $availableIpAddressCount;
 
     /**
+     * @example 172.16.0.0/24
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @example 2022-01-18T12:43:57Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example VSwitchDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 2408:4002:10c4:4e03::/64
+     *
      * @var string
      */
     public $ipv6CidrBlock;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isDefault;
 
     /**
+     * @example nacl-a2do9e413e0spzasx****
+     *
      * @var string
      */
     public $networkAclId;
 
     /**
+     * @example 253460731706911258
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @example rg-acfmxazb4ph6aiy****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -61,6 +79,8 @@ class vSwitch extends Model
     public $routeTable;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
@@ -71,21 +91,29 @@ class vSwitch extends Model
     public $tags;
 
     /**
+     * @example vsw-25bcdxs7pv1****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vSwitch
+     *
      * @var string
      */
     public $vSwitchName;
 
     /**
+     * @example vpc-257gcdcdq64****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example cn-hangzhou-d
+     *
      * @var string
      */
     public $zoneId;

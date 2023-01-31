@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddGlobalAccelerationInstanceIpRequest extends Model
 {
     /**
+     * @example ga-Ldefrgbttnyyf****
+     *
      * @var string
      */
     public $globalAccelerationInstanceId;
 
     /**
+     * @example eip-rw434rwfdeaf****
+     *
      * @var string
      */
     public $ipInstanceId;
@@ -29,6 +33,8 @@ class AddGlobalAccelerationInstanceIpRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class routeEntry extends Model
 {
     /**
+     * @example RouteEntryDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 192.168.0.1/24
+     *
      * @var string
      */
     public $destinationCidrBlock;
 
     /**
+     * @example ri-2zeo3xzyf38r4urzd****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example local
+     *
      * @var string
      */
     public $nextHopType;
@@ -35,26 +43,36 @@ class routeEntry extends Model
     public $nextHops;
 
     /**
+     * @example rte-bp1mnnr2al0naomnpxxx
+     *
      * @var string
      */
     public $routeEntryId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $routeEntryName;
 
     /**
+     * @example vtb-bp145q7glnuzdvzu2****
+     *
      * @var string
      */
     public $routeTableId;
 
     /**
+     * @example Pending
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example System
+     *
      * @var string
      */
     public $type;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateCommonBandwidthPackageRequest extends Model
 {
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example 02fb3da4-130e-11e9-8e44-001****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example BGP
+     *
      * @var string
      */
     public $ISP;
@@ -34,6 +42,8 @@ class CreateCommonBandwidthPackageRequest extends Model
     public $internetChargeType;
 
     /**
+     * @example test123
+     *
      * @var string
      */
     public $name;
@@ -49,16 +59,22 @@ class CreateCommonBandwidthPackageRequest extends Model
     public $ownerId;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $ratio;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmxazdjdhd****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -74,11 +90,15 @@ class CreateCommonBandwidthPackageRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example AntiDDoS_Enhanced
+     *
      * @var string[]
      */
     public $securityProtectionTypes;
 
     /**
+     * @example cn-hangzhou-a
+     *
      * @var string
      */
     public $zone;

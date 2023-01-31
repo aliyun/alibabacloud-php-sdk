@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeCommonBandwidthPackagesRequest extends Model
 {
     /**
+     * @example cbwp-2ze2ic1xd2qeqk145****
+     *
      * @var string
      */
     public $bandwidthPackageId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $includeReservationData;
 
     /**
+     * @example test123
+     *
      * @var string
      */
     public $name;
@@ -39,21 +47,29 @@ class DescribeCommonBandwidthPackagesRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -69,6 +85,8 @@ class DescribeCommonBandwidthPackagesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $securityProtectionEnabled;

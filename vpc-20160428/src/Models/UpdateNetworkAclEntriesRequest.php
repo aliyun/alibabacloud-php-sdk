@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateNetworkAclEntriesRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
@@ -26,6 +28,8 @@ class UpdateNetworkAclEntriesRequest extends Model
     public $ingressAclEntries;
 
     /**
+     * @example nacl-bp1lhl0taikrzxsc****
+     *
      * @var string
      */
     public $networkAclId;
@@ -36,6 +40,8 @@ class UpdateNetworkAclEntriesRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -51,11 +57,15 @@ class UpdateNetworkAclEntriesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $updateEgressAclEntries;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $updateIngressAclEntries;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateVcoRouteEntryRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-4266****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example desctest
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example vco-p0w2jpkhi2eeop6q6****
+     *
      * @var string
      */
     public $nextHop;
 
     /**
+     * @example Ipsec
+     *
      * @var string
      */
     public $overlayMode;
@@ -34,6 +42,8 @@ class CreateVcoRouteEntryRequest extends Model
     public $ownerAccount;
 
     /**
+     * @example ap-southeast-2
+     *
      * @var string
      */
     public $regionId;
@@ -49,16 +59,22 @@ class CreateVcoRouteEntryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 192.168.10.0/24
+     *
      * @var string
      */
     public $routeDest;
 
     /**
+     * @example vco-p0w2jpkhi2eeop6q6****
+     *
      * @var string
      */
     public $vpnConnectionId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $weight;

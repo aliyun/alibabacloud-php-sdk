@@ -14,6 +14,8 @@ class ActivateRouterInterfaceRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -29,6 +31,8 @@ class ActivateRouterInterfaceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example ri-2zeo3xzyf38r4urz****
+     *
      * @var string
      */
     public $routerInterfaceId;

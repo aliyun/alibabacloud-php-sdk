@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcResponseBody extends Model
 {
     /**
+     * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example rg-acfmxazb4ph6aiy****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example vtb-bp145q7glnuzdv****
+     *
      * @var string
      */
     public $routeTableId;
 
     /**
+     * @example vrt-bp1lhl0taikrteen8****
+     *
      * @var string
      */
     public $VRouterId;
 
     /**
+     * @example vpc-bp15zckdt37pq72zv****
+     *
      * @var string
      */
     public $vpcId;

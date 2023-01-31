@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpnConnectionsResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 238752DC-0693-49BE-9C85-711D5691D3E5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

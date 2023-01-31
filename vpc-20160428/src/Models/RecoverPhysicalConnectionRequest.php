@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class RecoverPhysicalConnectionRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example pc-bp1mrgfbtmc9brre7****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example CBCE910E-D396-4944-8****
+     *
      * @var string
      */
     public $token;

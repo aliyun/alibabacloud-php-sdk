@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnassociatePhysicalConnectionFromVirtualBorderRouterRequest extends Model
 {
     /**
+     * @example longtel001
+     *
      * @var string
      */
     public $clientToken;
@@ -24,11 +26,15 @@ class UnassociatePhysicalConnectionFromVirtualBorderRouterRequest extends Model
     public $ownerId;
 
     /**
+     * @example pc-bp1qrb3044eqixog****
+     *
      * @var string
      */
     public $physicalConnectionId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -44,6 +50,8 @@ class UnassociatePhysicalConnectionFromVirtualBorderRouterRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vbr-bp16ksp61j7e0tkn*****
+     *
      * @var string
      */
     public $vbrId;

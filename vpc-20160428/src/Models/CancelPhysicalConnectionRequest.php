@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelPhysicalConnectionRequest extends Model
 {
     /**
+     * @example 02fb3da4-130e-11e9-8e44-0016e04115b
+     *
      * @var string
      */
     public $clientToken;
@@ -24,11 +26,15 @@ class CancelPhysicalConnectionRequest extends Model
     public $ownerId;
 
     /**
+     * @example pc-119mfjzm7****
+     *
      * @var string
      */
     public $physicalConnectionId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;

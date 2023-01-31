@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CopyNetworkAclEntriesResponseBody extends Model
 {
     /**
+     * @example 6608E72F-F276-440F-ABEF-419971CEC4D1
+     *
      * @var string
      */
     public $requestId;

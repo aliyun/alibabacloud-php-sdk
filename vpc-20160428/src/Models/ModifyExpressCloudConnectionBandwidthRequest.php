@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyExpressCloudConnectionBandwidthRequest extends Model
 {
     /**
+     * @example 2
+     *
      * @var string
      */
     public $bandwidth;
 
     /**
+     * @example ecc-xxxxxxxxx
+     *
      * @var string
      */
     public $eccId;
@@ -29,6 +33,8 @@ class ModifyExpressCloudConnectionBandwidthRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

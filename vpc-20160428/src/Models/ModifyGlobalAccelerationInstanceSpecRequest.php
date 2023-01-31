@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyGlobalAccelerationInstanceSpecRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var string
      */
     public $bandwidth;
 
     /**
+     * @example ga-32s33s****
+     *
      * @var string
      */
     public $globalAccelerationInstanceId;
@@ -29,6 +33,8 @@ class ModifyGlobalAccelerationInstanceSpecRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

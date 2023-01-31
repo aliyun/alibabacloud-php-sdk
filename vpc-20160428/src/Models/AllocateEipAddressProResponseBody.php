@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class AllocateEipAddressProResponseBody extends Model
 {
     /**
+     * @example eip-25877c70gddh****
+     *
      * @var string
      */
     public $allocationId;
 
     /**
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $eipAddress;
 
     /**
+     * @example 20190000
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example rg-resourcegroup****
+     *
      * @var string
      */
     public $resourceGroupId;

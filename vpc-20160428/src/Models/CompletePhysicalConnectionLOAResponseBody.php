@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CompletePhysicalConnectionLOAResponseBody extends Model
 {
     /**
+     * @example F8983C74-E068-4509-B442-89BD82C8F43B
+     *
      * @var string
      */
     public $requestId;

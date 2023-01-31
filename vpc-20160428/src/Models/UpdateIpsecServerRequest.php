@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class UpdateIpsecServerRequest extends Model
 {
     /**
+     * @example 10.0.0.0/24
+     *
      * @var string
      */
     public $clientIpPool;
 
     /**
+     * @example e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $dryRun;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $effectImmediately;
 
     /**
+     * @example {"IkeVersion":"ikev2","IkeMode":"main","IkeEncAlg":"aes","IkeAuthAlg":"sha1","IkePfs":"group2","IkeLifetime":86400}
+     *
      * @var string
      */
     public $ikeConfig;
 
     /**
+     * @example {"IpsecEncAlg":"aes","IpsecAuthAlg":"sha1","IpsecPfs":"group2","IpsecLifetime":86400}
+     *
      * @var string
      */
     public $ipsecConfig;
 
     /**
+     * @example iss-bp1bo3xuvcxo7ixll****
+     *
      * @var string
      */
     public $ipsecServerId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $ipsecServerName;
 
     /**
+     * @example 192.168.0.0/24,172.17.0.0/16
+     *
      * @var string
      */
     public $localSubnet;
 
     /**
+     * @example Cfd123****
+     *
      * @var string
      */
     public $psk;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $pskEnabled;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;

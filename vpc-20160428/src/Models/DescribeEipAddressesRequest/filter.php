@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
+     * @example CreationStartTime
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example 2021-05-22T09:12:00Z
+     *
      * @var string
      */
     public $value;

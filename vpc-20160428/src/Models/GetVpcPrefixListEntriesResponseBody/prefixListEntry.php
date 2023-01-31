@@ -9,23 +9,37 @@ use AlibabaCloud\Tea\Model;
 class prefixListEntry extends Model
 {
     /**
+     * @example 192.168.0.0/16
+     *
      * @var string
      */
     public $cidr;
 
     /**
+     * @example description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example pl-0b7hwu67****
+     *
      * @var string
      */
     public $prefixListId;
+
+    /**
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'cidr'         => 'Cidr',
         'description'  => 'Description',
         'prefixListId' => 'PrefixListId',
+        'regionId'     => 'RegionId',
     ];
 
     public function validate()
@@ -43,6 +57,9 @@ class prefixListEntry extends Model
         }
         if (null !== $this->prefixListId) {
             $res['PrefixListId'] = $this->prefixListId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -64,6 +81,9 @@ class prefixListEntry extends Model
         }
         if (isset($map['PrefixListId'])) {
             $model->prefixListId = $map['PrefixListId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

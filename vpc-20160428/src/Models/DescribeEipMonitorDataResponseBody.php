@@ -15,6 +15,8 @@ class DescribeEipMonitorDataResponseBody extends Model
     public $eipMonitorDatas;
 
     /**
+     * @example C8B26B44-0189-443E-9816-D951F59623A9
+     *
      * @var string
      */
     public $requestId;

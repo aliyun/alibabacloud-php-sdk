@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AllocateIpv6InternetBandwidthResponseBody extends Model
 {
     /**
+     * @example ipv6bw-uf6hcyzu65v98v3du****
+     *
      * @var string
      */
     public $internetBandwidthId;
 
     /**
+     * @example ipv6bw-uf6hcyzu65v98v3du****
+     *
      * @var string
      */
     public $ipv6AddressId;
 
     /**
+     * @example 6972A26E-99B1-4367-9890-FBDEBB0F5E7D
+     *
      * @var string
      */
     public $requestId;

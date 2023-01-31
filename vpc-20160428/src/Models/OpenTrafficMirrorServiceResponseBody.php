@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class OpenTrafficMirrorServiceResponseBody extends Model
 {
     /**
+     * @example 123412341234****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 4FCCF008-4C13-4231-BE77-D5203801A9E2
+     *
      * @var string
      */
     public $requestId;

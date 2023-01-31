@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListIpsecServersRequest extends Model
 {
     /**
+     * @example iss-bp1bo3xuvcxo7ixll****
+     *
      * @var string[]
      */
     public $ipsecServerId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $ipsecServerName;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example caeba0bbb2be03f84eb48b699f0a****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example vpn-bp1q8bgx4xnkm2ogj****
+     *
      * @var string
      */
     public $vpnGatewayId;

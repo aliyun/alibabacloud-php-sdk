@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpnConnectionAttributeRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoConfigRoute;
 
     /**
+     * @example {"EnableBgp":"true","LocalAsn":"65530","TunnelCidr":"169.254.11.0/30","LocalBgpIp":"169.254.11.1"}
+     *
      * @var string
      */
     public $bgpConfig;
 
     /**
+     * @example 02fb3da4-130e-11e9-8e44-0016e04115b
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $effectImmediately;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableDpd;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableNatTraversal;
 
     /**
+     * @example {"enable":"true","dip":"192.168.1.1","sip":"10.1.1.1","interval":"3","retry":"3"}
+     *
      * @var string
      */
     public $healthCheckConfig;
 
     /**
+     * @example {"Psk":"pgw6dy7d1i8i****","IkeVersion":"ikev1","IkeMode":"main","IkeEncAlg":"aes","IkeAuthAlg":"sha1","IkePfs":"group2","IkeLifetime":86400,"LocalIdIPsec":"116.64.XX.XX","RemoteId":"139.18.XX.XX"}
+     *
      * @var string
      */
     public $ikeConfig;
 
     /**
+     * @example {"IpsecEncAlg":"aes","IpsecAuthAlg":"sha1","IpsecPfs":"group2","IpsecLifetime":86400}
+     *
      * @var string
      */
     public $ipsecConfig;
 
     /**
+     * @example 10.1.1.0/24,10.1.2.0/24
+     *
      * @var string
      */
     public $localSubnet;
 
     /**
+     * @example nametest
+     *
      * @var string
      */
     public $name;
@@ -74,16 +96,22 @@ class ModifyVpnConnectionAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example c20ycDI1NnYxIENBIChURVNUIFN****
+     *
      * @var string
      */
     public $remoteCaCertificate;
 
     /**
+     * @example 10.2.1.0/24,10.2.2.0/24
+     *
      * @var string
      */
     public $remoteSubnet;
@@ -99,6 +127,8 @@ class ModifyVpnConnectionAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vco-bp1bbi27hojx80nck****
+     *
      * @var string
      */
     public $vpnConnectionId;

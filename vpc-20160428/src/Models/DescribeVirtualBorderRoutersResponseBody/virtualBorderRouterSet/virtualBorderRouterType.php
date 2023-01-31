@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class virtualBorderRouterType extends Model
 {
     /**
+     * @example ap-cn-kojok1x****
+     *
      * @var string
      */
     public $accessPointId;
 
     /**
+     * @example 2021-06-08T12:20:55
+     *
      * @var string
      */
     public $activationTime;
@@ -31,151 +35,216 @@ class virtualBorderRouterType extends Model
     public $associatedPhysicalConnections;
 
     /**
+     * @var int
+     */
+    public $bandwidth;
+
+    /**
+     * @example longtel0****
+     *
      * @var string
      */
     public $circuitCode;
 
     /**
+     * @example cb-****
+     *
      * @var string
      */
     public $cloudBoxInstanceId;
 
     /**
+     * @example 2020-06-08T12:20:55
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example desc
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $detectMultiplier;
 
     /**
+     * @example ecc-h****
+     *
      * @var string
      */
     public $eccId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableIpv6;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $localGatewayIp;
 
     /**
+     * @example 2001:XXXX:3c4d:0015:0000:0000:0000:1a2b
+     *
      * @var string
      */
     public $localIpv6GatewayIp;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $minRxInterval;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $minTxInterval;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example PrePaid
+     *
      * @var string
      */
     public $PConnVbrChargeType;
 
     /**
+     * @example 2021-06-08T12:20:55
+     *
      * @var string
      */
     public $PConnVbrExpireTime;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $peerGatewayIp;
 
     /**
+     * @example 2001:XXXX:3c4d:0015:0000:0000:0000:1a2b
+     *
      * @var string
      */
     public $peerIpv6GatewayIp;
 
     /**
+     * @example 2000:1234:0:a000::/55
+     *
      * @var string
      */
     public $peeringIpv6SubnetMask;
 
     /**
+     * @example 255.255.255.252
+     *
      * @var string
      */
     public $peeringSubnetMask;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $physicalConnectionBusinessStatus;
 
     /**
+     * @example pc-119mfjzm7x****
+     *
      * @var string
      */
     public $physicalConnectionId;
 
     /**
+     * @example 1688000000000****
+     *
      * @var string
      */
     public $physicalConnectionOwnerUid;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $physicalConnectionStatus;
 
     /**
+     * @example 2021-05-08T12:20:55
+     *
      * @var string
      */
     public $recoveryTime;
 
     /**
+     * @example rtb-bp1****
+     *
      * @var string
      */
     public $routeTableId;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 2021-06-08T12:20:55
+     *
      * @var string
      */
     public $terminationTime;
 
     /**
+     * @example pconnVBR
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example vbr-bp1jcg5cmxjbl9xgc****
+     *
      * @var string
      */
     public $vbrId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $vlanId;
 
     /**
+     * @example ri-2zeo3xzyf38r4xx****
+     *
      * @var string
      */
     public $vlanInterfaceId;
@@ -184,6 +253,7 @@ class virtualBorderRouterType extends Model
         'activationTime'                   => 'ActivationTime',
         'associatedCens'                   => 'AssociatedCens',
         'associatedPhysicalConnections'    => 'AssociatedPhysicalConnections',
+        'bandwidth'                        => 'Bandwidth',
         'circuitCode'                      => 'CircuitCode',
         'cloudBoxInstanceId'               => 'CloudBoxInstanceId',
         'creationTime'                     => 'CreationTime',
@@ -234,6 +304,9 @@ class virtualBorderRouterType extends Model
         }
         if (null !== $this->associatedPhysicalConnections) {
             $res['AssociatedPhysicalConnections'] = null !== $this->associatedPhysicalConnections ? $this->associatedPhysicalConnections->toMap() : null;
+        }
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
         }
         if (null !== $this->circuitCode) {
             $res['CircuitCode'] = $this->circuitCode;
@@ -348,6 +421,9 @@ class virtualBorderRouterType extends Model
         }
         if (isset($map['AssociatedPhysicalConnections'])) {
             $model->associatedPhysicalConnections = associatedPhysicalConnections::fromMap($map['AssociatedPhysicalConnections']);
+        }
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
         }
         if (isset($map['CircuitCode'])) {
             $model->circuitCode = $map['CircuitCode'];

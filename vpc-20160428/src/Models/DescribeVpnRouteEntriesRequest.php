@@ -19,16 +19,22 @@ class DescribeVpnRouteEntriesRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -44,11 +50,15 @@ class DescribeVpnRouteEntriesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example System
+     *
      * @var string
      */
     public $routeEntryType;
 
     /**
+     * @example vpn-bp1cmw7jh1nfe43m9****
+     *
      * @var string
      */
     public $vpnGatewayId;

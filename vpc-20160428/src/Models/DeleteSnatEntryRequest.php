@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteSnatEntryRequest extends Model
 {
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+     *
      * @var string
      */
     public $clientToken;
@@ -24,6 +26,8 @@ class DeleteSnatEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -39,11 +43,15 @@ class DeleteSnatEntryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example snat-bp1vcgcf8tm0plqcg****
+     *
      * @var string
      */
     public $snatEntryId;
 
     /**
+     * @example stb-bp190wu8io1vgev80****
+     *
      * @var string
      */
     public $snatTableId;

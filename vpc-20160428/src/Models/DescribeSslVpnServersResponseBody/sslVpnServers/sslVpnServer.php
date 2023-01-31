@@ -9,86 +9,120 @@ use AlibabaCloud\Tea\Model;
 class sslVpnServer extends Model
 {
     /**
+     * @example AES-128-CBC
+     *
      * @var string
      */
     public $cipher;
 
     /**
+     * @example 10.10.1.0/24
+     *
      * @var string
      */
     public $clientIpPool;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $compress;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $connections;
 
     /**
+     * @example 1613800884000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableMultiFactorAuth;
 
     /**
+     * @example idaas-cn-hangzhou-****
+     *
      * @var string
      */
     public $IDaaSInstanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $IDaaSRegionId;
 
     /**
+     * @example 47.5.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @example 192.168.0.0/24
+     *
      * @var string
      */
     public $localSubnet;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $maxConnections;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1194
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example UDP
+     *
      * @var string
      */
     public $proto;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example vss-bp15j3du13gq1dgey****
+     *
      * @var string
      */
     public $sslVpnServerId;
 
     /**
+     * @example vpn-bp1on0xae9d771ggi****
+     *
      * @var string
      */
     public $vpnGatewayId;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateGlobalAccelerationInstanceResponseBody extends Model
 {
     /**
+     * @example ga-bp1fi6sq7npnicmjj****
+     *
      * @var string
      */
     public $globalAccelerationInstanceId;
 
     /**
+     * @example 12.xx.xx.78
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
+     *
      * @var string
      */
     public $requestId;

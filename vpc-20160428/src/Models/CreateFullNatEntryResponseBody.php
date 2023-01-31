@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateFullNatEntryResponseBody extends Model
 {
     /**
+     * @example fullnat-gw8fz23jezpbblf1j****
+     *
      * @var string
      */
     public $fullNatEntryId;
 
     /**
+     * @example 2315DEB7-5E92-423A-91F7-4C1EC9AD97C3
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteVpcPrefixListResponseBody extends Model
 {
     /**
+     * @example 64B48E3D-DF70-471B-AA93-08E683A1B45
+     *
      * @var string
      */
     public $requestId;

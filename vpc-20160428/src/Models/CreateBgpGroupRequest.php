@@ -9,31 +9,48 @@ use AlibabaCloud\Tea\Model;
 class CreateBgpGroupRequest extends Model
 {
     /**
+     * @example !PWZ2****
+     *
      * @var string
      */
     public $authKey;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example BGP
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example IPv4
+     *
      * @var string
      */
     public $ipVersion;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isFakeAsn;
 
     /**
+     * @var int
+     */
+    public $localAsn;
+
+    /**
+     * @example test
+     *
      * @var string
      */
     public $name;
@@ -49,11 +66,15 @@ class CreateBgpGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1****
+     *
      * @var int
      */
     public $peerAsn;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -69,6 +90,13 @@ class CreateBgpGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var int
+     */
+    public $routeQuota;
+
+    /**
+     * @example vbr-bp1ctxy813985gkuk****
+     *
      * @var string
      */
     public $routerId;
@@ -78,6 +106,7 @@ class CreateBgpGroupRequest extends Model
         'description'          => 'Description',
         'ipVersion'            => 'IpVersion',
         'isFakeAsn'            => 'IsFakeAsn',
+        'localAsn'             => 'LocalAsn',
         'name'                 => 'Name',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -85,6 +114,7 @@ class CreateBgpGroupRequest extends Model
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'routeQuota'           => 'RouteQuota',
         'routerId'             => 'RouterId',
     ];
 
@@ -110,6 +140,9 @@ class CreateBgpGroupRequest extends Model
         if (null !== $this->isFakeAsn) {
             $res['IsFakeAsn'] = $this->isFakeAsn;
         }
+        if (null !== $this->localAsn) {
+            $res['LocalAsn'] = $this->localAsn;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -130,6 +163,9 @@ class CreateBgpGroupRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->routeQuota) {
+            $res['RouteQuota'] = $this->routeQuota;
         }
         if (null !== $this->routerId) {
             $res['RouterId'] = $this->routerId;
@@ -161,6 +197,9 @@ class CreateBgpGroupRequest extends Model
         if (isset($map['IsFakeAsn'])) {
             $model->isFakeAsn = $map['IsFakeAsn'];
         }
+        if (isset($map['LocalAsn'])) {
+            $model->localAsn = $map['LocalAsn'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -181,6 +220,9 @@ class CreateBgpGroupRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['RouteQuota'])) {
+            $model->routeQuota = $map['RouteQuota'];
         }
         if (isset($map['RouterId'])) {
             $model->routerId = $map['RouterId'];

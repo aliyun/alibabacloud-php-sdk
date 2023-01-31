@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateIpv6GatewayResponseBody extends Model
 {
     /**
+     * @example ipv6gw-hp3y0l3ln89j8cdvf****
+     *
      * @var string
      */
     public $ipv6GatewayId;
 
     /**
+     * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC
+     *
      * @var string
      */
     public $requestId;

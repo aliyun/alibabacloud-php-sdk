@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpcPrefixListResponseBody extends Model
 {
     /**
+     * @example pl-0b7hwu67****
+     *
      * @var string
      */
     public $prefixListId;
 
     /**
+     * @example 54B48E3D-DF70-471B-AA93-08E683A1B45
+     *
      * @var string
      */
     public $requestId;

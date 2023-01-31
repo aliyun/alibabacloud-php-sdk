@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class globalAccelerationInstance extends Model
 {
     /**
+     * @example ga-t4nku6vv9****
+     *
      * @var string
      */
     public $globalAccelerationInstanceId;
 
     /**
+     * @example 12.34.56.78
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @example ap-southeast-1
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 172.24.52.234
+     *
      * @var string
      */
     public $serverIpAddress;

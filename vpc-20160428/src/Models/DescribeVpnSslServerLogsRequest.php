@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpnSslServerLogsRequest extends Model
 {
     /**
+     * @example 1600738962
+     *
      * @var int
      */
     public $from;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $minutePeriod;
@@ -29,16 +33,22 @@ class DescribeVpnSslServerLogsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -54,16 +64,22 @@ class DescribeVpnSslServerLogsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vsc-m5euof6s5jy8vs5kd****
+     *
      * @var string
      */
     public $sslVpnClientCertId;
 
     /**
+     * @example 1600738962
+     *
      * @var int
      */
     public $to;
 
     /**
+     * @example vss-bp155e9yclsg1xgq4****
+     *
      * @var string
      */
     public $vpnSslServerId;

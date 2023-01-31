@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class snatTable extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $snatEntryCount;
 
     /**
+     * @example stb-SnatTableIds****
+     *
      * @var string
      */
     public $snatTableId;

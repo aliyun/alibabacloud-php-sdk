@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReleaseEipAddressRequest extends Model
 {
     /**
+     * @example eip-2zeerraiwb7uj6i0d****
+     *
      * @var string
      */
     public $allocationId;
@@ -24,6 +26,8 @@ class ReleaseEipAddressRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

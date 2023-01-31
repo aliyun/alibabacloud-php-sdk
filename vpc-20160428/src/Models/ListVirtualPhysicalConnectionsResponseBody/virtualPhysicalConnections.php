@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class virtualPhysicalConnections extends Model
 {
     /**
+     * @example ap-cn-hangzhou-finance-yh-E
+     *
      * @var string
      */
     public $accessPointId;
@@ -19,81 +21,113 @@ class virtualPhysicalConnections extends Model
     public $adLocation;
 
     /**
+     * @example 253460731706911258
+     *
      * @var string
      */
     public $aliUid;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $businessStatus;
 
     /**
+     * @example Prepaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example longtel001
+     *
      * @var string
      */
     public $circuitCode;
 
     /**
+     * @example 2021-06-08T12:20:55
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example desctest
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 2021-10-08T10:44Z
+     *
      * @var string
      */
     public $enabledTime;
 
     /**
+     * @example 2021-11-08T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 50M
+     *
      * @var string
      */
     public $expectSpec;
 
     /**
+     * @example CU
+     *
      * @var string
      */
     public $lineOperator;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $loaStatus;
 
     /**
+     * @example nametest
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example PayByPhysicalConnectionOwner
+     *
      * @var string
      */
     public $orderMode;
 
     /**
+     * @example 283117732402483989
+     *
      * @var string
      */
     public $parentPhysicalConnectionAliUid;
 
     /**
+     * @example pc-bp1ciz7ekd2grn1as****
+     *
      * @var string
      */
     public $parentPhysicalConnectionId;
@@ -104,26 +138,36 @@ class virtualPhysicalConnections extends Model
     public $peerLocation;
 
     /**
+     * @example pc-bp1mrgfbtmc9brre7****
+     *
      * @var string
      */
     public $physicalConnectionId;
 
     /**
+     * @example 80
+     *
      * @var string
      */
     public $portNumber;
 
     /**
+     * @example 10GBase-LR
+     *
      * @var string
      */
     public $portType;
 
     /**
+     * @example VirtualPhysicalConnection
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example pc-119mfjzm****
+     *
      * @var string
      */
     public $redundantPhysicalConnectionId;
@@ -131,24 +175,39 @@ class virtualPhysicalConnections extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @example 50M
+     *
+     * @var string
+     */
     public $spec;
 
     /**
+     * @example Enabled
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example Confirmed
+     *
      * @var string
      */
     public $virtualPhysicalConnectionStatus;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $vlanId;
@@ -177,6 +236,7 @@ class virtualPhysicalConnections extends Model
         'portType'                        => 'PortType',
         'productType'                     => 'ProductType',
         'redundantPhysicalConnectionId'   => 'RedundantPhysicalConnectionId',
+        'resourceGroupId'                 => 'ResourceGroupId',
         'spec'                            => 'Spec',
         'status'                          => 'Status',
         'type'                            => 'Type',
@@ -262,6 +322,9 @@ class virtualPhysicalConnections extends Model
         }
         if (null !== $this->redundantPhysicalConnectionId) {
             $res['RedundantPhysicalConnectionId'] = $this->redundantPhysicalConnectionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
@@ -361,6 +424,9 @@ class virtualPhysicalConnections extends Model
         }
         if (isset($map['RedundantPhysicalConnectionId'])) {
             $model->redundantPhysicalConnectionId = $map['RedundantPhysicalConnectionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];

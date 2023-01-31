@@ -20,11 +20,15 @@ class DescribeVpcAttributeResponseBody extends Model
     public $associatedCens;
 
     /**
+     * @example 192.168.0.0/16
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $classicLinkEnabled;
@@ -35,31 +39,43 @@ class DescribeVpcAttributeResponseBody extends Model
     public $cloudResources;
 
     /**
+     * @example 2021-10-16T07:31:09Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example dopt-o6w0df4epg9zo8isy****
+     *
      * @var string
      */
     public $dhcpOptionsSetId;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $dhcpOptionsSetStatus;
 
     /**
+     * @example ipv4gw-5tsnc6s4ogsedtp3k****
+     *
      * @var string
      */
     public $ipv4GatewayId;
 
     /**
+     * @example 2408:XXXX:0:a600::/56
+     *
      * @var string
      */
     public $ipv6CidrBlock;
@@ -70,26 +86,36 @@ class DescribeVpcAttributeResponseBody extends Model
     public $ipv6CidrBlocks;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isDefault;
 
     /**
+     * @example 283117732402483989
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 7486AE4A-129D-43DB-A714-2432C074BA04
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example rg-acfmxazbvgb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -100,11 +126,15 @@ class DescribeVpcAttributeResponseBody extends Model
     public $secondaryCidrBlocks;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $supportIpv4Gateway;
@@ -115,6 +145,8 @@ class DescribeVpcAttributeResponseBody extends Model
     public $userCidrs;
 
     /**
+     * @example vrt-bp1jso6ng1at0ajsc****
+     *
      * @var string
      */
     public $VRouterId;
@@ -125,11 +157,15 @@ class DescribeVpcAttributeResponseBody extends Model
     public $vSwitchIds;
 
     /**
+     * @example vpc-bp18sth14qii3pnvo****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example doctest2
+     *
      * @var string
      */
     public $vpcName;

@@ -10,41 +10,57 @@ use AlibabaCloud\Tea\Model;
 class physicalConnectionLOAType extends Model
 {
     /**
+     * @example company
+     *
      * @var string
      */
     public $companyLocalizedName;
 
     /**
+     * @example test1234
+     *
      * @var string
      */
     public $companyName;
 
     /**
+     * @example 2019-02-26T08:00:00Z
+     *
      * @var string
      */
     public $constructionTime;
 
     /**
+     * @example pc-bp1ca4wca27****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example aaa111
+     *
      * @var string
      */
     public $lineCode;
 
     /**
+     * @example bbb222
+     *
      * @var string
      */
     public $lineLabel;
 
     /**
+     * @example FIBRE
+     *
      * @var string
      */
     public $lineType;
 
     /**
+     * @example http://******
+     *
      * @var string
      */
     public $loaUrl;
@@ -55,11 +71,15 @@ class physicalConnectionLOAType extends Model
     public $PMInfo;
 
     /**
+     * @example ctcu
+     *
      * @var string
      */
     public $SI;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;

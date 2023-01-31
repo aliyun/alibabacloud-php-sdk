@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteCustomerGatewayRequest extends Model
 {
     /**
+     * @example 02fb3da4-130e-11e9-8e44-0016e04****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example cgw-bp1pvpl9r9adju6l5****
+     *
      * @var string
      */
     public $customerGatewayId;
@@ -29,6 +33,8 @@ class DeleteCustomerGatewayRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;

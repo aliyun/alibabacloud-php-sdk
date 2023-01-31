@@ -15,21 +15,29 @@ class DescribeBgpNetworksResponseBody extends Model
     public $bgpNetworks;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 6F513A15-669F-419D-B511-08A85292059B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class AllocateVpcIpv6CidrRequest extends Model
 {
     /**
+     * @example custom
+     *
      * @var string
      */
     public $addressPoolType;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example 2408:XXXX:0:a600::/56
+     *
      * @var string
      */
     public $ipv6CidrBlock;
 
     /**
+     * @example BGP
+     *
      * @var string
      */
     public $ipv6Isp;
@@ -39,6 +47,8 @@ class AllocateVpcIpv6CidrRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

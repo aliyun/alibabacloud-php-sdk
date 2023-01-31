@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteIpsecServerRequest extends Model
 {
     /**
+     * @example 02fb3da4-130e-11e9-8e44-00****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $dryRun;
 
     /**
+     * @example iss-bp1jougp8cfsbo8y9****
+     *
      * @var string
      */
     public $ipsecServerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

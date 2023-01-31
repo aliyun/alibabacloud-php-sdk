@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateIpv6GatewayRequest extends Model
 {
     /**
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example ipv6gatewayforVPC1
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example ipv6GW
+     *
      * @var string
      */
     public $name;
@@ -34,6 +40,8 @@ class CreateIpv6GatewayRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-huhehaote
+     *
      * @var string
      */
     public $regionId;
@@ -49,11 +57,8 @@ class CreateIpv6GatewayRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $spec;
-
-    /**
+     * @example vpc-123sedrfswd23****
+     *
      * @var string
      */
     public $vpcId;
@@ -66,7 +71,6 @@ class CreateIpv6GatewayRequest extends Model
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'spec'                 => 'Spec',
         'vpcId'                => 'VpcId',
     ];
 
@@ -100,9 +104,6 @@ class CreateIpv6GatewayRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->spec) {
-            $res['Spec'] = $this->spec;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -142,9 +143,6 @@ class CreateIpv6GatewayRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['Spec'])) {
-            $model->spec = $map['Spec'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetVpcPrefixListAssociationsRequest extends Model
 {
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
@@ -29,11 +33,15 @@ class GetVpcPrefixListAssociationsRequest extends Model
     public $ownerId;
 
     /**
+     * @example pl-0b7hwu67****
+     *
      * @var string
      */
     public $prefixListId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

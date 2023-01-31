@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class nextHop extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $enabled;
 
     /**
+     * @example vpn-bp10zyaph5cc8b7c7****
+     *
      * @var string
      */
     public $nextHopId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $nextHopRegionId;
@@ -30,11 +36,15 @@ class nextHop extends Model
     public $nextHopRelatedInfo;
 
     /**
+     * @example Instance
+     *
      * @var string
      */
     public $nextHopType;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $weight;

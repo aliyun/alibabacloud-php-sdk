@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeSslVpnServersResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example D350187B-EA41-4577-950B-95434C8302E1
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class DescribeSslVpnServersResponseBody extends Model
     public $sslVpnServers;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

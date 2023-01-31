@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpv6AddressesRequest extends Model
 {
     /**
+     * @example i-2ze72wuqj4y3jl4f****
+     *
      * @var string
      */
     public $associatedInstanceId;
 
     /**
+     * @example EcsInstance
+     *
      * @var string
      */
     public $associatedInstanceType;
 
     /**
+     * @example 2408:XXXX:153:3921:851c:c435:7b12:1c5f
+     *
      * @var string
      */
     public $ipv6Address;
 
     /**
+     * @example ipv6-2zen5j4axcp5l5qyy****
+     *
      * @var string
      */
     public $ipv6AddressId;
 
     /**
+     * @example ipv6bw-uf6hcyzu65v98v3du****
+     *
      * @var string
      */
     public $ipv6InternetBandwidthId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example Private
+     *
      * @var string
      */
     public $networkType;
@@ -54,16 +68,22 @@ class DescribeIpv6AddressesRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-huhehaote
+     *
      * @var string
      */
     public $regionId;
@@ -79,11 +99,15 @@ class DescribeIpv6AddressesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vsw-25navfgbue4g****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vpc-bp15zckdt37pq72zv****
+     *
      * @var string
      */
     public $vpcId;

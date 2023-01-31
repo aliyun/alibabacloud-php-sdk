@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class routerInterfaceType extends Model
 {
     /**
+     * @example ap-cn-shanghaiSZ-****
+     *
      * @var string
      */
     public $accessPointId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $businessStatus;
 
     /**
+     * @example PayByTraffic
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example 2021-06-08T12:20:55
+     *
      * @var string
      */
     public $connectedTime;
 
     /**
+     * @example 2021-06-08T12:20:55
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $crossBorder;
@@ -49,156 +63,218 @@ class routerInterfaceType extends Model
     public $description;
 
     /**
+     * @example 2021-06-08T12:20:55
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $fastLinkMode;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $hasReservationData;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $hcRate;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $hcThreshold;
 
     /**
+     * @example 116.62.XX.XX
+     *
      * @var string
      */
     public $healthCheckSourceIp;
 
     /**
+     * @example 116.62.XX.XX
+     *
      * @var string
      */
     public $healthCheckTargetIp;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $ipv6Status;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example ap-cn-shanghaiSZ-****
+     *
      * @var string
      */
     public $oppositeAccessPointId;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $oppositeBandwidth;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $oppositeInterfaceBusinessStatus;
 
     /**
+     * @example ri-bp1itx13bwe6f2wfh****
+     *
      * @var string
      */
     public $oppositeInterfaceId;
 
     /**
+     * @example 271598332402530847
+     *
      * @var string
      */
     public $oppositeInterfaceOwnerId;
 
     /**
+     * @example Large
+     *
      * @var string
      */
     public $oppositeInterfaceSpec;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $oppositeInterfaceStatus;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $oppositeRegionId;
 
     /**
+     * @example vrt-bp1d3bxtdv68tfd7g****
+     *
      * @var string
      */
     public $oppositeRouterId;
 
     /**
+     * @example VRouter
+     *
      * @var string
      */
     public $oppositeRouterType;
 
     /**
+     * @example vpc-bp1qpo0kug3a20qqe****
+     *
      * @var string
      */
     public $oppositeVpcInstanceId;
 
     /**
+     * @example 2021-03-11T16:00:00Z
+     *
      * @var string
      */
     public $reservationActiveTime;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $reservationBandwidth;
 
     /**
+     * @example PayByBandwidth
+     *
      * @var string
      */
     public $reservationInternetChargeType;
 
     /**
+     * @example RENEWCHANGE
+     *
      * @var string
      */
     public $reservationOrderType;
 
     /**
+     * @example InitiatingSide
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example vrt-bp1d3bxtdv68tfd7g****
+     *
      * @var string
      */
     public $routerId;
 
     /**
+     * @example ri-2zenfgfpyu3v93koa****
+     *
      * @var string
      */
     public $routerInterfaceId;
 
     /**
+     * @example VRouter
+     *
      * @var string
      */
     public $routerType;
 
     /**
+     * @example Large
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example vpc-2ze3tq4uxhysg717x****
+     *
      * @var string
      */
     public $vpcInstanceId;

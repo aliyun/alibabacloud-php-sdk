@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class removePrefixListEntry extends Model
 {
     /**
+     * @example 192.168.0.0/16
+     *
      * @var string
      */
     public $cidr;
 
     /**
+     * @example cidr
+     *
      * @var string
      */
     public $description;

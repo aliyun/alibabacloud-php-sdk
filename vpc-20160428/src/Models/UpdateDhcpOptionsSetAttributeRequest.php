@@ -9,41 +9,50 @@ use AlibabaCloud\Tea\Model;
 class UpdateDhcpOptionsSetAttributeRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $bootFileName;
-
-    /**
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $dhcpOptionsSetDescription;
 
     /**
+     * @example dopt-o6w0df4epg9zo8isy****
+     *
      * @var string
      */
     public $dhcpOptionsSetId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $dhcpOptionsSetName;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 192.xx.xx.123
+     *
      * @var string
      */
     public $domainNameServers;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
@@ -69,6 +78,8 @@ class UpdateDhcpOptionsSetAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -82,13 +93,7 @@ class UpdateDhcpOptionsSetAttributeRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $TFTPServerName;
     protected $_name = [
-        'bootFileName'              => 'BootFileName',
         'clientToken'               => 'ClientToken',
         'dhcpOptionsSetDescription' => 'DhcpOptionsSetDescription',
         'dhcpOptionsSetId'          => 'DhcpOptionsSetId',
@@ -103,7 +108,6 @@ class UpdateDhcpOptionsSetAttributeRequest extends Model
         'regionId'                  => 'RegionId',
         'resourceOwnerAccount'      => 'ResourceOwnerAccount',
         'resourceOwnerId'           => 'ResourceOwnerId',
-        'TFTPServerName'            => 'TFTPServerName',
     ];
 
     public function validate()
@@ -113,9 +117,6 @@ class UpdateDhcpOptionsSetAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->bootFileName) {
-            $res['BootFileName'] = $this->bootFileName;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -158,9 +159,6 @@ class UpdateDhcpOptionsSetAttributeRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->TFTPServerName) {
-            $res['TFTPServerName'] = $this->TFTPServerName;
-        }
 
         return $res;
     }
@@ -173,9 +171,6 @@ class UpdateDhcpOptionsSetAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BootFileName'])) {
-            $model->bootFileName = $map['BootFileName'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
@@ -217,9 +212,6 @@ class UpdateDhcpOptionsSetAttributeRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['TFTPServerName'])) {
-            $model->TFTPServerName = $map['TFTPServerName'];
         }
 
         return $model;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyIpv6GatewaySpecRequest extends Model
 {
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example ipv6gw-123456xxxxxxxx
+     *
      * @var string
      */
     public $ipv6GatewayId;
@@ -29,6 +33,8 @@ class ModifyIpv6GatewaySpecRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-huhehaote
+     *
      * @var string
      */
     public $regionId;

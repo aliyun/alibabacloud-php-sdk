@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListEnhanhcedNatGatewayAvailableZonesRequest extends Model
 {
     /**
+     * @example zh-CN
+     *
      * @var string
      */
     public $acceptLanguage;
@@ -24,6 +26,8 @@ class ListEnhanhcedNatGatewayAvailableZonesRequest extends Model
     public $ownerId;
 
     /**
+     * @example me-east-1
+     *
      * @var string
      */
     public $regionId;

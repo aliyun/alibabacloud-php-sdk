@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeRouterInterfaceAttributeResponseBody extends Model
 {
     /**
+     * @example ap-cn-qingdao-ls-A
+     *
      * @var string
      */
     public $accessPointId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $businessStatus;
 
     /**
+     * @example AfterPay
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 2022-04-14T08:58:04Z
+     *
      * @var string
      */
     public $connectedTime;
 
     /**
+     * @example 2022-04-14T08:57:24Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $crossBorder;
@@ -54,46 +70,64 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $description;
 
     /**
+     * @example 2999-09-08T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 2022-04-28T10:02:12Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $hasReservationData;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $hcRate;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $hcThreshold;
 
     /**
+     * @example 1.1.XX.XX
+     *
      * @var string
      */
     public $healthCheckSourceIp;
 
     /**
+     * @example normal
+     *
      * @var string
      */
     public $healthCheckStatus;
 
     /**
+     * @example 2.2.XX.XX
+     *
      * @var string
      */
     public $healthCheckTargetIp;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
@@ -104,121 +138,169 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $name;
 
     /**
+     * @example ap-cn-qingdao-ls-B
+     *
      * @var string
      */
     public $oppositeAccessPointId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $oppositeBandwidth;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $oppositeInterfaceBusinessStatus;
 
     /**
+     * @example ri-bp1xkrzttximaoxbl****
+     *
      * @var string
      */
     public $oppositeInterfaceId;
 
     /**
+     * @example 1321932713****
+     *
      * @var string
      */
     public $oppositeInterfaceOwnerId;
 
     /**
+     * @example Negative
+     *
      * @var string
      */
     public $oppositeInterfaceSpec;
 
     /**
+     * @example Active
+     *
      * @var string
      */
     public $oppositeInterfaceStatus;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $oppositeRegionId;
 
     /**
+     * @example vrt-bp11xvy6lb9photuu****
+     *
      * @var string
      */
     public $oppositeRouterId;
 
     /**
+     * @example VRouter
+     *
      * @var string
      */
     public $oppositeRouterType;
 
     /**
+     * @example vpc-bp1b49rqrybk45nio****
+     *
      * @var string
      */
     public $oppositeVpcInstanceId;
 
     /**
+     * @example 01818199-04F6-47F4-9ADF-7CC824CF57A4
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2022-06-11T16:00:00Z
+     *
      * @var string
      */
     public $reservationActiveTime;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $reservationBandwidth;
 
     /**
+     * @example PayByBandwidth
+     *
      * @var string
      */
     public $reservationInternetChargeType;
 
     /**
+     * @example RENEW
+     *
      * @var string
      */
     public $reservationOrderType;
 
     /**
+     * @example InitiatingSide
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example vbr-m5ex0xf63xk8s5bob****
+     *
      * @var string
      */
     public $routerId;
 
     /**
+     * @example ri-m5egfc10sednwk2yt****
+     *
      * @var string
      */
     public $routerInterfaceId;
 
     /**
+     * @example VRouter
+     *
      * @var string
      */
     public $routerType;
 
     /**
+     * @example Mini.2
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @example Active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example vpc-bp1b49rqrybk45nio****
+     *
      * @var string
      */
     public $vpcInstanceId;

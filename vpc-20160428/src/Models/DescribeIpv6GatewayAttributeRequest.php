@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpv6GatewayAttributeRequest extends Model
 {
     /**
+     * @example ipv6gw-123456xxxxxxxx
+     *
      * @var string
      */
     public $ipv6GatewayId;
@@ -24,6 +26,8 @@ class DescribeIpv6GatewayAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-huhehaote
+     *
      * @var string
      */
     public $regionId;

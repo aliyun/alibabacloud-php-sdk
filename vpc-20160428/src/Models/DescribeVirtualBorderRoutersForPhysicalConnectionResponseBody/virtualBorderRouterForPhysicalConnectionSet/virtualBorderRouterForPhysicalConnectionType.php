@@ -9,116 +9,162 @@ use AlibabaCloud\Tea\Model;
 class virtualBorderRouterForPhysicalConnectionType extends Model
 {
     /**
+     * @example 2021-06-08T12:20:55
+     *
      * @var string
      */
     public $activationTime;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $bandwidth;
 
     /**
+     * @example Active
+     *
      * @var string
      */
     public $bandwidthStatus;
 
     /**
+     * @example longtel0**
+     *
      * @var string
      */
     public $circuitCode;
 
     /**
+     * @example 2021-06-08T12:20:55
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example ecc-sjghe****
+     *
      * @var string
      */
     public $eccId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableIpv6;
 
     /**
+     * @example 192.168.XX.X
+     *
      * @var string
      */
     public $localGatewayIp;
 
     /**
+     * @example ipv6bw-uf6hcyzu65v98v3du****
+     *
      * @var string
      */
     public $localIpv6GatewayIp;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $PConnVbrBussinessStatus;
 
     /**
+     * @example PrePaid
+     *
      * @var string
      */
     public $PConnVbrChargeType;
 
     /**
+     * @example 2021-06-10T12:20:55
+     *
      * @var string
      */
     public $PConnVbrExpireTime;
 
     /**
+     * @example 162.62.XX.XX
+     *
      * @var string
      */
     public $peerGatewayIp;
 
     /**
+     * @example 2001:XXXX:3c4d:0015:0000:0000:0000:1a2b
+     *
      * @var string
      */
     public $peerIpv6GatewayIp;
 
     /**
+     * @example 2408:4004:cc:400::/56
+     *
      * @var string
      */
     public $peeringIpv6SubnetMask;
 
     /**
+     * @example 255.255.255.0
+     *
      * @var string
      */
     public $peeringSubnetMask;
 
     /**
+     * @example 2021-06-08T12:20:55
+     *
      * @var string
      */
     public $recoveryTime;
 
     /**
+     * @example Active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 2021-06-07T12:20:55
+     *
      * @var string
      */
     public $terminationTime;
 
     /**
+     * @example pconnVBR
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example vbr-bp16ksp61j7e0tk****
+     *
      * @var string
      */
     public $vbrId;
 
     /**
+     * @example 253460731706911258
+     *
      * @var int
      */
     public $vbrOwnerUid;
 
     /**
+     * @example 1678
+     *
      * @var int
      */
     public $vlanId;

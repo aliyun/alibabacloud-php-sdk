@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateVpnGatewayRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example 02fb3da4****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableIpsec;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableSsl;
@@ -39,11 +49,15 @@ class CreateVpnGatewayRequest extends Model
     public $instanceChargeType;
 
     /**
+     * @example MYVPN
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example public
+     *
      * @var string
      */
     public $networkType;
@@ -59,11 +73,15 @@ class CreateVpnGatewayRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -79,21 +97,29 @@ class CreateVpnGatewayRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $sslConnections;
 
     /**
+     * @example vsw-bp1j5miw2bae9s2vt****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vpc-bp1ub1yt9cvakoelj****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $vpnType;

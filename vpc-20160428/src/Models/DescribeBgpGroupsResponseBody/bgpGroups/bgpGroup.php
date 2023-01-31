@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class bgpGroup extends Model
 {
     /**
+     * @example !PWZ****
+     *
      * @var string
      */
     public $authKey;
 
     /**
+     * @example bgpg-bp1k25cyp26cllath****
+     *
      * @var string
      */
     public $bgpGroupId;
@@ -24,56 +28,78 @@ class bgpGroup extends Model
     public $description;
 
     /**
+     * @example 30
+     *
      * @var string
      */
     public $hold;
 
     /**
+     * @example IPv4
+     *
      * @var string
      */
     public $ipVersion;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $isFake;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $keepalive;
 
     /**
+     * @example 45104
+     *
      * @var string
      */
     public $localAsn;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1****
+     *
      * @var string
      */
     public $peerAsn;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 99
+     *
      * @var string
      */
     public $routeLimit;
 
     /**
+     * @example vbr-bp1ctxy813985gkuk****
+     *
      * @var string
      */
     public $routerId;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;

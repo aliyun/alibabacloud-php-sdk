@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyIpv6AddressAttributeRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example ipv6-hp32vv2klzw4yerdf****
+     *
      * @var string
      */
     public $ipv6AddressId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
@@ -34,6 +40,8 @@ class ModifyIpv6AddressAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-huhehaote
+     *
      * @var string
      */
     public $regionId;

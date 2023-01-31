@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcRequest extends Model
 {
     /**
+     * @example 172.16.0.0/12
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example This is my first Vpc
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableIpv6;
 
     /**
+     * @example 2408:XXXX:0:6a::/56
+     *
      * @var string
      */
     public $ipv6CidrBlock;
 
     /**
+     * @example BGP
+     *
      * @var string
      */
     public $ipv6Isp;
@@ -54,11 +68,15 @@ class CreateVpcRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmxazb4ph6aiy****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -74,11 +92,15 @@ class CreateVpcRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 192.168.0.0/12
+     *
      * @var string
      */
     public $userCidr;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $vpcName;

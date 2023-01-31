@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class CreateTrafficMirrorFilterRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
@@ -41,6 +45,8 @@ class CreateTrafficMirrorFilterRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hongkong
+     *
      * @var string
      */
     public $regionId;
@@ -56,11 +62,15 @@ class CreateTrafficMirrorFilterRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example this is a filter.
+     *
      * @var string
      */
     public $trafficMirrorFilterDescription;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $trafficMirrorFilterName;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteVpcGatewayEndpointResponseBody extends Model
 {
     /**
+     * @example A1122D0F-7B3B-5445-BB19-17F27F97FE1C
+     *
      * @var string
      */
     public $requestId;

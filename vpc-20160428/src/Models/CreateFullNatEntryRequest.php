@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class CreateFullNatEntryRequest extends Model
 {
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $accessIp;
 
     /**
+     * @example 80
+     *
      * @var string
      */
     public $accessPort;
 
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $fullNatEntryDescription;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $fullNatEntryName;
 
     /**
+     * @example fulltb-gw88z7hhlv43rmb26****
+     *
      * @var string
      */
     public $fullNatTableId;
 
     /**
+     * @example TCP
+     *
      * @var string
      */
     public $ipProtocol;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $natIp;
 
     /**
+     * @example 80
+     *
      * @var string
      */
     public $natIpPort;
 
     /**
+     * @example eni-gw8g131ef2dnbu3k****
+     *
      * @var string
      */
     public $networkInterfaceId;
@@ -74,6 +96,8 @@ class CreateFullNatEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @example eu-central-1
+     *
      * @var string
      */
     public $regionId;

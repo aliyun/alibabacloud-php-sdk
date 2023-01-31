@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateGlobalAccelerationInstanceRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var string
      */
     public $bandwidth;
 
     /**
+     * @example Exclusive
+     *
      * @var string
      */
     public $bandwidthType;
 
     /**
+     * @example 02fb3da4-130e-11e9-8e44-0016e04115b
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example My GA
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example GA-1
+     *
      * @var string
      */
     public $name;
@@ -44,6 +54,8 @@ class CreateGlobalAccelerationInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -59,6 +71,8 @@ class CreateGlobalAccelerationInstanceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example china-mainland
+     *
      * @var string
      */
     public $serviceLocation;

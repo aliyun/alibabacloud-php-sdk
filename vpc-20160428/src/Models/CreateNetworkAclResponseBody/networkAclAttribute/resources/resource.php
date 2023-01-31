@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
+     * @example vsw-bp1de348lntdwgthy****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example VSwitch
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example BINDED
+     *
      * @var string
      */
     public $status;

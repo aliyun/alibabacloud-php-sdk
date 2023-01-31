@@ -15,21 +15,29 @@ class DescribeIpv6GatewaysResponseBody extends Model
     public $ipv6Gateways;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example E3A06196-3E7C-490D-8F39-CB4B5A0CE8AD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

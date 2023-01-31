@@ -19,6 +19,8 @@ class OpenPhysicalConnectionServiceRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

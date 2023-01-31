@@ -15,21 +15,34 @@ class DescribeVirtualBorderRoutersRequest extends Model
     public $filter;
 
     /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $includeCrossAccountVbr;
+
+    /**
      * @var int
      */
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -44,13 +57,14 @@ class DescribeVirtualBorderRoutersRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'filter'               => 'Filter',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'regionId'             => 'RegionId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'filter'                 => 'Filter',
+        'includeCrossAccountVbr' => 'IncludeCrossAccountVbr',
+        'ownerId'                => 'OwnerId',
+        'pageNumber'             => 'PageNumber',
+        'pageSize'               => 'PageSize',
+        'regionId'               => 'RegionId',
+        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
+        'resourceOwnerId'        => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -68,6 +82,9 @@ class DescribeVirtualBorderRoutersRequest extends Model
                     $res['Filter'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->includeCrossAccountVbr) {
+            $res['IncludeCrossAccountVbr'] = $this->includeCrossAccountVbr;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -107,6 +124,9 @@ class DescribeVirtualBorderRoutersRequest extends Model
                     $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['IncludeCrossAccountVbr'])) {
+            $model->includeCrossAccountVbr = $map['IncludeCrossAccountVbr'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

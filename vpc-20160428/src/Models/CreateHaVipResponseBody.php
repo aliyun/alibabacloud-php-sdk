@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateHaVipResponseBody extends Model
 {
     /**
+     * @example havip-2zeo05qre24nhrqpy****
+     *
      * @var string
      */
     public $haVipId;
 
     /**
+     * @example 192.xx.xx.xx
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @example C44F62BE-9CE7-4277-B117-69243F3988BF
+     *
      * @var string
      */
     public $requestId;

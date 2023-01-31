@@ -9,31 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ModifyBgpGroupAttributeRequest extends Model
 {
     /**
+     * @example !PWZ2****
+     *
      * @var string
      */
     public $authKey;
 
     /**
+     * @example bgpg-wz9f62v4fbg2g****
+     *
      * @var string
      */
     public $bgpGroupId;
 
     /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $clearAuthKey;
+
+    /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example BGP
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isFakeAsn;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
@@ -49,11 +68,15 @@ class ModifyBgpGroupAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1****
+     *
      * @var int
      */
     public $peerAsn;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -70,6 +93,7 @@ class ModifyBgpGroupAttributeRequest extends Model
     protected $_name = [
         'authKey'              => 'AuthKey',
         'bgpGroupId'           => 'BgpGroupId',
+        'clearAuthKey'         => 'ClearAuthKey',
         'clientToken'          => 'ClientToken',
         'description'          => 'Description',
         'isFakeAsn'            => 'IsFakeAsn',
@@ -94,6 +118,9 @@ class ModifyBgpGroupAttributeRequest extends Model
         }
         if (null !== $this->bgpGroupId) {
             $res['BgpGroupId'] = $this->bgpGroupId;
+        }
+        if (null !== $this->clearAuthKey) {
+            $res['ClearAuthKey'] = $this->clearAuthKey;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -142,6 +169,9 @@ class ModifyBgpGroupAttributeRequest extends Model
         }
         if (isset($map['BgpGroupId'])) {
             $model->bgpGroupId = $map['BgpGroupId'];
+        }
+        if (isset($map['ClearAuthKey'])) {
+            $model->clearAuthKey = $map['ClearAuthKey'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];

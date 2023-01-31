@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomerGatewayRequest extends Model
 {
     /**
+     * @example cgw-bp1pvpl9r9adju6l5****
+     *
      * @var string
      */
     public $customerGatewayId;
@@ -24,6 +26,8 @@ class DescribeCustomerGatewayRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;

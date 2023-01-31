@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateRouteTableResponseBody extends Model
 {
     /**
+     * @example VSwitch
+     *
      * @var string
      */
     public $associateType;
 
     /**
+     * @example 62172DD5-6BAC-45DF-8D44-E11ED28DCAC0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example vtb-bp145q7glnuzdvzu2****
+     *
      * @var string
      */
     public $routeTableId;

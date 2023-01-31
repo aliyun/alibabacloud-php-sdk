@@ -11,61 +11,85 @@ use AlibabaCloud\Tea\Model;
 class commonBandwidthPackage extends Model
 {
     /**
+     * @example 20
+     *
      * @var string
      */
     public $bandwidth;
 
     /**
+     * @example cbwp-bp1t3sm1ffzmshdki****
+     *
      * @var string
      */
     public $bandwidthPackageId;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $businessStatus;
 
     /**
+     * @example 2017-06-28T06:39:20Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $deletionProtection;
 
     /**
+     * @example none
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 2019-01-15T03:08:37Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $hasReservationData;
 
     /**
+     * @example BGP
+     *
      * @var string
      */
     public $ISP;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @example PayByBandwidth
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $name;
@@ -76,36 +100,50 @@ class commonBandwidthPackage extends Model
     public $publicIpAddresses;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $ratio;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 2018-08-30T16:00:00Z
+     *
      * @var string
      */
     public $reservationActiveTime;
 
     /**
+     * @example 1000
+     *
      * @var string
      */
     public $reservationBandwidth;
 
     /**
+     * @example PayByBandwidth
+     *
      * @var string
      */
     public $reservationInternetChargeType;
 
     /**
+     * @example RENEWCHANGE
+     *
      * @var string
      */
     public $reservationOrderType;
 
     /**
+     * @example rg-acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -116,11 +154,15 @@ class commonBandwidthPackage extends Model
     public $securityProtectionTypes;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $serviceManaged;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;

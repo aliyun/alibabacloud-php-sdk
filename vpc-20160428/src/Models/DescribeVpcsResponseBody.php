@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcsResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example C6532AA8-D0F7-497F-A8EE-094126D441F5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

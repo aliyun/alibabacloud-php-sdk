@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class CreateNatIpRequest extends Model
 {
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example ngw-gw8v16wgvtq26vh59****
+     *
      * @var string
      */
     public $natGatewayId;
 
     /**
+     * @example 192.168.0.34
+     *
      * @var string
      */
     public $natIp;
 
     /**
+     * @example 192.168.0.0/24
+     *
      * @var string
      */
     public $natIpCidr;
 
     /**
+     * @example vpcnatip-gw8y7q3cpk3fggs87****
+     *
      * @var string
      */
     public $natIpCidrId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $natIpDescription;
 
     /**
+     * @example newnatip
+     *
      * @var string
      */
     public $natIpName;
@@ -59,6 +75,8 @@ class CreateNatIpRequest extends Model
     public $ownerId;
 
     /**
+     * @example eu-central-1
+     *
      * @var string
      */
     public $regionId;

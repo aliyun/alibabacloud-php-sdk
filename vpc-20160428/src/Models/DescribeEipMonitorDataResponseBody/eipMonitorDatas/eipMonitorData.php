@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class eipMonitorData extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $eipBandwidth;
 
     /**
+     * @example 465
+     *
      * @var int
      */
     public $eipFlow;
 
     /**
+     * @example 3434
+     *
      * @var int
      */
     public $eipPackets;
 
     /**
+     * @example 122
+     *
      * @var int
      */
     public $eipRX;
 
     /**
+     * @example 343
+     *
      * @var int
      */
     public $eipTX;
 
     /**
+     * @example 2020-01-21T09:50:23Z
+     *
      * @var string
      */
     public $timeStamp;

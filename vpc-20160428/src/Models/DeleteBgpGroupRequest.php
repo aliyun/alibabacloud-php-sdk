@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteBgpGroupRequest extends Model
 {
     /**
+     * @example bgpg-bp1k25cyp26cllath****
+     *
      * @var string
      */
     public $bgpGroupId;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
@@ -29,6 +33,8 @@ class DeleteBgpGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteTrafficMirrorFilterRequest extends Model
 {
     /**
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
@@ -29,6 +33,8 @@ class DeleteTrafficMirrorFilterRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hongkong
+     *
      * @var string
      */
     public $regionId;
@@ -44,6 +50,8 @@ class DeleteTrafficMirrorFilterRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example tmf-j6cmls82xnc86vtpe****
+     *
      * @var string
      */
     public $trafficMirrorFilterId;

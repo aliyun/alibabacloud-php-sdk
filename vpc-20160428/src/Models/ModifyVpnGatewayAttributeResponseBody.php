@@ -9,76 +9,106 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpnGatewayAttributeResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoPropagate;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $businessStatus;
 
     /**
+     * @example 1492753580000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableBgp;
 
     /**
+     * @example 1495382400000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 116.62.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @example 172.27.30.24
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 54B48E3D-DF70-471B-AA93-08E683A1B457
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 5M
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example vsw-bp1y9ovl1cu9ou4tv****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vpc-bp1ub1yt9cvakoel****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example vpn-bp1q8bgx4xnkm2ogj****
+     *
      * @var string
      */
     public $vpnGatewayId;

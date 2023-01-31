@@ -9,76 +9,106 @@ use AlibabaCloud\Tea\Model;
 class associatedPhysicalConnection extends Model
 {
     /**
+     * @example longtel0**
+     *
      * @var string
      */
     public $circuitCode;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableIpv6;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $localGatewayIp;
 
     /**
+     * @example 2001:XXXX:3c4d:0015:0000:0000:0000:1a2b
+     *
      * @var string
      */
     public $localIpv6GatewayIp;
 
     /**
+     * @example 116.62.XX.XX
+     *
      * @var string
      */
     public $peerGatewayIp;
 
     /**
+     * @example 2001:XXXX:3c4d:0015:0000:0000:0000:1a2b
+     *
      * @var string
      */
     public $peerIpv6GatewayIp;
 
     /**
+     * @example 2408:4004:cc:400::/56
+     *
      * @var string
      */
     public $peeringIpv6SubnetMask;
 
     /**
+     * @example 255.255.255.252
+     *
      * @var string
      */
     public $peeringSubnetMask;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $physicalConnectionBusinessStatus;
 
     /**
+     * @example pc-119mfjzm7****
+     *
      * @var string
      */
     public $physicalConnectionId;
 
     /**
+     * @example 12345678****
+     *
      * @var string
      */
     public $physicalConnectionOwnerUid;
 
     /**
+     * @example Enabled
+     *
      * @var string
      */
     public $physicalConnectionStatus;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $vlanId;
 
     /**
+     * @example ri-kojok19x3j0q6k****
+     *
      * @var string
      */
     public $vlanInterfaceId;

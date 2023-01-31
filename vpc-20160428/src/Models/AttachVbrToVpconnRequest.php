@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class AttachVbrToVpconnRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example CBCE910E-D396-4944-8****
+     *
      * @var string
      */
     public $token;
 
     /**
+     * @example vbr-bp133sn3nwjvu7twc****
+     *
      * @var string
      */
     public $vbrId;
 
     /**
+     * @example pc-bp1mrgfbtmc9brre7****
+     *
      * @var string
      */
     public $vpconnId;

@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class DescribeIPv6TranslatorEntriesRequest extends Model
 {
     /**
+     * @example ipv6transacl-bp1de2xxxx
+     *
      * @var string
      */
     public $aclId;
 
     /**
+     * @example off
+     *
      * @var string
      */
     public $aclStatus;
 
     /**
+     * @example white
+     *
      * @var string
      */
     public $aclType;
 
     /**
+     * @example 2400:3200:1600::xx
+     *
      * @var string
      */
     public $allocateIpv6Addr;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $allocateIpv6Port;
 
     /**
+     * @example 47.99.xx.xx
+     *
      * @var string
      */
     public $backendIpv4Addr;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $backendIpv4Port;
 
     /**
+     * @example sha1111
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example entryname
+     *
      * @var string
      */
     public $entryName;
 
     /**
+     * @example ipv6transentry-bp1g8bhrdexxxxx
+     *
      * @var string
      */
     public $ipv6TranslatorEntryId;
 
     /**
+     * @example ipv6trans-bp1858ysxxxxxx
+     *
      * @var string
      */
     public $ipv6TranslatorId;
@@ -74,16 +96,22 @@ class DescribeIPv6TranslatorEntriesRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -99,6 +127,8 @@ class DescribeIPv6TranslatorEntriesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example tcp
+     *
      * @var string
      */
     public $transProtocol;

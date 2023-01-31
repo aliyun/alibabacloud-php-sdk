@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class customerGateway extends Model
 {
     /**
+     * @example 65530
+     *
      * @var int
      */
     public $asn;
 
     /**
+     * @example AuthKey****
+     *
      * @var string
      */
     public $authKey;
 
     /**
+     * @example 1492747187000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example cgw-bp1pvpl9r9adju6l5****
+     *
      * @var string
      */
     public $customerGatewayId;
 
     /**
+     * @example desctest
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 139.32.XX.XX
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @example nametest
+     *
      * @var string
      */
     public $name;

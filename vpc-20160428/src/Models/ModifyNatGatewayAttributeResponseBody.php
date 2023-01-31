@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyNatGatewayAttributeResponseBody extends Model
 {
     /**
+     * @example AB5F62CF-2B60-4458-A756-42C9DFE108D1
+     *
      * @var string
      */
     public $requestId;

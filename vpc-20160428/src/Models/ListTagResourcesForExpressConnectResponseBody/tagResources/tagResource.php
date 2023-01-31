@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class tagResource extends Model
 {
     /**
+     * @example pc-bp16qjewdsunr41m1****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example PHYSICALCONNECTION
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example FinanceDept
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @example FinanceJoshua
+     *
      * @var string
      */
     public $tagValue;

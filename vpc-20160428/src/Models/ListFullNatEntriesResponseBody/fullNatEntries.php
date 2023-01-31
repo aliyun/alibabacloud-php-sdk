@@ -9,61 +9,92 @@ use AlibabaCloud\Tea\Model;
 class fullNatEntries extends Model
 {
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $accessIp;
 
     /**
+     * @example 80
+     *
      * @var string
      */
     public $accessPort;
 
     /**
+     * @example 2021-10-27T02:44:40Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $fullNatEntryDescription;
 
     /**
+     * @example fullnat-gw8fz23jezpbblf1j****
+     *
      * @var string
      */
     public $fullNatEntryId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $fullNatEntryName;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $fullNatEntryStatus;
 
     /**
+     * @example fulltb-gw88z7hhlv43rmb26****
+     *
+     * @var string
+     */
+    public $fullNatTableId;
+
+    /**
+     * @example TCP
+     *
      * @var string
      */
     public $ipProtocol;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $natIp;
 
     /**
+     * @example 80
+     *
      * @var string
      */
     public $natIpPort;
 
     /**
+     * @example eni-gw80wedm8pq0tpr2****
+     *
      * @var string
      */
     public $networkInterfaceId;
 
     /**
+     * @example Endpoint
+     *
      * @var string
      */
     public $networkInterfaceType;
@@ -75,6 +106,7 @@ class fullNatEntries extends Model
         'fullNatEntryId'          => 'FullNatEntryId',
         'fullNatEntryName'        => 'FullNatEntryName',
         'fullNatEntryStatus'      => 'FullNatEntryStatus',
+        'fullNatTableId'          => 'FullNatTableId',
         'ipProtocol'              => 'IpProtocol',
         'natIp'                   => 'NatIp',
         'natIpPort'               => 'NatIpPort',
@@ -109,6 +141,9 @@ class fullNatEntries extends Model
         }
         if (null !== $this->fullNatEntryStatus) {
             $res['FullNatEntryStatus'] = $this->fullNatEntryStatus;
+        }
+        if (null !== $this->fullNatTableId) {
+            $res['FullNatTableId'] = $this->fullNatTableId;
         }
         if (null !== $this->ipProtocol) {
             $res['IpProtocol'] = $this->ipProtocol;
@@ -157,6 +192,9 @@ class fullNatEntries extends Model
         }
         if (isset($map['FullNatEntryStatus'])) {
             $model->fullNatEntryStatus = $map['FullNatEntryStatus'];
+        }
+        if (isset($map['FullNatTableId'])) {
+            $model->fullNatTableId = $map['FullNatTableId'];
         }
         if (isset($map['IpProtocol'])) {
             $model->ipProtocol = $map['IpProtocol'];

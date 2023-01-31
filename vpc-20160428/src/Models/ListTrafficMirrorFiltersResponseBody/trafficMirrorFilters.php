@@ -21,21 +21,29 @@ class trafficMirrorFilters extends Model
     public $ingressRules;
 
     /**
+     * @example This is a filter.
+     *
      * @var string
      */
     public $trafficMirrorFilterDescription;
 
     /**
+     * @example tmf-j6cmls82xnc86vtpe****
+     *
      * @var string
      */
     public $trafficMirrorFilterId;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $trafficMirrorFilterName;
 
     /**
+     * @example Created
+     *
      * @var string
      */
     public $trafficMirrorFilterStatus;

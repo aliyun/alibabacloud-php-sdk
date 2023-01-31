@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpcAttributeRequest extends Model
 {
     /**
+     * @example 192.168.0.0/24
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @example This is my VPC.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableIPv6;
 
     /**
+     * @example 2408:XXXX:0:6a::/56
+     *
      * @var string
      */
     public $ipv6CidrBlock;
 
     /**
+     * @example BGP
+     *
      * @var string
      */
     public $ipv6Isp;
@@ -44,6 +54,8 @@ class ModifyVpcAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -59,11 +71,15 @@ class ModifyVpcAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vpc-bp1qtbach57ywecf****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example Vpc-1
+     *
      * @var string
      */
     public $vpcName;

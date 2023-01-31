@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class VRouter extends Model
 {
     /**
+     * @example 2018-03-22T07:46:20Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -30,16 +36,22 @@ class VRouter extends Model
     public $routeTableIds;
 
     /**
+     * @example vrt-rj98khsezfqpjrxmv****
+     *
      * @var string
      */
     public $VRouterId;
 
     /**
+     * @example doctest
+     *
      * @var string
      */
     public $VRouterName;
 
     /**
+     * @example vpc-rj905wotv6y030t1****
+     *
      * @var string
      */
     public $vpcId;

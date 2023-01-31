@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsRequest extends Model
 {
     /**
+     * @example zh-CN
+     *
      * @var string
      */
     public $acceptLanguage;
@@ -26,6 +28,11 @@ class DescribeRegionsRequest extends Model
     /**
      * @var string
      */
+    public $productType;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -36,6 +43,7 @@ class DescribeRegionsRequest extends Model
         'acceptLanguage'       => 'AcceptLanguage',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'productType'          => 'ProductType',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
     ];
@@ -55,6 +63,9 @@ class DescribeRegionsRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->productType) {
+            $res['ProductType'] = $this->productType;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -82,6 +93,9 @@ class DescribeRegionsRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ProductType'])) {
+            $model->productType = $map['ProductType'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

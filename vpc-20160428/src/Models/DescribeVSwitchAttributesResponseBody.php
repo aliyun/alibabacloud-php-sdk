@@ -10,51 +10,71 @@ use AlibabaCloud\Tea\Model;
 class DescribeVSwitchAttributesResponseBody extends Model
 {
     /**
+     * @example 12
+     *
      * @var int
      */
     public $availableIpAddressCount;
 
     /**
+     * @example 192.168.0.1/24
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @example 2021-08-22T10:40:25Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 2408:XXXX:3c5:44e::/64
+     *
      * @var string
      */
     public $ipv6CidrBlock;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isDefault;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $networkAclId;
 
     /**
+     * @example 287683832402436789
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @example 7B48B4B9-1EAD-469F-B488-594DAB4B6A1A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example rg-acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -65,26 +85,36 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $routeTable;
 
     /**
+     * @example Pending
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example vsw-25b7pv15t****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $vSwitchName;
 
     /**
+     * @example vpc-257gq642n****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example cn-beijing-a
+     *
      * @var string
      */
     public $zoneId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CopyNetworkAclEntriesRequest extends Model
 {
     /**
+     * @example 123
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example nacl-a2do9e413e0spxxxxxxxx
+     *
      * @var string
      */
     public $networkAclId;
@@ -24,6 +28,8 @@ class CopyNetworkAclEntriesRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -39,6 +45,8 @@ class CopyNetworkAclEntriesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example nacl-ghuo9ehg3e0spxxxxxxxx
+     *
      * @var string
      */
     public $sourceNetworkAclId;

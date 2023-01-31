@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomerGatewayResponseBody extends Model
 {
     /**
+     * @example 1493363486000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example cgw-bp1jrawp82av6bws9****
+     *
      * @var string
      */
     public $customerGatewayId;
 
     /**
+     * @example desctest
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 101.12.XX.XX
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @example nametest
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example D32B3C26-6C6C-4988-93E9-D2A6444CE6AE
+     *
      * @var string
      */
     public $requestId;

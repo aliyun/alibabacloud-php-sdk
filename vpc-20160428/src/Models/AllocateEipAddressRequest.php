@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class AllocateEipAddressRequest extends Model
 {
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $activityId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @example 5
+     *
      * @var string
      */
     public $bandwidth;
 
     /**
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example BGP
+     *
      * @var string
      */
     public $ISP;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @example PayByTraffic
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example EIP1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example public
+     *
      * @var string
      */
     public $netmode;
@@ -69,26 +89,36 @@ class AllocateEipAddressRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $pricingCycle;
 
     /**
+     * @example pippool-2vc0kxcedhquybdsz****
+     *
      * @var string
      */
     public $publicIpAddressPoolId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmxazffggds****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -104,6 +134,8 @@ class AllocateEipAddressRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example AntiDDoS_Enhanced
+     *
      * @var string[]
      */
     public $securityProtectionTypes;

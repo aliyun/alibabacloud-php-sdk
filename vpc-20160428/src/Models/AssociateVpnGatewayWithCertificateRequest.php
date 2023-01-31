@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class AssociateVpnGatewayWithCertificateRequest extends Model
 {
     /**
+     * @example 6bfe4218-ea1d****
+     *
      * @var string
      */
     public $certificateId;
 
     /**
+     * @example Signature
+     *
      * @var string
      */
     public $certificateType;
 
     /**
+     * @example 0c593ea1-3bea****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example vpn-bp1q8bgx4xnkm2ogj****
+     *
      * @var string
      */
     public $vpnGatewayId;

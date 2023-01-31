@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteIPv6TranslatorRequest extends Model
 {
     /**
+     * @example ClientToken
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example ipv6trans-bp1i8ahxut1iexxxx
+     *
      * @var string
      */
     public $ipv6TranslatorId;
@@ -29,6 +33,8 @@ class DeleteIPv6TranslatorRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class CreateIpsecServerRequest extends Model
 {
     /**
+     * @example 10.0.0.0/24
+     *
      * @var string
      */
     public $clientIpPool;
 
     /**
+     * @example d7d24a21-f4ba-4454-9173-b38****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $dryRun;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $effectImmediately;
 
     /**
+     * @example {"IkeVersion":"ikev2","IkeMode":"main","IkeEncAlg":"aes","IkeAuthAlg":"sha1","IkePfs":"group2","IkeLifetime":86400}
+     *
      * @var string
      */
     public $ikeConfig;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $ipSecServerName;
 
     /**
+     * @example {"IpsecEncAlg":"aes","IpsecAuthAlg":"sha1","IpsecPfs":"group2","IpsecLifetime":86400}
+     *
      * @var string
      */
     public $ipsecConfig;
 
     /**
+     * @example 192.168.0.0/24
+     *
      * @var string
      */
     public $localSubnet;
 
     /**
+     * @example Cfd123****
+     *
      * @var string
      */
     public $psk;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $pskEnabled;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example vpn-bp17lofy9fd0dnvzv****
+     *
      * @var string
      */
     public $vpnGatewayId;

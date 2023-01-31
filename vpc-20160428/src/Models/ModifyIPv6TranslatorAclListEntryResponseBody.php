@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyIPv6TranslatorAclListEntryResponseBody extends Model
 {
     /**
+     * @example 8B2F5262-6B57-43F2-xxxxx
+     *
      * @var string
      */
     public $requestId;

@@ -19,16 +19,22 @@ class DescribeVRoutersRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -44,6 +50,8 @@ class DescribeVRoutersRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vrt-bp1lhl0taikrteen****
+     *
      * @var string
      */
     public $VRouterId;

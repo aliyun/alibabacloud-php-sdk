@@ -4,47 +4,61 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\ListPublicIpAddressPoolsResponseBody;
 
-use AlibabaCloud\SDK\Vpc\V20160428\Models\ListPublicIpAddressPoolsResponseBody\publicIpAddressPoolList\publicIpCidrBlockList;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListPublicIpAddressPoolsResponseBody\publicIpAddressPoolList\tags;
 use AlibabaCloud\Tea\Model;
 
 class publicIpAddressPoolList extends Model
 {
     /**
+     * @example 2022-05-10T01:37:38Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example AddressPoolDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $ipAddressRemaining;
 
     /**
+     * @example BGP
+     *
      * @var string
      */
     public $isp;
 
     /**
+     * @example AddressPoolName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @example pippool-6wetvn6fumkgycssx****
+     *
      * @var string
      */
     public $publicIpAddressPoolId;
 
     /**
-     * @var publicIpCidrBlockList[]
-     */
-    public $publicIpCidrBlockList;
-
-    /**
+     * @example cn-chengdu
+     *
      * @var string
      */
     public $regionId;
@@ -52,35 +66,53 @@ class publicIpAddressPoolList extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $shareType;
+
+    /**
+     * @example Created
+     *
+     * @var string
+     */
     public $status;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @example 100
+     *
      * @var int
      */
     public $totalIpNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $usedIpNum;
-
-    /**
-     * @var bool
-     */
-    public $userType;
     protected $_name = [
         'creationTime'          => 'CreationTime',
         'description'           => 'Description',
         'ipAddressRemaining'    => 'IpAddressRemaining',
         'isp'                   => 'Isp',
         'name'                  => 'Name',
+        'ownerId'               => 'OwnerId',
         'publicIpAddressPoolId' => 'PublicIpAddressPoolId',
-        'publicIpCidrBlockList' => 'PublicIpCidrBlockList',
         'regionId'              => 'RegionId',
+        'resourceGroupId'       => 'ResourceGroupId',
+        'shareType'             => 'ShareType',
         'status'                => 'Status',
+        'tags'                  => 'Tags',
         'totalIpNum'            => 'TotalIpNum',
         'usedIpNum'             => 'UsedIpNum',
-        'userType'              => 'UserType',
     ];
 
     public function validate()
@@ -105,32 +137,38 @@ class publicIpAddressPoolList extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->publicIpAddressPoolId) {
             $res['PublicIpAddressPoolId'] = $this->publicIpAddressPoolId;
-        }
-        if (null !== $this->publicIpCidrBlockList) {
-            $res['PublicIpCidrBlockList'] = [];
-            if (null !== $this->publicIpCidrBlockList && \is_array($this->publicIpCidrBlockList)) {
-                $n = 0;
-                foreach ($this->publicIpCidrBlockList as $item) {
-                    $res['PublicIpCidrBlockList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->shareType) {
+            $res['ShareType'] = $this->shareType;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->totalIpNum) {
             $res['TotalIpNum'] = $this->totalIpNum;
         }
         if (null !== $this->usedIpNum) {
             $res['UsedIpNum'] = $this->usedIpNum;
-        }
-        if (null !== $this->userType) {
-            $res['UserType'] = $this->userType;
         }
 
         return $res;
@@ -159,32 +197,38 @@ class publicIpAddressPoolList extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['PublicIpAddressPoolId'])) {
             $model->publicIpAddressPoolId = $map['PublicIpAddressPoolId'];
-        }
-        if (isset($map['PublicIpCidrBlockList'])) {
-            if (!empty($map['PublicIpCidrBlockList'])) {
-                $model->publicIpCidrBlockList = [];
-                $n                            = 0;
-                foreach ($map['PublicIpCidrBlockList'] as $item) {
-                    $model->publicIpCidrBlockList[$n++] = null !== $item ? publicIpCidrBlockList::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ShareType'])) {
+            $model->shareType = $map['ShareType'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TotalIpNum'])) {
             $model->totalIpNum = $map['TotalIpNum'];
         }
         if (isset($map['UsedIpNum'])) {
             $model->usedIpNum = $map['UsedIpNum'];
-        }
-        if (isset($map['UserType'])) {
-            $model->userType = $map['UserType'];
         }
 
         return $model;

@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeRouteTablesResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example DC668356-BCB4-42FD-9BC3-FA2B2E04B634
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class DescribeRouteTablesResponseBody extends Model
     public $routeTables;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateExpressCloudConnectionRequest extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example XX@example.com
+     *
      * @var string
      */
     public $contactMail;
 
     /**
+     * @example 132*********
+     *
      * @var string
      */
     public $contactTel;
@@ -29,16 +35,22 @@ class CreateExpressCloudConnectionRequest extends Model
     public $description;
 
     /**
+     * @example 32*****************
+     *
      * @var string
      */
     public $IDCardNo;
 
     /**
+     * @example CU
+     *
      * @var string
      */
     public $idcSP;
 
     /**
+     * @example doctest
+     *
      * @var string
      */
     public $name;
@@ -64,16 +76,22 @@ class CreateExpressCloudConnectionRequest extends Model
     public $peerLocation;
 
     /**
+     * @example 100Base-T
+     *
      * @var string
      */
     public $portType;
 
     /**
+     * @example ecc-d****
+     *
      * @var string
      */
     public $redundantEccId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

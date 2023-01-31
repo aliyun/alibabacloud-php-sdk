@@ -10,29 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListVirtualPhysicalConnectionsRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isConfirmed;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example dd20****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example pc-bp1ciz7ekd2grn1as****
+     *
      * @var string
      */
     public $physicalConnectionId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var tags[]
@@ -40,26 +55,36 @@ class ListVirtualPhysicalConnectionsRequest extends Model
     public $tags;
 
     /**
+     * @example 189xxx
+     *
      * @var string[]
      */
     public $virtualPhysicalConnectionAliUids;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $virtualPhysicalConnectionBusinessStatus;
 
     /**
+     * @example pc-xxx
+     *
      * @var string[]
      */
     public $virtualPhysicalConnectionIds;
 
     /**
+     * @example pc-xxx
+     *
      * @var string[]
      */
     public $virtualPhysicalConnectionStatuses;
 
     /**
+     * @example pc-xxx
+     *
      * @var string[]
      */
     public $vlanIds;
@@ -69,6 +94,7 @@ class ListVirtualPhysicalConnectionsRequest extends Model
         'nextToken'                               => 'NextToken',
         'physicalConnectionId'                    => 'PhysicalConnectionId',
         'regionId'                                => 'RegionId',
+        'resourceGroupId'                         => 'ResourceGroupId',
         'tags'                                    => 'Tags',
         'virtualPhysicalConnectionAliUids'        => 'VirtualPhysicalConnectionAliUids',
         'virtualPhysicalConnectionBusinessStatus' => 'VirtualPhysicalConnectionBusinessStatus',
@@ -98,6 +124,9 @@ class ListVirtualPhysicalConnectionsRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tags) {
             $res['Tags'] = [];
@@ -149,6 +178,9 @@ class ListVirtualPhysicalConnectionsRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {

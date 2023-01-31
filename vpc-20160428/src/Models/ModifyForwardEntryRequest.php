@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ModifyForwardEntryRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example 116.85.XX.XX
+     *
      * @var string
      */
     public $externalIp;
 
     /**
+     * @example 80
+     *
      * @var string
      */
     public $externalPort;
 
     /**
+     * @example fwd-8vbn3bc8roygjp0gy****
+     *
      * @var string
      */
     public $forwardEntryId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $forwardEntryName;
 
     /**
+     * @example ftb-8vbx8xu2lqj9qb334****
+     *
      * @var string
      */
     public $forwardTableId;
 
     /**
+     * @example 10.0.0.78
+     *
      * @var string
      */
     public $internalIp;
 
     /**
+     * @example 80
+     *
      * @var string
      */
     public $internalPort;
 
     /**
+     * @example TCP
+     *
      * @var string
      */
     public $ipProtocol;
@@ -64,11 +82,15 @@ class ModifyForwardEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $portBreak;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

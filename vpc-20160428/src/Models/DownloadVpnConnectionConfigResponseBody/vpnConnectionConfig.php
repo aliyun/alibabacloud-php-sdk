@@ -21,21 +21,29 @@ class vpnConnectionConfig extends Model
     public $ipsecConfig;
 
     /**
+     * @example 139.196.XX.XX
+     *
      * @var string
      */
     public $local;
 
     /**
+     * @example 10.0.0.0/8
+     *
      * @var string
      */
     public $localSubnet;
 
     /**
+     * @example 116.62.XX.XX
+     *
      * @var string
      */
     public $remote;
 
     /**
+     * @example 192.168.0.0/16
+     *
      * @var string
      */
     public $remoteSubnet;

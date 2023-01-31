@@ -21,11 +21,15 @@ class GetNatGatewayAttributeResponseBody extends Model
     public $billingConfig;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $businessStatus;
 
     /**
+     * @example 2021-12-08T12:20:20Z
+     *
      * @var string
      */
     public $creationTime;
@@ -36,16 +40,22 @@ class GetNatGatewayAttributeResponseBody extends Model
     public $deletionProtectionInfo;
 
     /**
+     * @example NAT
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $ecsMetricEnabled;
 
     /**
+     * @example 2021-12-26T12:20:20Z
+     *
      * @var string
      */
     public $expiredTime;
@@ -66,21 +76,29 @@ class GetNatGatewayAttributeResponseBody extends Model
     public $ipList;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example ngw-bp1047e2d4z7kf2ki****
+     *
      * @var string
      */
     public $natGatewayId;
 
     /**
+     * @example Enhanced
+     *
      * @var string
      */
     public $natType;
 
     /**
+     * @example internet
+     *
      * @var string
      */
     public $networkType;
@@ -91,26 +109,36 @@ class GetNatGatewayAttributeResponseBody extends Model
     public $privateInfo;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $privateLinkEnabled;
 
     /**
+     * @example FullNat
+     *
      * @var string
      */
     public $privateLinkMode;
 
     /**
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -121,11 +149,15 @@ class GetNatGatewayAttributeResponseBody extends Model
     public $snatTable;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example vpc-bp15zckdt37pq72z****
+     *
      * @var string
      */
     public $vpcId;

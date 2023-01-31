@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class vcoHealthCheck extends Model
 {
     /**
+     * @example 192.168.0.1
+     *
      * @var string
      */
     public $dip;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $enable;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @example revoke_route
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $retry;
 
     /**
+     * @example 192.168.0.50
+     *
      * @var string
      */
     public $sip;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $status;

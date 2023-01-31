@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSslVpnServersRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
@@ -24,16 +26,22 @@ class DescribeSslVpnServersRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -49,11 +57,15 @@ class DescribeSslVpnServersRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vss-bp15j3du13gq1dgey****
+     *
      * @var string
      */
     public $sslVpnServerId;
 
     /**
+     * @example vpn-bp1on0xae9d771ggi****
+     *
      * @var string
      */
     public $vpnGatewayId;

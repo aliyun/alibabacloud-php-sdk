@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateNatGatewayNatTypeRequest extends Model
 {
     /**
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example ngw-bp1b0lic8uz4r6vf2****
+     *
      * @var string
      */
     public $natGatewayId;
 
     /**
+     * @example Enhanced
+     *
      * @var string
      */
     public $natType;
@@ -39,6 +47,8 @@ class UpdateNatGatewayNatTypeRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $regionId;
@@ -54,6 +64,8 @@ class UpdateNatGatewayNatTypeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vsw-bp17nszybg8epodke****
+     *
      * @var string
      */
     public $vSwitchId;

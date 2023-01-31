@@ -15,16 +15,22 @@ class ListNatIpCidrsResponseBody extends Model
     public $natIpCidrs;
 
     /**
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 7479A224-4A28-4895-9604-11F48BCE6A88
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $totalCount;

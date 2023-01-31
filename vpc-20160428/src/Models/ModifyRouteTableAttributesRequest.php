@@ -24,6 +24,8 @@ class ModifyRouteTableAttributesRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -39,11 +41,15 @@ class ModifyRouteTableAttributesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vtb-bp145q7glnuzdvzu2****
+     *
      * @var string
      */
     public $routeTableId;
 
     /**
+     * @example doctest
+     *
      * @var string
      */
     public $routeTableName;

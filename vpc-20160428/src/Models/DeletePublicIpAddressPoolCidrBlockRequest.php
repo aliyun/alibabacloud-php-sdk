@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeletePublicIpAddressPoolCidrBlockRequest extends Model
 {
     /**
+     * @example 47.0.XX.XX/24
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
@@ -34,11 +40,15 @@ class DeletePublicIpAddressPoolCidrBlockRequest extends Model
     public $ownerId;
 
     /**
+     * @example pippool-6wetvn6fumkgycssx****
+     *
      * @var string
      */
     public $publicIpAddressPoolId;
 
     /**
+     * @example cn-chengdu
+     *
      * @var string
      */
     public $regionId;

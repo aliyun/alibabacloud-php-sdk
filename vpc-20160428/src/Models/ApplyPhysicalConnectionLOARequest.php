@@ -10,31 +10,43 @@ use AlibabaCloud\Tea\Model;
 class ApplyPhysicalConnectionLOARequest extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example company
+     *
      * @var string
      */
     public $companyName;
 
     /**
+     * @example 2022-02-28T16:00:00Z
+     *
      * @var string
      */
     public $constructionTime;
 
     /**
+     * @example pc-bp1qrb3044eqi****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example FIBRE
+     *
      * @var string
      */
     public $lineType;
@@ -60,6 +72,8 @@ class ApplyPhysicalConnectionLOARequest extends Model
     public $peerLocation;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

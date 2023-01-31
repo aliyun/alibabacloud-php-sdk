@@ -11,6 +11,11 @@ class UnassociateVpcCidrBlockRequest extends Model
     /**
      * @var string
      */
+    public $IPv6CidrBlock;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -19,6 +24,8 @@ class UnassociateVpcCidrBlockRequest extends Model
     public $ownerId;
 
     /**
+     * @example ch-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,15 +41,20 @@ class UnassociateVpcCidrBlockRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 192.168.0.0/16
+     *
      * @var string
      */
     public $secondaryCidrBlock;
 
     /**
+     * @example vpc-o6wrloqsdqc9io3mg****
+     *
      * @var string
      */
     public $vpcId;
     protected $_name = [
+        'IPv6CidrBlock'        => 'IPv6CidrBlock',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -59,6 +71,9 @@ class UnassociateVpcCidrBlockRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->IPv6CidrBlock) {
+            $res['IPv6CidrBlock'] = $this->IPv6CidrBlock;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -92,6 +107,9 @@ class UnassociateVpcCidrBlockRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IPv6CidrBlock'])) {
+            $model->IPv6CidrBlock = $map['IPv6CidrBlock'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }

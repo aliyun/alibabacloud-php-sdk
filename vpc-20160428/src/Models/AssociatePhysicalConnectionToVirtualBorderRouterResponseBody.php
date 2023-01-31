@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AssociatePhysicalConnectionToVirtualBorderRouterResponseBody extends Model
 {
     /**
+     * @example 980960B0-2969-40BF-8542-EBB34FD358AB
+     *
      * @var string
      */
     public $requestId;

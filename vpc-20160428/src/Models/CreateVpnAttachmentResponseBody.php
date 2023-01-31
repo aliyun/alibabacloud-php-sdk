@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class CreateVpnAttachmentResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1658201810000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example nametest
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 88187252-0E26-3C4D-9D1D-32A04454EBBA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example vco-p0wb09rama8qwwgfn****
+     *
      * @var string
      */
     public $vpnConnectionId;

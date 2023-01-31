@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeRouterInterfacesResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example C7F6FCBD-F9CC-4501-8EF3-CDC9577CAE45
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class DescribeRouterInterfacesResponseBody extends Model
     public $routerInterfaceSet;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

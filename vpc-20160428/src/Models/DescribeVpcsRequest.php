@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcsRequest extends Model
 {
     /**
+     * @example dopt-o6w0df4epg9zo8isy****
+     *
      * @var string
      */
     public $dhcpOptionsSetId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isDefault;
@@ -34,21 +40,29 @@ class DescribeVpcsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmxvfvazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -64,16 +78,22 @@ class DescribeVpcsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vpc-bp1b1xjllp3ve5yze****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example Vpc-1
+     *
      * @var string
      */
     public $vpcName;
 
     /**
+     * @example 253460731706911258
+     *
      * @var int
      */
     public $vpcOwnerId;

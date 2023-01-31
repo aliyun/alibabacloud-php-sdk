@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteGlobalAccelerationInstanceResponseBody extends Model
 {
     /**
+     * @example E6E63B2A-9820-44A8-A359-9BB2DAEE6424
+     *
      * @var string
      */
     public $requestId;

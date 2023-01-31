@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AllocateEipSegmentAddressResponseBody extends Model
 {
     /**
+     * @example eipsg-2zett8ba055tbsxme****
+     *
      * @var string
      */
     public $eipSegmentInstanceId;
 
     /**
+     * @example 2022****
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example F7A6301A-64BA-41EC-8284-8F4838C15D1F
+     *
      * @var string
      */
     public $requestId;

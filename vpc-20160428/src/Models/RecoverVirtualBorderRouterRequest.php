@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RecoverVirtualBorderRouterRequest extends Model
 {
     /**
+     * @example 02fb3da4-130e-11e9-8e44-0016e04115b
+     *
      * @var string
      */
     public $clientToken;
@@ -24,6 +26,8 @@ class RecoverVirtualBorderRouterRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -39,6 +43,8 @@ class RecoverVirtualBorderRouterRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vbr-bp1lhl0taikrte****
+     *
      * @var string
      */
     public $vbrId;

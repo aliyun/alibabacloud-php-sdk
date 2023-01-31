@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteIpv6InternetBandwidthRequest extends Model
 {
     /**
+     * @example ipv6bw-uf6hcyzu65v98v3du****
+     *
      * @var string
      */
     public $ipv6AddressId;
 
     /**
+     * @example ipv6bw-uf6hcyzu65v98v3du****
+     *
      * @var string
      */
     public $ipv6InternetBandwidthId;
@@ -29,6 +33,8 @@ class DeleteIpv6InternetBandwidthRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-huhehaote
+     *
      * @var string
      */
     public $regionId;

@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class ipv4GatewayModels extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @example 2021-12-02T07:07:35Z
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $ipv4GatewayDescription;
 
     /**
+     * @example ipv4gw-5tsnc6s4ogsedtp3k****
+     *
      * @var string
      */
     public $ipv4GatewayId;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $ipv4GatewayName;
 
     /**
+     * @example vtb-5ts0ohchwkp3dydt2****
+     *
      * @var string
      */
     public $ipv4GatewayRouteTableId;
 
     /**
+     * @example Created
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example vpc-5tsrxlw7dv074gci4****
+     *
      * @var string
      */
     public $vpcId;

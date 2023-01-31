@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyCustomerGatewayAttributeRequest extends Model
 {
     /**
+     * @example AuthKey****
+     *
      * @var string
      */
     public $authKey;
 
     /**
+     * @example 02fb3da4-130e-11e9-8e44****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example cgw-bp1pvpl9r9adju6l5****
+     *
      * @var string
      */
     public $customerGatewayId;
 
     /**
+     * @example desctest
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example nametest
+     *
      * @var string
      */
     public $name;
@@ -44,6 +54,8 @@ class ModifyCustomerGatewayAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteVpnAttachmentRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-4266****
+     *
      * @var string
      */
     public $clientToken;
@@ -19,6 +21,8 @@ class DeleteVpnAttachmentRequest extends Model
     public $ownerAccount;
 
     /**
+     * @example ap-southeast-2
+     *
      * @var string
      */
     public $regionId;
@@ -34,6 +38,8 @@ class DeleteVpnAttachmentRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vco-p0w7gtr14m09r9lkr****
+     *
      * @var string
      */
     public $vpnConnectionId;

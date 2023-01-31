@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRouterInterfaceRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
@@ -24,6 +26,8 @@ class DeleteRouterInterfaceRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -39,6 +43,8 @@ class DeleteRouterInterfaceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example ri-2zeo3xzyf38r4urz****
+     *
      * @var string
      */
     public $routerInterfaceId;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class GetVpcGatewayEndpointAttributeResponseBody extends Model
 {
     /**
+     * @example 2021-08-27T01:58:37Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $endpointDescription;
 
     /**
+     * @example vpce-bp1w1dmdqjpwul0v3****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $endpointName;
 
     /**
+     * @example Created
+     *
      * @var string
      */
     public $endpointStatus;
 
     /**
+     * @example {"Version" : "1",   "Statement" : [ {     "Effect" : "Allow",     "Resource" : [ "*" ],     "Action" : [ "*" ],     "Principal" : [ "*" ]   } ] }
+     *
      * @var string
      */
     public $policyDocument;
 
     /**
+     * @example A1122D0F-7B3B-5445-BB19-17F27F97FE1C
+     *
      * @var string
      */
     public $requestId;
@@ -49,11 +63,15 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
     public $routeTables;
 
     /**
+     * @example com.aliyun.cn-hangzhou.oss
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example vpc-bp1nh86rugg01zol0****
+     *
      * @var string
      */
     public $vpcId;

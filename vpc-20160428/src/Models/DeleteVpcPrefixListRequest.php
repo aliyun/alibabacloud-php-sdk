@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteVpcPrefixListRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
@@ -29,11 +33,15 @@ class DeleteVpcPrefixListRequest extends Model
     public $ownerId;
 
     /**
+     * @example pl-0b78hw45f****
+     *
      * @var string
      */
     public $prefixListId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

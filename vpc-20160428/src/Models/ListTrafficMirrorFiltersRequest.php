@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListTrafficMirrorFiltersRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
@@ -29,6 +33,8 @@ class ListTrafficMirrorFiltersRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hongkong
+     *
      * @var string
      */
     public $regionId;
@@ -44,11 +50,15 @@ class ListTrafficMirrorFiltersRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example tmf-j6cmls82xnc86vtpe****
+     *
      * @var string[]
      */
     public $trafficMirrorFilterIds;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $trafficMirrorFilterName;

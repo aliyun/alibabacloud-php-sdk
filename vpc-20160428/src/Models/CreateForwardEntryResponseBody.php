@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateForwardEntryResponseBody extends Model
 {
     /**
+     * @example fwd-119smw5tkasdf****
+     *
      * @var string
      */
     public $forwardEntryId;
 
     /**
+     * @example A4AEE536-A97A-40EB-9EBE-53A6948A6928
+     *
      * @var string
      */
     public $requestId;

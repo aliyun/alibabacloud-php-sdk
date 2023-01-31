@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddCommonBandwidthPackageIpsRequest extends Model
 {
     /**
+     * @example cbwp-2ze2ic1xd2qeqasdf****
+     *
      * @var string
      */
     public $bandwidthPackageId;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
@@ -24,6 +28,8 @@ class AddCommonBandwidthPackageIpsRequest extends Model
     public $ipInstanceIds;
 
     /**
+     * @example EIP
+     *
      * @var string
      */
     public $ipType;
@@ -39,6 +45,8 @@ class AddCommonBandwidthPackageIpsRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;

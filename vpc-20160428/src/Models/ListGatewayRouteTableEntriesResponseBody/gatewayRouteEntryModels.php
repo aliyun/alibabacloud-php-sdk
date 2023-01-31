@@ -4,36 +4,54 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\ListGatewayRouteTableEntriesResponseBody;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListGatewayRouteTableEntriesResponseBody\gatewayRouteEntryModels\nextHops;
 use AlibabaCloud\Tea\Model;
 
 class gatewayRouteEntryModels extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 192.168.0.5
+     *
      * @var string
      */
     public $destinationCidrBlock;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example i-bp11gcl0sm85t9bi****
+     *
      * @var string
      */
     public $nextHopId;
 
     /**
+     * @example EcsInstance
+     *
      * @var string
      */
     public $nextHopType;
 
     /**
+     * @var nextHops[]
+     */
+    public $nextHops;
+
+    /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
@@ -43,6 +61,7 @@ class gatewayRouteEntryModels extends Model
         'name'                 => 'Name',
         'nextHopId'            => 'NextHopId',
         'nextHopType'          => 'NextHopType',
+        'nextHops'             => 'NextHops',
         'status'               => 'Status',
     ];
 
@@ -67,6 +86,15 @@ class gatewayRouteEntryModels extends Model
         }
         if (null !== $this->nextHopType) {
             $res['NextHopType'] = $this->nextHopType;
+        }
+        if (null !== $this->nextHops) {
+            $res['NextHops'] = [];
+            if (null !== $this->nextHops && \is_array($this->nextHops)) {
+                $n = 0;
+                foreach ($this->nextHops as $item) {
+                    $res['NextHops'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -97,6 +125,15 @@ class gatewayRouteEntryModels extends Model
         }
         if (isset($map['NextHopType'])) {
             $model->nextHopType = $map['NextHopType'];
+        }
+        if (isset($map['NextHops'])) {
+            if (!empty($map['NextHops'])) {
+                $model->nextHops = [];
+                $n               = 0;
+                foreach ($map['NextHops'] as $item) {
+                    $model->nextHops[$n++] = null !== $item ? nextHops::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

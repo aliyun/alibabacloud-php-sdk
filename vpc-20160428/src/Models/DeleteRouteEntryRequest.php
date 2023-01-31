@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteRouteEntryRequest extends Model
 {
     /**
+     * @example 47.100.XX.XX/16
+     *
      * @var string
      */
     public $destinationCidrBlock;
 
     /**
+     * @example ri-2zeo3xzyf38r4urzd****
+     *
      * @var string
      */
     public $nextHopId;
@@ -35,6 +39,8 @@ class DeleteRouteEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -50,11 +56,15 @@ class DeleteRouteEntryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example rte-bp1mnnr2al0naomnpv****
+     *
      * @var string
      */
     public $routeEntryId;
 
     /**
+     * @example vtb-2ze3jgygk9bmsj23s****
+     *
      * @var string
      */
     public $routeTableId;

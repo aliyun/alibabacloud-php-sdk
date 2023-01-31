@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateVirtualBorderBandwidthRequest extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example 02fb3da4-130e-11e9-8e44-0016****
+     *
      * @var string
      */
     public $clientToken;
@@ -29,6 +33,8 @@ class UpdateVirtualBorderBandwidthRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -44,6 +50,8 @@ class UpdateVirtualBorderBandwidthRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vbr-bp15zckdt37pq72****
+     *
      * @var string
      */
     public $virtualBorderRouterId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeEipMonitorDataRequest extends Model
 {
     /**
+     * @example eip-2zeerraiwb7uj6idcfv****
+     *
      * @var string
      */
     public $allocationId;
 
     /**
+     * @example 2020-01-05T03:05:10Z
+     *
      * @var string
      */
     public $endTime;
@@ -29,11 +33,15 @@ class DescribeEipMonitorDataRequest extends Model
     public $ownerId;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -49,6 +57,8 @@ class DescribeEipMonitorDataRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 2020-01-05T01:05:05Z
+     *
      * @var string
      */
     public $startTime;

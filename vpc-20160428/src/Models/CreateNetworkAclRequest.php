@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkAclRequest extends Model
 {
     /**
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example This is my NetworkAcl.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example acl-1
+     *
      * @var string
      */
     public $networkAclName;
@@ -29,6 +35,8 @@ class CreateNetworkAclRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -44,6 +52,8 @@ class CreateNetworkAclRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vpc-dsfd34356vdf****
+     *
      * @var string
      */
     public $vpcId;

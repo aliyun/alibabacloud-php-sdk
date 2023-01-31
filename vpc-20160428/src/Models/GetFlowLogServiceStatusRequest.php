@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetFlowLogServiceStatusRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
@@ -24,6 +26,8 @@ class GetFlowLogServiceStatusRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

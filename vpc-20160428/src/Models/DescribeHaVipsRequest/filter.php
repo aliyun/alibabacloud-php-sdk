@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
+     * @example HaVipId
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example havip-bp19o63nequs01i8d****
+     *
      * @var string[]
      */
     public $value;

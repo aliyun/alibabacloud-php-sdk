@@ -16,6 +16,8 @@ class haVip extends Model
     public $associatedEipAddresses;
 
     /**
+     * @example EcsInstance
+     *
      * @var string
      */
     public $associatedInstanceType;
@@ -26,56 +28,78 @@ class haVip extends Model
     public $associatedInstances;
 
     /**
+     * @example none
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example 2021-07-03T14:25:26Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example My HaVip
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example havip-bp149uyvut73dpld****
+     *
      * @var string
      */
     public $haVipId;
 
     /**
+     * @example 192.168.24.5
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @example i-bp145q7glnuzdvz****
+     *
      * @var string
      */
     public $masterInstanceId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example vsw-bp1pkt1fba8e824ez****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vpc-bp1kcm36tevkpms97****
+     *
      * @var string
      */
     public $vpcId;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateVpnGatewayResponseBody extends Model
 {
     /**
+     * @example MYVPN
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 208240895400460
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example EB2C156A-41F8-49CC-A756-D55AFC8BFD69
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example vpn-uf68lxhgr7ftbqr3p****
+     *
      * @var string
      */
     public $vpnGatewayId;

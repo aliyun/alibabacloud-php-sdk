@@ -19,6 +19,8 @@ class DescribeServerRelatedGlobalAccelerationInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,11 +36,15 @@ class DescribeServerRelatedGlobalAccelerationInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example i-12s3sdf****
+     *
      * @var string
      */
     public $serverId;
 
     /**
+     * @example EcsInstance
+     *
      * @var string
      */
     public $serverType;

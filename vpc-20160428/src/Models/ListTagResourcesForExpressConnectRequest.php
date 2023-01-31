@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesForExpressConnectRequest extends Model
 {
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
@@ -30,6 +34,8 @@ class ListTagResourcesForExpressConnectRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -50,6 +56,8 @@ class ListTagResourcesForExpressConnectRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example PHYSICALCONNECTION
+     *
      * @var string
      */
     public $resourceType;

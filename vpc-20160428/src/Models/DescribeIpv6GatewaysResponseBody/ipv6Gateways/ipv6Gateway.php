@@ -9,56 +9,71 @@ use AlibabaCloud\Tea\Model;
 class ipv6Gateway extends Model
 {
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $businessStatus;
 
     /**
+     * @example 2020-12-20T14:51:23Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example descriptionforIPv6GW
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 2021-12-20T14:51:23Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @example ipv6gw-hp3rwmtmfhgisipv6gw-hp3rwmtmfhgis****
+     *
      * @var string
      */
     public $ipv6GatewayId;
 
     /**
+     * @example ipv6GW
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example cn-huhehaote
+     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @var string
-     */
-    public $spec;
-
-    /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example vpc-123sedrfswd23****
+     *
      * @var string
      */
     public $vpcId;
@@ -71,7 +86,6 @@ class ipv6Gateway extends Model
         'ipv6GatewayId'      => 'Ipv6GatewayId',
         'name'               => 'Name',
         'regionId'           => 'RegionId',
-        'spec'               => 'Spec',
         'status'             => 'Status',
         'vpcId'              => 'VpcId',
     ];
@@ -106,9 +120,6 @@ class ipv6Gateway extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->spec) {
-            $res['Spec'] = $this->spec;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -151,9 +162,6 @@ class ipv6Gateway extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Spec'])) {
-            $model->spec = $map['Spec'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

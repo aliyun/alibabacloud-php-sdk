@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class associateVpcs extends Model
 {
     /**
+     * @example InUse
+     *
      * @var string
      */
     public $associateStatus;
 
     /**
+     * @example vpc-eb3b54r6otues4tjj****
+     *
      * @var string
      */
     public $vpcId;

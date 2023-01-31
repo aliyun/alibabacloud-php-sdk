@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class bgpNetwork extends Model
 {
     /**
+     * @example 10.1.XX.XX/24
+     *
      * @var string
      */
     public $dstCidrBlock;
 
     /**
+     * @example vrt-bp1lhl0taikrteen8****
+     *
      * @var string
      */
     public $routerId;
 
     /**
+     * @example Enabled
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example vpc-bp1qpo0kug3a2*****
+     *
      * @var string
      */
     public $vpcId;

@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class routeEntry extends Model
 {
     /**
+     * @example RouteEntryDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 192.168.2.0/24
+     *
      * @var string
      */
     public $destinationCidrBlock;
 
     /**
+     * @example 2022-05-09T03:00:07Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example IPv4
+     *
      * @var string
      */
     public $ipVersion;
@@ -35,26 +43,43 @@ class routeEntry extends Model
     public $nextHops;
 
     /**
+     * @example rte-bp1mnnr2al0naomnp****
+     *
      * @var string
      */
     public $routeEntryId;
 
     /**
+     * @example aaa
+     *
      * @var string
      */
     public $routeEntryName;
 
     /**
+     * @example vtb-bp15w5q90d2rk3bww****
+     *
      * @var string
      */
     public $routeTableId;
 
     /**
+     * @example TR
+     *
+     * @var string
+     */
+    public $serviceType;
+
+    /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example Custom
+     *
      * @var string
      */
     public $type;
@@ -67,6 +92,7 @@ class routeEntry extends Model
         'routeEntryId'         => 'RouteEntryId',
         'routeEntryName'       => 'RouteEntryName',
         'routeTableId'         => 'RouteTableId',
+        'serviceType'          => 'ServiceType',
         'status'               => 'Status',
         'type'                 => 'Type',
     ];
@@ -101,6 +127,9 @@ class routeEntry extends Model
         }
         if (null !== $this->routeTableId) {
             $res['RouteTableId'] = $this->routeTableId;
+        }
+        if (null !== $this->serviceType) {
+            $res['ServiceType'] = $this->serviceType;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -143,6 +172,9 @@ class routeEntry extends Model
         }
         if (isset($map['RouteTableId'])) {
             $model->routeTableId = $map['RouteTableId'];
+        }
+        if (isset($map['ServiceType'])) {
+            $model->serviceType = $map['ServiceType'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

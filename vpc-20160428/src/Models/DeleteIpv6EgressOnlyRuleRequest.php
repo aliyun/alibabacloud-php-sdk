@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteIpv6EgressOnlyRuleRequest extends Model
 {
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example ipv6py-hp3w98rmlbqp0xxxxxxxx
+     *
      * @var string
      */
     public $ipv6EgressOnlyRuleId;
@@ -29,6 +33,8 @@ class DeleteIpv6EgressOnlyRuleRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-huhehaote
+     *
      * @var string
      */
     public $regionId;

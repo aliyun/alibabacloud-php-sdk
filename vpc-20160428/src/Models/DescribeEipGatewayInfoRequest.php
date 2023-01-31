@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeEipGatewayInfoRequest extends Model
 {
     /**
+     * @example eni-bp1d66qjxb3qoin3****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 111
+     *
      * @var string
      */
     public $ownerAccount;
 
     /**
+     * @example 111
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @example cn-zhangjiakou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 111
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @example 111
+     *
      * @var int
      */
     public $resourceOwnerId;

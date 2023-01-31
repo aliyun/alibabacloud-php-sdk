@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSslVpnClientCertsRequest extends Model
 {
     /**
+     * @example cert1
+     *
      * @var string
      */
     public $name;
@@ -24,16 +26,22 @@ class DescribeSslVpnClientCertsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -49,11 +57,15 @@ class DescribeSslVpnClientCertsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vsc-bp1n8wcf134yl0osr****
+     *
      * @var string
      */
     public $sslVpnClientCertId;
 
     /**
+     * @example vss-bp18q7hzj6largv4v****
+     *
      * @var string
      */
     public $sslVpnServerId;

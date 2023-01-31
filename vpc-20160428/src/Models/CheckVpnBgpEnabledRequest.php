@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckVpnBgpEnabledRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-4266****
+     *
      * @var string
      */
     public $clientToken;
@@ -19,6 +21,8 @@ class CheckVpnBgpEnabledRequest extends Model
     public $ownerAccount;
 
     /**
+     * @example ap-southeast-2
+     *
      * @var string
      */
     public $regionId;

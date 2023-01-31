@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class AssociateEipAddressRequest extends Model
 {
     /**
+     * @example eip-2zeerraiwb7ujsxdc****
+     *
      * @var string
      */
     public $allocationId;
 
     /**
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example i-2zebb08phyczzawe****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $instanceRegionId;
 
     /**
+     * @example EcsInstance
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example NAT
+     *
      * @var string
      */
     public $mode;
@@ -49,11 +61,15 @@ class AssociateEipAddressRequest extends Model
     public $ownerId;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $privateIpAddress;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -67,6 +83,11 @@ class AssociateEipAddressRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'allocationId'         => 'AllocationId',
         'clientToken'          => 'ClientToken',
@@ -80,6 +101,7 @@ class AssociateEipAddressRequest extends Model
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'vpcId'                => 'VpcId',
     ];
 
     public function validate()
@@ -124,6 +146,9 @@ class AssociateEipAddressRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -172,6 +197,9 @@ class AssociateEipAddressRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

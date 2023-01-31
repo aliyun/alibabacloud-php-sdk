@@ -19,21 +19,29 @@ class DescribeRouteTableListRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example ap-southeast-6
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -49,26 +57,36 @@ class DescribeRouteTableListRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vtb-bp145q7glnuzdvzu2****
+     *
      * @var string
      */
     public $routeTableId;
 
     /**
+     * @example doctest
+     *
      * @var string
      */
     public $routeTableName;
 
     /**
+     * @example vrt-bp1lhl0taikrteen8****
+     *
      * @var string
      */
     public $routerId;
 
     /**
+     * @example VRouter
+     *
      * @var string
      */
     public $routerType;
 
     /**
+     * @example vpc-bp15zckdt37pq72****
+     *
      * @var string
      */
     public $vpcId;

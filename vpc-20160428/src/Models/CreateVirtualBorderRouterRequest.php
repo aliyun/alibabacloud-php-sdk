@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class CreateVirtualBorderRouterRequest extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example longtel001
+     *
      * @var string
      */
     public $circuitCode;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example desc
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableIpv6;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $localGatewayIp;
 
     /**
+     * @example 2001:XXXX:3c4d:0015:0000:0000:0000:1a2b
+     *
      * @var string
      */
     public $localIpv6GatewayIp;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
@@ -59,31 +75,43 @@ class CreateVirtualBorderRouterRequest extends Model
     public $ownerId;
 
     /**
+     * @example 116.62.XX.XX
+     *
      * @var string
      */
     public $peerGatewayIp;
 
     /**
+     * @example 2001:XXXX:4:4:4:4:4:4
+     *
      * @var string
      */
     public $peerIpv6GatewayIp;
 
     /**
+     * @example 2408:4004:cc:400::/56
+     *
      * @var string
      */
     public $peeringIpv6SubnetMask;
 
     /**
+     * @example 255.255.255.252
+     *
      * @var string
      */
     public $peeringSubnetMask;
 
     /**
+     * @example pc-2zextbehcx****
+     *
      * @var string
      */
     public $physicalConnectionId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -99,11 +127,15 @@ class CreateVirtualBorderRouterRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 168811111****
+     *
      * @var int
      */
     public $vbrOwnerId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $vlanId;

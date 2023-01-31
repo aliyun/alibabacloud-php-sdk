@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class OpenFlowLogServiceResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 28CF47AB-B6C0-5FA2-80C7-2B28826A92CB
+     *
      * @var string
      */
     public $requestId;

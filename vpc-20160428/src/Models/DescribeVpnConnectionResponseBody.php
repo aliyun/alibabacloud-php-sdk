@@ -13,41 +13,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpnConnectionResponseBody extends Model
 {
     /**
+     * @example cen-lxxpbpalc776qz****
+     *
      * @var string
      */
     public $attachInstanceId;
 
     /**
+     * @example CEN
+     *
      * @var string
      */
     public $attachType;
 
     /**
+     * @example 1492753817000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $crossAccountAuthorized;
 
     /**
+     * @example cgw-bp1mvj4g9kogwwcxk****
+     *
      * @var string
      */
     public $customerGatewayId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $effectImmediately;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableDpd;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableNatTraversal;
@@ -58,6 +74,8 @@ class DescribeVpnConnectionResponseBody extends Model
     public $ikeConfig;
 
     /**
+     * @example 47.XX.XX.162
+     *
      * @var string
      */
     public $internetIp;
@@ -68,56 +86,78 @@ class DescribeVpnConnectionResponseBody extends Model
     public $ipsecConfig;
 
     /**
+     * @example 10.0.0.0/8
+     *
      * @var string
      */
     public $localSubnet;
 
     /**
+     * @example ipsec1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example public
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @example -----BEGIN CERTIFICATE----- MIIB7zCCAZW****
+     *
      * @var string
      */
     public $remoteCaCertificate;
 
     /**
+     * @example 192.168.0.0/16
+     *
      * @var string
      */
     public $remoteSubnet;
 
     /**
+     * @example F2310D45-BCF6-4E2E-9082-B4503844BA4C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1000M
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @example attached
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example ike_sa_not_established
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example tr-p0we2edef9qr44a85****
+     *
      * @var string
      */
     public $transitRouterId;
 
     /**
+     * @example nametest
+     *
      * @var string
      */
     public $transitRouterName;
@@ -133,16 +173,22 @@ class DescribeVpnConnectionResponseBody extends Model
     public $vpnBgpConfig;
 
     /**
+     * @example vco-bp1bbi27hojx80nck****
+     *
      * @var string
      */
     public $vpnConnectionId;
 
     /**
+     * @example vpn-bp1q8bgx4xnkm2ogj****
+     *
      * @var string
      */
     public $vpnGatewayId;
 
     /**
+     * @example ap-southeast-2b
+     *
      * @var string
      */
     public $zoneNo;

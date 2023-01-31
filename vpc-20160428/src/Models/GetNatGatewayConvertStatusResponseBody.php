@@ -15,16 +15,22 @@ class GetNatGatewayConvertStatusResponseBody extends Model
     public $convertSteps;
 
     /**
+     * @example Enhanced
+     *
      * @var string
      */
     public $dstNatType;
 
     /**
+     * @example ngw-bp1b0lic8uz4r6vf2****
+     *
      * @var string
      */
     public $natGatewayId;
 
     /**
+     * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
+     *
      * @var string
      */
     public $requestId;

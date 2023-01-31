@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreatePublicIpAddressPoolRequest extends Model
 {
     /**
+     * @example 02fb3da4-130e-11****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example AddressPoolDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example BGP
+     *
      * @var string
      */
     public $isp;
 
     /**
+     * @example AddressPoolName
+     *
      * @var string
      */
     public $name;
@@ -44,9 +54,16 @@ class CreatePublicIpAddressPoolRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-chengdu
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -66,6 +83,7 @@ class CreatePublicIpAddressPoolRequest extends Model
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
     ];
@@ -100,6 +118,9 @@ class CreatePublicIpAddressPoolRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -142,6 +163,9 @@ class CreatePublicIpAddressPoolRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

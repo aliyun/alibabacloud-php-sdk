@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteVbrHaRequest extends Model
 {
     /**
+     * @example CBCE910E-D396-4944-8****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example vbrha-sa1******
+     *
      * @var string
      */
     public $instanceId;
@@ -29,6 +33,8 @@ class DeleteVbrHaRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

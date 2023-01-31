@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateIPv6TranslatorAclListResponseBody extends Model
 {
     /**
+     * @example ipv6transacl-bp1de2xxxx
+     *
      * @var string
      */
     public $aclId;
 
     /**
+     * @example 8B2F5262-6B57-43F2-xxxxx
+     *
      * @var string
      */
     public $requestId;

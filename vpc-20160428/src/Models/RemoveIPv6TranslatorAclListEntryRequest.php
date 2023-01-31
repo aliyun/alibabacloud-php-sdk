@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RemoveIPv6TranslatorAclListEntryRequest extends Model
 {
     /**
+     * @example ipv6transaclentry-bp105jrsxxxx
+     *
      * @var string
      */
     public $aclEntryId;
 
     /**
+     * @example ipv6transacl-bp1de2xxxx
+     *
      * @var string
      */
     public $aclId;
 
     /**
+     * @example sha123456
+     *
      * @var string
      */
     public $clientToken;
@@ -34,6 +40,8 @@ class RemoveIPv6TranslatorAclListEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

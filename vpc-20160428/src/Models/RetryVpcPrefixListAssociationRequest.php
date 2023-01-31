@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RetryVpcPrefixListAssociationRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
@@ -29,16 +33,22 @@ class RetryVpcPrefixListAssociationRequest extends Model
     public $ownerId;
 
     /**
+     * @example pl-0b7hwu67****
+     *
      * @var string
      */
     public $prefixListId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example vtb-bp1drpcfz9srr393h****
+     *
      * @var string
      */
     public $resourceId;
@@ -54,6 +64,8 @@ class RetryVpcPrefixListAssociationRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vpcRouteTable
+     *
      * @var string
      */
     public $resourceType;

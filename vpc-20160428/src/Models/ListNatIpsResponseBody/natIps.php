@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class natIps extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isDefault;
 
     /**
+     * @example ngw-gw8v16wgvtq26vh59****
+     *
      * @var string
      */
     public $natGatewayId;
 
     /**
+     * @example 192.168.0.126
+     *
      * @var string
      */
     public $natIp;
 
     /**
+     * @example 192.168.0.0/24
+     *
      * @var string
      */
     public $natIpCidr;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $natIpDescription;
 
     /**
+     * @example vpcnatip-gw8a863sut1zijxh0****
+     *
      * @var string
      */
     public $natIpId;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $natIpName;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $natIpStatus;

@@ -11,21 +11,29 @@ use AlibabaCloud\Tea\Model;
 class ipsecServers extends Model
 {
     /**
+     * @example 10.0.0.0/24
+     *
      * @var string
      */
     public $clientIpPool;
 
     /**
+     * @example 2018-12-03T10:11:55Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $effectImmediately;
 
     /**
+     * @example idaas-cn-hangzhou-****
+     *
      * @var string
      */
     public $IDaaSInstanceId;
@@ -36,6 +44,8 @@ class ipsecServers extends Model
     public $ikeConfig;
 
     /**
+     * @example 47.22.XX.XX
+     *
      * @var string
      */
     public $internetIp;
@@ -46,51 +56,71 @@ class ipsecServers extends Model
     public $ipsecConfig;
 
     /**
+     * @example iss-bp1bo3xuvcxo7ixll****
+     *
      * @var string
      */
     public $ipsecServerId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $ipsecServerName;
 
     /**
+     * @example 192.168.0.0/16,172.17.0.0/16
+     *
      * @var string
      */
     public $localSubnet;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $maxConnections;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $multiFactorAuthEnabled;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $onlineClientCount;
 
     /**
+     * @example pgw6dy7d****
+     *
      * @var string
      */
     public $psk;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $pskEnabled;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example vpn-bp1q8bgx4xnkm2ogj****
+     *
      * @var string
      */
     public $vpnGatewayId;

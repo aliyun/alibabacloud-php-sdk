@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyFullNatEntryAttributeResponseBody extends Model
 {
     /**
+     * @example 2315DEB7-5E92-423A-91F7-4C1EC9AD97C3
+     *
      * @var string
      */
     public $requestId;

@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class routerTableListType extends Model
 {
     /**
+     * @example VSwitch
+     *
      * @var string
      */
     public $associateType;
 
     /**
+     * @example 2021-08-22T10:40:25Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example This is Route Table.
+     *
      * @var string
      */
     public $description;
@@ -32,41 +38,57 @@ class routerTableListType extends Model
     public $gatewayIds;
 
     /**
+     * @example 253460731706911258
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @example rg-acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example vtb-bp145q7glnuzdvzu2****
+     *
      * @var string
      */
     public $routeTableId;
 
     /**
+     * @example doctest
+     *
      * @var string
      */
     public $routeTableName;
 
     /**
+     * @example System
+     *
      * @var string
      */
     public $routeTableType;
 
     /**
+     * @example vrt-bp1lhl0taikrteen8****
+     *
      * @var string
      */
     public $routerId;
 
     /**
+     * @example VRouter
+     *
      * @var string
      */
     public $routerType;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
@@ -82,6 +104,8 @@ class routerTableListType extends Model
     public $vSwitchIds;
 
     /**
+     * @example vpc-bp15zckdt37pq72****
+     *
      * @var string
      */
     public $vpcId;

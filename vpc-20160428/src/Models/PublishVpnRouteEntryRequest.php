@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class PublishVpnRouteEntryRequest extends Model
 {
     /**
+     * @example d7d24a21-f4ba-4454-9173-b3828dae492b
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example vco-bp15oes1py4i66rmd****
+     *
      * @var string
      */
     public $nextHop;
@@ -29,11 +33,15 @@ class PublishVpnRouteEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $publishVpc;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -49,16 +57,22 @@ class PublishVpnRouteEntryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 10.0.0.0/24
+     *
      * @var string
      */
     public $routeDest;
 
     /**
+     * @example pbr
+     *
      * @var string
      */
     public $routeType;
 
     /**
+     * @example vpn-bp1a3kqjiiq9legfx****
+     *
      * @var string
      */
     public $vpnGatewayId;

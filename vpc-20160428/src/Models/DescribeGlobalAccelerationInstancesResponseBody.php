@@ -15,21 +15,29 @@ class DescribeGlobalAccelerationInstancesResponseBody extends Model
     public $globalAccelerationInstances;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 6B4EE38D-C75B-4E1F-844E-863A94430676
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class vpnGateway extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoPropagate;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $businessStatus;
@@ -26,41 +30,57 @@ class vpnGateway extends Model
     public $chargeType;
 
     /**
+     * @example 1515383700000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableBgp;
 
     /**
+     * @example 1518105600000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 47.12.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @example enable
+     *
      * @var string
      */
     public $ipsecVpn;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example public
+     *
      * @var string
      */
     public $networkType;
@@ -71,26 +91,36 @@ class vpnGateway extends Model
     public $reservationData;
 
     /**
+     * @example 5M
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $sslMaxConnections;
 
     /**
+     * @example enable
+     *
      * @var string
      */
     public $sslVpn;
 
     /**
+     * @example Active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example {\"VpnNewImage\":\"true\",\"VpnVersion\":\"v1.2.2\"}
+     *
      * @var string
      */
     public $tag;
@@ -101,21 +131,29 @@ class vpnGateway extends Model
     public $tags;
 
     /**
+     * @example vsw-bp15lbk8sgtr6r5b0****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vpc-bp1m3i0kn1nd4wiw9****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example vpn-bp17lofy9fd0dnvzv****
+     *
      * @var string
      */
     public $vpnGatewayId;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $vpnType;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AssociateRouteTableRequest extends Model
 {
     /**
+     * @example 02fb3da4-130e-11e9-8e44-0016e04115b
+     *
      * @var string
      */
     public $clientToken;
@@ -24,6 +26,8 @@ class AssociateRouteTableRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -39,11 +43,15 @@ class AssociateRouteTableRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vtb-bp145q7glnuzdvzu2****
+     *
      * @var string
      */
     public $routeTableId;
 
     /**
+     * @example vsw-25ncdvfaue4****
+     *
      * @var string
      */
     public $vSwitchId;

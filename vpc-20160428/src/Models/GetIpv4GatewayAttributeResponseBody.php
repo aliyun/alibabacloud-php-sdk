@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class GetIpv4GatewayAttributeResponseBody extends Model
 {
     /**
+     * @example 2022-02-24T09:02:36Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @example new
+     *
      * @var string
      */
     public $ipv4GatewayDescription;
 
     /**
+     * @example ipv4gw-5tsnc6s4ogsedtp3k****
+     *
      * @var string
      */
     public $ipv4GatewayId;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $ipv4GatewayName;
 
     /**
+     * @example vtb-5ts0ohchwkp3dydt2****
+     *
      * @var string
      */
     public $ipv4GatewayRouteTableId;
 
     /**
+     * @example 7F79A919-6FE9-50C4-967B-45705E1F9C38
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example Created
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example vpc-5tsrxlw7dv074gci4****
+     *
      * @var string
      */
     public $vpcId;

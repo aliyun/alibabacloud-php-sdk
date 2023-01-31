@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyEipAddressAttributeRequest extends Model
 {
     /**
+     * @example eip-2zeerraiwb7uj6i0d****
+     *
      * @var string
      */
     public $allocationId;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $bandwidth;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example Test123
+     *
      * @var string
      */
     public $name;
@@ -39,6 +47,8 @@ class ModifyEipAddressAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class associatedCen extends Model
 {
     /**
+     * @example cen-kojok19xxx****
+     *
      * @var string
      */
     public $cenId;
 
     /**
+     * @example 1688000000000****
+     *
      * @var int
      */
     public $cenOwnerId;
 
     /**
+     * @example Attached
+     *
      * @var string
      */
     public $cenStatus;

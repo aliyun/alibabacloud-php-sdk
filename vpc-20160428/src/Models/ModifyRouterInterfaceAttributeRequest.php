@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyRouterInterfaceAttributeRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $deleteHealthCheckIp;
@@ -19,46 +21,64 @@ class ModifyRouterInterfaceAttributeRequest extends Model
     public $description;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $hcRate;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $hcThreshold;
 
     /**
+     * @example 116.62.XX.XX
+     *
      * @var string
      */
     public $healthCheckSourceIp;
 
     /**
+     * @example 116.62.XX.XX
+     *
      * @var string
      */
     public $healthCheckTargetIp;
 
     /**
+     * @example TEST
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example ri-2zeo3xzyf38r4urz****
+     *
      * @var string
      */
     public $oppositeInterfaceId;
 
     /**
+     * @example 28768383240243****
+     *
      * @var int
      */
     public $oppositeInterfaceOwnerId;
 
     /**
+     * @example vrt-bp1jcg5cmxjbl9xgc****
+     *
      * @var string
      */
     public $oppositeRouterId;
 
     /**
+     * @example VBR
+     *
      * @var string
      */
     public $oppositeRouterType;
@@ -69,6 +89,8 @@ class ModifyRouterInterfaceAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -84,6 +106,8 @@ class ModifyRouterInterfaceAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example ri-2zeo3xzyf38r4urz****
+     *
      * @var string
      */
     public $routerInterfaceId;

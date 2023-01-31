@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class aclEntry extends Model
 {
     /**
+     * @example client IP
+     *
      * @var string
      */
     public $aclEntryComment;
 
     /**
+     * @example ipv6transaclentry-bp105jrsxxxx
+     *
      * @var string
      */
     public $aclEntryId;
 
     /**
+     * @example 12ab:0:0:dc30::0102/128
+     *
      * @var string
      */
     public $aclEntryIp;

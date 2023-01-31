@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateBgpPeerRequest extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $bfdMultiHop;
 
     /**
+     * @example bgpg-wz9f62v4fbg****
+     *
      * @var string
      */
     public $bgpGroupId;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableBfd;
 
     /**
+     * @example ipv4
+     *
      * @var string
      */
     public $ipVersion;
@@ -44,11 +54,15 @@ class CreateBgpPeerRequest extends Model
     public $ownerId;
 
     /**
+     * @example 116.62.XX.XX
+     *
      * @var string
      */
     public $peerIpAddress;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;

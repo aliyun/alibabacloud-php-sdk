@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class physicalConnectionType extends Model
 {
     /**
+     * @example ap-cn-hangzhou-finance-yh-E
+     *
      * @var string
      */
     public $accessPointId;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $accessPointType;
@@ -24,81 +28,113 @@ class physicalConnectionType extends Model
     public $adLocation;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $businessStatus;
 
     /**
+     * @example Prepaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example longtel001
+     *
      * @var string
      */
     public $circuitCode;
 
     /**
+     * @example 2021-08-24T07:30:58Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example desctest
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 2021-08-24T07:33:18Z
+     *
      * @var string
      */
     public $enabledTime;
 
     /**
+     * @example 2022-04-24T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 50M
+     *
      * @var string
      */
     public $expectSpec;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $hasReservationData;
 
     /**
+     * @example CT
+     *
      * @var string
      */
     public $lineOperator;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $loaStatus;
 
     /**
+     * @example nametest
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example PayByPhysicalConnectionOwner
+     *
      * @var string
      */
     public $orderMode;
 
     /**
+     * @example 283117732402483989
+     *
      * @var int
      */
     public $parentPhysicalConnectionAliUid;
 
     /**
+     * @example pc-bp1ciz7ekd2grn1as****
+     *
      * @var string
      */
     public $parentPhysicalConnectionId;
@@ -109,41 +145,57 @@ class physicalConnectionType extends Model
     public $peerLocation;
 
     /**
+     * @example pc-bp1ciz7ekd2grn1as****
+     *
      * @var string
      */
     public $physicalConnectionId;
 
     /**
+     * @example 1/1/1
+     *
      * @var string
      */
     public $portNumber;
 
     /**
+     * @example 10GBase-LR
+     *
      * @var string
      */
     public $portType;
 
     /**
+     * @example PhysicalConnection
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example pc-119mfjzm****
+     *
      * @var string
      */
     public $redundantPhysicalConnectionId;
 
     /**
+     * @example 2022-02-25T11:01:04Z
+     *
      * @var string
      */
     public $reservationActiveTime;
 
     /**
+     * @example PayByBandwidth
+     *
      * @var string
      */
     public $reservationInternetChargeType;
 
     /**
+     * @example RENEW
+     *
      * @var string
      */
     public $reservationOrderType;
@@ -151,29 +203,46 @@ class physicalConnectionType extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @example 10G
+     *
+     * @var string
+     */
     public $spec;
 
     /**
+     * @example Enabled
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $virtualPhysicalConnectionCount;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $vlanId;
 
     /**
+     * @example Confirmed
+     *
      * @var string
      */
     public $vpconnStatus;
@@ -206,6 +275,7 @@ class physicalConnectionType extends Model
         'reservationActiveTime'          => 'ReservationActiveTime',
         'reservationInternetChargeType'  => 'ReservationInternetChargeType',
         'reservationOrderType'           => 'ReservationOrderType',
+        'resourceGroupId'                => 'ResourceGroupId',
         'spec'                           => 'Spec',
         'status'                         => 'Status',
         'type'                           => 'Type',
@@ -304,6 +374,9 @@ class physicalConnectionType extends Model
         }
         if (null !== $this->reservationOrderType) {
             $res['ReservationOrderType'] = $this->reservationOrderType;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
@@ -418,6 +491,9 @@ class physicalConnectionType extends Model
         }
         if (isset($map['ReservationOrderType'])) {
             $model->reservationOrderType = $map['ReservationOrderType'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];

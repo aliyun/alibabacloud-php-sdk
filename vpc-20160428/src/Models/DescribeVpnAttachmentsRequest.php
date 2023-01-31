@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpnAttachmentsRequest extends Model
 {
     /**
+     * @example CEN
+     *
      * @var string
      */
     public $attachType;
@@ -24,16 +26,22 @@ class DescribeVpnAttachmentsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example ap-southeast-2
+     *
      * @var string
      */
     public $regionId;
@@ -49,6 +57,8 @@ class DescribeVpnAttachmentsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vco-p0w2jpkhi2eeop6q6****
+     *
      * @var string
      */
     public $vpnConnectionId;

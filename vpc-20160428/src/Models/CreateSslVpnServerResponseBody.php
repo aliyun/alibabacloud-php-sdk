@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateSslVpnServerResponseBody extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example E98A9651-7098-40C7-8F85-C818D1EBBA85
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example vss-bp18q7hzj6largv4v****
+     *
      * @var string
      */
     public $sslVpnServerId;

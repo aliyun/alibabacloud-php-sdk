@@ -15,51 +15,71 @@ class DescribeEipAddressesRequest extends Model
     public $filter;
 
     /**
+     * @example eip-2zeerraiwb7ujxscd****
+     *
      * @var string
      */
     public $allocationId;
 
     /**
+     * @example i-2zebb08phyccdvf****
+     *
      * @var string
      */
     public $associatedInstanceId;
 
     /**
+     * @example EcsInstance
+     *
      * @var string
      */
     public $associatedInstanceType;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example 47.75.XX.XX
+     *
      * @var string
      */
     public $eipAddress;
 
     /**
+     * @example EIP-01
+     *
      * @var string
      */
     public $eipName;
 
     /**
+     * @example BGP
+     *
      * @var string
      */
     public $ISP;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $includeReservationData;
 
     /**
+     * @example financial
+     *
      * @var string
      */
     public $lockReason;
@@ -75,26 +95,36 @@ class DescribeEipAddressesRequest extends Model
     public $ownerId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example pippool-2vc0kxcedhquybdsz****
+     *
      * @var string
      */
     public $publicIpAddressPoolId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmxazb4pcdvf****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -110,16 +140,22 @@ class DescribeEipAddressesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $securityProtectionEnabled;
 
     /**
+     * @example eipsg-t4nr90yik5oy38xdy****
+     *
      * @var string
      */
     public $segmentInstanceId;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;

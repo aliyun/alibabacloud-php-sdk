@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpnGatewayAttributeRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoPropagate;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-4266****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example myvpn
+     *
      * @var string
      */
     public $name;
@@ -39,6 +47,8 @@ class ModifyVpnGatewayAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -54,6 +64,8 @@ class ModifyVpnGatewayAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vpn-bp1q8bgx4xnkm2ogj****
+     *
      * @var string
      */
     public $vpnGatewayId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyRouterInterfaceSpecRequest extends Model
 {
     /**
+     * @example 02fb3da4-130e-11e9-8e44-0016e04115b
+     *
      * @var string
      */
     public $clientToken;
@@ -24,6 +26,8 @@ class ModifyRouterInterfaceSpecRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -39,11 +43,15 @@ class ModifyRouterInterfaceSpecRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example ri-2zeo3xzyf38r4urzd****
+     *
      * @var string
      */
     public $routerInterfaceId;
 
     /**
+     * @example Small.1
+     *
      * @var string
      */
     public $spec;

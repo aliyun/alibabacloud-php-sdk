@@ -15,16 +15,22 @@ class ListIpv4GatewaysResponseBody extends Model
     public $ipv4GatewayModels;
 
     /**
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 2D265800-E306-529C-8418-84B0A1D201DB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $totalCount;

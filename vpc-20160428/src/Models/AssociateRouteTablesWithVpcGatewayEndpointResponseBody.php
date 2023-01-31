@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AssociateRouteTablesWithVpcGatewayEndpointResponseBody extends Model
 {
     /**
+     * @example 59BDDA2D-FB52-59F9-9DC5-5EA7D6808B8E
+     *
      * @var string
      */
     public $requestId;

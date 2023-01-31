@@ -13,41 +13,57 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpnAttachmentAttributeResponseBody extends Model
 {
     /**
+     * @example cen-c2r3m3zxkumoqz****
+     *
      * @var string
      */
     public $attachInstanceId;
 
     /**
+     * @example CEN
+     *
      * @var string
      */
     public $attachType;
 
     /**
+     * @example 1658201810000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example cgw-p0w2jemrcj5u61un8****
+     *
      * @var string
      */
     public $customerGatewayId;
 
     /**
+     * @example desctest
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $effectImmediately;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableDpd;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableNatTraversal;
@@ -63,36 +79,50 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $ipsecConfig;
 
     /**
+     * @example 10.1.1.0/24,10.1.2.0/24
+     *
      * @var string
      */
     public $localSubnet;
 
     /**
+     * @example nametest
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example public
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @example 10.1.3.0/24,10.1.4.0/24
+     *
      * @var string
      */
     public $remoteSubnet;
 
     /**
+     * @example 35822A84-867F-3936-A2E6-A4C4E3ED11C0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1000M
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @example ike_sa_not_established
+     *
      * @var string
      */
     public $status;
@@ -108,11 +138,15 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $vpnBgpConfig;
 
     /**
+     * @example vco-p0w5112fgnl2ihlmf****
+     *
      * @var string
      */
     public $vpnConnectionId;
 
     /**
+     * @example vpn-p0wa1c1018pmeb6cu****
+     *
      * @var string
      */
     public $vpnGatewayId;

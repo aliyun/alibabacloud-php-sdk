@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteVpnRouteEntryResponseBody extends Model
 {
     /**
+     * @example 5BE01CD7-5A50-472D-AC14-CA181C5C03BE
+     *
      * @var string
      */
     public $requestId;

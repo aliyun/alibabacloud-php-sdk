@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ipv6InternetBandwidth extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $businessStatus;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @example PayByTraffic
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example ipv6bw-hp3b35oq1fj50kbv****
+     *
      * @var string
      */
     public $ipv6InternetBandwidthId;

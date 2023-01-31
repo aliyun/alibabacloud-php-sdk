@@ -9,21 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyNatGatewayAttributeRequest extends Model
 {
     /**
+     * @example Description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example NAT
+     *
+     * @var string
+     */
+    public $eipBindMode;
+
+    /**
+     * @example false
+     *
      * @var bool
      */
     public $icmpReplyEnabled;
 
     /**
+     * @example nat123
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example ngw-2ze0dcn4mq31qx2jc****
+     *
      * @var string
      */
     public $natGatewayId;
@@ -39,6 +54,8 @@ class ModifyNatGatewayAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -54,6 +71,7 @@ class ModifyNatGatewayAttributeRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'description'          => 'Description',
+        'eipBindMode'          => 'EipBindMode',
         'icmpReplyEnabled'     => 'IcmpReplyEnabled',
         'name'                 => 'Name',
         'natGatewayId'         => 'NatGatewayId',
@@ -73,6 +91,9 @@ class ModifyNatGatewayAttributeRequest extends Model
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->eipBindMode) {
+            $res['EipBindMode'] = $this->eipBindMode;
         }
         if (null !== $this->icmpReplyEnabled) {
             $res['IcmpReplyEnabled'] = $this->icmpReplyEnabled;
@@ -112,6 +133,9 @@ class ModifyNatGatewayAttributeRequest extends Model
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['EipBindMode'])) {
+            $model->eipBindMode = $map['EipBindMode'];
         }
         if (isset($map['IcmpReplyEnabled'])) {
             $model->icmpReplyEnabled = $map['IcmpReplyEnabled'];

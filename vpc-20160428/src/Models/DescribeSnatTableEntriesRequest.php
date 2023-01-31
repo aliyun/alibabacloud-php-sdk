@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnatTableEntriesRequest extends Model
 {
     /**
+     * @example ngw-bp1uewa15k4iy5770****
+     *
      * @var string
      */
     public $natGatewayId;
@@ -24,16 +26,22 @@ class DescribeSnatTableEntriesRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -49,31 +57,43 @@ class DescribeSnatTableEntriesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example snat-8vbae8uqh7rjpk7d2****
+     *
      * @var string
      */
     public $snatEntryId;
 
     /**
+     * @example SnatEntry-1
+     *
      * @var string
      */
     public $snatEntryName;
 
     /**
+     * @example 116.22.XX.XX
+     *
      * @var string
      */
     public $snatIp;
 
     /**
+     * @example stb-8vbczigrhop8x5u3t****
+     *
      * @var string
      */
     public $snatTableId;
 
     /**
+     * @example 116.22.XX.XX/24
+     *
      * @var string
      */
     public $sourceCIDR;
 
     /**
+     * @example vsw-3xbjkhjshjdf****
+     *
      * @var string
      */
     public $sourceVSwitchId;

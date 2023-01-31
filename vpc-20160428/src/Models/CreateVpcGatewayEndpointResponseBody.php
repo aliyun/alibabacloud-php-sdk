@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcGatewayEndpointResponseBody extends Model
 {
     /**
+     * @example 2021-08-27T01:58:37Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example vpce-bp1w1dmdqjpwul0v3****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $endpointName;
 
     /**
+     * @example 62CFC815-E08A-5CF4-92D1-54273EC9E406
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example com.aliyun.cn-hangzhou.oss
+     *
      * @var string
      */
     public $serviceName;

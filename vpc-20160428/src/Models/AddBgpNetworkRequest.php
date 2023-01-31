@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddBgpNetworkRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example 10.10.XX.XX/32
+     *
      * @var string
      */
     public $dstCidrBlock;
@@ -29,6 +33,8 @@ class AddBgpNetworkRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -44,11 +50,15 @@ class AddBgpNetworkRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vrt-2zeo3xzyf38r4u******
+     *
      * @var string
      */
     public $routerId;
 
     /**
+     * @example vpc-bp1qpo0kug3a2*****
+     *
      * @var string
      */
     public $vpcId;

@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class natGatewayPrivateInfo extends Model
 {
     /**
+     * @example eni-m5eg4ozy5st8q3q4****
+     *
      * @var string
      */
     public $eniInstanceId;
 
     /**
+     * @example indirect
+     *
      * @var string
      */
     public $eniType;
 
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $izNo;
 
     /**
+     * @example 5120
+     *
      * @var int
      */
     public $maxBandwidth;
 
     /**
+     * @example 100000
+     *
      * @var int
      */
     public $maxSessionEstablishRate;
 
     /**
+     * @example 2000000
+     *
      * @var int
      */
     public $maxSessionQuota;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $privateIpAddress;
 
     /**
+     * @example vsw-bp1s2laxhdf9ayjbo****
+     *
      * @var string
      */
     public $vswitchId;

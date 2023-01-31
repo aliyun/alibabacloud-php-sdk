@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVirtualBorderRoutersForPhysicalConnectionRequest extends Model
 {
     /**
+     * @description 25425
+     *
      * @var filter[]
      */
     public $filter;
@@ -20,21 +22,29 @@ class DescribeVirtualBorderRoutersForPhysicalConnectionRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example pc-119mfj****
+     *
      * @var string
      */
     public $physicalConnectionId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreatePhysicalConnectionSetupOrderRequest extends Model
 {
     /**
+     * @example ap-cn-beijing-ft-A
+     *
      * @var string
      */
     public $accessPointId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @example 318BB676-0A2B-43A0-9AD8-F1D34E93750F
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example CT
+     *
      * @var string
      */
     public $lineOperator;
@@ -39,16 +47,22 @@ class CreatePhysicalConnectionSetupOrderRequest extends Model
     public $ownerId;
 
     /**
+     * @example 100Base-T
+     *
      * @var string
      */
     public $portType;
 
     /**
+     * @example pc-bp10zsv5ntp****
+     *
      * @var string
      */
     public $redundantPhysicalConnectionId;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;

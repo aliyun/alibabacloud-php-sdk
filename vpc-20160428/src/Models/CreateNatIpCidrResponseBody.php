@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateNatIpCidrResponseBody extends Model
 {
     /**
+     * @example vpcnatcidr-gw8lhqtvdn4qnea****
+     *
      * @var string
      */
     public $natIpCidrId;
 
     /**
+     * @example 7021BEB1-210F-48A9-AB82-BE9A9110BB89
+     *
      * @var string
      */
     public $requestId;

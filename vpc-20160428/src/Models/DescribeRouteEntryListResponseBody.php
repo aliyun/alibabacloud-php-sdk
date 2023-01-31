@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeRouteEntryListResponseBody extends Model
 {
     /**
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 14A07460-EBE7-47CA-9757-12CC4761D47A
+     *
      * @var string
      */
     public $requestId;

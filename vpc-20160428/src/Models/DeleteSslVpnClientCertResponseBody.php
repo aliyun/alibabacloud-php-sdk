@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteSslVpnClientCertResponseBody extends Model
 {
     /**
+     * @example 606998F0-B94D-48FE-8316-ACA81BB230DA
+     *
      * @var string
      */
     public $requestId;

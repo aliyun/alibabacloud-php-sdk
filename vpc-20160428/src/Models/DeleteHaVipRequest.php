@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DeleteHaVipRequest extends Model
 {
     /**
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example havip-2zeo05qre24nhrqpy****
+     *
      * @var string
      */
     public $haVipId;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $ownerAccount;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $resourceOwnerId;

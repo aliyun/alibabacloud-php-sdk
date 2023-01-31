@@ -16,36 +16,50 @@ use AlibabaCloud\Tea\Model;
 class vpc extends Model
 {
     /**
+     * @example Attached
+     *
      * @var string
      */
     public $cenStatus;
 
     /**
+     * @example 192.168.0.0/16
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @example 2021-04-18T15:02:37Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example This is my VPC.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example dopt-o6w0df4epg9zo8isy****
+     *
      * @var string
      */
     public $dhcpOptionsSetId;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $dhcpOptionsSetStatus;
 
     /**
+     * @example 2408:XXXX:0:a600::/56
+     *
      * @var string
      */
     public $ipv6CidrBlock;
@@ -56,6 +70,8 @@ class vpc extends Model
     public $ipv6CidrBlocks;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isDefault;
@@ -66,16 +82,22 @@ class vpc extends Model
     public $natGatewayIds;
 
     /**
+     * @example 253460731706911258
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -91,6 +113,8 @@ class vpc extends Model
     public $secondaryCidrBlocks;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
@@ -106,6 +130,8 @@ class vpc extends Model
     public $userCidrs;
 
     /**
+     * @example vrt-bp1jcg5cmxjbl9xgc****
+     *
      * @var string
      */
     public $VRouterId;
@@ -116,11 +142,15 @@ class vpc extends Model
     public $vSwitchIds;
 
     /**
+     * @example vpc-bp1qpo0kug3a20qqe****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example vpc1
+     *
      * @var string
      */
     public $vpcName;

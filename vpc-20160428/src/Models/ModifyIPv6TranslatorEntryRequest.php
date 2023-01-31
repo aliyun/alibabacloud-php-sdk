@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class ModifyIPv6TranslatorEntryRequest extends Model
 {
     /**
+     * @example ipv6transacl-bp1de27sou71g0lfxxxx
+     *
      * @var string
      */
     public $aclId;
 
     /**
+     * @example off
+     *
      * @var string
      */
     public $aclStatus;
 
     /**
+     * @example white
+     *
      * @var string
      */
     public $aclType;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $allocateIpv6Port;
 
     /**
+     * @example 47.11.xx.xxx
+     *
      * @var string
      */
     public $backendIpv4Addr;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $backendIpv4Port;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $entryBandwidth;
 
     /**
+     * @example entrydescription
+     *
      * @var string
      */
     public $entryDescription;
 
     /**
+     * @example entry1
+     *
      * @var string
      */
     public $entryName;
 
     /**
+     * @example ipv6trans-bp1858ysxxxxxx
+     *
      * @var string
      */
     public $ipv6TranslatorEntryId;
@@ -69,6 +89,8 @@ class ModifyIPv6TranslatorEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -84,6 +106,8 @@ class ModifyIPv6TranslatorEntryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example tcp
+     *
      * @var string
      */
     public $transProtocol;

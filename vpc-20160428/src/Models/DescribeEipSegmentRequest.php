@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEipSegmentRequest extends Model
 {
     /**
+     * @example 02fb3da4-130e-11e9-8e44-001sdfg
+     *
      * @var string
      */
     public $clientToken;
@@ -24,16 +26,22 @@ class DescribeEipSegmentRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -49,6 +57,8 @@ class DescribeEipSegmentRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example eipsg-2zett8ba055tbsxme****
+     *
      * @var string
      */
     public $segmentInstanceId;

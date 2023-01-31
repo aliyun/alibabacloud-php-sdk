@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DissociateRouteTableFromGatewayRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example ipv4gw-5tsnc6s4ogsedtp3k****
+     *
      * @var string
      */
     public $gatewayId;
@@ -34,6 +40,8 @@ class DissociateRouteTableFromGatewayRequest extends Model
     public $ownerId;
 
     /**
+     * @example ap-southeast-6
+     *
      * @var string
      */
     public $regionId;
@@ -49,6 +57,8 @@ class DissociateRouteTableFromGatewayRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vtb-5ts0ohchwkp3dydt2****
+     *
      * @var string
      */
     public $routeTableId;

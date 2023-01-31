@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateRouteTableRequest extends Model
 {
     /**
+     * @example VSwitch
+     *
      * @var string
      */
     public $associateType;
 
     /**
+     * @example 02fb3da4-130e-11e9-8e44-0016e04
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $description;
@@ -34,6 +40,8 @@ class CreateRouteTableRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-zhangjiakou
+     *
      * @var string
      */
     public $regionId;
@@ -49,11 +57,15 @@ class CreateRouteTableRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example myRouteTable
+     *
      * @var string
      */
     public $routeTableName;
 
     /**
+     * @example vpc-bp1qpo0kug3a20qqe****
+     *
      * @var string
      */
     public $vpcId;

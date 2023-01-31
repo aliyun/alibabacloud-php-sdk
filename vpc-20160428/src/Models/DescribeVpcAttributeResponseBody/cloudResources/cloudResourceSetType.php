@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class cloudResourceSetType extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $resourceCount;
 
     /**
+     * @example VSwitch
+     *
      * @var string
      */
     public $resourceType;

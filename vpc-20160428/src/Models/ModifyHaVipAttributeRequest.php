@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyHaVipAttributeRequest extends Model
 {
     /**
+     * @example 02fb3da4-130e-11e9-8e44-0016e0****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example This is my HaVip.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example havip-2zeo05qre24nhrqp****
+     *
      * @var string
      */
     public $haVipId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
@@ -39,6 +47,8 @@ class ModifyHaVipAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;

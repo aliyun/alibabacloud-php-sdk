@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateFlowLogRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $aggregationInterval;
 
     /**
+     * @example This is my Flowlog.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example myFlowlog
+     *
      * @var string
      */
     public $flowLogName;
 
     /**
+     * @example FlowLogStore
+     *
      * @var string
      */
     public $logStoreName;
@@ -39,16 +47,22 @@ class CreateFlowLogRequest extends Model
     public $ownerId;
 
     /**
+     * @example FlowLogProject
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example eni-askldfas****
+     *
      * @var string
      */
     public $resourceId;
@@ -64,11 +78,20 @@ class CreateFlowLogRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example NetworkInterface
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @var string[]
+     */
+    public $trafficPath;
+
+    /**
+     * @example All
+     *
      * @var string
      */
     public $trafficType;
@@ -85,6 +108,7 @@ class CreateFlowLogRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'resourceType'         => 'ResourceType',
+        'trafficPath'          => 'TrafficPath',
         'trafficType'          => 'TrafficType',
     ];
 
@@ -130,6 +154,9 @@ class CreateFlowLogRequest extends Model
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->trafficPath) {
+            $res['TrafficPath'] = $this->trafficPath;
         }
         if (null !== $this->trafficType) {
             $res['TrafficType'] = $this->trafficType;
@@ -181,6 +208,11 @@ class CreateFlowLogRequest extends Model
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['TrafficPath'])) {
+            if (!empty($map['TrafficPath'])) {
+                $model->trafficPath = $map['TrafficPath'];
+            }
         }
         if (isset($map['TrafficType'])) {
             $model->trafficType = $map['TrafficType'];

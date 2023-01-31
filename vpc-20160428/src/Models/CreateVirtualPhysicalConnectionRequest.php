@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateVirtualPhysicalConnectionRequest extends Model
 {
     /**
+     * @example desctest
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example nametest
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example PayByVirtualPhysicalConnectionOwner
+     *
      * @var string
      */
     public $orderMode;
 
     /**
+     * @example pc-bp1ciz7ekd2grn1as****
+     *
      * @var string
      */
     public $physicalConnectionId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -41,19 +53,32 @@ class CreateVirtualPhysicalConnectionRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @example 50M
+     *
+     * @var string
+     */
     public $spec;
 
     /**
+     * @example CBCE910E-D396-4944-8****
+     *
      * @var string
      */
     public $token;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $vlanId;
 
     /**
+     * @example 1210123456123456
+     *
      * @var int
      */
     public $vpconnAliUid;
@@ -64,6 +89,7 @@ class CreateVirtualPhysicalConnectionRequest extends Model
         'orderMode'            => 'OrderMode',
         'physicalConnectionId' => 'PhysicalConnectionId',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'spec'                 => 'Spec',
         'token'                => 'Token',
         'vlanId'               => 'VlanId',
@@ -94,6 +120,9 @@ class CreateVirtualPhysicalConnectionRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
@@ -136,6 +165,9 @@ class CreateVirtualPhysicalConnectionRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];

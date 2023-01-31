@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ipv6EgressOnlyRule extends Model
 {
     /**
+     * @example ruledescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example i-123456xxxxxxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example Ipv6Address
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example ipv6gwpy-123456xxxxxxxx
+     *
      * @var string
      */
     public $ipv6EgressOnlyRuleId;
 
     /**
+     * @example rulename
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;

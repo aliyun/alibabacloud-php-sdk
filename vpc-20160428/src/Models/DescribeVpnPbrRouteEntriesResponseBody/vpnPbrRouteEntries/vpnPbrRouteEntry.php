@@ -9,42 +9,64 @@ use AlibabaCloud\Tea\Model;
 class vpnPbrRouteEntry extends Model
 {
     /**
+     * @example 1492747187000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example vco-bp15oes1py4i66rmd****
+     *
      * @var string
      */
     public $nextHop;
 
     /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $priority;
+
+    /**
+     * @example 10.0.0.0/24
+     *
      * @var string
      */
     public $routeDest;
 
     /**
+     * @example 192.168.0.0/24
+     *
      * @var string
      */
     public $routeSource;
 
     /**
+     * @example published
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example vpn-bp1a3kqjiiq9legfx****
+     *
      * @var string
      */
     public $vpnInstanceId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $weight;
     protected $_name = [
         'createTime'    => 'CreateTime',
         'nextHop'       => 'NextHop',
+        'priority'      => 'Priority',
         'routeDest'     => 'RouteDest',
         'routeSource'   => 'RouteSource',
         'state'         => 'State',
@@ -64,6 +86,9 @@ class vpnPbrRouteEntry extends Model
         }
         if (null !== $this->nextHop) {
             $res['NextHop'] = $this->nextHop;
+        }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
         if (null !== $this->routeDest) {
             $res['RouteDest'] = $this->routeDest;
@@ -97,6 +122,9 @@ class vpnPbrRouteEntry extends Model
         }
         if (isset($map['NextHop'])) {
             $model->nextHop = $map['NextHop'];
+        }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
         if (isset($map['RouteDest'])) {
             $model->routeDest = $map['RouteDest'];

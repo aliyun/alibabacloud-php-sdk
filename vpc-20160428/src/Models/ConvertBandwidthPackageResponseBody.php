@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ConvertBandwidthPackageResponseBody extends Model
 {
     /**
+     * @example bwp-s6lmotmkkf567b****
+     *
      * @var string
      */
     public $convertInstanceId;
 
     /**
+     * @example 455AC20C-7061-446A-BDBD-B3BEE0856304
+     *
      * @var string
      */
     public $requestId;

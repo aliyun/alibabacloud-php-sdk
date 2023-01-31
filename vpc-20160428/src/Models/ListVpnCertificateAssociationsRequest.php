@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListVpnCertificateAssociationsRequest extends Model
 {
     /**
+     * @example 6bfe4218-ea1d****
+     *
      * @var string[]
      */
     public $certificateId;
 
     /**
+     * @example Signature
+     *
      * @var string
      */
     public $certificateType;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example caeba0bbb2be0****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example vpn-bp1q8bgx4xnkm****
+     *
      * @var string[]
      */
     public $vpnGatewayId;

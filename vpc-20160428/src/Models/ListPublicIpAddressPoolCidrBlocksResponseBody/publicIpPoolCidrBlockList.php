@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class publicIpPoolCidrBlockList extends Model
 {
     /**
+     * @example 47.0.XX.XX/24
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @example 2022-05-10T01:37:38Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example pippool-6wetvn6fumkgycssx****
+     *
      * @var string
      */
     public $publicIpAddressPoolId;
 
     /**
+     * @example Created
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $totalIpNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $usedIpNum;

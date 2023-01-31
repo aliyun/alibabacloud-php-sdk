@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class addPrefixListEntry extends Model
 {
     /**
+     * @example 172.16.0.0/12
+     *
      * @var string
      */
     public $cidr;
 
     /**
+     * @example newcidr
+     *
      * @var string
      */
     public $description;

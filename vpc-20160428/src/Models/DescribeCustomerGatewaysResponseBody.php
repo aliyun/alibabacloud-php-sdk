@@ -15,21 +15,29 @@ class DescribeCustomerGatewaysResponseBody extends Model
     public $customerGateways;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example E82612A9-CB90-4D7E-B394-1DB7F6509B29
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

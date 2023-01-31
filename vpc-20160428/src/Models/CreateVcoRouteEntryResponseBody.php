@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class CreateVcoRouteEntryResponseBody extends Model
 {
     /**
+     * @example 1658387202664
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example desctest
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example vco-p0w2jpkhi2eeop6q6****
+     *
      * @var string
      */
     public $nextHop;
 
     /**
+     * @example Ipsec
+     *
      * @var string
      */
     public $overlayMode;
 
     /**
+     * @example CFC4D13B-E680-3985-95B1-87AA155481DF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 192.168.10.0/24
+     *
      * @var string
      */
     public $routeDest;
 
     /**
+     * @example published
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example vco-p0w2jpkhi2eeop6q6****
+     *
      * @var string
      */
     public $vpnConnectionId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $weight;

@@ -13,31 +13,43 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpnConnectionAttributeResponseBody extends Model
 {
     /**
+     * @example 1492753817000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example cgw-p0w2jemrcj5u61un8****
+     *
      * @var string
      */
     public $customerGatewayId;
 
     /**
+     * @example description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $effectImmediately;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableDpd;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableNatTraversal;
@@ -53,21 +65,29 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
     public $ipsecConfig;
 
     /**
+     * @example 10.1.1.0/24,10.1.2.0/24
+     *
      * @var string
      */
     public $localSubnet;
 
     /**
+     * @example nametest
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 10.2.1.0/24,10.2.2.0/24
+     *
      * @var string
      */
     public $remoteSubnet;
 
     /**
+     * @example 7DB79D0C-5F27-4AB5-995B-79BE55102F90
+     *
      * @var string
      */
     public $requestId;
@@ -83,11 +103,15 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
     public $vpnBgpConfig;
 
     /**
+     * @example vco-bp1bbi27hojx80nck****
+     *
      * @var string
      */
     public $vpnConnectionId;
 
     /**
+     * @example vpn-bp1q8bgx4xnkm2ogj****
+     *
      * @var string
      */
     public $vpnGatewayId;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateVbrHaRequest extends Model
 {
     /**
+     * @example CBCE910E-D396-4944-8****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example VBRHa
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example VBRHa
+     *
      * @var string
      */
     public $name;
@@ -39,11 +47,15 @@ class CreateVbrHaRequest extends Model
     public $ownerId;
 
     /**
+     * @example vbr-bp12mw1f8k3jgygk9****
+     *
      * @var string
      */
     public $peerVbrId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -59,6 +71,8 @@ class CreateVbrHaRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vbr-bp1jcg5cmxjbl9xgc****
+     *
      * @var string
      */
     public $vbrId;

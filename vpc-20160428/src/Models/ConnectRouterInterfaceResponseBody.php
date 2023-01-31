@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ConnectRouterInterfaceResponseBody extends Model
 {
     /**
+     * @example DE77A7F3-3B74-41C0-A5BC-CAFD188C28B6
+     *
      * @var string
      */
     public $requestId;

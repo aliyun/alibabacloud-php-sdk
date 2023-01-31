@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifySnatEntryRequest extends Model
 {
     /**
+     * @example 02fb3da4-130e-11e9-8e44-001****
+     *
      * @var string
      */
     public $clientToken;
@@ -24,6 +26,8 @@ class ModifySnatEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -39,21 +43,29 @@ class ModifySnatEntryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example snat-bp1vcgcf8tm0plqcg****
+     *
      * @var string
      */
     public $snatEntryId;
 
     /**
+     * @example SnatEntry-1
+     *
      * @var string
      */
     public $snatEntryName;
 
     /**
+     * @example 47.98.XX.XX
+     *
      * @var string
      */
     public $snatIp;
 
     /**
+     * @example stb-8vbczigrhop8x5u3t****
+     *
      * @var string
      */
     public $snatTableId;

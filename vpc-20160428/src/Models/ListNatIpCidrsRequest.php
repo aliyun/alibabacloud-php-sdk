@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ListNatIpCidrsRequest extends Model
 {
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $maxResults;
 
     /**
+     * @example ngw-gw8v16wgvtq26vh59****
+     *
      * @var string
      */
     public $natGatewayId;
 
     /**
+     * @example 172.16.0.0/24
+     *
      * @var string
      */
     public $natIpCidr;
 
     /**
+     * @example test
+     *
      * @var string[]
      */
     public $natIpCidrName;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $natIpCidrStatus;
 
     /**
+     * @example 172.16.0.0/24
+     *
      * @var string[]
      */
     public $natIpCidrs;
 
     /**
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
@@ -64,6 +82,8 @@ class ListNatIpCidrsRequest extends Model
     public $ownerId;
 
     /**
+     * @example eu-central-1
+     *
      * @var string
      */
     public $regionId;

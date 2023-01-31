@@ -9,71 +9,104 @@ use AlibabaCloud\Tea\Model;
 class CreateRouterInterfaceRequest extends Model
 {
     /**
+     * @example ap-cn-hangzhou-yh-ts-A
+     *
      * @var string
      */
     public $accessPointId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example abcabc
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @var bool
+     */
+    public $fastLinkMode;
+
+    /**
+     * @example 192.168.0.6
+     *
      * @var string
      */
     public $healthCheckSourceIp;
 
     /**
+     * @example 192.168.0.8
+     *
      * @var string
      */
     public $healthCheckTargetIp;
 
     /**
+     * @example PrePaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example ap-cn-shanghai-nt-aligroup-C
+     *
      * @var string
      */
     public $oppositeAccessPointId;
 
     /**
+     * @example ri-2zeo3xzyf38r4urzd****
+     *
      * @var string
      */
     public $oppositeInterfaceId;
 
     /**
+     * @example 253460731706911258
+     *
      * @var string
      */
     public $oppositeInterfaceOwnerId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $oppositeRegionId;
 
     /**
+     * @example vrt-bp1lhl0taikrteen8****
+     *
      * @var string
      */
     public $oppositeRouterId;
 
     /**
+     * @example VRouter
+     *
      * @var string
      */
     public $oppositeRouterType;
@@ -89,16 +122,22 @@ class CreateRouterInterfaceRequest extends Model
     public $ownerId;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $pricingCycle;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -114,21 +153,29 @@ class CreateRouterInterfaceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example InitiatingSide
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example vbr-m5ebm6g9ptc9mly1c****
+     *
      * @var string
      */
     public $routerId;
 
     /**
+     * @example VRouter
+     *
      * @var string
      */
     public $routerType;
 
     /**
+     * @example Mini.2
+     *
      * @var string
      */
     public $spec;
@@ -137,6 +184,7 @@ class CreateRouterInterfaceRequest extends Model
         'autoPay'                  => 'AutoPay',
         'clientToken'              => 'ClientToken',
         'description'              => 'Description',
+        'fastLinkMode'             => 'FastLinkMode',
         'healthCheckSourceIp'      => 'HealthCheckSourceIp',
         'healthCheckTargetIp'      => 'HealthCheckTargetIp',
         'instanceChargeType'       => 'InstanceChargeType',
@@ -178,6 +226,9 @@ class CreateRouterInterfaceRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->fastLinkMode) {
+            $res['FastLinkMode'] = $this->fastLinkMode;
         }
         if (null !== $this->healthCheckSourceIp) {
             $res['HealthCheckSourceIp'] = $this->healthCheckSourceIp;
@@ -265,6 +316,9 @@ class CreateRouterInterfaceRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['FastLinkMode'])) {
+            $model->fastLinkMode = $map['FastLinkMode'];
         }
         if (isset($map['HealthCheckSourceIp'])) {
             $model->healthCheckSourceIp = $map['HealthCheckSourceIp'];

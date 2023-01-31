@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class CreateRouteEntryRequest extends Model
 {
     /**
+     * @example 02fb3da4-130e-11e9-8e44-001****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 192.168.0.0/24
+     *
      * @var string
      */
     public $destinationCidrBlock;
 
     /**
+     * @example i-j6c2fp57q8rr4jlu****
+     *
      * @var string
      */
     public $nextHopId;
@@ -35,6 +43,8 @@ class CreateRouteEntryRequest extends Model
     public $nextHopList;
 
     /**
+     * @example RouterInterface
+     *
      * @var string
      */
     public $nextHopType;
@@ -50,6 +60,8 @@ class CreateRouteEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -65,11 +77,15 @@ class CreateRouteEntryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $routeEntryName;
 
     /**
+     * @example vtb-bp145q7glnuzd****
+     *
      * @var string
      */
     public $routeTableId;
