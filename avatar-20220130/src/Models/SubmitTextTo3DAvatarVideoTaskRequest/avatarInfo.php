@@ -14,11 +14,17 @@ class avatarInfo extends Model
     public $angle;
 
     /**
+     * @var string
+     */
+    public $code;
+
+    /**
      * @var int
      */
     public $locate;
     protected $_name = [
         'angle'  => 'Angle',
+        'code'   => 'Code',
         'locate' => 'Locate',
     ];
 
@@ -31,6 +37,9 @@ class avatarInfo extends Model
         $res = [];
         if (null !== $this->angle) {
             $res['Angle'] = $this->angle;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->locate) {
             $res['Locate'] = $this->locate;
@@ -49,6 +58,9 @@ class avatarInfo extends Model
         $model = new self();
         if (isset($map['Angle'])) {
             $model->angle = $map['Angle'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Locate'])) {
             $model->locate = $map['Locate'];
