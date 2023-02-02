@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The key of the tag that you want to attach to the specified resource.
+     *
+     *   If you include this parameter in a request, the value of this parameter cannot be an empty string.
+     *   The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+     *
+     * @example CartService
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the tag that you want to attach to the specified resource.
+     *
+     *   The value of this parameter can be an empty string.
+     *   The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+     *
+     * @example ServiceA
+     *
      * @var string
      */
     public $value;

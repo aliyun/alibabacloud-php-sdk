@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The information about the online consumer groups that subscribe to the topic.
+     *
      * @var subscriptionDataList
      */
     public $subscriptionDataList;
 
     /**
+     * @description The name of the topic.
+     *
+     * @example test
+     *
      * @var string
      */
     public $topic;

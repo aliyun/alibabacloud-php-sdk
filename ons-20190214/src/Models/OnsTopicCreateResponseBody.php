@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class OnsTopicCreateResponseBody extends Model
 {
     /**
+     * @description The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+     *
+     * @example B6949B58-223E-4B75-B4FE-7797C15E****
+     *
      * @var string
      */
     public $requestId;

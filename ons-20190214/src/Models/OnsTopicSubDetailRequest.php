@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class OnsTopicSubDetailRequest extends Model
 {
     /**
+     * @description The ID of the instance that contains the topic you want to query.
+     *
+     * @example MQ_INST_111111111111_DOxxxxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the topic that you want to query.
+     *
+     * @example test
+     *
      * @var string
      */
     public $topic;

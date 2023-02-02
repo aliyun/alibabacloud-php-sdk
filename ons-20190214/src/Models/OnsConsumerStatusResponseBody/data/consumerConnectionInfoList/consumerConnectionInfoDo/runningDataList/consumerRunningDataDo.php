@@ -9,41 +9,65 @@ use AlibabaCloud\Tea\Model;
 class consumerRunningDataDo extends Model
 {
     /**
-     * @var string
-     */
-    public $groupId;
-
-    /**
-     * @var float
-     */
-    public $rt;
-
-    /**
-     * @var string
-     */
-    public $topic;
-
-    /**
+     * @description The number of messages that failed to be consumed each hour.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $failedCountPerHour;
 
     /**
+     * @description The TPS for failed message consumption.
+     *
+     * @example 0
+     *
+     * @var float
+     */
+    public $failedTps;
+
+    /**
+     * @description The ID of the consumer group.
+     *
+     * @example 0
+     *
+     * @var string
+     */
+    public $groupId;
+
+    /**
+     * @description The TPS for successful message consumption.
+     *
+     * @example 0
+     *
      * @var float
      */
     public $okTps;
 
     /**
+     * @description The consumption RT. Unit: milliseconds.
+     *
+     * @example 0
+     *
      * @var float
      */
-    public $failedTps;
+    public $rt;
+
+    /**
+     * @description The name of the topic to which the consumer subscribes.
+     *
+     * @example test-mq_topic
+     *
+     * @var string
+     */
+    public $topic;
     protected $_name = [
+        'failedCountPerHour' => 'FailedCountPerHour',
+        'failedTps'          => 'FailedTps',
         'groupId'            => 'GroupId',
+        'okTps'              => 'OkTps',
         'rt'                 => 'Rt',
         'topic'              => 'Topic',
-        'failedCountPerHour' => 'FailedCountPerHour',
-        'okTps'              => 'OkTps',
-        'failedTps'          => 'FailedTps',
     ];
 
     public function validate()
@@ -53,23 +77,23 @@ class consumerRunningDataDo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->failedCountPerHour) {
+            $res['FailedCountPerHour'] = $this->failedCountPerHour;
+        }
+        if (null !== $this->failedTps) {
+            $res['FailedTps'] = $this->failedTps;
+        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->okTps) {
+            $res['OkTps'] = $this->okTps;
         }
         if (null !== $this->rt) {
             $res['Rt'] = $this->rt;
         }
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
-        }
-        if (null !== $this->failedCountPerHour) {
-            $res['FailedCountPerHour'] = $this->failedCountPerHour;
-        }
-        if (null !== $this->okTps) {
-            $res['OkTps'] = $this->okTps;
-        }
-        if (null !== $this->failedTps) {
-            $res['FailedTps'] = $this->failedTps;
         }
 
         return $res;
@@ -83,23 +107,23 @@ class consumerRunningDataDo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FailedCountPerHour'])) {
+            $model->failedCountPerHour = $map['FailedCountPerHour'];
+        }
+        if (isset($map['FailedTps'])) {
+            $model->failedTps = $map['FailedTps'];
+        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['OkTps'])) {
+            $model->okTps = $map['OkTps'];
         }
         if (isset($map['Rt'])) {
             $model->rt = $map['Rt'];
         }
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
-        }
-        if (isset($map['FailedCountPerHour'])) {
-            $model->failedCountPerHour = $map['FailedCountPerHour'];
-        }
-        if (isset($map['OkTps'])) {
-            $model->okTps = $map['OkTps'];
-        }
-        if (isset($map['FailedTps'])) {
-            $model->failedTps = $map['FailedTps'];
         }
 
         return $model;

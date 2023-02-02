@@ -9,23 +9,35 @@ use AlibabaCloud\Tea\Model;
 class OnsDLQMessageResendByIdRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $msgId;
-
-    /**
+     * @description The ID of the consumer group whose dead-letter messages you want to query.
+     *
+     * @example GID_test_group_id
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the instance to which the message you want to query belongs.
+     *
+     * @example MQ_INST_188077086902****_BXSuW61e
+     *
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @description The ID of the dead-letter message that you want to query.
+     *
+     * @example 0BC16699343051CD9F1D798E7734****
+     *
+     * @var string
+     */
+    public $msgId;
     protected $_name = [
-        'msgId'      => 'MsgId',
         'groupId'    => 'GroupId',
         'instanceId' => 'InstanceId',
+        'msgId'      => 'MsgId',
     ];
 
     public function validate()
@@ -35,14 +47,14 @@ class OnsDLQMessageResendByIdRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->msgId) {
-            $res['MsgId'] = $this->msgId;
-        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->msgId) {
+            $res['MsgId'] = $this->msgId;
         }
 
         return $res;
@@ -56,14 +68,14 @@ class OnsDLQMessageResendByIdRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MsgId'])) {
-            $model->msgId = $map['MsgId'];
-        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MsgId'])) {
+            $model->msgId = $map['MsgId'];
         }
 
         return $model;

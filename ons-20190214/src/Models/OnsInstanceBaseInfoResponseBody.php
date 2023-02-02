@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class OnsInstanceBaseInfoResponseBody extends Model
 {
     /**
+     * @description The information about the instance.
+     *
      * @var instanceBaseInfo
      */
     public $instanceBaseInfo;
 
     /**
+     * @description The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+     *
+     * @example 6CC46974-65E8-4C20-AB07-D20D102E****
+     *
      * @var string
      */
     public $requestId;

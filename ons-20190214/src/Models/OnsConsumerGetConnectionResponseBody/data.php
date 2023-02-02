@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The connection information about the consumers in the specified group.
+     *
      * @var connectionList
      */
     public $connectionList;

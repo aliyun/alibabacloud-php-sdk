@@ -9,23 +9,35 @@ use AlibabaCloud\Tea\Model;
 class OnsMessageTraceRequest extends Model
 {
     /**
+     * @description The ID of the instance where the message that you want to query resides.
+     *
+     * @example MQ_INST_111111111111_DOxxxxxx
+     *
      * @var string
      */
-    public $topic;
+    public $instanceId;
 
     /**
+     * @description The ID of the message that you want to query.
+     *
+     * @example 1E05791C117818B4AAC23B1BB0CE****
+     *
      * @var string
      */
     public $msgId;
 
     /**
+     * @description The topic to which the message belongs.
+     *
+     * @example test-mq_topic
+     *
      * @var string
      */
-    public $instanceId;
+    public $topic;
     protected $_name = [
-        'topic'      => 'Topic',
-        'msgId'      => 'MsgId',
         'instanceId' => 'InstanceId',
+        'msgId'      => 'MsgId',
+        'topic'      => 'Topic',
     ];
 
     public function validate()
@@ -35,14 +47,14 @@ class OnsMessageTraceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->topic) {
-            $res['Topic'] = $this->topic;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->msgId) {
             $res['MsgId'] = $this->msgId;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->topic) {
+            $res['Topic'] = $this->topic;
         }
 
         return $res;
@@ -56,14 +68,14 @@ class OnsMessageTraceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Topic'])) {
-            $model->topic = $map['Topic'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['MsgId'])) {
             $model->msgId = $map['MsgId'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['Topic'])) {
+            $model->topic = $map['Topic'];
         }
 
         return $model;

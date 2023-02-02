@@ -9,17 +9,25 @@ use AlibabaCloud\Tea\Model;
 class statsDataDo extends Model
 {
     /**
-     * @var float
-     */
-    public $y;
-
-    /**
+     * @description Indicates the timestamp. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1570867800000
+     *
      * @var int
      */
     public $x;
+
+    /**
+     * @description Indicates the TPS for message consumption or the number of messages that are consumed.
+     *
+     * @example 0
+     *
+     * @var float
+     */
+    public $y;
     protected $_name = [
-        'y' => 'Y',
         'x' => 'X',
+        'y' => 'Y',
     ];
 
     public function validate()
@@ -29,11 +37,11 @@ class statsDataDo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->y) {
-            $res['Y'] = $this->y;
-        }
         if (null !== $this->x) {
             $res['X'] = $this->x;
+        }
+        if (null !== $this->y) {
+            $res['Y'] = $this->y;
         }
 
         return $res;
@@ -47,11 +55,11 @@ class statsDataDo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Y'])) {
-            $model->y = $map['Y'];
-        }
         if (isset($map['X'])) {
             $model->x = $map['X'];
+        }
+        if (isset($map['Y'])) {
+            $model->y = $map['Y'];
         }
 
         return $model;

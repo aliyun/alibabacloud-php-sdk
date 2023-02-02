@@ -9,23 +9,35 @@ use AlibabaCloud\Tea\Model;
 class OnsMessageGetByMsgIdRequest extends Model
 {
     /**
+     * @description The ID of the instance where the message that you want to query resides.
+     *
+     * @example MQ_INST_111111111111_DOxxxxxx
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @description The ID of the message that you want to query.
+     *
+     * @example 1E0578FE110F18B4AAC235C05F2*****
+     *
      * @var string
      */
     public $msgId;
 
     /**
+     * @description The topic that contains the message that you want to query.
+     *
+     * @example test-mq_topic
+     *
      * @var string
      */
     public $topic;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
     protected $_name = [
+        'instanceId' => 'InstanceId',
         'msgId'      => 'MsgId',
         'topic'      => 'Topic',
-        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -35,14 +47,14 @@ class OnsMessageGetByMsgIdRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->msgId) {
             $res['MsgId'] = $this->msgId;
         }
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -56,14 +68,14 @@ class OnsMessageGetByMsgIdRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['MsgId'])) {
             $model->msgId = $map['MsgId'];
         }
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

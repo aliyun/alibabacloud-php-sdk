@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ons\V20190214;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Ons\V20190214\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Ons\V20190214\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsConsumerAccumulateRequest;
@@ -43,6 +44,8 @@ use AlibabaCloud\SDK\Ons\V20190214\Models\OnsInstanceInServiceListRequest;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsInstanceInServiceListResponse;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsInstanceUpdateRequest;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsInstanceUpdateResponse;
+use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMessageDetailRequest;
+use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMessageDetailResponse;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMessageGetByKeyRequest;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMessageGetByKeyResponse;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMessageGetByMsgIdRequest;
@@ -51,26 +54,8 @@ use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMessagePageQueryByTopicRequest;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMessagePageQueryByTopicResponse;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMessagePushRequest;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMessagePushResponse;
-use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMessageSendRequest;
-use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMessageSendResponse;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMessageTraceRequest;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMessageTraceResponse;
-use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMqttGroupIdCreateRequest;
-use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMqttGroupIdCreateResponse;
-use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMqttGroupIdDeleteRequest;
-use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMqttGroupIdDeleteResponse;
-use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMqttGroupIdListRequest;
-use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMqttGroupIdListResponse;
-use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMqttQueryClientByClientIdRequest;
-use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMqttQueryClientByClientIdResponse;
-use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMqttQueryClientByGroupIdRequest;
-use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMqttQueryClientByGroupIdResponse;
-use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMqttQueryClientByTopicRequest;
-use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMqttQueryClientByTopicResponse;
-use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMqttQueryHistoryOnlineRequest;
-use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMqttQueryHistoryOnlineResponse;
-use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMqttQueryMsgTransTrendRequest;
-use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMqttQueryMsgTransTrendResponse;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsRegionListResponse;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsTopicCreateRequest;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsTopicCreateResponse;
@@ -94,10 +79,6 @@ use AlibabaCloud\SDK\Ons\V20190214\Models\OnsTrendGroupOutputTpsRequest;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsTrendGroupOutputTpsResponse;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsTrendTopicInputTpsRequest;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsTrendTopicInputTpsResponse;
-use AlibabaCloud\SDK\Ons\V20190214\Models\OnsWarnCreateRequest;
-use AlibabaCloud\SDK\Ons\V20190214\Models\OnsWarnCreateResponse;
-use AlibabaCloud\SDK\Ons\V20190214\Models\OnsWarnDeleteRequest;
-use AlibabaCloud\SDK\Ons\V20190214\Models\OnsWarnDeleteResponse;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OpenOnsServiceResponse;
 use AlibabaCloud\SDK\Ons\V20190214\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Ons\V20190214\Models\TagResourcesResponse;
@@ -106,6 +87,7 @@ use AlibabaCloud\SDK\Ons\V20190214\Models\UntagResourcesResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Ons extends OpenApiClient
@@ -174,25 +156,62 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * When you call the **ListTagResources** operation, specify at least one of the following parameters in the request: **Tag.N.Key** and **ResourceId.N**. You can specify a resource ID to query all tags that are attached to the specified resource. You can also specify a tag key to query the tag value and the resource to which the tag is attached.
+     *   * *   If you include the **Tag.N.Key** parameter in a request, you can obtain the tag value and the ID of the resource to which the tag is attached.********
+     *   * *   If you include the **ResourceId.N** parameter in a request, you can obtain the keys and values of all tags that are attached to the specified resource.
+     *   *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagResourcesResponse::fromMap($this->doRPCRequest('ListTagResources', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * When you call the **ListTagResources** operation, specify at least one of the following parameters in the request: **Tag.N.Key** and **ResourceId.N**. You can specify a resource ID to query all tags that are attached to the specified resource. You can also specify a tag key to query the tag value and the resource to which the tag is attached.
+     *   * *   If you include the **Tag.N.Key** parameter in a request, you can obtain the tag value and the ID of the resource to which the tag is attached.********
+     *   * *   If you include the **ResourceId.N** parameter in a request, you can obtain the keys and values of all tags that are attached to the specified resource.
+     *   *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -202,25 +221,52 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsConsumerAccumulateRequest $request
-     * @param RuntimeOptions               $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * You can call this operation in scenarios in which you want to know the message consumption progress of a specified consumer group in production environments. You can obtain the information about message consumption and consumption latency based on the returned information. This operation returns the total number of accumulated messages in all topics to which the specified consumer group subscribes and the number of accumulated messages in each topic.
+     *   *
+     * @param OnsConsumerAccumulateRequest $request OnsConsumerAccumulateRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsConsumerAccumulateResponse
+     * @return OnsConsumerAccumulateResponse OnsConsumerAccumulateResponse
      */
     public function onsConsumerAccumulateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->detail)) {
+            $query['Detail'] = $request->detail;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsConsumerAccumulate',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsConsumerAccumulateResponse::fromMap($this->doRPCRequest('OnsConsumerAccumulate', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsConsumerAccumulateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsConsumerAccumulateRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * You can call this operation in scenarios in which you want to know the message consumption progress of a specified consumer group in production environments. You can obtain the information about message consumption and consumption latency based on the returned information. This operation returns the total number of accumulated messages in all topics to which the specified consumer group subscribes and the number of accumulated messages in each topic.
+     *   *
+     * @param OnsConsumerAccumulateRequest $request OnsConsumerAccumulateRequest
      *
-     * @return OnsConsumerAccumulateResponse
+     * @return OnsConsumerAccumulateResponse OnsConsumerAccumulateResponse
      */
     public function onsConsumerAccumulate($request)
     {
@@ -230,25 +276,49 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsConsumerGetConnectionRequest $request
-     * @param RuntimeOptions                  $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * When messages are accumulated in a topic, you can call this operation to check whether a consumer is online.
+     *   *
+     * @param OnsConsumerGetConnectionRequest $request OnsConsumerGetConnectionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsConsumerGetConnectionResponse
+     * @return OnsConsumerGetConnectionResponse OnsConsumerGetConnectionResponse
      */
     public function onsConsumerGetConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsConsumerGetConnection',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsConsumerGetConnectionResponse::fromMap($this->doRPCRequest('OnsConsumerGetConnection', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsConsumerGetConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsConsumerGetConnectionRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * When messages are accumulated in a topic, you can call this operation to check whether a consumer is online.
+     *   *
+     * @param OnsConsumerGetConnectionRequest $request OnsConsumerGetConnectionRequest
      *
-     * @return OnsConsumerGetConnectionResponse
+     * @return OnsConsumerGetConnectionResponse OnsConsumerGetConnectionResponse
      */
     public function onsConsumerGetConnection($request)
     {
@@ -258,25 +328,62 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsConsumerResetOffsetRequest $request
-     * @param RuntimeOptions                $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * You can call this operation to clear accumulated messages or reset the consumption progress. You can use one of the following methods to clear accumulated messages:
+     *   * *   Clear all accumulated messages in a specified topic.
+     *   * *   Clear the messages that were published to the specified topic before a specified point in time.
+     *   *
+     * @param OnsConsumerResetOffsetRequest $request OnsConsumerResetOffsetRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsConsumerResetOffsetResponse
+     * @return OnsConsumerResetOffsetResponse OnsConsumerResetOffsetResponse
      */
     public function onsConsumerResetOffsetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->resetTimestamp)) {
+            $query['ResetTimestamp'] = $request->resetTimestamp;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsConsumerResetOffset',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsConsumerResetOffsetResponse::fromMap($this->doRPCRequest('OnsConsumerResetOffset', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsConsumerResetOffsetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsConsumerResetOffsetRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * You can call this operation to clear accumulated messages or reset the consumption progress. You can use one of the following methods to clear accumulated messages:
+     *   * *   Clear all accumulated messages in a specified topic.
+     *   * *   Clear the messages that were published to the specified topic before a specified point in time.
+     *   *
+     * @param OnsConsumerResetOffsetRequest $request OnsConsumerResetOffsetRequest
      *
-     * @return OnsConsumerResetOffsetResponse
+     * @return OnsConsumerResetOffsetResponse OnsConsumerResetOffsetResponse
      */
     public function onsConsumerResetOffset($request)
     {
@@ -286,25 +393,57 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsConsumerStatusRequest $request
-     * @param RuntimeOptions           $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * *   You can call this operation in scenarios in which consumers are online and messages are accumulated. You can troubleshoot errors based on the information that is returned by this operation. You can check whether all consumers in the consumer group subscribe to the same topics and tags, and whether load balancing is performed as expected. You can also obtain the information about thread stack traces of online consumers.
+     *   * *   This operation uses multiple backend operations to query and aggregate data. The system requires a long period of time to process a request. We recommend that you do not frequently call this operation.
+     *   *
+     * @param OnsConsumerStatusRequest $request OnsConsumerStatusRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsConsumerStatusResponse
+     * @return OnsConsumerStatusResponse OnsConsumerStatusResponse
      */
     public function onsConsumerStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->detail)) {
+            $query['Detail'] = $request->detail;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->needJstack)) {
+            $query['NeedJstack'] = $request->needJstack;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsConsumerStatus',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsConsumerStatusResponse::fromMap($this->doRPCRequest('OnsConsumerStatus', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsConsumerStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsConsumerStatusRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * *   You can call this operation in scenarios in which consumers are online and messages are accumulated. You can troubleshoot errors based on the information that is returned by this operation. You can check whether all consumers in the consumer group subscribe to the same topics and tags, and whether load balancing is performed as expected. You can also obtain the information about thread stack traces of online consumers.
+     *   * *   This operation uses multiple backend operations to query and aggregate data. The system requires a long period of time to process a request. We recommend that you do not frequently call this operation.
+     *   *
+     * @param OnsConsumerStatusRequest $request OnsConsumerStatusRequest
      *
-     * @return OnsConsumerStatusResponse
+     * @return OnsConsumerStatusResponse OnsConsumerStatusResponse
      */
     public function onsConsumerStatus($request)
     {
@@ -314,25 +453,52 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsConsumerTimeSpanRequest $request
-     * @param RuntimeOptions             $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * You can call this operation to query the earliest point in time when a message was published to a specified topic and the most recent point in time when a message was published to the specified topic. You can also obtain the most recent point in time when a message in the topic was consumed. This operation is usually used with the \\*\\*OnsConsumerAccumulate\\*\\* operation to display the overview of the consumption progress.
+     *   *
+     * @param OnsConsumerTimeSpanRequest $request OnsConsumerTimeSpanRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsConsumerTimeSpanResponse
+     * @return OnsConsumerTimeSpanResponse OnsConsumerTimeSpanResponse
      */
     public function onsConsumerTimeSpanWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsConsumerTimeSpan',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsConsumerTimeSpanResponse::fromMap($this->doRPCRequest('OnsConsumerTimeSpan', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsConsumerTimeSpanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsConsumerTimeSpanRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * You can call this operation to query the earliest point in time when a message was published to a specified topic and the most recent point in time when a message was published to the specified topic. You can also obtain the most recent point in time when a message in the topic was consumed. This operation is usually used with the \\*\\*OnsConsumerAccumulate\\*\\* operation to display the overview of the consumption progress.
+     *   *
+     * @param OnsConsumerTimeSpanRequest $request OnsConsumerTimeSpanRequest
      *
-     * @return OnsConsumerTimeSpanResponse
+     * @return OnsConsumerTimeSpanResponse OnsConsumerTimeSpanResponse
      */
     public function onsConsumerTimeSpan($request)
     {
@@ -342,25 +508,52 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsDLQMessageGetByIdRequest $request
-     * @param RuntimeOptions              $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * This operation uses the exact match method to query a dead-letter message based on the message ID. You can obtain the message ID that is required to query the information about a dead-letter message from the SendResult parameter that is returned after the message is sent. You can also obtain the message ID by calling the OnsDLQMessagePageQueryByGroupId operation to query multiple messages at a time. The queried information about the dead-letter message includes the point in time when the message is stored, the message body, and attributes such as the message tag and the message key.
+     *   *
+     * @param OnsDLQMessageGetByIdRequest $request OnsDLQMessageGetByIdRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsDLQMessageGetByIdResponse
+     * @return OnsDLQMessageGetByIdResponse OnsDLQMessageGetByIdResponse
      */
     public function onsDLQMessageGetByIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->msgId)) {
+            $query['MsgId'] = $request->msgId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsDLQMessageGetById',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsDLQMessageGetByIdResponse::fromMap($this->doRPCRequest('OnsDLQMessageGetById', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsDLQMessageGetByIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsDLQMessageGetByIdRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * This operation uses the exact match method to query a dead-letter message based on the message ID. You can obtain the message ID that is required to query the information about a dead-letter message from the SendResult parameter that is returned after the message is sent. You can also obtain the message ID by calling the OnsDLQMessagePageQueryByGroupId operation to query multiple messages at a time. The queried information about the dead-letter message includes the point in time when the message is stored, the message body, and attributes such as the message tag and the message key.
+     *   *
+     * @param OnsDLQMessageGetByIdRequest $request OnsDLQMessageGetByIdRequest
      *
-     * @return OnsDLQMessageGetByIdResponse
+     * @return OnsDLQMessageGetByIdResponse OnsDLQMessageGetByIdResponse
      */
     public function onsDLQMessageGetById($request)
     {
@@ -370,25 +563,70 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsDLQMessagePageQueryByGroupIdRequest $request
-     * @param RuntimeOptions                         $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * *   If you do not know the ID of the dead-letter message that you want to query, you can call this operation to query all dead-letter messages that are sent to a specified consumer group within a specified time range. The results are returned by page.
+     *   * *   We recommend that you specify a short time range to query dead-letter messages in this method. If you specify a long time range, a large number of dead-letter messages are returned. In this case, you cannot find the dead-letter message that you want to query in an efficient manner. You can perform the following steps to query dead-letter messages:
+     *   *     1.  Perform a paged query by specifying the group ID, start time, end time, and number of entries to return on each page. If matched messages are found, the information about the dead-letter messages on the first page, total number of pages, and task ID are returned by default.
+     *   *     2.  Specify the task ID and a page number to call this operation again to query the dead-letter messages on the specified page. In this query, the BeginTime, EndTime, and PageSize parameters do not take effect. By default, the system uses the values of these parameters that you specified in the request when you created the specified query task.
+     *   *
+     * @param OnsDLQMessagePageQueryByGroupIdRequest $request OnsDLQMessagePageQueryByGroupIdRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsDLQMessagePageQueryByGroupIdResponse
+     * @return OnsDLQMessagePageQueryByGroupIdResponse OnsDLQMessagePageQueryByGroupIdResponse
      */
     public function onsDLQMessagePageQueryByGroupIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsDLQMessagePageQueryByGroupId',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsDLQMessagePageQueryByGroupIdResponse::fromMap($this->doRPCRequest('OnsDLQMessagePageQueryByGroupId', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsDLQMessagePageQueryByGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsDLQMessagePageQueryByGroupIdRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * *   If you do not know the ID of the dead-letter message that you want to query, you can call this operation to query all dead-letter messages that are sent to a specified consumer group within a specified time range. The results are returned by page.
+     *   * *   We recommend that you specify a short time range to query dead-letter messages in this method. If you specify a long time range, a large number of dead-letter messages are returned. In this case, you cannot find the dead-letter message that you want to query in an efficient manner. You can perform the following steps to query dead-letter messages:
+     *   *     1.  Perform a paged query by specifying the group ID, start time, end time, and number of entries to return on each page. If matched messages are found, the information about the dead-letter messages on the first page, total number of pages, and task ID are returned by default.
+     *   *     2.  Specify the task ID and a page number to call this operation again to query the dead-letter messages on the specified page. In this query, the BeginTime, EndTime, and PageSize parameters do not take effect. By default, the system uses the values of these parameters that you specified in the request when you created the specified query task.
+     *   *
+     * @param OnsDLQMessagePageQueryByGroupIdRequest $request OnsDLQMessagePageQueryByGroupIdRequest
      *
-     * @return OnsDLQMessagePageQueryByGroupIdResponse
+     * @return OnsDLQMessagePageQueryByGroupIdResponse OnsDLQMessagePageQueryByGroupIdResponse
      */
     public function onsDLQMessagePageQueryByGroupId($request)
     {
@@ -398,25 +636,56 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsDLQMessageResendByIdRequest $request
-     * @param RuntimeOptions                 $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * *   After the number of retries to send a message to a consumer group for consumption reaches the upper limit and the message is not consumed by a consumer in the group, the message is added to the dead-letter queue of the consumer group. The message is a dead-letter message. After you resend the dead-letter message to the consumer group for consumption and the message fails to be consumed again after the maximum number of retries, a dead-letter message with the same message ID is added to the dead-letter queue. You can view the details of the dead-letter message on the Dead-letter Queues page in the Message Queue for Apache RocketMQ console or by calling the API operations that are used to query dead-letter messages. You can obtain the number of consumption failures for a message based on the number of dead-letter messages with the same message ID in the dead-letter queue.
+     *   * *   A dead-letter message is a message that fails to be consumed after the number of consumption retries reaches the upper limit. Generally, dead-letter messages are produced because of incorrect consumption logic. We recommend that you troubleshoot the consumption failures and then call this operation to send the message to the consumer group for consumption again.
+     *   * *   Message Queue for Apache RocketMQ does not manage the status of dead-letter messages based on the consumption status of the dead-letter messages. After you call this operation to send a dead-letter message to a consumer group and the message is consumed, Message Queue for Apache RocketMQ does not remove the dead-letter message from the dead-letter queue. You must manage dead-letter messages and determine whether to send a dead-letter message to a consumer group for consumption. This way, you do not resend and reconsume the messages that are consumed.
+     *   *
+     * @param OnsDLQMessageResendByIdRequest $request OnsDLQMessageResendByIdRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsDLQMessageResendByIdResponse
+     * @return OnsDLQMessageResendByIdResponse OnsDLQMessageResendByIdResponse
      */
     public function onsDLQMessageResendByIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->msgId)) {
+            $query['MsgId'] = $request->msgId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsDLQMessageResendById',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsDLQMessageResendByIdResponse::fromMap($this->doRPCRequest('OnsDLQMessageResendById', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsDLQMessageResendByIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsDLQMessageResendByIdRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * *   After the number of retries to send a message to a consumer group for consumption reaches the upper limit and the message is not consumed by a consumer in the group, the message is added to the dead-letter queue of the consumer group. The message is a dead-letter message. After you resend the dead-letter message to the consumer group for consumption and the message fails to be consumed again after the maximum number of retries, a dead-letter message with the same message ID is added to the dead-letter queue. You can view the details of the dead-letter message on the Dead-letter Queues page in the Message Queue for Apache RocketMQ console or by calling the API operations that are used to query dead-letter messages. You can obtain the number of consumption failures for a message based on the number of dead-letter messages with the same message ID in the dead-letter queue.
+     *   * *   A dead-letter message is a message that fails to be consumed after the number of consumption retries reaches the upper limit. Generally, dead-letter messages are produced because of incorrect consumption logic. We recommend that you troubleshoot the consumption failures and then call this operation to send the message to the consumer group for consumption again.
+     *   * *   Message Queue for Apache RocketMQ does not manage the status of dead-letter messages based on the consumption status of the dead-letter messages. After you call this operation to send a dead-letter message to a consumer group and the message is consumed, Message Queue for Apache RocketMQ does not remove the dead-letter message from the dead-letter queue. You must manage dead-letter messages and determine whether to send a dead-letter message to a consumer group for consumption. This way, you do not resend and reconsume the messages that are consumed.
+     *   *
+     * @param OnsDLQMessageResendByIdRequest $request OnsDLQMessageResendByIdRequest
      *
-     * @return OnsDLQMessageResendByIdResponse
+     * @return OnsDLQMessageResendByIdResponse OnsDLQMessageResendByIdResponse
      */
     public function onsDLQMessageResendById($request)
     {
@@ -426,25 +695,52 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsGroupConsumerUpdateRequest $request
-     * @param RuntimeOptions                $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * You can call this operation to configure the permissions for a consumer group to read messages based on a specified region of Message Queue for Apache RocketMQ and a specified group ID. You can call this operation in scenarios in which you want to forbid consumers in a specific group from reading messages.
+     *   *
+     * @param OnsGroupConsumerUpdateRequest $request OnsGroupConsumerUpdateRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsGroupConsumerUpdateResponse
+     * @return OnsGroupConsumerUpdateResponse OnsGroupConsumerUpdateResponse
      */
     public function onsGroupConsumerUpdateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->readEnable)) {
+            $query['ReadEnable'] = $request->readEnable;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsGroupConsumerUpdate',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsGroupConsumerUpdateResponse::fromMap($this->doRPCRequest('OnsGroupConsumerUpdate', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsGroupConsumerUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsGroupConsumerUpdateRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * You can call this operation to configure the permissions for a consumer group to read messages based on a specified region of Message Queue for Apache RocketMQ and a specified group ID. You can call this operation in scenarios in which you want to forbid consumers in a specific group from reading messages.
+     *   *
+     * @param OnsGroupConsumerUpdateRequest $request OnsGroupConsumerUpdateRequest
      *
-     * @return OnsGroupConsumerUpdateResponse
+     * @return OnsGroupConsumerUpdateResponse OnsGroupConsumerUpdateResponse
      */
     public function onsGroupConsumerUpdate($request)
     {
@@ -454,25 +750,55 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsGroupCreateRequest $request
-     * @param RuntimeOptions        $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * When you release a new application or implement new business logic, you need new consumer groups. You can call this operation to create a consumer group.
+     *   *
+     * @param OnsGroupCreateRequest $request OnsGroupCreateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsGroupCreateResponse
+     * @return OnsGroupCreateResponse OnsGroupCreateResponse
      */
     public function onsGroupCreateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->groupType)) {
+            $query['GroupType'] = $request->groupType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsGroupCreate',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsGroupCreateResponse::fromMap($this->doRPCRequest('OnsGroupCreate', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsGroupCreateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsGroupCreateRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * When you release a new application or implement new business logic, you need new consumer groups. You can call this operation to create a consumer group.
+     *   *
+     * @param OnsGroupCreateRequest $request OnsGroupCreateRequest
      *
-     * @return OnsGroupCreateResponse
+     * @return OnsGroupCreateResponse OnsGroupCreateResponse
      */
     public function onsGroupCreate($request)
     {
@@ -482,25 +808,53 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsGroupDeleteRequest $request
-     * @param RuntimeOptions        $runtime
+     * >
+     *   * *   The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * *   After you delete a group, the consumers in the group immediately stop receiving messages. Exercise caution when you call this operation.
+     *   * You can call this operation to delete a group when you need to deallocate the resources of the group. For example, after an application is brought offline, you can delete the groups that are used for the application. After you delete a group, the backend of Message Queue for Apache RocketMQ deallocates the resources of the group. The system requires a long period of time to deallocate the resources. We recommend that you do not create a group that uses the same name as a deleted group immediately after you delete the group. If the system fails to delete the specified group, troubleshoot the issue based on the error code.
+     *   *
+     * @param OnsGroupDeleteRequest $request OnsGroupDeleteRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsGroupDeleteResponse
+     * @return OnsGroupDeleteResponse OnsGroupDeleteResponse
      */
     public function onsGroupDeleteWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsGroupDelete',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsGroupDeleteResponse::fromMap($this->doRPCRequest('OnsGroupDelete', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsGroupDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsGroupDeleteRequest $request
+     * >
+     *   * *   The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * *   After you delete a group, the consumers in the group immediately stop receiving messages. Exercise caution when you call this operation.
+     *   * You can call this operation to delete a group when you need to deallocate the resources of the group. For example, after an application is brought offline, you can delete the groups that are used for the application. After you delete a group, the backend of Message Queue for Apache RocketMQ deallocates the resources of the group. The system requires a long period of time to deallocate the resources. We recommend that you do not create a group that uses the same name as a deleted group immediately after you delete the group. If the system fails to delete the specified group, troubleshoot the issue based on the error code.
+     *   *
+     * @param OnsGroupDeleteRequest $request OnsGroupDeleteRequest
      *
-     * @return OnsGroupDeleteResponse
+     * @return OnsGroupDeleteResponse OnsGroupDeleteResponse
      */
     public function onsGroupDelete($request)
     {
@@ -510,25 +864,53 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsGroupListRequest $request
-     * @param RuntimeOptions      $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   *
+     * @param OnsGroupListRequest $request OnsGroupListRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsGroupListResponse
+     * @return OnsGroupListResponse OnsGroupListResponse
      */
     public function onsGroupListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->groupType)) {
+            $query['GroupType'] = $request->groupType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsGroupList',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsGroupListResponse::fromMap($this->doRPCRequest('OnsGroupList', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsGroupListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsGroupListRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   *
+     * @param OnsGroupListRequest $request OnsGroupListRequest
      *
-     * @return OnsGroupListResponse
+     * @return OnsGroupListResponse OnsGroupListResponse
      */
     public function onsGroupList($request)
     {
@@ -538,25 +920,47 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsGroupSubDetailRequest $request
-     * @param RuntimeOptions           $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   *
+     * @param OnsGroupSubDetailRequest $request OnsGroupSubDetailRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsGroupSubDetailResponse
+     * @return OnsGroupSubDetailResponse OnsGroupSubDetailResponse
      */
     public function onsGroupSubDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsGroupSubDetail',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsGroupSubDetailResponse::fromMap($this->doRPCRequest('OnsGroupSubDetail', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsGroupSubDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsGroupSubDetailRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   *
+     * @param OnsGroupSubDetailRequest $request OnsGroupSubDetailRequest
      *
-     * @return OnsGroupSubDetailResponse
+     * @return OnsGroupSubDetailResponse OnsGroupSubDetailResponse
      */
     public function onsGroupSubDetail($request)
     {
@@ -566,25 +970,46 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsInstanceBaseInfoRequest $request
-     * @param RuntimeOptions             $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * To send and receive messages, a client must be connected to a Message Queue for Apache RocketMQ instance by using an endpoint. You can call this operation to query the endpoints of the instance.
+     *   *
+     * @param OnsInstanceBaseInfoRequest $request OnsInstanceBaseInfoRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsInstanceBaseInfoResponse
+     * @return OnsInstanceBaseInfoResponse OnsInstanceBaseInfoResponse
      */
     public function onsInstanceBaseInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsInstanceBaseInfo',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsInstanceBaseInfoResponse::fromMap($this->doRPCRequest('OnsInstanceBaseInfo', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsInstanceBaseInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsInstanceBaseInfoRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * To send and receive messages, a client must be connected to a Message Queue for Apache RocketMQ instance by using an endpoint. You can call this operation to query the endpoints of the instance.
+     *   *
+     * @param OnsInstanceBaseInfoRequest $request OnsInstanceBaseInfoRequest
      *
-     * @return OnsInstanceBaseInfoResponse
+     * @return OnsInstanceBaseInfoResponse OnsInstanceBaseInfoResponse
      */
     public function onsInstanceBaseInfo($request)
     {
@@ -594,25 +1019,53 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsInstanceCreateRequest $request
-     * @param RuntimeOptions           $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * An instance is a virtual machine (VM) that can be used to store information about the topics and groups of Message Queue for Apache RocketMQ. You can call this operation when you need to create service resources for the business that you want to launch. Take note of the following points when you call this operation:
+     *   * *   A maximum of eight Message Queue for Apache RocketMQ instances can be deployed in each region.
+     *   * *   This operation can be called to create only a Standard Edition instance. You can use the Message Queue for Apache RocketMQ console to create Standard Edition instances and Enterprise Platinum Edition instances. For information about how to create Message Queue for Apache RocketMQ instances, see [Manage instances](~~200153~~).
+     *   *
+     * @param OnsInstanceCreateRequest $request OnsInstanceCreateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsInstanceCreateResponse
+     * @return OnsInstanceCreateResponse OnsInstanceCreateResponse
      */
     public function onsInstanceCreateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsInstanceCreate',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsInstanceCreateResponse::fromMap($this->doRPCRequest('OnsInstanceCreate', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsInstanceCreateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsInstanceCreateRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * An instance is a virtual machine (VM) that can be used to store information about the topics and groups of Message Queue for Apache RocketMQ. You can call this operation when you need to create service resources for the business that you want to launch. Take note of the following points when you call this operation:
+     *   * *   A maximum of eight Message Queue for Apache RocketMQ instances can be deployed in each region.
+     *   * *   This operation can be called to create only a Standard Edition instance. You can use the Message Queue for Apache RocketMQ console to create Standard Edition instances and Enterprise Platinum Edition instances. For information about how to create Message Queue for Apache RocketMQ instances, see [Manage instances](~~200153~~).
+     *   *
+     * @param OnsInstanceCreateRequest $request OnsInstanceCreateRequest
      *
-     * @return OnsInstanceCreateResponse
+     * @return OnsInstanceCreateResponse OnsInstanceCreateResponse
      */
     public function onsInstanceCreate($request)
     {
@@ -622,25 +1075,48 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsInstanceDeleteRequest $request
-     * @param RuntimeOptions           $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * *   You can call this operation when you need to reclaim resources. For example, after you unpublish an application, you can reclaim the resources that were used for the application. An instance can be deleted only when the instance does not contain topics and groups.
+     *   * *   After an instance is deleted, the instance cannot be recovered. Exercise caution when you call this operation.
+     *   *
+     * @param OnsInstanceDeleteRequest $request OnsInstanceDeleteRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsInstanceDeleteResponse
+     * @return OnsInstanceDeleteResponse OnsInstanceDeleteResponse
      */
     public function onsInstanceDeleteWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsInstanceDelete',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsInstanceDeleteResponse::fromMap($this->doRPCRequest('OnsInstanceDelete', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsInstanceDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsInstanceDeleteRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * *   You can call this operation when you need to reclaim resources. For example, after you unpublish an application, you can reclaim the resources that were used for the application. An instance can be deleted only when the instance does not contain topics and groups.
+     *   * *   After an instance is deleted, the instance cannot be recovered. Exercise caution when you call this operation.
+     *   *
+     * @param OnsInstanceDeleteRequest $request OnsInstanceDeleteRequest
      *
-     * @return OnsInstanceDeleteResponse
+     * @return OnsInstanceDeleteResponse OnsInstanceDeleteResponse
      */
     public function onsInstanceDelete($request)
     {
@@ -650,25 +1126,44 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsInstanceInServiceListRequest $request
-     * @param RuntimeOptions                  $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   *
+     * @param OnsInstanceInServiceListRequest $request OnsInstanceInServiceListRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsInstanceInServiceListResponse
+     * @return OnsInstanceInServiceListResponse OnsInstanceInServiceListResponse
      */
     public function onsInstanceInServiceListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsInstanceInServiceList',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsInstanceInServiceListResponse::fromMap($this->doRPCRequest('OnsInstanceInServiceList', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsInstanceInServiceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsInstanceInServiceListRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   *
+     * @param OnsInstanceInServiceListRequest $request OnsInstanceInServiceListRequest
      *
-     * @return OnsInstanceInServiceListResponse
+     * @return OnsInstanceInServiceListResponse OnsInstanceInServiceListResponse
      */
     public function onsInstanceInServiceList($request)
     {
@@ -678,25 +1173,52 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsInstanceUpdateRequest $request
-     * @param RuntimeOptions           $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * A maximum of eight Message Queue for Apache RocketMQ instances can be deployed in each region.
+     *   *
+     * @param OnsInstanceUpdateRequest $request OnsInstanceUpdateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsInstanceUpdateResponse
+     * @return OnsInstanceUpdateResponse OnsInstanceUpdateResponse
      */
     public function onsInstanceUpdateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsInstanceUpdate',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsInstanceUpdateResponse::fromMap($this->doRPCRequest('OnsInstanceUpdate', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsInstanceUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsInstanceUpdateRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * A maximum of eight Message Queue for Apache RocketMQ instances can be deployed in each region.
+     *   *
+     * @param OnsInstanceUpdateRequest $request OnsInstanceUpdateRequest
      *
-     * @return OnsInstanceUpdateResponse
+     * @return OnsInstanceUpdateResponse OnsInstanceUpdateResponse
      */
     public function onsInstanceUpdate($request)
     {
@@ -706,25 +1228,98 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsMessageGetByKeyRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param OnsMessageDetailRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return OnsMessageGetByKeyResponse
+     * @return OnsMessageDetailResponse
+     */
+    public function onsMessageDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsMessageDetail',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OnsMessageDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param OnsMessageDetailRequest $request
+     *
+     * @return OnsMessageDetailResponse
+     */
+    public function onsMessageDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->onsMessageDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * *   This operation uses the fuzzy match method to query messages based on a specified message key. The same message key may be used by multiple messages. Therefore, the returned result may contain the information about multiple messages.
+     *   * *   This operation can be used in scenarios in which you cannot obtain the IDs of the messages that you want to query. You can perform the following steps to query the information about messages:
+     *   *     1.  Call this operation to query message IDs.
+     *   *     2.  Call the **OnsMessageGetByMsgId** operation to query the details of a specified message. The OnsMessageGetByMsgId operation uses the exact match method. For more information about the **OnsMessageGetByMsgId** operation, see [OnsMessageGetByMsgId](~~29607~~).
+     *   *
+     * @param OnsMessageGetByKeyRequest $request OnsMessageGetByKeyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return OnsMessageGetByKeyResponse OnsMessageGetByKeyResponse
      */
     public function onsMessageGetByKeyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsMessageGetByKey',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsMessageGetByKeyResponse::fromMap($this->doRPCRequest('OnsMessageGetByKey', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsMessageGetByKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsMessageGetByKeyRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * *   This operation uses the fuzzy match method to query messages based on a specified message key. The same message key may be used by multiple messages. Therefore, the returned result may contain the information about multiple messages.
+     *   * *   This operation can be used in scenarios in which you cannot obtain the IDs of the messages that you want to query. You can perform the following steps to query the information about messages:
+     *   *     1.  Call this operation to query message IDs.
+     *   *     2.  Call the **OnsMessageGetByMsgId** operation to query the details of a specified message. The OnsMessageGetByMsgId operation uses the exact match method. For more information about the **OnsMessageGetByMsgId** operation, see [OnsMessageGetByMsgId](~~29607~~).
+     *   *
+     * @param OnsMessageGetByKeyRequest $request OnsMessageGetByKeyRequest
      *
-     * @return OnsMessageGetByKeyResponse
+     * @return OnsMessageGetByKeyResponse OnsMessageGetByKeyResponse
      */
     public function onsMessageGetByKey($request)
     {
@@ -734,25 +1329,54 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsMessageGetByMsgIdRequest $request
-     * @param RuntimeOptions              $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * *   If a message is not consumed as expected, you can call this operation to query the information about the message for troubleshooting.
+     *   * *   This operation uses the exact match method to query a message based on the message ID. You can obtain the message ID from the SendResult parameter that is returned after the message is sent. You must store the returned information after each message is sent. The queried information about a message includes the point in time when the message was sent, the broker on which the message is stored, and the attributes of the message such as the message key and tag.
+     *   *
+     * @param OnsMessageGetByMsgIdRequest $request OnsMessageGetByMsgIdRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsMessageGetByMsgIdResponse
+     * @return OnsMessageGetByMsgIdResponse OnsMessageGetByMsgIdResponse
      */
     public function onsMessageGetByMsgIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->msgId)) {
+            $query['MsgId'] = $request->msgId;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsMessageGetByMsgId',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsMessageGetByMsgIdResponse::fromMap($this->doRPCRequest('OnsMessageGetByMsgId', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsMessageGetByMsgIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsMessageGetByMsgIdRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * *   If a message is not consumed as expected, you can call this operation to query the information about the message for troubleshooting.
+     *   * *   This operation uses the exact match method to query a message based on the message ID. You can obtain the message ID from the SendResult parameter that is returned after the message is sent. You must store the returned information after each message is sent. The queried information about a message includes the point in time when the message was sent, the broker on which the message is stored, and the attributes of the message such as the message key and tag.
+     *   *
+     * @param OnsMessageGetByMsgIdRequest $request OnsMessageGetByMsgIdRequest
      *
-     * @return OnsMessageGetByMsgIdResponse
+     * @return OnsMessageGetByMsgIdResponse OnsMessageGetByMsgIdResponse
      */
     public function onsMessageGetByMsgId($request)
     {
@@ -762,25 +1386,70 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsMessagePageQueryByTopicRequest $request
-     * @param RuntimeOptions                    $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * *   If you do not know the message ID or message key of a message that you want to query, you can call this operation to query all messages that are stored in a topic within a specified time range. The results are displayed by page.
+     *   * *   We recommend that you specify a short time range to query messages. If you specify a long time range, a large number of messages are returned. In this case, you cannot find the message that you want to query in an efficient manner. You can perform the following steps to query messages:
+     *   *     1.  Perform a paged query by specifying the topic, start time, end time, and number of entries to return on each page. If the topic contains messages, the information about the messages on the first page, total number of pages, and task ID are returned by default.
+     *   *     2.  Specify the task ID and a page number to call this operation again to query the messages on the specified page. In this query, the BeginTime, EndTime, and PageSize parameters do not take effect. By default, the system uses the values of these parameters that you specified in the request when you created the specified query task.
+     *   *
+     * @param OnsMessagePageQueryByTopicRequest $request OnsMessagePageQueryByTopicRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsMessagePageQueryByTopicResponse
+     * @return OnsMessagePageQueryByTopicResponse OnsMessagePageQueryByTopicResponse
      */
     public function onsMessagePageQueryByTopicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsMessagePageQueryByTopic',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsMessagePageQueryByTopicResponse::fromMap($this->doRPCRequest('OnsMessagePageQueryByTopic', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsMessagePageQueryByTopicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsMessagePageQueryByTopicRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * *   If you do not know the message ID or message key of a message that you want to query, you can call this operation to query all messages that are stored in a topic within a specified time range. The results are displayed by page.
+     *   * *   We recommend that you specify a short time range to query messages. If you specify a long time range, a large number of messages are returned. In this case, you cannot find the message that you want to query in an efficient manner. You can perform the following steps to query messages:
+     *   *     1.  Perform a paged query by specifying the topic, start time, end time, and number of entries to return on each page. If the topic contains messages, the information about the messages on the first page, total number of pages, and task ID are returned by default.
+     *   *     2.  Specify the task ID and a page number to call this operation again to query the messages on the specified page. In this query, the BeginTime, EndTime, and PageSize parameters do not take effect. By default, the system uses the values of these parameters that you specified in the request when you created the specified query task.
+     *   *
+     * @param OnsMessagePageQueryByTopicRequest $request OnsMessagePageQueryByTopicRequest
      *
-     * @return OnsMessagePageQueryByTopicResponse
+     * @return OnsMessagePageQueryByTopicResponse OnsMessagePageQueryByTopicResponse
      */
     public function onsMessagePageQueryByTopic($request)
     {
@@ -790,25 +1459,58 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsMessagePushRequest $request
-     * @param RuntimeOptions        $runtime
+     * ## Note
+     *   * This operation can be used to check whether messages in a specified topic can be consumed by consumers in a specified consumer group. This operation obtains the body of the message that is specified by the MsgId parameter, re-encapsulates the message body to produce a new message, and then pushes the new message to a specified consumer. The content of the message that is sent to the consumer is the same as the content of the original message. They are not the same message because they use different message IDs.
+     *   *
+     * @param OnsMessagePushRequest $request OnsMessagePushRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsMessagePushResponse
+     * @return OnsMessagePushResponse OnsMessagePushResponse
      */
     public function onsMessagePushWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientId)) {
+            $query['ClientId'] = $request->clientId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->msgId)) {
+            $query['MsgId'] = $request->msgId;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsMessagePush',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsMessagePushResponse::fromMap($this->doRPCRequest('OnsMessagePush', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsMessagePushResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsMessagePushRequest $request
+     * ## Note
+     *   * This operation can be used to check whether messages in a specified topic can be consumed by consumers in a specified consumer group. This operation obtains the body of the message that is specified by the MsgId parameter, re-encapsulates the message body to produce a new message, and then pushes the new message to a specified consumer. The content of the message that is sent to the consumer is the same as the content of the original message. They are not the same message because they use different message IDs.
+     *   *
+     * @param OnsMessagePushRequest $request OnsMessagePushRequest
      *
-     * @return OnsMessagePushResponse
+     * @return OnsMessagePushResponse OnsMessagePushResponse
      */
     public function onsMessagePush($request)
     {
@@ -818,53 +1520,54 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsMessageSendRequest $request
-     * @param RuntimeOptions        $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * *   You can call this operation to check whether a specified message is consumed. If the message is not consumed, you can troubleshoot the issue based on the returned information.
+     *   * *   This operation queries information based on the built-in offset mechanism of Message Queue for Apache RocketMQ. In most cases, the results are correct. If you have reset the consumer offset or cleared accumulated messages, the results may not be correct.
+     *   *
+     * @param OnsMessageTraceRequest $request OnsMessageTraceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsMessageSendResponse
-     */
-    public function onsMessageSendWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return OnsMessageSendResponse::fromMap($this->doRPCRequest('OnsMessageSend', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param OnsMessageSendRequest $request
-     *
-     * @return OnsMessageSendResponse
-     */
-    public function onsMessageSend($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->onsMessageSendWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param OnsMessageTraceRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return OnsMessageTraceResponse
+     * @return OnsMessageTraceResponse OnsMessageTraceResponse
      */
     public function onsMessageTraceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->msgId)) {
+            $query['MsgId'] = $request->msgId;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsMessageTrace',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsMessageTraceResponse::fromMap($this->doRPCRequest('OnsMessageTrace', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsMessageTraceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsMessageTraceRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * *   You can call this operation to check whether a specified message is consumed. If the message is not consumed, you can troubleshoot the issue based on the returned information.
+     *   * *   This operation queries information based on the built-in offset mechanism of Message Queue for Apache RocketMQ. In most cases, the results are correct. If you have reset the consumer offset or cleared accumulated messages, the results may not be correct.
+     *   *
+     * @param OnsMessageTraceRequest $request OnsMessageTraceRequest
      *
-     * @return OnsMessageTraceResponse
+     * @return OnsMessageTraceResponse OnsMessageTraceResponse
      */
     public function onsMessageTrace($request)
     {
@@ -874,243 +1577,40 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsMqttGroupIdCreateRequest $request
-     * @param RuntimeOptions              $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * When you use an SDK to access and manage a Message Queue for Apache RocketMQ instance, you must sequentially specify the information about two regions. You can query the information about the second region by calling the \\*\\*OnsRegionList\\*\\* operation. You must apply for a public endpoint in the following scenarios:
+     *   * *   Connect your application to Message Queue for Apache RocketMQ: Select the nearest API gateway endpoint based on the region where your application is deployed, and enter the corresponding **region ID**. The **regionId** is used to access Alibaba Cloud API Gateway because Message Queue for Apache RocketMQ instances provide API services by using the OpenAPI Explorer platform, which is also called POP.
+     *   * *   Access a region to manage its resources: Specify a region where you want to manage Message Queue for Apache RocketMQ resources and enter the region ID. You can query the region ID by calling the **OnsRegionList** operation.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsMqttGroupIdCreateResponse
-     */
-    public function onsMqttGroupIdCreateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return OnsMqttGroupIdCreateResponse::fromMap($this->doRPCRequest('OnsMqttGroupIdCreate', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param OnsMqttGroupIdCreateRequest $request
-     *
-     * @return OnsMqttGroupIdCreateResponse
-     */
-    public function onsMqttGroupIdCreate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->onsMqttGroupIdCreateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param OnsMqttGroupIdDeleteRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return OnsMqttGroupIdDeleteResponse
-     */
-    public function onsMqttGroupIdDeleteWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return OnsMqttGroupIdDeleteResponse::fromMap($this->doRPCRequest('OnsMqttGroupIdDelete', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param OnsMqttGroupIdDeleteRequest $request
-     *
-     * @return OnsMqttGroupIdDeleteResponse
-     */
-    public function onsMqttGroupIdDelete($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->onsMqttGroupIdDeleteWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param OnsMqttGroupIdListRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return OnsMqttGroupIdListResponse
-     */
-    public function onsMqttGroupIdListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return OnsMqttGroupIdListResponse::fromMap($this->doRPCRequest('OnsMqttGroupIdList', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param OnsMqttGroupIdListRequest $request
-     *
-     * @return OnsMqttGroupIdListResponse
-     */
-    public function onsMqttGroupIdList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->onsMqttGroupIdListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param OnsMqttQueryClientByClientIdRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return OnsMqttQueryClientByClientIdResponse
-     */
-    public function onsMqttQueryClientByClientIdWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return OnsMqttQueryClientByClientIdResponse::fromMap($this->doRPCRequest('OnsMqttQueryClientByClientId', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param OnsMqttQueryClientByClientIdRequest $request
-     *
-     * @return OnsMqttQueryClientByClientIdResponse
-     */
-    public function onsMqttQueryClientByClientId($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->onsMqttQueryClientByClientIdWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param OnsMqttQueryClientByGroupIdRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return OnsMqttQueryClientByGroupIdResponse
-     */
-    public function onsMqttQueryClientByGroupIdWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return OnsMqttQueryClientByGroupIdResponse::fromMap($this->doRPCRequest('OnsMqttQueryClientByGroupId', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param OnsMqttQueryClientByGroupIdRequest $request
-     *
-     * @return OnsMqttQueryClientByGroupIdResponse
-     */
-    public function onsMqttQueryClientByGroupId($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->onsMqttQueryClientByGroupIdWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param OnsMqttQueryClientByTopicRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return OnsMqttQueryClientByTopicResponse
-     */
-    public function onsMqttQueryClientByTopicWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return OnsMqttQueryClientByTopicResponse::fromMap($this->doRPCRequest('OnsMqttQueryClientByTopic', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param OnsMqttQueryClientByTopicRequest $request
-     *
-     * @return OnsMqttQueryClientByTopicResponse
-     */
-    public function onsMqttQueryClientByTopic($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->onsMqttQueryClientByTopicWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param OnsMqttQueryHistoryOnlineRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return OnsMqttQueryHistoryOnlineResponse
-     */
-    public function onsMqttQueryHistoryOnlineWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return OnsMqttQueryHistoryOnlineResponse::fromMap($this->doRPCRequest('OnsMqttQueryHistoryOnline', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param OnsMqttQueryHistoryOnlineRequest $request
-     *
-     * @return OnsMqttQueryHistoryOnlineResponse
-     */
-    public function onsMqttQueryHistoryOnline($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->onsMqttQueryHistoryOnlineWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param OnsMqttQueryMsgTransTrendRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return OnsMqttQueryMsgTransTrendResponse
-     */
-    public function onsMqttQueryMsgTransTrendWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return OnsMqttQueryMsgTransTrendResponse::fromMap($this->doRPCRequest('OnsMqttQueryMsgTransTrend', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param OnsMqttQueryMsgTransTrendRequest $request
-     *
-     * @return OnsMqttQueryMsgTransTrendResponse
-     */
-    public function onsMqttQueryMsgTransTrend($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->onsMqttQueryMsgTransTrendWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return OnsRegionListResponse
+     * @return OnsRegionListResponse OnsRegionListResponse
      */
     public function onsRegionListWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'OnsRegionList',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return OnsRegionListResponse::fromMap($this->doRPCRequest('OnsRegionList', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsRegionListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @return OnsRegionListResponse
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * When you use an SDK to access and manage a Message Queue for Apache RocketMQ instance, you must sequentially specify the information about two regions. You can query the information about the second region by calling the \\*\\*OnsRegionList\\*\\* operation. You must apply for a public endpoint in the following scenarios:
+     *   * *   Connect your application to Message Queue for Apache RocketMQ: Select the nearest API gateway endpoint based on the region where your application is deployed, and enter the corresponding **region ID**. The **regionId** is used to access Alibaba Cloud API Gateway because Message Queue for Apache RocketMQ instances provide API services by using the OpenAPI Explorer platform, which is also called POP.
+     *   * *   Access a region to manage its resources: Specify a region where you want to manage Message Queue for Apache RocketMQ resources and enter the region ID. You can query the region ID by calling the **OnsRegionList** operation.
+     *   *
+     * @return OnsRegionListResponse OnsRegionListResponse
      */
     public function onsRegionList()
     {
@@ -1120,25 +1620,55 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsTopicCreateRequest $request
-     * @param RuntimeOptions        $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * When you want to release a new application or expand your business, you can call this operation to create a topic based on your business requirements.
+     *   *
+     * @param OnsTopicCreateRequest $request OnsTopicCreateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsTopicCreateResponse
+     * @return OnsTopicCreateResponse OnsTopicCreateResponse
      */
     public function onsTopicCreateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->messageType)) {
+            $query['MessageType'] = $request->messageType;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsTopicCreate',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsTopicCreateResponse::fromMap($this->doRPCRequest('OnsTopicCreate', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsTopicCreateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsTopicCreateRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * When you want to release a new application or expand your business, you can call this operation to create a topic based on your business requirements.
+     *   *
+     * @param OnsTopicCreateRequest $request OnsTopicCreateRequest
      *
-     * @return OnsTopicCreateResponse
+     * @return OnsTopicCreateResponse OnsTopicCreateResponse
      */
     public function onsTopicCreate($request)
     {
@@ -1148,25 +1678,49 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsTopicDeleteRequest $request
-     * @param RuntimeOptions        $runtime
+     * >  The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur. - After you delete the topic, the publishing and subscription relationships that are constructed based on the topic are cleared. Exercise caution when you call this operation.
+     *   * You can call this operation to delete a topic when you need to reclaim the resources from the topic. For example, after an application is brought offline, you can delete the topics that are used for the application. After you delete a topic, the backend of Message Queue for Apache RocketMQ reclaims the resources from the topic. The system requires a long period of time to reclaim the resources. After you delete a topic, we recommend that you do not create a topic that uses the same name as the deleted topic within a short period of time. If the system fails to delete the specified topic, troubleshoot the issue based on the error code.
+     *   *
+     * @param OnsTopicDeleteRequest $request OnsTopicDeleteRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsTopicDeleteResponse
+     * @return OnsTopicDeleteResponse OnsTopicDeleteResponse
      */
     public function onsTopicDeleteWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsTopicDelete',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsTopicDeleteResponse::fromMap($this->doRPCRequest('OnsTopicDelete', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsTopicDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsTopicDeleteRequest $request
+     * >  The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur. - After you delete the topic, the publishing and subscription relationships that are constructed based on the topic are cleared. Exercise caution when you call this operation.
+     *   * You can call this operation to delete a topic when you need to reclaim the resources from the topic. For example, after an application is brought offline, you can delete the topics that are used for the application. After you delete a topic, the backend of Message Queue for Apache RocketMQ reclaims the resources from the topic. The system requires a long period of time to reclaim the resources. After you delete a topic, we recommend that you do not create a topic that uses the same name as the deleted topic within a short period of time. If the system fails to delete the specified topic, troubleshoot the issue based on the error code.
+     *   *
+     * @param OnsTopicDeleteRequest $request OnsTopicDeleteRequest
      *
-     * @return OnsTopicDeleteResponse
+     * @return OnsTopicDeleteResponse OnsTopicDeleteResponse
      */
     public function onsTopicDelete($request)
     {
@@ -1176,25 +1730,55 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsTopicListRequest $request
-     * @param RuntimeOptions      $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * This operation returns the basic information about topics and does not return the details of topics.
+     *   *
+     * @param OnsTopicListRequest $request OnsTopicListRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsTopicListResponse
+     * @return OnsTopicListResponse OnsTopicListResponse
      */
     public function onsTopicListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsTopicList',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsTopicListResponse::fromMap($this->doRPCRequest('OnsTopicList', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsTopicListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsTopicListRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * This operation returns the basic information about topics and does not return the details of topics.
+     *   *
+     * @param OnsTopicListRequest $request OnsTopicListRequest
      *
-     * @return OnsTopicListResponse
+     * @return OnsTopicListResponse OnsTopicListResponse
      */
     public function onsTopicList($request)
     {
@@ -1204,25 +1788,49 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsTopicStatusRequest $request
-     * @param RuntimeOptions        $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * You can determine the resource usage of a topic based on the information that is returned by this operation. The returned information includes the total number of messages in the topic and the most recent point in time when a message was published to the topic.
+     *   *
+     * @param OnsTopicStatusRequest $request OnsTopicStatusRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsTopicStatusResponse
+     * @return OnsTopicStatusResponse OnsTopicStatusResponse
      */
     public function onsTopicStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsTopicStatus',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsTopicStatusResponse::fromMap($this->doRPCRequest('OnsTopicStatus', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsTopicStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsTopicStatusRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * You can determine the resource usage of a topic based on the information that is returned by this operation. The returned information includes the total number of messages in the topic and the most recent point in time when a message was published to the topic.
+     *   *
+     * @param OnsTopicStatusRequest $request OnsTopicStatusRequest
      *
-     * @return OnsTopicStatusResponse
+     * @return OnsTopicStatusResponse OnsTopicStatusResponse
      */
     public function onsTopicStatus($request)
     {
@@ -1232,25 +1840,49 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsTopicSubDetailRequest $request
-     * @param RuntimeOptions           $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * You can call this operation to query the online consumer groups that subscribe to a specified topic. If all consumers in a group are offline, the information about the group is not returned.
+     *   *
+     * @param OnsTopicSubDetailRequest $request OnsTopicSubDetailRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsTopicSubDetailResponse
+     * @return OnsTopicSubDetailResponse OnsTopicSubDetailResponse
      */
     public function onsTopicSubDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsTopicSubDetail',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsTopicSubDetailResponse::fromMap($this->doRPCRequest('OnsTopicSubDetail', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsTopicSubDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsTopicSubDetailRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * You can call this operation to query the online consumer groups that subscribe to a specified topic. If all consumers in a group are offline, the information about the group is not returned.
+     *   *
+     * @param OnsTopicSubDetailRequest $request OnsTopicSubDetailRequest
      *
-     * @return OnsTopicSubDetailResponse
+     * @return OnsTopicSubDetailResponse OnsTopicSubDetailResponse
      */
     public function onsTopicSubDetail($request)
     {
@@ -1260,25 +1892,58 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsTopicUpdateRequest $request
-     * @param RuntimeOptions        $runtime
+     * @deprecated
+     *   * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise system risks may occur.
+     *   * You can call this operation to forbid read or write operations on a specific topic.
+     *   *
+     * Deprecated
      *
-     * @return OnsTopicUpdateResponse
+     * @param OnsTopicUpdateRequest $request OnsTopicUpdateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return OnsTopicUpdateResponse OnsTopicUpdateResponse
      */
     public function onsTopicUpdateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->perm)) {
+            $query['Perm'] = $request->perm;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsTopicUpdate',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsTopicUpdateResponse::fromMap($this->doRPCRequest('OnsTopicUpdate', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsTopicUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsTopicUpdateRequest $request
+     * @deprecated
+     *   * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise system risks may occur.
+     *   * You can call this operation to forbid read or write operations on a specific topic.
+     *   *
+     * Deprecated
      *
-     * @return OnsTopicUpdateResponse
+     * @param OnsTopicUpdateRequest $request OnsTopicUpdateRequest
+     *
+     * @return OnsTopicUpdateResponse OnsTopicUpdateResponse
      */
     public function onsTopicUpdate($request)
     {
@@ -1288,25 +1953,48 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsTraceGetResultRequest $request
-     * @param RuntimeOptions           $runtime
+     * ## Usage notes
+     *   * *   Before you call this operation to query the details of the trace of a message, you must create a task to query the trace of the message based on the message ID or message key and obtains the task ID. Then, you can call this operation to query the details of the message trace based on the task ID. You can call the [OnsTraceQueryByMsgId](~~59830~~) operation or the [OnsTraceQueryByMsgKey](~~59831~~) operation to create a task to query the trace of the message and obtain the task ID from the **QueryId** response parameter.
+     *   * *   A trace query task is time-consuming. If you call this operation to query the details immediately after you create a trace query task, the results may be empty. In this case, we recommend that you try again later.
+     *   *
+     * @param OnsTraceGetResultRequest $request OnsTraceGetResultRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsTraceGetResultResponse
+     * @return OnsTraceGetResultResponse OnsTraceGetResultResponse
      */
     public function onsTraceGetResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->queryId)) {
+            $query['QueryId'] = $request->queryId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsTraceGetResult',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsTraceGetResultResponse::fromMap($this->doRPCRequest('OnsTraceGetResult', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsTraceGetResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsTraceGetResultRequest $request
+     * ## Usage notes
+     *   * *   Before you call this operation to query the details of the trace of a message, you must create a task to query the trace of the message based on the message ID or message key and obtains the task ID. Then, you can call this operation to query the details of the message trace based on the task ID. You can call the [OnsTraceQueryByMsgId](~~59830~~) operation or the [OnsTraceQueryByMsgKey](~~59831~~) operation to create a task to query the trace of the message and obtain the task ID from the **QueryId** response parameter.
+     *   * *   A trace query task is time-consuming. If you call this operation to query the details immediately after you create a trace query task, the results may be empty. In this case, we recommend that you try again later.
+     *   *
+     * @param OnsTraceGetResultRequest $request OnsTraceGetResultRequest
      *
-     * @return OnsTraceGetResultResponse
+     * @return OnsTraceGetResultResponse OnsTraceGetResultResponse
      */
     public function onsTraceGetResult($request)
     {
@@ -1316,25 +2004,58 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsTraceQueryByMsgIdRequest $request
-     * @param RuntimeOptions              $runtime
+     * ## Note
+     *   * If you want to query the trace of a message based on the message ID, you can call this operation to create a query task. After you obtain the task ID, you can call the [OnsTraceGetResult](~~59832~~) operation to query the details of the message trace based on the task ID.
+     *   *
+     * @param OnsTraceQueryByMsgIdRequest $request OnsTraceQueryByMsgIdRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsTraceQueryByMsgIdResponse
+     * @return OnsTraceQueryByMsgIdResponse OnsTraceQueryByMsgIdResponse
      */
     public function onsTraceQueryByMsgIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->msgId)) {
+            $query['MsgId'] = $request->msgId;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsTraceQueryByMsgId',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsTraceQueryByMsgIdResponse::fromMap($this->doRPCRequest('OnsTraceQueryByMsgId', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsTraceQueryByMsgIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsTraceQueryByMsgIdRequest $request
+     * ## Note
+     *   * If you want to query the trace of a message based on the message ID, you can call this operation to create a query task. After you obtain the task ID, you can call the [OnsTraceGetResult](~~59832~~) operation to query the details of the message trace based on the task ID.
+     *   *
+     * @param OnsTraceQueryByMsgIdRequest $request OnsTraceQueryByMsgIdRequest
      *
-     * @return OnsTraceQueryByMsgIdResponse
+     * @return OnsTraceQueryByMsgIdResponse OnsTraceQueryByMsgIdResponse
      */
     public function onsTraceQueryByMsgId($request)
     {
@@ -1344,25 +2065,58 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsTraceQueryByMsgKeyRequest $request
-     * @param RuntimeOptions               $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * If you obtain the key of a message and want to query the trace of the message, you can call this operation to create a query task. After you obtain the task ID, you can call the OnsTraceGetResult operation to query the details of the message trace based on the task ID.
+     *   *
+     * @param OnsTraceQueryByMsgKeyRequest $request OnsTraceQueryByMsgKeyRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsTraceQueryByMsgKeyResponse
+     * @return OnsTraceQueryByMsgKeyResponse OnsTraceQueryByMsgKeyResponse
      */
     public function onsTraceQueryByMsgKeyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->msgKey)) {
+            $query['MsgKey'] = $request->msgKey;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsTraceQueryByMsgKey',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsTraceQueryByMsgKeyResponse::fromMap($this->doRPCRequest('OnsTraceQueryByMsgKey', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsTraceQueryByMsgKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsTraceQueryByMsgKeyRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * If you obtain the key of a message and want to query the trace of the message, you can call this operation to create a query task. After you obtain the task ID, you can call the OnsTraceGetResult operation to query the details of the message trace based on the task ID.
+     *   *
+     * @param OnsTraceQueryByMsgKeyRequest $request OnsTraceQueryByMsgKeyRequest
      *
-     * @return OnsTraceQueryByMsgKeyResponse
+     * @return OnsTraceQueryByMsgKeyResponse OnsTraceQueryByMsgKeyResponse
      */
     public function onsTraceQueryByMsgKey($request)
     {
@@ -1372,25 +2126,70 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsTrendGroupOutputTpsRequest $request
-     * @param RuntimeOptions                $runtime
+     * ## Note
+     *   * You can call this operation to query the following statistics that are collected in the production environment:
+     *   * *   The number of messages that are consumed during each sampling period
+     *   * *   The transactions per second (TPS) for message consumption during each sampling period
+     *   * >  If your application publishes a small number of messages and does not publish messages at a specific interval, we recommend that you query the number of messages that are consumed during each sampling period because the statistics of TPS may not show a clear change trend.
+     *   *
+     * @param OnsTrendGroupOutputTpsRequest $request OnsTrendGroupOutputTpsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsTrendGroupOutputTpsResponse
+     * @return OnsTrendGroupOutputTpsResponse OnsTrendGroupOutputTpsResponse
      */
     public function onsTrendGroupOutputTpsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsTrendGroupOutputTps',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsTrendGroupOutputTpsResponse::fromMap($this->doRPCRequest('OnsTrendGroupOutputTps', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsTrendGroupOutputTpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsTrendGroupOutputTpsRequest $request
+     * ## Note
+     *   * You can call this operation to query the following statistics that are collected in the production environment:
+     *   * *   The number of messages that are consumed during each sampling period
+     *   * *   The transactions per second (TPS) for message consumption during each sampling period
+     *   * >  If your application publishes a small number of messages and does not publish messages at a specific interval, we recommend that you query the number of messages that are consumed during each sampling period because the statistics of TPS may not show a clear change trend.
+     *   *
+     * @param OnsTrendGroupOutputTpsRequest $request OnsTrendGroupOutputTpsRequest
      *
-     * @return OnsTrendGroupOutputTpsResponse
+     * @return OnsTrendGroupOutputTpsResponse OnsTrendGroupOutputTpsResponse
      */
     public function onsTrendGroupOutputTps($request)
     {
@@ -1400,25 +2199,63 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsTrendTopicInputTpsRequest $request
-     * @param RuntimeOptions               $runtime
+     * ## Note
+     *   * You can call this operation to query the statistics of messages that are published to a specified topic in the production environment. You can obtain the number of messages that are published to the topic or the transactions per second (TPS) for message publishing during each sampling period within a specified time range.
+     *   * >  If your application publishes a small number of messages and does not publish messages at a specific interval, we recommend that you query the number of messages that are published to the topic during each sampling period because the statistics of TPS may not show a clear change trend.
+     *   *
+     * @param OnsTrendTopicInputTpsRequest $request OnsTrendTopicInputTpsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsTrendTopicInputTpsResponse
+     * @return OnsTrendTopicInputTpsResponse OnsTrendTopicInputTpsResponse
      */
     public function onsTrendTopicInputTpsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OnsTrendTopicInputTps',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OnsTrendTopicInputTpsResponse::fromMap($this->doRPCRequest('OnsTrendTopicInputTps', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OnsTrendTopicInputTpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OnsTrendTopicInputTpsRequest $request
+     * ## Note
+     *   * You can call this operation to query the statistics of messages that are published to a specified topic in the production environment. You can obtain the number of messages that are published to the topic or the transactions per second (TPS) for message publishing during each sampling period within a specified time range.
+     *   * >  If your application publishes a small number of messages and does not publish messages at a specific interval, we recommend that you query the number of messages that are published to the topic during each sampling period because the statistics of TPS may not show a clear change trend.
+     *   *
+     * @param OnsTrendTopicInputTpsRequest $request OnsTrendTopicInputTpsRequest
      *
-     * @return OnsTrendTopicInputTpsResponse
+     * @return OnsTrendTopicInputTpsResponse OnsTrendTopicInputTpsResponse
      */
     public function onsTrendTopicInputTps($request)
     {
@@ -1428,75 +2265,38 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param OnsWarnCreateRequest $request
-     * @param RuntimeOptions       $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * You can call this operation when you use Message Queue for Apache RocketMQ for the first time. You can use Message Queue for Apache RocketMQ only after this service is activated.
+     *   * The Message Queue for Apache RocketMQ service can be activated only in the China (Hangzhou) region. Service activation is not billed.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return OnsWarnCreateResponse
-     */
-    public function onsWarnCreateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return OnsWarnCreateResponse::fromMap($this->doRPCRequest('OnsWarnCreate', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param OnsWarnCreateRequest $request
-     *
-     * @return OnsWarnCreateResponse
-     */
-    public function onsWarnCreate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->onsWarnCreateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param OnsWarnDeleteRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return OnsWarnDeleteResponse
-     */
-    public function onsWarnDeleteWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return OnsWarnDeleteResponse::fromMap($this->doRPCRequest('OnsWarnDelete', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param OnsWarnDeleteRequest $request
-     *
-     * @return OnsWarnDeleteResponse
-     */
-    public function onsWarnDelete($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->onsWarnDeleteWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return OpenOnsServiceResponse
+     * @return OpenOnsServiceResponse OpenOnsServiceResponse
      */
     public function openOnsServiceWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'OpenOnsService',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return OpenOnsServiceResponse::fromMap($this->doRPCRequest('OpenOnsService', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OpenOnsServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @return OpenOnsServiceResponse
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * You can call this operation when you use Message Queue for Apache RocketMQ for the first time. You can use Message Queue for Apache RocketMQ only after this service is activated.
+     *   * The Message Queue for Apache RocketMQ service can be activated only in the China (Hangzhou) region. Service activation is not billed.
+     *   *
+     * @return OpenOnsServiceResponse OpenOnsServiceResponse
      */
     public function openOnsService()
     {
@@ -1506,25 +2306,55 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * You can call this operation to attach tags to a source. You can use tags to classify resources in Message Queue for Apache RocketMQ. This can help you aggregate and search resources in an efficient manner.
+     *   *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TagResourcesResponse::fromMap($this->doRPCRequest('TagResources', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   * You can call this operation to attach tags to a source. You can use tags to classify resources in Message Queue for Apache RocketMQ. This can help you aggregate and search resources in an efficient manner.
+     *   *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -1534,25 +2364,56 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2019-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UntagResourcesResponse::fromMap($this->doRPCRequest('UntagResources', '2019-02-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *   *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {

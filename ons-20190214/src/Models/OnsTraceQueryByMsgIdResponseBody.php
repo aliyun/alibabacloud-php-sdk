@@ -9,17 +9,25 @@ use AlibabaCloud\Tea\Model;
 class OnsTraceQueryByMsgIdResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @description The ID of the query task. You can call the [OnsTraceGetResult](~~59832~~) operation to query the details of the message trace based on the task ID.
+     *
+     * @example 272967562652883649157096685****
+     *
      * @var string
      */
     public $queryId;
+
+    /**
+     * @description The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+     *
+     * @example B93332A3-160D-404F-880F-1F8736D1****
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'queryId'   => 'QueryId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +37,11 @@ class OnsTraceQueryByMsgIdResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->queryId) {
             $res['QueryId'] = $this->queryId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +55,11 @@ class OnsTraceQueryByMsgIdResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['QueryId'])) {
             $model->queryId = $map['QueryId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

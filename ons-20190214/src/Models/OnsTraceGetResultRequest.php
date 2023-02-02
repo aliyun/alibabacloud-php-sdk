@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class OnsTraceGetResultRequest extends Model
 {
     /**
+     * @description The ID of the task that was created to query the trace of the message.
+     *
+     * @example 272967562652883649157096685****
+     *
      * @var string
      */
     public $queryId;

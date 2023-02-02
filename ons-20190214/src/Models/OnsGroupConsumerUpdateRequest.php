@@ -9,23 +9,39 @@ use AlibabaCloud\Tea\Model;
 class OnsGroupConsumerUpdateRequest extends Model
 {
     /**
+     * @description The ID of the consumer group for which you want to configure the read permissions.
+     *
+     * @example GID_test_groupId
+     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @var bool
-     */
-    public $readEnable;
-
-    /**
+     * @description The ID of the instance to which the consumer group you want to configure belongs.
+     *
+     * @example MQ_INST_111111111111_DOxxxxxx
+     *
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @description Specifies whether to authorize the consumer group with the specified ID to read messages. Valid values:
+     *
+     *   **true**: Authorize the consumer group with the specified ID to read messages.
+     *   **false**: Do not authorize the consumer group with the specified group ID to read messages.
+     *
+     * Default value: **true**.
+     * @example true
+     *
+     * @var bool
+     */
+    public $readEnable;
     protected $_name = [
         'groupId'    => 'GroupId',
-        'readEnable' => 'ReadEnable',
         'instanceId' => 'InstanceId',
+        'readEnable' => 'ReadEnable',
     ];
 
     public function validate()
@@ -38,11 +54,11 @@ class OnsGroupConsumerUpdateRequest extends Model
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->readEnable) {
-            $res['ReadEnable'] = $this->readEnable;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->readEnable) {
+            $res['ReadEnable'] = $this->readEnable;
         }
 
         return $res;
@@ -59,11 +75,11 @@ class OnsGroupConsumerUpdateRequest extends Model
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['ReadEnable'])) {
-            $model->readEnable = $map['ReadEnable'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['ReadEnable'])) {
+            $model->readEnable = $map['ReadEnable'];
         }
 
         return $model;

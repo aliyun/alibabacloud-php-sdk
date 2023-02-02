@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class OnsInstanceInServiceListRequest extends Model
 {
     /**
+     * @description The list of tags that are attached to the instance. A maximum of 20 tags can be included in a list.
+     *
      * @var tag[]
      */
     public $tag;

@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the instance that you created.
+     *
+     * @example MQ_INST_188077086902****_BXSuW61e
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The edition of the instance. Valid value:
+     *
+     *   **1**: Standard Edition
+     *
+     * @example 1
+     *
      * @var int
      */
     public $instanceType;

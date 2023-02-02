@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class OnsConsumerGetConnectionRequest extends Model
 {
     /**
+     * @description The ID of the consumer group whose client connection status you want to query.
+     *
+     * @example GID_test_consumer_id
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the instance to which the consumer group belongs.
+     *
+     * @example MQ_INST_111111111111_DOxxxxxx
+     *
      * @var string
      */
     public $instanceId;

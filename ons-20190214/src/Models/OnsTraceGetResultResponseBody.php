@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class OnsTraceGetResultResponseBody extends Model
 {
     /**
+     * @description The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+     *
+     * @example 84EE24D2-851F-40D6-B99E-4D6AB909****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the message trace.
+     *
      * @var traceData
      */
     public $traceData;

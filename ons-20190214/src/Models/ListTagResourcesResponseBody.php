@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
+     * @description The token that determines the start point of the query.
+     *
+     * @example caeba0****be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+     *
+     * @example 301D2CBE-66F8-403D-AEC0-82582478****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Details of the resource and tags, including the resource ID, the resource type, and the keys and values of tags.
+     *
      * @var tagResources[]
      */
     public $tagResources;

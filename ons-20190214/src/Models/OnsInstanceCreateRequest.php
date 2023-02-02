@@ -9,17 +9,28 @@ use AlibabaCloud\Tea\Model;
 class OnsInstanceCreateRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $remark;
-
-    /**
+     * @description The name of the instance. Valid values:
+     *
+     *   The name of the instance must be unique in the region where the instance is deployed.
+     *   The name must be 3 to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (\_).
+     *
+     * @example Test
+     *
      * @var string
      */
     public $instanceName;
+
+    /**
+     * @description The description of the instance.
+     *
+     * @example Description
+     *
+     * @var string
+     */
+    public $remark;
     protected $_name = [
-        'remark'       => 'Remark',
         'instanceName' => 'InstanceName',
+        'remark'       => 'Remark',
     ];
 
     public function validate()
@@ -29,11 +40,11 @@ class OnsInstanceCreateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
-        }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
 
         return $res;
@@ -47,11 +58,11 @@ class OnsInstanceCreateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
-        }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
 
         return $model;

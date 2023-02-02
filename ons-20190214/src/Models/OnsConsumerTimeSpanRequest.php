@@ -9,23 +9,35 @@ use AlibabaCloud\Tea\Model;
 class OnsConsumerTimeSpanRequest extends Model
 {
     /**
+     * @description The ID of the consumer group whose reset time range you want to query.
+     *
+     * @example GID_test_group_id
+     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @var string
-     */
-    public $topic;
-
-    /**
+     * @description The ID of the instance to which the consumer group belongs.
+     *
+     * @example MQ_INST_111111111111_DOxxxxxx
+     *
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @description The topic to which the consumer group subscribes.
+     *
+     * @example test-mq_topic
+     *
+     * @var string
+     */
+    public $topic;
     protected $_name = [
         'groupId'    => 'GroupId',
-        'topic'      => 'Topic',
         'instanceId' => 'InstanceId',
+        'topic'      => 'Topic',
     ];
 
     public function validate()
@@ -38,11 +50,11 @@ class OnsConsumerTimeSpanRequest extends Model
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->topic) {
-            $res['Topic'] = $this->topic;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->topic) {
+            $res['Topic'] = $this->topic;
         }
 
         return $res;
@@ -59,11 +71,11 @@ class OnsConsumerTimeSpanRequest extends Model
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['Topic'])) {
-            $model->topic = $map['Topic'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Topic'])) {
+            $model->topic = $map['Topic'];
         }
 
         return $model;

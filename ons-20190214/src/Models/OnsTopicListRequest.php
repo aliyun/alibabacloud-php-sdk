@@ -10,23 +10,41 @@ use AlibabaCloud\Tea\Model;
 class OnsTopicListRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $topic;
-
-    /**
+     * @description The ID of the instance that contains the topics you want to query.
+     *
+     * @example MQ_INST_188077086902****_BXSuW61e
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The list of tags that are attached to the topic. A maximum of 20 tags can be included in the list.
+     *
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @description The name of the topic that you want to query. This parameter is required when you want to query a specific topic. If you do not include this parameter in a request, all topics that you can access are queried.
+     *
+     * @example test
+     *
+     * @var string
+     */
+    public $topic;
+
+    /**
+     * @example 138015630679****
+     *
+     * @var string
+     */
+    public $userId;
     protected $_name = [
-        'topic'      => 'Topic',
         'instanceId' => 'InstanceId',
         'tag'        => 'Tag',
+        'topic'      => 'Topic',
+        'userId'     => 'UserId',
     ];
 
     public function validate()
@@ -36,9 +54,6 @@ class OnsTopicListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->topic) {
-            $res['Topic'] = $this->topic;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -50,6 +65,12 @@ class OnsTopicListRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->topic) {
+            $res['Topic'] = $this->topic;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -63,9 +84,6 @@ class OnsTopicListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Topic'])) {
-            $model->topic = $map['Topic'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -77,6 +95,12 @@ class OnsTopicListRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Topic'])) {
+            $model->topic = $map['Topic'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

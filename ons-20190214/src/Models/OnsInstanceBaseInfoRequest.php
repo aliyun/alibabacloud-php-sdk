@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class OnsInstanceBaseInfoRequest extends Model
 {
     /**
+     * @description The ID of the instance that you want to query.
+     *
+     * @example MQ_INST_138015630679****_BAAy1Hac
+     *
      * @var string
      */
     public $instanceId;

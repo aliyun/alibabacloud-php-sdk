@@ -9,29 +9,45 @@ use AlibabaCloud\Tea\Model;
 class detailInTopicDo extends Model
 {
     /**
+     * @description The maximum latency of message consumption in the topic.
+     *
+     * @example 10000
+     *
      * @var int
      */
     public $delayTime;
 
     /**
-     * @var int
-     */
-    public $totalDiff;
-
-    /**
+     * @description The point in time when the latest consumed message in the topic was produced.
+     *
+     * @example 1566231000000
+     *
      * @var int
      */
     public $lastTimestamp;
 
     /**
+     * @description The name of the topic.
+     *
+     * @example test-mq-topic
+     *
      * @var string
      */
     public $topic;
+
+    /**
+     * @description The number of accumulated messages in the topic.
+     *
+     * @example 100
+     *
+     * @var int
+     */
+    public $totalDiff;
     protected $_name = [
         'delayTime'     => 'DelayTime',
-        'totalDiff'     => 'TotalDiff',
         'lastTimestamp' => 'LastTimestamp',
         'topic'         => 'Topic',
+        'totalDiff'     => 'TotalDiff',
     ];
 
     public function validate()
@@ -44,14 +60,14 @@ class detailInTopicDo extends Model
         if (null !== $this->delayTime) {
             $res['DelayTime'] = $this->delayTime;
         }
-        if (null !== $this->totalDiff) {
-            $res['TotalDiff'] = $this->totalDiff;
-        }
         if (null !== $this->lastTimestamp) {
             $res['LastTimestamp'] = $this->lastTimestamp;
         }
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
+        }
+        if (null !== $this->totalDiff) {
+            $res['TotalDiff'] = $this->totalDiff;
         }
 
         return $res;
@@ -68,14 +84,14 @@ class detailInTopicDo extends Model
         if (isset($map['DelayTime'])) {
             $model->delayTime = $map['DelayTime'];
         }
-        if (isset($map['TotalDiff'])) {
-            $model->totalDiff = $map['TotalDiff'];
-        }
         if (isset($map['LastTimestamp'])) {
             $model->lastTimestamp = $map['LastTimestamp'];
         }
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
+        }
+        if (isset($map['TotalDiff'])) {
+            $model->totalDiff = $map['TotalDiff'];
         }
 
         return $model;

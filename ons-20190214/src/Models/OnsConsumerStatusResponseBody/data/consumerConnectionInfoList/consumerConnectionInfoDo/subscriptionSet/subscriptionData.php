@@ -10,29 +10,43 @@ use AlibabaCloud\Tea\Model;
 class subscriptionData extends Model
 {
     /**
+     * @description The expression that is used to specify the tags of messages in the subscribed topic.
+     *
+     * @example *
+     *
      * @var string
      */
     public $subString;
 
     /**
+     * @description The subscription version. The value is of the LONG type and is automatically incremented.
+     *
+     * @example 1570701364301
+     *
      * @var int
      */
     public $subVersion;
 
     /**
-     * @var string
-     */
-    public $topic;
-
-    /**
+     * @description The information about the tags of the topic to which the consumer subscribes.
+     *
      * @var tagsSet
      */
     public $tagsSet;
+
+    /**
+     * @description The name of the topic to which the consumer subscribes.
+     *
+     * @example test-mq_topic
+     *
+     * @var string
+     */
+    public $topic;
     protected $_name = [
         'subString'  => 'SubString',
         'subVersion' => 'SubVersion',
-        'topic'      => 'Topic',
         'tagsSet'    => 'TagsSet',
+        'topic'      => 'Topic',
     ];
 
     public function validate()
@@ -48,11 +62,11 @@ class subscriptionData extends Model
         if (null !== $this->subVersion) {
             $res['SubVersion'] = $this->subVersion;
         }
-        if (null !== $this->topic) {
-            $res['Topic'] = $this->topic;
-        }
         if (null !== $this->tagsSet) {
             $res['TagsSet'] = null !== $this->tagsSet ? $this->tagsSet->toMap() : null;
+        }
+        if (null !== $this->topic) {
+            $res['Topic'] = $this->topic;
         }
 
         return $res;
@@ -72,11 +86,11 @@ class subscriptionData extends Model
         if (isset($map['SubVersion'])) {
             $model->subVersion = $map['SubVersion'];
         }
-        if (isset($map['Topic'])) {
-            $model->topic = $map['Topic'];
-        }
         if (isset($map['TagsSet'])) {
             $model->tagsSet = tagsSet::fromMap($map['TagsSet']);
+        }
+        if (isset($map['Topic'])) {
+            $model->topic = $map['Topic'];
         }
 
         return $model;

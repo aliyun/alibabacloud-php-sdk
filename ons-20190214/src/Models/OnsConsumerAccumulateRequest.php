@@ -9,22 +9,37 @@ use AlibabaCloud\Tea\Model;
 class OnsConsumerAccumulateRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $groupId;
-
-    /**
+     * @description Specifies whether to query the details of each topic to which the consumer group subscribes. Valid values:
+     *
+     *   **true**: The details of each topic are queried. You can obtain the details from the **DetailInTopicList** response parameter.
+     *   **false**: The details of each topic are not queried. This is the default value. If you use this value, the value of the **DetailInTopicList** response parameter is empty.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $detail;
 
     /**
+     * @description The ID of the consumer group whose message accumulation you want to query.
+     *
+     * @example GID_test_consumer_id
+     *
+     * @var string
+     */
+    public $groupId;
+
+    /**
+     * @description The ID of the instance.
+     *
+     * @example MQ_INST_111111111111_DOxxxxxx
+     *
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'groupId'    => 'GroupId',
         'detail'     => 'Detail',
+        'groupId'    => 'GroupId',
         'instanceId' => 'InstanceId',
     ];
 
@@ -35,11 +50,11 @@ class OnsConsumerAccumulateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
         if (null !== $this->detail) {
             $res['Detail'] = $this->detail;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -56,11 +71,11 @@ class OnsConsumerAccumulateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
         if (isset($map['Detail'])) {
             $model->detail = $map['Detail'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

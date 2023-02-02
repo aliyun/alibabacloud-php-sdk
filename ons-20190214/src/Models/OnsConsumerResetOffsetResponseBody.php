@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class OnsConsumerResetOffsetResponseBody extends Model
 {
     /**
+     * @description The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+     *
+     * @example D52C68F8-EC5D-4294-BFFF-1A6A25AF****
+     *
      * @var string
      */
     public $requestId;

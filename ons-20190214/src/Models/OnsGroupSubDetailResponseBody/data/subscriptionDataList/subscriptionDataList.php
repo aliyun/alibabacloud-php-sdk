@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class subscriptionDataList extends Model
 {
     /**
+     * @description The expression based on which consumers in the consumer group subscribe to the topic.
+     *
+     * @example *
+     *
      * @var string
      */
     public $subString;
 
     /**
+     * @description The name of the topic to which consumers in the consumer group subscribe.
+     *
+     * @example test-mq_topic
+     *
      * @var string
      */
     public $topic;

@@ -9,35 +9,55 @@ use AlibabaCloud\Tea\Model;
 class connectionDo extends Model
 {
     /**
-     * @var string
-     */
-    public $remoteIP;
-
-    /**
-     * @var string
-     */
-    public $version;
-
-    /**
+     * @description The IP address and port number of the consumer instance.
+     *
+     * @example 30.5.121.**
+     *
      * @var string
      */
     public $clientAddr;
 
     /**
+     * @description The ID of the consumer instance.
+     *
+     * @example 30.5.121.**@25560#-1999745829#-1737591554#458773089270275
+     *
+     * @var string
+     */
+    public $clientId;
+
+    /**
+     * @description The programming language that the consumer client supports.
+     *
+     * @example JAVA
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @description The private or public IP address of the host.
+     *
+     * @example 42.120.74.**
+     *
      * @var string
      */
-    public $clientId;
+    public $remoteIP;
+
+    /**
+     * @description The version of the consumer client.
+     *
+     * @example V4_3_6_SNAPSHOT
+     *
+     * @var string
+     */
+    public $version;
     protected $_name = [
+        'clientAddr' => 'ClientAddr',
+        'clientId'   => 'ClientId',
+        'language'   => 'Language',
         'remoteIP'   => 'RemoteIP',
         'version'    => 'Version',
-        'clientAddr' => 'ClientAddr',
-        'language'   => 'Language',
-        'clientId'   => 'ClientId',
     ];
 
     public function validate()
@@ -47,20 +67,20 @@ class connectionDo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientAddr) {
+            $res['ClientAddr'] = $this->clientAddr;
+        }
+        if (null !== $this->clientId) {
+            $res['ClientId'] = $this->clientId;
+        }
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
+        }
         if (null !== $this->remoteIP) {
             $res['RemoteIP'] = $this->remoteIP;
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
-        }
-        if (null !== $this->clientAddr) {
-            $res['ClientAddr'] = $this->clientAddr;
-        }
-        if (null !== $this->language) {
-            $res['Language'] = $this->language;
-        }
-        if (null !== $this->clientId) {
-            $res['ClientId'] = $this->clientId;
         }
 
         return $res;
@@ -74,20 +94,20 @@ class connectionDo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientAddr'])) {
+            $model->clientAddr = $map['ClientAddr'];
+        }
+        if (isset($map['ClientId'])) {
+            $model->clientId = $map['ClientId'];
+        }
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
+        }
         if (isset($map['RemoteIP'])) {
             $model->remoteIP = $map['RemoteIP'];
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
-        }
-        if (isset($map['ClientAddr'])) {
-            $model->clientAddr = $map['ClientAddr'];
-        }
-        if (isset($map['Language'])) {
-            $model->language = $map['Language'];
-        }
-        if (isset($map['ClientId'])) {
-            $model->clientId = $map['ClientId'];
         }
 
         return $model;

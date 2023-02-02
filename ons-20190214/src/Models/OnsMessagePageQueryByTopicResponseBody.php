@@ -10,17 +10,23 @@ use AlibabaCloud\Tea\Model;
 class OnsMessagePageQueryByTopicResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @description The information about the message that is queried.
+     *
      * @var msgFoundDo
      */
     public $msgFoundDo;
+
+    /**
+     * @description The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+     *
+     * @example 5DC2A47E-2B31-4722-96C8-FA59C9*****
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'msgFoundDo' => 'MsgFoundDo',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +36,11 @@ class OnsMessagePageQueryByTopicResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->msgFoundDo) {
             $res['MsgFoundDo'] = null !== $this->msgFoundDo ? $this->msgFoundDo->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +54,11 @@ class OnsMessagePageQueryByTopicResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MsgFoundDo'])) {
             $model->msgFoundDo = msgFoundDo::fromMap($map['MsgFoundDo']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

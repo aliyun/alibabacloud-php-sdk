@@ -9,23 +9,35 @@ use AlibabaCloud\Tea\Model;
 class OnsMessageGetByKeyRequest extends Model
 {
     /**
+     * @description The ID of the instance where the message that you want to query resides.
+     *
+     * @example MQ_INST_111111111111_DOxxxxxx
+     *
      * @var string
      */
-    public $topic;
+    public $instanceId;
 
     /**
+     * @description The key of the message that you want to query.
+     *
+     * @example messageKey1
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The topic that contains the message that you want to query.
+     *
+     * @example test-mq_topic
+     *
      * @var string
      */
-    public $instanceId;
+    public $topic;
     protected $_name = [
-        'topic'      => 'Topic',
-        'key'        => 'Key',
         'instanceId' => 'InstanceId',
+        'key'        => 'Key',
+        'topic'      => 'Topic',
     ];
 
     public function validate()
@@ -35,14 +47,14 @@ class OnsMessageGetByKeyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->topic) {
-            $res['Topic'] = $this->topic;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->topic) {
+            $res['Topic'] = $this->topic;
         }
 
         return $res;
@@ -56,14 +68,14 @@ class OnsMessageGetByKeyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Topic'])) {
-            $model->topic = $map['Topic'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['Topic'])) {
+            $model->topic = $map['Topic'];
         }
 
         return $model;

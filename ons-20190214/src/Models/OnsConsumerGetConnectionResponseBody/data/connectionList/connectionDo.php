@@ -9,29 +9,45 @@ use AlibabaCloud\Tea\Model;
 class connectionDo extends Model
 {
     /**
-     * @var string
-     */
-    public $version;
-
-    /**
+     * @description The IP address and port number of the consumer instance.
+     *
+     * @example 30.5.121.**
+     *
      * @var string
      */
     public $clientAddr;
 
     /**
+     * @description The ID of the consumer instance.
+     *
+     * @example 30.5.121.**@24813#-1999745829#-1737591554#453111174894656
+     *
+     * @var string
+     */
+    public $clientId;
+
+    /**
+     * @description The programming language in which the consumer application was developed.
+     *
+     * @example JAVA
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @description The version of the consumer client.
+     *
+     * @example V4_3_6
+     *
      * @var string
      */
-    public $clientId;
+    public $version;
     protected $_name = [
-        'version'    => 'Version',
         'clientAddr' => 'ClientAddr',
-        'language'   => 'Language',
         'clientId'   => 'ClientId',
+        'language'   => 'Language',
+        'version'    => 'Version',
     ];
 
     public function validate()
@@ -41,17 +57,17 @@ class connectionDo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
         if (null !== $this->clientAddr) {
             $res['ClientAddr'] = $this->clientAddr;
+        }
+        if (null !== $this->clientId) {
+            $res['ClientId'] = $this->clientId;
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
-        if (null !== $this->clientId) {
-            $res['ClientId'] = $this->clientId;
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -65,17 +81,17 @@ class connectionDo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
         if (isset($map['ClientAddr'])) {
             $model->clientAddr = $map['ClientAddr'];
+        }
+        if (isset($map['ClientId'])) {
+            $model->clientId = $map['ClientId'];
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
-        if (isset($map['ClientId'])) {
-            $model->clientId = $map['ClientId'];
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

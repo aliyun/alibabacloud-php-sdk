@@ -9,35 +9,55 @@ use AlibabaCloud\Tea\Model;
 class OnsTraceQueryByMsgKeyRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $topic;
-
-    /**
-     * @var string
-     */
-    public $msgKey;
-
-    /**
+     * @description The beginning of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
+     *
+     * @example 1570852800000
+     *
      * @var int
      */
     public $beginTime;
 
     /**
+     * @description The end of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
+     *
+     * @example 1570968000000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The ID of the Message Queue for Apache RocketMQ instance that contains the specified topic.
+     *
+     * @example MQ_INST_111111111111_DOxxxxxx
+     *
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @description The key of the messages that you want to query.
+     *
+     * @example ORDERID_100
+     *
+     * @var string
+     */
+    public $msgKey;
+
+    /**
+     * @description The topic that contains the messages you want to query.
+     *
+     * @example test
+     *
+     * @var string
+     */
+    public $topic;
     protected $_name = [
-        'topic'      => 'Topic',
-        'msgKey'     => 'MsgKey',
         'beginTime'  => 'BeginTime',
         'endTime'    => 'EndTime',
         'instanceId' => 'InstanceId',
+        'msgKey'     => 'MsgKey',
+        'topic'      => 'Topic',
     ];
 
     public function validate()
@@ -47,12 +67,6 @@ class OnsTraceQueryByMsgKeyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->topic) {
-            $res['Topic'] = $this->topic;
-        }
-        if (null !== $this->msgKey) {
-            $res['MsgKey'] = $this->msgKey;
-        }
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
         }
@@ -61,6 +75,12 @@ class OnsTraceQueryByMsgKeyRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->msgKey) {
+            $res['MsgKey'] = $this->msgKey;
+        }
+        if (null !== $this->topic) {
+            $res['Topic'] = $this->topic;
         }
 
         return $res;
@@ -74,12 +94,6 @@ class OnsTraceQueryByMsgKeyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Topic'])) {
-            $model->topic = $map['Topic'];
-        }
-        if (isset($map['MsgKey'])) {
-            $model->msgKey = $map['MsgKey'];
-        }
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];
         }
@@ -88,6 +102,12 @@ class OnsTraceQueryByMsgKeyRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MsgKey'])) {
+            $model->msgKey = $map['MsgKey'];
+        }
+        if (isset($map['Topic'])) {
+            $model->topic = $map['Topic'];
         }
 
         return $model;

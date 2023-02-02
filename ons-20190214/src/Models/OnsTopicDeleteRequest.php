@@ -9,17 +9,25 @@ use AlibabaCloud\Tea\Model;
 class OnsTopicDeleteRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $topic;
-
-    /**
+     * @description The ID of the instance that contains the topic you want to delete.
+     *
+     * @example MQ_INST_188077086902****_BXSuW61e
+     *
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @description The name of the topic that you want to delete.
+     *
+     * @example test
+     *
+     * @var string
+     */
+    public $topic;
     protected $_name = [
-        'topic'      => 'Topic',
         'instanceId' => 'InstanceId',
+        'topic'      => 'Topic',
     ];
 
     public function validate()
@@ -29,11 +37,11 @@ class OnsTopicDeleteRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->topic) {
-            $res['Topic'] = $this->topic;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->topic) {
+            $res['Topic'] = $this->topic;
         }
 
         return $res;
@@ -47,11 +55,11 @@ class OnsTopicDeleteRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Topic'])) {
-            $model->topic = $map['Topic'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Topic'])) {
+            $model->topic = $map['Topic'];
         }
 
         return $model;

@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class subscriptionDataList extends Model
 {
     /**
+     * @description The ID of the consumer group.
+     *
+     * @example GID_test
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The consumption mode. Valid values:
+     *
+     *   **CLUSTERING**: the clustering consumption mode
+     *   **BROADCASTING**: the broadcasting consumption mode
+     *
+     * For more information about consumption modes, see [Clustering consumption and broadcasting consumption](~~43163~~).
+     * @example CLUSTERING
+     *
      * @var string
      */
     public $messageModel;
 
     /**
+     * @description The expression based on which consumers in the consumer group subscribe to the topic.
+     *
+     * @example *
+     *
      * @var string
      */
     public $subString;

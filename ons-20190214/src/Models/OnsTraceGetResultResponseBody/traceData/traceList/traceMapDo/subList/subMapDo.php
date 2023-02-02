@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class subMapDo extends Model
 {
     /**
+     * @description The information about message consumption by consumers in the group.
+     *
      * @var clientList
      */
     public $clientList;
 
     /**
+     * @description The number of consumption failures.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $failCount;
 
     /**
+     * @description The ID of the consumer group.
+     *
+     * @example GID_test
+     *
      * @var string
      */
     public $subGroupName;
 
     /**
+     * @description The number of successful consumptions.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $successCount;
