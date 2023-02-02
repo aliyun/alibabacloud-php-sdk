@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ValidateTemplateResponseBody\outputs;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ValidateTemplateResponseBody\resources;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ValidateTemplateResponseBody\resourceTypes;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ValidateTemplateResponseBody\updateInfo;
 use AlibabaCloud\Tea\Model;
 
 class ValidateTemplateResponseBody extends Model
@@ -44,6 +45,11 @@ class ValidateTemplateResponseBody extends Model
      * @var resources[]
      */
     public $resources;
+
+    /**
+     * @var updateInfo
+     */
+    public $updateInfo;
     protected $_name = [
         'description'   => 'Description',
         'outputs'       => 'Outputs',
@@ -51,6 +57,7 @@ class ValidateTemplateResponseBody extends Model
         'requestId'     => 'RequestId',
         'resourceTypes' => 'ResourceTypes',
         'resources'     => 'Resources',
+        'updateInfo'    => 'UpdateInfo',
     ];
 
     public function validate()
@@ -89,6 +96,9 @@ class ValidateTemplateResponseBody extends Model
                     $res['Resources'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->updateInfo) {
+            $res['UpdateInfo'] = null !== $this->updateInfo ? $this->updateInfo->toMap() : null;
         }
 
         return $res;
@@ -133,6 +143,9 @@ class ValidateTemplateResponseBody extends Model
                     $model->resources[$n++] = null !== $item ? resources::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['UpdateInfo'])) {
+            $model->updateInfo = updateInfo::fromMap($map['UpdateInfo']);
         }
 
         return $model;

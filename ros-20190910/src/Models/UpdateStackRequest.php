@@ -25,6 +25,11 @@ class UpdateStackRequest extends Model
     public $disableRollback;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @example 1
      *
      * @var int
@@ -148,6 +153,7 @@ class UpdateStackRequest extends Model
     protected $_name = [
         'clientToken'                 => 'ClientToken',
         'disableRollback'             => 'DisableRollback',
+        'dryRun'                      => 'DryRun',
         'parallelism'                 => 'Parallelism',
         'parameters'                  => 'Parameters',
         'ramRoleName'                 => 'RamRoleName',
@@ -180,6 +186,9 @@ class UpdateStackRequest extends Model
         }
         if (null !== $this->disableRollback) {
             $res['DisableRollback'] = $this->disableRollback;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->parallelism) {
             $res['Parallelism'] = $this->parallelism;
@@ -264,6 +273,9 @@ class UpdateStackRequest extends Model
         }
         if (isset($map['DisableRollback'])) {
             $model->disableRollback = $map['DisableRollback'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['Parallelism'])) {
             $model->parallelism = $map['Parallelism'];

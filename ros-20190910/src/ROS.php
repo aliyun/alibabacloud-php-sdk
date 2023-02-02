@@ -4005,6 +4005,9 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->disableRollback)) {
             $query['DisableRollback'] = $request->disableRollback;
         }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->parallelism)) {
             $query['Parallelism'] = $request->parallelism;
         }

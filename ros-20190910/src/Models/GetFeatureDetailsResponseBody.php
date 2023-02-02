@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\resourceCleaner;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\templateParameterConstraints;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\templateScratch;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\terraform;
 use AlibabaCloud\Tea\Model;
@@ -24,6 +25,11 @@ class GetFeatureDetailsResponseBody extends Model
     public $resourceCleaner;
 
     /**
+     * @var templateParameterConstraints
+     */
+    public $templateParameterConstraints;
+
+    /**
      * @var templateScratch
      */
     public $templateScratch;
@@ -33,10 +39,11 @@ class GetFeatureDetailsResponseBody extends Model
      */
     public $terraform;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'resourceCleaner' => 'ResourceCleaner',
-        'templateScratch' => 'TemplateScratch',
-        'terraform'       => 'Terraform',
+        'requestId'                    => 'RequestId',
+        'resourceCleaner'              => 'ResourceCleaner',
+        'templateParameterConstraints' => 'TemplateParameterConstraints',
+        'templateScratch'              => 'TemplateScratch',
+        'terraform'                    => 'Terraform',
     ];
 
     public function validate()
@@ -51,6 +58,9 @@ class GetFeatureDetailsResponseBody extends Model
         }
         if (null !== $this->resourceCleaner) {
             $res['ResourceCleaner'] = null !== $this->resourceCleaner ? $this->resourceCleaner->toMap() : null;
+        }
+        if (null !== $this->templateParameterConstraints) {
+            $res['TemplateParameterConstraints'] = null !== $this->templateParameterConstraints ? $this->templateParameterConstraints->toMap() : null;
         }
         if (null !== $this->templateScratch) {
             $res['TemplateScratch'] = null !== $this->templateScratch ? $this->templateScratch->toMap() : null;
@@ -75,6 +85,9 @@ class GetFeatureDetailsResponseBody extends Model
         }
         if (isset($map['ResourceCleaner'])) {
             $model->resourceCleaner = resourceCleaner::fromMap($map['ResourceCleaner']);
+        }
+        if (isset($map['TemplateParameterConstraints'])) {
+            $model->templateParameterConstraints = templateParameterConstraints::fromMap($map['TemplateParameterConstraints']);
         }
         if (isset($map['TemplateScratch'])) {
             $model->templateScratch = templateScratch::fromMap($map['TemplateScratch']);
