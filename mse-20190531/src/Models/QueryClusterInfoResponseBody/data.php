@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The public IP address whitelist.
+     *
      * @example ["127.0.0.0/32"]
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $aclEntryList;
 
     /**
+     * @description The ID of the instance in the public IP address whitelist.
+     *
      * @example acl-bp144q24cgqvzckmxxxx
      *
      * @var string
@@ -24,6 +28,8 @@ class data extends Model
     public $aclId;
 
     /**
+     * @description The version of the instance.
+     *
      * @example 2.1.0
      *
      * @var string
@@ -31,6 +37,8 @@ class data extends Model
     public $appVersion;
 
     /**
+     * @description The billing method, such as subscription or pay-as-you-go.
+     *
      * @example POSTPAY
      *
      * @var string
@@ -38,11 +46,17 @@ class data extends Model
     public $chargeType;
 
     /**
+     * @description The alias of the instance.
+     *
+     * @example Development environment
+     *
      * @var string
      */
     public $clusterAliasName;
 
     /**
+     * @description The full name of the instance.
+     *
      * @example mse-74355150-xxxxxxx
      *
      * @var string
@@ -50,6 +64,8 @@ class data extends Model
     public $clusterName;
 
     /**
+     * @description The engine specifications.
+     *
      * @example MSE_SC_2_4_60_c
      *
      * @var string
@@ -57,6 +73,8 @@ class data extends Model
     public $clusterSpecification;
 
     /**
+     * @description The type of the instance. Valid values: ZooKeeper, Nacos-Ans, and Eureka.
+     *
      * @example Nacos-Ans
      *
      * @var string
@@ -64,6 +82,8 @@ class data extends Model
     public $clusterType;
 
     /**
+     * @description The version of the order.
+     *
      * @example NACOS_2_0_0
      *
      * @var string
@@ -71,6 +91,8 @@ class data extends Model
     public $clusterVersion;
 
     /**
+     * @description A deprecated parameter.
+     *
      * @example null
      *
      * @var string
@@ -78,6 +100,8 @@ class data extends Model
     public $connectionType;
 
     /**
+     * @description A deprecated parameter.
+     *
      * @example null
      *
      * @var int
@@ -85,6 +109,8 @@ class data extends Model
     public $cpu;
 
     /**
+     * @description The time when the instance was created.
+     *
      * @example 2022-12-15 10:02:07
      *
      * @var string
@@ -92,6 +118,8 @@ class data extends Model
     public $createTime;
 
     /**
+     * @description A deprecated parameter.
+     *
      * @example null
      *
      * @var int
@@ -99,6 +127,8 @@ class data extends Model
     public $diskCapacity;
 
     /**
+     * @description A deprecated parameter.
+     *
      * @example null
      *
      * @var string
@@ -106,6 +136,8 @@ class data extends Model
     public $diskType;
 
     /**
+     * @description The status of the instance.
+     *
      * @example INIT_SUCCESS
      *
      * @var string
@@ -113,6 +145,8 @@ class data extends Model
     public $healthStatus;
 
     /**
+     * @description The time that is required to initialize the instance. Unit: milliseconds.
+     *
      * @example 53353
      *
      * @var int
@@ -120,6 +154,8 @@ class data extends Model
     public $initCostTime;
 
     /**
+     * @description The initial status of the instance.
+     *
      * @example INIT_SUCCESS
      *
      * @var string
@@ -127,6 +163,8 @@ class data extends Model
     public $initStatus;
 
     /**
+     * @description The number of instance nodes.
+     *
      * @example 3
      *
      * @var int
@@ -134,6 +172,8 @@ class data extends Model
     public $instanceCount;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example mse-cn-st21ri2****
      *
      * @var string
@@ -141,11 +181,15 @@ class data extends Model
     public $instanceId;
 
     /**
+     * @description The reserved structure.
+     *
      * @var instanceModels[]
      */
     public $instanceModels;
 
     /**
+     * @description A reserved parameter.
+     *
      * @example null
      *
      * @var string
@@ -153,6 +197,8 @@ class data extends Model
     public $internetAddress;
 
     /**
+     * @description The public endpoint.
+     *
      * @example mse-xxxxxx-p.nacos-ans.mse.aliyuncs.com
      *
      * @var string
@@ -160,6 +206,8 @@ class data extends Model
     public $internetDomain;
 
     /**
+     * @description The instance port that is accessible over the Internet.
+     *
      * @example 8848,6443,9848,8761
      *
      * @var string
@@ -167,6 +215,8 @@ class data extends Model
     public $internetPort;
 
     /**
+     * @description A reserved parameter.
+     *
      * @example null
      *
      * @var string
@@ -174,6 +224,8 @@ class data extends Model
     public $intranetAddress;
 
     /**
+     * @description The internal endpoint.
+     *
      * @example mse-xxxxx-nacos-ans.mse.aliyuncs.com
      *
      * @var string
@@ -181,6 +233,8 @@ class data extends Model
     public $intranetDomain;
 
     /**
+     * @description The instance port that is accessible over an internal network.
+     *
      * @example 8848,6443,9848,8761
      *
      * @var string
@@ -188,6 +242,8 @@ class data extends Model
     public $intranetPort;
 
     /**
+     * @description A deprecated parameter.
+     *
      * @example null
      *
      * @var int
@@ -195,6 +251,8 @@ class data extends Model
     public $memoryCapacity;
 
     /**
+     * @description The version of the instance.
+     *
      * @example mse_pro
      *
      * @var string
@@ -202,6 +260,8 @@ class data extends Model
     public $mseVersion;
 
     /**
+     * @description The network connection type of the instance.
+     *
      * @example privatenet
      *
      * @var string
@@ -209,11 +269,17 @@ class data extends Model
     public $netType;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     * @example Pay-as-you-go
+     *
      * @var string
      */
     public $payInfo;
 
     /**
+     * @description The public bandwidth. Unit: Mbit/s.\
+     * Valid values: 0 to 5000. The value 0 indicates no access to the Internet.
      * @example 1
      *
      * @var string
@@ -221,6 +287,8 @@ class data extends Model
     public $pubNetworkFlow;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -228,11 +296,15 @@ class data extends Model
     public $regionId;
 
     /**
+     * @description The tag.
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vsw-bp1egfakxxxxx
      *
      * @var string
@@ -240,6 +312,8 @@ class data extends Model
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC where the instance resides.
+     *
      * @example vpc-bp1v5nbauzh8xxxxxxx
      *
      * @var string

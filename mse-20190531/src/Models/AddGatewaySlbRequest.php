@@ -75,7 +75,10 @@ class AddGatewaySlbRequest extends Model
     public $slbId;
 
     /**
-     * @description The type.
+     * @description The type of the service source. Valid values:
+     *
+     *   PUB_NET: public network
+     *   PRIVATE_NET: private network
      *
      * @example PUB_NET
      *

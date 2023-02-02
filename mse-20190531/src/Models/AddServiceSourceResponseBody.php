@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddServiceSourceResponseBody extends Model
 {
     /**
-     * @description The status code returned.
+     * @description The return value.
      *
      * @example 200
      *
@@ -56,8 +56,8 @@ class AddServiceSourceResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     *   `true`: The request was successful.
-     *   `false`: The request failed.
+     *   true: The request was successful.
+     *   false: The request failed.
      *
      * @example true
      *

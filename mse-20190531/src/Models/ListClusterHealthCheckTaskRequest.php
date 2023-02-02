@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListClusterHealthCheckTaskRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class ListClusterHealthCheckTaskRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example mse_prepaid_public_cn-7pp2o4wfx01
      *
      * @var string
@@ -23,6 +30,8 @@ class ListClusterHealthCheckTaskRequest extends Model
     public $instanceId;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +39,8 @@ class ListClusterHealthCheckTaskRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +48,8 @@ class ListClusterHealthCheckTaskRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region in which the instance resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +57,8 @@ class ListClusterHealthCheckTaskRequest extends Model
     public $regionId;
 
     /**
+     * @description The extended request parameters in the JSON format.
+     *
      * @example {}
      *
      * @var string

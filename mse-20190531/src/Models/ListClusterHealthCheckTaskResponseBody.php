@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListClusterHealthCheckTaskResponseBody extends Model
 {
     /**
+     * @description The status code. A value of 200 is returned if the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class ListClusterHealthCheckTaskResponseBody extends Model
     public $code;
 
     /**
+     * @description The details of the data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The dynamic part in the error message.
+     *
      * @example code
      *
      * @var string
@@ -29,6 +35,9 @@ class ListClusterHealthCheckTaskResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic part in the error message. This parameter is used to replace the \*\*%s\*\* variable in the **ErrMessage** parameter.
+     *
+     * > If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
      * @example The specified parameter is invalid.
      *
      * @var string
@@ -36,6 +45,11 @@ class ListClusterHealthCheckTaskResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The error code returned if the request failed. Take note of the following rules:
+     *
+     *   The **ErrorCode** parameter is not returned if the request succeeds.
+     *   The **ErrorCode** parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
+     *
      * @example mse-100-000
      *
      * @var string
@@ -43,6 +57,8 @@ class ListClusterHealthCheckTaskResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -50,11 +66,17 @@ class ListClusterHealthCheckTaskResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example The request is successfully processed.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4E9FDCFE-0738-493B-B801-82BDFBCB****
      *
      * @var string
@@ -62,6 +84,11 @@ class ListClusterHealthCheckTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

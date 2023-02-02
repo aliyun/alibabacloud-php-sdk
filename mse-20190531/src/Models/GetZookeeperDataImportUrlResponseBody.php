@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetZookeeperDataImportUrlResponseBody extends Model
 {
     /**
+     * @description The status code. A value of 200 is returned if the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class GetZookeeperDataImportUrlResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The dynamic part in the error message.
+     *
      * @example code
      *
      * @var string
@@ -29,6 +35,9 @@ class GetZookeeperDataImportUrlResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic part in the error message. This parameter is used to replace the \*\*%s\*\* variable in the **ErrMessage** parameter.
+     *
+     * > If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
      * @example You are not authorized to perform this operation.
      *
      * @var string
@@ -36,6 +45,8 @@ class GetZookeeperDataImportUrlResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example mse-100-000
      *
      * @var string
@@ -43,6 +54,8 @@ class GetZookeeperDataImportUrlResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -50,11 +63,17 @@ class GetZookeeperDataImportUrlResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example The request is successfully processed.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E4E2058F-C524-5C29-9BC7-5874EA8D7CE2
      *
      * @var string
@@ -62,6 +81,11 @@ class GetZookeeperDataImportUrlResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

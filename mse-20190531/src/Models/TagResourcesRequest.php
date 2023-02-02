@@ -31,7 +31,7 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * > This parameter specifies the instance ID that is passed. Examples:
      *

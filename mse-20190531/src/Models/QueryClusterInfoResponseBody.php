@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class QueryClusterInfoResponseBody extends Model
 {
     /**
+     * @description The details of the data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example mse-100-000
      *
      * @var string
@@ -22,11 +26,20 @@ class QueryClusterInfoResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The message returned.
+     *
+     *   If the request is successful, a success message is returned.
+     *   If the request fails, an error message is returned.
+     *
+     * @example The request is successfully processed.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 415088B3-A7BE-56F6-9CD9-C42DE895CD41
      *
      * @var string
@@ -34,6 +47,11 @@ class QueryClusterInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

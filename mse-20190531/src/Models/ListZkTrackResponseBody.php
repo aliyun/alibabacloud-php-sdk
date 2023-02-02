@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListZkTrackResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request failed.
+     * @description The error code returned.
      *
      * @example mse-100-000
      *
@@ -85,7 +85,7 @@ class ListZkTrackResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The trajectory data.
+     * @description The track data.
      *
      * @var traces[]
      */

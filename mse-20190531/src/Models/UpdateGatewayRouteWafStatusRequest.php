@@ -39,7 +39,7 @@ class UpdateGatewayRouteWafStatusRequest extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The ID of the route.
+     * @description The ID of the route entry.
      *
      * @example 645
      *

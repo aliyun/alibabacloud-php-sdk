@@ -84,7 +84,7 @@ class data extends Model
     public $domainName;
 
     /**
-     * @description The list of domain names.
+     * @description The names of domains.
      *
      * @var string[]
      */
@@ -127,7 +127,7 @@ class data extends Model
     public $gmtCreate;
 
     /**
-     * @description The modification time.
+     * @description The update time.
      *
      * @example 2022-02-24T06:08:29.230+0000
      *

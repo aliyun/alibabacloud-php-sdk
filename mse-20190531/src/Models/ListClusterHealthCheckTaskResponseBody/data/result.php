@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The complete version number.
+     *
      * @example 1.2.1
      *
      * @var string
@@ -17,6 +19,8 @@ class result extends Model
     public $appVersion;
 
     /**
+     * @description The billing method.
+     *
      * @example PREPAY
      *
      * @var string
@@ -24,6 +28,8 @@ class result extends Model
     public $chargeType;
 
     /**
+     * @description The type of the instance.
+     *
      * @example Nacos-Ans
      *
      * @var string
@@ -31,6 +37,8 @@ class result extends Model
     public $clusterType;
 
     /**
+     * @description The time when the task was created.
+     *
      * @example 2022-06-20T06:51:46Z
      *
      * @var string
@@ -38,7 +46,7 @@ class result extends Model
     public $createTime;
 
     /**
-     * @description ID。
+     * @description The ID.
      *
      * @example 1
      *
@@ -47,6 +55,8 @@ class result extends Model
     public $id;
 
     /**
+     * @description A redundant parameter.
+     *
      * @example null
      *
      * @var string
@@ -54,6 +64,8 @@ class result extends Model
     public $imageVersion;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example mse_ingresspost-cn-0jbvrcex****
      *
      * @var string
@@ -61,6 +73,8 @@ class result extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the user to which the instance belongs.
+     *
      * @example 123456
      *
      * @var string
@@ -68,6 +82,8 @@ class result extends Model
     public $primaryUser;
 
     /**
+     * @description The number of nodes in the instance.
+     *
      * @example 3
      *
      * @var string
@@ -75,11 +91,15 @@ class result extends Model
     public $replica;
 
     /**
+     * @description The list of risk items.
+     *
      * @var riskList[]
      */
     public $riskList;
 
     /**
+     * @description The total score.
+     *
      * @example 60
      *
      * @var int
@@ -87,6 +107,8 @@ class result extends Model
     public $score;
 
     /**
+     * @description The specifications.
+     *
      * @example MSE_SC_2_4_200_c
      *
      * @var string
@@ -94,6 +116,8 @@ class result extends Model
     public $spec;
 
     /**
+     * @description The status of the task.
+     *
      * @example FINISH
      *
      * @var string
@@ -101,6 +125,8 @@ class result extends Model
     public $status;
 
     /**
+     * @description The total number of check items.
+     *
      * @example 10
      *
      * @var int
@@ -108,6 +134,8 @@ class result extends Model
     public $totalItem;
 
     /**
+     * @description The total number of risk items.
+     *
      * @example 3
      *
      * @var int
@@ -115,6 +143,8 @@ class result extends Model
     public $totalRisk;
 
     /**
+     * @description A redundant parameter.
+     *
      * @example null
      *
      * @var string
@@ -122,6 +152,8 @@ class result extends Model
     public $type;
 
     /**
+     * @description The time of the last modification.
+     *
      * @example 2022-11-12 15:07:55
      *
      * @var string
@@ -129,6 +161,8 @@ class result extends Model
     public $updateTime;
 
     /**
+     * @description The version number.
+     *
      * @example NACOS_ANS_1_2_1_3
      *
      * @var string

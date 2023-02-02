@@ -81,7 +81,7 @@ class routeServices extends Model
     public $servicePort;
 
     /**
-     * @description The source type of the service.
+     * @description The source type.
      *
      * @example MSE
      *

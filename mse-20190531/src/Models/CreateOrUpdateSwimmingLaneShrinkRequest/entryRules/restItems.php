@@ -36,7 +36,7 @@ class restItems extends Model
     public $divisor;
 
     /**
-     * @description The name of the rule. This parameter corresponds to the key of the type parameter.
+     * @description The name of the rule. This parameter corresponds to the key of the Type parameter.
      *
      * @example ""
      *

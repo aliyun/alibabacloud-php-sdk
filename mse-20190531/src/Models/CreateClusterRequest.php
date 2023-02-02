@@ -55,7 +55,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The engine version of the instance. Valid values:
      *
-     * \[Professional Edition]
+     * \[Professional version]
      *
      *   `NACOS_2_0_0`: Nacos 2.0.0
      *   `ZooKeeper_3_8_0`: ZooKeeper 3.8.0
@@ -84,7 +84,7 @@ class CreateClusterRequest extends Model
     public $connectionType;
 
     /**
-     * @description The disk type. Valid values:
+     * @description The disk type of the MSE instance. Valid values:
      *
      *   alicloud-disk-ssd
      *   alicloud-disk-essd-pl1
@@ -122,7 +122,7 @@ class CreateClusterRequest extends Model
     public $instanceName;
 
     /**
-     * @description Set this parameter unless otherwise specified. Valid values:
+     * @description Configure this parameter unless otherwise specified. Valid values:
      *
      *   `mse_pro`: Professional Edition
      *   `mse_dev`: Developer Edition
@@ -134,7 +134,7 @@ class CreateClusterRequest extends Model
     public $mseVersion;
 
     /**
-     * @description The network type of the instance. Valid values:
+     * @description The network type of the MSE instance. Valid values:
      *
      *   `privatenet`: VPC
      *   `pubnet`: Internet
@@ -179,7 +179,7 @@ class CreateClusterRequest extends Model
     public $pubSlbSpecification;
 
     /**
-     * @description The region where the MSE instance resides. Examples:
+     * @description The region where the instance resides. Examples:
      *
      *   `cn-hangzhou`: China (Hangzhou)
      *   `cn-beijing`: China (Beijing)
@@ -203,7 +203,7 @@ class CreateClusterRequest extends Model
     public $requestPars;
 
     /**
-     * @description The ID of the resource group. For more information about resource groups, see the topic "View basic information of a resource group."
+     * @description The ID of the resource group. For more information, see [View basic information of a resource group](~~457230~~).
      *
      * @example rg-aekzcqmoay3dlyq
      *

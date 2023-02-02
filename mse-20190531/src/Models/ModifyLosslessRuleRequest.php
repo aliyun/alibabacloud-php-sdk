@@ -78,6 +78,10 @@ class ModifyLosslessRuleRequest extends Model
     public $funcType;
 
     /**
+     * @description Specifies whether to display online and offline processing details.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $lossLessDetail;
@@ -88,12 +92,16 @@ class ModifyLosslessRuleRequest extends Model
     public $namespace;
 
     /**
+     * @description Specifies whether to enable notification.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $notice;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region.
      *
      * @example cn-beijing
      *
@@ -102,7 +110,7 @@ class ModifyLosslessRuleRequest extends Model
     public $regionId;
 
     /**
-     * @description Specifies whether to associate readiness probe with service prefetching.
+     * @description Specifies whether to associate with service prefetching.
      *
      * @example true
      *
@@ -120,7 +128,7 @@ class ModifyLosslessRuleRequest extends Model
     public $shutdownWaitSeconds;
 
     /**
-     * @description The service source. Valid values:
+     * @description The service source.
      *
      * @example edasmsc
      *

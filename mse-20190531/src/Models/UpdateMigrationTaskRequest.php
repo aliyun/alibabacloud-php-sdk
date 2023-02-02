@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateMigrationTaskRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,12 @@ class UpdateMigrationTaskRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The type of the instance.
+     *
+     *   Nacos-Ans
+     *   ZooKeeper
+     *   Eureka
+     *
      * @example Nacos-Ans
      *
      * @var string
@@ -23,6 +34,8 @@ class UpdateMigrationTaskRequest extends Model
     public $clusterType;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 1
      *
      * @var string
@@ -30,6 +43,8 @@ class UpdateMigrationTaskRequest extends Model
     public $id;
 
     /**
+     * @description The source instance node address.
+     *
      * @example 192.168.1.1:8848
      *
      * @var string
@@ -37,11 +52,17 @@ class UpdateMigrationTaskRequest extends Model
     public $originInstanceAddress;
 
     /**
+     * @description The name of the source instance.
+     *
+     * @example Source instance
+     *
      * @var string
      */
     public $originInstanceName;
 
     /**
+     * @description The list of namespaces. This parameter is optional if the source instance is a Nacos instance.
+     *
      * @example namesapceId1,namesapceId2
      *
      * @var string
@@ -49,11 +70,17 @@ class UpdateMigrationTaskRequest extends Model
     public $originInstanceNamespace;
 
     /**
+     * @description The description.
+     *
+     * @example This is a description.
+     *
      * @var string
      */
     public $projectDesc;
 
     /**
+     * @description The extended request parameters in the JSON format.
+     *
      * @example {}
      *
      * @var string
@@ -61,11 +88,17 @@ class UpdateMigrationTaskRequest extends Model
     public $requestPars;
 
     /**
+     * @description The name of the destination instance.
+     *
+     * @example Destination instance
+     *
      * @var string
      */
     public $targetClusterName;
 
     /**
+     * @description The URL of the destination instance.
+     *
      * @example mse-66*****-nacos-ans.mse.aliyuncs.com:8848
      *
      * @var string
@@ -73,6 +106,8 @@ class UpdateMigrationTaskRequest extends Model
     public $targetClusterUrl;
 
     /**
+     * @description The ID of the destination instance.
+     *
      * @example mse-cn-ud82*****
      *
      * @var string

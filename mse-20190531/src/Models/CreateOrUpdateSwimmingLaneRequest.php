@@ -11,13 +11,13 @@ use AlibabaCloud\Tea\Model;
 class CreateOrUpdateSwimmingLaneRequest extends Model
 {
     /**
-     * @description The language that the value of the **LocalName** response parameter uses. Valid values:
+     * @description The language of the response. Valid values:****
      *
-     *   **zh-cn**: Chinese
-     *   **en-us**: English.
+     *   **zh-CN**: Chinese
+     *   **en-US**: English.
      *
      * > Default value: **zh-CN**.
-     * @example zh-cn
+     * @example zh
      *
      * @var string
      */
@@ -63,7 +63,7 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
     public $gatewaySwimmingLaneRouteJson;
 
     /**
-     * @description Optional. The time when the lane was created.
+     * @description The creation time.
      *
      * @example ""
      *
@@ -72,7 +72,7 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
     public $gmtCreate;
 
     /**
-     * @description Optional. The time when the lane was last modified.
+     * @description The update time.
      *
      * @example ""
      *
@@ -117,7 +117,7 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
     public $name;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-beijing
      *

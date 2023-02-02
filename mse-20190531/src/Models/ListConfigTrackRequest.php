@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListConfigTrackRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class ListConfigTrackRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The ID of the configuration.
+     *
      * @example ballot
      *
      * @var string
@@ -23,6 +30,8 @@ class ListConfigTrackRequest extends Model
     public $dataId;
 
     /**
+     * @description The end timestamp. Unit: seconds.
+     *
      * @example 1657178373
      *
      * @var int
@@ -30,6 +39,8 @@ class ListConfigTrackRequest extends Model
     public $endTs;
 
     /**
+     * @description The name of the configuration group.
+     *
      * @example DEFAULT_GROUP
      *
      * @var string
@@ -37,6 +48,8 @@ class ListConfigTrackRequest extends Model
     public $group;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example mse_prepaid_public_cn-i7m2ne****
      *
      * @var string
@@ -44,6 +57,8 @@ class ListConfigTrackRequest extends Model
     public $instanceId;
 
     /**
+     * @description The IP address of the listener.
+     *
      * @example 192.168.22.2
      *
      * @var string
@@ -51,6 +66,8 @@ class ListConfigTrackRequest extends Model
     public $ip;
 
     /**
+     * @description The ID of the namespace.
+     *
      * @example f3a510e2-df52-4fad-9815-42d8bc40****
      *
      * @var string
@@ -58,6 +75,8 @@ class ListConfigTrackRequest extends Model
     public $namespaceId;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -65,6 +84,8 @@ class ListConfigTrackRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var int
@@ -72,6 +93,8 @@ class ListConfigTrackRequest extends Model
     public $pageSize;
 
     /**
+     * @description The extended request parameters in the JSON format.
+     *
      * @example {}
      *
      * @var string
@@ -79,6 +102,11 @@ class ListConfigTrackRequest extends Model
     public $requestPars;
 
     /**
+     * @description Specifies whether entries are sorted in reverse chronological order.
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -86,6 +114,8 @@ class ListConfigTrackRequest extends Model
     public $reverse;
 
     /**
+     * @description The start timestamp. Unit: seconds.
+     *
      * @example 1671010148
      *
      * @var int

@@ -7923,6 +7923,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->mseVersion)) {
+            $query['MseVersion'] = $request->mseVersion;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);

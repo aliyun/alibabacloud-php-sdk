@@ -27,7 +27,7 @@ class routeServices extends Model
     public $name;
 
     /**
-     * @description The namespace.
+     * @description The namespace to which the service belongs.
      *
      * @example default
      *

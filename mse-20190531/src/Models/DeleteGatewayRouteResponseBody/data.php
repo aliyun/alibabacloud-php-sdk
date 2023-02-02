@@ -45,7 +45,7 @@ class data extends Model
     public $gmtCreate;
 
     /**
-     * @description The modification time.
+     * @description The update time.
      *
      * @example 2021-12-30T06:41:52.000+0000
      *
@@ -90,9 +90,16 @@ class data extends Model
     public $routeOrder;
 
     /**
-     * @description The status.
+     * @description The status of the route. Valid values:
      *
-     * @example 1
+     *   0: unpublished
+     *   2: publishing
+     *   3: published
+     *   4: editing (updated but not published)
+     *   5: unpublishing
+     *   6: unavailable
+     *
+     * @example 2
      *
      * @var int
      */

@@ -23,8 +23,8 @@ class DeleteNacosConfigRequest extends Model
     /**
      * @description Specifies whether to perform a beta release. Valid values:
      *
-     *   `true`: performs a beta release.
-     *   `false`: not performs a beta release.
+     *   `true`: yes
+     *   `false`: no
      *
      * @example true
      *
@@ -51,7 +51,7 @@ class DeleteNacosConfigRequest extends Model
     public $group;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance
      *
      * @example mse_prepaid_public_cn-tl32epfyu18
      *

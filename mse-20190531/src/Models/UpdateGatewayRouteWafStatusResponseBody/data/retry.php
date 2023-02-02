@@ -18,14 +18,14 @@ class retry extends Model
     public $attempts;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The information about the HTTP status code.
      *
      * @var string[]
      */
     public $httpCodes;
 
     /**
-     * @description The retry condition.
+     * @description The information about the retry condition.
      *
      * @var string[]
      */

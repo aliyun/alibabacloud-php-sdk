@@ -11,7 +11,9 @@ class DeleteGatewayRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     * - en: English
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -19,7 +21,7 @@ class DeleteGatewayRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description Specifies whether to delete the Server Load Balancer (SLB) instance purchased for the gateway.
+     * @description Specifies whether to delete the SLB instance purchased for the gateway when you delete the gateway.
      *
      * @example true
      *

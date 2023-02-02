@@ -18,7 +18,7 @@ class UpdateSSLCertResponseBody extends Model
     public $code;
 
     /**
-     * @description The data structure.
+     * @description Indicates whether the update is successful.
      *
      * @example true
      *
@@ -45,7 +45,7 @@ class UpdateSSLCertResponseBody extends Model
     public $message;
 
     /**
-     * @description The request ID.
+     * @description Id of the request
      *
      * @example CA689BED-08F3-54C2-A206-A0924E2ACA0A
      *

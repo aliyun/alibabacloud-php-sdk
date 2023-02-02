@@ -35,7 +35,7 @@ class ListGatewayDomainResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message returned if the request failed.
      *
      * @example You are not authorized to perform this operation.
      *

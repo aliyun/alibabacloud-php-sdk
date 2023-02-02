@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListNamingTrackRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class ListNamingTrackRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The end timestamp. Unit: seconds.
+     *
      * @example 1665299698
      *
      * @var int
@@ -23,6 +30,8 @@ class ListNamingTrackRequest extends Model
     public $endTs;
 
     /**
+     * @description The group.
+     *
      * @example group
      *
      * @var string
@@ -30,6 +39,8 @@ class ListNamingTrackRequest extends Model
     public $group;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example mse_prepaid_public_cn-tl32d*****
      *
      * @var string
@@ -37,6 +48,8 @@ class ListNamingTrackRequest extends Model
     public $instanceId;
 
     /**
+     * @description The IP address of the client.
+     *
      * @example 172.16.183.232
      *
      * @var string
@@ -44,6 +57,8 @@ class ListNamingTrackRequest extends Model
     public $ip;
 
     /**
+     * @description The ID of the namespace.
+     *
      * @example cd4d3703-e2a6-46b5-85c6-4447e4f****
      *
      * @var string
@@ -51,6 +66,8 @@ class ListNamingTrackRequest extends Model
     public $namespaceId;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +75,8 @@ class ListNamingTrackRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var int
@@ -65,6 +84,8 @@ class ListNamingTrackRequest extends Model
     public $pageSize;
 
     /**
+     * @description The extended request parameters in the JSON format.
+     *
      * @example {}
      *
      * @var string
@@ -72,6 +93,11 @@ class ListNamingTrackRequest extends Model
     public $requestPars;
 
     /**
+     * @description Specifies whether to sort the query results in chronological order or reverse chronological order. Default value: `false`.
+     *
+     *   `true`: sorts the query results in reverse chronological order.
+     *   `false`: sorts the query results in chronological order.
+     *
      * @example false
      *
      * @var bool
@@ -79,6 +105,8 @@ class ListNamingTrackRequest extends Model
     public $reverse;
 
     /**
+     * @description The name of the service.
+     *
      * @example fpx-xms-baseinfo
      *
      * @var string
@@ -86,6 +114,8 @@ class ListNamingTrackRequest extends Model
     public $serviceName;
 
     /**
+     * @description The start timestamp. Unit: seconds.
+     *
      * @example 1660238450
      *
      * @var int

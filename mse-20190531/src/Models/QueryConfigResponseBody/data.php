@@ -61,6 +61,8 @@ class data extends Model
     public $configAuthSupported;
 
     /**
+     * @description The maximum size of a configuration. Unit: KB.
+     *
      * @example 100
      *
      * @var int
@@ -92,6 +94,10 @@ class data extends Model
     public $configSecretSupported;
 
     /**
+     * @description Indicates whether the time to live (TTL) configuration is enabled. This parameter is valid for ZooKeeper instances.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $extendedTypesEnable;
@@ -175,6 +181,8 @@ class data extends Model
     public $minSessionTimeout;
 
     /**
+     * @description The runtime configuration of the Nacos instance.
+     *
      * @var nacosRunningEnv
      */
     public $nacosRunningEnv;

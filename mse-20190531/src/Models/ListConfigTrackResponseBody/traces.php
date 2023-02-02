@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class traces extends Model
 {
     /**
+     * @description Indicates whether the request is sent from the client.
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +21,8 @@ class traces extends Model
     public $client;
 
     /**
+     * @description The ID of the configuration.
+     *
      * @example eir-server.properties
      *
      * @var string
@@ -23,6 +30,8 @@ class traces extends Model
     public $dataId;
 
     /**
+     * @description The response latency. Unit: ms.
+     *
      * @example 0
      *
      * @var string
@@ -30,6 +39,11 @@ class traces extends Model
     public $delay;
 
     /**
+     * @description The event. Valid values:
+     *
+     *   pull: configuration acquisition events.
+     *   persist: persistence events.
+     *
      * @example pull
      *
      * @var string
@@ -37,6 +51,8 @@ class traces extends Model
     public $event;
 
     /**
+     * @description The name of the configuration group.
+     *
      * @example DEFAULT_GROUP
      *
      * @var string
@@ -44,6 +60,8 @@ class traces extends Model
     public $group;
 
     /**
+     * @description The log time.
+     *
      * @example 2022-11-28 15:09:15
      *
      * @var string
@@ -51,6 +69,8 @@ class traces extends Model
     public $logDate;
 
     /**
+     * @description The MD5 value.
+     *
      * @example d21c9091c60daa0ff7ee2f420141e5a0
      *
      * @var string
@@ -58,6 +78,11 @@ class traces extends Model
     public $md5;
 
     /**
+     * @description Indicates whether messages are pushed by a server.
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -65,6 +90,8 @@ class traces extends Model
     public $push;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 192.168.1.2
      *
      * @var string
@@ -72,6 +99,8 @@ class traces extends Model
     public $requestIp;
 
     /**
+     * @description The response node.
+     *
      * @example mse-1973b9a0-1670834*****-reg-center-0-2
      *
      * @var string
@@ -79,6 +108,8 @@ class traces extends Model
     public $responseIp;
 
     /**
+     * @description The returned message.
+     *
      * @example ok
      *
      * @var string
@@ -86,6 +117,9 @@ class traces extends Model
     public $result;
 
     /**
+     * @description The timestamp that indicates the time when the metric value is collected.
+     *
+     * Unit: seconds.
      * @example 1659666529
      *
      * @var string
@@ -93,6 +127,12 @@ class traces extends Model
     public $ts;
 
     /**
+     * @description The release type. Valid values:
+     *
+     *   beta: beta release.
+     *   tag: canary release.
+     *   batch: batch release.
+     *
      * @example beta
      *
      * @var string

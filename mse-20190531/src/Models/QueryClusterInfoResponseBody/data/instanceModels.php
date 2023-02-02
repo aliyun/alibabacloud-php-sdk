@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instanceModels extends Model
 {
     /**
+     * @description A reserved parameter.
+     *
      * @example null
      *
      * @var string
@@ -16,6 +18,8 @@ class instanceModels extends Model
     public $creationTimestamp;
 
     /**
+     * @description A reserved parameter.
+     *
      * @example null
      *
      * @var string
@@ -23,6 +27,8 @@ class instanceModels extends Model
     public $healthStatus;
 
     /**
+     * @description A reserved parameter.
+     *
      * @example null
      *
      * @var string
@@ -30,6 +36,8 @@ class instanceModels extends Model
     public $internetIp;
 
     /**
+     * @description A reserved parameter.
+     *
      * @example null
      *
      * @var string
@@ -37,6 +45,8 @@ class instanceModels extends Model
     public $ip;
 
     /**
+     * @description A reserved parameter.
+     *
      * @example null
      *
      * @var string
@@ -44,6 +54,8 @@ class instanceModels extends Model
     public $podName;
 
     /**
+     * @description A reserved parameter.
+     *
      * @example null
      *
      * @var string
@@ -51,6 +63,8 @@ class instanceModels extends Model
     public $role;
 
     /**
+     * @description A reserved parameter.
+     *
      * @example null
      *
      * @var string
@@ -58,6 +72,8 @@ class instanceModels extends Model
     public $singleTunnelVip;
 
     /**
+     * @description A reserved parameter.
+     *
      * @example null
      *
      * @var string

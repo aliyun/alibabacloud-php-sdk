@@ -21,7 +21,7 @@ class ListEngineNamespacesRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example mse-cn-st21ri2****
      *

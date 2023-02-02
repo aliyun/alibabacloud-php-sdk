@@ -23,7 +23,7 @@ class AddServiceSourceRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The endpoint.
+     * @description The address.
      *
      * @example c9ad2a0717032427e920754e25b49e3b5
      *
@@ -48,7 +48,7 @@ class AddServiceSourceRequest extends Model
     public $groupList;
 
     /**
-     * @description The Ingress configuration.
+     * @description The configurations of Ingress resources.
      *
      * @var ingressOptionsRequest
      */
@@ -57,9 +57,9 @@ class AddServiceSourceRequest extends Model
     /**
      * @description The name.
      *
-     * > The parameter value varies based on the source type.
+     * > The parameter definition varies based on the source type.
      *
-     *   If Type is set to K8S, this parameter specifies the name of the ACK cluster.
+     *   If Type is set to K8S, this parameter specifies the name of the Kubernetes cluster.
      *   If Type is set to NACOS, this parameter specifies the ID of the instance.
      *
      * @example istio
@@ -76,12 +76,12 @@ class AddServiceSourceRequest extends Model
     public $pathList;
 
     /**
-     * @description The service source.
+     * @description The service source. Valid values:
      *
-     *   K8S: ACK cluster
+     *   K8S: Kubernetes cluster
      *   MSE: Nacos instance
      *
-     * @example K8S, MSE
+     * @example K8S,MSE
      *
      * @var string
      */
@@ -90,10 +90,10 @@ class AddServiceSourceRequest extends Model
     /**
      * @description The type of the service source. Valid values:
      *
-     *   K8S: ACK cluster
+     *   K8S: Kubernetes cluster
      *   NACOS: Nacos instance
      *
-     * @example K8S, NACOS
+     * @example K8S,NACOS
      *
      * @var string
      */

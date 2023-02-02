@@ -45,7 +45,7 @@ class data extends Model
     public $namespaceShowName;
 
     /**
-     * @description The quota of configurations.
+     * @description The quotas.
      *
      * @example 200
      *
@@ -61,6 +61,11 @@ class data extends Model
      * @var string
      */
     public $serviceCount;
+
+    /**
+     * @var string
+     */
+    public $sourceType;
 
     /**
      * @description The type of the namespace. Valid values:
@@ -81,6 +86,7 @@ class data extends Model
         'namespaceShowName' => 'NamespaceShowName',
         'quota'             => 'Quota',
         'serviceCount'      => 'ServiceCount',
+        'sourceType'        => 'SourceType',
         'type'              => 'Type',
     ];
 
@@ -108,6 +114,9 @@ class data extends Model
         }
         if (null !== $this->serviceCount) {
             $res['ServiceCount'] = $this->serviceCount;
+        }
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -141,6 +150,9 @@ class data extends Model
         }
         if (isset($map['ServiceCount'])) {
             $model->serviceCount = $map['ServiceCount'];
+        }
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

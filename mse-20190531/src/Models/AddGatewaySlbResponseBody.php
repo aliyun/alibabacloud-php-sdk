@@ -18,7 +18,7 @@ class AddGatewaySlbResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned data.
+     * @description The data returned.
      *
      * @example lb-uf6dqr4ondqi5w3df7hdf
      *
@@ -48,7 +48,7 @@ class AddGatewaySlbResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 316F5F64-F73D-42DC-8632-01E308B6****
      *

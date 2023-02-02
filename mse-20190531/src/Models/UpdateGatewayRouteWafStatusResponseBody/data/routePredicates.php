@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class routePredicates extends Model
 {
     /**
-     * @description The rules for matching based on request headers.
+     * @description The information about matching based on request headers.
      *
      * @var headerPredicates[]
      */

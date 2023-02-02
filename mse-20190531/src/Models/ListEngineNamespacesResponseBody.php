@@ -83,7 +83,7 @@ class ListEngineNamespacesResponseBody extends Model
     public $success;
 
     /**
-     * @description The total number of instances.
+     * @description The total number of returned instances.
      *
      * @example 7
      *

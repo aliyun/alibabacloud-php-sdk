@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryClusterInfoRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class QueryClusterInfoRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description Specifies whether to query the configuration of a public IP address whitelist.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +30,8 @@ class QueryClusterInfoRequest extends Model
     public $aclSwitch;
 
     /**
+     * @description The ID of the cluster.
+     *
      * @example mse-09k1q11****
      *
      * @var string
@@ -30,6 +39,8 @@ class QueryClusterInfoRequest extends Model
     public $clusterId;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example mse_prepaid_public_cn-7mz2t63ci03
      *
      * @var string
@@ -37,6 +48,8 @@ class QueryClusterInfoRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the order.
+     *
      * @example 20574710974****
      *
      * @var string
@@ -44,6 +57,8 @@ class QueryClusterInfoRequest extends Model
     public $orderId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +66,8 @@ class QueryClusterInfoRequest extends Model
     public $regionId;
 
     /**
+     * @description The extended request parameters in the JSON format.
+     *
      * @example {}
      *
      * @var string

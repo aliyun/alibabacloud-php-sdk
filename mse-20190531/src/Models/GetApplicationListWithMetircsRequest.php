@@ -77,7 +77,7 @@ class GetApplicationListWithMetircsRequest extends Model
     public $region;
 
     /**
-     * @description The service source. Valid values:
+     * @description The service source.
      *
      * @example edasmsc
      *

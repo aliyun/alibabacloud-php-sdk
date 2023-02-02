@@ -30,7 +30,7 @@ class ListZkTrackRequest extends Model
     public $endTs;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example mse-cn-0ju2yq****
      *
@@ -75,7 +75,7 @@ class ListZkTrackRequest extends Model
     public $requestPars;
 
     /**
-     * @description Specifies whether entries are sorted in reverse chronological order.
+     * @description Specifies whether to enable reverse ordering.
      *
      * @example false
      *

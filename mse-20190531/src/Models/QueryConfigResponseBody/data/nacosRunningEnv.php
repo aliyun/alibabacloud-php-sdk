@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nacosRunningEnv extends Model
 {
     /**
+     * @description Indicates whether empty list protection is enabled.
+     *
      * @example true
      *
      * @var bool

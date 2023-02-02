@@ -101,7 +101,7 @@ class data extends Model
     public $domainNameList;
 
     /**
-     * @description Indicates whether WAF is activated.
+     * @description Indicates whether Web Application Firewall (WAF) is activated.
      *
      * @example true
      *
@@ -119,7 +119,7 @@ class data extends Model
     public $fallback;
 
     /**
-     * @description The information about the Fallback service.
+     * @description The information of the Fallback service.
      *
      * @var fallbackServices[]
      */
@@ -258,7 +258,7 @@ class data extends Model
      *   5: unpublishing
      *   6: unavailable
      *
-     * @example 1
+     * @example 0
      *
      * @var int
      */

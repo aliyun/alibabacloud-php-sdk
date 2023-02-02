@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class riskList extends Model
 {
     /**
+     * @description The description.
+     *
+     * @example {\\"desc\\":\\"The engine version is outdated and a large number of features are not supported. Upgrade the engine to the latest version at the earliest opportunity. \\"}
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @description ID。
+     * @description The ID.
      *
      * @example 3426
      *
@@ -23,6 +27,8 @@ class riskList extends Model
     public $id;
 
     /**
+     * @description A redundant parameter.
+     *
      * @example null
      *
      * @var string
@@ -30,6 +36,11 @@ class riskList extends Model
     public $module;
 
     /**
+     * @description Indicates whether the risk item notification feature is disabled.
+     *
+     *   true: disabled
+     *   false: enabled
+     *
      * @example false
      *
      * @var bool
@@ -37,6 +48,8 @@ class riskList extends Model
     public $mute;
 
     /**
+     * @description A redundant parameter.
+     *
      * @example null
      *
      * @var bool
@@ -44,6 +57,8 @@ class riskList extends Model
     public $noticeFeature;
 
     /**
+     * @description The ID of the user to which the instance belongs.
+     *
      * @example 123456
      *
      * @var string
@@ -51,6 +66,8 @@ class riskList extends Model
     public $primaryUser;
 
     /**
+     * @description The risk code.
+     *
      * @example 22020010001
      *
      * @var string
@@ -58,6 +75,12 @@ class riskList extends Model
     public $riskCode;
 
     /**
+     * @description The severity of the risk. Valid values:
+     *
+     *   HIGH: high risk
+     *   MID: medium risk
+     *   LOW: low risk
+     *
      * @example MID
      *
      * @var string
@@ -65,26 +88,44 @@ class riskList extends Model
     public $riskLevel;
 
     /**
+     * @description The name of the risk.
+     *
+     * @example The engine version is outdated.
+     *
      * @var string
      */
     public $riskName;
 
     /**
+     * @description The type of the risk.
+     *
+     * @example Version risk
+     *
      * @var string
      */
     public $riskType;
 
     /**
+     * @description The situation.
+     *
+     * @example {\\"desc\\":\\"The engine version is outdated and a large number of features are not supported.\\",\\"links\\":\[{\\"type\\":\\"url\\",\\"value\\":\\"https://xxxx"\\",\\"desc\\":\\"Release notes\\"}]}
+     *
      * @var string
      */
     public $situation;
 
     /**
+     * @description The suggestion.
+     *
+     * @example {"desc": "Upgrade to the latest version at the earliest opportunity.", "links":\[{"type": "upgrade", "desc": "Click to upgrade"}]}
+     *
      * @var string
      */
     public $suggestion;
 
     /**
+     * @description The ID of the associated parent task.
+     *
      * @example 1
      *
      * @var int
@@ -92,6 +133,8 @@ class riskList extends Model
     public $taskId;
 
     /**
+     * @description A redundant parameter.
+     *
      * @example null
      *
      * @var int
@@ -99,6 +142,8 @@ class riskList extends Model
     public $type;
 
     /**
+     * @description A redundant parameter.
+     *
      * @example null
      *
      * @var string

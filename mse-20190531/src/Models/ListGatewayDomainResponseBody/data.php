@@ -75,7 +75,7 @@ class data extends Model
     public $http2;
 
     /**
-     * @description ID
+     * @description The domain ID.
      *
      * @example 243
      *

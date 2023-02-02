@@ -59,7 +59,7 @@ class QueryAllSwimmingLaneGroupResponseBody extends Model
      *   If the request is successful, a success message is returned.
      *   If the request fails, an error message is returned.
      *
-     * @example The request is successfully processed.
+     * @example The request was successfully processed.
      *
      * @var string
      */

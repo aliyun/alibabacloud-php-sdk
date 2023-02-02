@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListNamingTrackResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example mse-100-000
      *
      * @var string
@@ -17,6 +19,8 @@ class ListNamingTrackResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -24,11 +28,17 @@ class ListNamingTrackResponseBody extends Model
     public $httpCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example The request is successfully processed.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -36,6 +46,8 @@ class ListNamingTrackResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -43,6 +55,8 @@ class ListNamingTrackResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 9916CBED-B2D5-5685-9129-4592FE1*****
      *
      * @var string
@@ -50,6 +64,11 @@ class ListNamingTrackResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool
@@ -57,6 +76,8 @@ class ListNamingTrackResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 7
      *
      * @var int
@@ -64,6 +85,8 @@ class ListNamingTrackResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The data information.
+     *
      * @var traces[]
      */
     public $traces;

@@ -18,7 +18,7 @@ class retry extends Model
     public $attempts;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status codes.
      *
      * @var string[]
      */
