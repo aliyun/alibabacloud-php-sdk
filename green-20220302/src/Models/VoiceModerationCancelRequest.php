@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Green\V20220302\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class TextModerationRequest extends Model
+class VoiceModerationCancelRequest extends Model
 {
     /**
      * @example nickname_detection
@@ -16,6 +16,8 @@ class TextModerationRequest extends Model
     public $service;
 
     /**
+     * @example {
+     * }
      * @var string
      */
     public $serviceParameters;
@@ -44,7 +46,7 @@ class TextModerationRequest extends Model
     /**
      * @param array $map
      *
-     * @return TextModerationRequest
+     * @return VoiceModerationCancelRequest
      */
     public static function fromMap($map = [])
     {

@@ -10,7 +10,9 @@ use AlibabaCloud\Tea\Model;
 class TextModerationResponseBody extends Model
 {
     /**
-     * @var string
+     * @example 200
+     *
+     * @var int
      */
     public $code;
 
@@ -20,11 +22,15 @@ class TextModerationResponseBody extends Model
     public $data;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+     *
      * @var string
      */
     public $requestId;

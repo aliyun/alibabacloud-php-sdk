@@ -11,6 +11,18 @@ class data extends Model
     /**
      * @var string
      */
+    public $accountId;
+
+    /**
+     * @var string
+     */
+    public $deviceId;
+
+    /**
+     * @example porn
+     *
+     * @var string
+     */
     public $labels;
 
     /**
@@ -18,8 +30,10 @@ class data extends Model
      */
     public $reason;
     protected $_name = [
-        'labels' => 'labels',
-        'reason' => 'reason',
+        'accountId' => 'accountId',
+        'deviceId'  => 'deviceId',
+        'labels'    => 'labels',
+        'reason'    => 'reason',
     ];
 
     public function validate()
@@ -29,6 +43,12 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountId) {
+            $res['accountId'] = $this->accountId;
+        }
+        if (null !== $this->deviceId) {
+            $res['deviceId'] = $this->deviceId;
+        }
         if (null !== $this->labels) {
             $res['labels'] = $this->labels;
         }
@@ -47,6 +67,12 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['accountId'])) {
+            $model->accountId = $map['accountId'];
+        }
+        if (isset($map['deviceId'])) {
+            $model->deviceId = $map['deviceId'];
+        }
         if (isset($map['labels'])) {
             $model->labels = $map['labels'];
         }

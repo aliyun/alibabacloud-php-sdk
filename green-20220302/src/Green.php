@@ -10,6 +10,12 @@ use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationResponse;
+use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationCancelRequest;
+use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationCancelResponse;
+use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationRequest;
+use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationResponse;
+use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationResultRequest;
+use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationResultResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -159,5 +165,143 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->textModerationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param VoiceModerationRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return VoiceModerationResponse
+     */
+    public function voiceModerationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->service)) {
+            $body['Service'] = $request->service;
+        }
+        if (!Utils::isUnset($request->serviceParameters)) {
+            $body['ServiceParameters'] = $request->serviceParameters;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'VoiceModeration',
+            'version'     => '2022-03-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VoiceModerationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VoiceModerationRequest $request
+     *
+     * @return VoiceModerationResponse
+     */
+    public function voiceModeration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->voiceModerationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param VoiceModerationCancelRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return VoiceModerationCancelResponse
+     */
+    public function voiceModerationCancelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->service)) {
+            $body['Service'] = $request->service;
+        }
+        if (!Utils::isUnset($request->serviceParameters)) {
+            $body['ServiceParameters'] = $request->serviceParameters;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'VoiceModerationCancel',
+            'version'     => '2022-03-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VoiceModerationCancelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VoiceModerationCancelRequest $request
+     *
+     * @return VoiceModerationCancelResponse
+     */
+    public function voiceModerationCancel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->voiceModerationCancelWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param VoiceModerationResultRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return VoiceModerationResultResponse
+     */
+    public function voiceModerationResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->service)) {
+            $body['Service'] = $request->service;
+        }
+        if (!Utils::isUnset($request->serviceParameters)) {
+            $body['ServiceParameters'] = $request->serviceParameters;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'VoiceModerationResult',
+            'version'     => '2022-03-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VoiceModerationResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VoiceModerationResultRequest $request
+     *
+     * @return VoiceModerationResultResponse
+     */
+    public function voiceModerationResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->voiceModerationResultWithOptions($request, $runtime);
     }
 }

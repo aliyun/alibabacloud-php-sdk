@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models;
 
-use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class ImageModerationResponseBody extends Model
+class VoiceModerationCancelResponseBody extends Model
 {
     /**
      * @example 200
@@ -17,27 +16,23 @@ class ImageModerationResponseBody extends Model
     public $code;
 
     /**
-     * @var data
-     */
-    public $data;
-
-    /**
-     * @example OK
+     * @example SUCCESS
      *
      * @var string
      */
-    public $msg;
+    public $message;
 
     /**
-     * @example 6CF2815C-C8C7-4A01-B52E-FF6E24F53492
+     * @description Id of the request
+     *
+     * @example 4A926AE2-4C96-573F-824F-0532960799F8
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'code'      => 'Code',
-        'data'      => 'Data',
-        'msg'       => 'Msg',
+        'message'   => 'Message',
         'requestId' => 'RequestId',
     ];
 
@@ -51,11 +46,8 @@ class ImageModerationResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
-        if (null !== $this->msg) {
-            $res['Msg'] = $this->msg;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -67,7 +59,7 @@ class ImageModerationResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ImageModerationResponseBody
+     * @return VoiceModerationCancelResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -75,11 +67,8 @@ class ImageModerationResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
-        }
-        if (isset($map['Msg'])) {
-            $model->msg = $map['Msg'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

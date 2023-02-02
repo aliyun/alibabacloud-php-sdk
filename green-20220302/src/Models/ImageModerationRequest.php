@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ImageModerationRequest extends Model
 {
     /**
+     * @example baselineCheck
+     *
      * @var string
      */
     public $service;
 
     /**
+     * @example {"imageUrl":"https://www.aliyun.com/test.jpg","dataId":"img1234567"}
+     *
      * @var string
      */
     public $serviceParameters;
