@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the data source record.
+     *
+     * @example e_1234abcd*****
+     *
      * @var string
      */
     public $endpointId;

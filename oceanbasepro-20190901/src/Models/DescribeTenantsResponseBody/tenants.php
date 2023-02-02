@@ -9,91 +9,160 @@ use AlibabaCloud\Tea\Model;
 class tenants extends Model
 {
     /**
+     * @example utf8mb4
+     *
      * @var string
      */
     public $charset;
 
     /**
+     * @example utf8mb4_general_ci
+     *
      * @var string
      */
     public $collation;
 
     /**
+     * @description The total number of CPU cores of the tenant.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @description The time when the tenant was created.
+     *
+     * @example 2021-09-17 15:52:17.0
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The data replica distribution mode of the tenant.
+     *
+     * > <br>N represents the number of nodes in a single zone.
+     * @example 1-1-1
+     *
      * @var string
      */
     public $deployMode;
 
     /**
+     * @description The deployment type of the tenant. <br>
+     * - dual: dual-IDC deployment
+     * @example multiple
+     *
      * @var string
      */
     public $deployType;
 
     /**
+     * @description The description of the tenant.
+     *
+     * @example PayCore business database
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The total memory size of the tenant, in GB.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $mem;
 
     /**
+     * @description The primary zone of the tenant.
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $primaryZone;
 
     /**
+     * @description The status of the tenant.  <br>
+     * - WHITE_LIST_MODIFYING: The whitelist is being modified.
+     * @example ONLINE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * @example t33h8y08k****
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description The tenant mode.
+     * MySQL
+     * @example Oracle
+     *
      * @var string
      */
     public $tenantMode;
 
     /**
+     * @description The name of the tenant.
+     *
+     * @example pay_online
+     *
      * @var string
      */
     public $tenantName;
 
     /**
+     * @description The number of CPU cores in each resource unit of the tenant.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $unitCpu;
 
     /**
+     * @description The memory size of each resource unit of the tenant, in GB.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $unitMem;
 
     /**
+     * @description The number of resource units in the tenant.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $unitNum;
 
     /**
+     * @description The number of used disks of the tenant.
+     *
+     * @example 10
+     *
      * @var float
      */
     public $usedDiskSize;
 
     /**
+     * @description The ID of the VPC.   <br>If no suitable VPC is available, create a VPC as prompted. For more information, see "What is a VPC".
+     *
+     * @example vpc-bp1d2q3mhg9i23ofi****
+     *
      * @var string
      */
     public $vpcId;

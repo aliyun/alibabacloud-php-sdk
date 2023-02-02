@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class SQLHistoryList extends Model
 {
     /**
+     * @description The quantity.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $count;

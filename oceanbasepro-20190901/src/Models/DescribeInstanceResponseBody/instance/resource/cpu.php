@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class cpu extends Model
 {
     /**
+     * @description The total number of CPU cores of the cluster.
+     *
+     * @example 14
+     *
      * @var int
      */
     public $totalCpu;
 
     /**
+     * @description The number of CPU cores of each replica node in the cluster.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $unitCpu;
 
     /**
+     * @description The number of CPU cores used in the cluster.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $usedCpu;

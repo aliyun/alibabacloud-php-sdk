@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class diskSize extends Model
 {
     /**
+     * @description The size of used disk space of the tenant, in GB.
+     *
+     * @example 86
+     *
      * @var float
      */
     public $usedDiskSize;

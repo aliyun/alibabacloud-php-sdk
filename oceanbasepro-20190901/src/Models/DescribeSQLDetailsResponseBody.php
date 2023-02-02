@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLDetailsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the SQL statement.
+     *
      * @var SQLDetails[]
      */
     public $SQLDetails;

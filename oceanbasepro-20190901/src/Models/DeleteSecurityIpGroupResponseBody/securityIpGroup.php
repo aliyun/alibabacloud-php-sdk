@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class securityIpGroup extends Model
 {
     /**
+     * @description The ID of the OceanBase cluster.
+     *
+     * @example ob317v4uif****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the deleted IP address whitelist group.
+     *
+     * @example paytest
+     *
      * @var string
      */
     public $securityIpGroupName;

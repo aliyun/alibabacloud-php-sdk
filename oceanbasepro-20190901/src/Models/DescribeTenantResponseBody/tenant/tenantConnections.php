@@ -14,66 +14,116 @@ class tenantConnections extends Model
     public $addressType;
 
     /**
+     * @description The service mode of the connection address. Valid values:
+     * Clog: provides transaction log services.
+     * @example ReadWrite
+     *
      * @var string
      */
     public $connectionRole;
 
     /**
+     * @description The list of zones corresponding to the tenant connection.
+     *
+     * @example ["cn-hangzhou-i", "cn-hangzhou-j"]
+     *
      * @var string[]
      */
     public $connectionZones;
 
     /**
+     * @description The Internet address for accessing the tenant.
+     *
+     * @example t32a7ru5u****mo.oceanbase.aliyuncs.com
+     *
      * @var string
      */
     public $internetAddress;
 
     /**
+     * @description The status of the Internet address for accessing the tenant. Valid values:
+     * - ONLINE: The address is in service.
+     * @example CLOSED
+     *
      * @var string
      */
     public $internetAddressStatus;
 
     /**
+     * @description The Internet port for accessing the tenant.
+     *
+     * @example 3306
+     *
      * @var int
      */
     public $internetPort;
 
     /**
+     * @description The intranet address for accessing the tenant.
+     *
+     * @example t32a7ru5u****.oceanbase.aliyuncs.com
+     *
      * @var string
      */
     public $intranetAddress;
 
     /**
+     * @description The primary zone corresponding to the address for accessing the tenant.
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $intranetAddressMasterZoneId;
 
     /**
+     * @description The standby zone corresponding to the address for accessing the tenant.
+     *
+     * @example cn-hangzhou-j
+     *
      * @var string
      */
     public $intranetAddressSlaveZoneId;
 
     /**
+     * @description The status of the intranet address for accessing the tenant.
+     * The value ONLINE indicates that the address is in service.
+     * @example ONLINE
+     *
      * @var string
      */
     public $intranetAddressStatus;
 
     /**
+     * @description The intranet port for accessing the tenant.
+     *
+     * @example 3306
+     *
      * @var int
      */
     public $intranetPort;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $transactionSplit;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-bp11k1aypnzu1l3whi****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-bp1qiail1asmfe23t****
+     *
      * @var string
      */
     public $vpcId;

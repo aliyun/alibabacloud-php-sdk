@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The description of the time zone.
+     *
+     * @example (GMT+8:00) Asia/Shanghai
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the time zone.
+     *
+     * @example Asia/Shanghai
+     *
      * @var string
      */
     public $timeZone;

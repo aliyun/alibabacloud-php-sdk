@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceRequest extends Model
 {
     /**
+     * @description The ID of the OceanBase cluster.
+     *
+     * @example ob317v4uif****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of the page to return.
+     * - Default value: 1
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of rows to return on each page.
+     * - Default value: 10
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

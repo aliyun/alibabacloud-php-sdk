@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityIpGroupsRequest extends Model
 {
     /**
+     * @description The ID of the OceanBase cluster.
+     *
+     * @example i-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $instanceId;

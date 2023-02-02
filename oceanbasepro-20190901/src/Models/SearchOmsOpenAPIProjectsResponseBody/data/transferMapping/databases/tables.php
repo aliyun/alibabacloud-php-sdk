@@ -10,41 +10,67 @@ use AlibabaCloud\Tea\Model;
 class tables extends Model
 {
     /**
+     * @description The schema of the ADB table. If the destination data source is ADB, you need to configure additional information for schema synchronization.
+     *
      * @var adbTableSchema
      */
     public $adbTableSchema;
 
     /**
+     * @description The list of filter columns, which are the columns to be synchronized.
+     *
      * @var string[]
      */
     public $filterColumns;
 
     /**
+     * @description The name of the mapped-to table or topic. If the destination data source is a database, this parameter specifies the name of the mapped-to table. If the destination data source is a message queue system, this parameter specifies the name of the mapped-to topic.
+     *
+     * @example mapped_table
+     *
      * @var string
      */
     public $mappedName;
 
     /**
+     * @description The list of sharding key columns. This parameter applies to scenarios where the destination data source is a message queue system.
+     *
      * @var string[]
      */
     public $shardColumns;
 
     /**
+     * @description The ID of the table. This parameter takes effect when the source data source is IDB.
+     *
+     * @example table_id
+     *
      * @var string
      */
     public $tableId;
 
     /**
+     * @description The name of the table.
+     *
+     * @example table
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @description DATABASE, TABLE
+     *
+     * @example DATABASE
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The row filter conditions.
+     *
+     * @example id > 1
+     *
      * @var string
      */
     public $whereClause;

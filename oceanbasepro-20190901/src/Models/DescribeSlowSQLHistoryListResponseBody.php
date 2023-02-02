@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowSQLHistoryListResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The execution history of the slow SQL statement.
+     *
      * @var slowSQLHistoryList
      */
     public $slowSQLHistoryList;

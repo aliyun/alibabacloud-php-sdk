@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeTenantMetricsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The metrics of the tenant.
+     *
+     * @example "Metrics":[ {"request_queue_rt":0.0,"TimeStamp":"2022-02-23T01:58:00Z"}]
+     *
      * @var string
      */
     public $tenantMetrics;
 
     /**
+     * @description The total count.
+     *
+     * @example 9
+     *
      * @var int
      */
     public $totalCount;

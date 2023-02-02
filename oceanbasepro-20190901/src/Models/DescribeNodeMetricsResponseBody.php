@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeNodeMetricsResponseBody extends Model
 {
     /**
+     * @description The metrics of the node.
+     *
+     * @example -
+     *
      * @var string
      */
     public $nodeMetrics;
 
     /**
+     * @description The request ID.
+     *
+     * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total count.
+     *
+     * @example 9
+     *
      * @var int
      */
     public $totalCount;

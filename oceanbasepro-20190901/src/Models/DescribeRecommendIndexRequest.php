@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeRecommendIndexRequest extends Model
 {
     /**
+     * @description The ID of the OceanBase cluster.
+     *
+     * @example ob317v4uif****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description You can obtain the SQL ID from the return value of the DescribeSlowSQLList or DescribeTopSQLList operation.
+     *
+     * @example 8D6E84****0B8FB1823D199E2CA1****
+     *
      * @var string
      */
     public $SQLId;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * @example t2mr3oae0****
+     *
      * @var string
      */
     public $tenantId;

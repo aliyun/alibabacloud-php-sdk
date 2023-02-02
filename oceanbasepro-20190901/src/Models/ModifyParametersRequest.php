@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ModifyParametersRequest extends Model
 {
     /**
+     * @description The type of the parameter.
+     * Valid values: CLUSTER and TENANT.
+     * @example TENANT
+     *
      * @var string
      */
     public $dimension;
 
     /**
+     * @description The resource ID of the parameter type.
+     * You can leave this parameter unspecified when you call this operation to modify cluster parameters. In the case of tenant parameters, pass the tenant ID.
+     * @example ob2mr3oae0****
+     *
      * @var string
      */
     public $dimensionValue;
 
     /**
+     * @description The ID of the OceanBase cluster.
+     *
+     * @example ob317v4uif****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The parameters.
+     * > <br>The names and values of cluster parameters that can be modified are different from those of tenant parameters. For more information, see DescribeParameters.
+     * @example [{"Name":"connect_timeout","Value":"20"}]
+     *
      * @var string
      */
     public $parameters;

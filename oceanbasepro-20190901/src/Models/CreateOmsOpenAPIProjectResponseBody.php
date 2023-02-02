@@ -10,56 +10,98 @@ use AlibabaCloud\Tea\Model;
 class CreateOmsOpenAPIProjectResponseBody extends Model
 {
     /**
+     * @description The suggestions (old).
+     *
+     * @example Contact the administrator.
+     *
      * @var string
      */
     public $advice;
 
     /**
+     * @description The error code (old).
+     *
+     * @example INNER_ERROR
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The time spent in processing the request, in seconds.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $cost;
 
     /**
+     * @description The project creation details.
+     *
+     * @example abcdg
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The error details.
+     *
      * @var errorDetail
      */
     public $errorDetail;
 
     /**
+     * @description The error description (old).
+     *
+     * @example A system error occurred.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The page number, which takes effect in a pagination query.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The page size, which takes effect in a pagination query.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
+     * @example XCVSADGDFSGDFGFDGFDGDFGDFGDFGDFGDSGDS
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The total count, which takes effect in a pagination query.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

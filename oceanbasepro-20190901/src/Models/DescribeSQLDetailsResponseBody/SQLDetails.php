@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class SQLDetails extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example testdb
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The SQL text.
+     *
+     * @example SELECT  ****   FROM ****   WHERE **** = ? AND **** = ?   ORDER BY **** ASC
+     *
      * @var string
      */
     public $SQLText;
 
     /**
+     * @description The username.
+     *
+     * @example tester
+     *
      * @var string
      */
     public $userName;

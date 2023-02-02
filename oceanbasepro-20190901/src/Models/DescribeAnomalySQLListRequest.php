@@ -9,81 +9,145 @@ use AlibabaCloud\Tea\Model;
 class DescribeAnomalySQLListRequest extends Model
 {
     /**
+     * @description The language of the returned data.
+     * Default value: CN for a China site and EN for an International site.
+     * @example zh-CN
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The name of the database.
+     *
+     * @example testdb
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The end time of the time range for querying suspicious SQL statements.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * @example 2021-09-13T15:40:43Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The filter condition.
+     * > <br> - All fields in OceanBase Database support filtering. <br> - You can write the key-value pair of a parameter in a JSON string in the JSON format to filter the parameter.
+     * @example {
+     * }
      * @var mixed[]
      */
     public $filterCondition;
 
     /**
+     * @description The IP address of the node.
+     *
+     * @example i-bp19y05uq6xpacyqnlrc
+     *
      * @var string
      */
     public $nodeIp;
 
     /**
+     * @description The number of the page to return.
+     * - Default value: 1
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of rows to return on each page.
+     * - Default value: 10
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description SQLID.
+     *
+     * @example 8D6E84****0B8FB1823D199E2CA1****
+     *
      * @var string
      */
     public $SQLId;
 
     /**
+     * @description The search keyword.
+     *
+     * @example update
+     *
      * @var string
      */
     public $searchKeyWord;
 
     /**
+     * @description The search parameter.
+     *
+     * @example cputime
+     *
      * @var string
      */
     public $searchParameter;
 
     /**
+     * @description The search rule.
+     * Valid values: "=", ">", ">=", "<", and "<="
+     * @example >
+     *
      * @var string
      */
     public $searchRule;
 
     /**
+     * @description The search value.
+     *
+     * @example 0.01
+     *
      * @var string
      */
     public $searchValue;
 
     /**
+     * @description The sorted column.
+     *
+     * @example cputime
+     *
      * @var string
      */
     public $sortColumn;
 
     /**
+     * @description The sorting rule.
+     *
+     * @example desc
+     *
      * @var string
      */
     public $sortOrder;
 
     /**
+     * @description The start time of the time range for querying suspicious SQL statements.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * @example 2021-06-13T15:40:43Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * @example t2mr3oae0****
+     *
      * @var string
      */
     public $tenantId;

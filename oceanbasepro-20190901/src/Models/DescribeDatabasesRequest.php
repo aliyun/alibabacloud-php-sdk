@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatabasesRequest extends Model
 {
     /**
+     * @description The name of the database.
+     * You cannot use reserved keywords, such as test and mysql.
+     * @example sms_pre
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @description The number of the page to return.
+     * - Default value: 1
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of rows to return on each page.
+     * - Default value: 10
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The search keyword.
+     *
+     * @example pay
+     *
      * @var string
      */
     public $searchKey;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * @example ob2mr3oae0****
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description Specifies whether to return the information of tables in the database.
+     * Default value: false.
+     * @example true
+     *
      * @var bool
      */
     public $withTables;

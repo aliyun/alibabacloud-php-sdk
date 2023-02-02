@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeZonesRequest extends Model
 {
     /**
+     * @description The deployment type of the cluster. Valid values:
+     * - dual: dual-IDC deployment
+     * @example single
+     *
      * @var string
      */
     public $deployType;
 
     /**
+     * @description The series of the OceanBase cluster. Valid values:
+     * NORMAL: the high availability version. This is the default value.
+     * @example NORMAL
+     *
      * @var string
      */
     public $series;

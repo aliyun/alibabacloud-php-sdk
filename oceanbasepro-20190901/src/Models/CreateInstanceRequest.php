@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceRequest extends Model
 {
     /**
+     * @description Specifies whether to enable automatic renewal.
+     * - false: disables automatic renewal for the instance. This is the default value.
+     * @example true
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @description The automatic renewal period of the instance. This parameter is required when the AutoRenew parameter is set to true. Valid values:
+     * - If the PeriodUnit parameter is set to Month: 1, 2, 3, 6, and 12.
+     * @example 2
+     *
      * @var int
      */
     public $autoRenewPeriod;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     * - PostPay: the pay-as-you-go billing method. This is the default value. By default, fees are charged on an hourly basis.
+     * @example PrePay
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The size of the storage space, in GB.
+     * The preceding minimum storage space sizes are the default storage space sizes of the corresponding cluster specification plans.
+     * @example 200
+     *
      * @var int
      */
     public $diskSize;
@@ -34,41 +50,71 @@ class CreateInstanceRequest extends Model
     public $diskType;
 
     /**
+     * @description The specifications of the cluster.
+     * - 62C400GB: indicates 62 CPU cores and 400 GB of memory.
+     * @example 14C70GB
+     *
      * @var string
      */
     public $instanceClass;
 
     /**
+     * @description The name of the OceanBase cluster.
+     * If this parameter is not specified, the value is the instance ID of the cluster by default.
+     * @example amap_aos_tx_ob
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example 2.2.77
+     *
      * @var string
      */
     public $obVersion;
 
     /**
+     * @description The valid duration of the purchased resources. The unit is specified by the PeriodUnit parameter.
+     * - If the PeriodUnit parameter is set to Month: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The unit of the valid duration of the purchased resources.
+     * Default value: Month for subscription, and Hour for pay-as-you-go.
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The series of the OceanBase cluster. Valid values:
+     * normal: the high availability edition. This is the default value.
+     * @example Normal
+     *
      * @var string
      */
     public $series;
 
     /**
+     * @description The ID of the zone to which the instance belongs.
+     * For more information about how to obtain the list of zones, see [DescribeZones](https://www.alibabacloud.com/help/zh/doc-detail/25610.htm).
+     * @example cn-hangzhou-h,cn-hangzhou-i,cn-hangzhou-j
+     *
      * @var string
      */
     public $zones;

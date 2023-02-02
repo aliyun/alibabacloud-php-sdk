@@ -9,31 +9,53 @@ use AlibabaCloud\Tea\Model;
 class diskSize extends Model
 {
     /**
+     * @description The size of the data disk, in GB.
+     *
+     * @example 200
+     *
      * @var float
      */
     public $dataUsedSize;
 
     /**
+     * @description The server with the highest disk usage.
+     *
      * @var string[]
      */
     public $maxDiskUsedObServer;
 
     /**
+     * @description The maximum disk usage, in percentage.
+     *
+     * @example 0.14
+     *
      * @var float
      */
     public $maxDiskUsedPercent;
 
     /**
+     * @description The total storage space of the cluster, in GB.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $totalDiskSize;
 
     /**
+     * @description The storage space of each replica node in the cluster, in GB.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $unitDiskSize;
 
     /**
+     * @description The size of used storage space of the cluster, in GB.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $usedDiskSize;

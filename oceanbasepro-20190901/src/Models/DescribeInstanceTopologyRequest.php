@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceTopologyRequest extends Model
 {
     /**
+     * @description The ID of the OceanBase cluster.
+     *
+     * @example ob317v4uif****
+     *
      * @var string
      */
     public $instanceId;

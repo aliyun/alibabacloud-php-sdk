@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class DescribeTenantsRequest extends Model
 {
     /**
+     * @description The ID of the OceanBase cluster.
+     *
+     * @example ob317v4uif****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of the page to return.
+     * - Default value: 1
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of rows to return on each page.
+     * - Default value: 10
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The search keyword.
+     *
+     * @example pay
+     *
      * @var string
      */
     public $searchKey;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * @example ob2mr3oae0****
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description The name of the tenant.
+     * It must start with a letter or an underscore (_), and contain 2 to 20 characters, which can be uppercase letters, lowercase letters, digits, and underscores (_).  It cannot be set to sys.
+     * @example pay_online
+     *
      * @var string
      */
     public $tenantName;

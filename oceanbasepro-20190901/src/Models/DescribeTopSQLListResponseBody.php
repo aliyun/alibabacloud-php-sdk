@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeTopSQLListResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of top SQL statements.
+     *
      * @var topSQLList[]
      */
     public $topSQLList;
 
     /**
+     * @description The total count.
+     *
+     * @example 9
+     *
      * @var int
      */
     public $totalCount;

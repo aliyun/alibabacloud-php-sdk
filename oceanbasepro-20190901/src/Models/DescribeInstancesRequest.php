@@ -9,31 +9,56 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesRequest extends Model
 {
     /**
+     * @description The ID of the OceanBase cluster.
+     *
+     * @example ob317v4uif****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the OceanBase cluster.
+     * If this parameter is not specified, the value is the instance ID of the cluster by default.
+     * @example ob4prod
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The number of the page to return.
+     *
+     * - Default value: 1
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of rows to return on each page.
+     * - Default value: 10
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example group1
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The search keyword.
+     *
+     * @example pay
+     *
      * @var string
      */
     public $searchKey;

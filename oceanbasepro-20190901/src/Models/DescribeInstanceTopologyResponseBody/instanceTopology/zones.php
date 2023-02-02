@@ -11,26 +11,42 @@ use AlibabaCloud\Tea\Model;
 class zones extends Model
 {
     /**
+     * @description The information of the nodes.
+     *
      * @var nodes[]
      */
     public $nodes;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The storage capacity of the zone.
+     *
+     * @example 200 GB
+     *
      * @var string
      */
     public $zoneDisk;
 
     /**
+     * @description The ID of the zone.
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;
 
     /**
+     * @description The information of zones.
+     *
      * @var zoneResource
      */
     public $zoneResource;

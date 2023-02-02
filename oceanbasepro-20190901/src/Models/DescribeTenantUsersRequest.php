@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeTenantUsersRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     * Start value: 1. Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of rows to return on each page.
+     * Maximum value: 100. Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The search keyword.
+     *
+     * @example pay
+     *
      * @var string
      */
     public $searchKey;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * @example ob2mr3oae0****
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description The name of the database account.
+     * You cannot use reserved keywords, such as SYS and root.
+     * @example pay_test
+     *
      * @var string
      */
     public $userName;

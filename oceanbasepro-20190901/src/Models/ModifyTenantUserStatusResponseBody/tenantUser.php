@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class tenantUser extends Model
 {
     /**
+     * @description The ID of the tenant.
+     *
+     * @example t33h8y08k****
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description The name of the account.
+     *
+     * @example pay_test
+     *
      * @var string
      */
     public $userName;
 
     /**
+     * @description The status of the database account. Valid values:
+     * - ONLINE: The account is unlocked.
+     * @example LOCKED
+     *
      * @var string
      */
     public $userStatus;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyTenantTagsResponseBody extends Model
 {
     /**
+     * @example done
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+     *
      * @var string
      */
     public $requestId;

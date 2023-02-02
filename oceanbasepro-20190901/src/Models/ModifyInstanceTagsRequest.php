@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceTagsRequest extends Model
 {
     /**
+     * @example ob317v4uif****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example [{"Key": "xxx", "Value", "xxx"},{}]
+     *
      * @var string
      */
     public $tags;

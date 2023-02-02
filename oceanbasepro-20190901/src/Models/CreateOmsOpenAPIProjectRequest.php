@@ -13,51 +13,83 @@ use AlibabaCloud\Tea\Model;
 class CreateOmsOpenAPIProjectRequest extends Model
 {
     /**
+     * @description The business system identifier, which is optional and is a specific field of the Post message.
+     *
+     * @example OMS_TEST
+     *
      * @var string
      */
     public $businessName;
 
     /**
+     * @description The settings of the destination data source.
+     *
      * @var destConfig
      */
     public $destConfig;
 
     /**
+     * @description A collection of label IDs.
+     *
      * @var string[]
      */
     public $labelIds;
 
     /**
+     * @description The page number, which takes effect in a pagination query.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The page size, which takes effect in a pagination query.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The name of the project.
+     *
+     * @example test-l
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @description The settings of the source data source.
+     *
      * @var sourceConfig
      */
     public $sourceConfig;
 
     /**
+     * @description The mappings for the synchronization objects.
+     *
      * @var transferMapping
      */
     public $transferMapping;
 
     /**
+     * @description The settings of synchronization steps.
+     *
+     * @example OMS_TEST
+     *
      * @var transferStepConfig
      */
     public $transferStepConfig;
 
     /**
+     * @description The ID of the migration instance. Generally, if you want to create a project on a public cloud, you must first purchase a migration instance.
+     *
+     * @example g_abcd
+     *
      * @var string
      */
     public $workerGradeId;

@@ -325,10 +325,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateOmsMysqlDataSourceRequest $request
-     * @param RuntimeOptions                  $runtime
+     * To call this operation, you must add the IP address of the OceanBase Migration Service (OMS) server to the whitelist of the Alibaba Cloud database instance, the security rules of the ECS instance, or the security settings of your self-managed database (usually the firewall of your self-managed database) to ensure that OMS can successfully access your database instance. To obtain the IP address of the OMS server, go to the OMS data source management page in the OMS console.
+     *   *
+     * @param CreateOmsMysqlDataSourceRequest $request CreateOmsMysqlDataSourceRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOmsMysqlDataSourceResponse
+     * @return CreateOmsMysqlDataSourceResponse CreateOmsMysqlDataSourceResponse
      */
     public function createOmsMysqlDataSourceWithOptions($request, $runtime)
     {
@@ -386,9 +388,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateOmsMysqlDataSourceRequest $request
+     * To call this operation, you must add the IP address of the OceanBase Migration Service (OMS) server to the whitelist of the Alibaba Cloud database instance, the security rules of the ECS instance, or the security settings of your self-managed database (usually the firewall of your self-managed database) to ensure that OMS can successfully access your database instance. To obtain the IP address of the OMS server, go to the OMS data source management page in the OMS console.
+     *   *
+     * @param CreateOmsMysqlDataSourceRequest $request CreateOmsMysqlDataSourceRequest
      *
-     * @return CreateOmsMysqlDataSourceResponse
+     * @return CreateOmsMysqlDataSourceResponse CreateOmsMysqlDataSourceResponse
      */
     public function createOmsMysqlDataSource($request)
     {
@@ -769,10 +773,14 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstancesRequest $request
-     * @param RuntimeOptions         $runtime
+     * Before you call this operation, ensure that the following requirements are met:
+     *   * - The cluster is in the Running state.
+     *   * - The cluster is a primary cluster and the billing method is pay-as-you-go.
+     *   *
+     * @param DeleteInstancesRequest $request DeleteInstancesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteInstancesResponse
+     * @return DeleteInstancesResponse DeleteInstancesResponse
      */
     public function deleteInstancesWithOptions($request, $runtime)
     {
@@ -803,9 +811,13 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstancesRequest $request
+     * Before you call this operation, ensure that the following requirements are met:
+     *   * - The cluster is in the Running state.
+     *   * - The cluster is a primary cluster and the billing method is pay-as-you-go.
+     *   *
+     * @param DeleteInstancesRequest $request DeleteInstancesRequest
      *
-     * @return DeleteInstancesResponse
+     * @return DeleteInstancesResponse DeleteInstancesResponse
      */
     public function deleteInstances($request)
     {

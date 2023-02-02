@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeCharsetRequest extends Model
 {
     /**
+     * @description The tenant mode.
+     * For more information, see [DescribeInstanceTenantModes](~~410354~~).
+     * @example Oracle
+     *
      * @var string
      */
     public $tenantMode;

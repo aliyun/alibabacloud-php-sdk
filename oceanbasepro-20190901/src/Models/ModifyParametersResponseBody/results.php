@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @description The cause of the modification failure.
+     *
+     * @example schedule timeout.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the parameter has been modified. Valid values:
+     * false: The modification failed.
+     * @example false
+     *
      * @var bool
      */
     public $success;

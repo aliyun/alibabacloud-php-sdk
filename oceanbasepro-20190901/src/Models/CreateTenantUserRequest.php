@@ -9,36 +9,67 @@ use AlibabaCloud\Tea\Model;
 class CreateTenantUserRequest extends Model
 {
     /**
+     * @description The description of the database.
+     *
+     * @example this is a test database
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the OceanBase cluster.
+     *
+     * @example ob317v4uif****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The role of the user account.
+     *
+     * - DML: a role that has DML privileges such as SELECT, INSERT, UPDATE, DELETE, and SHOW VIEW.
+     * @example [{"Database":"20210824160559","Role":"readwrite"}]
+     *
      * @var string
      */
     public $roles;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * @example ob2mr3oae0****
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description The name of the database account.
+     * You cannot use reserved keywords, such as SYS and root.
+     * @example pay_test
+     *
      * @var string
      */
     public $userName;
 
     /**
+     * @description The password of the database account.
+     *
+     * > <br>It must be 10 to 32 characters in length and contain three types of the following characters: uppercase letters, lowercase letters, digits, and special characters. The special characters are ! @ # $ % ^ & \ * ( ) _ + - =
+     * @example !Aliyun4Oceanbase
+     *
      * @var string
      */
     public $userPassword;
 
     /**
+     * @description The type of the database account. Valid values:
+     *
+     * - Normal: a general account.
+     * @example Normal
+     *
      * @var string
      */
     public $userType;

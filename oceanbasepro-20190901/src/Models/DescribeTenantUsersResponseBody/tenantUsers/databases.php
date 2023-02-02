@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class databases extends Model
 {
     /**
+     * @description The name of the database (MySQL mode) or schema (Oracle mode).
+     *
+     * @example db_pay1
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @description The role of the account.
+     * > <br>By default, an Oracle account has the read and write privileges on its own schema, which are not listed here.
+     * @example ReadOnly
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @description The name of the table.
+     *
+     * @example tbl_pay1
+     *
      * @var string
      */
     public $table;

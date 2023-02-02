@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
+     * @description The ID of the replica node.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $nodeCopyId;
 
     /**
+     * @description The ID of the node.
+     *
+     * @example i-bp16niirq4zdmgvm****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The information of node resources.
+     *
      * @var nodeResource[]
      */
     public $nodeResource;
 
     /**
+     * @description The status of the node.
+     *
+     * @example ONLINE
+     *
      * @var string
      */
     public $nodeStatus;

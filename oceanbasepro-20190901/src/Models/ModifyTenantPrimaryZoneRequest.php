@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyTenantPrimaryZoneRequest extends Model
 {
     /**
+     * @description The ID of the OceanBase cluster.
+     *
+     * @example ob317v4uif****
+     *
      * @var string
      */
     public $instanceId;
@@ -19,26 +23,44 @@ class ModifyTenantPrimaryZoneRequest extends Model
     public $masterIntranetAddressZone;
 
     /**
+     * @description The switching mode.
+     *
+     * @example AllLink
+     *
      * @var string
      */
     public $modifyType;
 
     /**
+     * @description The primary zone of the tenant.
+     * It is one of the zones in which the cluster is deployed.
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $primaryZone;
 
     /**
+     * @example Random
+     *
      * @var string
      */
     public $primaryZoneDeployType;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * @example ob2mr3oae0****
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-xxx
+     *
      * @var string
      */
     public $userVSwitchId;

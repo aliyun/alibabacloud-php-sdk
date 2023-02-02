@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class tenantZones extends Model
 {
     /**
+     * @description Indicates whether the zone can be set as the primary zone.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isElectable;
 
     /**
+     * @description Indicates whether the zone is the primary zone.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isPrimary;
 
     /**
+     * @description Indicates whether a read-only connection has been created.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isReadOnlyAddressMaster;
 
     /**
+     * @description Indicates whether a read-only connection needs to be created for the zone.
+     *
+     * @example true
+     *
      * @var string
      */
     public $isReadable;
 
     /**
+     * @description The ID of the zone.
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zone;

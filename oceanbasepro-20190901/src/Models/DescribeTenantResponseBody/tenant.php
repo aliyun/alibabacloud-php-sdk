@@ -17,36 +17,61 @@ class tenant extends Model
     public $availableZones;
 
     /**
+     * @example utf8mb4
+     *
      * @var string
      */
     public $charset;
 
     /**
+     * @description The enabling status of the Clog service.
+     * - ONLINE: The Clog service is running.
+     * @example CLOSED
+     *
      * @var string
      */
     public $clogServiceStatus;
 
     /**
+     * @example utf8mb4_general_ci
+     *
      * @var string
      */
     public $collation;
 
     /**
+     * @description The time when the tenant was created.
+     *
+     * @example 2021-09-17 15:52:17
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The data replica distribution mode of the tenant.
+     *
+     * > <br>N represents the number of nodes in a single zone.
+     * @example 1-1-1
+     *
      * @var string
      */
     public $deployMode;
 
     /**
+     * @description The deployment type of the cluster. Valid values:
+     * - dual: dual-IDC deployment
+     * @example multiple
+     *
      * @var string
      */
     public $deployType;
 
     /**
+     * @description The description of the tenant.
+     *
+     * @example PayCore business database
+     *
      * @var string
      */
     public $description;
@@ -57,16 +82,26 @@ class tenant extends Model
     public $diskType;
 
     /**
+     * @description Indicates whether the Clog service is available. To enable the Clog service, submit a ticket.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableClogService;
 
     /**
+     * @description Indicates whether the Internet address can be enabled for the tenant.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableInternetAddressService;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableReadWriteSplit;
@@ -77,6 +112,8 @@ class tenant extends Model
     public $instanceType;
 
     /**
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $masterIntranetAddressZone;
@@ -87,11 +124,17 @@ class tenant extends Model
     public $payType;
 
     /**
+     * @description The primary zone of the tenant.
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $primaryZone;
 
     /**
+     * @example Random
+     *
      * @var string
      */
     public $primaryZoneDeployType;
@@ -102,41 +145,67 @@ class tenant extends Model
     public $series;
 
     /**
+     * @description The status of the tenant.
+     * - WHITE_LIST_MODIFYING: The whitelist is being modified.
+     * @example ONLINE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The connection access information of the tenant.
+     *
      * @var tenantConnections[]
      */
     public $tenantConnections;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * @example t33h8y08k****
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description The tenant mode.
+     * MySQL
+     * @example Oracle
+     *
      * @var string
      */
     public $tenantMode;
 
     /**
+     * @description The name of the tenant.
+     *
+     * @example pay_online
+     *
      * @var string
      */
     public $tenantName;
 
     /**
+     * @description The resource information of the tenant.
+     *
      * @var tenantResource
      */
     public $tenantResource;
 
     /**
+     * @description The zone information of the tenant.
+     *
      * @var tenantZones[]
      */
     public $tenantZones;
 
     /**
+     * @description The ID of the VPC.
+     * If no suitable VPC is available, create a VPC as prompted. For more information, see "What is a VPC".
+     * @example vpc-bp1d2q3mhg9i23ofi****
+     *
      * @var string
      */
     public $vpcId;

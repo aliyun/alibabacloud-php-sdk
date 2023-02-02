@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class tenantUser extends Model
 {
     /**
+     * @description The roles of the accounts.
+     *
      * @var roles[]
      */
     public $roles;
 
     /**
+     * @description The name of the database account.
+     *
+     * @example pay_test
+     *
      * @var string
      */
     public $userName;
 
     /**
+     * @description The status of the database account. Valid values:
+     * - ONLINE: The account is unlocked. The default status of a new account is ONLINE after it is created.
+     * @example ONLINE
+     *
      * @var string
      */
     public $userStatus;
 
     /**
+     * @description The type of the database account. Valid values:
+     * - Normal: a general account.
+     * @example Normal
+     *
      * @var string
      */
     public $userType;

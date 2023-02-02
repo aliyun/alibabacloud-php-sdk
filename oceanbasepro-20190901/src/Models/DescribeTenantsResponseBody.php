@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeTenantsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information of tenants.
+     *
      * @var tenants[]
      */
     public $tenants;
 
     /**
+     * @description The total number of tenants in the specified OceanBase cluster.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

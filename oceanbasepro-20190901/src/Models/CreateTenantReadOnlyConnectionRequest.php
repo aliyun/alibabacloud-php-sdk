@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateTenantReadOnlyConnectionRequest extends Model
 {
     /**
+     * @description The ID of the OceanBase cluster.
+     *
+     * @example ob317v4uif****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * @example ob2mr3oae0****
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description The ID of the zone.
+     *
+     * For more information, see AvailableZones in DescribeInstance.
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;

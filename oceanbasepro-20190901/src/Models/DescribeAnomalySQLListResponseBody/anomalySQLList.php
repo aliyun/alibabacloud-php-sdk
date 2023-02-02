@@ -9,61 +9,109 @@ use AlibabaCloud\Tea\Model;
 class anomalySQLList extends Model
 {
     /**
+     * @description The average CPU time, in ms.
+     *
+     * @example 50.13
+     *
      * @var float
      */
     public $cpuTime;
 
     /**
+     * @description The name of the database.
+     *
+     * @example database1
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The diagnosis information.
+     *
+     * @example Total number of executions = 80199, Average CPU time = 6.8 ms, Overall CPU utilization = 87%
+     *
      * @var string
      */
     public $diagnosis;
 
     /**
+     * @description The diagnostic rule.
+     *
+     * @example Utilization above threshold
+     *
      * @var string
      */
     public $diagnosisRule;
 
     /**
+     * @description The number of executions.
+     *
+     * @example 89043
+     *
      * @var int
      */
     public $executions;
 
     /**
+     * @description The sequence number of the returned SQL statement.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $key;
 
     /**
+     * @description The request time, in ms.
+     *
+     * @example 50.00
+     *
      * @var float
      */
     public $requestTime;
 
     /**
+     * @description The request time in UTC +0.
+     *
+     * @example 2022-01-11T07:08:00Z
+     *
      * @var string
      */
     public $requestTimeUTCString;
 
     /**
+     * @description SQLID.
+     *
+     * @example 99E9D3BF****B486239E6C7BC79B****
+     *
      * @var string
      */
     public $SQLId;
 
     /**
+     * @description The SQL text.
+     *
+     * @example SELECT  ****   FROM ****   WHERE **** = ? AND **** = ?   ORDER BY **** ASC
+     *
      * @var string
      */
     public $SQLText;
 
     /**
+     * @description The suggestions.
+     *
+     * @example Check your business scenarios, data distribution changes, request surges, and execution plan changes.
+     *
      * @var string
      */
     public $suggestion;
 
     /**
+     * @description The username.
+     *
+     * @example tester
+     *
      * @var string
      */
     public $userName;

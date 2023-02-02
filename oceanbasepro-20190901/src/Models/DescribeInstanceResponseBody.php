@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceResponseBody extends Model
 {
     /**
+     * @description The information of the OceanBase cluster.
+     *
      * @var instance
      */
     public $instance;
 
     /**
+     * @description The request ID.
+     *
+     * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityIpsRequest extends Model
 {
     /**
+     * @description The ID of the OceanBase cluster.
+     *
+     * @example ob317v4uif****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the IP address whitelist group.
+     * It must be 2 to 32 characters in length, start with a lowercase letter, end with a lowercase letter or digit, and contain only lowercase letters, digits, and underscores (_).
+     * @example paytest
+     *
      * @var string
      */
     public $securityIpGroupName;
 
     /**
+     * @description The list of IP addresses and CIDR blocks in the whitelist.
+     * It is a JSON array. Each object in the array is an IP address or CIDR block. You can specify at most 40 IP addresses or CIDR blocks.
+     * @example ["192.168.0.0/20","192.169.1.1"]
+     *
      * @var string
      */
     public $securityIps;

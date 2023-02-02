@@ -12,21 +12,31 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
+     * @description The information about the CPU resources of the cluster.
+     *
      * @var cpu
      */
     public $cpu;
 
     /**
+     * @description The information about the storage resources of the cluster.
+     *
      * @var diskSize
      */
     public $diskSize;
 
     /**
+     * @description The information about the memory resources of the cluster.
+     *
      * @var memory
      */
     public $memory;
 
     /**
+     * @description The number of resource units in the cluster.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $unitCount;

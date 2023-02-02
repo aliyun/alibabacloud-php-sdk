@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class dataPoints extends Model
 {
     /**
+     * @description A millisecond-level timestamp.
+     *
+     * @example 1656669613
+     *
      * @var int
      */
     public $timestamp;
 
     /**
+     * @description The value corresponding to the time.
+     *
+     * @example 200
+     *
      * @var float
      */
     public $value;

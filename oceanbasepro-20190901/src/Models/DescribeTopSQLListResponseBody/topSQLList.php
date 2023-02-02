@@ -9,201 +9,361 @@ use AlibabaCloud\Tea\Model;
 class topSQLList extends Model
 {
     /**
+     * @description The number of rows affected.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $affectedRows;
 
     /**
+     * @description The wait time of the client, in ms.
+     *
+     * @example 0.0
+     *
      * @var float
      */
     public $appWaitTime;
 
     /**
+     * @description The number of block cache hits.
+     *
+     * @example 14
+     *
      * @var int
      */
     public $blockCacheHit;
 
     /**
+     * @description The number of block index cache hits.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $blockIndexCacheHit;
 
     /**
+     * @description The number of Bloom filter cache hits.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $bloomFilterCacheHit;
 
     /**
+     * @description The IP address of the client.
+     *
+     * @example 1*2.***.1*3.***
+     *
      * @var string
      */
     public $clientIp;
 
     /**
+     * @description The wait time in concurrent execution, in ms.
+     *
+     * @example 0.0
+     *
      * @var float
      */
     public $concurrencyWaitTime;
 
     /**
+     * @description The average CPU time, in ms.
+     *
+     * @example 50.13
+     *
      * @var float
      */
     public $cpuTime;
 
     /**
+     * @description The name of the database.
+     *
+     * @example testdb
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The time to wait for decoding, in ms.
+     *
+     * @example 0.0
+     *
      * @var float
      */
     public $decodeTime;
 
     /**
+     * @description The number of physical reads.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $diskRead;
 
     /**
+     * @description The average response time, in ms.
+     *
+     * @example 76.382
+     *
      * @var float
      */
     public $elapsedTime;
 
     /**
+     * @description The wait event.
+     *
+     * @example mysql response wait client
+     *
      * @var string
      */
     public $event;
 
     /**
+     * @description The number of executions per second.
+     *
+     * @example 163.0
+     *
      * @var float
      */
     public $execPerSecond;
 
     /**
+     * @description The internal execution time, in ms.
+     *
+     * @example 61.044
+     *
      * @var float
      */
     public $executeTime;
 
     /**
+     * @description The number of executions.
+     *
+     * @example 89403
+     *
      * @var int
      */
     public $executions;
 
     /**
+     * @description The number of failures.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $failTimes;
 
     /**
+     * @description The time spent in hard parsing, in ms.
+     *
+     * @example 0.052
+     *
      * @var float
      */
     public $getPlanTime;
 
     /**
+     * @description The I/O wait time, in ms.
+     *
+     * @example 0.0
+     *
      * @var float
      */
     public $IOWaitTime;
 
     /**
+     * @description The sequence number of the returned SQL statement.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $key;
 
     /**
+     * @description The average number of logical reads of the SQL statement during the specified period of time.
+     * > <br> A higher ratio of the number of logical reads to the number of returned rows indicates poorer filtering performance. General causes include non-standard content written by SQL statements, non-standard table indexes created, and non-standard SQL execution plans.
+     * @example 19
+     *
      * @var int
      */
     public $logicalRead;
 
     /**
+     * @description The maximum CPU time, in ms.
+     *
+     * @example 257.967
+     *
      * @var float
      */
     public $maxCpuTime;
 
     /**
+     * @description The maximum response time, in ms.
+     *
+     * @example 260.044
+     *
      * @var float
      */
     public $maxElapsedTime;
 
     /**
+     * @description The number of rows read from the memory.
+     *
+     * @example 527
+     *
      * @var int
      */
     public $memstoreReadRowCount;
 
     /**
+     * @description The number of plan misses.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $missPlans;
 
     /**
+     * @description The network latency, in ms.
+     *
+     * @example 0.0
+     *
      * @var float
      */
     public $netWaitTime;
 
     /**
+     * @description The IP address of the node.
+     *
+     * @example i-bp18qljorblo8es*****
+     *
      * @var string
      */
     public $nodeIp;
 
     /**
+     * @description The queuing time, in ms.
+     *
+     * @example 15.275
+     *
      * @var float
      */
     public $queueTime;
 
     /**
+     * @description The number of RPCs.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $RPCCount;
 
     /**
+     * @description The number of remote plans.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $remotePlans;
 
     /**
+     * @description The number of retries.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $retryCount;
 
     /**
+     * @description The number of rows returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $returnRows;
 
     /**
+     * @description The number of row cache hits.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $rowCacheHit;
 
     /**
+     * @description SQLID.
+     *
+     * @example 8D6E84****0B8FB1823D199E2CA1****
+     *
      * @var string
      */
     public $SQLId;
 
     /**
+     * @description The SQL text.
+     *
+     * @example SELECT  ****   FROM ****   WHERE **** = ? AND **** = ?   ORDER BY **** ASC
+     *
      * @var string
      */
     public $SQLText;
 
     /**
+     * @description The SQL type.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $SQLType;
 
     /**
+     * @description The scheduling duration, in ms.
+     *
+     * @example 0.0
+     *
      * @var float
      */
     public $scheduleTime;
 
     /**
+     * @description The number of rows read from the disk.
+     *
+     * @example 43086
+     *
      * @var int
      */
     public $ssstoreReadRowCount;
 
     /**
+     * @description The internal wait time, in ms.
+     *
+     * @example 10.966
+     *
      * @var float
      */
     public $totalWaitTime;
 
     /**
+     * @description The username.
+     *
+     * @example tester
+     *
      * @var string
      */
     public $userName;

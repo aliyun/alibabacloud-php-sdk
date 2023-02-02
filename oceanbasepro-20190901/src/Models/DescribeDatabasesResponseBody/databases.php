@@ -11,61 +11,110 @@ use AlibabaCloud\Tea\Model;
 class databases extends Model
 {
     /**
+     * @example utf8mb4_general_ci
+     *
      * @var string
      */
     public $collation;
 
     /**
+     * @description The time when the database was created.
+     *
+     * @example 2022-02-21 15:41:06
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The actual data size, in GB.
+     *
+     * @example 5.67 GB
+     *
      * @var float
      */
     public $dataSize;
 
     /**
+     * @description The name of the database.
+     *
+     * @example sms_pre
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @description The database type.
+     *
+     * @example mysql
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @description The description of the database.
+     *
+     * @example test db
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The encoding standard of the database. Encoding standards such as utf8mb4 and GBK are supported.
+     *
+     * @example utf8mb4
+     *
      * @var string
      */
     public $encoding;
 
     /**
+     * @example obsdh2f****
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @description The storage space required, in GB.
+     *
+     * @example 0.00 GB
+     *
      * @var float
      */
     public $requiredSize;
 
     /**
+     * @description The status of the database. Valid values:
+     * - DELETING: The database is being deleted.
+     * @example ONLINE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The information about the database tables.
+     *
      * @var tables[]
      */
     public $tables;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * @example t33h8y08k****
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description The accounts that have privileges on the database.
+     *
      * @var users[]
      */
     public $users;
@@ -77,6 +126,7 @@ class databases extends Model
         'dbType'       => 'DbType',
         'description'  => 'Description',
         'encoding'     => 'Encoding',
+        'instanceId'   => 'InstanceId',
         'requiredSize' => 'RequiredSize',
         'status'       => 'Status',
         'tables'       => 'Tables',
@@ -111,6 +161,9 @@ class databases extends Model
         }
         if (null !== $this->encoding) {
             $res['Encoding'] = $this->encoding;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->requiredSize) {
             $res['RequiredSize'] = $this->requiredSize;
@@ -171,6 +224,9 @@ class databases extends Model
         }
         if (isset($map['Encoding'])) {
             $model->encoding = $map['Encoding'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['RequiredSize'])) {
             $model->requiredSize = $map['RequiredSize'];

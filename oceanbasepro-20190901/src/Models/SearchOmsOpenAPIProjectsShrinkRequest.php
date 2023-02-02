@@ -9,41 +9,65 @@ use AlibabaCloud\Tea\Model;
 class SearchOmsOpenAPIProjectsShrinkRequest extends Model
 {
     /**
+     * @description The types of destination data sources.
+     *
      * @var string
      */
     public $destDbTypesShrink;
 
     /**
+     * @description The list of labels.
+     *
      * @var string
      */
     public $labelIdsShrink;
 
     /**
+     * @description The page number, which takes effect in a pagination query.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The page size, which takes effect in a pagination query.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The keyword for fuzzy search. A fuzzy search is performed based on the project ID and name.
+     *
+     * @example projectName
+     *
      * @var string
      */
     public $searchKey;
 
     /**
+     * @description The types of source data sources.
+     *
      * @var string
      */
     public $sourceDbTypesShrink;
 
     /**
+     * @description The list of project statuses.
+     *
      * @var string
      */
     public $statusListShrink;
 
     /**
+     * @description The ID of the migration instance. Generally, if you want to create a project on a public cloud, you must first purchase a migration instance.
+     *
+     * @example g_abcdefj***
+     *
      * @var string
      */
     public $workerGradeId;

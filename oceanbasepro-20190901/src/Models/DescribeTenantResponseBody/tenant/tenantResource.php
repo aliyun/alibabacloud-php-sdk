@@ -12,21 +12,31 @@ use AlibabaCloud\Tea\Model;
 class tenantResource extends Model
 {
     /**
+     * @description The information about the CPU resources of the tenant.
+     *
      * @var cpu
      */
     public $cpu;
 
     /**
+     * @description The information about the disk resources of the tenant.
+     *
      * @var diskSize
      */
     public $diskSize;
 
     /**
+     * @description The information about the memory resources of the tenant.
+     *
      * @var memory
      */
     public $memory;
 
     /**
+     * @description The number of resource units in the tenant.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $unitNum;

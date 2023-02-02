@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class tenantZones extends Model
 {
     /**
+     * @description The region where the zone of the tenant resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The ID of the zone.
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $tenantZoneId;
 
     /**
+     * @description The role of the zone of the tenant.
+     *
+     * @example ReadOnly
+     *
      * @var string
      */
     public $tenantZoneRole;

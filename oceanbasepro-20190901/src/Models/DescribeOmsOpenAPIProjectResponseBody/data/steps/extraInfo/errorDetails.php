@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class errorDetails extends Model
 {
     /**
+     * @description The error code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Valid values: CRITICAL, ERROR, and WARN.
+     *
+     * @example CRITICAL
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description The error message.
+     *
+     * @example A system error occurred.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The suggestions (new).
+     *
+     * @example Contact the administrator.
+     *
      * @var string
      */
     public $proposal;

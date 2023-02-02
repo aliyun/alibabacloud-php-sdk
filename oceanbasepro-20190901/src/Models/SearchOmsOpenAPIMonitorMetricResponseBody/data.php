@@ -10,16 +10,24 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description connector data point
+     *
      * @var dataPoints[]
      */
     public $dataPoints;
 
     /**
+     * @description The name of the metric.
+     *
+     * @example CONNECTOR_TPS
+     *
      * @var string
      */
     public $metric;
 
     /**
+     * @description metric tags
+     *
      * @var string[]
      */
     public $tags;

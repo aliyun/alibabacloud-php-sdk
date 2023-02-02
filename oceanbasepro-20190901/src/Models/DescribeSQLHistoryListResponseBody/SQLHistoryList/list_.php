@@ -9,191 +9,343 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The number of rows affected.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $affectedRows;
 
     /**
+     * @description The wait time of the client.
+     *
+     * @example 0.0
+     *
      * @var float
      */
     public $appWaitTime;
 
     /**
+     * @description The number of block cache hits.
+     *
+     * @example 14
+     *
      * @var int
      */
     public $blockCacheHit;
 
     /**
+     * @description The number of block index cache hits.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $blockIndexCacheHit;
 
     /**
+     * @description The number of Bloom filter cache hits.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $bloomFilterCacheHit;
 
     /**
+     * @description The IP address of the client.
+     *
+     * @example 1*2.***.1*3.***
+     *
      * @var string
      */
     public $clientIp;
 
     /**
+     * @description The wait time in concurrent execution.
+     *
+     * @example 0.0
+     *
      * @var float
      */
     public $concurrencyWaitTime;
 
     /**
+     * @description The average CPU time.
+     *
+     * @example 50.13
+     *
      * @var float
      */
     public $cpuTime;
 
     /**
+     * @description The name of the database.
+     *
+     * @example testdb
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The time to wait for decoding.
+     *
+     * @example 0.0
+     *
      * @var float
      */
     public $decodeTime;
 
     /**
+     * @description The number of physical reads.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $diskRead;
 
     /**
+     * @description The average response time.
+     *
+     * @example 76.382
+     *
      * @var float
      */
     public $elapsedTime;
 
     /**
+     * @description The end time.
+     *
+     * @example 2021-12-28T02:08:18Z
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The end time in UTC +0.
+     *
+     * @example 2021-12-28T02:08:18Z
+     *
      * @var string
      */
     public $endTimeUTCString;
 
     /**
+     * @description The wait event.
+     *
+     * @example mysql response wait client
+     *
      * @var string
      */
     public $event;
 
     /**
+     * @description The number of executions per second.
+     *
+     * @example 163.0
+     *
      * @var int
      */
     public $execPerSecond;
 
     /**
+     * @description The internal execution time.
+     *
+     * @example 61.044
+     *
      * @var float
      */
     public $executeTime;
 
     /**
+     * @description The number of executions.
+     *
+     * @example 89403
+     *
      * @var int
      */
     public $executions;
 
     /**
+     * @description The number of failures.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $failTimes;
 
     /**
+     * @description The time spent in hard parsing.
+     *
+     * @example 0.052
+     *
      * @var float
      */
     public $getPlanTime;
 
     /**
+     * @description The I/O wait time.
+     *
+     * @example 0.0
+     *
      * @var float
      */
     public $IOWaitTime;
 
     /**
+     * @description The number of logical reads.
+     *
+     * @example 19
+     *
      * @var int
      */
     public $logicalRead;
 
     /**
+     * @description The maximum CPU time.
+     *
+     * @example 257.967
+     *
      * @var float
      */
     public $maxCpuTime;
 
     /**
+     * @description The maximum response time.
+     *
+     * @example 260.44
+     *
      * @var float
      */
     public $maxElapsedTime;
 
     /**
+     * @description The number of rows read from the memory.
+     *
+     * @example 527
+     *
      * @var int
      */
     public $memstoreReadRowCount;
 
     /**
+     * @description The number of plan misses.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $missPlans;
 
     /**
+     * @description The network latency.
+     *
+     * @example 0.0
+     *
      * @var float
      */
     public $netWaitTime;
 
     /**
+     * @description The IP address of the node.
+     *
+     * @example i-bp18qljorblo8es*****
+     *
      * @var string
      */
     public $nodeIp;
 
     /**
+     * @description The queuing time.
+     *
+     * @example 15.275
+     *
      * @var float
      */
     public $queueTime;
 
     /**
+     * @description The number of RPCs.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $RPCCount;
 
     /**
+     * @description The number of remote plans.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $remotePlans;
 
     /**
+     * @description The number of retries.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $retryCount;
 
     /**
+     * @description The number of rows returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $returnRows;
 
     /**
+     * @description The number of row cache hits.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $rowCacheHit;
 
     /**
+     * @description The scheduling duration.
+     *
+     * @example 0.0
+     *
      * @var float
      */
     public $scheduleTime;
 
     /**
+     * @description The number of rows read from the disk.
+     *
+     * @example 43086
+     *
      * @var int
      */
     public $ssstoreReadRowCount;
 
     /**
+     * @description The internal wait time.
+     *
+     * @example 10.966
+     *
      * @var float
      */
     public $totalWaitTime;
 
     /**
+     * @description The username.
+     *
+     * @example tester
+     *
      * @var string
      */
     public $userName;

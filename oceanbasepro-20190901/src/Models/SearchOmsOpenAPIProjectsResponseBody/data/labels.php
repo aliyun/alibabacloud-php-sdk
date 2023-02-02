@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class labels extends Model
 {
     /**
+     * @description The number of projects that use this label.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The creator. This parameter value is returned only when you log on as the administrator.
+     *
+     * @example admin
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @description The ID of a label.
+     *
+     * @example abc
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The name of the label.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;

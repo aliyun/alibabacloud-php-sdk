@@ -10,51 +10,87 @@ use AlibabaCloud\Tea\Model;
 class tenants extends Model
 {
     /**
+     * @description The primary zone deployment mode.
+     *
      * @var string
      */
     public $primaryZoneDeployType;
 
     /**
+     * @description The number of CPU cores of the tenant.
+     *
+     * @example 2
+     *
      * @var float
      */
     public $tenantCpu;
 
     /**
+     * @description The deployment type of the tenant.
+     * - dual: dual-IDC deployment
+     * @example multiple
+     *
      * @var string
      */
     public $tenantDeployType;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * @example t33h8y08k****
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description The memory size of the tenant, in GB.
+     *
+     * @example 10
+     *
      * @var float
      */
     public $tenantMemory;
 
     /**
+     * @description The tenant mode. Valid values:
+     * - MySQL
+     * @example Oracle
+     *
      * @var string
      */
     public $tenantMode;
 
     /**
+     * @description The name of the tenant.
+     *
+     * @example pay_online
+     *
      * @var string
      */
     public $tenantName;
 
     /**
+     * @description The status of the tenant.
+     * - WHITE_LIST_MODIFYING: The whitelist is being modified.
+     * @example ONLINE
+     *
      * @var string
      */
     public $tenantStatus;
 
     /**
+     * @description The number of resource units in the tenant.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $tenantUnitNum;
 
     /**
+     * @description The zone information of the tenant.
+     *
      * @var tenantZones[]
      */
     public $tenantZones;

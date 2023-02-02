@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowSQLHistoryListRequest extends Model
 {
     /**
+     * @description The end time of the time range for querying the execution history of the slow SQL statement.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * @example 2021-12-14T08:34:49Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The number of the page to return.
+     * - Default value: 1
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of rows to return on each page.
+     * - Default value: 10
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The SQL ID, which uniquely identifies an SQL statement.
+     *
+     * @example 8D6E84735C0****1823D199E2CA1****
+     *
      * @var string
      */
     public $SQLId;
 
     /**
+     * @description The start time of the time range for querying the execution history of the slow SQL statement.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * @example 2021-12-14T02:34:49Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * @example t384tolsj****
+     *
      * @var string
      */
     public $tenantId;

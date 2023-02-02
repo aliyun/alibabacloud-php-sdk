@@ -9,61 +9,109 @@ use AlibabaCloud\Tea\Model;
 class destConfig extends Model
 {
     /**
+     * @description Indicates whether message tracing is enabled when the destination data source is RocketMQ.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableMsgTrace;
 
     /**
+     * @description The ID of the data source.
+     *
+     * @example e_abcdefj
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @description The type of the data source. Valid values: `MYSQL`, `MARIADB`, `OB_MYSQL`, `OB_MYSQL_CE`, `OB_ORACLE`, `ORACLE`, `DB2_LUW`, `KAFKA`, `ROCKETMQ`, `DATAHUB`, `SYBASE`, `LOGPROXY`, `ADB`, `DBP_OP_ROUTE`, `DMS`, `IDB`, and `TIDB`.
+     *
+     * @example OB_MYSQL
+     *
      * @var string
      */
     public $endpointType;
 
     /**
+     * @description The tag of the Post message when the destination data source is RocketMQ.
+     *
+     * @example tag1
+     *
      * @var string
      */
     public $msgTags;
 
     /**
+     * @description The partitioned index, which must be specified if the destination data source is a message queue system, such as Kafka, DataHub, or RocketMQ, and the partitioning mode is set to ONE.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $partition;
 
     /**
+     * @description The partitioning mode, which must be specified if the destination data source is a message queue system, such as Kafka, DataHub, or RocketMQ. Valid values: ONE, HASH, and TABLE.
+     *
+     * @example HASH
+     *
      * @var string
      */
     public $partitionMode;
 
     /**
+     * @description The producer group of the Post message when the destination data source is RocketMQ.
+     *
+     * @example producer-group-1
+     *
      * @var string
      */
     public $producerGroup;
 
     /**
+     * @description The timeout period in seconds for a single Post message when the destination data source is RocketMQ.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $sendMsgTimeout;
 
     /**
+     * @description Indicates whether message sequencing is enabled when the destination data source is DataHub.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $sequenceEnable;
 
     /**
+     * @description The start time of the sequence, which must be specified if the destination data source is DataHub and message sequencing is enabled. The value is a timestamp in seconds.
+     *
+     * @example 1656510473
+     *
      * @var int
      */
     public $sequenceStartTimestamp;
 
     /**
+     * @description The text serialization type, which must be specified if the destination data source is a message queue system, such as Kafka, DataHub, or RocketMQ. Valid values: Default, DefaultExtendColumnType, Canal, Dataworks, and SharePlex.
+     *
+     * @example DEFAULT
+     *
      * @var string
      */
     public $serializerType;
 
     /**
+     * @description The type of the topic to which the Post message belongs when the destination data source is DataHub. Valid values: Tuple and Blob.
+     *
+     * @example TUPLE
+     *
      * @var string
      */
     public $topicType;

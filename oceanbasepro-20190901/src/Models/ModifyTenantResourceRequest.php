@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ModifyTenantResourceRequest extends Model
 {
     /**
+     * @description The information about the CPU resources of the tenant.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @description The ID of the OceanBase cluster.
+     *
+     * @example ob317v4uif****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The memory size of the tenant, in GB.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $memory;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * @example ob2mr3oae0****
+     *
      * @var string
      */
     public $tenantId;

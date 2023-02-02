@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class transferMapping extends Model
 {
     /**
+     * @description The table mapping in the source data source, which is a conventional mapping scheme and takes effect only when Mode is set to NORMAL.
+     *
      * @var databases[]
      */
     public $databases;
 
     /**
+     * @description The mapping type. Valid values: \"NORMAL\" and \"WHITE_AND_BLACK_LIST\".
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $mode;

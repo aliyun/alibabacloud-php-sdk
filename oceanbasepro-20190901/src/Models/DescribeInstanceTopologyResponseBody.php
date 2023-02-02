@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceTopologyResponseBody extends Model
 {
     /**
+     * @description The topology of the cluster.
+     *
      * @var instanceTopology
      */
     public $instanceTopology;
 
     /**
+     * @description The request ID.
+     *
+     * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+     *
      * @var string
      */
     public $requestId;

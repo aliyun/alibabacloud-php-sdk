@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class tenantZones extends Model
 {
     /**
+     * @description Indicates whether the zone is the primary zone.
+     *
+     * @example true
+     *
      * @var string
      */
     public $isPrimaryTenantZone;
 
     /**
+     * @description The ID of the zone.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $tenantZoneId;
 
     /**
+     * @description The role to access the zone. Valid values:
+     * - ReadOnly: a role that has only the read-only privilege.
+     * @example ReadWrite
+     *
      * @var string
      */
     public $tenantZoneRole;
 
     /**
+     * @description The information about resource units.
+     *
      * @var units[]
      */
     public $units;

@@ -10,111 +10,197 @@ use AlibabaCloud\Tea\Model;
 class stepInfo extends Model
 {
     /**
+     * @description The estimated total number of rows.
+     *
+     * @example 10000
+     *
      * @var int
      */
     public $capacity;
 
     /**
+     * @description The checkpoint. The value is a unix timestamp in seconds.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $checkpoint;
 
     /**
+     * @description The full synchronization progress.
+     *
      * @var connectorFullProgressOverview
      */
     public $connectorFullProgressOverview;
 
     /**
+     * @description The resource deployment ID.
+     *
+     * @example ewtfqwt
+     *
      * @var string
      */
     public $deployId;
 
     /**
+     * @description The read/write throughput of the destination data source, in bytes per second.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $dstIops;
 
     /**
+     * @description The read/write RPS of the destination data source.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $dstRps;
 
     /**
+     * @description The read/write RPS baseline of the destination data source.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $dstRpsRef;
 
     /**
+     * @description The read/write RT per record of the destination data source, in ms.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $dstRt;
 
     /**
+     * @description The read/write RT baseline of the destination data source.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $dstRtRef;
 
     /**
+     * @description The checkpoint collection time. The value is a unix timestamp in seconds.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $gmt;
 
     /**
+     * @description The amount of inconsistent data found during full verification.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $inconsistencies;
 
     /**
+     * @description The checkpoint in incremental synchronization. The value is a unix timestamp in seconds.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $incrTimestampCheckpoint;
 
     /**
+     * @description The ID of the current job of the step.
+     *
+     * @example j_dfasefsd
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description The number of migrated rows.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $processedRecords;
 
     /**
+     * @description A sub-status that indicates whether this step is skipped.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $skipped;
 
     /**
+     * @description The read throughput of the source data source, in bytes per second.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $srcIops;
 
     /**
+     * @description The read throughput baseline of the source data source.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $srcIopsRef;
 
     /**
+     * @description The read requests per second (RPS) of the source data source.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $srcRps;
 
     /**
+     * @description The read RPS baseline of the source data source.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $srcRpsRef;
 
     /**
+     * @description The read response time (RT) per record of the source data source, in ms.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $srcRt;
 
     /**
+     * @description The read RT baseline of the source data source.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $srcRtRef;
 
     /**
+     * @description A sub-status that indicates whether the checker has completed full verification.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $validated;

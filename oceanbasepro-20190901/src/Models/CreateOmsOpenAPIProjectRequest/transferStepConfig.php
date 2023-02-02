@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class transferStepConfig extends Model
 {
     /**
+     * @description Specifies whether to enable full migration.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableFullSync;
 
     /**
+     * @description Specifies whether to enable incremental synchronization.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableIncrSync;
 
     /**
+     * @description Specifies whether to enable schema synchronization.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableStructSync;
 
     /**
+     * @description The settings of incremental synchronization steps.
+     *
      * @var incrSyncStepTransferConfig
      */
     public $incrSyncStepTransferConfig;

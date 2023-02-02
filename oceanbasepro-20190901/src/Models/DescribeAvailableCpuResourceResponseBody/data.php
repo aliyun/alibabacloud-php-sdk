@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The maximum number of CPU cores per resource unit.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxCpu;
 
     /**
+     * @description The minimum number of CPU cores per resource unit.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $minCpu;
 
     /**
+     * @description The number of resource units in the tenant.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $unitNum;

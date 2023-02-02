@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class DescribeParametersHistoryRequest extends Model
 {
     /**
+     * @description The type of the parameter.
+     * Valid values: CLUSTER and TENANT.
+     * @example TENANT
+     *
      * @var string
      */
     public $dimension;
 
     /**
+     * @description The resource ID of the parameter type.
+     * You can leave this parameter unspecified when you call this operation to query the modification history of cluster parameters. In the case of tenant parameters, pass the tenant ID.
+     * @example ob2mr3oae0****
+     *
      * @var string
      */
     public $dimensionValue;
 
     /**
+     * @description The end time for the query of parameter modification history.
+     *
+     * @example 2021-09-13 15:40:43
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the OceanBase cluster.
+     *
+     * @example ob317v4uif****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of the page to return.
+     * - Default value: 1
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of rows to return on each page.
+     * - Default value: 10
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The start time of the time range for querying the parameter modification history.
+     *
+     * @example 2021-06-13 15:40:43
+     *
      * @var string
      */
     public $startTime;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class users extends Model
 {
     /**
+     * @description The role of the account.
+     * - DML: a role that has the DML privileges such as SELECT, INSERT, UPDATE, DELETE, and SHOW VIEW.
+     * @example ReadOnly
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @description The name of the account.
+     *
+     * @example user_pay_ro
+     *
      * @var string
      */
     public $userName;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ModifyDatabaseUserRolesRequest extends Model
 {
     /**
+     * @description The name of the database.
+     * You cannot use reserved keywords, such as test and mysql.
+     * @example sms_pre
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @description The ID of the OceanBase cluster.
+     *
+     * @example ob317v4uif****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * @example ob2mr3oae0****
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description A list of usernames and their respective roles.
+     *
+     * @example [{"UserName":"omstest","Role":"readwrite"}]
+     *
      * @var string
      */
     public $users;

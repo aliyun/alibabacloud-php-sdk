@@ -9,46 +9,83 @@ use AlibabaCloud\Tea\Model;
 class units extends Model
 {
     /**
+     * @description Indicates whether the migration can be canceled.
+     * This field is valid only for units that are being manually immigrated or emigrated.
+     * @example true
+     *
      * @var bool
      */
     public $enableCancelMigrateUnit;
 
     /**
+     * @description Indicates whether migration can be performed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableMigrateUnit;
 
     /**
+     * @description Indicates whether the migration is manually performed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $manualMigrate;
 
     /**
+     * @description The ID of the OBServer where the resource unit resides.
+     *
+     * @example i-bp16niirq4zdmgvm****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The number of CPU cores of the resource unit.
+     *
+     * @example 2
+     *
      * @var float
      */
     public $unitCpu;
 
     /**
+     * @description The data size of the unit.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $unitDataSize;
 
     /**
+     * @description The ID of the resource unit.
+     *
+     * @example 1002
+     *
      * @var string
      */
     public $unitId;
 
     /**
+     * @description The memory size of the resource unit, in GB.
+     *
+     * @example 10
+     *
      * @var float
      */
     public $unitMemory;
 
     /**
+     * @description The status of the resource unit. Valid values:
+     *
+     * - DELETING: The resource unit is being deleted.
+     * @example ONLINE
+     *
      * @var string
      */
     public $unitStatus;

@@ -9,46 +9,86 @@ use AlibabaCloud\Tea\Model;
 class DescribeTenantMetricsRequest extends Model
 {
     /**
+     * @description The end time of the time range for querying monitoring data.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * @example 2021-06-13T15:45:43Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the OceanBase cluster.
+     *
+     * @example ob317v4uif****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The monitoring metrics.
+     * For more information about supported metrics, see [View tenant statistics](~~212125~~).
+     * @example tps
+     *
      * @var string
      */
     public $metrics;
 
     /**
+     * @description The number of the page to return.
+     * - Default value: 1
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of rows to return on each page.
+     * - Default value: 10
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The start time of the time range for querying monitoring data.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * @example 2021-06-13T15:40:43Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The ID of the tenant.
+     * > <br>This parameter will be deprecated. We recommend that you use the TenantIdList parameter instead.
+     * @example tfafd34fs****
+     *
+     * @deprecated
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description The list of tenant IDs.
+     *
+     * @example [tdak3nac****,tdakc42df****]
+     *
      * @var string
      */
     public $tenantIdList;
 
     /**
+     * @description The name of the tenant.
+     * > <br>This parameter will be deprecated. We recommend that you use the TenantIdList parameter instead.
+     * @example pay_online
+     *
+     * @deprecated
+     *
      * @var string
      */
     public $tenantName;

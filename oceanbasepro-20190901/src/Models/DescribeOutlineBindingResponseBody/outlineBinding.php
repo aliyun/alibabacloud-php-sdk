@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class outlineBinding extends Model
 {
     /**
+     * @description The bound index.
+     *
+     * @example PRIMARY
+     *
      * @var string
      */
     public $bindIndex;
 
     /**
+     * @description The bound plan.
+     *
+     * @example PHY_TABLE_SCAN | bmsql_order_line | 40 ******
+     *
      * @var string
      */
     public $bindPlan;
 
     /**
+     * @description The maximum number of concurrent tasks.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $maxConcurrent;
 
     /**
+     * @description OutlineID.
+     *
+     * @example -1
+     *
      * @var int
      */
     public $outlineId;

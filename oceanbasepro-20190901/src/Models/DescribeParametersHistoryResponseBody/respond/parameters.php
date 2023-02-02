@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
+     * @description The time when the parameter modification was initiated.
+     *
+     * @example 2021-09-14 10:57:44
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The resource ID of the parameter type.
+     * - When you called this operation to query the modification history of tenant parameters, the value is the tenant ID.
+     * @example DEFAULT_DIMENSION_VALUE
+     *
      * @var string
      */
     public $dimensionValue;
 
     /**
+     * @description The name of the parameter.
+     *
+     * @example connect_timeout
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The value of the parameter after the modification.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $newValue;
 
     /**
+     * @description The parameter value before modification.
+     *
+     * @example 300
+     *
      * @var string
      */
     public $oldValue;
 
     /**
+     * @description The modification status. Valid values:
+     * - SCHEDULING: The modification was to be made.
+     * @example APPLIED
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The time when the parameter modification took effect.
+     *
+     * @example 2021-09-14 10:57:44
+     *
      * @var string
      */
     public $updateTime;

@@ -9,46 +9,82 @@ use AlibabaCloud\Tea\Model;
 class DescribeNodeMetricsRequest extends Model
 {
     /**
+     * @description The end time of the time range for querying monitoring data.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * @example 2021-09-13T15:40:43Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the OceanBase cluster.
+     *
+     * @example ob317v4uif****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The monitoring metrics.
+     * For more information about supported metrics, see [Node statistics](~~212099~~).
+     * @example tps
+     *
      * @var string
      */
     public $metrics;
 
     /**
+     * @description The list of nodes.
+     *
+     * @example [i-bp16niirq4zdmgvm****,i-bp16n56hq4z4fgvm****]
+     *
      * @var string
      */
     public $nodeIdList;
 
     /**
+     * @description The name of the node.
+     *
+     * @example i-bp16niirq4zdmgvm****
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description The number of the page to return.
+     * - Default value: 1
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of rows to return on each page.
+     * - Default value: 10
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The start time of the time range for querying monitoring data.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * @example 2021-06-13T15:40:43Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * @example tfafd34fs****
+     *
      * @var string
      */
     public $tenantId;

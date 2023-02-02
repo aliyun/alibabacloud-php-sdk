@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class recommendIndex extends Model
 {
     /**
+     * @description The index recommended for the SQL statement after calculation by the diagnostic system.
+     * The system recommends only one index for an SQL statement. You can call the DescribeIndexes operation to view the indexes of a table.
+     * @example PRIMARY
+     *
      * @var string
      */
     public $suggestIndex;
 
     /**
+     * @description The tables.
+     * The data tables involved in the SQL statement corresponding to the SQL ID are returned. For a single-table query, the data table accessed is returned. For a join query, all data tables accessed by the SQL statement are returned and separated with vertical bars (|), for example, "Table1|Table2".
+     * @example testtable
+     *
      * @var string
      */
     public $tableList;
 
     /**
+     * @description The tenant mode.   Valid values:
+     * MySQL
+     * @example mysql
+     *
      * @var string
      */
     public $tenantMode;

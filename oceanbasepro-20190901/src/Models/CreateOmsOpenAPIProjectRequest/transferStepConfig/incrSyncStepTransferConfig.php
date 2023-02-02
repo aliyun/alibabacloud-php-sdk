@@ -9,26 +9,44 @@ use AlibabaCloud\Tea\Model;
 class incrSyncStepTransferConfig extends Model
 {
     /**
+     * @description The list of data types of incremental data synchronized in incremental synchronization.
+     *
      * @var string[]
      */
     public $recordTypeList;
 
     /**
+     * @description The start time for incremental synchronization. The value is a timestamp in seconds.
+     *
+     * @example 1637568354
+     *
      * @var int
      */
     public $startTimestamp;
 
     /**
+     * @description The retention time of logs when incremental synchronization is enabled and the incremental log pull component is Store.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $storeLogKeptHour;
 
     /**
+     * @description Specifies whether to enable intra-transaction sequencing when incremental synchronization is enabled and the incremental log pull component is Store.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $storeTransactionEnabled;
 
     /**
+     * @description Valid values: STRUCT, FULL, and INCR.
+     *
+     * @example STRUCT
+     *
      * @var string
      */
     public $transferStepType;

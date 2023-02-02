@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class respond extends Model
 {
     /**
+     * @description The number of returned entries on each page.
+     *
+     * @example Default value: 10.
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The parameter modification history.
+     *
      * @var parameters[]
      */
     public $parameters;
 
     /**
+     * @description The number of parameter modification records.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

@@ -9,81 +9,145 @@ use AlibabaCloud\Tea\Model;
 class SQLPlans extends Model
 {
     /**
+     * @description The average execution duration, in ms.
+     *
+     * @example 1
+     *
      * @var float
      */
     public $avgExecutionMS;
 
     /**
+     * @description The average execution duration when the database uses this execution plan, in ms.
+     *
+     * @example 288
+     *
      * @var int
      */
     public $avgExecutionTimeMS;
 
     /**
+     * @description The time when the plan was loaded for the first time, .
+     *
+     * @example 1641492303000
+     *
      * @var int
      */
     public $firstLoadTime;
 
     /**
+     * @description The time when the plan was loaded for the first time, in UTC +0.
+     *
+     * @example 2022-01-06T18:05:03Z
+     *
      * @var string
      */
     public $firstLoadTimeUTCString;
 
     /**
+     * @description The number of hits.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $hitCount;
 
     /**
+     * @description The major compaction version.
+     *
+     * @example 132
+     *
      * @var int
      */
     public $mergedVersion;
 
     /**
+     * @description The IP address of the node.
+     *
+     * @example i-bp16niirq4zdmgvm****
+     *
      * @var string
      */
     public $nodeIp;
 
     /**
+     * @description The outline data.
+     *
+     * @example /*+ BEGIN_OUTLINE_DATA FULL(@\"SEL$1\" \"testdb1.bmsql_order_line\"@\"SEL$1\") END_OUTLINE_DATA*\/
+     *
      * @var string
      */
     public $outlineData;
 
     /**
+     * @description OutlineID.
+     *
+     * @example -1
+     *
      * @var int
      */
     public $outlineId;
 
     /**
+     * @description The time when the plan was bound.
+     *
+     * @example 1641492303000
+     *
      * @var int
      */
     public $outlineTime;
 
     /**
+     * @description The time when the plan was bound, in UTC +0.
+     *
+     * @example 2022-01-06T18:05:03Z
+     *
      * @var string
      */
     public $outlineTimeUTCString;
 
     /**
+     * @description The complete execution plan of the SQL statement.
+     *
+     * @example PHY_TABLE_SCAN | bmsql_order_line | 40 ******
+     *
      * @var string
      */
     public $planFull;
 
     /**
+     * @description The ID of the SQL execution plan in the database.
+     *
+     * @example 9114
+     *
      * @var int
      */
     public $planId;
 
     /**
+     * @description The information about the plan.
+     *
+     * @example PHY_TABLE_SCAN
+     *
      * @var string
      */
     public $planInfo;
 
     /**
+     * @description The unique identifier of the SQL execution plan in the diagnostic system.
+     *
+     * @example 859ef7ee****b23ac98cdeb2476f****
+     *
      * @var string
      */
     public $planUnionHash;
 
     /**
+     * @description The query SQL statement.
+     *
+     * @example SELECT ol_i_id, ***, *** FROM aaa
+     *
      * @var string
      */
     public $querySQL;

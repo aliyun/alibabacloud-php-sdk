@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class roles extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example db_pay1
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @description The role of the account.
+     * > <br>By default, an Oracle account has the read and write privileges on its own schema, which are not listed here.
+     * @example ReadOnly
+     *
      * @var string
      */
     public $role;

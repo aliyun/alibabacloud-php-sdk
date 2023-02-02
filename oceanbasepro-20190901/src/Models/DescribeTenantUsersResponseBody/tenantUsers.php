@@ -10,32 +10,66 @@ use AlibabaCloud\Tea\Model;
 class tenantUsers extends Model
 {
     /**
+     * @description The database privileges of the account.
+     *
      * @var databases[]
      */
     public $databases;
 
     /**
+     * @description The description of the database account.
+     *
+     * @example use for test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example obshc32****
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @example tshfs3****
+     *
+     * @var string
+     */
+    public $tenantId;
+
+    /**
+     * @description The name of the database account.
+     *
+     * @example pay_test
+     *
      * @var string
      */
     public $userName;
 
     /**
+     * @description The status of the database account. Valid values:
+     * - NORMAL: The account is unlocked.
+     * @example NORMAL
+     *
      * @var string
      */
     public $userStatus;
 
     /**
+     * @description The type of the database account. Valid values:
+     * - NORMAL: a general account.
+     * @example NORMAL
+     *
      * @var string
      */
     public $userType;
     protected $_name = [
         'databases'   => 'Databases',
         'description' => 'Description',
+        'instanceId'  => 'InstanceId',
+        'tenantId'    => 'TenantId',
         'userName'    => 'UserName',
         'userStatus'  => 'UserStatus',
         'userType'    => 'UserType',
@@ -59,6 +93,12 @@ class tenantUsers extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
         }
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
@@ -92,6 +132,12 @@ class tenantUsers extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];

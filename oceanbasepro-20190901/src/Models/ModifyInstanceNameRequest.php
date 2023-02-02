@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceNameRequest extends Model
 {
     /**
+     * @description The ID of the OceanBase cluster.
+     *
+     * @example ob317v4uif****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the OceanBase cluster.
+     * It must be 1 to 20 characters in length.
+     * @example ob4prod
+     *
      * @var string
      */
     public $instanceName;

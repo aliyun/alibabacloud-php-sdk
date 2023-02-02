@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeTenantTagsRequest extends Model
 {
     /**
+     * @example ob317v4uif****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example [{"Key": "xxx", "Value", "xxx"},{}]
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @example ["xxx", "xxx"]
+     *
      * @var string
      */
     public $tenantIds;

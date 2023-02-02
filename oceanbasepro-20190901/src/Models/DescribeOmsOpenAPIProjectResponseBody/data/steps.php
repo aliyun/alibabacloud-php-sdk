@@ -11,56 +11,96 @@ use AlibabaCloud\Tea\Model;
 class steps extends Model
 {
     /**
+     * @description The estimated time remained.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $estimatedRemainingSeconds;
 
     /**
+     * @description The additional information. The value is a JSON string.
+     *
      * @var extraInfo
      */
     public $extraInfo;
 
     /**
+     * @description The end time, in the format of "2020-05-22T17:04:18".
+     *
+     * @example 2020-05-22T17:04:18
+     *
      * @var string
      */
     public $finishTime;
 
     /**
+     * @description Indicates whether the current step must be confirmed by the user, rather than scheduled in the backend.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $interactive;
 
     /**
+     * @description The start time, in the format of "2020-05-22T17:04:18".
+     *
+     * @example 2020-05-22T17:04:18
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The description of the step, for example, schema migration, full migration, full verification, incremental log pull, incremental synchronization, or incremental verification.
+     *
+     * @example Schema migration
+     *
      * @var string
      */
     public $stepDescription;
 
     /**
+     * @description The step details. The value is a JSON string.
+     *
      * @var stepInfo
      */
     public $stepInfo;
 
     /**
+     * @description The step name. Valid values: struct_migration, full_migration, full_validation, incr_log_pull, incr_sync/incr_validation, PRE_CHECK, PREPARE, STRUCT_MIGRATION, INDEX_MIGRATION, STRUCT_SYNC, FULL_MIGRATION, APP_SWITCH, REVERSE_INCR_SYNC, FULL_VALIDATION, INCR_LOG_PULL, INCR_SYNC, INCR_VALIDATION, SYNC_PREPARE, SYNC_INCR_LOG_PULL, CONNECTOR_FULL_SYNC, or CONNECTOR_INCR_SYNC.
+     *
+     * @example structmigration
+     *
      * @var string
      */
     public $stepName;
 
     /**
+     * @description The sequence of steps.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $stepOrder;
 
     /**
+     * @description The step progress.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $stepProgress;
 
     /**
+     * @description The step status. Valid values: INIT, RUNNING, FAILED, FINISHED, SUSPEND, and MONITORING. The value MONITORING indicates the continuous monitoring of incremental synchronization and incremental verification.
+     *
+     * @example INT
+     *
      * @var string
      */
     public $stepStatus;

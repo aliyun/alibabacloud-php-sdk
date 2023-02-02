@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class connectorFullProgressOverview extends Model
 {
     /**
+     * @description The estimated maximum time remained, in seconds.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $estimatedRemainingTimeOfSec;
 
     /**
+     * @description The estimated amount of data to migrate.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $estimatedTotalCount;
 
     /**
+     * @description The amount of data migrated.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $finishedCount;
 
     /**
+     * @description finishedCount / estimatedTotalCount
+     *
+     * @example 1120
+     *
      * @var int
      */
     public $progress;

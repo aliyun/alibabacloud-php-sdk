@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class diskSize extends Model
 {
     /**
+     * @description The server with the highest disk usage.
+     *
      * @var string[]
      */
     public $maxDiskUsedObServer;
 
     /**
+     * @description The maximum disk usage, in percentage.
+     *
+     * @example 0.14
+     *
      * @var float
      */
     public $maxDiskUsedPercent;

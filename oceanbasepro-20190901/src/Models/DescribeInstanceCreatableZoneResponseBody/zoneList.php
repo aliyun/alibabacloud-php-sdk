@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class zoneList extends Model
 {
     /**
+     * @description Indicates whether the cluster is deployed in the zone.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isInCluster;
 
     /**
+     * @description The ID of the zone.
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zone;

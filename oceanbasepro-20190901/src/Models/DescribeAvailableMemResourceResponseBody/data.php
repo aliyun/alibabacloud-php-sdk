@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The maximum memory size for each resource unit, in GB.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxMem;
 
     /**
+     * @description The minimum memory size required for each resource unit, in GB.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $minMem;
 
     /**
+     * @description The number of resource units in the tenant.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $usedMem;

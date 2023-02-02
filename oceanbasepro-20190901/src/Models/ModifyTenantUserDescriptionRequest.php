@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ModifyTenantUserDescriptionRequest extends Model
 {
     /**
+     * @description The description of the database.
+     *
+     * @example this is a test database
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the OceanBase cluster.
+     *
+     * @example ob317v4uif****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * @example ob2mr3oae0****
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description The name of the database account.
+     * You cannot use reserved keywords, such as SYS and root.
+     * @example pay_test
+     *
      * @var string
      */
     public $userName;

@@ -15,51 +15,79 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The business system identifier, which is optional and is a specific field of the Post message.
+     *
+     * @example OMS_TEST
+     *
      * @var string
      */
     public $businessName;
 
     /**
+     * @description The settings of the destination data source.
+     *
      * @var destConfig
      */
     public $destConfig;
 
     /**
+     * @description A collection of label IDs.
+     *
      * @var labels[]
      */
     public $labels;
 
     /**
+     * @description The project ID.
+     *
+     * @example p_gasdfdsfg
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @description The name of the project.
+     *
+     * @example The name of the project.
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @description The project owner.
+     *
+     * @example Zhang San
+     *
      * @var string
      */
     public $projectOwner;
 
     /**
+     * @description The settings of the source data source.
+     *
      * @var sourceConfig
      */
     public $sourceConfig;
 
     /**
+     * @description The detailed project steps.
+     *
      * @var steps[]
      */
     public $steps;
 
     /**
+     * @description The mappings for the synchronization objects.
+     *
      * @var transferMapping
      */
     public $transferMapping;
 
     /**
+     * @description The settings of synchronization steps
+     *
      * @var transferStepConfig
      */
     public $transferStepConfig;

@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class databases extends Model
 {
     /**
+     * @description The ID of the database. This parameter takes effect when the source data source is IDB.
+     *
+     * @example db_id1
+     *
      * @var string
      */
     public $databaseId;
 
     /**
+     * @description The name of the database.
+     *
+     * @example db1
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @description The mapped-to database. This parameter takes effect when the destination data source is a database.
+     *
+     * @example mapped_db
+     *
      * @var string
      */
     public $mappedName;
 
     /**
+     * @description The settings for the target table objects in the current database.
+     *
      * @var tables[]
      */
     public $tables;
 
     /**
+     * @description The mapped-to tenant. This parameter takes effect when the source data source is OceanBase Database.
+     *
+     * @example tenant
+     *
      * @var string
      */
     public $tenantName;
 
     /**
+     * @description DATABASE, TABLE
+     *
+     * @example DATABASE
+     *
      * @var string
      */
     public $type;

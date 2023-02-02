@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class securityIpGroups extends Model
 {
     /**
+     * @description The name of the security group.
+     *
+     * @example online_paycore
+     *
      * @var string
      */
     public $securityIpGroupName;
 
     /**
+     * @description The list of IP addresses and CIDR blocks in the whitelist.
+     * It is a JSON array. Each object in the array is an IP address or CIDR block.
+     * @example {“127.0.0.1”, ”123.123.1.23“}
+     *
      * @var string
      */
     public $securityIps;
