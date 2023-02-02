@@ -115,6 +115,16 @@ class clusterInfo extends Model
     /**
      * @var string
      */
+    public $ramNodeTypes;
+
+    /**
+     * @var string
+     */
+    public $ramRoleName;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -192,6 +202,8 @@ class clusterInfo extends Model
         'onPremiseInfo'      => 'OnPremiseInfo',
         'osTag'              => 'OsTag',
         'postInstallScripts' => 'PostInstallScripts',
+        'ramNodeTypes'       => 'RamNodeTypes',
+        'ramRoleName'        => 'RamRoleName',
         'regionId'           => 'RegionId',
         'remoteDirectory'    => 'RemoteDirectory',
         'sccClusterId'       => 'SccClusterId',
@@ -272,6 +284,12 @@ class clusterInfo extends Model
         }
         if (null !== $this->postInstallScripts) {
             $res['PostInstallScripts'] = null !== $this->postInstallScripts ? $this->postInstallScripts->toMap() : null;
+        }
+        if (null !== $this->ramNodeTypes) {
+            $res['RamNodeTypes'] = $this->ramNodeTypes;
+        }
+        if (null !== $this->ramRoleName) {
+            $res['RamRoleName'] = $this->ramRoleName;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -380,6 +398,12 @@ class clusterInfo extends Model
         }
         if (isset($map['PostInstallScripts'])) {
             $model->postInstallScripts = postInstallScripts::fromMap($map['PostInstallScripts']);
+        }
+        if (isset($map['RamNodeTypes'])) {
+            $model->ramNodeTypes = $map['RamNodeTypes'];
+        }
+        if (isset($map['RamRoleName'])) {
+            $model->ramRoleName = $map['RamRoleName'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

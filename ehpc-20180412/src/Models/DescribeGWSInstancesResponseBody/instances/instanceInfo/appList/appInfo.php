@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class appInfo extends Model
 {
     /**
+     * @example temp.txt
+     *
      * @var string
      */
     public $appArgs;
 
     /**
+     * @example notepad
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example /home/test/notepad.exe
+     *
      * @var string
      */
     public $appPath;

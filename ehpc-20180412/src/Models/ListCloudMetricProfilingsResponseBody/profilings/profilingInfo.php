@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class profilingInfo extends Model
 {
     /**
+     * @example 30
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example 2000
+     *
      * @var int
      */
     public $freq;
 
     /**
+     * @example compute5
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @example i-bp1j76z8dlukzqgl0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 21687
+     *
      * @var int
      */
     public $pid;
 
     /**
+     * @example ehpc-hz-i-bplukzqgl****_21687_2019-09-09-02-37-40
+     *
      * @var string
      */
     public $profilingId;
 
     /**
+     * @example 2019-09-09 02:37:40
+     *
      * @var string
      */
     public $triggerTime;

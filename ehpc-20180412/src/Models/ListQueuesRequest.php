@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListQueuesRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $async;
 
     /**
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;

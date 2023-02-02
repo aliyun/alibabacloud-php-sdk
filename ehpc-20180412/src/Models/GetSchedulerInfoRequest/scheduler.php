@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class scheduler extends Model
 {
     /**
+     * @example pbs
+     *
      * @var string
      */
     public $schedName;

@@ -15,11 +15,15 @@ class DescribePriceResponseBody extends Model
     public $prices;
 
     /**
+     * @example 54FF9025-2C2F-42EB-870D-0DF5B0ACF24E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1258
+     *
      * @var float
      */
     public $totalTradePrice;

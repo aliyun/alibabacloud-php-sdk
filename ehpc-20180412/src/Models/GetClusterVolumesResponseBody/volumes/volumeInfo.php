@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class volumeInfo extends Model
 {
     /**
+     * @example workq
+     *
      * @var string
      */
     public $jobQueue;
 
     /**
+     * @example /ehpcdata
+     *
      * @var string
      */
     public $localDirectory;
 
     /**
+     * @example PublicCloud
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $mustKeep;
 
     /**
+     * @example /test
+     *
      * @var string
      */
     public $remoteDirectory;
@@ -40,21 +50,29 @@ class volumeInfo extends Model
     public $roles;
 
     /**
+     * @example 0e754****
+     *
      * @var string
      */
     public $volumeId;
 
     /**
+     * @example 0e754****-kal90.cn-hangzhou.nas.aliyuncs.com<
+     *
      * @var string
      */
     public $volumeMountpoint;
 
     /**
+     * @example NFS
+     *
      * @var string
      */
     public $volumeProtocol;
 
     /**
+     * @example NAS
+     *
      * @var string
      */
     public $volumeType;

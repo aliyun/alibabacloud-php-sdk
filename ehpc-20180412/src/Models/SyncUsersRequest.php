@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SyncUsersRequest extends Model
 {
     /**
+     * @example ehpc-hz-gh5WKb****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

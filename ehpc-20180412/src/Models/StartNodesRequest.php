@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class StartNodesRequest extends Model
 {
     /**
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
@@ -20,6 +22,8 @@ class StartNodesRequest extends Model
     public $instance;
 
     /**
+     * @example Compute
+     *
      * @var string
      */
     public $role;

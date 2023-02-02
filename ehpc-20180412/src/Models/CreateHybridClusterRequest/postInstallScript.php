@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class postInstallScript extends Model
 {
     /**
+     * @example bash file.sh
+     *
      * @var string
      */
     public $args;
 
     /**
+     * @example /opt/job.sh
+     *
      * @var string
      */
     public $url;

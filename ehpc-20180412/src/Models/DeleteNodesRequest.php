@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteNodesRequest extends Model
 {
     /**
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
@@ -20,11 +22,15 @@ class DeleteNodesRequest extends Model
     public $instance;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $releaseInstance;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $sync;

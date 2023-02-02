@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetJobLogResponseBody extends Model
 {
     /**
+     * @example c2xlZXAgMzA=
+     *
      * @var string
      */
     public $errorLog;
 
     /**
+     * @example 1.scheduler****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example c2xlZXAgMzA=
+     *
      * @var string
      */
     public $outputLog;
 
     /**
+     * @example B745C159-3155-4B94-95D0-4B73D4D2****
+     *
      * @var string
      */
     public $requestId;

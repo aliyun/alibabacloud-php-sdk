@@ -15,16 +15,22 @@ class ListUpgradeClientsResponseBody extends Model
     public $clientRecords;
 
     /**
+     * @example 1.2.21
+     *
      * @var string
      */
     public $currentVersion;
 
     /**
+     * @example 1.2.22
+     *
      * @var string
      */
     public $latestVersion;
 
     /**
+     * @example 89A1AC0F-4A6C-4F3D-98F9-BEF9A823****
+     *
      * @var string
      */
     public $requestId;

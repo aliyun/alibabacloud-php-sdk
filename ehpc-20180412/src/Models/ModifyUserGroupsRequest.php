@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class ModifyUserGroupsRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $async;
+
+    /**
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
@@ -19,6 +26,7 @@ class ModifyUserGroupsRequest extends Model
      */
     public $user;
     protected $_name = [
+        'async'     => 'Async',
         'clusterId' => 'ClusterId',
         'user'      => 'User',
     ];
@@ -30,6 +38,9 @@ class ModifyUserGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->async) {
+            $res['Async'] = $this->async;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -54,6 +65,9 @@ class ModifyUserGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Async'])) {
+            $model->async = $map['Async'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }

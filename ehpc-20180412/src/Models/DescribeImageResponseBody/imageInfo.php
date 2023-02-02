@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class imageInfo extends Model
 {
     /**
+     * @example 353506****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example hello-world
+     *
      * @var string
      */
     public $repository;
 
     /**
+     * @example READY
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example mycluster
+     *
      * @var string
      */
     public $system;
 
     /**
+     * @example latest
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @example docker
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 2018-08-02T20:11:36
+     *
      * @var string
      */
     public $updateDateTime;

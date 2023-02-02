@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
+     * @example nis
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example /opt/sge/default/
+     *
      * @var string
      */
     public $dir;
 
     /**
+     * @example test1
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @example 00b648b****
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @example Compute
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example pbs
+     *
      * @var string
      */
     public $schedulerType;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyVisualServicePasswdRequest extends Model
 {
     /**
+     * @example ehpc-hz-jeJki6****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 1254****
+     *
      * @var string
      */
     public $passwd;
 
     /**
+     * @example root
+     *
      * @var string
      */
     public $runasUser;
 
     /**
+     * @example 2145****
+     *
      * @var string
      */
     public $runasUserPassword;

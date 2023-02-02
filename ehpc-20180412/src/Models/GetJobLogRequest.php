@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetJobLogRequest extends Model
 {
     /**
+     * @example ehpc-hz-jeJki6****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example compute000
+     *
      * @var string
      */
     public $execHost;
 
     /**
+     * @example 1.scheduler****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $offset;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $size;

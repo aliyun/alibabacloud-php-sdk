@@ -15,6 +15,8 @@ class ListQueuesResponseBody extends Model
     public $queues;
 
     /**
+     * @example C6E5005C-00B0-4F27-98BB-95AB88016C22
+     *
      * @var string
      */
     public $requestId;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class imageInfo extends Model
 {
     /**
+     * @example 2019-05-15T06:05:40.000Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example m-bp1by33e4h650m70lb****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example system
+     *
      * @var string
      */
     public $imageType;
 
     /**
+     * @example Windows Server 2019
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 100%
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;

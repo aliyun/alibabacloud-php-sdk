@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListCommandsRequest extends Model
 {
     /**
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example c-hz01v8vudql****
+     *
      * @var string
      */
     public $commandId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeJobRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $async;
+
+    /**
      * @var string
      */
     public $clusterId;
@@ -18,6 +23,7 @@ class DescribeJobRequest extends Model
      */
     public $jobId;
     protected $_name = [
+        'async'     => 'Async',
         'clusterId' => 'ClusterId',
         'jobId'     => 'JobId',
     ];
@@ -29,6 +35,9 @@ class DescribeJobRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->async) {
+            $res['Async'] = $this->async;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -47,6 +56,9 @@ class DescribeJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Async'])) {
+            $model->async = $map['Async'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }

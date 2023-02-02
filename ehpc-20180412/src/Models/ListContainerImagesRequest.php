@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListContainerImagesRequest extends Model
 {
     /**
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example singularity
+     *
      * @var string
      */
     public $containerType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

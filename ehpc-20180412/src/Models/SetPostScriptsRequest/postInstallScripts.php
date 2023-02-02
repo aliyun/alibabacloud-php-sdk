@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class postInstallScripts extends Model
 {
     /**
+     * @example -h
+     *
      * @var string
      */
     public $args;
 
     /**
+     * @example https://bucket.oss-cn-shanghai.aliyuncs.com/postscript_examples.sh
+     *
      * @var string
      */
     public $url;

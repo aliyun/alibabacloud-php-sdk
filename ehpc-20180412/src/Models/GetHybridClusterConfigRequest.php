@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetHybridClusterConfigRequest extends Model
 {
     /**
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example testNode
+     *
      * @var string
      */
     public $node;

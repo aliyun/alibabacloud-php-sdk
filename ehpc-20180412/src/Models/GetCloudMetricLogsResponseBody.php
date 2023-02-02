@@ -15,6 +15,8 @@ class GetCloudMetricLogsResponseBody extends Model
     public $metricLogs;
 
     /**
+     * @example 015C2C4D-1884-4EB7-BCD3-C5BB8D7E56DB
+     *
      * @var string
      */
     public $requestId;

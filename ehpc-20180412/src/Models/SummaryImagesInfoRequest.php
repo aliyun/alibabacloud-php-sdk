@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SummaryImagesInfoRequest extends Model
 {
     /**
+     * @example ehpc-hz-ibug699XXX
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example singularity
+     *
      * @var string
      */
     public $containerType;
 
     /**
+     * @example test.sif
+     *
      * @var string
      */
     public $imageName;

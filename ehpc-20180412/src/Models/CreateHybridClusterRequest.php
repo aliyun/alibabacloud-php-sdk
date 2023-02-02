@@ -25,71 +25,99 @@ class CreateHybridClusterRequest extends Model
     public $application;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example 1.0.64
+     *
      * @var string
      */
     public $clientVersion;
 
     /**
+     * @example 0.034
+     *
      * @var float
      */
     public $computeSpotPriceLimit;
 
     /**
+     * @example NoSpot
+     *
      * @var string
      */
     public $computeSpotStrategy;
 
     /**
+     * @example TestDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example nis
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example 1.0.0
+     *
      * @var string
      */
     public $ehpcVersion;
 
     /**
+     * @example wi_1607_x64_dtc_zh_40G_alibase****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example system
+     *
      * @var string
      */
     public $imageOwnerAlias;
 
     /**
+     * @example workq
+     *
      * @var string
      */
     public $jobQueue;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @example OnPremise
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $multiOs;
 
     /**
+     * @example hybridcluster
+     *
      * @var string
      */
     public $name;
@@ -100,21 +128,29 @@ class CreateHybridClusterRequest extends Model
     public $nodes;
 
     /**
+     * @example /OnCloudDirectory
+     *
      * @var string
      */
     public $onPremiseVolumeLocalPath;
 
     /**
+     * @example RemoteNasDomain.com
+     *
      * @var string
      */
     public $onPremiseVolumeMountPoint;
 
     /**
+     * @example NFS
+     *
      * @var string
      */
     public $onPremiseVolumeProtocol;
 
     /**
+     * @example /RemoteDirectory
+     *
      * @var string
      */
     public $onPremiseVolumeRemotePath;
@@ -125,11 +161,15 @@ class CreateHybridClusterRequest extends Model
     public $openldapPar;
 
     /**
+     * @example CentOS_7.2_64
+     *
      * @var string
      */
     public $osTag;
 
     /**
+     * @example 123****
+     *
      * @var string
      */
     public $password;
@@ -145,56 +185,78 @@ class CreateHybridClusterRequest extends Model
     public $postInstallScript;
 
     /**
+     * @example /RemoteDirectory
+     *
      * @var string
      */
     public $remoteDirectory;
 
     /**
+     * @example rg-acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $schedulerPreInstall;
 
     /**
+     * @example sg-bp13n61xsydodfyg****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example ehpc-SecurityGroup
+     *
      * @var string
      */
     public $securityGroupName;
 
     /**
+     * @example vsw-bp1lfcjbfb099rrjn****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example 008b64****
+     *
      * @var string
      */
     public $volumeId;
 
     /**
+     * @example 008b648bcb-s****.cn-hangzhou.nas.aliyuncs.com
+     *
      * @var string
      */
     public $volumeMountpoint;
 
     /**
+     * @example NFS
+     *
      * @var string
      */
     public $volumeProtocol;
 
     /**
+     * @example NAS
+     *
      * @var string
      */
     public $volumeType;
 
     /**
+     * @example vpc-b3f3edefefeep0760yju****
+     *
      * @var string
      */
     public $vpcId;
@@ -205,6 +267,8 @@ class CreateHybridClusterRequest extends Model
     public $winAdPar;
 
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

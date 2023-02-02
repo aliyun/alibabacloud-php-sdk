@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class metricLog extends Model
 {
     /**
+     * @example vda1
+     *
      * @var string
      */
     public $diskDevice;
 
     /**
+     * @example compute000
+     *
      * @var string
      */
     public $hostname;
 
     /**
+     * @example i-bp132g97g7zwnvta****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example {\"process|cpusage\":0,\"process|cpuser\":0,\"process|cpusys\":0,******}
+     *
      * @var string
      */
     public $metricData;
 
     /**
+     * @example eth1
+     *
      * @var string
      */
     public $networkInterface;
 
     /**
+     * @example 1583907780
+     *
      * @var int
      */
     public $time;

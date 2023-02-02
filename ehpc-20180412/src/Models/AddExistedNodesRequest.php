@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class AddExistedNodesRequest extends Model
 {
     /**
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example centos_7_06_64_20G_alibase_20190711.vhd
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example system
+     *
      * @var string
      */
     public $imageOwnerAlias;
@@ -30,6 +36,8 @@ class AddExistedNodesRequest extends Model
     public $instance;
 
     /**
+     * @example workq
+     *
      * @var string
      */
     public $jobQueue;

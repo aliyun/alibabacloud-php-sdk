@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteSecurityGroupRequest extends Model
 {
     /**
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example sg-bp13n61xsydodfyg****
+     *
      * @var string
      */
     public $securityGroupId;

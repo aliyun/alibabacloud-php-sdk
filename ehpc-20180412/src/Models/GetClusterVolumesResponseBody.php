@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetClusterVolumesResponseBody extends Model
 {
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 8BCFD52E-0336-4490-AE7D-F560F106****
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SummaryImagesResponseBody extends Model
 {
     /**
+     * @example {"summaryImages":["gromacs.sif","linpack.sif","sccIntelMPI1.sif","test.sif","usergromac.sif.user"]}
+     *
      * @var string
      */
     public $imagesName;
 
     /**
+     * @example 896D338C-E4F4-41EC-A154-D605E5DE****
+     *
      * @var string
      */
     public $requestId;

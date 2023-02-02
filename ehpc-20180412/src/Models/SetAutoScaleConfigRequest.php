@@ -10,51 +10,71 @@ use AlibabaCloud\Tea\Model;
 class SetAutoScaleConfigRequest extends Model
 {
     /**
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableAutoGrow;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableAutoShrink;
 
     /**
+     * @example i-bp19lgqwxb4206t5****,i-bp1g4hvzs9pywrhb****
+     *
      * @var string
      */
     public $excludeNodes;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $extraNodesGrowRatio;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $growIntervalInMinutes;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $growRatio;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $growTimeoutInMinutes;
 
     /**
+     * @example centos_7_03_64_20G_alibase_201708****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $maxNodesInCluster;
@@ -65,21 +85,29 @@ class SetAutoScaleConfigRequest extends Model
     public $queues;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $shrinkIdleTimes;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $shrinkIntervalInMinutes;
 
     /**
+     * @example 0.062
+     *
      * @var float
      */
     public $spotPriceLimit;
 
     /**
+     * @example SpotWithPriceLimit
+     *
      * @var string
      */
     public $spotStrategy;

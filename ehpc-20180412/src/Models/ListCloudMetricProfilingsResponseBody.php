@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListCloudMetricProfilingsResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
@@ -25,11 +29,15 @@ class ListCloudMetricProfilingsResponseBody extends Model
     public $profilings;
 
     /**
+     * @example 9A05F620-ED46-4A57-95F1-C67D6D3C5DD2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

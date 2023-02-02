@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class clientRecords extends Model
 {
     /**
+     * @example 1.2.21
+     *
      * @var string
      */
     public $newVersion;
 
     /**
+     * @example 1.2.16
+     *
      * @var string
      */
     public $oldVersion;
 
     /**
+     * @example 129******84
+     *
      * @var string
      */
     public $subUid;
 
     /**
+     * @example 2022-08-26T06:26:57.000Z
+     *
      * @var string
      */
     public $updateTime;

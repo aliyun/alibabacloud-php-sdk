@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class manager extends Model
 {
     /**
+     * @example ecs.n1.tiny
+     *
      * @var string
      */
     public $instanceType;

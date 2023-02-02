@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class locationInfo extends Model
 {
     /**
+     * @example https
+     *
      * @var string
      */
     public $authentication;
 
     /**
+     * @example regi****.docker.io
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example dockerv2
+     *
      * @var string
      */
     public $remoteType;
 
     /**
+     * @example https://regi****.docker-cn.com
+     *
      * @var string
      */
     public $URL;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class dataDisks extends Model
 {
     /**
+     * @example cloud_efficiency
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $deleteWithInstance;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $encrypted;
 
     /**
+     * @example PL1
+     *
      * @var string
      */
     public $performanceLevel;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $size;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeGWSInstancesRequest extends Model
 {
     /**
+     * @example gws-rhz99q8rc****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example i-bp1bzqq1ddeemuddn****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example testuser
+     *
      * @var string
      */
     public $userName;
 
     /**
+     * @example 1234567890
+     *
      * @var int
      */
     public $userUid;

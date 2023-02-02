@@ -32,12 +32,26 @@ class ModifyClusterAttributesRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string[]
+     */
+    public $ramNodeTypes;
+
+    /**
+     * @example AliyunEHPCFullAccess
+     *
+     * @var string
+     */
+    public $ramRoleName;
     protected $_name = [
         'clusterId'       => 'ClusterId',
         'description'     => 'Description',
         'imageId'         => 'ImageId',
         'imageOwnerAlias' => 'ImageOwnerAlias',
         'name'            => 'Name',
+        'ramNodeTypes'    => 'RamNodeTypes',
+        'ramRoleName'     => 'RamRoleName',
     ];
 
     public function validate()
@@ -61,6 +75,12 @@ class ModifyClusterAttributesRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->ramNodeTypes) {
+            $res['RamNodeTypes'] = $this->ramNodeTypes;
+        }
+        if (null !== $this->ramRoleName) {
+            $res['RamRoleName'] = $this->ramRoleName;
         }
 
         return $res;
@@ -88,6 +108,14 @@ class ModifyClusterAttributesRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['RamNodeTypes'])) {
+            if (!empty($map['RamNodeTypes'])) {
+                $model->ramNodeTypes = $map['RamNodeTypes'];
+            }
+        }
+        if (isset($map['RamRoleName'])) {
+            $model->ramRoleName = $map['RamRoleName'];
         }
 
         return $model;

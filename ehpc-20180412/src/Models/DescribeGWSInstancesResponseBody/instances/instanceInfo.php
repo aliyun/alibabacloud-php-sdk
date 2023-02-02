@@ -15,46 +15,64 @@ class instanceInfo extends Model
     public $appList;
 
     /**
+     * @example gws-rhz99q8rc****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 2020-02-03T14:03Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2099-12-31T15:59Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @example i-bp1bzqq1ddeemuddn****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example ecs.g6.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example c0-i01-1-g6-2c8g
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example Creating
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example user-****
+     *
      * @var string
      */
     public $userName;
 
     /**
+     * @example Desktop
+     *
      * @var string
      */
     public $workMode;

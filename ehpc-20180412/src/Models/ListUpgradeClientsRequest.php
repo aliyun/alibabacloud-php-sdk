@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListUpgradeClientsRequest extends Model
 {
     /**
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

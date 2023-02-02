@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class application extends Model
 {
     /**
+     * @example OpenMPI_11.1
+     *
      * @var string
      */
     public $tag;

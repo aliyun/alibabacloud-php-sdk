@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class GetCloudMetricLogsRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $aggregationInterval;
 
     /**
+     * @example avg
+     *
      * @var string
      */
     public $aggregationType;
 
     /**
+     * @example ehpc-hz-jeJki6****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example {"Hostname":"compute000"}
+     *
      * @var string
      */
     public $filter;
 
     /**
+     * @example 1583907780
+     *
      * @var int
      */
     public $from;
 
     /**
+     * @example cpu
+     *
      * @var string
      */
     public $metricCategories;
 
     /**
+     * @example network
+     *
      * @var string
      */
     public $metricScope;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $reverse;
 
     /**
+     * @example 1583907790
+     *
      * @var int
      */
     public $to;

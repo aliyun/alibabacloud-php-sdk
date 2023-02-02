@@ -14,26 +14,36 @@ class CreateJobFileRequest extends Model
     public $async;
 
     /**
+     * @example ehpc-hz-jeJki6****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example c2xlZXAgMzA=
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example testuser1
+     *
      * @var string
      */
     public $runasUser;
 
     /**
+     * @example !QAZ****
+     *
      * @var string
      */
     public $runasUserPassword;
 
     /**
+     * @example lammps.pbs
+     *
      * @var string
      */
     public $targetFile;

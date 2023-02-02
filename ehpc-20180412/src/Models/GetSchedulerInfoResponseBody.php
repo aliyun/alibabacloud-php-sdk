@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetSchedulerInfoResponseBody extends Model
 {
     /**
+     * @example BBC2F93D-003A-49C4-850C-B826EECF****
+     *
      * @var string
      */
     public $requestId;

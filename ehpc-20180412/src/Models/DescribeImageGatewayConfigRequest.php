@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageGatewayConfigRequest extends Model
 {
     /**
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;

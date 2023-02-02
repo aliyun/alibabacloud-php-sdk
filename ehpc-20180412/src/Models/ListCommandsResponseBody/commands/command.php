@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class command extends Model
 {
     /**
+     * @example echo "hello world"
+     *
      * @var string
      */
     public $commandContent;
 
     /**
+     * @example c-hz01v8vudql****
+     *
      * @var string
      */
     public $commandId;
 
     /**
+     * @example 60
+     *
      * @var string
      */
     public $timeout;
 
     /**
+     * @example /root
+     *
      * @var string
      */
     public $workingDir;

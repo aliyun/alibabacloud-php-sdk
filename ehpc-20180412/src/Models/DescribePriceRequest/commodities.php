@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class commodities extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $amount;
@@ -20,46 +22,64 @@ class commodities extends Model
     public $dataDisks;
 
     /**
+     * @example ecs.n1.tiny
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example PayByBandwidth
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $internetMaxBandWidthOut;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @example Compute
+     *
      * @var string
      */
     public $nodeType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $systemDiskCategory;
 
     /**
+     * @example PL1
+     *
      * @var string
      */
     public $systemDiskPerformanceLevel;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $systemDiskSize;

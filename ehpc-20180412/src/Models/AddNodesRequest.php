@@ -10,51 +10,85 @@ use AlibabaCloud\Tea\Model;
 class AddNodesRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $allocatePublicAddress;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $autoRenew;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $autoRenewPeriod;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $computeEnableHt;
 
     /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $computeSpotDuration;
+
+    /**
+     * @example Terminate
+     *
+     * @var string
+     */
+    public $computeSpotInterruptionBehavior;
+
+    /**
+     * @example 0.68
+     *
      * @var string
      */
     public $computeSpotPriceLimit;
 
     /**
+     * @example NoSpot
+     *
      * @var string
      */
     public $computeSpotStrategy;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example manual
+     *
      * @var string
      */
     public $createMode;
@@ -65,130 +99,170 @@ class AddNodesRequest extends Model
     public $dataDisks;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $ecsChargeType;
 
     /**
+     * @example compute
+     *
      * @var string
      */
     public $hostNamePrefix;
 
     /**
+     * @example 01
+     *
      * @var string
      */
     public $hostNameSuffix;
 
     /**
+     * @example centos_7_06_64_20G_alibase_20190711.vhd
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example system
+     *
      * @var string
      */
     public $imageOwnerAlias;
 
     /**
+     * @example ecs.n1.tiny
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example PayByTraffic
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $internetMaxBandWidthIn;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $internetMaxBandWidthOut;
 
     /**
+     * @example workq
+     *
      * @var string
      */
     public $jobQueue;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $minCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $sync;
 
     /**
+     * @example PL0
+     *
      * @var string
      */
     public $systemDiskLevel;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $systemDiskSize;
 
     /**
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $systemDiskType;
 
     /**
+     * @example vsw-bp1lfcjbfb099rrjn****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'allocatePublicAddress'   => 'AllocatePublicAddress',
-        'autoRenew'               => 'AutoRenew',
-        'autoRenewPeriod'         => 'AutoRenewPeriod',
-        'clientToken'             => 'ClientToken',
-        'clusterId'               => 'ClusterId',
-        'computeEnableHt'         => 'ComputeEnableHt',
-        'computeSpotPriceLimit'   => 'ComputeSpotPriceLimit',
-        'computeSpotStrategy'     => 'ComputeSpotStrategy',
-        'count'                   => 'Count',
-        'createMode'              => 'CreateMode',
-        'dataDisks'               => 'DataDisks',
-        'ecsChargeType'           => 'EcsChargeType',
-        'hostNamePrefix'          => 'HostNamePrefix',
-        'hostNameSuffix'          => 'HostNameSuffix',
-        'imageId'                 => 'ImageId',
-        'imageOwnerAlias'         => 'ImageOwnerAlias',
-        'instanceType'            => 'InstanceType',
-        'internetChargeType'      => 'InternetChargeType',
-        'internetMaxBandWidthIn'  => 'InternetMaxBandWidthIn',
-        'internetMaxBandWidthOut' => 'InternetMaxBandWidthOut',
-        'jobQueue'                => 'JobQueue',
-        'minCount'                => 'MinCount',
-        'period'                  => 'Period',
-        'periodUnit'              => 'PeriodUnit',
-        'sync'                    => 'Sync',
-        'systemDiskLevel'         => 'SystemDiskLevel',
-        'systemDiskSize'          => 'SystemDiskSize',
-        'systemDiskType'          => 'SystemDiskType',
-        'vSwitchId'               => 'VSwitchId',
-        'zoneId'                  => 'ZoneId',
+        'allocatePublicAddress'           => 'AllocatePublicAddress',
+        'autoRenew'                       => 'AutoRenew',
+        'autoRenewPeriod'                 => 'AutoRenewPeriod',
+        'clientToken'                     => 'ClientToken',
+        'clusterId'                       => 'ClusterId',
+        'computeEnableHt'                 => 'ComputeEnableHt',
+        'computeSpotDuration'             => 'ComputeSpotDuration',
+        'computeSpotInterruptionBehavior' => 'ComputeSpotInterruptionBehavior',
+        'computeSpotPriceLimit'           => 'ComputeSpotPriceLimit',
+        'computeSpotStrategy'             => 'ComputeSpotStrategy',
+        'count'                           => 'Count',
+        'createMode'                      => 'CreateMode',
+        'dataDisks'                       => 'DataDisks',
+        'ecsChargeType'                   => 'EcsChargeType',
+        'hostNamePrefix'                  => 'HostNamePrefix',
+        'hostNameSuffix'                  => 'HostNameSuffix',
+        'imageId'                         => 'ImageId',
+        'imageOwnerAlias'                 => 'ImageOwnerAlias',
+        'instanceType'                    => 'InstanceType',
+        'internetChargeType'              => 'InternetChargeType',
+        'internetMaxBandWidthIn'          => 'InternetMaxBandWidthIn',
+        'internetMaxBandWidthOut'         => 'InternetMaxBandWidthOut',
+        'jobQueue'                        => 'JobQueue',
+        'minCount'                        => 'MinCount',
+        'period'                          => 'Period',
+        'periodUnit'                      => 'PeriodUnit',
+        'sync'                            => 'Sync',
+        'systemDiskLevel'                 => 'SystemDiskLevel',
+        'systemDiskSize'                  => 'SystemDiskSize',
+        'systemDiskType'                  => 'SystemDiskType',
+        'vSwitchId'                       => 'VSwitchId',
+        'zoneId'                          => 'ZoneId',
     ];
 
     public function validate()
@@ -215,6 +289,12 @@ class AddNodesRequest extends Model
         }
         if (null !== $this->computeEnableHt) {
             $res['ComputeEnableHt'] = $this->computeEnableHt;
+        }
+        if (null !== $this->computeSpotDuration) {
+            $res['ComputeSpotDuration'] = $this->computeSpotDuration;
+        }
+        if (null !== $this->computeSpotInterruptionBehavior) {
+            $res['ComputeSpotInterruptionBehavior'] = $this->computeSpotInterruptionBehavior;
         }
         if (null !== $this->computeSpotPriceLimit) {
             $res['ComputeSpotPriceLimit'] = $this->computeSpotPriceLimit;
@@ -323,6 +403,12 @@ class AddNodesRequest extends Model
         }
         if (isset($map['ComputeEnableHt'])) {
             $model->computeEnableHt = $map['ComputeEnableHt'];
+        }
+        if (isset($map['ComputeSpotDuration'])) {
+            $model->computeSpotDuration = $map['ComputeSpotDuration'];
+        }
+        if (isset($map['ComputeSpotInterruptionBehavior'])) {
+            $model->computeSpotInterruptionBehavior = $map['ComputeSpotInterruptionBehavior'];
         }
         if (isset($map['ComputeSpotPriceLimit'])) {
             $model->computeSpotPriceLimit = $map['ComputeSpotPriceLimit'];

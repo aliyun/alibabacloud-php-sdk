@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class schedInfo extends Model
 {
     /**
+     * @example { 				"AclInfo": [ 					{ 						"AclEnable": false, 						"UntrackUser": [], 						"User": [], 						"QueueName": "workq" 					} 				], 				"JobHistory": "", 				"SchedIteration": "60", 				"QueueResource": [ 					{ 						"UntrackUser": [], 						"User": [], 						"QueueName": "workq" 					} 				] 			}
+     *
      * @var string
      */
     public $configuration;
 
     /**
+     * @example pbs
+     *
      * @var string
      */
     public $schedName;

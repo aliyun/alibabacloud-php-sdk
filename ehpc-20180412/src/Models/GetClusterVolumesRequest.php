@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetClusterVolumesRequest extends Model
 {
     /**
+     * @example ehpc-hz-gh5WKb****
+     *
      * @var string
      */
     public $clusterId;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceRequest extends Model
 {
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
@@ -20,11 +22,15 @@ class DescribePriceRequest extends Model
     public $commodities;
 
     /**
+     * @example INSTANCE-BUY
+     *
      * @var string
      */
     public $orderType;
 
     /**
+     * @example Hour
+     *
      * @var string
      */
     public $priceUnit;

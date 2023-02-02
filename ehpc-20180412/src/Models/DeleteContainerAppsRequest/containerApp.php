@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class containerApp extends Model
 {
     /**
+     * @example ehpc-container-ABDUGSkjs****
+     *
      * @var string
      */
     public $id;

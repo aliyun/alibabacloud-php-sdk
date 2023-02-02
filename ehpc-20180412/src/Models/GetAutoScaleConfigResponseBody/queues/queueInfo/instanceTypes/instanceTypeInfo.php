@@ -19,6 +19,16 @@ class instanceTypeInfo extends Model
     public $instanceType;
 
     /**
+     * @var int
+     */
+    public $spotDuration;
+
+    /**
+     * @var string
+     */
+    public $spotInterruptionBehavior;
+
+    /**
      * @var float
      */
     public $spotPriceLimit;
@@ -38,12 +48,14 @@ class instanceTypeInfo extends Model
      */
     public $zoneId;
     protected $_name = [
-        'hostNamePrefix' => 'HostNamePrefix',
-        'instanceType'   => 'InstanceType',
-        'spotPriceLimit' => 'SpotPriceLimit',
-        'spotStrategy'   => 'SpotStrategy',
-        'vSwitchId'      => 'VSwitchId',
-        'zoneId'         => 'ZoneId',
+        'hostNamePrefix'           => 'HostNamePrefix',
+        'instanceType'             => 'InstanceType',
+        'spotDuration'             => 'SpotDuration',
+        'spotInterruptionBehavior' => 'SpotInterruptionBehavior',
+        'spotPriceLimit'           => 'SpotPriceLimit',
+        'spotStrategy'             => 'SpotStrategy',
+        'vSwitchId'                => 'VSwitchId',
+        'zoneId'                   => 'ZoneId',
     ];
 
     public function validate()
@@ -58,6 +70,12 @@ class instanceTypeInfo extends Model
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->spotDuration) {
+            $res['SpotDuration'] = $this->spotDuration;
+        }
+        if (null !== $this->spotInterruptionBehavior) {
+            $res['SpotInterruptionBehavior'] = $this->spotInterruptionBehavior;
         }
         if (null !== $this->spotPriceLimit) {
             $res['SpotPriceLimit'] = $this->spotPriceLimit;
@@ -88,6 +106,12 @@ class instanceTypeInfo extends Model
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['SpotDuration'])) {
+            $model->spotDuration = $map['SpotDuration'];
+        }
+        if (isset($map['SpotInterruptionBehavior'])) {
+            $model->spotInterruptionBehavior = $map['SpotInterruptionBehavior'];
         }
         if (isset($map['SpotPriceLimit'])) {
             $model->spotPriceLimit = $map['SpotPriceLimit'];

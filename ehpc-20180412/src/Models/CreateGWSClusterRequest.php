@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class CreateGWSClusterRequest extends Model
 {
     /**
+     * @example gws.s1.standard
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @example TestGWS
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example vsw-bp1lfcjbfb099rrjn****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description VPC ID。
+     *
+     * @example vpc-bp1se4wjbp0760yju****
+     *
      * @var string
      */
     public $vpcId;

@@ -9,86 +9,120 @@ use AlibabaCloud\Tea\Model;
 class CreateGWSInstanceRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $allocatePublicAddress;
 
     /**
+     * @example [{AppName: notepad},{AppArgs:c:/temp.txt}]
+     *
      * @var string
      */
     public $appList;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @example gws-rhzxpazwebua****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example ehs-faeid-****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example Postpaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @example ecs.g6.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example PayByTraffic
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example 122
+     *
      * @var int
      */
     public $internetMaxBandwidthIn;
 
     /**
+     * @example 122
+     *
      * @var int
      */
     public $internetMaxBandwidthOut;
 
     /**
+     * @example Test-ehpc
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @example cloud
+     *
      * @var string
      */
     public $systemDiskCategory;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $systemDiskSize;
 
     /**
+     * @example vsw-bp1gb5gf5546rn****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example Desktop
+     *
      * @var string
      */
     public $workMode;

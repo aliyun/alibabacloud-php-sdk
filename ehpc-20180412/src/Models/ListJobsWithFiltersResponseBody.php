@@ -15,11 +15,15 @@ class ListJobsWithFiltersResponseBody extends Model
     public $jobs;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -30,11 +34,15 @@ class ListJobsWithFiltersResponseBody extends Model
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

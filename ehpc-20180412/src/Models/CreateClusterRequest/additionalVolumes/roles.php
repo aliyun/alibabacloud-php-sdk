@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class roles extends Model
 {
     /**
+     * @example ["Compute"]
+     *
      * @var string
      */
     public $name;

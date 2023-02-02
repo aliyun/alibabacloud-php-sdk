@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class imagegw extends Model
 {
     /**
+     * @example registry-1.docker.io
+     *
      * @var string
      */
     public $defaultImageLocation;
 
     /**
+     * @example 90:00:00
+     *
      * @var string
      */
     public $imageExpirationTimeout;
@@ -25,16 +29,22 @@ class imagegw extends Model
     public $locations;
 
     /**
+     * @example mongodb://localhost
+     *
      * @var string
      */
     public $mongoDBURI;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $pullUpdateTimeout;
 
     /**
+     * @example 2018-07-18T17:46:47
+     *
      * @var string
      */
     public $updateDateTime;

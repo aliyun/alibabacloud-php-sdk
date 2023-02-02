@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class softwareList extends Model
 {
     /**
+     * @example MPICH_3.2
+     *
      * @var string
      */
     public $softwareId;
 
     /**
+     * @example mpich
+     *
      * @var string
      */
     public $softwareName;
 
     /**
+     * @example Installing
+     *
      * @var string
      */
     public $softwareStatus;
 
     /**
+     * @example 3.2
+     *
      * @var string
      */
     public $softwareVersion;

@@ -16,26 +16,36 @@ class queues extends Model
     public $dataDisks;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableAutoGrow;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableAutoShrink;
 
     /**
+     * @example compute
+     *
      * @var string
      */
     public $hostNamePrefix;
 
     /**
+     * @example 000
+     *
      * @var string
      */
     public $hostNameSuffix;
 
     /**
+     * @example ecs.n1.medium
+     *
      * @var string
      */
     public $instanceType;
@@ -46,56 +56,78 @@ class queues extends Model
     public $instanceTypes;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $maxNodesInQueue;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxNodesPerCycle;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $minNodesInQueue;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $minNodesPerCycle;
 
     /**
+     * @example centos_7_03_64_20G_alibase_201708****
+     *
      * @var string
      */
     public $queueImageId;
 
     /**
+     * @example cluster1
+     *
      * @var string
      */
     public $queueName;
 
     /**
+     * @example 0.662
+     *
      * @var float
      */
     public $spotPriceLimit;
 
     /**
+     * @example NoSpot
+     *
      * @var string
      */
     public $spotStrategy;
 
     /**
+     * @example cloud_efficiency
+     *
      * @var string
      */
     public $systemDiskCategory;
 
     /**
+     * @example PL1
+     *
      * @var string
      */
     public $systemDiskLevel;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $systemDiskSize;

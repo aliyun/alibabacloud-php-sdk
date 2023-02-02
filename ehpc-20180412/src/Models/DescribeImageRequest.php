@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageRequest extends Model
 {
     /**
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example singularity
+     *
      * @var string
      */
     public $containerType;
 
     /**
+     * @example latest
+     *
      * @var string
      */
     public $imageTag;
 
     /**
+     * @example repo1
+     *
      * @var string
      */
     public $repository;

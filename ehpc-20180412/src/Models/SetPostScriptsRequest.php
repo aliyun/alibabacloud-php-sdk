@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SetPostScriptsRequest extends Model
 {
     /**
+     * @example ehpc-sh-EnjshUxn
+     *
      * @var string
      */
     public $clusterId;
@@ -20,6 +22,8 @@ class SetPostScriptsRequest extends Model
     public $postInstallScripts;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;

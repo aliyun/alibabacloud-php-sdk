@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class user extends Model
 {
     /**
+     * @example users
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @example user11
+     *
      * @var string
      */
     public $name;

@@ -15,21 +15,29 @@ class ListCommandsResponseBody extends Model
     public $commands;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 04F0F334-1335-436C-A1D7-6C044FE7****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

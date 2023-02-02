@@ -16,31 +16,43 @@ class queueInfo extends Model
     public $computeInstanceType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableAutoGrow;
 
     /**
+     * @example compute
+     *
      * @var string
      */
     public $hostNamePrefix;
 
     /**
+     * @example 01
+     *
      * @var string
      */
     public $hostNameSuffix;
 
     /**
+     * @example centos_7_06_64_20G_alibase_20****.vhd
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example workq
+     *
      * @var string
      */
     public $queueName;
 
     /**
+     * @example rg-acfmxp7uc24****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -51,11 +63,15 @@ class queueInfo extends Model
     public $spotInstanceTypes;
 
     /**
+     * @example SpotWithPriceLimit
+     *
      * @var string
      */
     public $spotStrategy;
 
     /**
+     * @example Execution
+     *
      * @var string
      */
     public $type;

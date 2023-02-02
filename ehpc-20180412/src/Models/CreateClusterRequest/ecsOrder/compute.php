@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class compute extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example ecs.n1.tiny
+     *
      * @var string
      */
     public $instanceType;

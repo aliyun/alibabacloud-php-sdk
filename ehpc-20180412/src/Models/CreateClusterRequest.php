@@ -19,6 +19,8 @@ class CreateClusterRequest extends Model
     public $ecsOrder;
 
     /**
+     * @example nis
+     *
      * @var string
      */
     public $accountType;
@@ -34,131 +36,183 @@ class CreateClusterRequest extends Model
     public $application;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $autoRenew;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $autoRenewPeriod;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example 1.0.64
+     *
      * @var string
      */
     public $clientVersion;
 
     /**
+     * @example 1.0
+     *
      * @var string
      */
     public $clusterVersion;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $computeEnableHt;
 
     /**
+     * @example 0.034
+     *
      * @var string
      */
     public $computeSpotPriceLimit;
 
     /**
+     * @example NoSpot
+     *
      * @var string
      */
     public $computeSpotStrategy;
 
     /**
+     * @example Simple
+     *
      * @var string
      */
     public $deployMode;
 
     /**
+     * @example TestDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example ldap
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $ecsChargeType;
 
     /**
+     * @example 1.0.0
+     *
      * @var string
      */
     public $ehpcVersion;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $haEnable;
 
     /**
+     * @example centos_7_02_64_20G_alibase_20170818****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example self
+     *
      * @var string
      */
     public $imageOwnerAlias;
 
     /**
+     * @example https://ehpc-tianshui.oss-cn-beijing.aliyuncs.com/test-u****\/testlist_ehpc.sh
+     *
      * @var string
      */
     public $inputFileUrl;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isComputeEss;
 
     /**
+     * @example workq
+     *
      * @var string
      */
     public $jobQueue;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example CentOS_7.2_64
+     *
      * @var string
      */
     public $osTag;
 
     /**
+     * @example 123****
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example Year
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @example \"{"pluginMod": "oss","pluginLocalPath": "/opt/plugin","pluginOssPath": "https://bucket.oss-cn-hangzhou.aliyuncs.com/plugin/plugin.tgz"}\"
+     *
      * @var string
      */
     public $plugin;
@@ -174,56 +228,78 @@ class CreateClusterRequest extends Model
     public $ramNodeTypes;
 
     /**
+     * @example testRamRoleName
+     *
      * @var string
      */
     public $ramRoleName;
 
     /**
+     * @example NasMountpoint:/RemoteDirectory
+     *
      * @var string
      */
     public $remoteDirectory;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $remoteVisEnable;
 
     /**
+     * @example rg-acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 00b648b****
+     *
      * @var string
      */
     public $sccClusterId;
 
     /**
+     * @example pbs
+     *
      * @var string
      */
     public $schedulerType;
 
     /**
+     * @example sg-bp13n61xsydodfyg****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example ehpc-SecurityGroup
+     *
      * @var string
      */
     public $securityGroupName;
 
     /**
+     * @example PL0
+     *
      * @var string
      */
     public $systemDiskLevel;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $systemDiskSize;
 
     /**
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $systemDiskType;
@@ -234,51 +310,71 @@ class CreateClusterRequest extends Model
     public $tag;
 
     /**
+     * @example vsw-bp1lfcjbfb099rrjn****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example 008b64****
+     *
      * @var string
      */
     public $volumeId;
 
     /**
+     * @example -t nfs -o vers=4
+     *
      * @var string
      */
     public $volumeMountOption;
 
     /**
+     * @example 008b648bcb-s****.cn-hangzhou.nas.aliyuncs.com
+     *
      * @var string
      */
     public $volumeMountpoint;
 
     /**
+     * @example NFS
+     *
      * @var string
      */
     public $volumeProtocol;
 
     /**
+     * @example nas
+     *
      * @var string
      */
     public $volumeType;
 
     /**
+     * @example vpc-b3f3edefefeep0760yju****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $withoutAgent;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $withoutElasticIp;
 
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

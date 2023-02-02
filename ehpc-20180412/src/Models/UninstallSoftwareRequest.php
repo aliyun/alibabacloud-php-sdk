@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UninstallSoftwareRequest extends Model
 {
     /**
+     * @example ABYSS_2.1.5
+     *
      * @var string
      */
     public $application;
 
     /**
+     * @example ehpc-hz-jeJki6****
+     *
      * @var string
      */
     public $clusterId;

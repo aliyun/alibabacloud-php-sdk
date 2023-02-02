@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AddSecurityGroupRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example sg-bp13n61xsydodfyg****
+     *
      * @var string
      */
     public $securityGroupId;

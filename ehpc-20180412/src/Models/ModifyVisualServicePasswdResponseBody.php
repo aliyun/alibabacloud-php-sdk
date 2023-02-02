@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyVisualServicePasswdResponseBody extends Model
 {
     /**
+     * @example Service started.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 896D338C-E4F4-41EC-A154-D605E5DE6880
+     *
      * @var string
      */
     public $requestId;

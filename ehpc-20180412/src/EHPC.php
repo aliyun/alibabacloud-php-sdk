@@ -1918,10 +1918,12 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param DescribePriceRequest $request
-     * @param RuntimeOptions       $runtime
+     * ****
+     *   *
+     * @param DescribePriceRequest $request DescribePriceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePriceResponse
+     * @return DescribePriceResponse DescribePriceResponse
      */
     public function describePriceWithOptions($request, $runtime)
     {
@@ -1946,9 +1948,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param DescribePriceRequest $request
+     * ****
+     *   *
+     * @param DescribePriceRequest $request DescribePriceRequest
      *
-     * @return DescribePriceResponse
+     * @return DescribePriceResponse DescribePriceResponse
      */
     public function describePrice($request)
     {
