@@ -63,6 +63,9 @@ use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenECResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\SegmentOARAdvanceRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\SegmentOARRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\SegmentOARResponse;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\TargetVolumeSegmentAdvanceRequest;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\TargetVolumeSegmentRequest;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\TargetVolumeSegmentResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\TranslateMedRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\TranslateMedResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
@@ -242,14 +245,15 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp      = @$analyzeChestVesselReq->URLList[$i0];
+                    $tmp      = @$analyzeChestVesselReq->URLList[${$i0}];
                     $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0       = $i0 + 1;
                 }
             }
         }
+        $analyzeChestVesselResp = $this->analyzeChestVesselWithOptions($analyzeChestVesselReq, $runtime);
 
-        return $this->analyzeChestVesselWithOptions($analyzeChestVesselReq, $runtime);
+        return $analyzeChestVesselResp;
     }
 
     /**
@@ -382,14 +386,15 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp      = @$calcCACSReq->URLList[$i0];
+                    $tmp      = @$calcCACSReq->URLList[${$i0}];
                     $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0       = $i0 + 1;
                 }
             }
         }
+        $calcCACSResp = $this->calcCACSWithOptions($calcCACSReq, $runtime);
 
-        return $this->calcCACSWithOptions($calcCACSReq, $runtime);
+        return $calcCACSResp;
     }
 
     /**
@@ -652,14 +657,15 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp      = @$detectCovid19CadReq->URLList[$i0];
+                    $tmp      = @$detectCovid19CadReq->URLList[${$i0}];
                     $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0       = $i0 + 1;
                 }
             }
         }
+        $detectCovid19CadResp = $this->detectCovid19CadWithOptions($detectCovid19CadReq, $runtime);
 
-        return $this->detectCovid19CadWithOptions($detectCovid19CadReq, $runtime);
+        return $detectCovid19CadResp;
     }
 
     /**
@@ -1188,14 +1194,15 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp      = @$detectLungNoduleReq->URLList[$i0];
+                    $tmp      = @$detectLungNoduleReq->URLList[${$i0}];
                     $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0       = $i0 + 1;
                 }
             }
         }
+        $detectLungNoduleResp = $this->detectLungNoduleWithOptions($detectLungNoduleReq, $runtime);
 
-        return $this->detectLungNoduleWithOptions($detectLungNoduleReq, $runtime);
+        return $detectLungNoduleResp;
     }
 
     /**
@@ -1319,14 +1326,15 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp      = @$detectLymphReq->URLList[$i0];
+                    $tmp      = @$detectLymphReq->URLList[${$i0}];
                     $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0       = $i0 + 1;
                 }
             }
         }
+        $detectLymphResp = $this->detectLymphWithOptions($detectLymphReq, $runtime);
 
-        return $this->detectLymphWithOptions($detectLymphReq, $runtime);
+        return $detectLymphResp;
     }
 
     /**
@@ -1450,14 +1458,15 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp      = @$detectPancReq->URLList[$i0];
+                    $tmp      = @$detectPancReq->URLList[${$i0}];
                     $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0       = $i0 + 1;
                 }
             }
         }
+        $detectPancResp = $this->detectPancWithOptions($detectPancReq, $runtime);
 
-        return $this->detectPancWithOptions($detectPancReq, $runtime);
+        return $detectPancResp;
     }
 
     /**
@@ -1590,14 +1599,15 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp      = @$detectRibFractureReq->URLList[$i0];
+                    $tmp      = @$detectRibFractureReq->URLList[${$i0}];
                     $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0       = $i0 + 1;
                 }
             }
         }
+        $detectRibFractureResp = $this->detectRibFractureWithOptions($detectRibFractureReq, $runtime);
 
-        return $this->detectRibFractureWithOptions($detectRibFractureReq, $runtime);
+        return $detectRibFractureResp;
     }
 
     /**
@@ -1854,14 +1864,15 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp      = @$detectSpineMRIReq->URLList[$i0];
+                    $tmp      = @$detectSpineMRIReq->URLList[${$i0}];
                     $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0       = $i0 + 1;
                 }
             }
         }
+        $detectSpineMRIResp = $this->detectSpineMRIWithOptions($detectSpineMRIReq, $runtime);
 
-        return $this->detectSpineMRIWithOptions($detectSpineMRIReq, $runtime);
+        return $detectSpineMRIResp;
     }
 
     /**
@@ -2086,7 +2097,7 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp              = @$runCTRegistrationReq->floatingList[$i0];
+                    $tmp              = @$runCTRegistrationReq->floatingList[${$i0}];
                     $tmp->floatingURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0               = $i0 + 1;
                 }
@@ -2118,14 +2129,15 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp               = @$runCTRegistrationReq->referenceList[$i1];
+                    $tmp               = @$runCTRegistrationReq->referenceList[${$i1}];
                     $tmp->referenceURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i1                = $i1 + 1;
                 }
             }
         }
+        $runCTRegistrationResp = $this->runCTRegistrationWithOptions($runCTRegistrationReq, $runtime);
 
-        return $this->runCTRegistrationWithOptions($runCTRegistrationReq, $runtime);
+        return $runCTRegistrationResp;
     }
 
     /**
@@ -2267,14 +2279,15 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp                 = @$runMedQAReq->answerImageURLList[$i0];
+                    $tmp                 = @$runMedQAReq->answerImageURLList[${$i0}];
                     $tmp->answerImageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0                  = $i0 + 1;
                 }
             }
         }
+        $runMedQAResp = $this->runMedQAWithOptions($runMedQAReq, $runtime);
 
-        return $this->runMedQAWithOptions($runMedQAReq, $runtime);
+        return $runMedQAResp;
     }
 
     /**
@@ -2410,14 +2423,15 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp      = @$screenChestCTReq->URLList[$i0];
+                    $tmp      = @$screenChestCTReq->URLList[${$i0}];
                     $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0       = $i0 + 1;
                 }
             }
         }
+        $screenChestCTResp = $this->screenChestCTWithOptions($screenChestCTReq, $runtime);
 
-        return $this->screenChestCTWithOptions($screenChestCTReq, $runtime);
+        return $screenChestCTResp;
     }
 
     /**
@@ -2602,14 +2616,159 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp      = @$segmentOARReq->URLList[$i0];
+                    $tmp      = @$segmentOARReq->URLList[${$i0}];
                     $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0       = $i0 + 1;
                 }
             }
         }
+        $segmentOARResp = $this->segmentOARWithOptions($segmentOARReq, $runtime);
 
-        return $this->segmentOARWithOptions($segmentOARReq, $runtime);
+        return $segmentOARResp;
+    }
+
+    /**
+     * @param TargetVolumeSegmentRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return TargetVolumeSegmentResponse
+     */
+    public function targetVolumeSegmentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->cancerType)) {
+            $body['CancerType'] = $request->cancerType;
+        }
+        if (!Utils::isUnset($request->dataFormat)) {
+            $body['DataFormat'] = $request->dataFormat;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $body['OrgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->orgName)) {
+            $body['OrgName'] = $request->orgName;
+        }
+        if (!Utils::isUnset($request->targetVolumeType)) {
+            $body['TargetVolumeType'] = $request->targetVolumeType;
+        }
+        if (!Utils::isUnset($request->URLList)) {
+            $body['URLList'] = $request->URLList;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TargetVolumeSegment',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TargetVolumeSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TargetVolumeSegmentRequest $request
+     *
+     * @return TargetVolumeSegmentResponse
+     */
+    public function targetVolumeSegment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->targetVolumeSegmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TargetVolumeSegmentAdvanceRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return TargetVolumeSegmentResponse
+     */
+    public function targetVolumeSegmentAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'imageprocess',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $targetVolumeSegmentReq = new TargetVolumeSegmentRequest([]);
+        OpenApiUtilClient::convert($request, $targetVolumeSegmentReq);
+        if (!Utils::isUnset($request->URLList)) {
+            $i0 = 0;
+            foreach ($request->URLList as $item0) {
+                if (!Utils::isUnset($item0->URLObject)) {
+                    $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+                    $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+                    $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+                    $ossClient              = new OSS($ossConfig);
+                    $fileObj                = new FileField([
+                        'filename'    => $authResponse->body->objectKey,
+                        'content'     => $item0->URLObject,
+                        'contentType' => '',
+                    ]);
+                    $ossHeader = new header([
+                        'accessKeyId'         => $authResponse->body->accessKeyId,
+                        'policy'              => $authResponse->body->encodedPolicy,
+                        'signature'           => $authResponse->body->signature,
+                        'key'                 => $authResponse->body->objectKey,
+                        'file'                => $fileObj,
+                        'successActionStatus' => '201',
+                    ]);
+                    $uploadRequest = new PostObjectRequest([
+                        'bucketName' => $authResponse->body->bucket,
+                        'header'     => $ossHeader,
+                    ]);
+                    $ossClient->postObject($uploadRequest, $ossRuntime);
+                    $tmp      = @$targetVolumeSegmentReq->URLList[${$i0}];
+                    $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                    $i0       = $i0 + 1;
+                }
+            }
+        }
+        $targetVolumeSegmentResp = $this->targetVolumeSegmentWithOptions($targetVolumeSegmentReq, $runtime);
+
+        return $targetVolumeSegmentResp;
     }
 
     /**
