@@ -72,6 +72,8 @@ class DBInstance extends Model
     /**
      * @description The name of the instance.
      *
+     * @example my mongodb.
+     *
      * @var string
      */
     public $DBInstanceDescription;
@@ -126,6 +128,16 @@ class DBInstance extends Model
      * @var string
      */
     public $DBInstanceType;
+
+    /**
+     * @description The time when the instance data was destroyed. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * > - Pay-as-you-go instances are locked after the payments have been overdue for longer than 24 hours. The instances are released after the payments have been overdue for longer than 15 days. The data of released instances is deleted and cannot be restored.
+     * @example 2021-12-10T16:00:00Z
+     *
+     * @var string
+     */
+    public $destroyTime;
 
     /**
      * @description The database engine of the instance.
@@ -417,6 +429,18 @@ class DBInstance extends Model
     public $storageEngine;
 
     /**
+     * @description The storage type of the instance. Valid values:
+     *
+     *   **cloud_essd**: enhanced SSD (ESSD)
+     *   **local_ssd**: local SSD
+     *
+     * @example cloud_essd1
+     *
+     * @var string
+     */
+    public $storageType;
+
+    /**
      * @description Details of the instance tags.
      *
      * @var tags
@@ -486,6 +510,7 @@ class DBInstance extends Model
         'DBInstanceStatus'            => 'DBInstanceStatus',
         'DBInstanceStorage'           => 'DBInstanceStorage',
         'DBInstanceType'              => 'DBInstanceType',
+        'destroyTime'                 => 'DestroyTime',
         'engine'                      => 'Engine',
         'engineVersion'               => 'EngineVersion',
         'expireTime'                  => 'ExpireTime',
@@ -510,6 +535,7 @@ class DBInstance extends Model
         'secondaryZoneId'             => 'SecondaryZoneId',
         'shardList'                   => 'ShardList',
         'storageEngine'               => 'StorageEngine',
+        'storageType'                 => 'StorageType',
         'tags'                        => 'Tags',
         'VPCCloudInstanceIds'         => 'VPCCloudInstanceIds',
         'VPCId'                       => 'VPCId',
@@ -560,6 +586,9 @@ class DBInstance extends Model
         }
         if (null !== $this->DBInstanceType) {
             $res['DBInstanceType'] = $this->DBInstanceType;
+        }
+        if (null !== $this->destroyTime) {
+            $res['DestroyTime'] = $this->destroyTime;
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
@@ -633,6 +662,9 @@ class DBInstance extends Model
         if (null !== $this->storageEngine) {
             $res['StorageEngine'] = $this->storageEngine;
         }
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
+        }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
@@ -698,6 +730,9 @@ class DBInstance extends Model
         }
         if (isset($map['DBInstanceType'])) {
             $model->DBInstanceType = $map['DBInstanceType'];
+        }
+        if (isset($map['DestroyTime'])) {
+            $model->destroyTime = $map['DestroyTime'];
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
@@ -770,6 +805,9 @@ class DBInstance extends Model
         }
         if (isset($map['StorageEngine'])) {
             $model->storageEngine = $map['StorageEngine'];
+        }
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);

@@ -33,6 +33,8 @@ class zone extends Model
      * @description The name of the zone.
      *
      * The return value of the LocalName parameter is in the language that is specified by the **AcceptLanguage** parameter.
+     * @example Hangzhou Zone H
+     *
      * @var string
      */
     public $zoneName;

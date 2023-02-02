@@ -11,10 +11,10 @@ class TransformInstanceChargeTypeRequest extends Model
     /**
      * @description Specifies whether to enable automatic payment. Valid values:
      *
-     *   **true**: enables automatic payment.
-     *   **false**: disables automatic payment. For more information, see [Renew an ApsaraDB for MongoDB subscription instance](~~85052~~).
+     *   **true**
+     *   **false**
      *
-     * >  Default value: **true**.
+     * > The default value is **true**.
      * @example true
      *
      * @var bool
@@ -27,7 +27,7 @@ class TransformInstanceChargeTypeRequest extends Model
      *   **true**
      *   **false**
      *
-     * >  Default value: **false**.
+     * > The default value is **false**.
      * @example false
      *
      * @var string
@@ -46,10 +46,9 @@ class TransformInstanceChargeTypeRequest extends Model
     /**
      * @description The billing method of the instance. Valid values:
      *
-     *   **PostPaid: pay-as-you-go.**
      *   **PrePaid**: subscription
+     *   **PostPaid**: pay-as-you-go
      *
-     * >  If you specify this parameter to **PrePaid**, you must also specify the **Period** parameter.
      * @example PrePaid
      *
      * @var string
@@ -66,9 +65,9 @@ class TransformInstanceChargeTypeRequest extends Model
     public $couponNo;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance
      *
-     * @example dds-bpxxxxxxxx
+     * @example dds-2ze55b3ec56c****
      *
      * @var string
      */
@@ -85,11 +84,8 @@ class TransformInstanceChargeTypeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The subscription period of the instance. Unit: months.
+     * @description The subscription duration of the instance. Unit: months. Valid values: **1, 2, 3, 4, 5, 6, 7, 8, 9******, **12**, **24**, and **36**.
      *
-     * Valid values: **1** to **9**, **12**, **24**, **36**, and **60**.
-     *
-     * >  If you set the ChargeType property to PrePaid, you must configure this property.
      * @example 1
      *
      * @var int

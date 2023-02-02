@@ -15,6 +15,8 @@ class tag extends Model
      * It can be up to 64 characters in length.
      * The key cannot be an empty string.
      *
+     * @example env
+     *
      * @var string
      */
     public $key;
@@ -23,6 +25,8 @@ class tag extends Model
      * @description The value of tag.
      *
      * - The value can be an empty string.
+     * @example test
+     *
      * @var string
      */
     public $value;

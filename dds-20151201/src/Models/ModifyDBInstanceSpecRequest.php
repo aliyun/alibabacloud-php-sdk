@@ -81,6 +81,11 @@ class ModifyDBInstanceSpecRequest extends Model
     public $effectiveTime;
 
     /**
+     * @var string
+     */
+    public $extraParam;
+
+    /**
      * @description The type of the modification. Valid values:
      *
      *   **UPGRADE**
@@ -150,6 +155,7 @@ class ModifyDBInstanceSpecRequest extends Model
         'DBInstanceId'         => 'DBInstanceId',
         'DBInstanceStorage'    => 'DBInstanceStorage',
         'effectiveTime'        => 'EffectiveTime',
+        'extraParam'           => 'ExtraParam',
         'orderType'            => 'OrderType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -187,6 +193,9 @@ class ModifyDBInstanceSpecRequest extends Model
         }
         if (null !== $this->effectiveTime) {
             $res['EffectiveTime'] = $this->effectiveTime;
+        }
+        if (null !== $this->extraParam) {
+            $res['ExtraParam'] = $this->extraParam;
         }
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
@@ -244,6 +253,9 @@ class ModifyDBInstanceSpecRequest extends Model
         }
         if (isset($map['EffectiveTime'])) {
             $model->effectiveTime = $map['EffectiveTime'];
+        }
+        if (isset($map['ExtraParam'])) {
+            $model->extraParam = $map['ExtraParam'];
         }
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];

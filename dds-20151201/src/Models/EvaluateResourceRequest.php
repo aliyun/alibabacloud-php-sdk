@@ -135,6 +135,11 @@ class EvaluateResourceRequest extends Model
     public $shardsInfo;
 
     /**
+     * @var string
+     */
+    public $storage;
+
+    /**
      * @description The zone ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-h
@@ -156,6 +161,7 @@ class EvaluateResourceRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityToken'        => 'SecurityToken',
         'shardsInfo'           => 'ShardsInfo',
+        'storage'              => 'Storage',
         'zoneId'               => 'ZoneId',
     ];
 
@@ -204,6 +210,9 @@ class EvaluateResourceRequest extends Model
         }
         if (null !== $this->shardsInfo) {
             $res['ShardsInfo'] = $this->shardsInfo;
+        }
+        if (null !== $this->storage) {
+            $res['Storage'] = $this->storage;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -258,6 +267,9 @@ class EvaluateResourceRequest extends Model
         }
         if (isset($map['ShardsInfo'])) {
             $model->shardsInfo = $map['ShardsInfo'];
+        }
+        if (isset($map['Storage'])) {
+            $model->storage = $map['Storage'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];

@@ -22,6 +22,8 @@ class ddsRegion extends Model
      * @description The name of the region.
      *
      * The return value of the LocalName parameter is in the language that is specified by the **AcceptLanguage** parameter.
+     * @example China (Hangzhou)
+     *
      * @var string
      */
     public $regionName;

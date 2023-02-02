@@ -66,8 +66,6 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstanceSSLRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstanceSSLResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstanceTDEInfoRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstanceTDEInfoResponse;
-use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDedicatedClusterInstanceListRequest;
-use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDedicatedClusterInstanceListResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeErrorLogRecordsRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeErrorLogRecordsResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeInstanceAutoRenewalAttributeRequest;
@@ -2590,94 +2588,6 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDedicatedClusterInstanceListRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return DescribeDedicatedClusterInstanceListResponse
-     */
-    public function describeDedicatedClusterInstanceListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
-        }
-        if (!Utils::isUnset($request->dedicatedHostName)) {
-            $query['DedicatedHostName'] = $request->dedicatedHostName;
-        }
-        if (!Utils::isUnset($request->engine)) {
-            $query['Engine'] = $request->engine;
-        }
-        if (!Utils::isUnset($request->engineVersion)) {
-            $query['EngineVersion'] = $request->engineVersion;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->instanceNetType)) {
-            $query['InstanceNetType'] = $request->instanceNetType;
-        }
-        if (!Utils::isUnset($request->instanceStatus)) {
-            $query['InstanceStatus'] = $request->instanceStatus;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDedicatedClusterInstanceList',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeDedicatedClusterInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDedicatedClusterInstanceListRequest $request
-     *
-     * @return DescribeDedicatedClusterInstanceListResponse
-     */
-    public function describeDedicatedClusterInstanceList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDedicatedClusterInstanceListWithOptions($request, $runtime);
-    }
-
-    /**
      * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
      *   * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
      *   *
@@ -4123,6 +4033,9 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->shardsInfo)) {
             $query['ShardsInfo'] = $request->shardsInfo;
         }
+        if (!Utils::isUnset($request->storage)) {
+            $query['Storage'] = $request->storage;
+        }
         if (!Utils::isUnset($request->zoneId)) {
             $query['ZoneId'] = $request->zoneId;
         }
@@ -5190,6 +5103,9 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->effectiveTime)) {
             $query['EffectiveTime'] = $request->effectiveTime;
+        }
+        if (!Utils::isUnset($request->extraParam)) {
+            $query['ExtraParam'] = $request->extraParam;
         }
         if (!Utils::isUnset($request->orderType)) {
             $query['OrderType'] = $request->orderType;
@@ -6517,12 +6433,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Please ensure that you have fully understood the charging method and [Price](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of MongoDB products before using this API.
-     *   * When calling this interface, the instance must meet the following conditions:
-     *   * - The instance status is Running.
-     *   * - The instance does not have a conversion payment type order that has not been paid.
-     *   * - The instance type cannot be a historical type (no longer sold). For the list of historical types, see [Instance Type Table](~~57141~~).
-     *   * > To convert the payment type of the historical type instance, first call the [ModifyDBInstanceSpec] (~~61816~~) or [ModifyNodeSpec] (~~61923~~) interface to change the instance type.
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail) of ApsaraDB for MongoDB.
+     *   * Before you call this API operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
+     *   * *   The instance is in the Running state.
+     *   * *   Your instance has no unpaid billing method change orders.
+     *   * *   The instance type is available for purchase. For more information about unavailable instance types, see [Instance types](~~57141~~).
+     *   * > To change the billing method of an instance whose instance type is no longer available to purchase, call the [ModifyDBInstanceSpec](~~61816~~) or [ModifyNodeSpec](~~61923~~) operation to first change the instance type.
      *   *
      * @param TransformInstanceChargeTypeRequest $request TransformInstanceChargeTypeRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -6588,12 +6504,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Please ensure that you have fully understood the charging method and [Price](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of MongoDB products before using this API.
-     *   * When calling this interface, the instance must meet the following conditions:
-     *   * - The instance status is Running.
-     *   * - The instance does not have a conversion payment type order that has not been paid.
-     *   * - The instance type cannot be a historical type (no longer sold). For the list of historical types, see [Instance Type Table](~~57141~~).
-     *   * > To convert the payment type of the historical type instance, first call the [ModifyDBInstanceSpec] (~~61816~~) or [ModifyNodeSpec] (~~61923~~) interface to change the instance type.
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail) of ApsaraDB for MongoDB.
+     *   * Before you call this API operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
+     *   * *   The instance is in the Running state.
+     *   * *   Your instance has no unpaid billing method change orders.
+     *   * *   The instance type is available for purchase. For more information about unavailable instance types, see [Instance types](~~57141~~).
+     *   * > To change the billing method of an instance whose instance type is no longer available to purchase, call the [ModifyDBInstanceSpec](~~61816~~) or [ModifyNodeSpec](~~61923~~) operation to first change the instance type.
      *   *
      * @param TransformInstanceChargeTypeRequest $request TransformInstanceChargeTypeRequest
      *
@@ -6698,8 +6614,8 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * > * You can unbind up to 20 tags at a time.
-     *   * > * When a tag is unbound from all instances, the tag is automatically deleted.
+     * - You can remove up to 20 tags at a time.
+     *   * - If you remove a tag from all instances, the tag is automatically deleted.
      *   *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -6759,8 +6675,8 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * > * You can unbind up to 20 tags at a time.
-     *   * > * When a tag is unbound from all instances, the tag is automatically deleted.
+     * - You can remove up to 20 tags at a time.
+     *   * - If you remove a tag from all instances, the tag is automatically deleted.
      *   *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      *
