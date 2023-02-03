@@ -33,6 +33,11 @@ use AlibabaCloud\SDK\Imageenhan\V20190930\Models\ExtendImageStyleResponse;
 use AlibabaCloud\SDK\Imageenhan\V20190930\Models\GenerateDynamicImageAdvanceRequest;
 use AlibabaCloud\SDK\Imageenhan\V20190930\Models\GenerateDynamicImageRequest;
 use AlibabaCloud\SDK\Imageenhan\V20190930\Models\GenerateDynamicImageResponse;
+use AlibabaCloud\SDK\Imageenhan\V20190930\Models\GenerateImageWithTextAndImageAdvanceRequest;
+use AlibabaCloud\SDK\Imageenhan\V20190930\Models\GenerateImageWithTextAndImageRequest;
+use AlibabaCloud\SDK\Imageenhan\V20190930\Models\GenerateImageWithTextAndImageResponse;
+use AlibabaCloud\SDK\Imageenhan\V20190930\Models\GenerateImageWithTextRequest;
+use AlibabaCloud\SDK\Imageenhan\V20190930\Models\GenerateImageWithTextResponse;
 use AlibabaCloud\SDK\Imageenhan\V20190930\Models\GetAsyncJobResultRequest;
 use AlibabaCloud\SDK\Imageenhan\V20190930\Models\GetAsyncJobResultResponse;
 use AlibabaCloud\SDK\Imageenhan\V20190930\Models\ImageBlindCharacterWatermarkAdvanceRequest;
@@ -1267,6 +1272,191 @@ class Imageenhan extends OpenApiClient
         }
 
         return $this->generateDynamicImageWithOptions($generateDynamicImageReq, $runtime);
+    }
+
+    /**
+     * @param GenerateImageWithTextRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GenerateImageWithTextResponse
+     */
+    public function generateImageWithTextWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->number)) {
+            $body['Number'] = $request->number;
+        }
+        if (!Utils::isUnset($request->resolution)) {
+            $body['Resolution'] = $request->resolution;
+        }
+        if (!Utils::isUnset($request->text)) {
+            $body['Text'] = $request->text;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateImageWithText',
+            'version'     => '2019-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenerateImageWithTextResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GenerateImageWithTextRequest $request
+     *
+     * @return GenerateImageWithTextResponse
+     */
+    public function generateImageWithText($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateImageWithTextWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GenerateImageWithTextAndImageRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GenerateImageWithTextAndImageResponse
+     */
+    public function generateImageWithTextAndImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->aspectRatioMode)) {
+            $body['AspectRatioMode'] = $request->aspectRatioMode;
+        }
+        if (!Utils::isUnset($request->number)) {
+            $body['Number'] = $request->number;
+        }
+        if (!Utils::isUnset($request->refImageUrl)) {
+            $body['RefImageUrl'] = $request->refImageUrl;
+        }
+        if (!Utils::isUnset($request->resolution)) {
+            $body['Resolution'] = $request->resolution;
+        }
+        if (!Utils::isUnset($request->similarity)) {
+            $body['Similarity'] = $request->similarity;
+        }
+        if (!Utils::isUnset($request->text)) {
+            $body['Text'] = $request->text;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateImageWithTextAndImage',
+            'version'     => '2019-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenerateImageWithTextAndImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GenerateImageWithTextAndImageRequest $request
+     *
+     * @return GenerateImageWithTextAndImageResponse
+     */
+    public function generateImageWithTextAndImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateImageWithTextAndImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GenerateImageWithTextAndImageAdvanceRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return GenerateImageWithTextAndImageResponse
+     */
+    public function generateImageWithTextAndImageAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'imageenhan',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $generateImageWithTextAndImageReq = new GenerateImageWithTextAndImageRequest([]);
+        OpenApiUtilClient::convert($request, $generateImageWithTextAndImageReq);
+        if (!Utils::isUnset($request->refImageUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->body->objectKey,
+                'content'     => $request->refImageUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $generateImageWithTextAndImageReq->refImageUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+
+        return $this->generateImageWithTextAndImageWithOptions($generateImageWithTextAndImageReq, $runtime);
     }
 
     /**
