@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListMediaMarksResponseBody extends Model
 {
     /**
+     * @example ******b48fb04483915d4f2cd8******
+     *
      * @var string
      */
     public $mediaId;
@@ -19,6 +21,8 @@ class ListMediaMarksResponseBody extends Model
     public $mediaMarks;
 
     /**
+     * @example ******11-DB8D-4A9A-875B-275798******
+     *
      * @var string
      */
     public $requestId;

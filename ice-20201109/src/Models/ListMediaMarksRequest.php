@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListMediaMarksRequest extends Model
 {
     /**
+     * @example 411bed50018971edb60b0764a0ec6***
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @example mark-f82d*****4994b0915948ef7e16,mark-3d56d*****4c8fa9ae2a1f9e5d2d60
+     *
      * @var string
      */
     public $mediaMarkIds;

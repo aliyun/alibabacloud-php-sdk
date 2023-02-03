@@ -23,18 +23,14 @@ class SearchEditingProjectRequest extends Model
     public $endTime;
 
     /**
-     * @example 10
-     *
      * @var int
      */
-    public $maxResults;
+    public $pageNo;
 
     /**
-     * @example CBB6BC61D08
-     *
-     * @var string
+     * @var int
      */
-    public $nextToken;
+    public $pageSize;
 
     /**
      * @example EditingProject
@@ -73,8 +69,8 @@ class SearchEditingProjectRequest extends Model
     protected $_name = [
         'createSource' => 'CreateSource',
         'endTime'      => 'EndTime',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
+        'pageNo'       => 'PageNo',
+        'pageSize'     => 'PageSize',
         'projectType'  => 'ProjectType',
         'sortBy'       => 'SortBy',
         'startTime'    => 'StartTime',
@@ -95,11 +91,11 @@ class SearchEditingProjectRequest extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
         }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->projectType) {
             $res['ProjectType'] = $this->projectType;
@@ -134,11 +130,11 @@ class SearchEditingProjectRequest extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
         }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['ProjectType'])) {
             $model->projectType = $map['ProjectType'];

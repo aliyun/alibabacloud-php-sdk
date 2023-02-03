@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\AddEditingProjectMaterialsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddEditingProjectMaterialsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddFavoritePublicMediaRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddFavoritePublicMediaResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AddMediaMarksRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AddMediaMarksResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\BatchGetMediaInfosRequest;
@@ -69,6 +71,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLiveTranscodeTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLiveTranscodeTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaInfosRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaInfosResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaMarksRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaMarksResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeletePipelineRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeletePipelineResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeletePlayInfoRequest;
@@ -157,6 +161,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaMarksRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaMarksResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaProducingJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaProducingJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetPackageJobRequest;
@@ -177,6 +183,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetSystemTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetSystemTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTemplateMaterialsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTemplateMaterialsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetTemplateParamsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetTemplateParamsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobRequest;
@@ -215,6 +223,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaBasicInfosRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaBasicInfosResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaInfoJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaInfoJobsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaMarksRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaMarksResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPackageJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPackageJobsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPipelinesRequest;
@@ -335,6 +345,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLiveTranscodeTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLiveTranscodeTemplateShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaInfoResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaMarksRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaMarksResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdatePipelineRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdatePipelineResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateSmartJobRequest;
@@ -579,6 +591,52 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addFavoritePublicMediaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddMediaMarksRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddMediaMarksResponse
+     */
+    public function addMediaMarksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->mediaMarks)) {
+            $query['MediaMarks'] = $request->mediaMarks;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddMediaMarks',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddMediaMarksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddMediaMarksRequest $request
+     *
+     * @return AddMediaMarksResponse
+     */
+    public function addMediaMarks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addMediaMarksWithOptions($request, $runtime);
     }
 
     /**
@@ -1947,6 +2005,52 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteMediaInfosWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteMediaMarksRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteMediaMarksResponse
+     */
+    public function deleteMediaMarksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->mediaMarkIds)) {
+            $query['MediaMarkIds'] = $request->mediaMarkIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMediaMarks',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteMediaMarksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteMediaMarksRequest $request
+     *
+     * @return DeleteMediaMarksResponse
+     */
+    public function deleteMediaMarks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMediaMarksWithOptions($request, $runtime);
     }
 
     /**
@@ -4114,6 +4218,52 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param GetMediaMarksRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetMediaMarksResponse
+     */
+    public function getMediaMarksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->mediaMarkIds)) {
+            $query['MediaMarkIds'] = $request->mediaMarkIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMediaMarks',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMediaMarksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetMediaMarksRequest $request
+     *
+     * @return GetMediaMarksResponse
+     */
+    public function getMediaMarks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMediaMarksWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetMediaProducingJobRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -4599,6 +4749,46 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTemplateMaterialsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTemplateParamsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetTemplateParamsResponse
+     */
+    public function getTemplateParamsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTemplateParams',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTemplateParamsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTemplateParamsRequest $request
+     *
+     * @return GetTemplateParamsResponse
+     */
+    public function getTemplateParams($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTemplateParamsWithOptions($request, $runtime);
     }
 
     /**
@@ -5511,6 +5701,52 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listMediaInfoJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListMediaMarksRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListMediaMarksResponse
+     */
+    public function listMediaMarksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->mediaMarkIds)) {
+            $query['MediaMarkIds'] = $request->mediaMarkIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMediaMarks',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMediaMarksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListMediaMarksRequest $request
+     *
+     * @return ListMediaMarksResponse
+     */
+    public function listMediaMarks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMediaMarksWithOptions($request, $runtime);
     }
 
     /**
@@ -6430,11 +6666,11 @@ class ICE extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->projectType)) {
             $query['ProjectType'] = $request->projectType;
@@ -8657,6 +8893,52 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateMediaInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateMediaMarksRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateMediaMarksResponse
+     */
+    public function updateMediaMarksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->mediaMarks)) {
+            $query['MediaMarks'] = $request->mediaMarks;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMediaMarks',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateMediaMarksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateMediaMarksRequest $request
+     *
+     * @return UpdateMediaMarksResponse
+     */
+    public function updateMediaMarks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMediaMarksWithOptions($request, $runtime);
     }
 
     /**

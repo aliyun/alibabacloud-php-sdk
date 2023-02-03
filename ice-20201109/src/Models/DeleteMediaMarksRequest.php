@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteMediaMarksRequest extends Model
 {
     /**
+     * @example ****c469e944b5a856828dc2****
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @example mark-f82d*****4994b0915948ef7e16,mark-3d56d*****4c8fa9ae2a1f9e5d2d60
+     *
      * @var string
      */
     public $mediaMarkIds;

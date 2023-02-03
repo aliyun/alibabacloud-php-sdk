@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateMediaMarksRequest extends Model
 {
     /**
+     * @example 53afdf003a******6a16b5feac6402
+     *
      * @var string
      */
     public $mediaId;
