@@ -9,86 +9,154 @@ use AlibabaCloud\Tea\Model;
 class instanceMonitorData extends Model
 {
     /**
+     * @description The read bandwidth of the disks (system disk and data disks). Unit: Byte/s.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $BPSRead;
 
     /**
+     * @description The write bandwidth of the disks (system disk and data disks). Unit: Byte/s.
+     *
+     * @example 13585
+     *
      * @var int
      */
     public $BPSWrite;
 
     /**
+     * @description The vCPU utilization of the instance. Unit: percent (%).
+     *
+     * @example 2
+     *
      * @var int
      */
     public $CPU;
 
     /**
+     * @description The overdrawn CPU credits of the burstable instance.
+     *
+     * @example 0.4
+     *
      * @var float
      */
     public $CPUAdvanceCreditBalance;
 
     /**
+     * @description The total CPU credits of the burstable instance.
+     *
+     * @example 120
+     *
      * @var float
      */
     public $CPUCreditBalance;
 
     /**
+     * @description The number of CPU credits consumed by the burstable instance.
+     *
+     * @example 30
+     *
      * @var float
      */
     public $CPUCreditUsage;
 
     /**
+     * @description The unpaid excess credits.
+     *
+     * @example 0.5
+     *
      * @var float
      */
     public $CPUNotpaidSurplusCreditUsage;
 
     /**
+     * @description The number of read I/O operations per second on the disks (system disk and data disks).
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $IOPSRead;
 
     /**
+     * @description The number of write I/O operations per second on the disks (system disk and data disks).
+     *
+     * @example 200
+     *
      * @var int
      */
     public $IOPSWrite;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp1a36962lrhj4****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The public bandwidth of the instance. Unit: Kbit/s.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $internetBandwidth;
 
     /**
+     * @description The public data traffic received by the instance during the period specified by the `Period` parameter, which starts from the time specified by the `TimeStamp` parameter. Unit: Kbit/s.
+     *
+     * @example 122
+     *
      * @var int
      */
     public $internetRX;
 
     /**
+     * @description The public data traffic sent by the instance during the period specified by the `Period` parameter, which starts from the time specified by the `TimeStamp` parameter. Unit: Kbit/s.
+     *
+     * @example 343
+     *
      * @var int
      */
     public $internetTX;
 
     /**
+     * @description The internal bandwidth of the instance. Unit: Kbit/s.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $intranetBandwidth;
 
     /**
+     * @description The internal data traffic received by the instance during the period specified by the `Period` parameter, which starts from the time specified by the `TimeStamp` parameter. Unit: Kbit/s.
+     *
+     * @example 122
+     *
      * @var int
      */
     public $intranetRX;
 
     /**
+     * @description The internal data traffic sent by the instance during the period specified by the `Period` parameter, which starts from the time specified by the `TimeStamp` parameter. Unit: Kbit/s.
+     *
+     * @example 343
+     *
      * @var int
      */
     public $intranetTX;
 
     /**
+     * @description The timestamp of the monitoring data.
+     *
+     * @example 2014-10-30T05:00:00Z
+     *
      * @var string
      */
     public $timeStamp;

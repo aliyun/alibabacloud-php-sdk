@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp67acfmxazb4****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the private pool. When the value of `PrivatePoolOptionsMatchCriteria` is `Open`, the value of PrivatePoolOptionsId is the ID of a private pool that is automatically matched to the instance.
+     *
+     * @example eap-bp67acfmxazb4****
+     *
      * @var string
      */
     public $privatePoolOptionsId;
 
     /**
+     * @description The match mode of the private pool. Valid values:
+     *
+     *   Open: open private pool. Instances automatically match an open private pool.
+     *   Target: specified private pool. Instances match a specified private pool.
+     *   None: no private pool. Instances do not use private pools.
+     *
+     * @example Open
+     *
      * @var string
      */
     public $privatePoolOptionsMatchCriteria;

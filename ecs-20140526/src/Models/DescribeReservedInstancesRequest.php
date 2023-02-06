@@ -10,26 +10,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeReservedInstancesRequest extends Model
 {
     /**
+     * @description The allocation type. Valid values:
+     *
+     *   Normal: queries all reserved instances that belong to the current account.
+     *   Shared: queries reserved instances that are shared between the main account and linked accounts.
+     *
+     * Default value: Normal.
+     * @example Normal
+     *
      * @var string
      */
     public $allocationType;
 
     /**
+     * @description The instance type of the reserved instance. For more information about the valid values, see [Instance families](~~25378~~).
+     *
+     * @example ecs.g5.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The instance family of the reserved instance. For more information about the valid values, see [Instance families](~~25378~~).
+     *
+     * @example ecs.g5
+     *
      * @var string
      */
     public $instanceTypeFamily;
 
     /**
+     * @description The reason why the reserved instance is locked. Valid values:
+     *
+     *   financial: You have an overdue payment in your account or the reserved instance has expired.
+     *   security: The reserved instance is locked for security reasons.
+     *
+     * @example security
+     *
      * @var string
      */
     public $lockReason;
 
     /**
+     * @description The payment option of the reserved instance. Valid values:
+     *
+     *   No Upfront
+     *   Partial Upfront
+     *   All Upfront
+     *
+     * @example All Upfront
+     *
      * @var string
      */
     public $offeringType;
@@ -45,26 +76,46 @@ class DescribeReservedInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Pages start from page 1.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 100.
+     *
+     * Default value: 10.
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the reserved instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example ri-bpzhex2ulpzf53****
+     *
      * @var string[]
      */
     public $reservedInstanceId;
 
     /**
+     * @description The name of the reserved instance.
+     *
+     * @example testReservedInstanceName
+     *
      * @var string
      */
     public $reservedInstanceName;
@@ -80,11 +131,21 @@ class DescribeReservedInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The scope of the reserved instance. Valid values:
+     *
+     *   Region: regional
+     *   Zone: zonal
+     *
+     * Default value: Region.
+     * @example Region
+     *
      * @var string
      */
     public $scope;
 
     /**
+     * @example Active
+     *
      * @var string[]
      */
     public $status;
@@ -95,6 +156,10 @@ class DescribeReservedInstancesRequest extends Model
     public $tag;
 
     /**
+     * @description The zone ID of the reserved instance. This parameter is required when Scope is set to Zone. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     *
+     * @example cn-hangzhou-z
+     *
      * @var string
      */
     public $zoneId;

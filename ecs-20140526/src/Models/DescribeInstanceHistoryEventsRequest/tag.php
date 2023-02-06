@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The key of a tag that you want to attach to the specified resource.
+     *
+     * @example TestKey
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the tag that you want to attach to the specified resource.
+     *
+     * @example TestValue
+     *
      * @var string
      */
     public $value;

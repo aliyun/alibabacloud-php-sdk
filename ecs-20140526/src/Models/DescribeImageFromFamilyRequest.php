@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageFromFamilyRequest extends Model
 {
     /**
+     * @description The name of the image family. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (\_), and hyphens (-). It must start with a letter and cannot start with http://, https://, acs:, or aliyun.
+     *
+     * @example hangzhou-daily-update
+     *
      * @var string
      */
     public $imageFamily;
@@ -24,6 +28,10 @@ class DescribeImageFromFamilyRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the image. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

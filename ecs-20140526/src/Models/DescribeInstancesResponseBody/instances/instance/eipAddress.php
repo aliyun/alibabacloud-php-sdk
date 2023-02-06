@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class eipAddress extends Model
 {
     /**
+     * @description The ID of the EIP.
+     *
+     * @example eip-2ze88m67qx5z****
+     *
      * @var string
      */
     public $allocationId;
 
     /**
+     * @description The maximum public bandwidth of the EIP. Unit: Mbit/s.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @description The billing method of the EIP. Valid values:
+     *
+     * - PayByTraffic
+     * @example PayByTraffic
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @description The EIP.
+     *
+     * @example 42.112.**.**
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @description Indicates whether the EIP can be disassociated.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSupportUnassociate;

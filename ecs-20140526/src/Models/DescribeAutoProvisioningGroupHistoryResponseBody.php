@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoProvisioningGroupHistoryResponseBody extends Model
 {
     /**
+     * @description An array consisting of AutoProvisioningGroupHistory data.
+     *
      * @var autoProvisioningGroupHistories
      */
     public $autoProvisioningGroupHistories;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B48A12CD-1295-4A38-A8F0-0E92C937****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of queried scheduling tasks in the auto provisioning group.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

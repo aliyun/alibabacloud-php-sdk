@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteDedicatedHostClusterRequest extends Model
 {
     /**
+     * @description The ID of the dedicated host cluster.
+     *
+     * @example dc-bp12wlf6am0vz9v2****
+     *
      * @var string
      */
     public $dedicatedHostClusterId;
@@ -24,6 +28,10 @@ class DeleteDedicatedHostClusterRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the dedicated host cluster. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

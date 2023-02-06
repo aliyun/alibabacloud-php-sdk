@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostsResponseBody extends Model
 {
     /**
+     * @description Details about the dedicated hosts.
+     *
      * @var dedicatedHosts
      */
     public $dedicatedHosts;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7654525A-9964-4ABB-8BCD-98F8835E809A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of dedicated hosts.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $totalCount;

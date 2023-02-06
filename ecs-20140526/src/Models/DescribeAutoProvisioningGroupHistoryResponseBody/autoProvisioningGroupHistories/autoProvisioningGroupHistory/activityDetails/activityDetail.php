@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class activityDetail extends Model
 {
     /**
+     * @description The execution details of instance creation performed by the single scheduling task.
+     *
+     * @example New ECS instances "i-bp67acfmxazb4p****, i-bp67acfmxazb5p****" created.
+     *
      * @var string
      */
     public $detail;
 
     /**
+     * @description The execution status of instance creation performed by the single scheduling task. Valid values:
+     *
+     *   Successful: Instances are created.
+     *   Failed: Instances failed to be created.
+     *   InProgress: Instances are being created.
+     *   Warning: Some instances are created.
+     *
+     * @example Successful
+     *
      * @var string
      */
     public $status;

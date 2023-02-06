@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeRenewalPriceRequest extends Model
 {
     /**
+     * @description The synchronized expiration date. If you set this parameter, the price for renewing a specified instance to the specified synchronized expiration date is queried. Valid values: 1 to 28.
+     *
+     * > The renewal period-related parameter pair (`Period` and `PeriodUnit`) and the `ExpectedRenewDay` parameter are mutually exclusive.
+     * @example 5
+     *
      * @var int
      */
     public $expectedRenewDay;
@@ -24,21 +29,45 @@ class DescribeRenewalPriceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The renewal period. Valid values:
+     *
+     *   Valid values when `PriceUnit` is set to `Month`: 1, 2, 3, 4, 5, 6, 7, 8, and 9.
+     *   Valid values when `PriceUnit` is set to `Year`: 1, 2, 3.
+     *
+     * > The renewal period-related parameter pair (`Period` and `PeriodUnit`) and the `ExpectedRenewDay` parameter are mutually exclusive.
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The unit of the renewal period. Valid values:
+     *
+     *   Month
+     *   Year
+     *
+     * Default value: Month.
+     * @example Month
+     *
      * @var string
      */
     public $priceUnit;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource. When the `ResourceType` parameter is set to`  instance `, `ResourceId` is interpreted as `InstanceId`.
+     *
+     * @example i-bp1f2o4ldh8l29zv****
+     *
      * @var string
      */
     public $resourceId;
@@ -54,6 +83,11 @@ class DescribeRenewalPriceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the resource. Set the value to instance.
+     *
+     * Default value: instance.
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;

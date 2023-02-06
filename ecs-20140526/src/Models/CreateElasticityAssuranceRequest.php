@@ -16,31 +16,58 @@ class CreateElasticityAssuranceRequest extends Model
     public $privatePoolOptions;
 
     /**
+     * @description The total number of times that the elasticity assurance can be applied. Set the value to Unlimited. This value indicates that the elasticity assurance can be applied an unlimited number of times within its effective duration.
+     *
+     * Default value: Unlimited.
+     * @example Unlimited
+     *
      * @var string
      */
     public $assuranceTimes;
 
     /**
+     * @description The client token that you want to use to ensure the idempotency of the request. You can use the client to generate a client token. Make sure that a unique client token is used for different requests. The value of the `ClientToken` parameter can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The description of the elasticity assurance. The description must be 2 to 256 characters in length, and cannot start with `http://` or `https://`.
+     *
+     * This parameter is empty by default.
+     * @example This is description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The total number of instances for which to reserve the capacity of an instance type.
+     *
+     * Valid values: 1 to 1000.
+     * @example 2
+     *
      * @var int
      */
     public $instanceAmount;
 
     /**
+     * @description > The parameter was deprecated.
+     *
+     * @example null
+     *
      * @var int
      */
     public $instanceCpuCoreCount;
 
     /**
+     * @description Instance types. Currently, an elasticity assurance can be created to reserve the capacity of a single instance type.
+     *
+     * @example ecs.c6.xlarge
+     *
      * @var string[]
      */
     public $instanceType;
@@ -56,21 +83,45 @@ class CreateElasticityAssuranceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The effective duration of the elasticity assurance. The unit of the duration is determined by the `PeriodUnit` value. Valid values:
+     *
+     *   When the value of the `PeriodUnit` parameter is set to `Month`, valid values are: 1, 2, 3, 4, 5, 6, 7, 8, and 9.
+     *   When the value of the `PeriodUnit` parameter is set to `Year`, valid values are: 1, 2, 3, 4, and 5.
+     *
+     * Default: 1.
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The unit of the effective duration of the elasticity assurance. Valid values:
+     *
+     *   Month
+     *   Year
+     *
+     * Default value: Year.
+     * @example Year
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @description The ID of the region in which to create the elasticity assurance. You can call the [DescribeRegions](~~25609~~) operation to query the current list of regions.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which to assign the elasticity assurance.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -86,16 +137,26 @@ class CreateElasticityAssuranceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The time when the elasticity assurance takes effect. The default value is the time when the CreateElasticityAssurance operation is called to create the elasticity assurance. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC. For more information, see [ISO 8601](~~25696~~).
+     *
+     * @example 2020-10-30T06:32:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The IDs of the zones.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string[]
      */
     public $zoneId;

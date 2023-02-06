@@ -10,71 +10,144 @@ use AlibabaCloud\Tea\Model;
 class invocation extends Model
 {
     /**
+     * @description The content of the file.
+     *
+     * @example #!/bin/bash  echo "Current User is :"  echo $(ps | grep "$$" | awk \"{print $2}\")
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The content type of the file. Valid values:
+     *
+     *   PlainText: The file content is not encoded.
+     *   Base64: The file content is Base64-encoded.
+     *
+     * @example PlainText
+     *
      * @var string
      */
     public $contentType;
 
     /**
+     * @description The time when the file sending task was created.
+     *
+     * @example 2019-12-20T06:15:54Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The description.
+     *
+     * @example This is a test file.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The user group of the file.
+     *
+     * @example root
+     *
      * @var string
      */
     public $fileGroup;
 
     /**
+     * @description The permissions on the file.
+     *
+     * @example 777
+     *
      * @var string
      */
     public $fileMode;
 
     /**
+     * @description The owner of the file.
+     *
+     * @example root
+     *
      * @var string
      */
     public $fileOwner;
 
     /**
+     * @description The overall sending state of the file. The overall sending state of the file depends on its sending state on all the destination instances. Valid values:
+     *
+     *   Pending: The file is being verified or sent. If the sending state of the file on at least one instance is Pending, the overall sending state of the file is Pending.
+     *
+     *   Running: The file creation task is running on the instances. If the sending state of the file on at least one instance is Running, the overall sending state of the file is Running.
+     *
+     *   Success: If the sending state of the file on all the instances is Success, the overall sending state of the file is Success.
+     *
+     *   Failed: If the sending state of the file on all the instances is Failed, the overall sending state of the file is Failed. If the sending state of the file on one or more instances is one of the following values, the overall sending state of the file is Failed:
+     *
+     *   Invalid: The file is invalid.
+     *   Aborted: The file failed to be sent.
+     *   Failed: The file failed to be created.
+     *   Timeout: The file sending task timed out.
+     *   Error: An error occurred while the file is being sent.
+     *
+     *   PartialFailed: The file was sent to some of the specified instances and failed to be sent to the others. The overall sending state of the file is PartialFailed only when its sending state is Success on some instances and is Failed on the others.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $invocationStatus;
 
     /**
+     * @description The ID of the file sending task.
+     *
+     * @example f-hz0jdfwd9f****
+     *
      * @var string
      */
     public $invokeId;
 
     /**
+     * @description Details about the destination instances.
+     *
      * @var invokeInstances
      */
     public $invokeInstances;
 
     /**
+     * @description The name of the file.
+     *
+     * @example test.txt
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description Indicates whether a file in the destination directory is overwritten if the file has the same name as the sent file.
+     *
+     * @example false
+     *
      * @var string
      */
     public $overwrite;
 
     /**
+     * @description The destination directory.
+     *
+     * @example /root
+     *
      * @var string
      */
     public $targetDir;
 
     /**
+     * @description The number of instances to which the file was sent.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $vmCount;

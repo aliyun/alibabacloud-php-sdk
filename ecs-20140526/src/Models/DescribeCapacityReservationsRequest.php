@@ -16,21 +16,42 @@ class DescribeCapacityReservationsRequest extends Model
     public $privatePoolOptions;
 
     /**
+     * @description The billing method of instances to be created by using the capacity reservation. Valid values:
+     *
+     *   PostPaid: pay-as-you-go
+     *   PrePaid: subscription
+     *
+     * Default value: PostPaid.
+     * @example PostPaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description The instance type.
+     *
+     * @example ecs.c6.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The maximum number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token used to start the next query. Set the value to the NextToken value obtained from the response to the previous request.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
@@ -46,16 +67,34 @@ class DescribeCapacityReservationsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The operating system type of instances to be created by using the capacity reservation. Valid values:
+     *
+     *   windows: Windows operating systems
+     *   linux: Linux operating systems
+     *   all: all operating system types
+     *
+     * Default value: all.
+     * @example linux
+     *
      * @var string
      */
     public $platform;
 
     /**
+     * @description The region ID of the capacity reservation. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the capacity reservation belongs. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+     *
+     * >  Resources in the default resource group are displayed in the response regardless of how this parameter is set.
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -71,16 +110,34 @@ class DescribeCapacityReservationsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The state of the capacity reservation. Valid values:
+     *
+     *   All: All states.
+     *   Pending: The capacity reservation is being initialized. Scheduled capacity reservations enter the Pending state after they are created.
+     *   Preparing: The capacity reservation is being prepared. Scheduled capacity reservations are in the Preparing state while resources are being provisioned.
+     *   Prepared: The capacity reservation is to take effect. After resources are provisioned, scheduled capacity reservations remain in the Prepared state until they take effect.
+     *   Active: The capacity reservation is in effect.
+     *   Released: The capacity reservation has been released manually or automatically when it expired.
+     *
+     * Default value: Active.
+     * @example Active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The zone ID of the capacity reservation.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;

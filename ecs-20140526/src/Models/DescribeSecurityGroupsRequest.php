@@ -10,31 +10,63 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityGroupsRequest extends Model
 {
     /**
+     * @description Specifies whether to check the validity of the request without actually making the request. Valid values:
+     *
+     *   true: The validity of the request is checked but the request is not made. Check items include whether your AccessKey pair is valid, whether Resource Access Management (RAM) users are granted required permissions, and whether the required parameters are specified. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned.
+     *   false: The validity of the request is checked. If the check succeeds, a 2XX HTTP status code is returned, and the request is made.
+     *
+     * Default value: false.
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @description > This parameter is deprecated.
+     *
+     * @example null
+     *
      * @var bool
      */
     public $fuzzyQuery;
 
     /**
+     * @description > This parameter is deprecated.
+     *
+     * @example null
+     *
      * @var bool
      */
     public $isQueryEcsCount;
 
     /**
+     * @description The maximum number of entries to return on each page. If you specify the MaxResults parameter, both the `MaxResults` and `NextToken` parameters are used for a paged query.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The network type of the security group. Valid values:
+     *
+     *   vpc
+     *   classic
+     *
+     * @example vpc
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The query token. Set the value to the NextToken value returned in the previous call to the DescribeSecurityGroups operation. Leave this parameter empty the first time you call this operation.
+     *
+     * @example e71d8a535bd9cc11
+     *
      * @var string
      */
     public $nextToken;
@@ -50,21 +82,40 @@ class DescribeSecurityGroupsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * > This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * > This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the security group. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the security group belongs. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response. You can call the [ListResourceGroups](~~158855~~) operation to query the most recent resource group list.
+     *
+     * > Resources in the default resource group are displayed in the response regardless of how this parameter is set.
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -80,31 +131,57 @@ class DescribeSecurityGroupsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the security group.
+     *
+     * @example sg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @description The IDs of security groups. The value is a JSON array that consists of up to 100 security group IDs. Separate the security group IDs with commas (,).
+     *
+     * @example ["sg-bp67acfmxazb4p****", "sg-bp67acfmxazb4p****", "sg-bp67acfmxazb4p****",....]
+     *
      * @var string
      */
     public $securityGroupIds;
 
     /**
+     * @description The name of the security group.
+     *
+     * @example SGTestName
+     *
      * @var string
      */
     public $securityGroupName;
 
     /**
+     * @description The type of the security group. Valid values:
+     *
+     *   normal: basic security group
+     *   enterprise: advanced security group
+     *
+     * > If you do not specify this parameter, both basic and advanced security groups are queried.
+     * @example normal
+     *
      * @var string
      */
     public $securityGroupType;
 
     /**
+     * @description The tags of the security group.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the security group belongs.
+     *
+     * @example vpc-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $vpcId;

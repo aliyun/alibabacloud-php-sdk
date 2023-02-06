@@ -19,6 +19,10 @@ class DescribeSecurityGroupReferencesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the security group.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,6 +38,10 @@ class DescribeSecurityGroupReferencesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of security group N. Valid values of N: 1 to 10.
+     *
+     * @example sg-bp14vtedjtobkvi****
+     *
      * @var string[]
      */
     public $securityGroupId;

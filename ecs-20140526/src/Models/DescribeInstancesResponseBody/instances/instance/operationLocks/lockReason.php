@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class lockReason extends Model
 {
     /**
+     * @description The message returned when the instance was locked.
+     *
+     * @example The specified instance is locked due to financial reason.
+     *
      * @var string
      */
     public $lockMsg;
 
     /**
+     * @description The reason why the instance was locked. Valid values:
+     *
+     * - refunded: The instance was locked because a refund was made for the instance.
+     * @example Recycling
+     *
      * @var string
      */
     public $lockReason;

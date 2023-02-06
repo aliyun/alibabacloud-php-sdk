@@ -10,56 +10,112 @@ use AlibabaCloud\Tea\Model;
 class CreateImagePipelineRequest extends Model
 {
     /**
+     * @example 1234567890
+     *
      * @var int[]
      */
     public $addAccount;
 
     /**
+     * @description The source image.
+     *
+     *   When you set `BaseImageType` to IMAGE, set BaseImage to the ID of a custom image.
+     *   When you set `BaseImageType` to IMAGE_FAMILY, set BaseImage to the name of an image family.
+     *
+     * @example m-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $baseImage;
 
     /**
+     * @description The type of the source image. Valid values:
+     *
+     *   IMAGE: custom image
+     *   IMAGE_FAMILY: image family
+     *
+     * @example IMAGE
+     *
      * @var string
      */
     public $baseImageType;
 
     /**
+     * @description The content of the image template. The content cannot be greater than 16 KB in size, and can contain up to 127 commands. For more information about the commands that are supported, see the "Description" section in this topic.
+     *
+     * @example FROM IMAGE:m-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $buildContent;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description Specifies whether to release the intermediate instance if the image cannot be created. Valid values:
+     *
+     *   true: releases the intermediate instance if the image cannot be created.
+     *   false: does not release the intermediate instance if the image cannot be created.
+     *
+     * >  If the intermediate instance cannot be started, the instance is released by default.
+     * @example true
+     *
      * @var bool
      */
     public $deleteInstanceOnFailure;
 
     /**
+     * @description The description of the image template. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+     *
+     * @example This is description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name prefix of the image to be created. The prefix must be 2 to 64 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), periods (.),and hyphens (-).
+     *
+     * The system generates the final complete image name that consists of the prefix and the ID of the image build task (`ExecutionId`) in the format of `{ImageName}_{ExecutionId}`.
+     * @example testImageName
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @description The instance type of the instance. You can call the [DescribeInstanceTypes](~~25620~~) operation to query instance types.
+     *
+     * If you do not specify this parameter, an instance type that provides the fewest vCPUs and memory resources is automatically selected. This configuration is subject to resource availability of instance types. For example, the ecs.g6.large instance type is selected by default. If available ecs.g6.large resources are insufficient, the ecs.g6.xlarge instance type is selected.
+     * @example ecs.g6.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The size of the outbound public bandwidth for the intermediate instance. Unit: Mbit/s. Valid values: 0 to 100.
+     *
+     * Default value: 0.
+     * @example 0
+     *
      * @var int
      */
     public $internetMaxBandwidthOut;
 
     /**
+     * @description The name of the image template. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), periods (.),and hyphens (-).
+     *
+     * >  If you do not specify the `Name` parameter, the return value of `ImagePipelineId` is used by default.
+     * @example testImagePipeline
+     *
      * @var string
      */
     public $name;
@@ -75,11 +131,19 @@ class CreateImagePipelineRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the image template. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which to assign the image template.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -95,6 +159,11 @@ class CreateImagePipelineRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The size of the system disk of the intermediate instance. Unit: GiB. Valid values: 20 to 500.
+     *
+     * Default value: 40.
+     * @example 40
+     *
      * @var int
      */
     public $systemDiskSize;
@@ -105,11 +174,18 @@ class CreateImagePipelineRequest extends Model
     public $tag;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string[]
      */
     public $toRegionId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * If you do not specify this parameter, a virtual private cloud (VPC) and a vSwitch are created by default. Make sure that the VPC quota in your account is sufficient. For more information, see [Limits](~~27750~~).
+     * @example vsw-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $vSwitchId;

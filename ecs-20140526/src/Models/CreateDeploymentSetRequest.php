@@ -9,36 +9,71 @@ use AlibabaCloud\Tea\Model;
 class CreateDeploymentSetRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The name of the deployment set. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
+     * @example testDeploymentSetName
+     *
      * @var string
      */
     public $deploymentSetName;
 
     /**
+     * @description The description of the deployment set. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+     *
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The deployment domain. Set the value to Default.
+     *
+     * Default: Instances in the deployment set are distributed only within the current zone.
+     * @example Default
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The deployment granularity. Set the value to host.
+     *
+     * host: Instances in the deployment set are dispersed at the granularity of hosts.
+     * @example host
+     *
      * @var string
      */
     public $granularity;
 
     /**
+     * @description The number of deployment set groups in the deployment set. Valid values: 1 to 7.
+     *
+     * >  This parameter is valid only when `Strategy` is set to AvailabilityGroup.
+     * @example 1
+     *
      * @var int
      */
     public $groupCount;
 
     /**
+     * @description The emergency solution to use in the following situation: Instances in the deployment set cannot be evenly distributed to different zones due to resource insufficiency after the instances are failed over from faulty physical machines to normal physical machines. Valid values:
+     *
+     *   CancelMembershipAndStart: removes the instances from the deployment set and starts the instances immediately after they are failed over.
+     *   KeepStopped: leaves the instances in the Stopped state and starts them after resources are replenished.
+     *
+     * Default value: CancelMembershipAndStart.
+     * @example CancelMembershipAndStart
+     *
      * @var string
      */
     public $onUnableToRedeployFailedInstance;
@@ -54,6 +89,10 @@ class CreateDeploymentSetRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region in which to create the deployment set. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -69,6 +108,14 @@ class CreateDeploymentSetRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The deployment strategy. Valid values:
+     *
+     *   Availability: high availability strategy.
+     *   AvailabilityGroup: high availability group strategy.
+     *
+     * Default value: Availability.
+     * @example Availability
+     *
      * @var string
      */
     public $strategy;

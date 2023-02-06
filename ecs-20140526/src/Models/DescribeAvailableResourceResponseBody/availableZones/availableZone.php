@@ -10,26 +10,52 @@ use AlibabaCloud\Tea\Model;
 class availableZone extends Model
 {
     /**
+     * @description Details about the resources that can be created in the zone.
+     *
      * @var availableResources
      */
     public $availableResources;
 
     /**
+     * @description The ID of the region where the instance resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The state of resources in the zone. Valid values:
+     *
+     *   Available
+     *   SoldOut
+     *
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The resource category based on the stock. Valid values:
+     *
+     *   WithStock: Resources are in sufficient stock.
+     *   ClosedWithStock: Resources are insufficient. We recommend that you use other resources that are in sufficient stock.
+     *   WithoutStock: Resources are sold out and will be replenished. We recommend that you use other resources that are in sufficient stock.
+     *   ClosedWithoutStock: Resources are sold out and will not be replenished. We recommend that you use other resources that are in sufficient stock.
+     *
+     * @example WithStock
+     *
      * @var string
      */
     public $statusCategory;
 
     /**
+     * @description The ID of the zone in which the instance resides.
+     *
+     * @example cn-hangzhou-e
+     *
      * @var string
      */
     public $zoneId;

@@ -9,31 +9,60 @@ use AlibabaCloud\Tea\Model;
 class networkInterfacePermission extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud partner (a certified ISV).
+     *
+     * @example 1234567890
+     *
      * @var int
      */
     public $accountId;
 
     /**
+     * @description The ID of the ENI.
+     *
+     * @example eni-bp14v2sdd3v8htln****
+     *
      * @var string
      */
     public $networkInterfaceId;
 
     /**
+     * @description The ID of the permission on the ENI.
+     *
+     * @example eni-perm-bp1cs4lwn56lfb****
+     *
      * @var string
      */
     public $networkInterfacePermissionId;
 
     /**
+     * @description The permission on the ENI.
+     *
+     * @example InstanceAttach
+     *
      * @var string
      */
     public $permission;
 
     /**
+     * @description The state of the permission on the ENI. Valid values:
+     *
+     *   Pending: The permission is being granted.
+     *   Granted: The permission is granted.
+     *   Revoking: The permission is being revoked.
+     *   Revoked: The permission is revoked.
+     *
+     * @example Granted
+     *
      * @var string
      */
     public $permissionState;
 
     /**
+     * @description The name of the Alibaba Cloud service.
+     *
+     * @example Elastic Compute Service
+     *
      * @var string
      */
     public $serviceName;

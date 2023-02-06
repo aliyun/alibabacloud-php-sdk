@@ -15,11 +15,20 @@ class DescribeCapacityReservationInstancesRequest extends Model
     public $privatePoolOptions;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token used to start the query. The token is obtained from the response of the previous request.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
@@ -35,6 +44,10 @@ class DescribeCapacityReservationInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the capacity reservation. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

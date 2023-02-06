@@ -9,31 +9,69 @@ use AlibabaCloud\Tea\Model;
 class diskDeviceMapping extends Model
 {
     /**
+     * @description The device name of disk N in the custom image.
+     *
+     * >  This parameter will be removed in the future. To ensure future compatibility, we recommend that you do not use this parameter.
+     * @example null
+     *
      * @var string
      */
     public $device;
 
     /**
+     * @description The size of the custom image.
+     *
+     * >  This parameter will be removed in the future. To ensure future compatibility, we recommend that you use the `DiskDeviceMapping.N.DiskImageSize` parameter.
+     * @example 80
+     *
      * @var int
      */
     public $diskImSize;
 
     /**
+     * @description The size of disk N in the custom image.
+     *
+     * You can use this parameter to specify the sizes of the system disk and data disks in the custom image. When you specify the size of the system disk, make sure that the specified size is greater than or equal to the size of the custom image file. Unit: GiB. Valid values:
+     *
+     *   When the N value is 1, this parameter specifies the size of the system disk in the custom image. Valid values: 5 to 500.
+     *   When the N value is an integer in the range of 2 to 17, this parameter specifies the size of a data disk in the custom image. Valid values: 5 to 2000.
+     *
+     * After the source image is uploaded to an OSS bucket, you can view the size of the image in the OSS bucket.
+     * @example 80
+     *
      * @var int
      */
     public $diskImageSize;
 
     /**
+     * @description The format of the custom image. Valid values:
+     *
+     *   RAW
+     *   VHD
+     *   QCOW2
+     *
+     * This parameter is empty by default, which indicates that the system checks the format of the custom image and uses the check result as the value of this parameter.
+     * @example QCOW2
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @description The OSS bucket in which the source image is stored.
+     *
+     * >  Before you import images for the first time, you must use RAM to authorize ECS to access your OSS buckets. If ECS is not authorized to access your OSS buckets, the **NoSetRoletoECSServiceAcount** error code is returned when you call the ImportImage operation. For more information, see the `Description` section of this topic.
+     * @example ecsimageos
+     *
      * @var string
      */
     public $OSSBucket;
 
     /**
+     * @description The name (key) of the object that the uploaded source image is stored as in the OSS bucket.
+     *
+     * @example CentOS_5.4_32.raw
+     *
      * @var string
      */
     public $OSSObject;

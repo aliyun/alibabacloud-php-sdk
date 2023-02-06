@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnosticReportsResponseBody extends Model
 {
     /**
+     * @description The query token returned in this call.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @var reports[]
+     * @description The list of reports.
+     *
+     * @var reports
      */
     public $reports;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE*****
+     *
      * @var string
      */
     public $requestId;
@@ -40,13 +50,7 @@ class DescribeDiagnosticReportsResponseBody extends Model
             $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->reports) {
-            $res['Reports'] = [];
-            if (null !== $this->reports && \is_array($this->reports)) {
-                $n = 0;
-                foreach ($this->reports as $item) {
-                    $res['Reports'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Reports'] = null !== $this->reports ? $this->reports->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -67,13 +71,7 @@ class DescribeDiagnosticReportsResponseBody extends Model
             $model->nextToken = $map['NextToken'];
         }
         if (isset($map['Reports'])) {
-            if (!empty($map['Reports'])) {
-                $model->reports = [];
-                $n              = 0;
-                foreach ($map['Reports'] as $item) {
-                    $model->reports[$n++] = null !== $item ? reports::fromMap($item) : $item;
-                }
-            }
+            $model->reports = reports::fromMap($map['Reports']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class status extends Model
 {
     /**
+     * @description The code of the lifecycle status of the EBS device.
+     *
+     * @example 129
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The name of the lifecycle status of the EBS device.
+     *
+     * @example Available
+     *
      * @var string
      */
     public $name;

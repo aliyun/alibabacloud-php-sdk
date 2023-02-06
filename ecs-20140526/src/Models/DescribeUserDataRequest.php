@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserDataRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp14bnftyqhxg9ij****
+     *
      * @var string
      */
     public $instanceId;
@@ -19,6 +23,10 @@ class DescribeUserDataRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoProvisioningGroupsResponseBody extends Model
 {
     /**
+     * @description Details about the auto provisioning groups.
+     *
      * @var autoProvisioningGroups
      */
     public $autoProvisioningGroups;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 745CEC9F-0DD7-4451-9FE7-8B752F39****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of queried auto provisioning groups.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

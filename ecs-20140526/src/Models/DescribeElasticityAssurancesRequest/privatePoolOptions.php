@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class privatePoolOptions extends Model
 {
     /**
+     * @description The IDs of elasticity assurances. The value can be a JSON array that consists of up to 100 elasticity assurance IDs. Separate the IDs with commas (,).
+     *
+     * @example ["eap-bp67acfmxazb4****", "eap-bp67acfmxazb5****"]
+     *
      * @var string
      */
     public $ids;

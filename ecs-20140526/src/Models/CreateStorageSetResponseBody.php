@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateStorageSetResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the storage set.
+     *
+     * @example ss-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $storageSetId;

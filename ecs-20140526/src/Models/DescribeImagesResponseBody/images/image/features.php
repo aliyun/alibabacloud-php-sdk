@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class features extends Model
 {
     /**
+     * @description Indicates whether the image supports Non-Volatile Memory Express (NVMe). Valid values:
+     *
+     * - unsupported: The image does not support NVMe. Instances created from this image do not support the NVMe protocol.
+     * @example supported
+     *
      * @var string
      */
     public $nvmeSupport;

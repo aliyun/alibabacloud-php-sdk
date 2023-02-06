@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class availableSpotResource extends Model
 {
     /**
+     * @description The percentage of the average preemptible instance relative to the pay-as-you-go instance price in the last 30 days. Unit: percent (%). Valid values: 1 to 100.
+     *
+     * You can calculate the average preemptible instance price based on the return value. For example, if the pay-as-you-go instance price is 1 and the return value of this parameter is 20, the average preemptible instance price in the last 30 days is 0.2.
+     * @example 20
+     *
      * @var int
      */
     public $averageSpotDiscount;
 
     /**
+     * @description The instance type.
+     *
+     * @example ecs.c5.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The release rate range of preemptible instances in the last 30 days, which corresponds to the `InterruptionRate` value. Valid values:
+     *
+     *   0-3%
+     *   3-5%
+     *   5-10%
+     *   10-100%
+     *
+     * @example 0-3%
+     *
      * @var string
      */
     public $interruptRateDesc;
 
     /**
+     * @description The average release rate of preemptible instances in the last 30 days. Unit: percent (%).
+     *
+     * @example 0
+     *
      * @var float
      */
     public $interruptionRate;

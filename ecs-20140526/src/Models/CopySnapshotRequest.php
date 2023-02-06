@@ -4,25 +4,69 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CopySnapshotRequest\arn;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CopySnapshotRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CopySnapshotRequest extends Model
 {
     /**
+     * @description > This parameter is in invitational preview and is unavailable.
+     *
+     * @var arn[]
+     */
+    public $arn;
+
+    /**
+     * @description The region ID of the new snapshot.
+     *
+     * @example us-east-1
+     *
      * @var string
      */
     public $destinationRegionId;
 
     /**
+     * @description The description of the new snapshot. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
+     *
+     * This parameter is empty by default.
+     * @example CopySnapshotDemo
+     *
      * @var string
      */
     public $destinationSnapshotDescription;
 
     /**
+     * @description The name of the new snapshot. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-). It must start with a letter and cannot start with http:// or https://.
+     *
+     * This parameter is empty by default.
+     * @example CopySnapshotDemo
+     *
      * @var string
      */
     public $destinationSnapshotName;
+
+    /**
+     * @description Specifies whether to query only encrypted cloud disks.
+     *
+     *   true: queries only encrypted cloud disks.
+     *   false: does not query encrypted cloud disks.
+     *
+     * Default value: false.
+     * @example false
+     *
+     * @var bool
+     */
+    public $encrypted;
+
+    /**
+     * @description The ID of the Key Management Service (KMS) key used for the data disk.
+     *
+     * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
+     *
+     * @var string
+     */
+    public $KMSKeyId;
 
     /**
      * @var int
@@ -30,11 +74,19 @@ class CopySnapshotRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the source snapshot. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-chengdu
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -50,23 +102,37 @@ class CopySnapshotRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The retention period of the new snapshot. Unit: days. The new snapshot will be automatically released when it expires. Valid values: 1 to 65536.
+     *
+     * This parameter is empty by default, which indicates that the snapshot will not be automatically released.
+     * @example 60
+     *
      * @var int
      */
     public $retentionDays;
 
     /**
+     * @description The ID of the source snapshot.
+     *
+     * @example s-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $snapshotId;
 
     /**
+     * @description The tags of the new snapshot.
+     *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
+        'arn'                            => 'Arn',
         'destinationRegionId'            => 'DestinationRegionId',
         'destinationSnapshotDescription' => 'DestinationSnapshotDescription',
         'destinationSnapshotName'        => 'DestinationSnapshotName',
+        'encrypted'                      => 'Encrypted',
+        'KMSKeyId'                       => 'KMSKeyId',
         'ownerId'                        => 'OwnerId',
         'regionId'                       => 'RegionId',
         'resourceGroupId'                => 'ResourceGroupId',
@@ -84,6 +150,15 @@ class CopySnapshotRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->arn) {
+            $res['Arn'] = [];
+            if (null !== $this->arn && \is_array($this->arn)) {
+                $n = 0;
+                foreach ($this->arn as $item) {
+                    $res['Arn'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->destinationRegionId) {
             $res['DestinationRegionId'] = $this->destinationRegionId;
         }
@@ -92,6 +167,12 @@ class CopySnapshotRequest extends Model
         }
         if (null !== $this->destinationSnapshotName) {
             $res['DestinationSnapshotName'] = $this->destinationSnapshotName;
+        }
+        if (null !== $this->encrypted) {
+            $res['Encrypted'] = $this->encrypted;
+        }
+        if (null !== $this->KMSKeyId) {
+            $res['KMSKeyId'] = $this->KMSKeyId;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -135,6 +216,15 @@ class CopySnapshotRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Arn'])) {
+            if (!empty($map['Arn'])) {
+                $model->arn = [];
+                $n          = 0;
+                foreach ($map['Arn'] as $item) {
+                    $model->arn[$n++] = null !== $item ? arn::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['DestinationRegionId'])) {
             $model->destinationRegionId = $map['DestinationRegionId'];
         }
@@ -143,6 +233,12 @@ class CopySnapshotRequest extends Model
         }
         if (isset($map['DestinationSnapshotName'])) {
             $model->destinationSnapshotName = $map['DestinationSnapshotName'];
+        }
+        if (isset($map['Encrypted'])) {
+            $model->encrypted = $map['Encrypted'];
+        }
+        if (isset($map['KMSKeyId'])) {
+            $model->KMSKeyId = $map['KMSKeyId'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

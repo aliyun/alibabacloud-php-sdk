@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The tag key of the image.
+     *
+     * @example DTS
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The tag value of the image.
+     *
+     * @example Oracle
+     *
      * @var string
      */
     public $tagValue;

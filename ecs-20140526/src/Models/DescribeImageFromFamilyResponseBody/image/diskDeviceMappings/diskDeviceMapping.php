@@ -9,36 +9,65 @@ use AlibabaCloud\Tea\Model;
 class diskDeviceMapping extends Model
 {
     /**
+     * @description The device name of the disk. Example: /dev/xvdb.
+     *
+     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * @example /dev/xvdb
+     *
      * @var string
      */
     public $device;
 
     /**
+     * @description The format of the image.
+     *
+     * @example qcow2
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @description The OSS bucket that contains the imported image file.
+     *
+     * @example testEcsImport
+     *
      * @var string
      */
     public $importOSSBucket;
 
     /**
+     * @description The OSS object corresponding to the imported image file.
+     *
+     * @example imageImport
+     *
      * @var string
      */
     public $importOSSObject;
 
     /**
+     * @description The size of the disk. Unit: GiB.
+     *
+     * @example 80
+     *
      * @var string
      */
     public $size;
 
     /**
+     * @description The ID of the snapshot.
+     *
+     * @example s-bp17ot2q7x72ggtw****
+     *
      * @var string
      */
     public $snapshotId;
 
     /**
+     * @description The type of the image.
+     *
+     * @example custom
+     *
      * @var string
      */
     public $type;

@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnapshotPackageRequest extends Model
 {
     /**
+     * @example ECSforCloud@Alibaba.com
+     *
      * @var string
      */
     public $ownerAccount;
 
     /**
+     * @description RAM用户的虚拟账号ID。
+     *
+     * @example 155780923770
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Pages start from page 1.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 100.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the snapshot. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description 资源主账号的账号名称。
+     *
+     * @example ECSforCloud
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @description 资源主账号的ID，亦即UID。
+     *
+     * @example 155780923770
+     *
      * @var int
      */
     public $resourceOwnerId;

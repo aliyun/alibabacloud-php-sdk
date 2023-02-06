@@ -10,16 +10,30 @@ use AlibabaCloud\Tea\Model;
 class actionOnMaintenance extends Model
 {
     /**
+     * @description The default maintenance action.
+     *
+     * @example AutoRecover
+     *
      * @var string
      */
     public $defaultValue;
 
     /**
+     * @description The list of the supported maintenance actions.
+     *
      * @var supportedValues
      */
     public $supportedValues;
 
     /**
+     * @description The current maintenance action. Valid values:
+     *
+     *   Stop: The instance goes down.
+     *   AutoRecover: The instance is automatically recovered.
+     *   AutoRedeploy: Failover is performed on the instance, which may damage the data disks.
+     *
+     * @example Stop
+     *
      * @var string
      */
     public $value;

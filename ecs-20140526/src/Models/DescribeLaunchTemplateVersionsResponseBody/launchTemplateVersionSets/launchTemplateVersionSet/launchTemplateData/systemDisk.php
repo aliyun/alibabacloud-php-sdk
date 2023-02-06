@@ -39,6 +39,11 @@ class systemDisk extends Model
     public $diskName;
 
     /**
+     * @var string
+     */
+    public $encrypted;
+
+    /**
      * @var int
      */
     public $iops;
@@ -64,6 +69,7 @@ class systemDisk extends Model
         'deleteWithInstance'   => 'DeleteWithInstance',
         'description'          => 'Description',
         'diskName'             => 'DiskName',
+        'encrypted'            => 'Encrypted',
         'iops'                 => 'Iops',
         'performanceLevel'     => 'PerformanceLevel',
         'provisionedIops'      => 'ProvisionedIops',
@@ -94,6 +100,9 @@ class systemDisk extends Model
         }
         if (null !== $this->diskName) {
             $res['DiskName'] = $this->diskName;
+        }
+        if (null !== $this->encrypted) {
+            $res['Encrypted'] = $this->encrypted;
         }
         if (null !== $this->iops) {
             $res['Iops'] = $this->iops;
@@ -136,6 +145,9 @@ class systemDisk extends Model
         }
         if (isset($map['DiskName'])) {
             $model->diskName = $map['DiskName'];
+        }
+        if (isset($map['Encrypted'])) {
+            $model->encrypted = $map['Encrypted'];
         }
         if (isset($map['Iops'])) {
             $model->iops = $map['Iops'];

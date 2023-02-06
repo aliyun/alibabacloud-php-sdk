@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class temporary extends Model
 {
     /**
+     * @description > This parameter is in invitational preview and is unavailable to general users.
+     *
+     * @example hide
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description > This parameter is in invitational preview and is unavailable to general users.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $internetMaxBandwidthOut;
 
     /**
+     * @description > This parameter is in invitational preview and is unavailable to general users.
+     *
+     * @example hide
+     *
      * @var string
      */
     public $startTime;

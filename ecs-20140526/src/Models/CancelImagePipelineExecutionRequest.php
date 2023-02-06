@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class CancelImagePipelineExecutionRequest extends Model
 {
     /**
+     * @description The ID of the image build task.
+     *
+     * @example exec-5fb8facb8ed7427c****
+     *
      * @var string
      */
     public $executionId;
@@ -25,6 +29,10 @@ class CancelImagePipelineExecutionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the image build task. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -40,6 +48,8 @@ class CancelImagePipelineExecutionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description > This parameter is deprecated.
+     *
      * @var templateTag[]
      */
     public $templateTag;

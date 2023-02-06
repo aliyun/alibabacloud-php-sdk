@@ -16,21 +16,39 @@ class DescribeElasticityAssurancesRequest extends Model
     public $privatePoolOptions;
 
     /**
+     * @description The billing method of the instances to be created by using the elasticity assurance. Set the value to PostPaid. Only pay-as-you-go instances can be created by using elasticity assurances.
+     *
+     * Default value: PostPaid.
+     * @example PostPaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description The instance type to which the elasticity assurance applies.
+     *
+     * @example ecs.c6.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The maximum number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token used to start the next query. Set the value to the NextToken value obtained from the response to the previous request.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
@@ -46,16 +64,29 @@ class DescribeElasticityAssurancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description >  This parameter is deprecated.
+     *
+     * @example null
+     *
      * @var string
      */
     public $platform;
 
     /**
+     * @description The region ID of the elasticity assurance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the elasticity assurance belongs. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+     *
+     * >  Resources in the default resource group are displayed in the response regardless of how this parameter is set.
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -71,16 +102,27 @@ class DescribeElasticityAssurancesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The state of the elasticity assurance. Valid values:
+     *
+     * Default value: Active.
+     * @example Active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The tags that you want to query resources. You can specify a maximum of 20 tags.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The zone ID of the elasticity assurance.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;

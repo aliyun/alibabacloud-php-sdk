@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class instanceType extends Model
 {
     /**
+     * @description The number of vCPUs of the instance type.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $cpuCoreCount;
 
     /**
+     * @description The instance family.
+     *
+     * @example ecs.t1
+     *
      * @var string
      */
     public $instanceTypeFamily;
 
     /**
+     * @description The ID of the instance type.
+     *
+     * @example ecs.t1.xsmall
+     *
      * @var string
      */
     public $instanceTypeId;
 
     /**
+     * @description The memory size of the instance type. Unit: GiB.
+     *
+     * @example 1024
+     *
      * @var float
      */
     public $memorySize;

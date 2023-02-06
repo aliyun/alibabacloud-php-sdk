@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class spotOptions extends Model
 {
     /**
+     * @description The provisioning policy for preemptible instances. Valid values:
+     *
+     * - diversified: balanced distribution policy. This policy indicates that instances are created evenly across multiple zones specified in the extended configurations.
+     * @example diversified
+     *
      * @var string
      */
     public $allocationStrategy;
 
     /**
+     * @description The action to be performed after the extra preemptible instances are stopped. Valid values:
+     *
+     * - terminate: releases the extra preemptible instances.
+     * @example stop
+     *
      * @var string
      */
     public $instanceInterruptionBehavior;
 
     /**
+     * @description The number of instances that the auto provisioning group used the instance type of the lowest cost to create.
+     *
+     * >  This parameter is set when the auto provisioning group is created, and cannot be modified.
+     * @example 2
+     *
      * @var int
      */
     public $instancePoolsToUseCount;

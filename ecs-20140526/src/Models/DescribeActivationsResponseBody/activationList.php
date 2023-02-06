@@ -4,56 +4,102 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeActivationsResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeActivationsResponseBody\activationList\tags;
 use AlibabaCloud\Tea\Model;
 
 class activationList extends Model
 {
     /**
+     * @description The ID of the activation code.
+     *
+     * @example 4ECEEE12-56F1-4FBC-9AB1-890F1234****
+     *
      * @var string
      */
     public $activationId;
 
     /**
+     * @description The time when the activation code was created.
+     *
+     * @example 2021-01-20T06:00:00Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The number of instances that were deregistered.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $deregisteredCount;
 
     /**
+     * @description The description of the activation code.
+     *
+     * @example This is description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether the activation code is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $disabled;
 
     /**
+     * @description The maximum number of times that the activation code can be used to register managed instances.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $instanceCount;
 
     /**
+     * @description The default instance name prefix.
+     *
+     * @example test-InstanceName
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The IP addresses of hosts that are allowed to use the activation code.
+     *
+     * @example 0.0.0.0/0
+     *
      * @var string
      */
     public $ipAddressRange;
 
     /**
+     * @description The number of instances that were registered.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $registeredCount;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @description The validity period of the activation code. Unit: hours.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $timeToLiveInHours;
@@ -67,6 +113,7 @@ class activationList extends Model
         'instanceName'      => 'InstanceName',
         'ipAddressRange'    => 'IpAddressRange',
         'registeredCount'   => 'RegisteredCount',
+        'tags'              => 'Tags',
         'timeToLiveInHours' => 'TimeToLiveInHours',
     ];
 
@@ -103,6 +150,15 @@ class activationList extends Model
         }
         if (null !== $this->registeredCount) {
             $res['RegisteredCount'] = $this->registeredCount;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->timeToLiveInHours) {
             $res['TimeToLiveInHours'] = $this->timeToLiveInHours;
@@ -145,6 +201,15 @@ class activationList extends Model
         }
         if (isset($map['RegisteredCount'])) {
             $model->registeredCount = $map['RegisteredCount'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TimeToLiveInHours'])) {
             $model->timeToLiveInHours = $map['TimeToLiveInHours'];

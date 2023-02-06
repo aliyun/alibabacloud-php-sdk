@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class attachInstanceRamRoleResult extends Model
 {
     /**
+     * @description Indicates whether the instance RAM role was attached. If 200 is returned, the instance RAM role was attached. If any other value is returned, the instance RAM role failed to be attached. For more information, see the "Error codes" section.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp10ws62o04ubhvi****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description Indicates whether the instance RAM role was attached. If success is returned, the instance RAM role was attached. If any other value is returned, the instance RAM role failed to be attached. For more information, see the "Error codes" section.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the instance RAM role was attached.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

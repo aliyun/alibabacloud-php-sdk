@@ -9,46 +9,76 @@ use AlibabaCloud\Tea\Model;
 class ModifyHpcClusterAttributeRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The **ClientToken** value must contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotency](~~25693~~).
+     *
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The description of the HPC cluster. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
+     *
+     * This parameter is empty by default.
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the HPC cluster.
+     *
+     * @example hpc-b8bq705cvx1****
+     *
      * @var string
      */
     public $hpcClusterId;
 
     /**
+     * @description The name of the HPC cluster. The name must be 2 to 128 characters in length. It must start with a letter but cannot start with http:// or https://. It can contain letters, digits, underscores (\_), and hyphens (-).
+     *
+     * This parameter is empty by default.
+     * @example testName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example EcsforCloud@Alibaba.com
+     *
      * @var string
      */
     public $ownerAccount;
 
     /**
+     * @example 1234567890
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @description The region ID of the HPC cluster. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example EcsforCloud
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @example 1234567890
+     *
      * @var int
      */
     public $resourceOwnerId;

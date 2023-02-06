@@ -12,46 +12,76 @@ use AlibabaCloud\Tea\Model;
 class dedicatedHostCluster extends Model
 {
     /**
+     * @description The capacity of the dedicated host cluster.
+     *
      * @var dedicatedHostClusterCapacity
      */
     public $dedicatedHostClusterCapacity;
 
     /**
+     * @description The ID of the dedicated host cluster.
+     *
+     * @example dc-bp12wlf6am0vz9v2****
+     *
      * @var string
      */
     public $dedicatedHostClusterId;
 
     /**
+     * @description The name of the dedicated host cluster.
+     *
+     * @example myDDHCluster
+     *
      * @var string
      */
     public $dedicatedHostClusterName;
 
     /**
+     * @description The IDs of dedicated hosts in the dedicated host cluster.
+     *
      * @var dedicatedHostIds
      */
     public $dedicatedHostIds;
 
     /**
+     * @description The description of the dedicated host cluster.
+     *
+     * @example This-is-my-DDHCluster
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The region ID of the dedicated host cluster.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the dedicated host cluster belongs.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The tags of the dedicated host cluster.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The zone ID of the dedicated host cluster.
+     *
+     * @example cn-hangzhou-f
+     *
      * @var string
      */
     public $zoneId;

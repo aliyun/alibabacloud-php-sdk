@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class extendedAttribute extends Model
 {
     /**
+     * @description The device name of the local disk.
+     *
+     * @example /dev/vdb
+     *
      * @var string
      */
     public $device;
 
     /**
+     * @description The ID of the local disk.
+     *
+     * @example d-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @description Details about the inactive cloud disks or local disks that have been released and must be cleared.
+     *
      * @var inactiveDisks
      */
     public $inactiveDisks;

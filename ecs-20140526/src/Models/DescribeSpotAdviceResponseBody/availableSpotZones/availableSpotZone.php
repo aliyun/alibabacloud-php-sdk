@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class availableSpotZone extends Model
 {
     /**
+     * @description Details about preemptible instances in the last 30 days, including release rates and percentages of average preemptible instance prices relative to pay-as-you-go instance prices.
+     *
      * @var availableSpotResources
      */
     public $availableSpotResources;
 
     /**
+     * @description The ID of the zone.
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;

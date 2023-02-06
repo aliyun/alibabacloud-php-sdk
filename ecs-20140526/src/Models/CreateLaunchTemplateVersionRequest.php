@@ -18,96 +18,195 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $systemDisk;
 
     /**
+     * @description The automatic release time of the instance. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     *   If the value of seconds (`ss`) is not `00`, the time is automatically rounded to the nearest minute based on the value of minutes (`mm`).
+     *   The specified time must be at least 30 minutes later than the current time.
+     *   The specified time must be at most three years from the current time.
+     *
+     * @example 2018-01-01T12:05:00Z
+     *
      * @var string
      */
     public $autoReleaseTime;
 
     /**
+     * @description The list of data disks.
+     *
      * @var dataDisk[]
      */
     public $dataDisk;
 
     /**
+     * @description The ID of the deployment set.
+     *
+     * @example ds-bp1brhwhoqinyjd6****
+     *
      * @var string
      */
     public $deploymentSetId;
 
     /**
+     * @description The description of the instance. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+     *
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Specifies whether to enable the operating system configuration of the instance.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableVmOsConfig;
 
     /**
+     * @description The hostname of the instance.
+     *
+     *   The hostname cannot start or end with a period (.) or hyphen (-). It cannot contain consecutive periods (.) or hyphens (-).
+     *   For Windows instances, the hostname must be 2 to 15 characters in length and cannot contain periods (.) or contain only digits. It can contain letters, digits, and hyphens (-).
+     *   For instances that run other operating systems such as Linux, the hostname must be 2 to 64 characters in length. You can use periods (.) to separate the hostname into multiple segments. Each segment can contain letters, digits, and hyphens (-).
+     *
+     * @example testHostName
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @description The ID of the image to use to create the Elastic Compute Service (ECS) instance. You can call the [DescribeImages](~~25534~~) operation to query available images.
+     *
+     * @example win2008r2_64_ent_sp1_en-us_40G_alibase_20170915.vhd
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The source of the image.
+     *
+     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * @example system
+     *
      * @var string
      */
     public $imageOwnerAlias;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   PrePaid: subscription. If you set this parameter to PrePaid, make sure that your account supports payment by credit. Otherwise, an `InvalidPayMethod` error is returned.
+     *   PostPaid: pay-as-you-go.
+     *
+     * @example PrePaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description The name of the instance. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
+     * @example testInstanceName
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The instance type. For more information, see [Instance families](~~25378~~) or call the [DescribeInstanceTypes](~~25620~~) operation to query the most recent instance type list.
+     *
+     * @example ecs.g5.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The billing method for network usage. Valid values:
+     *
+     *   PayByBandwidth: pay-by-bandwidth
+     *   PayByTraffic: pay-by-traffic
+     *
+     * >  When the **pay-by-traffic** billing method for network usage is used, the maximum inbound and outbound bandwidth values are used as upper limits of bandwidths instead of guaranteed performance specifications. In scenarios where demand outstrips resource supplies, these maximum bandwidths may be limited. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
+     * @example PayByTraffic
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @description The maximum inbound public bandwidth. Unit: Mbit/s. Valid values:
+     *
+     *   If the purchased outbound public bandwidth is less than or equal to 10 Mbit/s, the valid values of InternetMaxBandwidthIn are 1 to 10, and the default value is 10.
+     *   If the purchased outbound public bandwidth is greater than 10 Mbit/s, the valid values of this parameter are 1 to the `InternetMaxBandwidthOut` value, and the default value is the `InternetMaxBandwidthOut` value.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $internetMaxBandwidthIn;
 
     /**
+     * @description The maximum outbound public bandwidth. Unit: Mbit/s. Valid values: 0 to 100.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $internetMaxBandwidthOut;
 
     /**
+     * @description Specifies whether the instance is I/O optimized. Valid values:
+     *
+     *   none: The instance is not I/O optimized.
+     *   optimized: The instance is I/O optimized.
+     *
+     * @example optimized
+     *
      * @var string
      */
     public $ioOptimized;
 
     /**
+     * @description The number of IPv6 addresses to be randomly generated for the primary elastic network interface (ENI). Valid values: 1 to 10.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $ipv6AddressCount;
 
     /**
+     * @description The name of the key pair.
+     *
+     *   For Windows instances, this parameter is ignored. The `Password` parameter takes effect even if the KeyPairName parameter is specified.
+     *   For Linux instances, the password-based logon method is disabled by default.
+     *
+     * @example testKeyPairName
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @description The ID of the launch template. For more information, see [DescribeLaunchTemplates](~~73759~~). You must specify `LaunchTemplateId` or `LaunchTemplateName` to determine a launch template.
+     *
+     * @example lt-m5eiaupmvm2op9d****
+     *
      * @var string
      */
     public $launchTemplateId;
 
     /**
+     * @description The name of the launch template. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
+     * @example testLaunchTemplateName
+     *
      * @var string
      */
     public $launchTemplateName;
@@ -118,6 +217,13 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $networkInterface;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   classic: classic network
+     *   vpc: VPC
+     *
+     * @example vpc
+     *
      * @var string
      */
     public $networkType;
@@ -133,31 +239,57 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $ownerId;
 
     /**
+     * @description Specifies whether to use the password preset in the image.
+     *
+     * >  When you use this parameter, leave Password empty and make sure that the selected image has a password preset.
+     * @example false
+     *
      * @var bool
      */
     public $passwordInherit;
 
     /**
+     * @description The subscription period of the instance. Unit: months. This parameter is valid and required only when `InstanceChargeType` is set to `PrePaid`. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The private IP address of the instance.
+     *
+     * To assign a private IP address to an instance of the VPC type, make sure that the IP address is an idle IP address within the CIDR block of the vSwitch specified by the `VSwitchId` parameter.
+     * @example 10.1.**.**
+     *
      * @var string
      */
     public $privateIpAddress;
 
     /**
+     * @description The name of the instance Resource Access Management (RAM) role. You can call the [ListRoles](~~28713~~) operation provided by RAM to query the instance RAM roles that you created.
+     *
+     * @example testRamRoleName
+     *
      * @var string
      */
     public $ramRoleName;
 
     /**
+     * @description The region ID of the launch template. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -173,61 +305,119 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies whether to enable security hardening for the operating system. Valid values:
+     *
+     *   Active: enables security hardening. This value is applicable only to public images.
+     *   Deactive: disables security hardening. This value is applicable to all image types.
+     *
+     * @example Active
+     *
      * @var string
      */
     public $securityEnhancementStrategy;
 
     /**
+     * @description The ID of the security group to which to assign the instance. Instances within the same security group can access each other.
+     *
+     * >  You cannot specify both `SecurityGroupId` and `SecurityGroupIds.N`.
+     * @example sg-bp15ed6xe1yxeycg****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @description The IDs of the security groups to assign the instance.
+     *
+     * @example sg-bp15ed6xe1yxeycg7****
+     *
      * @var string[]
      */
     public $securityGroupIds;
 
     /**
+     * @description The protection period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6.
+     *
+     *   Protection periods of 2, 3, 4, 5, and 6 hours are in invitational preview. If you want to set this parameter to one of these values, submit a ticket.
+     *   If this parameter is set to 0, no protection period is configured for the preemptible instance.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $spotDuration;
 
     /**
+     * @description The maximum hourly price of the instance. A maximum of three decimal places are allowed.
+     *
+     * @example 0.97
+     *
      * @var float
      */
     public $spotPriceLimit;
 
     /**
+     * @description The bidding policy for the pay-as-you-go instance. This parameter is valid only when the `InstanceChargeType` parameter is set to `PostPaid`. Valid values:
+     *
+     *   NoSpot: The instance is a regular pay-as-you-go instance.
+     *   SpotWithPriceLimit: The instance is a preemptible instance with a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bid price.
+     *
+     * @example NoSpot
+     *
      * @var string
      */
     public $spotStrategy;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The user data of the instance. The user data must be encoded in Base64. The maximum size of raw data is 16 KB.
+     *
+     * @example ZWNobyBoZWxsbyBl****
+     *
      * @var string
      */
     public $userData;
 
     /**
+     * @description The ID of the vSwitch to which to connect the instance. This parameter is required if you specify the VpcId parameter.
+     *
+     * @example vsw-bp1s5fnvk4gn2tws0****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The description of the launch template version. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+     *
+     * @example testVersionDescription
+     *
      * @var string
      */
     public $versionDescription;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
+     * @example vpc-bp12433upq1y5scen****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The ID of the zone in which to create the instance.
+     *
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $zoneId;

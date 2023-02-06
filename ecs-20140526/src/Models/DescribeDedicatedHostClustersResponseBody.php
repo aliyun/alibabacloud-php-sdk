@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostClustersResponseBody extends Model
 {
     /**
+     * @description Details about the dedicated host clusters.
+     *
      * @var dedicatedHostClusters
      */
     public $dedicatedHostClusters;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 214A2187-B06F-4E49-A081-4D053466A8C7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of dedicated host clusters.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

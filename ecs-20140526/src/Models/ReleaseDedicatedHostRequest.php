@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ReleaseDedicatedHostRequest extends Model
 {
     /**
+     * @description The ID of the dedicated host.
+     *
+     * @example dh-bp199lyny9b3****
+     *
      * @var string
      */
     public $dedicatedHostId;
@@ -24,6 +28,10 @@ class ReleaseDedicatedHostRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the dedicated host. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

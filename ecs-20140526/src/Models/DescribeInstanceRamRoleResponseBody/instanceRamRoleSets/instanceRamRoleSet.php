@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class instanceRamRoleSet extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the instance RAM role.
+     *
+     * @example EcsServiceRole-EcsDocGuideTest
+     *
      * @var string
      */
     public $ramRoleName;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RedeployDedicatedHostRequest extends Model
 {
     /**
+     * @description The ID of the dedicated host.
+     *
+     * @example dh-bp165p6xk2tlw61e****
+     *
      * @var string
      */
     public $dedicatedHostId;
@@ -24,6 +28,10 @@ class RedeployDedicatedHostRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the dedicated host. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

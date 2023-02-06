@@ -10,41 +10,69 @@ use AlibabaCloud\Tea\Model;
 class networkInterface extends Model
 {
     /**
+     * @description The description of the secondary ENI.
+     *
+     * @example testNetworkInterfacesDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example ecs.s2.xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The name of the secondary ENI.
+     *
+     * @example testNetworkInterfaceName
+     *
      * @var string
      */
     public $networkInterfaceName;
 
     /**
+     * @example Standard
+     *
      * @var string
      */
     public $networkInterfaceTrafficMode;
 
     /**
+     * @description The primary private IP address of the secondary ENI.
+     *
+     * @example 203.0.*.*
+     *
      * @var string
      */
     public $primaryIpAddress;
 
     /**
+     * @description The ID of the security group to which to assign the secondary ENI. The security group and the ENI must belong to the same VPC.
+     *
+     * >  The SecurityGroupId and SecurityGroupIds parameters are mutually exclusive in the response.
+     * @example sg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @description The IDs of the security groups to which to assign the secondary ENI.
+     *
+     * >  The SecurityGroupId and SecurityGroupIds parameters are mutually exclusive in the response.
      * @var securityGroupIds
      */
     public $securityGroupIds;
 
     /**
+     * @description The ID of the vSwitch to which to connect the ENI.
+     *
+     * @example vsw-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $vSwitchId;

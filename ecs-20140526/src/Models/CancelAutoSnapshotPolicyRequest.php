@@ -9,26 +9,40 @@ use AlibabaCloud\Tea\Model;
 class CancelAutoSnapshotPolicyRequest extends Model
 {
     /**
+     * @example 155780923770
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @example ECSforCloud
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @example 155780923770
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @description The IDs of the disks for which you want to disable the automatic snapshot policy. To disable the automatic snapshot policy for multiple disks, you can set this parameter to a JSON array that consists of multiple disk IDs, such as \["dxxxxxxxxx", "dyyyyyyyyy", … "dzzzzzzzzz"]. Separate the disk IDs with commas (,).
+     *
+     * @example ["d-bp14k9cxvr5uzy54****", "d-bp1dtj8v7x6u08iw****", "d-bp1c0tyj9tfli2r8****"]
+     *
      * @var string
      */
     public $diskIds;
 
     /**
+     * @description The region ID of the automatic snapshot policy and the disks. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

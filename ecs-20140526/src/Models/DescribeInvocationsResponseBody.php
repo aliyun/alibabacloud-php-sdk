@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeInvocationsResponseBody extends Model
 {
     /**
+     * @description Details about the command executions.
+     *
      * @var invocations
      */
     public $invocations;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of the commands.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

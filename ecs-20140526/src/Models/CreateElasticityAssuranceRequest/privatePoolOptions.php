@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class privatePoolOptions extends Model
 {
     /**
+     * @description The type of the private pool associated with the elasticity assurance. Valid values:
+     *
+     *   Open: open private pool
+     *   Target: targeted private pool
+     *
+     * Default value: Open.
+     * @example Open
+     *
      * @var string
      */
     public $matchCriteria;
 
     /**
+     * @description The name of the elasticity assurance. The description must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
+     * @example eapTestName
+     *
      * @var string
      */
     public $name;

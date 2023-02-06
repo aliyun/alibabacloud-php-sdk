@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class account extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
+     * @example 1234567890
+     *
      * @var string
      */
     public $aliyunId;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class AttachInstanceRamRoleResponseBody extends Model
 {
     /**
+     * @description Details about the results of attaching the instance RAM role.
+     *
      * @var attachInstanceRamRoleResults
      */
     public $attachInstanceRamRoleResults;
 
     /**
+     * @description The number of the instances to which the instance RAM role failed to be attached.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $failCount;
 
     /**
+     * @description The name of the instance RAM role.
+     *
+     * @example testRamRoleName
+     *
      * @var string
      */
     public $ramRoleName;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D9553E4C-6C3A-4D66-AE79-9835AF705639
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of instances to which you attempted to attach the instance RAM role.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

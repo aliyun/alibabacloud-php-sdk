@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagesResponseBody extends Model
 {
     /**
+     * @description Details about the images.
+     *
      * @var images
      */
     public $images;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the image.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 66189103-EDB2-43E2-BB60-BFF2B62F4EB8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of images.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

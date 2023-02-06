@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class vpcAttributes extends Model
 {
     /**
+     * @description The NAT IP address of the instance. It is used by ECS instances in different VPCs for communication.
+     *
+     * @example 172.17.**.**
+     *
      * @var string
      */
     public $natIpAddress;
 
     /**
+     * @description The private IP addresses of the instance.
+     *
      * @var privateIpAddress
      */
     public $privateIpAddress;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-2zeh0r1pabwtg6wcs****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-2zeuphj08tt7q3brd****
+     *
      * @var string
      */
     public $vpcId;

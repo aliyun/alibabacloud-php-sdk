@@ -9,31 +9,69 @@ use AlibabaCloud\Tea\Model;
 class AttachDiskRequest extends Model
 {
     /**
+     * @description Specifies whether to attach the disk as a system disk.
+     *
+     * > If the `Bootable` parameter is set to true, the instance must be in the No System Disk state.
+     * @example false
+     *
      * @var bool
      */
     public $bootable;
 
     /**
+     * @description Specifies whether to release the disk when the instance is released. Valid values:
+     *
+     *   true: releases the disk when the instance is released.
+     *   false: does not release the data disk when the instance is released. The disk is retained as a pay-as-you-go data disk.
+     *
+     * When you specify this parameter, take note of the following items:
+     *
+     *   If `OperationLocks` in the DescribeInstances response contains `"LockReason" : "security"` for the instance to which the disk is attached, the instance is locked for security reasons. Even if `DeleteWithInstance` is set to `false`, the DeleteWithInstance parameter is ignored, and the disk is released when the instance is released.
+     *   This parameter cannot be specified for disks for which the multi-attach feature is enabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $deleteWithInstance;
 
     /**
+     * @description The device name of the disk.
+     *
+     * > This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * @example testDeviceName
+     *
      * @var string
      */
     public $device;
 
     /**
+     * @description The ID of the disk. The disk specified by the `DiskId` parameter and the instance specified by the `InstanceId` parameter must reside in the same zone.
+     *
+     * > For more information about the limits on attaching a data disk and system disk, see the "Description" section of this topic.
+     * @example d-bp1j4l5axzdy6ftk****
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @description The ID of the instance to which to attach the disk.
+     *
+     * @example i-bp1dq5lozx5f4pmd****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the SSH key pair that you bind to the Linux instance when you attach the system disk.
+     *
+     *   Windows instances do not support logons based on SSH key pairs. The `Password` parameter takes effect even if the KeyPairName parameter is specified.
+     *   For Linux instances, the username and password-based logon method is disabled by default.
+     *
+     * @example KeyPairTestName
+     *
      * @var string
      */
     public $keyPairName;
@@ -49,6 +87,13 @@ class AttachDiskRequest extends Model
     public $ownerId;
 
     /**
+     * @description The password set when you attach the system disk. The password is applicable only to the administrator and root users. The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include:
+     *
+     * ( ) ` ~ ! @ # $ % ^ & * - _ + = | { } [ ] : ; \" < > , . ? /
+     *
+     * > If the `Password` parameter is specified, we recommend that you send requests over HTTPS to prevent password leaks.
+     * @example EcsV587!
+     *
      * @var string
      */
     public $password;

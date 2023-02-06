@@ -1,3 +1,6 @@
+2023-02-06 Version: 3.0.2
+- Support system tag.
+
 2022-10-14 Version: 3.0.1
 - Add GPUMemorySize to DescribeInstanceTypes api.
 

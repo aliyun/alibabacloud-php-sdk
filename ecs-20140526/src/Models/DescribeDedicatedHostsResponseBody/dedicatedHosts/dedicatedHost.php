@@ -24,156 +24,277 @@ class dedicatedHost extends Model
     public $schedulerOptions;
 
     /**
+     * @description The policy used to migrate the instances deployed on the dedicated host when the dedicated host fails. Valid values:
+     *
+     *   Migrate: The instances are migrated to another physical server. Instances that are not in the Stopped state when the dedicated host fails are restarted after migration.
+     *   Stop: The instances are stopped. If the dedicated host cannot be repaired, the instances are migrated to another physical server and restarted.
+     *
+     * If the dedicated host has cloud disks attached, the default value is Migrate. If the dedicated host has local disks attached, the default value is Stop.
+     * @example Migrate
+     *
      * @var string
      */
     public $actionOnMaintenance;
 
     /**
+     * @description Indicates whether the dedicated host was added to the resource pool for automatic deployment. Valid values:
+     *
+     *   on: The dedicated host was added to the resource pool for automatic deployment.
+     *   off: The dedicated host was not added to the resource pool for automatic deployment.
+     *
+     * For more information about automatic deployment, see the "[Automatic deployment](~~118938~~)" section in the Functions and features topic.
+     * @example on
+     *
      * @var string
      */
     public $autoPlacement;
 
     /**
+     * @description The automatic release time of the dedicated host. The time follows the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mmZ` format. The time is displayed in UTC.
+     *
+     * @example 2017-01-01T12:00Z
+     *
      * @var string
      */
     public $autoReleaseTime;
 
     /**
+     * @description The performance specifications of the dedicated host.
+     *
      * @var capacity
      */
     public $capacity;
 
     /**
+     * @description The billing method of the dedicated host.
+     *
+     * @example Prepaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The number of cores in a single CPU.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $cores;
 
     /**
+     * @description The CPU overcommit ratio.
+     *
+     * @example 1
+     *
      * @var float
      */
     public $cpuOverCommitRatio;
 
     /**
+     * @description The time when the dedicated host was created. The time follows the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mmZ` format. The time is displayed in UTC.
+     *
+     * @example 2018-01-01T12:00Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The ID of the dedicated host cluster to which the dedicated host belongs.
+     *
+     * @example dc-bp12wlf6am0vz9v2****
+     *
      * @var string
      */
     public $dedicatedHostClusterId;
 
     /**
+     * @description The ID of the dedicated host.
+     *
+     * @example dh-bp165p6xk2tlw61e****
+     *
      * @var string
      */
     public $dedicatedHostId;
 
     /**
+     * @description The name of the dedicated host.
+     *
+     * @example MyDDHTestName
+     *
      * @var string
      */
     public $dedicatedHostName;
 
     /**
+     * @description The type of the dedicated host.
+     *
+     * @example ddh.g5
+     *
      * @var string
      */
     public $dedicatedHostType;
 
     /**
+     * @description The description of the dedicated host.
+     *
+     * @example this-is-my-DDH
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The expiration time of the subscription dedicated host. The time follows the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mmZ` format. The time is displayed in UTC.
+     *
+     * @example 2019-01-01T12:00Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The GPU model.
+     *
+     * @example gpu
+     *
      * @var string
      */
     public $GPUSpec;
 
     /**
+     * @description This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     *
      * @var hostDetailInfo
      */
     public $hostDetailInfo;
 
     /**
+     * @description Details about the ECS instances that were created on the dedicated host.
+     *
      * @var instances
      */
     public $instances;
 
     /**
+     * @description The machine code of the dedicated host.
+     *
+     * @example 12aaa123456ff19dec12345d3026e****
+     *
      * @var string
      */
     public $machineId;
 
     /**
+     * @description The network attributes of the dedicated host.
+     *
      * @var networkAttributes
      */
     public $networkAttributes;
 
     /**
+     * @description The reasons why the resources of the dedicated host were locked.
+     *
      * @var operationLocks
      */
     public $operationLocks;
 
     /**
+     * @description The number of physical GPUs.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $physicalGpus;
 
     /**
+     * @description The region ID of the dedicated host.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the dedicated host belongs.
+     *
+     * @example rg-aek3b6jzp66****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The unit of the subscription period. Valid values:
+     *
+     *   Month
+     *   Year
+     *
+     * @example Month
+     *
      * @var string
      */
     public $saleCycle;
 
     /**
+     * @description The number of physical CPUs.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $sockets;
 
     /**
+     * @description The service state of the dedicated host. Valid values:
+     *
+     *   Available: The dedicated host is running normally.
+     *   UnderAssessment: The dedicated host is at risk, which may cause issues to ECS instances on the dedicated host.
+     *   PermanentFailure: The dedicated host has permanent failures and is unusable.
+     *
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The custom ECS instance families supported by the dedicated host.
+     *
      * @var supportedCustomInstanceTypeFamilies
      */
     public $supportedCustomInstanceTypeFamilies;
 
     /**
+     * @description The ECS instance families supported by the dedicated host.
+     *
      * @var supportedInstanceTypeFamilies
      */
     public $supportedInstanceTypeFamilies;
 
     /**
+     * @description The ECS instance types supported by the dedicated host.
+     *
      * @var supportedInstanceTypesList
      */
     public $supportedInstanceTypesList;
 
     /**
+     * @description The tags of the dedicated host.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The zone ID of the dedicated host.
+     *
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $zoneId;

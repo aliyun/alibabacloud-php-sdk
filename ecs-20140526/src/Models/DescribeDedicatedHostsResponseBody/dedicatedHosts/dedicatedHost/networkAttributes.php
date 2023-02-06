@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class networkAttributes extends Model
 {
     /**
+     * @description The timeout period of the UDP session that was established between Server Load Balancer (SLB) and the dedicated host. Unit: seconds. Valid value: 60.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $slbUdpTimeout;
 
     /**
+     * @description The timeout period of the UDP session that was established between a user and an Alibaba Cloud service on the dedicated host. Unit: seconds. Valid value: 60.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $udpTimeout;

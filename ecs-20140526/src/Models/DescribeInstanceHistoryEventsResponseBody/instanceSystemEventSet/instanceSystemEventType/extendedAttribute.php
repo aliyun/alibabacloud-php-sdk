@@ -11,41 +11,72 @@ use AlibabaCloud\Tea\Model;
 class extendedAttribute extends Model
 {
     /**
+     * @description The device name of the local disk.
+     *
+     * @example /dev/vda
+     *
      * @var string
      */
     public $device;
 
     /**
+     * @description The ID of the local disk.
+     *
+     * @example d-diskid1
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @description The ID of the host.
+     *
+     * @example dh-bp1ewce1gk3iwv2****
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @description The type of the host. Valid values:
+     *
+     *   ddh: dedicated host.
+     *   managehost: physical machine in a smart hosting pool.
+     *
+     * @example ddh
+     *
      * @var string
      */
     public $hostType;
 
     /**
+     * @description Details about the inactive cloud disks or local disks that have been released and must be removed.
+     *
      * @var inactiveDisks
      */
     public $inactiveDisks;
 
     /**
+     * @description The migration solution of the instance. Valid value: MigrationOptions. Instances can be migrated only by using migration plans.
+     *
      * @var migrationOptions
      */
     public $migrationOptions;
 
     /**
+     * @description The online repair policy of the damaged disk. Valid value: IsolateOnly, which indicates that damaged disks are isolated but not repaired.
+     *
+     * @example IsolateOnly
+     *
      * @var string
      */
     public $onlineRepairPolicy;
 
     /**
+     * @description The rack number of the cloud box.
+     *
+     * @example A01
+     *
      * @var string
      */
     public $rack;

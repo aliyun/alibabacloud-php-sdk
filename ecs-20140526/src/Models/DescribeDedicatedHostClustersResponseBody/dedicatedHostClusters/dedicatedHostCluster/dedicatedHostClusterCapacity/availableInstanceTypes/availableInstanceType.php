@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class availableInstanceType extends Model
 {
     /**
+     * @description The available capacity of the ECS instance type.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $availableInstanceCapacity;
 
     /**
+     * @description The ECS instance type.
+     *
+     * @example ecs.c6.26xlarge
+     *
      * @var string
      */
     public $instanceType;

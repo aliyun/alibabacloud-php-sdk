@@ -4,6 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceResponseBody\ipv4PrefixSets;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceResponseBody\ipv6PrefixSets;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceResponseBody\ipv6Sets;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceResponseBody\privateIpSets;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceResponseBody\securityGroupIds;
@@ -13,101 +15,185 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkInterfaceResponseBody extends Model
 {
     /**
+     * @description The description of the ENI.
+     *
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description > 该参数正在邀测中，暂未开放使用。
+     *
+     * @var ipv4PrefixSets
+     */
+    public $ipv4PrefixSets;
+
+    /**
+     * @description > 该参数正在邀测中，暂未开放使用。
+     *
+     * @var ipv6PrefixSets
+     */
+    public $ipv6PrefixSets;
+
+    /**
+     * @description The IPv6 addresses of the ENI.
+     *
      * @var ipv6Sets
      */
     public $ipv6Sets;
 
     /**
+     * @description The media access control (MAC) address of the ENI.
+     *
+     * @example 00:16:3e:12:**:**
+     *
      * @var string
      */
     public $macAddress;
 
     /**
+     * @description The ID of the ENI.
+     *
+     * @example eni-bp14v2sdd3v8htln****
+     *
      * @var string
      */
     public $networkInterfaceId;
 
     /**
+     * @description The name of the ENI.
+     *
+     * @example my-eni-name
+     *
      * @var string
      */
     public $networkInterfaceName;
 
     /**
+     * @description The ID of the account to which the ENI belongs.
+     *
+     * @example 123456****
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @description The private IP address of the ENI.
+     *
+     * @example 172.17.**.**
+     *
      * @var string
      */
     public $privateIpAddress;
 
     /**
+     * @description Details about the private IP addresses.
+     *
      * @var privateIpSets
      */
     public $privateIpSets;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the resource group to which the ENI belongs.
+     *
+     * @example rg-2ze88m67qx5z****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The IDs of the security groups to which the ENI belongs.
+     *
      * @var securityGroupIds
      */
     public $securityGroupIds;
 
     /**
+     * @description The ID of the distributor to which the ENI belongs.
+     *
+     * @example 12345678910
+     *
      * @var int
      */
     public $serviceID;
 
     /**
+     * @description Indicates whether the user of the ENI is an Alibaba Cloud service or a distributor.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $serviceManaged;
 
     /**
+     * @description The state of the ENI.
+     *
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The tags of the ENI.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The type of the ENI.
+     *
+     * @example Secondary
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The ID of the vSwitch with which the ENI is associated.
+     *
+     * @example vsw-bp16usj2p27htro3****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC to which the ENI belongs.
+     *
+     * @example vpc-bp1j7w3gc1cexjqd****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The zone ID of the ENI.
+     *
+     * @example cn-hangzhou-e
+     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'description'          => 'Description',
+        'ipv4PrefixSets'       => 'Ipv4PrefixSets',
+        'ipv6PrefixSets'       => 'Ipv6PrefixSets',
         'ipv6Sets'             => 'Ipv6Sets',
         'macAddress'           => 'MacAddress',
         'networkInterfaceId'   => 'NetworkInterfaceId',
@@ -137,6 +223,12 @@ class CreateNetworkInterfaceResponseBody extends Model
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->ipv4PrefixSets) {
+            $res['Ipv4PrefixSets'] = null !== $this->ipv4PrefixSets ? $this->ipv4PrefixSets->toMap() : null;
+        }
+        if (null !== $this->ipv6PrefixSets) {
+            $res['Ipv6PrefixSets'] = null !== $this->ipv6PrefixSets ? $this->ipv6PrefixSets->toMap() : null;
         }
         if (null !== $this->ipv6Sets) {
             $res['Ipv6Sets'] = null !== $this->ipv6Sets ? $this->ipv6Sets->toMap() : null;
@@ -206,6 +298,12 @@ class CreateNetworkInterfaceResponseBody extends Model
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Ipv4PrefixSets'])) {
+            $model->ipv4PrefixSets = ipv4PrefixSets::fromMap($map['Ipv4PrefixSets']);
+        }
+        if (isset($map['Ipv6PrefixSets'])) {
+            $model->ipv6PrefixSets = ipv6PrefixSets::fromMap($map['Ipv6PrefixSets']);
         }
         if (isset($map['Ipv6Sets'])) {
             $model->ipv6Sets = ipv6Sets::fromMap($map['Ipv6Sets']);

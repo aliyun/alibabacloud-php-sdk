@@ -10,46 +10,80 @@ use AlibabaCloud\Tea\Model;
 class launchTemplateVersionSet extends Model
 {
     /**
+     * @description The time when the launch template was created.
+     *
+     * @example 2022-01-17T08:22:43Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The creator of the launch template.
+     *
+     * @example 123456789****
+     *
      * @var string
      */
     public $createdBy;
 
     /**
+     * @description Indicates whether the launch template version is the default version.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $defaultVersion;
 
     /**
+     * @description The configurations of the launch template.
+     *
      * @var launchTemplateData
      */
     public $launchTemplateData;
 
     /**
+     * @description The ID of the template.
+     *
+     * @example lt-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $launchTemplateId;
 
     /**
+     * @description The name of the launch template.
+     *
+     * @example testLaunchTemplateName
+     *
      * @var string
      */
     public $launchTemplateName;
 
     /**
+     * @description The time when the launch template was modified.
+     *
+     * @example 2022-01-17T08:40:00Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @description The description of the launch template version.
+     *
+     * @example testVersionDescription
+     *
      * @var string
      */
     public $versionDescription;
 
     /**
+     * @description The number of the launch template version.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $versionNumber;

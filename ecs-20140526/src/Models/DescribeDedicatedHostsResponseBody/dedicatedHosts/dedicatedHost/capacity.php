@@ -9,46 +9,82 @@ use AlibabaCloud\Tea\Model;
 class capacity extends Model
 {
     /**
+     * @description The amount of available space on the local disks. Unit: GiB.
+     *
+     * @example 65
+     *
      * @var int
      */
     public $availableLocalStorage;
 
     /**
+     * @description The amount of available memory space. Unit: GiB.
+     *
+     * @example 25
+     *
      * @var float
      */
     public $availableMemory;
 
     /**
+     * @description The number of available vCPUs.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $availableVcpus;
 
     /**
+     * @description The number of available vGPUs.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $availableVgpus;
 
     /**
+     * @description The category of the local disks.
+     *
+     * @example i2
+     *
      * @var string
      */
     public $localStorageCategory;
 
     /**
+     * @description The total capacity of the local disks. Unit: GiB.
+     *
+     * @example 512
+     *
      * @var int
      */
     public $totalLocalStorage;
 
     /**
+     * @description The total capacity of the memory. Unit: GiB.
+     *
+     * @example 1024
+     *
      * @var float
      */
     public $totalMemory;
 
     /**
+     * @description The total number of vCPUs.
+     *
+     * @example 56
+     *
      * @var int
      */
     public $totalVcpus;
 
     /**
+     * @description The total number of vGPUs.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalVgpus;

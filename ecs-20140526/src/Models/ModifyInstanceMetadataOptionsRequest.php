@@ -9,24 +9,55 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceMetadataOptionsRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the access channel for instance metadata. Valid values:
+     *
+     *   enabled: enables the access channel for instance metadata.
+     *   disabled: disables the access channel for instance metadata.
+     *
+     * > For more information about instance metadata, see [Overview of ECS instance metadata](~~49122~~).
+     * @example enabled
+     *
      * @var string
      */
     public $httpEndpoint;
 
     /**
+     * @description > This parameter is in invitational preview and is unavailable to general users.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $httpPutResponseHopLimit;
 
     /**
+     * @description Specifies whether to forcefully use the security-enhanced mode (IMDSv2) to access instance metadata. Valid values:
+     *
+     *   optional: does not forcefully use the security-enhanced mode (IMDSv2).
+     *   required: forcefully uses the security-enhanced mode (IMDSv2). After you set this parameter to required, you cannot access instance metadata in normal mode.
+     *
+     * > For more information about the modes of accessing instance metadata, see [Access mode of instance metadata](~~150575~~).
+     * @example optional
+     *
      * @var string
      */
     public $httpTokens;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp67acfmxaz****
+     *
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @example null
+     *
+     * @var string
+     */
+    public $instanceMetadataTags;
 
     /**
      * @var int
@@ -34,6 +65,10 @@ class ModifyInstanceMetadataOptionsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -52,6 +87,7 @@ class ModifyInstanceMetadataOptionsRequest extends Model
         'httpPutResponseHopLimit' => 'HttpPutResponseHopLimit',
         'httpTokens'              => 'HttpTokens',
         'instanceId'              => 'InstanceId',
+        'instanceMetadataTags'    => 'InstanceMetadataTags',
         'ownerId'                 => 'OwnerId',
         'regionId'                => 'RegionId',
         'resourceOwnerAccount'    => 'ResourceOwnerAccount',
@@ -76,6 +112,9 @@ class ModifyInstanceMetadataOptionsRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceMetadataTags) {
+            $res['InstanceMetadataTags'] = $this->instanceMetadataTags;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -112,6 +151,9 @@ class ModifyInstanceMetadataOptionsRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceMetadataTags'])) {
+            $model->instanceMetadataTags = $map['InstanceMetadataTags'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

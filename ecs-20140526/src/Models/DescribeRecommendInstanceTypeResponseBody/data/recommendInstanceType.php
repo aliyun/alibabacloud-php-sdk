@@ -11,51 +11,87 @@ use AlibabaCloud\Tea\Model;
 class recommendInstanceType extends Model
 {
     /**
+     * @description The commodity code of the instance type.
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @description The billing method of the instances of the instance type.
+     *
+     * @example PostPaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description The name of the instance type.
+     *
      * @var instanceType
      */
     public $instanceType;
 
     /**
+     * @description The network type of the ECS instance.
+     *
+     * @example vpc
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The sorting priority.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @description The region ID of the instance type.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Indicates the scenario in which the instance type was recommended.
+     *
+     * @example CREATE
+     *
      * @var string
      */
     public $scene;
 
     /**
+     * @description The preemption policy for the preemptible instance.
+     *
+     * @example NoSpot
+     *
      * @var string
      */
     public $spotStrategy;
 
     /**
+     * @description The zone ID of the instance type.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;
 
     /**
+     * @description Details of the zones where the alternative instance types are available.
+     *
      * @var zones
      */
     public $zones;

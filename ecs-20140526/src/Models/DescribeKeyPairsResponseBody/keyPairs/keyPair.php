@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class keyPair extends Model
 {
     /**
+     * @description The time when the key pair was created.
+     *
+     * @example 2019-12-04T13:35:00Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The fingerprint of the key pair.
+     *
+     * @example ABC1234567
+     *
      * @var string
      */
     public $keyPairFingerPrint;
 
     /**
+     * @description The name of the key pair.
+     *
+     * @example testKeyPairName
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-amnhr7u7c7hj****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The tags of the key pair.
+     *
      * @var tags
      */
     public $tags;

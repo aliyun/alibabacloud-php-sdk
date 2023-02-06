@@ -11,21 +11,33 @@ use AlibabaCloud\Tea\Model;
 class maintenanceAttribute extends Model
 {
     /**
+     * @description The attributes of the maintenance action of the instance.
+     *
      * @var actionOnMaintenance
      */
     public $actionOnMaintenance;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description Details about the maintenance window.
+     *
      * @var maintenanceWindows
      */
     public $maintenanceWindows;
 
     /**
+     * @description Indicates whether an event notification was sent before instance shutdown.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $notifyOnMaintenance;

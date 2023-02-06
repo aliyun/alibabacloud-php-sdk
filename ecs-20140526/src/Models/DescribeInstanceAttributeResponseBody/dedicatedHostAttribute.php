@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class dedicatedHostAttribute extends Model
 {
     /**
+     * @description The ID of the dedicated host.
+     *
+     * @example dh-2ze7qrzz6lvbfhr0****
+     *
      * @var string
      */
     public $dedicatedHostId;
 
     /**
+     * @description The name of the dedicated host.
+     *
+     * @example ecs-autoui-create-ddh-temp
+     *
      * @var string
      */
     public $dedicatedHostName;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class securityGroupReference extends Model
 {
     /**
+     * @description Details about the security groups whose rules are referencing the specified security groups.
+     *
      * @var referencingSecurityGroups
      */
     public $referencingSecurityGroups;
 
     /**
+     * @description The ID of the specified security group.
+     *
+     * @example sg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $securityGroupId;

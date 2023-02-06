@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class AttachKeyPairResponseBody extends Model
 {
     /**
+     * @description The number of instances to which the key pair fails to be attached.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $failCount;
 
     /**
+     * @description The name of the key pair.
+     *
+     * @example testKeyPairName
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array that contains the results of the operation.
+     *
      * @var results
      */
     public $results;
 
     /**
+     * @description The total number of instances to which the SSH key pair is attached.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $totalCount;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CancelSimulatedSystemEventsRequest extends Model
 {
     /**
+     * @description The IDs of system events. You can specify up to 100 system event IDs.
+     *
+     * @example e-xhskHun1256****
+     *
      * @var string[]
      */
     public $eventId;
@@ -24,6 +28,10 @@ class CancelSimulatedSystemEventsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the system event. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

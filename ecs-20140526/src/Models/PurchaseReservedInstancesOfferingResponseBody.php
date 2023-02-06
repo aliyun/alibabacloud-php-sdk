@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class PurchaseReservedInstancesOfferingResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 8C314443-AF0D-4766-9562-C83B7F1A3C8B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Details about the reserved instance.
+     *
      * @var reservedInstanceIdSets
      */
     public $reservedInstanceIdSets;

@@ -24,16 +24,28 @@ class ApplyAutoSnapshotPolicyRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the automatic snapshot policy.
+     *
+     * @example sp-bp14yziiuvu3s6jn****
+     *
      * @var string
      */
     public $autoSnapshotPolicyId;
 
     /**
+     * @description The IDs of disks. The value is a JSON array that consists of disk IDs. Separate the disk IDs with commas (,).
+     *
+     * @example ["d-bp14k9cxvr5uzy54****", "d-bp1dtj8v7x6u08iw****", "d-bp1c0tyj9tfli2r8****"]
+     *
      * @var string
      */
     public $diskIds;
 
     /**
+     * @description The region ID of the automatic snapshot policy and the disks. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

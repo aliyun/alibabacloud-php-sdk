@@ -19,6 +19,10 @@ class DeleteSnapshotGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the snapshot-consistent group. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,6 +38,10 @@ class DeleteSnapshotGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the snapshot-consistent group. You can call the [DescribeSnapshotGroups](~~210940~~) operation to query the IDs of one or more snapshot-consistent groups.
+     *
+     * @example ssg-j6c9lpuyxo2uxxny****
+     *
      * @var string
      */
     public $snapshotGroupId;

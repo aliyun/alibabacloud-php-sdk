@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ConvertNatPublicIpToEipRequest extends Model
 {
     /**
+     * @description The ID of the instance whose public IP address you want to convert into an EIP.
+     *
+     * @example i-bp171jr36ge2ulvk****
+     *
      * @var string
      */
     public $instanceId;
@@ -19,6 +23,10 @@ class ConvertNatPublicIpToEipRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

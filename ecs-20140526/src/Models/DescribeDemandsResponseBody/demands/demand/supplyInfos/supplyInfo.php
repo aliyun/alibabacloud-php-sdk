@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class supplyInfo extends Model
 {
     /**
+     * @description The number of delivered instances.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $amount;
 
     /**
+     * @description The end time when the filed resources are delivered and available. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2019-03-03T15:00:00Z
+     *
      * @var string
      */
     public $supplyEndTime;
 
     /**
+     * @description The start time when the filed resources are delivered and available. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2019-03-01T14:00:00Z
+     *
      * @var string
      */
     public $supplyStartTime;
 
     /**
+     * @description The delivery status of the filed resource. Valid values:
+     *
+     *   Delivered: The filed resource is delivered.
+     *   Delivering: The filed resource is being delivered.
+     *
+     * @example Delivering
+     *
      * @var string
      */
     public $supplyStatus;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeReservedInstancesResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E572643C-6A29-49D6-9D4E-6CFA4E063A3E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Details about the reserved instances.
+     *
      * @var reservedInstances
      */
     public $reservedInstances;
 
     /**
+     * @description The total number of reserved instances.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

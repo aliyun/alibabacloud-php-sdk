@@ -11,116 +11,211 @@ use AlibabaCloud\Tea\Model;
 class image extends Model
 {
     /**
+     * @description The image architecture. Valid values:
+     *
+     *   i386
+     *   x86\_64
+     *
+     * @example x86_64
+     *
      * @var string
      */
     public $architecture;
 
     /**
+     * @description The time when the image was created.
+     *
+     * @example 2018-01-10T01:01:10Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The description of the image.
+     *
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The mappings between the disks and snapshots under the image.
+     *
      * @var diskDeviceMappings
      */
     public $diskDeviceMappings;
 
     /**
+     * @description The name of the image family.
+     *
+     * @example testImageFamily
+     *
      * @var string
      */
     public $imageFamily;
 
     /**
+     * @description The ID of the image.
+     *
+     * @example m-bp1g7004ksh0oeuc****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The name of the image.
+     *
+     * @example testImageName
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @description The alias of the image owner. Valid values:
+     *
+     * - marketplace: Alibaba Cloud Marketplace images
+     * @example self
+     *
      * @var string
      */
     public $imageOwnerAlias;
 
     /**
+     * @description The version of the image.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $imageVersion;
 
     /**
+     * @description Indicates whether the image is a copy of another image.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isCopied;
 
     /**
+     * @description Indicates whether the image has been shared to other Alibaba Cloud accounts.
+     *
+     * @example true
+     *
      * @var string
      */
     public $isSelfShared;
 
     /**
+     * @description Indicates whether you have subscribed to the image corresponding to the specified product code.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isSubscribed;
 
     /**
+     * @description Indicates whether the image supports cloud-init.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSupportCloudinit;
 
     /**
+     * @description Indicates whether the image can be used on I/O optimized instances.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSupportIoOptimized;
 
     /**
+     * @description The name of the operating system.
+     *
+     * @example Alibaba Cloud Linux 2.1903
+     *
      * @var string
      */
     public $OSName;
 
     /**
+     * @description The type of the operating system. Valid values:
+     *
+     * - linux
+     * @example linux
+     *
      * @var string
      */
     public $OSType;
 
     /**
+     * @description The platform of the operating system.
+     *
+     * @example Aliyun
+     *
      * @var string
      */
     public $platform;
 
     /**
+     * @description The product code of the Alibaba Cloud Marketplace image.
+     *
+     * @example jxsc00****
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The image creation progress. Unit: percent (%).
+     *
+     * @example 100
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @description The size of the image. Unit: GiB.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The status of the image. Valid values:
+     *
+     * - CreateFailed: The image failed to be created.
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description An array that consists of Tag data.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description Indicates whether the image has been used to create ECS instances. Valid values:
+     *
+     * - none: The image has not been used to create ECS instances.
+     * @example none
+     *
      * @var string
      */
     public $usage;

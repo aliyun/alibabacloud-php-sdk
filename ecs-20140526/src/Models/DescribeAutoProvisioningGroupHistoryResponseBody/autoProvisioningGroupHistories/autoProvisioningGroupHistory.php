@@ -10,26 +10,48 @@ use AlibabaCloud\Tea\Model;
 class autoProvisioningGroupHistory extends Model
 {
     /**
+     * @description An array consisting of ActivityDetail data.
+     *
      * @var activityDetails
      */
     public $activityDetails;
 
     /**
+     * @description The execution time of the last instance creation performed by the single scheduling task.
+     *
+     * @example 2019-04-01T15:10:20Z
+     *
      * @var string
      */
     public $lastEventTime;
 
     /**
+     * @description The start time of executing the single scheduling task.
+     *
+     * @example 2019-04-01T15:10:20Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The execution status of the single scheduling task. Valid values:
+     *
+     *   prepare: The scheduling task is being executed.
+     *   success: The scheduling task is executed.
+     *   failed: The scheduling task failed to be executed.
+     *
+     * @example success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the scheduling task.
+     *
+     * @example apg-task-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $taskId;

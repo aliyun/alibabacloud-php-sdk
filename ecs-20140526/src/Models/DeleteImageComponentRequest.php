@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteImageComponentRequest extends Model
 {
     /**
+     * @description The ID of the image component.
+     *
+     * @example ic-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $imageComponentId;
@@ -24,6 +28,10 @@ class DeleteImageComponentRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the image component. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

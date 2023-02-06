@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class spotPriceType extends Model
 {
     /**
+     * @description The instance type of the preemptible instance.
+     *
+     * @example ecs.g5.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description Indicates whether the preemptible instance is I/O optimized.
+     *
+     * @example optimized
+     *
      * @var string
      */
     public $ioOptimized;
 
     /**
+     * @description The network type of the preemptible instance.
+     *
+     * @example vpc
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The price for a pay-as-you-go instance that has the same configuration as the specified preemptible instance.
+     *
+     * @example 0.354
+     *
      * @var float
      */
     public $originPrice;
 
     /**
+     * @description The spot price of the preemptible instance.
+     *
+     * @example 0.036
+     *
      * @var float
      */
     public $spotPrice;
 
     /**
+     * @description The time that corresponds to the queried spot price. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format.
+     *
+     * @example 2019-11-19T06:00:00Z
+     *
      * @var string
      */
     public $timestamp;
 
     /**
+     * @description The zone ID of the preemptible instance.
+     *
+     * @example cn-hangzhou-c
+     *
      * @var string
      */
     public $zoneId;

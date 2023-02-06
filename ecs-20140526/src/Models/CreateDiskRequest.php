@@ -11,61 +11,127 @@ use AlibabaCloud\Tea\Model;
 class CreateDiskRequest extends Model
 {
     /**
+     * @description This parameter is unavailable.
+     *
+     * @example hide
+     *
      * @var string
      */
     public $advancedFeatures;
 
     /**
+     * @description 该参数暂未开放使用。
+     *
      * @var arn[]
      */
     public $arn;
 
     /**
+     * @description This parameter is unavailable.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $burstingEnabled;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The description of the disk. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+     *
+     * This parameter is empty by default.
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The category of the data disk. Valid values:
+     *
+     *   cloud: basic disk
+     *   cloud_efficiency: ultra disk
+     *   cloud_ssd: standard SSD
+     *   cloud_essd: ESSD
+     *
+     * Default value: cloud.
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $diskCategory;
 
     /**
+     * @description The name of the disk. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
+     * This parameter is empty by default.
+     * @example testDiskName
+     *
      * @var string
      */
     public $diskName;
 
     /**
+     * @description This parameter is unavailable.
+     *
+     * @example hide
+     *
      * @var string
      */
     public $encryptAlgorithm;
 
     /**
+     * @description Specifies whether to encrypt the disk. Valid values:
+     *
+     *   true: encrypts the disk.
+     *   false: does not encrypt the disk.
+     *
+     * Default value: false.
+     * @example false
+     *
      * @var bool
      */
     public $encrypted;
 
     /**
+     * @description The ID of the instance to which the created subscription disk is automatically attached.
+     *
+     *   After you specify the instance ID, the specified ResourceGroupId, Tag.N.Key, Tag.N.Value, ClientToken, and KMSKeyId parameters are ignored.
+     *   You cannot specify ZoneId and InstanceId at the same time.
+     *
+     * This parameter is empty by default. This indicates that a pay-as-you-go disk is created. The RegionId and ZoneId parameters specify where the disk resides.
+     * @example i-bp18pnlg1ds9rky4****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the Key Management Service (KMS) key used by the disk.
+     *
+     * @example 0e478b7a-4262-4802-b8cb-00d3fb40826X
+     *
      * @var string
      */
     public $KMSKeyId;
 
     /**
+     * @description Specifies whether to enable the multi-attach feature for the disk. Valid values:
+     *
+     *   Disabled: disables the multi-attach feature.
+     *   Enabled: enables the multi-attach feature. Set the value to `Enabled` only for ESSDs.
+     *
+     * >  Disks for which the multi-attach feature is enabled support only the pay-as-you-go billing method. When the `MultiAttach` parameter is set to Enabled, you cannot specify the `InstanceId` parameter. You can call the [AttachDisk](~~25515~~) operation to attach disks to instances after the disks are created. Disks for which the multi-attach feature is enabled can be attached only as data disks.
+     * @example Disabled
+     *
      * @var string
      */
     public $multiAttach;
@@ -81,21 +147,43 @@ class CreateDiskRequest extends Model
     public $ownerId;
 
     /**
+     * @description The performance level of the ESSD. Valid values:
+     *
+     *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
+     *   PL1: An ESSD can deliver up to 50,000 random read/write IOPS.
+     *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
+     *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
+     *
+     * For more information about ESSD performance levels, see [ESSDs](~~122389~~).
+     * @example PL1
+     *
      * @var string
      */
     public $performanceLevel;
 
     /**
+     * @description This parameter is unavailable.
+     *
+     * @example 40000
+     *
      * @var int
      */
     public $provisionedIops;
 
     /**
+     * @description The ID of the region in which to create the disk. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which to assign the disk.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -111,36 +199,91 @@ class CreateDiskRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The size of the disk. Unit: GiB. This parameter is required. Valid values:
+     *
+     *   Valid values when DiskCategory is set to cloud: 5 to 2,000
+     *
+     *   Valid values when DiskCategory is set to cloud_efficiency: 20 to 32,768
+     *
+     *   Valid values when DiskCategory is set to cloud_ssd: 20 to 32,768
+     *
+     *   Valid values when DiskCategory is set to cloud_essd: depends on the `PerformanceLevel` value.
+     *
+     *   Valid values when PerformanceLevel is set to PL0: 40 to 32,768
+     *   Valid values when PerformanceLevel is set to PL1: 20 to 32,768
+     *   Valid values when PerformanceLevel is set to PL2: 461 to 32,768
+     *   Valid values when PerformanceLevel is set to PL3: 1,261 to 32,768
+     *
+     * If the `SnapshotId` parameter is specified, the following limits apply to the `SnapshotId` and `Size` parameters:
+     *
+     *   If the size of the snapshot specified by the `SnapshotId` parameter is greater than the specified `Size` value, the size of the created disk is equal to the specified snapshot size.
+     *   If the size of the snapshot specified by the `SnapshotId` parameter is smaller than the specified `Size` value, the size of the created disk is equal to the specified `Size` value.
+     *
+     * @example 2000
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The ID of the snapshot used to create the disk. Snapshots that were created on or before July 15, 2013 cannot be used to create disks.
+     *
+     * The following limits apply to the `SnapshotId` and `Size` parameters:
+     *
+     *   If the size of the snapshot specified by the `SnapshotId` parameter is greater than the specified `Size` value, the size of the created disk is equal to the specified snapshot size.
+     *   If the size of the snapshot specified by the `SnapshotId` parameter is smaller than the specified `Size` value, the size of the created disk is equal to the specified `Size` value.
+     *
+     * @example s-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $snapshotId;
 
     /**
+     * @description The ID of the dedicated block storage cluster. To create a disk in a specific dedicated block storage cluster, specify this parameter. For more information about dedicated block storage clusters, see [What is Dedicated Block Storage Cluster?](~~208883~~)
+     *
+     * >  You can specify only one of the storage set-related parameters (`StorageSetId` and `StorageSetPartitionNumber`) and dedicated block storage cluster-related parameter (`StorageClusterId`). If you specify more than one of the preceding parameters, the call fails.
+     * @example dbsc-j5e1sf2vaf5he8m2****
+     *
      * @var string
      */
     public $storageClusterId;
 
     /**
+     * @description The ID of the storage set.
+     *
+     * >  You can specify only one of the storage set-related parameters (`StorageSetId` and `StorageSetPartitionNumber`) and dedicated block storage cluster-related parameter (`StorageClusterId`). If you specify more than one of the preceding parameters, the call fails.
+     * @example ss-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $storageSetId;
 
     /**
+     * @description The number of partitions in the storage set. The value must be greater than or equal to 2, but cannot exceed the quota obtained by calling the [DescribeAccountAttributes](~~73772~~) operation.
+     *
+     * Default value: 2.
+     * @example 3
+     *
      * @var int
      */
     public $storageSetPartitionNumber;
 
     /**
+     * @description 云盘的标签信息列表。
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The ID of the zone in which to create the pay-as-you-go disk.
+     *
+     *   If the InstanceId parameter is not specified, the ZoneId parameter is required.
+     *   You cannot specify ZoneId and InstanceId at the same time.
+     *
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $zoneId;

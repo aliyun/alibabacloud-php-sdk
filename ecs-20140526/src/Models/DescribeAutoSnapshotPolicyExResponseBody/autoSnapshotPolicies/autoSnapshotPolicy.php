@@ -10,76 +10,141 @@ use AlibabaCloud\Tea\Model;
 class autoSnapshotPolicy extends Model
 {
     /**
+     * @description The ID of the automatic snapshot policy.
+     *
+     * @example sp-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $autoSnapshotPolicyId;
 
     /**
+     * @description The name of the automatic snapshot policy.
+     *
+     * @example testAutoSnapshotPolicyName
+     *
      * @var string
      */
     public $autoSnapshotPolicyName;
 
     /**
+     * @description >  This parameter is in invitational preview and unavailable for general users.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $copiedSnapshotsRetentionDays;
 
     /**
+     * @description The time when the automatic snapshot policy was created. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2019-12-10T16:00Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The number of disks to which the automatic snapshot policy is applied.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $diskNums;
 
     /**
+     * @description >  This parameter is in invitational preview and unavailable for general users.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableCrossRegionCopy;
 
     /**
+     * @description The region ID of the automatic snapshot policy.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The days of the week on which to create automatic snapshots. Valid values: 1 to 7, which correspond to the days of the week. 1 indicates Monday. One or more days can be specified.
+     *
+     * @example ["6"]
+     *
      * @var string
      */
     public $repeatWeekdays;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-aek2kkmhmhs****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The retention period of the automatic snapshot. Unit: days. Valid values:
+     *
+     *   \-1: The automatic snapshot is retained until it is deleted.
+     *   1 to 65536: The automatic snapshot is retained for the specified number of days.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $retentionDays;
 
     /**
+     * @description The state of the automatic snapshot policy. Valid values:
+     *
+     *   Normal: The automatic snapshot policy is normal.
+     *   Expire: The automatic snapshot policy cannot be used because your account has overdue payments.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The tags of the automatic snapshot policy.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description >  This parameter is in invitational preview and unavailable for general users.
+     *
+     * @example test
+     *
      * @var string
      */
     public $targetCopyRegions;
 
     /**
+     * @description The points in time of the day at which to create automatic snapshots.
+     *
+     * The parameter value is a JSON array that contains up to 24 points in time separated by commas (,). Example: `["0", "1", ... "23"]`.
+     * @example ["1"]
+     *
      * @var string
      */
     public $timePoints;
 
     /**
+     * @description The number of extended volumes to which the automatic snapshot policy is applied.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $volumeNums;

@@ -19,11 +19,19 @@ class DeletePrefixListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the prefix list.
+     *
+     * @example pl-x1j1k5ykzqlixdcy****
+     *
      * @var string
      */
     public $prefixListId;
 
     /**
+     * @description The region ID of the prefix list. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-chengdu
+     *
      * @var string
      */
     public $regionId;

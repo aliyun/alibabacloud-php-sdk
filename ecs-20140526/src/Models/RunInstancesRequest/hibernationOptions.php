@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class hibernationOptions extends Model
 {
     /**
+     * @description > This parameter is in invitational preview and is unavailable.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $configured;

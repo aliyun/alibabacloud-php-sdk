@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateCapacityReservationResponseBody extends Model
 {
     /**
+     * @description The ID of the capacity reservation.
+     *
+     * @example crp-bp67acfmxazb4****
+     *
      * @var string
      */
     public $privatePoolOptionsId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;

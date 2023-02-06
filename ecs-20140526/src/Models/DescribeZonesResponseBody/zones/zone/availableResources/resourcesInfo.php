@@ -15,36 +15,52 @@ use AlibabaCloud\Tea\Model;
 class resourcesInfo extends Model
 {
     /**
+     * @description The categories of data disks that can be created.
+     *
      * @var dataDiskCategories
      */
     public $dataDiskCategories;
 
     /**
+     * @description The supported generations of instance families.
+     *
      * @var instanceGenerations
      */
     public $instanceGenerations;
 
     /**
+     * @description The supported instance families.
+     *
      * @var instanceTypeFamilies
      */
     public $instanceTypeFamilies;
 
     /**
+     * @description The supported instance types.
+     *
      * @var instanceTypes
      */
     public $instanceTypes;
 
     /**
+     * @description Indicates whether the instance is I/O optimized.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $ioOptimized;
 
     /**
+     * @description The supported network types
+     *
      * @var networkTypes
      */
     public $networkTypes;
 
     /**
+     * @description The supported categories of system disks that can be created.
+     *
      * @var systemDiskCategories
      */
     public $systemDiskCategories;

@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @description The name of the check item.
+     *
+     * @example Nvme
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The risk that the check item may have.
+     *
+     * @example NVMe.NotInstallded
+     *
      * @var string
      */
     public $riskCode;
 
     /**
+     * @description Indicates the severity of the risk that the check item of the imported custom image has. If the check item is at risk, this parameter is returned. If the check item is not at risk, this parameter is not returned.
+     *
+     * - Medium: The check item has a medium risk, which may affect the startup performance or configurations of the instance. We recommend that you handle the risk.
+     * @example High
+     *
      * @var string
      */
     public $riskLevel;
 
     /**
+     * @description The result of the check item.
+     *
+     * @example Supported
+     *
      * @var string
      */
     public $value;

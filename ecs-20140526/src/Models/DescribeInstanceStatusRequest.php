@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceStatusRequest extends Model
 {
     /**
+     * @description The cluster ID of the instance.
+     *
+     * @example cls-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The IDs of the instances.
+     *
+     * @example i-bp1j4i2jdf3owlhe****
+     *
      * @var string[]
      */
     public $instanceId;
@@ -29,16 +37,30 @@ class DescribeInstanceStatusRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 50.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -54,6 +76,10 @@ class DescribeInstanceStatusRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The zone ID of the instance. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     *
+     * @example cn-hangzhou-d
+     *
      * @var string
      */
     public $zoneId;

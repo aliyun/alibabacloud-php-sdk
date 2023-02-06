@@ -9,41 +9,67 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoProvisioningGroupInstancesRequest extends Model
 {
     /**
+     * @description The ID of the auto provisioning group.
+     *
+     * @example apg-uf6jel2bbl62wh13****
+     *
      * @var string
      */
     public $autoProvisioningGroupId;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $ownerAccount;
 
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the auto provisioning group. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $resourceOwnerId;

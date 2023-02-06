@@ -12,86 +12,148 @@ use AlibabaCloud\Tea\Model;
 class command extends Model
 {
     /**
+     * @description The category of the common command.
+     *
+     * @example “”
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The Base64-encoded command content.
+     *
+     * @example Y2QgL3Jvb3Q=
+     *
      * @var string
      */
     public $commandContent;
 
     /**
+     * @description The ID of the command.
+     *
+     * @example c-hz01272yr52****
+     *
      * @var string
      */
     public $commandId;
 
     /**
+     * @description The time when the command was created.
+     *
+     * @example 2020-11-17T06:52Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The description of the command.
+     *
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether the custom parameter feature was enabled for the command.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableParameter;
 
     /**
+     * @description The number of tasks created by using the command.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $invokeTimes;
 
     /**
+     * @description Indicates whether the common command is of the latest version. If multiple common commands from the same provider (`Provider`) belong to the same category and have the same name, these commands are of different versions of the same command. This parameter is not returned for the Cloud Assistant commands that you created.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $latest;
 
     /**
+     * @description The name of the command.
+     *
+     * @example testName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description Details about the custom parameters.
+     *
      * @var parameterDefinitions
      */
     public $parameterDefinitions;
 
     /**
+     * @description A list of custom parameter names that are parsed from the command content specified when the command was being created. If the custom parameter feature is not enabled, an empty list is returned.
+     *
      * @var parameterNames
      */
     public $parameterNames;
 
     /**
+     * @description The provider of the common command.
+     *
+     * @example AlibabaCloud.ECS.GuestOS
+     *
      * @var string
      */
     public $provider;
 
     /**
+     * @description The list of tags added to the command.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The timeout period.
+     *
+     * @example 3600
+     *
      * @var int
      */
     public $timeout;
 
     /**
+     * @description The type of the command.
+     *
+     * @example RunShellScript
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The version of the common command. If multiple common commands from the same provider (`Provider`) belong to the same category and have the same name, these commands are of different versions of the same command. This parameter is not returned for the Cloud Assistant commands that you created.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $version;
 
     /**
+     * @description The working directory of the command on the Elastic Compute Service (ECS) instance.
+     *
+     * @example /home/
+     *
      * @var string
      */
     public $workingDir;

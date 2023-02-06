@@ -10,131 +10,255 @@ use AlibabaCloud\Tea\Model;
 class snapshot extends Model
 {
     /**
+     * @description The category of the snapshot.
+     *
+     * > This parameter will be removed in the future. We recommend that you use the `InstantAccess` parameter to ensure future compatibility.
+     * @example standard
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The time when the snapshot was created. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2020-08-20T14:52:28Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The description of the snapshot.
+     *
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether the snapshot was encrypted.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $encrypted;
 
     /**
+     * @description Indicates whether the instant access feature is enabled. Valid values:
+     *
+     *   true: The instant access feature is enabled. This feature can be enabled only for enhanced SSDs (ESSDs).
+     *   false: The instant access feature is disabled. The snapshot is a normal snapshot for which the instant access feature is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $instantAccess;
 
     /**
+     * @description The duration of the instant access feature. The instant access feature is automatically disabled when the specified duration expires.
+     *
+     * By default, the value of this parameter is the same as that of `RetentionDays`.
+     * @example 30
+     *
      * @var int
      */
     public $instantAccessRetentionDays;
 
     /**
+     * @description The ID of the KMS key used by the data disk.
+     *
+     * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
+     *
      * @var string
      */
     public $KMSKeyId;
 
     /**
+     * @description The time when the snapshot was last changed. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2020-08-25T14:18:09Z
+     *
      * @var string
      */
     public $lastModifiedTime;
 
     /**
+     * @description The product code of the Alibaba Cloud Marketplace image.
+     *
+     * @example jxsc000****
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The progress of the snapshot creation task. Unit: percent (%).
+     *
+     * @example 100%
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @description The remaining time that is required to create the snapshot. Unit: seconds.
+     *
+     * @example 38
+     *
      * @var int
      */
     public $remainTime;
 
     /**
+     * @description The ID of the resource group to which the snapshot belongs.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The retention period of the automatic snapshot. Unit: days.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $retentionDays;
 
     /**
+     * @description The ID of the snapshot.
+     *
+     * @example s-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $snapshotId;
 
     /**
+     * @description The name of the snapshot. This parameter is returned only if a snapshot name was specified when the snapshot was created.
+     *
+     * @example testSnapshotName
+     *
      * @var string
      */
     public $snapshotName;
 
     /**
+     * @description The serial number of the snapshot.
+     *
+     * @example 64472-116742336-61976****
+     *
      * @var string
      */
     public $snapshotSN;
 
     /**
+     * @description The type of snapshot. Valid values:
+     *
+     *   auto or timer: automatic snapshot
+     *   user: manual snapshot
+     *   all: all snapshot types
+     *
+     * @example all
+     *
      * @var string
      */
     public $snapshotType;
 
     /**
+     * @description The ID of the source disk. This parameter is retained even after the source disk for which the snapshot was created is released.
+     *
+     * @example d-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $sourceDiskId;
 
     /**
+     * @description The capacity of the source disk. Unit: GiB.
+     *
+     * @example 40
+     *
      * @var string
      */
     public $sourceDiskSize;
 
     /**
+     * @description The type of the source disk. Valid values:
+     *
+     *   system
+     *   data
+     *
+     * @example system
+     *
      * @var string
      */
     public $sourceDiskType;
 
     /**
+     * @description The region ID of the source snapshot.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $sourceRegionId;
 
     /**
+     * @description The ID of the source snapshot.
+     *
+     * @example s-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $sourceSnapshotId;
 
     /**
+     * @description The type of the source disk.
+     *
+     * > This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * @example disk
+     *
      * @var string
      */
     public $sourceStorageType;
 
     /**
+     * @description The state of the snapshot. Valid values:
+     *
+     *   progressing
+     *   accomplished
+     *   failed
+     *
+     * @example accomplished
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The tags of the snapshot.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description Indicates whether the snapshot has been used to create images or disks. Valid values:
+     *
+     *   image
+     *   disk
+     *   image_disk
+     *   none
+     *
+     * @example image
+     *
      * @var string
      */
     public $usage;

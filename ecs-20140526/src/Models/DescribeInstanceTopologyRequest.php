@@ -9,26 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceTopologyRequest extends Model
 {
     /**
+     * @description The IDs of one or more ECS instances. You can specify a maximum of 100 instance IDs.
+     *
+     * @example ["i-bp67acfmxazb4p****"]
+     *
      * @var string
      */
     public $instanceIds;
 
     /**
+     * @example 111
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @description The region ID of the ECS instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example hide
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @example 111
+     *
      * @var int
      */
     public $resourceOwnerId;

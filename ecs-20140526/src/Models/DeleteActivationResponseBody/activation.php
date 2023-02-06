@@ -9,46 +9,82 @@ use AlibabaCloud\Tea\Model;
 class activation extends Model
 {
     /**
+     * @description The ID of the activation code.
+     *
+     * @example 4ECEEE12-56F1-4FBC-9AB1-890F1234****
+     *
      * @var string
      */
     public $activationId;
 
     /**
+     * @description The time when the activation code was created.
+     *
+     * @example 2021-01-20T06:00:00Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The number of instances that were deregistered.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $deregisteredCount;
 
     /**
+     * @description The description of the activation code.
+     *
+     * @example This is description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The maximum number of times that the activation code can be used to register managed instances.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $instanceCount;
 
     /**
+     * @description The default instance name prefix.
+     *
+     * @example test-InstanceName
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The IP addresses of hosts that are allowed to use the activation code.
+     *
+     * @example 0.0.0.0/0
+     *
      * @var string
      */
     public $ipAddressRange;
 
     /**
+     * @description The number of registered instances.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $registeredCount;
 
     /**
+     * @description The validity period of the activation code. Unit: hours.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $timeToLiveInHours;

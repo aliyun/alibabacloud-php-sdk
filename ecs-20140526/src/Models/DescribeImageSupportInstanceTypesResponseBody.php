@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageSupportInstanceTypesResponseBody extends Model
 {
     /**
+     * @description The ID of the image.
+     *
+     * @example m-o6w3gy99qf89rkga****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description Details about the instance types that are supported by the image.
+     *
      * @var instanceTypes
      */
     public $instanceTypes;
 
     /**
+     * @description The region ID of the image.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;

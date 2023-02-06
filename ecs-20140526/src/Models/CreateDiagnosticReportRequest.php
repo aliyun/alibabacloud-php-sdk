@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class CreateDiagnosticReportRequest extends Model
 {
     /**
+     * @description The end of the reporting period. This parameter takes effect only for diagnostic metrics that do not need to be assessed by running Cloud Assistant commands in guest operating systems.
+     *
+     * @example 2022-07-11T14:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the diagnostic metric set. If this parameter is left empty, the dms-instancedefault set is used, which is the default diagnostic metric set provided for Elastic Compute Service (ECS) instances.
+     *
+     * @example dms-uf6i0tv2refv8wz*****
+     *
      * @var string
      */
     public $metricSetId;
 
     /**
+     * @description The ID of the region in which to create a diagnostic report. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource.
+     *
+     * @example i-uf6i0tv2refv8wz*****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The beginning of the reporting period. This parameter takes effect only for diagnostic metrics that do not need to be assessed by running Cloud Assistant commands in guest operating systems.
+     *
+     * @example 2022-07-11T12:00:00Z
+     *
      * @var string
      */
     public $startTime;

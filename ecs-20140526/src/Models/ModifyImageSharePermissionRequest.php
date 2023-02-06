@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ModifyImageSharePermissionRequest extends Model
 {
     /**
+     * @example 1234567890
+     *
      * @var string[]
      */
     public $addAccount;
 
     /**
+     * @description The ID of the custom image.
+     *
+     * @example m-bp18ygjuqnwhechc****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description Specifies whether to publish the specified custom image as a community image. Valid values:
+     *
+     *   true: publishes the image as a community image. When the image is published, it enters the public state
+     *   false: unpublishes the community image. When the image is unpublished, it enters the private state.
+     *
+     * >  If the parameter value is set to `true`, other optional parameters are not allowed to be specified.
+     * @example false
+     *
      * @var bool
      */
     public $isPublic;
 
     /**
+     * @example hide
+     *
      * @var string
      */
     public $launchPermission;
@@ -39,11 +55,17 @@ class ModifyImageSharePermissionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the custom image. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 1234567890
+     *
      * @var string[]
      */
     public $removeAccount;

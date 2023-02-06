@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
+     * @description The key of filter. Only the image ID can be used to filter instance types. Valid values:
+     *
+     * imagId: image ID
+     * filter: image ID
+     *
+     * @example imageId
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of filter.
+     *
+     * @example m-o6w3gy99qf89rkga****
+     *
      * @var string
      */
     public $value;

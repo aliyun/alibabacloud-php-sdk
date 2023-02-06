@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CopyImageResponseBody extends Model
 {
     /**
+     * @description The ID of the image copy.
+     *
+     * @example m-bp1h46wfpjsjastd****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;

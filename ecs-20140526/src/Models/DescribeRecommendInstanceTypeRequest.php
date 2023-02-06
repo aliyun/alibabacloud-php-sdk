@@ -9,46 +9,102 @@ use AlibabaCloud\Tea\Model;
 class DescribeRecommendInstanceTypeRequest extends Model
 {
     /**
+     * @description The number of vCPUs of the instance.
+     *
+     * >  If the `Cores` and `Memory` parameters are both specified, all instance types that offer the vCPUs and memory size specified by the parameters are matched.
+     * @example 2
+     *
      * @var int
      */
     public $cores;
 
     /**
+     * @description The billing method of the instances of the instance type. For more information, see [Billing overview](~~25398~~). Valid values:
+     *
+     * PrePaid: subscription
+     * PostPaid: pay-as-you-go
+     *
+     * Default value: PostPaid.
+     * @example PostPaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description The level of the instance family. Valid values:
+     *
+     * EntryLevel
+     * EnterpriseLevel.
+     * CreditEntryLevel. For more information, see [Burstable instance families](~~59977~~).
+     *
+     * @example EnterpriseLevel
+     *
      * @var string
      */
     public $instanceFamilyLevel;
 
     /**
+     * @description The specified instance type. For more information, see [Instance families](~~25378~~) or call the [DescribeInstanceTypes](~~25620~~) operation to query the most recent instance type list.
+     *
+     * >  If the `InstanceType` parameter is specified, none of the `Cores` and `Memory` parameters can be specified.
+     * @example ecs.hfg6.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description Instance families to be filtered out. You can specify up to 10 instance families.
+     *
+     * @example ecs.hfg6
+     *
      * @var string[]
      */
     public $instanceTypeFamily;
 
     /**
+     * @description Specifies whether to match I/O optimized instances. The IoOptimized parameter cannot be specified when the instance is not I/O optimized. Valid values:
+     *
+     * optimized: matches I/O optimized instances.
+     * none: matches non-I/O optimized instances.
+     *
+     * If you query alternative instance types for retired instance types, this parameter is set to none by default. Default value: none.
+     * @example optimized
+     *
      * @var string
      */
     public $ioOptimized;
 
     /**
+     * @description The maximum hourly price for pay-as-you-go instances or preemptible instances.
+     *
+     * >  If this parameter is specified, the `SpotStrategy` parameter must be set to `SpotWithPriceLimit`.
+     * @example 10.0
+     *
      * @var float
      */
     public $maxPrice;
 
     /**
+     * @description The memory size of the instance. Unit: GiB.
+     *
+     * >  If the `Cores` and `Memory` parameters are both specified, all instance types that offer the vCPUs and memory size specified by the parameters are matched.
+     * @example 8.0
+     *
      * @var float
      */
     public $memory;
 
     /**
+     * @description The network type of the ECS instance. Valid values:
+     *
+     *   classic: classic network
+     *   vpc: VPC
+     *
+     * Default value: vpc.
+     * @example vpc
+     *
      * @var string
      */
     public $networkType;
@@ -64,11 +120,24 @@ class DescribeRecommendInstanceTypeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The policy for recommending instance types. Valid values:
+     *
+     * InventoryFirst: Instance types are recommended in descending order based on resource availability.
+     * PriceFirst: Instance types are recommended in ascending order based on hourly price per vCPU.
+     * NewProductFirst: The latest instance types are recommended first.
+     *
+     * Default value: InventoryFirst.
+     * @example PriceFirst
+     *
      * @var string
      */
     public $priorityStrategy;
 
     /**
+     * @description The region ID of the alternative instance types. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -84,26 +153,66 @@ class DescribeRecommendInstanceTypeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies the scenario in which the instance type is recommended. Valid values:
+     *
+     * UPGRADE: instance type upgrade or downgrade
+     * CREATE: instance creation
+     *
+     * Default value: CREATE.
+     * @example CREATE
+     *
      * @var string
      */
     public $scene;
 
     /**
+     * @description The bidding policy of preemptible instances. Valid values:
+     *
+     * NoSpot: applies to regular pay-as-you-go instances.
+     * SpotWithPriceLimit: applies to preemptible instances that have user-defined maximum hourly prices.
+     * SpotAsPriceGo: applies to preemptible instances that are of the market price at the time of purchase.
+     *
+     * Default value: NoSpot.
+     * @example NoSpot
+     *
      * @var string
      */
     public $spotStrategy;
 
     /**
+     * @description The category of the system disk. Valid values:
+     *
+     * cloud_efficiency: ultra disk
+     * cloud_ssd: standard SSD
+     * cloud_essd: enhanced SSD (ESSD)
+     * cloud: basic disk
+     *
+     * For I/O optimized instances, the default value is cloud_efficiency.
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $systemDiskCategory;
 
     /**
+     * @description The zone ID of the alternative instance types. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     *
+     * When you specify this parameter, we recommend that you set ZoneMatchMode to the default value Include. This value indicates that instance types in the zone specified by ZoneId are preferentially recommended, and instance types in other zones in the same region are also listed.
+     * @example cn-hangzhou-f
+     *
      * @var string
      */
     public $zoneId;
 
     /**
+     * @description Specifies which alternative instance types are recommended. Valid values:
+     *
+     * Strict: recommends only alternative instance types in the zone specified by ZoneId.
+     * Include: recommends all instance types in all the zones in the same region as the specified instance type.
+     *
+     * When `ZoneId` is specified, the default value of this parameter is Strict. This value indicates that only alternative instance types in the zone specified by ZoneId are recommended.
+     * @example Strict
+     *
      * @var string
      */
     public $zoneMatchMode;

@@ -9,56 +9,94 @@ use AlibabaCloud\Tea\Model;
 class DescribeStorageSetDetailsRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The IDs of disks or Shared Block Storage devices. The value can be a JSON array that consists of up to 100 disk or Shared Block Storage device IDs. Separate the IDs with commas (,).
+     *
+     * @example ["d-bp1d6tsvznfghy7y****", "d-bp1ippxbaql9zet7****", … "d-bp1ib7bcz07l****"]
+     *
      * @var string
      */
     public $diskIds;
 
     /**
+     * @example hide
+     *
      * @var string
      */
     public $ownerAccount;
 
     /**
+     * @example 111
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the storage set. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example hide
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @example 111
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the storage set.
+     *
+     * @example ss-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $storageSetId;
 
     /**
+     * @description The maximum number of partitions in the storage set.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $storageSetPartitionNumber;

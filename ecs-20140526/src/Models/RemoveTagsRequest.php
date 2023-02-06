@@ -15,11 +15,19 @@ class RemoveTagsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the resource. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource from which you want to unbind the tags. When the retrieved resources are instances, this parameter can be interpreted as InstanceId.
+     *
+     * @example s-946ntx4****
+     *
      * @var string
      */
     public $resourceId;
@@ -35,11 +43,24 @@ class RemoveTagsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the resource. Valid values:
+     *
+     *   disk
+     *   instance
+     *   image
+     *   securitygroup
+     *   snapshot
+     *
+     * All the preceding values must be in lowercase.
+     * @example snapshot
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

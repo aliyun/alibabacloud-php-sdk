@@ -9,41 +9,67 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityGroupAttributeRequest extends Model
 {
     /**
+     * @description The new description of the security group. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+     *
+     * This parameter is empty by default.
+     * @example TestDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example ECSforCloud@Alibaba.com
+     *
      * @var string
      */
     public $ownerAccount;
 
     /**
+     * @example 155780923770
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @description The region ID of the security group. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example ECSforCloud
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @example 155780923770
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the security group.
+     *
+     * @example sg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @description The new name of the security group. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
+     * This parameter is empty by default.
+     * @example SecurityGroupTestName
+     *
      * @var string
      */
     public $securityGroupName;

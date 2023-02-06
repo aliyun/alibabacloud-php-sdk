@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class relatedItem extends Model
 {
     /**
+     * @description The name of the related item.
+     *
+     * @example OSSObject
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The value of the related item.
+     *
+     * @example MYOSSPRE_m-23f8tcp***_t-23ym6mv***.vhd
+     *
      * @var string
      */
     public $value;

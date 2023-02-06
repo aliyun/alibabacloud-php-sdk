@@ -11,76 +11,132 @@ use AlibabaCloud\Tea\Model;
 class dedicatedHostType extends Model
 {
     /**
+     * @description The number of cores in a single physical CPU.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $cores;
 
     /**
+     * @description The supported CPU overcommit ratio range.
+     *
+     * @example 1-5
+     *
      * @var string
      */
     public $cpuOverCommitRatioRange;
 
     /**
+     * @description The type of the dedicated host. You can submit a ticket to request more dedicated host types.
+     *
+     * @example ddh.sn1ne
+     *
      * @var string
      */
     public $dedicatedHostType;
 
     /**
+     * @description The GPU model.
+     *
+     * @example gpu
+     *
      * @var string
      */
     public $GPUSpec;
 
     /**
+     * @description The number of local disks on a dedicated host.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $localStorageAmount;
 
     /**
+     * @description The capacity of a local disk. Unit: GiB.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $localStorageCapacity;
 
     /**
+     * @description The category of the local disks.
+     *
+     * @example local
+     *
      * @var string
      */
     public $localStorageCategory;
 
     /**
+     * @description The size of the memory. Unit: GiB.
+     *
+     * @example 112.0
+     *
      * @var float
      */
     public $memorySize;
 
     /**
+     * @description The number of physical GPUs.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $physicalGpus;
 
     /**
+     * @description The number of physical CPUs.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $sockets;
 
     /**
+     * @description Indicates whether the CPU overcommit ratio setting is supported.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $supportCpuOverCommitRatio;
 
     /**
+     * @description The ECS instance families supported by the dedicated host.
+     *
      * @var supportedInstanceTypeFamilies
      */
     public $supportedInstanceTypeFamilies;
 
     /**
+     * @description The ECS instance types supported by the dedicated host.
+     *
      * @var supportedInstanceTypesList
      */
     public $supportedInstanceTypesList;
 
     /**
+     * @description The total number of vCPUs.
+     *
+     * @example 56
+     *
      * @var int
      */
     public $totalVcpus;
 
     /**
+     * @description The total number of vGPUs.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalVgpus;

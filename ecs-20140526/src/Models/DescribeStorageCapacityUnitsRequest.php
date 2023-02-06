@@ -10,16 +10,32 @@ use AlibabaCloud\Tea\Model;
 class DescribeStorageCapacityUnitsRequest extends Model
 {
     /**
+     * @description The allocation type. Valid values:
+     *
+     *   Normal: queries SCUs within the current Alibaba Cloud account.
+     *   Shared: queries SCUs shared between the Alibaba Cloud account and RAM users.
+     *
+     * Default value: Normal.
+     * @example Normal
+     *
      * @var string
      */
     public $allocationType;
 
     /**
+     * @description The capacity of the SCU. Unit: GiB. Valid values: 20, 40, 100, 200, 500, 1024, 2048, 5120, 10240, 20480, and 51200.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $capacity;
 
     /**
+     * @description The name of the SCU. The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
+     * @example testScuName
+     *
      * @var string
      */
     public $name;
@@ -35,16 +51,30 @@ class DescribeStorageCapacityUnitsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the SCU. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -60,16 +90,26 @@ class DescribeStorageCapacityUnitsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The statuses of SCUs.
+     *
+     * @example Active
+     *
      * @var string[]
      */
     public $status;
 
     /**
+     * @description The IDs of the SCUs. You can enter at most 100 SCU IDs.
+     *
+     * @example scu-bp67acfmxazb4p****
+     *
      * @var string[]
      */
     public $storageCapacityUnitId;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

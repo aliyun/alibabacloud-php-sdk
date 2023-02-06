@@ -9,6 +9,17 @@ use AlibabaCloud\Tea\Model;
 class UnassignPrivateIpAddressesRequest extends Model
 {
     /**
+     * @description > This parameter is in invitational preview and is unavailable to general users.
+     *
+     * @var string[]
+     */
+    public $ipv4Prefix;
+
+    /**
+     * @description The ID of the ENI.
+     *
+     * @example eni-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $networkInterfaceId;
@@ -24,11 +35,19 @@ class UnassignPrivateIpAddressesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The secondary private IP addresses to unassign.
+     *
+     * @example 192.168.**.**
+     *
      * @var string[]
      */
     public $privateIpAddress;
 
     /**
+     * @description The region ID of the ENI. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -43,6 +62,7 @@ class UnassignPrivateIpAddressesRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'ipv4Prefix'           => 'Ipv4Prefix',
         'networkInterfaceId'   => 'NetworkInterfaceId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -59,6 +79,9 @@ class UnassignPrivateIpAddressesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ipv4Prefix) {
+            $res['Ipv4Prefix'] = $this->ipv4Prefix;
+        }
         if (null !== $this->networkInterfaceId) {
             $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
@@ -92,6 +115,11 @@ class UnassignPrivateIpAddressesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Ipv4Prefix'])) {
+            if (!empty($map['Ipv4Prefix'])) {
+                $model->ipv4Prefix = $map['Ipv4Prefix'];
+            }
+        }
         if (isset($map['NetworkInterfaceId'])) {
             $model->networkInterfaceId = $map['NetworkInterfaceId'];
         }

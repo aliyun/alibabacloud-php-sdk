@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class operationLock extends Model
 {
     /**
+     * @description The reason why the reserved instance was locked.
+     *
+     * @example security
+     *
      * @var string
      */
     public $lockReason;

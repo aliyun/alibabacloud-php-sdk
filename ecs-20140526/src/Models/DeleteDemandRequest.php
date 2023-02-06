@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteDemandRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value that is unique among different requests. The `ClientToken` value can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the requirement.
+     *
+     * @example ed-bp11n21kq00sl71p****
+     *
      * @var string
      */
     public $demandId;
@@ -29,11 +37,19 @@ class DeleteDemandRequest extends Model
     public $ownerId;
 
     /**
+     * @description The reason for deleting the filing form. Enter details.
+     *
+     * @example test-reason
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @description The region ID of the filed instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteKeyPairsRequest extends Model
 {
     /**
+     * @description The names of SSH key pairs. The value can be a JSON array that consists of up to 100 key pair names. Separate multiple key pair names with commas (,).
+     *
+     * @example ["skp-bp67acfmxazb41****", "skp-bp67acfmxazb42****", … "skp-bp67acfmxazb4p3***"]
+     *
      * @var string
      */
     public $keyPairNames;
@@ -19,6 +23,10 @@ class DeleteKeyPairsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

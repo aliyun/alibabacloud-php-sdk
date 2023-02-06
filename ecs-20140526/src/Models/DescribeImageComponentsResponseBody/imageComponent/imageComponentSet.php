@@ -10,51 +10,92 @@ use AlibabaCloud\Tea\Model;
 class imageComponentSet extends Model
 {
     /**
+     * @description The type of the image component.
+     *
+     * @example Build
+     *
      * @var string
      */
     public $componentType;
 
     /**
+     * @description The content of the image component.
+     *
+     * @example RESTART
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The time when the image component was created.
+     *
+     * @example 2020-11-24T06:00:00Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The description of the image component.
+     *
+     * @example This is description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the image component.
+     *
+     * @example ic-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $imageComponentId;
 
     /**
+     * @description The name of the image component.
+     *
+     * @example testComponent
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the image component. Valid values:
+     *
+     *   SELF: the custom component that you created.
+     *   ALIYUN: the system component provided by Alibaba Cloud.
+     *
+     * @example SELF
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The operating system type supported by the image component.
+     *
+     * @example Linux
+     *
      * @var string
      */
     public $systemType;
 
     /**
+     * @description The tags of the image component.
+     *
      * @var tags
      */
     public $tags;

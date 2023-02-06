@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeDeploymentSetsRequest extends Model
 {
     /**
+     * @description The IDs of deployment sets. The value can be a JSON array that consists of up to 100 deployment set IDs in the format of `["ds-xxxxxxxxx", "ds-yyyyyyyyy", … "ds-zzzzzzzzz"]`. Separate multiple deployment set IDs with commas (,).
+     *
+     * @example ["ds-bp67acfmxazb4ph****", "ds-bp67acfmxazb4pi****", … "ds-bp67acfmxazb4pj****"]
+     *
      * @var string
      */
     public $deploymentSetIds;
 
     /**
+     * @description The name of the deployment set. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
+     * @example testDeploymentSetName
+     *
      * @var string
      */
     public $deploymentSetName;
 
     /**
+     * @description > The parameter is deprecated.
+     *
+     * @example null
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description > The parameter is deprecated.
+     *
+     * @example null
+     *
      * @var string
      */
     public $granularity;
 
     /**
+     * @description > The parameter is deprecated.
+     *
+     * @example null
+     *
      * @var string
      */
     public $networkType;
@@ -44,16 +64,30 @@ class DescribeDeploymentSetsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the deployment set. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -69,6 +103,13 @@ class DescribeDeploymentSetsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The deployment strategy. Valid values:
+     *
+     *   Availability: high availability strategy.
+     *   AvailabilityGroup: high availability group strategy.
+     *
+     * @example Availability
+     *
      * @var string
      */
     public $strategy;

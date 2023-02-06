@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class notBefore extends Model
 {
     /**
+     * @description The end time of the scheduled execution period for the system event. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2017-12-01T06:32:31Z
+     *
      * @var string
      */
     public $end;
 
     /**
+     * @description The start time of the scheduled execution period for the system event. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2017-11-30T06:32:31Z
+     *
      * @var string
      */
     public $start;

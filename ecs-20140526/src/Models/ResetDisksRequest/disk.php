@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class disk extends Model
 {
     /**
+     * @description The ID of disk N to be rolled back. Valid values of N: 1 to 10.
+     *
+     * @example d-j6cf7l0ewidb78lq****
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @description The ID of the snapshot contained in the instance snapshot for disk N. Valid values of N: 1 to 10.
+     *
+     * @example s-j6cdofbycydvg7ey****
+     *
      * @var string
      */
     public $snapshotId;

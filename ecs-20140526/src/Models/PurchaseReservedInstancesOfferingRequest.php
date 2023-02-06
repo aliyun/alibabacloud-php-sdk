@@ -10,26 +10,73 @@ use AlibabaCloud\Tea\Model;
 class PurchaseReservedInstancesOfferingRequest extends Model
 {
     /**
+     * @description Specifies whether to enable auto-renewal for the reserved instance. Default value: false. Valid values:
+     *
+     * true: enables auto-renewal for the reserved instance. false: does not enable auto-renewal for the reserved instance.
+     * @example true
+     *
+     * @var bool
+     */
+    public $autoRenew;
+
+    /**
+     * @description The auto-renewal term of the reserved instance. Unit: months. This parameter takes effect only when AutoRenew is set to true.
+     *
+     * Default value when PeriodUnit is set to Year: 12.
+     * @example 1
+     *
+     * @var int
+     */
+    public $autoRenewPeriod;
+
+    /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The description of the reserved instance. The description must be 2 to 256 characters in length and cannot start with [http:// or https://](http://https://。).
+     *
+     * This parameter is empty by default.
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The number of pay-as-you-go instances of the same instance type that the reserved instance can be matched to at the same time. Valid values: 1 to 50.
+     *
+     * For example, if InstanceAmount is set to 3 and InstanceType is set to ecs.g5.large, the reserved instance can be matched to three ecs.g5.large pay-as-you-go instances at the same time.
+     * @example 3
+     *
      * @var int
      */
     public $instanceAmount;
 
     /**
+     * @description The instance type. For more information, see [Overview of instance families](~~25378~~).
+     *
+     * @example ecs.g5.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The payment option of the reserved instance. Valid values:
+     *
+     *   No Upfront
+     *   Partial Upfront
+     *   All Upfront
+     *
+     * Default value: All Upfront.
+     * @example All Upfront
+     *
      * @var string
      */
     public $offeringType;
@@ -45,31 +92,64 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $ownerId;
 
     /**
+     * @description The term of the reserved instance.
+     *
+     *   Valid values when `PeriodUnit` is set to `Year`: 1, 3, and 5.
+     *   Valid values when `PeriodUnit` is set to `Month`: 1.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The unit of the term of the reserved instance.
+     *
+     * Default value: Month.
+     * @example Year
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @description The operating system of the image used by the instance. Valid values:
+     *
+     *   Windows: Windows Server operating system
+     *   Linux: Linux and UNIX-like operating system
+     *
+     * Default value: Linux.
+     * @example Linux
+     *
      * @var string
      */
     public $platform;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the reserved instance. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (\_), and hyphens (-). It must start with a letter and cannot start with http:// or https://.
+     *
+     * @example testReservedInstanceName
+     *
      * @var string
      */
     public $reservedInstanceName;
 
     /**
+     * @description The ID of the resource group to which to assign the instance.
+     *
+     * @example rg-bp199lyny9b3****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -85,20 +165,36 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The scope of the reserved instance. Valid values:
+     *
+     *   Region: regional
+     *   Zone: zonal
+     *
+     * Default value: Region.
+     * @example Zone
+     *
      * @var string
      */
     public $scope;
 
     /**
+     * @description The tags to add to the instance.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The zone ID of the instance. This parameter is required when `Scope` is set to `Zone`. You can call the [DescribeZones](~~25610~~) operation to query the most recent list of zones.
+     *
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
+        'autoRenew'            => 'AutoRenew',
+        'autoRenewPeriod'      => 'AutoRenewPeriod',
         'clientToken'          => 'ClientToken',
         'description'          => 'Description',
         'instanceAmount'       => 'InstanceAmount',
@@ -126,6 +222,12 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
+        }
+        if (null !== $this->autoRenewPeriod) {
+            $res['AutoRenewPeriod'] = $this->autoRenewPeriod;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -198,6 +300,12 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
+        }
+        if (isset($map['AutoRenewPeriod'])) {
+            $model->autoRenewPeriod = $map['AutoRenewPeriod'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

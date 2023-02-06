@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateDiskResponseBody extends Model
 {
     /**
+     * @description The ID of the disk.
+     *
+     * @example d-bp131n0q38u3a4zi****
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @description The ID of the order.
+     *
+     * >  This parameter is returned only when you create a subscription disk.
+     * @example 20413515388****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+     *
      * @var string
      */
     public $requestId;

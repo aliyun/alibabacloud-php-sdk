@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class CreatePrefixListRequest extends Model
 {
     /**
+     * @description The IP address family. Valid values:
+     *
+     *   IPv4
+     *   IPv6
+     *
+     * @example IPv4
+     *
      * @var string
      */
     public $addressFamily;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The `ClientToken` value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The description of the prefix list. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+     *
+     * @example This is description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description 前缀列表条目信息。
+     *
      * @var entry[]
      */
     public $entry;
 
     /**
+     * @description The maximum number of entries that the prefix list can contain. Valid values: 1 to 200.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxEntries;
@@ -45,11 +66,19 @@ class CreatePrefixListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The name of the prefix list. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://`, `https://`, `com.aliyun`, or `com.alibabacloud`. It can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
+     *
+     * @example PrefixListNameSample
+     *
      * @var string
      */
     public $prefixListName;
 
     /**
+     * @description The ID of the region in which to create the prefix list.
+     *
+     * @example cn-chengdu
+     *
      * @var string
      */
     public $regionId;

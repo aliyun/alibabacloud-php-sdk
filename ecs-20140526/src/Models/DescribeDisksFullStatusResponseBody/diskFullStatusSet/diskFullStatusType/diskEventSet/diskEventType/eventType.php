@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class eventType extends Model
 {
     /**
+     * @description The code of the event type.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The name of the event type. Valid values:
+     *
+     *   Degraded: The performance of the EBS device was degraded.
+     *   SeverelyDegraded: The performance of the EBS device was severely degraded.
+     *   Stalled: The performance of the EBS device was severely affected.
+     *   ErrorDetected: The local disk was damaged.
+     *
+     * @example Stalled
+     *
      * @var string
      */
     public $name;

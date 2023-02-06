@@ -10,36 +10,80 @@ use AlibabaCloud\Tea\Model;
 class DescribeDemandsRequest extends Model
 {
     /**
+     * @description The ID of the filing ticket. If this parameter is specified, other optional request parameters are ignored.
+     *
+     * @example ed-bp11n21kq00sl71p****
+     *
      * @var string
      */
     public $demandId;
 
     /**
+     * @description The status of the filing ticket or resource usage. Valid values:
+     *
+     *   Creating: The filing ticket is being created.
+     *   Active: The filed resources are being supplied.
+     *   Expired: The filing ticket expires.
+     *   Finished: The filed resources are consumed.
+     *   Refused: The filing request is denied. For reasons why the request is denied, see the `Comment` response parameter.
+     *   Cancelled: The filing request is canceled.
+     *
+     * @example Active
+     *
      * @var string[]
      */
     public $demandStatus;
 
     /**
+     * @description The source of the filed instance. Default value: System. Valid values:
+     *
+     *   Custom: filed on your own.
+     *   System: filed by Alibaba Cloud.
+     *
+     * @example Custom
+     *
      * @var string
      */
     public $demandType;
 
     /**
+     * @description Specifies whether to check the validity of the request without actually making the request. Default value: false. Valid values:
+     *
+     *   true: sends a check request, without querying the status of the filing ticket. The system checks whether your AccessKey pair is valid, whether RAM users are authorized, and whether the required parameters are set. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned.
+     *   false: sends an API request. If the request succeeds, a 2XX HTTP status code is returned and the status of the filing ticket is queried.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   PostPaid: pay-as-you-go
+     *   PrePaid: subscription
+     *
+     * @example PostPaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description The instance type of the filed instance.
+     *
+     * @example ecs.g6.xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The instance family of the filed instance.
+     *
+     * @example ecs.g6
+     *
      * @var string
      */
     public $instanceTypeFamily;
@@ -55,16 +99,30 @@ class DescribeDemandsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Pages start from page 1.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 100.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -80,11 +138,17 @@ class DescribeDemandsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The zone ID. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     *
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $zoneId;

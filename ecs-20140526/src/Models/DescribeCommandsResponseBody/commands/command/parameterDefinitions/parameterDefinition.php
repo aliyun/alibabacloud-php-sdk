@@ -10,26 +10,46 @@ use AlibabaCloud\Tea\Model;
 class parameterDefinition extends Model
 {
     /**
+     * @description The default value of the custom parameter.
+     *
+     * @example https://aliyun-client-assist.oss-accelerate.aliyuncs.com/linux/aliyun_assist_latest.rpm
+     *
      * @var string
      */
     public $defaultValue;
 
     /**
+     * @description The description of the custom parameter.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the custom parameter.
+     *
+     * @example DownloadUrl
+     *
      * @var string
      */
     public $parameterName;
 
     /**
+     * @description The valid values of the custom enumeration parameter.
+     *
      * @var possibleValues
      */
     public $possibleValues;
 
     /**
+     * @description Indicates whether the custom parameter is required. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
+     * @example true
+     *
      * @var bool
      */
     public $required;

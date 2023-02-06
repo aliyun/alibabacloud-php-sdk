@@ -15,11 +15,19 @@ class AddTagsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the ECS resource belongs. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource. When the resources are instances, this parameter can be interpreted as InstanceId.
+     *
+     * @example i-bp1gtjxuuvwj17zr****
+     *
      * @var string
      */
     public $resourceId;
@@ -35,11 +43,24 @@ class AddTagsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the resource. Valid values:
+     *
+     *   disk
+     *   instance
+     *   image
+     *   securitygroup
+     *   snapshot
+     *
+     * All values must be lowercase.
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

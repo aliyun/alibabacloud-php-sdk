@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The key of tag of the image copy.
+     *
+     * The tag key cannot be an empty string. It can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+     * @example TestKey
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of tag of the image copy.
+     *
+     * The tag value can be an empty string. It can be up to 128 characters in length and cannot start with `acs:`. It cannot contain `http://` or `https://`.
+     * @example TestValue
+     *
      * @var string
      */
     public $value;

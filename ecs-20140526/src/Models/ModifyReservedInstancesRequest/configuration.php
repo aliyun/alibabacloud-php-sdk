@@ -9,26 +9,53 @@ use AlibabaCloud\Tea\Model;
 class configuration extends Model
 {
     /**
+     * @description The number of pay-as-you-go instances of the same instance type that reserved instance N can match. The value must be greater than or equal to 1. Valid values of N: 1 to 100.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $instanceAmount;
 
     /**
+     * @description The instance type that reserved instance N can match. Valid values of N: 1 to 100.
+     *
+     * > The supported instance types are regularly updated. For more information, see the "Attributes" section of [Overview](~~100370~~).
+     * @example ecs.c5.4xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The name of reserved instance N. Valid values of N: 1 to 100.
+     *
+     * The name must be 2 to 128 characters in length. It must start with a letter but cannot start with [http:// or https://. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).](http://https://。、（:）、（\_）（-）。)
+     * @example testReservedInstanceName
+     *
      * @var string
      */
     public $reservedInstanceName;
 
     /**
+     * @description The scope of reserved instance N. Valid values:
+     *
+     *   Region: regional
+     *   Zone: zonal
+     *
+     * Default value: Region.
+     * @example Zone
+     *
      * @var string
      */
     public $scope;
 
     /**
+     * @description The zone ID of reserved instance N. Valid values of N: 1 to 100.
+     *
+     * You can call the [DescribeZones](~~25609~~) operation to query the most recent zone list.
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description > This parameter is unavailable.
+     *
+     * @example TestKey
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description > This parameter is unavailable.
+     *
+     * @example TestValue
+     *
      * @var string
      */
     public $value;

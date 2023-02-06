@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceVncPasswdRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $instanceId;
@@ -24,6 +28,10 @@ class ModifyInstanceVncPasswdRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -39,6 +47,10 @@ class ModifyInstanceVncPasswdRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The new VNC password of the instance.
+     *
+     * @example Ecs123
+     *
      * @var string
      */
     public $vncPassword;

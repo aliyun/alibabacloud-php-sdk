@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoProvisioningGroupsRequest extends Model
 {
     /**
+     * @description The IDs of auto provisioning groups. You can specify up to 20 auto provisioning group IDs.
+     *
+     * @example apg-sn54avj8htgvtyh8****
+     *
      * @var string[]
      */
     public $autoProvisioningGroupId;
 
     /**
+     * @description The name of the auto provisioning group.
+     *
+     * @example testAutoProvisioningGroupName
+     *
      * @var string
      */
     public $autoProvisioningGroupName;
 
     /**
+     * @description The statuses of auto provisioning groups.
+     *
+     * @example active
+     *
      * @var string[]
      */
     public $autoProvisioningGroupStatus;
@@ -34,16 +46,30 @@ class DescribeAutoProvisioningGroupsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 2
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the auto provisioning group.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

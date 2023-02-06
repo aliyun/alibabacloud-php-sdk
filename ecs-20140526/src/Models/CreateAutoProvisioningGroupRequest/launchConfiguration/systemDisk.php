@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class systemDisk extends Model
 {
     /**
+     * @description > This parameter is in invitational preview and is unavailable.
+     *
+     * @example aes-256
+     *
      * @var string
      */
     public $encryptAlgorithm;
 
     /**
+     * @description Specifies whether to encrypt the disk. Valid values:
+     *
+     *   true: encrypts the disk.
+     *   false: does not encrypt the disk.
+     *
+     * Default value: false.
+     * @example false
+     *
      * @var string
      */
     public $encrypted;
 
     /**
+     * @description The ID of the Key Management Service (KMS) key used by the cloud disk.
+     *
+     * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
+     *
      * @var string
      */
     public $KMSKeyId;

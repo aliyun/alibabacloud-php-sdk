@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class bondInterfaceSpecification extends Model
 {
     /**
+     * @description > This parameter is in invitational preview and unavailable to general users.
+     *
+     * @example null
+     *
      * @var string
      */
     public $bondMode;
 
     /**
+     * @description > This parameter is in invitational preview and unavailable to general users.
+     *
      * @var slaveInterfaceSpecification
      */
     public $slaveInterfaceSpecification;

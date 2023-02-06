@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiskMonitorDataRequest extends Model
 {
     /**
+     * @description The ID of the disk.
+     *
+     * @example d-bp1bq5g3dxxo1x4o****
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @description The end of the time range in which you want to query the monitoring data. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (ss) is not 00, the time is rounded up to the next minute.
+     *
+     * @example 2014-07-23T12:09:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -29,6 +37,15 @@ class DescribeDiskMonitorDataRequest extends Model
     public $ownerId;
 
     /**
+     * @description The interval at which to retrieve the monitoring data. Unit: seconds. Valid values:
+     *
+     *   60
+     *   600
+     *   3600
+     *
+     * Default value: 60.
+     * @example 60
+     *
      * @var int
      */
     public $period;
@@ -44,6 +61,10 @@ class DescribeDiskMonitorDataRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The start of the time range in which you want to query the monitoring data. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (ss) is not 00, the time is rounded up to the next minute.
+     *
+     * @example 2014-07-23T12:07:00Z
+     *
      * @var string
      */
     public $startTime;

@@ -9,31 +9,51 @@ use AlibabaCloud\Tea\Model;
 class DeleteSnapshotRequest extends Model
 {
     /**
+     * @description Specifies whether to force delete the snapshot that has been used to create disks. Valid values:
+     *
+     *   true: force deletes the snapshot. After the snapshot is force deleted, the disks created from this snapshot cannot be re-initialized.
+     *   false: does not force delete the snapshot.
+     *
+     * Default value: false
+     * @example false
+     *
      * @var bool
      */
     public $force;
 
     /**
+     * @example ECSforCloud@Alibaba.com
+     *
      * @var string
      */
     public $ownerAccount;
 
     /**
+     * @example 155780923770
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @example ECSforCloud
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @example 155780923770
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the snapshot.
+     *
+     * @example s-bp1c0doj0taqyzzl****
+     *
      * @var string
      */
     public $snapshotId;

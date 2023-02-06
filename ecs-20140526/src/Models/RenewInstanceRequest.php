@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class RenewInstanceRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The synchronized expiration date. Set the value to a synchronized expiration date that you specified. Otherwise, the call fails. If you set this parameter, your instance will be renewed to the specified synchronized expiration date. Valid values: 1 to 28.
+     *
+     * >  The renewal period-related parameter pair (`Period` and `PeriodUnit`) and the `ExpectedRenewDay` parameter are mutually exclusive.
+     * @example 5
+     *
      * @var int
      */
     public $expectedRenewDay;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $instanceId;
@@ -34,11 +47,21 @@ class RenewInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The renewal period of the subscription instance. If the `DedicatedHostId` parameter is specified, the value of Period must not exceed the subscription period of the specified dedicated host. Valid values:
+     *
+     * >  The renewal period-related parameter pair (`Period` and `PeriodUnit`) and the `ExpectedRenewDay` parameter are mutually exclusive.
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The unit of the renewal period. Valid value:
+     *
+     * Default value: Month.
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;

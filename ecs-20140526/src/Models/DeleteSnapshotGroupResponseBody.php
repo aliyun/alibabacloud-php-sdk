@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteSnapshotGroupResponseBody extends Model
 {
     /**
+     * @description Details about the delete operation.
+     *
      * @var operationProgressSet
      */
     public $operationProgressSet;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 6EDE885A-FDC1-4FAE-BC44-6EACAEA6CC6E
+     *
      * @var string
      */
     public $requestId;

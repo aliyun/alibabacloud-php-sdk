@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceAutoRenewAttributeRequest extends Model
 {
     /**
+     * @description The IDs of instances. You can specify a maximum of 100 subscription instance IDs in a single requets. Separate the instance IDs with commas (,).
+     *
+     * > The `InstanceId` and `RenewalStatus` parameters cannot be empty at the same time.
+     * @example i-bp18x3z4hc7bixhx****,i-bp1g6zv0ce8oghu7****
+     *
      * @var string
      */
     public $instanceId;
@@ -24,21 +29,43 @@ class DescribeInstanceAutoRenewAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The auto-renewal state of the instance. Valid values:
+     *
+     *   AutoRenewal: Auto-renewal is enabled for the instance.
+     *   Normal: Auto-renewal is disabled for the instance.
+     *   NotRenewal: The instance is not to be renewed. The system sends no more expiration reminders, but sends only a non-renewal reminder three days before the expiration date. For an instance that is not to be renewed, you can call the [ModifyInstanceAutoRenewAttribute](~~52843~~) operation to change its auto-renewal state to `Normal`. Then, you can manually renew the instance or enable auto-renewal for the instance.
+     *
+     * @example AutoRenewal
+     *
      * @var string
      */
     public $renewalStatus;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeLaunchTemplatesResponseBody extends Model
 {
     /**
+     * @description Details about the launch templates.
+     *
      * @var launchTemplateSets
      */
     public $launchTemplateSets;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE12CBA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of launch templates.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

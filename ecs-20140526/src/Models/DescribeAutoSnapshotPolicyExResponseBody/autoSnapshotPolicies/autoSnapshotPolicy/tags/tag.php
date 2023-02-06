@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The tag key of the automatic snapshot policy.
+     *
+     * @example TestKey
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The tag value of the automatic snapshot policy.
+     *
+     * @example TestValue
+     *
      * @var string
      */
     public $tagValue;

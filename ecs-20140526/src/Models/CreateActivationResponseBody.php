@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CreateActivationResponseBody extends Model
 {
     /**
+     * @description The value of the activation code. The value is returned only once after the CreateActivation operation is called and cannot be subsequently queried. You must properly save the return value.
+     *
+     * @example a-hz0ch3SwhOlE1234+Xo32lAZC****
+     *
      * @var string
      */
     public $activationCode;
 
     /**
+     * @description The ID of the activation code.
+     *
+     * @example 4ECEEE12-56F1-4FBC-9AB1-890F1234****
+     *
      * @var string
      */
     public $activationId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4ECEEE12-56F1-4FBC-9AB1-890F1234****
+     *
      * @var string
      */
     public $requestId;

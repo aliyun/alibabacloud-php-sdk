@@ -9,41 +9,70 @@ use AlibabaCloud\Tea\Model;
 class JoinSecurityGroupRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * >  If this parameter is specified, the `NetworkInterfaceId` parameter cannot be specified.
+     * @example i-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the ENI.
+     *
+     * >  If this parameter is specified, the `InstanceId` parameter cannot be specified.
+     * @example eni-bp13kd656hxambfe****
+     *
      * @var string
      */
     public $networkInterfaceId;
 
     /**
+     * @example ECSforCloud@Alibaba.com
+     *
      * @var string
      */
     public $ownerAccount;
 
     /**
+     * @example 155780923770
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     *   You do not need to specify a region ID when you add an instance to a security group.
+     *   You must specify a region ID when you add an ENI to a security group.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example ECSforCloud
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @example 155780923770
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the security group. You can call the [DescribeSecurityGroups](~~25556~~) operation to query available security groups.
+     *
+     * @example sg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $securityGroupId;

@@ -11,81 +11,144 @@ use AlibabaCloud\Tea\Model;
 class elasticityAssuranceItem extends Model
 {
     /**
+     * @description Details about the allocated resources.
+     *
      * @var allocatedResources
      */
     public $allocatedResources;
 
     /**
+     * @description The description of the elasticity assurance.
+     *
+     * @example This is description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The time when the elasticity assurance expires.
+     *
+     * @example 2021-12-03T16:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The billing method of the instances to be created by using the elasticity assurance. Set the value to PostPaid. Only pay-as-you-go instances can be created by using elasticity assurances.
+     *
+     * @example PostPaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description >  This parameter is unavailable.
+     *
+     * @example null
+     *
      * @var string
      */
     public $latestStartTime;
 
     /**
+     * @description The ID of the elasticity assurance.
+     *
+     * @example eap-bp1ir35kqtn8ywci****
+     *
      * @var string
      */
     public $privatePoolOptionsId;
 
     /**
+     * @description The type of the private pool associated with the elasticity assurance. Valid values:
+     *
+     * - Target: targeted private pool
+     * @example Target
+     *
      * @var string
      */
     public $privatePoolOptionsMatchCriteria;
 
     /**
+     * @description The name of the elasticity assurance.
+     *
+     * @example eapTestName
+     *
      * @var string
      */
     public $privatePoolOptionsName;
 
     /**
+     * @description The region ID of the elasticity assurance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the elasticity assurance belongs.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The time when the elasticity assurance takes effect.
+     *
+     * @example 2020-12-03T05:25Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description Indicates when the elasticity assurance takes effect. Valid values:
+     *
+     * - Later: The elasticity assurance takes effect at the specified time.
+     * @example Now
+     *
      * @var string
      */
     public $startTimeType;
 
     /**
+     * @description The state of the elasticity assurance. Valid values:
+     *
+     * - Released: The elasticity assurance is released.
+     * @example Active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The tags of the elasticity assurance.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The total number of times that the elasticity assurance has been applied.
+     *
+     * @example Unlimited
+     *
      * @var string
      */
     public $totalAssuranceTimes;
 
     /**
+     * @description >  This parameter is unavailable.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $usedAssuranceTimes;

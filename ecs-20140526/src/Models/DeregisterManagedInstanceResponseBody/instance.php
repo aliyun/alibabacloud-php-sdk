@@ -9,66 +9,118 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @description The ID of the activation code.
+     *
+     * @example 4ECEEE12-56F1-4FBC-9AB1-890F7494****
+     *
      * @var string
      */
     public $activationId;
 
     /**
+     * @description The version number of the Cloud Assistant client.
+     *
+     * @example 2.2.0.102
+     *
      * @var string
      */
     public $agentVersion;
 
     /**
+     * @description The hostname of the managed instance.
+     *
+     * @example test-Hostname
+     *
      * @var string
      */
     public $hostname;
 
     /**
+     * @description The ID of the managed instance.
+     *
+     * @example mi-hz01axdfas****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the managed instance.
+     *
+     * @example test-InstanceName-001
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The public IP address of the managed instance.
+     *
+     * @example 47.8.**.**
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The internal IP address of the managed instance.
+     *
+     * @example 10.0.**.**
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @description The number of times that Cloud Assistant tasks were executed on the managed instance.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $invocationCount;
 
     /**
+     * @description The last Cloud Assistant task execution time.
+     *
+     * @example 2021-01-20T09:00:40Z
+     *
      * @var string
      */
     public $lastInvokedTime;
 
     /**
+     * @description The machine code of the managed instance.
+     *
+     * @example e03231b37ab14e53b5795ad625fc****
+     *
      * @var string
      */
     public $machineId;
 
     /**
+     * @description The operating system type of the managed instance.
+     *
+     * @example linux
+     *
      * @var string
      */
     public $osType;
 
     /**
+     * @description The version information of the operating system.
+     *
+     * @example Linux_#38~18.04.1-Ubuntu SMP Wed Jan 6 18:26:30 UTC 2021_x86_64
+     *
      * @var string
      */
     public $osVersion;
 
     /**
+     * @description The time when the managed instance was registered.
+     *
+     * @example 2021-01-20T08:57:56Z
+     *
      * @var string
      */
     public $registrationTime;

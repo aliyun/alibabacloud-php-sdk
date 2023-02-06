@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class detectionOptions extends Model
 {
     /**
+     * @description The check items.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The state of the image check task. Valid values:
+     *
+     * - Finished: The image check task is completed.
+     * @example Processing
+     *
      * @var string
      */
     public $status;

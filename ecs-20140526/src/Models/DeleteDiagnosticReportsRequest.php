@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteDiagnosticReportsRequest extends Model
 {
     /**
+     * @description The region ID of the diagnostic report. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The IDs of diagnostic reports. You can specify up to 100 report IDs.
+     *
      * @var string[]
      */
     public $reportIds;

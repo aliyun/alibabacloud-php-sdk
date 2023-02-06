@@ -11,31 +11,51 @@ use AlibabaCloud\Tea\Model;
 class dedicatedHostClusterCapacity extends Model
 {
     /**
+     * @description The available capacity of the Elastic Compute Service (ECS) instance types in the dedicated host cluster.
+     *
      * @var availableInstanceTypes
      */
     public $availableInstanceTypes;
 
     /**
+     * @description The size of available memory. Unit: GiB.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $availableMemory;
 
     /**
+     * @description The number of available vCPUs.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $availableVcpus;
 
     /**
+     * @description The local storage capacity.
+     *
      * @var localStorageCapacities
      */
     public $localStorageCapacities;
 
     /**
+     * @description The total memory size. Unit: GiB.
+     *
+     * @example 8
+     *
      * @var int
      */
     public $totalMemory;
 
     /**
+     * @description The total number of vCPUs.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $totalVcpus;

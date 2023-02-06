@@ -9,36 +9,94 @@ use AlibabaCloud\Tea\Model;
 class valueItem extends Model
 {
     /**
+     * @description The number of privilege attributes in the account.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The category of the data disk. Valid values:
+     *
+     *   cloud_efficiency: ultra disk
+     *   cloud_ssd: standard SSD
+     *   cloud_essd: enhanced SSD (ESSD)
+     *
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $diskCategory;
 
     /**
+     * @description The expiration time of a privilege. This parameter is returned only when the account privilege has an expiration time. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2019-01-01T12:30:00Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The billing method of the instance.
+     *
+     * @example PrePaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description The instance type.
+     *
+     * @example ecs.g5.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The value of the resource quota in the specified region. Valid values:
+     *
+     * The values returned for the resource quotas to which the following AttributeName values correspond are 0 or positive integers:
+     *
+     * max-security-groups
+     * max-elastic-network-interfaces
+     * max-postpaid-instance-vcpu-count
+     * max-spot-instance-vcpu-count
+     * used-postpaid-instance-vcpu-count
+     * used-spot-instance-vcpu-count
+     * max-postpaid-yundisk-capacity
+     * used-postpaid-yundisk-capacity
+     * max-dedicated-hosts
+     * max-axt-command-count
+     * max-axt-invocation-daily
+     * max-cloud-assistant-activation-count
+     *
+     * When the AttributeName parameter is set to real-name-authentications, one of the following values is returned:
+     *
+     * yes
+     * none
+     * unnecessary
+     *
+     * When the AttributeName parameter is set to instance-network-type, one of the following values is returned:
+     *
+     * vpc
+     * classic
+     *
+     * @example 800
+     *
      * @var string
      */
     public $value;
 
     /**
+     * @description The ID of the zone.
+     *
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

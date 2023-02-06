@@ -10,31 +10,57 @@ use AlibabaCloud\Tea\Model;
 class launchResult extends Model
 {
     /**
+     * @description The error code returned when the instance cannot be created.
+     *
+     * @example InvalidParameter
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned when the instance cannot be created.
+     *
+     * @example Specific parameter is not valid.
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description The IDs of created instances.
+     *
      * @var instanceIds
      */
     public $instanceIds;
 
     /**
+     * @description The instance type of the instance.
+     *
+     * @example ecs.g5.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The bidding policy for the pay-as-you-go instance. Valid values:
+     *
+     *   NoSpot: The instance is created as a regular pay-as-you-go instance.
+     *   SpotWithPriceLimit: The instance is created as a preemptible instance with a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The instance is created as a preemptible instance for which the market price at the time of purchase is automatically used as the bid price.
+     *
+     * @example NoSpot
+     *
      * @var string
      */
     public $spotStrategy;
 
     /**
+     * @description The zone ID of the instance.
+     *
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $zoneId;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class arn extends Model
 {
     /**
+     * @description >  This parameter is in invitational preview and unavailable for general users.
+     *
+     * @example 123456789012****
+     *
      * @var int
      */
     public $assumeRoleFor;
 
     /**
+     * @description >  This parameter is in invitational preview and unavailable for general users.
+     *
+     * @example 34458433936495****:alice
+     *
      * @var string
      */
     public $roleType;
 
     /**
+     * @description >  This parameter is in invitational preview and unavailable for general users.
+     *
+     * @example acs:ram::123456789012****:role/adminrole
+     *
      * @var string
      */
     public $rolearn;

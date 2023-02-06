@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class invocation extends Model
 {
     /**
+     * @description The execution results.
+     *
      * @var invocationResults
      */
     public $invocationResults;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The total number of the commands.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

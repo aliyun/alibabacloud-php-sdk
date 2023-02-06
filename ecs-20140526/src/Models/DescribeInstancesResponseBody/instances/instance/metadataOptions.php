@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class metadataOptions extends Model
 {
     /**
+     * @description Indicates whether the access channel is enabled for instance metadata. Valid values:
+     *
+     * - disabled
+     * @example enabled
+     *
      * @var string
      */
     public $httpEndpoint;
 
     /**
+     * @description >  This parameter is unavailable.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $httpPutResponseHopLimit;
 
     /**
+     * @description Indicates whether the security hardening mode (IMDSv2) is forcefully used to access instance metadata. Valid values:
+     *
+     * - required: The security hardening mode (IMDSv2) is forcefully used.
+     * @example optional
+     *
      * @var string
      */
     public $httpTokens;

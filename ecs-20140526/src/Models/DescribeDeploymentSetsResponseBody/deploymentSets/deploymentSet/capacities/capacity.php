@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class capacity extends Model
 {
     /**
+     * @description The number of ECS instances that can be added to the deployment set within the zone.
+     *
+     * @example 18
+     *
      * @var int
      */
     public $availableAmount;
 
     /**
+     * @description The number of ECS instances that belong to the zone in the deployment set.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $usedAmount;
 
     /**
+     * @description The ID of the zone. Only the zone IDs of existing ECS instances in the deployment set are returned.
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;

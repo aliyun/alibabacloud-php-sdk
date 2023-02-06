@@ -9,36 +9,71 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsRequest extends Model
 {
     /**
+     * @description The natural language that is used to filter responses. For more information, visit [RFC 7231](https://tools.ietf.org/html/rfc7231). Valid values:
+     *
+     *   zh-CN: Chinese
+     *   en-US: English
+     *   ja: Japanese
+     *
+     * Default value: zh-CN.
+     * @example zh-CN
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The billing method of the instance. For more information, see [Billing overview](~~25398~~). Valid values:
+     *
+     *   PrePaid: subscription. If this parameter is set to PrePaid, make sure that you have sufficient balance or credits in your account. Otherwise, the InvalidPayMethod error code is returned.
+     *   PostPaid: pay-as-you-go.
+     *
+     * Default value: PostPaid.
+     * @example PrePaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @example ECSforCloud@Alibaba.com
+     *
      * @var string
      */
     public $ownerAccount;
 
     /**
+     * @example 155780923770
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @example ECSforCloud
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @example 155780923770
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @description The type of the resource. Valid values:
+     *
+     *   instance: Elastic Compute Service (ECS) instance
+     *   disk: disk
+     *   reservedinstance: reserved instance
+     *   scu: storage capacity unit (SCU)
+     *
+     * Default value: instance.
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;

@@ -9,26 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DeleteAutoSnapshotPolicyRequest extends Model
 {
     /**
+     * @example 155780923770
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @example ECSforCloud
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @example 155780923770
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the automatic snapshot policy. You can call the [DescribeAutoSnapshotPolicyEx](~~25530~~) operation to query the available automatic snapshot policies.
+     *
+     * @example sp-bp14yziiuvu3s6jn****
+     *
      * @var string
      */
     public $autoSnapshotPolicyId;
 
     /**
+     * @description The region ID of the automatic snapshot policy. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

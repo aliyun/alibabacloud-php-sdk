@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ExportImageResponseBody extends Model
 {
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C8B26B44-0189-443E-9816-D951F59623A9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the image export task.
+     *
+     * @example tsk-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $taskId;

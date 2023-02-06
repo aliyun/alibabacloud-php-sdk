@@ -16,21 +16,48 @@ class DescribeDisksFullStatusRequest extends Model
     public $eventTime;
 
     /**
+     * @description The ID of EBS device N. Valid values of N: 1 to 100.
+     *
+     * @example d-bp67acfmxazb4p****
+     *
      * @var string[]
      */
     public $diskId;
 
     /**
+     * @description The ID of the event. Valid values of N: 1 to 100.
+     *
+     * @example e-bp67acfmxazb4p****
+     *
      * @var string[]
      */
     public $eventId;
 
     /**
+     * @description The event type. Valid values:
+     *
+     *   Degraded: The performance of the EBS device is degraded.
+     *   SeverelyDegraded: The performance of the EBS device is severely degraded.
+     *   Stalled: The performance of the EBS device is severely affected.
+     *   ErrorDetected: The local disk is damaged.
+     *
+     * @example Stalled
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @description The health status of the EBS device. Valid values:
+     *
+     *   Impaired: The EBS device is damaged.
+     *   Warning: The performance of the EBS device may be degraded.
+     *   Initializing: The disk is being initialized.
+     *   InsufficientData: The status cannot be determined due to insufficient data.
+     *   NotApplicable: The EBS device cannot be used.
+     *
+     * @example Warning
+     *
      * @var string
      */
     public $healthStatus;
@@ -46,21 +73,39 @@ class DescribeDisksFullStatusRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. The value must be a positive integer.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 100.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the EBS device. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the EBS device belongs. When you use this property to query resources, the number of resources that are contained in the specified resource group cannot exceed 1,000.
+     *
+     * @example rg-aek2kkmhmhs****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -76,11 +121,24 @@ class DescribeDisksFullStatusRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The lifecycle status of the EBS device. For more information, see [Disk status](~~25689~~). Valid values:
+     *
+     *   In_use: The disk is in use.
+     *   Available: The disk can be attached.
+     *   Attaching: The disk is being attached.
+     *   Detaching: The disk is being detached.
+     *   Creating: The disk is being created.
+     *   ReIniting: The disk is being initialized.
+     *
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The tags of the instance.
+     *
      * @var tag[]
      */
     public $tag;

@@ -13,96 +13,175 @@ use AlibabaCloud\Tea\Model;
 class autoProvisioningGroup extends Model
 {
     /**
+     * @description The ID of the auto provisioning group.
+     *
+     * @example apg-sn54avj8htgvtyh8****
+     *
      * @var string
      */
     public $autoProvisioningGroupId;
 
     /**
+     * @description The name of the auto provisioning group.
+     *
+     * @example EcsDocTest
+     *
      * @var string
      */
     public $autoProvisioningGroupName;
 
     /**
+     * @description The delivery type of the auto provisioning group. Valid values:
+     *
+     *   request: one-time delivery.After the auto provisioning group is started, it attempts to deliver an instance cluster once. If the cluster fails to be delivered, the group does not retry the operation.
+     *   maintain: continuous delivery.After the auto provisioning group is started, it continuously attempts to deliver an instance cluster. The auto provisioning group compares the real-time capacity and the target cluster capacity. If the cluster does not meet the target capacity, the group creates instances until the cluster meets the target capacity.
+     *
+     * @example maintain
+     *
      * @var string
      */
     public $autoProvisioningGroupType;
 
     /**
+     * @description The time when the auto provisioning group was created.
+     *
+     * @example 2019-04-01T15:10:20Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description Indicates whether to release the scaled-in instances when the real-time capacity exceeds the target capacity and the group is triggered to scale in. Valid values:
+     *
+     *   termination: releases the scaled-in instances.
+     *   no-termination: removes the scaled-in instances from the auto provisioning group but not releases the instances.
+     *
+     * @example termination
+     *
      * @var string
      */
     public $excessCapacityTerminationPolicy;
 
     /**
+     * @description Details about the extended configurations.
+     *
      * @var launchTemplateConfigs
      */
     public $launchTemplateConfigs;
 
     /**
+     * @description The ID of the launch template associated with the auto provisioning group.
+     *
+     * @example lt-bp1fgzds4bdogu03****
+     *
      * @var string
      */
     public $launchTemplateId;
 
     /**
+     * @description The version of the launch template associated with the auto provisioning group.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $launchTemplateVersion;
 
     /**
+     * @description The maximum price for preemptible instances in the auto provisioning group.
+     *
+     * >  If both the MaxSpotPrice and LaunchTemplateConfig.N.MaxPrice parameters are specified, the maximum price is the lower value of the two parameters. The LaunchTemplateConfig.N.MaxPrice parameter is set when the auto provisioning group is created, and cannot be modified.
+     * @example 2
+     *
      * @var float
      */
     public $maxSpotPrice;
 
     /**
+     * @description The policies related to pay-as-you-go instances.
+     *
      * @var payAsYouGoOptions
      */
     public $payAsYouGoOptions;
 
     /**
+     * @description The region ID of the auto provisioning group.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The policy related to preemptible instances.
+     *
      * @var spotOptions
      */
     public $spotOptions;
 
     /**
+     * @description The overall status of instance scheduling of the auto provisioning group. Valid values:
+     *
+     * - error: An exception has occurred during scheduling and the instance cluster was not delivered.
+     * @example fulfilled
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The status of the auto provisioning group. Valid values:
+     *
+     * - modifying: The auto provisioning group is being modified.
+     * @example submitted
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The settings of the target capacity of the auto provisioning group.
+     *
      * @var targetCapacitySpecification
      */
     public $targetCapacitySpecification;
 
     /**
+     * @description Indicates whether to release the instances in the auto provisioning group when the auto provisioning group is deleted. Valid values:
+     *
+     * - false: retains the instances.
+     * @example false
+     *
      * @var bool
      */
     public $terminateInstances;
 
     /**
+     * @description Indicates whether to release instances in the auto provisioning group when the auto provisioning group expires. Valid values:
+     *
+     * - false: removes the instances in the group from the auto provisioning group but not releases the instances.
+     * @example true
+     *
      * @var bool
      */
     public $terminateInstancesWithExpiration;
 
     /**
+     * @description The time when the auto provisioning group was started. The period of time between this point in time and the point in time specified by the ValidUntil parameter is the effective time period of the auto provisioning group.
+     *
+     * @example 2019-04-01T15:10:20Z
+     *
      * @var string
      */
     public $validFrom;
 
     /**
+     * @description The time when the auto provisioning group expires. The period of time between this point in time and the point in time specified by the ValidFrom parameter is the effective time period of the auto provisioning group.
+     *
+     * @example 2019-06-01T15:10:20Z
+     *
      * @var string
      */
     public $validUntil;

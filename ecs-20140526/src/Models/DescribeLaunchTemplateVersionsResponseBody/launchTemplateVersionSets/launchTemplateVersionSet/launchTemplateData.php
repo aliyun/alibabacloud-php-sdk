@@ -19,176 +19,330 @@ class launchTemplateData extends Model
     public $systemDisk;
 
     /**
+     * @description The automatic release time of the instance.
+     *
+     * @example 2018-05-14T14:18:00Z
+     *
      * @var string
      */
     public $autoReleaseTime;
 
     /**
+     * @description Details about the data disks.
+     *
      * @var dataDisks
      */
     public $dataDisks;
 
     /**
+     * @description The ID of the deployment set.
+     *
+     * @example ds-bp1brhwhoqinyjd6****
+     *
      * @var string
      */
     public $deploymentSetId;
 
     /**
+     * @description The description of the instance.
+     *
+     * @example testInstanceDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether to enable the operating system configuration of the instance.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableVmOsConfig;
 
     /**
+     * @description The hostname of the instance.
+     *
+     * @example testHostName
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @description The ID of the image.
+     *
+     * @example m-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The source of the image. Valid values:
+     *
+     *   system: public images provided by Alibaba Cloud.
+     *   self: custom images that you create.
+     *   others: shared images from other Alibaba Cloud accounts.
+     *   marketplace: Alibaba Cloud Marketplace images.
+     *
+     * @example system
+     *
      * @var string
      */
     public $imageOwnerAlias;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   PrePaid: subscription
+     *   PostPaid: pay-as-you-go
+     *
+     * @example Postpaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example testInstanceName
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The instance type.
+     *
+     * @example ecs.g5.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The billing method for network usage.
+     *
+     * @example PayByTraffic
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @description The maximum inbound public bandwidth.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $internetMaxBandwidthIn;
 
     /**
+     * @description The maximum outbound public bandwidth.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $internetMaxBandwidthOut;
 
     /**
+     * @description Specifies whether the instance is I/O optimized.
+     *
+     * @example none
+     *
      * @var string
      */
     public $ioOptimized;
 
     /**
+     * @description The number of IPv6 addresses to assign to the instance.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $ipv6AddressCount;
 
     /**
+     * @description The name of the key pair.
+     *
+     * @example testKeyPairName
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @description Details about the secondary elastic network interfaces (ENIs).
+     *
      * @var networkInterfaces
      */
     public $networkInterfaces;
 
     /**
+     * @description The network type. Valid values:
+     *
+     *   classic: classic network
+     *   vpc: VPC
+     *
+     * @example vpc
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description Indicates whether the username and password pair preset in the image is used.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $passwordInherit;
 
     /**
+     * @description The subscription duration.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The private IP address of the instance.
+     *
+     * @example 10.1.**.**
+     *
      * @var string
      */
     public $privateIpAddress;
 
     /**
+     * @description The name of the instance RAM role.
+     *
+     * @example testRamRoleName
+     *
      * @var string
      */
     public $ramRoleName;
 
     /**
+     * @description The ID of the resource group to which the launch template belongs.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description Indicates whether to enable security hardening.
+     *
+     * @example active
+     *
      * @var string
      */
     public $securityEnhancementStrategy;
 
     /**
+     * @description The ID of the security group to which to assign the instance.
+     *
+     * >  The `SecurityGroupId` and `SecurityGroupIds` parameters are mutually exclusive in the response.
+     * @example sg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @description The IDs of the security groups to which to assign the instance.
+     *
+     * >  The `SecurityGroupId` and `SecurityGroupIds` parameters are mutually exclusive in the response.
      * @var securityGroupIds
      */
     public $securityGroupIds;
 
     /**
+     * @description The protection period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6.
+     *
+     * Take note of the following items:
+     *
+     *   Protection periods of 2, 3, 4, 5, and 6 hours are in invitational preview. If you want to set this parameter to one of these values, submit a ticket.
+     *   A value of 0 indicates that no protection period is configured for the preemptible instance.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $spotDuration;
 
     /**
+     * @description The maximum hourly price of the preemptible instance.
+     *
+     * @example 0.98
+     *
      * @var float
      */
     public $spotPriceLimit;
 
     /**
+     * @description The bidding policy for the pay-as-you-go instance. Valid values:
+     *
+     *   NoSpot: The instance is a regular pay-as-you-go instance.
+     *   SpotWithPriceLimit: The instance is a preemptible instance with a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bid price.
+     *
+     * @example NoSpot
+     *
      * @var string
      */
     public $spotStrategy;
 
     /**
+     * @description The tags of the instance.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The user data of the instance, which is Base64-encoded.
+     *
+     * @example SGVsbG9FQ1M=
+     *
      * @var string
      */
     public $userData;
 
     /**
+     * @description The ID of the vSwitch to which to connect the instance.
+     *
+     * @example vsw-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
+     * @example v-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The ID of the zone.
+     *
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $zoneId;

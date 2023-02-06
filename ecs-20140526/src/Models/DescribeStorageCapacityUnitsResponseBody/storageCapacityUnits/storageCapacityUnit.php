@@ -10,56 +10,101 @@ use AlibabaCloud\Tea\Model;
 class storageCapacityUnit extends Model
 {
     /**
+     * @description Indicates the allocation state of the SCU when the AllocationType parameter is set to Shared. Valid values:
+     *
+     *   allocated: The SCU is allocated to other accounts.
+     *   BeAllocated: The SCU is allocated from another account.
+     *
+     * @example allocated
+     *
      * @var string
      */
     public $allocationStatus;
 
     /**
+     * @description The capacity of the SCU.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $capacity;
 
     /**
+     * @description The time when the SCU was created.
+     *
+     * @example 2021-08-17T02:55Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The description of the SCU.
+     *
+     * @example testScuDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The time when the SCU expires.
+     *
+     * @example 2021-09-17T16:00Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The name of the SCU.
+     *
+     * @example testScuName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The region ID of the SCU.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The time when the SCU took effect.
+     *
+     * @example 2021-08-17T02:55Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The state of the SCU.
+     *
+     * @example Active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the SCU.
+     *
+     * @example scu-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $storageCapacityUnitId;
 
     /**
+     * @description The tag key-value pairs of the SCU.
+     *
      * @var tags
      */
     public $tags;

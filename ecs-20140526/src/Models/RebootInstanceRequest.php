@@ -9,16 +9,35 @@ use AlibabaCloud\Tea\Model;
 class RebootInstanceRequest extends Model
 {
     /**
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     *   true: performs a dry run. The system checks the required parameters, the request format, service limits, and available ECS resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   false: performs a dry run and sends the request. If the request passes the dry run, the instance is restarted.
+     *
+     * Default value: false.
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @description Specifies whether to forcibly stop the instance to restart it. Valid values:
+     *
+     *   true: stops the instance in a forceful manner. This operation is equivalent to the power-off operation in common scenarios. Cache data that is not written to storage in the instance will be lost.
+     *   false: normally stops the instance. This is the default value.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $forceStop;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $instanceId;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DetachKeyPairResponseBody extends Model
 {
     /**
+     * @description The number of instances from which the SSH key pair failed to be unbound.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $failCount;
 
     /**
+     * @description The names of the key pairs.
+     *
+     * @example testKeyPairName
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The result set of the unbind operation.
+     *
      * @var results
      */
     public $results;
 
     /**
+     * @description The total number of instances from which you attempted to unbind the SSH key pair.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $totalCount;

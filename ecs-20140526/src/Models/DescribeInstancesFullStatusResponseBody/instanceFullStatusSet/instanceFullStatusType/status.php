@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class status extends Model
 {
     /**
+     * @description The code of the instance lifecycle state.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The name of the instance lifecycle state.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $name;

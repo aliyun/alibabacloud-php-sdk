@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticityAssuranceInstancesResponseBody extends Model
 {
     /**
+     * @description Details about the instances that were created by using the elasticity assurance.
+     *
      * @var elasticityAssuranceItem
      */
     public $elasticityAssuranceItem;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token used to start the next query.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

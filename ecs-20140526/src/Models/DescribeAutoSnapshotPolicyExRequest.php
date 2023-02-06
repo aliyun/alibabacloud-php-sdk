@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoSnapshotPolicyExRequest extends Model
 {
     /**
+     * @description The ID of the automatic snapshot policy.
+     *
+     * @example sp-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $autoSnapshotPolicyId;
 
     /**
+     * @description The name of the automatic snapshot policy.
+     *
+     * @example TestName
+     *
      * @var string
      */
     public $autoSnapshotPolicyName;
@@ -30,21 +38,40 @@ class DescribeAutoSnapshotPolicyExRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the automatic snapshot policy. You can call the [DescribeRegions](~~25609~~) operation to query the current list of regions.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+     *
+     * >  Resources in the default resource group are displayed in the response regardless of how this parameter is set.
+     * @example rg-aek2kkmhmhs****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -60,6 +87,8 @@ class DescribeAutoSnapshotPolicyExRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

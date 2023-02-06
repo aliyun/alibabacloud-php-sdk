@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class cpuOptions extends Model
 {
     /**
+     * @description The number of physical CPU cores.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $coreCount;
 
     /**
+     * @description The number of threads allocated. Valid value: 2.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $numa;
 
     /**
+     * @description The number of threads per CPU core.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $threadsPerCore;

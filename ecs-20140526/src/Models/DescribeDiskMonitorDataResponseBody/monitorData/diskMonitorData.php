@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class diskMonitorData extends Model
 {
     /**
+     * @description The read bandwidth of the system disk. Unit: byte/s.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $BPSRead;
 
     /**
+     * @description The total read and write bandwidth of the system disk. Unit: byte/s.
+     *
+     * @example 204
+     *
      * @var int
      */
     public $BPSTotal;
 
     /**
+     * @description The write bandwidth of the system disk. Unit: byte/s.
+     *
+     * @example 204
+     *
      * @var int
      */
     public $BPSWrite;
 
     /**
+     * @description The ID of the disk.
+     *
+     * @example d-bp1bq5g3dxxo1x4o****
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @description The number of read I/O operations per second on the system disk.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $IOPSRead;
 
     /**
+     * @description The total number of read and write I/O operations per second on the system disk.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $IOPSTotal;
 
     /**
+     * @description The number of write I/O operations per second on the system disk.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $IOPSWrite;
 
     /**
+     * @description The read latency of the disk. Unit: microseconds.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $latencyRead;
 
     /**
+     * @description The write latency of the disk. Unit: microseconds.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $latencyWrite;
 
     /**
+     * @description The timestamp of the monitoring data. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2014-07-23T12:07:00Z
+     *
      * @var string
      */
     public $timeStamp;

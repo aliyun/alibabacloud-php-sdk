@@ -10,16 +10,31 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageSupportInstanceTypesRequest extends Model
 {
     /**
+     * @description The scenario in which the instance type is used. Default value: CreateEcs. Valid values:
+     *
+     *   CreateEcs: instance creation
+     *   Upgrade: instance type upgrade
+     *   Downgrade: instance type downgrade
+     *   RenewDowngrade: renewal and configuration downgrade
+     *
+     * @example CreateEcs
+     *
      * @var string
      */
     public $actionType;
 
     /**
+     * @description The list of filters to querying resources.
+     *
      * @var filter[]
      */
     public $filter;
 
     /**
+     * @description The ID of the image.
+     *
+     * @example m-o6w3gy99qf89rkga****
+     *
      * @var string
      */
     public $imageId;
@@ -30,6 +45,10 @@ class DescribeImageSupportInstanceTypesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the image. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

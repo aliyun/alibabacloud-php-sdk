@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnosticMetricSetsRequest extends Model
 {
     /**
+     * @description The maximum number of entries to return on each page. Maximum value: 100.
+     *
+     * Default value:
+     *
+     *   If this parameter is left empty, the default value is 10.
+     *   If this parameter is set to a value greater than 100, the default value is 100.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
@@ -19,21 +28,41 @@ class DescribeDiagnosticMetricSetsRequest extends Model
     public $metricSetIds;
 
     /**
+     * @description The query token. Set the value to the `NextToken` value returned in the last call to the DescribeDiagnosticMetricSets operation. Leave this parameter empty the first time you call this operation.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The region ID of the diagnostic metric set. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The resource type supported by the diagnostic metric set.
+     *
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The type of the diagnostic metric set. Valid values:
+     *
+     *   User: user-defined diagnostic metric set
+     *   Common: common diagnostic metric set
+     *
+     * Default value: user.
+     * @example User
+     *
      * @var string
      */
     public $type;

@@ -10,46 +10,80 @@ use AlibabaCloud\Tea\Model;
 class launchTemplateSet extends Model
 {
     /**
+     * @description The time when the launch template was created.
+     *
+     * @example 2018-05-14T14:18:00Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The creator of the launch template.
+     *
+     * @example 1234567890
+     *
      * @var string
      */
     public $createdBy;
 
     /**
+     * @description The default version number of the launch template.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $defaultVersionNumber;
 
     /**
+     * @description The latest version number of the launch template.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $latestVersionNumber;
 
     /**
+     * @description The ID of the launch template.
+     *
+     * @example lt-m5e3ofjr1zn1aw7q****
+     *
      * @var string
      */
     public $launchTemplateId;
 
     /**
+     * @description The name of the launch template.
+     *
+     * @example wd-152630748****
+     *
      * @var string
      */
     public $launchTemplateName;
 
     /**
+     * @description The time when the launch template was modified.
+     *
+     * @example 2018-05-14T14:18:00Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @description The ID of the resource group to which the launch template belongs.
+     *
+     * @example rg-acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The tags of the launch template.
+     *
      * @var tags
      */
     public $tags;

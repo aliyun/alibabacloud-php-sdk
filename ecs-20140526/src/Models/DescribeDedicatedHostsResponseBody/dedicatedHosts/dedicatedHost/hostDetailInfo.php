@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class hostDetailInfo extends Model
 {
     /**
+     * @description This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     *
+     * @example null
+     *
      * @var string
      */
     public $serialNumber;

@@ -14,6 +14,10 @@ class CancelTaskRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -29,6 +33,10 @@ class CancelTaskRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the task. You can call the [DescribeTasks](~~25622~~) operation to query the list of task IDs.
+     *
+     * @example t-bp198jigq7l0h5ac****
+     *
      * @var string
      */
     public $taskId;

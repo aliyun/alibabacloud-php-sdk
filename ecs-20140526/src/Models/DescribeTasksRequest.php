@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeTasksRequest extends Model
 {
     /**
+     * @description The end point of the time period for which to query created tasks. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2020-11-23T15:16:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -24,19 +28,38 @@ class DescribeTasksRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the task. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string[]
+     */
+    public $resourceIds;
 
     /**
      * @var string
@@ -49,21 +72,47 @@ class DescribeTasksRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The start point of the time period for which to query created tasks. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2020-11-23T15:10:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The name of the operation that generates the task. Valid values:
+     *
+     *   ImportImage
+     *   ExportImage
+     *   RedeployInstance
+     *   ModifyDiskSpec
+     *
+     * @example ImportImage
+     *
      * @var string
      */
     public $taskAction;
 
     /**
+     * @description The IDs of the tasks. You can specify up to 100 tasks at a time. Separate multiple task IDs with commas (,).
+     *
+     * @example t-bp1hvgwromzv32iq****,t-bp179lofu2pv768w****
+     *
      * @var string
      */
     public $taskIds;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   Finished
+     *   Processing
+     *   Failed
+     *
+     * >  The system only retrieves tasks in the Finished, Processing, and Failed states and ignores other values.
+     * @example Finished
+     *
      * @var string
      */
     public $taskStatus;
@@ -74,6 +123,7 @@ class DescribeTasksRequest extends Model
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
         'regionId'             => 'RegionId',
+        'resourceIds'          => 'ResourceIds',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'startTime'            => 'StartTime',
@@ -106,6 +156,9 @@ class DescribeTasksRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceIds) {
+            $res['ResourceIds'] = $this->resourceIds;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -154,6 +207,11 @@ class DescribeTasksRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceIds'])) {
+            if (!empty($map['ResourceIds'])) {
+                $model->resourceIds = $map['ResourceIds'];
+            }
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

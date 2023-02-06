@@ -9,31 +9,52 @@ use AlibabaCloud\Tea\Model;
 class metricSets extends Model
 {
     /**
+     * @description The description of the diagnostic metric set.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The IDs of the diagnostic metrics.
+     *
      * @var string[]
      */
     public $metricIds;
 
     /**
+     * @description The ID of the diagnostic metric set.
+     *
+     * @example dms-bp17p0qwtr72zmu*****
+     *
      * @var string
      */
     public $metricSetId;
 
     /**
+     * @description The name of the diagnostic metric set.
+     *
      * @var string
      */
     public $metricSetName;
 
     /**
+     * @description The resource type supported by the diagnostic metric set.
+     *
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The type of the diagnostic metric set. Valid values:
+     *
+     *   User: user-defined diagnostic metric set
+     *   Common: common diagnostic metric set
+     *
+     * @example User
+     *
      * @var string
      */
     public $type;

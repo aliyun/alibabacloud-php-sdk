@@ -10,11 +10,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeKeyPairsRequest extends Model
 {
     /**
+     * @description The fingerprint of the key pair. The message-digest algorithm 5 (MD5) is used based on the public key fingerprint format defined in RFC 4716. For more information, see [RFC 4716](https://tools.ietf.org/html/rfc4716).
+     *
+     * @example ABC1234567
+     *
      * @var string
      */
     public $keyPairFingerPrint;
 
     /**
+     * @description The name of the key pair. You can use the asterisk (\*) symbol as a wildcard in regular expressions to perform a fuzzy search for key pairs. Sample patterns:
+     *
+     *   `*SshKey`: queries key pairs whose names end with SshKey, including the key pair named SshKey.
+     *   `SshKey*`: queries key pairs whose names start with SshKey, including the key pair named SshKey.
+     *   `*SshKey*`: queries key pairs whose names include SshKey, including the key pair named SshKey.
+     *   `SshKey`: queries the key pair named SshKey.
+     *
+     * @example *SshKey*
+     *
      * @var string
      */
     public $keyPairName;
@@ -25,21 +38,40 @@ class DescribeKeyPairsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Pages start from page 1.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 50.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the key pair. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+     *
+     * >  Resources in the default resource group are displayed in the response regardless of how this parameter is set.
+     * @example rg-amnhr7u7c7hj****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -55,6 +87,8 @@ class DescribeKeyPairsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnapshotsResponseBody extends Model
 {
     /**
+     * @description The token used to start the next query.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Details about the snapshots.
+     *
      * @var snapshots
      */
     public $snapshots;
 
     /**
+     * @description The total number of snapshots.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

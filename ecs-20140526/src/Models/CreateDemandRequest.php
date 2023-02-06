@@ -9,36 +9,69 @@ use AlibabaCloud\Tea\Model;
 class CreateDemandRequest extends Model
 {
     /**
+     * @description The required quantity of instances of the filed instance type. Valid values: 1 to 100000.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $amount;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value that is unique among different requests. The `ClientToken` value can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The description of the requirement. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
+     *
+     * @example k8s-node-demand-desc
+     *
      * @var string
      */
     public $demandDescription;
 
     /**
+     * @description The name of the requirement. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-). It must start with a letter and cannot start with http:// or https://.
+     *
+     * The default value is the instance type name.
+     * @example k8s-node-demand
+     *
      * @var string
      */
     public $demandName;
 
     /**
+     * @description The end time of the subscription period. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-dd HH:mm:ss format. The time must be in UTC.
+     *
+     * Typically, the interval between the two time cannot be more than 10 days.
+     * @example 2019-12-10 12:05:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The billing method of the filed instance. Default value: PostPaid. Valid values:
+     *
+     *   PrePaid: subscription
+     *   PostPaid: pay-as-you-go
+     *
+     * @example PrePaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description The instance type of the filed instance. See [Instance families](~~25378~~) or call the [DescribeInstanceTypes](~~25620~~) operation to query the performance data of the target instance type, or see [Select instance types](~~58291~~) to learn how to select instance types.
+     *
+     * @example ecs.c6.large
+     *
      * @var string
      */
     public $instanceType;
@@ -54,16 +87,36 @@ class CreateDemandRequest extends Model
     public $ownerId;
 
     /**
+     * @description The subscription period of the resource. Valid values:
+     *
+     *   When the value of PeriodUnit is Day, the valid values of Period are 1, 2, 3, 4, 5, and 6.
+     *   When the value of PeriodUnit is Week, the valid values of Period are 1, 2, 3, and 4.
+     *   When the value of PeriodUnit is Month, the valid values of Period are 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The unit of the subscription period. Default value: Month. Valid values:
+     *
+     *   Day
+     *   Week
+     *   Month
+     *
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -79,11 +132,21 @@ class CreateDemandRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The start time of the subscription period. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-dd HH:mm:ss format. The time must be in UTC.
+     *
+     * Typically, the interval between the two time cannot be more than 10 days.
+     * @example 2019-12-01 12:05:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The ID of the zone to which the filed instance belongs. For more information, call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     *
+     * This parameter is empty by default. If you do not specify a zone, the system randomly selects a zone.
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $zoneId;

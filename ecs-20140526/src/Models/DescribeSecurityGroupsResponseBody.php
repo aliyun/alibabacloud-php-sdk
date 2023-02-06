@@ -10,36 +10,64 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityGroupsResponseBody extends Model
 {
     /**
+     * @description The query token returned in this call. If the return value of this parameter is empty when MaxResults and NextToken are used for a paged query, no more results are to be returned.
+     *
+     * @example e71d8a535bd9cc11
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * > This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * > This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the security group.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Details about the security groups.
+     *
      * @var securityGroups
      */
     public $securityGroups;
 
     /**
+     * @description The total number of security groups. If the `MaxResults` and `NextToken` parameters are specified in the request, the value of this parameter is not returned.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $totalCount;

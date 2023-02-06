@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceMaintenanceAttributesRequest extends Model
 {
     /**
+     * @description The IDs of the instances. You can enter up to 100 instance IDs.
+     *
+     * @example i-bp67acfmxazb4p****
+     *
      * @var string[]
      */
     public $instanceId;
@@ -24,16 +28,30 @@ class DescribeInstanceMaintenanceAttributesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 100.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

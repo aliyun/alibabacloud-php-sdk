@@ -10,46 +10,88 @@ use AlibabaCloud\Tea\Model;
 class imagePipelineExecutionSet extends Model
 {
     /**
+     * @description The time when the image build task was created.
+     *
+     * @example 2020-11-24T06:00:00Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The ID of the image build task.
+     *
+     * @example exec-5fb8facb8ed7427c****
+     *
      * @var string
      */
     public $executionId;
 
     /**
+     * @description The ID of the image to be created by using the image build task.
+     *
+     * @example m-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The ID of the image template.
+     *
+     * @example ip-2ze5tsl5bp6nf2b3****
+     *
      * @var string
      */
     public $imagePipelineId;
 
     /**
+     * @description The execution result of the image build task.
+     *
+     * @example Create transition vpc "vpc-2ze70rc7093j9idu6****" success!
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The last time when the image build task was updated.
+     *
+     * @example 2020-11-25T06:00:00Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The status of the image build task. Valid values:
+     *
+     *   BUILDING: The image was being built.
+     *   DISTRIBUTING: The image was being distributed.
+     *   RELEASING: The image was being recycled.
+     *   SUCCESS: The image was built.
+     *   FAILED: The image failed to be built.
+     *   CANCELLING: The image build task was being canceled.
+     *   CANCELLED: The image build task was cancelled.
+     *
+     * @example BUILDING
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The list of tag key-value pairs.
+     *
      * @var tags
      */
     public $tags;

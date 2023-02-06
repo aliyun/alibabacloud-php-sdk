@@ -10,36 +10,65 @@ use AlibabaCloud\Tea\Model;
 class CopyImageRequest extends Model
 {
     /**
+     * @description The description of the image copy. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+     *
+     * @example This is a description example.
+     *
      * @var string
      */
     public $destinationDescription;
 
     /**
+     * @description The name of the image copy. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`. It can contain letters, digits, periods (.), colons (:), underscores (\_), and hyphens (-).
+     *
+     * @example YourImageName
+     *
      * @var string
      */
     public $destinationImageName;
 
     /**
+     * @description The ID of the destination region to which to copy the source custom image.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $destinationRegionId;
 
     /**
+     * @description > This parameter is in invitational preview and is unavailable.
+     *
+     * @example hide
+     *
      * @var string
      */
     public $encryptAlgorithm;
 
     /**
+     * @description Specifies whether to encrypt the image copy.
+     *
+     * Default value: false.
+     * @example false
+     *
      * @var bool
      */
     public $encrypted;
 
     /**
+     * @description The ID of the source custom image.
+     *
+     * @example m-bp1h46wfpjsjastc****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The ID of the key used to encrypt the image copy.
+     *
+     * @example e522b26d-abf6-4e0d-b5da-04b7******3c
+     *
      * @var string
      */
     public $KMSKeyId;
@@ -55,11 +84,20 @@ class CopyImageRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the source custom image. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the image copy belongs. If you do not specify this parameter, the image copy belongs to the default resource group.
+     *
+     * >  If you use a RAM user that is not authorized to manage the default resource group to call the CopyImage operation and do not specify the `ResourceGroupId` parameter, the `Forbbiden: User not authorized to operate on the specified resource` error message is returned. You must specify the ID of a resource group that the RAM user is authorized to manage or authorize the RAM user to manage the default resource group before you call the CopyImage operation again.
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -75,6 +113,8 @@ class CopyImageRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags of the image copy. You can specify up to 20 tags.
+     *
      * @var tag[]
      */
     public $tag;

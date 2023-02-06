@@ -10,26 +10,49 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostsRequest extends Model
 {
     /**
+     * @description The ID of the dedicated host cluster.
+     *
+     * @example dc-bp12wlf6am0vz9v2****
+     *
      * @var string
      */
     public $dedicatedHostClusterId;
 
     /**
+     * @description The IDs of dedicated hosts. You can specify up to 100 dedicated host IDs in a single request. Separate the IDs with commas (,).
+     *
+     * @example ["dh-bp165p6xk2tlw61e****", "dh-bp1f9vxmno7emy96****"]
+     *
      * @var string
      */
     public $dedicatedHostIds;
 
     /**
+     * @description The name of the dedicated host.
+     *
+     * @example MyDDHTestName
+     *
      * @var string
      */
     public $dedicatedHostName;
 
     /**
+     * @description The type of the dedicated host. You can call the [DescribeDedicatedHostTypes](~~134240~~) operation to obtain the most recent list of dedicated host types.
+     *
+     * @example ddh.g5
+     *
      * @var string
      */
     public $dedicatedHostType;
 
     /**
+     * @description The reason why the dedicated host is locked. Valid values:
+     *
+     *   financial: The dedicated host is locked due to overdue payments.
+     *   security: The dedicated host is locked due to security reasons.
+     *
+     * @example financial
+     *
      * @var string
      */
     public $lockReason;
@@ -45,21 +68,40 @@ class DescribeDedicatedHostsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the dedicated host. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the dedicated host belongs. When this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+     *
+     * >  Resources in the default resource group are displayed in the response regardless of how this parameter is set.
+     * @example rg-aek3b6jzp66****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -75,16 +117,33 @@ class DescribeDedicatedHostsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The service state of the dedicated host. Valid values:
+     *
+     *   Available: The dedicated host is running normally.
+     *   UnderAssessment: The dedicated host is at risk, which may cause issues to ECS instances on the dedicated host.
+     *   PermanentFailure: The dedicated host has permanent failures and is unusable.
+     *   TempUnavailable: The dedicated host is temporarily unusable.
+     *   Redeploying: The dedicated host is being restored.
+     *
+     * Default value: Available.
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description 标签列表。
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The zone ID of the dedicated host. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     *
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $zoneId;

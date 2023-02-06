@@ -9,61 +9,115 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @description The number of vCPUs.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $CPU;
 
     /**
+     * @description The time when the instance was created.
+     *
+     * @example 2017-12-10T04:04Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The instance type of the ECS instance.
+     *
+     * @example ecs.g5.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description Indicates whether the instance is I/O optimized.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $ioOptimized;
 
     /**
+     * @description Indicates whether the instance is a preemptible instance.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSpot;
 
     /**
+     * @description The memory size of the instance. Unit: MiB.
+     *
+     * @example 1024
+     *
      * @var int
      */
     public $memory;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   vpc
+     *   classic
+     *
+     * @example vpc
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The operating system type of the instance. Valid values:
+     *
+     *   windows
+     *   linux
+     *
+     * @example linux
+     *
      * @var string
      */
     public $osType;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The status of the instance.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The zone ID of the instance.
+     *
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $zoneId;

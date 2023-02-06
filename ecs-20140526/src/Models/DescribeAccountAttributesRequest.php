@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccountAttributesRequest extends Model
 {
     /**
+     * @description The list of attribute names.
+     *
+     * @example max-security-groups
+     *
      * @var string[]
      */
     public $attributeName;
@@ -19,6 +23,10 @@ class DescribeAccountAttributesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,6 +42,10 @@ class DescribeAccountAttributesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the zone.
+     *
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

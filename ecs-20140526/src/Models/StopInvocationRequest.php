@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class StopInvocationRequest extends Model
 {
     /**
+     * @description The ID of instance N where the command needs to be stopped. You can specify up to 50 instance IDs in each request. Valid values of N: 1 to 50.
+     *
+     * @example i-bp67acfmxazb4p****
+     *
      * @var string[]
      */
     public $instanceId;
 
     /**
+     * @description The ID of the execution. You can call the [DescribeInvocations](~~64840~~) operation to query all execution IDs.
+     *
+     * @example t-7d2a745b412b4601b2d47f6a768d****
+     *
      * @var string
      */
     public $invokeId;
@@ -29,6 +37,10 @@ class StopInvocationRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

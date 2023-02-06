@@ -9,16 +9,48 @@ use AlibabaCloud\Tea\Model;
 class AssignIpv6AddressesRequest extends Model
 {
     /**
+     * @description IPv6 address N to assign to the ENI. Valid values of N: 1 to 10.
+     *
+     * Example: Ipv6Address.1=2001:db8:1234:1a00::\*\*\*\*
+     *
+     * > You must specify `Ipv6Addresses.N` or `Ipv6AddressCount` but cannot specify both.
+     * @example 2001:db8:1234:1a00::****
+     *
      * @var string[]
      */
     public $ipv6Address;
 
     /**
+     * @description The number of IPv6 addresses to randomly generate for the ENI. Valid values: 1 to 10.
+     *
+     * >  You must specify `Ipv6Addresses.N` or `Ipv6AddressCount` but cannot specify both.
+     * @example 1
+     *
      * @var int
      */
     public $ipv6AddressCount;
 
     /**
+     * @description > 该参数正在邀测中，暂未开放使用。
+     *
+     * @var string[]
+     */
+    public $ipv6Prefix;
+
+    /**
+     * @description > 该参数正在邀测中，暂未开放使用。
+     *
+     * @example hide
+     *
+     * @var int
+     */
+    public $ipv6PrefixCount;
+
+    /**
+     * @description The ID of the ENI.
+     *
+     * @example eni-bp1iqejowblx6h8j****
+     *
      * @var string
      */
     public $networkInterfaceId;
@@ -34,6 +66,10 @@ class AssignIpv6AddressesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the ENI. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -50,6 +86,8 @@ class AssignIpv6AddressesRequest extends Model
     protected $_name = [
         'ipv6Address'          => 'Ipv6Address',
         'ipv6AddressCount'     => 'Ipv6AddressCount',
+        'ipv6Prefix'           => 'Ipv6Prefix',
+        'ipv6PrefixCount'      => 'Ipv6PrefixCount',
         'networkInterfaceId'   => 'NetworkInterfaceId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -70,6 +108,12 @@ class AssignIpv6AddressesRequest extends Model
         }
         if (null !== $this->ipv6AddressCount) {
             $res['Ipv6AddressCount'] = $this->ipv6AddressCount;
+        }
+        if (null !== $this->ipv6Prefix) {
+            $res['Ipv6Prefix'] = $this->ipv6Prefix;
+        }
+        if (null !== $this->ipv6PrefixCount) {
+            $res['Ipv6PrefixCount'] = $this->ipv6PrefixCount;
         }
         if (null !== $this->networkInterfaceId) {
             $res['NetworkInterfaceId'] = $this->networkInterfaceId;
@@ -108,6 +152,14 @@ class AssignIpv6AddressesRequest extends Model
         }
         if (isset($map['Ipv6AddressCount'])) {
             $model->ipv6AddressCount = $map['Ipv6AddressCount'];
+        }
+        if (isset($map['Ipv6Prefix'])) {
+            if (!empty($map['Ipv6Prefix'])) {
+                $model->ipv6Prefix = $map['Ipv6Prefix'];
+            }
+        }
+        if (isset($map['Ipv6PrefixCount'])) {
+            $model->ipv6PrefixCount = $map['Ipv6PrefixCount'];
         }
         if (isset($map['NetworkInterfaceId'])) {
             $model->networkInterfaceId = $map['NetworkInterfaceId'];

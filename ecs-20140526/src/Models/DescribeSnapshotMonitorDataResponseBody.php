@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnapshotMonitorDataResponseBody extends Model
 {
     /**
+     * @description Details about the monitoring data of snapshot sizes.
+     *
      * @var monitorData
      */
     public $monitorData;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 9F8163A8-F5DE-47A2-A572-4E062D223E09
+     *
      * @var string
      */
     public $requestId;

@@ -10,16 +10,34 @@ use AlibabaCloud\Tea\Model;
 class CreateDedicatedHostClusterRequest extends Model
 {
     /**
+     * @description The name of the dedicated host cluster. The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter. It cannot contain `http://` or `https://`.
+     *
+     * This parameter is empty by default.
+     * @example myDDHCluster
+     *
      * @var string
      */
     public $dedicatedHostClusterName;
 
     /**
+     * @description The description of the dedicated host cluster. The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
+     *
+     * This parameter is empty by default.
+     * @example This-is-my-DDHCluster
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Specifies whether to check the validity of the request without actually making the request. Valid values:
+     *
+     *   true: The validity of the request is checked but the request is not made. Check items include whether your AccessKey pair is valid, whether RAM users are authorized, and whether the required parameters are specified. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
+     *   false: The validity of the request is checked. If the check succeeds, a 2XX HTTP status code is returned and the request is made.
+     *
+     * Default value: false
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
@@ -35,11 +53,19 @@ class CreateDedicatedHostClusterRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region in which to create the dedicated host cluster. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which to assign the dedicated host cluster.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -55,11 +81,17 @@ class CreateDedicatedHostClusterRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags of the resource. You can enter most at 20 tags for the resource.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The ID of the zone in which to create the dedicated host cluster. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     *
+     * @example cn-hangzhou-f
+     *
      * @var string
      */
     public $zoneId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteImagePipelineRequest extends Model
 {
     /**
+     * @description The ID of the image template.
+     *
+     * @example ip-2ze5tsl5bp6nf2b3****
+     *
      * @var string
      */
     public $imagePipelineId;
@@ -24,6 +28,10 @@ class DeleteImagePipelineRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the image template. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

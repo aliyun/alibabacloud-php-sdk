@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CancelCopyImageRequest extends Model
 {
     /**
+     * @description The ID of the image that is being copied.
+     *
+     * @example m-bp1caf3yicx5jlfl****
+     *
      * @var string
      */
     public $imageId;
@@ -24,6 +28,10 @@ class CancelCopyImageRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the image copy. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

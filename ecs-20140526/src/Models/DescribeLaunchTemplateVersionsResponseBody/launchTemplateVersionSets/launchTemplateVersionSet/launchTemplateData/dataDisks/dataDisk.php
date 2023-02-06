@@ -9,61 +9,109 @@ use AlibabaCloud\Tea\Model;
 class dataDisk extends Model
 {
     /**
+     * @example sp-wz91dz3ghear2a5s****
+     *
      * @var string
      */
     public $autoSnapshotPolicyId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $burstingEnabled;
 
     /**
+     * @description The category of the data disk.
+     *
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description Indicates whether to release the data disk when the instance is released.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $deleteWithInstance;
 
     /**
+     * @description The description of the data disk.
+     *
+     * @example testDiskDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The device name of the data disk.
+     *
+     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * @example /dev/xvda
+     *
      * @var string
      */
     public $device;
 
     /**
+     * @description The name of the data disk.
+     *
+     * @example testDiskName
+     *
      * @var string
      */
     public $diskName;
 
     /**
+     * @description Specifies whether to encrypt the data disk.
+     *
+     * @example false
+     *
      * @var string
      */
     public $encrypted;
 
     /**
+     * @description The performance level of ESSD used as the data disk. This parameter is returned only when `Category` is set to cloud_essd. Valid values:
+     *
+     *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
+     *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
+     *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
+     *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
+     *
+     * @example PL1
+     *
      * @var string
      */
     public $performanceLevel;
 
     /**
+     * @example 50000
+     *
      * @var int
      */
     public $provisionedIops;
 
     /**
+     * @description The size of the data disk.
+     *
+     * @example 2000
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The ID of the snapshot used to create the data disk.
+     *
+     * @example s-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $snapshotId;

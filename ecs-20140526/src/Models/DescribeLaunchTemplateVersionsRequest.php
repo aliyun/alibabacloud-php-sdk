@@ -9,36 +9,67 @@ use AlibabaCloud\Tea\Model;
 class DescribeLaunchTemplateVersionsRequest extends Model
 {
     /**
+     * @description Specifies whether to query the default version.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $defaultVersion;
 
     /**
+     * @description Specifies whether to query the configurations of the launch template. Valid values:
+     *
+     *   true: queries the basic information and other details of the launch template. The details include the image ID and system disk size.
+     *   false: queries only the basic information of the launch template. The basic information includes the template ID, template name, and default version.
+     *
+     * Default value: true.
+     * @example true
+     *
      * @var bool
      */
     public $detailFlag;
 
     /**
+     * @description The ID of the launch template.
+     *
+     * You must specify LaunchTemplateId or LaunchTemplateName to determine a launch template.
+     * @example lt-bp168lnahrdwl39p****
+     *
      * @var string
      */
     public $launchTemplateId;
 
     /**
+     * @description The name of the launch template.
+     *
+     * @example testLaunchTemplateName
+     *
      * @var string
      */
     public $launchTemplateName;
 
     /**
+     * @example 1
+     *
      * @var int[]
      */
     public $launchTemplateVersion;
 
     /**
+     * @description The maximum version number in the version range to query.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxVersion;
 
     /**
+     * @description The minimum version number in the version range to query.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $minVersion;
@@ -54,16 +85,31 @@ class DescribeLaunchTemplateVersionsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the launch template.
+     *
+     * You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

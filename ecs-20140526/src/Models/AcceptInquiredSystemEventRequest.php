@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class AcceptInquiredSystemEventRequest extends Model
 {
     /**
+     * @description > This parameter is in invitational preview and is unavailable.
+     *
+     * @example hide
+     *
      * @var string
      */
     public $choice;
 
     /**
+     * @description The ID of the system event.
+     *
+     * @example e-2zeielxl1qzq8slb****
+     *
      * @var string
      */
     public $eventId;
@@ -29,6 +37,10 @@ class AcceptInquiredSystemEventRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the system event. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

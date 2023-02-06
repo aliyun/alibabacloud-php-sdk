@@ -10,16 +10,27 @@ use AlibabaCloud\Tea\Model;
 class DescribeSpotAdviceResponseBody extends Model
 {
     /**
+     * @description Details about preemptible instances in the zones of the specified region.
+     *
+     * >  The return values are sorted based on the historical percentages of average preemptible instance prices relative to pay-as-you-go instance prices for instance types.
      * @var availableSpotZones
      */
     public $availableSpotZones;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;

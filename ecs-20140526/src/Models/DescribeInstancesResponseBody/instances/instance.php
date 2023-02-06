@@ -25,316 +25,567 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @description The time when to automatically release the pay-as-you-go instance.
+     *
+     * @example 2017-12-10T04:04Z
+     *
      * @var string
      */
     public $autoReleaseTime;
 
     /**
+     * @description The ID of the cluster to which the instance belongs.
+     *
+     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * @example c-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The number of vCPUs.
+     *
+     * @example 8
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @description Details about the CPU options.
+     *
      * @var cpuOptions
      */
     public $cpuOptions;
 
     /**
+     * @description The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](~~25696~~).
+     *
+     * @example 2017-12-10T04:04Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The performance mode of the burstable instance. Valid values:
+     *
+     *   Standard: standard mode. For more information, see the "Standard mode" section in [Overview](~~59977~~).
+     *   Unlimited: unlimited mode. For more information, see the "Unlimited mode" section in [Overview](~~59977~~).
+     *
+     * @example Standard
+     *
      * @var string
      */
     public $creditSpecification;
 
     /**
+     * @description Details about the dedicated host. It is an array that consists of the DedicatedHostClusterId, DedicatedHostId, and DedicatedHostName parameters.
+     *
      * @var dedicatedHostAttribute
      */
     public $dedicatedHostAttribute;
 
     /**
+     * @description The attributes of the instance on the dedicated host.
+     *
      * @var dedicatedInstanceAttribute
      */
     public $dedicatedInstanceAttribute;
 
     /**
+     * @description The release protection attribute of the instance. This parameter indicates whether you can use the ECS console or call the DeleteInstance operation to release the instance.
+     *
+     *   true: Release protection is enabled for the instance.
+     *   false: Release protection is disabled for the instance.
+     *
+     * >  This parameter is applicable only to pay-as-you-go instances. It can protect instances against manual releases, but not against automatic releases.
+     * @example false
+     *
      * @var bool
      */
     public $deletionProtection;
 
     /**
+     * @description The number of the deployment set group to which the instance belongs in a deployment set.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $deploymentSetGroupNo;
 
     /**
+     * @description The ID of the deployment set in which the instance is deployed.
+     *
+     * @example ds-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $deploymentSetId;
 
     /**
+     * @description The description of the instance.
+     *
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether data disks can be attached to the instance.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $deviceAvailable;
 
     /**
+     * @description Details about the capacity reservation related to the instance.
+     *
      * @var ecsCapacityReservationAttr
      */
     public $ecsCapacityReservationAttr;
 
     /**
+     * @description Details about the EIP associated with the instance.
+     *
      * @var eipAddress
      */
     public $eipAddress;
 
     /**
+     * @description The time when the instance expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](~~25696~~).
+     *
+     * @example 2017-12-10T04:04Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The number of GPUs for the instance type.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $GPUAmount;
 
     /**
+     * @description The category of GPUs for the instance type.
+     *
+     * @example NVIDIA V100
+     *
      * @var string
      */
     public $GPUSpec;
 
     /**
+     * @description >  This parameter is in invitational preview and is unavailable for general users.
+     *
      * @var hibernationOptions
      */
     public $hibernationOptions;
 
     /**
+     * @description The hostname of the instance.
+     *
+     * @example testHostName
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @description The ID of the HPC cluster to which the instance belongs.
+     *
+     * @example hpc-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $hpcClusterId;
 
     /**
+     * @description >  This parameter is in invitational preview and is unavailable for general users.
+     *
+     * @example null
+     *
      * @var string
      */
     public $ISP;
 
     /**
+     * @description The ID of the image that the instance is running.
+     *
+     * @example m-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description Details about the image options.
+     *
      * @var imageOptions
      */
     public $imageOptions;
 
     /**
+     * @description The internal IP addresses of the instance located in the classic network.
+     *
      * @var innerIpAddress
      */
     public $innerIpAddress;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   PrePaid: subscription
+     *   PostPaid: pay-as-you-go
+     *
+     * @example PostPaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example InstanceNameTest
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   classic
+     *   vpc
+     *
+     * @example vpc
+     *
      * @var string
      */
     public $instanceNetworkType;
 
     /**
+     * @description The instance type of the instance.
+     *
+     * @example ecs.g5.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The instance family of the instance.
+     *
+     * @example ecs.g5
+     *
      * @var string
      */
     public $instanceTypeFamily;
 
     /**
+     * @description The billing method for network usage. Valid values:
+     *
+     *   PayByBandwidth: pay-by-bandwidth
+     *   PayByTraffic: pay-by-traffic
+     *
+     * @example PayByTraffic
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @description The maximum inbound public bandwidth. Unit: Mbit/s.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $internetMaxBandwidthIn;
 
     /**
+     * @description The maximum outbound public bandwidth. Unit: Mbit/s.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $internetMaxBandwidthOut;
 
     /**
+     * @description Indicates whether the instance is I/O optimized.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $ioOptimized;
 
     /**
+     * @description The name of the key pair bound to the instance.
+     *
+     * @example testKeyPairName
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @description The number of local disks attached to the instance.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $localStorageAmount;
 
     /**
+     * @description The capacity of local disks attached to the instance.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $localStorageCapacity;
 
     /**
+     * @description The memory size of the instance. Unit: MiB.
+     *
+     * @example 16384
+     *
      * @var int
      */
     public $memory;
 
     /**
+     * @description Details about the metadata options.
+     *
      * @var metadataOptions
      */
     public $metadataOptions;
 
     /**
+     * @description Details about the ENIs bound to the instance.
+     *
      * @var networkInterfaces
      */
     public $networkInterfaces;
 
     /**
+     * @description The name of the operating system of the instance.
+     *
      * @var string
      */
     public $OSName;
 
     /**
+     * @description The English name of the operating system of the instance.
+     *
+     * @example CentOS  7.4 64 bit
+     *
      * @var string
      */
     public $OSNameEn;
 
     /**
+     * @description The type of the operating system of the instance. Valid values:
+     *
+     *   windows
+     *   linux
+     *
+     * @example linux
+     *
      * @var string
      */
     public $OSType;
 
     /**
+     * @description The reasons why the instance was locked.
+     *
      * @var operationLocks
      */
     public $operationLocks;
 
     /**
+     * @description The public IP addresses of the instance.
+     *
      * @var publicIpAddress
      */
     public $publicIpAddress;
 
     /**
+     * @description The RDMA IP addresses of the HPC instance.
+     *
      * @var rdmaIpAddress
      */
     public $rdmaIpAddress;
 
     /**
+     * @description Indicates whether the instance can be recycled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $recyclable;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description >  The parameter is discontinued.
+     *
+     * @example month
+     *
      * @var string
      */
     public $saleCycle;
 
     /**
+     * @description The IDs of the security groups to which the instance belongs.
+     *
      * @var securityGroupIds
      */
     public $securityGroupIds;
 
     /**
+     * @description The serial number of the instance.
+     *
+     * @example 51d1353b-22bf-4567-a176-8b3e12e4****
+     *
      * @var string
      */
     public $serialNumber;
 
     /**
+     * @description The protection period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6.
+     *
+     *   Protection periods of 2, 3, 4, 5, and 6 hours are in invitational preview. If you want to set this parameter to one of these values, submit a ticket.
+     *   A value of 0 indicates that the preemptible instance has no protection period.
+     *
+     * >  This parameter is returned when the SpotStrategy parameter is set to SpotWithPriceLimit or SpotAsPriceGo.
+     * @example 1
+     *
      * @var int
      */
     public $spotDuration;
 
     /**
+     * @description The maximum hourly price of the instance. It can be accurate to three decimal places. This parameter is valid only when the SpotStrategy parameter is set to SpotWithPriceLimit.
+     *
+     * @example 0.98
+     *
      * @var float
      */
     public $spotPriceLimit;
 
     /**
+     * @description The bidding policy for the pay-as-you-go instance. Valid values:
+     *
+     *   NoSpot: The instance is a regular pay-as-you-go instance.
+     *   SpotWithPriceLimit: The instance is a preemptible instance with a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
+     *
+     * @example NoSpot
+     *
      * @var string
      */
     public $spotStrategy;
 
     /**
+     * @description The time when the instance was last started. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](~~25696~~).
+     *
+     * @example 2017-12-10T04:04Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The state of the instance.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description Indicates whether the instance continues to be billed after it is stopped. Valid values:
+     *
+     *   KeepCharging: The instance is stopped in standard mode. The billing of the instance continues after the instance is stopped, and resources are retained for the instance.
+     *   StopCharging: The instance is stopped in economical mode. The billing of some resources of the instance stops after the instance is stopped. When the instance is stopped, its resources such as vCPUs, memory, and public IP address are released. The instance may be unable to start again if some required resources are out of stock in the current region.
+     *   Not-applicable: The instance does not support economical mode.
+     *
+     * @example KeepCharging
+     *
      * @var string
      */
     public $stoppedMode;
 
     /**
+     * @description The tags of the instance.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The virtual LAN (VLAN) ID of the instance.
+     *
+     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * @example 10
+     *
      * @var string
      */
     public $vlanId;
 
     /**
+     * @description The VPC attributes of the instance.
+     *
      * @var vpcAttributes
      */
     public $vpcAttributes;
 
     /**
+     * @description The zone ID of the instance.
+     *
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $zoneId;

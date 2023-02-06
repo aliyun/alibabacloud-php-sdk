@@ -9,36 +9,60 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceConsoleOutputRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp1c1xhsrac2coiw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example ECSforCloud@Alibaba.com
+     *
      * @var string
      */
     public $ownerAccount;
 
     /**
+     * @example 155780923770
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Specifies whether to remove symbols from the returned command output. Valid values:
+     *
+     *   true: removes the symbols
+     *   false: does not remove the symbols
+     *
+     * Default value: false.
+     * @example false
+     *
      * @var bool
      */
     public $removeSymbols;
 
     /**
+     * @example ECSforCloud
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @example 155780923770
+     *
      * @var int
      */
     public $resourceOwnerId;

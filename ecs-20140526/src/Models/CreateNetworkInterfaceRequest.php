@@ -10,41 +10,115 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkInterfaceRequest extends Model
 {
     /**
+     * @description > This parameter is no longer used.
+     *
+     * @example null
+     *
      * @var string
      */
     public $businessType;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The description of the ENI. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+     *
+     * This parameter is empty by default.
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description > This parameter is no longer used.
+     *
+     * @example null
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description > 该参数正在邀测中，暂未开放使用。
+     *
+     * @var string[]
+     */
+    public $ipv4Prefix;
+
+    /**
+     * @description > 该参数正在邀测中，暂未开放使用。
+     *
+     * @example hide
+     *
+     * @var int
+     */
+    public $ipv4PrefixCount;
+
+    /**
+     * @description IPv6 address N to assign to the ENI. Valid values of N: 1 to 10.
+     *
+     * Example: Ipv6Address.1=2001:db8:1234:1a00::\*\*\*\*
+     *
+     * > To assign IPv6 addresses to the ENI, you must specify `Ipv6Addresses.N` or `Ipv6AddressCount` but not both.
+     * @example 2001:db8:1234:1a00::****
+     *
      * @var string[]
      */
     public $ipv6Address;
 
     /**
+     * @description The number of IPv6 addresses to randomly generate for the ENI. Valid values: 1 to 10.
+     *
+     * > To assign IPv6 addresses to the ENI, you must specify `Ipv6Addresses.N` or `Ipv6AddressCount` but not both.
+     * @example 1
+     *
      * @var int
      */
     public $ipv6AddressCount;
 
     /**
+     * @description > 该参数正在邀测中，暂未开放使用。
+     *
+     * @var string[]
+     */
+    public $ipv6Prefix;
+
+    /**
+     * @description > 该参数正在邀测中，暂未开放使用。
+     *
+     * @example hide
+     *
+     * @var int
+     */
+    public $ipv6PrefixCount;
+
+    /**
+     * @description The name of the ENI. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
+     * This parameter is empty by default.
+     * @example testNetworkInterfaceName
+     *
      * @var string
      */
     public $networkInterfaceName;
 
     /**
+     * @description The communication mode of the ENI. Valid values:
+     *
+     *   Standard: uses the TCP communication mode.
+     *   HighPerformance: enables Elastic RDMA Interface (ERI) and uses the remote direct memory access (RDMA) communication mode.
+     *
+     * Default value: Standard.
+     * @example Standard
+     *
      * @var string
      */
     public $networkInterfaceTrafficMode;
@@ -60,31 +134,58 @@ class CreateNetworkInterfaceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The primary private IP address of the ENI.
+     *
+     * The specified IP address must be an idle IP address within the CIDR block of the vSwitch with which to associate the ENI. If this parameter is not specified, an idle IP address is assigned from within the CIDR block of the vSwitch at random.
+     * @example 172.17.**.**
+     *
      * @var string
      */
     public $primaryIpAddress;
 
     /**
+     * @description Secondary private IP address N to assign to the ENI. The IP address must be an idle IP address within the CIDR block of the vSwitch with which to associate the ENI. Valid values of N: 0 to 10.
+     *
+     * > To assign secondary private IP addresses to the ENI, you cannot specify the `PrivateIpAddress.N` and `SecondaryPrivateIpAddressCount` parameters at the same time.
+     * @example 172.17.**.**
+     *
      * @var string[]
      */
     public $privateIpAddress;
 
     /**
+     * @description The number of queues supported by the ENI. Valid values: 1 to 2048.
+     *
+     * This parameter is empty by default. If you do not specify this parameter, the default number of queues per ENI for the instance type of an instance is used when you attach the ENI to the instance. To view the default number of queues per ENI for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation and then check the `SecondaryEniQueueNumber` response parameter.
+     * @example 1
+     *
      * @var int
      */
     public $queueNumber;
 
     /**
+     * @description > This parameter is in invitational preview and is unavailable to general users.
+     *
+     * @example 22
+     *
      * @var int
      */
     public $queuePairNumber;
 
     /**
+     * @description The ID of the region in which to create the ENI. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which to assign the ENI. You can call the [ListResourceGroups](~~158855~~) operation to query the most recent resource group list.
+     *
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -100,31 +201,55 @@ class CreateNetworkInterfaceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The number of private IP addresses to be automatically created by ECS.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $secondaryPrivateIpAddressCount;
 
     /**
+     * @description The ID of the security group to which to assign the ENI. The security group and the ENI must belong to the same VPC.
+     *
+     * > You must specify `SecurityGroupId` or `SecurityGroupIds.N` but not both.
+     * @example sg-bp1fg655nh68xyz9i****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @description The ID of security group N to which to assign the ENI. The security group and the ENI must belong to the same VPC. The valid values of N are determined based on the maximum number of security groups to which an ENI can be assigned. For more information, see [Limits](~~25412~~).
+     *
+     * > You must specify `SecurityGroupId` or `SecurityGroupIds.N` but not both.
+     * @example sg-bp1fg655nh68xyz9i****
+     *
      * @var string[]
      */
     public $securityGroupIds;
 
     /**
+     * @description The tags to add to the ENI.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The ID of the vSwitch with which to associate the ENI. Private IP addresses are assigned to the ENI from within the CIDR block of the vSwitch.
+     *
+     * @example vsw-bp1s5fnvk4gn2tws03****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description > This parameter is no longer used.
+     *
+     * @example null
+     *
      * @var bool
      */
     public $visible;
@@ -133,8 +258,12 @@ class CreateNetworkInterfaceRequest extends Model
         'clientToken'                    => 'ClientToken',
         'description'                    => 'Description',
         'instanceType'                   => 'InstanceType',
+        'ipv4Prefix'                     => 'Ipv4Prefix',
+        'ipv4PrefixCount'                => 'Ipv4PrefixCount',
         'ipv6Address'                    => 'Ipv6Address',
         'ipv6AddressCount'               => 'Ipv6AddressCount',
+        'ipv6Prefix'                     => 'Ipv6Prefix',
+        'ipv6PrefixCount'                => 'Ipv6PrefixCount',
         'networkInterfaceName'           => 'NetworkInterfaceName',
         'networkInterfaceTrafficMode'    => 'NetworkInterfaceTrafficMode',
         'ownerAccount'                   => 'OwnerAccount',
@@ -174,11 +303,23 @@ class CreateNetworkInterfaceRequest extends Model
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+        if (null !== $this->ipv4Prefix) {
+            $res['Ipv4Prefix'] = $this->ipv4Prefix;
+        }
+        if (null !== $this->ipv4PrefixCount) {
+            $res['Ipv4PrefixCount'] = $this->ipv4PrefixCount;
+        }
         if (null !== $this->ipv6Address) {
             $res['Ipv6Address'] = $this->ipv6Address;
         }
         if (null !== $this->ipv6AddressCount) {
             $res['Ipv6AddressCount'] = $this->ipv6AddressCount;
+        }
+        if (null !== $this->ipv6Prefix) {
+            $res['Ipv6Prefix'] = $this->ipv6Prefix;
+        }
+        if (null !== $this->ipv6PrefixCount) {
+            $res['Ipv6PrefixCount'] = $this->ipv6PrefixCount;
         }
         if (null !== $this->networkInterfaceName) {
             $res['NetworkInterfaceName'] = $this->networkInterfaceName;
@@ -264,6 +405,14 @@ class CreateNetworkInterfaceRequest extends Model
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+        if (isset($map['Ipv4Prefix'])) {
+            if (!empty($map['Ipv4Prefix'])) {
+                $model->ipv4Prefix = $map['Ipv4Prefix'];
+            }
+        }
+        if (isset($map['Ipv4PrefixCount'])) {
+            $model->ipv4PrefixCount = $map['Ipv4PrefixCount'];
+        }
         if (isset($map['Ipv6Address'])) {
             if (!empty($map['Ipv6Address'])) {
                 $model->ipv6Address = $map['Ipv6Address'];
@@ -271,6 +420,14 @@ class CreateNetworkInterfaceRequest extends Model
         }
         if (isset($map['Ipv6AddressCount'])) {
             $model->ipv6AddressCount = $map['Ipv6AddressCount'];
+        }
+        if (isset($map['Ipv6Prefix'])) {
+            if (!empty($map['Ipv6Prefix'])) {
+                $model->ipv6Prefix = $map['Ipv6Prefix'];
+            }
+        }
+        if (isset($map['Ipv6PrefixCount'])) {
+            $model->ipv6PrefixCount = $map['Ipv6PrefixCount'];
         }
         if (isset($map['NetworkInterfaceName'])) {
             $model->networkInterfaceName = $map['NetworkInterfaceName'];

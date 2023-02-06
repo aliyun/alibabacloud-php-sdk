@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
+     * @description The key of filter N used to query resources. Valid values:
+     *
+     *   If you set this parameter to `CreationStartTime`, you can query the resources that were created after the point in time specified by the `Filter.N.Value` value.
+     *   If you set this parameter to `CreationEndTime`, you can query the resources that were created before the point in time specified by the `Filter.N.Value` value.
+     *
+     * @example CreationStartTime
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of filter N used to query resources. When you specify this parameter, you must also specify the `Filter.N.Key` parameter. Specify the time in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+     *
+     * @example 2017-12-05T22:40Z
+     *
      * @var string
      */
     public $value;

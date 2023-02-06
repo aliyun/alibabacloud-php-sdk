@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteNetworkInterfaceRequest extends Model
 {
     /**
+     * @description The ID of the ENI.
+     *
+     * @example eni-bp14v2sdd3v8htln****
+     *
      * @var string
      */
     public $networkInterfaceId;
@@ -24,6 +28,10 @@ class DeleteNetworkInterfaceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the ENI. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

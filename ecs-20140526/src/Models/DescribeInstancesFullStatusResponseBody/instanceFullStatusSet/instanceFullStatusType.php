@@ -12,21 +12,31 @@ use AlibabaCloud\Tea\Model;
 class instanceFullStatusType extends Model
 {
     /**
+     * @description The health state of the instance.
+     *
      * @var healthStatus
      */
     public $healthStatus;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description Details about the scheduled system events.
+     *
      * @var scheduledSystemEventSet
      */
     public $scheduledSystemEventSet;
 
     /**
+     * @description The lifecycle state of the instance.
+     *
      * @var status
      */
     public $status;

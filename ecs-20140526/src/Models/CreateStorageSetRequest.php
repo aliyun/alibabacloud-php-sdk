@@ -9,51 +9,84 @@ use AlibabaCloud\Tea\Model;
 class CreateStorageSetRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The description of the storage set.
+     *
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The maximum number of partitions supported by the storage set. The value must be greater than or equal to 2, but cannot exceed the quota obtained by calling the [DescribeAccountAttributes](~~73772~~)operation.
+     *
+     * Default value: 2.
+     * @example 10
+     *
      * @var int
      */
     public $maxPartitionNumber;
 
     /**
+     * @example Hide
+     *
      * @var string
      */
     public $ownerAccount;
 
     /**
+     * @example 111
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @description The region in which to create the storage set. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example Hide
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @example 111
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @description The name of the storage set.
+     *
+     * @example testStorageSetName
+     *
      * @var string
      */
     public $storageSetName;
 
     /**
+     * @description The zone in which to create the storage set. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     *
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $zoneId;

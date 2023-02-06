@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteCommandRequest extends Model
 {
     /**
+     * @description The ID of the command. You can call the [DescribeCommands](~~64843~~) operation to query all available command IDs.
+     *
+     * @example c-4d34302d02424c5c8e10281e3a31****
+     *
      * @var string
      */
     public $commandId;
@@ -24,6 +28,10 @@ class DeleteCommandRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the command. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

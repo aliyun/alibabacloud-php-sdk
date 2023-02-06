@@ -10,26 +10,45 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnapshotGroupsRequest extends Model
 {
     /**
+     * @example hide
+     *
      * @var string[]
      */
     public $additionalAttributes;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-j6ca469urv8ei629****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The name of the snapshot-consistent group.
+     *
+     * @example testName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The query token. Set the value to the NextToken value that is returned in the last call to the DescribeSnapshotGroups operation.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
@@ -45,11 +64,19 @@ class DescribeSnapshotGroupsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the snapshot-consistent group. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the snapshot-consistent group belongs.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -65,11 +92,15 @@ class DescribeSnapshotGroupsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example ssg-j6ciyh3k52qp7ovm****
+     *
      * @var string[]
      */
     public $snapshotGroupId;
 
     /**
+     * @example accomplished
+     *
      * @var string[]
      */
     public $status;

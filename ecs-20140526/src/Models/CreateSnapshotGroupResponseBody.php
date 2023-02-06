@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateSnapshotGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 01ABBD93-1ABB-4D92-B496-1A3D20EC0697
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the snapshot-consistent group.
+     *
+     * @example ssg-j6ciyh3k52qp7ovm****
+     *
      * @var string
      */
     public $snapshotGroupId;

@@ -9,31 +9,62 @@ use AlibabaCloud\Tea\Model;
 class supportedResource extends Model
 {
     /**
+     * @description The maximum resource specification value. This parameter is not returned if it has no value.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $max;
 
     /**
+     * @description The minimum resource specification value. This parameter is not returned if it has no value.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $min;
 
     /**
+     * @description The state of the resource. Valid values:
+     *
+     *   Available
+     *   SoldOut
+     *
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The category of resource based on stock status. Valid values:
+     *
+     *   WithStock: resources that are in sufficient stock
+     *   ClosedWithStock: resources that are ininsufficient stock
+     *   WithoutStock: resources that are out of stock
+     *
+     * @example WithStock
+     *
      * @var string
      */
     public $statusCategory;
 
     /**
+     * @description The resource specification unit. This parameter is not returned if it has no value.
+     *
+     * @example null
+     *
      * @var string
      */
     public $unit;
 
     /**
+     * @description The resource value.
+     *
+     * @example ecs.g5.large
+     *
      * @var string
      */
     public $value;

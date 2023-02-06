@@ -12,86 +12,154 @@ use AlibabaCloud\Tea\Model;
 class imagePipelineSet extends Model
 {
     /**
+     * @description The IDs of Alibaba Cloud accounts to which to share the created image.
+     *
      * @var addAccounts
      */
     public $addAccounts;
 
     /**
+     * @description The source image.
+     *
+     *   When `BaseImageType` is set to IMAGE, the value of this parameter is the ID of a custom image.
+     *   When `BaseImageType` is set to IMAGE_FAMILY, the value of this parameter is the name of an image family.
+     *
+     * @example m-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $baseImage;
 
     /**
+     * @description The type of the source image. Valid values:
+     *
+     *   IMAGE: custom image
+     *   IMAGE_FAMILY: image family
+     *
+     * @example IMAGE
+     *
      * @var string
      */
     public $baseImageType;
 
     /**
+     * @description The content of the image template.
+     *
+     * @example FROM IMAGE:m-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $buildContent;
 
     /**
+     * @description The time when the image template was created.
+     *
+     * @example 2020-11-24T06:00:00Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description Indicates whether to release the intermediate instance when the image fails to be created.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $deleteInstanceOnFailure;
 
     /**
+     * @description The description of the image template.
+     *
+     * @example This is description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name prefix of the created image.
+     *
+     * @example testImageName
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @description The ID of the image template.
+     *
+     * @example ip-2ze5tsl5bp6nf2b3****
+     *
      * @var string
      */
     public $imagePipelineId;
 
     /**
+     * @description The instance type of the intermediate instance.
+     *
+     * @example ecs.g6.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The size of the outbound public bandwidth for the intermediate instance. Unit: Mbit/s.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $internetMaxBandwidthOut;
 
     /**
+     * @description The name of the image template.
+     *
+     * @example testImagePipeline
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The system disk size of the intermediate instance. Unit: GiB.
+     *
+     * @example 40
+     *
      * @var int
      */
     public $systemDiskSize;
 
     /**
+     * @description The tags of the image template.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The IDs of regions to which to distribute the created image.
+     *
      * @var toRegionIds
      */
     public $toRegionIds;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $vSwitchId;

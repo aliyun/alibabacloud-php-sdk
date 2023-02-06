@@ -11,51 +11,91 @@ use AlibabaCloud\Tea\Model;
 class snapshotGroup extends Model
 {
     /**
+     * @description The time when the snapshot-consistent group was created.
+     *
+     * @example 2021-03-23T10:58:48Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The description of the snapshot-consistent group.
+     *
+     * @example This is description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the instance to which the snapshot-consistent group belongs. This parameter has a value only when all disk snapshots in the snapshot-consistent group belong to the same instance. If disk snapshots in the snapshot-consistent group belong to different instances, you can use parameters starting with `Snapshots.Snapshot.Tags.` in the response to view the ID of the instance to which each snapshot in the snapshot-consistent group belongs.
+     *
+     * @example i-j6ca469urv8ei629****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the snapshot-consistent group.
+     *
+     * @example testName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description >  This parameter is unavailable.
+     *
+     * @example null
+     *
      * @var string
      */
     public $progressStatus;
 
     /**
+     * @description The ID of the resource group to which the snapshot-consistent group belongs.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The ID of the snapshot-consistent group.
+     *
+     * @example ssg-j6ciyh3k52qp7ovm****
+     *
      * @var string
      */
     public $snapshotGroupId;
 
     /**
+     * @description Details of the snapshots in the snapshot-consistent group.
+     *
      * @var snapshots
      */
     public $snapshots;
 
     /**
+     * @description The state of the snapshot-consistent group. Valid values:
+     *
+     *   progressing: The snapshot-consistent group is being created.
+     *   accomplished: The snapshot-consistent group is created.
+     *   failed: The snapshot-consistent group fails to be created.
+     *
+     * @example accomplished
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The tags of the snapshot-consistent group.
+     *
      * @var tags
      */
     public $tags;

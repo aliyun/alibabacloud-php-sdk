@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateDiagnosticMetricSetResponseBody extends Model
 {
     /**
+     * @description The ID of the diagnostic metric set, which is the unique identifier of the set.
+     *
+     * @example dms-o7ymuutup5l*****
+     *
      * @var string
      */
     public $metricSetId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE*****
+     *
      * @var string
      */
     public $requestId;

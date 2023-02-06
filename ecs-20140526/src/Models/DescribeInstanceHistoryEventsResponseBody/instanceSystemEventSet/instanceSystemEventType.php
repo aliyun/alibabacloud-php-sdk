@@ -12,56 +12,98 @@ use AlibabaCloud\Tea\Model;
 class instanceSystemEventType extends Model
 {
     /**
+     * @description The lifecycle state of the system event.
+     *
      * @var eventCycleStatus
      */
     public $eventCycleStatus;
 
     /**
+     * @description The time when the system event ended. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2017-12-01T06:35:31Z
+     *
      * @var string
      */
     public $eventFinishTime;
 
     /**
+     * @description The ID of the system event.
+     *
+     * @example e-uf64yvznlao4jl2c****
+     *
      * @var string
      */
     public $eventId;
 
     /**
+     * @description The time when the system event was published. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2017-11-30T06:32:31Z
+     *
      * @var string
      */
     public $eventPublishTime;
 
     /**
+     * @description The type of the system event.
+     *
      * @var eventType
      */
     public $eventType;
 
     /**
+     * @description The extended attribute of the system event.
+     *
      * @var extendedAttribute
      */
     public $extendedAttribute;
 
     /**
+     * @description The impact level of the system event.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $impactLevel;
 
     /**
+     * @description The ID of the instance that you query.
+     *
+     * @example i-uf678mass4zvr9n1****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The scheduled start time of the system event. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2017-12-06T00:00:00Z
+     *
      * @var string
      */
     public $notBefore;
 
     /**
+     * @description The reason why the system event was scheduled.
+     *
+     * @example System maintenance is scheduled due to ***.
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @description The type of a resource. Valid values:
+     *
+     *   instance: ECS instance.
+     *   ddh: dedicated host.
+     *   managehost: physical machine in a smart hosting pool.
+     *
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;

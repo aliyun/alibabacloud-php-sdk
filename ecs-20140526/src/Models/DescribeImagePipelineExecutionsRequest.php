@@ -10,21 +10,38 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagePipelineExecutionsRequest extends Model
 {
     /**
+     * @description The ID of the image build task.
+     *
+     * @example exec-5fb8facb8ed7427c****
+     *
      * @var string
      */
     public $executionId;
 
     /**
+     * @description The ID of the image template.
+     *
+     * @example ip-2ze5tsl5bp6nf2b3****
+     *
      * @var string
      */
     public $imagePipelineId;
 
     /**
+     * @description The maximum number of entries to return on each page. Valid values: 1 to 500.
+     *
+     * Default value: 50.
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The query token. Set the value to the `NextToken` value that was returned when you last called the DescribeImagePipelineExecutions operation. Leave this parameter empty when you call this operation for the first time.
+     *
+     * @example AAAAAdDWBF2****
+     *
      * @var string
      */
     public $nextToken;
@@ -40,6 +57,10 @@ class DescribeImagePipelineExecutionsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the image build task. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -55,11 +76,18 @@ class DescribeImagePipelineExecutionsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The status of the image build task. You can specify multiple values at the same time. Separate the values with commas (,). Example format: `BUILDING,DISTRIBUTING`. Valid values:
+     *
+     * >  You cannot query the image build tasks in all status by leaving this parameter empty.
+     * @example BUILDING
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description > This parameter is deprecated.
+     *
      * @var tag[]
      */
     public $tag;

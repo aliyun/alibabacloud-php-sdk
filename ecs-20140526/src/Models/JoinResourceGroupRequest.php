@@ -9,41 +9,77 @@ use AlibabaCloud\Tea\Model;
 class JoinResourceGroupRequest extends Model
 {
     /**
+     * @example ECSforCloud@Alibaba.com
+     *
      * @var string
      */
     public $ownerAccount;
 
     /**
+     * @example 155780923770
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @description The region ID of the resource. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which to add the resource.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The ID of the resource. This parameter depends on the ResourceType value. For example, when ResourceType is set to instance, ResourceId can be interpreted as InstanceId.
+     *
+     * @example sg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example ECSforCloud
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @example 155780923770
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @description The type of the ECS resource. Valid values:
+     *
+     *   instance: instance
+     *   disk: Elastic Block Storage device
+     *   snapshot: snapshot
+     *   image: image
+     *   securitygroup: security group
+     *   ddh: dedicated host
+     *   ddhcluster: dedicated host cluster
+     *   eni: ENI
+     *   keypair: SSH key pair
+     *   launchtemplate: launch template
+     *
+     * These values are case-sensitive.
+     * @example securitygroup
+     *
      * @var string
      */
     public $resourceType;

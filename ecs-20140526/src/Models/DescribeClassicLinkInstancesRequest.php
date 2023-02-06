@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeClassicLinkInstancesRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can specify up to 100 instance IDs in a single request. Separate the instance IDs with commas (,).
+     *
+     * @example i-bp1a5zr3u7nq9cxh****
+     *
      * @var string
      */
     public $instanceId;
@@ -19,16 +23,30 @@ class DescribeClassicLinkInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Pages start from page 1.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 100.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -44,6 +62,10 @@ class DescribeClassicLinkInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the VPC. The ClassicLink feature must be enabled for the specified VPC. For more information, see [Establish a ClassicLink connection](~~65413~~).
+     *
+     * @example vpc-bp1vwnn14rqpyiczj****
+     *
      * @var string
      */
     public $vpcId;

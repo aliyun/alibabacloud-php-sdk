@@ -11,101 +11,213 @@ use AlibabaCloud\Tea\Model;
 class invocation extends Model
 {
     /**
+     * @description The Base64-encoded command content.
+     *
+     * @example cnBtIC1xYSB8IGdyZXAgdnNm****
+     *
      * @var string
      */
     public $commandContent;
 
     /**
+     * @description The description of the command.
+     *
+     * @example testDescription
+     *
      * @var string
      */
     public $commandDescription;
 
     /**
+     * @description The ID of the command.
+     *
+     * @example c-hz0jdfwcsr****
+     *
      * @var string
      */
     public $commandId;
 
     /**
+     * @description The name of the command.
+     *
+     * @example CommandTestName
+     *
      * @var string
      */
     public $commandName;
 
     /**
+     * @description The type of the command.
+     *
+     * @example RunShellScript
+     *
      * @var string
      */
     public $commandType;
 
     /**
+     * @description The ID of the container.
+     *
+     * @example ab141ddfbacfe02d9dbc25966ed971536124527097398d419a6746873fea****
+     *
      * @var string
      */
     public $containerId;
 
     /**
+     * @description The name of the container.
+     *
+     * @example test-container
+     *
      * @var string
      */
     public $containerName;
 
     /**
+     * @description The time when the command task was created.
+     *
+     * @example 2020-01-19T09:15:46Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The schedule on which to run the command. For information about the value specifications, see [Cron expression](~~64769~~).
+     *
+     * @example 0 *\/20 * * * *
+     *
      * @var string
      */
     public $frequency;
 
     /**
+     * @description The overall execution state of the command. The value of this parameter depends on the execution states on all the involved instances. Valid values:
+     *
+     *   Pending: The command is being verified or sent. When the execution state on at least one instance is Pending, the overall execution state is Pending.
+     *
+     *   Scheduled: The command scheduled to run is sent and pending execution. When the execution state on at least one instance is Scheduled, the overall execution state is Scheduled.
+     *
+     *   Running: The command is being run on the instances. When the execution state on at least one instance is Running, the overall execution state is Running.
+     *
+     *   Success: When the execution state on at least one instance is Success and the execution state on other instances is Stopped or Success, the overall execution state is Success.
+     *
+     *   Command that is set to run only once: The execution is complete, and the exit code is 0.
+     *   Command that is set to run on a schedule: The last execution is complete, the exit code is 0, and the specified cycle ends.
+     *
+     *   Failed: When the execution state on all instances is Stopped or Failed, the overall execution state is Failed. When the execution state on an instance is one of the following values, Failed is returned as the overall execution state:
+     *
+     *   Invalid: The command is invalid.
+     *   Aborted: The command failed to be sent.
+     *   Failed: The command execution is complete, but the exit code is not 0.
+     *   Timeout: The execution timed out.
+     *   Error: An error occurred while the command was being run on the instance.
+     *
+     *   Stopping: The command task is being stopped. When the execution state on at least one instance is Stopping, the overall execution state is Stopping.
+     *
+     *   Stopped: The command task is stopped. When the execution state on all instances is Stopped, the overall execution state is Stopped. When the execution state on an instance is one of the following values, Stopped is returned as the overall execution state:
+     *
+     *   Cancelled: The command task is canceled.
+     *   Terminated: The command task is terminated.
+     *
+     *   PartialFailed: The execution is complete on some instances and fails on other instances. When the execution state is Success on some instances and is Failed or Stopped on other instances, the overall execution state is PartialFailed.
+     *
+     * > The `InvokeStatus` response parameter functions similarly to this parameter. We recommend that you ignore InvokeStatus and check the value of InvocationStatus.
+     * @example Running
+     *
      * @var string
      */
     public $invocationStatus;
 
     /**
+     * @description The ID of the command task.
+     *
+     * @example t-hz0jdfwd9f****
+     *
      * @var string
      */
     public $invokeId;
 
     /**
+     * @description Details about the instances on which the command is run.
+     *
      * @var invokeInstances
      */
     public $invokeInstances;
 
     /**
+     * @description The overall execution state of the command.
+     *
+     * > We recommend that you ignore this parameter and check the value of the `InvocationStatus` response parameter for the overall execution state.
+     * @example Finished
+     *
      * @var string
      */
     public $invokeStatus;
 
     /**
+     * @description The custom parameters in the command.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $parameters;
 
     /**
+     * @description The execution mode of the command. Valid values:
+     *
+     *   Once: The command is immediately run.
+     *   Period: The command is run on a schedule.
+     *   NextRebootOnly: The command is automatically run the next time the instance starts.
+     *   EveryReboot: The command is automatically run every time the instance starts.
+     *
+     * @example Once
+     *
      * @var string
      */
     public $repeatMode;
 
     /**
+     * @description The tags of the command task.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description Indicates whether the command is to be automatically run.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $timed;
 
     /**
+     * @description The maximum timeout period for the command execution on the instance. Unit: seconds.
+     *
+     * When a command cannot be run, the command execution times out. When a command execution times out, the Cloud Assistant client forcefully terminates the command process by canceling the PID of the command.
+     * @example 60
+     *
      * @var int
      */
     public $timeout;
 
     /**
+     * @description The username that was used to run the command on the instance.
+     *
+     * @example root
+     *
      * @var string
      */
     public $username;
 
     /**
+     * @description The execution path of the command.
+     *
+     * @example /home/
+     *
      * @var string
      */
     public $workingDir;

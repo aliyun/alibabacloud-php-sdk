@@ -9,56 +9,94 @@ use AlibabaCloud\Tea\Model;
 class DescribeStorageSetsRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example hide
+     *
      * @var string
      */
     public $ownerAccount;
 
     /**
+     * @example 111
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Pages start from page 1.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 100.
+     *
+     * Default value: 10.
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the storage set. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example hide
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @example 111
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @description The IDs of storage sets. The value is a JSON array that consists of up to 100 storage set IDs. Separate the IDs with commas (,).
+     *
+     * @example ["ss-bp1d6tsvznfghy7y****", "ss-bp1ippxbaql9zet7****", … "ss-bp1ib7bcz07l****"]
+     *
      * @var string
      */
     public $storageSetIds;
 
     /**
+     * @description The name of the storage set.
+     *
+     * @example storageSetTest
+     *
      * @var string
      */
     public $storageSetName;
 
     /**
+     * @description The zone ID of the storage set. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     *
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $zoneId;

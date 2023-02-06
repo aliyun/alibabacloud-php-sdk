@@ -20,11 +20,19 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the resource. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of resource N. Valid values of N: 1 to 50.
+     *
+     * @example i-bp67acfmxazb4ph****
+     *
      * @var string[]
      */
     public $resourceId;
@@ -35,11 +43,35 @@ class TagResourcesRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The type of the resource. Valid values:
+     *
+     *   instance: ECS instance
+     *   disk: disk
+     *   snapshot: snapshot
+     *   image: image
+     *   securitygroup: security group
+     *   volume: storage volume
+     *   eni: elastic network interface (ENI)
+     *   ddh: dedicated host
+     *   ddhcluster: dedicated host cluster
+     *   keypair: SSH key pair
+     *   launchtemplate: launch template
+     *   reservedinstance: reserved instance
+     *   snapshotpolicy: automatic snapshot policy
+     *   elasticityassurance: elasticity assurance
+     *   capacityreservation: capacity reservation
+     *   command: Cloud Assistant command
+     *   invocation: Cloud Assistant command execution result
+     *
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tags to add to the resource.
+     *
      * @var tag[]
      */
     public $tag;

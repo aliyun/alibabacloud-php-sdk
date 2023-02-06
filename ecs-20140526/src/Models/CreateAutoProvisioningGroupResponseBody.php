@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class CreateAutoProvisioningGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the auto provisioning group.
+     *
+     * @example apg-sn54avj8htgvtyh8****
+     *
      * @var string
      */
     public $autoProvisioningGroupId;
 
     /**
+     * @description Details about the instances created by the auto provisioning group. The values of parameters in this array are returned only when AutoProvisioningGroupType is set to `instant`.
+     *
      * @var launchResults
      */
     public $launchResults;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 745CEC9F-0DD7-4451-9FE7-8B752F39****
+     *
      * @var string
      */
     public $requestId;

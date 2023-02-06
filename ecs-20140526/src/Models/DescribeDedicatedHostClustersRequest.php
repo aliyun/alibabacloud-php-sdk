@@ -10,16 +10,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostClustersRequest extends Model
 {
     /**
+     * @description The IDs of dedicated host clusters. The value can be a JSON array that consists of up to 100 dedicated host cluster IDs in the format of `["dc-xxxxxxxxx", "dc-yyyyyyyyy", ... "dc-zzzzzzzzz"]`. Separate the IDs with commas (,).
+     *
+     * @example ["dc-bp12wlf6am0vz9v2****", "dc-bp12wlf6am0vz9v3****"]
+     *
      * @var string
      */
     public $dedicatedHostClusterIds;
 
     /**
+     * @description The name of the dedicated host cluster.
+     *
+     * @example myDDHCluster
+     *
      * @var string
      */
     public $dedicatedHostClusterName;
 
     /**
+     * @description >  This parameter is unavailable for use.
+     *
+     * @example null
+     *
      * @var string
      */
     public $lockReason;
@@ -35,21 +47,40 @@ class DescribeDedicatedHostClustersRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the dedicated host cluster. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the dedicated host cluster belongs. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+     *
+     * >  Resources in the default resource group are displayed in the response regardless of how this parameter is set.
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -65,16 +96,26 @@ class DescribeDedicatedHostClustersRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description >  This parameter is unavailable for use.
+     *
+     * @example null
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The list of the tags.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The zone ID of the dedicated host cluster. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     *
+     * @example cn-hangzhou-f
+     *
      * @var string
      */
     public $zoneId;

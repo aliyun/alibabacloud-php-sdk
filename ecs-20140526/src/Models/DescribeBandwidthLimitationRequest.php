@@ -9,51 +9,99 @@ use AlibabaCloud\Tea\Model;
 class DescribeBandwidthLimitationRequest extends Model
 {
     /**
+     * @description The billing method of the instance. For more information, see [Billing overview](~~25398~~). Valid values:
+     *
+     *   PrePaid: subscription
+     *   PostPaid: pay-as-you-go
+     *
+     * Default value: PostPaid.
+     * @example PrePaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description The instance type. For more information about the values, see [Instance families](~~25378~~).
+     *
+     * >  This parameter is required.
+     * @example ecs.g5.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description Specifies the operation for which to query the maximum public bandwidth. Valid values:
+     *
+     *   Upgrade: upgrades the public bandwidth.
+     *   Downgrade: downgrades the public bandwidth.
+     *   Create: creates an ECS instance.
+     *
+     * Default value: Create.
+     * @example Upgrade
+     *
      * @var string
      */
     public $operationType;
 
     /**
+     * @example ECSforCloud@Alibaba.com
+     *
      * @var string
      */
     public $ownerAccount;
 
     /**
+     * @example 155780923770
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource.
+     *
+     * >  This parameter is required when the OperationType parameter is set to Upgrade or Downgrade.
+     * @example i-bp67acfmxazb4ph***
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example ECSforCloud
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @example 155780923770
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @description The preemption policy for the preemptible or pay-as-you-go instance. Valid values:
+     *
+     *   NoSpot: The instance is a regular pay-as-you-go instance.
+     *   SpotWithPriceLimit: The instance is a preemptible instance with user-defined maximum hourly prices.
+     *   SpotAsPriceGo: The system automatically offers a bid, which is not higher than the pay-as-you-go price for the same instance type.
+     *
+     * >  This parameter takes effect only when the InstanceChargeType parameter is set to PostPaid.
+     * @example NoSpot
+     *
      * @var string
      */
     public $spotStrategy;

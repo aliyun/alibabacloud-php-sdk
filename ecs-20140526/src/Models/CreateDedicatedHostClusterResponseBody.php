@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateDedicatedHostClusterResponseBody extends Model
 {
     /**
+     * @description The ID of the dedicated host cluster.
+     *
+     * @example dc-bp12wlf6bw0vz9v2****
+     *
      * @var string
      */
     public $dedicatedHostClusterId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E2A664A6-2933-4C64-88AE-5033D003****
+     *
      * @var string
      */
     public $requestId;

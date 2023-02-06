@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CopySnapshotResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example C8B26B44-0189-443E-9816-D951F59623A9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the new snapshot.
+     *
+     * @example s-bp17441ohwka0yui****
+     *
      * @var string
      */
     public $snapshotId;

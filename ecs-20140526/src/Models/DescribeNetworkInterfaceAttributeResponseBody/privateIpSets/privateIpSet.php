@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class privateIpSet extends Model
 {
     /**
+     * @description The EIP that is associated with the secondary private IP address of the ENI.
+     *
      * @var associatedPublicIp
      */
     public $associatedPublicIp;
 
     /**
+     * @description Indicates whether the IP address is the primary private IP address. Valid values:
+     *
+     *   true: The IP address is the primary private IP address.
+     *   false: The IP address is a secondary private IP address.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $primary;
 
     /**
+     * @description The private IP address of the ENI.
+     *
+     * @example 172.17.**.**
+     *
      * @var string
      */
     public $privateIpAddress;

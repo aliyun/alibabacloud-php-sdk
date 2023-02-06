@@ -15,6 +15,10 @@ class ModifyElasticityAssuranceRequest extends Model
     public $privatePoolOptions;
 
     /**
+     * @description The description of the elasticity assurance. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+     *
+     * @example This is description.
+     *
      * @var string
      */
     public $description;
@@ -30,6 +34,10 @@ class ModifyElasticityAssuranceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the elasticity assurance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

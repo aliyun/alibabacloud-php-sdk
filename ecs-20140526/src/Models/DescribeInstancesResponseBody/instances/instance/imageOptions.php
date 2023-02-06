@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class imageOptions extends Model
 {
     /**
+     * @description Indicates whether the instance that uses the image supports logons of the ecs-user user. Valid values:
+     *
+     * - false: The instance that uses the image does not support logons of the ecs-user user.
+     * @example false
+     *
      * @var bool
      */
     public $loginAsNonRoot;

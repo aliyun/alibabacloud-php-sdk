@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class payAsYouGoOptions extends Model
 {
     /**
+     * @description The provisioning policy for pay-as-you-go instances. Valid values:
+     *
+     * >  The LaunchTemplateConfig.N.Priority parameter is set when the auto provisioning group is created, and cannot be modified.
+     * @example prioritized
+     *
      * @var string
      */
     public $allocationStrategy;

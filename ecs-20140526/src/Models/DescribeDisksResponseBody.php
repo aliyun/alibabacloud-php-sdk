@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeDisksResponseBody extends Model
 {
     /**
+     * @description Details about the disks.
+     *
      * @var disks
      */
     public $disks;
 
     /**
+     * @description The query token returned in this call.
+     *
+     * @example AAAAAdDWBF2****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 15
+     *
      * @var int
      */
     public $totalCount;

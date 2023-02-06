@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class link extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-test
+     *
      * @var string
      */
     public $vpcId;

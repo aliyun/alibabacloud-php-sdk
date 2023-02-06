@@ -11,91 +11,163 @@ use AlibabaCloud\Tea\Model;
 class reservedInstance extends Model
 {
     /**
+     * @description Indicates the sharing status of the reserved instance when the AllocationType parameter is set to Shared. Valid values:
+     *
+     *   allocated: The reserved instance is allocated to another account.
+     *   beAllocated: The reserved instance is allocated by another account.
+     *
+     * @example allocated
+     *
      * @var string
      */
     public $allocationStatus;
 
     /**
+     * @description The time when the reserved instance was created.
+     *
+     * @example 2018-12-10T12:07Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The description of the reserved instance.
+     *
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The time when the reserved instance expires.
+     *
+     * @example 2019-12-10T12:07Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The number of pay-as-you-go instances that are of the same instance type as the reserved instance and can be matched to the reserved instance.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $instanceAmount;
 
     /**
+     * @description The instance type of the pay-as-you-go instances that can be matched to the reserved instance.
+     *
+     * @example ecs.g5.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The payment option of the reserved instance.
+     *
+     * @example All Upfront
+     *
      * @var string
      */
     public $offeringType;
 
     /**
+     * @description Details about the lock status of the reserved instance.
+     *
      * @var operationLocks
      */
     public $operationLocks;
 
     /**
+     * @description The operating system of the reserved instance. Valid values:
+     *
+     * - Linux: Linux and Unix-like operating systems
+     * @example Linux
+     *
      * @var string
      */
     public $platform;
 
     /**
+     * @description The region ID of the reserved instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the reserved instance.
+     *
+     * @example ri-bpzhex2ulpzf53****
+     *
      * @var string
      */
     public $reservedInstanceId;
 
     /**
+     * @description The name of the reserved instance.
+     *
+     * @example riZbpzhex2ulpzf53****
+     *
      * @var string
      */
     public $reservedInstanceName;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example EcsDocTest
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The scope of the reserved instance.
+     *
+     * @example region
+     *
      * @var string
      */
     public $scope;
 
     /**
+     * @description The time when the reserved instance took effect.
+     *
+     * @example 2018-12-10T12:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The status of the reserved instance.
+     *
+     * @example Active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description Details about the tags of the reserved instance.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The zone ID of the reserved instance.
+     *
+     * @example cn-hangzhou-z
+     *
      * @var string
      */
     public $zoneId;

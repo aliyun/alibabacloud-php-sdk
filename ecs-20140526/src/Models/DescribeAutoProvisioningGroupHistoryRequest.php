@@ -9,51 +9,85 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoProvisioningGroupHistoryRequest extends Model
 {
     /**
+     * @description The ID of the auto provisioning group.
+     *
+     * @example apg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $autoProvisioningGroupId;
 
     /**
+     * @description The end of the time range of the queried data. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2019-06-20T15:10:20Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $ownerAccount;
 
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @description The page number of the returned page. Pages start from page 1.
+     *
+     * Default value: 1
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page. Maximum value: 100.
+     *
+     * Default value: 10.
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the auto provisioning group.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @description The beginning of the time range of the queried data. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2019-04-01T15:10:20Z
+     *
      * @var string
      */
     public $startTime;

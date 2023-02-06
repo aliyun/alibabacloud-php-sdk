@@ -9,11 +9,26 @@ use AlibabaCloud\Tea\Model;
 class UnassignIpv6AddressesRequest extends Model
 {
     /**
+     * @description The IPv6 addresses to unassign. You can specify up to 10 IPv6 addresses in a single request.
+     *
+     * @example 2001:db8:1234:1a00::***
+     *
      * @var string[]
      */
     public $ipv6Address;
 
     /**
+     * @description > This parameter is in invitational preview and is unavailable for general users.
+     *
+     * @var string[]
+     */
+    public $ipv6Prefix;
+
+    /**
+     * @description The ID of the ENI.
+     *
+     * @example eni-bp14v2sdd3v8ht****
+     *
      * @var string
      */
     public $networkInterfaceId;
@@ -29,6 +44,10 @@ class UnassignIpv6AddressesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the ENI. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -44,6 +63,7 @@ class UnassignIpv6AddressesRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'ipv6Address'          => 'Ipv6Address',
+        'ipv6Prefix'           => 'Ipv6Prefix',
         'networkInterfaceId'   => 'NetworkInterfaceId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -61,6 +81,9 @@ class UnassignIpv6AddressesRequest extends Model
         $res = [];
         if (null !== $this->ipv6Address) {
             $res['Ipv6Address'] = $this->ipv6Address;
+        }
+        if (null !== $this->ipv6Prefix) {
+            $res['Ipv6Prefix'] = $this->ipv6Prefix;
         }
         if (null !== $this->networkInterfaceId) {
             $res['NetworkInterfaceId'] = $this->networkInterfaceId;
@@ -95,6 +118,11 @@ class UnassignIpv6AddressesRequest extends Model
         if (isset($map['Ipv6Address'])) {
             if (!empty($map['Ipv6Address'])) {
                 $model->ipv6Address = $map['Ipv6Address'];
+            }
+        }
+        if (isset($map['Ipv6Prefix'])) {
+            if (!empty($map['Ipv6Prefix'])) {
+                $model->ipv6Prefix = $map['Ipv6Prefix'];
             }
         }
         if (isset($map['NetworkInterfaceId'])) {

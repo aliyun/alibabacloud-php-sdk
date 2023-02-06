@@ -10,96 +10,185 @@ use AlibabaCloud\Tea\Model;
 class demand extends Model
 {
     /**
+     * @description The number of instances available for the filed resources.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $availableAmount;
 
     /**
+     * @description The feedback on the denied request for filing resources.
+     *
+     * @example test-for-comment
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The number of instances to be delivered in the filed resources.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $deliveringAmount;
 
     /**
+     * @description The description of the filing ticket.
+     *
+     * @example test-DemandDescription
+     *
      * @var string
      */
     public $demandDescription;
 
     /**
+     * @description The ID of the filing ticket.
+     *
+     * @example ed-bp11n21kq00sl71p****
+     *
      * @var string
      */
     public $demandId;
 
     /**
+     * @description The name of the filing ticket.
+     *
+     * @example k8s-node-demand
+     *
      * @var string
      */
     public $demandName;
 
     /**
+     * @description The status of the filing ticket or resource usage. Valid values:
+     *
+     *   Creating: The filing ticket is being created.
+     *   Active: The filed resources are being supplied.
+     *   Expired: The filing ticket expires.
+     *   Finished: The filed resources are consumed.
+     *   Refused: The filing request is denied. For reasons why the request is denied, see the `Comment` response parameter.
+     *   Cancelled: The filing request is canceled. After the filing request is canceled, the delivery status of the resources becomes invalid.
+     *
+     * @example Active
+     *
      * @var string
      */
     public $demandStatus;
 
     /**
+     * @description The time when the filing ticket was created. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2019-02-26T12:00:00Z
+     *
      * @var string
      */
     public $demandTime;
 
     /**
+     * @description The expected end time for the purchase of the filed resources. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2019-03-03T15:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The billing method of the filed resources. Valid values:
+     *
+     *   Prepaid: subscription
+     *   Postpaid: pay-as-you-go
+     *
+     * @example Prepaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description The instance type of the filed instance.
+     *
+     * @example ecs.g6.xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The instance family of the filed instance.
+     *
+     * @example ecs.g6
+     *
      * @var string
      */
     public $instanceTypeFamily;
 
     /**
+     * @description The usage duration of the filed resource.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The unit of the usage duration of the filed resource. Valid values:
+     *
+     *   Hour
+     *   Day
+     *   Month
+     *
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @description The expected start time for the purchase of the filed resources. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2019-02-27T12:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description Details about the delivery status of the filed resources.
+     *
      * @var supplyInfos
      */
     public $supplyInfos;
 
     /**
+     * @description The amount of total instances.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $totalAmount;
 
     /**
+     * @description The amount of instances that have been used.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $usedAmount;
 
     /**
+     * @description The ID of the zone for which to query resources.
+     *
+     * This parameter is empty by default. When this parameter is empty, the system returns resources that match the other criteria in all zones within the region specified by `RegionId`.
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $zoneId;

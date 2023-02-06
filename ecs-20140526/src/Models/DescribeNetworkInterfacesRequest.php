@@ -10,31 +10,61 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkInterfacesRequest extends Model
 {
     /**
+     * @description The ID of the instance to which the ENI is attached.
+     *
+     * @example i-bp1e2l6djkndyuli****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The IPv6 addresses of the ENI. You can specify multiple IPv6 addresses. Valid values of N: 1 to 100.
+     *
+     * @example 2408:4321:180:1701:94c7:bc38:3bfa:****
+     *
      * @var string[]
      */
     public $ipv6Address;
 
     /**
+     * @description The maximum number of entries to return on each page. Valid values: 10 to 500.
+     *
+     * Default values:
+     *
+     *   If this parameter is not specified or if this parameter is set to a value smaller than 10, the default value 10 is used.
+     *   If this parameter is set to a value greater than 500, the default value 500 is used.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The IDs of ENIs. You specify multiple ENI IDs. Valid values of N: 1 to 100.
+     *
+     * @example eni-bp125p95hhdhn3ot****
+     *
      * @var string[]
      */
     public $networkInterfaceId;
 
     /**
+     * @description The name of the ENI.
+     *
+     * @example test-eni-name
+     *
      * @var string
      */
     public $networkInterfaceName;
 
     /**
+     * @description The query token. Set the value to the `NextToken` value returned in the last call to the DescribeNetworkInterfaces operation.
+     *
+     * For more information about how to check the responses returned by this operation, see the preceding "Description" section.
+     * @example AAAAAdDWBF2****
+     *
      * @var string
      */
     public $nextToken;
@@ -50,31 +80,58 @@ class DescribeNetworkInterfacesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * > This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters to perform a paged query.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * > This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters to perform a paged query.
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The primary private IPv4 address of the ENI.
+     *
+     * @example 192.168.**.**
+     *
      * @var string
      */
     public $primaryIpAddress;
 
     /**
+     * @description The secondary private IPv4 addresses of the ENI. You can specify multiple secondary private IPv4 addresses. Valid values of N: 1 to 100.
+     *
+     * @example 192.168.**.**
+     *
      * @var string[]
      */
     public $privateIpAddress;
 
     /**
+     * @description The region ID of the ENI. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the ENI belongs. If a resource group is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+     *
+     * > Resources in the default resource group are displayed in the response regardless of how this parameter is set.
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -90,36 +147,76 @@ class DescribeNetworkInterfacesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the security group to which the secondary ENI belongs.
+     *
+     *   To query the details of secondary ENIs based on the ID of a security group, specify this parameter.
+     *   To query the details of primary ENIs based on the ID of a security group, call the [DescribeInstances](~~25506~~) operation with the `SecurityGroupId` parameter specified.
+     *
+     * @example sg-bp144yr32sx6ndw****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @description Specifies whether the user of the ENI is an Alibaba Cloud service or a distributor.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $serviceManaged;
 
     /**
+     * @description The state of the ENI. Valid values:
+     *
+     *   Available: The ENI is not attached to an instance.
+     *   Attaching: The ENI is being attached to an instance.
+     *   InUse: The ENI is attached to an instance.
+     *   Detaching: The ENI is being detached from an instance.
+     *   Deleting: The ENI is being deleted.
+     *
+     * This parameter is empty by default, which indicates that ENIs in all states are queried.
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The tags of the ENI.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The type of the ENI. Valid values:
+     *
+     *   Primary
+     *   Secondary
+     *
+     * This parameter is empty by default, which indicates that both primary and secondary ENIs are queried.
+     * @example Secondary
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The ID of the vSwitch to which the ENI is connected.
+     *
+     * @example vsw-bp16usj2p27htro3****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the ENI belongs.
+     *
+     * @example vsw-bp16usj2p27htro3****
+     *
      * @var string
      */
     public $vpcId;

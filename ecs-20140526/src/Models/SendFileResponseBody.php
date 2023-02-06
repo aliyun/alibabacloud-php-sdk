@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class SendFileResponseBody extends Model
 {
     /**
+     * @description The ID of the execution.
+     *
+     * @example f-7d2a745b412b46****
+     *
      * @var string
      */
     public $invokeId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;

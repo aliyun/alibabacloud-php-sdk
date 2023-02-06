@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class region extends Model
 {
     /**
+     * @description The name of the region.
+     *
+     * @example China (Qingdao)
+     *
      * @var string
      */
     public $localName;
 
     /**
+     * @description The endpoint of the region.
+     *
+     * @example ecs.aliyuncs.com
+     *
      * @var string
      */
     public $regionEndpoint;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-qingdao-et2-bo1
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Indicates whether clusters are sold out. Valid values:
+     *
+     *   available
+     *   soldOut
+     *
+     * @example available
+     *
      * @var string
      */
     public $status;

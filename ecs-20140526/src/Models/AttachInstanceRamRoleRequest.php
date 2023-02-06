@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class AttachInstanceRamRoleRequest extends Model
 {
     /**
+     * @description The IDs of instances. The value can be a JSON array that consists of up to 100 instance IDs. Separate the IDs with commas (,).
+     *
+     * @example [“i-bp14ss25xca5ex1u****”, “i-bp154z5o1qjalfse****”, “i-bp10ws62o04ubhvi****”…]
+     *
      * @var string
      */
     public $instanceIds;
@@ -19,16 +23,28 @@ class AttachInstanceRamRoleRequest extends Model
     public $ownerId;
 
     /**
+     * @description The policy. The policy must be 1 to 1,024 characters in length. When you attach an instance RAM role to one or more instances, you can specify an additional policy to further restrict the permissions of the role. For more information, see [Policy overview](~~93732~~).
+     *
+     * @example {"Statement": [{"Action": ["*"],"Effect": "Allow","Resource": ["*"]}],"Version":"1"}
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @description The name of the instance RAM role. You can call the [ListRoles](~~28713~~) operation provided by RAM to query the instance RAM roles that you created.
+     *
+     * @example testRamRoleName
+     *
      * @var string
      */
     public $ramRoleName;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

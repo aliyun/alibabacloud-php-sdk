@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class ReleasePublicIpAddressResponseBody extends Model
 {
     /**
+     * @description > This parameter is unavailable.
+     *
+     * @example hide
+     *
+     * @var string
+     */
+    public $remainTimes;
+
+    /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'remainTimes' => 'RemainTimes',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -23,6 +37,9 @@ class ReleasePublicIpAddressResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->remainTimes) {
+            $res['RemainTimes'] = $this->remainTimes;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -38,6 +55,9 @@ class ReleasePublicIpAddressResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RemainTimes'])) {
+            $model->remainTimes = $map['RemainTimes'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeCapacityReservationsResponseBody extends Model
 {
     /**
+     * @description Details about the capacity reservations.
+     *
      * @var capacityReservationSet
      */
     public $capacityReservationSet;
 
     /**
+     * @description The maximum number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token used to start the next query.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

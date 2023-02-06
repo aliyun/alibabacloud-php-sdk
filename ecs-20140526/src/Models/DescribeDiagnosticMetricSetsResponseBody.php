@@ -15,11 +15,19 @@ class DescribeDiagnosticMetricSetsResponseBody extends Model
     public $metricSets;
 
     /**
+     * @description The query token returned in this call.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE*****
+     *
      * @var string
      */
     public $requestId;

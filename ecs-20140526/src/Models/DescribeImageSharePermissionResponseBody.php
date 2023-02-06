@@ -11,41 +11,69 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageSharePermissionResponseBody extends Model
 {
     /**
+     * @description The Alibaba Cloud accounts.
+     *
      * @var accounts
      */
     public $accounts;
 
     /**
+     * @description The ID of the custom image.
+     *
+     * @example m-bp1caf3yicx5jlfl****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the image.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The shared groups.
+     *
      * @var shareGroups
      */
     public $shareGroups;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

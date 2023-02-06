@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkInterfaceAttributeRequest extends Model
 {
     /**
+     * @description The attribute of the ENI.
+     *
+     * @example test
+     *
      * @var string
      */
     public $attribute;
 
     /**
+     * @description The ID of the ENI.
+     *
+     * @example eni-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $networkInterfaceId;
@@ -30,6 +38,10 @@ class DescribeNetworkInterfaceAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the ENI. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -45,6 +57,8 @@ class DescribeNetworkInterfaceAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description > This parameter is unavailable.
+     *
      * @var tag[]
      */
     public $tag;

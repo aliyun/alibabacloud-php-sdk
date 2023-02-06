@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class RedeployInstanceRequest extends Model
 {
     /**
+     * @description Specifies whether to force stop the instance that is in the Running state.
+     *
+     * > A forced stop is equivalent to a power outage and can result in loss of unsaved data. We recommend that you redeploy instances when they are in the Stopped state.
+     * @example false
+     *
      * @var bool
      */
     public $forceStop;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp1azkttqpldxgted****
+     *
      * @var string
      */
     public $instanceId;

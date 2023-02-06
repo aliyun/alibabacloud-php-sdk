@@ -9,36 +9,60 @@ use AlibabaCloud\Tea\Model;
 class DeleteImageRequest extends Model
 {
     /**
+     * @description Specifies whether to forcibly delete the custom image. Valid values:
+     *
+     *   true: forcibly deletes the custom image, regardless of whether the image is being used by other instances.
+     *   false: verifies that the image is not being used by other instances and then deletes the image.
+     *
+     * Default value: false.
+     * @example false
+     *
      * @var bool
      */
     public $force;
 
     /**
+     * @description The ID of the image. If the specified custom image does not exist, the request is ignored.
+     *
+     * @example m-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example ECSforCloud@Alibaba.com
+     *
      * @var string
      */
     public $ownerAccount;
 
     /**
+     * @example 155780923770
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @description The region ID of the custom image. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example ECSforCloud
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @example 155780923770
+     *
      * @var int
      */
     public $resourceOwnerId;

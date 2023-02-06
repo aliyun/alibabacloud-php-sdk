@@ -9,46 +9,85 @@ use AlibabaCloud\Tea\Model;
 class instanceCloudAssistantStatus extends Model
 {
     /**
+     * @description The number of commands that are being run.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $activeTaskCount;
 
     /**
+     * @description Indicates whether the Cloud Assistant client is installed on the instance.
+     *
+     * @example true
+     *
      * @var string
      */
     public $cloudAssistantStatus;
 
     /**
+     * @description The version number of the Cloud Assistant client.
+     *
+     * @example 2.2.0.106
+     *
      * @var string
      */
     public $cloudAssistantVersion;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp1iudwa5b1tqa****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The total number of commands that have been run.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $invocationCount;
 
     /**
+     * @description The last heartbeat time of Cloud Assistant.
+     *
+     * @example 2021-03-15T09:00:00Z
+     *
      * @var string
      */
     public $lastHeartbeatTime;
 
     /**
+     * @description The time when commands were last run.
+     *
+     * @example 2021-03-15T08:00:00Z
+     *
      * @var string
      */
     public $lastInvokedTime;
 
     /**
+     * @description The operating system type of the instance. Valid values:
+     *
+     *   Windows
+     *   Linux
+     *
+     * @example Linux
+     *
      * @var string
      */
     public $OSType;
 
     /**
+     * @description Indicates whether the version of the Cloud Assistant client supports the session management feature.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $supportSessionManager;

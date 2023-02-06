@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class dedicatedInstanceAttribute extends Model
 {
     /**
+     * @description Indicates whether the instance on the dedicated host is associated with the dedicated host. Valid values:
+     *
+     * - host: The instance is associated with the dedicated host. When the instance is started from economical mode, the instance is still deployed on the original dedicated host.
+     * @example default
+     *
      * @var string
      */
     public $affinity;
 
     /**
+     * @description Indicates whether the instance is hosted on a dedicated host. Valid values:
+     *
+     * - host: The instance is hosted on a dedicated host.
+     * @example default
+     *
      * @var string
      */
     public $tenancy;

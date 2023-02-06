@@ -22,36 +22,104 @@ class DescribeInstanceHistoryEventsRequest extends Model
     public $notBefore;
 
     /**
+     * @description The lifecycle state of the system event. This parameter is valid only when the InstanceEventCycleStatus.N parameter is not specified. Valid values:
+     *
+     *   Scheduled
+     *   Avoided
+     *   Executing
+     *   Executed
+     *   Canceled
+     *   Failed
+     *   Inquiring
+     *
+     * @example Executed
+     *
      * @var string
      */
     public $eventCycleStatus;
 
     /**
+     * @description The ID of system event N. Valid values of N: 1 to 100. You can specify multiple event IDs by repeatedly listing this parameter.
+     *
+     * @example e-uf64yvznlao4jl2c****
+     *
      * @var string[]
      */
     public $eventId;
 
     /**
+     * @description The type of the system event. This parameter is valid only when the InstanceEventType.N parameter is not specified. Valid values:
+     *
+     *   SystemMaintenance.Reboot: The instance is restarted due to system maintenance.
+     *   SystemMaintenance.Redeploy: The instance is redeployed due to system maintenance.
+     *   SystemFailure.Reboot: The instance is restarted due to a system failure.
+     *   SystemFailure.Redeploy: The instance is redeployed due to a system failure.
+     *   SystemFailure.Delete: The instance is released due to an instance creation failure.
+     *   InstanceFailure.Reboot: The instance is restarted due to an instance failure.
+     *   InstanceExpiration.Stop: The instance is stopped due to subscription expiration.
+     *   InstanceExpiration.Delete: The instance is released due to subscription expiration.
+     *   AccountUnbalanced.Stop: The pay-as-you-go instance is stopped due to an overdue payment.
+     *   AccountUnbalanced.Delete: The pay-as-you-go instance is released due to an overdue payment.
+     *
+     * > For more information, see [Overview](~~66574~~). The values of this parameter are applicable to only instance system events, but not to disk system events.
+     * @example SystemMaintenance.Reboot
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @description > This parameter is unavailable.
+     *
+     * @example null
+     *
      * @var string
      */
     public $impactLevel;
 
     /**
+     * @description The lifecycle state of system event N. Valid values of N: 1 to 7. You can specify multiple states by repeatedly listing this parameter. Valid values:
+     *
+     *   Scheduled
+     *   Avoided
+     *   Executing
+     *   Executed
+     *   Canceled
+     *   Failed
+     *   Inquiring
+     *
+     * @example Executed
+     *
      * @var string[]
      */
     public $instanceEventCycleStatus;
 
     /**
+     * @description The type of system event N. Valid values of N: 1 to 30. You can specify multiple types by repeatedly listing this parameter. Valid values:
+     *
+     *   SystemMaintenance.Reboot: The instance is restarted due to system maintenance.
+     *   SystemMaintenance.Redeploy: The instance is redeployed due to system maintenance.
+     *   SystemFailure.Reboot: The instance is restarted due to a system failure.
+     *   SystemFailure.Redeploy: The instance is redeployed due to a system failure.
+     *   SystemFailure.Delete: The instance is released due to an instance creation failure.
+     *   InstanceFailure.Reboot: The instance is restarted due to an instance failure.
+     *   InstanceExpiration.Stop: The instance is stopped due to subscription expiration.
+     *   InstanceExpiration.Delete: The instance is released due to subscription expiration.
+     *   AccountUnbalanced.Stop: The pay-as-you-go instance is stopped due to an overdue payment.
+     *   AccountUnbalanced.Delete: The pay-as-you-go instance is released due to an overdue payment.
+     *
+     * > For more information, see [Overview](~~66574~~). The values of this parameter are applicable to only instance system events, but not to disk system events.
+     * @example SystemMaintenance.Reboot
+     *
      * @var string[]
      */
     public $instanceEventType;
 
     /**
+     * @description The ID of the instance. If this parameter is not specified, the system events of all instances within the specified region are queried.
+     *
+     * @example i-uf678mass4zvr9n1****
+     *
      * @var string
      */
     public $instanceId;
@@ -67,26 +135,53 @@ class DescribeInstanceHistoryEventsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. The value must be a positive integer.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 100.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the resource. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the resource belongs.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The ID of resource N. Valid values of N: 1 to 100. You can specify multiple resource IDs by repeatedly listing this parameter. Valid values:
+     *
+     *   When the `ResourceType` parameter is set to instance, the ResourceId.N parameter specifies the ID of instance N.
+     *   When the `ResourceType` parameter is set to ddh, the ResourceId.N parameter specifies the ID of dedicated host N.
+     *   When the `ResourceType` parameter is set to managedhost, the ResourceId.N parameter specifies the ID of physical machine N in a smart hosting pool.
+     *
+     * > We recommend that you use the `ResourceId.N` parameter to specify one or more resource IDs. If you specify both the ` ResourceId.N  `and `InstanceId` parameters, the `ResourceId.N` parameter takes precedence by default.
+     * @example i-uf678mass4zvr9n1****
+     *
      * @var string[]
      */
     public $resourceId;
@@ -102,11 +197,22 @@ class DescribeInstanceHistoryEventsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the resource. Valid values:
+     *
+     *   instance: ECS instance.
+     *   ddh: dedicated host.
+     *   managehost: physical machine in a smart hosting pool.
+     *
+     * Default value: instance.
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tags that are supported by system events.
+     *
      * @var tag[]
      */
     public $tag;

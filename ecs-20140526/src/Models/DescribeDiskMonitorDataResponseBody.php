@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiskMonitorDataResponseBody extends Model
 {
     /**
+     * @description Details about the monitoring data of the disk.
+     *
      * @var monitorData
      */
     public $monitorData;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned monitoring data entries.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $totalCount;

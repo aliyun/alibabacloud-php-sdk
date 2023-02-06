@@ -9,22 +9,44 @@ use AlibabaCloud\Tea\Model;
 class attachment extends Model
 {
     /**
+     * @description > This parameter is in invitational preview and is unavailable to general users.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $deviceIndex;
 
     /**
+     * @description > This parameter is in invitational preview and is unavailable to general users.
+     *
+     * @example null
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description 网卡挂载指定的物理网卡索引。
+     * - 如果网卡是已挂载（InUse）状态且挂载时指定，此值表示网卡挂载指定的物理网卡索引。
+     * @example 0
+     *
+     * @var int
+     */
+    public $networkCardIndex;
+
+    /**
+     * @description > This parameter is in invitational preview and is unavailable to general users.
+     *
+     * @example null
+     *
      * @var string
      */
     public $trunkNetworkInterfaceId;
     protected $_name = [
         'deviceIndex'             => 'DeviceIndex',
         'instanceId'              => 'InstanceId',
+        'networkCardIndex'        => 'NetworkCardIndex',
         'trunkNetworkInterfaceId' => 'TrunkNetworkInterfaceId',
     ];
 
@@ -40,6 +62,9 @@ class attachment extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->networkCardIndex) {
+            $res['NetworkCardIndex'] = $this->networkCardIndex;
         }
         if (null !== $this->trunkNetworkInterfaceId) {
             $res['TrunkNetworkInterfaceId'] = $this->trunkNetworkInterfaceId;
@@ -61,6 +86,9 @@ class attachment extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['NetworkCardIndex'])) {
+            $model->networkCardIndex = $map['NetworkCardIndex'];
         }
         if (isset($map['TrunkNetworkInterfaceId'])) {
             $model->trunkNetworkInterfaceId = $map['TrunkNetworkInterfaceId'];

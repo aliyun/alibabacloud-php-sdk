@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ModifyDedicatedHostClusterAttributeRequest extends Model
 {
     /**
+     * @description The ID of the dedicated host cluster.
+     *
+     * @example dc-bp12wlf6am0vz9v2****
+     *
      * @var string
      */
     public $dedicatedHostClusterId;
 
     /**
+     * @description The new name of the dedicated host cluster. The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter. It cannot contain `http://` or `https://`.
+     *
+     * @example newClusterName
+     *
      * @var string
      */
     public $dedicatedHostClusterName;
 
     /**
+     * @description The new description of the dedicated host cluster. The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
+     *
+     * @example newClusterDescription
+     *
      * @var string
      */
     public $description;
@@ -34,6 +46,10 @@ class ModifyDedicatedHostClusterAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the dedicated host cluster. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

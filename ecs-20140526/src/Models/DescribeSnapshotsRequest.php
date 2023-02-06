@@ -16,41 +16,86 @@ class DescribeSnapshotsRequest extends Model
     public $filter;
 
     /**
+     * @description The category of the snapshot. Valid values:
+     *
+     *   Standard: normal snapshot
+     *   Flash: local snapshot
+     *
+     * The local snapshot feature is replaced by the instant access feature. When you specify this parameter, take note of the following items:
+     *
+     *   If you have used local snapshots before December 14, 2020, you can use this parameter.
+     *   If you have not used local snapshots before December 14, 2020, you cannot use this parameter.
+     *
+     * > This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * @example Standard
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The ID of the disk.
+     *
+     * @example d-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @description Specifies whether to check the validity of the request without actually making the request. Default value: false. Valid values:
+     *
+     *   true: The validity of the request is checked but the request is not made. Check items include whether your AccessKey pair is valid, whether Resource Access Management (RAM) users are granted required permissions, and whether the required parameters are specified. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned.
+     *   false: The validity of the request is checked. If the check succeeds, a 2XX HTTP status code is returned, and the request is made.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @description Specifies whether the snapshot is encrypted. Default value: false.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $encrypted;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the Key Management Service (KMS) key that is used for the data disk.
+     *
+     * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
+     *
      * @var string
      */
     public $KMSKeyId;
 
     /**
+     * @description The maximum number of entries to return on each page. Maximum value: 100.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token used to start the query. Set the value to the NextToken value obtained from the response to the previous request.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
@@ -66,21 +111,40 @@ class DescribeSnapshotsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Pages start from page 1.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 100.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the disk. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the snapshot belongs. If a resource group is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+     *
+     * > Resources in the default resource group are displayed in the response regardless of how this parameter is set.
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -96,41 +160,89 @@ class DescribeSnapshotsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The IDs of snapshots. The value can be a JSON array that consists of up to 100 snapshot IDs. Separate the snapshot IDs with commas (,).
+     *
+     * @example ["s-bp67acfmxazb4p****", "s-bp67acfmxazb5p****", … "s-bp67acfmxazb6p****"]
+     *
      * @var string
      */
     public $snapshotIds;
 
     /**
+     * @description The ID of the snapshot chain. The value is a JSON array that consists of up to 100 snapshot chain IDs. Separate the snapshot chain IDs with commas (,).
+     *
+     * @example ["sl-bp1grgphbcc9brb5****", "sl-bp1c4izumvq0i5bs****", … "sl-bp1akk7isz866dds****"]
+     *
      * @var string
      */
     public $snapshotLinkId;
 
     /**
+     * @description The name of the snapshot.
+     *
+     * @example testSnapshotName
+     *
      * @var string
      */
     public $snapshotName;
 
     /**
+     * @description The type of the snapshot. Default value: all. Valid values:
+     *
+     *   auto: automatic snapshot
+     *   user: manual snapshot
+     *   all: all snapshot types
+     *
+     * @example all
+     *
      * @var string
      */
     public $snapshotType;
 
     /**
+     * @description The type of the source disk for which the snapshot was created. Valid values:
+     *
+     *   System: system disk
+     *   data: data disk
+     *
+     * > The value of this parameter is case-insensitive.
+     * @example Data
+     *
      * @var string
      */
     public $sourceDiskType;
 
     /**
+     * @description The state of the snapshot. Default value: all. Valid values:
+     *
+     *   progressing: The snapshot is being created.
+     *   accomplished: The snapshot is created.
+     *   failed: The snapshot fails to be created.
+     *   all: This value indicates all snapshot states.
+     *
+     * @example all
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The tags of the snapshot.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description Specifies whether the snapshot has been used to create custom images or disks. Valid values:
+     *
+     *   image: The snapshot has been used to create custom images.
+     *   disk: The snapshot is used to create disks.
+     *   image_disk: The snapshot has been used to create both custom images and data disks.
+     *   none: The snapshot has not been used to create custom images or disks.
+     *
+     * @example none
+     *
      * @var string
      */
     public $usage;

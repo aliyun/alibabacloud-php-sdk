@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class disk extends Model
 {
     /**
+     * @description The category of the disk or Shared Block Storage device.
+     *
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The time when the disk or Shared Block Storage device was created.
+     *
+     * @example 2019-06-01T00:00:00Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The ID of the disk or Shared Block Storage device.
+     *
+     * @example d-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @description The name of the disk or Shared Block Storage device.
+     *
+     * @example testDiskName
+     *
      * @var string
      */
     public $diskName;
 
     /**
+     * @description The region to which the disk or Shared Block Storage device belongs.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the storage set.
+     *
+     * @example ss-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $storageSetId;
 
     /**
+     * @description The number of partitions in the storage set.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $storageSetPartitionNumber;
 
     /**
+     * @description The zone to which the disk or Shared Block Storage device belongs.
+     *
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $zoneId;

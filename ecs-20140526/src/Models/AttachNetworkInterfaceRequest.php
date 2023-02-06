@@ -9,11 +9,29 @@ use AlibabaCloud\Tea\Model;
 class AttachNetworkInterfaceRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp16qstyvxj9gpqw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The index of the network interface controller (NIC).
+     *
+     * > The value of this parameter varies based on the instance family of the specified instance. If the instance type of the specified instance does not support NICs, leave this parameter empty. If the instance type supports NICs, set this parameter to a valid value. For information about the valid values of this parameter, see [Instance families](~~25378~~).
+     * @example 0
+     *
+     * @var int
+     */
+    public $networkCardIndex;
+
+    /**
+     * @description The ID of the ENI.
+     *
+     * @example eni-bp17pdijfczax1huji****
+     *
      * @var string
      */
     public $networkInterfaceId;
@@ -29,6 +47,10 @@ class AttachNetworkInterfaceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -44,16 +66,26 @@ class AttachNetworkInterfaceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the trunk ENI.
+     *
+     * > This parameter is unavailable for use.
+     * @example eni-f8zapqwj1v1j4ia3****
+     *
      * @var string
      */
     public $trunkNetworkInstanceId;
 
     /**
+     * @description > This parameter is no longer used.
+     *
+     * @example null
+     *
      * @var bool
      */
     public $waitForNetworkConfigurationReady;
     protected $_name = [
         'instanceId'                       => 'InstanceId',
+        'networkCardIndex'                 => 'NetworkCardIndex',
         'networkInterfaceId'               => 'NetworkInterfaceId',
         'ownerAccount'                     => 'OwnerAccount',
         'ownerId'                          => 'OwnerId',
@@ -73,6 +105,9 @@ class AttachNetworkInterfaceRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->networkCardIndex) {
+            $res['NetworkCardIndex'] = $this->networkCardIndex;
         }
         if (null !== $this->networkInterfaceId) {
             $res['NetworkInterfaceId'] = $this->networkInterfaceId;
@@ -112,6 +147,9 @@ class AttachNetworkInterfaceRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['NetworkCardIndex'])) {
+            $model->networkCardIndex = $map['NetworkCardIndex'];
         }
         if (isset($map['NetworkInterfaceId'])) {
             $model->networkInterfaceId = $map['NetworkInterfaceId'];

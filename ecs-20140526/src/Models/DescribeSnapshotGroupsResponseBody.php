@@ -10,16 +10,27 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnapshotGroupsResponseBody extends Model
 {
     /**
+     * @description The token used to start the next query.
+     *
+     * >  If this parameter is empty, no more data is returned.
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3F9A4CC4-362F-469A-B9EF-B3204EF8AA3A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Details of the snapshot-consistent groups.
+     *
      * @var snapshotGroups
      */
     public $snapshotGroups;

@@ -11,61 +11,106 @@ use AlibabaCloud\Tea\Model;
 class deploymentSet extends Model
 {
     /**
+     * @description Details of the capacities of the deployment set. This parameter is valid only when the deployment set contains Elastic Compute Service (ECS) instances. The value contains the capacities of the deployment set in different zones.
+     *
      * @var capacities
      */
     public $capacities;
 
     /**
+     * @description The time when the deployment set was created.
+     *
+     * @example 2021-12-07T06:01:46Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The description of the deployment set.
+     *
+     * @example testDeploymentSetDescription
+     *
      * @var string
      */
     public $deploymentSetDescription;
 
     /**
+     * @description The ID of the deployment set.
+     *
+     * @example ds-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $deploymentSetId;
 
     /**
+     * @description The name of the deployment set.
+     *
+     * @example testDeploymentSetName
+     *
      * @var string
      */
     public $deploymentSetName;
 
     /**
+     * @description The deployment strategy. The value of this response parameter is that of the `Strategy` request parameter.
+     *
+     * @example Availability
+     *
      * @var string
      */
     public $deploymentStrategy;
 
     /**
+     * @description The deployment domain.
+     *
+     * @example default
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The deployment granularity.
+     *
+     * @example host
+     *
      * @var string
      */
     public $granularity;
 
     /**
+     * @description The number of deployment set groups in the deployment set.
+     *
+     * >  This parameter is valid only when the Strategy request parameter is set to AvailabilityGroup.
+     * @example 3
+     *
      * @var int
      */
     public $groupCount;
 
     /**
+     * @description The number of instances in the deployment set.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $instanceAmount;
 
     /**
+     * @description The IDs of the instances in the deployment set.
+     *
      * @var instanceIds
      */
     public $instanceIds;
 
     /**
+     * @description The deployment strategy.
+     *
+     * @example LooseDispersion
+     *
      * @var string
      */
     public $strategy;

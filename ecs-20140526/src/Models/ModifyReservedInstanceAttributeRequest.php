@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyReservedInstanceAttributeRequest extends Model
 {
     /**
+     * @description The new description of the reserved instance. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+     *
+     * This parameter is empty by default.
+     * @example ri-example
+     *
      * @var string
      */
     public $description;
@@ -24,16 +29,28 @@ class ModifyReservedInstanceAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the reserved instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the reserved instance.
+     *
+     * @example ecsri-uf61hdhue4kcorqsk****
+     *
      * @var string
      */
     public $reservedInstanceId;
 
     /**
+     * @description The new name of the reserved instance. The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
+     * @example testReservedInstanceName
+     *
      * @var string
      */
     public $reservedInstanceName;

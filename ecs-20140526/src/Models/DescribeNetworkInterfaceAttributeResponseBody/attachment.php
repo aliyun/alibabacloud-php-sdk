@@ -10,21 +10,47 @@ use AlibabaCloud\Tea\Model;
 class attachment extends Model
 {
     /**
+     * @description > This parameter is in invitational preview and unavailable to general users.
+     *
+     * @example hide
+     *
      * @var int
      */
     public $deviceIndex;
 
     /**
+     * @description > This parameter is in invitational preview and unavailable to general users.
+     *
+     * @example hide
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description > This parameter is in invitational preview and unavailable to general users.
+     *
      * @var memberNetworkInterfaceIds
      */
     public $memberNetworkInterfaceIds;
 
     /**
+     * @description The index of the network interface controller (NIC).
+     *
+     *   If the ENI is in the Available state or if no NIC index was specified when the ENI was attached, this parameter has no value.
+     *   If the ENI is in the InUse state and an NIC index was specified when the ENI was attached, the specified NIC index is returned as the value of this parameter.
+     *
+     * @example 0
+     *
+     * @var int
+     */
+    public $networkCardIndex;
+
+    /**
+     * @description > This parameter is in invitational preview and unavailable to general users.
+     *
+     * @example hide
+     *
      * @var string
      */
     public $trunkNetworkInterfaceId;
@@ -32,6 +58,7 @@ class attachment extends Model
         'deviceIndex'               => 'DeviceIndex',
         'instanceId'                => 'InstanceId',
         'memberNetworkInterfaceIds' => 'MemberNetworkInterfaceIds',
+        'networkCardIndex'          => 'NetworkCardIndex',
         'trunkNetworkInterfaceId'   => 'TrunkNetworkInterfaceId',
     ];
 
@@ -50,6 +77,9 @@ class attachment extends Model
         }
         if (null !== $this->memberNetworkInterfaceIds) {
             $res['MemberNetworkInterfaceIds'] = null !== $this->memberNetworkInterfaceIds ? $this->memberNetworkInterfaceIds->toMap() : null;
+        }
+        if (null !== $this->networkCardIndex) {
+            $res['NetworkCardIndex'] = $this->networkCardIndex;
         }
         if (null !== $this->trunkNetworkInterfaceId) {
             $res['TrunkNetworkInterfaceId'] = $this->trunkNetworkInterfaceId;
@@ -74,6 +104,9 @@ class attachment extends Model
         }
         if (isset($map['MemberNetworkInterfaceIds'])) {
             $model->memberNetworkInterfaceIds = memberNetworkInterfaceIds::fromMap($map['MemberNetworkInterfaceIds']);
+        }
+        if (isset($map['NetworkCardIndex'])) {
+            $model->networkCardIndex = $map['NetworkCardIndex'];
         }
         if (isset($map['TrunkNetworkInterfaceId'])) {
             $model->trunkNetworkInterfaceId = $map['TrunkNetworkInterfaceId'];

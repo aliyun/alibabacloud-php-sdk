@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class AllocatePublicIpAddressRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp1gtjxuuvwj17zr****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The public IP address. If you leave this parameter empty, the system randomly assigns a public IP address to the specified instance.
+     *
+     * @example 112.124.**.**
+     *
      * @var string
      */
     public $ipAddress;
@@ -39,6 +47,11 @@ class AllocatePublicIpAddressRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The virtual LAN (VLAN) ID of the instance.
+     *
+     * > This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * @example 720
+     *
      * @var string
      */
     public $vlanId;

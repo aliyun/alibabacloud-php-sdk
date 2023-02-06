@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostTypesRequest extends Model
 {
     /**
+     * @description The dedicated host type. For more information, see [Dedicated host types](~~68564~~).
+     *
+     * @example ddh.sn1ne
+     *
      * @var string
      */
     public $dedicatedHostType;
@@ -24,6 +28,10 @@ class DescribeDedicatedHostTypesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the dedicated host. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -39,6 +47,10 @@ class DescribeDedicatedHostTypesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ECS instance family supported by the dedicated host type.
+     *
+     * @example ecs.sn1ne
+     *
      * @var string
      */
     public $supportedInstanceTypeFamily;

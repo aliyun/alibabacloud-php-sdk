@@ -9,41 +9,45 @@ use AlibabaCloud\Tea\Model;
 class ReleasePublicIpAddressRequest extends Model
 {
     /**
+     * @description > This parameter is unavailable.
+     *
+     * @example hide
+     *
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
+     * @description The public IP address of the instance.
+     *
+     * @example 121.40.**.**
+     *
      * @var string
      */
     public $publicIpAddress;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
+    public $regionId;
     protected $_name = [
-        'instanceId'           => 'InstanceId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'publicIpAddress'      => 'PublicIpAddress',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'dryRun'          => 'DryRun',
+        'instanceId'      => 'InstanceId',
+        'publicIpAddress' => 'PublicIpAddress',
+        'regionId'        => 'RegionId',
     ];
 
     public function validate()
@@ -53,23 +57,17 @@ class ReleasePublicIpAddressRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->publicIpAddress) {
             $res['PublicIpAddress'] = $this->publicIpAddress;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -83,23 +81,17 @@ class ReleasePublicIpAddressRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PublicIpAddress'])) {
             $model->publicIpAddress = $map['PublicIpAddress'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

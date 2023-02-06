@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeSendFileResultsRequest extends Model
 {
     /**
+     * @description The ID of the instance whose records you want to query.
+     *
+     * @example i-hz0jdfwd9f****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the file sending task.
+     *
+     * @example f-hz0jdfwd9f****
+     *
      * @var string
      */
     public $invokeId;
 
     /**
+     * @description The name of the file whose records you want to query.
+     *
+     * @example test.txt
+     *
      * @var string
      */
     public $name;
@@ -34,19 +46,42 @@ class DescribeSendFileResultsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description The ID of the resource group. After you set this parameter, you need to specify ResourceGroupId when you send files to query the file sending results in the specified resource group.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -66,6 +101,7 @@ class DescribeSendFileResultsRequest extends Model
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
     ];
@@ -100,6 +136,9 @@ class DescribeSendFileResultsRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -142,6 +181,9 @@ class DescribeSendFileResultsRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

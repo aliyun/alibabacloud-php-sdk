@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class RedeployInstanceResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the redeployment task.
+     *
+     * You can call the [DescribeTasks](~~25622~~) operation to query the migration result.
+     * @example t-bp10e8orkp8x****
+     *
      * @var string
      */
     public $taskId;

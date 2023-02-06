@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserDataResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp14bnftyqhxg9ij****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The user data of the instance.
+     *
+     * @example ZWNobyBoZWxsbyBlY321ABC
+     *
      * @var string
      */
     public $userData;

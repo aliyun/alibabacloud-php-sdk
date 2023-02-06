@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class operationLock extends Model
 {
     /**
+     * @description The security reason why the disk was locked.
+     *
+     * @example security
+     *
      * @var string
      */
     public $lockReason;

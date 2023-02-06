@@ -9,21 +9,39 @@ use AlibabaCloud\Tea\Model;
 class targetCapacitySpecification extends Model
 {
     /**
+     * @description The billing method of supplemental instances. The target capacity of the auto provisioning group must be at least the sum of the pay-as-you-go instance capacity specified by the PayAsYouGoTargetCapacity parameter and the preemptible instance capacity specified by the SpotTargetCapacity parameter. Valid values:
+     *
+     * - Spot: preemptible instance
+     * @example Spot
+     *
      * @var string
      */
     public $defaultTargetCapacityType;
 
     /**
+     * @description The target capacity of pay-as-you-go instances in the auto provisioning group.
+     *
+     * @example 30
+     *
      * @var float
      */
     public $payAsYouGoTargetCapacity;
 
     /**
+     * @description The target capacity of preemptible instances in the auto provisioning group.
+     *
+     * @example 20
+     *
      * @var float
      */
     public $spotTargetCapacity;
 
     /**
+     * @description The target capacity of the auto provisioning group. The capacity consists of the following three parts:
+     *
+     * - The supplemental capacity besides instance capacities specified by the PayAsYouGoTargetCapacity and SpotTargetCapacity parameters
+     * @example 60
+     *
      * @var float
      */
     public $totalTargetCapacity;

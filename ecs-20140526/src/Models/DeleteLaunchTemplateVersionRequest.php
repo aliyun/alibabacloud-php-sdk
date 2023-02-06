@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DeleteLaunchTemplateVersionRequest extends Model
 {
     /**
+     * @description The version numbers of instance launch templates that to be deleted. You can specify at most 29 version numbers.
+     *
+     * @example 2
+     *
      * @var int[]
      */
     public $deleteVersion;
 
     /**
+     * @description The ID of the instance launch template. For more information, call the [DescribeLaunchTemplates](~~73759~~) operation.
+     *
+     * @example lt-bp1apo0bbbkuy0rj****
+     *
      * @var string
      */
     public $launchTemplateId;
 
     /**
+     * @description The name of the instance launch template.
+     *
+     * @example testLaunchTemplateName
+     *
      * @var string
      */
     public $launchTemplateName;
@@ -34,6 +46,10 @@ class DeleteLaunchTemplateVersionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the instance lauch template belongs. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

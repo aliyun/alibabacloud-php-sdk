@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeStorageSetDetailsResponseBody extends Model
 {
     /**
+     * @description Details about the disks or Shared Block Storage devices in the storage set.
+     *
      * @var disks
      */
     public $disks;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 49765E79-0D5D-4451-B3AE-580A20831846
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of storage sets.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

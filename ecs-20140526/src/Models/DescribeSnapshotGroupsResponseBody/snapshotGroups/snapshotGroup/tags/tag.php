@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The tag key of the snapshot-consistent group.
+     *
+     * @example TestKey
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The tag value of the snapshot-consistent group.
+     *
+     * @example TestValue
+     *
      * @var string
      */
     public $value;
