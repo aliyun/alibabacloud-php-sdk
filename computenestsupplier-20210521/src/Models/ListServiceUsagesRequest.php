@@ -4,11 +4,10 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstancesRequest\filter;
-use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstancesRequest\tag;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceUsagesRequest\filter;
 use AlibabaCloud\Tea\Model;
 
-class ListServiceInstancesRequest extends Model
+class ListServiceUsagesRequest extends Model
 {
     /**
      * @var filter[]
@@ -16,36 +15,22 @@ class ListServiceInstancesRequest extends Model
     public $filter;
 
     /**
-     * @example 10
+     * @example 20
      *
-     * @var string
+     * @var int
      */
     public $maxResults;
 
     /**
-     * @example BBBAAfu+XtuBE55iRLHEYYuojI4=
+     * @example AAAAAWns8w4MmhzeptXVRG0PUEU=
      *
      * @var string
      */
     public $nextToken;
-
-    /**
-     * @example cn-hangzhou
-     *
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var tag[]
-     */
-    public $tag;
     protected $_name = [
         'filter'     => 'Filter',
         'maxResults' => 'MaxResults',
         'nextToken'  => 'NextToken',
-        'regionId'   => 'RegionId',
-        'tag'        => 'Tag',
     ];
 
     public function validate()
@@ -70,18 +55,6 @@ class ListServiceInstancesRequest extends Model
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
 
         return $res;
     }
@@ -89,7 +62,7 @@ class ListServiceInstancesRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListServiceInstancesRequest
+     * @return ListServiceUsagesRequest
      */
     public static function fromMap($map = [])
     {
@@ -108,18 +81,6 @@ class ListServiceInstancesRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

@@ -4,49 +4,49 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstancesResponseBody\serviceInstances;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceUsagesResponseBody\serviceUsages;
 use AlibabaCloud\Tea\Model;
 
-class ListServiceInstancesResponseBody extends Model
+class ListServiceUsagesResponseBody extends Model
 {
     /**
      * @example 20
      *
-     * @var string
+     * @var int
      */
     public $maxResults;
 
     /**
-     * @example AAAAAfu+XtuBE55iRLHEYYuojI4=
+     * @example AAAAAYChudnQUoBH+mGWFpb6oP0=
      *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example E50287CB-AABF-4877-92C0-289B339A1546
+     * @example 18AD0960-A9FE-1AC8-ADF8-22131Fxxxxxx
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @var serviceInstances[]
+     * @var serviceUsages[]
      */
-    public $serviceInstances;
+    public $serviceUsages;
 
     /**
-     * @example 100
+     * @example 1
      *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'maxResults'       => 'MaxResults',
-        'nextToken'        => 'NextToken',
-        'requestId'        => 'RequestId',
-        'serviceInstances' => 'ServiceInstances',
-        'totalCount'       => 'TotalCount',
+        'maxResults'    => 'MaxResults',
+        'nextToken'     => 'NextToken',
+        'requestId'     => 'RequestId',
+        'serviceUsages' => 'ServiceUsages',
+        'totalCount'    => 'TotalCount',
     ];
 
     public function validate()
@@ -65,12 +65,12 @@ class ListServiceInstancesResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->serviceInstances) {
-            $res['ServiceInstances'] = [];
-            if (null !== $this->serviceInstances && \is_array($this->serviceInstances)) {
+        if (null !== $this->serviceUsages) {
+            $res['ServiceUsages'] = [];
+            if (null !== $this->serviceUsages && \is_array($this->serviceUsages)) {
                 $n = 0;
-                foreach ($this->serviceInstances as $item) {
-                    $res['ServiceInstances'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->serviceUsages as $item) {
+                    $res['ServiceUsages'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -84,7 +84,7 @@ class ListServiceInstancesResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListServiceInstancesResponseBody
+     * @return ListServiceUsagesResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -98,12 +98,12 @@ class ListServiceInstancesResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ServiceInstances'])) {
-            if (!empty($map['ServiceInstances'])) {
-                $model->serviceInstances = [];
-                $n                       = 0;
-                foreach ($map['ServiceInstances'] as $item) {
-                    $model->serviceInstances[$n++] = null !== $item ? serviceInstances::fromMap($item) : $item;
+        if (isset($map['ServiceUsages'])) {
+            if (!empty($map['ServiceUsages'])) {
+                $model->serviceUsages = [];
+                $n                    = 0;
+                foreach ($map['ServiceUsages'] as $item) {
+                    $model->serviceUsages[$n++] = null !== $item ? serviceUsages::fromMap($item) : $item;
                 }
             }
         }

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListServiceInstancesResponse extends Model
+class ListArtifactVersionsResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ListServiceInstancesResponse extends Model
     public $statusCode;
 
     /**
-     * @var ListServiceInstancesResponseBody
+     * @var ListArtifactVersionsResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class ListServiceInstancesResponse extends Model
     /**
      * @param array $map
      *
-     * @return ListServiceInstancesResponse
+     * @return ListArtifactVersionsResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class ListServiceInstancesResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = ListServiceInstancesResponseBody::fromMap($map['body']);
+            $model->body = ListArtifactVersionsResponseBody::fromMap($map['body']);
         }
 
         return $model;

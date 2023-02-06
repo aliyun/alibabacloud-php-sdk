@@ -2,14 +2,14 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstancesRequest;
+namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceUsagesRequest;
 
 use AlibabaCloud\Tea\Model;
 
 class filter extends Model
 {
     /**
-     * @example ServiceInstanceId
+     * @example ServiceId
      *
      * @var string
      */

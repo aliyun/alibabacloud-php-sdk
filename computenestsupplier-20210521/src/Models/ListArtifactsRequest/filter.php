@@ -2,14 +2,14 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstancesRequest;
+namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactsRequest;
 
 use AlibabaCloud\Tea\Model;
 
 class filter extends Model
 {
     /**
-     * @example ServiceInstanceId
+     * @example ArtifactType
      *
      * @var string
      */
@@ -18,10 +18,10 @@ class filter extends Model
     /**
      * @var string[]
      */
-    public $value;
+    public $values;
     protected $_name = [
-        'name'  => 'Name',
-        'value' => 'Value',
+        'name'   => 'Name',
+        'values' => 'Values',
     ];
 
     public function validate()
@@ -34,8 +34,8 @@ class filter extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
+        if (null !== $this->values) {
+            $res['Values'] = $this->values;
         }
 
         return $res;
@@ -52,9 +52,9 @@ class filter extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Value'])) {
-            if (!empty($map['Value'])) {
-                $model->value = $map['Value'];
+        if (isset($map['Values'])) {
+            if (!empty($map['Values'])) {
+                $model->values = $map['Values'];
             }
         }
 
