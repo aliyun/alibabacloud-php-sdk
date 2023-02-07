@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SaveUserCreditRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $avoidExpiration;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $avoidNotification;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $avoidPrepaidExpiration;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $avoidPrepaidNotification;
@@ -39,11 +47,15 @@ class SaveUserCreditRequest extends Model
     public $creditValue;
 
     /**
+     * @example description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 65683
+     *
      * @var string
      */
     public $operator;

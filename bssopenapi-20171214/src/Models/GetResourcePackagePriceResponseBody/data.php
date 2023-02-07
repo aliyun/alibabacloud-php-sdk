@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @example 215040
+     *
      * @var float
      */
     public $discountPrice;
 
     /**
+     * @example 1290240
+     *
      * @var float
      */
     public $originalPrice;
@@ -30,6 +36,8 @@ class data extends Model
     public $promotions;
 
     /**
+     * @example 1075200
+     *
      * @var float
      */
     public $tradePrice;

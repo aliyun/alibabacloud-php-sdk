@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example 0
+     *
      * @var float
      */
     public $adjustAmount;
 
     /**
+     * @example 122
+     *
      * @var string
      */
     public $billAccountID;
 
     /**
+     * @example test@test.aliyunid.com
+     *
      * @var string
      */
     public $billAccountName;
 
     /**
+     * @example 2020-03-20
+     *
      * @var string
      */
     public $billingDate;
@@ -34,6 +42,8 @@ class items extends Model
     public $billingItem;
 
     /**
+     * @example disk
+     *
      * @var string
      */
     public $billingItemCode;
@@ -44,16 +54,22 @@ class items extends Model
     public $billingType;
 
     /**
+     * @example trusteeship
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $cashAmount;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $commodityCode;
@@ -64,71 +80,99 @@ class items extends Model
     public $costUnit;
 
     /**
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @example 0.1
+     *
      * @var float
      */
     public $deductedByCashCoupons;
 
     /**
+     * @example 0.1
+     *
      * @var float
      */
     public $deductedByCoupons;
 
     /**
+     * @example 0.1
+     *
      * @var float
      */
     public $deductedByPrepaidCard;
 
     /**
+     * @example 0.1
+     *
      * @var string
      */
     public $deductedByResourcePackage;
 
     /**
+     * @example CPU：12
+     *
      * @var string
      */
     public $instanceConfig;
 
     /**
+     * @example i-dadada
+     *
      * @var string
      */
     public $instanceID;
 
     /**
+     * @example ecs.sn1ne.3xlarge
+     *
      * @var string
      */
     public $instanceSpec;
 
     /**
+     * @example 34.xx.x.x
+     *
      * @var string
      */
     public $internetIP;
 
     /**
+     * @example 192.xx.xx.xx
+     *
      * @var string
      */
     public $intranetIP;
 
     /**
+     * @example 0.1
+     *
      * @var float
      */
     public $invoiceDiscount;
 
     /**
+     * @example PayAsYouGoBill
+     *
      * @var string
      */
     public $item;
 
     /**
+     * @example iZ28bycvyb4Z
+     *
      * @var string
      */
     public $itemName;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $listPrice;
@@ -139,41 +183,57 @@ class items extends Model
     public $listPriceUnit;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $nickName;
 
     /**
+     * @example 0.1
+     *
      * @var float
      */
     public $outstandingAmount;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $ownerID;
 
     /**
+     * @example 0.1
+     *
      * @var float
      */
     public $paymentAmount;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $pipCode;
 
     /**
+     * @example 0.1
+     *
      * @var float
      */
     public $pretaxAmount;
 
     /**
+     * @example 0.1
+     *
      * @var float
      */
     public $pretaxGrossAmount;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;
@@ -189,6 +249,8 @@ class items extends Model
     public $productName;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productType;
@@ -204,6 +266,8 @@ class items extends Model
     public $resourceGroup;
 
     /**
+     * @example 3600
+     *
      * @var string
      */
     public $servicePeriod;
@@ -214,21 +278,29 @@ class items extends Model
     public $servicePeriodUnit;
 
     /**
+     * @example PayAsYouGo
+     *
      * @var string
      */
     public $subscriptionType;
 
     /**
+     * @example key:testKey value:testValue; key:testKey1 value:testValues1
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $usage;
 
     /**
+     * @example GB
+     *
      * @var string
      */
     public $usageUnit;

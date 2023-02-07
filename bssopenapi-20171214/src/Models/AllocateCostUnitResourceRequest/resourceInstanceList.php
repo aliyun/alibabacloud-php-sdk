@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class resourceInstanceList extends Model
 {
     /**
+     * @example qwer1-cn-beijing
+     *
      * @var string
      */
     public $apportionCode;
 
     /**
+     * @example oss
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @example cn-hangzhou;standard
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example 273394581313325532
+     *
      * @var int
      */
     public $resourceUserId;

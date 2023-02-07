@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class totalCoverage extends Model
 {
     /**
+     * @description The unit that is used to measure the resources deducted from deduction plans.
+     *
      * @var string
      */
     public $capacityUnit;
 
     /**
+     * @description The total coverage rate of deduction plans.
+     *
+     * @example 1
+     *
      * @var float
      */
     public $coveragePercentage;
 
     /**
+     * @description The total amount of the resources deducted from deduction plans.
+     *
+     * @example 1
+     *
      * @var float
      */
     public $deductQuantity;
 
     /**
+     * @description The total amount of resources consumed.
+     *
+     * @example 1
+     *
      * @var float
      */
     public $totalQuantity;

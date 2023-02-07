@@ -14,16 +14,22 @@ class DescribePricingModuleRequest extends Model
     public $ownerId;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example Subscription
+     *
      * @var string
      */
     public $subscriptionType;

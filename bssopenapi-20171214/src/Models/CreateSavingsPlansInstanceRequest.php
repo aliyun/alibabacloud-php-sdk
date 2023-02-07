@@ -9,70 +9,70 @@ use AlibabaCloud\Tea\Model;
 class CreateSavingsPlansInstanceRequest extends Model
 {
     /**
-     * @description commodityCode
+     * @example savingplan_common_public_cn
      *
      * @var string
      */
     public $commodityCode;
 
     /**
-     * @description duration
+     * @example 1
      *
      * @var string
      */
     public $duration;
 
     /**
-     * @description effectiveDate
+     * @example 2021-12-31T00:00:00Z
      *
      * @var string
      */
     public $effectiveDate;
 
     /**
-     * @description payMode
+     * @example total
      *
      * @var string
      */
     public $payMode;
 
     /**
-     * @description poolValue
+     * @example 0.1
      *
      * @var string
      */
     public $poolValue;
 
     /**
-     * @description pricingCycle
+     * @example Year
      *
      * @var string
      */
     public $pricingCycle;
 
     /**
-     * @description region
+     * @example cn-hangzhou
      *
      * @var string
      */
     public $region;
 
     /**
-     * @description specType
+     * @example family
      *
      * @var string
      */
     public $specType;
 
     /**
-     * @description specification
+     * @example ecs.g6
      *
      * @var string
      */
     public $specification;
 
     /**
-     * @description type
+     * @example univeral
      *
      * @var string
      */

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class property extends Model
 {
     /**
+     * @example region
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $value;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ChangeResellerConsumeAmountResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 300.00
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example D6E068C3-25BC-455A-85FE-45F0B22ECB1F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

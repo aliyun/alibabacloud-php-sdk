@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class costUnit extends Model
 {
     /**
+     * @example 321432
+     *
      * @var int
      */
     public $ownerUid;
 
     /**
+     * @example 23421
+     *
      * @var int
      */
     public $parentUnitId;
 
     /**
+     * @example 123412
+     *
      * @var int
      */
     public $unitId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $unitName;

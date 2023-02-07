@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class QueryEvaluateListRequest extends Model
 {
     /**
+     * @example 2020-03
+     *
      * @var string
      */
     public $billCycle;
 
     /**
+     * @example ALIYUN
+     *
      * @var string[]
      */
     public $bizTypeList;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $endAmount;
 
     /**
+     * @example 2020-02-02 15:00:00
+     *
      * @var string
      */
     public $endBizTime;
 
     /**
+     * @example 2020-03-02 12:00:00
+     *
      * @var string
      */
     public $endSearchTime;
 
     /**
+     * @example 2387432832696
+     *
      * @var string
      */
     public $outBizId;
@@ -44,36 +56,50 @@ class QueryEvaluateListRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $sortType;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $startAmount;
 
     /**
+     * @example 2020-02-02 12:00:00
+     *
      * @var string
      */
     public $startBizTime;
 
     /**
+     * @example 2020-02-02 12:00:00
+     *
      * @var string
      */
     public $startSearchTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;

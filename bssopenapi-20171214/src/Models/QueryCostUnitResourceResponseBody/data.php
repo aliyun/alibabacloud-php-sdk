@@ -22,11 +22,15 @@ class data extends Model
     public $costUnitStatisInfo;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -37,6 +41,8 @@ class data extends Model
     public $resourceInstanceDtoList;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $totalCount;

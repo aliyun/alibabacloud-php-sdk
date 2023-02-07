@@ -14,46 +14,64 @@ class prepaidCard extends Model
     public $applicableProducts;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $applicableScenarios;
 
     /**
+     * @example 100.00
+     *
      * @var string
      */
     public $balance;
 
     /**
+     * @example 2018-08-03T01:39:11Z
+     *
      * @var string
      */
     public $effectiveTime;
 
     /**
+     * @example 2019-08-04T01:39:11Z
+     *
      * @var string
      */
     public $expiryTime;
 
     /**
+     * @example 2018-08-03T01:39:11Z
+     *
      * @var string
      */
     public $grantedTime;
 
     /**
+     * @example 100.00
+     *
      * @var string
      */
     public $nominalValue;
 
     /**
+     * @example 213432432
+     *
      * @var int
      */
     public $prepaidCardId;
 
     /**
+     * @example Q-7edaab979fc9
+     *
      * @var string
      */
     public $prepaidCardNo;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;

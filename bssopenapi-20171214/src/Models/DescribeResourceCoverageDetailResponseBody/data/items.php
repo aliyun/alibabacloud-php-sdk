@@ -9,101 +9,171 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The unit that is used to measure the resources deducted from deduction plans.
+     *
      * @var string
      */
     public $capacityUnit;
 
     /**
+     * @description The code of the service.
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @description The name and billing method of the service.
+     *
      * @var string
      */
     public $commodityName;
 
     /**
+     * @description The coverage rate of a deduction plan.
+     *
+     * @example 1
+     *
      * @var float
      */
     public $coveragePercentage;
 
     /**
+     * @description The currency in which deduction plans were priced.
+     *
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @description The amount of the resources deducted from a deduction plan.
+     *
+     * @example 1
+     *
      * @var float
      */
     public $deductQuantity;
 
     /**
+     * @description The end of the time range in which the coverage details were queried.
+     *
+     * @example 2021-04-01 01:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of a pay-as-you-go instance.
+     *
+     * @example i-bp1d9x623987rlj0dx4xx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The specifications of a deduction plan.
+     *
+     * @example ecs.t5-lc2m1.nano
+     *
      * @var string
      */
     public $instanceSpec;
 
     /**
+     * @description The amount of the bill.
+     *
+     * @example 0
+     *
      * @var float
      */
     public $paymentAmount;
 
     /**
+     * @description The code of the service.
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The name of the service.
+     *
      * @var string
      */
     public $productName;
 
     /**
+     * @description The region.
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The code of the region.
+     *
+     * @example cn-hangzhou-dg-a01
+     *
      * @var string
      */
     public $regionNo;
 
     /**
+     * @description The beginning of the time range in which the coverage details were queried.
+     *
+     * @example 2021-04-01 00:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The total amount of resources consumed.
+     *
+     * @example 1
+     *
      * @var float
      */
     public $totalQuantity;
 
     /**
+     * @description The ID of the account.
+     *
+     * @example 123745698925000
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description The username of the account.
+     *
+     * @example test13@test.aliyun.com
+     *
      * @var string
      */
     public $userName;
 
     /**
+     * @description The code of the zone.
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zone;
 
     /**
+     * @description The zone.
+     *
      * @var string
      */
     public $zoneName;

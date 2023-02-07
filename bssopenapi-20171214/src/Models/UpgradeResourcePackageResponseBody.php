@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpgradeResourcePackageResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,21 +22,29 @@ class UpgradeResourcePackageResponseBody extends Model
     public $data;
 
     /**
+     * @example Successful!
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 73387246238746
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example 6000EE23-274B-4E07-A697-FF2E999520A4
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

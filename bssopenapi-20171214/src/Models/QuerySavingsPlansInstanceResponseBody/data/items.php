@@ -10,101 +10,191 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The allocation status. Valid values:
+     *
+     *   unallocated
+     *   allocated
+     *   beAllocated
+     *
+     * @example unallocated
+     *
      * @var string
      */
     public $allocationStatus;
 
     /**
+     * @description The currency. Valid values: CNY and USD.
+     *
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @example 1:Year
+     *
      * @var string
      */
     public $cycle;
 
     /**
+     * @example HOUR
+     *
+     * @var string
+     */
+    public $deductCycleType;
+
+    /**
+     * @description The time when the instance expires. The time is in the format of yyyy-MM-dd HH:mm:ss.
+     *
+     * @example 2021-01-01 00:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 1663135741039
+     *
      * @var int
      */
     public $endTimestamp;
 
     /**
+     * @description The instance family information. For an instance of the Elastic Compute Service (ECS) compute type, the value indicates the ECS instance family or the ECS instance family package.
+     *
+     * @example ecs.g6
+     *
      * @var string
      */
     public $instanceFamily;
 
     /**
+     * @description The ID of the savings plan instance.
+     *
+     * @example spn-xxxxxxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 100.0
+     *
      * @var string
      */
     public $lastBillTotalUsage;
 
     /**
+     * @example 0.8
+     *
      * @var string
      */
     public $lastBillUtilization;
 
     /**
+     * @description The payment type. Valid values:
+     *
+     *   total: All Upfront
+     *   half: Partial Upfront
+     *   zero: No Upfront
+     *
+     * @example total
+     *
      * @var string
      */
     public $payMode;
 
     /**
+     * @description The commitment.
+     *
+     * @example 1.00
+     *
      * @var string
      */
     public $poolValue;
 
     /**
+     * @description The prepaid amount.
+     *
+     * @example 8760.00
+     *
      * @var string
      */
     public $prepayFee;
 
     /**
+     * @description The region.
+     *
+     * @example cn-zhangjiakou-na62-a01
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The type of the savings plan. Valid values:
+     *
+     *   universal: general-purpose
+     *   ecs: ECS compute
+     *
+     * @example ECS
+     *
      * @var string
      */
     public $savingsType;
 
     /**
+     * @description The time when the instance takes effect. The time is in the format of yyyy-MM-dd HH:mm:ss.
+     *
+     * @example 2020-01-01 00:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 1663135741039
+     *
      * @var int
      */
     public $startTimestamp;
 
     /**
+     * @description The status of the instance. Valid values:
+     *
+     *   NORMAL: normal
+     *   LIMIT: stopped due to overdue payment
+     *   RELEASE: released
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The details about the tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The total amount that is saved.
+     *
+     * @example 20.00
+     *
      * @var string
      */
     public $totalSave;
 
     /**
+     * @description The total usage.
+     *
+     * @example 1.0
+     *
      * @var string
      */
     public $utilization;
@@ -112,6 +202,7 @@ class items extends Model
         'allocationStatus'    => 'AllocationStatus',
         'currency'            => 'Currency',
         'cycle'               => 'Cycle',
+        'deductCycleType'     => 'DeductCycleType',
         'endTime'             => 'EndTime',
         'endTimestamp'        => 'EndTimestamp',
         'instanceFamily'      => 'InstanceFamily',
@@ -146,6 +237,9 @@ class items extends Model
         }
         if (null !== $this->cycle) {
             $res['Cycle'] = $this->cycle;
+        }
+        if (null !== $this->deductCycleType) {
+            $res['DeductCycleType'] = $this->deductCycleType;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -224,6 +318,9 @@ class items extends Model
         }
         if (isset($map['Cycle'])) {
             $model->cycle = $map['Cycle'];
+        }
+        if (isset($map['DeductCycleType'])) {
+            $model->deductCycleType = $map['DeductCycleType'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];

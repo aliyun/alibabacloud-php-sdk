@@ -15,31 +15,43 @@ class data extends Model
     public $evaluateList;
 
     /**
+     * @example cn
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @example 12344
+     *
      * @var int
      */
     public $totalInvoiceAmount;
 
     /**
+     * @example 12344
+     *
      * @var int
      */
     public $totalUnAppliedInvoiceAmount;

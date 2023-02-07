@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @example 12431
+     *
      * @var int
      */
     public $ownerUid;
 
     /**
+     * @example 123412343
+     *
      * @var int
      */
     public $unitId;

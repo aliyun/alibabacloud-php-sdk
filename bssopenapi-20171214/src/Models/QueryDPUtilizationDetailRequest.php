@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class QueryDPUtilizationDetailRequest extends Model
 {
     /**
+     * @example ecsRi
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @example oss-123123
+     *
      * @var string
      */
     public $deductedInstanceId;
 
     /**
+     * @example 2019-05-23 12:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $includeShare;
 
     /**
+     * @example oss-123123
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example Instancetyp
+     *
      * @var string
      */
     public $instanceSpec;
 
     /**
+     * @example CAESF***zNTAw
+     *
      * @var string
      */
     public $lastToken;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example oss
+     *
      * @var string
      */
     public $prodCode;
 
     /**
+     * @example 2019-05-23 12:00:00
+     *
      * @var string
      */
     public $startTime;

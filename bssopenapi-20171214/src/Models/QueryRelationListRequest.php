@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QueryRelationListRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example RELATED
+     *
      * @var string[]
      */
     public $statusList;
 
     /**
+     * @example 1990699401005016
+     *
      * @var int
      */
     public $userId;

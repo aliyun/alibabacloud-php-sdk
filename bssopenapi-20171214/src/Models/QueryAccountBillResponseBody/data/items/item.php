@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @example 0
+     *
      * @var float
      */
     public $adjustAmount;
 
     /**
+     * @example 1857xxxxx489
+     *
      * @var string
      */
     public $billAccountID;
 
     /**
+     * @example test@test.aliyunid.com
+     *
      * @var string
      */
     public $billAccountName;
 
     /**
+     * @example 2021-03-01
+     *
      * @var string
      */
     public $billingDate;
 
     /**
+     * @example trusteeship
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $cashAmount;
@@ -44,76 +56,106 @@ class item extends Model
     public $costUnit;
 
     /**
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $deductedByCashCoupons;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $deductedByCoupons;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $deductedByPrepaidCard;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $invoiceDiscount;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $outstandingAmount;
 
     /**
+     * @example 325434254
+     *
      * @var string
      */
     public $ownerID;
 
     /**
+     * @example aligzncloudtest2
+     *
      * @var string
      */
     public $ownerName;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $paymentAmount;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $pipCode;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $pretaxAmount;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $pretaxGrossAmount;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productName;
 
     /**
+     * @example PayAsYouGo
+     *
      * @var string
      */
     public $subscriptionType;

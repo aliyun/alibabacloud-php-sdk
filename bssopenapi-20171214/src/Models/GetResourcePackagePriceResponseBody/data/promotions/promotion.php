@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class promotion extends Model
 {
     /**
+     * @example 1000680914
+     *
      * @var int
      */
     public $id;

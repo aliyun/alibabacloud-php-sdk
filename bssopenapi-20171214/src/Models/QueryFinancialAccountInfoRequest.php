@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryFinancialAccountInfoRequest extends Model
 {
     /**
+     * @example 1990699401005016
+     *
      * @var int
      */
     public $userId;

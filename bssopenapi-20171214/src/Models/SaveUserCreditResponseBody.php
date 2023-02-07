@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SaveUserCreditResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example Successful！
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 9EEAE43F-1E4D-4734-AE93-5049878AC103
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

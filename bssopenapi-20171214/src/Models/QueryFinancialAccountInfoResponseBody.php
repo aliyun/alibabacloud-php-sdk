@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryFinancialAccountInfoResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class QueryFinancialAccountInfoResponseBody extends Model
     public $data;
 
     /**
+     * @example Successful!
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 97426BC2-792E-41F5-92B8-73C710DA7779
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

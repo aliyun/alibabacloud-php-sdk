@@ -19,41 +19,57 @@ class cashCoupon extends Model
     public $applicableScenarios;
 
     /**
+     * @example 100.00
+     *
      * @var string
      */
     public $balance;
 
     /**
+     * @example 34534253254325
+     *
      * @var int
      */
     public $cashCouponId;
 
     /**
+     * @example Q-b1485def8f04a
+     *
      * @var string
      */
     public $cashCouponNo;
 
     /**
+     * @example 2018-08-02T15:15:50Z
+     *
      * @var string
      */
     public $effectiveTime;
 
     /**
+     * @example 2019-01-29T15:15:50Z
+     *
      * @var string
      */
     public $expiryTime;
 
     /**
+     * @example 2018-08-02T15:15:50Z
+     *
      * @var string
      */
     public $grantedTime;
 
     /**
+     * @example 100.00
+     *
      * @var string
      */
     public $nominalValue;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;

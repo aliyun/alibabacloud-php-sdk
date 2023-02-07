@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryRedeemResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class QueryRedeemResponseBody extends Model
     public $data;
 
     /**
+     * @example Successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example E503DC7B-E4F0-4B3C-BC89-BCECF1338F0B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

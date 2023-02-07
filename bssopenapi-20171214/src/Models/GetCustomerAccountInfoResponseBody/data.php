@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example Freeze
+     *
      * @var string
      */
     public $creditLimitStatus;
 
     /**
+     * @example FREEZE
+     *
      * @var string
      */
     public $hostingStatus;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isCertified;
 
     /**
+     * @example xxxx@aliyun.com
+     *
      * @var string
      */
     public $loginEmail;
 
     /**
+     * @example 1051360339779133
+     *
      * @var int
      */
     public $mpk;

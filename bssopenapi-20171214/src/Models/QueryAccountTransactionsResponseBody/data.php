@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example test@test.aliyunid.com
+     *
      * @var string
      */
     public $accountName;
@@ -20,16 +22,22 @@ class data extends Model
     public $accountTransactionsList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

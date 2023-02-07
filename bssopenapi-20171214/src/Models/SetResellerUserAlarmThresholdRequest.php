@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SetResellerUserAlarmThresholdRequest extends Model
 {
     /**
+     * @example [{\"denominator\":100,\"numerator\":30,\"thresholdType\":1}]
+     *
      * @var string
      */
     public $alarmThresholds;
 
     /**
+     * @example quota_low_balance
+     *
      * @var string
      */
     public $alarmType;

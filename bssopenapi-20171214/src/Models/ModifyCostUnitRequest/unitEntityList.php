@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class unitEntityList extends Model
 {
     /**
+     * @example newTest
+     *
      * @var string
      */
     public $newUnitName;
 
     /**
+     * @example 1321312312
+     *
      * @var int
      */
     public $ownerUid;
 
     /**
+     * @example 2524352
+     *
      * @var int
      */
     public $unitId;

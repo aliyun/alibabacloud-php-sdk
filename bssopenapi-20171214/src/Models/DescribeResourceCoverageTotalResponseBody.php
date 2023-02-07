@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceCoverageTotalResponseBody extends Model
 {
     /**
+     * @description The status code.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message returned.
+     *
+     * @example Successful!
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the operation was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

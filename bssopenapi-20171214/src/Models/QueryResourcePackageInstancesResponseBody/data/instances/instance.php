@@ -15,41 +15,64 @@ class instance extends Model
     public $applicableProducts;
 
     /**
+     * @example rds
+     *
+     * @var string
+     */
+    public $commodityCode;
+
+    /**
+     * @example Absolute
+     *
      * @var string
      */
     public $deductType;
 
     /**
+     * @example 2018-09-12T09:51:56Z
+     *
      * @var string
      */
     public $effectiveTime;
 
     /**
+     * @example 2019-03-12T16:00:00Z
+     *
      * @var string
      */
     public $expiryTime;
 
     /**
+     * @example OSSBAG-cn-v0h1s4hma01
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example FPT_ossbag_absolute_Storage_sh
+     *
      * @var string
      */
     public $packageType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example 40.000
+     *
      * @var string
      */
     public $remainingAmount;
 
     /**
+     * @example GB
+     *
      * @var string
      */
     public $remainingAmountUnit;
@@ -60,21 +83,28 @@ class instance extends Model
     public $remark;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 40.000
+     *
      * @var string
      */
     public $totalAmount;
 
     /**
+     * @example GB
+     *
      * @var string
      */
     public $totalAmountUnit;
     protected $_name = [
         'applicableProducts'  => 'ApplicableProducts',
+        'commodityCode'       => 'CommodityCode',
         'deductType'          => 'DeductType',
         'effectiveTime'       => 'EffectiveTime',
         'expiryTime'          => 'ExpiryTime',
@@ -98,6 +128,9 @@ class instance extends Model
         $res = [];
         if (null !== $this->applicableProducts) {
             $res['ApplicableProducts'] = null !== $this->applicableProducts ? $this->applicableProducts->toMap() : null;
+        }
+        if (null !== $this->commodityCode) {
+            $res['CommodityCode'] = $this->commodityCode;
         }
         if (null !== $this->deductType) {
             $res['DeductType'] = $this->deductType;
@@ -149,6 +182,9 @@ class instance extends Model
         $model = new self();
         if (isset($map['ApplicableProducts'])) {
             $model->applicableProducts = applicableProducts::fromMap($map['ApplicableProducts']);
+        }
+        if (isset($map['CommodityCode'])) {
+            $model->commodityCode = $map['CommodityCode'];
         }
         if (isset($map['DeductType'])) {
             $model->deductType = $map['DeductType'];

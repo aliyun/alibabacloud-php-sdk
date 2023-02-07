@@ -9,71 +9,99 @@ use AlibabaCloud\Tea\Model;
 class instanceList extends Model
 {
     /**
+     * @example 2019-09-08T16:00:00Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2019-09-08T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 2019-09-08T16:00:00Z
+     *
      * @var string
      */
     public $expectedReleaseTime;
 
     /**
+     * @example 1049056
+     *
      * @var string
      */
     public $instanceID;
 
     /**
+     * @example 325352345
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example 2019-09-08T16:00:00Z
+     *
      * @var string
      */
     public $releaseTime;
 
     /**
+     * @example ManualRenewal
+     *
      * @var string
      */
     public $renewStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $renewalDuration;
 
     /**
+     * @example M
+     *
      * @var string
      */
     public $renewalDurationUnit;
 
     /**
+     * @example 123123123
+     *
      * @var string
      */
     public $seller;
 
     /**
+     * @example 123123123
+     *
      * @var int
      */
     public $sellerId;
@@ -84,6 +112,8 @@ class instanceList extends Model
     public $status;
 
     /**
+     * @example 2019-09-08T16:00:00Z
+     *
      * @var string
      */
     public $stopTime;
@@ -94,6 +124,8 @@ class instanceList extends Model
     public $subStatus;
 
     /**
+     * @example Subscription
+     *
      * @var string
      */
     public $subscriptionType;

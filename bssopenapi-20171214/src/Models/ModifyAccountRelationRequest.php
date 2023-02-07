@@ -14,41 +14,57 @@ class ModifyAccountRelationRequest extends Model
     public $childNick;
 
     /**
+     * @example 1512996702208737
+     *
      * @var int
      */
     public $childUserId;
 
     /**
+     * @example 1738376485192612
+     *
      * @var int
      */
     public $parentUserId;
 
     /**
+     * @example SYNCHRONIZE_FINANCE_IDENTITY
+     *
      * @var string[]
      */
     public $permissionCodes;
 
     /**
+     * @example 51463
+     *
      * @var int
      */
     public $relationId;
 
     /**
+     * @example ADD
+     *
      * @var string
      */
     public $relationOperation;
 
     /**
+     * @example enterprise_group
+     *
      * @var string
      */
     public $relationType;
 
     /**
+     * @example request_id
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example trusteeship
+     *
      * @var string[]
      */
     public $roleCodes;

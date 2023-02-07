@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteCostUnitRequest extends Model
 {
     /**
+     * @example 2135342
+     *
      * @var int
      */
     public $ownerUid;
 
     /**
+     * @example 376348
+     *
      * @var int
      */
     public $unitId;

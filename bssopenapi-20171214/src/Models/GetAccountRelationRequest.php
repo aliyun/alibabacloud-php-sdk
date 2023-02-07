@@ -9,14 +9,12 @@ use AlibabaCloud\Tea\Model;
 class GetAccountRelationRequest extends Model
 {
     /**
-     * @description relationId
-     *
      * @var int
      */
     public $relationId;
 
     /**
-     * @description requestId
+     * @example requestId
      *
      * @var string
      */

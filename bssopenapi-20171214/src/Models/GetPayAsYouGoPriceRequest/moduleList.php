@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class moduleList extends Model
 {
     /**
+     * @example InstanceType:ecs.g5.xlarge,IoOptimized:IoOptimized,ImageOs:linux
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @example InstanceType
+     *
      * @var string
      */
     public $moduleCode;
 
     /**
+     * @example Hour
+     *
      * @var string
      */
     public $priceType;

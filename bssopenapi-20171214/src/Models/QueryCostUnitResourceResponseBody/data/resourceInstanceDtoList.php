@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class resourceInstanceDtoList extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $apportionCode;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $apportionName;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $commodityCode;
@@ -29,6 +35,8 @@ class resourceInstanceDtoList extends Model
     public $commodityName;
 
     /**
+     * @example oss
+     *
      * @var string
      */
     public $relatedResources;
@@ -39,36 +47,50 @@ class resourceInstanceDtoList extends Model
     public $resourceGroup;
 
     /**
+     * @example OSSBAG-cn-v0h1s4hma018
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example testResource
+     *
      * @var string
      */
     public $resourceNick;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $resourceStatus;
 
     /**
+     * @example testResource
+     *
      * @var string
      */
     public $resourceTag;
 
     /**
+     * @example FPT_ossbag_absolute_Storage_bj
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example 2424242134
+     *
      * @var int
      */
     public $resourceUserId;
 
     /**
+     * @example test@test.aliyun.com
+     *
      * @var string
      */
     public $resourceUserName;

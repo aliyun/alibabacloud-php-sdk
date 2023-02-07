@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetPayAsYouGoPriceResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class GetPayAsYouGoPriceResponseBody extends Model
     public $data;
 
     /**
+     * @example Successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1537A007-72D7-4165-8A26-8694A38E219A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

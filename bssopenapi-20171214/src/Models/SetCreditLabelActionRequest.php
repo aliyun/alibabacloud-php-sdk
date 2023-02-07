@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetCreditLabelActionRequest extends Model
 {
     /**
+     * @example SET
+     *
      * @var string
      */
     public $actionType;
@@ -19,11 +21,15 @@ class SetCreditLabelActionRequest extends Model
     public $clearCycle;
 
     /**
+     * @example 1000
+     *
      * @var string
      */
     public $creditAmount;
 
     /**
+     * @example CNY
+     *
      * @var string
      */
     public $currencyCode;
@@ -69,11 +75,15 @@ class SetCreditLabelActionRequest extends Model
     public $newCreateMode;
 
     /**
+     * @example 78394
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @example F5B803CF-94D8-43AF-ADB3-D819AAD30E27
+     *
      * @var string
      */
     public $requestId;
@@ -84,11 +94,15 @@ class SetCreditLabelActionRequest extends Model
     public $siteCode;
 
     /**
+     * @example dellidc
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example 1911503093565030
+     *
      * @var string
      */
     public $uid;

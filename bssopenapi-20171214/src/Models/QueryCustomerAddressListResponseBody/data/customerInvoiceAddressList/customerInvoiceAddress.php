@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class customerInvoiceAddress extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $addressee;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $bizType;
@@ -34,16 +38,24 @@ class customerInvoiceAddress extends Model
     public $deliveryAddress;
 
     /**
+     * @description ID。
+     *
+     * @example 311601051
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 138xxxxxxxx
+     *
      * @var string
      */
     public $phone;
 
     /**
+     * @example 000000
+     *
      * @var string
      */
     public $postalCode;
@@ -59,11 +71,15 @@ class customerInvoiceAddress extends Model
     public $street;
 
     /**
+     * @example 4382956342857
+     *
      * @var int
      */
     public $userId;
 
     /**
+     * @example testNick
+     *
      * @var string
      */
     public $userNick;

@@ -9,36 +9,70 @@ use AlibabaCloud\Tea\Model;
 class QuerySavingsPlansDeductLogRequest extends Model
 {
     /**
+     * @description The end of the time range to query. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
+     *
+     * @example 2022-01-05 00:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example spn-XXXXXXX
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The type of the instance ID based on which the data is queried. Valid values:
+     *
+     *   spn: queries data based on the ID of the savings plan instance.
+     *   product: queries data based on the ID of the cloud service instance.
+     *
+     * @example spn
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The language of the return data. Valid values:
+     *
+     *   ZH: Chinese
+     *   EN: English
+     *
+     * @example ZH
+     *
      * @var string
      */
     public $locale;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
+     *
+     * @example 2022-01-01 00:00:00
+     *
      * @var string
      */
     public $startTime;

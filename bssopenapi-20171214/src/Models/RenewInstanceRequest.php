@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RenewInstanceRequest extends Model
 {
     /**
+     * @example ASKJHKLASJHAFSLKJH
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example rm-skjdhaskjdh
+     *
      * @var string
      */
     public $instanceId;
@@ -24,16 +28,22 @@ class RenewInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $renewPeriod;

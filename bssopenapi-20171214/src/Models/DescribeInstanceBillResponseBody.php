@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceBillResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class DescribeInstanceBillResponseBody extends Model
     public $data;
 
     /**
+     * @example Successful!
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

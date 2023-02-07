@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class AddAccountRelationResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -30,6 +32,8 @@ class AddAccountRelationResponseBody extends Model
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

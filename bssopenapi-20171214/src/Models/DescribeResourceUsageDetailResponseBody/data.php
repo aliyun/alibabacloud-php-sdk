@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The data entries.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token of the next page.
+     *
+     * @example eyJwYWdlTnVtIjoyLCJwYWdlU2l6ZSI6MTB9
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 10000
+     *
      * @var int
      */
     public $totalCount;

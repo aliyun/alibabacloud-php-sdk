@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetResellerUserQuotaRequest extends Model
 {
     /**
+     * @example 750
+     *
      * @var string
      */
     public $amount;
@@ -19,6 +21,8 @@ class SetResellerUserQuotaRequest extends Model
     public $currency;
 
     /**
+     * @example OD2022040818295234777795624764689
+     *
      * @var string
      */
     public $outBizId;

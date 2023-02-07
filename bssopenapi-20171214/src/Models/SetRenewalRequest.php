@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetRenewalRequest extends Model
 {
     /**
+     * @example rm-askjdhaskfjh
+     *
      * @var string
      */
     public $instanceIDs;
@@ -19,31 +21,43 @@ class SetRenewalRequest extends Model
     public $ownerId;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $renewalPeriod;
 
     /**
+     * @example M
+     *
      * @var string
      */
     public $renewalPeriodUnit;
 
     /**
+     * @example AutoRenewal
+     *
      * @var string
      */
     public $renewalStatus;
 
     /**
+     * @example PayAsYouGo
+     *
      * @var string
      */
     public $subscriptionType;

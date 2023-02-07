@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class QueryInstanceByTagResponseBody extends Model
 {
     /**
+     * @example PARAM_ERROR
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example param is null
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example CAESEgoQCg4KCm
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 9EC6C0B7-3397-5FAE-9915-8972CDDB1211
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

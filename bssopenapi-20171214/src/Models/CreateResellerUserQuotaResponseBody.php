@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateResellerUserQuotaResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @example Successful!
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

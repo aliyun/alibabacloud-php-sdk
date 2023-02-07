@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetResellerUserStatusRequest extends Model
 {
     /**
+     * @example FREEZE
+     *
      * @var string
      */
     public $businessType;
@@ -19,13 +21,21 @@ class SetResellerUserStatusRequest extends Model
     public $ownerId;
 
     /**
+     * @example Freeze
+     *
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $stopMode;
     protected $_name = [
         'businessType' => 'BusinessType',
         'ownerId'      => 'OwnerId',
         'status'       => 'Status',
+        'stopMode'     => 'StopMode',
     ];
 
     public function validate()
@@ -43,6 +53,9 @@ class SetResellerUserStatusRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->stopMode) {
+            $res['StopMode'] = $this->stopMode;
         }
 
         return $res;
@@ -64,6 +77,9 @@ class SetResellerUserStatusRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['StopMode'])) {
+            $model->stopMode = $map['StopMode'];
         }
 
         return $model;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryPermissionListRequest extends Model
 {
     /**
+     * @example 51463
+     *
      * @var int
      */
     public $relationId;

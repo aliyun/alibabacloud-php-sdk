@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class RelieveAccountRelationRequest extends Model
 {
     /**
+     * @example 1512996702208737
+     *
      * @var int
      */
     public $childUserId;
 
     /**
+     * @example 1738376485192612
+     *
      * @var int
      */
     public $parentUserId;
 
     /**
+     * @example RelationId
+     *
      * @var int
      */
     public $relationId;
 
     /**
+     * @example enterprise_group
+     *
      * @var string
      */
     public $relationType;
 
     /**
+     * @example request_id
+     *
      * @var string
      */
     public $requestId;

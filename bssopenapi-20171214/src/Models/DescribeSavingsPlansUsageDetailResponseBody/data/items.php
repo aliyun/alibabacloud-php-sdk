@@ -9,66 +9,117 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The currency.
+     *
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @description The used amount of the savings plan.
+     *
+     * @example 3.94
+     *
      * @var float
      */
     public $deductValue;
 
     /**
+     * @description The end time.
+     *
+     * @example 2021-08-09 00:00:00
+     *
      * @var string
      */
     public $endPeriod;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example spn-a1fhs54c243hP22
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The total amount of the savings plan.
+     *
+     * @example 29.84
+     *
      * @var float
      */
     public $poolValue;
 
     /**
+     * @description The pay-as-you-go cost.
+     *
+     * @example 4.2
+     *
      * @var float
      */
     public $postpaidCost;
 
     /**
+     * @description The amount that is saved.
+     *
+     * @example 0.08
+     *
      * @var float
      */
     public $savedCost;
 
     /**
+     * @description The start time.
+     *
+     * @example 2021-08-01 00:00:00
+     *
      * @var string
      */
     public $startPeriod;
 
     /**
+     * @description The status of the instance.
+     *
+     * A value of -1 indicates that the payment is overdue. A value of 1 indicates that the instance is active.
+     * @example -1
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The type of the savings plan. Valid values: universal and ECS compute.
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The usage.
+     *
+     * @example 0.9
+     *
      * @var float
      */
     public $usagePercentage;
 
     /**
+     * @description The ID of the account.
+     *
+     * @example 123745698925000
+     *
      * @var int
      */
     public $userId;
 
     /**
+     * @description The username of the account.
+     *
+     * @example test13@test.aliyun.com
+     *
      * @var string
      */
     public $userName;

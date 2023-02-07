@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class QueryAccountBillRequest extends Model
 {
     /**
+     * @example 122
+     *
      * @var int
      */
     public $billOwnerId;
 
     /**
+     * @example 2018-07
+     *
      * @var string
      */
     public $billingCycle;
 
     /**
+     * @example 2021-06-01
+     *
      * @var string
      */
     public $billingDate;
 
     /**
+     * @example Monthly
+     *
      * @var string
      */
     public $granularity;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isGroupByProduct;
 
     /**
+     * @example 2353425334
+     *
      * @var int
      */
     public $ownerID;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;

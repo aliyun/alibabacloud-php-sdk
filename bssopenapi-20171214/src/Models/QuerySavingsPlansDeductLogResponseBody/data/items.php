@@ -9,61 +9,106 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The billable item for which the fee is deducted.
+     *
      * @var string
      */
     public $billModule;
 
     /**
+     * @description The service for which the fee is deducted.
+     *
      * @var string
      */
     public $deductCommodity;
 
     /**
+     * @description The deducted amount.
+     *
+     * @example 0.52
+     *
      * @var string
      */
     public $deductFee;
 
     /**
+     * @description The ID of the instance for which the fee is deducted.
+     *
+     * @example i-XXXXXXXXX
+     *
      * @var string
      */
     public $deductInstanceId;
 
     /**
+     * @description The deduction rate.
+     *
+     * @example 1.0
+     *
      * @var string
      */
     public $deductRate;
 
     /**
+     * @description The discount used for the current deduction.
+     *
+     * @example 0.069
+     *
      * @var string
      */
     public $discountRate;
 
     /**
+     * @description The end of the billing cycle for which the fee is deducted.
+     *
+     * @example 2020-12-01 01:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the savings plan instance.
+     *
+     * @example spn-xxxxxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1906589291020438
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @description The type of the savings plan. Valid values:
+     *
+     *   universal: general-purpose
+     *   ecs: ECS compute
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $savingsType;
 
     /**
+     * @description The beginning of the billing cycle for which the fee is deducted. The time is in the format of yyyy-MM-dd HH:mm:ss.
+     *
+     * @example 2020-12-01 00:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The ID of the user.
+     *
+     * @example 1906589291020438
+     *
      * @var int
      */
     public $userId;

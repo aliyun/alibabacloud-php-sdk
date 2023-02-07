@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class financialRelationInfoList extends Model
 {
     /**
+     * @example 1851253838840762
+     *
      * @var int
      */
     public $accountId;
 
     /**
+     * @example caiwuyun_test4
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example test4
+     *
      * @var string
      */
     public $accountNickName;
 
     /**
+     * @example MEMBER
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example 2021-03-08T15:12Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 51463
+     *
      * @var int
      */
     public $relationId;
 
     /**
+     * @example FinancialManagement
+     *
      * @var string
      */
     public $relationType;
 
     /**
+     * @example 2021-03-02T15:12Z
+     *
      * @var string
      */
     public $setupTime;
 
     /**
+     * @example 2021-03-02T15:12Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example RELATED
+     *
      * @var string
      */
     public $state;

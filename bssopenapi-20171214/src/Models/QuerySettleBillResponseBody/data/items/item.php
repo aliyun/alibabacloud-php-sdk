@@ -9,121 +9,169 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @example 0
+     *
      * @var float
      */
     public $adjustAmount;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $afterTaxAmount;
 
     /**
+     * @example 185xxxxx489
+     *
      * @var string
      */
     public $billAccountID;
 
     /**
+     * @example test@test.aliyunid.com
+     *
      * @var string
      */
     public $billAccountName;
 
     /**
+     * @example trusteeship
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $cashAmount;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $deductedByCashCoupons;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $deductedByCoupons;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $deductedByPrepaidCard;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $invoiceDiscount;
 
     /**
+     * @example SubscriptionOrder
+     *
      * @var string
      */
     public $item;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $outstandingAmount;
 
     /**
+     * @example 3532535235
+     *
      * @var string
      */
     public $ownerID;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $paymentAmount;
 
     /**
+     * @example USD
+     *
      * @var string
      */
     public $paymentCurrency;
 
     /**
+     * @example 2020-03-11 08:00:00
+     *
      * @var string
      */
     public $paymentTime;
 
     /**
+     * @example 2O3AADJFEAF2PDKSFAMFCB11918
+     *
      * @var string
      */
     public $paymentTransactionID;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $pipCode;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $pretaxAmount;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $pretaxAmountLocal;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $pretaxGrossAmount;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;
@@ -139,46 +187,64 @@ class item extends Model
     public $productName;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example 2020xxxx5912
+     *
      * @var string
      */
     public $recordID;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $roundDownDiscount;
 
     /**
+     * @example PayFinish
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 325345254353
+     *
      * @var string
      */
     public $subOrderId;
 
     /**
+     * @example PayAsYouGo
+     *
      * @var string
      */
     public $subscriptionType;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $tax;
 
     /**
+     * @example 2020-03-11 08:00:00
+     *
      * @var string
      */
     public $usageEndTime;
 
     /**
+     * @example 2020-03-11 07:00:00
+     *
      * @var string
      */
     public $usageStartTime;

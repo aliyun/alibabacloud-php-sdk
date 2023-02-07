@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesResponseBody extends Model
 {
     /**
+     * @example PARAM_ERROR
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @example This API is not applicable for caller.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example C7C15585-8349-4C62-BEE4-5A391841B9BE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

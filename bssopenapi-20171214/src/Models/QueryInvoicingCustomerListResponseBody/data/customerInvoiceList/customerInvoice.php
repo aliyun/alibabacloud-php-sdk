@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class customerInvoice extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $adjustType;
@@ -19,11 +21,15 @@ class customerInvoice extends Model
     public $bank;
 
     /**
+     * @example 389576348573296349853476
+     *
      * @var string
      */
     public $bankNo;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $customerType;
@@ -34,16 +40,22 @@ class customerInvoice extends Model
     public $defaultRemark;
 
     /**
+     * @example 202003
+     *
      * @var int
      */
     public $endCycle;
 
     /**
+     * @example 2018-09-07 15:26:20
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 239875502738
+     *
      * @var int
      */
     public $id;
@@ -54,6 +66,8 @@ class customerInvoice extends Model
     public $invoiceTitle;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $issueType;
@@ -64,51 +78,71 @@ class customerInvoice extends Model
     public $operatingLicenseAddress;
 
     /**
+     * @example 138xxxxxxxx
+     *
      * @var string
      */
     public $operatingLicensePhone;
 
     /**
+     * @example 21343245342534
+     *
      * @var string
      */
     public $registerNo;
 
     /**
+     * @example 202002
+     *
      * @var int
      */
     public $startCycle;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example taxationLicense.jpg
+     *
      * @var string
      */
     public $taxationLicense;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $taxpayerType;
 
     /**
+     * @example instruction.doc
+     *
      * @var string
      */
     public $titleChangeInstructions;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @example 34565465675
+     *
      * @var int
      */
     public $userId;
 
     /**
+     * @example testNick
+     *
      * @var string
      */
     public $userNick;

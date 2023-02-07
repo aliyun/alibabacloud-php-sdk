@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class QueryRIUtilizationDetailRequest extends Model
 {
     /**
+     * @example jsdgfsdhgsdjh
+     *
      * @var string
      */
     public $deductedInstanceId;
 
     /**
+     * @example 2019-05-23 12:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example Instancetyp
+     *
      * @var string
      */
     public $instanceSpec;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example ecsRi
+     *
      * @var string
      */
     public $RICommodityCode;
 
     /**
+     * @example dsudfgdsjh
+     *
      * @var string
      */
     public $RIInstanceId;
 
     /**
+     * @example 2019-05-23 12:00:00
+     *
      * @var string
      */
     public $startTime;

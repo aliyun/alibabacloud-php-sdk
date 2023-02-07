@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceRequest extends Model
 {
     /**
+     * @example JAKSJFHFAKJSF
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example rm-akjhkdsjhfskjfhd
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example Upgrade
+     *
      * @var string
      */
     public $modifyType;
@@ -35,16 +41,22 @@ class ModifyInstanceRequest extends Model
     public $parameter;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example Subscription
+     *
      * @var string
      */
     public $subscriptionType;

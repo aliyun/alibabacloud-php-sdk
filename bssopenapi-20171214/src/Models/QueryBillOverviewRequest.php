@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class QueryBillOverviewRequest extends Model
 {
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $billOwnerId;
 
     /**
+     * @example 2018-07
+     *
      * @var string
      */
     public $billingCycle;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example Subscription
+     *
      * @var string
      */
     public $subscriptionType;

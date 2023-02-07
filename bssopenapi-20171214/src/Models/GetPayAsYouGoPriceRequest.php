@@ -20,21 +20,29 @@ class GetPayAsYouGoPriceRequest extends Model
     public $ownerId;
 
     /**
+     * @example ecs
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example ecs
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example PayAsYouGo
+     *
      * @var string
      */
     public $subscriptionType;

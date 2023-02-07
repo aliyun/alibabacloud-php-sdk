@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceRequest extends Model
 {
     /**
+     * @example JASIOFKVNVIXXXXXX
+     *
      * @var string
      */
     public $clientToken;
@@ -30,31 +32,43 @@ class CreateInstanceRequest extends Model
     public $parameter;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $renewPeriod;
 
     /**
+     * @example ManualRenewal
+     *
      * @var string
      */
     public $renewalStatus;
 
     /**
+     * @example Subscription
+     *
      * @var string
      */
     public $subscriptionType;

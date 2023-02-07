@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description currency
+     * @example CNY
      *
      * @var string
      */
     public $currency;
 
     /**
-     * @description hostId
+     * @example cn
      *
      * @var string
      */
     public $hostId;
 
     /**
-     * @description instanceId
+     * @example i-bp1etb69sqxgl4*******
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description refundAmount
+     * @example 12.34
      *
      * @var float
      */

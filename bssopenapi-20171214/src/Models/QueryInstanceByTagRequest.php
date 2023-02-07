@@ -15,6 +15,8 @@ class QueryInstanceByTagRequest extends Model
     public $resourceId;
 
     /**
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;

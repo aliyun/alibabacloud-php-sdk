@@ -34,10 +34,20 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\CreateSavingsPlansInstanceReque
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\CreateSavingsPlansInstanceResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DeleteCostUnitRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DeleteCostUnitResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeCostBudgetsSummaryRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeCostBudgetsSummaryResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeInstanceAmortizedCostByAmortizationPeriodRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeInstanceAmortizedCostByAmortizationPeriodResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeInstanceAmortizedCostByConsumePeriodRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeInstanceAmortizedCostByConsumePeriodResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeInstanceBillRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeInstanceBillResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribePricingModuleRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribePricingModuleResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeProductAmortizedCostByAmortizationPeriodRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeProductAmortizedCostByAmortizationPeriodResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeProductAmortizedCostByConsumePeriodRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeProductAmortizedCostByConsumePeriodResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceCoverageDetailRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceCoverageDetailResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceCoverageTotalRequest;
@@ -97,6 +107,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryBillResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryBillToOSSSubscriptionResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryCashCouponsRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryCashCouponsResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryCommodityListRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryCommodityListResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryCostUnitRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryCostUnitResourceRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryCostUnitResourceResponse;
@@ -117,16 +129,14 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryInstanceGaapCostRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryInstanceGaapCostResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryInvoicingCustomerListRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryInvoicingCustomerListResponse;
-use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryMonthlyBillRequest;
-use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryMonthlyBillResponse;
-use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryMonthlyInstanceConsumptionRequest;
-use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryMonthlyInstanceConsumptionResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryOrdersRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryOrdersResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryPermissionListRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryPermissionListResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryPrepaidCardsRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryPrepaidCardsResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryPriceEntityListRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryPriceEntityListResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryProductListRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryProductListResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryRedeemRequest;
@@ -141,12 +151,15 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryRIUtilizationDetailRequest
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryRIUtilizationDetailResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySavingsPlansDeductLogRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySavingsPlansDeductLogResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySavingsPlansDiscountRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySavingsPlansDiscountResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySavingsPlansInstanceRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySavingsPlansInstanceResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySettleBillRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySettleBillResponse;
-use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySettlementBillRequest;
-use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySettlementBillResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySkuPriceListRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySkuPriceListResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySkuPriceListShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySplitItemBillRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySplitItemBillResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryUserOmsDataRequest;
@@ -1109,6 +1122,207 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * @param DescribeCostBudgetsSummaryRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeCostBudgetsSummaryResponse
+     */
+    public function describeCostBudgetsSummaryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->budgetName)) {
+            $query['BudgetName'] = $request->budgetName;
+        }
+        if (!Utils::isUnset($request->budgetStatus)) {
+            $query['BudgetStatus'] = $request->budgetStatus;
+        }
+        if (!Utils::isUnset($request->budgetType)) {
+            $query['BudgetType'] = $request->budgetType;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCostBudgetsSummary',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCostBudgetsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCostBudgetsSummaryRequest $request
+     *
+     * @return DescribeCostBudgetsSummaryResponse
+     */
+    public function describeCostBudgetsSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCostBudgetsSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInstanceAmortizedCostByAmortizationPeriodRequest $request
+     * @param RuntimeOptions                                           $runtime
+     *
+     * @return DescribeInstanceAmortizedCostByAmortizationPeriodResponse
+     */
+    public function describeInstanceAmortizedCostByAmortizationPeriodWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->billOwnerIdList)) {
+            $body['BillOwnerIdList'] = $request->billOwnerIdList;
+        }
+        if (!Utils::isUnset($request->billUserIdList)) {
+            $body['BillUserIdList'] = $request->billUserIdList;
+        }
+        if (!Utils::isUnset($request->billingCycle)) {
+            $body['BillingCycle'] = $request->billingCycle;
+        }
+        if (!Utils::isUnset($request->consumePeriodFilter)) {
+            $body['ConsumePeriodFilter'] = $request->consumePeriodFilter;
+        }
+        if (!Utils::isUnset($request->costUnitCode)) {
+            $body['CostUnitCode'] = $request->costUnitCode;
+        }
+        if (!Utils::isUnset($request->instanceIdList)) {
+            $body['InstanceIdList'] = $request->instanceIdList;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $body['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productDetail)) {
+            $body['ProductDetail'] = $request->productDetail;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $body['SubscriptionType'] = $request->subscriptionType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceAmortizedCostByAmortizationPeriod',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceAmortizedCostByAmortizationPeriodResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceAmortizedCostByAmortizationPeriodRequest $request
+     *
+     * @return DescribeInstanceAmortizedCostByAmortizationPeriodResponse
+     */
+    public function describeInstanceAmortizedCostByAmortizationPeriod($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceAmortizedCostByAmortizationPeriodWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInstanceAmortizedCostByConsumePeriodRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return DescribeInstanceAmortizedCostByConsumePeriodResponse
+     */
+    public function describeInstanceAmortizedCostByConsumePeriodWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->amortizationPeriodFilter)) {
+            $body['AmortizationPeriodFilter'] = $request->amortizationPeriodFilter;
+        }
+        if (!Utils::isUnset($request->billOwnerIdList)) {
+            $body['BillOwnerIdList'] = $request->billOwnerIdList;
+        }
+        if (!Utils::isUnset($request->billUserIdList)) {
+            $body['BillUserIdList'] = $request->billUserIdList;
+        }
+        if (!Utils::isUnset($request->billingCycle)) {
+            $body['BillingCycle'] = $request->billingCycle;
+        }
+        if (!Utils::isUnset($request->costUnitCode)) {
+            $body['CostUnitCode'] = $request->costUnitCode;
+        }
+        if (!Utils::isUnset($request->instanceIdList)) {
+            $body['InstanceIdList'] = $request->instanceIdList;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $body['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productDetail)) {
+            $body['ProductDetail'] = $request->productDetail;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $body['SubscriptionType'] = $request->subscriptionType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceAmortizedCostByConsumePeriod',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceAmortizedCostByConsumePeriodResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceAmortizedCostByConsumePeriodRequest $request
+     *
+     * @return DescribeInstanceAmortizedCostByConsumePeriodResponse
+     */
+    public function describeInstanceAmortizedCostByConsumePeriod($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceAmortizedCostByConsumePeriodWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeInstanceBillRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1240,10 +1454,154 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param DescribeResourceCoverageDetailRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @param DescribeProductAmortizedCostByAmortizationPeriodRequest $request
+     * @param RuntimeOptions                                          $runtime
      *
-     * @return DescribeResourceCoverageDetailResponse
+     * @return DescribeProductAmortizedCostByAmortizationPeriodResponse
+     */
+    public function describeProductAmortizedCostByAmortizationPeriodWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->billOwnerIdList)) {
+            $body['BillOwnerIdList'] = $request->billOwnerIdList;
+        }
+        if (!Utils::isUnset($request->billUserIdList)) {
+            $body['BillUserIdList'] = $request->billUserIdList;
+        }
+        if (!Utils::isUnset($request->billingCycle)) {
+            $body['BillingCycle'] = $request->billingCycle;
+        }
+        if (!Utils::isUnset($request->consumePeriodFilter)) {
+            $body['ConsumePeriodFilter'] = $request->consumePeriodFilter;
+        }
+        if (!Utils::isUnset($request->costUnitCode)) {
+            $body['CostUnitCode'] = $request->costUnitCode;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $body['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productDetail)) {
+            $body['ProductDetail'] = $request->productDetail;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $body['SubscriptionType'] = $request->subscriptionType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeProductAmortizedCostByAmortizationPeriod',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeProductAmortizedCostByAmortizationPeriodResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeProductAmortizedCostByAmortizationPeriodRequest $request
+     *
+     * @return DescribeProductAmortizedCostByAmortizationPeriodResponse
+     */
+    public function describeProductAmortizedCostByAmortizationPeriod($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeProductAmortizedCostByAmortizationPeriodWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeProductAmortizedCostByConsumePeriodRequest $request
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return DescribeProductAmortizedCostByConsumePeriodResponse
+     */
+    public function describeProductAmortizedCostByConsumePeriodWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->amortizationPeriodFilter)) {
+            $body['AmortizationPeriodFilter'] = $request->amortizationPeriodFilter;
+        }
+        if (!Utils::isUnset($request->billOwnerIdList)) {
+            $body['BillOwnerIdList'] = $request->billOwnerIdList;
+        }
+        if (!Utils::isUnset($request->billUserIdList)) {
+            $body['BillUserIdList'] = $request->billUserIdList;
+        }
+        if (!Utils::isUnset($request->billingCycle)) {
+            $body['BillingCycle'] = $request->billingCycle;
+        }
+        if (!Utils::isUnset($request->costUnitCode)) {
+            $body['CostUnitCode'] = $request->costUnitCode;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $body['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productDetail)) {
+            $body['ProductDetail'] = $request->productDetail;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $body['SubscriptionType'] = $request->subscriptionType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeProductAmortizedCostByConsumePeriod',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeProductAmortizedCostByConsumePeriodResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeProductAmortizedCostByConsumePeriodRequest $request
+     *
+     * @return DescribeProductAmortizedCostByConsumePeriodResponse
+     */
+    public function describeProductAmortizedCostByConsumePeriod($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeProductAmortizedCostByConsumePeriodWithOptions($request, $runtime);
+    }
+
+    /**
+     * 1\\. The queried coverage details are the same as those displayed in the table on the Coverage tab of the Manage Reserved Instances page in the Billing Management console.
+     *   * 2\\. You can call this operation to query the coverage details of RIs or SCUs.
+     *   * 3\\. You can call this operation to query coverage details at an hourly, daily, or monthly granularity.
+     *   *
+     * @param DescribeResourceCoverageDetailRequest $request DescribeResourceCoverageDetailRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeResourceCoverageDetailResponse DescribeResourceCoverageDetailResponse
      */
     public function describeResourceCoverageDetailWithOptions($request, $runtime)
     {
@@ -1289,9 +1647,13 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param DescribeResourceCoverageDetailRequest $request
+     * 1\\. The queried coverage details are the same as those displayed in the table on the Coverage tab of the Manage Reserved Instances page in the Billing Management console.
+     *   * 2\\. You can call this operation to query the coverage details of RIs or SCUs.
+     *   * 3\\. You can call this operation to query coverage details at an hourly, daily, or monthly granularity.
+     *   *
+     * @param DescribeResourceCoverageDetailRequest $request DescribeResourceCoverageDetailRequest
      *
-     * @return DescribeResourceCoverageDetailResponse
+     * @return DescribeResourceCoverageDetailResponse DescribeResourceCoverageDetailResponse
      */
     public function describeResourceCoverageDetail($request)
     {
@@ -1301,10 +1663,13 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param DescribeResourceCoverageTotalRequest $request
-     * @param RuntimeOptions                       $runtime
+     * The queried total coverage data is the same as the aggregated data displayed on the Coverage tab of the Manage Reserved Instances page in the Billing Management console.
+     *   * You can call this operation to query the total coverage data of RIs or SCUs.
+     *   *
+     * @param DescribeResourceCoverageTotalRequest $request DescribeResourceCoverageTotalRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeResourceCoverageTotalResponse
+     * @return DescribeResourceCoverageTotalResponse DescribeResourceCoverageTotalResponse
      */
     public function describeResourceCoverageTotalWithOptions($request, $runtime)
     {
@@ -1344,9 +1709,12 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param DescribeResourceCoverageTotalRequest $request
+     * The queried total coverage data is the same as the aggregated data displayed on the Coverage tab of the Manage Reserved Instances page in the Billing Management console.
+     *   * You can call this operation to query the total coverage data of RIs or SCUs.
+     *   *
+     * @param DescribeResourceCoverageTotalRequest $request DescribeResourceCoverageTotalRequest
      *
-     * @return DescribeResourceCoverageTotalResponse
+     * @return DescribeResourceCoverageTotalResponse DescribeResourceCoverageTotalResponse
      */
     public function describeResourceCoverageTotal($request)
     {
@@ -2972,6 +3340,46 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * @param QueryCommodityListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryCommodityListResponse
+     */
+    public function queryCommodityListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCommodityList',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryCommodityListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryCommodityListRequest $request
+     *
+     * @return QueryCommodityListResponse
+     */
+    public function queryCommodityList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCommodityListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryCostUnitRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -3540,110 +3948,6 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param QueryMonthlyBillRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return QueryMonthlyBillResponse
-     */
-    public function queryMonthlyBillWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->billingCycle)) {
-            $query['BillingCycle'] = $request->billingCycle;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryMonthlyBill',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return QueryMonthlyBillResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param QueryMonthlyBillRequest $request
-     *
-     * @return QueryMonthlyBillResponse
-     */
-    public function queryMonthlyBill($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryMonthlyBillWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryMonthlyInstanceConsumptionRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return QueryMonthlyInstanceConsumptionResponse
-     */
-    public function queryMonthlyInstanceConsumptionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->billingCycle)) {
-            $query['BillingCycle'] = $request->billingCycle;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
-        }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
-        }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $query['SubscriptionType'] = $request->subscriptionType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryMonthlyInstanceConsumption',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return QueryMonthlyInstanceConsumptionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param QueryMonthlyInstanceConsumptionRequest $request
-     *
-     * @return QueryMonthlyInstanceConsumptionResponse
-     */
-    public function queryMonthlyInstanceConsumption($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryMonthlyInstanceConsumptionWithOptions($request, $runtime);
-    }
-
-    /**
      * @param QueryOrdersRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -3803,6 +4107,46 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryPrepaidCardsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryPriceEntityListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryPriceEntityListResponse
+     */
+    public function queryPriceEntityListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryPriceEntityList',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryPriceEntityListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryPriceEntityListRequest $request
+     *
+     * @return QueryPriceEntityListResponse
+     */
+    public function queryPriceEntityList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryPriceEntityListWithOptions($request, $runtime);
     }
 
     /**
@@ -4179,6 +4523,46 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * @param QuerySavingsPlansDiscountRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QuerySavingsPlansDiscountResponse
+     */
+    public function querySavingsPlansDiscountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySavingsPlansDiscount',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySavingsPlansDiscountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySavingsPlansDiscountRequest $request
+     *
+     * @return QuerySavingsPlansDiscountResponse
+     */
+    public function querySavingsPlansDiscount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySavingsPlansDiscountWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QuerySavingsPlansInstanceRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -4316,76 +4700,48 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param QuerySettlementBillRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param QuerySkuPriceListRequest $tmpReq
+     * @param RuntimeOptions           $runtime
      *
-     * @return QuerySettlementBillResponse
+     * @return QuerySkuPriceListResponse
      */
-    public function querySettlementBillWithOptions($request, $runtime)
+    public function querySkuPriceListWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->billingCycle)) {
-            $query['BillingCycle'] = $request->billingCycle;
+        Utils::validateModel($tmpReq);
+        $request = new QuerySkuPriceListShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->priceFactorConditionMap)) {
+            $request->priceFactorConditionMapShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->priceFactorConditionMap, 'PriceFactorConditionMap', 'json');
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->isHideZeroCharge)) {
-            $query['IsHideZeroCharge'] = $request->isHideZeroCharge;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
-        }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $query['SubscriptionType'] = $request->subscriptionType;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QuerySettlementBill',
+            'action'      => 'QuerySkuPriceList',
             'version'     => '2017-12-14',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'POST',
+            'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
-        return QuerySettlementBillResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySkuPriceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QuerySettlementBillRequest $request
+     * @param QuerySkuPriceListRequest $request
      *
-     * @return QuerySettlementBillResponse
+     * @return QuerySkuPriceListResponse
      */
-    public function querySettlementBill($request)
+    public function querySkuPriceList($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->querySettlementBillWithOptions($request, $runtime);
+        return $this->querySkuPriceListWithOptions($request, $runtime);
     }
 
     /**
@@ -5181,6 +5537,9 @@ class BssOpenApi extends OpenApiClient
         }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->stopMode)) {
+            $query['StopMode'] = $request->stopMode;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

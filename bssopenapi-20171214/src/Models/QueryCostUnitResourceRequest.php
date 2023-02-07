@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QueryCostUnitResourceRequest extends Model
 {
     /**
+     * @example 23453245
+     *
      * @var int
      */
     public $ownerUid;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 235325
+     *
      * @var int
      */
     public $unitId;

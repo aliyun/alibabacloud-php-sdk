@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 185766xxxx
+     *
      * @var string
      */
     public $accountID;
 
     /**
+     * @example test@test.aliyunid.com
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example 2020-03
+     *
      * @var string
      */
     public $billingCycle;

@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class totalUsage extends Model
 {
     /**
+     * @description The total costs of pay-as-you-go instances.
+     *
+     * @example 200
+     *
      * @var float
      */
     public $postpaidCost;
 
     /**
+     * @description The total potential savings.
+     *
+     * @example 100
+     *
      * @var float
      */
     public $potentialSavedCost;
 
     /**
+     * @description The fee of purchased deduction plans.
+     *
+     * @example 10
+     *
      * @var float
      */
     public $reservationCost;
 
     /**
+     * @description The total savings.
+     *
+     * @example 100
+     *
      * @var float
      */
     public $savedCost;
 
     /**
+     * @description The total usage of deduction plans.
+     *
+     * @example 1
+     *
      * @var float
      */
     public $usagePercentage;

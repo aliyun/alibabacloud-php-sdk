@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryProductListResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class QueryProductListResponseBody extends Model
     public $data;
 
     /**
+     * @example This API is not applicable for caller.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 94858229-2758-4663-A7D0-99490D541F15
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

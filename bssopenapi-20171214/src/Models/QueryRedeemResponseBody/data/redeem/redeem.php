@@ -14,36 +14,50 @@ class redeem extends Model
     public $applicableProducts;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $balance;
 
     /**
+     * @example 2018-05-14 20:25:00
+     *
      * @var string
      */
     public $effectiveTime;
 
     /**
+     * @example 2018-06-13 20:25:00
+     *
      * @var string
      */
     public $expiryTime;
 
     /**
+     * @example 2018-05-14 20:25:00
+     *
      * @var string
      */
     public $grantedTime;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $nominalValue;
 
     /**
+     * @example 1342
+     *
      * @var string
      */
     public $redeemId;
 
     /**
+     * @example 4889*****1610
+     *
      * @var string
      */
     public $redeemNo;
@@ -54,6 +68,8 @@ class redeem extends Model
     public $specification;
 
     /**
+     * @example Generated
+     *
      * @var string
      */
     public $status;

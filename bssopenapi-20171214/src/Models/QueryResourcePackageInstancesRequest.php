@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryResourcePackageInstancesRequest extends Model
 {
     /**
+     * @example 2020-02-02T13:00:00Z
+     *
      * @var string
      */
     public $expiryTimeEnd;
 
     /**
+     * @example 2020-02-02T12:00:00Z
+     *
      * @var string
      */
     public $expiryTimeStart;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $includePartner;
@@ -29,16 +35,22 @@ class QueryResourcePackageInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;

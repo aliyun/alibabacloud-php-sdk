@@ -9,33 +9,43 @@ use AlibabaCloud\Tea\Model;
 class SubscribeBillToOSSRequest extends Model
 {
     /**
+     * @example 2021-03
+     *
      * @var string
      */
     public $beginBillingCycle;
 
     /**
+     * @example 12341324
+     *
      * @var int
      */
     public $bucketOwnerId;
 
     /**
-     * @description OSS Bucket存储路径
+     * @example testpath
      *
      * @var string
      */
     public $bucketPath;
 
     /**
+     * @example MA
+     *
      * @var string
      */
     public $multAccountRelSubscribe;
 
     /**
+     * @example xxxxxx-bucket
+     *
      * @var string
      */
     public $subscribeBucket;
 
     /**
+     * @example BillingItemDetailForBillingPeriod
+     *
      * @var string
      */
     public $subscribeType;

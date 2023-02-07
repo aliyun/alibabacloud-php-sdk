@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class totalCoverage extends Model
 {
     /**
+     * @description The total coverage.
+     *
+     * @example 1
+     *
      * @var float
      */
     public $coveragePercentage;
 
     /**
+     * @description The total deducted amount.
+     *
+     * @example 100
+     *
      * @var float
      */
     public $deductAmount;

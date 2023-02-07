@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryBillToOSSSubscriptionResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class QueryBillToOSSSubscriptionResponseBody extends Model
     public $data;
 
     /**
+     * @example Successful!
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 9EEAE43F-1E4D-4734-AE93-5049878AC103
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

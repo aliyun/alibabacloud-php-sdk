@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesResponseBody extends Model
 {
     /**
+     * @example InternalError
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @example This API is not applicable for caller.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1537A007-72D7-4165-8A26-8694A38E219A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

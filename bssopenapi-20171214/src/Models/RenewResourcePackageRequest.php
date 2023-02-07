@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RenewResourcePackageRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example 2020-02-02T12:00:00Z
+     *
      * @var string
      */
     public $effectiveDate;
 
     /**
+     * @example lskd****sljhsdj
+     *
      * @var string
      */
     public $instanceId;
@@ -29,6 +35,8 @@ class RenewResourcePackageRequest extends Model
     public $ownerId;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $pricingCycle;

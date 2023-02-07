@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceUsageTotalRequest extends Model
 {
     /**
+     * @example 123745698925000
+     *
      * @var int
      */
     public $billOwnerId;
 
     /**
+     * @example 2021-01-02 00:00:00
+     *
      * @var string
      */
     public $endPeriod;
 
     /**
+     * @example HOUR
+     *
      * @var string
      */
     public $periodType;
 
     /**
+     * @example RI
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example 2021-01-01 00:00:00
+     *
      * @var string
      */
     public $startPeriod;

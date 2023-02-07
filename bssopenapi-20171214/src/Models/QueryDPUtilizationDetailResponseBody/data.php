@@ -15,6 +15,8 @@ class data extends Model
     public $detailList;
 
     /**
+     * @example CAESF***zNTAw
+     *
      * @var string
      */
     public $nextToken;

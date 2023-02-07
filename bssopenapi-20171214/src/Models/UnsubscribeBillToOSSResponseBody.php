@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UnsubscribeBillToOSSResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example Successful!
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example D23FE74C-742F-4624-A82B-******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class order extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $afterTaxAmount;
@@ -19,31 +21,43 @@ class order extends Model
     public $commodityCode;
 
     /**
+     * @example DBInstanceClass:[DBInstanceClass:rds.mysql.s1.small;EngineVersion:8.0;Region:cn-qingdao;]DBFlowType:[Region:cn-qingdao;]
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @example 2017-06-08T09:41:30Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @example ["rm-bp1a2vsr018313t6o"]
+     *
      * @var string
      */
     public $instanceIDs;
 
     /**
+     * @example 23424243432
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @example 3453425324
+     *
      * @var string
      */
     public $orderId;
@@ -54,91 +68,127 @@ class order extends Model
     public $orderSubType;
 
     /**
+     * @example New
+     *
      * @var string
      */
     public $orderType;
 
     /**
+     * @example DBInstanceClass:[DBInstanceClass:rds.mysql.s1.small;EngineVersion:8.0;Region:cn-qingdao;]DBFlowType:[Region:cn-qingdao;]
+     *
      * @var string
      */
     public $originalConfig;
 
     /**
+     * @example CNY
+     *
      * @var string
      */
     public $paymentCurrency;
 
     /**
+     * @example Paid
+     *
      * @var string
      */
     public $paymentStatus;
 
     /**
+     * @example 2017-06-08T09:41:30Z
+     *
      * @var string
      */
     public $paymentTime;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $pretaxAmount;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $pretaxAmountLocal;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $pretaxGrossAmount;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $quantity;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example 4353453534543
+     *
      * @var string
      */
     public $relatedOrderId;
 
     /**
+     * @example 234343
+     *
      * @var string
      */
     public $subOrderId;
 
     /**
+     * @example PayAsYouGo
+     *
      * @var string
      */
     public $subscriptionType;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $tax;
 
     /**
+     * @example 2117-06-08T16:00:00Z
+     *
      * @var string
      */
     public $usageEndTime;
 
     /**
+     * @example 2017-06-08T16:00:00Z
+     *
      * @var string
      */
     public $usageStartTime;

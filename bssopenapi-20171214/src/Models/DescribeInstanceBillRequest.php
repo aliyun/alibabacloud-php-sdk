@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceBillRequest extends Model
 {
     /**
+     * @example 122
+     *
      * @var int
      */
     public $billOwnerId;
 
     /**
+     * @example 2020-03
+     *
      * @var string
      */
     public $billingCycle;
 
     /**
+     * @example 2020-03-02
+     *
      * @var string
      */
     public $billingDate;
 
     /**
+     * @example MONTHLY
+     *
      * @var string
      */
     public $granularity;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $instanceID;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isBillingItem;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isHideZeroCharge;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example CAESEgoQCg4KCm
+     *
      * @var string
      */
     public $nextToken;
@@ -59,16 +77,22 @@ class DescribeInstanceBillRequest extends Model
     public $ownerId;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example PayAsYouGo
+     *
      * @var string
      */
     public $subscriptionType;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QuerySplitItemBillRequest extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $billOwnerId;
 
     /**
+     * @example 2020-03
+     *
      * @var string
      */
     public $billingCycle;
@@ -24,26 +28,36 @@ class QuerySplitItemBillRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example PayAsYouGo
+     *
      * @var string
      */
     public $subscriptionType;

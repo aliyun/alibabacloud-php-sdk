@@ -19,11 +19,15 @@ class attributeValue extends Model
     public $remark;
 
     /**
+     * @example single_string
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example mysql.n2.medium.1
+     *
      * @var string
      */
     public $value;

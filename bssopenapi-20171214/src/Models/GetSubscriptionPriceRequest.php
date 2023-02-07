@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetSubscriptionPriceRequest extends Model
 {
     /**
+     * @example i-khkjhxxxxxxxxx
+     *
      * @var string
      */
     public $instanceId;
@@ -20,6 +22,8 @@ class GetSubscriptionPriceRequest extends Model
     public $moduleList;
 
     /**
+     * @example NewOrder
+     *
      * @var string
      */
     public $orderType;
@@ -30,36 +34,50 @@ class GetSubscriptionPriceRequest extends Model
     public $ownerId;
 
     /**
+     * @example ecs
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example ecs
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $servicePeriodQuantity;
 
     /**
+     * @example Year
+     *
      * @var string
      */
     public $servicePeriodUnit;
 
     /**
+     * @example Subscription
+     *
      * @var string
      */
     public $subscriptionType;

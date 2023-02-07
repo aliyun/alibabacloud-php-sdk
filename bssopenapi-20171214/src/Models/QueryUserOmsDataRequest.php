@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryUserOmsDataRequest extends Model
 {
     /**
+     * @example Hour
+     *
      * @var string
      */
     public $dataType;
 
     /**
+     * @example 2020-02-21T12:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example NextToken
+     *
      * @var string
      */
     public $marker;
@@ -29,16 +35,22 @@ class QueryUserOmsDataRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2020-02-20T12:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $table;

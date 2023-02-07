@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpgradeResourcePackageRequest extends Model
 {
     /**
+     * @example 2020-02-02T12:00:00Z
+     *
      * @var string
      */
     public $effectiveDate;
 
     /**
+     * @example OSSBAG-cn-0xl*****x002
+     *
      * @var string
      */
     public $instanceId;
@@ -24,6 +28,8 @@ class UpgradeResourcePackageRequest extends Model
     public $ownerId;
 
     /**
+     * @example 51200
+     *
      * @var string
      */
     public $specification;

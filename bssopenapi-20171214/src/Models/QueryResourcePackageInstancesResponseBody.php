@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryResourcePackageInstancesResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,31 +22,43 @@ class QueryResourcePackageInstancesResponseBody extends Model
     public $data;
 
     /**
+     * @example Successful!
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 6000EE23-274B-4E07-A697-FF2E999520A4
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $total;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ChangeResellerConsumeAmountRequest extends Model
 {
     /**
+     * @example increase/decrease
+     *
      * @var string
      */
     public $adjustType;
 
     /**
+     * @example 10.00
+     *
      * @var string
      */
     public $amount;
 
     /**
+     * @example quota_amount_adjust
+     *
      * @var string
      */
     public $businessType;
 
     /**
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extendMap;
 
     /**
+     * @example 1647396865
+     *
      * @var string
      */
     public $outBizId;
@@ -44,6 +56,8 @@ class ChangeResellerConsumeAmountRequest extends Model
     public $ownerId;
 
     /**
+     * @example system
+     *
      * @var string
      */
     public $source;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ConfirmRelationResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -25,11 +27,15 @@ class ConfirmRelationResponseBody extends Model
     public $message;
 
     /**
+     * @example request_id
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

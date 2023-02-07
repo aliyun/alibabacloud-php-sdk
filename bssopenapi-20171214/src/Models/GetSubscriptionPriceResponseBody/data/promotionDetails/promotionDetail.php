@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class promotionDetail extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $promotionDesc;
 
     /**
+     * @example 1021199213
+     *
      * @var int
      */
     public $promotionId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $promotionName;

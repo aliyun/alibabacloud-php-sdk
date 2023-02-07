@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class QueryAvailableInstancesRequest extends Model
 {
     /**
+     * @example 2016-05-23T12:00:00Z
+     *
      * @var string
      */
     public $createTimeEnd;
 
     /**
+     * @example 2016-05-23T12:00:00Z
+     *
      * @var string
      */
     public $createTimeStart;
 
     /**
+     * @example 2016-05-23T12:00:00Z
+     *
      * @var string
      */
     public $endTimeEnd;
 
     /**
+     * @example 2016-05-23T12:00:00Z
+     *
      * @var string
      */
     public $endTimeStart;
 
     /**
+     * @example rm-xxxxxxxxxxxx
+     *
      * @var string
      */
     public $instanceIDs;
@@ -39,36 +49,50 @@ class QueryAvailableInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example AutoRenewal
+     *
      * @var string
      */
     public $renewStatus;
 
     /**
+     * @example Subscription
+     *
      * @var string
      */
     public $subscriptionType;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryInvoicingCustomerListResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class QueryInvoicingCustomerListResponseBody extends Model
     public $data;
 
     /**
+     * @example Successful!
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example BBEF51A3-E933-4F40-A534-C673CBDB9C80
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

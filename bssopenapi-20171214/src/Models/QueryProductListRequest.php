@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryProductListRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $queryTotalCount;

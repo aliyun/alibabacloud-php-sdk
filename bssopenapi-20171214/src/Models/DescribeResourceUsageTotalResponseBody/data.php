@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The information about the usage of deduction plans within a period.
+     *
      * @var periodCoverage[]
      */
     public $periodCoverage;
 
     /**
+     * @description The information about the total usage data of deduction plans.
+     *
      * @var totalUsage
      */
     public $totalUsage;

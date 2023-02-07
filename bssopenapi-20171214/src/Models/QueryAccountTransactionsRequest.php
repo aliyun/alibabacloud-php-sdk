@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class QueryAccountTransactionsRequest extends Model
 {
     /**
+     * @example 2020-03-06T01:55:00Z
+     *
      * @var string
      */
     public $createTimeEnd;
 
     /**
+     * @example 2020-03-05T01:46:09Z
+     *
      * @var string
      */
     public $createTimeStart;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 20200302
+     *
      * @var string
      */
     public $recordID;
 
     /**
+     * @example AccountBalance
+     *
      * @var string
      */
     public $transactionChannel;
 
     /**
+     * @example 12342134
+     *
      * @var string
      */
     public $transactionChannelSN;
 
     /**
+     * @example Income
+     *
      * @var string
      */
     public $transactionFlow;
 
     /**
+     * @example 133314076
+     *
      * @var string
      */
     public $transactionNumber;
 
     /**
+     * @example Payment
+     *
      * @var string
      */
     public $transactionType;

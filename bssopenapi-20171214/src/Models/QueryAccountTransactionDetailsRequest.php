@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class QueryAccountTransactionDetailsRequest extends Model
 {
     /**
+     * @example 2022-12-20
+     *
      * @var string
      */
     public $createTimeEnd;
 
     /**
+     * @example 2022-01-20
+     *
      * @var string
      */
     public $createTimeStart;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example ABEDSDS124DASA
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 2022120336190912
+     *
      * @var string
      */
     public $recordID;
 
     /**
+     * @example ALIPAY
+     *
      * @var string
      */
     public $transactionChannel;
 
     /**
+     * @example 2022112122001470591458665933
+     *
      * @var string
      */
     public $transactionChannelSN;
 
     /**
+     * @example 410874027490089
+     *
      * @var string
      */
     public $transactionNumber;
 
     /**
+     * @example CHARGE
+     *
      * @var string
      */
     public $transactionType;

@@ -9,61 +9,107 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The coverage.
+     *
+     * @example 0.9
+     *
      * @var float
      */
     public $coveragePercentage;
 
     /**
+     * @description The currency.
+     *
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @description The deducted amount.
+     *
+     * @example 100
+     *
      * @var float
      */
     public $deductAmount;
 
     /**
+     * @description The end time.
+     *
+     * @example 2021-05-05 15:00:00
+     *
      * @var string
      */
     public $endPeriod;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example spn-a1fhs54c243hP22
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The specifications.
+     *
+     * @example 7th_generation_X86_group
+     *
      * @var string
      */
     public $instanceSpec;
 
     /**
+     * @description The pay-as-you-go cost.
+     *
+     * @example 200
+     *
      * @var float
      */
     public $postpaidCost;
 
     /**
+     * @description The region.
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The start time.
+     *
+     * @example 2021-05-05 14:00:00
+     *
      * @var string
      */
     public $startPeriod;
 
     /**
+     * @description The total expenditure.
+     *
+     * @example 100
+     *
      * @var float
      */
     public $totalAmount;
 
     /**
+     * @description The ID of the account.
+     *
+     * @example 2831685687844416
+     *
      * @var int
      */
     public $userId;
 
     /**
+     * @description The username of the account.
+     *
+     * @example tester1@test.aliyun.com
+     *
      * @var string
      */
     public $userName;

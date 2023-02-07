@@ -9,116 +9,162 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @example 0
+     *
      * @var float
      */
     public $adjustAmount;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $afterTaxAmount;
 
     /**
+     * @example 185766xxxx
+     *
      * @var string
      */
     public $billAccountID;
 
     /**
+     * @example test@test.aliyunid.com
+     *
      * @var string
      */
     public $billAccountName;
 
     /**
+     * @example trusteeship
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $cashAmount;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $deductedByCashCoupons;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $deductedByCoupons;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $deductedByPrepaidCard;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $invoiceDiscount;
 
     /**
+     * @example PayAsYouGoBill
+     *
      * @var string
      */
     public $item;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $outstandingAmount;
 
     /**
+     * @example 1222
+     *
      * @var string
      */
     public $ownerID;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $paymentAmount;
 
     /**
+     * @example USD
+     *
      * @var string
      */
     public $paymentCurrency;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $pipCode;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $pretaxAmount;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $pretaxAmountLocal;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $pretaxGrossAmount;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example NAT Gateway (Pay-As-You-Go)
+     *
      * @var string
      */
     public $productDetail;
@@ -129,21 +175,29 @@ class item extends Model
     public $productName;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $roundDownDiscount;
 
     /**
+     * @example Subscription
+     *
      * @var string
      */
     public $subscriptionType;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $tax;

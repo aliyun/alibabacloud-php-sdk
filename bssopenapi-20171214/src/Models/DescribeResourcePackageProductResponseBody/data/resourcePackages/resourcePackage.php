@@ -20,11 +20,15 @@ class resourcePackage extends Model
     public $packageTypes;
 
     /**
+     * @example ossbag
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example ossbag
+     *
      * @var string
      */
     public $productType;

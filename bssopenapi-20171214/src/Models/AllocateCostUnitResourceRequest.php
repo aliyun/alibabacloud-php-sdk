@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class AllocateCostUnitResourceRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $fromUnitId;
 
     /**
+     * @example 273394581313325532
+     *
      * @var int
      */
     public $fromUnitUserId;
@@ -25,11 +29,15 @@ class AllocateCostUnitResourceRequest extends Model
     public $resourceInstanceList;
 
     /**
+     * @example 186419
+     *
      * @var int
      */
     public $toUnitId;
 
     /**
+     * @example 241021678450941490
+     *
      * @var int
      */
     public $toUnitUserId;

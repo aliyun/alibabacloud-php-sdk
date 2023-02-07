@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryPrepaidCardsRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $effectiveOrNot;
 
     /**
+     * @example 2018-08-01T00:00:00Z
+     *
      * @var string
      */
     public $expiryTimeEnd;
 
     /**
+     * @example 2018-08-01T00:00:00Z
+     *
      * @var string
      */
     public $expiryTimeStart;

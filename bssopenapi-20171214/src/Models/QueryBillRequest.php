@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QueryBillRequest extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $billOwnerId;
 
     /**
+     * @example 2018-07
+     *
      * @var string
      */
     public $billingCycle;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isDisplayLocalCurrency;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isHideZeroCharge;
@@ -34,31 +42,43 @@ class QueryBillRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example Subscription
+     *
      * @var string
      */
     public $subscriptionType;
 
     /**
+     * @example SubscriptionOrder
+     *
      * @var string
      */
     public $type;

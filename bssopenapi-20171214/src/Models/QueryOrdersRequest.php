@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryOrdersRequest extends Model
 {
     /**
+     * @example 2016-05-23T12:00:00Z
+     *
      * @var string
      */
     public $createTimeEnd;
 
     /**
+     * @example 2016-05-23T13:00:00Z
+     *
      * @var string
      */
     public $createTimeStart;
 
     /**
+     * @example New
+     *
      * @var string
      */
     public $orderType;
@@ -29,31 +35,43 @@ class QueryOrdersRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example Paid
+     *
      * @var string
      */
     public $paymentStatus;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example Subscription
+     *
      * @var string
      */
     public $subscriptionType;

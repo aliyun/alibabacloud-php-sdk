@@ -14,6 +14,8 @@ class SetAllExpirationDayRequest extends Model
     public $ownerId;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $unifyExpireDay;

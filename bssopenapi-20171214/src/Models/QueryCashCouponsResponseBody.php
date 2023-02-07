@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryCashCouponsResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class QueryCashCouponsResponseBody extends Model
     public $data;
 
     /**
+     * @example Successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 147B566E-DB4C-4E43-BDBB-5DB1D9D268DB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

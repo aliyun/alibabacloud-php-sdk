@@ -14,41 +14,45 @@ class data extends Model
     public $childUserId;
 
     /**
+     * @example 2021-12-01
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 2021-12-01
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @description id
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description parentUserId
-     *
      * @var int
      */
     public $parentUserId;
 
     /**
+     * @example 2021-11-01
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example RELATED
+     *
      * @var string
      */
     public $status;
 
     /**
-     * @description type
+     * @example enterprise_group
      *
      * @var string
      */

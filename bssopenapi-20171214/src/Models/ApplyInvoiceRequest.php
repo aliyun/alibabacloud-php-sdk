@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ApplyInvoiceRequest extends Model
 {
     /**
+     * @example 237958367
+     *
      * @var int
      */
     public $addressId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $applyUserNick;
 
     /**
+     * @example 124132423
+     *
      * @var int
      */
     public $customerId;
 
     /**
+     * @example 124132
+     *
      * @var int
      */
     public $invoiceAmount;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $invoiceByAmount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $invoicingType;
@@ -44,16 +56,22 @@ class ApplyInvoiceRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $processWay;
 
     /**
+     * @example 384752367
+     *
      * @var int[]
      */
     public $selectedIds;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $userRemark;

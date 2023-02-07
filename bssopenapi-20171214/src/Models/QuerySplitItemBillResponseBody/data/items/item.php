@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @example 0
+     *
      * @var float
      */
     public $adjustAmount;
 
     /**
+     * @example 2020-01-20
+     *
      * @var string
      */
     public $billingDate;
@@ -29,11 +33,15 @@ class item extends Model
     public $billingType;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $cashAmount;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $commodityCode;
@@ -44,66 +52,92 @@ class item extends Model
     public $costUnit;
 
     /**
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $deductedByCashCoupons;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $deductedByCoupons;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $deductedByPrepaidCard;
 
     /**
+     * @example NULL
+     *
      * @var string
      */
     public $deductedByResourcePackage;
 
     /**
+     * @example CPU:12
+     *
      * @var string
      */
     public $instanceConfig;
 
     /**
+     * @example i-kjhdskjgshfdlkjfdh
+     *
      * @var string
      */
     public $instanceID;
 
     /**
+     * @example ecs.sn1ne.3xlarge
+     *
      * @var string
      */
     public $instanceSpec;
 
     /**
+     * @example 34.xx.x.x
+     *
      * @var string
      */
     public $internetIP;
 
     /**
+     * @example 192.xx.xx.xx
+     *
      * @var string
      */
     public $intranetIP;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $invoiceDiscount;
 
     /**
+     * @example PayAsYouGoBill
+     *
      * @var string
      */
     public $item;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $listPrice;
@@ -114,41 +148,57 @@ class item extends Model
     public $listPriceUnit;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $nickName;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $outstandingAmount;
 
     /**
+     * @example 169***013
+     *
      * @var string
      */
     public $ownerID;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $paymentAmount;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $pipCode;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $pretaxAmount;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $pretaxGrossAmount;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;
@@ -164,11 +214,15 @@ class item extends Model
     public $productName;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
@@ -179,6 +233,8 @@ class item extends Model
     public $resourceGroup;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $servicePeriod;
@@ -189,61 +245,85 @@ class item extends Model
     public $servicePeriodUnit;
 
     /**
+     * @example 122
+     *
      * @var string
      */
     public $splitAccountID;
 
     /**
+     * @example 12@test.com
+     *
      * @var string
      */
     public $splitAccountName;
 
     /**
+     * @example 2020-06
+     *
      * @var string
      */
     public $splitBillingCycle;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $splitCommodityCode;
 
     /**
+     * @example i-28bycvyb4
+     *
      * @var string
      */
     public $splitItemID;
 
     /**
+     * @example iZ28bycvyb4Z
+     *
      * @var string
      */
     public $splitItemName;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $splitProductDetail;
 
     /**
+     * @example PayAsYouGo
+     *
      * @var string
      */
     public $subscriptionType;
 
     /**
+     * @example tag
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $usage;
 
     /**
+     * @example GB
+     *
      * @var string
      */
     public $usageUnit;
 
     /**
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zone;

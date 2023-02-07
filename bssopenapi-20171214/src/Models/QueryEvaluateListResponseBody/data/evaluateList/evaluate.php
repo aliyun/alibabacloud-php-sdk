@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class evaluate extends Model
 {
     /**
+     * @example 202002
+     *
      * @var string
      */
     public $billCycle;
 
     /**
+     * @example 234543254325
+     *
      * @var int
      */
     public $billId;
 
     /**
+     * @example 2018-10-10 18:05:44
+     *
      * @var string
      */
     public $bizTime;
 
     /**
+     * @example ALIYUN
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example 123213
+     *
      * @var int
      */
     public $canInvoiceAmount;
 
     /**
+     * @example 2018-10-10 18:05:44
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2018-10-10 18:05:44
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 1325321532
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $invoicedAmount;
 
     /**
+     * @example 23453245
+     *
      * @var int
      */
     public $itemId;
@@ -64,51 +84,71 @@ class evaluate extends Model
     public $name;
 
     /**
+     * @example 500
+     *
      * @var int
      */
     public $offsetAcceptAmount;
 
     /**
+     * @example 500
+     *
      * @var int
      */
     public $offsetCostAmount;
 
     /**
+     * @example 12341
+     *
      * @var string
      */
     public $opId;
 
     /**
+     * @example -10000
+     *
      * @var int
      */
     public $originalAmount;
 
     /**
+     * @example 124324213421
+     *
      * @var string
      */
     public $outBizId;
 
     /**
+     * @example -10000
+     *
      * @var int
      */
     public $presentAmount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @example 2738543
+     *
      * @var int
      */
     public $userId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $userNick;

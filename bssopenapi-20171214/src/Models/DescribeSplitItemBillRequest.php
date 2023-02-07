@@ -10,36 +10,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeSplitItemBillRequest extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $billOwnerId;
 
     /**
+     * @example 2020-03
+     *
      * @var string
      */
     public $billingCycle;
 
     /**
+     * @example 2020-03-02
+     *
      * @var string
      */
     public $billingDate;
 
     /**
+     * @example Monthly
+     *
      * @var string
      */
     public $granularity;
 
     /**
+     * @example i-kjhdskjgshfdlkjfdh
+     *
      * @var string
      */
     public $instanceID;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example CAESEgoQCg4KCmdtdF9jcmVhdGUEARgBIkgKCQBwhGmPcAEAAAo7AzYAAAAxTDgwMDcxMjg3ZDJhNmM3ZDguTDgwMDAwMDAwMDAwMzE1MTIuTDgwMDcyZDMyZTJkYzg3N2U
+     *
      * @var string
      */
     public $nextToken;
@@ -50,21 +64,29 @@ class DescribeSplitItemBillRequest extends Model
     public $ownerId;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example i-kjhdskjgshfdlkjfdh
+     *
      * @var string
      */
     public $splitItemID;
 
     /**
+     * @example PayAsYouGo
+     *
      * @var string
      */
     public $subscriptionType;

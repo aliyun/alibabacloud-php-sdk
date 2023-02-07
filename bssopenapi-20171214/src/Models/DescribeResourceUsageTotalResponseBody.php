@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceUsageTotalResponseBody extends Model
 {
     /**
+     * @description The status code.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message returned.
+     *
+     * @example Successful!
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 364C7C81-5E5E-51A0-B738-1969D2671B05
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the operation was successful.
+     *
+     * @example True
+     *
      * @var bool
      */
     public $success;

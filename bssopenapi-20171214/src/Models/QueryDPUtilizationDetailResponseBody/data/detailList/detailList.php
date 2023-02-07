@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class detailList extends Model
 {
     /**
+     * @example 2019/5/23 12:00
+     *
      * @var string
      */
     public $deductDate;
 
     /**
+     * @example 1
+     *
      * @var float
      */
     public $deductFactorTotal;
 
     /**
+     * @example 24
+     *
      * @var float
      */
     public $deductHours;
 
     /**
+     * @example 1
+     *
      * @var float
      */
     public $deductMeasure;
 
     /**
+     * @example 1
+     *
      * @var float
      */
     public $deductQuantity;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $deductedCommodityCode;
 
     /**
+     * @example oss-123123
+     *
      * @var string
      */
     public $deductedInstanceId;
@@ -49,31 +63,43 @@ class detailList extends Model
     public $deductedProductDetail;
 
     /**
+     * @example oss-123123
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example rds.mysql.s3.large
+     *
      * @var string
      */
     public $instanceSpec;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example PutRequest
+     *
      * @var string
      */
     public $resCode;
 
     /**
+     * @example 1111111111
+     *
      * @var int
      */
     public $shareUid;
 
     /**
+     * @example 1111111111
+     *
      * @var int
      */
     public $uid;

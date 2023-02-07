@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class attribute extends Model
 {
     /**
+     * @example DBInstanceStorage
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class attribute extends Model
     public $name;
 
     /**
+     * @example GB
+     *
      * @var string
      */
     public $unit;

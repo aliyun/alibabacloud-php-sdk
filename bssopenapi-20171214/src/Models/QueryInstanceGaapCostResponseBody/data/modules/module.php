@@ -14,186 +14,260 @@ class module extends Model
     public $accountingUnit;
 
     /**
+     * @example SubscriptionOrder
+     *
      * @var string
      */
     public $billType;
 
     /**
+     * @example 2020-03
+     *
      * @var string
      */
     public $billingCycle;
 
     /**
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $deductedByCashCoupons;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $deductedByCoupons;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $deductedByPrepaidCard;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $gaapDeductedByCashCoupons;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $gaapDeductedByCoupons;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $gaapDeductedByPrepaidCard;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $gaapPaymentAmount;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $gaapPretaxAmount;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $gaapPretaxAmountLocal;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $gaapPretaxGrossAmount;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $gaapPricingDiscount;
 
     /**
+     * @example OSSBAG-cn-0xl0xxxxxx
+     *
      * @var string
      */
     public $instanceID;
 
     /**
+     * @example 0.75
+     *
      * @var string
      */
     public $monthGaapDeductedByCashCoupons;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $monthGaapDeductedByCoupons;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $monthGaapDeductedByPrepaidCard;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $monthGaapPaymentAmount;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $monthGaapPretaxAmount;
 
     /**
+     * @example 0.99
+     *
      * @var string
      */
     public $monthGaapPretaxAmountLocal;
 
     /**
+     * @example 0.99
+     *
      * @var string
      */
     public $monthGaapPretaxGrossAmount;
 
     /**
+     * @example 0,.25
+     *
      * @var string
      */
     public $monthGaapPricingDiscount;
 
     /**
+     * @example 213123213123
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example New
+     *
      * @var string
      */
     public $orderType;
 
     /**
+     * @example 123213123123
+     *
      * @var string
      */
     public $ownerID;
 
     /**
+     * @example 2018-06-15 15:59:57
+     *
      * @var string
      */
     public $payTime;
 
     /**
+     * @example 23534534
+     *
      * @var string
      */
     public $payerAccount;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $paymentAmount;
 
     /**
+     * @example CNY
+     *
      * @var string
      */
     public $paymentCurrency;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $pretaxAmount;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $pretaxAmountLocal;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $pretaxGrossAmount;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pricingDiscount;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
@@ -204,66 +278,92 @@ class module extends Model
     public $resourceGroup;
 
     /**
+     * @example 12434345
+     *
      * @var string
      */
     public $subOrderId;
 
     /**
+     * @example PayAsYouGo
+     *
      * @var string
      */
     public $subscriptionType;
 
     /**
+     * @example tag
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $unallocatedDeductedByCashCoupons;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $unallocatedDeductedByCoupons;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $unallocatedDeductedByPrepaidCard;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $unallocatedPaymentAmount;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $unallocatedPretaxAmount;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $unallocatedPretaxAmountLocal;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $unallocatedPretaxGrossAmount;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $unallocatedPricingDiscount;
 
     /**
+     * @example 2019-05-01 00:00:00
+     *
      * @var string
      */
     public $usageEndDate;
 
     /**
+     * @example 2019-04-01 00:00:00
+     *
      * @var string
      */
     public $usageStartDate;

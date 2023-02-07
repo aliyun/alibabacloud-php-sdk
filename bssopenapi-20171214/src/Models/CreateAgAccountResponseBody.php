@@ -15,21 +15,29 @@ class CreateAgAccountResponseBody extends Model
     public $agRelationDto;
 
     /**
+     * @example LOGIN_EMAIL_HAS_BEEN_USED
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example loginEmail=685741089H@chinaunicom.cn,has used
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example EAE08A27-386C-579E-966D-8853EC3C5D0E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

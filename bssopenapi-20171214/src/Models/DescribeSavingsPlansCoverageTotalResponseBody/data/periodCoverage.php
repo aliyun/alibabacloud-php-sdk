@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class periodCoverage extends Model
 {
     /**
+     * @description The coverage.
+     *
+     * @example 1
+     *
      * @var float
      */
     public $percentage;
 
     /**
+     * @description The period.
+     *
+     * The value is in the format of yyyyMMddHH.
+     * @example 2021071500
+     *
      * @var string
      */
     public $period;

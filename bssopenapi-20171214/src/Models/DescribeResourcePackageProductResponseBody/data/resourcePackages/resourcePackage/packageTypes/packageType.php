@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class packageType extends Model
 {
     /**
+     * @example FPT_ossbag_deadlineAcc_CdnOut_common_sz
+     *
      * @var string
      */
     public $code;

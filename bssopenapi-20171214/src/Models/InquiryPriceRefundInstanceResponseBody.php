@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class InquiryPriceRefundInstanceResponseBody extends Model
 {
     /**
-     * @description code
+     * @example 200
      *
      * @var string
      */
@@ -24,21 +24,21 @@ class InquiryPriceRefundInstanceResponseBody extends Model
     public $data;
 
     /**
-     * @description message
+     * @example success
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description requestId
+     * @example UUID
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description success
+     * @example true
      *
      * @var bool
      */

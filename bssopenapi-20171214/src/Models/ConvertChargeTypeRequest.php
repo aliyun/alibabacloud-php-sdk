@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ConvertChargeTypeRequest extends Model
 {
     /**
+     * @example rm-kasjgfjshgf
+     *
      * @var string
      */
     public $instanceId;
@@ -19,21 +21,29 @@ class ConvertChargeTypeRequest extends Model
     public $ownerId;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example Subscription
+     *
      * @var string
      */
     public $subscriptionType;

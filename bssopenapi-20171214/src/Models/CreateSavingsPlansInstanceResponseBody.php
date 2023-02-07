@@ -10,35 +10,31 @@ use AlibabaCloud\Tea\Model;
 class CreateSavingsPlansInstanceResponseBody extends Model
 {
     /**
-     * @description code
+     * @example PARAM_ERROR
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description data
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description message
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description requestId
+     * @example 26dabb0c-8ca0-4aa0-8143-30499f3fe304
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description success
+     * @example true
      *
      * @var bool
      */

@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class agRelationDto extends Model
 {
     /**
+     * @description MPK（UID）
+     *
+     * @example 1785287436011964
+     *
      * @var string
      */
     public $mpk;
 
     /**
+     * @example 1728240534507590
+     *
      * @var string
      */
     public $pk;
 
     /**
+     * @example admin-role
+     *
      * @var string
      */
     public $ramAdminRoleName;
 
     /**
+     * @example FINACE_CLOUD
+     *
      * @var string
      */
     public $type;

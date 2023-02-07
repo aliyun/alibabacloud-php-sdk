@@ -9,66 +9,92 @@ use AlibabaCloud\Tea\Model;
 class accountTransactionsList extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $amount;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $balance;
 
     /**
+     * @example 2020-03
+     *
      * @var string
      */
     public $billingCycle;
 
     /**
+     * @example Cash
+     *
      * @var string
      */
     public $fundType;
 
     /**
+     * @example 2020030242
+     *
      * @var string
      */
     public $recordID;
 
     /**
+     * @example NAT_GW
+     *
      * @var string
      */
     public $remarks;
 
     /**
+     * @example 213562146
+     *
      * @var string
      */
     public $transactionAccount;
 
     /**
+     * @example AccountBalance
+     *
      * @var string
      */
     public $transactionChannel;
 
     /**
+     * @example 1234354325
+     *
      * @var string
      */
     public $transactionChannelSN;
 
     /**
+     * @example Expense
+     *
      * @var string
      */
     public $transactionFlow;
 
     /**
+     * @example 43342334
+     *
      * @var string
      */
     public $transactionNumber;
 
     /**
+     * @example 2020-03-10T02:03:20Z
+     *
      * @var string
      */
     public $transactionTime;
 
     /**
+     * @example Consumption
+     *
      * @var string
      */
     public $transactionType;

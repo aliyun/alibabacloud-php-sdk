@@ -10,26 +10,42 @@ use AlibabaCloud\Tea\Model;
 class QuerySavingsPlansDeductLogResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
+     * @example PARAM_ERROR
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The return data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message returned.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 61293E7A-3406-4447-8620-EC88B0AA66AD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the operation was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

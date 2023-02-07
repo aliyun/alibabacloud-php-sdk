@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example MEMBER
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isFinancialAccount;
 
     /**
+     * @example 124
+     *
      * @var int
      */
     public $memberGroupId;
@@ -34,6 +40,8 @@ class data extends Model
     public $memberNickName;
 
     /**
+     * @example killortop3
+     *
      * @var string
      */
     public $userName;

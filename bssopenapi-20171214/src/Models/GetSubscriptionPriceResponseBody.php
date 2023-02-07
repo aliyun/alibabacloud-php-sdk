@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetSubscriptionPriceResponseBody extends Model
 {
     /**
+     * @example InvalidConfigCod
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class GetSubscriptionPriceResponseBody extends Model
     public $data;
 
     /**
+     * @example Successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 30E7066E-AE6F-4E59-AFE6-11386CE3AFA7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

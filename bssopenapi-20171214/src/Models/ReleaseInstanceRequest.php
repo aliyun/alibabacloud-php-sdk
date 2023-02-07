@@ -9,49 +9,47 @@ use AlibabaCloud\Tea\Model;
 class ReleaseInstanceRequest extends Model
 {
     /**
-     * @description instanceIds
+     * @example rm-xxxxxxxxxxxx
      *
      * @var string
      */
     public $instanceIds;
 
     /**
-     * @description ownerId
-     *
      * @var int
      */
     public $ownerId;
 
     /**
-     * @description productCode
+     * @example ecs
      *
      * @var string
      */
     public $productCode;
 
     /**
-     * @description productType
+     * @example ecs
      *
      * @var string
      */
     public $productType;
 
     /**
-     * @description region
+     * @example cn-hangzhou
      *
      * @var string
      */
     public $region;
 
     /**
-     * @description renewStatus
+     * @example AutoRenewal
      *
      * @var string
      */
     public $renewStatus;
 
     /**
-     * @description subscriptionType
+     * @example PayAsYouGo
      *
      * @var string
      */

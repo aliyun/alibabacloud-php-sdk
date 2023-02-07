@@ -9,116 +9,200 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The unit that is used to measure the resources deducted from deduction plans.
+     *
      * @var string
      */
     public $capacityUnit;
 
     /**
+     * @description The currency in which deduction plans were priced.
+     *
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @description The amount of the resources deducted from deduction plans.
+     *
+     * @example 1
+     *
      * @var float
      */
     public $deductQuantity;
 
     /**
+     * @description The end of the time range in which the usage details were queried.
+     *
+     * @example 2021-04-01 01:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The operating system.
+     *
+     * @example linux
+     *
      * @var string
      */
     public $imageType;
 
     /**
+     * @description The specifications of a deduction plan.
+     *
+     * @example ecs.t5-lc2m1.nano
+     *
      * @var string
      */
     public $instanceSpec;
 
     /**
+     * @description The equivalent of pay-as-you-go costs.
+     *
+     * @example 0.06
+     *
      * @var string
      */
     public $postpaidCost;
 
     /**
+     * @description The potential net savings.
+     *
+     * @example 0.13
+     *
      * @var string
      */
     public $potentialSavedCost;
 
     /**
+     * @description The number of deduction plans.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @description The region.
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The code of the region.
+     *
+     * @example cn-hangzhou-dg-a01
+     *
      * @var string
      */
     public $regionNo;
 
     /**
+     * @description The fee of purchased deduction plans.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $reservationCost;
 
     /**
+     * @description The ID of a deduction plan.
+     *
+     * @example ecsri-bp147nnfz21225k9mpix00
+     *
      * @var string
      */
     public $resourceInstanceId;
 
     /**
+     * @description The net savings.
+     *
+     * @example 0.06
+     *
      * @var string
      */
     public $savedCost;
 
     /**
+     * @description The beginning of the time range in which the usage details were queried.
+     *
+     * @example 2021-04-01 00:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The status of the deduction plan.
+     *
+     * @example Valid
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The name of the state.
+     *
      * @var string
      */
     public $statusName;
 
     /**
+     * @description The total capacity of deduction plans.
+     *
+     * @example 2
+     *
      * @var float
      */
     public $totalQuantity;
 
     /**
+     * @description The usage of deduction plans.
+     *
+     * @example 0.5
+     *
      * @var float
      */
     public $usagePercentage;
 
     /**
+     * @description The ID of the account.
+     *
+     * @example 123745698925000
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description The username of the account.
+     *
+     * @example test@aliyun.com
+     *
      * @var string
      */
     public $userName;
 
     /**
+     * @description The code of the zone.
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zone;
 
     /**
+     * @description The zone.
+     *
      * @var string
      */
     public $zoneName;

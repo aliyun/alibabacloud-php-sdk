@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SubscribeBillToOSSResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example Successful!
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example F61FCE4B-9B56-4FD9-A17E-******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example CNY
+     *
      * @var string
      */
     public $currency;

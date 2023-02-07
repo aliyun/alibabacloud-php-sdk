@@ -9,86 +9,120 @@ use AlibabaCloud\Tea\Model;
 class order extends Model
 {
     /**
+     * @example 66
+     *
      * @var string
      */
     public $afterTaxAmount;
 
     /**
+     * @example ecs
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @example 2017-06-08T09:41:30Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @example 34532532
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example New
+     *
      * @var string
      */
     public $orderType;
 
     /**
+     * @example CNY
+     *
      * @var string
      */
     public $paymentCurrency;
 
     /**
+     * @example Paid
+     *
      * @var string
      */
     public $paymentStatus;
 
     /**
+     * @example 2017-06-08T09:41:30Z
+     *
      * @var string
      */
     public $paymentTime;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $pretaxAmount;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $pretaxAmountLocal;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $pretaxGrossAmount;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example 234535345345342
+     *
      * @var string
      */
     public $relatedOrderId;
 
     /**
+     * @example PayAsYouGo
+     *
      * @var string
      */
     public $subscriptionType;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $tax;

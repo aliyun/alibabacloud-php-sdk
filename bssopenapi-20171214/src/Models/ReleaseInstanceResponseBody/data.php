@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description hostId
+     * @example cn
      *
      * @var string
      */
     public $hostId;
 
     /**
-     * @description releaseResult
+     * @example true
      *
      * @var bool
      */

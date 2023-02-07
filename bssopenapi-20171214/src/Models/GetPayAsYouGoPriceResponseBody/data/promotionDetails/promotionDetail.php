@@ -14,6 +14,8 @@ class promotionDetail extends Model
     public $promotionDesc;
 
     /**
+     * @example 10200210
+     *
      * @var int
      */
     public $promotionId;

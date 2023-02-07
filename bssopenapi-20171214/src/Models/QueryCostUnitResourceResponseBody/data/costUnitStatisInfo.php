@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class costUnitStatisInfo extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $resourceCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $resourceGroupCount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $subUnitCount;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $totalResourceCount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalResourceGroupCount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalUserCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $userCount;

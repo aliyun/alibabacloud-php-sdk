@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryPrepaidCardsResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class QueryPrepaidCardsResponseBody extends Model
     public $data;
 
     /**
+     * @example Successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 7EA6C02D-06D0-4213-9C3B-E67910F7D1EB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

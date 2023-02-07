@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryInstanceGaapCostResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class QueryInstanceGaapCostResponseBody extends Model
     public $data;
 
     /**
+     * @example Successful!
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example CCBB1BB9-22F1-4177-867B-7A75D665B488
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

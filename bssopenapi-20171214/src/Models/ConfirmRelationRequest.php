@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ConfirmRelationRequest extends Model
 {
     /**
+     * @example 1512996702208737
+     *
      * @var int
      */
     public $childUserId;
 
     /**
+     * @example child_agree
+     *
      * @var string
      */
     public $confirmCode;
 
     /**
+     * @example 1738376485192612
+     *
      * @var int
      */
     public $parentUserId;
 
     /**
+     * @example SYNCHRONIZE_FINANCE_IDENTITY
+     *
      * @var string[]
      */
     public $permissionCodes;
 
     /**
+     * @example 51463
+     *
      * @var int
      */
     public $relationId;
@@ -39,6 +49,8 @@ class ConfirmRelationRequest extends Model
     public $relationType;
 
     /**
+     * @example request_id
+     *
      * @var string
      */
     public $requestId;

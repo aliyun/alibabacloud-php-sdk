@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class moduleList extends Model
 {
     /**
+     * @example PackageCode:version_1
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @example PackageCode
+     *
      * @var string
      */
     public $moduleCode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $moduleStatus;
 
     /**
+     * @example 213213123
+     *
      * @var string
      */
     public $tag;

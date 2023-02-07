@@ -10,33 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ReleaseInstanceResponseBody extends Model
 {
     /**
-     * @description code
+     * @example Invalid_Product_Code
      *
      * @var string
      */
     public $code;
 
     /**
+     * @description data
+     *
      * @var data
      */
     public $data;
 
     /**
-     * @description message
+     * @example successful
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description requestId
+     * @example UUID
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description success
+     * @example true
      *
      * @var bool
      */

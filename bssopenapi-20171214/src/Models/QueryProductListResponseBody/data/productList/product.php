@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class product extends Model
 {
     /**
+     * @example cdn
+     *
      * @var string
      */
     public $productCode;
@@ -19,11 +21,15 @@ class product extends Model
     public $productName;
 
     /**
+     * @example CDN
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example PayAsYouGo
+     *
      * @var string
      */
     public $subscriptionType;

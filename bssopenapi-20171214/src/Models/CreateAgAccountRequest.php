@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAgAccountRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $accountAttr;
@@ -34,16 +36,22 @@ class CreateAgAccountRequest extends Model
     public $lastName;
 
     /**
+     * @example email
+     *
      * @var string
      */
     public $loginEmail;
 
     /**
+     * @example CN
+     *
      * @var string
      */
     public $nationCode;
 
     /**
+     * @example 350000
+     *
      * @var string
      */
     public $postcode;

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class RefundInstanceResponseBody extends Model
 {
     /**
-     * @description code
+     * @example ResourceNotExists
      *
      * @var string
      */
@@ -24,21 +24,21 @@ class RefundInstanceResponseBody extends Model
     public $data;
 
     /**
-     * @description message
+     * @example success
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description requestId
+     * @example UUID
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description success
+     * @example false
      *
      * @var bool
      */

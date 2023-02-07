@@ -15,11 +15,15 @@ class module extends Model
     public $configList;
 
     /**
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @example InstanceType
+     *
      * @var string
      */
     public $moduleCode;
@@ -30,6 +34,8 @@ class module extends Model
     public $moduleName;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $priceType;

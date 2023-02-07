@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class availableDuration extends Model
 {
     /**
+     * @example 6 Month
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $unit;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $value;

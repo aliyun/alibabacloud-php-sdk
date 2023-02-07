@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class RefundInstanceRequest extends Model
 {
     /**
-     * @description clientToken
+     * @example 793F021C-B589-1225-82A9-99232AEBE494
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description immediatelyRelease
+     * @example 1
      *
      * @var string
      */
     public $immediatelyRelease;
 
     /**
-     * @description instanceId
+     * @example i-bp1etb69sqxgl4*******
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description productCode
+     * @example ecs
      *
      * @var string
      */
     public $productCode;
 
     /**
-     * @description productType
+     * @example ”“
      *
      * @var string
      */

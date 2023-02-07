@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example OSSBAG-cn-****s
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 202407022550621
+     *
      * @var int
      */
     public $orderId;

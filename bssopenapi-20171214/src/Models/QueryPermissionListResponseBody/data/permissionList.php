@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class permissionList extends Model
 {
     /**
+     * @example 2021-03-05T15:12Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example allow_synchronize_finance_identity
+     *
      * @var string
      */
     public $permissionCode;
@@ -24,6 +28,8 @@ class permissionList extends Model
     public $permissionName;
 
     /**
+     * @example 2021-03-02T15:12Z
+     *
      * @var string
      */
     public $startTime;

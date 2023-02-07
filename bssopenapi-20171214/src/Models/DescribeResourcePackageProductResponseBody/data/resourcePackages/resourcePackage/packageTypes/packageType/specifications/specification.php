@@ -15,11 +15,15 @@ class specification extends Model
     public $availableDurations;
 
     /**
+     * @example 1TB
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1024
+     *
      * @var string
      */
     public $value;

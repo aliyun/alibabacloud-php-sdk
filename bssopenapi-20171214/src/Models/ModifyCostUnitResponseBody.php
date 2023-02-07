@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyCostUnitResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class ModifyCostUnitResponseBody extends Model
     public $data;
 
     /**
+     * @example Successful!
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example F5B803CF-94D8-43AF-ADB3-D819AAD30E27
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @example 1369168081849304
+     *
      * @var int
      */
     public $bucketOwnerId;
 
     /**
+     * @example Billing/BillingItemDetailMonthly/
+     *
      * @var string
      */
     public $bucketPath;
 
     /**
+     * @example billingtestbucket
+     *
      * @var string
      */
     public $subscribeBucket;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $subscribeLanguage;
 
     /**
+     * @example 2019-10-30 15:40:11
+     *
      * @var string
      */
     public $subscribeTime;
 
     /**
+     * @example BillingItemDetailForBillingPeriod
+     *
      * @var string
      */
     public $subscribeType;

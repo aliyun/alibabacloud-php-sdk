@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class QuerySettleBillRequest extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $billOwnerId;
 
     /**
+     * @example 2018-07
+     *
      * @var string
      */
     public $billingCycle;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isDisplayLocalCurrency;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isHideZeroCharge;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example CAESEgoQCg4KCmdtdF9jcmVhdGUEARgBIkgKCQBwhGmPcAEAAAo7AzYAAAAxTDgwMDcxMjg3ZDJhNmM3ZDguTDgwMDAwMDAwMDAwMzE1MTIuTDgwMDcyZDMyZTJkYzg3N2U
+     *
      * @var string
      */
     public $nextToken;
@@ -44,26 +56,36 @@ class QuerySettleBillRequest extends Model
     public $ownerId;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example 12233
+     *
      * @var string
      */
     public $recordID;
 
     /**
+     * @example Subscription
+     *
      * @var string
      */
     public $subscriptionType;
 
     /**
+     * @example SubscriptionOrder
+     *
      * @var string
      */
     public $type;

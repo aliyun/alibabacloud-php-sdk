@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetAllExpirationDayResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -24,6 +26,8 @@ class SetAllExpirationDayResponseBody extends Model
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

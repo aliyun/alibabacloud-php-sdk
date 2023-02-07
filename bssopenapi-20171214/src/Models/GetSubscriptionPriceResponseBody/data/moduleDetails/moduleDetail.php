@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class moduleDetail extends Model
 {
     /**
+     * @example 0
+     *
      * @var float
      */
     public $costAfterDiscount;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $invoiceDiscount;
 
     /**
+     * @example PackageCode
+     *
      * @var string
      */
     public $moduleCode;
 
     /**
+     * @example 200
+     *
      * @var float
      */
     public $originalCost;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $unitPrice;

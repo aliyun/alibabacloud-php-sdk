@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 10000.00
+     *
      * @var string
      */
     public $availableAmount;
 
     /**
+     * @example 10000.00
+     *
      * @var string
      */
     public $availableCashAmount;
 
     /**
+     * @example 0.00
+     *
      * @var string
      */
     public $creditAmount;
 
     /**
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @example 0.00
+     *
      * @var string
      */
     public $mybankCreditAmount;

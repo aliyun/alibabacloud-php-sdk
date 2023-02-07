@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateResourcePackageRequest extends Model
 {
     /**
+     * @example 6
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example 2020-03-03T12:00:00Z
+     *
      * @var string
      */
     public $effectiveDate;
@@ -24,21 +28,29 @@ class CreateResourcePackageRequest extends Model
     public $ownerId;
 
     /**
+     * @example FPT_ossbag_absolute_Storage_sh
+     *
      * @var string
      */
     public $packageType;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $pricingCycle;
 
     /**
+     * @example ossbag
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example 40
+     *
      * @var string
      */
     public $specification;

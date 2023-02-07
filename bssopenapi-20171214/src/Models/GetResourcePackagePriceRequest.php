@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetResourcePackagePriceRequest extends Model
 {
     /**
+     * @example 6
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example 2020-02-10T12:00:00Z
+     *
      * @var string
      */
     public $effectiveDate;
 
     /**
+     * @example OSSBAG-cn-0xl0002
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example BUY
+     *
      * @var string
      */
     public $orderType;
@@ -34,21 +42,29 @@ class GetResourcePackagePriceRequest extends Model
     public $ownerId;
 
     /**
+     * @example FPT_ossbag_periodMonthlyAcc_NetworkOut_finance_common
+     *
      * @var string
      */
     public $packageType;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $pricingCycle;
 
     /**
+     * @example ossbag
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example 500
+     *
      * @var string
      */
     public $specification;

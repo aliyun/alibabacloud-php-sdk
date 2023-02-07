@@ -14,6 +14,8 @@ class EnableBillGenerationRequest extends Model
     public $ownerId;
 
     /**
+     * @example ess
+     *
      * @var string
      */
     public $productCode;

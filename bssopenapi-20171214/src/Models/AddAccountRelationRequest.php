@@ -14,31 +14,43 @@ class AddAccountRelationRequest extends Model
     public $childNick;
 
     /**
+     * @example 1512996702208737
+     *
      * @var int
      */
     public $childUserId;
 
     /**
+     * @example 1738376485192612
+     *
      * @var int
      */
     public $parentUserId;
 
     /**
+     * @example CHECK_TARGET_CONSUMPTION
+     *
      * @var string[]
      */
     public $permissionCodes;
 
     /**
+     * @example enterprise_group
+     *
      * @var string
      */
     public $relationType;
 
     /**
+     * @example 32324242444
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example trusteeship
+     *
      * @var string[]
      */
     public $roleCodes;

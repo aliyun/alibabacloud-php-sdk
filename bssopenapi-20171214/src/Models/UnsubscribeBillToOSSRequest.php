@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UnsubscribeBillToOSSRequest extends Model
 {
     /**
+     * @example MA
+     *
      * @var string
      */
     public $multAccountRelSubscribe;
 
     /**
+     * @example BillingItemDetailForBillingPeriod
+     *
      * @var string
      */
     public $subscribeType;
