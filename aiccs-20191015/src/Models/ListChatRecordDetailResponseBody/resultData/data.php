@@ -10,35 +10,35 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
-     */
-    public $servicerName;
-
-    /**
-     * @description 在线开始时间
-     *
-     * @var int
-     */
-    public $startTime;
-
-    /**
-     * @description 在线结束时间
+     * @example 1614578410000
      *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description 在线会话详细信息
-     *
      * @var messageList[]
      */
     public $messageList;
+
+    /**
+     * @example 123@123.com
+     *
+     * @var string
+     */
+    public $servicerName;
+
+    /**
+     * @example 1614578400000
+     *
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
-        'servicerName' => 'ServicerName',
-        'startTime'    => 'StartTime',
         'endTime'      => 'EndTime',
         'messageList'  => 'MessageList',
+        'servicerName' => 'ServicerName',
+        'startTime'    => 'StartTime',
     ];
 
     public function validate()
@@ -48,12 +48,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->servicerName) {
-            $res['ServicerName'] = $this->servicerName;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -65,6 +59,12 @@ class data extends Model
                     $res['MessageList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->servicerName) {
+            $res['ServicerName'] = $this->servicerName;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -78,12 +78,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServicerName'])) {
-            $model->servicerName = $map['ServicerName'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
@@ -95,6 +89,12 @@ class data extends Model
                     $model->messageList[$n++] = null !== $item ? messageList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ServicerName'])) {
+            $model->servicerName = $map['ServicerName'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

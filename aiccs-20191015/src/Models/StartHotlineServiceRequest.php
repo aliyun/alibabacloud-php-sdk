@@ -9,25 +9,29 @@ use AlibabaCloud\Tea\Model;
 class StartHotlineServiceRequest extends Model
 {
     /**
-     * @description js sdk中自动生成的鉴权token
+     * @example username@example.com
+     *
+     * @var string
+     */
+    public $accountName;
+
+    /**
+     * @example 46c1341e-2648-447a-9b11-70b6a298d94d
      *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example ccc_xp_pre-cn-***
+     *
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $accountName;
     protected $_name = [
+        'accountName' => 'AccountName',
         'clientToken' => 'ClientToken',
         'instanceId'  => 'InstanceId',
-        'accountName' => 'AccountName',
     ];
 
     public function validate()
@@ -37,14 +41,14 @@ class StartHotlineServiceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->accountName) {
-            $res['AccountName'] = $this->accountName;
         }
 
         return $res;
@@ -58,14 +62,14 @@ class StartHotlineServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['AccountName'])) {
-            $model->accountName = $map['AccountName'];
         }
 
         return $model;

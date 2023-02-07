@@ -9,47 +9,61 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
-     */
-    public $agentStatusCode;
-
-    /**
-     * @var string
-     */
-    public $token;
-
-    /**
+     * @example 2235****
+     *
      * @var int
      */
     public $agentId;
 
     /**
-     * @var bool
-     */
-    public $assigned;
-
-    /**
-     * @var int
-     */
-    public $restType;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $agentStatus;
 
     /**
+     * @example AgentCheckout
+     *
+     * @var string
+     */
+    public $agentStatusCode;
+
+    /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $assigned;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $restType;
+
+    /**
+     * @example ccc_xp_pre-cn-***
+     *
      * @var int
      */
     public $tenantId;
+
+    /**
+     * @example dnthF_oinHg7JMJDmKqex3Ux****
+     *
+     * @var string
+     */
+    public $token;
     protected $_name = [
-        'agentStatusCode' => 'AgentStatusCode',
-        'token'           => 'Token',
         'agentId'         => 'AgentId',
+        'agentStatus'     => 'AgentStatus',
+        'agentStatusCode' => 'AgentStatusCode',
         'assigned'        => 'Assigned',
         'restType'        => 'RestType',
-        'agentStatus'     => 'AgentStatus',
         'tenantId'        => 'TenantId',
+        'token'           => 'Token',
     ];
 
     public function validate()
@@ -59,14 +73,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->agentStatusCode) {
-            $res['AgentStatusCode'] = $this->agentStatusCode;
-        }
-        if (null !== $this->token) {
-            $res['Token'] = $this->token;
-        }
         if (null !== $this->agentId) {
             $res['AgentId'] = $this->agentId;
+        }
+        if (null !== $this->agentStatus) {
+            $res['AgentStatus'] = $this->agentStatus;
+        }
+        if (null !== $this->agentStatusCode) {
+            $res['AgentStatusCode'] = $this->agentStatusCode;
         }
         if (null !== $this->assigned) {
             $res['Assigned'] = $this->assigned;
@@ -74,11 +88,11 @@ class data extends Model
         if (null !== $this->restType) {
             $res['RestType'] = $this->restType;
         }
-        if (null !== $this->agentStatus) {
-            $res['AgentStatus'] = $this->agentStatus;
-        }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
+        }
+        if (null !== $this->token) {
+            $res['Token'] = $this->token;
         }
 
         return $res;
@@ -92,14 +106,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AgentStatusCode'])) {
-            $model->agentStatusCode = $map['AgentStatusCode'];
-        }
-        if (isset($map['Token'])) {
-            $model->token = $map['Token'];
-        }
         if (isset($map['AgentId'])) {
             $model->agentId = $map['AgentId'];
+        }
+        if (isset($map['AgentStatus'])) {
+            $model->agentStatus = $map['AgentStatus'];
+        }
+        if (isset($map['AgentStatusCode'])) {
+            $model->agentStatusCode = $map['AgentStatusCode'];
         }
         if (isset($map['Assigned'])) {
             $model->assigned = $map['Assigned'];
@@ -107,11 +121,11 @@ class data extends Model
         if (isset($map['RestType'])) {
             $model->restType = $map['RestType'];
         }
-        if (isset($map['AgentStatus'])) {
-            $model->agentStatus = $map['AgentStatus'];
-        }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
+        }
+        if (isset($map['Token'])) {
+            $model->token = $map['Token'];
         }
 
         return $model;

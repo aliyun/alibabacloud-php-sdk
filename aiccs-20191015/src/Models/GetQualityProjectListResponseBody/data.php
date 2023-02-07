@@ -10,36 +10,34 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 质检项列表
-     *
-     * @var qualityProjectList[]
-     */
-    public $qualityProjectList;
-
-    /**
-     * @description PageNo
+     * @example 1
      *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @description PageSize
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description Total
+     * @var qualityProjectList[]
+     */
+    public $qualityProjectList;
+
+    /**
+     * @example 35
      *
      * @var int
      */
     public $total;
     protected $_name = [
-        'qualityProjectList' => 'QualityProjectList',
         'pageNo'             => 'PageNo',
         'pageSize'           => 'PageSize',
+        'qualityProjectList' => 'QualityProjectList',
         'total'              => 'Total',
     ];
 
@@ -50,6 +48,12 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->qualityProjectList) {
             $res['QualityProjectList'] = [];
             if (null !== $this->qualityProjectList && \is_array($this->qualityProjectList)) {
@@ -58,12 +62,6 @@ class data extends Model
                     $res['QualityProjectList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
@@ -80,6 +78,12 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['QualityProjectList'])) {
             if (!empty($map['QualityProjectList'])) {
                 $model->qualityProjectList = [];
@@ -88,12 +92,6 @@ class data extends Model
                     $model->qualityProjectList[$n++] = null !== $item ? qualityProjectList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];

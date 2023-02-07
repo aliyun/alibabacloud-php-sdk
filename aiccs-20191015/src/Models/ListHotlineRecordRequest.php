@@ -9,23 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListHotlineRecordRequest extends Model
 {
     /**
+     * @example 100365558
+     *
+     * @var string
+     */
+    public $callId;
+
+    /**
+     * @example 46c1341e-2648-447a-9b11-70b6a298d94d
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example ccc_xp_pre-cn-***
+     *
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $callId;
     protected $_name = [
+        'callId'      => 'CallId',
         'clientToken' => 'ClientToken',
         'instanceId'  => 'InstanceId',
-        'callId'      => 'CallId',
     ];
 
     public function validate()
@@ -35,14 +41,14 @@ class ListHotlineRecordRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->callId) {
+            $res['CallId'] = $this->callId;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->callId) {
-            $res['CallId'] = $this->callId;
         }
 
         return $res;
@@ -56,14 +62,14 @@ class ListHotlineRecordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CallId'])) {
+            $model->callId = $map['CallId'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['CallId'])) {
-            $model->callId = $map['CallId'];
         }
 
         return $model;

@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetDepGroupTreeDataRequest extends Model
 {
     /**
-     * @description 租户实例ID
-     *
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @description 坐席ID
+     * @example 123456
      *
      * @var int
      */
     public $agentId;
+
+    /**
+     * @example ccc_xp_pre-cn-***
+     *
+     * @var string
+     */
+    public $instanceId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
         'agentId'    => 'AgentId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class GetDepGroupTreeDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->agentId) {
             $res['AgentId'] = $this->agentId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class GetDepGroupTreeDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['AgentId'])) {
             $model->agentId = $map['AgentId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

@@ -9,15 +9,13 @@ use AlibabaCloud\Tea\Model;
 class outboundRangeList extends Model
 {
     /**
-     * @description 生效部门id
+     * @example 123456
      *
      * @var int
      */
     public $departmentId;
 
     /**
-     * @description 生效技能组列表（部门123下）
-     *
      * @var int[]
      */
     public $groupIdList;

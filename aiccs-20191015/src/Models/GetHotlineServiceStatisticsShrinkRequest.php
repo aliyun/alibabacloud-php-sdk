@@ -9,101 +9,95 @@ use AlibabaCloud\Tea\Model;
 class GetHotlineServiceStatisticsShrinkRequest extends Model
 {
     /**
-     * @description AICCS实例ID，在智能联络中心控制台上可以看到
-     *
      * @var string
      */
-    public $instanceId;
+    public $agentIdsShrink;
 
     /**
-     * @description 开始日期时间戳（毫秒）
-     *
-     * @var int
-     */
-    public $startDate;
-
-    /**
-     * @description 结束日期时间戳（毫秒）
-     *
-     * @var int
-     */
-    public $endDate;
-
-    /**
-     * @description 每页大小（默认为10)
-     *
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @description 当前页（默认为1）
+     * @example 1
      *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description 坐席id列表
-     *
-     * @var string
-     */
-    public $agentIdsShrink;
-
-    /**
-     * @description 部门id列表
-     *
      * @var string
      */
     public $depIdsShrink;
 
     /**
-     * @description 技能组id列表
+     * @example 1617761765000
      *
-     * @var string
+     * @var int
      */
-    public $groupIdsShrink;
+    public $endDate;
 
     /**
-     * @description 时间纬度类型
-     *
-     * @var string
-     */
-    public $timeLatitudeType;
-
-    /**
-     * @description 是否根据坐席分组
+     * @example true
      *
      * @var bool
      */
     public $existAgentGrouping;
 
     /**
-     * @description 是否根据部门分组
+     * @example true
      *
      * @var bool
      */
     public $existDepartmentGrouping;
 
     /**
-     * @description 是否根据技能组分组
+     * @example true
      *
      * @var bool
      */
     public $existSkillGroupGrouping;
+
+    /**
+     * @var string
+     */
+    public $groupIdsShrink;
+
+    /**
+     * @example ccc_xp_pre-cn-***
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @example 1615083365000
+     *
+     * @var int
+     */
+    public $startDate;
+
+    /**
+     * @example minute
+     *
+     * @var string
+     */
+    public $timeLatitudeType;
     protected $_name = [
-        'instanceId'              => 'InstanceId',
-        'startDate'               => 'StartDate',
-        'endDate'                 => 'EndDate',
-        'pageSize'                => 'PageSize',
-        'currentPage'             => 'CurrentPage',
         'agentIdsShrink'          => 'AgentIds',
+        'currentPage'             => 'CurrentPage',
         'depIdsShrink'            => 'DepIds',
-        'groupIdsShrink'          => 'GroupIds',
-        'timeLatitudeType'        => 'TimeLatitudeType',
+        'endDate'                 => 'EndDate',
         'existAgentGrouping'      => 'ExistAgentGrouping',
         'existDepartmentGrouping' => 'ExistDepartmentGrouping',
         'existSkillGroupGrouping' => 'ExistSkillGroupGrouping',
+        'groupIdsShrink'          => 'GroupIds',
+        'instanceId'              => 'InstanceId',
+        'pageSize'                => 'PageSize',
+        'startDate'               => 'StartDate',
+        'timeLatitudeType'        => 'TimeLatitudeType',
     ];
 
     public function validate()
@@ -113,32 +107,17 @@ class GetHotlineServiceStatisticsShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->startDate) {
-            $res['StartDate'] = $this->startDate;
-        }
-        if (null !== $this->endDate) {
-            $res['EndDate'] = $this->endDate;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->agentIdsShrink) {
+            $res['AgentIds'] = $this->agentIdsShrink;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-        if (null !== $this->agentIdsShrink) {
-            $res['AgentIds'] = $this->agentIdsShrink;
-        }
         if (null !== $this->depIdsShrink) {
             $res['DepIds'] = $this->depIdsShrink;
         }
-        if (null !== $this->groupIdsShrink) {
-            $res['GroupIds'] = $this->groupIdsShrink;
-        }
-        if (null !== $this->timeLatitudeType) {
-            $res['TimeLatitudeType'] = $this->timeLatitudeType;
+        if (null !== $this->endDate) {
+            $res['EndDate'] = $this->endDate;
         }
         if (null !== $this->existAgentGrouping) {
             $res['ExistAgentGrouping'] = $this->existAgentGrouping;
@@ -148,6 +127,21 @@ class GetHotlineServiceStatisticsShrinkRequest extends Model
         }
         if (null !== $this->existSkillGroupGrouping) {
             $res['ExistSkillGroupGrouping'] = $this->existSkillGroupGrouping;
+        }
+        if (null !== $this->groupIdsShrink) {
+            $res['GroupIds'] = $this->groupIdsShrink;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->startDate) {
+            $res['StartDate'] = $this->startDate;
+        }
+        if (null !== $this->timeLatitudeType) {
+            $res['TimeLatitudeType'] = $this->timeLatitudeType;
         }
 
         return $res;
@@ -161,32 +155,17 @@ class GetHotlineServiceStatisticsShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['StartDate'])) {
-            $model->startDate = $map['StartDate'];
-        }
-        if (isset($map['EndDate'])) {
-            $model->endDate = $map['EndDate'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['AgentIds'])) {
+            $model->agentIdsShrink = $map['AgentIds'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-        if (isset($map['AgentIds'])) {
-            $model->agentIdsShrink = $map['AgentIds'];
-        }
         if (isset($map['DepIds'])) {
             $model->depIdsShrink = $map['DepIds'];
         }
-        if (isset($map['GroupIds'])) {
-            $model->groupIdsShrink = $map['GroupIds'];
-        }
-        if (isset($map['TimeLatitudeType'])) {
-            $model->timeLatitudeType = $map['TimeLatitudeType'];
+        if (isset($map['EndDate'])) {
+            $model->endDate = $map['EndDate'];
         }
         if (isset($map['ExistAgentGrouping'])) {
             $model->existAgentGrouping = $map['ExistAgentGrouping'];
@@ -196,6 +175,21 @@ class GetHotlineServiceStatisticsShrinkRequest extends Model
         }
         if (isset($map['ExistSkillGroupGrouping'])) {
             $model->existSkillGroupGrouping = $map['ExistSkillGroupGrouping'];
+        }
+        if (isset($map['GroupIds'])) {
+            $model->groupIdsShrink = $map['GroupIds'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['StartDate'])) {
+            $model->startDate = $map['StartDate'];
+        }
+        if (isset($map['TimeLatitudeType'])) {
+            $model->timeLatitudeType = $map['TimeLatitudeType'];
         }
 
         return $model;

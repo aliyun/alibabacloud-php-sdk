@@ -9,53 +9,51 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 会话ID
+     * @example 100****2077
      *
      * @var string
      */
     public $acid;
 
     /**
-     * @description 发送方类型（1：会员，2：坐席）
-     *
-     * @var int
+     * @var string
      */
-    public $senderType;
+    public $content;
 
     /**
-     * @description 开始时间
-     *
-     * @var int
-     */
-    public $startTime;
-
-    /**
-     * @description 结束时间
+     * @example 1623738027480
      *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description 记录id
+     * @example 11deca999****
      *
      * @var string
      */
     public $mid;
 
     /**
-     * @description 会话内容
+     * @example 1
      *
-     * @var string
+     * @var int
      */
-    public $content;
+    public $senderType;
+
+    /**
+     * @example 1623738026460
+     *
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
         'acid'       => 'Acid',
-        'senderType' => 'SenderType',
-        'startTime'  => 'StartTime',
+        'content'    => 'Content',
         'endTime'    => 'EndTime',
         'mid'        => 'Mid',
-        'content'    => 'Content',
+        'senderType' => 'SenderType',
+        'startTime'  => 'StartTime',
     ];
 
     public function validate()
@@ -68,11 +66,8 @@ class data extends Model
         if (null !== $this->acid) {
             $res['Acid'] = $this->acid;
         }
-        if (null !== $this->senderType) {
-            $res['SenderType'] = $this->senderType;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -80,8 +75,11 @@ class data extends Model
         if (null !== $this->mid) {
             $res['Mid'] = $this->mid;
         }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
+        if (null !== $this->senderType) {
+            $res['SenderType'] = $this->senderType;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -98,11 +96,8 @@ class data extends Model
         if (isset($map['Acid'])) {
             $model->acid = $map['Acid'];
         }
-        if (isset($map['SenderType'])) {
-            $model->senderType = $map['SenderType'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
@@ -110,8 +105,11 @@ class data extends Model
         if (isset($map['Mid'])) {
             $model->mid = $map['Mid'];
         }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
+        if (isset($map['SenderType'])) {
+            $model->senderType = $map['SenderType'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

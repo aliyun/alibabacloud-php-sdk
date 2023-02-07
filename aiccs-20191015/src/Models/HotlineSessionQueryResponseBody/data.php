@@ -15,23 +15,29 @@ class data extends Model
     public $callDetailRecord;
 
     /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @example 26
+     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'callDetailRecord' => 'CallDetailRecord',
-        'pageSize'         => 'PageSize',
         'pageNumber'       => 'PageNumber',
+        'pageSize'         => 'PageSize',
         'totalCount'       => 'TotalCount',
     ];
 
@@ -51,11 +57,11 @@ class data extends Model
                 }
             }
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -81,11 +87,11 @@ class data extends Model
                 }
             }
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

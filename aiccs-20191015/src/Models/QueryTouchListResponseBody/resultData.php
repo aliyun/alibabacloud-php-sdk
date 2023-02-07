@@ -10,16 +10,8 @@ use AlibabaCloud\Tea\Model;
 class resultData extends Model
 {
     /**
-     * @var int
-     */
-    public $totalResults;
-
-    /**
-     * @var int
-     */
-    public $nextPage;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -30,33 +22,55 @@ class resultData extends Model
     public $data;
 
     /**
-     * @var int
+     * @example false
+     *
+     * @var bool
      */
-    public $totalPage;
+    public $empty;
 
     /**
+     * @example 2
+     *
      * @var int
      */
-    public $previousPage;
+    public $nextPage;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $onePageSize;
 
     /**
-     * @var bool
+     * @example 2
+     *
+     * @var int
      */
-    public $empty;
+    public $previousPage;
+
+    /**
+     * @example 4
+     *
+     * @var int
+     */
+    public $totalPage;
+
+    /**
+     * @example 100
+     *
+     * @var int
+     */
+    public $totalResults;
     protected $_name = [
-        'totalResults' => 'TotalResults',
-        'nextPage'     => 'NextPage',
         'currentPage'  => 'CurrentPage',
         'data'         => 'Data',
-        'totalPage'    => 'TotalPage',
-        'previousPage' => 'PreviousPage',
-        'onePageSize'  => 'OnePageSize',
         'empty'        => 'Empty',
+        'nextPage'     => 'NextPage',
+        'onePageSize'  => 'OnePageSize',
+        'previousPage' => 'PreviousPage',
+        'totalPage'    => 'TotalPage',
+        'totalResults' => 'TotalResults',
     ];
 
     public function validate()
@@ -66,12 +80,6 @@ class resultData extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalResults) {
-            $res['TotalResults'] = $this->totalResults;
-        }
-        if (null !== $this->nextPage) {
-            $res['NextPage'] = $this->nextPage;
-        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -84,17 +92,23 @@ class resultData extends Model
                 }
             }
         }
-        if (null !== $this->totalPage) {
-            $res['TotalPage'] = $this->totalPage;
+        if (null !== $this->empty) {
+            $res['Empty'] = $this->empty;
         }
-        if (null !== $this->previousPage) {
-            $res['PreviousPage'] = $this->previousPage;
+        if (null !== $this->nextPage) {
+            $res['NextPage'] = $this->nextPage;
         }
         if (null !== $this->onePageSize) {
             $res['OnePageSize'] = $this->onePageSize;
         }
-        if (null !== $this->empty) {
-            $res['Empty'] = $this->empty;
+        if (null !== $this->previousPage) {
+            $res['PreviousPage'] = $this->previousPage;
+        }
+        if (null !== $this->totalPage) {
+            $res['TotalPage'] = $this->totalPage;
+        }
+        if (null !== $this->totalResults) {
+            $res['TotalResults'] = $this->totalResults;
         }
 
         return $res;
@@ -108,12 +122,6 @@ class resultData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalResults'])) {
-            $model->totalResults = $map['TotalResults'];
-        }
-        if (isset($map['NextPage'])) {
-            $model->nextPage = $map['NextPage'];
-        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
@@ -126,17 +134,23 @@ class resultData extends Model
                 }
             }
         }
-        if (isset($map['TotalPage'])) {
-            $model->totalPage = $map['TotalPage'];
+        if (isset($map['Empty'])) {
+            $model->empty = $map['Empty'];
         }
-        if (isset($map['PreviousPage'])) {
-            $model->previousPage = $map['PreviousPage'];
+        if (isset($map['NextPage'])) {
+            $model->nextPage = $map['NextPage'];
         }
         if (isset($map['OnePageSize'])) {
             $model->onePageSize = $map['OnePageSize'];
         }
-        if (isset($map['Empty'])) {
-            $model->empty = $map['Empty'];
+        if (isset($map['PreviousPage'])) {
+            $model->previousPage = $map['PreviousPage'];
+        }
+        if (isset($map['TotalPage'])) {
+            $model->totalPage = $map['TotalPage'];
+        }
+        if (isset($map['TotalResults'])) {
+            $model->totalResults = $map['TotalResults'];
         }
 
         return $model;

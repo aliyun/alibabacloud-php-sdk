@@ -9,53 +9,47 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 昵称
-     *
+     * @var mixed[]
+     */
+    public $customizeFields;
+
+    /**
      * @var string
      */
     public $nick;
 
     /**
-     * @description 头像
-     *
-     * @var string
-     */
-    public $photo;
-
-    /**
-     * @description 会员ID
-     *
-     * @var int
-     */
-    public $userId;
-
-    /**
-     * @description 真实姓名
-     *
-     * @var string
-     */
-    public $realName;
-
-    /**
-     * @description 外部ID
+     * @example 6666666
      *
      * @var string
      */
     public $outerId;
 
     /**
-     * @description 自定义字段
+     * @example https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLSW7XPFlJDwVunXP8pr84TvltwtLlNqTlOVSFeM3bCgn57mAB4JuZZmvMW0qicqW0PyzyUdZpxiaFQ
      *
-     * @var mixed[]
+     * @var string
      */
-    public $customizeFields;
+    public $photo;
+
+    /**
+     * @var string
+     */
+    public $realName;
+
+    /**
+     * @example 823456789023
+     *
+     * @var int
+     */
+    public $userId;
     protected $_name = [
-        'nick'            => 'Nick',
-        'photo'           => 'Photo',
-        'userId'          => 'UserId',
-        'realName'        => 'RealName',
-        'outerId'         => 'OuterId',
         'customizeFields' => 'CustomizeFields',
+        'nick'            => 'Nick',
+        'outerId'         => 'OuterId',
+        'photo'           => 'Photo',
+        'realName'        => 'RealName',
+        'userId'          => 'UserId',
     ];
 
     public function validate()
@@ -65,23 +59,23 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->customizeFields) {
+            $res['CustomizeFields'] = $this->customizeFields;
+        }
         if (null !== $this->nick) {
             $res['Nick'] = $this->nick;
-        }
-        if (null !== $this->photo) {
-            $res['Photo'] = $this->photo;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->realName) {
-            $res['RealName'] = $this->realName;
         }
         if (null !== $this->outerId) {
             $res['OuterId'] = $this->outerId;
         }
-        if (null !== $this->customizeFields) {
-            $res['CustomizeFields'] = $this->customizeFields;
+        if (null !== $this->photo) {
+            $res['Photo'] = $this->photo;
+        }
+        if (null !== $this->realName) {
+            $res['RealName'] = $this->realName;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -95,23 +89,23 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomizeFields'])) {
+            $model->customizeFields = $map['CustomizeFields'];
+        }
         if (isset($map['Nick'])) {
             $model->nick = $map['Nick'];
-        }
-        if (isset($map['Photo'])) {
-            $model->photo = $map['Photo'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['RealName'])) {
-            $model->realName = $map['RealName'];
         }
         if (isset($map['OuterId'])) {
             $model->outerId = $map['OuterId'];
         }
-        if (isset($map['CustomizeFields'])) {
-            $model->customizeFields = $map['CustomizeFields'];
+        if (isset($map['Photo'])) {
+            $model->photo = $map['Photo'];
+        }
+        if (isset($map['RealName'])) {
+            $model->realName = $map['RealName'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

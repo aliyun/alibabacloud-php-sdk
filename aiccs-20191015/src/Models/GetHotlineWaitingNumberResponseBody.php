@@ -9,33 +9,43 @@ use AlibabaCloud\Tea\Model;
 class GetHotlineWaitingNumberResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
-     * @var string
-     */
-    public $message;
-
-    /**
+     * @example 2
+     *
      * @var int
      */
     public $data;
 
     /**
+     * @example xxxx
+     *
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @example EE338D98-9BD3-4413-B165
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;
     protected $_name = [
         'code'      => 'Code',
-        'message'   => 'Message',
         'data'      => 'Data',
+        'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
     ];
@@ -50,11 +60,11 @@ class GetHotlineWaitingNumberResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
         if (null !== $this->data) {
             $res['Data'] = $this->data;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -77,11 +87,11 @@ class GetHotlineWaitingNumberResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

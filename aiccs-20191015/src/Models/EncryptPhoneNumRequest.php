@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class EncryptPhoneNumRequest extends Model
 {
     /**
-     * @description 实例Id
+     * @example ccc_xp_pre***
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 号码明文
+     * @example 130****0000
      *
      * @var string
      */

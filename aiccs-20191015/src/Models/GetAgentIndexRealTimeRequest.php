@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetAgentIndexRealTimeRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
      * @var int
      */
     public $currentPage;
@@ -32,12 +22,22 @@ class GetAgentIndexRealTimeRequest extends Model
      * @var int[]
      */
     public $groupIds;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
     protected $_name = [
-        'instanceId'  => 'InstanceId',
-        'pageSize'    => 'PageSize',
         'currentPage' => 'CurrentPage',
         'depIds'      => 'DepIds',
         'groupIds'    => 'GroupIds',
+        'instanceId'  => 'InstanceId',
+        'pageSize'    => 'PageSize',
     ];
 
     public function validate()
@@ -47,12 +47,6 @@ class GetAgentIndexRealTimeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -61,6 +55,12 @@ class GetAgentIndexRealTimeRequest extends Model
         }
         if (null !== $this->groupIds) {
             $res['GroupIds'] = $this->groupIds;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -74,12 +74,6 @@ class GetAgentIndexRealTimeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
@@ -92,6 +86,12 @@ class GetAgentIndexRealTimeRequest extends Model
             if (!empty($map['GroupIds'])) {
                 $model->groupIds = $map['GroupIds'];
             }
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

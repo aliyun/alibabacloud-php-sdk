@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateSkillGroupRequest extends Model
 {
     /**
+     * @example 46c1341e-2648-447a-9b11-70b6a298d94d
+     *
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var int
-     */
-    public $skillGroupId;
-
-    /**
-     * @var string
-     */
-    public $skillGroupName;
+    public $clientToken;
 
     /**
      * @var string
@@ -34,16 +26,30 @@ class UpdateSkillGroupRequest extends Model
     public $displayName;
 
     /**
+     * @example ccc_xp_pre-cn-***
+     *
      * @var string
      */
-    public $clientToken;
+    public $instanceId;
+
+    /**
+     * @example 123456
+     *
+     * @var int
+     */
+    public $skillGroupId;
+
+    /**
+     * @var string
+     */
+    public $skillGroupName;
     protected $_name = [
+        'clientToken'    => 'ClientToken',
+        'description'    => 'Description',
+        'displayName'    => 'DisplayName',
         'instanceId'     => 'InstanceId',
         'skillGroupId'   => 'SkillGroupId',
         'skillGroupName' => 'SkillGroupName',
-        'description'    => 'Description',
-        'displayName'    => 'DisplayName',
-        'clientToken'    => 'ClientToken',
     ];
 
     public function validate()
@@ -53,6 +59,15 @@ class UpdateSkillGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->displayName) {
+            $res['DisplayName'] = $this->displayName;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -61,15 +76,6 @@ class UpdateSkillGroupRequest extends Model
         }
         if (null !== $this->skillGroupName) {
             $res['SkillGroupName'] = $this->skillGroupName;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->displayName) {
-            $res['DisplayName'] = $this->displayName;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -83,6 +89,15 @@ class UpdateSkillGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['DisplayName'])) {
+            $model->displayName = $map['DisplayName'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -91,15 +106,6 @@ class UpdateSkillGroupRequest extends Model
         }
         if (isset($map['SkillGroupName'])) {
             $model->skillGroupName = $map['SkillGroupName'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['DisplayName'])) {
-            $model->displayName = $map['DisplayName'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

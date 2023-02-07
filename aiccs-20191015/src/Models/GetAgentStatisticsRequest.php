@@ -9,85 +9,81 @@ use AlibabaCloud\Tea\Model;
 class GetAgentStatisticsRequest extends Model
 {
     /**
-     * @description AICCS实例ID，在智能联络中心控制台上可以看到
-     *
-     * @var string
+     * @var int[]
      */
-    public $instanceId;
+    public $agentIds;
 
     /**
-     * @description 开始日期时间戳（毫秒）
-     *
-     * @var int
-     */
-    public $startDate;
-
-    /**
-     * @description 结束日期时间戳（毫秒）
-     *
-     * @var int
-     */
-    public $endDate;
-
-    /**
-     * @description 每页大小（默认为10)
-     *
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @description 当前页（默认为1）
+     * @example 1
      *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description 坐席id列表
-     *
-     * @var int[]
-     */
-    public $agentIds;
-
-    /**
-     * @description 部门id列表
-     *
      * @var int[]
      */
     public $depIds;
 
     /**
-     * @description 时间纬度类型
+     * @example 1617761765000
      *
-     * @var string
+     * @var int
      */
-    public $timeLatitudeType;
+    public $endDate;
 
     /**
-     * @description 是否根据部门分组
+     * @example false
+     *
+     * @var bool
+     */
+    public $existAgentGrouping;
+
+    /**
+     * @example false
      *
      * @var bool
      */
     public $existDepartmentGrouping;
 
     /**
-     * @description 是否根据坐席分组
+     * @example ccc_xp_pre-cn-***
      *
-     * @var bool
+     * @var string
      */
-    public $existAgentGrouping;
+    public $instanceId;
+
+    /**
+     * @example 20
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @example 1615083365000
+     *
+     * @var int
+     */
+    public $startDate;
+
+    /**
+     * @example minute
+     *
+     * @var string
+     */
+    public $timeLatitudeType;
     protected $_name = [
-        'instanceId'              => 'InstanceId',
-        'startDate'               => 'StartDate',
-        'endDate'                 => 'EndDate',
-        'pageSize'                => 'PageSize',
-        'currentPage'             => 'CurrentPage',
         'agentIds'                => 'AgentIds',
+        'currentPage'             => 'CurrentPage',
         'depIds'                  => 'DepIds',
-        'timeLatitudeType'        => 'TimeLatitudeType',
-        'existDepartmentGrouping' => 'ExistDepartmentGrouping',
+        'endDate'                 => 'EndDate',
         'existAgentGrouping'      => 'ExistAgentGrouping',
+        'existDepartmentGrouping' => 'ExistDepartmentGrouping',
+        'instanceId'              => 'InstanceId',
+        'pageSize'                => 'PageSize',
+        'startDate'               => 'StartDate',
+        'timeLatitudeType'        => 'TimeLatitudeType',
     ];
 
     public function validate()
@@ -97,35 +93,35 @@ class GetAgentStatisticsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->startDate) {
-            $res['StartDate'] = $this->startDate;
-        }
-        if (null !== $this->endDate) {
-            $res['EndDate'] = $this->endDate;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->agentIds) {
+            $res['AgentIds'] = $this->agentIds;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-        if (null !== $this->agentIds) {
-            $res['AgentIds'] = $this->agentIds;
-        }
         if (null !== $this->depIds) {
             $res['DepIds'] = $this->depIds;
         }
-        if (null !== $this->timeLatitudeType) {
-            $res['TimeLatitudeType'] = $this->timeLatitudeType;
+        if (null !== $this->endDate) {
+            $res['EndDate'] = $this->endDate;
+        }
+        if (null !== $this->existAgentGrouping) {
+            $res['ExistAgentGrouping'] = $this->existAgentGrouping;
         }
         if (null !== $this->existDepartmentGrouping) {
             $res['ExistDepartmentGrouping'] = $this->existDepartmentGrouping;
         }
-        if (null !== $this->existAgentGrouping) {
-            $res['ExistAgentGrouping'] = $this->existAgentGrouping;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->startDate) {
+            $res['StartDate'] = $this->startDate;
+        }
+        if (null !== $this->timeLatitudeType) {
+            $res['TimeLatitudeType'] = $this->timeLatitudeType;
         }
 
         return $res;
@@ -139,39 +135,39 @@ class GetAgentStatisticsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['StartDate'])) {
-            $model->startDate = $map['StartDate'];
-        }
-        if (isset($map['EndDate'])) {
-            $model->endDate = $map['EndDate'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
-        }
         if (isset($map['AgentIds'])) {
             if (!empty($map['AgentIds'])) {
                 $model->agentIds = $map['AgentIds'];
             }
+        }
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['DepIds'])) {
             if (!empty($map['DepIds'])) {
                 $model->depIds = $map['DepIds'];
             }
         }
-        if (isset($map['TimeLatitudeType'])) {
-            $model->timeLatitudeType = $map['TimeLatitudeType'];
+        if (isset($map['EndDate'])) {
+            $model->endDate = $map['EndDate'];
+        }
+        if (isset($map['ExistAgentGrouping'])) {
+            $model->existAgentGrouping = $map['ExistAgentGrouping'];
         }
         if (isset($map['ExistDepartmentGrouping'])) {
             $model->existDepartmentGrouping = $map['ExistDepartmentGrouping'];
         }
-        if (isset($map['ExistAgentGrouping'])) {
-            $model->existAgentGrouping = $map['ExistAgentGrouping'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['StartDate'])) {
+            $model->startDate = $map['StartDate'];
+        }
+        if (isset($map['TimeLatitudeType'])) {
+            $model->timeLatitudeType = $map['TimeLatitudeType'];
         }
 
         return $model;

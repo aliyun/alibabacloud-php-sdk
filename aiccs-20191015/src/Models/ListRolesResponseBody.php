@@ -10,44 +10,42 @@ use AlibabaCloud\Tea\Model;
 class ListRolesResponseBody extends Model
 {
     /**
-     * @description message
-     *
-     * @var string
+     * @var data[]
      */
-    public $message;
+    public $data;
 
     /**
-     * @description requestId
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @description httpStatusCode
+     * @example 200
      *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @description data
+     * @example xxxx
      *
-     * @var data[]
+     * @var string
      */
-    public $data;
+    public $message;
 
     /**
-     * @description success
+     * @example EE338D98-9BD3-4413-B165
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @example true
      *
      * @var bool
      */
     public $success;
     protected $_name = [
+        'data'           => 'Data',
+        'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
         'requestId'      => 'RequestId',
-        'httpStatusCode' => 'HttpStatusCode',
-        'data'           => 'Data',
         'success'        => 'Success',
     ];
 
@@ -58,15 +56,6 @@ class ListRolesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
-        }
         if (null !== $this->data) {
             $res['Data'] = [];
             if (null !== $this->data && \is_array($this->data)) {
@@ -75,6 +64,15 @@ class ListRolesResponseBody extends Model
                     $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -91,15 +89,6 @@ class ListRolesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
-        }
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
@@ -108,6 +97,15 @@ class ListRolesResponseBody extends Model
                     $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

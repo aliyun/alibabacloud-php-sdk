@@ -9,23 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListSkillGroupRequest extends Model
 {
     /**
+     * @example 2
+     *
+     * @var int
+     */
+    public $channelType;
+
+    /**
+     * @example 46c1341e-2648-447a-9b11-70b6a298d94d
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example ccc_xp_pre-cn-***
+     *
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @var int
-     */
-    public $channelType;
     protected $_name = [
+        'channelType' => 'ChannelType',
         'clientToken' => 'ClientToken',
         'instanceId'  => 'InstanceId',
-        'channelType' => 'ChannelType',
     ];
 
     public function validate()
@@ -35,14 +41,14 @@ class ListSkillGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->channelType) {
+            $res['ChannelType'] = $this->channelType;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->channelType) {
-            $res['ChannelType'] = $this->channelType;
         }
 
         return $res;
@@ -56,14 +62,14 @@ class ListSkillGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChannelType'])) {
+            $model->channelType = $map['ChannelType'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['ChannelType'])) {
-            $model->channelType = $map['ChannelType'];
         }
 
         return $model;

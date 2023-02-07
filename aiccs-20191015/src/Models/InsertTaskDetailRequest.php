@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class InsertTaskDetailRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $outboundTaskId;
-
-    /**
      * @var string
      */
     public $callInfos;
@@ -22,10 +17,15 @@ class InsertTaskDetailRequest extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var int
+     */
+    public $outboundTaskId;
     protected $_name = [
-        'outboundTaskId' => 'OutboundTaskId',
         'callInfos'      => 'CallInfos',
         'instanceId'     => 'InstanceId',
+        'outboundTaskId' => 'OutboundTaskId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class InsertTaskDetailRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->outboundTaskId) {
-            $res['OutboundTaskId'] = $this->outboundTaskId;
-        }
         if (null !== $this->callInfos) {
             $res['CallInfos'] = $this->callInfos;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->outboundTaskId) {
+            $res['OutboundTaskId'] = $this->outboundTaskId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class InsertTaskDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OutboundTaskId'])) {
-            $model->outboundTaskId = $map['OutboundTaskId'];
-        }
         if (isset($map['CallInfos'])) {
             $model->callInfos = $map['CallInfos'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OutboundTaskId'])) {
+            $model->outboundTaskId = $map['OutboundTaskId'];
         }
 
         return $model;

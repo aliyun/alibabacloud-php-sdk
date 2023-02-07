@@ -11,6 +11,21 @@ class GetQualityResultRequest extends Model
     /**
      * @var string
      */
+    public $channelType;
+
+    /**
+     * @var int[]
+     */
+    public $groupIds;
+
+    /**
+     * @var int
+     */
+    public $hitStatus;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -24,9 +39,14 @@ class GetQualityResultRequest extends Model
     public $pageSize;
 
     /**
-     * @var string
+     * @var int[]
      */
-    public $touchStartTime;
+    public $projectIds;
+
+    /**
+     * @var int[]
+     */
+    public $qualityRuleIds;
 
     /**
      * @var string
@@ -36,38 +56,18 @@ class GetQualityResultRequest extends Model
     /**
      * @var string
      */
-    public $channelType;
-
-    /**
-     * @var int
-     */
-    public $hitStatus;
-
-    /**
-     * @var int[]
-     */
-    public $groupIds;
-
-    /**
-     * @var int[]
-     */
-    public $qualityRuleIds;
-
-    /**
-     * @var int[]
-     */
-    public $projectIds;
+    public $touchStartTime;
     protected $_name = [
+        'channelType'    => 'ChannelType',
+        'groupIds'       => 'GroupIds',
+        'hitStatus'      => 'HitStatus',
         'instanceId'     => 'InstanceId',
         'pageNo'         => 'PageNo',
         'pageSize'       => 'PageSize',
-        'touchStartTime' => 'TouchStartTime',
-        'touchEndTime'   => 'TouchEndTime',
-        'channelType'    => 'ChannelType',
-        'hitStatus'      => 'HitStatus',
-        'groupIds'       => 'GroupIds',
-        'qualityRuleIds' => 'QualityRuleIds',
         'projectIds'     => 'ProjectIds',
+        'qualityRuleIds' => 'QualityRuleIds',
+        'touchEndTime'   => 'TouchEndTime',
+        'touchStartTime' => 'TouchStartTime',
     ];
 
     public function validate()
@@ -77,6 +77,15 @@ class GetQualityResultRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->channelType) {
+            $res['ChannelType'] = $this->channelType;
+        }
+        if (null !== $this->groupIds) {
+            $res['GroupIds'] = $this->groupIds;
+        }
+        if (null !== $this->hitStatus) {
+            $res['HitStatus'] = $this->hitStatus;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -86,26 +95,17 @@ class GetQualityResultRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->touchStartTime) {
-            $res['TouchStartTime'] = $this->touchStartTime;
-        }
-        if (null !== $this->touchEndTime) {
-            $res['TouchEndTime'] = $this->touchEndTime;
-        }
-        if (null !== $this->channelType) {
-            $res['ChannelType'] = $this->channelType;
-        }
-        if (null !== $this->hitStatus) {
-            $res['HitStatus'] = $this->hitStatus;
-        }
-        if (null !== $this->groupIds) {
-            $res['GroupIds'] = $this->groupIds;
+        if (null !== $this->projectIds) {
+            $res['ProjectIds'] = $this->projectIds;
         }
         if (null !== $this->qualityRuleIds) {
             $res['QualityRuleIds'] = $this->qualityRuleIds;
         }
-        if (null !== $this->projectIds) {
-            $res['ProjectIds'] = $this->projectIds;
+        if (null !== $this->touchEndTime) {
+            $res['TouchEndTime'] = $this->touchEndTime;
+        }
+        if (null !== $this->touchStartTime) {
+            $res['TouchStartTime'] = $this->touchStartTime;
         }
 
         return $res;
@@ -119,6 +119,17 @@ class GetQualityResultRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChannelType'])) {
+            $model->channelType = $map['ChannelType'];
+        }
+        if (isset($map['GroupIds'])) {
+            if (!empty($map['GroupIds'])) {
+                $model->groupIds = $map['GroupIds'];
+            }
+        }
+        if (isset($map['HitStatus'])) {
+            $model->hitStatus = $map['HitStatus'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -128,21 +139,9 @@ class GetQualityResultRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TouchStartTime'])) {
-            $model->touchStartTime = $map['TouchStartTime'];
-        }
-        if (isset($map['TouchEndTime'])) {
-            $model->touchEndTime = $map['TouchEndTime'];
-        }
-        if (isset($map['ChannelType'])) {
-            $model->channelType = $map['ChannelType'];
-        }
-        if (isset($map['HitStatus'])) {
-            $model->hitStatus = $map['HitStatus'];
-        }
-        if (isset($map['GroupIds'])) {
-            if (!empty($map['GroupIds'])) {
-                $model->groupIds = $map['GroupIds'];
+        if (isset($map['ProjectIds'])) {
+            if (!empty($map['ProjectIds'])) {
+                $model->projectIds = $map['ProjectIds'];
             }
         }
         if (isset($map['QualityRuleIds'])) {
@@ -150,10 +149,11 @@ class GetQualityResultRequest extends Model
                 $model->qualityRuleIds = $map['QualityRuleIds'];
             }
         }
-        if (isset($map['ProjectIds'])) {
-            if (!empty($map['ProjectIds'])) {
-                $model->projectIds = $map['ProjectIds'];
-            }
+        if (isset($map['TouchEndTime'])) {
+            $model->touchEndTime = $map['TouchEndTime'];
+        }
+        if (isset($map['TouchStartTime'])) {
+            $model->touchStartTime = $map['TouchStartTime'];
         }
 
         return $model;

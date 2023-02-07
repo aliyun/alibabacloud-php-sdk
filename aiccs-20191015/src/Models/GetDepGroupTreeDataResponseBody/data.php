@@ -10,28 +10,24 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description depGroupName
-     *
-     * @var string
-     */
-    public $depGroupName;
-
-    /**
-     * @description depGroupId
+     * @example 10
      *
      * @var string
      */
     public $depGroupId;
 
     /**
-     * @description groupDTOS
-     *
+     * @var string
+     */
+    public $depGroupName;
+
+    /**
      * @var groupDTOS[]
      */
     public $groupDTOS;
     protected $_name = [
-        'depGroupName' => 'DepGroupName',
         'depGroupId'   => 'DepGroupId',
+        'depGroupName' => 'DepGroupName',
         'groupDTOS'    => 'GroupDTOS',
     ];
 
@@ -42,11 +38,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->depGroupName) {
-            $res['DepGroupName'] = $this->depGroupName;
-        }
         if (null !== $this->depGroupId) {
             $res['DepGroupId'] = $this->depGroupId;
+        }
+        if (null !== $this->depGroupName) {
+            $res['DepGroupName'] = $this->depGroupName;
         }
         if (null !== $this->groupDTOS) {
             $res['GroupDTOS'] = [];
@@ -69,11 +65,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DepGroupName'])) {
-            $model->depGroupName = $map['DepGroupName'];
-        }
         if (isset($map['DepGroupId'])) {
             $model->depGroupId = $map['DepGroupId'];
+        }
+        if (isset($map['DepGroupName'])) {
+            $model->depGroupName = $map['DepGroupName'];
         }
         if (isset($map['GroupDTOS'])) {
             if (!empty($map['GroupDTOS'])) {

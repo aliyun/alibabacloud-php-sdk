@@ -14,6 +14,16 @@ class CreateQualityRuleRequest extends Model
     public $instanceId;
 
     /**
+     * @var string[]
+     */
+    public $keyWords;
+
+    /**
+     * @var int
+     */
+    public $matchType;
+
+    /**
      * @var string
      */
     public $name;
@@ -22,22 +32,12 @@ class CreateQualityRuleRequest extends Model
      * @var int
      */
     public $ruleTag;
-
-    /**
-     * @var int
-     */
-    public $matchType;
-
-    /**
-     * @var string[]
-     */
-    public $keyWords;
     protected $_name = [
         'instanceId' => 'InstanceId',
+        'keyWords'   => 'KeyWords',
+        'matchType'  => 'MatchType',
         'name'       => 'Name',
         'ruleTag'    => 'RuleTag',
-        'matchType'  => 'MatchType',
-        'keyWords'   => 'KeyWords',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class CreateQualityRuleRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->keyWords) {
+            $res['KeyWords'] = $this->keyWords;
+        }
+        if (null !== $this->matchType) {
+            $res['MatchType'] = $this->matchType;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
         if (null !== $this->ruleTag) {
             $res['RuleTag'] = $this->ruleTag;
-        }
-        if (null !== $this->matchType) {
-            $res['MatchType'] = $this->matchType;
-        }
-        if (null !== $this->keyWords) {
-            $res['KeyWords'] = $this->keyWords;
         }
 
         return $res;
@@ -77,19 +77,19 @@ class CreateQualityRuleRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['KeyWords'])) {
+            if (!empty($map['KeyWords'])) {
+                $model->keyWords = $map['KeyWords'];
+            }
+        }
+        if (isset($map['MatchType'])) {
+            $model->matchType = $map['MatchType'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
         if (isset($map['RuleTag'])) {
             $model->ruleTag = $map['RuleTag'];
-        }
-        if (isset($map['MatchType'])) {
-            $model->matchType = $map['MatchType'];
-        }
-        if (isset($map['KeyWords'])) {
-            if (!empty($map['KeyWords'])) {
-                $model->keyWords = $map['KeyWords'];
-            }
         }
 
         return $model;

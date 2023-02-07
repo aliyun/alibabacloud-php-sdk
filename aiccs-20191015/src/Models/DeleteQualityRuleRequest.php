@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteQualityRuleRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
      * @var int
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
         'id'         => 'Id',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteQualityRuleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteQualityRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

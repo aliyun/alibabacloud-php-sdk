@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var int
+     * @var string[]
      */
-    public $ruleTag;
+    public $keyWords;
 
     /**
      * @var int
@@ -34,16 +34,16 @@ class data extends Model
     public $ruleId;
 
     /**
-     * @var string[]
+     * @var int
      */
-    public $keyWords;
+    public $ruleTag;
     protected $_name = [
-        'ruleTag'        => 'RuleTag',
+        'keyWords'       => 'KeyWords',
         'matchType'      => 'MatchType',
         'name'           => 'Name',
         'ruleCreateTime' => 'RuleCreateTime',
         'ruleId'         => 'RuleId',
-        'keyWords'       => 'KeyWords',
+        'ruleTag'        => 'RuleTag',
     ];
 
     public function validate()
@@ -53,8 +53,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ruleTag) {
-            $res['RuleTag'] = $this->ruleTag;
+        if (null !== $this->keyWords) {
+            $res['KeyWords'] = $this->keyWords;
         }
         if (null !== $this->matchType) {
             $res['MatchType'] = $this->matchType;
@@ -68,8 +68,8 @@ class data extends Model
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
-        if (null !== $this->keyWords) {
-            $res['KeyWords'] = $this->keyWords;
+        if (null !== $this->ruleTag) {
+            $res['RuleTag'] = $this->ruleTag;
         }
 
         return $res;
@@ -83,8 +83,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RuleTag'])) {
-            $model->ruleTag = $map['RuleTag'];
+        if (isset($map['KeyWords'])) {
+            if (!empty($map['KeyWords'])) {
+                $model->keyWords = $map['KeyWords'];
+            }
         }
         if (isset($map['MatchType'])) {
             $model->matchType = $map['MatchType'];
@@ -98,10 +100,8 @@ class data extends Model
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }
-        if (isset($map['KeyWords'])) {
-            if (!empty($map['KeyWords'])) {
-                $model->keyWords = $map['KeyWords'];
-            }
+        if (isset($map['RuleTag'])) {
+            $model->ruleTag = $map['RuleTag'];
         }
 
         return $model;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetIndexCurrentValueRequest extends Model
 {
     /**
+     * @example 2332****,2334****
+     *
      * @var string
      */
     public $depIds;
 
     /**
+     * @example 2323****,2324****
+     *
      * @var string
      */
     public $groupIds;
 
     /**
+     * @example ccc_xp_pre-cn-***
+     *
      * @var string
      */
     public $instanceId;

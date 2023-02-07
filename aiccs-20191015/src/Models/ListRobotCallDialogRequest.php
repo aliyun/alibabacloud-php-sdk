@@ -9,6 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ListRobotCallDialogRequest extends Model
 {
     /**
+     * @example 125165515022^11195613****
+     *
+     * @var string
+     */
+    public $callId;
+
+    /**
+     * @example 2021-05-20 00:00:00
+     *
+     * @var string
+     */
+    public $createTime;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,22 +36,12 @@ class ListRobotCallDialogRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $callId;
-
-    /**
-     * @var string
-     */
-    public $createTime;
     protected $_name = [
+        'callId'               => 'CallId',
+        'createTime'           => 'CreateTime',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'callId'               => 'CallId',
-        'createTime'           => 'CreateTime',
     ];
 
     public function validate()
@@ -47,6 +51,12 @@ class ListRobotCallDialogRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->callId) {
+            $res['CallId'] = $this->callId;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -55,12 +65,6 @@ class ListRobotCallDialogRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->callId) {
-            $res['CallId'] = $this->callId;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
         }
 
         return $res;
@@ -74,6 +78,12 @@ class ListRobotCallDialogRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CallId'])) {
+            $model->callId = $map['CallId'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -82,12 +92,6 @@ class ListRobotCallDialogRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['CallId'])) {
-            $model->callId = $map['CallId'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
         }
 
         return $model;

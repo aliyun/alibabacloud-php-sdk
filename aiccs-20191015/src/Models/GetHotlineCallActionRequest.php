@@ -9,47 +9,61 @@ use AlibabaCloud\Tea\Model;
 class GetHotlineCallActionRequest extends Model
 {
     /**
+     * @example {"time":1}
+     *
      * @var string
      */
-    public $clientToken;
+    public $acc;
 
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $act;
 
     /**
-     * @var string
-     */
-    public $fromSource;
-
-    /**
+     * @example {"name":123}
+     *
      * @var string
      */
     public $biz;
 
     /**
+     * @example 46c1341e-2648-447a-9b11-70b6a298d9****
+     *
      * @var string
      */
-    public $acc;
+    public $clientToken;
+
+    /**
+     * @example hotlinebs_out
+     *
+     * @var string
+     */
+    public $fromSource;
+
+    /**
+     * @example ccc_xp_pre-cn-***
+     *
+     * @var string
+     */
+    public $instanceId;
     protected $_name = [
-        'clientToken' => 'ClientToken',
-        'instanceId'  => 'InstanceId',
+        'acc'         => 'Acc',
         'accountName' => 'AccountName',
         'act'         => 'Act',
-        'fromSource'  => 'FromSource',
         'biz'         => 'Biz',
-        'acc'         => 'Acc',
+        'clientToken' => 'ClientToken',
+        'fromSource'  => 'FromSource',
+        'instanceId'  => 'InstanceId',
     ];
 
     public function validate()
@@ -59,11 +73,8 @@ class GetHotlineCallActionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->acc) {
+            $res['Acc'] = $this->acc;
         }
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
@@ -71,14 +82,17 @@ class GetHotlineCallActionRequest extends Model
         if (null !== $this->act) {
             $res['Act'] = $this->act;
         }
-        if (null !== $this->fromSource) {
-            $res['FromSource'] = $this->fromSource;
-        }
         if (null !== $this->biz) {
             $res['Biz'] = $this->biz;
         }
-        if (null !== $this->acc) {
-            $res['Acc'] = $this->acc;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->fromSource) {
+            $res['FromSource'] = $this->fromSource;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -92,11 +106,8 @@ class GetHotlineCallActionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['Acc'])) {
+            $model->acc = $map['Acc'];
         }
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
@@ -104,14 +115,17 @@ class GetHotlineCallActionRequest extends Model
         if (isset($map['Act'])) {
             $model->act = $map['Act'];
         }
-        if (isset($map['FromSource'])) {
-            $model->fromSource = $map['FromSource'];
-        }
         if (isset($map['Biz'])) {
             $model->biz = $map['Biz'];
         }
-        if (isset($map['Acc'])) {
-            $model->acc = $map['Acc'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['FromSource'])) {
+            $model->fromSource = $map['FromSource'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

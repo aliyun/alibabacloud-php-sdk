@@ -9,14 +9,54 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @var string
+     */
+    public $ani;
+
+    /**
      * @var int
      */
-    public $status;
+    public $buId;
+
+    /**
+     * @var int
+     */
+    public $departmentId;
 
     /**
      * @var string
      */
-    public $servicerName;
+    public $dnis;
+
+    /**
+     * @var int
+     */
+    public $endReason;
+
+    /**
+     * @var string
+     */
+    public $extAttrs;
+
+    /**
+     * @var int
+     */
+    public $gmtCreate;
+
+    /**
+     * @var int
+     */
+    public $gmtModified;
+
+    /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @var int
+     */
+    public $memberId;
 
     /**
      * @var string
@@ -29,31 +69,6 @@ class list_ extends Model
     public $outboundNum;
 
     /**
-     * @var string
-     */
-    public $retryTime;
-
-    /**
-     * @var int
-     */
-    public $priority;
-
-    /**
-     * @var int
-     */
-    public $gmtModified;
-
-    /**
-     * @var string
-     */
-    public $dnis;
-
-    /**
-     * @var int
-     */
-    public $servicerId;
-
-    /**
      * @var int
      */
     public $outboundTaskId;
@@ -61,32 +76,22 @@ class list_ extends Model
     /**
      * @var int
      */
-    public $buId;
-
-    /**
-     * @var int
-     */
-    public $endReason;
-
-    /**
-     * @var int
-     */
-    public $gmtCreate;
-
-    /**
-     * @var int
-     */
-    public $departmentId;
+    public $priority;
 
     /**
      * @var string
      */
-    public $ani;
+    public $retryTime;
 
     /**
      * @var int
      */
-    public $memberId;
+    public $servicerId;
+
+    /**
+     * @var string
+     */
+    public $servicerName;
 
     /**
      * @var int
@@ -94,34 +99,29 @@ class list_ extends Model
     public $skillGroup;
 
     /**
-     * @var string
-     */
-    public $extAttrs;
-
-    /**
      * @var int
      */
-    public $id;
+    public $status;
     protected $_name = [
-        'status'         => 'Status',
-        'servicerName'   => 'ServicerName',
+        'ani'            => 'Ani',
+        'buId'           => 'BuId',
+        'departmentId'   => 'DepartmentId',
+        'dnis'           => 'Dnis',
+        'endReason'      => 'EndReason',
+        'extAttrs'       => 'ExtAttrs',
+        'gmtCreate'      => 'GmtCreate',
+        'gmtModified'    => 'GmtModified',
+        'id'             => 'Id',
+        'memberId'       => 'MemberId',
         'memberName'     => 'MemberName',
         'outboundNum'    => 'OutboundNum',
-        'retryTime'      => 'RetryTime',
-        'priority'       => 'Priority',
-        'gmtModified'    => 'GmtModified',
-        'dnis'           => 'Dnis',
-        'servicerId'     => 'ServicerId',
         'outboundTaskId' => 'OutboundTaskId',
-        'buId'           => 'BuId',
-        'endReason'      => 'EndReason',
-        'gmtCreate'      => 'GmtCreate',
-        'departmentId'   => 'DepartmentId',
-        'ani'            => 'Ani',
-        'memberId'       => 'MemberId',
+        'priority'       => 'Priority',
+        'retryTime'      => 'RetryTime',
+        'servicerId'     => 'ServicerId',
+        'servicerName'   => 'ServicerName',
         'skillGroup'     => 'SkillGroup',
-        'extAttrs'       => 'ExtAttrs',
-        'id'             => 'Id',
+        'status'         => 'Status',
     ];
 
     public function validate()
@@ -131,11 +131,35 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->ani) {
+            $res['Ani'] = $this->ani;
         }
-        if (null !== $this->servicerName) {
-            $res['ServicerName'] = $this->servicerName;
+        if (null !== $this->buId) {
+            $res['BuId'] = $this->buId;
+        }
+        if (null !== $this->departmentId) {
+            $res['DepartmentId'] = $this->departmentId;
+        }
+        if (null !== $this->dnis) {
+            $res['Dnis'] = $this->dnis;
+        }
+        if (null !== $this->endReason) {
+            $res['EndReason'] = $this->endReason;
+        }
+        if (null !== $this->extAttrs) {
+            $res['ExtAttrs'] = $this->extAttrs;
+        }
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->memberId) {
+            $res['MemberId'] = $this->memberId;
         }
         if (null !== $this->memberName) {
             $res['MemberName'] = $this->memberName;
@@ -143,50 +167,26 @@ class list_ extends Model
         if (null !== $this->outboundNum) {
             $res['OutboundNum'] = $this->outboundNum;
         }
-        if (null !== $this->retryTime) {
-            $res['RetryTime'] = $this->retryTime;
+        if (null !== $this->outboundTaskId) {
+            $res['OutboundTaskId'] = $this->outboundTaskId;
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
-        }
-        if (null !== $this->dnis) {
-            $res['Dnis'] = $this->dnis;
+        if (null !== $this->retryTime) {
+            $res['RetryTime'] = $this->retryTime;
         }
         if (null !== $this->servicerId) {
             $res['ServicerId'] = $this->servicerId;
         }
-        if (null !== $this->outboundTaskId) {
-            $res['OutboundTaskId'] = $this->outboundTaskId;
-        }
-        if (null !== $this->buId) {
-            $res['BuId'] = $this->buId;
-        }
-        if (null !== $this->endReason) {
-            $res['EndReason'] = $this->endReason;
-        }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->departmentId) {
-            $res['DepartmentId'] = $this->departmentId;
-        }
-        if (null !== $this->ani) {
-            $res['Ani'] = $this->ani;
-        }
-        if (null !== $this->memberId) {
-            $res['MemberId'] = $this->memberId;
+        if (null !== $this->servicerName) {
+            $res['ServicerName'] = $this->servicerName;
         }
         if (null !== $this->skillGroup) {
             $res['SkillGroup'] = $this->skillGroup;
         }
-        if (null !== $this->extAttrs) {
-            $res['ExtAttrs'] = $this->extAttrs;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -200,11 +200,35 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['Ani'])) {
+            $model->ani = $map['Ani'];
         }
-        if (isset($map['ServicerName'])) {
-            $model->servicerName = $map['ServicerName'];
+        if (isset($map['BuId'])) {
+            $model->buId = $map['BuId'];
+        }
+        if (isset($map['DepartmentId'])) {
+            $model->departmentId = $map['DepartmentId'];
+        }
+        if (isset($map['Dnis'])) {
+            $model->dnis = $map['Dnis'];
+        }
+        if (isset($map['EndReason'])) {
+            $model->endReason = $map['EndReason'];
+        }
+        if (isset($map['ExtAttrs'])) {
+            $model->extAttrs = $map['ExtAttrs'];
+        }
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['MemberId'])) {
+            $model->memberId = $map['MemberId'];
         }
         if (isset($map['MemberName'])) {
             $model->memberName = $map['MemberName'];
@@ -212,50 +236,26 @@ class list_ extends Model
         if (isset($map['OutboundNum'])) {
             $model->outboundNum = $map['OutboundNum'];
         }
-        if (isset($map['RetryTime'])) {
-            $model->retryTime = $map['RetryTime'];
+        if (isset($map['OutboundTaskId'])) {
+            $model->outboundTaskId = $map['OutboundTaskId'];
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
-        }
-        if (isset($map['Dnis'])) {
-            $model->dnis = $map['Dnis'];
+        if (isset($map['RetryTime'])) {
+            $model->retryTime = $map['RetryTime'];
         }
         if (isset($map['ServicerId'])) {
             $model->servicerId = $map['ServicerId'];
         }
-        if (isset($map['OutboundTaskId'])) {
-            $model->outboundTaskId = $map['OutboundTaskId'];
-        }
-        if (isset($map['BuId'])) {
-            $model->buId = $map['BuId'];
-        }
-        if (isset($map['EndReason'])) {
-            $model->endReason = $map['EndReason'];
-        }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['DepartmentId'])) {
-            $model->departmentId = $map['DepartmentId'];
-        }
-        if (isset($map['Ani'])) {
-            $model->ani = $map['Ani'];
-        }
-        if (isset($map['MemberId'])) {
-            $model->memberId = $map['MemberId'];
+        if (isset($map['ServicerName'])) {
+            $model->servicerName = $map['ServicerName'];
         }
         if (isset($map['SkillGroup'])) {
             $model->skillGroup = $map['SkillGroup'];
         }
-        if (isset($map['ExtAttrs'])) {
-            $model->extAttrs = $map['ExtAttrs'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

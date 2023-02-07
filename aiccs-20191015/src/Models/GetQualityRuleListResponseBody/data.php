@@ -20,19 +20,19 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @var int
-     */
-    public $total;
-
-    /**
      * @var qualityRuleList[]
      */
     public $qualityRuleList;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
         'pageNo'          => 'PageNo',
         'pageSize'        => 'PageSize',
-        'total'           => 'Total',
         'qualityRuleList' => 'QualityRuleList',
+        'total'           => 'Total',
     ];
 
     public function validate()
@@ -48,9 +48,6 @@ class data extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
         if (null !== $this->qualityRuleList) {
             $res['QualityRuleList'] = [];
             if (null !== $this->qualityRuleList && \is_array($this->qualityRuleList)) {
@@ -59,6 +56,9 @@ class data extends Model
                     $res['QualityRuleList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -78,9 +78,6 @@ class data extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
         if (isset($map['QualityRuleList'])) {
             if (!empty($map['QualityRuleList'])) {
                 $model->qualityRuleList = [];
@@ -89,6 +86,9 @@ class data extends Model
                     $model->qualityRuleList[$n++] = null !== $item ? qualityRuleList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

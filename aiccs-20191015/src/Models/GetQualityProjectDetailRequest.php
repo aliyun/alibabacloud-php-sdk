@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class GetQualityProjectDetailRequest extends Model
 {
     /**
-     * @description 租户实例ID
+     * @example ccc_xp_pre***
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 质检任务ID
+     * @example 15977801
      *
      * @var int
      */

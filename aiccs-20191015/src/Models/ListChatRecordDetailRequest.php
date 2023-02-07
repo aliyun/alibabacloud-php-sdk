@@ -9,53 +9,53 @@ use AlibabaCloud\Tea\Model;
 class ListChatRecordDetailRequest extends Model
 {
     /**
-     * @description clientToken
+     * @example 46c1341e-2648-447a-9b11-70b6a298d94d
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 实例id
-     *
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @description 在线挂断的时间范围
+     * @example 1614582000000
      *
      * @var int
      */
     public $closeTimeEnd;
 
     /**
-     * @description 当前页
+     * @example 1614578400000
+     *
+     * @var int
+     */
+    public $closeTimeStart;
+
+    /**
+     * @example 1
      *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description 每页数据量
+     * @example ccc_xp_pre***
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @example 100
      *
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @description 在线挂断的时间范围
-     *
-     * @var int
-     */
-    public $closeTimeStart;
     protected $_name = [
         'clientToken'    => 'ClientToken',
-        'instanceId'     => 'InstanceId',
         'closeTimeEnd'   => 'CloseTimeEnd',
-        'currentPage'    => 'CurrentPage',
-        'pageSize'       => 'PageSize',
         'closeTimeStart' => 'CloseTimeStart',
+        'currentPage'    => 'CurrentPage',
+        'instanceId'     => 'InstanceId',
+        'pageSize'       => 'PageSize',
     ];
 
     public function validate()
@@ -68,20 +68,20 @@ class ListChatRecordDetailRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->closeTimeEnd) {
             $res['CloseTimeEnd'] = $this->closeTimeEnd;
+        }
+        if (null !== $this->closeTimeStart) {
+            $res['CloseTimeStart'] = $this->closeTimeStart;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->closeTimeStart) {
-            $res['CloseTimeStart'] = $this->closeTimeStart;
         }
 
         return $res;
@@ -98,20 +98,20 @@ class ListChatRecordDetailRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['CloseTimeEnd'])) {
             $model->closeTimeEnd = $map['CloseTimeEnd'];
+        }
+        if (isset($map['CloseTimeStart'])) {
+            $model->closeTimeStart = $map['CloseTimeStart'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['CloseTimeStart'])) {
-            $model->closeTimeStart = $map['CloseTimeStart'];
         }
 
         return $model;

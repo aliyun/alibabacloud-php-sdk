@@ -20,19 +20,19 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @var int
-     */
-    public $totalNum;
-
-    /**
      * @var qualityResultResponseList[]
      */
     public $qualityResultResponseList;
+
+    /**
+     * @var int
+     */
+    public $totalNum;
     protected $_name = [
         'pageNo'                    => 'PageNo',
         'pageSize'                  => 'PageSize',
-        'totalNum'                  => 'TotalNum',
         'qualityResultResponseList' => 'QualityResultResponseList',
+        'totalNum'                  => 'TotalNum',
     ];
 
     public function validate()
@@ -48,9 +48,6 @@ class data extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->totalNum) {
-            $res['TotalNum'] = $this->totalNum;
-        }
         if (null !== $this->qualityResultResponseList) {
             $res['QualityResultResponseList'] = [];
             if (null !== $this->qualityResultResponseList && \is_array($this->qualityResultResponseList)) {
@@ -59,6 +56,9 @@ class data extends Model
                     $res['QualityResultResponseList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalNum) {
+            $res['TotalNum'] = $this->totalNum;
         }
 
         return $res;
@@ -78,9 +78,6 @@ class data extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TotalNum'])) {
-            $model->totalNum = $map['TotalNum'];
-        }
         if (isset($map['QualityResultResponseList'])) {
             if (!empty($map['QualityResultResponseList'])) {
                 $model->qualityResultResponseList = [];
@@ -89,6 +86,9 @@ class data extends Model
                     $model->qualityResultResponseList[$n++] = null !== $item ? qualityResultResponseList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalNum'])) {
+            $model->totalNum = $map['TotalNum'];
         }
 
         return $model;

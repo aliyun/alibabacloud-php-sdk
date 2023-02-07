@@ -16,16 +16,16 @@ class data extends Model
     /**
      * @var int
      */
-    public $version;
+    public $projectId;
 
     /**
      * @var int
      */
-    public $projectId;
+    public $version;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'version'    => 'Version',
         'projectId'  => 'ProjectId',
+        'version'    => 'Version',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class data extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class data extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

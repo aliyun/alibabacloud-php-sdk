@@ -9,14 +9,25 @@ use AlibabaCloud\Tea\Model;
 class CreateSkillGroupRequest extends Model
 {
     /**
-     * @var string
+     * @example 2
+     *
+     * @var int
      */
-    public $instanceId;
+    public $channelType;
 
     /**
+     * @example 46c1341e-2648-447a-****-70b6a298d94d
+     *
      * @var string
      */
-    public $skillGroupName;
+    public $clientToken;
+
+    /**
+     * @example 123
+     *
+     * @var int
+     */
+    public $departmentId;
 
     /**
      * @var string
@@ -29,29 +40,24 @@ class CreateSkillGroupRequest extends Model
     public $displayName;
 
     /**
-     * @var int
+     * @example ccc_xp_pre-cn-***
+     *
+     * @var string
      */
-    public $channelType;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @description 部门ID
-     *
-     * @var int
-     */
-    public $departmentId;
+    public $skillGroupName;
     protected $_name = [
-        'instanceId'     => 'InstanceId',
-        'skillGroupName' => 'SkillGroupName',
-        'description'    => 'Description',
-        'displayName'    => 'DisplayName',
         'channelType'    => 'ChannelType',
         'clientToken'    => 'ClientToken',
         'departmentId'   => 'DepartmentId',
+        'description'    => 'Description',
+        'displayName'    => 'DisplayName',
+        'instanceId'     => 'InstanceId',
+        'skillGroupName' => 'SkillGroupName',
     ];
 
     public function validate()
@@ -61,18 +67,6 @@ class CreateSkillGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->skillGroupName) {
-            $res['SkillGroupName'] = $this->skillGroupName;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->displayName) {
-            $res['DisplayName'] = $this->displayName;
-        }
         if (null !== $this->channelType) {
             $res['ChannelType'] = $this->channelType;
         }
@@ -81,6 +75,18 @@ class CreateSkillGroupRequest extends Model
         }
         if (null !== $this->departmentId) {
             $res['DepartmentId'] = $this->departmentId;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->displayName) {
+            $res['DisplayName'] = $this->displayName;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->skillGroupName) {
+            $res['SkillGroupName'] = $this->skillGroupName;
         }
 
         return $res;
@@ -94,18 +100,6 @@ class CreateSkillGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['SkillGroupName'])) {
-            $model->skillGroupName = $map['SkillGroupName'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['DisplayName'])) {
-            $model->displayName = $map['DisplayName'];
-        }
         if (isset($map['ChannelType'])) {
             $model->channelType = $map['ChannelType'];
         }
@@ -114,6 +108,18 @@ class CreateSkillGroupRequest extends Model
         }
         if (isset($map['DepartmentId'])) {
             $model->departmentId = $map['DepartmentId'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['DisplayName'])) {
+            $model->displayName = $map['DisplayName'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['SkillGroupName'])) {
+            $model->skillGroupName = $map['SkillGroupName'];
         }
 
         return $model;

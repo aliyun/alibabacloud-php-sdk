@@ -10,9 +10,18 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 123@123.com
+     *
+     * @var string
+     */
+    public $accountName;
+
+    /**
+     * @example 222222
+     *
      * @var int
      */
-    public $status;
+    public $agentId;
 
     /**
      * @var string
@@ -20,30 +29,29 @@ class data extends Model
     public $displayName;
 
     /**
-     * @var int
-     */
-    public $agentId;
-
-    /**
      * @var groupList[]
      */
     public $groupList;
 
     /**
-     * @var string
+     * @example 0
+     *
+     * @var int
      */
-    public $accountName;
+    public $status;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $tenantId;
     protected $_name = [
-        'status'      => 'Status',
-        'displayName' => 'DisplayName',
-        'agentId'     => 'AgentId',
-        'groupList'   => 'GroupList',
         'accountName' => 'AccountName',
+        'agentId'     => 'AgentId',
+        'displayName' => 'DisplayName',
+        'groupList'   => 'GroupList',
+        'status'      => 'Status',
         'tenantId'    => 'TenantId',
     ];
 
@@ -54,14 +62,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->displayName) {
-            $res['DisplayName'] = $this->displayName;
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
         }
         if (null !== $this->agentId) {
             $res['AgentId'] = $this->agentId;
+        }
+        if (null !== $this->displayName) {
+            $res['DisplayName'] = $this->displayName;
         }
         if (null !== $this->groupList) {
             $res['GroupList'] = [];
@@ -72,8 +80,8 @@ class data extends Model
                 }
             }
         }
-        if (null !== $this->accountName) {
-            $res['AccountName'] = $this->accountName;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
@@ -90,14 +98,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['DisplayName'])) {
-            $model->displayName = $map['DisplayName'];
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
         }
         if (isset($map['AgentId'])) {
             $model->agentId = $map['AgentId'];
+        }
+        if (isset($map['DisplayName'])) {
+            $model->displayName = $map['DisplayName'];
         }
         if (isset($map['GroupList'])) {
             if (!empty($map['GroupList'])) {
@@ -108,8 +116,8 @@ class data extends Model
                 }
             }
         }
-        if (isset($map['AccountName'])) {
-            $model->accountName = $map['AccountName'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];

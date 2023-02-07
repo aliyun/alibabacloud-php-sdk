@@ -9,36 +9,76 @@ use AlibabaCloud\Tea\Model;
 class record extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var int
-     */
-    public $retryCurTimes;
-
-    /**
+     * @example 186****0000
+     *
      * @var string
      */
     public $called;
 
     /**
+     * @example 136****0000
+     *
      * @var string
      */
     public $caller;
 
     /**
+     * @var string
+     */
+    public $direction;
+
+    /**
+     * @example 30
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example 2021-05-20 00:03:00
+     *
+     * @var string
+     */
+    public $endTime;
+
+    /**
+     * @example 123456
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $retryCurTimes;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $retryTimes;
+
+    /**
+     * @example 2021-05-20 00:00:00
+     *
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @example SUCCESS
+     *
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @example 00001
+     *
      * @var string
      */
     public $statusCode;
@@ -49,42 +89,22 @@ class record extends Model
     public $statusCodeDesc;
 
     /**
-     * @var int
-     */
-    public $retryTimes;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $endTime;
-
-    /**
-     * @var string
-     */
-    public $direction;
-
-    /**
      * @var string
      */
     public $tags;
     protected $_name = [
-        'status'         => 'Status',
-        'retryCurTimes'  => 'RetryCurTimes',
         'called'         => 'Called',
         'caller'         => 'Caller',
+        'direction'      => 'Direction',
         'duration'       => 'Duration',
+        'endTime'        => 'EndTime',
         'id'             => 'Id',
-        'statusCode'     => 'StatusCode',
-        'statusCodeDesc' => 'StatusCodeDesc',
+        'retryCurTimes'  => 'RetryCurTimes',
         'retryTimes'     => 'RetryTimes',
         'startTime'      => 'StartTime',
-        'endTime'        => 'EndTime',
-        'direction'      => 'Direction',
+        'status'         => 'Status',
+        'statusCode'     => 'StatusCode',
+        'statusCodeDesc' => 'StatusCodeDesc',
         'tags'           => 'Tags',
     ];
 
@@ -95,29 +115,26 @@ class record extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->retryCurTimes) {
-            $res['RetryCurTimes'] = $this->retryCurTimes;
-        }
         if (null !== $this->called) {
             $res['Called'] = $this->called;
         }
         if (null !== $this->caller) {
             $res['Caller'] = $this->caller;
         }
+        if (null !== $this->direction) {
+            $res['Direction'] = $this->direction;
+        }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->statusCode) {
-            $res['StatusCode'] = $this->statusCode;
-        }
-        if (null !== $this->statusCodeDesc) {
-            $res['StatusCodeDesc'] = $this->statusCodeDesc;
+        if (null !== $this->retryCurTimes) {
+            $res['RetryCurTimes'] = $this->retryCurTimes;
         }
         if (null !== $this->retryTimes) {
             $res['RetryTimes'] = $this->retryTimes;
@@ -125,11 +142,14 @@ class record extends Model
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
-        if (null !== $this->direction) {
-            $res['Direction'] = $this->direction;
+        if (null !== $this->statusCode) {
+            $res['StatusCode'] = $this->statusCode;
+        }
+        if (null !== $this->statusCodeDesc) {
+            $res['StatusCodeDesc'] = $this->statusCodeDesc;
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
@@ -146,29 +166,26 @@ class record extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['RetryCurTimes'])) {
-            $model->retryCurTimes = $map['RetryCurTimes'];
-        }
         if (isset($map['Called'])) {
             $model->called = $map['Called'];
         }
         if (isset($map['Caller'])) {
             $model->caller = $map['Caller'];
         }
+        if (isset($map['Direction'])) {
+            $model->direction = $map['Direction'];
+        }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['StatusCode'])) {
-            $model->statusCode = $map['StatusCode'];
-        }
-        if (isset($map['StatusCodeDesc'])) {
-            $model->statusCodeDesc = $map['StatusCodeDesc'];
+        if (isset($map['RetryCurTimes'])) {
+            $model->retryCurTimes = $map['RetryCurTimes'];
         }
         if (isset($map['RetryTimes'])) {
             $model->retryTimes = $map['RetryTimes'];
@@ -176,11 +193,14 @@ class record extends Model
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
-        if (isset($map['Direction'])) {
-            $model->direction = $map['Direction'];
+        if (isset($map['StatusCode'])) {
+            $model->statusCode = $map['StatusCode'];
+        }
+        if (isset($map['StatusCodeDesc'])) {
+            $model->statusCodeDesc = $map['StatusCodeDesc'];
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];

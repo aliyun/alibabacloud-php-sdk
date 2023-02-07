@@ -9,21 +9,19 @@ use AlibabaCloud\Tea\Model;
 class groupDTOS extends Model
 {
     /**
-     * @description skillGroupId
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @example 555555
      *
      * @var int
      */
     public $skillGroupId;
-
-    /**
-     * @description name
-     *
-     * @var string
-     */
-    public $name;
     protected $_name = [
-        'skillGroupId' => 'SkillGroupId',
         'name'         => 'Name',
+        'skillGroupId' => 'SkillGroupId',
     ];
 
     public function validate()
@@ -33,11 +31,11 @@ class groupDTOS extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->skillGroupId) {
-            $res['SkillGroupId'] = $this->skillGroupId;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->skillGroupId) {
+            $res['SkillGroupId'] = $this->skillGroupId;
         }
 
         return $res;
@@ -51,11 +49,11 @@ class groupDTOS extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SkillGroupId'])) {
-            $model->skillGroupId = $map['SkillGroupId'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['SkillGroupId'])) {
+            $model->skillGroupId = $map['SkillGroupId'];
         }
 
         return $model;

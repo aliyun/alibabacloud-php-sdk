@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListDialogRequest extends Model
 {
     /**
+     * @example 130****0000
+     *
+     * @var string
+     */
+    public $called;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -24,20 +31,17 @@ class ListDialogRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $taskId;
-
-    /**
-     * @var string
-     */
-    public $called;
     protected $_name = [
+        'called'               => 'Called',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'taskId'               => 'TaskId',
-        'called'               => 'Called',
     ];
 
     public function validate()
@@ -47,6 +51,9 @@ class ListDialogRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->called) {
+            $res['Called'] = $this->called;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -58,9 +65,6 @@ class ListDialogRequest extends Model
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->called) {
-            $res['Called'] = $this->called;
         }
 
         return $res;
@@ -74,6 +78,9 @@ class ListDialogRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Called'])) {
+            $model->called = $map['Called'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -85,9 +92,6 @@ class ListDialogRequest extends Model
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['Called'])) {
-            $model->called = $map['Called'];
         }
 
         return $model;

@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class GetCustomerInfoRequest extends Model
 {
     /**
-     * @description 实例ID
+     * @example ccc_xp_pre-cn-***
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 会员ID
+     * @example 82345678****
      *
      * @var int
      */

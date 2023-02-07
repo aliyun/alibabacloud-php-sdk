@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListRolesRequest extends Model
 {
     /**
-     * @description clientToken
+     * @example 46c1341e-2648-447a-9b11-70b6a298d94d
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 租户实例id
+     * @example ccc_xp_pre-cn-***
      *
      * @var string
      */

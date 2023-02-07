@@ -9,37 +9,37 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 当前页数
+     * @example 1
      *
      * @var int
      */
     public $pageNum;
 
     /**
-     * @description 页大小
+     * @example 2000
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 总记录数
-     *
-     * @var int
-     */
-    public $totalNum;
-
-    /**
-     * @description 信息为list<map>类型的json字符串
+     * @example {"online_40s_transfer_ready_cnt":81,"minute_id":"-1","online_unsatis_cnt":0,"online_simple_cnt":0,"average_queue_time":-1,"service_pickup":"2086","total_waiting_time":"981","online_service_time_len":58208,"online_direct_give_up_len":0,"break_ratio":"2%"}
      *
      * @var string
      */
     public $rows;
+
+    /**
+     * @example 4
+     *
+     * @var int
+     */
+    public $totalNum;
     protected $_name = [
         'pageNum'  => 'PageNum',
         'pageSize' => 'PageSize',
-        'totalNum' => 'TotalNum',
         'rows'     => 'Rows',
+        'totalNum' => 'TotalNum',
     ];
 
     public function validate()
@@ -55,11 +55,11 @@ class data extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->totalNum) {
-            $res['TotalNum'] = $this->totalNum;
-        }
         if (null !== $this->rows) {
             $res['Rows'] = $this->rows;
+        }
+        if (null !== $this->totalNum) {
+            $res['TotalNum'] = $this->totalNum;
         }
 
         return $res;
@@ -79,11 +79,11 @@ class data extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TotalNum'])) {
-            $model->totalNum = $map['TotalNum'];
-        }
         if (isset($map['Rows'])) {
             $model->rows = $map['Rows'];
+        }
+        if (isset($map['TotalNum'])) {
+            $model->totalNum = $map['TotalNum'];
         }
 
         return $model;

@@ -14,14 +14,9 @@ class EditQualityRuleRequest extends Model
     public $instanceId;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $name;
-
-    /**
-     * @var int
-     */
-    public $ruleTag;
+    public $keyWords;
 
     /**
      * @var int
@@ -29,21 +24,26 @@ class EditQualityRuleRequest extends Model
     public $matchType;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var int
      */
     public $qualityRuleId;
 
     /**
-     * @var string[]
+     * @var int
      */
-    public $keyWords;
+    public $ruleTag;
     protected $_name = [
         'instanceId'    => 'InstanceId',
-        'name'          => 'Name',
-        'ruleTag'       => 'RuleTag',
-        'matchType'     => 'MatchType',
-        'qualityRuleId' => 'QualityRuleId',
         'keyWords'      => 'KeyWords',
+        'matchType'     => 'MatchType',
+        'name'          => 'Name',
+        'qualityRuleId' => 'QualityRuleId',
+        'ruleTag'       => 'RuleTag',
     ];
 
     public function validate()
@@ -56,20 +56,20 @@ class EditQualityRuleRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->ruleTag) {
-            $res['RuleTag'] = $this->ruleTag;
+        if (null !== $this->keyWords) {
+            $res['KeyWords'] = $this->keyWords;
         }
         if (null !== $this->matchType) {
             $res['MatchType'] = $this->matchType;
         }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->qualityRuleId) {
             $res['QualityRuleId'] = $this->qualityRuleId;
         }
-        if (null !== $this->keyWords) {
-            $res['KeyWords'] = $this->keyWords;
+        if (null !== $this->ruleTag) {
+            $res['RuleTag'] = $this->ruleTag;
         }
 
         return $res;
@@ -86,22 +86,22 @@ class EditQualityRuleRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['RuleTag'])) {
-            $model->ruleTag = $map['RuleTag'];
-        }
-        if (isset($map['MatchType'])) {
-            $model->matchType = $map['MatchType'];
-        }
-        if (isset($map['QualityRuleId'])) {
-            $model->qualityRuleId = $map['QualityRuleId'];
-        }
         if (isset($map['KeyWords'])) {
             if (!empty($map['KeyWords'])) {
                 $model->keyWords = $map['KeyWords'];
             }
+        }
+        if (isset($map['MatchType'])) {
+            $model->matchType = $map['MatchType'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['QualityRuleId'])) {
+            $model->qualityRuleId = $map['QualityRuleId'];
+        }
+        if (isset($map['RuleTag'])) {
+            $model->ruleTag = $map['RuleTag'];
         }
 
         return $model;

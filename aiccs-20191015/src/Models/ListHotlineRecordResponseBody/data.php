@@ -9,35 +9,45 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var int
-     */
-    public $endTime;
-
-    /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
+     * @example 100365558
+     *
      * @var string
      */
-    public $url;
+    public $callId;
 
     /**
+     * @example 100365548
+     *
      * @var string
      */
     public $connectionId;
 
     /**
+     * @example 16128694810
+     *
+     * @var int
+     */
+    public $endTime;
+
+    /**
+     * @example 16128694110
+     *
+     * @var int
+     */
+    public $startTime;
+
+    /**
+     * @example http://aliccrec-shvpc.oss-cn-shanghai.aliyuncs.com
+     *
      * @var string
      */
-    public $callId;
+    public $url;
     protected $_name = [
+        'callId'       => 'CallId',
+        'connectionId' => 'ConnectionId',
         'endTime'      => 'EndTime',
         'startTime'    => 'StartTime',
         'url'          => 'Url',
-        'connectionId' => 'ConnectionId',
-        'callId'       => 'CallId',
     ];
 
     public function validate()
@@ -47,6 +57,12 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->callId) {
+            $res['CallId'] = $this->callId;
+        }
+        if (null !== $this->connectionId) {
+            $res['ConnectionId'] = $this->connectionId;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -55,12 +71,6 @@ class data extends Model
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
-        }
-        if (null !== $this->connectionId) {
-            $res['ConnectionId'] = $this->connectionId;
-        }
-        if (null !== $this->callId) {
-            $res['CallId'] = $this->callId;
         }
 
         return $res;
@@ -74,6 +84,12 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CallId'])) {
+            $model->callId = $map['CallId'];
+        }
+        if (isset($map['ConnectionId'])) {
+            $model->connectionId = $map['ConnectionId'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
@@ -82,12 +98,6 @@ class data extends Model
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
-        }
-        if (isset($map['ConnectionId'])) {
-            $model->connectionId = $map['ConnectionId'];
-        }
-        if (isset($map['CallId'])) {
-            $model->callId = $map['CallId'];
         }
 
         return $model;

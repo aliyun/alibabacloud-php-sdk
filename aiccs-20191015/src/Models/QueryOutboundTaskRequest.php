@@ -9,24 +9,19 @@ use AlibabaCloud\Tea\Model;
 class QueryOutboundTaskRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $taskId;
+    public $ani;
 
     /**
      * @var int
      */
-    public $taskType;
+    public $currentPage;
 
     /**
      * @var string
      */
-    public $taskName;
-
-    /**
-     * @var string
-     */
-    public $startDate;
+    public $departmentId;
 
     /**
      * @var string
@@ -36,37 +31,12 @@ class QueryOutboundTaskRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
     public $endTime;
-
-    /**
-     * @var int
-     */
-    public $skillGroup;
-
-    /**
-     * @var string
-     */
-    public $ani;
-
-    /**
-     * @var string
-     */
-    public $status;
 
     /**
      * @var string
      */
     public $groupName;
-
-    /**
-     * @var string
-     */
-    public $departmentId;
 
     /**
      * @var string
@@ -81,23 +51,53 @@ class QueryOutboundTaskRequest extends Model
     /**
      * @var int
      */
-    public $currentPage;
+    public $skillGroup;
+
+    /**
+     * @var string
+     */
+    public $startDate;
+
+    /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var int
+     */
+    public $taskId;
+
+    /**
+     * @var string
+     */
+    public $taskName;
+
+    /**
+     * @var int
+     */
+    public $taskType;
     protected $_name = [
-        'taskId'       => 'TaskId',
-        'taskType'     => 'TaskType',
-        'taskName'     => 'TaskName',
-        'startDate'    => 'StartDate',
-        'endDate'      => 'EndDate',
-        'startTime'    => 'StartTime',
-        'endTime'      => 'EndTime',
-        'skillGroup'   => 'SkillGroup',
         'ani'          => 'Ani',
-        'status'       => 'Status',
-        'groupName'    => 'GroupName',
+        'currentPage'  => 'CurrentPage',
         'departmentId' => 'DepartmentId',
+        'endDate'      => 'EndDate',
+        'endTime'      => 'EndTime',
+        'groupName'    => 'GroupName',
         'instanceId'   => 'InstanceId',
         'pageSize'     => 'PageSize',
-        'currentPage'  => 'CurrentPage',
+        'skillGroup'   => 'SkillGroup',
+        'startDate'    => 'StartDate',
+        'startTime'    => 'StartTime',
+        'status'       => 'Status',
+        'taskId'       => 'TaskId',
+        'taskName'     => 'TaskName',
+        'taskType'     => 'TaskType',
     ];
 
     public function validate()
@@ -107,41 +107,23 @@ class QueryOutboundTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->ani) {
+            $res['Ani'] = $this->ani;
         }
-        if (null !== $this->taskType) {
-            $res['TaskType'] = $this->taskType;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
-        if (null !== $this->taskName) {
-            $res['TaskName'] = $this->taskName;
-        }
-        if (null !== $this->startDate) {
-            $res['StartDate'] = $this->startDate;
+        if (null !== $this->departmentId) {
+            $res['DepartmentId'] = $this->departmentId;
         }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->skillGroup) {
-            $res['SkillGroup'] = $this->skillGroup;
-        }
-        if (null !== $this->ani) {
-            $res['Ani'] = $this->ani;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
-        }
-        if (null !== $this->departmentId) {
-            $res['DepartmentId'] = $this->departmentId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -149,8 +131,26 @@ class QueryOutboundTaskRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->skillGroup) {
+            $res['SkillGroup'] = $this->skillGroup;
+        }
+        if (null !== $this->startDate) {
+            $res['StartDate'] = $this->startDate;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->taskName) {
+            $res['TaskName'] = $this->taskName;
+        }
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
         }
 
         return $res;
@@ -164,41 +164,23 @@ class QueryOutboundTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['Ani'])) {
+            $model->ani = $map['Ani'];
         }
-        if (isset($map['TaskType'])) {
-            $model->taskType = $map['TaskType'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
-        if (isset($map['TaskName'])) {
-            $model->taskName = $map['TaskName'];
-        }
-        if (isset($map['StartDate'])) {
-            $model->startDate = $map['StartDate'];
+        if (isset($map['DepartmentId'])) {
+            $model->departmentId = $map['DepartmentId'];
         }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['SkillGroup'])) {
-            $model->skillGroup = $map['SkillGroup'];
-        }
-        if (isset($map['Ani'])) {
-            $model->ani = $map['Ani'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
-        }
-        if (isset($map['DepartmentId'])) {
-            $model->departmentId = $map['DepartmentId'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -206,8 +188,26 @@ class QueryOutboundTaskRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['SkillGroup'])) {
+            $model->skillGroup = $map['SkillGroup'];
+        }
+        if (isset($map['StartDate'])) {
+            $model->startDate = $map['StartDate'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['TaskName'])) {
+            $model->taskName = $map['TaskName'];
+        }
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
         }
 
         return $model;

@@ -14,6 +14,20 @@ class ListTaskRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageNo;
+
+    /**
+     * @example 20
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -26,19 +40,11 @@ class ListTaskRequest extends Model
     /**
      * @var string
      */
-    public $taskName;
+    public $robotName;
 
     /**
-     * @var int
-     */
-    public $pageNo;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
+     * @example STOP
+     *
      * @var string
      */
     public $status;
@@ -51,17 +57,17 @@ class ListTaskRequest extends Model
     /**
      * @var string
      */
-    public $robotName;
+    public $taskName;
     protected $_name = [
         'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'taskName'             => 'TaskName',
         'pageNo'               => 'PageNo',
         'pageSize'             => 'PageSize',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'robotName'            => 'RobotName',
         'status'               => 'Status',
         'taskId'               => 'TaskId',
-        'robotName'            => 'RobotName',
+        'taskName'             => 'TaskName',
     ];
 
     public function validate()
@@ -74,20 +80,20 @@ class ListTaskRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->taskName) {
-            $res['TaskName'] = $this->taskName;
-        }
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->robotName) {
+            $res['RobotName'] = $this->robotName;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -95,8 +101,8 @@ class ListTaskRequest extends Model
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-        if (null !== $this->robotName) {
-            $res['RobotName'] = $this->robotName;
+        if (null !== $this->taskName) {
+            $res['TaskName'] = $this->taskName;
         }
 
         return $res;
@@ -113,20 +119,20 @@ class ListTaskRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['TaskName'])) {
-            $model->taskName = $map['TaskName'];
-        }
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['RobotName'])) {
+            $model->robotName = $map['RobotName'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
@@ -134,8 +140,8 @@ class ListTaskRequest extends Model
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-        if (isset($map['RobotName'])) {
-            $model->robotName = $map['RobotName'];
+        if (isset($map['TaskName'])) {
+            $model->taskName = $map['TaskName'];
         }
 
         return $model;

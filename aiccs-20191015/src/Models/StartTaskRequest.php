@@ -24,20 +24,24 @@ class StartTaskRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var int
-     */
-    public $taskId;
-
-    /**
+     * @example true
+     *
      * @var bool
      */
     public $startNow;
+
+    /**
+     * @example 123456
+     *
+     * @var int
+     */
+    public $taskId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'taskId'               => 'TaskId',
         'startNow'             => 'StartNow',
+        'taskId'               => 'TaskId',
     ];
 
     public function validate()
@@ -56,11 +60,11 @@ class StartTaskRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
         if (null !== $this->startNow) {
             $res['StartNow'] = $this->startNow;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -83,11 +87,11 @@ class StartTaskRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
         if (isset($map['StartNow'])) {
             $model->startNow = $map['StartNow'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

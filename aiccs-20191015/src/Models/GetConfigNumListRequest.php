@@ -9,29 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetConfigNumListRequest extends Model
 {
     /**
-     * @description 实例ID
+     * @example 123@123.com
      *
      * @var string
      */
-    public $instanceId;
+    public $accountName;
 
     /**
-     * @description 部门ID
+     * @example 12345
      *
      * @var int
      */
     public $departmentId;
 
     /**
-     * @description 账号名称
+     * @example ccc_xp_pre-cn-***
      *
      * @var string
      */
-    public $accountName;
+    public $instanceId;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'departmentId' => 'DepartmentId',
         'accountName'  => 'AccountName',
+        'departmentId' => 'DepartmentId',
+        'instanceId'   => 'InstanceId',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class GetConfigNumListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
         }
         if (null !== $this->departmentId) {
             $res['DepartmentId'] = $this->departmentId;
         }
-        if (null !== $this->accountName) {
-            $res['AccountName'] = $this->accountName;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class GetConfigNumListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
         }
         if (isset($map['DepartmentId'])) {
             $model->departmentId = $map['DepartmentId'];
         }
-        if (isset($map['AccountName'])) {
-            $model->accountName = $map['AccountName'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

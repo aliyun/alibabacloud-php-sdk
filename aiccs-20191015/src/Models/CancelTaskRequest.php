@@ -24,6 +24,8 @@ class CancelTaskRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $taskId;

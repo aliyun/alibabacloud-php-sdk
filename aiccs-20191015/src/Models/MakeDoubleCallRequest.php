@@ -9,53 +9,53 @@ use AlibabaCloud\Tea\Model;
 class MakeDoubleCallRequest extends Model
 {
     /**
-     * @description 实例ID
-     *
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @description 账号名称
+     * @example 12345
      *
      * @var string
      */
     public $accountName;
 
     /**
-     * @description 坐席手机号（需要通过坐席手机呼叫才需要填写）
+     * @example {"bizId": 123456}
      *
      * @var string
      */
-    public $servicerPhone;
+    public $bizData;
 
     /**
-     * @description 用户手机号
+     * @example agent_***
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @example 1502123****
      *
      * @var string
      */
     public $memberPhone;
 
     /**
-     * @description 外呼主叫号码
+     * @example 0571000****
      *
      * @var string
      */
     public $outboundCallNumber;
 
     /**
-     * @description 业务携带数据（JsonString）
+     * @example 150****1234
      *
      * @var string
      */
-    public $bizData;
+    public $servicerPhone;
     protected $_name = [
-        'instanceId'         => 'InstanceId',
         'accountName'        => 'AccountName',
-        'servicerPhone'      => 'ServicerPhone',
+        'bizData'            => 'BizData',
+        'instanceId'         => 'InstanceId',
         'memberPhone'        => 'MemberPhone',
         'outboundCallNumber' => 'OutboundCallNumber',
-        'bizData'            => 'BizData',
+        'servicerPhone'      => 'ServicerPhone',
     ];
 
     public function validate()
@@ -65,14 +65,14 @@ class MakeDoubleCallRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
-        if (null !== $this->servicerPhone) {
-            $res['ServicerPhone'] = $this->servicerPhone;
+        if (null !== $this->bizData) {
+            $res['BizData'] = $this->bizData;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->memberPhone) {
             $res['MemberPhone'] = $this->memberPhone;
@@ -80,8 +80,8 @@ class MakeDoubleCallRequest extends Model
         if (null !== $this->outboundCallNumber) {
             $res['OutboundCallNumber'] = $this->outboundCallNumber;
         }
-        if (null !== $this->bizData) {
-            $res['BizData'] = $this->bizData;
+        if (null !== $this->servicerPhone) {
+            $res['ServicerPhone'] = $this->servicerPhone;
         }
 
         return $res;
@@ -95,14 +95,14 @@ class MakeDoubleCallRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
-        if (isset($map['ServicerPhone'])) {
-            $model->servicerPhone = $map['ServicerPhone'];
+        if (isset($map['BizData'])) {
+            $model->bizData = $map['BizData'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['MemberPhone'])) {
             $model->memberPhone = $map['MemberPhone'];
@@ -110,8 +110,8 @@ class MakeDoubleCallRequest extends Model
         if (isset($map['OutboundCallNumber'])) {
             $model->outboundCallNumber = $map['OutboundCallNumber'];
         }
-        if (isset($map['BizData'])) {
-            $model->bizData = $map['BizData'];
+        if (isset($map['ServicerPhone'])) {
+            $model->servicerPhone = $map['ServicerPhone'];
         }
 
         return $model;

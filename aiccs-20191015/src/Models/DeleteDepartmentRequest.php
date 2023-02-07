@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DeleteDepartmentRequest extends Model
 {
     /**
-     * @description 实例id
-     *
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @description 部门id
+     * @example 123456
      *
      * @var int
      */
     public $departmentId;
+
+    /**
+     * @example ccc_xp_pre-cn-***
+     *
+     * @var string
+     */
+    public $instanceId;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
         'departmentId' => 'DepartmentId',
+        'instanceId'   => 'InstanceId',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class DeleteDepartmentRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->departmentId) {
             $res['DepartmentId'] = $this->departmentId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class DeleteDepartmentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['DepartmentId'])) {
             $model->departmentId = $map['DepartmentId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

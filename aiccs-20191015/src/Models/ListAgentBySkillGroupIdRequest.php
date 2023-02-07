@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListAgentBySkillGroupIdRequest extends Model
 {
     /**
+     * @example 46c1341e-2648-447a-9b11-70b6a298d94d
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example ccc_xp_pre-cn-***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 666666
+     *
      * @var int
      */
     public $skillGroupId;

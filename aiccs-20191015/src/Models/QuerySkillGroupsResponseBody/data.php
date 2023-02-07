@@ -9,16 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
-     */
-    public $displayName;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
+     * @example 2
+     *
      * @var int
      */
     public $channelType;
@@ -26,18 +18,30 @@ class data extends Model
     /**
      * @var string
      */
-    public $skillGroupName;
+    public $description;
 
     /**
+     * @var string
+     */
+    public $displayName;
+
+    /**
+     * @example 123456
+     *
      * @var int
      */
     public $skillGroupId;
+
+    /**
+     * @var string
+     */
+    public $skillGroupName;
     protected $_name = [
-        'displayName'    => 'DisplayName',
-        'description'    => 'Description',
         'channelType'    => 'ChannelType',
-        'skillGroupName' => 'SkillGroupName',
+        'description'    => 'Description',
+        'displayName'    => 'DisplayName',
         'skillGroupId'   => 'SkillGroupId',
+        'skillGroupName' => 'SkillGroupName',
     ];
 
     public function validate()
@@ -47,20 +51,20 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->displayName) {
-            $res['DisplayName'] = $this->displayName;
+        if (null !== $this->channelType) {
+            $res['ChannelType'] = $this->channelType;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->channelType) {
-            $res['ChannelType'] = $this->channelType;
-        }
-        if (null !== $this->skillGroupName) {
-            $res['SkillGroupName'] = $this->skillGroupName;
+        if (null !== $this->displayName) {
+            $res['DisplayName'] = $this->displayName;
         }
         if (null !== $this->skillGroupId) {
             $res['SkillGroupId'] = $this->skillGroupId;
+        }
+        if (null !== $this->skillGroupName) {
+            $res['SkillGroupName'] = $this->skillGroupName;
         }
 
         return $res;
@@ -74,20 +78,20 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DisplayName'])) {
-            $model->displayName = $map['DisplayName'];
+        if (isset($map['ChannelType'])) {
+            $model->channelType = $map['ChannelType'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['ChannelType'])) {
-            $model->channelType = $map['ChannelType'];
-        }
-        if (isset($map['SkillGroupName'])) {
-            $model->skillGroupName = $map['SkillGroupName'];
+        if (isset($map['DisplayName'])) {
+            $model->displayName = $map['DisplayName'];
         }
         if (isset($map['SkillGroupId'])) {
             $model->skillGroupId = $map['SkillGroupId'];
+        }
+        if (isset($map['SkillGroupName'])) {
+            $model->skillGroupName = $map['SkillGroupName'];
         }
 
         return $model;

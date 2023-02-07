@@ -11,33 +11,41 @@ class messageList extends Model
     /**
      * @var string
      */
-    public $senderName;
-
-    /**
-     * @var string
-     */
     public $content;
 
     /**
-     * @var int
-     */
-    public $senderType;
-
-    /**
+     * @example 1614578400000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example MSG
+     *
      * @var string
      */
     public $msgType;
+
+    /**
+     * @example account1
+     *
+     * @var string
+     */
+    public $senderName;
+
+    /**
+     * @example 2
+     *
+     * @var int
+     */
+    public $senderType;
     protected $_name = [
-        'senderName' => 'SenderName',
         'content'    => 'Content',
-        'senderType' => 'SenderType',
         'createTime' => 'CreateTime',
         'msgType'    => 'MsgType',
+        'senderName' => 'SenderName',
+        'senderType' => 'SenderType',
     ];
 
     public function validate()
@@ -47,20 +55,20 @@ class messageList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->senderName) {
-            $res['SenderName'] = $this->senderName;
-        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
-        }
-        if (null !== $this->senderType) {
-            $res['SenderType'] = $this->senderType;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->msgType) {
             $res['MsgType'] = $this->msgType;
+        }
+        if (null !== $this->senderName) {
+            $res['SenderName'] = $this->senderName;
+        }
+        if (null !== $this->senderType) {
+            $res['SenderType'] = $this->senderType;
         }
 
         return $res;
@@ -74,20 +82,20 @@ class messageList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SenderName'])) {
-            $model->senderName = $map['SenderName'];
-        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
-        }
-        if (isset($map['SenderType'])) {
-            $model->senderType = $map['SenderType'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
         if (isset($map['MsgType'])) {
             $model->msgType = $map['MsgType'];
+        }
+        if (isset($map['SenderName'])) {
+            $model->senderName = $map['SenderName'];
+        }
+        if (isset($map['SenderType'])) {
+            $model->senderType = $map['SenderType'];
         }
 
         return $model;

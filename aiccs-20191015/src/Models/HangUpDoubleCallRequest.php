@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class HangUpDoubleCallRequest extends Model
 {
     /**
-     * @description 实例ID
-     *
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @description 会话ID
+     * @example 68255155****
      *
      * @var string
      */
     public $acid;
+
+    /**
+     * @example ccc_xp_pre-cn-***
+     *
+     * @var string
+     */
+    public $instanceId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
         'acid'       => 'Acid',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class HangUpDoubleCallRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->acid) {
             $res['Acid'] = $this->acid;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class HangUpDoubleCallRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['Acid'])) {
             $model->acid = $map['Acid'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

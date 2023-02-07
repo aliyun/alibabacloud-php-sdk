@@ -9,29 +9,27 @@ use AlibabaCloud\Tea\Model;
 class UpdateDepartmentRequest extends Model
 {
     /**
-     * @description 实例id
+     * @example 123456
      *
-     * @var string
+     * @var int
      */
-    public $instanceId;
+    public $departmentId;
 
     /**
-     * @description 部门名称
-     *
      * @var string
      */
     public $departmentName;
 
     /**
-     * @description 部门id
+     * @example ccc_xp_pre-cn-***
      *
-     * @var int
+     * @var string
      */
-    public $departmentId;
+    public $instanceId;
     protected $_name = [
-        'instanceId'     => 'InstanceId',
-        'departmentName' => 'DepartmentName',
         'departmentId'   => 'DepartmentId',
+        'departmentName' => 'DepartmentName',
+        'instanceId'     => 'InstanceId',
     ];
 
     public function validate()
@@ -41,14 +39,14 @@ class UpdateDepartmentRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->departmentId) {
+            $res['DepartmentId'] = $this->departmentId;
         }
         if (null !== $this->departmentName) {
             $res['DepartmentName'] = $this->departmentName;
         }
-        if (null !== $this->departmentId) {
-            $res['DepartmentId'] = $this->departmentId;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -62,14 +60,14 @@ class UpdateDepartmentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['DepartmentId'])) {
+            $model->departmentId = $map['DepartmentId'];
         }
         if (isset($map['DepartmentName'])) {
             $model->departmentName = $map['DepartmentName'];
         }
-        if (isset($map['DepartmentId'])) {
-            $model->departmentId = $map['DepartmentId'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

@@ -9,65 +9,85 @@ use AlibabaCloud\Tea\Model;
 class TransferCallToSkillGroupRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $accountName;
 
     /**
-     * @var int
-     */
-    public $skillGroupId;
-
-    /**
+     * @example 7719786
+     *
      * @var string
      */
     public $callId;
 
     /**
+     * @example 46c1341e-2648-447a-9b11-70b6a298d94d
+     *
      * @var string
      */
-    public $jobId;
+    public $clientToken;
 
     /**
+     * @example 7719788
+     *
      * @var string
      */
     public $connectionId;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $holdConnectionId;
 
     /**
-     * @var int
+     * @example ccc_xp_pre-cn-***
+     *
+     * @var string
      */
-    public $type;
+    public $instanceId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isSingleTransfer;
+
+    /**
+     * @example 7719787
+     *
+     * @var string
+     */
+    public $jobId;
+
+    /**
+     * @example 356543
+     *
+     * @var int
+     */
+    public $skillGroupId;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $type;
     protected $_name = [
-        'clientToken'      => 'ClientToken',
-        'instanceId'       => 'InstanceId',
         'accountName'      => 'AccountName',
-        'skillGroupId'     => 'SkillGroupId',
         'callId'           => 'CallId',
-        'jobId'            => 'JobId',
+        'clientToken'      => 'ClientToken',
         'connectionId'     => 'ConnectionId',
         'holdConnectionId' => 'HoldConnectionId',
-        'type'             => 'Type',
+        'instanceId'       => 'InstanceId',
         'isSingleTransfer' => 'IsSingleTransfer',
+        'jobId'            => 'JobId',
+        'skillGroupId'     => 'SkillGroupId',
+        'type'             => 'Type',
     ];
 
     public function validate()
@@ -77,23 +97,14 @@ class TransferCallToSkillGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
-        }
-        if (null !== $this->skillGroupId) {
-            $res['SkillGroupId'] = $this->skillGroupId;
         }
         if (null !== $this->callId) {
             $res['CallId'] = $this->callId;
         }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->connectionId) {
             $res['ConnectionId'] = $this->connectionId;
@@ -101,11 +112,20 @@ class TransferCallToSkillGroupRequest extends Model
         if (null !== $this->holdConnectionId) {
             $res['HoldConnectionId'] = $this->holdConnectionId;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->isSingleTransfer) {
             $res['IsSingleTransfer'] = $this->isSingleTransfer;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->skillGroupId) {
+            $res['SkillGroupId'] = $this->skillGroupId;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -119,23 +139,14 @@ class TransferCallToSkillGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
-        }
-        if (isset($map['SkillGroupId'])) {
-            $model->skillGroupId = $map['SkillGroupId'];
         }
         if (isset($map['CallId'])) {
             $model->callId = $map['CallId'];
         }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['ConnectionId'])) {
             $model->connectionId = $map['ConnectionId'];
@@ -143,11 +154,20 @@ class TransferCallToSkillGroupRequest extends Model
         if (isset($map['HoldConnectionId'])) {
             $model->holdConnectionId = $map['HoldConnectionId'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['IsSingleTransfer'])) {
             $model->isSingleTransfer = $map['IsSingleTransfer'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
+        if (isset($map['SkillGroupId'])) {
+            $model->skillGroupId = $map['SkillGroupId'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

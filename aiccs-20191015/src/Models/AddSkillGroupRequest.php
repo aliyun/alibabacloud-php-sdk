@@ -9,6 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AddSkillGroupRequest extends Model
 {
     /**
+     * @example 123456
+     *
+     * @var string
+     */
+    public $outerDepartmentId;
+
+    /**
+     * @example type_invalid
+     *
+     * @var string
+     */
+    public $outerDepartmentType;
+
+    /**
+     * @example 123456
+     *
      * @var string
      */
     public $outerGroupId;
@@ -19,25 +35,17 @@ class AddSkillGroupRequest extends Model
     public $outerGroupName;
 
     /**
+     * @example mybank
+     *
      * @var string
      */
     public $outerGroupType;
-
-    /**
-     * @var string
-     */
-    public $outerDepartmentId;
-
-    /**
-     * @var string
-     */
-    public $outerDepartmentType;
     protected $_name = [
+        'outerDepartmentId'   => 'OuterDepartmentId',
+        'outerDepartmentType' => 'OuterDepartmentType',
         'outerGroupId'        => 'OuterGroupId',
         'outerGroupName'      => 'OuterGroupName',
         'outerGroupType'      => 'OuterGroupType',
-        'outerDepartmentId'   => 'OuterDepartmentId',
-        'outerDepartmentType' => 'OuterDepartmentType',
     ];
 
     public function validate()
@@ -47,6 +55,12 @@ class AddSkillGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->outerDepartmentId) {
+            $res['OuterDepartmentId'] = $this->outerDepartmentId;
+        }
+        if (null !== $this->outerDepartmentType) {
+            $res['OuterDepartmentType'] = $this->outerDepartmentType;
+        }
         if (null !== $this->outerGroupId) {
             $res['OuterGroupId'] = $this->outerGroupId;
         }
@@ -55,12 +69,6 @@ class AddSkillGroupRequest extends Model
         }
         if (null !== $this->outerGroupType) {
             $res['OuterGroupType'] = $this->outerGroupType;
-        }
-        if (null !== $this->outerDepartmentId) {
-            $res['OuterDepartmentId'] = $this->outerDepartmentId;
-        }
-        if (null !== $this->outerDepartmentType) {
-            $res['OuterDepartmentType'] = $this->outerDepartmentType;
         }
 
         return $res;
@@ -74,6 +82,12 @@ class AddSkillGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OuterDepartmentId'])) {
+            $model->outerDepartmentId = $map['OuterDepartmentId'];
+        }
+        if (isset($map['OuterDepartmentType'])) {
+            $model->outerDepartmentType = $map['OuterDepartmentType'];
+        }
         if (isset($map['OuterGroupId'])) {
             $model->outerGroupId = $map['OuterGroupId'];
         }
@@ -82,12 +96,6 @@ class AddSkillGroupRequest extends Model
         }
         if (isset($map['OuterGroupType'])) {
             $model->outerGroupType = $map['OuterGroupType'];
-        }
-        if (isset($map['OuterDepartmentId'])) {
-            $model->outerDepartmentId = $map['OuterDepartmentId'];
-        }
-        if (isset($map['OuterDepartmentType'])) {
-            $model->outerDepartmentType = $map['OuterDepartmentType'];
         }
 
         return $model;

@@ -10,29 +10,35 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @var int
-     */
-    public $total;
-
-    /**
      * @var record[]
      */
     public $record;
+
+    /**
+     * @example 50
+     *
+     * @var int
+     */
+    public $total;
     protected $_name = [
         'pageNo'   => 'PageNo',
         'pageSize' => 'PageSize',
-        'total'    => 'Total',
         'record'   => 'Record',
+        'total'    => 'Total',
     ];
 
     public function validate()
@@ -48,9 +54,6 @@ class data extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
         if (null !== $this->record) {
             $res['Record'] = [];
             if (null !== $this->record && \is_array($this->record)) {
@@ -59,6 +62,9 @@ class data extends Model
                     $res['Record'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -78,9 +84,6 @@ class data extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
         if (isset($map['Record'])) {
             if (!empty($map['Record'])) {
                 $model->record = [];
@@ -89,6 +92,9 @@ class data extends Model
                     $model->record[$n++] = null !== $item ? record::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

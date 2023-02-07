@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetMcuLvsIpRequest extends Model
 {
     /**
-     * @description 实例ID
+     * @example ccc_xp_pre***
      *
      * @var string
      */

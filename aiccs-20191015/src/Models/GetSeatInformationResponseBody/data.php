@@ -9,37 +9,35 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 当前页数
+     * @example 1
      *
      * @var int
      */
     public $pageNum;
 
     /**
-     * @description 页大小
+     * @example 2000
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 总记录数
+     * @var string
+     */
+    public $rowr;
+
+    /**
+     * @example 4
      *
      * @var int
      */
     public $totalNum;
-
-    /**
-     * @description 信息为list<map>类型的json字符串
-     *
-     * @var string
-     */
-    public $rowr;
     protected $_name = [
         'pageNum'  => 'PageNum',
         'pageSize' => 'PageSize',
-        'totalNum' => 'TotalNum',
         'rowr'     => 'Rowr',
+        'totalNum' => 'TotalNum',
     ];
 
     public function validate()
@@ -55,11 +53,11 @@ class data extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->totalNum) {
-            $res['TotalNum'] = $this->totalNum;
-        }
         if (null !== $this->rowr) {
             $res['Rowr'] = $this->rowr;
+        }
+        if (null !== $this->totalNum) {
+            $res['TotalNum'] = $this->totalNum;
         }
 
         return $res;
@@ -79,11 +77,11 @@ class data extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TotalNum'])) {
-            $model->totalNum = $map['TotalNum'];
-        }
         if (isset($map['Rowr'])) {
             $model->rowr = $map['Rowr'];
+        }
+        if (isset($map['TotalNum'])) {
+            $model->totalNum = $map['TotalNum'];
         }
 
         return $model;

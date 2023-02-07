@@ -9,21 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateDepartmentRequest extends Model
 {
     /**
-     * @description 实例id
+     * @var string
+     */
+    public $departmentName;
+
+    /**
+     * @example ccc_xp_pre-cn-***
      *
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @description 部门名称
-     *
-     * @var string
-     */
-    public $departmentName;
     protected $_name = [
-        'instanceId'     => 'InstanceId',
         'departmentName' => 'DepartmentName',
+        'instanceId'     => 'InstanceId',
     ];
 
     public function validate()
@@ -33,11 +31,11 @@ class CreateDepartmentRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->departmentName) {
             $res['DepartmentName'] = $this->departmentName;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -51,11 +49,11 @@ class CreateDepartmentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['DepartmentName'])) {
             $model->departmentName = $map['DepartmentName'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

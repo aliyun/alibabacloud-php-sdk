@@ -9,17 +9,21 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
-     */
-    public $ossLink;
-
-    /**
+     * @example 1001067****
+     *
      * @var string
      */
     public $acid;
+
+    /**
+     * @example http://aliccrec-shvpc.oss-cn-shanghai.aliyuncs.com/accrec_tmp/10010679716-12-01-56.wav?***
+     *
+     * @var string
+     */
+    public $ossLink;
     protected $_name = [
-        'ossLink' => 'OssLink',
         'acid'    => 'Acid',
+        'ossLink' => 'OssLink',
     ];
 
     public function validate()
@@ -29,11 +33,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ossLink) {
-            $res['OssLink'] = $this->ossLink;
-        }
         if (null !== $this->acid) {
             $res['Acid'] = $this->acid;
+        }
+        if (null !== $this->ossLink) {
+            $res['OssLink'] = $this->ossLink;
         }
 
         return $res;
@@ -47,11 +51,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OssLink'])) {
-            $model->ossLink = $map['OssLink'];
-        }
         if (isset($map['Acid'])) {
             $model->acid = $map['Acid'];
+        }
+        if (isset($map['OssLink'])) {
+            $model->ossLink = $map['OssLink'];
         }
 
         return $model;

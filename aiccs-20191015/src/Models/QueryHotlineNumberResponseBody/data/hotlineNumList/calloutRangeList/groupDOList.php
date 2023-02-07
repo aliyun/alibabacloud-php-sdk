@@ -9,15 +9,13 @@ use AlibabaCloud\Tea\Model;
 class groupDOList extends Model
 {
     /**
-     * @description 技能组id
+     * @example 6083****
      *
      * @var int
      */
     public $groupId;
 
     /**
-     * @description 技能组名称
-     *
      * @var string
      */
     public $groupName;

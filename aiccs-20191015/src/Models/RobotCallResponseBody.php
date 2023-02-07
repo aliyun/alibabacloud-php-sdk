@@ -9,29 +9,37 @@ use AlibabaCloud\Tea\Model;
 class RobotCallResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
-    public $message;
+    public $code;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @example 116012854210^10281427*****
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example OK
+     *
      * @var string
      */
-    public $code;
+    public $message;
+
+    /**
+     * @example A90E4451-FED7-49D2-87C8-00700A8C4D0D
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
+        'code'      => 'Code',
+        'data'      => 'Data',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'data'      => 'Data',
-        'code'      => 'Code',
     ];
 
     public function validate()
@@ -41,17 +49,17 @@ class RobotCallResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -65,17 +73,17 @@ class RobotCallResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

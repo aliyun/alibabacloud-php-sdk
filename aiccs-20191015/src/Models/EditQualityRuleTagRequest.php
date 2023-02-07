@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class EditQualityRuleTagRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
      * @var analysisTypes[]
      */
     public $analysisTypes;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
         'analysisTypes' => 'AnalysisTypes',
+        'instanceId'    => 'InstanceId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class EditQualityRuleTagRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->analysisTypes) {
             $res['AnalysisTypes'] = [];
             if (null !== $this->analysisTypes && \is_array($this->analysisTypes)) {
@@ -41,6 +38,9 @@ class EditQualityRuleTagRequest extends Model
                     $res['AnalysisTypes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class EditQualityRuleTagRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['AnalysisTypes'])) {
             if (!empty($map['AnalysisTypes'])) {
                 $model->analysisTypes = [];
@@ -65,6 +62,9 @@ class EditQualityRuleTagRequest extends Model
                     $model->analysisTypes[$n++] = null !== $item ? analysisTypes::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

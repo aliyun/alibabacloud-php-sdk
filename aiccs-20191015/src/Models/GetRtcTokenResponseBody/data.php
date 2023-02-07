@@ -9,29 +9,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description token信息
+     * @example 139000000
      *
      * @var string
      */
-    public $token;
+    public $accountName;
 
     /**
-     * @description rtcId
+     * @example 200000000*******
      *
      * @var string
      */
     public $rtcId;
 
     /**
-     * @description 账号名
+     * @example {“cleansession”:true,”clientId”:”GID_VOIP@@@ClientId_****”,”conferenceTopic”:”cs_alicom_voip_conference”,”host”:”mqtt-cn-4590mdhb901.mqtt.aliyuncs.com”,”meetingEventKeepAliveInterval”:0,”phoneTopic”:”alicom_voip_phone”,”port”:0,”reconnectTimeout”:2000,”registerTime”:0,”sdkClientPort”:8883,”serverId”:”GID_VOIP@@@MTEuMTMuMTM2LjExOA==”,”sgwServerTopic”:”alicom_voip_server_pre”,”tlsport”:443,”tokenData”:”abcdef”,”useTLS”:false}
      *
      * @var string
      */
-    public $accountName;
+    public $token;
     protected $_name = [
-        'token'       => 'Token',
-        'rtcId'       => 'RtcId',
         'accountName' => 'AccountName',
+        'rtcId'       => 'RtcId',
+        'token'       => 'Token',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->token) {
-            $res['Token'] = $this->token;
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
         }
         if (null !== $this->rtcId) {
             $res['RtcId'] = $this->rtcId;
         }
-        if (null !== $this->accountName) {
-            $res['AccountName'] = $this->accountName;
+        if (null !== $this->token) {
+            $res['Token'] = $this->token;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Token'])) {
-            $model->token = $map['Token'];
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
         }
         if (isset($map['RtcId'])) {
             $model->rtcId = $map['RtcId'];
         }
-        if (isset($map['AccountName'])) {
-            $model->accountName = $map['AccountName'];
+        if (isset($map['Token'])) {
+            $model->token = $map['Token'];
         }
 
         return $model;

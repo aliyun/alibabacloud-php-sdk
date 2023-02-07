@@ -9,51 +9,50 @@ use AlibabaCloud\Tea\Model;
 class QueryTicketsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
+     * @example 223468****
+     *
      * @var int
      */
     public $caseId;
 
     /**
-     * @var int
-     */
-    public $caseType;
-
-    /**
+     * @example 2
+     *
      * @var int
      */
     public $caseStatus;
 
     /**
+     * @example 1223
+     *
      * @var int
      */
-    public $srType;
+    public $caseType;
 
     /**
-     * @var int
-     */
-    public $taskStatus;
-
-    /**
+     * @example 02acfefd3fa14049826ac1a89e1xxxxx
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $channelType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
-    public $touchId;
+    public $currentPage;
 
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $dealId;
@@ -64,28 +63,53 @@ class QueryTicketsRequest extends Model
     public $extra;
 
     /**
+     * @example ccc_xp_pre-cn-***
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 29506
+     *
      * @var int
      */
-    public $currentPage;
+    public $srType;
+
+    /**
+     * @example 3
+     *
+     * @var int
+     */
+    public $taskStatus;
+
+    /**
+     * @example 15030609
+     *
+     * @var int
+     */
+    public $touchId;
     protected $_name = [
-        'instanceId'  => 'InstanceId',
         'caseId'      => 'CaseId',
-        'caseType'    => 'CaseType',
         'caseStatus'  => 'CaseStatus',
-        'srType'      => 'SrType',
-        'taskStatus'  => 'TaskStatus',
+        'caseType'    => 'CaseType',
         'channelId'   => 'ChannelId',
         'channelType' => 'ChannelType',
-        'touchId'     => 'TouchId',
+        'currentPage' => 'CurrentPage',
         'dealId'      => 'DealId',
         'extra'       => 'Extra',
+        'instanceId'  => 'InstanceId',
         'pageSize'    => 'PageSize',
-        'currentPage' => 'CurrentPage',
+        'srType'      => 'SrType',
+        'taskStatus'  => 'TaskStatus',
+        'touchId'     => 'TouchId',
     ];
 
     public function validate()
@@ -95,23 +119,14 @@ class QueryTicketsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->caseId) {
             $res['CaseId'] = $this->caseId;
-        }
-        if (null !== $this->caseType) {
-            $res['CaseType'] = $this->caseType;
         }
         if (null !== $this->caseStatus) {
             $res['CaseStatus'] = $this->caseStatus;
         }
-        if (null !== $this->srType) {
-            $res['SrType'] = $this->srType;
-        }
-        if (null !== $this->taskStatus) {
-            $res['TaskStatus'] = $this->taskStatus;
+        if (null !== $this->caseType) {
+            $res['CaseType'] = $this->caseType;
         }
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
@@ -119,8 +134,8 @@ class QueryTicketsRequest extends Model
         if (null !== $this->channelType) {
             $res['ChannelType'] = $this->channelType;
         }
-        if (null !== $this->touchId) {
-            $res['TouchId'] = $this->touchId;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->dealId) {
             $res['DealId'] = $this->dealId;
@@ -128,11 +143,20 @@ class QueryTicketsRequest extends Model
         if (null !== $this->extra) {
             $res['Extra'] = $this->extra;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->srType) {
+            $res['SrType'] = $this->srType;
+        }
+        if (null !== $this->taskStatus) {
+            $res['TaskStatus'] = $this->taskStatus;
+        }
+        if (null !== $this->touchId) {
+            $res['TouchId'] = $this->touchId;
         }
 
         return $res;
@@ -146,23 +170,14 @@ class QueryTicketsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['CaseId'])) {
             $model->caseId = $map['CaseId'];
-        }
-        if (isset($map['CaseType'])) {
-            $model->caseType = $map['CaseType'];
         }
         if (isset($map['CaseStatus'])) {
             $model->caseStatus = $map['CaseStatus'];
         }
-        if (isset($map['SrType'])) {
-            $model->srType = $map['SrType'];
-        }
-        if (isset($map['TaskStatus'])) {
-            $model->taskStatus = $map['TaskStatus'];
+        if (isset($map['CaseType'])) {
+            $model->caseType = $map['CaseType'];
         }
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
@@ -170,8 +185,8 @@ class QueryTicketsRequest extends Model
         if (isset($map['ChannelType'])) {
             $model->channelType = $map['ChannelType'];
         }
-        if (isset($map['TouchId'])) {
-            $model->touchId = $map['TouchId'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['DealId'])) {
             $model->dealId = $map['DealId'];
@@ -179,11 +194,20 @@ class QueryTicketsRequest extends Model
         if (isset($map['Extra'])) {
             $model->extra = $map['Extra'];
         }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['SrType'])) {
+            $model->srType = $map['SrType'];
+        }
+        if (isset($map['TaskStatus'])) {
+            $model->taskStatus = $map['TaskStatus'];
+        }
+        if (isset($map['TouchId'])) {
+            $model->touchId = $map['TouchId'];
         }
 
         return $model;

@@ -9,14 +9,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var int
+     */
+    public $agentId;
+
+    /**
      * @var string
      */
-    public $showName;
+    public $createUserName;
 
     /**
      * @var string
      */
     public $foreignKey;
+
+    /**
+     * @var string
+     */
+    public $foreignNick;
+
+    /**
+     * @var string
+     */
+    public $realName;
 
     /**
      * @var int
@@ -26,30 +41,15 @@ class data extends Model
     /**
      * @var string
      */
-    public $realName;
-
-    /**
-     * @var string
-     */
-    public $createUserName;
-
-    /**
-     * @var int
-     */
-    public $agentId;
-
-    /**
-     * @var string
-     */
-    public $foreignNick;
+    public $showName;
     protected $_name = [
-        'showName'       => 'ShowName',
-        'foreignKey'     => 'ForeignKey',
-        'servicerType'   => 'ServicerType',
-        'realName'       => 'RealName',
-        'createUserName' => 'CreateUserName',
         'agentId'        => 'AgentId',
+        'createUserName' => 'CreateUserName',
+        'foreignKey'     => 'ForeignKey',
         'foreignNick'    => 'ForeignNick',
+        'realName'       => 'RealName',
+        'servicerType'   => 'ServicerType',
+        'showName'       => 'ShowName',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->showName) {
-            $res['ShowName'] = $this->showName;
-        }
-        if (null !== $this->foreignKey) {
-            $res['ForeignKey'] = $this->foreignKey;
-        }
-        if (null !== $this->servicerType) {
-            $res['ServicerType'] = $this->servicerType;
-        }
-        if (null !== $this->realName) {
-            $res['RealName'] = $this->realName;
+        if (null !== $this->agentId) {
+            $res['AgentId'] = $this->agentId;
         }
         if (null !== $this->createUserName) {
             $res['CreateUserName'] = $this->createUserName;
         }
-        if (null !== $this->agentId) {
-            $res['AgentId'] = $this->agentId;
+        if (null !== $this->foreignKey) {
+            $res['ForeignKey'] = $this->foreignKey;
         }
         if (null !== $this->foreignNick) {
             $res['ForeignNick'] = $this->foreignNick;
+        }
+        if (null !== $this->realName) {
+            $res['RealName'] = $this->realName;
+        }
+        if (null !== $this->servicerType) {
+            $res['ServicerType'] = $this->servicerType;
+        }
+        if (null !== $this->showName) {
+            $res['ShowName'] = $this->showName;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ShowName'])) {
-            $model->showName = $map['ShowName'];
-        }
-        if (isset($map['ForeignKey'])) {
-            $model->foreignKey = $map['ForeignKey'];
-        }
-        if (isset($map['ServicerType'])) {
-            $model->servicerType = $map['ServicerType'];
-        }
-        if (isset($map['RealName'])) {
-            $model->realName = $map['RealName'];
+        if (isset($map['AgentId'])) {
+            $model->agentId = $map['AgentId'];
         }
         if (isset($map['CreateUserName'])) {
             $model->createUserName = $map['CreateUserName'];
         }
-        if (isset($map['AgentId'])) {
-            $model->agentId = $map['AgentId'];
+        if (isset($map['ForeignKey'])) {
+            $model->foreignKey = $map['ForeignKey'];
         }
         if (isset($map['ForeignNick'])) {
             $model->foreignNick = $map['ForeignNick'];
+        }
+        if (isset($map['RealName'])) {
+            $model->realName = $map['RealName'];
+        }
+        if (isset($map['ServicerType'])) {
+            $model->servicerType = $map['ServicerType'];
+        }
+        if (isset($map['ShowName'])) {
+            $model->showName = $map['ShowName'];
         }
 
         return $model;

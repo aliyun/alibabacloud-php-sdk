@@ -11,33 +11,39 @@ class data extends Model
     /**
      * @var string
      */
-    public $role;
-
-    /**
-     * @var string
-     */
     public $content;
 
     /**
+     * @example normal
+     *
      * @var string
      */
     public $nodeType;
 
     /**
+     * @example robot
+     *
      * @var string
      */
-    public $time;
+    public $role;
 
     /**
      * @var string
      */
     public $tag;
+
+    /**
+     * @example 1621483557000
+     *
+     * @var string
+     */
+    public $time;
     protected $_name = [
-        'role'     => 'Role',
         'content'  => 'Content',
         'nodeType' => 'NodeType',
-        'time'     => 'Time',
+        'role'     => 'Role',
         'tag'      => 'Tag',
+        'time'     => 'Time',
     ];
 
     public function validate()
@@ -47,20 +53,20 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->role) {
-            $res['Role'] = $this->role;
-        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
         }
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
+        }
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
         }
 
         return $res;
@@ -74,20 +80,20 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Role'])) {
-            $model->role = $map['Role'];
-        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
         }
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
+        }
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
         }
 
         return $model;

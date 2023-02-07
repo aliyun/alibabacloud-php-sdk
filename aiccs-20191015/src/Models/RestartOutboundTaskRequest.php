@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class RestartOutboundTaskRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $outboundTaskId;
-
-    /**
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var int
+     */
+    public $outboundTaskId;
     protected $_name = [
-        'outboundTaskId' => 'OutboundTaskId',
         'instanceId'     => 'InstanceId',
+        'outboundTaskId' => 'OutboundTaskId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class RestartOutboundTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->outboundTaskId) {
-            $res['OutboundTaskId'] = $this->outboundTaskId;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->outboundTaskId) {
+            $res['OutboundTaskId'] = $this->outboundTaskId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class RestartOutboundTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OutboundTaskId'])) {
-            $model->outboundTaskId = $map['OutboundTaskId'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OutboundTaskId'])) {
+            $model->outboundTaskId = $map['OutboundTaskId'];
         }
 
         return $model;

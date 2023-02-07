@@ -9,6 +9,31 @@ use AlibabaCloud\Tea\Model;
 class EditQualityProjectRequest extends Model
 {
     /**
+     * @var int[]
+     */
+    public $analysisIds;
+
+    /**
+     * @var int[]
+     */
+    public $channelTouchType;
+
+    /**
+     * @var int
+     */
+    public $checkFreqType;
+
+    /**
+     * @var int[]
+     */
+    public $depList;
+
+    /**
+     * @var int[]
+     */
+    public $groupList;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -26,11 +51,6 @@ class EditQualityProjectRequest extends Model
     /**
      * @var int
      */
-    public $checkFreqType;
-
-    /**
-     * @var int
-     */
     public $projectVersion;
 
     /**
@@ -39,9 +59,9 @@ class EditQualityProjectRequest extends Model
     public $scopeType;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $timeRangeStart;
+    public $servicerList;
 
     /**
      * @var string
@@ -49,43 +69,23 @@ class EditQualityProjectRequest extends Model
     public $timeRangeEnd;
 
     /**
-     * @var int[]
+     * @var string
      */
-    public $analysisIds;
-
-    /**
-     * @var int[]
-     */
-    public $depList;
-
-    /**
-     * @var int[]
-     */
-    public $groupList;
-
-    /**
-     * @var string[]
-     */
-    public $servicerList;
-
-    /**
-     * @var int[]
-     */
-    public $channelTouchType;
+    public $timeRangeStart;
     protected $_name = [
+        'analysisIds'      => 'AnalysisIds',
+        'channelTouchType' => 'ChannelTouchType',
+        'checkFreqType'    => 'CheckFreqType',
+        'depList'          => 'DepList',
+        'groupList'        => 'GroupList',
         'instanceId'       => 'InstanceId',
         'projectId'        => 'ProjectId',
         'projectName'      => 'ProjectName',
-        'checkFreqType'    => 'CheckFreqType',
         'projectVersion'   => 'ProjectVersion',
         'scopeType'        => 'ScopeType',
-        'timeRangeStart'   => 'TimeRangeStart',
-        'timeRangeEnd'     => 'TimeRangeEnd',
-        'analysisIds'      => 'AnalysisIds',
-        'depList'          => 'DepList',
-        'groupList'        => 'GroupList',
         'servicerList'     => 'ServicerList',
-        'channelTouchType' => 'ChannelTouchType',
+        'timeRangeEnd'     => 'TimeRangeEnd',
+        'timeRangeStart'   => 'TimeRangeStart',
     ];
 
     public function validate()
@@ -95,6 +95,21 @@ class EditQualityProjectRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->analysisIds) {
+            $res['AnalysisIds'] = $this->analysisIds;
+        }
+        if (null !== $this->channelTouchType) {
+            $res['ChannelTouchType'] = $this->channelTouchType;
+        }
+        if (null !== $this->checkFreqType) {
+            $res['CheckFreqType'] = $this->checkFreqType;
+        }
+        if (null !== $this->depList) {
+            $res['DepList'] = $this->depList;
+        }
+        if (null !== $this->groupList) {
+            $res['GroupList'] = $this->groupList;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -104,35 +119,20 @@ class EditQualityProjectRequest extends Model
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
-        if (null !== $this->checkFreqType) {
-            $res['CheckFreqType'] = $this->checkFreqType;
-        }
         if (null !== $this->projectVersion) {
             $res['ProjectVersion'] = $this->projectVersion;
         }
         if (null !== $this->scopeType) {
             $res['ScopeType'] = $this->scopeType;
         }
-        if (null !== $this->timeRangeStart) {
-            $res['TimeRangeStart'] = $this->timeRangeStart;
+        if (null !== $this->servicerList) {
+            $res['ServicerList'] = $this->servicerList;
         }
         if (null !== $this->timeRangeEnd) {
             $res['TimeRangeEnd'] = $this->timeRangeEnd;
         }
-        if (null !== $this->analysisIds) {
-            $res['AnalysisIds'] = $this->analysisIds;
-        }
-        if (null !== $this->depList) {
-            $res['DepList'] = $this->depList;
-        }
-        if (null !== $this->groupList) {
-            $res['GroupList'] = $this->groupList;
-        }
-        if (null !== $this->servicerList) {
-            $res['ServicerList'] = $this->servicerList;
-        }
-        if (null !== $this->channelTouchType) {
-            $res['ChannelTouchType'] = $this->channelTouchType;
+        if (null !== $this->timeRangeStart) {
+            $res['TimeRangeStart'] = $this->timeRangeStart;
         }
 
         return $res;
@@ -146,34 +146,18 @@ class EditQualityProjectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
-        if (isset($map['CheckFreqType'])) {
-            $model->checkFreqType = $map['CheckFreqType'];
-        }
-        if (isset($map['ProjectVersion'])) {
-            $model->projectVersion = $map['ProjectVersion'];
-        }
-        if (isset($map['ScopeType'])) {
-            $model->scopeType = $map['ScopeType'];
-        }
-        if (isset($map['TimeRangeStart'])) {
-            $model->timeRangeStart = $map['TimeRangeStart'];
-        }
-        if (isset($map['TimeRangeEnd'])) {
-            $model->timeRangeEnd = $map['TimeRangeEnd'];
-        }
         if (isset($map['AnalysisIds'])) {
             if (!empty($map['AnalysisIds'])) {
                 $model->analysisIds = $map['AnalysisIds'];
             }
+        }
+        if (isset($map['ChannelTouchType'])) {
+            if (!empty($map['ChannelTouchType'])) {
+                $model->channelTouchType = $map['ChannelTouchType'];
+            }
+        }
+        if (isset($map['CheckFreqType'])) {
+            $model->checkFreqType = $map['CheckFreqType'];
         }
         if (isset($map['DepList'])) {
             if (!empty($map['DepList'])) {
@@ -185,15 +169,31 @@ class EditQualityProjectRequest extends Model
                 $model->groupList = $map['GroupList'];
             }
         }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['ProjectVersion'])) {
+            $model->projectVersion = $map['ProjectVersion'];
+        }
+        if (isset($map['ScopeType'])) {
+            $model->scopeType = $map['ScopeType'];
+        }
         if (isset($map['ServicerList'])) {
             if (!empty($map['ServicerList'])) {
                 $model->servicerList = $map['ServicerList'];
             }
         }
-        if (isset($map['ChannelTouchType'])) {
-            if (!empty($map['ChannelTouchType'])) {
-                $model->channelTouchType = $map['ChannelTouchType'];
-            }
+        if (isset($map['TimeRangeEnd'])) {
+            $model->timeRangeEnd = $map['TimeRangeEnd'];
+        }
+        if (isset($map['TimeRangeStart'])) {
+            $model->timeRangeStart = $map['TimeRangeStart'];
         }
 
         return $model;

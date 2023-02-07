@@ -11,7 +11,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $robotType;
+    public $atProfession;
 
     /**
      * @var string
@@ -19,9 +19,11 @@ class data extends Model
     public $atSence;
 
     /**
-     * @var string
+     * @example 123456
+     *
+     * @var int
      */
-    public $atProfession;
+    public $id;
 
     /**
      * @var string
@@ -29,15 +31,17 @@ class data extends Model
     public $robotName;
 
     /**
-     * @var int
+     * @example CUSTOM
+     *
+     * @var string
      */
-    public $id;
+    public $robotType;
     protected $_name = [
-        'robotType'    => 'RobotType',
-        'atSence'      => 'AtSence',
         'atProfession' => 'AtProfession',
-        'robotName'    => 'RobotName',
+        'atSence'      => 'AtSence',
         'id'           => 'Id',
+        'robotName'    => 'RobotName',
+        'robotType'    => 'RobotType',
     ];
 
     public function validate()
@@ -47,20 +51,20 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->robotType) {
-            $res['RobotType'] = $this->robotType;
+        if (null !== $this->atProfession) {
+            $res['AtProfession'] = $this->atProfession;
         }
         if (null !== $this->atSence) {
             $res['AtSence'] = $this->atSence;
         }
-        if (null !== $this->atProfession) {
-            $res['AtProfession'] = $this->atProfession;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->robotName) {
             $res['RobotName'] = $this->robotName;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->robotType) {
+            $res['RobotType'] = $this->robotType;
         }
 
         return $res;
@@ -74,20 +78,20 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RobotType'])) {
-            $model->robotType = $map['RobotType'];
+        if (isset($map['AtProfession'])) {
+            $model->atProfession = $map['AtProfession'];
         }
         if (isset($map['AtSence'])) {
             $model->atSence = $map['AtSence'];
         }
-        if (isset($map['AtProfession'])) {
-            $model->atProfession = $map['AtProfession'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['RobotName'])) {
             $model->robotName = $map['RobotName'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['RobotType'])) {
+            $model->robotType = $map['RobotType'];
         }
 
         return $model;

@@ -9,9 +9,37 @@ use AlibabaCloud\Tea\Model;
 class SendCcoSmartCallOperateRequest extends Model
 {
     /**
+     * @example 116012854210^102814279****
+     *
+     * @var string
+     */
+    public $callId;
+
+    /**
+     * @example parallelBridge
+     *
+     * @var string
+     */
+    public $command;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @example Param
+     *
+     * @var string
+     */
+    public $param;
+
+    /**
+     * @example aiccs
+     *
+     * @var string
+     */
+    public $prodCode;
 
     /**
      * @var string
@@ -22,34 +50,14 @@ class SendCcoSmartCallOperateRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $prodCode;
-
-    /**
-     * @var string
-     */
-    public $callId;
-
-    /**
-     * @var string
-     */
-    public $command;
-
-    /**
-     * @var string
-     */
-    public $param;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'prodCode'             => 'ProdCode',
         'callId'               => 'CallId',
         'command'              => 'Command',
+        'ownerId'              => 'OwnerId',
         'param'                => 'Param',
+        'prodCode'             => 'ProdCode',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -59,26 +67,26 @@ class SendCcoSmartCallOperateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->prodCode) {
-            $res['ProdCode'] = $this->prodCode;
-        }
         if (null !== $this->callId) {
             $res['CallId'] = $this->callId;
         }
         if (null !== $this->command) {
             $res['Command'] = $this->command;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->param) {
             $res['Param'] = $this->param;
+        }
+        if (null !== $this->prodCode) {
+            $res['ProdCode'] = $this->prodCode;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -92,26 +100,26 @@ class SendCcoSmartCallOperateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ProdCode'])) {
-            $model->prodCode = $map['ProdCode'];
-        }
         if (isset($map['CallId'])) {
             $model->callId = $map['CallId'];
         }
         if (isset($map['Command'])) {
             $model->command = $map['Command'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['Param'])) {
             $model->param = $map['Param'];
+        }
+        if (isset($map['ProdCode'])) {
+            $model->prodCode = $map['ProdCode'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

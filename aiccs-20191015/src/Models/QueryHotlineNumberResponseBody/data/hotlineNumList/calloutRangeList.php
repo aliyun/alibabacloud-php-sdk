@@ -10,22 +10,18 @@ use AlibabaCloud\Tea\Model;
 class calloutRangeList extends Model
 {
     /**
-     * @description 部门id
+     * @example 2256****
      *
      * @var int
      */
     public $departmentId;
 
     /**
-     * @description 部门名称
-     *
      * @var string
      */
     public $departmentName;
 
     /**
-     * @description 技能组列表
-     *
      * @var groupDOList[]
      */
     public $groupDOList;

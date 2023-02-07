@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var int
+     * @var columns[]
      */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $total;
+    public $columns;
 
     /**
      * @var int
@@ -25,20 +20,25 @@ class data extends Model
     public $page;
 
     /**
-     * @var columns[]
+     * @var int
      */
-    public $columns;
+    public $pageSize;
 
     /**
      * @var mixed[][]
      */
     public $rows;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
-        'pageSize' => 'PageSize',
-        'total'    => 'Total',
-        'page'     => 'Page',
         'columns'  => 'Columns',
+        'page'     => 'Page',
+        'pageSize' => 'PageSize',
         'rows'     => 'Rows',
+        'total'    => 'Total',
     ];
 
     public function validate()
@@ -48,15 +48,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
-        if (null !== $this->page) {
-            $res['Page'] = $this->page;
-        }
         if (null !== $this->columns) {
             $res['Columns'] = [];
             if (null !== $this->columns && \is_array($this->columns)) {
@@ -66,8 +57,17 @@ class data extends Model
                 }
             }
         }
+        if (null !== $this->page) {
+            $res['Page'] = $this->page;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->rows) {
             $res['Rows'] = $this->rows;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -81,15 +81,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
-        if (isset($map['Page'])) {
-            $model->page = $map['Page'];
-        }
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
                 $model->columns = [];
@@ -99,10 +90,19 @@ class data extends Model
                 }
             }
         }
+        if (isset($map['Page'])) {
+            $model->page = $map['Page'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['Rows'])) {
             if (!empty($map['Rows'])) {
                 $model->rows = $map['Rows'];
             }
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

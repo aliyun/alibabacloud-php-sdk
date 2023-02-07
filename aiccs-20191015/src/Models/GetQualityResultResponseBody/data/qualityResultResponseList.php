@@ -11,22 +11,42 @@ class qualityResultResponseList extends Model
     /**
      * @var string
      */
-    public $touchId;
+    public $channelType;
+
+    /**
+     * @var string
+     */
+    public $channelTypeName;
+
+    /**
+     * @var string
+     */
+    public $groupId;
+
+    /**
+     * @var string
+     */
+    public $groupName;
+
+    /**
+     * @var string
+     */
+    public $hitDetail;
+
+    /**
+     * @var bool
+     */
+    public $hitStatus;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
 
     /**
      * @var string
      */
     public $memberName;
-
-    /**
-     * @var string
-     */
-    public $servicerName;
-
-    /**
-     * @var string
-     */
-    public $channelType;
 
     /**
      * @var string
@@ -41,21 +61,6 @@ class qualityResultResponseList extends Model
     /**
      * @var string
      */
-    public $channelTypeName;
-
-    /**
-     * @var string
-     */
-    public $touchStartTime;
-
-    /**
-     * @var string
-     */
-    public $servicerId;
-
-    /**
-     * @var string
-     */
     public $ruleId;
 
     /**
@@ -66,44 +71,39 @@ class qualityResultResponseList extends Model
     /**
      * @var string
      */
-    public $groupName;
+    public $servicerId;
 
     /**
      * @var string
      */
-    public $groupId;
+    public $servicerName;
 
     /**
      * @var string
      */
-    public $instanceName;
-
-    /**
-     * @var bool
-     */
-    public $hitStatus;
+    public $touchId;
 
     /**
      * @var string
      */
-    public $hitDetail;
+    public $touchStartTime;
     protected $_name = [
-        'touchId'         => 'TouchId',
-        'memberName'      => 'MemberName',
-        'servicerName'    => 'ServicerName',
         'channelType'     => 'ChannelType',
+        'channelTypeName' => 'ChannelTypeName',
+        'groupId'         => 'GroupId',
+        'groupName'       => 'GroupName',
+        'hitDetail'       => 'HitDetail',
+        'hitStatus'       => 'HitStatus',
+        'instanceName'    => 'InstanceName',
+        'memberName'      => 'MemberName',
         'projectId'       => 'ProjectId',
         'projectName'     => 'ProjectName',
-        'channelTypeName' => 'ChannelTypeName',
-        'touchStartTime'  => 'TouchStartTime',
-        'servicerId'      => 'ServicerId',
         'ruleId'          => 'RuleId',
         'ruleName'        => 'RuleName',
-        'groupName'       => 'GroupName',
-        'groupId'         => 'GroupId',
-        'instanceName'    => 'InstanceName',
-        'hitStatus'       => 'HitStatus',
-        'hitDetail'       => 'HitDetail',
+        'servicerId'      => 'ServicerId',
+        'servicerName'    => 'ServicerName',
+        'touchId'         => 'TouchId',
+        'touchStartTime'  => 'TouchStartTime',
     ];
 
     public function validate()
@@ -113,17 +113,29 @@ class qualityResultResponseList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->touchId) {
-            $res['TouchId'] = $this->touchId;
+        if (null !== $this->channelType) {
+            $res['ChannelType'] = $this->channelType;
+        }
+        if (null !== $this->channelTypeName) {
+            $res['ChannelTypeName'] = $this->channelTypeName;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->hitDetail) {
+            $res['HitDetail'] = $this->hitDetail;
+        }
+        if (null !== $this->hitStatus) {
+            $res['HitStatus'] = $this->hitStatus;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
         if (null !== $this->memberName) {
             $res['MemberName'] = $this->memberName;
-        }
-        if (null !== $this->servicerName) {
-            $res['ServicerName'] = $this->servicerName;
-        }
-        if (null !== $this->channelType) {
-            $res['ChannelType'] = $this->channelType;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
@@ -131,35 +143,23 @@ class qualityResultResponseList extends Model
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
-        if (null !== $this->channelTypeName) {
-            $res['ChannelTypeName'] = $this->channelTypeName;
-        }
-        if (null !== $this->touchStartTime) {
-            $res['TouchStartTime'] = $this->touchStartTime;
-        }
-        if (null !== $this->servicerId) {
-            $res['ServicerId'] = $this->servicerId;
-        }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
+        if (null !== $this->servicerId) {
+            $res['ServicerId'] = $this->servicerId;
         }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
+        if (null !== $this->servicerName) {
+            $res['ServicerName'] = $this->servicerName;
         }
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
+        if (null !== $this->touchId) {
+            $res['TouchId'] = $this->touchId;
         }
-        if (null !== $this->hitStatus) {
-            $res['HitStatus'] = $this->hitStatus;
-        }
-        if (null !== $this->hitDetail) {
-            $res['HitDetail'] = $this->hitDetail;
+        if (null !== $this->touchStartTime) {
+            $res['TouchStartTime'] = $this->touchStartTime;
         }
 
         return $res;
@@ -173,17 +173,29 @@ class qualityResultResponseList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TouchId'])) {
-            $model->touchId = $map['TouchId'];
+        if (isset($map['ChannelType'])) {
+            $model->channelType = $map['ChannelType'];
+        }
+        if (isset($map['ChannelTypeName'])) {
+            $model->channelTypeName = $map['ChannelTypeName'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['HitDetail'])) {
+            $model->hitDetail = $map['HitDetail'];
+        }
+        if (isset($map['HitStatus'])) {
+            $model->hitStatus = $map['HitStatus'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
         if (isset($map['MemberName'])) {
             $model->memberName = $map['MemberName'];
-        }
-        if (isset($map['ServicerName'])) {
-            $model->servicerName = $map['ServicerName'];
-        }
-        if (isset($map['ChannelType'])) {
-            $model->channelType = $map['ChannelType'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
@@ -191,35 +203,23 @@ class qualityResultResponseList extends Model
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
-        if (isset($map['ChannelTypeName'])) {
-            $model->channelTypeName = $map['ChannelTypeName'];
-        }
-        if (isset($map['TouchStartTime'])) {
-            $model->touchStartTime = $map['TouchStartTime'];
-        }
-        if (isset($map['ServicerId'])) {
-            $model->servicerId = $map['ServicerId'];
-        }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
+        if (isset($map['ServicerId'])) {
+            $model->servicerId = $map['ServicerId'];
         }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
+        if (isset($map['ServicerName'])) {
+            $model->servicerName = $map['ServicerName'];
         }
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
+        if (isset($map['TouchId'])) {
+            $model->touchId = $map['TouchId'];
         }
-        if (isset($map['HitStatus'])) {
-            $model->hitStatus = $map['HitStatus'];
-        }
-        if (isset($map['HitDetail'])) {
-            $model->hitDetail = $map['HitDetail'];
+        if (isset($map['TouchStartTime'])) {
+            $model->touchStartTime = $map['TouchStartTime'];
         }
 
         return $model;

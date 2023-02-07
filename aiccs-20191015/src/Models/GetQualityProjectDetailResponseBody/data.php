@@ -9,101 +9,91 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 质检任务状态
-     *
-     * @var int
-     */
-    public $status;
-
-    /**
-     * @description 质检类型
-     *
-     * @var int
-     */
-    public $qualityType;
-
-    /**
-     * @description 质检规则ID
-     *
-     * @var int[]
-     */
-    public $qualityRuleIds;
-
-    /**
-     * @description 创建时间
-     *
-     * @var string
-     */
-    public $createTime;
-
-    /**
-     * @description 质检任务名称
-     *
-     * @var string
-     */
-    public $projectName;
-
-    /**
-     * @description 质检周期
+     * @example 1
      *
      * @var int
      */
     public $checkFreqType;
 
     /**
-     * @description 技能组分组
+     * @example 2021-04-07 18:07:18
      *
+     * @var string
+     */
+    public $createTime;
+
+    /**
      * @var int[]
      */
     public $depList;
 
     /**
-     * @description 坐席列表
-     *
-     * @var int[]
-     */
-    public $servicerList;
-
-    /**
-     * @description Version
-     *
-     * @var int
-     */
-    public $version;
-
-    /**
-     * @description 技能组列表
-     *
      * @var int[]
      */
     public $groupList;
 
     /**
-     * @description 质检任务ID
+     * @example 15977801
      *
      * @var int
      */
     public $id;
 
     /**
-     * @description 修改时间
+     * @example 2021-04-07 18:07:19
      *
      * @var string
      */
     public $modifyTime;
+
+    /**
+     * @var string
+     */
+    public $projectName;
+
+    /**
+     * @var int[]
+     */
+    public $qualityRuleIds;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $qualityType;
+
+    /**
+     * @var int[]
+     */
+    public $servicerList;
+
+    /**
+     * @example 0
+     *
+     * @var int
+     */
+    public $status;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $version;
     protected $_name = [
-        'status'         => 'Status',
-        'qualityType'    => 'QualityType',
-        'qualityRuleIds' => 'QualityRuleIds',
-        'createTime'     => 'CreateTime',
-        'projectName'    => 'ProjectName',
         'checkFreqType'  => 'CheckFreqType',
+        'createTime'     => 'CreateTime',
         'depList'        => 'DepList',
-        'servicerList'   => 'ServicerList',
-        'version'        => 'Version',
         'groupList'      => 'GroupList',
         'id'             => 'Id',
         'modifyTime'     => 'ModifyTime',
+        'projectName'    => 'ProjectName',
+        'qualityRuleIds' => 'QualityRuleIds',
+        'qualityType'    => 'QualityType',
+        'servicerList'   => 'ServicerList',
+        'status'         => 'Status',
+        'version'        => 'Version',
     ];
 
     public function validate()
@@ -113,32 +103,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->qualityType) {
-            $res['QualityType'] = $this->qualityType;
-        }
-        if (null !== $this->qualityRuleIds) {
-            $res['QualityRuleIds'] = $this->qualityRuleIds;
+        if (null !== $this->checkFreqType) {
+            $res['CheckFreqType'] = $this->checkFreqType;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
-        if (null !== $this->checkFreqType) {
-            $res['CheckFreqType'] = $this->checkFreqType;
-        }
         if (null !== $this->depList) {
             $res['DepList'] = $this->depList;
-        }
-        if (null !== $this->servicerList) {
-            $res['ServicerList'] = $this->servicerList;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
         if (null !== $this->groupList) {
             $res['GroupList'] = $this->groupList;
@@ -148,6 +120,24 @@ class data extends Model
         }
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
+        }
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->qualityRuleIds) {
+            $res['QualityRuleIds'] = $this->qualityRuleIds;
+        }
+        if (null !== $this->qualityType) {
+            $res['QualityType'] = $this->qualityType;
+        }
+        if (null !== $this->servicerList) {
+            $res['ServicerList'] = $this->servicerList;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -161,38 +151,16 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['QualityType'])) {
-            $model->qualityType = $map['QualityType'];
-        }
-        if (isset($map['QualityRuleIds'])) {
-            if (!empty($map['QualityRuleIds'])) {
-                $model->qualityRuleIds = $map['QualityRuleIds'];
-            }
+        if (isset($map['CheckFreqType'])) {
+            $model->checkFreqType = $map['CheckFreqType'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
-        if (isset($map['CheckFreqType'])) {
-            $model->checkFreqType = $map['CheckFreqType'];
         }
         if (isset($map['DepList'])) {
             if (!empty($map['DepList'])) {
                 $model->depList = $map['DepList'];
             }
-        }
-        if (isset($map['ServicerList'])) {
-            if (!empty($map['ServicerList'])) {
-                $model->servicerList = $map['ServicerList'];
-            }
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
         if (isset($map['GroupList'])) {
             if (!empty($map['GroupList'])) {
@@ -204,6 +172,28 @@ class data extends Model
         }
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
+        }
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['QualityRuleIds'])) {
+            if (!empty($map['QualityRuleIds'])) {
+                $model->qualityRuleIds = $map['QualityRuleIds'];
+            }
+        }
+        if (isset($map['QualityType'])) {
+            $model->qualityType = $map['QualityType'];
+        }
+        if (isset($map['ServicerList'])) {
+            if (!empty($map['ServicerList'])) {
+                $model->servicerList = $map['ServicerList'];
+            }
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

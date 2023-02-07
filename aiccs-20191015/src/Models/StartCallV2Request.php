@@ -9,41 +9,53 @@ use AlibabaCloud\Tea\Model;
 class StartCallV2Request extends Model
 {
     /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
+     * @example 123@123.com
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example 136****1111
+     *
+     * @var string
+     */
+    public $callee;
+
+    /**
+     * @example 9065****
+     *
      * @var string
      */
     public $caller;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $callerType;
 
     /**
+     * @example 46c1341e-2648-447a-9b11-70b6a298d94d
+     *
      * @var string
      */
-    public $callee;
+    public $clientToken;
+
+    /**
+     * @example ccc_xp_pre-cn-***
+     *
+     * @var string
+     */
+    public $instanceId;
     protected $_name = [
-        'clientToken' => 'ClientToken',
-        'instanceId'  => 'InstanceId',
         'accountName' => 'AccountName',
+        'callee'      => 'Callee',
         'caller'      => 'Caller',
         'callerType'  => 'CallerType',
-        'callee'      => 'Callee',
+        'clientToken' => 'ClientToken',
+        'instanceId'  => 'InstanceId',
     ];
 
     public function validate()
@@ -53,14 +65,11 @@ class StartCallV2Request extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->callee) {
+            $res['Callee'] = $this->callee;
         }
         if (null !== $this->caller) {
             $res['Caller'] = $this->caller;
@@ -68,8 +77,11 @@ class StartCallV2Request extends Model
         if (null !== $this->callerType) {
             $res['CallerType'] = $this->callerType;
         }
-        if (null !== $this->callee) {
-            $res['Callee'] = $this->callee;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -83,14 +95,11 @@ class StartCallV2Request extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['Callee'])) {
+            $model->callee = $map['Callee'];
         }
         if (isset($map['Caller'])) {
             $model->caller = $map['Caller'];
@@ -98,8 +107,11 @@ class StartCallV2Request extends Model
         if (isset($map['CallerType'])) {
             $model->callerType = $map['CallerType'];
         }
-        if (isset($map['Callee'])) {
-            $model->callee = $map['Callee'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

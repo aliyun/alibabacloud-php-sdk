@@ -10,41 +10,51 @@ use AlibabaCloud\Tea\Model;
 class QuerySkillGroupsResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $onePageSize;
-
-    /**
-     * @var int
-     */
-    public $totalPage;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @var int
-     */
-    public $totalResults;
-
-    /**
      * @var data[]
      */
     public $data;
+
+    /**
+     * @example 20
+     *
+     * @var int
+     */
+    public $onePageSize;
+
+    /**
+     * @example EE338D98-9BD3-4413-B165
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @example 4
+     *
+     * @var int
+     */
+    public $totalPage;
+
+    /**
+     * @example 76
+     *
+     * @var int
+     */
+    public $totalResults;
     protected $_name = [
-        'onePageSize'  => 'OnePageSize',
-        'totalPage'    => 'TotalPage',
-        'requestId'    => 'RequestId',
         'currentPage'  => 'CurrentPage',
-        'totalResults' => 'TotalResults',
         'data'         => 'Data',
+        'onePageSize'  => 'OnePageSize',
+        'requestId'    => 'RequestId',
+        'totalPage'    => 'TotalPage',
+        'totalResults' => 'TotalResults',
     ];
 
     public function validate()
@@ -54,20 +64,8 @@ class QuerySkillGroupsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->onePageSize) {
-            $res['OnePageSize'] = $this->onePageSize;
-        }
-        if (null !== $this->totalPage) {
-            $res['TotalPage'] = $this->totalPage;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
-        }
-        if (null !== $this->totalResults) {
-            $res['TotalResults'] = $this->totalResults;
         }
         if (null !== $this->data) {
             $res['Data'] = [];
@@ -77,6 +75,18 @@ class QuerySkillGroupsResponseBody extends Model
                     $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->onePageSize) {
+            $res['OnePageSize'] = $this->onePageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalPage) {
+            $res['TotalPage'] = $this->totalPage;
+        }
+        if (null !== $this->totalResults) {
+            $res['TotalResults'] = $this->totalResults;
         }
 
         return $res;
@@ -90,20 +100,8 @@ class QuerySkillGroupsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OnePageSize'])) {
-            $model->onePageSize = $map['OnePageSize'];
-        }
-        if (isset($map['TotalPage'])) {
-            $model->totalPage = $map['TotalPage'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
-        }
-        if (isset($map['TotalResults'])) {
-            $model->totalResults = $map['TotalResults'];
         }
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
@@ -113,6 +111,18 @@ class QuerySkillGroupsResponseBody extends Model
                     $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['OnePageSize'])) {
+            $model->onePageSize = $map['OnePageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalPage'])) {
+            $model->totalPage = $map['TotalPage'];
+        }
+        if (isset($map['TotalResults'])) {
+            $model->totalResults = $map['TotalResults'];
         }
 
         return $model;

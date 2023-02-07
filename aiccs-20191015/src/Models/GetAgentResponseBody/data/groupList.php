@@ -9,9 +9,11 @@ use AlibabaCloud\Tea\Model;
 class groupList extends Model
 {
     /**
-     * @var string
+     * @example 1
+     *
+     * @var int
      */
-    public $displayName;
+    public $channelType;
 
     /**
      * @var string
@@ -19,25 +21,27 @@ class groupList extends Model
     public $description;
 
     /**
-     * @var int
+     * @var string
      */
-    public $channelType;
-
-    /**
-     * @var int
-     */
-    public $skillGroupId;
+    public $displayName;
 
     /**
      * @var string
      */
     public $name;
+
+    /**
+     * @example 123456
+     *
+     * @var int
+     */
+    public $skillGroupId;
     protected $_name = [
-        'displayName'  => 'DisplayName',
-        'description'  => 'Description',
         'channelType'  => 'ChannelType',
-        'skillGroupId' => 'SkillGroupId',
+        'description'  => 'Description',
+        'displayName'  => 'DisplayName',
         'name'         => 'Name',
+        'skillGroupId' => 'SkillGroupId',
     ];
 
     public function validate()
@@ -47,20 +51,20 @@ class groupList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->displayName) {
-            $res['DisplayName'] = $this->displayName;
+        if (null !== $this->channelType) {
+            $res['ChannelType'] = $this->channelType;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->channelType) {
-            $res['ChannelType'] = $this->channelType;
-        }
-        if (null !== $this->skillGroupId) {
-            $res['SkillGroupId'] = $this->skillGroupId;
+        if (null !== $this->displayName) {
+            $res['DisplayName'] = $this->displayName;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->skillGroupId) {
+            $res['SkillGroupId'] = $this->skillGroupId;
         }
 
         return $res;
@@ -74,20 +78,20 @@ class groupList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DisplayName'])) {
-            $model->displayName = $map['DisplayName'];
+        if (isset($map['ChannelType'])) {
+            $model->channelType = $map['ChannelType'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['ChannelType'])) {
-            $model->channelType = $map['ChannelType'];
-        }
-        if (isset($map['SkillGroupId'])) {
-            $model->skillGroupId = $map['SkillGroupId'];
+        if (isset($map['DisplayName'])) {
+            $model->displayName = $map['DisplayName'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['SkillGroupId'])) {
+            $model->skillGroupId = $map['SkillGroupId'];
         }
 
         return $model;

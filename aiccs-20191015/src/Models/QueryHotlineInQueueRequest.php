@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryHotlineInQueueRequest extends Model
 {
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $outerGroupId;
 
     /**
+     * @example mybank
+     *
      * @var string
      */
     public $outerGroupType;

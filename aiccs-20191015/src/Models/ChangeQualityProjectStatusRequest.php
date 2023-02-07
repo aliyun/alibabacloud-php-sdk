@@ -16,16 +16,16 @@ class ChangeQualityProjectStatusRequest extends Model
     /**
      * @var int
      */
-    public $status;
+    public $projectId;
 
     /**
      * @var int
      */
-    public $projectId;
+    public $status;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'status'     => 'Status',
         'projectId'  => 'ProjectId',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class ChangeQualityProjectStatusRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class ChangeQualityProjectStatusRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

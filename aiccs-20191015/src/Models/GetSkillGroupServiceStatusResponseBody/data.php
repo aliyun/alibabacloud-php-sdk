@@ -9,37 +9,35 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 页大小
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageNum;
+
+    /**
+     * @example 2000
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 总记录数
-     *
-     * @var int
-     */
-    public $totalNum;
-
-    /**
-     * @description 信息为list<map>类型的json字符串
-     *
      * @var string
      */
     public $rows;
 
     /**
-     * @description 当前页数
+     * @example 4
      *
      * @var int
      */
-    public $pageNum;
+    public $totalNum;
     protected $_name = [
-        'pageSize' => 'PageSize',
-        'totalNum' => 'TotalNum',
-        'rows'     => 'Rows',
         'pageNum'  => 'PageNum',
+        'pageSize' => 'PageSize',
+        'rows'     => 'Rows',
+        'totalNum' => 'TotalNum',
     ];
 
     public function validate()
@@ -49,17 +47,17 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->totalNum) {
-            $res['TotalNum'] = $this->totalNum;
         }
         if (null !== $this->rows) {
             $res['Rows'] = $this->rows;
         }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
+        if (null !== $this->totalNum) {
+            $res['TotalNum'] = $this->totalNum;
         }
 
         return $res;
@@ -73,17 +71,17 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['TotalNum'])) {
-            $model->totalNum = $map['TotalNum'];
         }
         if (isset($map['Rows'])) {
             $model->rows = $map['Rows'];
         }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
+        if (isset($map['TotalNum'])) {
+            $model->totalNum = $map['TotalNum'];
         }
 
         return $model;
