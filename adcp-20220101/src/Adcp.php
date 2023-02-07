@@ -10,7 +10,6 @@ use AlibabaCloud\SDK\Adcp\V20220101\Models\AttachClusterToHubRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\AttachClusterToHubResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\CreateHubClusterRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\CreateHubClusterResponse;
-use AlibabaCloud\SDK\Adcp\V20220101\Models\CreateHubClusterShrinkRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DeleteHubClusterRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DeleteHubClusterResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DeleteHubClusterShrinkRequest;
@@ -148,26 +147,20 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param CreateHubClusterRequest $tmpReq
+     * @param CreateHubClusterRequest $request
      * @param RuntimeOptions          $runtime
      *
      * @return CreateHubClusterResponse
      */
-    public function createHubClusterWithOptions($tmpReq, $runtime)
+    public function createHubClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new CreateHubClusterShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->clusterConfiguration)) {
-            $request->clusterConfigurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->clusterConfiguration, 'ClusterConfiguration', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->clusterConfigurationShrink)) {
-            $query['ClusterConfiguration'] = $request->clusterConfigurationShrink;
-        }
+        Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->apiServerPublicEip)) {
             $body['ApiServerPublicEip'] = $request->apiServerPublicEip;
+        }
+        if (!Utils::isUnset($request->argoServerEnabled)) {
+            $body['ArgoServerEnabled'] = $request->argoServerEnabled;
         }
         if (!Utils::isUnset($request->auditLogEnabled)) {
             $body['AuditLogEnabled'] = $request->auditLogEnabled;
@@ -177,6 +170,9 @@ class Adcp extends OpenApiClient
         }
         if (!Utils::isUnset($request->name)) {
             $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->priceLimit)) {
+            $body['PriceLimit'] = $request->priceLimit;
         }
         if (!Utils::isUnset($request->profile)) {
             $body['Profile'] = $request->profile;
@@ -190,9 +186,11 @@ class Adcp extends OpenApiClient
         if (!Utils::isUnset($request->vpcId)) {
             $body['VpcId'] = $request->vpcId;
         }
+        if (!Utils::isUnset($request->workflowScheduleMode)) {
+            $body['WorkflowScheduleMode'] = $request->workflowScheduleMode;
+        }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateHubCluster',
@@ -595,12 +593,18 @@ class Adcp extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new UpdateHubClusterFeatureShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->units)) {
-            $request->unitsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->units, 'Units', 'json');
+        if (!Utils::isUnset($tmpReq->vSwitches)) {
+            $request->vSwitchesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vSwitches, 'VSwitches', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->apiServerEipId)) {
             $query['ApiServerEipId'] = $request->apiServerEipId;
+        }
+        if (!Utils::isUnset($request->argoCDEnabled)) {
+            $query['ArgoCDEnabled'] = $request->argoCDEnabled;
+        }
+        if (!Utils::isUnset($request->argoServerEnabled)) {
+            $query['ArgoServerEnabled'] = $request->argoServerEnabled;
         }
         if (!Utils::isUnset($request->auditLogEnabled)) {
             $query['AuditLogEnabled'] = $request->auditLogEnabled;
@@ -611,14 +615,8 @@ class Adcp extends OpenApiClient
         if (!Utils::isUnset($request->deletionProtection)) {
             $query['DeletionProtection'] = $request->deletionProtection;
         }
-        if (!Utils::isUnset($request->enableArgoCD)) {
-            $query['EnableArgoCD'] = $request->enableArgoCD;
-        }
         if (!Utils::isUnset($request->enableMesh)) {
             $query['EnableMesh'] = $request->enableMesh;
-        }
-        if (!Utils::isUnset($request->enabled)) {
-            $query['Enabled'] = $request->enabled;
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
@@ -629,14 +627,11 @@ class Adcp extends OpenApiClient
         if (!Utils::isUnset($request->publicApiServerEnabled)) {
             $query['PublicApiServerEnabled'] = $request->publicApiServerEnabled;
         }
-        if (!Utils::isUnset($request->scheduleMode)) {
-            $query['ScheduleMode'] = $request->scheduleMode;
+        if (!Utils::isUnset($request->vSwitchesShrink)) {
+            $query['VSwitches'] = $request->vSwitchesShrink;
         }
-        if (!Utils::isUnset($request->serverEnabled)) {
-            $query['ServerEnabled'] = $request->serverEnabled;
-        }
-        if (!Utils::isUnset($request->unitsShrink)) {
-            $query['Units'] = $request->unitsShrink;
+        if (!Utils::isUnset($request->workflowScheduleMode)) {
+            $query['WorkflowScheduleMode'] = $request->workflowScheduleMode;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

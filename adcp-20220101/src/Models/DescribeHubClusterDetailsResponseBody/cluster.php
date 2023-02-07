@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterDetailsResponseBody
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterDetailsResponseBody\cluster\logConfig;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterDetailsResponseBody\cluster\meshConfig;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterDetailsResponseBody\cluster\network;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterDetailsResponseBody\cluster\workflowConfig;
 use AlibabaCloud\Tea\Model;
 
 class cluster extends Model
@@ -30,7 +31,7 @@ class cluster extends Model
     public $clusterInfo;
 
     /**
-     * @description 集群删除条件信息列表
+     * @description The list of the deletion conditions of the master instance.
      *
      * @var conditions[]
      */
@@ -63,14 +64,20 @@ class cluster extends Model
      * @var network
      */
     public $network;
+
+    /**
+     * @var workflowConfig
+     */
+    public $workflowConfig;
     protected $_name = [
-        'apiServer'   => 'ApiServer',
-        'clusterInfo' => 'ClusterInfo',
-        'conditions'  => 'Conditions',
-        'endpoints'   => 'Endpoints',
-        'logConfig'   => 'LogConfig',
-        'meshConfig'  => 'MeshConfig',
-        'network'     => 'Network',
+        'apiServer'      => 'ApiServer',
+        'clusterInfo'    => 'ClusterInfo',
+        'conditions'     => 'Conditions',
+        'endpoints'      => 'Endpoints',
+        'logConfig'      => 'LogConfig',
+        'meshConfig'     => 'MeshConfig',
+        'network'        => 'Network',
+        'workflowConfig' => 'WorkflowConfig',
     ];
 
     public function validate()
@@ -106,6 +113,9 @@ class cluster extends Model
         }
         if (null !== $this->network) {
             $res['Network'] = null !== $this->network ? $this->network->toMap() : null;
+        }
+        if (null !== $this->workflowConfig) {
+            $res['WorkflowConfig'] = null !== $this->workflowConfig ? $this->workflowConfig->toMap() : null;
         }
 
         return $res;
@@ -145,6 +155,9 @@ class cluster extends Model
         }
         if (isset($map['Network'])) {
             $model->network = network::fromMap($map['Network']);
+        }
+        if (isset($map['WorkflowConfig'])) {
+            $model->workflowConfig = workflowConfig::fromMap($map['WorkflowConfig']);
         }
 
         return $model;

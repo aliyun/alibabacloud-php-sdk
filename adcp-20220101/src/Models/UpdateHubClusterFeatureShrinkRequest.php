@@ -18,6 +18,16 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
     public $apiServerEipId;
 
     /**
+     * @var bool
+     */
+    public $argoCDEnabled;
+
+    /**
+     * @var bool
+     */
+    public $argoServerEnabled;
+
+    /**
      * @description Specifies whether to enable audit logs. Valid values: - true: enable audit logs. - false: disables audit logs.
      *
      * @example true
@@ -45,16 +55,6 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
     public $deletionProtection;
 
     /**
-     * @description Whether to enable ArgoCD.
-     *
-     * - false Disabled
-     * @example false
-     *
-     * @var bool
-     */
-    public $enableArgoCD;
-
-    /**
      * @description Specifies whether to enable Service Mesh (ASM). Valid values: true: enables ASM. false: disables ASM.
      *
      * @example true
@@ -62,11 +62,6 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
      * @var bool
      */
     public $enableMesh;
-
-    /**
-     * @var bool
-     */
-    public $enabled;
 
     /**
      * @description The name of the master instance. The name must be 1 to 63 characters in length, and can contain letters and digits. The name must start with a letter. The name can contain letters, digits, underscores (_), and hyphens (-).
@@ -94,31 +89,25 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
     /**
      * @var string
      */
-    public $scheduleMode;
-
-    /**
-     * @var bool
-     */
-    public $serverEnabled;
+    public $vSwitchesShrink;
 
     /**
      * @var string
      */
-    public $unitsShrink;
+    public $workflowScheduleMode;
     protected $_name = [
         'apiServerEipId'         => 'ApiServerEipId',
+        'argoCDEnabled'          => 'ArgoCDEnabled',
+        'argoServerEnabled'      => 'ArgoServerEnabled',
         'auditLogEnabled'        => 'AuditLogEnabled',
         'clusterId'              => 'ClusterId',
         'deletionProtection'     => 'DeletionProtection',
-        'enableArgoCD'           => 'EnableArgoCD',
         'enableMesh'             => 'EnableMesh',
-        'enabled'                => 'Enabled',
         'name'                   => 'Name',
         'priceLimit'             => 'PriceLimit',
         'publicApiServerEnabled' => 'PublicApiServerEnabled',
-        'scheduleMode'           => 'ScheduleMode',
-        'serverEnabled'          => 'ServerEnabled',
-        'unitsShrink'            => 'Units',
+        'vSwitchesShrink'        => 'VSwitches',
+        'workflowScheduleMode'   => 'WorkflowScheduleMode',
     ];
 
     public function validate()
@@ -131,6 +120,12 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
         if (null !== $this->apiServerEipId) {
             $res['ApiServerEipId'] = $this->apiServerEipId;
         }
+        if (null !== $this->argoCDEnabled) {
+            $res['ArgoCDEnabled'] = $this->argoCDEnabled;
+        }
+        if (null !== $this->argoServerEnabled) {
+            $res['ArgoServerEnabled'] = $this->argoServerEnabled;
+        }
         if (null !== $this->auditLogEnabled) {
             $res['AuditLogEnabled'] = $this->auditLogEnabled;
         }
@@ -140,14 +135,8 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
         if (null !== $this->deletionProtection) {
             $res['DeletionProtection'] = $this->deletionProtection;
         }
-        if (null !== $this->enableArgoCD) {
-            $res['EnableArgoCD'] = $this->enableArgoCD;
-        }
         if (null !== $this->enableMesh) {
             $res['EnableMesh'] = $this->enableMesh;
-        }
-        if (null !== $this->enabled) {
-            $res['Enabled'] = $this->enabled;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -158,14 +147,11 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
         if (null !== $this->publicApiServerEnabled) {
             $res['PublicApiServerEnabled'] = $this->publicApiServerEnabled;
         }
-        if (null !== $this->scheduleMode) {
-            $res['ScheduleMode'] = $this->scheduleMode;
+        if (null !== $this->vSwitchesShrink) {
+            $res['VSwitches'] = $this->vSwitchesShrink;
         }
-        if (null !== $this->serverEnabled) {
-            $res['ServerEnabled'] = $this->serverEnabled;
-        }
-        if (null !== $this->unitsShrink) {
-            $res['Units'] = $this->unitsShrink;
+        if (null !== $this->workflowScheduleMode) {
+            $res['WorkflowScheduleMode'] = $this->workflowScheduleMode;
         }
 
         return $res;
@@ -182,6 +168,12 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
         if (isset($map['ApiServerEipId'])) {
             $model->apiServerEipId = $map['ApiServerEipId'];
         }
+        if (isset($map['ArgoCDEnabled'])) {
+            $model->argoCDEnabled = $map['ArgoCDEnabled'];
+        }
+        if (isset($map['ArgoServerEnabled'])) {
+            $model->argoServerEnabled = $map['ArgoServerEnabled'];
+        }
         if (isset($map['AuditLogEnabled'])) {
             $model->auditLogEnabled = $map['AuditLogEnabled'];
         }
@@ -191,14 +183,8 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
         if (isset($map['DeletionProtection'])) {
             $model->deletionProtection = $map['DeletionProtection'];
         }
-        if (isset($map['EnableArgoCD'])) {
-            $model->enableArgoCD = $map['EnableArgoCD'];
-        }
         if (isset($map['EnableMesh'])) {
             $model->enableMesh = $map['EnableMesh'];
-        }
-        if (isset($map['Enabled'])) {
-            $model->enabled = $map['Enabled'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -209,14 +195,11 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
         if (isset($map['PublicApiServerEnabled'])) {
             $model->publicApiServerEnabled = $map['PublicApiServerEnabled'];
         }
-        if (isset($map['ScheduleMode'])) {
-            $model->scheduleMode = $map['ScheduleMode'];
+        if (isset($map['VSwitches'])) {
+            $model->vSwitchesShrink = $map['VSwitches'];
         }
-        if (isset($map['ServerEnabled'])) {
-            $model->serverEnabled = $map['ServerEnabled'];
-        }
-        if (isset($map['Units'])) {
-            $model->unitsShrink = $map['Units'];
+        if (isset($map['WorkflowScheduleMode'])) {
+            $model->workflowScheduleMode = $map['WorkflowScheduleMode'];
         }
 
         return $model;

@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Adcp\V20220101\Models;
 
-use AlibabaCloud\SDK\Adcp\V20220101\Models\CreateHubClusterRequest\clusterConfiguration;
 use AlibabaCloud\Tea\Model;
 
 class CreateHubClusterRequest extends Model
@@ -19,6 +18,11 @@ class CreateHubClusterRequest extends Model
     public $apiServerPublicEip;
 
     /**
+     * @var bool
+     */
+    public $argoServerEnabled;
+
+    /**
      * @description Specifies whether to enable audit logs. Valid values: - true: enables audit logs. - false: disables audit logs.
      *
      * @example false
@@ -26,11 +30,6 @@ class CreateHubClusterRequest extends Model
      * @var bool
      */
     public $auditLogEnabled;
-
-    /**
-     * @var clusterConfiguration
-     */
-    public $clusterConfiguration;
 
     /**
      * @description Specifies whether the security group is an advanced security group.
@@ -49,6 +48,11 @@ class CreateHubClusterRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $priceLimit;
 
     /**
      * @description Scenario-oriented master control type. The value can be:
@@ -86,16 +90,23 @@ class CreateHubClusterRequest extends Model
      * @var string
      */
     public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $workflowScheduleMode;
     protected $_name = [
         'apiServerPublicEip'        => 'ApiServerPublicEip',
+        'argoServerEnabled'         => 'ArgoServerEnabled',
         'auditLogEnabled'           => 'AuditLogEnabled',
-        'clusterConfiguration'      => 'ClusterConfiguration',
         'isEnterpriseSecurityGroup' => 'IsEnterpriseSecurityGroup',
         'name'                      => 'Name',
+        'priceLimit'                => 'PriceLimit',
         'profile'                   => 'Profile',
         'regionId'                  => 'RegionId',
         'vSwitches'                 => 'VSwitches',
         'vpcId'                     => 'VpcId',
+        'workflowScheduleMode'      => 'WorkflowScheduleMode',
     ];
 
     public function validate()
@@ -108,17 +119,20 @@ class CreateHubClusterRequest extends Model
         if (null !== $this->apiServerPublicEip) {
             $res['ApiServerPublicEip'] = $this->apiServerPublicEip;
         }
+        if (null !== $this->argoServerEnabled) {
+            $res['ArgoServerEnabled'] = $this->argoServerEnabled;
+        }
         if (null !== $this->auditLogEnabled) {
             $res['AuditLogEnabled'] = $this->auditLogEnabled;
-        }
-        if (null !== $this->clusterConfiguration) {
-            $res['ClusterConfiguration'] = null !== $this->clusterConfiguration ? $this->clusterConfiguration->toMap() : null;
         }
         if (null !== $this->isEnterpriseSecurityGroup) {
             $res['IsEnterpriseSecurityGroup'] = $this->isEnterpriseSecurityGroup;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->priceLimit) {
+            $res['PriceLimit'] = $this->priceLimit;
         }
         if (null !== $this->profile) {
             $res['Profile'] = $this->profile;
@@ -131,6 +145,9 @@ class CreateHubClusterRequest extends Model
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->workflowScheduleMode) {
+            $res['WorkflowScheduleMode'] = $this->workflowScheduleMode;
         }
 
         return $res;
@@ -147,17 +164,20 @@ class CreateHubClusterRequest extends Model
         if (isset($map['ApiServerPublicEip'])) {
             $model->apiServerPublicEip = $map['ApiServerPublicEip'];
         }
+        if (isset($map['ArgoServerEnabled'])) {
+            $model->argoServerEnabled = $map['ArgoServerEnabled'];
+        }
         if (isset($map['AuditLogEnabled'])) {
             $model->auditLogEnabled = $map['AuditLogEnabled'];
-        }
-        if (isset($map['ClusterConfiguration'])) {
-            $model->clusterConfiguration = clusterConfiguration::fromMap($map['ClusterConfiguration']);
         }
         if (isset($map['IsEnterpriseSecurityGroup'])) {
             $model->isEnterpriseSecurityGroup = $map['IsEnterpriseSecurityGroup'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['PriceLimit'])) {
+            $model->priceLimit = $map['PriceLimit'];
         }
         if (isset($map['Profile'])) {
             $model->profile = $map['Profile'];
@@ -170,6 +190,9 @@ class CreateHubClusterRequest extends Model
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['WorkflowScheduleMode'])) {
+            $model->workflowScheduleMode = $map['WorkflowScheduleMode'];
         }
 
         return $model;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class conditions extends Model
 {
     /**
-     * @description 删除条件错误信息
+     * @description The error message of the deletion condition.
      *
      * @example Successful
      *
@@ -18,7 +18,7 @@ class conditions extends Model
     public $message;
 
     /**
-     * @description 删除条件原因
+     * @description The reason for the deletion condition.
      *
      * @example Successful
      *
@@ -27,8 +27,8 @@ class conditions extends Model
     public $reason;
 
     /**
-     * @description 删除条件状态，取值
-     * - Unknow 未知
+     * @description The status of the deletion condition. Valid values:
+     * - Unknow: Whether the master instance can be deleted is unknown.
      * @example True
      *
      * @var string
@@ -36,7 +36,7 @@ class conditions extends Model
     public $status;
 
     /**
-     * @description 删除条件类型
+     * @description The type of deletion condition.
      *
      * @example DeletionProtection
      *
