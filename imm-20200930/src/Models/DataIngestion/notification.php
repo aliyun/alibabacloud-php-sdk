@@ -2,22 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imm\V20200930\Models\UpdateBatchRequest;
+namespace AlibabaCloud\SDK\Imm\V20200930\Models\DataIngestion;
 
 use AlibabaCloud\Tea\Model;
 
 class notification extends Model
 {
     /**
-     * @example http://1111111111.mns.cn-hangzhou.aliyuncs.com
-     *
      * @var string
      */
     public $endpoint;
 
     /**
-     * @example topic1
-     *
      * @var string
      */
     public $topic;

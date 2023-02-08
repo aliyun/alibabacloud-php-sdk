@@ -6,15 +6,21 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SuspendTriggerResponseBody extends Model
+class GetBatchResponseBody extends Model
 {
     /**
-     * @example 0BC1F0C9-8E99-46C6-B502-10DED******
+     * @var DataIngestion
+     */
+    public $batch;
+
+    /**
+     * @example 6E93D6C9-5AC0-49F9-914D-E02678D3****
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'batch'     => 'Batch',
         'requestId' => 'RequestId',
     ];
 
@@ -25,6 +31,9 @@ class SuspendTriggerResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->batch) {
+            $res['Batch'] = null !== $this->batch ? $this->batch->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -35,11 +44,14 @@ class SuspendTriggerResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return SuspendTriggerResponseBody
+     * @return GetBatchResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Batch'])) {
+            $model->batch = DataIngestion::fromMap($map['Batch']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

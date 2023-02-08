@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateBatchRequest\actions;
-use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateBatchRequest\notification;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateTriggerRequest\actions;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateTriggerRequest\notification;
 use AlibabaCloud\Tea\Model;
 
-class UpdateBatchRequest extends Model
+class CreateTriggerRequest extends Model
 {
     /**
      * @var actions[]
      */
     public $actions;
-
-    /**
-     * @example batch-4eb9223f-3e88-42d3-a578-3f2852******
-     *
-     * @var string
-     */
-    public $id;
 
     /**
      * @var Input
@@ -40,6 +33,13 @@ class UpdateBatchRequest extends Model
     public $projectName;
 
     /**
+     * @example AliyunIMMDefaultRole
+     *
+     * @var string
+     */
+    public $serviceRole;
+
+    /**
      * @example {"key":"val"}
      *
      * @var mixed[]
@@ -47,10 +47,10 @@ class UpdateBatchRequest extends Model
     public $tags;
     protected $_name = [
         'actions'      => 'Actions',
-        'id'           => 'Id',
         'input'        => 'Input',
         'notification' => 'Notification',
         'projectName'  => 'ProjectName',
+        'serviceRole'  => 'ServiceRole',
         'tags'         => 'Tags',
     ];
 
@@ -70,9 +70,6 @@ class UpdateBatchRequest extends Model
                 }
             }
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
         if (null !== $this->input) {
             $res['Input'] = null !== $this->input ? $this->input->toMap() : null;
         }
@@ -81,6 +78,9 @@ class UpdateBatchRequest extends Model
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->serviceRole) {
+            $res['ServiceRole'] = $this->serviceRole;
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
@@ -92,7 +92,7 @@ class UpdateBatchRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateBatchRequest
+     * @return CreateTriggerRequest
      */
     public static function fromMap($map = [])
     {
@@ -106,9 +106,6 @@ class UpdateBatchRequest extends Model
                 }
             }
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
         if (isset($map['Input'])) {
             $model->input = Input::fromMap($map['Input']);
         }
@@ -117,6 +114,9 @@ class UpdateBatchRequest extends Model
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['ServiceRole'])) {
+            $model->serviceRole = $map['ServiceRole'];
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SuspendBatchResponseBody extends Model
 {
     /**
+     * @example EC564A9A-BA5C-4499-A087-D9B9E76E*****
+     *
      * @var string
      */
     public $requestId;

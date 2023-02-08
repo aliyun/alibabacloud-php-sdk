@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class actions extends Model
 {
     /**
+     * @example doc/convert
+     *
      * @var string
      */
     public $name;

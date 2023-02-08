@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imm\V20200930\Models\UpdateBatchRequest;
+namespace AlibabaCloud\SDK\Imm\V20200930\Models\CreateBatchRequest;
 
 use AlibabaCloud\Tea\Model;
 
@@ -16,7 +16,7 @@ class notification extends Model
     public $endpoint;
 
     /**
-     * @example topic1
+     * @example test-topic
      *
      * @var string
      */

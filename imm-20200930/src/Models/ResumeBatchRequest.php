@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ResumeBatchRequest extends Model
 {
     /**
+     * @example batch-4eb9223f-3e88-42d3-a578-3f2852******
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example test-project
+     *
      * @var string
      */
     public $projectName;

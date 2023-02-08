@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteBatchResponseBody extends Model
 {
     /**
+     * @example 91AC8C98-0F36-49D2-8290-742E24******
+     *
      * @var string
      */
     public $requestId;

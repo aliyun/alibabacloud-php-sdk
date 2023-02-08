@@ -32,6 +32,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\CompareImageFacesShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateArchiveFileInspectionTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateArchiveFileInspectionTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateArchiveFileInspectionTaskShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateBatchRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateBatchResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateBatchShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateBindingRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateBindingResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateCompressPointCloudTaskRequest;
@@ -80,6 +83,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateStoryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateStoryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateStoryShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateTriggerRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateTriggerResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateTriggerShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateVideoLabelClassificationTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateVideoLabelClassificationTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateVideoLabelClassificationTaskShrinkRequest;
@@ -132,6 +138,8 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\FuzzyQueryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateWebofficeTokenRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateWebofficeTokenResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateWebofficeTokenShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetBatchRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetBatchResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetBindingRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetBindingResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetDatasetRequest;
@@ -148,11 +156,15 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\GetStoryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetStoryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetTaskResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetTriggerRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetTriggerResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetVideoLabelClassificationResultRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetVideoLabelClassificationResultResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\IndexFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\IndexFileMetaResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\IndexFileMetaShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\ListBatchesRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\ListBatchesResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListBindingsRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListBindingsResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListDatasetsRequest;
@@ -164,6 +176,8 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\ListRegionsResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListTasksRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListTasksResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListTasksShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\ListTriggersRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\ListTriggersResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryFigureClustersRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryFigureClustersResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryFigureClustersShrinkRequest;
@@ -771,6 +785,78 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createArchiveFileInspectionTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateBatchRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateBatchResponse
+     */
+    public function createBatchWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateBatchShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->actions)) {
+            $request->actionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->actions, 'Actions', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->input)) {
+            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->actionsShrink)) {
+            $body['Actions'] = $request->actionsShrink;
+        }
+        if (!Utils::isUnset($request->inputShrink)) {
+            $body['Input'] = $request->inputShrink;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $body['Notification'] = $request->notificationShrink;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->serviceRole)) {
+            $body['ServiceRole'] = $request->serviceRole;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $body['Tags'] = $request->tagsShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBatch',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateBatchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateBatchRequest $request
+     *
+     * @return CreateBatchResponse
+     */
+    public function createBatch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBatchWithOptions($request, $runtime);
     }
 
     /**
@@ -2111,6 +2197,78 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param CreateTriggerRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateTriggerResponse
+     */
+    public function createTriggerWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateTriggerShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->actions)) {
+            $request->actionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->actions, 'Actions', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->input)) {
+            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->actionsShrink)) {
+            $body['Actions'] = $request->actionsShrink;
+        }
+        if (!Utils::isUnset($request->inputShrink)) {
+            $body['Input'] = $request->inputShrink;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $body['Notification'] = $request->notificationShrink;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->serviceRole)) {
+            $body['ServiceRole'] = $request->serviceRole;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $body['Tags'] = $request->tagsShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTrigger',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateTriggerRequest $request
+     *
+     * @return CreateTriggerResponse
+     */
+    public function createTrigger($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTriggerWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateVideoLabelClassificationTaskRequest $tmpReq
      * @param RuntimeOptions                            $runtime
      *
@@ -3276,6 +3434,52 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param GetBatchRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetBatchResponse
+     */
+    public function getBatchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBatch',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBatchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetBatchRequest $request
+     *
+     * @return GetBatchResponse
+     */
+    public function getBatch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBatchWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetBindingRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -3659,6 +3863,52 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param GetTriggerRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetTriggerResponse
+     */
+    public function getTriggerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTrigger',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTriggerRequest $request
+     *
+     * @return GetTriggerResponse
+     */
+    public function getTrigger($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTriggerWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetVideoLabelClassificationResultRequest $request
      * @param RuntimeOptions                           $runtime
      *
@@ -3762,6 +4012,67 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->indexFileMetaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListBatchesRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListBatchesResponse
+     */
+    public function listBatchesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        if (!Utils::isUnset($request->tagSelector)) {
+            $query['TagSelector'] = $request->tagSelector;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBatches',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListBatchesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListBatchesRequest $request
+     *
+     * @return ListBatchesResponse
+     */
+    public function listBatches($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBatchesWithOptions($request, $runtime);
     }
 
     /**
@@ -4039,6 +4350,67 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTriggersRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListTriggersResponse
+     */
+    public function listTriggersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        if (!Utils::isUnset($request->tagSelector)) {
+            $query['TagSelector'] = $request->tagSelector;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTriggers',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTriggersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTriggersRequest $request
+     *
+     * @return ListTriggersResponse
+     */
+    public function listTriggers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTriggersWithOptions($request, $runtime);
     }
 
     /**

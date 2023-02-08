@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imm\V20200930\Models\UpdateTriggerRequest;
+namespace AlibabaCloud\SDK\Imm\V20200930\Models\CreateTriggerRequest;
 
 use AlibabaCloud\Tea\Model;
 

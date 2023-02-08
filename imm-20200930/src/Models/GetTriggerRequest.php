@@ -6,10 +6,10 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SuspendBatchRequest extends Model
+class GetTriggerRequest extends Model
 {
     /**
-     * @example batch-4eb9223f-3e88-42d3-a578-3f2852******
+     * @example trigger-9f72636a-0f0c-4baf-ae78-38b27b******
      *
      * @var string
      */
@@ -46,7 +46,7 @@ class SuspendBatchRequest extends Model
     /**
      * @param array $map
      *
-     * @return SuspendBatchRequest
+     * @return GetTriggerRequest
      */
     public static function fromMap($map = [])
     {

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteTriggerRequest extends Model
 {
     /**
+     * @example trigger-9f72636a-0f0c-4baf-ae78-38b27b******
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example test-project
+     *
      * @var string
      */
     public $projectName;

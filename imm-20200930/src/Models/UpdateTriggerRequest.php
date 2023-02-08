@@ -16,6 +16,8 @@ class UpdateTriggerRequest extends Model
     public $actions;
 
     /**
+     * @example trigger-9f72636a-0f0c-4baf-ae78-38b27b******
+     *
      * @var string
      */
     public $id;
@@ -31,11 +33,15 @@ class UpdateTriggerRequest extends Model
     public $notification;
 
     /**
+     * @example test-project
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example {"test": "val1"}
+     *
      * @var mixed[]
      */
     public $tags;

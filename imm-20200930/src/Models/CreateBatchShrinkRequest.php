@@ -6,19 +6,12 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateBatchShrinkRequest extends Model
+class CreateBatchShrinkRequest extends Model
 {
     /**
      * @var string
      */
     public $actionsShrink;
-
-    /**
-     * @example batch-4eb9223f-3e88-42d3-a578-3f2852******
-     *
-     * @var string
-     */
-    public $id;
 
     /**
      * @var string
@@ -38,17 +31,24 @@ class UpdateBatchShrinkRequest extends Model
     public $projectName;
 
     /**
-     * @example {"key":"val"}
+     * @example AliyunIMMDefaultRole
+     *
+     * @var string
+     */
+    public $serviceRole;
+
+    /**
+     * @example {"key": "val"}
      *
      * @var string
      */
     public $tagsShrink;
     protected $_name = [
         'actionsShrink'      => 'Actions',
-        'id'                 => 'Id',
         'inputShrink'        => 'Input',
         'notificationShrink' => 'Notification',
         'projectName'        => 'ProjectName',
+        'serviceRole'        => 'ServiceRole',
         'tagsShrink'         => 'Tags',
     ];
 
@@ -62,9 +62,6 @@ class UpdateBatchShrinkRequest extends Model
         if (null !== $this->actionsShrink) {
             $res['Actions'] = $this->actionsShrink;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
         if (null !== $this->inputShrink) {
             $res['Input'] = $this->inputShrink;
         }
@@ -73,6 +70,9 @@ class UpdateBatchShrinkRequest extends Model
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->serviceRole) {
+            $res['ServiceRole'] = $this->serviceRole;
         }
         if (null !== $this->tagsShrink) {
             $res['Tags'] = $this->tagsShrink;
@@ -84,16 +84,13 @@ class UpdateBatchShrinkRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateBatchShrinkRequest
+     * @return CreateBatchShrinkRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Actions'])) {
             $model->actionsShrink = $map['Actions'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
         if (isset($map['Input'])) {
             $model->inputShrink = $map['Input'];
@@ -103,6 +100,9 @@ class UpdateBatchShrinkRequest extends Model
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['ServiceRole'])) {
+            $model->serviceRole = $map['ServiceRole'];
         }
         if (isset($map['Tags'])) {
             $model->tagsShrink = $map['Tags'];
