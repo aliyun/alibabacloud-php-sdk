@@ -658,15 +658,14 @@ class Facebody extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp           = @$batchAddFacesReq->faces[${$i0}];
+                    $tmp           = @$batchAddFacesReq->faces[$i0];
                     $tmp->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0            = $i0 + 1;
                 }
             }
         }
-        $batchAddFacesResp = $this->batchAddFacesWithOptions($batchAddFacesReq, $runtime);
 
-        return $batchAddFacesResp;
+        return $this->batchAddFacesWithOptions($batchAddFacesReq, $runtime);
     }
 
     /**
@@ -2478,15 +2477,14 @@ class Facebody extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp           = @$detectInfraredLivingFaceReq->tasks[${$i0}];
+                    $tmp           = @$detectInfraredLivingFaceReq->tasks[$i0];
                     $tmp->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0            = $i0 + 1;
                 }
             }
         }
-        $detectInfraredLivingFaceResp = $this->detectInfraredLivingFaceWithOptions($detectInfraredLivingFaceReq, $runtime);
 
-        return $detectInfraredLivingFaceResp;
+        return $this->detectInfraredLivingFaceWithOptions($detectInfraredLivingFaceReq, $runtime);
     }
 
     /**
@@ -2607,15 +2605,14 @@ class Facebody extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp           = @$detectLivingFaceReq->tasks[${$i0}];
+                    $tmp           = @$detectLivingFaceReq->tasks[$i0];
                     $tmp->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0            = $i0 + 1;
                 }
             }
         }
-        $detectLivingFaceResp = $this->detectLivingFaceWithOptions($detectLivingFaceReq, $runtime);
 
-        return $detectLivingFaceResp;
+        return $this->detectLivingFaceWithOptions($detectLivingFaceReq, $runtime);
     }
 
     /**
@@ -5152,7 +5149,7 @@ class Facebody extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp      = @$recognizeActionReq->URLList[${$i0}];
+                    $tmp      = @$recognizeActionReq->URLList[$i0];
                     $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0       = $i0 + 1;
                 }
@@ -5183,9 +5180,8 @@ class Facebody extends OpenApiClient
             $ossClient->postObject($uploadRequest, $ossRuntime);
             $recognizeActionReq->videoUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
-        $recognizeActionResp = $this->recognizeActionWithOptions($recognizeActionReq, $runtime);
 
-        return $recognizeActionResp;
+        return $this->recognizeActionWithOptions($recognizeActionReq, $runtime);
     }
 
     /**
@@ -5702,15 +5698,14 @@ class Facebody extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp           = @$recognizePublicFaceReq->task[${$i0}];
+                    $tmp           = @$recognizePublicFaceReq->task[$i0];
                     $tmp->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0            = $i0 + 1;
                 }
             }
         }
-        $recognizePublicFaceResp = $this->recognizePublicFaceWithOptions($recognizePublicFaceReq, $runtime);
 
-        return $recognizePublicFaceResp;
+        return $this->recognizePublicFaceWithOptions($recognizePublicFaceReq, $runtime);
     }
 
     /**
