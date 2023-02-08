@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imarketing\V20220704\Models\ReportImpressionResponseBody;
+namespace AlibabaCloud\SDK\Imarketing\V20220704\Models\VerifyAdvertisingResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
@@ -11,7 +11,7 @@ class header extends Model
     /**
      * @description costTime
      *
-     * @example 15
+     * @example 19
      *
      * @var int
      */

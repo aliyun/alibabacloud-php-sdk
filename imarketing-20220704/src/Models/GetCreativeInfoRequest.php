@@ -19,6 +19,8 @@ class GetCreativeInfoRequest extends Model
     public $bizId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $id;

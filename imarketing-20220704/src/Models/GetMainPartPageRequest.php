@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMainPartPageRequest extends Model
 {
     /**
+     * @example 162859085538403
+     *
      * @var int
      */
     public $mainId;
@@ -19,11 +21,15 @@ class GetMainPartPageRequest extends Model
     public $mainName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageIndex;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

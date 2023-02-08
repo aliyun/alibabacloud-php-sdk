@@ -9,26 +9,40 @@ use AlibabaCloud\Tea\Model;
 class CreateDeviceResponseBody extends Model
 {
     /**
+     * @description Id of the request
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 784422933136765953
+     *
      * @var string
      */
     public $model;
 
     /**
+     * @description Id of the request
+     *
+     * @example ea1a40002116661614863891490d0074
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

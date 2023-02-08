@@ -4,27 +4,29 @@
 
 namespace AlibabaCloud\SDK\Imarketing\V20220704\Models;
 
-use AlibabaCloud\SDK\Imarketing\V20220704\Models\ReportImpressionResponseBody\header;
-use AlibabaCloud\SDK\Imarketing\V20220704\Models\ReportImpressionResponseBody\result;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\VerifyAdvertisingResponseBody\header;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\VerifyAdvertisingResponseBody\result;
 use AlibabaCloud\Tea\Model;
 
-class ReportImpressionResponseBody extends Model
+class VerifyAdvertisingResponseBody extends Model
 {
     /**
      * @description errorCode
      *
-     * @example P1008
+     * @example P1001
      *
      * @var string
      */
-    public $errorCode;
+    public $errorcode;
 
     /**
      * @description errorMsg
      *
+     * @example error
+     *
      * @var string
      */
-    public $errorMsg;
+    public $errormsg;
 
     /**
      * @description ext
@@ -55,14 +57,14 @@ class ReportImpressionResponseBody extends Model
     /**
      * @description success
      *
-     * @example true
+     * @example True
      *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'errorCode' => 'ErrorCode',
-        'errorMsg'  => 'ErrorMsg',
+        'errorcode' => 'Errorcode',
+        'errormsg'  => 'Errormsg',
         'ext'       => 'Ext',
         'header'    => 'Header',
         'requestId' => 'RequestId',
@@ -77,11 +79,11 @@ class ReportImpressionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
+        if (null !== $this->errorcode) {
+            $res['Errorcode'] = $this->errorcode;
         }
-        if (null !== $this->errorMsg) {
-            $res['ErrorMsg'] = $this->errorMsg;
+        if (null !== $this->errormsg) {
+            $res['Errormsg'] = $this->errormsg;
         }
         if (null !== $this->ext) {
             $res['Ext'] = $this->ext;
@@ -105,16 +107,16 @@ class ReportImpressionResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ReportImpressionResponseBody
+     * @return VerifyAdvertisingResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
+        if (isset($map['Errorcode'])) {
+            $model->errorcode = $map['Errorcode'];
         }
-        if (isset($map['ErrorMsg'])) {
-            $model->errorMsg = $map['ErrorMsg'];
+        if (isset($map['Errormsg'])) {
+            $model->errormsg = $map['Errormsg'];
         }
         if (isset($map['Ext'])) {
             $model->ext = $map['Ext'];

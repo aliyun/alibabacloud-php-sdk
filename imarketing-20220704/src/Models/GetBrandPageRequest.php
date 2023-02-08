@@ -14,6 +14,8 @@ class GetBrandPageRequest extends Model
     public $accountNo;
 
     /**
+     * @example 162667949547700
+     *
      * @var int
      */
     public $mainId;
@@ -24,11 +26,15 @@ class GetBrandPageRequest extends Model
     public $mainName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageIndex;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

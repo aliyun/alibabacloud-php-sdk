@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDeviceShrinkRequest extends Model
 {
     /**
+     * @example 747469885047067648
+     *
      * @var string
      */
     public $channelId;
@@ -19,16 +21,22 @@ class CreateDeviceShrinkRequest extends Model
     public $city;
 
     /**
+     * @example 3306196
+     *
      * @var string
      */
     public $deviceModelNumber;
 
     /**
+     * @example ETCPPARK
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example android
+     *
      * @var string
      */
     public $deviceType;
@@ -59,11 +67,15 @@ class CreateDeviceShrinkRequest extends Model
     public $locationName;
 
     /**
+     * @example 707566617274263557
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @example 9305102437
+     *
      * @var string
      */
     public $outerCode;
@@ -74,6 +86,8 @@ class CreateDeviceShrinkRequest extends Model
     public $province;
 
     /**
+     * @example CBD
+     *
      * @var string
      */
     public $secondScene;

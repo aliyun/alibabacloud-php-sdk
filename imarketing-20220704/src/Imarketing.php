@@ -40,6 +40,9 @@ use AlibabaCloud\SDK\Imarketing\V20220704\Models\SyncInfoRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\SyncInfoResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\UpdateAdxCreativeContentRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\UpdateAdxCreativeContentResponse;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\VerifyAdvertisingRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\VerifyAdvertisingResponse;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\VerifyAdvertisingShrinkRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\VerifySmsCodeRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\VerifySmsCodeResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -939,6 +942,66 @@ class Imarketing extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAdxCreativeContentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param VerifyAdvertisingRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return VerifyAdvertisingResponse
+     */
+    public function verifyAdvertisingWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new VerifyAdvertisingShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->app)) {
+            $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->app, 'App', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->device)) {
+            $request->deviceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->device, 'Device', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->ext)) {
+            $request->extShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ext, 'Ext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->imp)) {
+            $request->impShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imp, 'Imp', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->user)) {
+            $request->userShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->user, 'User', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->verifyad)) {
+            $request->verifyadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->verifyad, 'Verifyad', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'VerifyAdvertising',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VerifyAdvertisingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VerifyAdvertisingRequest $request
+     *
+     * @return VerifyAdvertisingResponse
+     */
+    public function verifyAdvertising($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyAdvertisingWithOptions($request, $runtime);
     }
 
     /**

@@ -12,6 +12,11 @@ class ad extends Model
     /**
      * @var string[]
      */
+    public $bundle;
+
+    /**
+     * @var string[]
+     */
     public $clicks;
 
     /**
@@ -35,6 +40,11 @@ class ad extends Model
     public $interacttype;
 
     /**
+     * @var string[]
+     */
+    public $mediaIdList;
+
+    /**
      * @var nativead[]
      */
     public $nativead;
@@ -48,6 +58,16 @@ class ad extends Model
      * @var string
      */
     public $ostype;
+
+    /**
+     * @var bool
+     */
+    public $prereview;
+
+    /**
+     * @var string
+     */
+    public $seat;
 
     /**
      * @var string
@@ -64,14 +84,18 @@ class ad extends Model
      */
     public $type;
     protected $_name = [
+        'bundle'       => 'Bundle',
         'clicks'       => 'Clicks',
         'crid'         => 'Crid',
         'enddate'      => 'Enddate',
         'imps'         => 'Imps',
         'interacttype' => 'Interacttype',
+        'mediaIdList'  => 'MediaIdList',
         'nativead'     => 'Nativead',
         'op'           => 'Op',
         'ostype'       => 'Ostype',
+        'prereview'    => 'Prereview',
+        'seat'         => 'Seat',
         'startdate'    => 'Startdate',
         'template'     => 'Template',
         'type'         => 'Type',
@@ -84,6 +108,9 @@ class ad extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bundle) {
+            $res['Bundle'] = $this->bundle;
+        }
         if (null !== $this->clicks) {
             $res['Clicks'] = $this->clicks;
         }
@@ -99,6 +126,9 @@ class ad extends Model
         if (null !== $this->interacttype) {
             $res['Interacttype'] = $this->interacttype;
         }
+        if (null !== $this->mediaIdList) {
+            $res['MediaIdList'] = $this->mediaIdList;
+        }
         if (null !== $this->nativead) {
             $res['Nativead'] = [];
             if (null !== $this->nativead && \is_array($this->nativead)) {
@@ -113,6 +143,12 @@ class ad extends Model
         }
         if (null !== $this->ostype) {
             $res['Ostype'] = $this->ostype;
+        }
+        if (null !== $this->prereview) {
+            $res['Prereview'] = $this->prereview;
+        }
+        if (null !== $this->seat) {
+            $res['Seat'] = $this->seat;
         }
         if (null !== $this->startdate) {
             $res['Startdate'] = $this->startdate;
@@ -135,6 +171,11 @@ class ad extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Bundle'])) {
+            if (!empty($map['Bundle'])) {
+                $model->bundle = $map['Bundle'];
+            }
+        }
         if (isset($map['Clicks'])) {
             if (!empty($map['Clicks'])) {
                 $model->clicks = $map['Clicks'];
@@ -154,6 +195,11 @@ class ad extends Model
         if (isset($map['Interacttype'])) {
             $model->interacttype = $map['Interacttype'];
         }
+        if (isset($map['MediaIdList'])) {
+            if (!empty($map['MediaIdList'])) {
+                $model->mediaIdList = $map['MediaIdList'];
+            }
+        }
         if (isset($map['Nativead'])) {
             if (!empty($map['Nativead'])) {
                 $model->nativead = [];
@@ -168,6 +214,12 @@ class ad extends Model
         }
         if (isset($map['Ostype'])) {
             $model->ostype = $map['Ostype'];
+        }
+        if (isset($map['Prereview'])) {
+            $model->prereview = $map['Prereview'];
+        }
+        if (isset($map['Seat'])) {
+            $model->seat = $map['Seat'];
         }
         if (isset($map['Startdate'])) {
             $model->startdate = $map['Startdate'];

@@ -34,11 +34,15 @@ class GetLeadsListPageRequest extends Model
     public $mainId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageIndex;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
