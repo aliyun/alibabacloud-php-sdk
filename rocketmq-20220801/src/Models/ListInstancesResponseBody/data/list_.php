@@ -79,6 +79,11 @@ class list_ extends Model
     public $remark;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @example standard
      *
      * @var string
@@ -134,24 +139,25 @@ class list_ extends Model
      */
     public $userId;
     protected $_name = [
-        'commodityCode' => 'commodityCode',
-        'createTime'    => 'createTime',
-        'expireTime'    => 'expireTime',
-        'groupCount'    => 'groupCount',
-        'instanceId'    => 'instanceId',
-        'instanceName'  => 'instanceName',
-        'paymentType'   => 'paymentType',
-        'regionId'      => 'regionId',
-        'releaseTime'   => 'releaseTime',
-        'remark'        => 'remark',
-        'seriesCode'    => 'seriesCode',
-        'serviceCode'   => 'serviceCode',
-        'startTime'     => 'startTime',
-        'status'        => 'status',
-        'subSeriesCode' => 'subSeriesCode',
-        'topicCount'    => 'topicCount',
-        'updateTime'    => 'updateTime',
-        'userId'        => 'userId',
+        'commodityCode'   => 'commodityCode',
+        'createTime'      => 'createTime',
+        'expireTime'      => 'expireTime',
+        'groupCount'      => 'groupCount',
+        'instanceId'      => 'instanceId',
+        'instanceName'    => 'instanceName',
+        'paymentType'     => 'paymentType',
+        'regionId'        => 'regionId',
+        'releaseTime'     => 'releaseTime',
+        'remark'          => 'remark',
+        'resourceGroupId' => 'resourceGroupId',
+        'seriesCode'      => 'seriesCode',
+        'serviceCode'     => 'serviceCode',
+        'startTime'       => 'startTime',
+        'status'          => 'status',
+        'subSeriesCode'   => 'subSeriesCode',
+        'topicCount'      => 'topicCount',
+        'updateTime'      => 'updateTime',
+        'userId'          => 'userId',
     ];
 
     public function validate()
@@ -190,6 +196,9 @@ class list_ extends Model
         }
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->seriesCode) {
             $res['seriesCode'] = $this->seriesCode;
@@ -256,6 +265,9 @@ class list_ extends Model
         }
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];
+        }
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
         if (isset($map['seriesCode'])) {
             $model->seriesCode = $map['seriesCode'];

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class consumeRetryPolicy extends Model
 {
     /**
+     * @var string
+     */
+    public $deadLetterTargetTopic;
+
+    /**
      * @example 16
      *
      * @var int
@@ -22,8 +27,9 @@ class consumeRetryPolicy extends Model
      */
     public $retryPolicy;
     protected $_name = [
-        'maxRetryTimes' => 'maxRetryTimes',
-        'retryPolicy'   => 'retryPolicy',
+        'deadLetterTargetTopic' => 'deadLetterTargetTopic',
+        'maxRetryTimes'         => 'maxRetryTimes',
+        'retryPolicy'           => 'retryPolicy',
     ];
 
     public function validate()
@@ -33,6 +39,9 @@ class consumeRetryPolicy extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deadLetterTargetTopic) {
+            $res['deadLetterTargetTopic'] = $this->deadLetterTargetTopic;
+        }
         if (null !== $this->maxRetryTimes) {
             $res['maxRetryTimes'] = $this->maxRetryTimes;
         }
@@ -51,6 +60,9 @@ class consumeRetryPolicy extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['deadLetterTargetTopic'])) {
+            $model->deadLetterTargetTopic = $map['deadLetterTargetTopic'];
+        }
         if (isset($map['maxRetryTimes'])) {
             $model->maxRetryTimes = $map['maxRetryTimes'];
         }
