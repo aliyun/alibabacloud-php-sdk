@@ -30,6 +30,9 @@ use AlibabaCloud\SDK\Imageenhan\V20190930\Models\ErasePersonResponse;
 use AlibabaCloud\SDK\Imageenhan\V20190930\Models\ExtendImageStyleAdvanceRequest;
 use AlibabaCloud\SDK\Imageenhan\V20190930\Models\ExtendImageStyleRequest;
 use AlibabaCloud\SDK\Imageenhan\V20190930\Models\ExtendImageStyleResponse;
+use AlibabaCloud\SDK\Imageenhan\V20190930\Models\GenerateCartoonizedImageAdvanceRequest;
+use AlibabaCloud\SDK\Imageenhan\V20190930\Models\GenerateCartoonizedImageRequest;
+use AlibabaCloud\SDK\Imageenhan\V20190930\Models\GenerateCartoonizedImageResponse;
 use AlibabaCloud\SDK\Imageenhan\V20190930\Models\GenerateDynamicImageAdvanceRequest;
 use AlibabaCloud\SDK\Imageenhan\V20190930\Models\GenerateDynamicImageRequest;
 use AlibabaCloud\SDK\Imageenhan\V20190930\Models\GenerateDynamicImageResponse;
@@ -1148,6 +1151,133 @@ class Imageenhan extends OpenApiClient
         }
 
         return $this->extendImageStyleWithOptions($extendImageStyleReq, $runtime);
+    }
+
+    /**
+     * @param GenerateCartoonizedImageRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GenerateCartoonizedImageResponse
+     */
+    public function generateCartoonizedImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageType)) {
+            $body['ImageType'] = $request->imageType;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->index)) {
+            $body['Index'] = $request->index;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateCartoonizedImage',
+            'version'     => '2019-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenerateCartoonizedImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GenerateCartoonizedImageRequest $request
+     *
+     * @return GenerateCartoonizedImageResponse
+     */
+    public function generateCartoonizedImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateCartoonizedImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GenerateCartoonizedImageAdvanceRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return GenerateCartoonizedImageResponse
+     */
+    public function generateCartoonizedImageAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'imageenhan',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $generateCartoonizedImageReq = new GenerateCartoonizedImageRequest([]);
+        OpenApiUtilClient::convert($request, $generateCartoonizedImageReq);
+        if (!Utils::isUnset($request->imageUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->body->objectKey,
+                'content'     => $request->imageUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $generateCartoonizedImageReq->imageUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+
+        return $this->generateCartoonizedImageWithOptions($generateCartoonizedImageReq, $runtime);
     }
 
     /**
