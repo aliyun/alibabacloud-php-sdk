@@ -19,9 +19,15 @@ class columnMetaList extends Model
      * @var string
      */
     public $columnName;
+
+    /**
+     * @var string
+     */
+    public $securityLevel;
     protected $_name = [
         'columnComment' => 'ColumnComment',
         'columnName'    => 'ColumnName',
+        'securityLevel' => 'SecurityLevel',
     ];
 
     public function validate()
@@ -36,6 +42,9 @@ class columnMetaList extends Model
         }
         if (null !== $this->columnName) {
             $res['ColumnName'] = $this->columnName;
+        }
+        if (null !== $this->securityLevel) {
+            $res['SecurityLevel'] = $this->securityLevel;
         }
 
         return $res;
@@ -54,6 +63,9 @@ class columnMetaList extends Model
         }
         if (isset($map['ColumnName'])) {
             $model->columnName = $map['ColumnName'];
+        }
+        if (isset($map['SecurityLevel'])) {
+            $model->securityLevel = $map['SecurityLevel'];
         }
 
         return $model;
