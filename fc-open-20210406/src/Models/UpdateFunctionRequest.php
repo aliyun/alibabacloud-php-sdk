@@ -27,10 +27,10 @@ class UpdateFunctionRequest extends Model
     public $caPort;
 
     /**
-     * @description **Function code packages** can be provided with the following two methods. You must use only one of the methods in a single request.
+     * @description **Function code packages** can be provided with the following two methods. You must use only one of the methods in a request.
      *
-     *   Specify the names of the **Object Storage Service (OSS) bucket** and **object** where the code package is stored.
-     *   Set the **zipFile** parameter to the Base64-encoded content of the ZIP file.
+     *   Specify the name of the **Object Storage Service (OSS) bucket** and **object** where the code package is stored.
+     *   Specify that the **zipFile** parameter is used as the Base64-encoded content of the ZIP file.
      *
      * @var Code
      */
@@ -46,21 +46,21 @@ class UpdateFunctionRequest extends Model
     public $cpu;
 
     /**
-     * @description The configurations of the custom container runtime. After you configure the custom container, Function Compute can execute functions in a container created from a custom image.
+     * @description The configuration of the custom container. After you configure the custom container, Function Compute can execute functions in a container created from a custom image.
      *
      * @var CustomContainerConfig
      */
     public $customContainerConfig;
 
     /**
-     * @description The custom Domain Name System (DNS) configurations of the function.
+     * @description The custom DNS configurations of the function.
      *
      * @var CustomDNS
      */
     public $customDNS;
 
     /**
-     * @description The custom health check configuration of the function. This parameter is applicable only to custom runtimes and custom containers.
+     * @description The custom health check configurations of the function. This parameter is applicable to only custom runtimes and custom containers.
      *
      * @var CustomHealthCheckConfig
      */
@@ -92,11 +92,18 @@ class UpdateFunctionRequest extends Model
     public $diskSize;
 
     /**
-     * @description The environment variables that you configured for the function. You can obtain the values of the environment variables from the function. For more information, see [Overview](~~69777~~).
+     * @description The environment variables that are configured for the function. You can obtain the values of the environment variables from the function. For more information, see [Environment variables](~~69777~~).
      *
      * @var string[]
      */
     public $environmentVariables;
+
+    /**
+     * @example 2048
+     *
+     * @var int
+     */
+    public $gpuMemorySize;
 
     /**
      * @description The handler of the function. The format varies based on the programming language. For more information, see [Function handlers](~~157704~~).
@@ -108,7 +115,7 @@ class UpdateFunctionRequest extends Model
     public $handler;
 
     /**
-     * @description The timeout period for the execution of the initializer function. Unit: seconds. Default value: 3. Minimum value: 1. When this period ends, the execution of the initializer function is terminated.
+     * @description The timeout period for the execution of the initializer function. Unit: seconds. Default value: 3. Minimum value: 1. When the period ends, the execution of the initializer function is terminated.
      *
      * @example 60
      *
@@ -133,9 +140,9 @@ class UpdateFunctionRequest extends Model
     public $instanceLifecycleConfig;
 
     /**
-     * @description The soft concurrency of the instance. You can use this parameter to implement graceful scale-up of instances. If the number of concurrent requests on an instance is greater than the number of the soft concurrency, the instance scale-up is triggered. For example, if your instance requires a long term to start, you can specify a suitable soft concurrency to start the instance in advance.
+     * @description The soft concurrency of the instance. You can use this parameter to implement graceful scale-up of instances. If the number of concurrent requests on an instance is greater than the number of the soft concurrency, the instance scale-up is triggered. For example, if your instance requires a long time to start, you can specify a suitable soft concurrency to start the instance in advance.
      *
-     * The value must be less than or equal to that of **instanceConcurrency**.
+     * The value must be less than or equal to that of the **instanceConcurrency** parameter.
      * @example 5
      *
      * @var int
@@ -155,9 +162,9 @@ class UpdateFunctionRequest extends Model
     public $instanceType;
 
     /**
-     * @description An array that consists of the information of layers.
+     * @description The information about layers.
      *
-     * >  Multiple layers are merged based on the order of array subscripts. The content of a layer with a smaller subscript overwrites the file with the same name in the layer with a larger subscript.
+     * > Multiple layers are merged based on the order of array subscripts. The content of a layer with a smaller subscript overwrites the file that has the same name and a larger subscript in the layer.
      * @var string[]
      */
     public $layers;
@@ -172,7 +179,7 @@ class UpdateFunctionRequest extends Model
     public $memorySize;
 
     /**
-     * @description The runtime environment of the function. Valid values: **nodejs14**, **nodejs12**, **nodejs10**, **nodejs8**, **nodejs6**, **nodejs4.4**, **python3.9**, **python3**, **python2.7**, **java11**, **java8**, **go1**, **php7.2**, **dotnetcore2.1**, **custom** and **custom-container**.
+     * @description The runtime environment of the function. Valid values: **nodejs16**, **nodejs14**, **nodejs12**, **nodejs10**, **nodejs8**, **nodejs6**, **nodejs4.4**, **python3.9**, **python3**, **python2.7**, **java11**, **java8**, **go1**, **php7.2**, **dotnetcore3.1**, **dotnetcore2.1**, **custom** and **custom-container**. For more information, see [Supported function runtime environments](~~73338~~).
      *
      * @example python3.9
      *
@@ -181,7 +188,7 @@ class UpdateFunctionRequest extends Model
     public $runtime;
 
     /**
-     * @description The timeout period for the execution of the function. Unit: seconds. Default value: 3. Minimum value: 1. When this period ends, the execution of the function is terminated.
+     * @description The timeout period for the execution of the function. Unit: seconds. Default value: 3. Minimum value: 1. When the period ends, the execution of the function is terminated.
      *
      * @example 60
      *
@@ -200,6 +207,7 @@ class UpdateFunctionRequest extends Model
         'description'             => 'description',
         'diskSize'                => 'diskSize',
         'environmentVariables'    => 'environmentVariables',
+        'gpuMemorySize'           => 'gpuMemorySize',
         'handler'                 => 'handler',
         'initializationTimeout'   => 'initializationTimeout',
         'initializer'             => 'initializer',
@@ -251,6 +259,9 @@ class UpdateFunctionRequest extends Model
         }
         if (null !== $this->environmentVariables) {
             $res['environmentVariables'] = $this->environmentVariables;
+        }
+        if (null !== $this->gpuMemorySize) {
+            $res['gpuMemorySize'] = $this->gpuMemorySize;
         }
         if (null !== $this->handler) {
             $res['handler'] = $this->handler;
@@ -326,6 +337,9 @@ class UpdateFunctionRequest extends Model
         }
         if (isset($map['environmentVariables'])) {
             $model->environmentVariables = $map['environmentVariables'];
+        }
+        if (isset($map['gpuMemorySize'])) {
+            $model->gpuMemorySize = $map['gpuMemorySize'];
         }
         if (isset($map['handler'])) {
             $model->handler = $map['handler'];

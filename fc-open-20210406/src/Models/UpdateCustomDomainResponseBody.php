@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateCustomDomainResponseBody extends Model
 {
     /**
-     * @description The ID of the account.
+     * @description The ID of your Alibaba Cloud account.
      *
      * @example 1986114****4305
      *
@@ -18,7 +18,7 @@ class UpdateCustomDomainResponseBody extends Model
     public $accountId;
 
     /**
-     * @description The version number of the API.
+     * @description The version of the API.
      *
      * @example 2016-08-15
      *
@@ -34,7 +34,7 @@ class UpdateCustomDomainResponseBody extends Model
     public $certConfig;
 
     /**
-     * @description The time when the domain name was added.
+     * @description The time when the custom domain name was created.
      *
      * @example 2020-07-27T08:02:19Z
      *
@@ -61,11 +61,12 @@ class UpdateCustomDomainResponseBody extends Model
     public $lastModifiedTime;
 
     /**
-     * @description The protocol types supported by the domain name. Valid values:
+     * @description The protocol type that is supported by the custom domain name.
      *
-     * - **HTTP**: Only HTTP is supported.
-     * - **HTTPS**: Only HTTPS is supported.
-     * - **HTTP,HTTPS**: Both HTTP and HTTPS are supported.
+     *   **HTTP**: Only HTTP is supported.
+     *   **HTTPS**: Only HTTPS is supported.
+     *   **HTTP,HTTPS**: HTTP and HTTPS are supported.
+     *
      * @example HTTP
      *
      * @var string
@@ -80,13 +81,15 @@ class UpdateCustomDomainResponseBody extends Model
     public $routeConfig;
 
     /**
-     * @description The configurations of the TLS.
+     * @description The Transport Layer Security (TLS) configuration.
      *
      * @var TLSConfig
      */
     public $tlsConfig;
 
     /**
+     * @description The Web Application Firewall (WAF) configuration.
+     *
      * @var WAFConfig
      */
     public $wafConfig;

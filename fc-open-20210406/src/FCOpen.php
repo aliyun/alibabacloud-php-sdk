@@ -541,6 +541,9 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->functionName)) {
             $body['functionName'] = $request->functionName;
         }
+        if (!Utils::isUnset($request->gpuMemorySize)) {
+            $body['gpuMemorySize'] = $request->gpuMemorySize;
+        }
         if (!Utils::isUnset($request->handler)) {
             $body['handler'] = $request->handler;
         }
@@ -4539,6 +4542,9 @@ class FCOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->environmentVariables)) {
             $body['environmentVariables'] = $request->environmentVariables;
+        }
+        if (!Utils::isUnset($request->gpuMemorySize)) {
+            $body['gpuMemorySize'] = $request->gpuMemorySize;
         }
         if (!Utils::isUnset($request->handler)) {
             $body['handler'] = $request->handler;

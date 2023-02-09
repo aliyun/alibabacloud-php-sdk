@@ -90,7 +90,7 @@ class ClaimGPUInstanceRequest extends Model
     public $sourceCidrIp;
 
     /**
-     * @description The range of TCP ports that are open to the security group of the GPU-rendered instance.
+     * @description The range of TCP ports that are open to the security group of the GPU rendering instance.
      *
      * @var string[]
      */
@@ -104,7 +104,7 @@ class ClaimGPUInstanceRequest extends Model
     public $udpPortRange;
 
     /**
-     * @description The ID of the virtual private cloud (VPC).
+     * @description The ID of the VPC in which the instance resides.
      *
      * @example v-xxxx
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ClaimGPUInstanceResponseBody extends Model
 {
     /**
-     * @description The time when the product instance was created.
+     * @description The time when the product instance is created.
      *
      * @example 2022-11-11 07:31:04.899465017 +0000 UTC m=+37.671563424
      *
@@ -18,7 +18,7 @@ class ClaimGPUInstanceResponseBody extends Model
     public $createdTime;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance that you query.
      *
      * @example i-xxx
      *
@@ -27,7 +27,7 @@ class ClaimGPUInstanceResponseBody extends Model
     public $instanceId;
 
     /**
-     * @description The public IP address.
+     * @description The public IP address of the server.
      *
      * @example 0.0.0.0
      *

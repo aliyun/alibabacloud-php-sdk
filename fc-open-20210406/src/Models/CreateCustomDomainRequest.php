@@ -27,9 +27,10 @@ class CreateCustomDomainRequest extends Model
     /**
      * @description The protocol types supported by the domain name. Valid values:
      *
-     * - **HTTP**: Only HTTP is supported.
-     * - **HTTPS**: Only HTTPS is supported.
-     * - **HTTP,HTTPS**: Both HTTP and HTTPS are supported.
+     *   **HTTP**: Only HTTP is supported.
+     *   **HTTPS**: Only HTTPS is supported.
+     *   **HTTP,HTTPS**: HTTP and HTTPS are supported.
+     *
      * @example HTTP
      *
      * @var string
@@ -44,13 +45,15 @@ class CreateCustomDomainRequest extends Model
     public $routeConfig;
 
     /**
-     * @description The configurations of the TLS.
+     * @description The Transport Layer Security (TLS) configuration.
      *
      * @var TLSConfig
      */
     public $tlsConfig;
 
     /**
+     * @description The Web Application Firewall (WAF) configuration.
+     *
      * @var WAFConfig
      */
     public $wafConfig;

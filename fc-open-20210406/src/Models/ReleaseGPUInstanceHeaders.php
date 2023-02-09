@@ -20,7 +20,7 @@ class ReleaseGPUInstanceHeaders extends Model
     public $xFcAccountId;
 
     /**
-     * @description The time on which the function is invoked. The format of the value is: EEE,d MMM yyyy HH:mm:ss GMT.
+     * @description The time when the function is invoked. The format of the value is: EEE,d MMM yyyy HH:mm:ss GMT.
      *
      * @example 2022-11-11 07:31:04.899465017 +0000 UTC m=+37.671563424
      *

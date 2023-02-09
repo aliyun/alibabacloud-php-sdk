@@ -125,6 +125,13 @@ class GetFunctionResponseBody extends Model
     public $functionName;
 
     /**
+     * @example 2048
+     *
+     * @var int
+     */
+    public $gpuMemorySize;
+
+    /**
      * @description The handler of the function. For more information, see [Function handler](~~157704~~).
      *
      * @example index.handler
@@ -252,6 +259,7 @@ class GetFunctionResponseBody extends Model
         'environmentVariables'    => 'environmentVariables',
         'functionId'              => 'functionId',
         'functionName'            => 'functionName',
+        'gpuMemorySize'           => 'gpuMemorySize',
         'handler'                 => 'handler',
         'initializationTimeout'   => 'initializationTimeout',
         'initializer'             => 'initializer',
@@ -315,6 +323,9 @@ class GetFunctionResponseBody extends Model
         }
         if (null !== $this->functionName) {
             $res['functionName'] = $this->functionName;
+        }
+        if (null !== $this->gpuMemorySize) {
+            $res['gpuMemorySize'] = $this->gpuMemorySize;
         }
         if (null !== $this->handler) {
             $res['handler'] = $this->handler;
@@ -408,6 +419,9 @@ class GetFunctionResponseBody extends Model
         }
         if (isset($map['functionName'])) {
             $model->functionName = $map['functionName'];
+        }
+        if (isset($map['gpuMemorySize'])) {
+            $model->gpuMemorySize = $map['gpuMemorySize'];
         }
         if (isset($map['handler'])) {
             $model->handler = $map['handler'];

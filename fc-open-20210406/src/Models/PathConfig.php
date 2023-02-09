@@ -35,17 +35,23 @@ class PathConfig extends Model
     public $qualifier;
 
     /**
+     * @var RewriteConfig
+     */
+    public $rewriteConfig;
+
+    /**
      * @example s1
      *
      * @var string
      */
     public $serviceName;
     protected $_name = [
-        'functionName' => 'functionName',
-        'methods'      => 'methods',
-        'path'         => 'path',
-        'qualifier'    => 'qualifier',
-        'serviceName'  => 'serviceName',
+        'functionName'  => 'functionName',
+        'methods'       => 'methods',
+        'path'          => 'path',
+        'qualifier'     => 'qualifier',
+        'rewriteConfig' => 'rewriteConfig',
+        'serviceName'   => 'serviceName',
     ];
 
     public function validate()
@@ -66,6 +72,9 @@ class PathConfig extends Model
         }
         if (null !== $this->qualifier) {
             $res['qualifier'] = $this->qualifier;
+        }
+        if (null !== $this->rewriteConfig) {
+            $res['rewriteConfig'] = null !== $this->rewriteConfig ? $this->rewriteConfig->toMap() : null;
         }
         if (null !== $this->serviceName) {
             $res['serviceName'] = $this->serviceName;
@@ -95,6 +104,9 @@ class PathConfig extends Model
         }
         if (isset($map['qualifier'])) {
             $model->qualifier = $map['qualifier'];
+        }
+        if (isset($map['rewriteConfig'])) {
+            $model->rewriteConfig = RewriteConfig::fromMap($map['rewriteConfig']);
         }
         if (isset($map['serviceName'])) {
             $model->serviceName = $map['serviceName'];

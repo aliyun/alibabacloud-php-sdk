@@ -18,7 +18,7 @@ class ListReservedCapacitiesRequest extends Model
     public $limit;
 
     /**
-     * @description The token that is required for pagination.
+     * @description The token that determines the start point of the query.
      *
      * @example 8bj81uI8n****
      *
