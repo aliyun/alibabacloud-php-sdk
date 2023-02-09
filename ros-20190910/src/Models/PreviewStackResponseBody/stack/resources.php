@@ -35,6 +35,11 @@ class resources extends Model
     public $logicalResourceId;
 
     /**
+     * @var string
+     */
+    public $physicalResourceId;
+
+    /**
      * @example {   "DiskMappings": [     {       "Category": "cloud_ssd",       "Size": "20"     }   ],   "SystemDisk_Category": "cloud_ssd",   "InstanceChargeType": "PostPaid",   "AutoRenew": "False",   "WillReplace": true,   "ImageId": "centos_7",   "InstanceType": "ecs.g6.large",   "AllocatePublicIP": true,   "AutoRenewPeriod": 1,   "IoOptimized": "optimized",   "ZoneId": "cn-beijing-g",   "VSwitchId": "",   "SecurityGroupId": "",   "Period": 1,   "InternetChargeType": "PayByTraffic",   "SystemDiskCategory": "cloud_efficiency",   "InternetMaxBandwidthOut": 1,   "VpcId": "",   "InternetMaxBandwidthIn": 200,   "PeriodUnit": "Month" }
      *
      * @var mixed[]
@@ -67,15 +72,16 @@ class resources extends Model
      */
     public $stack;
     protected $_name = [
-        'acsResourceType'   => 'AcsResourceType',
-        'action'            => 'Action',
-        'description'       => 'Description',
-        'logicalResourceId' => 'LogicalResourceId',
-        'properties'        => 'Properties',
-        'replacement'       => 'Replacement',
-        'requiredBy'        => 'RequiredBy',
-        'resourceType'      => 'ResourceType',
-        'stack'             => 'Stack',
+        'acsResourceType'    => 'AcsResourceType',
+        'action'             => 'Action',
+        'description'        => 'Description',
+        'logicalResourceId'  => 'LogicalResourceId',
+        'physicalResourceId' => 'PhysicalResourceId',
+        'properties'         => 'Properties',
+        'replacement'        => 'Replacement',
+        'requiredBy'         => 'RequiredBy',
+        'resourceType'       => 'ResourceType',
+        'stack'              => 'Stack',
     ];
 
     public function validate()
@@ -96,6 +102,9 @@ class resources extends Model
         }
         if (null !== $this->logicalResourceId) {
             $res['LogicalResourceId'] = $this->logicalResourceId;
+        }
+        if (null !== $this->physicalResourceId) {
+            $res['PhysicalResourceId'] = $this->physicalResourceId;
         }
         if (null !== $this->properties) {
             $res['Properties'] = $this->properties;
@@ -135,6 +144,9 @@ class resources extends Model
         }
         if (isset($map['LogicalResourceId'])) {
             $model->logicalResourceId = $map['LogicalResourceId'];
+        }
+        if (isset($map['PhysicalResourceId'])) {
+            $model->physicalResourceId = $map['PhysicalResourceId'];
         }
         if (isset($map['Properties'])) {
             $model->properties = $map['Properties'];

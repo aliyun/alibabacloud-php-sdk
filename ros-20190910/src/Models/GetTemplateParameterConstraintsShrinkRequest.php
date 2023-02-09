@@ -39,6 +39,11 @@ class GetTemplateParameterConstraintsShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $stackId;
+
+    /**
      * @example {"Parameters":{"ZoneInfo":{"Type": "String"},"InstanceType": {"Type": "String"}},"ROSTemplateFormatVersion": "2015-09-01","Resources":{"ECS":{"Properties":{"ZoneId":{"Ref": "ZoneInfo"},"InstanceType": {"Ref": "InstanceType"}},"Type": "ALIYUN::ECS::Instance"}}}
      *
      * @var string
@@ -71,6 +76,7 @@ class GetTemplateParameterConstraintsShrinkRequest extends Model
         'parametersKeyFilterShrink' => 'ParametersKeyFilter',
         'parametersOrderShrink'     => 'ParametersOrder',
         'regionId'                  => 'RegionId',
+        'stackId'                   => 'StackId',
         'templateBody'              => 'TemplateBody',
         'templateId'                => 'TemplateId',
         'templateURL'               => 'TemplateURL',
@@ -104,6 +110,9 @@ class GetTemplateParameterConstraintsShrinkRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->stackId) {
+            $res['StackId'] = $this->stackId;
         }
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
@@ -149,6 +158,9 @@ class GetTemplateParameterConstraintsShrinkRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StackId'])) {
+            $model->stackId = $map['StackId'];
         }
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];
