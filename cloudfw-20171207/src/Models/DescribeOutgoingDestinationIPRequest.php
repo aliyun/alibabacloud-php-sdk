@@ -9,23 +9,25 @@ use AlibabaCloud\Tea\Model;
 class DescribeOutgoingDestinationIPRequest extends Model
 {
     /**
-     * @description The type of the applications that the access control policy supports. Valid values:
+     * @description The application type in the access control policy. Valid values:
      *
-     * - **FTP**
-     * - **HTTP**
-     * - **HTTPS**
-     * - **MySQL**
-     * - **SMTP**
-     * - **SMTPS**
-     * - **RDP**
-     * - **VNC**
-     * - **SSH**
-     * - **Redis**
-     * - **MQTT**
-     * - **MongoDB**
-     * - **Memcache**
-     * - **SSL**
-     * - **ANY**: all types of applications
+     *   **FTP**
+     *   **HTTP**
+     *   **HTTPS**
+     *   **Memcache**
+     *   **MongoDB**
+     *   **MQTT**
+     *   **MySQL**
+     *   **RDP**
+     *   **Redis**
+     *   **SMTP**
+     *   **SMTPS**
+     *   **SSH**
+     *   **SSL_No_Cert**
+     *   **SSL**
+     *   **VNC**
+     *
+     * >  The value of this parameter depends on the value of Proto. If you set Proto to TCP, you can set ApplicationNameList to any valid value. If you specify both ApplicationNameList and ApplicationName, only the value of ApplicationNameList is used.
      * @example FTP
      *
      * @var string
@@ -33,6 +35,14 @@ class DescribeOutgoingDestinationIPRequest extends Model
     public $applicationName;
 
     /**
+     * @description The ID of the service to which the destination IP address belongs. This parameter is left empty by default. Valid values:
+     *
+     *   **All**: all services
+     *   **RiskDomain**: risky domain names
+     *   **RiskIP**: risky IP addresses
+     *   **AliYun**: Alibaba Cloud services
+     *   **NotAliYun**: third-party services
+     *
      * @example All
      *
      * @var string
@@ -42,7 +52,7 @@ class DescribeOutgoingDestinationIPRequest extends Model
     /**
      * @description The number of the page to return.
      *
-     * Pages start from page 1. Default value: 1.
+     * Default value: 1.
      * @example 1
      *
      * @var string
@@ -80,11 +90,10 @@ class DescribeOutgoingDestinationIPRequest extends Model
     public $lang;
 
     /**
-     * @description The field based on which you want to sort the queried information. Valid values:
+     * @description The order in which you want to sort the queried information. Valid values:
      *
-     *   **SessionCount**: the number of requests. This is the default value.
-     *   **InBytes**: the inbound traffic.
-     *   **OutBytes**: the outbound traffic.
+     *   **asc**: the ascending order.
+     *   **desc**: the descending order. This is the default value.
      *
      * @example desc
      *
@@ -130,10 +139,10 @@ class DescribeOutgoingDestinationIPRequest extends Model
     public $publicIP;
 
     /**
-     * @description The order in which you want to sort the queried information. Valid values:
+     * @description The field based on which you want to sort the queried information. Valid values:
      *
-     *   **asc**: the ascending order
-     *   **desc**: the descending order
+     *   **SessionCount**: the number of requests. This is the default value.
+     *   **TotalBytes**: the total volume of traffic.
      *
      * @example SessionCount
      *
@@ -151,6 +160,46 @@ class DescribeOutgoingDestinationIPRequest extends Model
     public $startTime;
 
     /**
+     * @description The ID of the tag. Valid values:
+     *
+     *   **AliYun**: Alibaba Cloud service
+     *   **RiskDomain**: risky domain name
+     *   **RiskIP**: risky IP address
+     *   **TrustedDomain**: trusted website
+     *   **AliPay**: Alipay
+     *   **DingDing**: DingTalk
+     *   **WeChat**: WeChat
+     *   **QQ**: Tencent QQ
+     *   **SecurityService**: security service
+     *   **Microsoft**: Microsoft
+     *   **Amazon**: Amazon Web Services (AWS)
+     *   **Pan**: cloud disk
+     *   **Map**: map
+     *   **Code**: code hosting
+     *   **SystemService**: system service
+     *   **Taobao**: Taobao
+     *   **Google**: Google
+     *   **ThirdPartyService**: third-party service
+     *   **FirstFlow**: the first time
+     *   **Downloader**: malicious download
+     *   **Alexa Top1M**: popular website
+     *   **Miner**: mining pool
+     *   **Intelligence**: threat intelligence
+     *   **DDoS**: DDoS trojan
+     *   **Ransomware**: ransomware
+     *   **Spyware**: spyware
+     *   **Rogue**: rogue software
+     *   **Botnet**: botnet
+     *   **Suspicious**: suspicious website
+     *   **C\&C**: command and control (C\&C)
+     *   **Gang**: gang
+     *   **CVE**: Common Vulnerabilities and Exposures (CVE)
+     *   **Backdoor**: webshell
+     *   **Phishing**: phishing website
+     *   **APT**: advanced persistent threat (APT) attack
+     *   **Supply Chain Attack**: supply chain attack
+     *   **Malicious software**: malware
+     *
      * @example AliYun
      *
      * @var string

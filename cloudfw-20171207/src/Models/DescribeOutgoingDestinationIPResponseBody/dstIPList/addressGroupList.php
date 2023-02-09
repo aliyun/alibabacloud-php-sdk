@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class addressGroupList extends Model
 {
     /**
-     * @example my-address-group
+     * @description The name of the address book.
+     *
+     * @example IP address book
      *
      * @var string
      */
     public $addressGroupName;
 
     /**
+     * @description The UUID of the address book.
+     *
      * @example f04ac7ce-628b-4cb7-be61-310222b7****
      *
      * @var string

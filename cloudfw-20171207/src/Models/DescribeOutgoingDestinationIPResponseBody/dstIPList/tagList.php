@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class tagList extends Model
 {
     /**
+     * @description The type of the tag. Valid values:
+     *
+     *   **Suspicious**
+     *   **Malicious**
+     *   **Trusted**
+     *
      * @example Trusted
      *
      * @var string
@@ -31,7 +37,7 @@ class tagList extends Model
     /**
      * @description The description of the tag.
      *
-     * @example 放行标签
+     * @example Tag that indicates traffic is allowed
      *
      * @var string
      */
@@ -49,7 +55,7 @@ class tagList extends Model
     /**
      * @description The name of the tag.
      *
-     * @example 放行标签
+     * @example Tag that indicates traffic is allowed
      *
      * @var string
      */

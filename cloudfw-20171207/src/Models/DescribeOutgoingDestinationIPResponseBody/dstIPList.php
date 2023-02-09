@@ -26,7 +26,7 @@ class dstIPList extends Model
     /**
      * @description The suggestion in an access control policy.
      *
-     * @example 建议放行
+     * @example Allows the traffic.
      *
      * @var string
      */
@@ -35,8 +35,8 @@ class dstIPList extends Model
     /**
      * @description The state of the access control policy. Valid values:
      *
-     *   **normal**: healthy
-     *   **abnormal**: unhealthy
+     *   **Normal**: healthy
+     *   **Abnormal**: unhealthy
      *
      * @example Normal
      *
@@ -45,6 +45,8 @@ class dstIPList extends Model
     public $aclStatus;
 
     /**
+     * @description The information about the address book.
+     *
      * @var addressGroupList[]
      */
     public $addressGroupList;
@@ -57,6 +59,12 @@ class dstIPList extends Model
     public $applicationPortList;
 
     /**
+     * @description The type of the tag. Valid values:
+     *
+     *   **Suspicious**
+     *   **Malicious**
+     *   **Trusted**
+     *
      * @example Trusted
      *
      * @var string
@@ -81,7 +89,7 @@ class dstIPList extends Model
      *   **Alibaba Cloud services**
      *   **third-party services**
      *
-     * @example AliYun
+     * @example Alibaba Cloud services
      *
      * @var string
      */
@@ -99,13 +107,18 @@ class dstIPList extends Model
     /**
      * @description The name of the group to which the access control policy belongs.
      *
-     * @example 组名称
+     * @example Rule_test
      *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description Indicates whether an access control policy is configured. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var string
@@ -134,7 +147,7 @@ class dstIPList extends Model
     public $inBytes;
 
     /**
-     * @description Indicates whether the destination IP address is added to an allowlist. Valid values:
+     * @description Indicates whether the destination IP address is added to a whitelist. Valid values:
      *
      *   **true**: added
      *   **false**: not added
@@ -166,13 +179,17 @@ class dstIPList extends Model
     /**
      * @description The name of the access control policy.
      *
-     * @example 默认规则
+     * @example Default rule
      *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The reason why the domain name is secure.
+     *
+     * @example Intelligent policy: The destination domain name belongs to Alibaba Cloud Computing Co., Ltd. The domain name mainly provides services for Alibaba Cloud. No security risks are found, and you can add the domain name to the whitelist.
+     *
      * @var string
      */
     public $securityReason;
@@ -200,13 +217,15 @@ class dstIPList extends Model
     public $sessionCount;
 
     /**
-     * @description An array that consists of tags.
+     * @description The tags.
      *
      * @var tagList[]
      */
     public $tagList;
 
     /**
+     * @description The total volume of traffic. Unit: bytes.
+     *
      * @example 800
      *
      * @var string

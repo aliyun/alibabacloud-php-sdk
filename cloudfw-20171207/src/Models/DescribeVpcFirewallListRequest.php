@@ -9,10 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcFirewallListRequest extends Model
 {
     /**
-     * @description The sub type of connection. Valid values:
+     * @description The sub-type of the connection. Valid values:
      *
-     * - **vpc2vpc**: High-speed channel.
-     * - **vppeer**: Peer connection.
+     *   **vpc2vpc**: Express Connect connection
+     *   **vpcpeer**: peer connection
+     *
      * @example vpcpeer
      *
      * @var string
@@ -34,8 +35,8 @@ class DescribeVpcFirewallListRequest extends Model
      *
      *   **opened**: The VPC firewall is enabled.
      *   **closed**: The VPC firewall is disabled.
-     *   **notconfigured**: The VPC firewall is not configured.
-     *   **configured**: The VPC firewall is configured.
+     *   **notconfigured**: The VPC firewall is not created.
+     *   **configured**: The VPC firewall is created.
      *
      * >  If you do not specify this parameter, VPC firewalls in all states are queried.
      * @example opened
@@ -45,7 +46,7 @@ class DescribeVpcFirewallListRequest extends Model
     public $firewallSwitchStatus;
 
     /**
-     * @description The natural language of the request and response. Valid values:
+     * @description The language of the content within the request and response. Valid values:
      *
      *   **zh**: Chinese (default)
      *   **en**: English
@@ -76,7 +77,7 @@ class DescribeVpcFirewallListRequest extends Model
     public $pageSize;
 
     /**
-     * @description The cloud account UID of the peer VPC.
+     * @description The UID of the Alibaba Cloud account to which the peer VPC belongs.
      *
      * @example 258039427902****
      *
@@ -87,7 +88,7 @@ class DescribeVpcFirewallListRequest extends Model
     /**
      * @description The region ID of the VPC.
      *
-     * >  For more information about regions in which Cloud Firewall is supported, see [Supported regions](~~195657~~).
+     * >  For more information about the regions, see [Supported regions](~~195657~~).
      * @example cn-hangzhou
      *
      * @var string
@@ -106,7 +107,7 @@ class DescribeVpcFirewallListRequest extends Model
     /**
      * @description The instance name of the VPC firewall.
      *
-     * @example tf-test-update
+     * @example Test firewall
      *
      * @var string
      */

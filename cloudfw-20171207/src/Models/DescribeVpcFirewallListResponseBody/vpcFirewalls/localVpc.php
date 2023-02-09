@@ -55,7 +55,7 @@ class localVpc extends Model
     /**
      * @description The name of the local VPC.
      *
-     * @example dute_network
+     * @example Test instance
      *
      * @var string
      */

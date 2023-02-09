@@ -21,10 +21,11 @@ class vpcFirewalls extends Model
     public $bandwidth;
 
     /**
-     * @description The sub type of connection. Valid values:
+     * @description The sub-type of the connection. Valid values:
      *
-     * - **vpc2vpc**: High-speed channel.
-     * - **vppeer**: Peer connection.
+     *   **vpc2vpc**: Express Connect connection
+     *   **vpcpeer**: peer connection
+     *
      * @example vpcpeer
      *
      * @var string
@@ -32,7 +33,7 @@ class vpcFirewalls extends Model
     public $connectSubType;
 
     /**
-     * @description The connection type of the VPC firewall. The value is fixed as **expressconnect**, which indicates Express Connect circuits.
+     * @description The connection type of the VPC firewall. The value is fixed as **expressconnect**, which indicates an Express Connect connection.
      *
      * @example expressconnect
      *
@@ -45,7 +46,7 @@ class vpcFirewalls extends Model
      *
      *   **opened**: The VPC firewall is enabled.
      *   **closed**: The VPC firewall is disabled.
-     *   **notconfigured**: The VPC firewall is not configured.
+     *   **notconfigured**: The VPC firewall is not created.
      *
      * @example opened
      *
@@ -54,7 +55,7 @@ class vpcFirewalls extends Model
     public $firewallSwitchStatus;
 
     /**
-     * @description The configuration of the intrusion prevention system (IPS).
+     * @description The information about the intrusion prevention system (IPS) configuration.
      *
      * @var ipsConfig
      */
@@ -84,10 +85,10 @@ class vpcFirewalls extends Model
     public $peerVpc;
 
     /**
-     * @description The status of the region. Valid values:
+     * @description Indicates whether you can create a VPC firewall in a specified region. Valid values:
      *
-     *   **enable**: indicates that you can create VPC firewalls in the region.
-     *   **disable**: indicates that you cannot create VPC firewalls in the region.
+     *   **enable**: yes
+     *   **disable**: no
      *
      * @example enable
      *
@@ -98,11 +99,9 @@ class vpcFirewalls extends Model
     /**
      * @description The result code of the operation that creates the VPC firewall. Valid values:
      *
-     *   **Unauthorized**: Cloud Firewall is not authorized to access the VPC for which the VPC firewall is created, and the VPC firewall cannot be created.
-     *   **RegionDisable**: .VPC Firewall is not supported in the region of the VPC for which the VPC firewall is created, and the VPC firewall cannot be created.
-     *   **OpsDisable**: You are not allowed to create the VPC firewall.
-     *   **VbrNotSupport**: The VPC firewall cannot be created for a VBR that is attached to the CEN instance.
-     *   Empty string: You can create a VPC firewall for the network instance.
+     *   **Unauthorized**: Cloud Firewall is not authorized to access a VPC for which the VPC firewall is created, and the VPC firewall cannot be created.
+     *   **RegionDisable**: VPC Firewall is not supported in the region of a VPC for which the VPC firewall is created, and the VPC firewall cannot be created.
+     *   **Empty string**: You can create a VPC firewall for the network instance.
      *
      * @example Unauthorized
      *
@@ -122,7 +121,7 @@ class vpcFirewalls extends Model
     /**
      * @description The instance name of the VPC firewall.
      *
-     * @example test-firewall
+     * @example Test firewall
      *
      * @var string
      */

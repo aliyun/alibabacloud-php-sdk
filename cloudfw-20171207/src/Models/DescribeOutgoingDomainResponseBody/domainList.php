@@ -24,7 +24,7 @@ class domainList extends Model
     /**
      * @description The suggestion in an access control policy.
      *
-     * @example 建议放行
+     * @example suggest discharged
      *
      * @var string
      */
@@ -63,6 +63,8 @@ class domainList extends Model
     /**
      * @description The website service.
      *
+     * @example alibabacloud
+     *
      * @var string
      */
     public $business;
@@ -98,7 +100,7 @@ class domainList extends Model
      *   **Alibaba Cloud services**
      *   **third-party services**
      *
-     * @example AliYun
+     * @example Alibaba Cloud services
      *
      * @var string
      */
@@ -205,6 +207,8 @@ class domainList extends Model
 
     /**
      * @description The reason why the domain name is secure.
+     *
+     * @example Smart strategy: The organization of the destination domain name is Alibaba Cloud Computing Co., Ltd., and its main business is Alibaba Cloud. No security risks have been found, and it can be used to configure the whitelist for outreach.
      *
      * @var string
      */

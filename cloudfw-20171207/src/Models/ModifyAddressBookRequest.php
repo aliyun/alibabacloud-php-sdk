@@ -16,7 +16,7 @@ class ModifyAddressBookRequest extends Model
      *   If you set GroupType to **port**, you must specify port numbers or port ranges for the address book. Example: 80/80,100/200.
      *   If you set GroupType to **domain**, you must specify domain names for the address book. Example: demo1.aliyun.com,demo2.aliyun.com.
      *
-     * @example 192.0.XX.XX/32，192.0.XX.XX/24
+     * @example 192.0.XX.XX/32, 192.0.XX.XX/24
      *
      * @var string
      */

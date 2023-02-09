@@ -55,7 +55,7 @@ class peerVpc extends Model
     /**
      * @description The name of the peer VPC.
      *
-     * @example defaultvpc
+     * @example Test VPC 2
      *
      * @var string
      */

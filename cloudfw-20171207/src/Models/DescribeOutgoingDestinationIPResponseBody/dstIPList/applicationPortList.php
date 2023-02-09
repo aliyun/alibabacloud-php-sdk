@@ -9,8 +9,25 @@ use AlibabaCloud\Tea\Model;
 class applicationPortList extends Model
 {
     /**
-     * @description The type of the application.
+     * @description The application type in the access control policy. Valid values:
      *
+     *   **FTP**
+     *   **HTTP**
+     *   **HTTPS**
+     *   **Memcache**
+     *   **MongoDB**
+     *   **MQTT**
+     *   **MySQL**
+     *   **RDP**
+     *   **Redis**
+     *   **SMTP**
+     *   **SMTPS**
+     *   **SSH**
+     *   **SSL_No_Cert**
+     *   **SSL**
+     *   **VNC**
+     *
+     * >  The value of this parameter depends on the value of Proto. If you set Proto to TCP, you can set ApplicationNameList to any valid value. If you specify both ApplicationNameList and ApplicationName, only the value of ApplicationNameList is used.
      * @example HTTP
      *
      * @var string

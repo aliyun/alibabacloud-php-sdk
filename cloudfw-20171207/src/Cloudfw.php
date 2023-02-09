@@ -16,6 +16,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchCopyVpcFirewallControlPolicyR
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchCopyVpcFirewallControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallCenConfigureRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallCenConfigureResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallConfigureRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallConfigureResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteAddressBookRequest;
@@ -472,6 +474,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->networkInstanceId)) {
             $query['NetworkInstanceId'] = $request->networkInstanceId;
         }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
         if (!Utils::isUnset($request->vpcFirewallName)) {
             $query['VpcFirewallName'] = $request->vpcFirewallName;
         }
@@ -510,6 +515,84 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createVpcFirewallCenConfigureWithOptions($request, $runtime);
+    }
+
+    /**
+     * You can call the CreateVpcFirewallConfigure operation to create a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. The VPC firewall does not control the mutual access traffic between VPCs that reside in different regions or belong to different Alibaba Cloud accounts. The firewall also does not control the mutual access traffic between VPCs and virtual border routers (VBRs). For more information, see [Limits on VPC firewalls](https://www.alibabacloud.com/help/en/cloud-firewall/latest/vpc-firewall-limits).
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param CreateVpcFirewallConfigureRequest $request CreateVpcFirewallConfigureRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateVpcFirewallConfigureResponse CreateVpcFirewallConfigureResponse
+     */
+    public function createVpcFirewallConfigureWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->firewallSwitch)) {
+            $query['FirewallSwitch'] = $request->firewallSwitch;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->localVpcCidrTableList)) {
+            $query['LocalVpcCidrTableList'] = $request->localVpcCidrTableList;
+        }
+        if (!Utils::isUnset($request->localVpcId)) {
+            $query['LocalVpcId'] = $request->localVpcId;
+        }
+        if (!Utils::isUnset($request->localVpcRegion)) {
+            $query['LocalVpcRegion'] = $request->localVpcRegion;
+        }
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->peerVpcCidrTableList)) {
+            $query['PeerVpcCidrTableList'] = $request->peerVpcCidrTableList;
+        }
+        if (!Utils::isUnset($request->peerVpcId)) {
+            $query['PeerVpcId'] = $request->peerVpcId;
+        }
+        if (!Utils::isUnset($request->peerVpcRegion)) {
+            $query['PeerVpcRegion'] = $request->peerVpcRegion;
+        }
+        if (!Utils::isUnset($request->vpcFirewallName)) {
+            $query['VpcFirewallName'] = $request->vpcFirewallName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVpcFirewallConfigure',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateVpcFirewallConfigureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * You can call the CreateVpcFirewallConfigure operation to create a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. The VPC firewall does not control the mutual access traffic between VPCs that reside in different regions or belong to different Alibaba Cloud accounts. The firewall also does not control the mutual access traffic between VPCs and virtual border routers (VBRs). For more information, see [Limits on VPC firewalls](https://www.alibabacloud.com/help/en/cloud-firewall/latest/vpc-firewall-limits).
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param CreateVpcFirewallConfigureRequest $request CreateVpcFirewallConfigureRequest
+     *
+     * @return CreateVpcFirewallConfigureResponse CreateVpcFirewallConfigureResponse
+     */
+    public function createVpcFirewallConfigure($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVpcFirewallConfigureWithOptions($request, $runtime);
     }
 
     /**
@@ -2241,7 +2324,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeVpcFirewallList operation to query the details about VPC firewalls by page. Each VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.
+     * You can call the DescribeVpcFirewallList operation to query the details about VPC firewalls by page. Each VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
      *   * ## Limits
      *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
@@ -2309,7 +2392,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeVpcFirewallList operation to query the details about VPC firewalls by page. Each VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.
+     * You can call the DescribeVpcFirewallList operation to query the details about VPC firewalls by page. Each VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
      *   * ## Limits
      *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *

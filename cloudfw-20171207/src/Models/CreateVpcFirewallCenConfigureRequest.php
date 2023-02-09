@@ -60,6 +60,11 @@ class CreateVpcFirewallCenConfigureRequest extends Model
     public $networkInstanceId;
 
     /**
+     * @var string
+     */
+    public $vSwitchId;
+
+    /**
      * @description The instance name of the VPC firewall.
      *
      * @example test-cloufirewall-vpc
@@ -83,6 +88,7 @@ class CreateVpcFirewallCenConfigureRequest extends Model
         'lang'              => 'Lang',
         'memberUid'         => 'MemberUid',
         'networkInstanceId' => 'NetworkInstanceId',
+        'vSwitchId'         => 'VSwitchId',
         'vpcFirewallName'   => 'VpcFirewallName',
         'vpcRegion'         => 'VpcRegion',
     ];
@@ -108,6 +114,9 @@ class CreateVpcFirewallCenConfigureRequest extends Model
         }
         if (null !== $this->networkInstanceId) {
             $res['NetworkInstanceId'] = $this->networkInstanceId;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
         if (null !== $this->vpcFirewallName) {
             $res['VpcFirewallName'] = $this->vpcFirewallName;
@@ -141,6 +150,9 @@ class CreateVpcFirewallCenConfigureRequest extends Model
         }
         if (isset($map['NetworkInstanceId'])) {
             $model->networkInstanceId = $map['NetworkInstanceId'];
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
         if (isset($map['VpcFirewallName'])) {
             $model->vpcFirewallName = $map['VpcFirewallName'];
