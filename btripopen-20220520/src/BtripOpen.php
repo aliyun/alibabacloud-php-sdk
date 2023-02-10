@@ -23,6 +23,10 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyApproveHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyApproveRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyApproveResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyInvoiceTaskHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyInvoiceTaskRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyInvoiceTaskResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyInvoiceTaskShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyListQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyListQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyListQueryResponse;
@@ -111,6 +115,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightCreateOrderShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightExceedApplyQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightExceedApplyQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightExceedApplyQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightItineraryScanQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightItineraryScanQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightItineraryScanQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderDetailInfoHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderDetailInfoRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderDetailInfoResponse;
@@ -222,12 +229,24 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderListQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderQueryV2Headers;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderQueryV2Request;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderQueryV2Response;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainStationSearchHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainStationSearchRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainStationSearchResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainTicketScanQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainTicketScanQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainTicketScanQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\VatInvoiceScanQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\VatInvoiceScanQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\VatInvoiceScanQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\WaitApplyInvoiceTaskDetailQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\WaitApplyInvoiceTaskDetailQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\WaitApplyInvoiceTaskDetailQueryResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -715,6 +734,67 @@ class BtripOpen extends OpenApiClient
         $headers = new ApplyApproveHeaders([]);
 
         return $this->applyApproveWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ApplyInvoiceTaskRequest $tmpReq
+     * @param ApplyInvoiceTaskHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ApplyInvoiceTaskResponse
+     */
+    public function applyInvoiceTaskWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ApplyInvoiceTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->invoiceTaskList)) {
+            $request->invoiceTaskListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->invoiceTaskList, 'invoice_task_list', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->billDate)) {
+            $body['bill_date'] = $request->billDate;
+        }
+        if (!Utils::isUnset($request->invoiceTaskListShrink)) {
+            $body['invoice_task_list'] = $request->invoiceTaskListShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ApplyInvoiceTask',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/invoice/v1/apply-invoice-task',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ApplyInvoiceTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ApplyInvoiceTaskRequest $request
+     *
+     * @return ApplyInvoiceTaskResponse
+     */
+    public function applyInvoiceTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ApplyInvoiceTaskHeaders([]);
+
+        return $this->applyInvoiceTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2641,6 +2721,71 @@ class BtripOpen extends OpenApiClient
         $headers = new FlightExceedApplyQueryHeaders([]);
 
         return $this->flightExceedApplyQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param FlightItineraryScanQueryRequest $request
+     * @param FlightItineraryScanQueryHeaders $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return FlightItineraryScanQueryResponse
+     */
+    public function flightItineraryScanQueryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billDate)) {
+            $query['bill_date'] = $request->billDate;
+        }
+        if (!Utils::isUnset($request->billId)) {
+            $query['bill_id'] = $request->billId;
+        }
+        if (!Utils::isUnset($request->invoiceSubTaskId)) {
+            $query['invoice_sub_task_id'] = $request->invoiceSubTaskId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['page_no'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FlightItineraryScanQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/scan/v1/flight-itinerary',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return FlightItineraryScanQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FlightItineraryScanQueryRequest $request
+     *
+     * @return FlightItineraryScanQueryResponse
+     */
+    public function flightItineraryScanQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new FlightItineraryScanQueryHeaders([]);
+
+        return $this->flightItineraryScanQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4899,6 +5044,62 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @param TrainOrderQueryV2Request $request
+     * @param TrainOrderQueryV2Headers $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return TrainOrderQueryV2Response
+     */
+    public function trainOrderQueryV2WithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['order_id'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['user_id'] = $request->userId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TrainOrderQueryV2',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/train/v2/order',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return TrainOrderQueryV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TrainOrderQueryV2Request $request
+     *
+     * @return TrainOrderQueryV2Response
+     */
+    public function trainOrderQueryV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TrainOrderQueryV2Headers([]);
+
+        return $this->trainOrderQueryV2WithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param TrainStationSearchRequest $request
      * @param TrainStationSearchHeaders $headers
      * @param RuntimeOptions            $runtime
@@ -4949,6 +5150,71 @@ class BtripOpen extends OpenApiClient
         $headers = new TrainStationSearchHeaders([]);
 
         return $this->trainStationSearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param TrainTicketScanQueryRequest $request
+     * @param TrainTicketScanQueryHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return TrainTicketScanQueryResponse
+     */
+    public function trainTicketScanQueryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billDate)) {
+            $query['bill_date'] = $request->billDate;
+        }
+        if (!Utils::isUnset($request->billId)) {
+            $query['bill_id'] = $request->billId;
+        }
+        if (!Utils::isUnset($request->invoiceSubTaskId)) {
+            $query['invoice_sub_task_id'] = $request->invoiceSubTaskId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['page_no'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TrainTicketScanQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/scan/v1/train-ticket',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return TrainTicketScanQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TrainTicketScanQueryRequest $request
+     *
+     * @return TrainTicketScanQueryResponse
+     */
+    public function trainTicketScanQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TrainTicketScanQueryHeaders([]);
+
+        return $this->trainTicketScanQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5011,5 +5277,123 @@ class BtripOpen extends OpenApiClient
         $headers = new UserQueryHeaders([]);
 
         return $this->userQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param VatInvoiceScanQueryRequest $request
+     * @param VatInvoiceScanQueryHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return VatInvoiceScanQueryResponse
+     */
+    public function vatInvoiceScanQueryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billDate)) {
+            $query['bill_date'] = $request->billDate;
+        }
+        if (!Utils::isUnset($request->billId)) {
+            $query['bill_id'] = $request->billId;
+        }
+        if (!Utils::isUnset($request->invoiceSubTaskId)) {
+            $query['invoice_sub_task_id'] = $request->invoiceSubTaskId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['page_no'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'VatInvoiceScanQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/scan/v1/vat-invoice',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return VatInvoiceScanQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VatInvoiceScanQueryRequest $request
+     *
+     * @return VatInvoiceScanQueryResponse
+     */
+    public function vatInvoiceScanQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new VatInvoiceScanQueryHeaders([]);
+
+        return $this->vatInvoiceScanQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param WaitApplyInvoiceTaskDetailQueryRequest $request
+     * @param WaitApplyInvoiceTaskDetailQueryHeaders $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return WaitApplyInvoiceTaskDetailQueryResponse
+     */
+    public function waitApplyInvoiceTaskDetailQueryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billDate)) {
+            $query['bill_date'] = $request->billDate;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'WaitApplyInvoiceTaskDetailQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/invoice/v1/wait-apply-task',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return WaitApplyInvoiceTaskDetailQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param WaitApplyInvoiceTaskDetailQueryRequest $request
+     *
+     * @return WaitApplyInvoiceTaskDetailQueryResponse
+     */
+    public function waitApplyInvoiceTaskDetailQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new WaitApplyInvoiceTaskDetailQueryHeaders([]);
+
+        return $this->waitApplyInvoiceTaskDetailQueryWithOptions($request, $headers, $runtime);
     }
 }
