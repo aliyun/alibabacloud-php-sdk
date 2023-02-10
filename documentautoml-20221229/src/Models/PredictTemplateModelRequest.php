@@ -16,14 +16,12 @@ class PredictTemplateModelRequest extends Model
     public $content;
 
     /**
-     * @example 319
-     *
      * @var int
      */
-    public $projectId;
+    public $taskId;
     protected $_name = [
-        'content'   => 'Content',
-        'projectId' => 'ProjectId',
+        'content' => 'Content',
+        'taskId'  => 'TaskId',
     ];
 
     public function validate()
@@ -36,8 +34,8 @@ class PredictTemplateModelRequest extends Model
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -54,8 +52,8 @@ class PredictTemplateModelRequest extends Model
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

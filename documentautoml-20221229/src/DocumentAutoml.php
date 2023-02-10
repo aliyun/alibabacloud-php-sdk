@@ -165,8 +165,8 @@ class DocumentAutoml extends OpenApiClient
         if (!Utils::isUnset($request->content)) {
             $query['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

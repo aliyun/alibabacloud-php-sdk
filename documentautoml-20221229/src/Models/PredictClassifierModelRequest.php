@@ -18,7 +18,7 @@ class PredictClassifierModelRequest extends Model
     /**
      * @example c0d420955af6bc0761f9207480333cca
      *
-     * @var string
+     * @var int
      */
     public $classifierId;
 
