@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingEnquiryResponseBody\module\flightInfoList;
 
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingEnquiryResponseBody\module\flightInfoList\cabinList\changeOtaItemRuleRq;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingEnquiryResponseBody\module\flightInfoList\cabinList\modifyPriceList;
 use AlibabaCloud\Tea\Model;
 
@@ -36,6 +37,11 @@ class cabinList extends Model
     public $cabinDiscount;
 
     /**
+     * @var changeOtaItemRuleRq
+     */
+    public $changeOtaItemRuleRq;
+
+    /**
      * @example G
      *
      * @var string
@@ -61,14 +67,15 @@ class cabinList extends Model
      */
     public $otaItemid;
     protected $_name = [
-        'cabin'           => 'cabin',
-        'cabinClass'      => 'cabin_class',
-        'cabinDesc'       => 'cabin_desc',
-        'cabinDiscount'   => 'cabin_discount',
-        'childCabin'      => 'child_cabin',
-        'leftNum'         => 'left_num',
-        'modifyPriceList' => 'modify_price_list',
-        'otaItemid'       => 'ota_itemid',
+        'cabin'               => 'cabin',
+        'cabinClass'          => 'cabin_class',
+        'cabinDesc'           => 'cabin_desc',
+        'cabinDiscount'       => 'cabin_discount',
+        'changeOtaItemRuleRq' => 'change_ota_item_rule_rq',
+        'childCabin'          => 'child_cabin',
+        'leftNum'             => 'left_num',
+        'modifyPriceList'     => 'modify_price_list',
+        'otaItemid'           => 'ota_itemid',
     ];
 
     public function validate()
@@ -89,6 +96,9 @@ class cabinList extends Model
         }
         if (null !== $this->cabinDiscount) {
             $res['cabin_discount'] = $this->cabinDiscount;
+        }
+        if (null !== $this->changeOtaItemRuleRq) {
+            $res['change_ota_item_rule_rq'] = null !== $this->changeOtaItemRuleRq ? $this->changeOtaItemRuleRq->toMap() : null;
         }
         if (null !== $this->childCabin) {
             $res['child_cabin'] = $this->childCabin;
@@ -131,6 +141,9 @@ class cabinList extends Model
         }
         if (isset($map['cabin_discount'])) {
             $model->cabinDiscount = $map['cabin_discount'];
+        }
+        if (isset($map['change_ota_item_rule_rq'])) {
+            $model->changeOtaItemRuleRq = changeOtaItemRuleRq::fromMap($map['change_ota_item_rule_rq']);
         }
         if (isset($map['child_cabin'])) {
             $model->childCabin = $map['child_cabin'];

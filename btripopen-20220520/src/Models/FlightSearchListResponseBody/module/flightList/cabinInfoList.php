@@ -15,6 +15,11 @@ class cabinInfoList extends Model
     public $agentId;
 
     /**
+     * @var int
+     */
+    public $basicCabinPrice;
+
+    /**
      * @example 100
      *
      * @var int
@@ -170,6 +175,7 @@ class cabinInfoList extends Model
     public $totalPrice;
     protected $_name = [
         'agentId'           => 'agent_id',
+        'basicCabinPrice'   => 'basic_cabin_price',
         'buildPrice'        => 'build_price',
         'cabin'             => 'cabin',
         'cabinClass'        => 'cabin_class',
@@ -204,6 +210,9 @@ class cabinInfoList extends Model
         $res = [];
         if (null !== $this->agentId) {
             $res['agent_id'] = $this->agentId;
+        }
+        if (null !== $this->basicCabinPrice) {
+            $res['basic_cabin_price'] = $this->basicCabinPrice;
         }
         if (null !== $this->buildPrice) {
             $res['build_price'] = $this->buildPrice;
@@ -294,6 +303,9 @@ class cabinInfoList extends Model
         $model = new self();
         if (isset($map['agent_id'])) {
             $model->agentId = $map['agent_id'];
+        }
+        if (isset($map['basic_cabin_price'])) {
+            $model->basicCabinPrice = $map['basic_cabin_price'];
         }
         if (isset($map['build_price'])) {
             $model->buildPrice = $map['build_price'];
