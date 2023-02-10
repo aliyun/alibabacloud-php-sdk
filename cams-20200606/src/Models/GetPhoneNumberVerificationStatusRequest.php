@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetPhoneNumberVerificationStatusRequest extends Model
 {
     /**
+     * @description The space ID of the user under the ISV account.
+     *
      * @example 229393838
      *
      * @var string
@@ -16,6 +18,8 @@ class GetPhoneNumberVerificationStatusRequest extends Model
     public $custSpaceId;
 
     /**
+     * @description The phone number.
+     *
      * @example 861380000
      *
      * @var string

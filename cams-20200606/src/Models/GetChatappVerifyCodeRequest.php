@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetChatappVerifyCodeRequest extends Model
 {
     /**
+     * @description The space ID of the user under the ISV account.
+     *
      * @example 229393838
      *
      * @var string
@@ -16,6 +18,8 @@ class GetChatappVerifyCodeRequest extends Model
     public $custSpaceId;
 
     /**
+     * @description The language.
+     *
      * @example zh_CN
      *
      * @var string
@@ -23,6 +27,8 @@ class GetChatappVerifyCodeRequest extends Model
     public $locale;
 
     /**
+     * @description The type of the verification code. Valid values: SMS and VOICE.
+     *
      * @example SMS
      *
      * @var string
@@ -30,6 +36,8 @@ class GetChatappVerifyCodeRequest extends Model
     public $method;
 
     /**
+     * @description The phone number.
+     *
      * @example 861380000
      *
      * @var string

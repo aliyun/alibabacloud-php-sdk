@@ -9,20 +9,26 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @example 长沙
+     * @description The address.
+     *
+     * @example Changsha
      *
      * @var string
      */
     public $address;
 
     /**
-     * @example 描述
+     * @description The description.
+     *
+     * @example Description
      *
      * @var string
      */
     public $description;
 
     /**
+     * @description The email address.
+     *
      * @example aa@aliyun.com
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $email;
 
     /**
+     * @description The URL of the profile picture.
+     *
      * @example https://....img
      *
      * @var string
@@ -37,13 +45,17 @@ class data extends Model
     public $profilePictureUrl;
 
     /**
-     * @example 零售
+     * @description The industry.
+     *
+     * @example Retail
      *
      * @var string
      */
     public $vertical;
 
     /**
+     * @description The websites.
+     *
      * @var string[]
      */
     public $websites;

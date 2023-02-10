@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ChatappPhoneNumberRegisterResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned.
+     *
+     *   A value of OK indicates that the call is successful.
+     *   Other values indicate that the call fails. For more information, see [Error codes](~~196974~~).
+     *
      * @example OK
      *
      * @var string
@@ -16,11 +21,17 @@ class ChatappPhoneNumberRegisterResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned.
+     *
+     * @example None
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 90E63D28-E31D-1EB2-8939-A9486641****
      *
      * @var string

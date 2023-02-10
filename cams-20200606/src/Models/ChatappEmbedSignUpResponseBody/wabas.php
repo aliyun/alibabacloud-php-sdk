@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class wabas extends Model
 {
     /**
+     * @description The audit status of the WhatsApp Business account.
+     *
      * @example VERIFIED
      *
      * @var string
@@ -16,6 +18,8 @@ class wabas extends Model
     public $accountReviewStatus;
 
     /**
+     * @description The currency.
+     *
      * @example USD
      *
      * @var string
@@ -32,6 +36,8 @@ class wabas extends Model
     public $id;
 
     /**
+     * @description The namespace of the message template.
+     *
      * @example alals-lsslls-slslsos-slsl
      *
      * @var string

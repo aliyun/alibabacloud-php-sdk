@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChatappVerifyAndRegisterRequest extends Model
 {
     /**
+     * @description The space ID of the ISV user with which the phone number is associated.
+     *
      * @example 29389299388383
      *
      * @var string
@@ -16,6 +18,8 @@ class ChatappVerifyAndRegisterRequest extends Model
     public $custSpaceId;
 
     /**
+     * @description The phone number that you want to use to send WhatsApp business messages to your customers.
+     *
      * @example 86138000000
      *
      * @var string
@@ -23,6 +27,8 @@ class ChatappVerifyAndRegisterRequest extends Model
     public $phoneNumber;
 
     /**
+     * @description The verification code.
+     *
      * @example 223222
      *
      * @var string

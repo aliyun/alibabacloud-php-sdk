@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdatePhoneWebhookRequest extends Model
 {
     /**
+     * @description The space ID of the user under the ISV account.
+     *
      * @example 293483938849493
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdatePhoneWebhookRequest extends Model
     public $custSpaceId;
 
     /**
+     * @description Specifies whether to use HTTP to receive receipts. Valid values: Y and N. A value of Y indicates that HTTP is used to receive receipts. A value of N indicates that HTTP is not used to receive receipts.
+     *
      * @example Y
      *
      * @var string
@@ -23,13 +27,17 @@ class UpdatePhoneWebhookRequest extends Model
     public $httpFlag;
 
     /**
-     * @example 手机号码
+     * @description The phone number.
+     *
+     * @example Phone number
      *
      * @var string
      */
     public $phoneNumber;
 
     /**
+     * @description Specifies whether to use Message Service (MNS) queues to receive receipts. Valid values: Y and N. A value of Y indicates that MNS queues are used to receive receipts. A value of N indicates that MNS queues are not used to receive receipts.
+     *
      * @example N
      *
      * @var string
@@ -37,6 +45,8 @@ class UpdatePhoneWebhookRequest extends Model
     public $queueFlag;
 
     /**
+     * @description The callback URL to which status reports are sent via HTTP callbacks.
+     *
      * @example http://www.aliyun.com
      *
      * @var string
@@ -44,6 +54,8 @@ class UpdatePhoneWebhookRequest extends Model
     public $statusCallbackUrl;
 
     /**
+     * @description The callback URL to which mobile originated (MO) messages are sent via HTTP callbacks.
+     *
      * @example http://aliyun.com
      *
      * @var string

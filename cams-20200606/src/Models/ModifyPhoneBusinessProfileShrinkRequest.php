@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ModifyPhoneBusinessProfileShrinkRequest extends Model
 {
     /**
-     * @example 地址
+     * @description The address.
+     *
+     * @example Address
      *
      * @var string
      */
     public $address;
 
     /**
+     * @description The space ID of the user under the ISV account.
+     *
      * @example 293483938849493
      *
      * @var string
@@ -23,13 +27,17 @@ class ModifyPhoneBusinessProfileShrinkRequest extends Model
     public $custSpaceId;
 
     /**
-     * @example 描述
+     * @description The description.
+     *
+     * @example Description
      *
      * @var string
      */
     public $description;
 
     /**
+     * @description The email address.
+     *
      * @example aa@aliyun.com
      *
      * @var string
@@ -37,13 +45,17 @@ class ModifyPhoneBusinessProfileShrinkRequest extends Model
     public $email;
 
     /**
-     * @example 手机号码
+     * @description The phone number.
+     *
+     * @example Phone number
      *
      * @var string
      */
     public $phoneNumber;
 
     /**
+     * @description The URL of the profile picture.
+     *
      * @example http://a.img
      *
      * @var string
@@ -51,13 +63,17 @@ class ModifyPhoneBusinessProfileShrinkRequest extends Model
     public $profilePictureUrl;
 
     /**
-     * @example 零售
+     * @description The industry.
+     *
+     * @example Retail
      *
      * @var string
      */
     public $vertical;
 
     /**
+     * @description The websites.
+     *
      * @var string
      */
     public $websitesShrink;

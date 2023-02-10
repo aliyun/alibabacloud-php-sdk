@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChatappSyncPhoneNumberRequest extends Model
 {
     /**
+     * @description The space ID of the user under the ISV account.
+     *
      * @example 293483938849493
      *
      * @var string

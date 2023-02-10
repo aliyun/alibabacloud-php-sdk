@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The space ID of the user.
+     *
      * @example C02029392939939
      *
      * @var string

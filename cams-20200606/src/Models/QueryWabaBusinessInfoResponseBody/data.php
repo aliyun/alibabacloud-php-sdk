@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the business platform.
+     *
      * @example 192882828733
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $businessId;
 
     /**
+     * @description The name of the business platform.
+     *
      * @example Alibaba
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $businessName;
 
     /**
+     * @description The verification status.
+     *
      * @example verified
      *
      * @var string
@@ -30,7 +36,9 @@ class data extends Model
     public $verificationStatus;
 
     /**
-     * @example 零售
+     * @description The industry.
+     *
+     * @example Retail
      *
      * @var string
      */

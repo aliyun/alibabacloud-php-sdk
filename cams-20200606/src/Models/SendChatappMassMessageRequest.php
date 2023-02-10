@@ -10,11 +10,7 @@ use AlibabaCloud\Tea\Model;
 class SendChatappMassMessageRequest extends Model
 {
     /**
-     * @description The type of the message channel. Valid values:
-     *
-     *   **whatsapp**
-     *   viber (under development)
-     *   line (under development)
+     * @description The channel type. Valid values: whatsapp, viber, and line.
      *
      * @example whatsapp
      *
@@ -23,14 +19,16 @@ class SendChatappMassMessageRequest extends Model
     public $channelType;
 
     /**
-     * @example 293483938849493
+     * @description The space ID of the user.
+     *
+     * @example 28251486512358****
      *
      * @var string
      */
     public $custSpaceId;
 
     /**
-     * @description The unique identifier of the WhatsApp account that you register.
+     * @description The ID of the WhatApp Business account of the ISV account.
      *
      * @example 65921621816****
      *
@@ -41,16 +39,16 @@ class SendChatappMassMessageRequest extends Model
     public $custWabaId;
 
     /**
-     * @description Fallback message content.
+     * @description The fallback content.
      *
-     * @example This is a fallback message.
+     * @example Fallback message
      *
      * @var string
      */
     public $fallBackContent;
 
     /**
-     * @description Fallback strategy id. Fallback Strategy can be created on the ChatApp console.
+     * @description The ID of the fallback strategy.
      *
      * @example S00001
      *
@@ -59,9 +57,8 @@ class SendChatappMassMessageRequest extends Model
     public $fallBackId;
 
     /**
-     * @description The mobile phone number of the message sender.
+     * @description The message sender.
      *
-     * <notice>You can specify a mobile phone number that is registered for a WhatsApp account and is approved in the ChatApp console.</notice>
      * @example 861387777****
      *
      * @var string
@@ -69,7 +66,7 @@ class SendChatappMassMessageRequest extends Model
     public $from;
 
     /**
-     * @description Assigned by ISV for RAM user authentication and authorization.
+     * @description The ISV verification code, which is used to verify whether the user is authorized by the ISV account.
      *
      * @example skdi3kksloslikdkkdk
      *
@@ -78,7 +75,16 @@ class SendChatappMassMessageRequest extends Model
     public $isvCode;
 
     /**
-     * @description The language that is used in the message template.
+     * @description The message type when the ChannelType parameter is set to viber. Valid values: pormotion and transition.
+     *
+     * @example promotion
+     *
+     * @var string
+     */
+    public $label;
+
+    /**
+     * @description The language. For more information about language codes, see [Language codes](~~463420~~).
      *
      * @example en
      *
@@ -87,14 +93,23 @@ class SendChatappMassMessageRequest extends Model
     public $language;
 
     /**
-     * @description Target number and parameter list.
+     * @description The list of phone numbers that receive the message.
      *
      * @var senderList[]
      */
     public $senderList;
 
     /**
-     * @description User-define ID to identify a single batch of messages.
+     * @description The tag information when the ChannelType parameter is set to viber.
+     *
+     * @example tag
+     *
+     * @var string
+     */
+    public $tag;
+
+    /**
+     * @description The task ID.
      *
      * @example 100000001
      *
@@ -103,13 +118,22 @@ class SendChatappMassMessageRequest extends Model
     public $taskId;
 
     /**
-     * @description The code of the message template.
+     * @description The encoding of the message template.
      *
      * @example 744c4b5c79c9432497a075bdfca36bf5
      *
      * @var string
      */
     public $templateCode;
+
+    /**
+     * @description The timeout period for sending messages when the ChannelType parameter is set to viber. Valid values: 30 to 1209600, in seconds.
+     *
+     * @example 50
+     *
+     * @var int
+     */
+    public $ttl;
     protected $_name = [
         'channelType'     => 'ChannelType',
         'custSpaceId'     => 'CustSpaceId',
@@ -118,10 +142,13 @@ class SendChatappMassMessageRequest extends Model
         'fallBackId'      => 'FallBackId',
         'from'            => 'From',
         'isvCode'         => 'IsvCode',
+        'label'           => 'Label',
         'language'        => 'Language',
         'senderList'      => 'SenderList',
+        'tag'             => 'Tag',
         'taskId'          => 'TaskId',
         'templateCode'    => 'TemplateCode',
+        'ttl'             => 'Ttl',
     ];
 
     public function validate()
@@ -152,6 +179,9 @@ class SendChatappMassMessageRequest extends Model
         if (null !== $this->isvCode) {
             $res['IsvCode'] = $this->isvCode;
         }
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
+        }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
@@ -164,11 +194,17 @@ class SendChatappMassMessageRequest extends Model
                 }
             }
         }
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
+        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
+        }
+        if (null !== $this->ttl) {
+            $res['Ttl'] = $this->ttl;
         }
 
         return $res;
@@ -203,6 +239,9 @@ class SendChatappMassMessageRequest extends Model
         if (isset($map['IsvCode'])) {
             $model->isvCode = $map['IsvCode'];
         }
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
+        }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
@@ -215,11 +254,17 @@ class SendChatappMassMessageRequest extends Model
                 }
             }
         }
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
+        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
+        }
+        if (isset($map['Ttl'])) {
+            $model->ttl = $map['Ttl'];
         }
 
         return $model;

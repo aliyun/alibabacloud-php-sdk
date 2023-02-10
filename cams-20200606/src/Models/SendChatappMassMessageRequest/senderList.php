@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class senderList extends Model
 {
     /**
-     * @description Payload list.
+     * @description payload
      *
      * @var string[]
      */
     public $payload;
 
     /**
-     * @description Template parameters.
+     * @description The parameters of the message template.
      *
      * @var string[]
      */
     public $templateParams;
 
     /**
-     * @description Target number.
+     * @description The phone number that receives the message.
      *
      * @example 861388988****
      *

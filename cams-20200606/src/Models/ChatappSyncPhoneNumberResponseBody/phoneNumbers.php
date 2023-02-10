@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class phoneNumbers extends Model
 {
     /**
+     * @description The verification status.
+     *
      * @example VERIFIED
      *
      * @var string
@@ -16,6 +18,8 @@ class phoneNumbers extends Model
     public $codeVerificationStatus;
 
     /**
+     * @description The quantity of phone numbers to which messages can be sent in a day.
+     *
      * @example TIER_10
      *
      * @var string
@@ -23,6 +27,8 @@ class phoneNumbers extends Model
     public $messagingLimitTier;
 
     /**
+     * @description The review status of the business name.
+     *
      * @example Approval
      *
      * @var string
@@ -30,6 +36,8 @@ class phoneNumbers extends Model
     public $nameStatus;
 
     /**
+     * @description The review status of the new business name.
+     *
      * @example Approval
      *
      * @var string
@@ -37,6 +45,8 @@ class phoneNumbers extends Model
     public $newNameStatus;
 
     /**
+     * @description The phone number.
+     *
      * @example 8613800000000
      *
      * @var string
@@ -44,6 +54,8 @@ class phoneNumbers extends Model
     public $phoneNumber;
 
     /**
+     * @description The quality of the phone number. Valid values: GREEN, YELLOW, and RED.
+     *
      * @example GREEN
      *
      * @var string
@@ -51,6 +63,8 @@ class phoneNumbers extends Model
     public $qualityRating;
 
     /**
+     * @description The status of the phone number.
+     *
      * @example PENDING
      *
      * @var string
@@ -58,6 +72,8 @@ class phoneNumbers extends Model
     public $status;
 
     /**
+     * @description The callback URL to which status reports are sent via HTTP callbacks.
+     *
      * @example https://www.alibaba.com/status
      *
      * @var string
@@ -65,6 +81,8 @@ class phoneNumbers extends Model
     public $statusCallbackUrl;
 
     /**
+     * @description The status report queue.
+     *
      * @example alicom-09399200-queue
      *
      * @var string
@@ -72,6 +90,8 @@ class phoneNumbers extends Model
     public $statusQueue;
 
     /**
+     * @description The callback URL to which MO messages are sent via HTTP callbacks.
+     *
      * @example https://www.alibaba.com/inbound
      *
      * @var string
@@ -79,6 +99,8 @@ class phoneNumbers extends Model
     public $upCallbackUrl;
 
     /**
+     * @description The mobile originated (MO) message queue.
+     *
      * @example alicom-09399200-queue
      *
      * @var string
@@ -86,6 +108,8 @@ class phoneNumbers extends Model
     public $upQueue;
 
     /**
+     * @description The name of the business to which the phone number belongs.
+     *
      * @example Alibaba
      *
      * @var string

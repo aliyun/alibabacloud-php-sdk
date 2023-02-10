@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetChatappVerifyCodeResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned.
+     *
+     *   A value of OK indicates that the call is successful.
+     *   Other values indicate that the call fails. For more information, see [Error codes](~~196974~~).
+     *
      * @example OK
      *
      * @var string
@@ -16,11 +21,17 @@ class GetChatappVerifyCodeResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned.
+     *
+     * @example None
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 1612C226-E271-4CFE-9F18-4066D550F91B
      *
      * @var string
