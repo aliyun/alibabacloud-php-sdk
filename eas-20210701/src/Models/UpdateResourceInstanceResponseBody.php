@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourceInstanceResponseBody extends Model
 {
     /**
+     * @example eas-i-asdasdasd
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 40325405-579C-4D82****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example eas-r-asdasdasd
+     *
      * @var string
      */
     public $resourceId;

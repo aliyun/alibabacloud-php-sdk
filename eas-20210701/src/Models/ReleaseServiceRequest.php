@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ReleaseServiceRequest extends Model
 {
     /**
+     * @example grouping
+     *
      * @var string
      */
     public $trafficState;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $weight;

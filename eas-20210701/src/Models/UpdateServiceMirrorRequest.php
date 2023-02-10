@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceMirrorRequest extends Model
 {
     /**
+     * @example 30
+     *
      * @var int
      */
     public $ratio;

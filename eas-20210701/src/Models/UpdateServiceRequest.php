@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceRequest extends Model
 {
     /**
+     * @example {   "name": "foo",   "model_path": "http://path/to/model.tar.gz",   "processor": "tensorflow_cpu",   "metadata": {     "instance": 2,     "memory": 7000,     "cpu": 4   } }
+     *
      * @var string
      */
     public $body;

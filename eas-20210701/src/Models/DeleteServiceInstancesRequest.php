@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteServiceInstancesRequest extends Model
 {
     /**
+     * @example foo-rdsbxxxx,foo-rdsaxxxx
+     *
      * @var string
      */
     public $instanceList;

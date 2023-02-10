@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class scaleJobs extends Model
 {
     /**
+     * @example scale-job-1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 0 18 * * * *
+     *
      * @var string
      */
     public $schedule;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $targetSize;

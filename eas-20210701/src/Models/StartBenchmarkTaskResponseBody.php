@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class StartBenchmarkTaskResponseBody extends Model
 {
     /**
+     * @example Benchmark task [benchmark-larec-test-1076] is Starting
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 40325405-579C-4D82****
+     *
      * @var string
      */
     public $requestId;

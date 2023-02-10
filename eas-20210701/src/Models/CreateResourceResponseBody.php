@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceResponseBody extends Model
 {
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 14401087478****
+     *
      * @var string
      */
     public $ownerUid;
 
     /**
+     * @example 40325405-579C-4D82****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example eas-r-h7lcw24dyqztwxxxxxx
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example MyResource
+     *
      * @var string
      */
     public $resourceName;

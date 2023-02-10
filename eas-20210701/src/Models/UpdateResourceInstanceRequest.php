@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourceInstanceRequest extends Model
 {
     /**
+     * @example Cordon
+     *
      * @var string
      */
     public $action;

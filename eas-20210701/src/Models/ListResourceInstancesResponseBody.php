@@ -14,21 +14,29 @@ class ListResourceInstancesResponseBody extends Model
     public $instances;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 40325405-579C-4D82****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

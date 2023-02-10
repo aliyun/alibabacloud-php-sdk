@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $availableAgent;
 
     /**
+     * @example 2020-12-04T02:43:15Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example Benchmark task [benchmark-larec-test-1076] is Running
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example test_quota
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example eas-b-gv4y86uvgt****i
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example benchmark-larec-test-1076
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @example 2020-06-24T03:11:30Z
+     *
      * @var string
      */
     public $updateTime;

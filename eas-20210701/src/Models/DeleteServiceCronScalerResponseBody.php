@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteServiceCronScalerResponseBody extends Model
 {
     /**
+     * @example Cronscaler for service [foo] deleted successfully
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 40325405-579C-4D82****
+     *
      * @var string
      */
     public $requestId;

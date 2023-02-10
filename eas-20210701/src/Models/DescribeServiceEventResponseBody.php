@@ -15,21 +15,29 @@ class DescribeServiceEventResponseBody extends Model
     public $events;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 3D491C94-6239-5318-B4B4-799D859***
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 29
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $totalPageNum;

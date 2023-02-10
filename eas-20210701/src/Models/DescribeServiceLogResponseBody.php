@@ -14,21 +14,29 @@ class DescribeServiceLogResponseBody extends Model
     public $logs;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 40325405-579C-4D82********
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @example 500
+     *
      * @var int
      */
     public $totalPageNum;

@@ -9,76 +9,106 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceResponseBody extends Model
 {
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $cpuCount;
 
     /**
+     * @example 2020-05-19T14:19:42Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example {"vswitch_id":"vsw-bp17uo6xebcusy****","gpu_share":true,"aux_vswitch_id_list":["vsw-bp13b3pvjap3vxn****","vsw-bp1nls8o5hk8mt8*****"],"security_group_id":"sg-bp1j1z7297hcink*****","vpc_id":"vpc-bp1kjr3rfyhx01*****","destination_cidr":"172.16.0.12/28","role_arn":"acs:ram::1157703270*****:role/AliyunServiceRoleForPaiEas","sls_project":"","sls_logstore":"","sls_status":"ResourceReady","sls_message":"","update_time":""}
+     *
      * @var string
      */
     public $extraData;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $gpuCount;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $instanceCount;
 
     /**
+     * @example Resource is ready
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 14401087478****
+     *
      * @var string
      */
     public $ownerUid;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $postPaidInstanceCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $prePaidInstanceCount;
 
     /**
+     * @example 902976F2-6FAF-5404-8A4D-6CC223***
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example eas-r-glkfpsxuw57x1h*****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example my-resouce****
+     *
      * @var string
      */
     public $resourceName;
 
     /**
+     * @example ResourceReady
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 2021-02-24T11:52:17Z
+     *
      * @var string
      */
     public $updateTime;

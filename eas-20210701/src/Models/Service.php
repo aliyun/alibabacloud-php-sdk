@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
+use AlibabaCloud\SDK\Eas\V20210701\Models\Service\labels;
 use AlibabaCloud\Tea\Model;
 
 class Service extends Model
@@ -57,6 +58,11 @@ class Service extends Model
      * @var string
      */
     public $intranetEndpoint;
+
+    /**
+     * @var labels[]
+     */
+    public $labels;
 
     /**
      * @var int
@@ -193,6 +199,7 @@ class Service extends Model
         'image'            => 'Image',
         'internetEndpoint' => 'InternetEndpoint',
         'intranetEndpoint' => 'IntranetEndpoint',
+        'labels'           => 'Labels',
         'latestVersion'    => 'LatestVersion',
         'memory'           => 'Memory',
         'message'          => 'Message',
@@ -256,6 +263,15 @@ class Service extends Model
         }
         if (null !== $this->intranetEndpoint) {
             $res['IntranetEndpoint'] = $this->intranetEndpoint;
+        }
+        if (null !== $this->labels) {
+            $res['Labels'] = [];
+            if (null !== $this->labels && \is_array($this->labels)) {
+                $n = 0;
+                foreach ($this->labels as $item) {
+                    $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->latestVersion) {
             $res['LatestVersion'] = $this->latestVersion;
@@ -373,6 +389,15 @@ class Service extends Model
         }
         if (isset($map['IntranetEndpoint'])) {
             $model->intranetEndpoint = $map['IntranetEndpoint'];
+        }
+        if (isset($map['Labels'])) {
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                $n             = 0;
+                foreach ($map['Labels'] as $item) {
+                    $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['LatestVersion'])) {
             $model->latestVersion = $map['LatestVersion'];

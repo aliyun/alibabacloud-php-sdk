@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceSafetyLockRequest extends Model
 {
     /**
+     * @example dangerous
+     *
      * @var string
      */
     public $lock;

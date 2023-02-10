@@ -9,41 +9,91 @@ use AlibabaCloud\Tea\Model;
 class ListServicesRequest extends Model
 {
     /**
+     * @description 关键字搜索。
+     *
+     * @example foo
+     *
      * @var string
      */
     public $filter;
 
     /**
+     * @description 所属的group。
+     *
+     * @example foo
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @var string[]
+     */
+    public $label;
+
+    /**
+     * @description 排序顺序，支持升序或将序。
+     *
+     * @example asc
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @description 页号。
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description 每页大小。
+     *
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description Band类型服务主服务的UID
+     *
+     * @example eas-m-baxkc20nsyxxxx
+     *
+     * @var string
+     */
+    public $parentServiceUid;
+
+    /**
+     * @description 服务的类型，例如Async, OfflineTask和Standard等
+     *
+     * @example Async
+     *
+     * @var string
+     */
+    public $serviceType;
+
+    /**
+     * @description 排序字段。
+     *
+     * @example CreateTime
+     *
      * @var string
      */
     public $sort;
     protected $_name = [
-        'filter'     => 'Filter',
-        'groupName'  => 'GroupName',
-        'order'      => 'Order',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'sort'       => 'Sort',
+        'filter'           => 'Filter',
+        'groupName'        => 'GroupName',
+        'label'            => 'Label',
+        'order'            => 'Order',
+        'pageNumber'       => 'PageNumber',
+        'pageSize'         => 'PageSize',
+        'parentServiceUid' => 'ParentServiceUid',
+        'serviceType'      => 'ServiceType',
+        'sort'             => 'Sort',
     ];
 
     public function validate()
@@ -59,6 +109,9 @@ class ListServicesRequest extends Model
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
+        }
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
@@ -67,6 +120,12 @@ class ListServicesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->parentServiceUid) {
+            $res['ParentServiceUid'] = $this->parentServiceUid;
+        }
+        if (null !== $this->serviceType) {
+            $res['ServiceType'] = $this->serviceType;
         }
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
@@ -89,6 +148,9 @@ class ListServicesRequest extends Model
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
+        }
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }
@@ -97,6 +159,12 @@ class ListServicesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ParentServiceUid'])) {
+            $model->parentServiceUid = $map['ParentServiceUid'];
+        }
+        if (isset($map['ServiceType'])) {
+            $model->serviceType = $map['ServiceType'];
         }
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];

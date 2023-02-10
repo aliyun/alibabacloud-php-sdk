@@ -14,26 +14,36 @@ class DescribeResourceDLinkResponseBody extends Model
     public $auxVSwitchList;
 
     /**
+     * @example 72.16.0.0/16
+     *
      * @var string
      */
     public $destinationCIDRs;
 
     /**
+     * @example 40325405-579C-4D82****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example sg-bp1j1z7297hcink9d****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example vsw-8vbqn2at0kljjxxxx****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vpc-uf66uio7md****
+     *
      * @var string
      */
     public $vpcId;

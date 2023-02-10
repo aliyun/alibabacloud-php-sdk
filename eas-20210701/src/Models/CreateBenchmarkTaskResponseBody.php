@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateBenchmarkTaskResponseBody extends Model
 {
     /**
+     * @example Benchmark  task [foo] is Creating
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example 40325405-579C-4D82********
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example benchmark-larec-test-1076
+     *
      * @var string
      */
     public $taskName;

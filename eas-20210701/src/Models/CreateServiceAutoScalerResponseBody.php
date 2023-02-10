@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceAutoScalerResponseBody extends Model
 {
     /**
+     * @example Succeed to auto scale service [foo]
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 40325405-579C-4D82****
+     *
      * @var string
      */
     public $requestId;

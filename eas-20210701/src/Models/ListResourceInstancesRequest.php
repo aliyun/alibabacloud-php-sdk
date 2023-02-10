@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListResourceInstancesRequest extends Model
 {
     /**
+     * @example PrePaid
+     *
      * @var string
      */
     public $chargeType;
@@ -24,11 +26,15 @@ class ListResourceInstancesRequest extends Model
     public $instanceName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;

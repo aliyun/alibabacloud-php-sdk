@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceInstancesRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoRenewal;
 
     /**
+     * @example PrePaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $ecsInstanceCount;
 
     /**
+     * @example ecs.s6-c1m2.xlarge
+     *
      * @var string
      */
     public $ecsInstanceType;
 
     /**
+     * @example x112223333
+     *
      * @var string
      */
     public $userData;

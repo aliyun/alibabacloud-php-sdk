@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class ListServiceVersionsResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example E089D584-B6F4-50C4-9902-DA2295B7****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 166
+     *
      * @var int
      */
     public $totalCount;

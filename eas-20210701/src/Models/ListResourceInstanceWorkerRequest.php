@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListResourceInstanceWorkerRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;

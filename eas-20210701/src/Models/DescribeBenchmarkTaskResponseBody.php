@@ -9,66 +9,118 @@ use AlibabaCloud\Tea\Model;
 class DescribeBenchmarkTaskResponseBody extends Model
 {
     /**
+     * @description 实际可用的压测实例个数。
+     *
+     * @example 4
+     *
      * @var int
      */
     public $availableAgent;
 
     /**
+     * @description 调用者的UID。
+     *
+     * @example 1640133467****
+     *
      * @var string
      */
     public $callerUid;
 
     /**
+     * @description 预期的压测实例个数。
+     *
+     * @example 4
+     *
      * @var int
      */
     public $desiredAgent;
 
     /**
+     * @description 服务对外公开的访问路径。
+     *
+     * @example http://15990xxxx.cn-hangzhou.pai-eas.aliyuncs.com/api/predict/xxx
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @description 当前压测任务的运行进度信息。
+     *
+     * @example Benchmar task is Running
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description 资源拥有者的UID。
+     *
+     * @example 1029728669****
+     *
      * @var string
      */
     public $parentUid;
 
     /**
+     * @description 当前压测任务状态产生的原因。
+     *
+     * @example RUNNING
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @description 请求ID。
+     *
+     * @example 40325405-579C-4D82****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description 压测的eas服务名。
+     *
+     * @example foo
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description 压测任务的状态。
+     *
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description 压测任务ID。
+     *
+     * @example eas-b-gv4y86u****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description 压测任务名字。
+     *
+     * @example benchmark-larec-test-ae70
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description 访问eas服务的鉴权token。
+     *
+     * @example 6062787a-9301****
+     *
      * @var string
      */
     public $token;

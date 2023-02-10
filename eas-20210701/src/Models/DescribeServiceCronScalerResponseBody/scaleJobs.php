@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class scaleJobs extends Model
 {
     /**
+     * @example 2020-06-24T02:11:30Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2022-02-24T06:31:00Z
+     *
      * @var string
      */
     public $lastProbeTime;
 
     /**
+     * @example "cron hpa job scale-jobs-0 executed successfully. current replicas:3, desired replicas:2."
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example scale-job-1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 0 18 * * * *
+     *
      * @var string
      */
     public $schedule;
 
     /**
+     * @example Succeed
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $targetSize;

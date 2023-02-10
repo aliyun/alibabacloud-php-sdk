@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class scaleStrategies extends Model
 {
     /**
+     * @example qps
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @example demo_svc
+     *
      * @var string
      */
     public $service;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $threshold;

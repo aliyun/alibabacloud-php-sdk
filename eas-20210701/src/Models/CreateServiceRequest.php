@@ -11,9 +11,21 @@ class CreateServiceRequest extends Model
     /**
      * @var string
      */
+    public $develop;
+
+    /**
+     * @var string[]
+     */
+    public $labels;
+
+    /**
+     * @var string
+     */
     public $body;
     protected $_name = [
-        'body' => 'body',
+        'develop' => 'Develop',
+        'labels'  => 'Labels',
+        'body'    => 'body',
     ];
 
     public function validate()
@@ -23,6 +35,12 @@ class CreateServiceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->develop) {
+            $res['Develop'] = $this->develop;
+        }
+        if (null !== $this->labels) {
+            $res['Labels'] = $this->labels;
+        }
         if (null !== $this->body) {
             $res['body'] = $this->body;
         }
@@ -38,6 +56,12 @@ class CreateServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Develop'])) {
+            $model->develop = $map['Develop'];
+        }
+        if (isset($map['Labels'])) {
+            $model->labels = $map['Labels'];
+        }
         if (isset($map['body'])) {
             $model->body = $map['body'];
         }

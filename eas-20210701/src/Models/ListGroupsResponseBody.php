@@ -14,21 +14,31 @@ class ListGroupsResponseBody extends Model
     public $groups;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description Id of the request
+     *
+     * @example 40325405-579C-4D82****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $totalCount;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceMirrorResponseBody extends Model
 {
     /**
+     * @example Traffic mirroring is ON for service [foo] in region [cn-shanghia], ratio [70%]
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 40325405-579C-4D82***
+     *
      * @var string
      */
     public $requestId;

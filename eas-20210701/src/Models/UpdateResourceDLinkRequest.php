@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourceDLinkRequest extends Model
 {
     /**
+     * @example 72.16.0.0/16
+     *
      * @var string
      */
     public $destinationCIDRs;
 
     /**
+     * @example sg-bp149cedsfx2rfspd2d
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example vpc-uf66uio7md****
+     *
      * @var string
      */
     public $vSwitchId;

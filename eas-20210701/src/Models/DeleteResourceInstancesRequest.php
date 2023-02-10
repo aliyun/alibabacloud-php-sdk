@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteResourceInstancesRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $allFailed;
 
     /**
+     * @example eas-i-xxxxxxx,eas-i-xxxxxxx
+     *
      * @var string
      */
     public $instanceList;

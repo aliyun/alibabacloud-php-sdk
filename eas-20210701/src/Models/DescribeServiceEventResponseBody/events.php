@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class events extends Model
 {
     /**
+     * @example {\"versionId\":1,\"message\":\"Stage scale complete\",\"availableInstance\":1,\"unavailableInstance\":0}
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example Updating
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @example 2022-04-09 06:30:00
+     *
      * @var string
      */
     public $time;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $type;

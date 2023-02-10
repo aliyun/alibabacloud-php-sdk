@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteResourceResponseBody extends Model
 {
     /**
+     * @example Resource [eas-r-asdasdasd] is deleted.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 40325405-579C-4D82-9624-EC2B1779848E
+     *
      * @var string
      */
     public $requestId;

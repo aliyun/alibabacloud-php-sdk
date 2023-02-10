@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeBenchmarkTaskReportRequest extends Model
 {
     /**
+     * @example report
+     *
      * @var string
      */
     public $reportType;

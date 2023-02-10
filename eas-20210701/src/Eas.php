@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Eas\V20210701;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CommitServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateBenchmarkTaskRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateBenchmarkTaskResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateResourceInstancesRequest;
@@ -22,6 +23,7 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceMirrorRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceMirrorResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceShrinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteBenchmarkTaskResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteResourceDLinkResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteResourceInstancesRequest;
@@ -32,6 +34,9 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceAutoScalerResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceCronScalerResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceInstancesRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceInstancesResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceLabelRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceLabelResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceLabelShrinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceMirrorResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeBenchmarkTaskReportRequest;
@@ -49,6 +54,8 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceLogRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceLogResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceMirrorResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DevelopServiceRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DevelopServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListBenchmarkTaskRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListBenchmarkTaskResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGroupsRequest;
@@ -65,6 +72,7 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceInstancesRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceInstancesResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServicesRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServicesResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListServicesShrinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceVersionsRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceVersionsResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ReleaseServiceRequest;
@@ -85,6 +93,8 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceAutoScalerRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceAutoScalerResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceCronScalerRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceCronScalerResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceLabelRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceLabelResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceMirrorRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceMirrorResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceRequest;
@@ -150,16 +160,45 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param CreateBenchmarkTaskRequest $request
+     * @param string         $ClusterId
+     * @param string         $ServiceName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return CreateBenchmarkTaskResponse
+     * @return CommitServiceResponse
      */
-    public function createBenchmarkTask($request)
+    public function commitServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'CommitService',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/commit',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CommitServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
+     * @param string $ServiceName
+     *
+     * @return CommitServiceResponse
+     */
+    public function commitService($ClusterId, $ServiceName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createBenchmarkTaskWithOptions($request, $headers, $runtime);
+        return $this->commitServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime);
     }
 
     /**
@@ -192,16 +231,16 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param CreateResourceRequest $request
+     * @param CreateBenchmarkTaskRequest $request
      *
-     * @return CreateResourceResponse
+     * @return CreateBenchmarkTaskResponse
      */
-    public function createResource($request)
+    public function createBenchmarkTask($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createResourceWithOptions($request, $headers, $runtime);
+        return $this->createBenchmarkTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -247,18 +286,16 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string                         $ClusterId
-     * @param string                         $ResourceId
-     * @param CreateResourceInstancesRequest $request
+     * @param CreateResourceRequest $request
      *
-     * @return CreateResourceInstancesResponse
+     * @return CreateResourceResponse
      */
-    public function createResourceInstances($ClusterId, $ResourceId, $request)
+    public function createResource($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createResourceInstancesWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime);
+        return $this->createResourceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -309,18 +346,18 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string                   $ClusterId
-     * @param string                   $ResourceId
-     * @param CreateResourceLogRequest $request
+     * @param string                         $ClusterId
+     * @param string                         $ResourceId
+     * @param CreateResourceInstancesRequest $request
      *
-     * @return CreateResourceLogResponse
+     * @return CreateResourceInstancesResponse
      */
-    public function createResourceLog($ClusterId, $ResourceId, $request)
+    public function createResourceInstances($ClusterId, $ResourceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createResourceLogWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime);
+        return $this->createResourceInstancesWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime);
     }
 
     /**
@@ -362,30 +399,45 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceRequest $request
+     * @param string                   $ClusterId
+     * @param string                   $ResourceId
+     * @param CreateResourceLogRequest $request
      *
-     * @return CreateServiceResponse
+     * @return CreateResourceLogResponse
      */
-    public function createService($request)
+    public function createResourceLog($ClusterId, $ResourceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createServiceWithOptions($request, $headers, $runtime);
+        return $this->createResourceLogWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime);
     }
 
     /**
-     * @param CreateServiceRequest $request
+     * @param CreateServiceRequest $tmpReq
      * @param string[]             $headers
      * @param RuntimeOptions       $runtime
      *
      * @return CreateServiceResponse
      */
-    public function createServiceWithOptions($request, $headers, $runtime)
+    public function createServiceWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateServiceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->labels)) {
+            $request->labelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->labels, 'Labels', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->develop)) {
+            $query['Develop'] = $request->develop;
+        }
+        if (!Utils::isUnset($request->labelsShrink)) {
+            $query['Labels'] = $request->labelsShrink;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => $request->body,
         ]);
         $params = new Params([
@@ -404,18 +456,16 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string                         $ClusterId
-     * @param string                         $ServiceName
-     * @param CreateServiceAutoScalerRequest $request
+     * @param CreateServiceRequest $request
      *
-     * @return CreateServiceAutoScalerResponse
+     * @return CreateServiceResponse
      */
-    public function createServiceAutoScaler($ClusterId, $ServiceName, $request)
+    public function createService($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createServiceAutoScalerWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+        return $this->createServiceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -462,16 +512,16 @@ class Eas extends OpenApiClient
     /**
      * @param string                         $ClusterId
      * @param string                         $ServiceName
-     * @param CreateServiceCronScalerRequest $request
+     * @param CreateServiceAutoScalerRequest $request
      *
-     * @return CreateServiceCronScalerResponse
+     * @return CreateServiceAutoScalerResponse
      */
-    public function createServiceCronScaler($ClusterId, $ServiceName, $request)
+    public function createServiceAutoScaler($ClusterId, $ServiceName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createServiceCronScalerWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+        return $this->createServiceAutoScalerWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
     }
 
     /**
@@ -513,18 +563,18 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string                     $ClusterId
-     * @param string                     $ServiceName
-     * @param CreateServiceMirrorRequest $request
+     * @param string                         $ClusterId
+     * @param string                         $ServiceName
+     * @param CreateServiceCronScalerRequest $request
      *
-     * @return CreateServiceMirrorResponse
+     * @return CreateServiceCronScalerResponse
      */
-    public function createServiceMirror($ClusterId, $ServiceName, $request)
+    public function createServiceCronScaler($ClusterId, $ServiceName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createServiceMirrorWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+        return $this->createServiceCronScalerWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
     }
 
     /**
@@ -566,17 +616,18 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
-     * @param string $TaskName
+     * @param string                     $ClusterId
+     * @param string                     $ServiceName
+     * @param CreateServiceMirrorRequest $request
      *
-     * @return DeleteBenchmarkTaskResponse
+     * @return CreateServiceMirrorResponse
      */
-    public function deleteBenchmarkTask($ClusterId, $TaskName)
+    public function createServiceMirror($ClusterId, $ServiceName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime);
+        return $this->createServiceMirrorWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
     }
 
     /**
@@ -609,16 +660,16 @@ class Eas extends OpenApiClient
 
     /**
      * @param string $ClusterId
-     * @param string $ResourceId
+     * @param string $TaskName
      *
-     * @return DeleteResourceResponse
+     * @return DeleteBenchmarkTaskResponse
      */
-    public function deleteResource($ClusterId, $ResourceId)
+    public function deleteBenchmarkTask($ClusterId, $TaskName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteResourceWithOptions($ClusterId, $ResourceId, $headers, $runtime);
+        return $this->deleteBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime);
     }
 
     /**
@@ -653,14 +704,14 @@ class Eas extends OpenApiClient
      * @param string $ClusterId
      * @param string $ResourceId
      *
-     * @return DeleteResourceDLinkResponse
+     * @return DeleteResourceResponse
      */
-    public function deleteResourceDLink($ClusterId, $ResourceId)
+    public function deleteResource($ClusterId, $ResourceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteResourceDLinkWithOptions($ClusterId, $ResourceId, $headers, $runtime);
+        return $this->deleteResourceWithOptions($ClusterId, $ResourceId, $headers, $runtime);
     }
 
     /**
@@ -692,18 +743,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string                         $ClusterId
-     * @param string                         $ResourceId
-     * @param DeleteResourceInstancesRequest $request
+     * @param string $ClusterId
+     * @param string $ResourceId
      *
-     * @return DeleteResourceInstancesResponse
+     * @return DeleteResourceDLinkResponse
      */
-    public function deleteResourceInstances($ClusterId, $ResourceId, $request)
+    public function deleteResourceDLink($ClusterId, $ResourceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteResourceInstancesWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime);
+        return $this->deleteResourceDLinkWithOptions($ClusterId, $ResourceId, $headers, $runtime);
     }
 
     /**
@@ -745,17 +795,18 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
-     * @param string $ResourceId
+     * @param string                         $ClusterId
+     * @param string                         $ResourceId
+     * @param DeleteResourceInstancesRequest $request
      *
-     * @return DeleteResourceLogResponse
+     * @return DeleteResourceInstancesResponse
      */
-    public function deleteResourceLog($ClusterId, $ResourceId)
+    public function deleteResourceInstances($ClusterId, $ResourceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteResourceLogWithOptions($ClusterId, $ResourceId, $headers, $runtime);
+        return $this->deleteResourceInstancesWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime);
     }
 
     /**
@@ -788,16 +839,16 @@ class Eas extends OpenApiClient
 
     /**
      * @param string $ClusterId
-     * @param string $ServiceName
+     * @param string $ResourceId
      *
-     * @return DeleteServiceResponse
+     * @return DeleteResourceLogResponse
      */
-    public function deleteService($ClusterId, $ServiceName)
+    public function deleteResourceLog($ClusterId, $ResourceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime);
+        return $this->deleteResourceLogWithOptions($ClusterId, $ResourceId, $headers, $runtime);
     }
 
     /**
@@ -832,14 +883,14 @@ class Eas extends OpenApiClient
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return DeleteServiceAutoScalerResponse
+     * @return DeleteServiceResponse
      */
-    public function deleteServiceAutoScaler($ClusterId, $ServiceName)
+    public function deleteService($ClusterId, $ServiceName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteServiceAutoScalerWithOptions($ClusterId, $ServiceName, $headers, $runtime);
+        return $this->deleteServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime);
     }
 
     /**
@@ -874,14 +925,14 @@ class Eas extends OpenApiClient
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return DeleteServiceCronScalerResponse
+     * @return DeleteServiceAutoScalerResponse
      */
-    public function deleteServiceCronScaler($ClusterId, $ServiceName)
+    public function deleteServiceAutoScaler($ClusterId, $ServiceName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteServiceCronScalerWithOptions($ClusterId, $ServiceName, $headers, $runtime);
+        return $this->deleteServiceAutoScalerWithOptions($ClusterId, $ServiceName, $headers, $runtime);
     }
 
     /**
@@ -913,18 +964,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string                        $ClusterId
-     * @param string                        $ServiceName
-     * @param DeleteServiceInstancesRequest $request
+     * @param string $ClusterId
+     * @param string $ServiceName
      *
-     * @return DeleteServiceInstancesResponse
+     * @return DeleteServiceCronScalerResponse
      */
-    public function deleteServiceInstances($ClusterId, $ServiceName, $request)
+    public function deleteServiceCronScaler($ClusterId, $ServiceName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteServiceInstancesWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+        return $this->deleteServiceCronScalerWithOptions($ClusterId, $ServiceName, $headers, $runtime);
     }
 
     /**
@@ -963,17 +1013,73 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
-     * @param string $ServiceName
+     * @param string                        $ClusterId
+     * @param string                        $ServiceName
+     * @param DeleteServiceInstancesRequest $request
      *
-     * @return DeleteServiceMirrorResponse
+     * @return DeleteServiceInstancesResponse
      */
-    public function deleteServiceMirror($ClusterId, $ServiceName)
+    public function deleteServiceInstances($ClusterId, $ServiceName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteServiceMirrorWithOptions($ClusterId, $ServiceName, $headers, $runtime);
+        return $this->deleteServiceInstancesWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                    $ClusterId
+     * @param string                    $ServiceName
+     * @param DeleteServiceLabelRequest $tmpReq
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteServiceLabelResponse
+     */
+    public function deleteServiceLabelWithOptions($ClusterId, $ServiceName, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteServiceLabelShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->keys)) {
+            $request->keysShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->keys, 'Keys', 'simple');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->keysShrink)) {
+            $query['Keys'] = $request->keysShrink;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteServiceLabel',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/label',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteServiceLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                    $ClusterId
+     * @param string                    $ServiceName
+     * @param DeleteServiceLabelRequest $request
+     *
+     * @return DeleteServiceLabelResponse
+     */
+    public function deleteServiceLabel($ClusterId, $ServiceName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteServiceLabelWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
     }
 
     /**
@@ -1006,16 +1112,16 @@ class Eas extends OpenApiClient
 
     /**
      * @param string $ClusterId
-     * @param string $TaskName
+     * @param string $ServiceName
      *
-     * @return DescribeBenchmarkTaskResponse
+     * @return DeleteServiceMirrorResponse
      */
-    public function describeBenchmarkTask($ClusterId, $TaskName)
+    public function deleteServiceMirror($ClusterId, $ServiceName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime);
+        return $this->deleteServiceMirrorWithOptions($ClusterId, $ServiceName, $headers, $runtime);
     }
 
     /**
@@ -1047,18 +1153,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string                             $ClusterId
-     * @param string                             $TaskName
-     * @param DescribeBenchmarkTaskReportRequest $request
+     * @param string $ClusterId
+     * @param string $TaskName
      *
-     * @return DescribeBenchmarkTaskReportResponse
+     * @return DescribeBenchmarkTaskResponse
      */
-    public function describeBenchmarkTaskReport($ClusterId, $TaskName, $request)
+    public function describeBenchmarkTask($ClusterId, $TaskName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeBenchmarkTaskReportWithOptions($ClusterId, $TaskName, $request, $headers, $runtime);
+        return $this->describeBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime);
     }
 
     /**
@@ -1097,17 +1202,18 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
-     * @param string $GroupName
+     * @param string                             $ClusterId
+     * @param string                             $TaskName
+     * @param DescribeBenchmarkTaskReportRequest $request
      *
-     * @return DescribeGroupResponse
+     * @return DescribeBenchmarkTaskReportResponse
      */
-    public function describeGroup($ClusterId, $GroupName)
+    public function describeBenchmarkTaskReport($ClusterId, $TaskName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeGroupWithOptions($ClusterId, $GroupName, $headers, $runtime);
+        return $this->describeBenchmarkTaskReportWithOptions($ClusterId, $TaskName, $request, $headers, $runtime);
     }
 
     /**
@@ -1140,16 +1246,16 @@ class Eas extends OpenApiClient
 
     /**
      * @param string $ClusterId
-     * @param string $ResourceId
+     * @param string $GroupName
      *
-     * @return DescribeResourceResponse
+     * @return DescribeGroupResponse
      */
-    public function describeResource($ClusterId, $ResourceId)
+    public function describeGroup($ClusterId, $GroupName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeResourceWithOptions($ClusterId, $ResourceId, $headers, $runtime);
+        return $this->describeGroupWithOptions($ClusterId, $GroupName, $headers, $runtime);
     }
 
     /**
@@ -1184,14 +1290,14 @@ class Eas extends OpenApiClient
      * @param string $ClusterId
      * @param string $ResourceId
      *
-     * @return DescribeResourceDLinkResponse
+     * @return DescribeResourceResponse
      */
-    public function describeResourceDLink($ClusterId, $ResourceId)
+    public function describeResource($ClusterId, $ResourceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeResourceDLinkWithOptions($ClusterId, $ResourceId, $headers, $runtime);
+        return $this->describeResourceWithOptions($ClusterId, $ResourceId, $headers, $runtime);
     }
 
     /**
@@ -1226,14 +1332,14 @@ class Eas extends OpenApiClient
      * @param string $ClusterId
      * @param string $ResourceId
      *
-     * @return DescribeResourceLogResponse
+     * @return DescribeResourceDLinkResponse
      */
-    public function describeResourceLog($ClusterId, $ResourceId)
+    public function describeResourceDLink($ClusterId, $ResourceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeResourceLogWithOptions($ClusterId, $ResourceId, $headers, $runtime);
+        return $this->describeResourceDLinkWithOptions($ClusterId, $ResourceId, $headers, $runtime);
     }
 
     /**
@@ -1266,16 +1372,16 @@ class Eas extends OpenApiClient
 
     /**
      * @param string $ClusterId
-     * @param string $ServiceName
+     * @param string $ResourceId
      *
-     * @return DescribeServiceResponse
+     * @return DescribeResourceLogResponse
      */
-    public function describeService($ClusterId, $ServiceName)
+    public function describeResourceLog($ClusterId, $ResourceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime);
+        return $this->describeResourceLogWithOptions($ClusterId, $ResourceId, $headers, $runtime);
     }
 
     /**
@@ -1310,14 +1416,14 @@ class Eas extends OpenApiClient
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return DescribeServiceAutoScalerResponse
+     * @return DescribeServiceResponse
      */
-    public function describeServiceAutoScaler($ClusterId, $ServiceName)
+    public function describeService($ClusterId, $ServiceName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeServiceAutoScalerWithOptions($ClusterId, $ServiceName, $headers, $runtime);
+        return $this->describeServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime);
     }
 
     /**
@@ -1352,14 +1458,14 @@ class Eas extends OpenApiClient
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return DescribeServiceCronScalerResponse
+     * @return DescribeServiceAutoScalerResponse
      */
-    public function describeServiceCronScaler($ClusterId, $ServiceName)
+    public function describeServiceAutoScaler($ClusterId, $ServiceName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeServiceCronScalerWithOptions($ClusterId, $ServiceName, $headers, $runtime);
+        return $this->describeServiceAutoScalerWithOptions($ClusterId, $ServiceName, $headers, $runtime);
     }
 
     /**
@@ -1391,18 +1497,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string                      $ClusterId
-     * @param string                      $ServiceName
-     * @param DescribeServiceEventRequest $request
+     * @param string $ClusterId
+     * @param string $ServiceName
      *
-     * @return DescribeServiceEventResponse
+     * @return DescribeServiceCronScalerResponse
      */
-    public function describeServiceEvent($ClusterId, $ServiceName, $request)
+    public function describeServiceCronScaler($ClusterId, $ServiceName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeServiceEventWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+        return $this->describeServiceCronScalerWithOptions($ClusterId, $ServiceName, $headers, $runtime);
     }
 
     /**
@@ -1450,18 +1555,18 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string                    $ClusterId
-     * @param string                    $ServiceName
-     * @param DescribeServiceLogRequest $request
+     * @param string                      $ClusterId
+     * @param string                      $ServiceName
+     * @param DescribeServiceEventRequest $request
      *
-     * @return DescribeServiceLogResponse
+     * @return DescribeServiceEventResponse
      */
-    public function describeServiceLog($ClusterId, $ServiceName, $request)
+    public function describeServiceEvent($ClusterId, $ServiceName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeServiceLogWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+        return $this->describeServiceEventWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
     }
 
     /**
@@ -1515,17 +1620,18 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
-     * @param string $ServiceName
+     * @param string                    $ClusterId
+     * @param string                    $ServiceName
+     * @param DescribeServiceLogRequest $request
      *
-     * @return DescribeServiceMirrorResponse
+     * @return DescribeServiceLogResponse
      */
-    public function describeServiceMirror($ClusterId, $ServiceName)
+    public function describeServiceLog($ClusterId, $ServiceName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeServiceMirrorWithOptions($ClusterId, $ServiceName, $headers, $runtime);
+        return $this->describeServiceLogWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
     }
 
     /**
@@ -1557,16 +1663,67 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param ListBenchmarkTaskRequest $request
+     * @param string $ClusterId
+     * @param string $ServiceName
      *
-     * @return ListBenchmarkTaskResponse
+     * @return DescribeServiceMirrorResponse
      */
-    public function listBenchmarkTask($request)
+    public function describeServiceMirror($ClusterId, $ServiceName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listBenchmarkTaskWithOptions($request, $headers, $runtime);
+        return $this->describeServiceMirrorWithOptions($ClusterId, $ServiceName, $headers, $runtime);
+    }
+
+    /**
+     * @param string                $ClusterId
+     * @param string                $ServiceName
+     * @param DevelopServiceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DevelopServiceResponse
+     */
+    public function developServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->exit_)) {
+            $query['Exit'] = $request->exit_;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DevelopService',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/develop',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DevelopServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                $ClusterId
+     * @param string                $ServiceName
+     * @param DevelopServiceRequest $request
+     *
+     * @return DevelopServiceResponse
+     */
+    public function developService($ClusterId, $ServiceName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->developServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
     }
 
     /**
@@ -1612,16 +1769,16 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param ListGroupsRequest $request
+     * @param ListBenchmarkTaskRequest $request
      *
-     * @return ListGroupsResponse
+     * @return ListBenchmarkTaskResponse
      */
-    public function listGroups($request)
+    public function listBenchmarkTask($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listGroupsWithOptions($request, $headers, $runtime);
+        return $this->listBenchmarkTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1664,19 +1821,16 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string                            $ClusterId
-     * @param string                            $ResourceId
-     * @param string                            $InstanceName
-     * @param ListResourceInstanceWorkerRequest $request
+     * @param ListGroupsRequest $request
      *
-     * @return ListResourceInstanceWorkerResponse
+     * @return ListGroupsResponse
      */
-    public function listResourceInstanceWorker($ClusterId, $ResourceId, $InstanceName, $request)
+    public function listGroups($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listResourceInstanceWorkerWithOptions($ClusterId, $ResourceId, $InstanceName, $request, $headers, $runtime);
+        return $this->listGroupsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1719,18 +1873,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string                       $ClusterId
-     * @param string                       $ResourceId
-     * @param ListResourceInstancesRequest $request
+     * @param string                            $ClusterId
+     * @param string                            $ResourceId
+     * @param string                            $InstanceName
+     * @param ListResourceInstanceWorkerRequest $request
      *
-     * @return ListResourceInstancesResponse
+     * @return ListResourceInstanceWorkerResponse
      */
-    public function listResourceInstances($ClusterId, $ResourceId, $request)
+    public function listResourceInstanceWorker($ClusterId, $ResourceId, $InstanceName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listResourceInstancesWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime);
+        return $this->listResourceInstanceWorkerWithOptions($ClusterId, $ResourceId, $InstanceName, $request, $headers, $runtime);
     }
 
     /**
@@ -1781,18 +1936,18 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string                      $ClusterId
-     * @param string                      $ResourceId
-     * @param ListResourceServicesRequest $request
+     * @param string                       $ClusterId
+     * @param string                       $ResourceId
+     * @param ListResourceInstancesRequest $request
      *
-     * @return ListResourceServicesResponse
+     * @return ListResourceInstancesResponse
      */
-    public function listResourceServices($ClusterId, $ResourceId, $request)
+    public function listResourceInstances($ClusterId, $ResourceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listResourceServicesWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime);
+        return $this->listResourceInstancesWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1834,16 +1989,18 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param ListResourcesRequest $request
+     * @param string                      $ClusterId
+     * @param string                      $ResourceId
+     * @param ListResourceServicesRequest $request
      *
-     * @return ListResourcesResponse
+     * @return ListResourceServicesResponse
      */
-    public function listResources($request)
+    public function listResourceServices($ClusterId, $ResourceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listResourcesWithOptions($request, $headers, $runtime);
+        return $this->listResourceServicesWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1889,18 +2046,16 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string                      $ClusterId
-     * @param string                      $ServiceName
-     * @param ListServiceInstancesRequest $request
+     * @param ListResourcesRequest $request
      *
-     * @return ListServiceInstancesResponse
+     * @return ListResourcesResponse
      */
-    public function listServiceInstances($ClusterId, $ServiceName, $request)
+    public function listResources($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listServiceInstancesWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+        return $this->listResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1942,18 +2097,18 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string                     $ClusterId
-     * @param string                     $ServiceName
-     * @param ListServiceVersionsRequest $request
+     * @param string                      $ClusterId
+     * @param string                      $ServiceName
+     * @param ListServiceInstancesRequest $request
      *
-     * @return ListServiceVersionsResponse
+     * @return ListServiceInstancesResponse
      */
-    public function listServiceVersions($ClusterId, $ServiceName, $request)
+    public function listServiceInstances($ClusterId, $ServiceName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listServiceVersionsWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+        return $this->listServiceInstancesWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
     }
 
     /**
@@ -1995,34 +2150,44 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param ListServicesRequest $request
+     * @param string                     $ClusterId
+     * @param string                     $ServiceName
+     * @param ListServiceVersionsRequest $request
      *
-     * @return ListServicesResponse
+     * @return ListServiceVersionsResponse
      */
-    public function listServices($request)
+    public function listServiceVersions($ClusterId, $ServiceName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listServicesWithOptions($request, $headers, $runtime);
+        return $this->listServiceVersionsWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
     }
 
     /**
-     * @param ListServicesRequest $request
+     * @param ListServicesRequest $tmpReq
      * @param string[]            $headers
      * @param RuntimeOptions      $runtime
      *
      * @return ListServicesResponse
      */
-    public function listServicesWithOptions($request, $headers, $runtime)
+    public function listServicesWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListServicesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->label)) {
+            $request->labelShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->label, 'Label', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->filter)) {
             $query['Filter'] = $request->filter;
         }
         if (!Utils::isUnset($request->groupName)) {
             $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->labelShrink)) {
+            $query['Label'] = $request->labelShrink;
         }
         if (!Utils::isUnset($request->order)) {
             $query['Order'] = $request->order;
@@ -2032,6 +2197,12 @@ class Eas extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->parentServiceUid)) {
+            $query['ParentServiceUid'] = $request->parentServiceUid;
+        }
+        if (!Utils::isUnset($request->serviceType)) {
+            $query['ServiceType'] = $request->serviceType;
         }
         if (!Utils::isUnset($request->sort)) {
             $query['Sort'] = $request->sort;
@@ -2056,18 +2227,16 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string                $ClusterId
-     * @param string                $ServiceName
-     * @param ReleaseServiceRequest $request
+     * @param ListServicesRequest $request
      *
-     * @return ReleaseServiceResponse
+     * @return ListServicesResponse
      */
-    public function releaseService($ClusterId, $ServiceName, $request)
+    public function listServices($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->releaseServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+        return $this->listServicesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2109,17 +2278,18 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
-     * @param string $TaskName
+     * @param string                $ClusterId
+     * @param string                $ServiceName
+     * @param ReleaseServiceRequest $request
      *
-     * @return StartBenchmarkTaskResponse
+     * @return ReleaseServiceResponse
      */
-    public function startBenchmarkTask($ClusterId, $TaskName)
+    public function releaseService($ClusterId, $ServiceName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->startBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime);
+        return $this->releaseServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
     }
 
     /**
@@ -2152,16 +2322,16 @@ class Eas extends OpenApiClient
 
     /**
      * @param string $ClusterId
-     * @param string $ServiceName
+     * @param string $TaskName
      *
-     * @return StartServiceResponse
+     * @return StartBenchmarkTaskResponse
      */
-    public function startService($ClusterId, $ServiceName)
+    public function startBenchmarkTask($ClusterId, $TaskName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->startServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime);
+        return $this->startBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime);
     }
 
     /**
@@ -2194,16 +2364,16 @@ class Eas extends OpenApiClient
 
     /**
      * @param string $ClusterId
-     * @param string $TaskName
+     * @param string $ServiceName
      *
-     * @return StopBenchmarkTaskResponse
+     * @return StartServiceResponse
      */
-    public function stopBenchmarkTask($ClusterId, $TaskName)
+    public function startService($ClusterId, $ServiceName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->stopBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime);
+        return $this->startServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime);
     }
 
     /**
@@ -2236,16 +2406,16 @@ class Eas extends OpenApiClient
 
     /**
      * @param string $ClusterId
-     * @param string $ServiceName
+     * @param string $TaskName
      *
-     * @return StopServiceResponse
+     * @return StopBenchmarkTaskResponse
      */
-    public function stopService($ClusterId, $ServiceName)
+    public function stopBenchmarkTask($ClusterId, $TaskName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->stopServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime);
+        return $this->stopBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime);
     }
 
     /**
@@ -2277,18 +2447,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string                     $ClusterId
-     * @param string                     $TaskName
-     * @param UpdateBenchmarkTaskRequest $request
+     * @param string $ClusterId
+     * @param string $ServiceName
      *
-     * @return UpdateBenchmarkTaskResponse
+     * @return StopServiceResponse
      */
-    public function updateBenchmarkTask($ClusterId, $TaskName, $request)
+    public function stopService($ClusterId, $ServiceName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateBenchmarkTaskWithOptions($ClusterId, $TaskName, $request, $headers, $runtime);
+        return $this->stopServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime);
     }
 
     /**
@@ -2323,18 +2492,18 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string                $ClusterId
-     * @param string                $ResourceId
-     * @param UpdateResourceRequest $request
+     * @param string                     $ClusterId
+     * @param string                     $TaskName
+     * @param UpdateBenchmarkTaskRequest $request
      *
-     * @return UpdateResourceResponse
+     * @return UpdateBenchmarkTaskResponse
      */
-    public function updateResource($ClusterId, $ResourceId, $request)
+    public function updateBenchmarkTask($ClusterId, $TaskName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateResourceWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime);
+        return $this->updateBenchmarkTaskWithOptions($ClusterId, $TaskName, $request, $headers, $runtime);
     }
 
     /**
@@ -2373,18 +2542,18 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string                     $ClusterId
-     * @param string                     $ResourceId
-     * @param UpdateResourceDLinkRequest $request
+     * @param string                $ClusterId
+     * @param string                $ResourceId
+     * @param UpdateResourceRequest $request
      *
-     * @return UpdateResourceDLinkResponse
+     * @return UpdateResourceResponse
      */
-    public function updateResourceDLink($ClusterId, $ResourceId, $request)
+    public function updateResource($ClusterId, $ResourceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateResourceDLinkWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime);
+        return $this->updateResourceWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime);
     }
 
     /**
@@ -2432,19 +2601,18 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string                        $ClusterId
-     * @param string                        $ResourceId
-     * @param string                        $InstanceId
-     * @param UpdateResourceInstanceRequest $request
+     * @param string                     $ClusterId
+     * @param string                     $ResourceId
+     * @param UpdateResourceDLinkRequest $request
      *
-     * @return UpdateResourceInstanceResponse
+     * @return UpdateResourceDLinkResponse
      */
-    public function updateResourceInstance($ClusterId, $ResourceId, $InstanceId, $request)
+    public function updateResourceDLink($ClusterId, $ResourceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateResourceInstanceWithOptions($ClusterId, $ResourceId, $InstanceId, $request, $headers, $runtime);
+        return $this->updateResourceDLinkWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime);
     }
 
     /**
@@ -2484,18 +2652,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string               $ClusterId
-     * @param string               $ServiceName
-     * @param UpdateServiceRequest $request
+     * @param string                        $ClusterId
+     * @param string                        $ResourceId
+     * @param string                        $InstanceId
+     * @param UpdateResourceInstanceRequest $request
      *
-     * @return UpdateServiceResponse
+     * @return UpdateResourceInstanceResponse
      */
-    public function updateService($ClusterId, $ServiceName, $request)
+    public function updateResourceInstance($ClusterId, $ResourceId, $InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+        return $this->updateResourceInstanceWithOptions($ClusterId, $ResourceId, $InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -2530,18 +2699,18 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string                         $ClusterId
-     * @param string                         $ServiceName
-     * @param UpdateServiceAutoScalerRequest $request
+     * @param string               $ClusterId
+     * @param string               $ServiceName
+     * @param UpdateServiceRequest $request
      *
-     * @return UpdateServiceAutoScalerResponse
+     * @return UpdateServiceResponse
      */
-    public function updateServiceAutoScaler($ClusterId, $ServiceName, $request)
+    public function updateService($ClusterId, $ServiceName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateServiceAutoScalerWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+        return $this->updateServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
     }
 
     /**
@@ -2588,16 +2757,16 @@ class Eas extends OpenApiClient
     /**
      * @param string                         $ClusterId
      * @param string                         $ServiceName
-     * @param UpdateServiceCronScalerRequest $request
+     * @param UpdateServiceAutoScalerRequest $request
      *
-     * @return UpdateServiceCronScalerResponse
+     * @return UpdateServiceAutoScalerResponse
      */
-    public function updateServiceCronScaler($ClusterId, $ServiceName, $request)
+    public function updateServiceAutoScaler($ClusterId, $ServiceName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateServiceCronScalerWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+        return $this->updateServiceAutoScalerWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
     }
 
     /**
@@ -2639,18 +2808,68 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string                     $ClusterId
-     * @param string                     $ServiceName
-     * @param UpdateServiceMirrorRequest $request
+     * @param string                         $ClusterId
+     * @param string                         $ServiceName
+     * @param UpdateServiceCronScalerRequest $request
      *
-     * @return UpdateServiceMirrorResponse
+     * @return UpdateServiceCronScalerResponse
      */
-    public function updateServiceMirror($ClusterId, $ServiceName, $request)
+    public function updateServiceCronScaler($ClusterId, $ServiceName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateServiceMirrorWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+        return $this->updateServiceCronScalerWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                    $ClusterId
+     * @param string                    $ServiceName
+     * @param UpdateServiceLabelRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateServiceLabelResponse
+     */
+    public function updateServiceLabelWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->labels)) {
+            $body['Labels'] = $request->labels;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateServiceLabel',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/label',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateServiceLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                    $ClusterId
+     * @param string                    $ServiceName
+     * @param UpdateServiceLabelRequest $request
+     *
+     * @return UpdateServiceLabelResponse
+     */
+    public function updateServiceLabel($ClusterId, $ServiceName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateServiceLabelWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
     }
 
     /**
@@ -2692,18 +2911,18 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string                         $ClusterId
-     * @param string                         $ServiceName
-     * @param UpdateServiceSafetyLockRequest $request
+     * @param string                     $ClusterId
+     * @param string                     $ServiceName
+     * @param UpdateServiceMirrorRequest $request
      *
-     * @return UpdateServiceSafetyLockResponse
+     * @return UpdateServiceMirrorResponse
      */
-    public function updateServiceSafetyLock($ClusterId, $ServiceName, $request)
+    public function updateServiceMirror($ClusterId, $ServiceName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateServiceSafetyLockWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+        return $this->updateServiceMirrorWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
     }
 
     /**
@@ -2742,18 +2961,18 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string                      $ClusterId
-     * @param string                      $ServiceName
-     * @param UpdateServiceVersionRequest $request
+     * @param string                         $ClusterId
+     * @param string                         $ServiceName
+     * @param UpdateServiceSafetyLockRequest $request
      *
-     * @return UpdateServiceVersionResponse
+     * @return UpdateServiceSafetyLockResponse
      */
-    public function updateServiceVersion($ClusterId, $ServiceName, $request)
+    public function updateServiceSafetyLock($ClusterId, $ServiceName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateServiceVersionWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+        return $this->updateServiceSafetyLockWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
     }
 
     /**
@@ -2789,5 +3008,20 @@ class Eas extends OpenApiClient
         ]);
 
         return UpdateServiceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                      $ClusterId
+     * @param string                      $ServiceName
+     * @param UpdateServiceVersionRequest $request
+     *
+     * @return UpdateServiceVersionResponse
+     */
+    public function updateServiceVersion($ClusterId, $ServiceName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateServiceVersionWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
     }
 }

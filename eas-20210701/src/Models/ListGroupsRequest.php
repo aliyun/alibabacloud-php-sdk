@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListGroupsRequest extends Model
 {
     /**
+     * @example foo
+     *
      * @var string
      */
     public $filter;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $pageSize;

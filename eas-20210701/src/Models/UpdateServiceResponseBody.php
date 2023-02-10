@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceResponseBody extends Model
 {
     /**
+     * @example Succeed to update service [foo] in region [cn-shanghai]
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 40325405-579C-4D82****
+     *
      * @var string
      */
     public $requestId;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class versions extends Model
 {
     /**
+     * @example 2022-08-29T22:02:14Z
+     *
      * @var string
      */
     public $buildTime;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $imageAvailable;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $imageId;
 
     /**
+     * @example Service is Running
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $serviceRunnable;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteResourceInstancesResponseBody extends Model
 {
     /**
+     * @example Instances eas-i-011227132046,eas-i-011227132046 are deleting
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 40325405-579C-4D82****
+     *
      * @var string
      */
     public $requestId;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceMirrorResponseBody extends Model
 {
     /**
+     * @example 50
+     *
      * @var string
      */
     public $ratio;
 
     /**
+     * @example 40325405-579C-4D82****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example foo
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example foo2,foo3
+     *
      * @var string
      */
     public $target;

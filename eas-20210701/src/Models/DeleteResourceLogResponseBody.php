@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteResourceLogResponseBody extends Model
 {
     /**
+     * @example Log service for resource [eas-r-asdasdasd] is deleting
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 40325405-579C-4D82****
+     *
      * @var string
      */
     public $requestId;

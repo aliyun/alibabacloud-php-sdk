@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteServiceInstancesResponseBody extends Model
 {
     /**
+     * @example Instance(s) [foo-rdsb,foo-rdsa]  for service [foo] in region [cn-shanghai] was deleted successfully
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 40325405-579C-4D82****
+     *
      * @var string
      */
     public $requestId;

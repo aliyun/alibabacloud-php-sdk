@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceAutoScalerResponseBody extends Model
 {
     /**
+     * @example {
+     * }
      * @var mixed[]
      */
     public $behavior;
@@ -21,16 +23,22 @@ class DescribeServiceAutoScalerResponseBody extends Model
     public $currentMetrics;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $maxReplica;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $minReplica;
 
     /**
+     * @example 40325405-579C-4D82****
+     *
      * @var string
      */
     public $requestId;
@@ -41,6 +49,8 @@ class DescribeServiceAutoScalerResponseBody extends Model
     public $scaleStrategies;
 
     /**
+     * @example foo
+     *
      * @var string
      */
     public $serviceName;

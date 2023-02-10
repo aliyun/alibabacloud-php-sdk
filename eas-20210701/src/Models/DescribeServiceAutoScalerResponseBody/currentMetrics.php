@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class currentMetrics extends Model
 {
     /**
+     * @example qps
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @example demo_svc
+     *
      * @var string
      */
     public $service;
 
     /**
+     * @example 10
+     *
      * @var float
      */
     public $value;

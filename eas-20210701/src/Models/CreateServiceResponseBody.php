@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceResponseBody extends Model
 {
     /**
+     * @example http://pai-eas.vpc.cn-shanghai.****
+     *
      * @var string
      */
     public $internetEndpoint;
 
     /**
+     * @example http://pai-eas.cn-shanghai.****
+     *
      * @var string
      */
     public $intranetEndpoint;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example 40325405-579C-4D82****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example eas-m-aaxxxddf
+     *
      * @var string
      */
     public $serviceId;
 
     /**
+     * @example yourname
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example Creating
+     *
      * @var string
      */
     public $status;

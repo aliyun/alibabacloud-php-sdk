@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeBenchmarkTaskReportResponseBody extends Model
 {
     /**
+     * @example {
+     * }
      * @var mixed
      */
     public $data;
 
     /**
+     * @example http://eas-benchmark.oss-cn-chengdu.aliyuncs.com/summary/benchmark-larec-test-015d-10007.html
+     *
      * @var string
      */
     public $reportUrl;
 
     /**
+     * @example 40325405-579C-4D82********
+     *
      * @var string
      */
     public $requestId;

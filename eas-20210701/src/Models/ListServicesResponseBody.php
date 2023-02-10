@@ -9,26 +9,44 @@ use AlibabaCloud\Tea\Model;
 class ListServicesResponseBody extends Model
 {
     /**
+     * @description 页码。
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description 每页显示的服务数。
+     *
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description 请求ID。
+     *
+     * @example 40325405-579C-4D82****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description 服务列表。
+     *
      * @var Service[]
      */
     public $services;
 
     /**
+     * @description 服务总数。
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

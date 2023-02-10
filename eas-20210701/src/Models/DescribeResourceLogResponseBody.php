@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceLogResponseBody extends Model
 {
     /**
+     * @example access_log
+     *
      * @var string
      */
     public $logStore;
 
     /**
+     * @example Network interfaces are updating
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example eas-r-asdasdasd-sls
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example 40325405-579C-4D82****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example ResourceReady
+     *
      * @var string
      */
     public $status;

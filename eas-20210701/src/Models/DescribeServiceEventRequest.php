@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceEventRequest extends Model
 {
     /**
+     * @example 2006-01-02 15:04:05
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @example 2006-01-02 15:04:05
+     *
      * @var string
      */
     public $startTime;

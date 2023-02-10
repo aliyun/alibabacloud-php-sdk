@@ -76,6 +76,11 @@ class ResourceInstance extends Model
     /**
      * @var string
      */
+    public $instanceTenantIp;
+
+    /**
+     * @var string
+     */
     public $instanceType;
 
     /**
@@ -84,9 +89,14 @@ class ResourceInstance extends Model
     public $instanceUsedCpu;
 
     /**
-     * @var int
+     * @var float
      */
     public $instanceUsedGpu;
+
+    /**
+     * @var string
+     */
+    public $instanceUsedGpuMemory;
 
     /**
      * @var string
@@ -103,25 +113,27 @@ class ResourceInstance extends Model
      */
     public $zone;
     protected $_name = [
-        'arch'               => 'Arch',
-        'autoRenewal'        => 'AutoRenewal',
-        'chargeType'         => 'ChargeType',
-        'createTime'         => 'CreateTime',
-        'expiredTime'        => 'ExpiredTime',
-        'instanceCpuCount'   => 'InstanceCpuCount',
-        'instanceGpuCount'   => 'InstanceGpuCount',
-        'instanceGpuMemory'  => 'InstanceGpuMemory',
-        'instanceId'         => 'InstanceId',
-        'instanceIp'         => 'InstanceIp',
-        'instanceMemory'     => 'InstanceMemory',
-        'instanceName'       => 'InstanceName',
-        'instanceStatus'     => 'InstanceStatus',
-        'instanceType'       => 'InstanceType',
-        'instanceUsedCpu'    => 'InstanceUsedCpu',
-        'instanceUsedGpu'    => 'InstanceUsedGpu',
-        'instanceUsedMemory' => 'InstanceUsedMemory',
-        'region'             => 'Region',
-        'zone'               => 'Zone',
+        'arch'                  => 'Arch',
+        'autoRenewal'           => 'AutoRenewal',
+        'chargeType'            => 'ChargeType',
+        'createTime'            => 'CreateTime',
+        'expiredTime'           => 'ExpiredTime',
+        'instanceCpuCount'      => 'InstanceCpuCount',
+        'instanceGpuCount'      => 'InstanceGpuCount',
+        'instanceGpuMemory'     => 'InstanceGpuMemory',
+        'instanceId'            => 'InstanceId',
+        'instanceIp'            => 'InstanceIp',
+        'instanceMemory'        => 'InstanceMemory',
+        'instanceName'          => 'InstanceName',
+        'instanceStatus'        => 'InstanceStatus',
+        'instanceTenantIp'      => 'InstanceTenantIp',
+        'instanceType'          => 'InstanceType',
+        'instanceUsedCpu'       => 'InstanceUsedCpu',
+        'instanceUsedGpu'       => 'InstanceUsedGpu',
+        'instanceUsedGpuMemory' => 'InstanceUsedGpuMemory',
+        'instanceUsedMemory'    => 'InstanceUsedMemory',
+        'region'                => 'Region',
+        'zone'                  => 'Zone',
     ];
 
     public function validate()
@@ -170,6 +182,9 @@ class ResourceInstance extends Model
         if (null !== $this->instanceStatus) {
             $res['InstanceStatus'] = $this->instanceStatus;
         }
+        if (null !== $this->instanceTenantIp) {
+            $res['InstanceTenantIp'] = $this->instanceTenantIp;
+        }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
@@ -178,6 +193,9 @@ class ResourceInstance extends Model
         }
         if (null !== $this->instanceUsedGpu) {
             $res['InstanceUsedGpu'] = $this->instanceUsedGpu;
+        }
+        if (null !== $this->instanceUsedGpuMemory) {
+            $res['InstanceUsedGpuMemory'] = $this->instanceUsedGpuMemory;
         }
         if (null !== $this->instanceUsedMemory) {
             $res['InstanceUsedMemory'] = $this->instanceUsedMemory;
@@ -239,6 +257,9 @@ class ResourceInstance extends Model
         if (isset($map['InstanceStatus'])) {
             $model->instanceStatus = $map['InstanceStatus'];
         }
+        if (isset($map['InstanceTenantIp'])) {
+            $model->instanceTenantIp = $map['InstanceTenantIp'];
+        }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
@@ -247,6 +268,9 @@ class ResourceInstance extends Model
         }
         if (isset($map['InstanceUsedGpu'])) {
             $model->instanceUsedGpu = $map['InstanceUsedGpu'];
+        }
+        if (isset($map['InstanceUsedGpuMemory'])) {
+            $model->instanceUsedGpuMemory = $map['InstanceUsedGpuMemory'];
         }
         if (isset($map['InstanceUsedMemory'])) {
             $model->instanceUsedMemory = $map['InstanceUsedMemory'];

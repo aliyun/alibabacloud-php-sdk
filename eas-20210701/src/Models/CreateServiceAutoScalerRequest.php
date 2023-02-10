@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceAutoScalerRequest extends Model
 {
     /**
+     * @example 8
+     *
      * @var int
      */
     public $max;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $min;

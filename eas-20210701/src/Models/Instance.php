@@ -54,9 +54,23 @@ class Instance extends Model
     public $reason;
 
     /**
+     * @example PublicResource
+     *
+     * @var string
+     */
+    public $resourceType;
+
+    /**
      * @var int
      */
     public $restartCount;
+
+    /**
+     * @example Standard
+     *
+     * @var string
+     */
+    public $role;
 
     /**
      * @var string
@@ -69,23 +83,41 @@ class Instance extends Model
     public $status;
 
     /**
+     * @example 192.168.0.39
+     *
+     * @var string
+     */
+    public $tenantHostIP;
+
+    /**
+     * @example 192.168.0.39
+     *
+     * @var string
+     */
+    public $tenantInstanceIP;
+
+    /**
      * @var int
      */
     public $totalProcesses;
     protected $_name = [
-        'hostIP'         => 'HostIP',
-        'hostName'       => 'HostName',
-        'innerIP'        => 'InnerIP',
-        'instanceName'   => 'InstanceName',
-        'instancePort'   => 'InstancePort',
-        'lastState'      => 'LastState',
-        'namespace'      => 'Namespace',
-        'readyProcesses' => 'ReadyProcesses',
-        'reason'         => 'Reason',
-        'restartCount'   => 'RestartCount',
-        'startAt'        => 'StartAt',
-        'status'         => 'Status',
-        'totalProcesses' => 'TotalProcesses',
+        'hostIP'           => 'HostIP',
+        'hostName'         => 'HostName',
+        'innerIP'          => 'InnerIP',
+        'instanceName'     => 'InstanceName',
+        'instancePort'     => 'InstancePort',
+        'lastState'        => 'LastState',
+        'namespace'        => 'Namespace',
+        'readyProcesses'   => 'ReadyProcesses',
+        'reason'           => 'Reason',
+        'resourceType'     => 'ResourceType',
+        'restartCount'     => 'RestartCount',
+        'role'             => 'Role',
+        'startAt'          => 'StartAt',
+        'status'           => 'Status',
+        'tenantHostIP'     => 'TenantHostIP',
+        'tenantInstanceIP' => 'TenantInstanceIP',
+        'totalProcesses'   => 'TotalProcesses',
     ];
 
     public function validate()
@@ -122,14 +154,26 @@ class Instance extends Model
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
         if (null !== $this->restartCount) {
             $res['RestartCount'] = $this->restartCount;
+        }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
         }
         if (null !== $this->startAt) {
             $res['StartAt'] = $this->startAt;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tenantHostIP) {
+            $res['TenantHostIP'] = $this->tenantHostIP;
+        }
+        if (null !== $this->tenantInstanceIP) {
+            $res['TenantInstanceIP'] = $this->tenantInstanceIP;
         }
         if (null !== $this->totalProcesses) {
             $res['TotalProcesses'] = $this->totalProcesses;
@@ -175,14 +219,26 @@ class Instance extends Model
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
         if (isset($map['RestartCount'])) {
             $model->restartCount = $map['RestartCount'];
+        }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
         }
         if (isset($map['StartAt'])) {
             $model->startAt = $map['StartAt'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TenantHostIP'])) {
+            $model->tenantHostIP = $map['TenantHostIP'];
+        }
+        if (isset($map['TenantInstanceIP'])) {
+            $model->tenantInstanceIP = $map['TenantInstanceIP'];
         }
         if (isset($map['TotalProcesses'])) {
             $model->totalProcesses = $map['TotalProcesses'];

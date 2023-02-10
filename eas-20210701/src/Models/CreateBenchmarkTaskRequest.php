@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateBenchmarkTaskRequest extends Model
 {
     /**
+     * @example {
+     * }
      * @var string
      */
     public $body;

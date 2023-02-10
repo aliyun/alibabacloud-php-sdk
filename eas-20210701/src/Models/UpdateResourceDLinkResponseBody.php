@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourceDLinkResponseBody extends Model
 {
     /**
+     * @example Network interfaces are updating
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 40325405-579C-4D82****
+     *
      * @var string
      */
     public $requestId;

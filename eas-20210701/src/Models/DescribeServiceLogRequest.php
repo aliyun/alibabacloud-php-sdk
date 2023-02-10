@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceLogRequest extends Model
 {
     /**
+     * @example 2006-01-02 15:04:05
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 10.0.0.1
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @example key
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 500
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2006-01-02 15:04:05
+     *
      * @var string
      */
     public $startTime;

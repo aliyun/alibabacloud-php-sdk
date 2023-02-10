@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourceRequest extends Model
 {
     /**
+     * @example iot
+     *
      * @var string
      */
     public $resourceName;
